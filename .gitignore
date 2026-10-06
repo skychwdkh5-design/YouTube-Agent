@@ -1,2 +1,6 @@
 __pycache__/
 *.pyc
+
+# rendered media - never committed
+*.mp4
+*.partial.mp4
