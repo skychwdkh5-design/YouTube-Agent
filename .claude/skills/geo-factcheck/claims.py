@@ -55,7 +55,9 @@ def cells(line):
 def parse_ledger(path):
     rows, header = [], None
     for line in open(path, encoding="utf-8"):
-        if not line.strip().startswith("|"): continue
+        if not line.strip().startswith("|"):
+            if header is not None: break      # only the first table is the data; later tables are notes
+            continue
         c = cells(line)
         if all(re.fullmatch(r":?-{2,}:?", x) for x in c if x): continue
         if header is None:
@@ -154,6 +156,10 @@ def main():
         fails += f2; warns += w2
     counts = {}
     for r in rows: counts[(r.get("status") or "-").upper()] = counts.get((r.get("status") or "-").upper(), 0) + 1
+    usable = sum(n for k, n in counts.items() if k in PASS_STATUS)
+    if rows and usable < len(rows):
+        # PASS means the ledger is well-formed, not that the facts are checked. Say so.
+        warns.append(("LEDGER", f"{usable} of {len(rows)} claims are VERIFIED/SOFTENED - a script may use only those"))
     result = {"gate": "PASS" if not fails else "FAIL", "claims": len(rows), "status_counts": counts,
               "sentences_checked": n_sent, "fails": fails, "warnings": warns}
     if as_json:

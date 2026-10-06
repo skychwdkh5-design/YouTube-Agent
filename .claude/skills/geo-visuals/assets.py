@@ -52,7 +52,9 @@ def cells(line): return [c.strip() for c in line.strip().strip("|").split("|")]
 def parse(path):
     rows, header = [], None
     for line in open(path, encoding="utf-8"):
-        if not line.strip().startswith("|"): continue
+        if not line.strip().startswith("|"):
+            if header is not None: break      # only the first table is the data; later tables are notes
+            continue
         c = cells(line)
         if all(re.fullmatch(r":?-{2,}:?", x) for x in c if x): continue
         if header is None: header = [h.lower() for h in c]; continue

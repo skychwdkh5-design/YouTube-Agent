@@ -190,6 +190,12 @@ class LicenseGate(unittest.TestCase):
         self.assertEqual(r["disclosure_assets"], ["V3", "V7"])
 
 
+    def test_only_first_table_is_data(self):
+        r = js(self.S, fx("visuals_multitable.md"), "--json")
+        self.assertEqual(r["assets"], 6, "notes tables after the asset table must be ignored")
+        self.assertEqual(r["gate"], "PASS")
+
+
 class TopicGate(unittest.TestCase):
     S = "geo-topics/topicscore.py"
 
