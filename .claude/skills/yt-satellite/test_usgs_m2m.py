@@ -107,6 +107,124 @@ class T(unittest.TestCase):
         self.assertNotIn("download-request", [c[0] for c in calls])
         self.assertEqual(calls[-1][0], "logout")
 
+    # --- maintenance: robustness ---------------------------------------------------------------
+
+    OPT = {"download-options": [{"id": "p1", "productName": "Browse", "available": True,
+                                 "filesize": 3_000_000}],
+           "download-request": {"availableDownloads": [{"url": "https://dl.example/signed?k=abc"}]}}
+
+    def _download(self, responses, fetch, tmp):
+        with mock.patch.object(u.M2M, "_fetch", fetch):
+            return run(["download", "--entity", "E1", "--product", "Browse", "--out", tmp,
+                        "--max-mb", "10", "--confirm"], responses)
+
+    def test_download_ok_reports_cleanup(self):
+        fetch = lambda self, url, out, e, mb: {"path": "x.jpg", "bytes": 3}
+        code, out, calls = self._download(dict(self.OPT, **{"download-order-remove": None}), fetch, "/tmp/x")
+        d = json.loads(out)
+        self.assertEqual((code, d["status"], d["cleanup"]["status"]), (0, "ok", "removed"))
+        names = [c[0] for c in calls]
+        self.assertIn("download-order-remove", names); self.assertEqual(names[-1], "logout")
+        self.assertNoSecrets(out)
+
+    def test_cleanup_failure_keeps_download_ok(self):
+        fetch = lambda self, url, out, e, mb: {"path": "x.jpg", "bytes": 3}
+        code, out, _ = self._download(dict(self.OPT, **{"download-order-remove": u.M2MError("boom")}),
+                                      fetch, "/tmp/x")
+        d = json.loads(out)
+        self.assertEqual((code, d["status"], d["cleanup"]["status"]), (0, "ok", "failed"))
+        self.assertEqual(d["files"][0]["path"], "x.jpg")
+
+    def test_network_failure_is_json_and_partial_removed(self):
+        import tempfile, urllib.error
+        tmp = tempfile.mkdtemp()
+
+        class Resp(io.BytesIO):
+            headers = {"Content-Disposition": "attachment; filename=scene.jpg"}
+            def read(self, n=-1):
+                if self.tell() >= 4: raise ConnectionResetError("reset by peer")
+                return super().read(4)
+
+        def urlopen(req, timeout=None):
+            if "fail-early" in req.full_url: raise urllib.error.URLError("no route")
+            return Resp(b"12345678")
+
+        for url in ("https://dl.example/signed?k=abc", "https://dl.example/fail-early"):
+            resp = dict(self.OPT, **{"download-request": {"availableDownloads": [{"url": url}]},
+                                     "download-order-remove": None})
+            with mock.patch.object(u.urllib.request, "urlopen", urlopen):
+                code, out, calls = run(["download", "--entity", "E1", "--product", "Browse",
+                                        "--out", tmp, "--confirm"], resp)
+            d = json.loads(out)
+            self.assertEqual((code, d["status"]), (2, "error"))
+            self.assertIn("file download failed", d["error"])
+            self.assertNotIn("Traceback", out); self.assertNotIn(url, out)
+            self.assertEqual(d["cleanup"]["status"], "removed")
+            self.assertEqual(os.listdir(tmp), [])
+            self.assertEqual(calls[-1][0], "logout")
+
+    def test_oversize_stream_deletes_partial(self):
+        import tempfile
+        tmp = tempfile.mkdtemp()
+
+        class Resp(io.BytesIO):
+            headers = {}
+        big = b"x" * (2 * 1024 * 1024)
+        with mock.patch.object(u.urllib.request, "urlopen", lambda req, timeout=None: Resp(big)):
+            code, out, _ = run(["download", "--entity", "E1", "--product", "Browse", "--out", tmp,
+                                "--max-mb", "1", "--confirm"],
+                               {"download-options": [{"id": "p1", "productName": "Browse",
+                                                      "available": True, "filesize": 1}],
+                                "download-request": {"availableDownloads": [{"url": "https://d/f.jpg"}]},
+                                "download-order-remove": None})
+        self.assertEqual(code, 2); self.assertIn("exceeded --max-mb", out)
+        self.assertEqual(os.listdir(tmp), [])
+
+    def test_invalid_numbers_are_clean_errors(self):
+        base = ["--start", "2025-01-01", "--end", "2025-01-02"]
+        cases = [["search", "--point", "abc", "1"] + base,
+                 ["search", "--point", "1", "1", "--max", "x"] + base,
+                 ["search", "--point", "1", "1", "--radius-km", "nan"] + base,
+                 ["search", "--point", "1", "1", "--cloud", "150"] + base,
+                 ["search", "--bbox", "a", "0", "1", "1"] + base,
+                 ["search", "--point", "1"] + base,
+                 ["download", "--entity", "E1", "--product", "B", "--max-mb", "x", "--confirm"]]
+        for argv in cases:
+            code, out, calls = run(argv, {})
+            d = json.loads(out)
+            self.assertEqual((code, d["status"], calls), (2, "error", []), argv)
+
+    def test_options_empty_is_no_options(self):
+        code, out, _ = run(["options", "--entity", "E1"], {"download-options": []})
+        self.assertEqual((code, json.loads(out)["status"]), (0, "no_options"))
+        code, out, calls = run(["download", "--entity", "E1", "--product", "B", "--confirm"],
+                               {"download-options": []})
+        self.assertEqual((code, json.loads(out)["status"]), (2, "no_options"))
+        self.assertNotIn("download-request", [c[0] for c in calls])
+
+    def test_coordinate_edges_refused_not_altered(self):
+        base = ["--start", "2025-01-01", "--end", "2025-01-02"]
+        cases = {"180th meridian": ["search", "--point", "0", "179.99", "--radius-km", "10"],
+                 "pole": ["search", "--point", "89.99", "0", "--radius-km", "10"],
+                 "MINLON > MAXLON": ["search", "--bbox", "170", "0", "-170", "1"],
+                 "-90..90": ["search", "--point", "91", "0"],
+                 "-180..180": ["search", "--point", "0", "181"]}
+        for msg, argv in cases.items():
+            code, out, calls = run(argv + base, {})
+            self.assertEqual((code, calls), (2, []), argv)
+            self.assertIn(msg, json.loads(out)["error"])
+        # a box touching the edges exactly is passed through unchanged
+        code, out, calls = run(["search", "--bbox", "170", "80", "180", "90"] + base,
+                               {"scene-search": {"totalHits": 0, "results": []}})
+        f = calls[1][1]["sceneFilter"]["spatialFilter"]
+        self.assertEqual((code, f["upperRight"]), (0, {"latitude": 90.0, "longitude": 180.0}))
+
+    def test_unexpected_exception_is_json_and_redacted(self):
+        code, out, _ = run(["search", "--bbox", "-1", "-1", "1", "1", "--start", "a", "--end", "b"],
+                           {"scene-search": RuntimeError(f"weird {FAKE_TOKEN}")})
+        d = json.loads(out)
+        self.assertEqual((code, d["status"]), (2, "error")); self.assertNoSecrets(out)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=1)
