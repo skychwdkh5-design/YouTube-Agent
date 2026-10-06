@@ -28,6 +28,8 @@ python3 hookscore.py --hook "one line"      # score a single one
    read it out loud.
 2. Never invent a number, a result or a source. If a figure would strengthen it and you do not have
    one, ask for it or write the line without it.
+3. If a line rests on what a place looked like from space - a shrinking lake, a burn scar, a flood -
+   get the real Landsat scene with `/yt-satellite` first. No scene, no satellite claim.
 
 ## The shape
 
