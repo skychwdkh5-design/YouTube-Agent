@@ -33,6 +33,16 @@ It does not touch media. It has no opinion about your B-roll. A 40% cut on the r
 of SPEECH, and if the video has a long silent demo in it that number is wrong - check the report
 against the footage before you trust the runtime at the bottom.
 
+## Geography channel mode (AI narration)
+
+An AI voice does not say "um", so FILLER rarely fires. What still matters:
+
+- **DEAD** - long gaps where TTS segments were stitched together, or pauses the voice inserted.
+- **REPEAT** - a line rendered twice when segments overlap.
+- Get the transcript from the voice tool's subtitle export, or from YouTube's auto-captions on an
+  unlisted upload. The script's `VO:` lines are the reference text if timings look wrong.
+- A tighter VO is not automatically better: leave a beat where the map needs time to move.
+
 ## The gate
 
 Nothing here publishes. This skill writes and you publish. Every output ends in a block the user

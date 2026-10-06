@@ -8,6 +8,13 @@ that leaks at the dead one, and averaging hides that.
     python3 hookscore.py hooks.txt            # one hook per line, ranked
     python3 hookscore.py --hook "one line"    # score a single hook
     python3 hookscore.py --json hooks.txt     # machine-readable
+    python3 hookscore.py --profile geo hooks.txt   # geography / geo-entertainment scoring
+
+GEO PROFILE. A geography hook does not pull on loss ("you are wasting...") - it pulls on an anomaly:
+a place that should not exist, a border that does something a border should not, a fact that
+contradicts the map in the viewer's head. With --profile geo the STAKES property is replaced by
+ANOMALY, and the formulas in hooks-geo.json are matched alongside the 21 general ones. Without the
+flag every score is exactly what it always was.
 
 WHAT THIS CAN AND CANNOT TELL YOU. Measured against 74 real short-form hooks (first 15 seconds of
 auto-captions, top-8 and bottom-8 by views across five channels): it separates deliberately bad
@@ -18,6 +25,7 @@ import json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FORMULAS = json.load(open(os.path.join(HERE, "hooks.json")))["hooks"]
+GEO_FORMULAS = os.path.join(HERE, "hooks-geo.json")
 
 FILLER = {"basically","actually","literally","just","really","very","so","kind","sort","like",
           "guys","hey","welcome","today","video","subscribe","channel"}
@@ -50,6 +58,17 @@ def stakes(t):
     n = len(STAKE.findall(t))
     return max(0, min(100, 22 + n * 26 + (14 if CONCRETE.search(t) else 0)))
 
+ANOMALY = re.compile(r"\b(only|can'?t|cannot|nobody|no one|almost no|technically|legally|belongs?|"
+                     r"through|despite|entire|every|still|border|borders|enclave|exclave|island|"
+                     r"surrounded|inside|wrong|impossible|shouldn'?t|doesn'?t|isn'?t|never|half|"
+                     r"another country|two countries|disputed|abandoned|empty|cut off|strangest|weirdest)\b", re.I)
+
+def anomaly(t):
+    n = len(ANOMALY.findall(t))
+    # a named place makes the anomaly checkable, which is what makes it believable
+    named = 14 if re.search(r"\s[A-Z][a-z]{2,}", t) else 0
+    return max(0, min(100, 22 + n * 20 + named))
+
 def curiosity(t):
     n = len(CURIOSITY.findall(t))
     q = 18 if t.strip().endswith("?") else 0
@@ -68,18 +87,26 @@ def brevity(t):
 PROPS = [("SPECIFICITY", specificity), ("ADDRESS", address), ("STAKES", stakes),
          ("CURIOSITY", curiosity), ("BREVITY", brevity)]
 
-def classify(t):
+GEO_PROPS = [("SPECIFICITY", specificity), ("ADDRESS", address), ("ANOMALY", anomaly),
+             ("CURIOSITY", curiosity), ("BREVITY", brevity)]
+
+def formulas(profile):
+    if profile == "geo" and os.path.exists(GEO_FORMULAS):
+        return json.load(open(GEO_FORMULAS))["hooks"] + FORMULAS  # geo first: wins ties
+    return FORMULAS
+
+def classify(t, profile=None):
     best, hits = None, 0
-    for f in FORMULAS:
+    for f in formulas(profile):
         n = sum(1 for p in f["match"] if re.search(p, t, re.I))
         if n > hits: best, hits = f, n
     return (best["name"] if best else "Unclassified"), hits
 
-def score(t):
-    parts = {n: fn(t) for n, fn in PROPS}
+def score(t, profile=None):
+    parts = {n: fn(t) for n, fn in (GEO_PROPS if profile == "geo" else PROPS)}
     vals = list(parts.values())
     verdict = round(0.6 * (sum(vals) / len(vals)) + 0.4 * min(vals))
-    name, hits = classify(t)
+    name, hits = classify(t, profile)
     return parts, verdict, name, hits
 
 def band(v): return "STRONG" if v >= 72 else "WORKABLE" if v >= 55 else "WEAK"
@@ -100,12 +127,16 @@ FIX = {
  "STAKES": "name what it costs them to keep doing it the current way",
  "CURIOSITY": "cut the half of the sentence that answers itself",
  "BREVITY": "9 to 24 words. Read it out loud and stop where you run out of breath",
+ "ANOMALY": "name the thing that should not be true - the only road, the wrong side, the piece inside",
 }
 
 def main():
     a = sys.argv[1:]
     as_json = "--json" in a
     a = [x for x in a if x != "--json"]
+    profile = None
+    if "--profile" in a:
+        i = a.index("--profile"); profile = a[i + 1] if i + 1 < len(a) else None; del a[i:i + 2]
     if "--hook" in a:
         lines = [a[a.index("--hook") + 1]]
     elif a and os.path.exists(a[0]):
@@ -114,7 +145,7 @@ def main():
         print(__doc__); sys.exit(1 if not a else 0)
     out = []
     for t in lines:
-        parts, verdict, name, hits = score(t)
+        parts, verdict, name, hits = score(t, profile)
         out.append({"hook": t.strip(), "properties": parts, "verdict": verdict,
                     "band": band(verdict), "formula": name, "matched": hits})
     out.sort(key=lambda r: -r["verdict"])

@@ -1,0 +1,93 @@
+[
+ {
+  "hook": "Why do your videos die at 30 seconds when the topic is fine?",
+  "properties": {
+   "SPECIFICITY": 56,
+   "ADDRESS": 76,
+   "STAKES": 62,
+   "CURIOSITY": 59,
+   "BREVITY": 100
+  },
+  "verdict": 65,
+  "band": "WORKABLE",
+  "formula": "The Question"
+ },
+ {
+  "hook": "Your first 30 seconds are why nobody finishes your videos. It is not the topic.",
+  "properties": {
+   "SPECIFICITY": 62,
+   "ADDRESS": 96,
+   "STAKES": 36,
+   "CURIOSITY": 58,
+   "BREVITY": 100
+  },
+  "verdict": 57,
+  "band": "WORKABLE",
+  "formula": "Unclassified"
+ },
+ {
+  "hook": "97% of the people who start a channel quit before video 30. Here is what the other 3% do differently.",
+  "properties": {
+   "SPECIFICITY": 96,
+   "ADDRESS": 26,
+   "STAKES": 88,
+   "CURIOSITY": 58,
+   "BREVITY": 100
+  },
+  "verdict": 55,
+  "band": "WORKABLE",
+  "formula": "The Statistic"
+ },
+ {
+  "hook": "I am going to show you the exact prompt, on screen, that wrote this video.",
+  "properties": {
+   "SPECIFICITY": 34,
+   "ADDRESS": 76,
+   "STAKES": 22,
+   "CURIOSITY": 24,
+   "BREVITY": 100
+  },
+  "verdict": 40,
+  "band": "WEAK",
+  "formula": "The Reveal"
+ },
+ {
+  "hook": "There is a town in Washington you can only reach by land if you drive through Canada first.",
+  "properties": {
+   "SPECIFICITY": 46,
+   "ADDRESS": 66,
+   "STAKES": 22,
+   "CURIOSITY": 24,
+   "BREVITY": 100
+  },
+  "verdict": 40,
+  "band": "WEAK",
+  "formula": "Unclassified"
+ },
+ {
+  "hook": "Everyone says post daily. I posted once a week for a year and tripled the channel.",
+  "properties": {
+   "SPECIFICITY": 40,
+   "ADDRESS": 26,
+   "STAKES": 22,
+   "CURIOSITY": 24,
+   "BREVITY": 100
+  },
+  "verdict": 34,
+  "band": "WEAK",
+  "formula": "Contrarian Flip"
+ },
+ {
+  "hook": "This is a video about geography.",
+  "properties": {
+   "SPECIFICITY": 29,
+   "ADDRESS": 26,
+   "STAKES": 22,
+   "CURIOSITY": 24,
+   "BREVITY": 67
+  },
+  "verdict": 29,
+  "band": "WEAK",
+  "formula": "Unclassified"
+ }
+]

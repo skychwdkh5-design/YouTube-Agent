@@ -30,6 +30,19 @@ reject one without reading the whole transcript.
 - **A loop point**: what the last line sets up so the first line answers it.
 - Vertical framing note - what gets cropped out of a 16:9 frame and whether that matters.
 
+## Geography channel mode
+
+When `channel/` exists:
+
+- Score every new first line with `python3 ../yt-script/hookscore.py --profile geo`.
+- **Standalone Shorts** (1-2 a week) are allowed in addition to cut-downs: one verified fact, one map,
+  one payoff, 30-50 seconds. They use only VERIFIED/SOFTENED claims from an existing ledger.
+- Any new factual line (a new hook, a rewritten payoff) carries its `[C#]` tag and goes back through
+  geo-factcheck Gate 2.
+- Vertical framing follows `channel/visual-style.md`: re-frame the map so the highlight sits in the
+  middle third; keep text out of the bottom ~20% and the right edge.
+- Use `channel/templates/shorts.md` for the hand-off.
+
 ## The gate
 
 Nothing here publishes. This skill writes and you publish. Every output ends in a block the user

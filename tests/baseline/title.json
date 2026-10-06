@@ -1,0 +1,113 @@
+[
+ {
+  "title": "I Let an AI Run My Channel for 30 Days",
+  "chars": 38,
+  "score": 100,
+  "issues": [],
+  "good": [
+   "38 characters, inside the 60-character desktop cut",
+   "carries a concrete figure (30)"
+  ]
+ },
+ {
+  "title": "The Weirdest State Border in America",
+  "chars": 36,
+  "score": 90,
+  "issues": [
+   [
+    "no-number",
+    "no number, date or name - the most reliable single fix"
+   ]
+  ],
+  "good": [
+   "36 characters, inside the 60-character desktop cut"
+  ]
+ },
+ {
+  "title": "Why Does This Part of the U.S. Belong to Minnesota?",
+  "chars": 51,
+  "score": 84,
+  "issues": [
+   [
+    "mobile",
+    "a mobile feed shows about \"Why Does This Part of the U.S. Belong...\" - check the subject survives"
+   ],
+   [
+    "no-number",
+    "no number, date or name - the most reliable single fix"
+   ]
+  ],
+  "good": [
+   "51 characters, inside the 60-character desktop cut",
+   "1 all-caps word for emphasis",
+   "open question in the title"
+  ]
+ },
+ {
+  "title": "The U.S. Town You Can Only Reach Through Canada",
+  "chars": 47,
+  "score": 80,
+  "issues": [
+   [
+    "mobile",
+    "a mobile feed shows about \"The U.S. Town You Can Only Reach...\" - check the subject survives"
+   ],
+   [
+    "no-number",
+    "no number, date or name - the most reliable single fix"
+   ]
+  ],
+  "good": [
+   "47 characters, inside the 60-character desktop cut",
+   "1 all-caps word for emphasis"
+  ]
+ },
+ {
+  "title": "Why Almost Nobody Lives in This Huge Part of America",
+  "chars": 52,
+  "score": 62,
+  "issues": [
+   [
+    "mobile",
+    "a mobile feed shows about \"Why Almost Nobody Lives in This Huge...\" - check the subject survives"
+   ],
+   [
+    "vague",
+    "huge - swap for a number, a name or a date"
+   ],
+   [
+    "no-number",
+    "no number, date or name - the most reliable single fix"
+   ]
+  ],
+  "good": [
+   "52 characters, inside the 60-character desktop cut"
+  ]
+ },
+ {
+  "title": "This Is the Most Amazing Video You Will Ever See",
+  "chars": 48,
+  "score": 48,
+  "issues": [
+   [
+    "mobile",
+    "a mobile feed shows about \"This Is the Most Amazing Video You Will...\" - check the subject survives"
+   ],
+   [
+    "vague",
+    "amazing - swap for a number, a name or a date"
+   ],
+   [
+    "no-number",
+    "no number, date or name - the most reliable single fix"
+   ],
+   [
+    "front-load",
+    "the first three words are all filler - move the subject forward"
+   ]
+  ],
+  "good": [
+   "48 characters, inside the 60-character desktop cut"
+  ]
+ }
+]

@@ -1,0 +1,131 @@
+{
+ "version": "1.0",
+ "note": "Geography / geo-entertainment hook formulas. Loaded only with --profile geo (hookscore.py, swipe.py), alongside the 21 general formulas in hooks.json, which stay untouched. A geography hook pulls on an ANOMALY - a fact that contradicts the map in the viewer's head - not on loss. The examples show the SHAPE. Any example used in a real script still goes through geo-factcheck like every other claim.",
+ "rules": [
+  "Name the place, or show it on the map in the first 3 seconds. An anomaly nobody can locate is just trivia.",
+  "The map is the hook. Write the line for what is ON SCREEN when it is said.",
+  "One anomaly per hook. Two strange facts cancel each other out.",
+  "Never overstate it. 'Only', 'first', 'largest' and 'nobody' are claims and they get checked.",
+  "Explain why it matters to an American viewer in one clause when the place is not in the U.S."
+ ],
+ "hooks": [
+  {
+   "id": "geo-only-way-in",
+   "name": "The Only Way In",
+   "shape": "A place you can only reach through somewhere it does not belong to.",
+   "example": "There is a town in Washington State you can only drive to by going through Canada.",
+   "fails_when": "Dies if 'only' is not literally true. Check boat, air and seasonal routes before you say it.",
+   "match": [
+    "\\bonly (way|road|reach|get|drive|access)\\b",
+    "\\bcan only (be )?(reach|reached|drive|get|access)",
+    "\\bthrough (canada|mexico|another country|a foreign country)\\b"
+   ]
+  },
+  {
+   "id": "geo-shouldnt-exist",
+   "name": "The Place That Shouldn't Exist",
+   "shape": "A piece of one place sitting inside another, shown on the map.",
+   "example": "This Spanish town is completely surrounded by France - and it has been for centuries.",
+   "fails_when": "The map has to make it obvious in one frame. If it needs a legend, use a different formula.",
+   "match": [
+    "\\b(surrounded by|completely inside|in the middle of)\\b",
+    "\\bshouldn'?t (exist|be (here|there))\\b",
+    "\\b(enclave|exclave)s?\\b"
+   ]
+  },
+  {
+   "id": "geo-why-here",
+   "name": "Why Is It Like This?",
+   "shape": "Point at a strange line or shape on the map and ask why.",
+   "example": "Why does this tiny piece of land north of the border belong to Minnesota?",
+   "fails_when": "The answer must be a story, not 'surveying error'. If the why is boring, the video is too.",
+   "match": [
+    "^why (does|do|is|are|did)\\b",
+    "\\bbelongs? to\\b",
+    "\\bwhy .*\\b(border|line|shape|map)\\b"
+   ]
+  },
+  {
+   "id": "geo-empty-map",
+   "name": "The Empty Map",
+   "shape": "A huge area where almost nobody lives, and the reason is not the obvious one.",
+   "example": "Almost nobody lives in this part of America, and it is not because of the desert.",
+   "fails_when": "Needs a population figure with a source year. 'Nobody' is rarely literally true - say 'almost'.",
+   "match": [
+    "\\b(nobody|no one|almost nobody|almost no one) (lives|lived|goes)\\b",
+    "\\b(empty|abandoned|deserted|uninhabited)\\b"
+   ]
+  },
+  {
+   "id": "geo-border-oddity",
+   "name": "The Border That Breaks the Rules",
+   "shape": "A border doing something borders are not supposed to do.",
+   "example": "In this town the border between two countries runs straight through people's living rooms.",
+   "fails_when": "Show it physically - the line on the pavement, the marker, the split building.",
+   "match": [
+    "\\bborders?\\b.*\\b(through|across|splits?|cuts?)\\b",
+    "\\b(weirdest|strangest|most confusing) (state |country |international )?border\\b",
+    "\\btwo countries\\b"
+   ]
+  },
+  {
+   "id": "geo-scale-shock",
+   "name": "The Scale Shock",
+   "shape": "A size comparison that breaks the viewer's mental map.",
+   "example": "Alaska is bigger than Texas, California and Montana combined.",
+   "fails_when": "State which area you compare - total, land, or water - and the source. Map projections lie, so animate true size.",
+   "match": [
+    "\\b(bigger|larger|smaller|longer|wider) than\\b",
+    "\\bfits? (inside|into)\\b",
+    "\\bcombined\\b"
+   ]
+  },
+  {
+   "id": "geo-technically",
+   "name": "Technically True",
+   "shape": "A legal or technical status that sounds wrong.",
+   "example": "Technically, this island in the middle of a river belongs to a country you cannot see from it.",
+   "fails_when": "The technicality must be documented - a treaty, a court case, a statute. Name it in the body.",
+   "match": [
+    "\\btechnically\\b",
+    "\\blegally\\b",
+    "\\bon paper\\b"
+   ]
+  },
+  {
+   "id": "geo-extreme-place",
+   "name": "The Extreme Place",
+   "shape": "People living somewhere at the limit - highest, coldest, most remote.",
+   "example": "This is one of the most remote inhabited places on Earth, and people still live there year round.",
+   "fails_when": "Superlatives need two independent sources. Prefer 'one of the' unless the record is official.",
+   "match": [
+    "\\b(highest|coldest|hottest|driest|wettest|most remote|most isolated|northernmost|southernmost|easternmost|westernmost)\\b",
+    "\\bone of the (most|least)\\b"
+   ]
+  },
+  {
+   "id": "geo-hidden-reason",
+   "name": "The Hidden Reason",
+   "shape": "Something everyone sees on a map, and the cause nobody guesses.",
+   "example": "A string of East Coast cities sits on the same invisible line, and the real reason is where the rivers stop being navigable.",
+   "fails_when": "The reason must be sourced to research, not a popular theory. Say 'scientists think' when it is a theory.",
+   "match": [
+    "\\bthe (real|actual|hidden|surprising) reason\\b",
+    "\\breason (why|nobody|most people)\\b",
+    "\\bnobody (guesses|expects|notices)\\b"
+   ]
+  },
+  {
+   "id": "geo-map-lie",
+   "name": "The Map Is Lying",
+   "shape": "The map in the viewer's head is wrong, and you prove it on screen.",
+   "example": "The map you grew up with makes Greenland look as big as Africa. It is not even close.",
+   "fails_when": "Show the correction visually inside 10 seconds - a true-size overlay, not a sentence.",
+   "match": [
+    "\\b(map|maps) (is|are) (lying|wrong)\\b",
+    "\\bnot even close\\b",
+    "\\bthe map you\\b"
+   ]
+  }
+ ]
+}

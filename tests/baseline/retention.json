@@ -1,0 +1,32 @@
+{
+ "points": 41,
+ "start": 100.0,
+ "hook_leak": 18.0,
+ "end": 53.8,
+ "cliffs": [
+  {
+   "from": 15.0,
+   "to": 30.0,
+   "lost": 9.0,
+   "at_seconds": 15.0
+  },
+  {
+   "from": 0.0,
+   "to": 15.0,
+   "lost": 9.0,
+   "at_seconds": 0.0
+  },
+  {
+   "from": 225.0,
+   "to": 240.0,
+   "lost": 6.0,
+   "at_seconds": 225.0
+  }
+ ],
+ "slide_per_unit": 0.05,
+ "said": {
+  "15.0": "Point Roberts sits at the tip of a peninsula below the border, right on the water. The border here follows a line agreed in a treaty.",
+  "0.0": "There is a town in Washington you can only reach by land through Canada.",
+  "225.0": ""
+ }
+}

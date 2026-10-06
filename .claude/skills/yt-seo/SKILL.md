@@ -13,7 +13,12 @@ For a video aimed at the subscriber feed, say so and spend the effort on `/yt-pa
 
 ## Before you write
 
-1. Read `~/.claude/youtube/voice.md` if it exists. That is the user's voice profile: how they talk
+1. **Channel profile first.** If the repository has a `channel/` directory, read `channel/channel.md`,
+   `channel/voice.md` and `channel/editorial.md` before anything else. They are the voice profile and
+   the rules, and they replace the rest of this step. That channel is faceless with AI narration: its
+   voice is designed in `voice.md`, not inferred from videos, so never ask the creator for videos of
+   themselves. Without a `channel/` directory, fall back to the original step:
+   Read `~/.claude/youtube/voice.md` if it exists. That is the user's voice profile: how they talk
    on camera, the words they never use, who they are talking to, what they will not claim. If it
    does not exist, ask for **three of their own videos**, read or transcribe them, infer the voice,
    and write the file. A script in the wrong voice is worse than no script, because they have to
@@ -40,6 +45,17 @@ a strategy and stuffing unrelated ones is against the terms.
 Before handing anything over, write the three search queries this video should win, and check the
 title and first two description lines contain the words in those queries. If they do not, the
 problem is the title, not the description.
+
+## Geography channel mode
+
+When `channel/` exists:
+
+- Write the three queries in the words a U.S. viewer types ("why does minnesota have a piece in
+  canada", "town only reachable through canada").
+- Spell place names the way U.S. searchers do, and put the common alternative spelling in tags.
+- Below the long version, add **Sources** (the key Tier 1 sources from `claims.md`) and **Credits**
+  (the block from `geo-visuals/assets.py --credits`). Both are required by `channel/editorial.md`
+  and `channel/visual-style.md`.
 
 ## The gate
 

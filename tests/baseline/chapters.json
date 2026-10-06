@@ -1,0 +1,29 @@
+{
+ "valid": true,
+ "chapters": [
+  {
+   "start": 0.0,
+   "label": "0:00",
+   "draft_title": "Reach Roberts Border",
+   "seconds": 10.3
+  },
+  {
+   "start": 10.3,
+   "label": "0:10",
+   "draft_title": "Border Roberts Below",
+   "seconds": 11.9
+  },
+  {
+   "start": 22.2,
+   "label": "0:22",
+   "draft_title": "Schools Groceries Marked",
+   "seconds": 17.2
+  },
+  {
+   "start": 39.4,
+   "label": "0:39",
+   "draft_title": "Cross Line Crossing",
+   "seconds": 21.4
+  }
+ ]
+}

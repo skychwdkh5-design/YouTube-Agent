@@ -1,0 +1,38 @@
+{
+ "source": "tests/fixtures/transcript.srt",
+ "duration": 60.8,
+ "cuts": [
+  {
+   "kind": "FILLER",
+   "start": 4.7,
+   "end": 5.3,
+   "why": "um"
+  },
+  {
+   "kind": "REPEAT",
+   "start": 5.6,
+   "end": 10.1,
+   "why": "restart of \"point roberts sits at the\""
+  },
+  {
+   "kind": "DEAD",
+   "start": 19.925,
+   "end": 21.975,
+   "why": "2.50s gap"
+  },
+  {
+   "kind": "DEAD",
+   "start": 36.625,
+   "end": 39.175,
+   "why": "3.00s gap"
+  },
+  {
+   "kind": "DEAD",
+   "start": 53.725,
+   "end": 56.075,
+   "why": "2.80s gap"
+  }
+ ],
+ "removed": 12.05,
+ "out": 48.75
+}

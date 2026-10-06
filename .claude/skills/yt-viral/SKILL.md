@@ -39,6 +39,16 @@ What to hand back: the top five with their multiples, the formula each used, and
 thing they share. Then the harder line - which of those the user could actually make this week, in
 their voice, with what they have.
 
+## Geography channel mode
+
+When `channel/` exists:
+
+- Take the competitor list from `channel/channel.md`; propose additions, and the creator approves them.
+- Save the collected list as `channel/data/competitors-<YYYY-MM-DD>.json`.
+- Run `python3 swipe.py <file> --profile geo` so geography formulas are recognised.
+- Outliers feed `/geo-topics`: the multiple and URL go in the idea's Evidence cell and support its
+  Outlier score. A global outlier is as valid as a U.S. one - the U.S. is the audience, not the filter.
+
 ## The gate
 
 Nothing here publishes. This skill writes and you publish. Every output ends in a block the user

@@ -12,7 +12,12 @@ An audit that lists twenty problems is a way of avoiding the one that matters. T
 
 ## Before you write
 
-1. Read `~/.claude/youtube/voice.md` if it exists. That is the user's voice profile: how they talk
+1. **Channel profile first.** If the repository has a `channel/` directory, read `channel/channel.md`,
+   `channel/voice.md` and `channel/editorial.md` before anything else. They are the voice profile and
+   the rules, and they replace the rest of this step. That channel is faceless with AI narration: its
+   voice is designed in `voice.md`, not inferred from videos, so never ask the creator for videos of
+   themselves. Without a `channel/` directory, fall back to the original step:
+   Read `~/.claude/youtube/voice.md` if it exists. That is the user's voice profile: how they talk
    on camera, the words they never use, who they are talking to, what they will not claim. If it
    does not exist, ask for **three of their own videos**, read or transcribe them, infer the voice,
    and write the file. A script in the wrong voice is worse than no script, because they have to
@@ -41,6 +46,18 @@ An audit that lists twenty problems is a way of avoiding the one that matters. T
 - What NOT to do yet, and why.
 
 Never open an audit with praise you do not mean, and never end one with a list of twenty things.
+
+## Geography channel mode
+
+When `channel/` exists:
+
+- Score the opening narration with `../yt-script/hookscore.py --profile geo` and the titles with
+  `../yt-package/title.py --profile geo`.
+- "Thumbnails at feed size" means the map: is the anomaly visible in under a second?
+- Add one check: **corrections**. Count comments that correct a fact; any repeat means a gap in
+  `channel/research.md`, and fixing it outranks packaging.
+- Faceless channels live and die by visual pacing - if retention shows a slide, check the beats in
+  `visuals.md` where the screen sat still.
 
 ## The gate
 

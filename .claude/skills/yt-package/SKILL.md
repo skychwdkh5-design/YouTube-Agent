@@ -19,7 +19,12 @@ python3 title.py titles.txt            # one per line, ranked
 
 ## Before you write
 
-1. Read `~/.claude/youtube/voice.md` if it exists. That is the user's voice profile: how they talk
+1. **Channel profile first.** If the repository has a `channel/` directory, read `channel/channel.md`,
+   `channel/voice.md` and `channel/editorial.md` before anything else. They are the voice profile and
+   the rules, and they replace the rest of this step. That channel is faceless with AI narration: its
+   voice is designed in `voice.md`, not inferred from videos, so never ask the creator for videos of
+   themselves. Without a `channel/` directory, fall back to the original step:
+   Read `~/.claude/youtube/voice.md` if it exists. That is the user's voice profile: how they talk
    on camera, the words they never use, who they are talking to, what they will not claim. If it
    does not exist, ask for **three of their own videos**, read or transcribe them, infer the voice,
    and write the file. A script in the wrong voice is worse than no script, because they have to
@@ -42,6 +47,20 @@ python3 title.py titles.txt            # one per line, ranked
 Generate ten titles, run them all through `title.py`, show the user the top three with their scores
 and the specific issue on each. For the winner, write the thumbnail brief: the expression, the
 framing, the three words, and what the background has to do to hold contrast at feed size.
+
+## Geography channel mode
+
+When `channel/` exists:
+
+- Run `python3 title.py --profile geo ...` - a place name counts as the "name", and U.S./D.C./U.K.
+  are not read as shouting. Without the flag a geography title is wrongly told it has no name.
+- **The thumbnail is a map, not a face.** Replace "the expression" in the brief with: the place or
+  map shape, the one highlight, the framing, and how it reads at feed size - per
+  `channel/visual-style.md`. Max three words, none shared with the title.
+- **Titles are claims too.** "Only", "largest", "nobody", a number or a year in a title or on a
+  thumbnail must match a VERIFIED or SOFTENED row in the video's `claims.md`.
+- Curiosity yes, false promises never: the video must deliver what the pair promises
+  (`channel/editorial.md`).
 
 ## The gate
 

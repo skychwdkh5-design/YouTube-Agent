@@ -1,0 +1,93 @@
+[
+ {
+  "channel": "Map Channel A",
+  "title": "Why Does Alaska Look So Big? (A0)",
+  "views": 40000,
+  "url": "https://example.com/A0",
+  "duration": 600
+ },
+ {
+  "channel": "Map Channel A",
+  "title": "The Only Road Into This Town Goes Through Canada (A1)",
+  "views": 52000,
+  "url": "https://example.com/A1",
+  "duration": 600
+ },
+ {
+  "channel": "Map Channel A",
+  "title": "Countries Bigger Than You Think (A2)",
+  "views": 38000,
+  "url": "https://example.com/A2",
+  "duration": 600
+ },
+ {
+  "channel": "Map Channel A",
+  "title": "Why Nobody Lives Here (A3)",
+  "views": 61000,
+  "url": "https://example.com/A3",
+  "duration": 600
+ },
+ {
+  "channel": "Map Channel A",
+  "title": "Everyone Says This Border Is Straight. It Is Wrong (A4)",
+  "views": 45000,
+  "url": "https://example.com/A4",
+  "duration": 600
+ },
+ {
+  "channel": "Map Channel A",
+  "title": "How This City Survives in the Desert (A5)",
+  "views": 410000,
+  "url": "https://example.com/A5",
+  "duration": 600
+ },
+ {
+  "channel": "Geo Channel B",
+  "title": "Why Does Alaska Look So Big? (B0)",
+  "views": 900000,
+  "url": "https://example.com/B0",
+  "duration": 600
+ },
+ {
+  "channel": "Geo Channel B",
+  "title": "The Only Road Into This Town Goes Through Canada (B1)",
+  "views": 1100000,
+  "url": "https://example.com/B1",
+  "duration": 600
+ },
+ {
+  "channel": "Geo Channel B",
+  "title": "Countries Bigger Than You Think (B2)",
+  "views": 850000,
+  "url": "https://example.com/B2",
+  "duration": 600
+ },
+ {
+  "channel": "Geo Channel B",
+  "title": "Why Nobody Lives Here (B3)",
+  "views": 4200000,
+  "url": "https://example.com/B3",
+  "duration": 600
+ },
+ {
+  "channel": "Geo Channel B",
+  "title": "Everyone Says This Border Is Straight. It Is Wrong (B4)",
+  "views": 1000000,
+  "url": "https://example.com/B4",
+  "duration": 600
+ },
+ {
+  "channel": "Tiny C",
+  "title": "Why Does Alaska Look So Big? (C0)",
+  "views": 1000,
+  "url": "https://example.com/C0",
+  "duration": 600
+ },
+ {
+  "channel": "Tiny C",
+  "title": "The Only Road Into This Town Goes Through Canada (C1)",
+  "views": 2000,
+  "url": "https://example.com/C1",
+  "duration": 600
+ }
+]

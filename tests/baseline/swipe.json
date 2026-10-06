@@ -1,0 +1,64 @@
+{
+ "outliers": [
+  {
+   "channel": "Map Channel A",
+   "title": "How This City Survives in the Desert (A5)",
+   "views": 410000,
+   "median": 48500,
+   "multiple": 8.45,
+   "formula": "The Question",
+   "url": "https://example.com/A5"
+  },
+  {
+   "channel": "Geo Channel B",
+   "title": "Why Nobody Lives Here (B3)",
+   "views": 4200000,
+   "median": 1000000,
+   "multiple": 4.2,
+   "formula": "The Question",
+   "url": "https://example.com/B3"
+  },
+  {
+   "channel": "Map Channel A",
+   "title": "Why Nobody Lives Here (A3)",
+   "views": 61000,
+   "median": 48500,
+   "multiple": 1.26,
+   "formula": "The Question",
+   "url": "https://example.com/A3"
+  },
+  {
+   "channel": "Geo Channel B",
+   "title": "The Only Road Into This Town Goes Through Canada (B1)",
+   "views": 1100000,
+   "median": 1000000,
+   "multiple": 1.1,
+   "formula": "The Superlative",
+   "url": "https://example.com/B1"
+  },
+  {
+   "channel": "Map Channel A",
+   "title": "The Only Road Into This Town Goes Through Canada (A1)",
+   "views": 52000,
+   "median": 48500,
+   "multiple": 1.07,
+   "formula": "The Superlative",
+   "url": "https://example.com/A1"
+  },
+  {
+   "channel": "Geo Channel B",
+   "title": "Everyone Says This Border Is Straight. It Is Wrong (B4)",
+   "views": 1000000,
+   "median": 1000000,
+   "multiple": 1.0,
+   "formula": "Contrarian Flip",
+   "url": "https://example.com/B4"
+  }
+ ],
+ "skipped_thin_channels": [
+  [
+   "Tiny C",
+   2
+  ]
+ ]
+}
