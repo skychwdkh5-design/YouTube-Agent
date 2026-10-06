@@ -206,7 +206,12 @@ class TopicGate(unittest.TestCase):
         self.assertEqual(r["ranked"][0]["region"], "Europe", "region is never scored - a stronger global topic wins")
 
     def test_empty_backlog_runs(self):
-        self.assertEqual(js(self.S, os.path.join("channel", "ideas.md"), "--json")["ranked"], [])
+        self.assertEqual(js(self.S, fx("ideas_empty.md"), "--json")["ranked"], [])
+
+    def test_channel_backlog_parses(self):
+        r = js(self.S, os.path.join("channel", "ideas.md"), "--json")
+        for x in r["ranked"]:
+            self.assertNotIn("not scored", " ".join(x["notes"]), x["id"])
 
 
 class Structure(unittest.TestCase):
