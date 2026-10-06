@@ -29,6 +29,11 @@ against a channel URL is the fastest, the public page works, a manual list works
 **Read, do not scrape.** Public listings only, never a logged-in session, never the user's own
 account credentials.
 
+## Which niche to search
+
+Follow the audience strategy in the project `CLAUDE.md`. Rank what you find for the US first; when
+two outliers are close, prefer the one whose story travels to Sweden, Norway and Denmark.
+
 ## Reading the output
 
 The multiple is the signal. The formula line is a judgement about the TITLE, matched against

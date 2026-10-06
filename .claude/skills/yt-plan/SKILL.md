@@ -21,6 +21,8 @@ A plan that does not fit the week is a list of regrets. Ask two questions before
    read it out loud.
 2. Never invent a number, a result or a source. If a figure would strengthen it and you do not have
    one, ask for it or write the line without it.
+3. Follow the audience strategy in the project `CLAUDE.md`: US first, Sweden, Norway and
+   Denmark second, written in English an international viewer follows.
 
 ## The shape of a week
 
