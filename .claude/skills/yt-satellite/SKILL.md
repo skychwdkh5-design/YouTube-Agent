@@ -57,7 +57,24 @@ pass that on to the user; do not ask them to type the token into the conversatio
    ```
 
    Without `--confirm` it refuses. Anything over `--max-mb` (default 50) is refused too; raise it
-   only when the user explicitly asks for the full product.
+   only when the user explicitly asks for the full product. A network or disk failure mid-file
+   deletes the partial file and comes back as a JSON error.
+5. **Cleanup is automatic.** After every download request the script removes its order from the
+   USGS queue (`download-order-remove`) and reports it under `"cleanup"` as `removed` or `failed`.
+   A failed cleanup is not a failed download: if `"status": "ok"` and the file is there, the
+   image is good.
+
+## Statuses and edge cases
+
+- `"status": "no_options"` (from `options` or `download`) means USGS lists no download options
+  at all for that entity in that dataset. Report it; do not guess another product or scene.
+- A bad number (`--point abc 1`, `--max x`, `--max-mb x`, `--cloud 150`) is a JSON error before
+  anything touches the API.
+- **Near ±180° longitude:** a box that crosses the antimeridian (or a `--point` whose radius
+  reaches across it) is refused, not wrapped. Run two `--bbox` searches, one each side of 180/-180,
+  and report both.
+- **Near the poles:** a box past ±90° latitude is refused. Landsat's WRS-2 grid does not reach the
+  poles themselves, so a high-latitude `no_scenes` can be the honest answer.
 
 ## No fabrication
 

@@ -18,9 +18,14 @@ and the session API key is logged out when each command finishes.
 
 A search that finds nothing says so ("status": "no_scenes"). It never falls back to a nearby date,
 a different place or a made-up scene. Downloads happen only with --confirm and refuse anything
-over --max-mb (default 50 MB) - a full Level-1 bundle is over 1 GB.
+over --max-mb (default 50 MB) - a full Level-1 bundle is over 1 GB. After a download the order is
+removed from the USGS queue (download-order-remove); that cleanup is reported separately under
+"cleanup" and never turns a good download into a failure.
+
+Boxes that cross the 180th meridian or reach past a pole are refused with an explanation, never
+clipped or wrapped: search each side of 180/-180 as its own --bbox.
 """
-import json, os, sys, time, urllib.error, urllib.request
+import json, math, os, sys, time, urllib.error, urllib.request
 
 API = "https://m2m.cr.usgs.gov/api/api/json/stable/"
 DEFAULT_DATASET = "landsat_ot_c2_l1"
@@ -28,7 +33,12 @@ UA = "YouTube-Agent-yt-satellite/1.0"
 
 
 class M2MError(Exception):
-    pass
+    """A clean, reportable failure. `status` goes into the JSON output as-is."""
+
+    def __init__(self, message, status="error", **extra):
+        super().__init__(message)
+        self.status = status
+        self.extra = extra
 
 
 def _redact(text, secrets):
@@ -153,8 +163,10 @@ class M2M:
 
     def download(self, entity_id, product_name, out_dir, dataset=DEFAULT_DATASET,
                  max_mb=50, wait_s=300):
-        opts = [o for o in self.options(entity_id, dataset)
-                if o["productName"] == product_name and o["available"]]
+        all_opts = self.options(entity_id, dataset)
+        if not all_opts:
+            raise M2MError(f"no download options for {entity_id} in {dataset}", status="no_options")
+        opts = [o for o in all_opts if o["productName"] == product_name and o["available"]]
         if not opts:
             raise M2MError(f"product '{product_name}' is not available for {entity_id}")
         opt = opts[0]
@@ -163,35 +175,60 @@ class M2M:
             raise M2MError(f"product is {size / 1048576:.0f} MB, over --max-mb {max_mb}; "
                            "raise --max-mb only if the full file is really needed")
         label = f"yt-satellite-{int(time.time())}"
-        req = self.call("download-request", {"label": label, "downloads": [
-            {"entityId": entity_id, "productId": opt["productId"]}]}) or {}
-        urls = [d["url"] for d in req.get("availableDownloads") or [] if d.get("url")]
-        deadline = time.time() + wait_s
-        while not urls and time.time() < deadline:
-            time.sleep(10)
-            ret = self.call("download-retrieve", {"label": label}) or {}
-            urls = [d["url"] for d in ret.get("available") or [] if d.get("url")]
-        if not urls:
-            raise M2MError(f"download not ready after {wait_s}s (label {label})")
-        os.makedirs(out_dir, exist_ok=True)
-        saved = []
-        for url in urls:
+        try:
+            req = self.call("download-request", {"label": label, "downloads": [
+                {"entityId": entity_id, "productId": opt["productId"]}]}) or {}
+            urls = [d["url"] for d in req.get("availableDownloads") or [] if d.get("url")]
+            deadline = time.time() + wait_s
+            while not urls and time.time() < deadline:
+                time.sleep(10)
+                ret = self.call("download-retrieve", {"label": label}) or {}
+                urls = [d["url"] for d in ret.get("available") or [] if d.get("url")]
+            if not urls:
+                raise M2MError(f"download not ready after {wait_s}s (label {label})")
+            try:
+                os.makedirs(out_dir, exist_ok=True)
+            except OSError as e:
+                raise M2MError(f"cannot create output directory: {type(e).__name__}: {e}")
+            saved = [self._fetch(url, out_dir, entity_id, max_mb) for url in urls]
+        except M2MError as e:
+            e.extra["cleanup"] = self.cleanup_order(label)
+            raise
+        return {"status": "ok", "entityId": entity_id, "product": product_name, "files": saved,
+                "cleanup": self.cleanup_order(label)}
+
+    def _fetch(self, url, out_dir, entity_id, max_mb):
+        """Stream one file to disk, enforcing max_mb while reading; never leaves a partial file."""
+        path, n, limit = None, 0, max_mb * 1024 * 1024
+        try:
             with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": UA}),
                                         timeout=self.timeout) as r:
-                name = _filename(r, url, entity_id)
-                path = os.path.join(out_dir, name)
-                limit, n = max_mb * 1024 * 1024, 0
+                path = os.path.join(out_dir, _filename(r, url, entity_id))
                 with open(path, "wb") as f:
                     while True:
                         chunk = r.read(1 << 20)
                         if not chunk: break
                         n += len(chunk)
                         if n > limit:
-                            f.close(); os.remove(path)
                             raise M2MError(f"download exceeded --max-mb {max_mb}; removed partial file")
                         f.write(chunk)
-            saved.append({"path": path, "bytes": n})
-        return {"entityId": entity_id, "product": product_name, "files": saved}
+        except (M2MError, urllib.error.URLError, OSError, ValueError) as e:
+            if path and os.path.exists(path):
+                os.remove(path)
+            if isinstance(e, M2MError): raise
+            # the URL itself is a signed link - keep it out of the message
+            raise M2MError(_redact(f"file download failed: {type(e).__name__}: {e}; "
+                                   "removed partial file", self._secrets() + [url]))
+        return {"path": path, "bytes": n}
+
+    def cleanup_order(self, label):
+        """Remove our download order from the USGS queue (M2M `download-order-remove`).
+        Best effort: a failure is reported, never raised, so it cannot undo a good download."""
+        try:
+            self.call("download-order-remove", {"label": label})
+            return {"status": "removed", "label": label}
+        except M2MError as e:
+            return {"status": "failed", "label": label, "error": str(e)}
 
 
 def _scene(r):
@@ -220,38 +257,85 @@ def point_bbox(lat, lon, radius_km):
     return (lon - dlon, lat - dlat, lon + dlon, lat + dlat)
 
 
+def check_bbox(bbox, from_point=False):
+    """Refuse boxes the API cannot take as one rectangle. Coordinates are never clipped, wrapped
+    or moved - an edge case is an error that says what to search instead."""
+    minlon, minlat, maxlon, maxlat = bbox
+    hint = " (from --point/--radius-km)" if from_point else ""
+    if not all(math.isfinite(v) for v in bbox):
+        raise M2MError(f"bbox{hint} has a non-finite value: {list(bbox)}")
+    if minlat < -90 or maxlat > 90:
+        raise M2MError(f"bbox{hint} {list(bbox)} reaches past a pole (latitude must stay within "
+                       "-90..90); use a smaller --radius-km or an explicit --bbox")
+    if minlon < -180 or maxlon > 180:
+        raise M2MError(f"bbox{hint} {list(bbox)} crosses the 180th meridian; run two searches "
+                       "with --bbox, one on each side of 180/-180")
+    if minlon > maxlon:
+        raise M2MError(f"bbox {list(bbox)} has MINLON > MAXLON; if it is meant to cross the 180th "
+                       "meridian, run two searches, one on each side of 180/-180")
+    if not (minlon < maxlon and minlat < maxlat):
+        raise M2MError(f"invalid bbox {list(bbox)}: need MINLON < MAXLON and MINLAT < MAXLAT")
+
+
 # --- CLI ---------------------------------------------------------------------------------------
 
 def _arg(a, flag, n=1, default=None):
     if flag not in a: return default
     i = a.index(flag)
     vals = a[i + 1:i + 1 + n]
-    if len(vals) < n: raise SystemExit(f"{flag} needs {n} value(s)")
+    if len(vals) < n: raise M2MError(f"{flag} needs {n} value(s)")
     return vals if n > 1 else vals[0]
+
+
+def _num(a, flag, n=1, default=None, kind=float, lo=None, hi=None):
+    """Numeric flag value(s), validated - a bad value is a clean error, not a traceback."""
+    raw = _arg(a, flag, n, default)
+    if raw is None: return None
+    vals = raw if isinstance(raw, list) else [raw]
+    out = []
+    for v in vals:
+        try:
+            x = kind(v)
+        except (TypeError, ValueError):
+            raise M2MError(f"{flag} expects {'an integer' if kind is int else 'a number'}, got {v!r}")
+        if kind is float and not math.isfinite(x):
+            raise M2MError(f"{flag} expects a finite number, got {v!r}")
+        if (lo is not None and x < lo) or (hi is not None and x > hi):
+            raise M2MError(f"{flag} must be between {lo} and {hi}, got {v!r}")
+        out.append(x)
+    return out if n > 1 else out[0]
 
 
 def main(argv=None):
     a = list(sys.argv[1:] if argv is None else argv)
     if not a or a[0] in ("-h", "--help"): print(__doc__); return 0
-    cmd, dataset = a[0], _arg(a, "--dataset", default=DEFAULT_DATASET)
+    cmd = a[0]
     try:
+        dataset = _arg(a, "--dataset", default=DEFAULT_DATASET)
+        if cmd not in ("auth", "datasets", "search", "metadata", "options", "download"):
+            raise M2MError(f"unknown command {cmd}")
         if cmd == "search":
             start, end = _arg(a, "--start"), _arg(a, "--end")
             if not start or not end: raise M2MError("search needs --start and --end (YYYY-MM-DD)")
             if "--bbox" in a:
-                bbox = tuple(float(x) for x in _arg(a, "--bbox", 4))
+                bbox = tuple(_num(a, "--bbox", 4))
+                check_bbox(bbox)
             elif "--point" in a:
-                lat, lon = (float(x) for x in _arg(a, "--point", 2))
-                bbox = point_bbox(lat, lon, float(_arg(a, "--radius-km", default=5)))
+                lat, lon = _num(a, "--point", 2)
+                if not -90 <= lat <= 90: raise M2MError(f"--point latitude must be -90..90, got {lat}")
+                if not -180 <= lon <= 180: raise M2MError(f"--point longitude must be -180..180, got {lon}")
+                bbox = point_bbox(lat, lon, _num(a, "--radius-km", default=5, lo=0.001, hi=1000))
+                check_bbox(bbox, from_point=True)
             else:
                 raise M2MError("search needs --point LAT LON or --bbox MINLON MINLAT MAXLON MAXLAT")
-            if not (-180 <= bbox[0] < bbox[2] <= 180 and -90 <= bbox[1] < bbox[3] <= 90):
-                raise M2MError(f"invalid bbox {bbox}")
-        if cmd == "download" and "--confirm" not in a:
-            raise M2MError("download needs --confirm; check `options` first and only download "
-                           "imagery that the video actually needs")
-        if cmd not in ("auth", "datasets", "search", "metadata", "options", "download"):
-            raise M2MError(f"unknown command {cmd}")
+            max_results = _num(a, "--max", default=10, kind=int, lo=1, hi=1000)
+            cloud = _num(a, "--cloud", lo=0, hi=100)
+        if cmd == "download":
+            if "--confirm" not in a:
+                raise M2MError("download needs --confirm; check `options` first and only download "
+                               "imagery that the video actually needs")
+            if not _arg(a, "--product"): raise M2MError("download needs --product \"<productName>\"")
+            max_mb = _num(a, "--max-mb", default=50, lo=0.001)
         if cmd in ("metadata", "options", "download") and not _arg(a, "--entity"):
             raise M2MError(f"{cmd} needs --entity ENTITY_ID")
 
@@ -262,24 +346,27 @@ def main(argv=None):
                 rows = m.datasets(_arg(a, "--name"), _arg(a, "--keyword"))
                 out = {"status": "ok" if rows else "no_datasets", "datasets": rows}
             elif cmd == "search":
-                cloud = _arg(a, "--cloud")
-                out = m.search(bbox, start, end, dataset, int(_arg(a, "--max", default=10)),
-                               float(cloud) if cloud is not None else None)
+                out = m.search(bbox, start, end, dataset, max_results, cloud)
             elif cmd == "metadata":
                 out = m.metadata(_arg(a, "--entity"), dataset)
             elif cmd == "options":
                 rows = m.options(_arg(a, "--entity"), dataset)
-                out = {"entityId": _arg(a, "--entity"), "dataset": dataset, "options": rows}
+                out = {"status": "ok" if rows else "no_options", "entityId": _arg(a, "--entity"),
+                       "dataset": dataset, "options": rows}
             else:
-                product = _arg(a, "--product")
-                if not product: raise M2MError("download needs --product \"<productName>\"")
-                out = m.download(_arg(a, "--entity"), product, _arg(a, "--out", default="./usgs"),
-                                 dataset, float(_arg(a, "--max-mb", default=50)))
+                out = m.download(_arg(a, "--entity"), _arg(a, "--product"),
+                                 _arg(a, "--out", default="./usgs"), dataset, max_mb)
         out["source"] = "USGS EROS M2M API (" + API + ")"
         print(json.dumps(out, indent=1, default=str))
         return 0
     except M2MError as e:
-        print(json.dumps({"status": "error", "error": str(e)}, indent=1))
+        print(json.dumps({"status": e.status, "error": str(e), **e.extra}, indent=1, default=str))
+        return 2
+    except Exception as e:  # last resort: still JSON, still redacted, never a traceback
+        secrets = [os.environ.get("USGS_M2M_USERNAME", "").strip(),
+                   os.environ.get("USGS_M2M_TOKEN", "").strip()]
+        print(json.dumps({"status": "error",
+                          "error": _redact(f"unexpected {type(e).__name__}: {e}", secrets)}, indent=1))
         return 2
 
 
