@@ -6,7 +6,7 @@ Claude Code workspace for running a YouTube channel.
 
 Each skill lives in `.claude/skills/<name>/` (a `SKILL.md` plus any helper scripts):
 `yt-audit`, `yt-chapters`, `yt-comment`, `yt-edit`, `yt-package`, `yt-plan`, `yt-retention`,
-`yt-script`, `yt-seo`, `yt-shorts`, `yt-viral`, `yt-satellite`, `yt-render` and `yt-qc`.
+`yt-script`, `yt-seo`, `yt-shorts`, `yt-viral`, `yt-satellite`, `yt-render`, `yt-qc`, `yt-voice` and `yt-captions`.
 
 ### yt-satellite (optional)
 
@@ -29,4 +29,17 @@ network, no credentials. Rendering needs `--confirm`; rendered MP4s are git-igno
 python3 .claude/skills/yt-render/render.py --timeline timeline.json --output final.mp4 --confirm
 python3 .claude/skills/yt-qc/qc.py final.mp4 --timeline timeline.json
 python3 .claude/skills/yt-render/test_render.py && python3 .claude/skills/yt-qc/test_qc.py
+```
+
+### yt-voice and yt-captions
+
+Narration through a TTS provider (ElevenLabs first, `ELEVENLABS_API_KEY`) with word timings, and
+SRT/VTT captions built from those timings. Generation is a paid request: it needs `--confirm` and
+stays under `--max-chars`. Captions are local and free. How script → voice → captions → render
+connect: [`docs/production-pipeline.md`](docs/production-pipeline.md).
+
+```bash
+python3 .claude/skills/yt-voice/voice.py --script script.md --voice-id VOICE --output voice/narration.wav
+python3 .claude/skills/yt-captions/captions.py --voice voice/narration.voice.json --out-dir captions/
+python3 .claude/skills/yt-voice/test_voice.py && python3 .claude/skills/yt-captions/test_captions.py
 ```
