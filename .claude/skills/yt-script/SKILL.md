@@ -30,6 +30,8 @@ python3 hookscore.py --hook "one line"      # score a single one
    one, ask for it or write the line without it.
 3. If a line rests on what a place looked like from space - a shrinking lake, a burn scar, a flood -
    get the real Landsat scene with `/yt-satellite` first. No scene, no satellite claim.
+4. Follow the audience strategy in the project `CLAUDE.md`: US first, Sweden, Norway and
+   Denmark second, written in English an international viewer follows.
 
 ## The shape
 
