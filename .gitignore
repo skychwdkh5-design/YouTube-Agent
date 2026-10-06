@@ -4,3 +4,8 @@ __pycache__/
 # rendered media - never committed
 *.mp4
 *.partial.mp4
+
+# generated narration and production folders - never committed
+*.wav
+*.mp3
+productions/
