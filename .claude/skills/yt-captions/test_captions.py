@@ -123,6 +123,11 @@ class PhraseBreaks(unittest.TestCase):
         cues, *_ = c.build(timed(text, wps=2.5), dict(CFG, max_chars=60))
         self.assertTrue(cues[0]["text"].endswith("shoreline,"), [x["text"] for x in cues])
 
+    def test_short_sentence_inside_block_breaks_at_its_end(self):
+        words = timed("Lake Mead. America's largest reservoir.", wps=2.6)
+        cues, *_ = c.build(words, c.PRESETS["short"])
+        self.assertEqual([x["text"] for x in cues], ["Lake Mead.", "America's largest reservoir."])
+
     def test_timings_untouched(self):
         words = timed(TEXT)
         cues, *_ = c.build(words, CFG)
@@ -241,6 +246,20 @@ class Inputs(unittest.TestCase):
                      ["--words", os.path.join(self.dir, "ok.json"), "--out-dir", self.dir, "stray"]):
             code, d = run(argv)
             self.assertEqual((code, "error" in d), (2, True), argv)
+
+    def test_short_preset(self):
+        out = os.path.join(self.dir, "c"); os.mkdir(out)
+        code, d = run(["--voice", self.voice_meta(timed(TEXT)), "--out-dir", out, "--preset", "short"])
+        self.assertEqual((code, d["status"]), (0, "ok"), d)
+        meta = json.load(open(os.path.join(out, "captions.json")))
+        self.assertEqual(meta["settings"], c.PRESETS["short"])
+        for cue in meta["cues"]:
+            self.assertLessEqual(len(cue["text"]), 32 + 20)        # single long words may exceed
+            self.assertLessEqual(cue["end"] - cue["start"], 2.8 + 0.81)
+        self.assertTrue(meta["validation"]["wording_preserved"])
+        code, d = run(["--voice", os.path.join(self.dir, "narration.voice.json"), "--out-dir", out,
+                       "--preset", "tiny"])
+        self.assertEqual(code, 2)
 
     def test_not_a_voice_file(self):
         code, d = run(["--voice", self.write("x.json", {"words": []}), "--out-dir", self.dir])

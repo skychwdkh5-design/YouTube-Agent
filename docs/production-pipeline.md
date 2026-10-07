@@ -93,6 +93,23 @@ timeline as the clips, with no change to the files above and no FFmpeg step outs
   is ever added that the channel has no right to use.
 - Then `/yt-qc final.mp4 --timeline timeline.json` checks the file.
 
+## Vertical Short (timeline v3)
+
+```
+/yt-satellite (several dates, Natural Color GeoTIFF) ──► raw/*.tif
+/yt-geo geostack.py ──► stack/<date>.png + grid.json + provenance.json   (same grid for every date)
+/yt-geo watermask.py ──► geo/water_<date>.png                            (outlines, lost-area fills)
+story/claims.json  ──► every spoken or on-screen claim, sourced, verified before TTS
+/yt-voice ──► voice/narration.wav + .voice.json
+/yt-captions --preset short ──► captions/captions.srt
+/yt-render (version 3) ──► short.mp4 + short.manifest.json
+/yt-qc --profile short --contact-sheet ──► PASS / FAIL + review sheet
+```
+
+Shots anchor to words of the narration, so the edit follows Adam's real timing. The first frame is
+the hook. Production folders (raw imagery, stacks, audio, renders) stay in `productions/`, which
+is git-ignored.
+
 ## Rules every stage keeps
 
 - JSON on stdout, structured errors, no tracebacks.

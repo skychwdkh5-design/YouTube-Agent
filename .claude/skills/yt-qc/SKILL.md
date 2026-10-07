@@ -38,6 +38,18 @@ Exit code: `0` PASS, `1` FAIL, `2` could not run (bad arguments, ffprobe missing
 Each check reports `status` (`pass`/`fail`/`warn`/`skip`), `expected` and `actual`. Only a `fail`
 makes the result FAIL. A `skip` says why it did not run (e.g. no expected duration given).
 
+## Profile `short` (vertical Shorts)
+
+```bash
+python3 qc.py short.mp4 --profile short --timeline timeline.json --contact-sheet sheet.jpg
+```
+
+1080x1920 30 fps, 35-60 s (45-55 s target - warn), no black frames, no static freeze (warn 1.5 s,
+fail 2.5 s), audio within 0.5 s, loudness reported (warn outside -16..-12 LUFS). From the render
+manifest (`<video>.manifest.json`, or `--manifest`): at least 5 information events in the first 10 s,
+every caption inside the Shorts safe area, and a source credit on every shot. `--contact-sheet`
+writes the first frame plus the middle of every shot, labelled, for review.
+
 ## Adding checks later
 
 Every check is a function in `CHECKS` that takes the probe context and returns a list of results.

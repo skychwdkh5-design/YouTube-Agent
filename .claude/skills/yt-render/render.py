@@ -20,8 +20,13 @@ crossfades or hard cuts between them. Optional, in the same timeline:
   credit       an on-screen source credit (e.g. the USGS Landsat credit)
 Video clips, music, sound effects and generic overlays are still refused explicitly instead of
 being silently dropped. A timeline without the optional keys renders exactly as before.
+
+"version": 3 is a different format - vertical Shorts from geographically aligned imagery - and is
+handled by compose.py (see SKILL.md). Versions 1 and 2 never load it.
 """
 import hashlib, json, math, os, re, shutil, subprocess, sys, tempfile
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # compose.py for timeline v3
 
 TIMELINE_VERSION = 1
 SUPPORTED_VERSIONS = (1, 2)   # 2 is the same format; docs/production-pipeline.md uses it for voice
@@ -388,7 +393,12 @@ def font_file(family):
 def expected_duration(timeline_path, media_root=None):
     """Public helper for yt-qc: the duration a timeline should render to."""
     tl = load_timeline(timeline_path)
-    return validate(tl, media_root or os.path.dirname(os.path.abspath(timeline_path)))["expected_duration"]
+    root = media_root or os.path.dirname(os.path.abspath(timeline_path))
+    if isinstance(tl, dict) and tl.get("version") == 3 and not isinstance(tl.get("version"), bool):
+        sys.modules.setdefault("render", sys.modules[__name__])
+        import compose
+        return compose.validate(tl, root, LIMITS)["expected_duration"]
+    return validate(tl, root)["expected_duration"]
 
 
 # --- ffprobe / ffmpeg --------------------------------------------------------------------------
@@ -669,13 +679,21 @@ def main(argv=None):
         tl_path = _flag(a, "--timeline")
         if not tl_path: raise RenderError("--timeline is required")
         root = _flag(a, "--media-root") or os.path.dirname(os.path.abspath(tl_path))
-        plan = validate(load_timeline(tl_path), root, limits)
+        tl = load_timeline(tl_path)
+        if isinstance(tl, dict) and tl.get("version") == 3 and not isinstance(tl.get("version"), bool):
+            sys.modules.setdefault("render", sys.modules[__name__])   # one RenderError class, script or module
+            import compose      # timeline v3 (vertical Shorts); v1/v2 never load it
+            plan = compose.validate(tl, root, limits)
+            public, do_render = compose.public_plan, compose.render
+        else:
+            plan = validate(tl, root, limits)
+            public, do_render = _public_plan, render
         if "--confirm" not in a:
             raise RenderError("rendering needs --confirm; the timeline is valid, plan attached",
-                              status="confirm_required", plan=_public_plan(plan))
+                              status="confirm_required", plan=public(plan))
         out = _flag(a, "--output")
         if not out: raise RenderError("--output is required")
-        result = render(plan, out, "--overwrite" in a, limits)
+        result = do_render(plan, out, "--overwrite" in a, limits)
         print(json.dumps(result, indent=1))
         return 0
     except RenderError as e:
