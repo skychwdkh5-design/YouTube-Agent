@@ -10,7 +10,7 @@ and never edits them. The audience strategy in `CLAUDE.md` applies to every stag
                  │
 /yt-captions ► captions/captions.srt + .vtt + .json               (local, free)
                  │
-/yt-render ──► final.mp4                                           (local, --confirm)
+/yt-render ──► final.mp4: picture + narration + burned-in captions + credit  (local, --confirm)
                  │
 /yt-qc     ──► PASS / FAIL report
 ```
@@ -67,30 +67,31 @@ path is where a forced aligner or speech-to-text would plug in later.
 
 ## 4. → yt-render: `timeline.json`
 
-yt-render v1 renders stills only. It already reserves the keys below and rejects them with
-`"status": "unsupported"` until the render phase that adds them. When that lands, the narration
-and captions plug in like this, with no change to the files above:
+yt-render produces the finished file in one step. Narration, captions and the credit go in the same
+timeline as the clips, with no change to the files above and no FFmpeg step outside the skills:
 
 ```json
 {
-  "version": 2,
+  "version": 1,
   "clips": [ ... ],
-  "audio": {
-    "voice": [{"src": "voice/narration.wav", "start": 0.0,
-               "meta": "voice/narration.voice.json"}],
-    "music": [],
-    "sfx": []
-  },
-  "subtitles": {"src": "captions/captions.srt", "burn_in": false}
+  "audio": {"voice": [{"src": "voice/narration.wav", "start": 0.0,
+                       "meta": "voice/narration.voice.json"}]},
+  "subtitles": {"src": "captions/captions.srt", "burn_in": true},
+  "credit": {}
 }
 ```
 
-- The video length comes from the clips. The narration `duration` is the minimum the clips must cover,
-  and yt-render will check this rather than cut speech.
-- `burn_in: false` keeps captions as a separate track for upload. `true` burns them into the
-  picture with FFmpeg's `subtitles` filter (Shorts).
-- yt-qc then gains checks against `voice.json` (audio duration ≥ narration) and `captions.json`
-  (cues inside the video length).
+- The video length comes from the clips. The narration must fit inside it (`start + duration`);
+  otherwise the render is refused instead of cutting speech. Narration timing is sample-exact;
+  levelling is one constant gain to -16 LUFS (true peak ≤ -1.5 dBFS).
+- `meta` ties the audio to its yt-voice metadata (`audio_sha256`, duration), so the captions built
+  from those word timings cannot drift.
+- `burn_in: true` draws the captions into the picture. `false` only validates them; the same SRT is
+  then uploaded as a caption track.
+- `credit: {}` draws the clips' `credit` strings (the USGS Landsat credit) on screen.
+- `audio.music` and `audio.sfx` are still refused: there is no licensed music source, so nothing
+  is ever added that the channel has no right to use.
+- Then `/yt-qc final.mp4 --timeline timeline.json` checks the file.
 
 ## Rules every stage keeps
 
