@@ -142,6 +142,32 @@ The plan and the render manifest carry `compositions`, the plan warns on a miss,
 `/yt-qc --profile short` checks it (fewer than 3 compositions in the first 10 s fails; the reset
 count and the 6 s hold warn). Future visual sources will declare themselves as resets the same way.
 
+## Shorts format rule: visual novelty
+
+A composition reset is not necessarily a visual novelty reset. Zooming, relocating or cropping can make
+a new picture of the same visual idea: wide green irrigation circles, then close green circles, then
+another wide view of green circles is three compositions but one idea - "more of the same green
+circles". Green landscape, then infrared lava, then a black lava field, then a changed coastline is four
+different ideas.
+
+So each storyboard shot carries a `visual_family`: a short, story-specific name for what the viewer is
+looking at (`empty_desert`, `irrigation_growth_timelapse`, `pivot_field_closeup`, `lava_infrared`,
+`lava_field`, `coastline_change`, `reservoir_before_after`). It is assigned by the storyboard author, not
+by image analysis, and there is no global list. A wipe, flip or image layer may carry its own family from
+its start. Changing only the zoom, camera centre, crop, year, text, labels, numbers, arrows or captions
+keeps the same family; a different idea, state, mechanism or kind of evidence is a new one.
+
+Targets for a 45-60 s Short (creative warnings, never failures):
+
+- first 10 s: preferably at least 3 visual families;
+- whole Short: preferably at least 6 family transitions;
+- no family on screen for more than about 10 continuous seconds, unless that family transforming is the
+  event (time inside its own flip or wipe does not count).
+
+yt-render reports `visual_novelty` in the plan, result and manifest and warns on a miss;
+`/yt-qc --profile short` recounts it from the manifest. Timelines without tags skip the rule, so earlier
+productions keep their manifests and QC results.
+
 ## Rules every stage keeps
 
 - JSON on stdout, structured errors, no tracebacks.

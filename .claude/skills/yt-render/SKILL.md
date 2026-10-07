@@ -133,6 +133,14 @@ and 2 never touch this path and still render byte-identically.
   wipe, timelapse or material camera move is exempt). The plan, the result and the manifest carry
   `compositions` (resets, segments, longest static hold); misses are warnings. Lightweight
   storyboard arithmetic - no image analysis.
+- **Visual families** (optional): tag each shot with `visual_family` - a short snake_case name for the
+  visual idea on screen (`empty_desert`, `lava_infrared`, `coastline_change`), chosen per story. A wipe,
+  flip or image layer may carry its own `visual_family` from its start (a wipe to the empty past).
+  A composition reset is a new picture; a **visual novelty reset** is a new idea. Zoom, relocation,
+  crop, year, text, numbers, arrows or captions on the same idea stay in the same family. Targets: >= 3
+  families in the first 10 s, >= 6 family transitions, no family over 10 s unless it is transforming
+  (time inside its flip or wipe is exempt). Misses are warnings. Tag every shot or none; untagged
+  timelines skip the rule and their plan, result and manifest are unchanged.
 - **Captions** are drawn by the renderer in big Inter Black. They go in the lower band, or in the
   upper band when a shot's `focus` box would be covered, and always inside the Shorts safe area
   (top 8 %, bottom 22 %, right 12 %).

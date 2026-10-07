@@ -51,7 +51,10 @@ every caption inside the Shorts safe area, a source credit on every shot, and co
 at least 3 distinct compositions in the first 10 s (`compositions_first_10s`, fail), about 7-10
 resets (`composition_resets`, warn) and no composition held over 6 s (`composition_hold`, warn).
 They are recounted from the manifest's reset list; a manifest rendered before the rule has no
-`compositions` block and the check is skipped. `--contact-sheet`
+`compositions` block and the check is skipped.
+When the storyboard tags `visual_family`, the manifest's `visual_novelty` runs are also checked - warnings
+only: `visual_families_first_10s` (>= 3), `visual_family_transitions` (>= 6) and `visual_family_dominance`
+(no family over 10 s unless it is transforming). Untagged manifests skip it. `--contact-sheet`
 writes the first frame plus the middle of every shot, labelled, for review.
 
 ## Adding checks later

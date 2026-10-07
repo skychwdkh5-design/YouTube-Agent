@@ -195,6 +195,31 @@ class ShortProfile(Base):
         self.assertEqual((ids["compositions_first_10s"]["actual"], ids["composition_hold"]["actual"]), (1, 12.0))
         self.assertEqual(code, 1)
 
+    def test_visual_novelty_from_manifest(self):
+        p = self.vertical()
+        ids = {c["id"]: c for c in run([p, "--profile", "short", "--manifest",
+                                        self.manifest(os.path.join(self.dir, "old.json"))])[1]["checks"]}
+        self.assertEqual(ids["visual_novelty"]["status"], "skip")             # untagged manifests skip
+
+        fams = ["fields", "empty", "timelapse", "closeup", "basin", "aquifer", "fields_2025"]
+        good = {"runs": [{"family": f, "start": i * 3.0, "end": i * 3.0 + 3, "untransformed": 3.0} for i, f in enumerate(fams)]}
+        code, d = run([p, "--profile", "short", "--manifest",
+                       self.manifest(os.path.join(self.dir, "good.json"), visual_novelty=good)])
+        ids = {c["id"]: c for c in d["checks"]}
+        self.assertEqual([ids[k]["status"] for k in ("visual_families_first_10s", "visual_family_transitions",
+                                                     "visual_family_dominance")], ["pass", "pass", "pass"])
+        self.assertEqual(ids["visual_family_transitions"]["actual"], 6)
+
+        same = {"transitions": 9, "runs": [{"family": "green_circles", "start": 0, "end": 30, "untransformed": 30.0},
+                                           {"family": "empty", "start": 30, "end": 33, "untransformed": 3.0}]}
+        code, d = run([p, "--profile", "short", "--manifest",
+                       self.manifest(os.path.join(self.dir, "same.json"), visual_novelty=same)])
+        ids = {c["id"]: c for c in d["checks"]}
+        self.assertEqual([ids[k]["status"] for k in ("visual_families_first_10s", "visual_family_transitions",
+                                                     "visual_family_dominance")], ["warn", "warn", "warn"])
+        self.assertEqual(ids["visual_family_transitions"]["actual"], 1)      # recounted, summary ignored
+        self.assertFalse(any(c["status"] == "fail" and c["id"].startswith("visual") for c in d["checks"]))
+
     def test_bad_profile_and_sheet_without_manifest(self):
         p = self.vertical()
         self.assertEqual(run([p, "--profile", "tall"])[0], 2)

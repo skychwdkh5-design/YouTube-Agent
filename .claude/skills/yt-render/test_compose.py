@@ -183,6 +183,59 @@ class Compositions(Base):
         self.assertFalse(any("holds" in w for w in p["warnings"]))
 
 
+class VisualNovelty(Base):
+    """A new composition of the same visual idea is not new: visual_family is a storyboard tag."""
+    def plan(self, shots, seconds):
+        code, d = run(["--timeline", self.timeline(shots, end={"seconds": seconds})])
+        self.assertEqual(d["status"], "confirm_required", d)
+        return d["plan"]
+
+    def test_untagged_timelines_skip_the_rule(self):
+        p = self.plan([self.shot(0), self.shot(2, camera={"center": CENTER, "width_km": 5})], 4)
+        self.assertNotIn("visual_novelty", p)
+        self.assertFalse(any("visual famil" in w for w in p["warnings"]))
+
+    def test_new_compositions_of_one_family_are_not_novelty(self):
+        moved = [CENTER[0] + 0.06, CENTER[1]]
+        p = self.plan([self.shot(0, visual_family="green_circles"),
+                       self.shot(4, camera={"center": CENTER, "width_km": 5}, visual_family="green_circles"),
+                       self.shot(8, camera={"center": moved, "width_km": 6}, visual_family="green_circles")], 12)
+        self.assertEqual(p["compositions"]["composition_resets"], 2)          # two new pictures...
+        v = p["visual_novelty"]
+        self.assertEqual((v["transitions"], v["families_first_10s"]), (0, 1))  # ...one visual idea
+        self.assertEqual(v["longest_family_run"]["untransformed"], 12.0)
+        w = " | ".join(p["warnings"])
+        self.assertIn("only 1 visual families in the first 10 s", w)
+        self.assertIn("0 visual-family transitions", w)
+        self.assertIn("visual family 'green_circles' holds 12.0s", w)
+
+    def test_layer_family_and_transformation(self):
+        flip = {"type": "flip", "assets": ["a", "b", "a", "b", "a", "b", "a", "b", "a", "b", "a", "b"], "step": 1.0}
+        p = self.plan([self.shot(0, visual_family="fields_now"),
+                       self.shot(2, visual_family="fields_now",
+                                 layers=[{"type": "wipe", "from": "b", "to": "a", "t": [1.0, 2.0],
+                                          "visual_family": "empty_desert"}]),
+                       self.shot(5, visual_family="growth_timelapse", layers=[flip]),
+                       self.shot(17, visual_family="fields_now", camera={"center": CENTER, "width_km": 6})], 19)
+        v = p["visual_novelty"]
+        self.assertEqual([(r["family"], r["start"]) for r in v["runs"]],
+                         [("fields_now", 0.0), ("empty_desert", 3.0), ("growth_timelapse", 5.0), ("fields_now", 17.0)])
+        self.assertEqual((v["transitions"], v["families_first_10s"]), (3, 3))
+        tl = v["runs"][2]
+        self.assertEqual((tl["seconds"], tl["untransformed"]), (12.0, 0.0))  # 12 s, all of it transforming
+        self.assertFalse(any("holds" in w and "visual family" in w for w in p["warnings"]))
+        self.assertIn("3 visual-family transitions (target >= 6)", " | ".join(p["warnings"]))
+
+    def test_tags_must_be_complete_and_well_formed(self):
+        code, d = run(["--timeline", self.timeline([self.shot(0, visual_family="a"), self.shot(1)], end={"seconds": 2})])
+        self.assertEqual(d["status"], "error"); self.assertIn("visual_family is set on some shots", d["error"])
+        code, d = run(["--timeline", self.timeline([self.shot(0, visual_family="Lava Field!")], end={"seconds": 2})])
+        self.assertEqual(d["status"], "error"); self.assertIn("snake_case", d["error"])
+        code, d = run(["--timeline", self.timeline([self.shot(0, visual_family="x", layers=[
+            {"type": "image", "asset": "b"}, {"type": "label", "text": "x", "visual_family": "y"}])], end={"seconds": 2})])
+        self.assertEqual(d["status"], "error")                                # only image/flip/wipe carry a family
+
+
 class Rendering(Base):
     def voice(self, seconds=1.0):
         path = os.path.join(self.dir, "n.wav")
@@ -223,6 +276,8 @@ class Rendering(Base):
         self.assertEqual(man["compositions"]["rule"], "composition-reset/1")
         self.assertEqual([x["kind"] for x in man["compositions"]["resets"]], ["wipe"])   # 12 -> 10 km is no reset
         self.assertEqual(d["composition_resets"], 1)
+        self.assertNotIn("visual_novelty", man)                               # untagged: block absent
+        self.assertNotIn("visual_family", man["shots"][0])
         for cb in man["caption_boxes"]:
             x0, y0, x1, y1 = cb["box"]
             self.assertTrue(1920 * 0.08 <= y0 and y1 <= 1920 * 0.78 and x1 <= 1080 * 0.88)
