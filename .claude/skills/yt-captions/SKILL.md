@@ -62,6 +62,12 @@ A single word longer than `--max-chars` gets its own cue and a warning.
 Word splitting is on whitespace. A language written without spaces needs its word timings from
 the provider or an aligner; the builder itself is language-neutral.
 
+## Preset `short`
+
+`--preset short` is for vertical Shorts: at most 32 characters over 2 lines per cue, 0.5-2.8 s
+on screen, 0.45 s pause preference. The same phrase rules apply. A short complete sentence
+("Lake Mead.") is a cue of its own, not a stub to merge.
+
 ## Where it fits
 
 `/yt-script` → `/yt-voice` → **`/yt-captions`** → `/yt-render` (burn-in) and the upload step

@@ -5,7 +5,7 @@ description: >-
   and Landsat frames with Ken Burns pan/zoom and crossfades, the yt-voice narration, burned-in
   yt-captions subtitles and the on-screen source credit, 1920x1080 30 fps H.264 + AAC. Use for
   "render this", "make the video", "turn these images into a video", or any request for an actual
-  video file. Rendering needs --confirm. Not for edit lists from a transcript (that is /yt-edit).
+  video file. Timeline version 3 renders vertical 1080x1920 Shorts from yt-geo stacks. Rendering needs --confirm. Not for edit lists from a transcript (that is /yt-edit).
 ---
 
 # yt-render
@@ -90,6 +90,56 @@ screen wherever the imagery is.
 **Not supported yet:** `type: "video"`, `audio.music`, `audio.sfx`, `overlays`. They are refused
 with `"status": "unsupported"` rather than silently dropped. There is no music source in the
 pipeline, so a render has narration or silence - never unlicensed music.
+
+## Timeline version 3 - vertical Shorts
+
+`"version": 3` renders a 1080x1920, 30 fps Short from imagery aligned with `/yt-geo`. Timelines 1
+and 2 never touch this path and still render byte-identically.
+
+```json
+{"version": 3, "profile": "short", "grid": "stack/grid.json",
+ "assets": {"y2000": {"src": "stack/y2000.png", "label": "2000", "credit": "Landsat 7 · USGS"},
+            "water2000": {"src": "geo/water_y2000.png", "kind": "mask"}},
+ "voice": {"src": "voice/narration.wav", "meta": "voice/narration.voice.json"},
+ "captions": {"src": "captions/captions.srt", "preset": "short"},
+ "end": {"after_last_word": 1.6, "min_total": 45},
+ "shots": [{"id": "hook", "start": 0, "info": "what is new on screen",
+            "camera": {"from": {"center": [lon, lat], "width_km": 38}, "to": {...}},
+            "layers": [{"type": "image", "asset": "y2026"},
+                       {"type": "fill", "mask": "water2000", "minus": "water2026", "color": "#FF7A28"},
+                       {"type": "label", "text": "2026", "style": "year", "slot": "top"}]},
+           {"id": "proof", "start": {"word": 7}, "camera": {...},
+            "layers": [{"type": "wipe", "from": "y2026", "to": "y2000", "t": [0, 0.8]}]}]}
+```
+
+- **Shots** are absolute. `start` is seconds or a word anchor `{"word": i, "edge": "start|end",
+  "offset": s}` resolved from the yt-voice word timings; a shot ends where the next begins. The
+  first shot starts at 0 - the first frame is the hook.
+- **Camera** in longitude/latitude with a width in km (height follows 9:16). Moves ease and zoom
+  logarithmically with sub-pixel crops. A view that leaves the imagery is refused.
+- **Layers:** `image`, `flip` (a sequence of dates, `step` seconds each, year label on top),
+  `wipe` (`from` → `to` over `t`), `fill` / `outline` (from masks, drawn in screen pixels),
+  `label` (`style` year/stat/tag/legend, `slot` top/upper/middle, optional `sub`), `arrow` and
+  `pin` (geo-anchored). Every layer can have `t: [start, end]` within its shot and an `info` text.
+  Layers at `t = 0` are visible from the shot's first frame.
+- **Information events** (shot `info`, layer `info`, every flip step) are counted. The plan
+  warns under 5 in the first 10 s.
+- **Composition resets** are counted separately: new information is not a new composition. A reset
+  is a cut or camera move to a materially different view (zoom >= 1.5x, or the centre moved >= 35 %
+  of the frame width), a full-frame `wipe`, or a timelapse (`flip` of >= 3 dates, step <= 1 s).
+  Labels, numbers, outlines, fills, arrows, pins, captions and a two-date swap on the same view are
+  not. A continuous move counts once; changes within 0.75 s are one reset. Targets: >= 3 distinct
+  compositions in the first 10 s, about 7-10 resets, no composition held over 6 s (time inside a
+  wipe, timelapse or material camera move is exempt). The plan, the result and the manifest carry
+  `compositions` (resets, segments, longest static hold); misses are warnings. Lightweight
+  storyboard arithmetic - no image analysis.
+- **Captions** are drawn by the renderer in big Inter Black. They go in the lower band, or in the
+  upper band when a shot's `focus` box would be covered, and always inside the Shorts safe area
+  (top 8 %, bottom 22 %, right 12 %).
+- **Credits per shot** come from the visible images' `credit` (e.g. "Landsat 7 · USGS / Landsat 9 · USGS").
+- Next to the MP4 the renderer writes `<name>.manifest.json`: shots, credits, information events,
+  caption boxes and warnings. `/yt-qc --profile short` reads it.
+- Not built yet (FORMAT SPEC v1): music, sound effects, LONG 16:9 profile, locator maps, scale bars.
 
 ## Safety
 

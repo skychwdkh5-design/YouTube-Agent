@@ -116,6 +116,91 @@ class QC(Base):
         self.assertEqual((code, d["summary"]["expected_duration"]), (0, 2.0))
 
 
+@unittest.skipUnless(HAVE_FF, "ffmpeg/ffprobe not installed")
+class ShortProfile(Base):
+    def vertical(self, name="v.mp4", seconds=2, src="testsrc2", black_head=0):
+        p = os.path.join(self.dir, name)
+        vf = f"drawbox=0:0:iw:ih:black:fill:enable='lt(t,{black_head})'" if black_head else "null"
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", f"{src}=s=1080x1920:r=30:d={seconds}",
+                        "-f", "lavfi", "-i", f"sine=f=440:d={seconds}", "-vf", vf, "-c:v", "libx264",
+                        "-pix_fmt", "yuv420p", "-c:a", "aac", "-shortest", p], check=True)
+        return p
+
+    def manifest(self, path, **over):
+        m = {"width": 1080, "height": 1920, "duration": 2.0,
+             "safe": {"top": 0.08, "bottom": 0.22, "right": 0.12, "left": 0.06},
+             "info_events": [{"t": t} for t in (0, 0.5, 1, 1.5, 1.9)],
+             "caption_boxes": [{"cue": 1, "box": [200, 1150, 880, 1300]}],
+             "shots": [{"id": "s1", "start": 0, "end": 1, "credit": "Landsat 9 · USGS"},
+                       {"id": "s2", "start": 1, "end": 2, "credit": "Landsat 7 · USGS"}]}
+        m.update(over)
+        with open(path, "w") as f: json.dump(m, f)
+        return path
+
+    def test_profile_sets_vertical_spec_and_short_checks(self):
+        p = self.vertical()
+        code, d = run([p, "--profile", "short", "--manifest", self.manifest(p[:-4] + ".manifest.json")])
+        ids = {c["id"]: c["status"] for c in d["checks"]}
+        self.assertEqual(ids["resolution"], "pass")
+        self.assertEqual(ids["short_duration"], "fail")                 # 2 s is not a Short
+        for cid in ("black_frames", "freezes", "audio_starts", "info_events_first_10s",
+                    "captions_in_safe_zone", "shot_credits", "manifest_matches"):
+            self.assertEqual(ids[cid], "pass", cid)
+        self.assertIn(ids["loudness"], ("pass", "warn"))
+        self.assertEqual(code, 1)
+
+    def test_black_frames_and_manifest_failures(self):
+        p = self.vertical("b.mp4", black_head=0.5)
+        m = self.manifest(os.path.join(self.dir, "m.json"),
+                          info_events=[{"t": 0}], caption_boxes=[{"cue": 3, "box": [100, 1700, 900, 1800]}],
+                          shots=[{"id": "s1", "credit": None}])
+        code, d = run([p, "--profile", "short", "--manifest", m])
+        ids = {c["id"]: c["status"] for c in d["checks"]}
+        for cid in ("black_frames", "info_events_first_10s", "captions_in_safe_zone", "shot_credits"):
+            self.assertEqual(ids[cid], "fail", cid)
+
+    def test_manifest_found_next_to_video_and_contact_sheet(self):
+        p = self.vertical()
+        self.manifest(p[:-4] + ".manifest.json")
+        sheet = os.path.join(self.dir, "sheet.jpg")
+        code, d = run([p, "--profile", "short", "--contact-sheet", sheet])
+        self.assertEqual(d["contact_sheet"], sheet)
+        self.assertTrue(os.path.getsize(sheet) > 1000)
+        self.assertNotEqual({c["id"]: c["status"] for c in d["checks"]}["manifest"] if any(
+            c["id"] == "manifest" for c in d["checks"]) else "found", "skip")
+
+    def test_composition_resets_from_manifest(self):
+        p = self.vertical()
+        old = self.manifest(os.path.join(self.dir, "old.json"))              # rendered before the rule
+        ids = {c["id"]: c for c in run([p, "--profile", "short", "--manifest", old])[1]["checks"]}
+        self.assertEqual(ids["composition_resets"]["status"], "skip")
+        self.assertNotIn("compositions_first_10s", ids)
+
+        good = {"resets": [{"t": t, "shot": f"s{i}", "kind": "cut"} for i, t in enumerate((3, 6, 9, 15, 21, 27, 33, 39))],
+                "segments": [{"start": 0, "end": 3, "static_hold": 3.0}, {"start": 39, "end": 45, "static_hold": 5.5}]}
+        m = self.manifest(os.path.join(self.dir, "good.json"), compositions=good)
+        ids = {c["id"]: c for c in run([p, "--profile", "short", "--manifest", m])[1]["checks"]}
+        self.assertEqual([ids[k]["status"] for k in ("compositions_first_10s", "composition_resets", "composition_hold")],
+                         ["pass", "pass", "pass"])
+        self.assertEqual((ids["compositions_first_10s"]["actual"], ids["composition_resets"]["actual"]), (4, 8))
+
+        # the summary fields are ignored: QC recounts from the reset list
+        bad = {"composition_resets": 9, "distinct_first_10s": 5, "resets": [{"t": 12, "kind": "cut"}],
+               "segments": [{"start": 0, "end": 12, "static_hold": 12.0}]}
+        m = self.manifest(os.path.join(self.dir, "bad.json"), compositions=bad)
+        code, d = run([p, "--profile", "short", "--manifest", m])
+        ids = {c["id"]: c for c in d["checks"]}
+        self.assertEqual([ids[k]["status"] for k in ("compositions_first_10s", "composition_resets", "composition_hold")],
+                         ["fail", "warn", "warn"])
+        self.assertEqual((ids["compositions_first_10s"]["actual"], ids["composition_hold"]["actual"]), (1, 12.0))
+        self.assertEqual(code, 1)
+
+    def test_bad_profile_and_sheet_without_manifest(self):
+        p = self.vertical()
+        self.assertEqual(run([p, "--profile", "tall"])[0], 2)
+        self.assertEqual(run([p, "--contact-sheet", os.path.join(self.dir, "s.jpg")])[0], 2)
+
+
 class Args(Base):
     def test_bad_args_are_json(self):
         for argv in (["a.mp4", "--expected-duration", "x"], ["a.mp4", "--fps", "nan"],

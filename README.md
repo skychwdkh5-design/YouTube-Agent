@@ -6,7 +6,7 @@ Claude Code workspace for running a YouTube channel.
 
 Each skill lives in `.claude/skills/<name>/` (a `SKILL.md` plus any helper scripts):
 `yt-audit`, `yt-chapters`, `yt-comment`, `yt-edit`, `yt-package`, `yt-plan`, `yt-retention`,
-`yt-script`, `yt-seo`, `yt-shorts`, `yt-viral`, `yt-satellite`, `yt-render`, `yt-qc`, `yt-voice` and `yt-captions`.
+`yt-script`, `yt-seo`, `yt-shorts`, `yt-viral`, `yt-satellite`, `yt-geo`, `yt-render`, `yt-qc`, `yt-voice` and `yt-captions`.
 
 ### yt-satellite (optional)
 
@@ -44,3 +44,12 @@ python3 .claude/skills/yt-voice/voice.py --script script.md --output voice/narra
 python3 .claude/skills/yt-captions/captions.py --voice voice/narration.voice.json --out-dir captions/
 python3 .claude/skills/yt-voice/test_voice.py && python3 .claude/skills/yt-captions/test_captions.py
 ```
+
+### Vertical Shorts (MVP v0.1)
+
+`yt-geo` aligns several Landsat dates on one grid; `yt-render` timeline version 3 renders a
+1080x1920 Short (geographic camera, wipes, year flips, outlines, labels, word-anchored shots,
+mobile-safe captions, per-shot credits); `yt-qc --profile short` checks it, including the
+composition-reset rule (new information is not a new composition: at least 3 distinct compositions
+in the first 10 s, about 7-10 resets, no composition held over 6 s). See
+[`docs/production-pipeline.md`](docs/production-pipeline.md).

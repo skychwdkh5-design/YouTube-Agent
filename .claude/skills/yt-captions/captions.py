@@ -4,6 +4,7 @@
     python3 captions.py --voice voice/narration.voice.json --out-dir captions/
     python3 captions.py --words words.json --out-dir captions/ --max-chars 84 --max-duration 6
     python3 captions.py --voice v.json --out-dir captions/ --overwrite
+    python3 captions.py --voice v.json --out-dir captions/ --preset short    # vertical Shorts
 
 Input is word-level timing - the "words" list from a yt-voice metadata file, or any JSON list of
 {"text", "start", "end"} (so a later forced-alignment or Whisper step can feed it too). Captions
@@ -25,6 +26,9 @@ import json, math, os, re, sys, tempfile
 
 SCHEMA = "yt-captions/1"
 DEFAULTS = {"max_chars": 84, "max_lines": 2, "max_duration": 6.0, "min_duration": 0.8, "pause": 0.6}
+# --preset short: vertical 9:16 video - big text, two short lines, fast cues
+PRESETS = {"default": DEFAULTS,
+           "short": {"max_chars": 32, "max_lines": 2, "max_duration": 2.8, "min_duration": 0.5, "pause": 0.45}}
 # sentence and clause marks for English and the scripts most likely next; whitespace word
 # splitting means languages written without spaces need word timings from the provider
 SENTENCE_END = tuple(".!?…。！？؟")
@@ -106,7 +110,9 @@ def break_cost(words, k, n_block, cfg, language):
     """Cost of ending a cue (or a line) after words[k]. Low = a natural phrase boundary."""
     w, nxt = words[k]["text"], words[k + 1]["text"]
     cost = 6.0
-    if _ends(w, CLAUSE_END):
+    if _ends(w, SENTENCE_END):
+        cost -= 6                                        # a short sentence kept in a block: "Lake Mead. | America's ..."
+    elif _ends(w, CLAUSE_END):
         cost -= 5
     elif words[k + 1]["start"] - words[k]["end"] > cfg["pause"]:
         cost -= 4
@@ -146,8 +152,9 @@ def _segment(block, cfg, language):
             cost = best[i] + 10.0
             if j < n:
                 cost += break_cost(block, j - 1, n, cfg, language)
-            if not (i == 0 and j == n) and length < 18:
-                cost += 6                                # avoid stub cues inside a sentence
+            whole_sentence = _ends(block[j - 1]["text"], SENTENCE_END) and (i == 0 or _ends(block[i - 1]["text"], SENTENCE_END))
+            if not (i == 0 and j == n) and length < 18 and not whole_sentence:
+                cost += 6                                # avoid stub cues inside a sentence ("Lake Mead." is not a stub)
             if cost < best[j]:
                 best[j], back[j] = cost, i
     cuts, j = [], n
@@ -359,15 +366,19 @@ def main(argv=None):
         print(__doc__); return 0
     try:
         valued = {"--voice", "--words", "--out-dir", "--language", "--max-chars", "--max-lines",
-                  "--max-duration", "--min-duration", "--pause"}
+                  "--max-duration", "--min-duration", "--pause", "--preset"}
         vals = {i + 1 for i, x in enumerate(a[:-1]) if x in valued}
         unknown = [x for i, x in enumerate(a) if i not in vals and x not in valued | {"--overwrite"}]
         if unknown: raise CaptionError(f"unknown argument(s): {unknown}")
-        cfg = {"max_chars": _num(a, "--max-chars", DEFAULTS["max_chars"], 10, int),
-               "max_lines": _num(a, "--max-lines", DEFAULTS["max_lines"], 1, int),
-               "max_duration": _num(a, "--max-duration", DEFAULTS["max_duration"], 0.5),
-               "min_duration": _num(a, "--min-duration", DEFAULTS["min_duration"], 0),
-               "pause": _num(a, "--pause", DEFAULTS["pause"], 0)}
+        preset = _flag(a, "--preset") or "default"
+        if preset not in PRESETS:
+            raise CaptionError(f"--preset must be one of {sorted(PRESETS)}")
+        base = PRESETS[preset]
+        cfg = {"max_chars": _num(a, "--max-chars", base["max_chars"], 10, int),
+               "max_lines": _num(a, "--max-lines", base["max_lines"], 1, int),
+               "max_duration": _num(a, "--max-duration", base["max_duration"], 0.5),
+               "min_duration": _num(a, "--min-duration", base["min_duration"], 0),
+               "pause": _num(a, "--pause", base["pause"], 0)}
         if cfg["max_lines"] > 3: raise CaptionError("--max-lines must be 1, 2 or 3")
         if cfg["min_duration"] > cfg["max_duration"]:
             raise CaptionError("--min-duration cannot be longer than --max-duration")

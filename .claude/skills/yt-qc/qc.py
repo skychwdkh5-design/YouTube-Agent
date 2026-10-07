@@ -11,11 +11,19 @@ Prints JSON with "result": "PASS" or "FAIL" and one entry per check. Exit code 0
 Defaults match the yt-render v1 spec: 1920x1080, 30 fps, H.264 + AAC in an MP4, under 2000 MB.
 Override with --width/--height/--fps/--vcodec/--acodec/--max-mb.
 
+--profile short (vertical Shorts): 1080x1920, 35-60 s (45-55 target, warn), no black frames,
+static freezes (warn 1.5 s, fail 2.5 s), loudness (warn outside -16..-12 LUFS), audio within
+0.5 s, and - from the render manifest (<video>.manifest.json or --manifest) - >= 5 information
+events in the first 10 s, >= 3 distinct compositions in the first 10 s (fail), about 7-10
+composition resets and no composition held over 6 s (warn), captions inside the Shorts safe area
+and a source credit on every shot.
+--contact-sheet out.jpg writes the first frame plus the middle of every shot.
+
 Each check is one function in CHECKS returning {"id", "status", "expected", "actual", "detail"}
 with status pass / fail / warn / skip. Only "fail" fails the file. Later checks (loudness,
 black frames, silence, subtitles, licence manifest) are added as more functions in the same list.
 """
-import json, math, os, subprocess, sys
+import json, math, os, re, subprocess, sys, tempfile
 
 DEFAULTS = {"width": 1920, "height": 1080, "fps": 30.0, "vcodec": "h264", "acodec": "aac",
             "max_mb": 2000.0, "tolerance": 0.25, "timeout": 900}
@@ -137,11 +145,155 @@ def check_decode(ctx):
 
 CHECKS = [check_file, check_container, check_streams, check_duration, check_decode]
 
+# --- profile "short" (vertical YouTube Shorts) ---------------------------------------------------
+PROFILES = {"short": {"width": 1080, "height": 1920, "fps": 30.0, "min_s": 35.0, "max_s": 60.0,
+                      "target": (45.0, 55.0), "black_s": 0.1, "freeze_warn": 1.5, "freeze_fail": 2.5,
+                      "lufs": (-16.0, -12.0), "first_audio_s": 0.5, "events_first_10s": 5,
+                      "compositions_first_10s": 3, "composition_resets": (7, 10), "composition_hold_s": 6.0}}
+
+
+def check_short_duration(ctx):
+    P, d = ctx["profile"], _f((ctx["probe"].get("format") or {}).get("duration")) or 0
+    lo, hi = P["target"]
+    return [_check("short_duration", P["min_s"] <= d <= P["max_s"], f"{P['min_s']}-{P['max_s']} s", round(d, 3)),
+            _check("short_target_window", lo <= d <= hi, f"{lo}-{hi} s", round(d, 3), warn=True)]
+
+
+def _filter_log(ctx, args):
+    r = _run(["ffmpeg", "-hide_banner", "-nostdin", "-i", ctx["path"], *args, "-f", "null", "-"], ctx["spec"]["timeout"])
+    return r.stderr
+
+
+def check_black(ctx):
+    if not ctx["video"]:
+        return [_skip("black_frames", "no video stream")]
+    log = _filter_log(ctx, ["-an", "-vf", f"blackdetect=d={ctx['profile']['black_s']}:pix_th=0.10"])
+    hits = re.findall(r"black_start:([\d.]+) black_end:([\d.]+)", log)
+    return [_check("black_frames", not hits, "none", [[float(a), float(b)] for a, b in hits] or 0)]
+
+
+def check_freeze(ctx):
+    if not ctx["video"]:
+        return [_skip("freezes", "no video stream")]
+    P = ctx["profile"]
+    log = _filter_log(ctx, ["-an", "-vf", f"freezedetect=n=0.0015:d={P['freeze_warn']}"])
+    durs = [float(x) for x in re.findall(r"freeze_duration: ?([\d.]+)", log)]
+    worst = max(durs) if durs else 0
+    if worst >= P["freeze_fail"]:
+        return [_check("freezes", False, f"< {P['freeze_fail']} s static", round(worst, 2))]
+    return [_check("freezes", worst < P["freeze_warn"], f"< {P['freeze_warn']} s static", round(worst, 2), warn=True)]
+
+
+def check_audio(ctx):
+    if not ctx["audio"]:
+        return [_skip("loudness", "no audio stream"), _skip("audio_starts", "no audio stream")]
+    P = ctx["profile"]
+    log = _filter_log(ctx, ["-vn", "-af", "ebur128=peak=true"])
+    summ = log[log.rfind("Summary:"):]
+    m = re.search(r"I:\s*(-?[\d.]+) LUFS", summ)
+    lufs = float(m.group(1)) if m else None
+    lo, hi = P["lufs"]
+    out = []
+    if lufs is None or lufs < -40:
+        out.append(_check("loudness", False, f"{lo} to {hi} LUFS", lufs, "no programme loudness - silent?"))
+    else:
+        out.append(_check("loudness", lo <= lufs <= hi, f"{lo} to {hi} LUFS", lufs,
+                          "levelling to the Shorts target needs a timing-safe limiter (not built yet)", warn=True))
+    log = _filter_log(ctx, ["-vn", "-af", "silencedetect=n=-40dB:d=0.2"])
+    first = re.search(r"silence_start: ?(-?[\d.]+)", log)
+    start = 0.0
+    if first and abs(float(first.group(1))) < 0.05:
+        end = re.search(r"silence_end: ?([\d.]+)", log)
+        start = float(end.group(1)) if end else ctx["spec"].get("duration_hint", 999)
+    out.append(_check("audio_starts", start <= P["first_audio_s"], f"<= {P['first_audio_s']} s", round(start, 3)))
+    return out
+
+
+def check_manifest(ctx):
+    m = ctx.get("manifest")
+    if not m:
+        return [_skip("manifest", "no render manifest (pass --manifest or keep <video>.manifest.json)")]
+    P, W, H = ctx["profile"], m.get("width"), m.get("height")
+    out = []
+    ev = [e for e in m.get("info_events") or [] if e["t"] < 10]
+    out.append(_check("info_events_first_10s", len(ev) >= P["events_first_10s"], f">= {P['events_first_10s']}", len(ev)))
+    safe = m.get("safe") or {}
+    bad = []
+    for c in m.get("caption_boxes") or []:
+        x0, y0, x1, y1 = c["box"]
+        if (y0 < H * safe.get("top", 0) or y1 > H * (1 - safe.get("bottom", 0)) or
+                x1 > W * (1 - safe.get("right", 0)) or x0 < W * safe.get("left", 0)):
+            bad.append(c["cue"])
+    out.append(_check("captions_in_safe_zone", not bad, "every caption inside the Shorts safe area",
+                      "ok" if not bad else {"cues": bad}))
+    missing = [s["id"] for s in m.get("shots") or [] if not s.get("credit")]
+    out.append(_check("shot_credits", not missing, "a source credit on every shot", "ok" if not missing else missing))
+    d = _f((ctx["probe"].get("format") or {}).get("duration")) or 0
+    out.append(_check("manifest_matches", abs(d - float(m.get("duration") or 0)) <= 0.1, m.get("duration"), round(d, 3)))
+    return out
+
+
+def check_compositions(ctx):
+    """Composition resets from the render manifest: a cut or camera move to a materially different
+    view, a full-frame wipe or a timelapse. New text, numbers or overlays on the same view do not
+    count. Counted from the manifest's reset list, not from its summary fields."""
+    m = ctx.get("manifest")
+    c = (m or {}).get("compositions")
+    if not c:
+        return [_skip("composition_resets", "the render manifest has no 'compositions' block "
+                      "(rendered before the composition rule; render.py's plan reports it from the timeline)")]
+    P = ctx["profile"]
+    resets = [x for x in c.get("resets") or [] if isinstance(x, dict) and _f(x.get("t")) is not None]
+    first = 1 + sum(1 for x in resets if _f(x["t"]) < 10)
+    lo, hi = P["composition_resets"]
+    holds = [x for x in c.get("segments") or [] if isinstance(x, dict) and _f(x.get("static_hold")) is not None]
+    worst = max(holds, key=lambda x: _f(x["static_hold"])) if holds else None
+    out = [_check("compositions_first_10s", first >= P["compositions_first_10s"],
+                  f">= {P['compositions_first_10s']} distinct compositions", first),
+           _check("composition_resets", lo <= len(resets) <= hi, f"about {lo}-{hi}", len(resets),
+                  [f"{x['t']}s {x.get('shot')}: {x.get('kind')}" for x in resets], warn=True)]
+    if worst is None:
+        out.append(_skip("composition_hold", "no segments in the manifest"))
+    else:
+        out.append(_check("composition_hold", _f(worst["static_hold"]) <= P["composition_hold_s"],
+                          f"<= {P['composition_hold_s']} s on one composition", _f(worst["static_hold"]),
+                          f"{worst.get('start')}-{worst.get('end')} s", warn=True))
+    return out
+
+
+SHORT_CHECKS = [check_short_duration, check_black, check_freeze, check_audio, check_manifest, check_compositions]
+
+
+def contact_sheet(path, manifest, out, timeout=300):
+    """First frame + the middle of every shot, labelled - for the human review step."""
+    from PIL import Image, ImageDraw
+    times = [(0.0, "first frame")] + [(round((s["start"] + s["end"]) / 2, 2), s["id"]) for s in manifest["shots"]]
+    tiles = []
+    with tempfile.TemporaryDirectory() as tmp:
+        for k, (t, name) in enumerate(times):
+            p = os.path.join(tmp, f"{k}.png")
+            r = _run(["ffmpeg", "-v", "error", "-y", "-ss", str(t), "-i", path, "-frames:v", "1", p], timeout)
+            if r.returncode != 0 or not os.path.exists(p):
+                raise QCError(f"contact sheet: cannot read a frame at {t}s")
+            tiles.append((Image.open(p).convert("RGB").resize((270, 480)), f"{name}  {t:.1f}s"))
+    cols = min(7, len(tiles))
+    rows = math.ceil(len(tiles) / cols)
+    sheet = Image.new("RGB", (cols * 270, rows * 510), "black")
+    d = ImageDraw.Draw(sheet)
+    for i, (im, label) in enumerate(tiles):
+        x, y = (i % cols) * 270, (i // cols) * 510
+        sheet.paste(im, (x, y))
+        d.text((x + 6, y + 488), label, fill="white")
+    sheet.save(out, quality=90)
+    return out
+
 
 # --- driver ------------------------------------------------------------------------------------
 
-def run_qc(path, spec=None, expected_duration=None, quick=False):
-    spec = dict(DEFAULTS, **(spec or {}))
+def run_qc(path, spec=None, expected_duration=None, quick=False, profile=None, manifest=None):
+    prof = PROFILES.get(profile) if profile else None
+    base = dict(DEFAULTS, **({k: prof[k] for k in ("width", "height", "fps")} if prof else {}))
+    spec = dict(base, **(spec or {}))
     path = os.path.abspath(path)
     if not os.path.exists(path):
         return {"result": "FAIL", "file": path,
@@ -170,8 +322,8 @@ def run_qc(path, spec=None, expected_duration=None, quick=False):
            "videos": videos, "audios": audios,
            "video": videos[0] if len(videos) == 1 else None,
            "audio": audios[0] if len(audios) == 1 else None,
-           "expected_duration": expected_duration, "quick": quick}
-    for fn in CHECKS:
+           "expected_duration": expected_duration, "quick": quick, "profile": prof, "manifest": manifest}
+    for fn in CHECKS + (SHORT_CHECKS if prof else []):
         checks += fn(ctx)
     fmt = probe.get("format") or {}
     v, a = ctx["video"] or {}, ctx["audio"] or {}
@@ -181,7 +333,7 @@ def run_qc(path, spec=None, expected_duration=None, quick=False):
                         "resolution": f"{v.get('width')}x{v.get('height')}" if v else None,
                         "fps": round(_rate(v.get("avg_frame_rate")), 3) if v else None,
                         "video_codec": v.get("codec_name"), "audio_codec": a.get("codec_name"),
-                        "expected_duration": expected_duration},
+                        "expected_duration": expected_duration, "profile": profile},
             "checks": checks}
 
 
@@ -219,7 +371,8 @@ def main(argv=None):
         print(__doc__); return 0
     try:
         valued = {"--timeline", "--media-root", "--expected-duration", "--width", "--height", "--fps",
-                  "--vcodec", "--acodec", "--max-mb", "--tolerance", "--timeout"}
+                  "--vcodec", "--acodec", "--max-mb", "--tolerance", "--timeout", "--profile", "--manifest",
+                  "--contact-sheet"}
         unknown = [x for x in a if x.startswith("--") and x not in valued | {"--quick"}]
         if unknown: raise QCError(f"unknown option(s): {unknown}")
         values = {a[i + 1] for i, x in enumerate(a[:-1]) if x in valued}
@@ -237,7 +390,25 @@ def main(argv=None):
         if _flag(a, "--timeline"):
             if exp is not None: raise QCError("use --timeline or --expected-duration, not both")
             exp = _timeline_duration(_flag(a, "--timeline"), _flag(a, "--media-root"))
-        report = run_qc(files[0], spec, exp, "--quick" in a)
+        profile = _flag(a, "--profile")
+        if profile is not None and profile not in PROFILES:
+            raise QCError(f"--profile must be one of {sorted(PROFILES)}")
+        manifest, mpath = None, _flag(a, "--manifest")
+        if mpath is None and profile:
+            guess = os.path.splitext(files[0])[0] + ".manifest.json"
+            mpath = guess if os.path.isfile(guess) else None
+        if mpath:
+            try:
+                with open(mpath, encoding="utf-8") as f:
+                    manifest = json.load(f)
+            except (OSError, ValueError) as e:
+                raise QCError(f"manifest unreadable: {type(e).__name__}: {e}")
+        report = run_qc(files[0], spec, exp, "--quick" in a, profile, manifest)
+        sheet = _flag(a, "--contact-sheet")
+        if sheet:
+            if not manifest:
+                raise QCError("--contact-sheet needs the render manifest")
+            report["contact_sheet"] = contact_sheet(files[0], manifest, sheet)
         print(json.dumps(report, indent=1, default=str))
         return 0 if report["result"] == "PASS" else 1
     except QCError as e:

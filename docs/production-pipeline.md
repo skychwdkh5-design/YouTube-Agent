@@ -93,6 +93,55 @@ timeline as the clips, with no change to the files above and no FFmpeg step outs
   is ever added that the channel has no right to use.
 - Then `/yt-qc final.mp4 --timeline timeline.json` checks the file.
 
+## Vertical Short (timeline v3)
+
+```
+/yt-satellite (several dates, Natural Color GeoTIFF) ──► raw/*.tif
+/yt-geo geostack.py ──► stack/<date>.png + grid.json + provenance.json   (same grid for every date)
+/yt-geo watermask.py ──► geo/water_<date>.png                            (outlines, lost-area fills)
+story/claims.json  ──► every spoken or on-screen claim, sourced, verified before TTS
+/yt-voice ──► voice/narration.wav + .voice.json
+/yt-captions --preset short ──► captions/captions.srt
+/yt-render (version 3) ──► short.mp4 + short.manifest.json
+/yt-qc --profile short --contact-sheet ──► PASS / FAIL + review sheet
+```
+
+Shots anchor to words of the narration, so the edit follows Adam's real timing. The first frame is
+the hook. Production folders (raw imagery, stacks, audio, renders) stay in `productions/`, which
+is git-ignored.
+
+## Shorts format rule: composition resets
+
+New information is not automatically a new visual composition. A Short has to reset the viewer's
+attention periodically with a picture that is materially different, not only with new words on
+the same picture.
+
+| counts as a composition reset | does not count |
+|---|---|
+| a meaningful geographic zoom in or out | changed text or a new label |
+| moving the camera somewhere else | a new year label |
+| a full-frame before/after wipe | an outline, fill, arrow or pin |
+| a rapid multi-year timelapse | a number or statistic |
+| switching from the lake view to the river system | a caption |
+| a close-up of one geographic feature | any overlay on essentially the same view |
+| a scale comparison | |
+| a different verified visual source (future) | |
+
+Targets for a 45-60 s Short:
+
+- first 10 s: at least 3 materially distinct compositions;
+- whole Short: about 7-10 composition resets;
+- no visually equivalent composition on screen for more than about 6 s, unless a continuous
+  transformation (a timelapse, a wipe, a large camera move) is itself the visual event.
+
+How it is measured - storyboard arithmetic on timeline v3, not computer vision. yt-render works it
+out from the shots' cameras and layers: a view is materially different at a zoom of 1.5x or more,
+or when its centre moves 35 % of the frame width or more; a `wipe` and a `flip` of 3 or more dates
+(step up to 1 s) are resets; a continuous move counts once; changes within 0.75 s are one reset.
+The plan and the render manifest carry `compositions`, the plan warns on a miss, and
+`/yt-qc --profile short` checks it (fewer than 3 compositions in the first 10 s fails; the reset
+count and the 6 s hold warn). Future visual sources will declare themselves as resets the same way.
+
 ## Rules every stage keeps
 
 - JSON on stdout, structured errors, no tracebacks.
