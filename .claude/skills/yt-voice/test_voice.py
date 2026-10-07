@@ -53,11 +53,15 @@ def eleven(seconds=1.0, body=None, error=None, align=True, requests=None):
     return urlopen
 
 
-def run(argv, urlopen=None, key=FAKE_KEY):
+def run(argv, urlopen=None, key=FAKE_KEY, auth_env=None):
+    """auth_env sets YT_VOICE_AUTH for this run; otherwise it is removed, so a value configured
+    in the real environment never changes what a test checks."""
     buf = io.StringIO()
     env = {"ELEVENLABS_API_KEY": key} if key is not None else {}
     with mock.patch.dict(os.environ, env, clear=False), redirect_stdout(buf):
         if key is None: os.environ.pop("ELEVENLABS_API_KEY", None)
+        if auth_env is None: os.environ.pop("YT_VOICE_AUTH", None)
+        else: os.environ["YT_VOICE_AUTH"] = auth_env
         if urlopen:
             with mock.patch.object(v.urllib.request, "urlopen", urlopen):
                 code = v.main(argv)
@@ -175,6 +179,24 @@ class Generation(Base):
         self.assertGreaterEqual(second["start"], meta["chunks"][1]["offset"])
         starts = [w["start"] for w in meta["words"]]
         self.assertEqual(starts, sorted(starts))
+
+    def test_proxy_auth_sends_no_key_and_needs_no_env(self):
+        reqs = []
+        code, d, out = run(self.args("Hello.", "--confirm", "--auth", "proxy"), eleven(0.5, requests=reqs),
+                           key=None)
+        self.assertEqual((code, d["status"]), (0, "ok"), d)
+        self.assertNotIn("Xi-api-key", reqs[0]["headers"])
+
+    def test_proxy_auth_ignores_env_key(self):
+        reqs = []
+        code, d, out = run(self.args("Hello.", "--confirm"), eleven(0.5, requests=reqs), auth_env="proxy")
+        self.assertEqual(code, 0, d)
+        self.assertNotIn("Xi-api-key", reqs[0]["headers"])
+        self.assertNotIn(FAKE_KEY, out)
+
+    def test_bad_auth_mode(self):
+        code, d, _ = run(self.args("Hello.", "--confirm", "--auth", "cookie"), eleven(0.5))
+        self.assertEqual(code, 2); self.assertIn("--auth", d["error"])
 
     def test_no_alignment_means_no_timing(self):
         code, d, _ = run(self.args("Hello.", "--confirm"), eleven(0.5, align=False))

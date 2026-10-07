@@ -9,7 +9,8 @@ Every command prints JSON. Without --confirm nothing is sent anywhere: you get t
 its character count and the request plan. With --confirm the text goes to the provider (a PAID
 request) only if it is under --max-chars (default 3000).
 
-Providers: elevenlabs (ELEVENLABS_API_KEY). A new provider is one class in PROVIDERS with a
+Providers: elevenlabs (ELEVENLABS_API_KEY, or --auth proxy / YT_VOICE_AUTH=proxy when the key is a
+network secret the session's egress proxy adds to requests). A new provider is one class in PROVIDERS with a
 synthesize() method; the output format below does not change.
 
 Output:
@@ -129,9 +130,18 @@ class Provider:
     def secrets(self):
         return [os.environ.get(self.env_key, "")] if self.env_key else []
 
+    def auth_mode(self):
+        """'env' sends the key from env_key; 'proxy' sends no key - the session's egress proxy adds
+        the credential (a configured network secret), so the key never enters this process."""
+        mode = (self.options.get("auth") or os.environ.get("YT_VOICE_AUTH") or "env").strip()
+        if mode not in ("env", "proxy"):
+            raise VoiceError(f"--auth must be 'env' or 'proxy', got {mode!r}")
+        return mode
+
     def check_ready(self):
-        if self.env_key and not os.environ.get(self.env_key, "").strip():
-            raise VoiceError(f"missing environment variable: {self.env_key}", status="missing_credentials")
+        if self.auth_mode() == "env" and self.env_key and not os.environ.get(self.env_key, "").strip():
+            raise VoiceError(f"missing environment variable: {self.env_key} (or pass --auth proxy if the "
+                             "credential is configured as a network secret)", status="missing_credentials")
 
     def describe(self):
         return {"provider": self.name}
@@ -152,14 +162,15 @@ class ElevenLabs(Provider):
                 "output_format": self.default_format, "endpoint": self.api.split("{")[0] + "{voice_id}/with-timestamps"}
 
     def synthesize(self, text, voice_id):
-        key = os.environ.get(self.env_key, "").strip()
+        key = os.environ.get(self.env_key, "").strip() if self.auth_mode() == "env" else ""
         body = {"text": text, "model_id": self.options.get("model") or self.default_model}
         if self.options.get("language_code"):
             body["language_code"] = self.options["language_code"]
         url = self.api.format(voice=voice_id) + "?output_format=" + self.default_format
-        req = urllib.request.Request(url, data=json.dumps(body).encode(), method="POST", headers={
-            "xi-api-key": key, "Content-Type": "application/json", "Accept": "application/json",
-            "User-Agent": UA})
+        headers = {"Content-Type": "application/json", "Accept": "application/json", "User-Agent": UA}
+        if key:
+            headers["xi-api-key"] = key
+        req = urllib.request.Request(url, data=json.dumps(body).encode(), method="POST", headers=headers)
         secrets = [key]
         try:
             with urllib.request.urlopen(req, timeout=self.options.get("timeout_s", 120)) as r:
@@ -171,7 +182,7 @@ class ElevenLabs(Provider):
                 detail = (d.get("message") or d.get("status")) if isinstance(d, dict) else str(d)
             except (ValueError, AttributeError):
                 pass
-            hint = {401: " (API key rejected)", 402: " (payment required)", 429: " (rate limit or quota)"}
+            hint = {401: " (API key rejected or missing a permission)", 402: " (payment required)", 429: " (rate limit or quota)"}
             raise VoiceError(_redact(f"elevenlabs HTTP {e.code}{hint.get(e.code, '')}: {detail}", secrets),
                              status="provider_error")
         except (urllib.error.URLError, TimeoutError, OSError) as e:
@@ -392,7 +403,7 @@ def main(argv=None):
     secrets = lambda: [os.environ.get(c.env_key, "") for c in PROVIDERS.values() if c.env_key]
     try:
         valued = {"--script", "--text", "--provider", "--voice-id", "--output", "--model", "--language",
-                  "--max-chars", "--max-chunk-chars", "--timeout"}
+                  "--max-chars", "--max-chunk-chars", "--timeout", "--auth"}
         flags = {"--confirm", "--overwrite", "--keep-markup"}
         vals = {i + 1 for i, x in enumerate(a[:-1]) if x in valued}
         unknown = [x for i, x in enumerate(a) if x.startswith("--") and i not in vals and x not in valued | flags]
@@ -400,7 +411,8 @@ def main(argv=None):
         options = {"max_chars": _int(a, "--max-chars", DEFAULTS["max_chars"], 1),
                    "max_chunk_chars": _int(a, "--max-chunk-chars", DEFAULTS["max_chunk_chars"], 50),
                    "timeout_s": _int(a, "--timeout", DEFAULTS["timeout_s"], 1),
-                   "model": _flag(a, "--model"), "language": _flag(a, "--language") or "en"}
+                   "model": _flag(a, "--model"), "language": _flag(a, "--language") or "en",
+                   "auth": _flag(a, "--auth")}
         if options["language"] != "en":
             options["language_code"] = options["language"]
         script, raw_text = _flag(a, "--script"), _flag(a, "--text")
