@@ -96,6 +96,62 @@ class Chunking(unittest.TestCase):
         self.assertEqual(" ".join(lines), "From orbit, the change is impossible to miss right now")
 
 
+class PhraseBreaks(unittest.TestCase):
+    """Cue and line breaks land on natural phrase boundaries without touching any timing."""
+
+    def test_proper_noun_runs_stay_together(self):
+        text = ("You have probably never noticed it, but the largest saltwater lake in the Western "
+                "Hemisphere has a ruler-straight line cut right through it.")
+        cues, srt, _, report = c.build(timed(text, wps=2.6), CFG)
+        joined = [x["text"] for x in cues]
+        self.assertFalse(any(t.endswith("Western") for t in joined), joined)
+        self.assertTrue(report["wording_preserved"])
+        for b in srt.split("\n\n"):
+            self.assertNotRegex(b, r"Western\n")
+
+    def test_no_cue_ends_on_a_function_word_when_avoidable(self):
+        text = ("Then, in 1959, a railroad causeway of rock and gravel was finished across the lake. "
+                "It changed the water on both sides of the line for good.")
+        cues, *_ = c.build(timed(text, wps=2.4), CFG)
+        for x in cues[:-1]:
+            last = c._bare(x["text"].split()[-1]).lower()
+            self.assertNotIn(last, c.GLUE["en"], [y["text"] for y in cues])
+        self.assertFalse(any(x["text"] in ("lake.", "lake") for x in cues))      # no orphan
+
+    def test_prefers_clause_marks(self):
+        text = "Around the shoreline, pale salt and bare lakebed mark where water once stood."
+        cues, *_ = c.build(timed(text, wps=2.5), dict(CFG, max_chars=60))
+        self.assertTrue(cues[0]["text"].endswith("shoreline,"), [x["text"] for x in cues])
+
+    def test_timings_untouched(self):
+        words = timed(TEXT)
+        cues, *_ = c.build(words, CFG)
+        flat = [w for x in cues for w in x["words"]]
+        self.assertEqual(flat, words)
+        for x in cues:
+            self.assertEqual(x["start_ms"], round(x["words"][0]["start"] * 1000))
+
+    def test_hard_limits_still_hold_for_long_names(self):
+        text = " ".join(["Alpha Beta Gamma Delta Epsilon Zeta Eta Theta Iota Kappa Lambda Mu Nu"] * 2) + "."
+        cues, *_ = c.build(timed(text, wps=3), dict(CFG, max_chars=40, max_duration=4.0))
+        for x in cues:
+            self.assertLessEqual(len(x["text"]), 40)
+            self.assertLessEqual(x["words"][-1]["end"] - x["words"][0]["start"], 4.0)
+
+    def test_other_language_uses_punctuation_rules_only(self):
+        text = "Hej och välkommen till sjön, som ligger långt uppe i norr och är mycket kall om vintern."
+        cues, srt, _, report = c.build(timed(text, wps=2.5), dict(CFG, max_duration=4.0), "sv")
+        self.assertTrue(report["wording_preserved"])
+        for x in cues[:-1]:
+            last = c._bare(x["text"].split()[-1])
+            self.assertFalse(last.islower() and len(last) <= 2, [y["text"] for y in cues])
+
+    def test_wrap_avoids_glue_line_break(self):
+        lines = c.wrap("in the Western Hemisphere has a ruler-straight line cut right through it.", 2, 84)
+        self.assertFalse(lines[0].endswith(" a"), lines)
+        self.assertFalse(lines[0].endswith("Western"), lines)
+
+
 class Formats(unittest.TestCase):
     def setUp(self):
         self.cues, self.srt, self.vtt, _ = c.build(timed(TEXT), CFG)

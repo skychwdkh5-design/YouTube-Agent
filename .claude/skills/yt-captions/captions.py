@@ -14,8 +14,10 @@ report) into --out-dir. Prints JSON. Exit 0 ok, 2 error.
 
 Rules, all configurable: at most --max-chars per cue (default 84) over at most --max-lines lines
 (default 2), at most --max-duration seconds (default 6.0), at least --min-duration (default 0.8)
-where the gap to the next cue allows it. Cues break at sentence ends first, then at a clause mark
-(, ; :) or a pause longer than --pause (default 0.6 s) once the cue is half full. Cues never
+where the gap to the next cue allows it. Sentence ends and long pauses always end a cue. Inside a
+sentence the whole split is chosen at once to land on natural phrase boundaries - clause marks and
+pauses first, never right after a function word ("across the | lake"), never inside a run of
+capitalised names ("Western | Hemisphere"), no lone last word - and lines are wrapped the same way. Cues never
 overlap, timestamps are always increasing, and the words - with their punctuation - are exactly the
 spoken words in order; the validation report proves it.
 """
@@ -85,33 +87,91 @@ def _ends(word, marks):
     return word.rstrip(CLOSERS).endswith(marks)
 
 
-def chunk(words, cfg):
-    """Group words into cues. Greedy, with preferred break points; never splits a word."""
-    cues, cur = [], []
+# Words a phrase does not end on: a cue or line break right after one of these splits a phrase
+# ("across the | lake"). Per language; a language without a list still gets the punctuation,
+# pause and proper-noun rules.
+GLUE = {"en": frozenset("""a an the of to in on at by for from with into onto over under about
+    across through between among around after before during without within along against toward
+    towards upon via and or but nor so as than that which who whom whose if when while where
+    because whether this these those its their our your his her my is are was were be been being
+    has have had will would can could should may might must do does did not no very more most
+    such""".split())}
 
-    def flush():
-        if cur:
-            cues.append({"words": list(cur)}); cur.clear()
 
+def _bare(word):
+    return word.strip(CLOSERS + "\"'([«“‘").rstrip(".,;:!?…")
+
+
+def break_cost(words, k, n_block, cfg, language):
+    """Cost of ending a cue (or a line) after words[k]. Low = a natural phrase boundary."""
+    w, nxt = words[k]["text"], words[k + 1]["text"]
+    cost = 6.0
+    if _ends(w, CLAUSE_END):
+        cost -= 5
+    elif words[k + 1]["start"] - words[k]["end"] > cfg["pause"]:
+        cost -= 4
+    if not _ends(w, CLAUSE_END + SENTENCE_END):
+        bare = _bare(w)
+        if bare.lower() in GLUE.get((language or "en").split("-")[0].lower(), ()):
+            cost += 12                                   # "...the | lake"
+        elif bare.isalpha() and bare.islower() and len(bare) <= 2:
+            cost += 8                                    # any language: "uppe i | norr"
+        if _bare(nxt).lower() in GLUE.get((language or "en").split("-")[0].lower(), ()):
+            cost -= 2                                    # a phrase starts: "... | where water"
+        b1, b2 = _bare(w), _bare(nxt)
+        if b1[:1].isupper() and b2[:1].isupper() and k > 0:
+            cost += 12                                   # "Western | Hemisphere"
+        if any(ch.isdigit() for ch in b1) and b2[:1].islower() and len(b2) <= 8:
+            cost += 6                                    # "400 | miles"
+    if k + 2 == n_block:
+        cost += 8                                        # a lone last word: "... | lake."
+    return cost
+
+
+def _segment(block, cfg, language):
+    """Best split of one sentence-sized block into cues (dynamic programming). Every cue keeps
+    max_chars and max_duration unless it is a single word; fewer, phrase-whole cues win."""
+    n = len(block)
+    best, back = [0.0] + [math.inf] * n, [0] * (n + 1)
+    for j in range(1, n + 1):
+        length = -1
+        for i in range(j - 1, -1, -1):
+            length += len(block[i]["text"]) + 1
+            single = j - i == 1
+            if not single and (length > cfg["max_chars"]
+                               or block[j - 1]["end"] - block[i]["start"] > cfg["max_duration"]):
+                break
+            if best[i] == math.inf:
+                continue
+            cost = best[i] + 10.0
+            if j < n:
+                cost += break_cost(block, j - 1, n, cfg, language)
+            if not (i == 0 and j == n) and length < 18:
+                cost += 6                                # avoid stub cues inside a sentence
+            if cost < best[j]:
+                best[j], back[j] = cost, i
+    cuts, j = [], n
+    while j > 0:
+        cuts.append((back[j], j)); j = back[j]
+    return [block[a:b] for a, b in reversed(cuts)]
+
+
+def chunk(words, cfg, language="en"):
+    """Group words into cues. Sentence ends and long pauses always end a cue; inside a sentence the
+    split is chosen as a whole so cues end on natural phrase boundaries. Never splits a word and
+    never changes a timing."""
+    blocks, cur = [], []
     for i, w in enumerate(words):
-        if cur:
-            text_len = len(" ".join(x["text"] for x in cur))
-            if (text_len + 1 + len(w["text"]) > cfg["max_chars"]
-                    or w["end"] - cur[0]["start"] > cfg["max_duration"]):
-                flush()
         cur.append(w)
         nxt = words[i + 1] if i + 1 < len(words) else None
-        text_len = len(" ".join(x["text"] for x in cur))
         if nxt is None:
             break
-        half = text_len >= cfg["max_chars"] / 2
-        if _ends(w["text"], SENTENCE_END) and text_len >= 12:
-            flush()
-        elif half and (_ends(w["text"], CLAUSE_END) or nxt["start"] - w["end"] > cfg["pause"]):
-            flush()
-        elif nxt["start"] - w["end"] > cfg["pause"] * 2:
-            flush()
-    flush()
+        text_len = len(" ".join(x["text"] for x in cur))
+        if (_ends(w["text"], SENTENCE_END) and text_len >= 12) or nxt["start"] - w["end"] > cfg["pause"] * 2:
+            blocks.append(cur); cur = []
+    if cur:
+        blocks.append(cur)
+    cues = [{"words": seg} for b in blocks for seg in _segment(b, cfg, language)]
 
     for c in cues:
         c["text"] = " ".join(x["text"] for x in c["words"])
@@ -134,16 +194,26 @@ def chunk(words, cfg):
     return cues
 
 
-def wrap(text, max_lines, max_chars):
-    """Split a cue into at most max_lines balanced lines without breaking words."""
+def wrap(text, max_lines, max_chars, language="en"):
+    """Split a cue into at most max_lines balanced lines without breaking words or, where the
+    balance allows, phrases."""
     if max_lines <= 1 or len(text) <= max_chars // max_lines:
         return [text]
     words = text.split(" ")
     if max_lines == 2:
+        glue = GLUE.get((language or "en").split("-")[0].lower(), ())
         best, best_cost = [text], None
         for k in range(1, len(words)):
             a, b = " ".join(words[:k]), " ".join(words[k:])
-            cost = abs(len(a) - len(b)) - (6 if _ends(words[k - 1], CLAUSE_END + SENTENCE_END) else 0)
+            prev, nxt = words[k - 1], words[k]
+            cost = abs(len(a) - len(b)) - (6 if _ends(prev, CLAUSE_END + SENTENCE_END) else 0)
+            if not _ends(prev, CLAUSE_END + SENTENCE_END):
+                if _bare(prev).lower() in glue:
+                    cost += 14
+                if _bare(prev)[:1].isupper() and _bare(nxt)[:1].isupper() and k > 1:
+                    cost += 10
+                if _bare(nxt).lower() in glue:
+                    cost -= 4
             if best_cost is None or cost < best_cost:
                 best, best_cost = [a, b], cost
         return best
@@ -164,10 +234,10 @@ def ts(ms, sep):
     return f"{h:02d}:{m:02d}:{s:02d}{sep}{ms:03d}"
 
 
-def to_srt(cues, cfg):
+def to_srt(cues, cfg, language="en"):
     blocks = []
     for i, c in enumerate(cues, 1):
-        lines = wrap(c["text"], cfg["max_lines"], cfg["max_chars"])
+        lines = wrap(c["text"], cfg["max_lines"], cfg["max_chars"], language)
         blocks.append(f"{i}\n{ts(c['start_ms'], ',')} --> {ts(c['end_ms'], ',')}\n" + "\n".join(lines))
     return "\n\n".join(blocks) + "\n"
 
@@ -176,10 +246,10 @@ def _vtt_escape(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def to_vtt(cues, cfg):
+def to_vtt(cues, cfg, language="en"):
     blocks = ["WEBVTT"]
     for c in cues:
-        lines = wrap(c["text"], cfg["max_lines"], cfg["max_chars"])
+        lines = wrap(c["text"], cfg["max_lines"], cfg["max_chars"], language)
         blocks.append(f"{ts(c['start_ms'], '.')} --> {ts(c['end_ms'], '.')}\n"
                       + "\n".join(_vtt_escape(l) for l in lines))
     return "\n\n".join(blocks) + "\n"
@@ -222,11 +292,11 @@ def parse_srt(text):
 
 
 def build(words, cfg, language=None):
-    cues = chunk(words, cfg)
+    cues = chunk(words, cfg, language or "en")
     report = validate_cues(cues, words, cfg)
     if report["problems"]:
         raise CaptionError("caption validation failed: " + "; ".join(report["problems"]), status="invalid")
-    return cues, to_srt(cues, cfg), to_vtt(cues, cfg), report
+    return cues, to_srt(cues, cfg, language or "en"), to_vtt(cues, cfg, language or "en"), report
 
 
 def write_outputs(out_dir, srt, vtt, cues, cfg, report, language, source, overwrite):

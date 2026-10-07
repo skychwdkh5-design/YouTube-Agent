@@ -75,8 +75,9 @@ class Validation(Base):
 
     def test_future_tracks_rejected_not_dropped(self):
         a = self.img("a.png")
-        for extra, clip in (({"audio": {"voice": [{"src": "v.wav"}]}}, {}),
-                            ({"subtitles": {"src": "s.srt"}}, {}),
+        for extra, clip in (({"audio": {"music": [{"src": "m.wav"}]}}, {}),
+                            ({"audio": {"sfx": [{"src": "s.wav"}]}}, {}),
+                            ({"overlays": [{"type": "text"}]}, {}),
                             ({}, {"type": "video"})):
             tl = self.timeline([dict({"type": "image", "src": a, "duration": 2}, **clip)], **extra)
             code, d = run(["--timeline", tl, "--output", self.out(), "--confirm"])
@@ -170,11 +171,11 @@ class Rendering(Base):
         tl = self.timeline([{"type": "image", "src": self.img("a.png"), "duration": 1}])
         real_run = r._run
 
-        def failing(cmd, timeout):
+        def failing(cmd, timeout, cwd=None):
             if cmd[0] == "ffmpeg":
                 with open(cmd[-1], "wb") as f: f.write(b"half a file")
                 return mock.Mock(returncode=1, stderr="boom", stdout="")
-            return real_run(cmd, timeout)
+            return real_run(cmd, timeout, cwd)
         with mock.patch.object(r, "_run", failing):
             code, d = run(["--timeline", tl, "--output", self.out(), "--confirm"])
         self.assertEqual(code, 2); self.assertIn("ffmpeg failed", d["error"])
@@ -191,6 +192,191 @@ class Rendering(Base):
         tl = self.timeline([{"type": "image", "src": self.img("a.png"), "duration": 1}])
         code, d = run(["--timeline", tl, "--output", os.path.join(self.dir, "a.png"), "--confirm"])
         self.assertEqual(code, 2)
+
+
+# --- narration, subtitles, credit ----------------------------------------------------------------
+
+def tone_wav(path, seconds, rate=44100, click_at=None):
+    """Silence with an optional 50 ms full-scale burst at click_at - a timing probe."""
+    import wave, struct, math as m
+    n = int(seconds * rate)
+    with wave.open(path, "wb") as w:
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(rate)
+        frames = bytearray()
+        for i in range(n):
+            t = i / rate
+            on = click_at is not None and click_at <= t < click_at + 0.05
+            v = int(20000 * m.sin(2 * m.pi * 1000 * t)) if on else 0
+            frames += struct.pack("<h", v)
+        w.writeframes(bytes(frames))
+
+
+def onset(path, rate=48000):
+    """First sample above -20 dBFS in the rendered audio, in seconds."""
+    import subprocess as sp, struct
+    raw = sp.run(["ffmpeg", "-v", "error", "-i", path, "-map", "0:a", "-ac", "1", "-ar", str(rate),
+                  "-f", "s16le", "-"], capture_output=True, check=True).stdout
+    vals = struct.unpack(f"<{len(raw) // 2}h", raw)
+    for i, v in enumerate(vals):
+        if abs(v) > 3277:
+            return i / rate
+    return None
+
+
+SRT = """1
+00:00:00,200 --> 00:00:01,400
+Hello there, this is
+
+2
+00:00:01,400 --> 00:00:02,600
+a subtitle test.
+"""
+
+
+@unittest.skipUnless(HAVE_FF, "ffmpeg/ffprobe not installed")
+class Narration(Base):
+    def setUp(self):
+        super().setUp()
+        self.a = self.img("a.png")
+
+    def voice_meta(self, wav, **over):
+        meta = {"schema": "yt-voice/1", "voice_name": "Adam", "voice_id": "pNInz6obpgDQGcFmaJgB",
+                "audio_sha256": r._sha256(os.path.join(self.dir, wav)),
+                "duration": r.wave_duration(os.path.join(self.dir, wav)) if hasattr(r, "wave_duration") else None}
+        meta.update(over)
+        with open(os.path.join(self.dir, "n.voice.json"), "w") as f:
+            json.dump(meta, f)
+        return "n.voice.json"
+
+    def test_narration_timing_is_exact(self):
+        for loud in (False, True):
+            tone_wav(os.path.join(self.dir, "n.wav"), 2.0, click_at=0.5)
+            tl = self.timeline([{"type": "image", "src": self.a, "duration": 3}],
+                               audio={"voice": [{"src": "n.wav", "start": 0.25, "normalize": loud}]})
+            out = self.out(f"v{int(loud)}.mp4")
+            code, d = run(["--timeline", tl, "--output", out, "--confirm"])
+            self.assertEqual((code, d["status"]), (0, "ok"), d)
+            self.assertEqual(d["narration"]["start"], 0.25)
+            # burst at 0.5 s in the narration + 0.25 s start = 0.75 s in the video
+            self.assertAlmostEqual(onset(out), 0.75, delta=0.005)
+            if loud:
+                self.assertNotEqual(d["narration"]["gain_db"], 0.0)
+            self.assertEqual(d["duration"], 3.0)
+
+    def test_narration_never_cut(self):
+        tone_wav(os.path.join(self.dir, "n.wav"), 3.0)
+        tl = self.timeline([{"type": "image", "src": self.a, "duration": 2}], audio={"voice": [{"src": "n.wav"}]})
+        code, d = run(["--timeline", tl, "--output", self.out(), "--confirm"])
+        self.assertEqual(code, 2); self.assertIn("narration is never cut", d["error"])
+
+    def test_voice_meta_must_match_audio(self):
+        tone_wav(os.path.join(self.dir, "n.wav"), 1.0)
+        meta = self.voice_meta("n.wav", audio_sha256="0" * 64)
+        tl = self.timeline([{"type": "image", "src": self.a, "duration": 2}],
+                           audio={"voice": [{"src": "n.wav", "meta": meta}]})
+        code, d = run(["--timeline", tl])
+        self.assertEqual(code, 2); self.assertIn("does not match its yt-voice metadata", d["error"])
+        meta = self.voice_meta("n.wav", duration=1.0)
+        tl = self.timeline([{"type": "image", "src": self.a, "duration": 2}],
+                           audio={"voice": [{"src": "n.wav", "meta": meta}]})
+        code, d = run(["--timeline", tl])
+        self.assertEqual((code, d["status"], d["plan"]["narration"]["voice_name"]), (2, "confirm_required", "Adam"))
+
+    def test_bad_voice_inputs(self):
+        with open(os.path.join(self.dir, "x.wav"), "w") as f: f.write("not audio")
+        cases = [({"src": "missing.wav"}, "not found"), ({"src": self.a}, "unsupported audio type"),
+                 ({"src": "x.wav"}, "ffprobe cannot read"),
+                 ([{"src": "x.wav"}, {"src": "x.wav"}], "exactly one narration track")]
+        for voice, msg in cases:
+            tl = self.timeline([{"type": "image", "src": self.a, "duration": 2}], audio={"voice": voice})
+            code, d = run(["--timeline", tl])
+            self.assertEqual(code, 2, voice); self.assertIn(msg, d["error"])
+
+    def test_subtitles_and_credit_burned_in(self):
+        tone_wav(os.path.join(self.dir, "n.wav"), 2.5)
+        with open(os.path.join(self.dir, "c.srt"), "w") as f: f.write(SRT)
+        clip = {"type": "landsat", "src": self.a, "duration": 3, "motion": {"type": "static"},
+                "credit": "Landsat imagery courtesy of the U.S. Geological Survey"}
+        plain = self.timeline([clip], audio={"voice": [{"src": "n.wav"}]})
+        run(["--timeline", plain, "--output", self.out("plain.mp4"), "--confirm"])
+        tl = self.timeline([clip], audio={"voice": [{"src": "n.wav"}]},
+                           subtitles={"src": "c.srt", "burn_in": True}, credit={})
+        code, d = run(["--timeline", tl, "--output", self.out("subs.mp4"), "--confirm"])
+        self.assertEqual((code, d["status"]), (0, "ok"), d)
+        self.assertEqual((d["subtitles"]["cues"], d["credit"]),
+                         (2, "Landsat imagery courtesy of the U.S. Geological Survey"))
+        self.assertNotIn("warnings", d)
+        # the picture differs from the same render without text, and only where text is drawn
+        import subprocess as sp
+        def frame(p, t):
+            return sp.run(["ffmpeg", "-v", "error", "-ss", str(t), "-i", p, "-frames:v", "1", "-f", "rawvideo",
+                           "-pix_fmt", "gray", "-"], capture_output=True, check=True).stdout
+        W, H = 320, 180
+        a, b = frame(self.out("plain.mp4"), 1.0), frame(self.out("subs.mp4"), 1.0)
+        diff_rows = [y for y in range(H) if any(abs(a[y * W + x] - b[y * W + x]) > 40 for x in range(W))]
+        self.assertTrue(diff_rows, "no text drawn")
+        self.assertTrue(any(y > H * 0.6 for y in diff_rows), "no subtitle in the lower part")
+        self.assertTrue(any(y < H * 0.25 for y in diff_rows), "no credit in the top band")
+        a, b = frame(self.out("plain.mp4"), 2.85), frame(self.out("subs.mp4"), 2.85)   # after the last cue
+        self.assertFalse([y for y in range(int(H * 0.6), H) if any(abs(a[y * W + x] - b[y * W + x]) > 40
+                                                                    for x in range(W))])
+        self.assertEqual([f for f in os.listdir(self.dir) if f.startswith(".render")], [])
+
+    def test_subtitle_validation(self):
+        bad = {"overlap.srt": SRT.replace("00:00:01,400 --> 00:00:02,600", "00:00:01,000 --> 00:00:02,600"),
+               "late.srt": SRT.replace("00:00:02,600", "00:00:09,000"),
+               "junk.srt": "hello", "x.vtt": "WEBVTT"}
+        for name, body in bad.items():
+            with open(os.path.join(self.dir, name), "w") as f: f.write(body)
+            tl = self.timeline([{"type": "image", "src": self.a, "duration": 3}], subtitles={"src": name})
+            code, d = run(["--timeline", tl])
+            self.assertEqual(code, 2, name)
+        with open(os.path.join(self.dir, "ok.srt"), "w") as f: f.write(SRT)
+        tl = self.timeline([{"type": "image", "src": self.a, "duration": 3}], subtitles={"src": "ok.srt", "burn_in": False})
+        code, d = run(["--timeline", tl])
+        self.assertEqual((d["status"], d["plan"]["subtitles"]["burn_in"]), ("confirm_required", False))
+        for sub in ({"src": "ok.srt", "font": "x;rm"}, {"src": "ok.srt", "burn_in": "yes"}):
+            tl = self.timeline([{"type": "image", "src": self.a, "duration": 3}], subtitles=sub)
+            self.assertEqual(run(["--timeline", tl])[0], 2, sub)
+
+    def test_credit_rules_and_landsat_warning(self):
+        clip = {"type": "landsat", "src": self.a, "duration": 2}
+        tl = self.timeline([clip])
+        d = run(["--timeline", tl])[1]
+        self.assertTrue(any("credit" in w for w in d["plan"]["warnings"]))
+        self.assertEqual(run(["--timeline", self.timeline([clip], credit={})])[0], 2)   # no text anywhere
+        d = run(["--timeline", self.timeline([clip], credit={"text": "USGS", "position": "bottom_right"})])[1]
+        self.assertEqual(d["plan"]["credit"], "USGS")
+        for bad in ({"text": "a\nb"}, {"text": "x", "position": "middle"}, {"text": "x", "size": 500}):
+            self.assertEqual(run(["--timeline", self.timeline([clip], credit=bad)])[0], 2, bad)
+
+    def test_version_2_accepted_same_render(self):
+        clips = [{"type": "image", "src": self.a, "duration": 1}]
+        h1 = run(["--timeline", self.timeline(clips), "--output", self.out("1.mp4"), "--confirm"])[1]["sha256"]
+        p = self.timeline(clips)
+        with open(p) as f: t = json.load(f)
+        t["version"] = 2
+        with open(p, "w") as f: json.dump(t, f)
+        h2 = run(["--timeline", p, "--output", self.out("2.mp4"), "--confirm"])[1]["sha256"]
+        self.assertEqual(h1, h2)
+        t["version"] = 3
+        with open(p, "w") as f: json.dump(t, f)
+        self.assertEqual(run(["--timeline", p])[0], 2)
+
+
+class BackwardCompat(Base):
+    def test_plain_timeline_command_unchanged(self):
+        """Without voice/subtitles/credit the ffmpeg command is the v1 command: silent track,
+        no subtitle or drawtext filter, no extra inputs."""
+        plan = {"output": dict(r.DEFAULT_OUTPUT), "total_frames": 30, "expected_duration": 1.0,
+                "clips": [{"src": "/x/a.png", "frames": 30, "zoom": (1.0, 1.1), "pan": "center",
+                           "fit": "cover", "transition_frames": 0}]}
+        cmd = r.build_command(plan, "/x/out.mp4", 1 << 30)
+        fc = cmd[cmd.index("-filter_complex") + 1]
+        self.assertIn("anullsrc=r=48000:cl=stereo", cmd)
+        self.assertNotIn("subtitles", fc); self.assertNotIn("drawtext", fc); self.assertNotIn("volume=", fc)
+        self.assertEqual(cmd[cmd.index("-map") + 3], "1:a")
+        self.assertTrue(fc.endswith("settb=1/30,setpts=N,format=yuv420p[vout]"))
 
 
 class NoFFmpeg(Base):
