@@ -169,6 +169,32 @@ class ShortProfile(Base):
         self.assertNotEqual({c["id"]: c["status"] for c in d["checks"]}["manifest"] if any(
             c["id"] == "manifest" for c in d["checks"]) else "found", "skip")
 
+    def test_composition_resets_from_manifest(self):
+        p = self.vertical()
+        old = self.manifest(os.path.join(self.dir, "old.json"))              # rendered before the rule
+        ids = {c["id"]: c for c in run([p, "--profile", "short", "--manifest", old])[1]["checks"]}
+        self.assertEqual(ids["composition_resets"]["status"], "skip")
+        self.assertNotIn("compositions_first_10s", ids)
+
+        good = {"resets": [{"t": t, "shot": f"s{i}", "kind": "cut"} for i, t in enumerate((3, 6, 9, 15, 21, 27, 33, 39))],
+                "segments": [{"start": 0, "end": 3, "static_hold": 3.0}, {"start": 39, "end": 45, "static_hold": 5.5}]}
+        m = self.manifest(os.path.join(self.dir, "good.json"), compositions=good)
+        ids = {c["id"]: c for c in run([p, "--profile", "short", "--manifest", m])[1]["checks"]}
+        self.assertEqual([ids[k]["status"] for k in ("compositions_first_10s", "composition_resets", "composition_hold")],
+                         ["pass", "pass", "pass"])
+        self.assertEqual((ids["compositions_first_10s"]["actual"], ids["composition_resets"]["actual"]), (4, 8))
+
+        # the summary fields are ignored: QC recounts from the reset list
+        bad = {"composition_resets": 9, "distinct_first_10s": 5, "resets": [{"t": 12, "kind": "cut"}],
+               "segments": [{"start": 0, "end": 12, "static_hold": 12.0}]}
+        m = self.manifest(os.path.join(self.dir, "bad.json"), compositions=bad)
+        code, d = run([p, "--profile", "short", "--manifest", m])
+        ids = {c["id"]: c for c in d["checks"]}
+        self.assertEqual([ids[k]["status"] for k in ("compositions_first_10s", "composition_resets", "composition_hold")],
+                         ["fail", "warn", "warn"])
+        self.assertEqual((ids["compositions_first_10s"]["actual"], ids["composition_hold"]["actual"]), (1, 12.0))
+        self.assertEqual(code, 1)
+
     def test_bad_profile_and_sheet_without_manifest(self):
         p = self.vertical()
         self.assertEqual(run([p, "--profile", "tall"])[0], 2)

@@ -124,6 +124,15 @@ and 2 never touch this path and still render byte-identically.
   Layers at `t = 0` are visible from the shot's first frame.
 - **Information events** (shot `info`, layer `info`, every flip step) are counted. The plan
   warns under 5 in the first 10 s.
+- **Composition resets** are counted separately: new information is not a new composition. A reset
+  is a cut or camera move to a materially different view (zoom >= 1.5x, or the centre moved >= 35 %
+  of the frame width), a full-frame `wipe`, or a timelapse (`flip` of >= 3 dates, step <= 1 s).
+  Labels, numbers, outlines, fills, arrows, pins, captions and a two-date swap on the same view are
+  not. A continuous move counts once; changes within 0.75 s are one reset. Targets: >= 3 distinct
+  compositions in the first 10 s, about 7-10 resets, no composition held over 6 s (time inside a
+  wipe, timelapse or material camera move is exempt). The plan, the result and the manifest carry
+  `compositions` (resets, segments, longest static hold); misses are warnings. Lightweight
+  storyboard arithmetic - no image analysis.
 - **Captions** are drawn by the renderer in big Inter Black. They go in the lower band, or in the
   upper band when a shot's `focus` box would be covered, and always inside the Shorts safe area
   (top 8 %, bottom 22 %, right 12 %).

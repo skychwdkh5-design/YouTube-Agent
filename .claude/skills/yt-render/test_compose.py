@@ -117,6 +117,72 @@ class Validation(Base):
 
 
 @unittest.skipUnless(HAVE_FF, "ffmpeg not installed")
+class Compositions(Base):
+    """A composition reset is a new picture, not new text on the same picture."""
+    def plan(self, shots, seconds):
+        code, d = run(["--timeline", self.timeline(shots, end={"seconds": seconds})])
+        self.assertEqual(d["status"], "confirm_required", d)
+        return d["plan"]
+
+    def test_overlays_and_year_swaps_are_not_resets(self):
+        p = self.plan([self.shot(0, layers=[{"type": "image", "asset": "b"},
+                                            {"type": "label", "text": "2026", "info": "year"}]),
+                       self.shot(2, layers=[{"type": "image", "asset": "a"}, {"type": "outline", "mask": "m"},
+                                            {"type": "label", "text": "-40%", "style": "stat", "info": "number"}]),
+                       self.shot(4, camera={"from": {"center": CENTER, "width_km": 12},
+                                            "to": {"center": CENTER, "width_km": 10}},       # slow push, 1.2x
+                                 layers=[{"type": "flip", "assets": ["a", "b"], "step": 0.5},   # two dates: a swap
+                                         {"type": "fill", "mask": "m"},
+                                         {"type": "pin", "at": CENTER, "text": "HERE"}])], 8)
+        c_ = p["compositions"]
+        self.assertGreaterEqual(len(p["info_events"]), 3)                  # plenty of new information...
+        self.assertEqual((c_["composition_resets"], c_["distinct_first_10s"]), (0, 1))   # ...one composition
+        self.assertEqual(c_["longest_static_hold"]["seconds"], 8.0)
+        w = " | ".join(p["warnings"])
+        self.assertIn("only 1 distinct compositions in the first 10 s", w)
+        self.assertIn("0 composition resets", w)
+        self.assertIn("holds 8.0s", w)
+
+    def test_zoom_relocation_wipe_timelapse_and_camera_move(self):
+        moved = [CENTER[0] + 0.06, CENTER[1]]                              # about 5.4 km east
+        p = self.plan([self.shot(0),
+                       self.shot(1, layers=[{"type": "image", "asset": "a"}]),                # same view
+                       self.shot(2, camera={"center": CENTER, "width_km": 6}),               # 2x zoom in
+                       self.shot(3, camera={"center": moved, "width_km": 6}),                # relocation
+                       self.shot(4, camera={"center": moved, "width_km": 6},
+                                 layers=[{"type": "wipe", "from": "a", "to": "b", "t": [0.2, 0.8]}]),
+                       self.shot(5, camera={"center": moved, "width_km": 6},
+                                 layers=[{"type": "flip", "assets": ["a", "b", "a"], "step": 0.3}]),
+                       self.shot(6, camera={"from": {"center": CENTER, "width_km": 6},
+                                            "to": {"center": CENTER, "width_km": 14}, "ease": "linear"})], 9)
+        rs = p["compositions"]["resets"]
+        self.assertEqual([(x["shot"], x["kind"]) for x in rs],
+                         [("s2", "cut"), ("s3", "cut"), ("s4", "wipe"), ("s5", "timelapse"), ("s6", "cut"),
+                          ("s6", "camera_move")])
+        self.assertEqual(rs[0]["what"], "zoom in x2.0")
+        self.assertEqual(rs[1]["what"], "camera relocation")
+        self.assertEqual(rs[2]["t"], 4.2)
+        self.assertTrue(6.5 < rs[5]["t"] < 8.0, rs[5])                     # 6 -> 9 km reached mid-shot, 6 -> 14 km counted once
+        self.assertEqual(p["compositions"]["distinct_first_10s"], 7)
+
+    def test_simultaneous_changes_are_one_reset(self):
+        p = self.plan([self.shot(0),
+                       self.shot(1, camera={"center": CENTER, "width_km": 5},
+                                 layers=[{"type": "wipe", "from": "a", "to": "b", "t": [0.15, 0.9]}])], 3)
+        rs = p["compositions"]["resets"]
+        self.assertEqual(len(rs), 1)
+        self.assertEqual((rs[0]["kind"], rs[0]["also"]), ("cut", ["wipe"]))
+
+    def test_continuous_transformation_is_not_a_static_hold(self):
+        flip = {"type": "flip", "assets": ["a", "b", "a", "b", "a", "b", "a", "b", "a", "b"], "step": 0.7}
+        p = self.plan([self.shot(0, layers=[flip])], 8)
+        c_ = p["compositions"]
+        self.assertEqual(c_["composition_resets"], 0)                      # a timelapse from frame one
+        self.assertEqual(c_["segments"][0]["seconds"], 8.0)
+        self.assertAlmostEqual(c_["longest_static_hold"]["seconds"], 1.0, places=3)   # 7 s of it is the timelapse
+        self.assertFalse(any("holds" in w for w in p["warnings"]))
+
+
 class Rendering(Base):
     def voice(self, seconds=1.0):
         path = os.path.join(self.dir, "n.wav")
@@ -154,6 +220,9 @@ class Rendering(Base):
         self.assertEqual([s["start"] for s in man["shots"]], [0.0, 0.5])       # word 1 starts at 0.5 s
         self.assertEqual([s["credit"] for s in man["shots"]], ["Test B", "Test A / Test B"])
         self.assertEqual(len(man["caption_boxes"]), 2)
+        self.assertEqual(man["compositions"]["rule"], "composition-reset/1")
+        self.assertEqual([x["kind"] for x in man["compositions"]["resets"]], ["wipe"])   # 12 -> 10 km is no reset
+        self.assertEqual(d["composition_resets"], 1)
         for cb in man["caption_boxes"]:
             x0, y0, x1, y1 = cb["box"]
             self.assertTrue(1920 * 0.08 <= y0 and y1 <= 1920 * 0.78 and x1 <= 1080 * 0.88)

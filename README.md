@@ -49,5 +49,7 @@ python3 .claude/skills/yt-voice/test_voice.py && python3 .claude/skills/yt-capti
 
 `yt-geo` aligns several Landsat dates on one grid; `yt-render` timeline version 3 renders a
 1080x1920 Short (geographic camera, wipes, year flips, outlines, labels, word-anchored shots,
-mobile-safe captions, per-shot credits); `yt-qc --profile short` checks it. See
+mobile-safe captions, per-shot credits); `yt-qc --profile short` checks it, including the
+composition-reset rule (new information is not a new composition: at least 3 distinct compositions
+in the first 10 s, about 7-10 resets, no composition held over 6 s). See
 [`docs/production-pipeline.md`](docs/production-pipeline.md).

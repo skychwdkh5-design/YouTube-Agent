@@ -14,7 +14,9 @@ Override with --width/--height/--fps/--vcodec/--acodec/--max-mb.
 --profile short (vertical Shorts): 1080x1920, 35-60 s (45-55 target, warn), no black frames,
 static freezes (warn 1.5 s, fail 2.5 s), loudness (warn outside -16..-12 LUFS), audio within
 0.5 s, and - from the render manifest (<video>.manifest.json or --manifest) - >= 5 information
-events in the first 10 s, captions inside the Shorts safe area and a source credit on every shot.
+events in the first 10 s, >= 3 distinct compositions in the first 10 s (fail), about 7-10
+composition resets and no composition held over 6 s (warn), captions inside the Shorts safe area
+and a source credit on every shot.
 --contact-sheet out.jpg writes the first frame plus the middle of every shot.
 
 Each check is one function in CHECKS returning {"id", "status", "expected", "actual", "detail"}
@@ -146,7 +148,8 @@ CHECKS = [check_file, check_container, check_streams, check_duration, check_deco
 # --- profile "short" (vertical YouTube Shorts) ---------------------------------------------------
 PROFILES = {"short": {"width": 1080, "height": 1920, "fps": 30.0, "min_s": 35.0, "max_s": 60.0,
                       "target": (45.0, 55.0), "black_s": 0.1, "freeze_warn": 1.5, "freeze_fail": 2.5,
-                      "lufs": (-16.0, -12.0), "first_audio_s": 0.5, "events_first_10s": 5}}
+                      "lufs": (-16.0, -12.0), "first_audio_s": 0.5, "events_first_10s": 5,
+                      "compositions_first_10s": 3, "composition_resets": (7, 10), "composition_hold_s": 6.0}}
 
 
 def check_short_duration(ctx):
@@ -230,7 +233,35 @@ def check_manifest(ctx):
     return out
 
 
-SHORT_CHECKS = [check_short_duration, check_black, check_freeze, check_audio, check_manifest]
+def check_compositions(ctx):
+    """Composition resets from the render manifest: a cut or camera move to a materially different
+    view, a full-frame wipe or a timelapse. New text, numbers or overlays on the same view do not
+    count. Counted from the manifest's reset list, not from its summary fields."""
+    m = ctx.get("manifest")
+    c = (m or {}).get("compositions")
+    if not c:
+        return [_skip("composition_resets", "the render manifest has no 'compositions' block "
+                      "(rendered before the composition rule; render.py's plan reports it from the timeline)")]
+    P = ctx["profile"]
+    resets = [x for x in c.get("resets") or [] if isinstance(x, dict) and _f(x.get("t")) is not None]
+    first = 1 + sum(1 for x in resets if _f(x["t"]) < 10)
+    lo, hi = P["composition_resets"]
+    holds = [x for x in c.get("segments") or [] if isinstance(x, dict) and _f(x.get("static_hold")) is not None]
+    worst = max(holds, key=lambda x: _f(x["static_hold"])) if holds else None
+    out = [_check("compositions_first_10s", first >= P["compositions_first_10s"],
+                  f">= {P['compositions_first_10s']} distinct compositions", first),
+           _check("composition_resets", lo <= len(resets) <= hi, f"about {lo}-{hi}", len(resets),
+                  [f"{x['t']}s {x.get('shot')}: {x.get('kind')}" for x in resets], warn=True)]
+    if worst is None:
+        out.append(_skip("composition_hold", "no segments in the manifest"))
+    else:
+        out.append(_check("composition_hold", _f(worst["static_hold"]) <= P["composition_hold_s"],
+                          f"<= {P['composition_hold_s']} s on one composition", _f(worst["static_hold"]),
+                          f"{worst.get('start')}-{worst.get('end')} s", warn=True))
+    return out
+
+
+SHORT_CHECKS = [check_short_duration, check_black, check_freeze, check_audio, check_manifest, check_compositions]
 
 
 def contact_sheet(path, manifest, out, timeout=300):

@@ -94,6 +94,15 @@ def _ease(t, kind):
     return t if kind == "linear" else t * t * (3 - 2 * t)
 
 
+def _camera(shot, t):
+    """The camera's (centre x, centre y, width) in grid pixels at time t of a shot."""
+    (x0, y0, w0), (x1, y1, w1) = shot["views"]
+    span = max(shot["end"] - shot["start"], 1e-6)
+    k = _ease((t - shot["start"]) / span, shot["ease"])
+    w = math.exp(math.log(w0) + (math.log(w1) - math.log(w0)) * k)
+    return x0 + (x1 - x0) * k, y0 + (y1 - y0) * k, w
+
+
 # --- validation --------------------------------------------------------------------------------
 
 def _time(v, words, where):
@@ -236,6 +245,7 @@ def validate(tl, root, limits):
             "grid": grid, "assets": assets, "voice": voice, "words": words, "captions": captions,
             "shots": shots, "total_frames": total_frames, "expected_duration": round(total_frames / fps, 3)}
     plan["events"] = info_events(plan)
+    plan["compositions"] = compositions(plan)
     plan["warnings"] = lint(plan)
     return plan
 
@@ -321,11 +331,117 @@ def info_events(plan):
     return sorted(ev, key=lambda e: e["t"])
 
 
+# A composition is what the frame is built on - where the camera looks and how wide - plus the
+# full-frame visual events that replace the whole picture. Text, year labels, numbers, captions,
+# outlines, fills, arrows and pins are overlays: new information, never a new composition.
+COMPOSITION = {"zoom_ratio": 1.5,      # a framing this much wider/narrower is a new view
+               "shift": 0.35,          # ... or its centre moved this share of the wider view's width
+               "merge_s": 0.75,        # resets closer than this read as one change
+               "timelapse_min": 3, "timelapse_max_step": 1.0,   # a flip that counts as a timelapse
+               "sample_s": 0.1,
+               "first_10s_min": 3, "resets": (7, 10), "max_hold_s": 6.0}
+
+
+def _same_view(a, b):
+    C = COMPOSITION
+    if abs(math.log(a[2] / b[2])) >= math.log(C["zoom_ratio"]):
+        return False
+    return math.hypot(a[0] - b[0], a[1] - b[1]) < C["shift"] * max(a[2], b[2])
+
+
+def compositions(plan):
+    """Composition resets: the moments the picture itself changes, not just what is drawn on it.
+
+    A reset is a cut or camera move to a materially different view (zoom >= 1.5x or a relocation
+    of >= 35 % of the frame), a full-frame wipe, or a multi-year timelapse (a flip of >= 3 dates).
+    A continuous camera move counts once, however far it goes.
+    Pure arithmetic on the timeline - no image analysis.
+    """
+    C = COMPOSITION
+    resets, moving = [], []
+
+    def add(t, shot, kind, what):
+        if resets and t - resets[-1]["t"] < C["merge_s"]:
+            resets[-1].setdefault("also", []).append(kind)
+            return
+        if t > 0:
+            resets.append({"t": round(t, 3), "shot": shot["id"], "kind": kind, "what": what})
+
+    anchor = None
+    for s in plan["shots"]:
+        events = []
+        for L in s["layers"]:
+            t0 = s["start"] + L["t0"]
+            if t0 >= s["end"]:
+                continue
+            if L["type"] == "wipe":
+                events.append((t0, "wipe", f"wipe {L['from']} -> {L['to']}"))
+                moving.append((t0, min(s["start"] + L["t1"], s["end"])))
+            elif (L["type"] == "flip" and len(L["assets"]) >= C["timelapse_min"]
+                  and L["step"] <= C["timelapse_max_step"]):
+                events.append((t0, "timelapse", f"timelapse of {len(L['assets'])} dates"))
+                moving.append((t0, min(t0 + len(L["assets"]) * L["step"], s["end"])))
+        events.sort(key=lambda e: e[0])
+        if not _same_view(*s["views"]):
+            moving.append((s["start"], s["end"]))
+        moved = False
+        n = max(1, int(math.ceil((s["end"] - s["start"]) / C["sample_s"])))
+        for i in range(n + 1):
+            t = min(s["start"] + i * C["sample_s"], s["end"])
+            if i == n and s is not plan["shots"][-1]:
+                break                       # the next shot's first frame takes over
+            while events and events[0][0] <= t:
+                e = events.pop(0)
+                add(e[0], s, e[1], e[2])
+            view = _camera(s, t)
+            if anchor is None or moved:
+                anchor = view       # one continuous move is one reset, however far it travels
+            elif not _same_view(anchor, view):
+                ratio = view[2] / anchor[2]
+                what = (f"zoom {'in' if ratio < 1 else 'out'} x{max(ratio, 1 / ratio):.1f}"
+                        if math.hypot(view[0] - anchor[0], view[1] - anchor[1]) < C["shift"] * max(view[2], anchor[2])
+                        else "camera relocation")
+                add(t, s, "cut" if i == 0 else "camera_move", what)
+                anchor, moved = view, i > 0
+        for e in events:
+            add(e[0], s, e[1], e[2])
+
+    duration = plan["expected_duration"]
+    bounds = [0.0] + [x["t"] for x in resets] + [duration]
+    segments = []
+    for a, b in zip(bounds, bounds[1:]):
+        free, cur = [], a          # longest stretch of the segment with nothing transforming
+        for m0, m1 in sorted((max(a, m0), min(b, m1)) for m0, m1 in moving if m1 > a and m0 < b):
+            if m0 > cur:
+                free.append(m0 - cur)
+            cur = max(cur, m1)
+        free.append(b - cur)
+        segments.append({"start": round(a, 3), "end": round(b, 3), "seconds": round(b - a, 3),
+                         "static_hold": round(max(free), 3)})
+    longest = max(segments, key=lambda x: x["static_hold"])
+    return {"rule": "composition-reset/1", "thresholds": dict(COMPOSITION, resets=list(C["resets"])),
+            "composition_resets": len(resets),
+            "distinct_first_10s": 1 + sum(1 for x in resets if x["t"] < 10),
+            "longest_static_hold": {"seconds": longest["static_hold"], "start": longest["start"], "end": longest["end"]},
+            "resets": resets, "segments": segments}
+
+
 def lint(plan):
     w = []
     first10 = [e for e in plan["events"] if e["t"] < 10]
     if len(first10) < 5:
         w.append(f"only {len(first10)} information events in the first 10 s (target >= 5)")
+    c, C = plan["compositions"], COMPOSITION
+    if c["distinct_first_10s"] < C["first_10s_min"]:
+        w.append(f"only {c['distinct_first_10s']} distinct compositions in the first 10 s "
+                 f"(target >= {C['first_10s_min']}; new text or overlays on the same view do not count)")
+    lo, hi = C["resets"]
+    if not lo <= c["composition_resets"] <= hi:
+        w.append(f"{c['composition_resets']} composition resets (target about {lo}-{hi})")
+    h = c["longest_static_hold"]
+    if h["seconds"] > C["max_hold_s"]:
+        w.append(f"one composition holds {h['seconds']:.1f}s without a reset ({h['start']:.1f}-{h['end']:.1f}s, "
+                 f"target <= {C['max_hold_s']:.0f}s)")
     if plan["words"] and plan["words"][0]["start"] > 0.5:
         w.append(f"narration starts at {plan['words'][0]['start']:.2f}s (target <= 0.5 s)")
     if plan["words"]:
@@ -373,11 +489,7 @@ class Painter:
 
     # camera ------------------------------------------------------------------------------------
     def box(self, shot, t):
-        (x0, y0, w0), (x1, y1, w1) = shot["views"]
-        span = max(shot["end"] - shot["start"], 1e-6)
-        k = _ease((t - shot["start"]) / span, shot["ease"])
-        w = math.exp(math.log(w0) + (math.log(w1) - math.log(w0)) * k)
-        cx, cy = x0 + (x1 - x0) * k, y0 + (y1 - y0) * k
+        cx, cy, w = _camera(shot, t)
         h = w * self.H / self.W
         return (cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2)
 
@@ -645,6 +757,8 @@ def render(plan, out_path, overwrite=False, limits=None):
     return {"status": "ok", "output": out_path, "manifest": man_path, "bytes": size, "sha256": r._sha256(out_path),
             "duration": round(got, 3), "expected_duration": plan["expected_duration"], "profile": plan["profile"],
             "shots": len(plan["shots"]), "info_events_first_10s": sum(1 for e in plan["events"] if e["t"] < 10),
+            "composition_resets": plan["compositions"]["composition_resets"],
+            "distinct_compositions_first_10s": plan["compositions"]["distinct_first_10s"],
             "warnings": plan["warnings"]}
 
 
@@ -659,6 +773,7 @@ def _manifest(plan, painter, shot_credits, out_path):
                        "info": s["info"], "claims": s["claims"], "layers": [L["type"] for L in s["layers"]],
                        "credit": shot_credits.get(s["id"])} for s in plan["shots"]],
             "info_events": plan["events"],
+            "compositions": plan["compositions"],
             "caption_boxes": [painter.caption_boxes[k] for k in sorted(painter.caption_boxes)],
             "assets": {k: {"label": a["label"], "credit": a["credit"], "prov": a["prov"], "kind": a["kind"]}
                        for k, a in plan["assets"].items()},
@@ -671,6 +786,7 @@ def public_plan(plan):
             "shots": [{"id": s["id"], "beat": s["beat"], "start": round(s["start"], 3), "end": round(s["end"], 3),
                        "layers": [L["type"] for L in s["layers"]]} for s in plan["shots"]],
             "info_events": plan["events"], "info_events_first_10s": sum(1 for e in plan["events"] if e["t"] < 10),
+            "compositions": plan["compositions"],
             "narration": ({k: plan["voice"][k] for k in ("duration", "end", "gain_db", "voice_name")}
                           if plan["voice"] else None),
             "warnings": plan["warnings"]}
