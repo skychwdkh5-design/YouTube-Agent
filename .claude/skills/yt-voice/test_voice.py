@@ -176,6 +176,25 @@ class Generation(Base):
         starts = [w["start"] for w in meta["words"]]
         self.assertEqual(starts, sorted(starts))
 
+    def test_proxy_auth_sends_no_key_and_needs_no_env(self):
+        reqs = []
+        code, d, out = run(self.args("Hello.", "--confirm", "--auth", "proxy"), eleven(0.5, requests=reqs),
+                           key=None)
+        self.assertEqual((code, d["status"]), (0, "ok"), d)
+        self.assertNotIn("Xi-api-key", reqs[0]["headers"])
+
+    def test_proxy_auth_ignores_env_key(self):
+        reqs = []
+        with mock.patch.dict(os.environ, {"YT_VOICE_AUTH": "proxy"}):
+            code, d, out = run(self.args("Hello.", "--confirm"), eleven(0.5, requests=reqs))
+        self.assertEqual(code, 0, d)
+        self.assertNotIn("Xi-api-key", reqs[0]["headers"])
+        self.assertNotIn(FAKE_KEY, out)
+
+    def test_bad_auth_mode(self):
+        code, d, _ = run(self.args("Hello.", "--confirm", "--auth", "cookie"), eleven(0.5))
+        self.assertEqual(code, 2); self.assertIn("--auth", d["error"])
+
     def test_no_alignment_means_no_timing(self):
         code, d, _ = run(self.args("Hello.", "--confirm"), eleven(0.5, align=False))
         self.assertEqual((code, d["timing"], d["words"]), (0, False, 0))

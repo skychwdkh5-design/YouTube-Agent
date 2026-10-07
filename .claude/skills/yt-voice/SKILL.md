@@ -52,14 +52,16 @@ ever estimated.
 
 | provider | credential | notes |
 |---|---|---|
-| `elevenlabs` (default) | `ELEVENLABS_API_KEY` | `/v1/text-to-speech/{voice_id}/with-timestamps`, `eleven_multilingual_v2` unless `--model`, mp3 44.1 kHz, character alignment |
+| `elevenlabs` (default) | `ELEVENLABS_API_KEY`, or `--auth proxy` (or `YT_VOICE_AUTH=proxy`) when the key is a network secret the egress proxy adds | `/v1/text-to-speech/{voice_id}/with-timestamps`, `eleven_multilingual_v2` unless `--model`, mp3 44.1 kHz, character alignment |
 
 A new provider is one class in `PROVIDERS` (`voice.py`) with `synthesize(text, voice_id)` returning
 the audio bytes, their format and an optional character alignment. Nothing downstream changes.
 
 ## Safety
 
-- The key comes from the environment only. It is sent only in the provider's auth header, and
+- With `--auth proxy` the script sends no key at all: the session's egress proxy adds the
+  configured network secret to requests for `api.elevenlabs.io`, so the key never enters this
+  process. Otherwise the key comes from the environment only. It is sent only in the provider's auth header, and
   it is redacted from every message. It is never printed, logged or written into the metadata. If it is
   missing the run says which variable, and you pass that on - never ask the user to paste a key.
 - Audio and metadata are built in a hidden temp folder and renamed into place only after every
