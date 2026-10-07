@@ -12,11 +12,22 @@ description: >-
 The script in, the narration out - plus the exact words and when each one was said.
 
 ```bash
-python3 voice.py --script script.md --voice-id <VOICE_ID> --output voice/narration.wav             # plan, free
-python3 voice.py --script script.md --voice-id <VOICE_ID> --output voice/narration.wav --confirm   # PAID
+python3 voice.py --script script.md --output voice/narration.wav             # plan, free
+python3 voice.py --script script.md --output voice/narration.wav --confirm   # PAID
 ```
 
 Every command prints JSON. Then build captions from the timings with `/yt-captions`.
+
+## The channel narrator
+
+**Adam** (ElevenLabs voice ID `pNInz6obpgDQGcFmaJgB`) is the channel's permanent narrator and the
+default whenever `--voice-id` is not given. It is set once, as `default_voice` on the ElevenLabs
+provider in `voice.py`. Use `--voice-id` only for a deliberate one-off; the plan, the result and the
+metadata record `voice_id`, `voice_name` and `voice_source` (`default` or `argument`), so a video
+narrated in a different voice is visible.
+
+Authentication stays with the environment: `YT_VOICE_AUTH=proxy` is set there, so the egress proxy
+adds the ElevenLabs key and no key is passed, stored or committed.
 
 ## Cost first, every time
 
@@ -52,10 +63,11 @@ ever estimated.
 
 | provider | credential | notes |
 |---|---|---|
-| `elevenlabs` (default) | `ELEVENLABS_API_KEY`, or `--auth proxy` (or `YT_VOICE_AUTH=proxy`) when the key is a network secret the egress proxy adds | `/v1/text-to-speech/{voice_id}/with-timestamps`, `eleven_multilingual_v2` unless `--model`, mp3 44.1 kHz, character alignment |
+| `elevenlabs` (default, narrator Adam `pNInz6obpgDQGcFmaJgB`) | `ELEVENLABS_API_KEY`, or `--auth proxy` (or `YT_VOICE_AUTH=proxy`) when the key is a network secret the egress proxy adds | `/v1/text-to-speech/{voice_id}/with-timestamps`, `eleven_multilingual_v2` unless `--model`, mp3 44.1 kHz, character alignment |
 
 A new provider is one class in `PROVIDERS` (`voice.py`) with `synthesize(text, voice_id)` returning
-the audio bytes, their format and an optional character alignment. Nothing downstream changes.
+the audio bytes, their format and an optional character alignment, plus an optional `default_voice`
+(without one, `--voice-id` is required). Nothing downstream changes.
 
 ## Safety
 

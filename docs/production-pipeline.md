@@ -46,7 +46,8 @@ voice metadata, and that text is the reference for captions.
 | field | type | meaning |
 |---|---|---|
 | `schema` | `"yt-voice/1"` | format version |
-| `provider`, `model_id`, `voice_id` | string | who generated it |
+| `provider`, `model_id`, `voice_id` | string | who generated it (channel narrator: Adam, `pNInz6obpgDQGcFmaJgB`) |
+| `voice_name`, `voice_source` | string | `Adam` / `default` unless `--voice-id` overrode the narrator |
 | `language` | BCP 47 | e.g. `en` |
 | `audio` | string | file name of the narration, next to the metadata |
 | `audio_sha256`, `duration` | string, seconds | identity and length of the audio |

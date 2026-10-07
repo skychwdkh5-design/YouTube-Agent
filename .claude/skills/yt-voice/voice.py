@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """voice.py - narration audio from a script, through an interchangeable TTS provider.
 
-    python3 voice.py --script script.md --voice-id VOICE --output voice/narration.wav     # plan only
-    python3 voice.py --script script.md --voice-id VOICE --output voice/narration.wav --confirm
+    python3 voice.py --script script.md --output voice/narration.wav                      # plan only
+    python3 voice.py --script script.md --output voice/narration.wav --confirm            # channel narrator
     python3 voice.py --text "One line." --voice-id VOICE --output n.wav --confirm --max-chars 500
 
 Every command prints JSON. Without --confirm nothing is sent anywhere: you get the spoken text,
 its character count and the request plan. With --confirm the text goes to the provider (a PAID
 request) only if it is under --max-chars (default 3000).
+
+The channel narrator is the provider's default voice - for elevenlabs that is Adam
+(pNInz6obpgDQGcFmaJgB). --voice-id overrides it for a single run.
 
 Providers: elevenlabs (ELEVENLABS_API_KEY, or --auth proxy / YT_VOICE_AUTH=proxy when the key is a
 network secret the session's egress proxy adds to requests). A new provider is one class in PROVIDERS with a
@@ -123,6 +126,7 @@ class Provider:
     "alignment": {"characters": [...], "start": [...], "end": [...]} or None}."""
     name = "base"
     env_key = None
+    default_voice = None    # {"name": ..., "voice_id": ...} - used when --voice-id is not given
 
     def __init__(self, options):
         self.options = options
@@ -153,6 +157,8 @@ class Provider:
 class ElevenLabs(Provider):
     name = "elevenlabs"
     env_key = "ELEVENLABS_API_KEY"
+    # the channel's permanent narrator - an ElevenLabs premade voice ID, not a credential
+    default_voice = {"name": "Adam", "voice_id": "pNInz6obpgDQGcFmaJgB"}
     api = "https://api.elevenlabs.io/v1/text-to-speech/{voice}/with-timestamps"
     default_model = "eleven_multilingual_v2"
     default_format = "mp3_44100_128"
@@ -285,6 +291,15 @@ def _sha256(path):
 def plan(text, provider_name, voice_id, output, options):
     if provider_name not in PROVIDERS:
         raise VoiceError(f"unknown provider {provider_name!r}; available: {sorted(PROVIDERS)}")
+    provider = PROVIDERS[provider_name](options)
+    voice_name, voice_source = None, "argument"
+    if voice_id is None:
+        if not provider.default_voice:
+            raise VoiceError(f"--voice-id is required: provider {provider_name!r} has no default voice")
+        voice_id, voice_name = provider.default_voice["voice_id"], provider.default_voice["name"]
+        voice_source = "default"
+    elif provider.default_voice and voice_id == provider.default_voice["voice_id"]:
+        voice_name = provider.default_voice["name"]
     if not re.fullmatch(r"[A-Za-z0-9_-]{4,64}", voice_id or ""):
         raise VoiceError("--voice-id must be 4-64 letters, digits, '-' or '_'")
     if not text.strip():
@@ -297,8 +312,8 @@ def plan(text, provider_name, voice_id, output, options):
         raise VoiceError(f"{billed} characters is over --max-chars {options['max_chars']}; nothing was "
                          "sent. Raise --max-chars only if this cost is intended", status="over_limit",
                          characters=billed)
-    provider = PROVIDERS[provider_name](options)
-    return {"provider": provider, "voice_id": voice_id, "text": text, "chunks": chunks,
+    return {"provider": provider, "voice_id": voice_id, "voice_name": voice_name,
+            "voice_source": voice_source, "text": text, "chunks": chunks,
             "characters": billed, "output": os.path.abspath(output)}
 
 
@@ -349,6 +364,7 @@ def generate(p, options, overwrite=False):
             "provider timing was missing or did not match the text for at least one chunk; "
             "no word timings are kept - captions need another timing source"]
         md = {"schema": SCHEMA, **provider.describe(), "voice_id": p["voice_id"],
+              "voice_name": p["voice_name"], "voice_source": p["voice_source"],
               "language": options.get("language") or "en",
               "audio": os.path.basename(out), "audio_format": os.path.splitext(out)[1][1:],
               "audio_sha256": _sha256(final_tmp), "duration": round(duration, 3),
@@ -370,7 +386,8 @@ def generate(p, options, overwrite=False):
             raise
     finally:
         shutil.rmtree(work, ignore_errors=True)
-    return {"status": "ok", "output": out, "metadata": meta, "duration": md["duration"],
+    return {"status": "ok", "output": out, "metadata": meta, "voice_id": p["voice_id"],
+            "voice_name": p["voice_name"], "duration": md["duration"],
             "characters": md["characters"], "chunks": len(chunk_info),
             "timing": md["timing"] is not None, "words": len(md["words"]), "warnings": warnings}
 
@@ -432,6 +449,8 @@ def main(argv=None):
             raise VoiceError("generation is a paid request and needs --confirm; nothing was sent",
                              status="confirm_required", characters=p["characters"],
                              chunks=len(p["chunks"]), **p["provider"].describe(),
+                             voice_id=p["voice_id"], voice_name=p["voice_name"],
+                             voice_source=p["voice_source"],
                              removed_from_script=removed, spoken_text=text)
         result = generate(p, options, "--overwrite" in a)
         result["removed_from_script"] = removed
