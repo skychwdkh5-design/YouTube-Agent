@@ -51,5 +51,6 @@ python3 .claude/skills/yt-voice/test_voice.py && python3 .claude/skills/yt-capti
 1080x1920 Short (geographic camera, wipes, year flips, outlines, labels, word-anchored shots,
 mobile-safe captions, per-shot credits); `yt-qc --profile short` checks it, including the
 composition-reset rule (new information is not a new composition: at least 3 distinct compositions
-in the first 10 s, about 7-10 resets, no composition held over 6 s). See
+in the first 10 s, about 7-10 resets, no composition held over 6 s). Storyboards can also tag each shot's
+`visual_family`, so a new view of the same visual idea is not mistaken for something new (warnings only). See
 [`docs/production-pipeline.md`](docs/production-pipeline.md).

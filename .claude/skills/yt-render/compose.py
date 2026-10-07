@@ -203,7 +203,7 @@ def validate(tl, root, limits):
     shots = []
     for i, s in enumerate(shots_in):
         where = f"shots[{i}]"
-        r._keys(s, ("id", "beat", "start", "camera", "layers", "info", "focus", "claims"), where)
+        r._keys(s, ("id", "beat", "start", "camera", "layers", "info", "focus", "claims", "visual_family"), where)
         start = _time(s.get("start", 0), words, f"{where}.start")
         if i == 0 and start != 0:
             raise E("the first shot must start at 0 - the first frame is the hook")
@@ -228,9 +228,14 @@ def validate(tl, root, limits):
             if not (isinstance(f_, list) and len(f_) == 4):
                 raise E(f"{where}.focus must be [lon_min, lat_min, lon_max, lat_max]")
             focus = f_
+        family = _family(s.get("visual_family"), f"{where}.visual_family")
         shots.append({"id": str(s.get("id", f"s{i + 1}")), "beat": s.get("beat"), "start": start, "views": (v0, v1),
                       "ease": ease, "layers": layers, "info": s.get("info"), "focus": focus,
-                      "claims": s.get("claims") or []})
+                      "claims": s.get("claims") or [], "family": family})
+    tagged = [s["family"] is not None for s in shots]
+    if any(tagged) and not all(tagged):
+        raise E("visual_family is set on some shots but not on " +
+                ", ".join(s["id"] for s in shots if s["family"] is None) + " - tag every shot or none")
     for a, b in zip(shots, shots[1:]):
         if b["start"] <= a["start"]:
             raise E(f"shot {b['id']} starts at or before shot {a['id']}")
@@ -246,6 +251,7 @@ def validate(tl, root, limits):
             "shots": shots, "total_frames": total_frames, "expected_duration": round(total_frames / fps, 3)}
     plan["events"] = info_events(plan)
     plan["compositions"] = compositions(plan)
+    plan["novelty"] = visual_novelty(plan)
     plan["warnings"] = lint(plan)
     return plan
 
@@ -258,8 +264,8 @@ def _layer(L, assets, grid, where):
                "fill": ("mask", "minus", "color", "opacity"), "outline": ("mask", "color", "width"),
                "label": ("text", "sub", "slot", "style", "color"), "arrow": ("from", "to", "color", "width"),
                "pin": ("at", "text", "color")}[t]
-    r._keys(L, ("type", "t", "info") + allowed, where)
-    out = {"type": t, "info": L.get("info")}
+    r._keys(L, ("type", "t", "info") + allowed + (("visual_family",) if t in ("image", "flip", "wipe") else ()), where)
+    out = {"type": t, "info": L.get("info"), "family": _family(L.get("visual_family"), f"{where}.visual_family")}
     tw = L.get("t", [0, None])
     if not (isinstance(tw, list) and len(tw) == 2):
         raise E(f"{where}.t must be [start, end] in seconds from the shot start (end may be null)")
@@ -426,6 +432,77 @@ def compositions(plan):
             "resets": resets, "segments": segments}
 
 
+def _family(v, where):
+    if v is None:
+        return None
+    if not (isinstance(v, str) and re.fullmatch(r"[a-z0-9][a-z0-9_]{0,47}", v)):
+        raise E(f"{where} must be a short snake_case name (a-z, 0-9, _; at most 48 characters)")
+    return v
+
+
+# A visual family is the visual idea on screen (empty_desert, lava_infrared, coastline_change), assigned
+# by hand in the storyboard. A composition reset is a new picture; a visual novelty reset is a new idea.
+# Zoom, relocation, crop, year, text or overlays on the same idea stay in the same family.
+NOVELTY = {"first_10s_min": 3, "transitions_min": 6, "max_family_s": 10.0}
+
+
+def visual_novelty(plan):
+    """Visual-family transitions from the storyboard tags (shot `visual_family`, or a wipe/flip/image layer's
+    own `visual_family` from its start). None when the timeline has no tags - the check is then skipped.
+    Time inside a flip or wipe whose family is on screen is that family transforming, not dominating."""
+    if plan["shots"][0]["family"] is None:
+        return None
+    marks, moving = [], []
+    for s in plan["shots"]:
+        marks.append((s["start"], 0, s["family"], s["id"]))
+        for L in s["layers"]:
+            t0 = s["start"] + L["t0"]
+            if t0 >= s["end"]:
+                continue
+            if L["family"]:
+                marks.append((t0, 1, L["family"], s["id"]))
+            if L["type"] == "wipe":
+                moving.append((t0, min(s["start"] + L["t1"], s["end"])))
+            elif L["type"] == "flip":
+                moving.append((t0, min(t0 + len(L["assets"]) * L["step"], s["end"])))
+    marks.sort(key=lambda m: (m[0], m[1]))
+    duration = plan["expected_duration"]
+    runs = []
+    for t, _, fam, sid in marks:
+        if runs and runs[-1]["family"] == fam:
+            continue
+        if runs and t <= runs[-1]["start"] + 1e-9:
+            runs[-1].update(family=fam, shot=sid)       # a layer family at the shot's own start wins
+            continue
+        runs.append({"start": t, "family": fam, "shot": sid})
+    merged = []
+    for r_ in runs:                                     # a family again after an override collapses back
+        if merged and merged[-1]["family"] == r_["family"]:
+            continue
+        merged.append(r_)
+    for a, b in zip(merged, merged[1:] + [None]):
+        a["end"] = b["start"] if b else duration
+    out = []
+    for r_ in merged:
+        free, cur = [], r_["start"]
+        for m0, m1 in sorted((max(r_["start"], m0), min(r_["end"], m1)) for m0, m1 in moving
+                             if m1 > r_["start"] and m0 < r_["end"]):
+            if m0 > cur:
+                free.append(m0 - cur)
+            cur = max(cur, m1)
+        free.append(r_["end"] - cur)
+        out.append({"family": r_["family"], "start": round(r_["start"], 3), "end": round(r_["end"], 3),
+                    "seconds": round(r_["end"] - r_["start"], 3), "untransformed": round(max(free), 3),
+                    "shot": r_["shot"]})
+    longest = max(out, key=lambda x: x["untransformed"])
+    return {"rule": "visual-novelty/1", "thresholds": dict(NOVELTY),
+            "transitions": len(out) - 1,
+            "families": sorted({x["family"] for x in out}),
+            "families_first_10s": len({x["family"] for x in out if x["start"] < 10}),
+            "longest_family_run": {k: longest[k] for k in ("family", "start", "end", "untransformed")},
+            "runs": out}
+
+
 def lint(plan):
     w = []
     first10 = [e for e in plan["events"] if e["t"] < 10]
@@ -438,6 +515,18 @@ def lint(plan):
     lo, hi = C["resets"]
     if not lo <= c["composition_resets"] <= hi:
         w.append(f"{c['composition_resets']} composition resets (target about {lo}-{hi})")
+    v = plan.get("novelty")
+    if v:
+        N = NOVELTY
+        if v["families_first_10s"] < N["first_10s_min"]:
+            w.append(f"only {v['families_first_10s']} visual families in the first 10 s (target >= {N['first_10s_min']}; "
+                     "a new view of the same visual idea is not new)")
+        if v["transitions"] < N["transitions_min"]:
+            w.append(f"{v['transitions']} visual-family transitions (target >= {N['transitions_min']})")
+        lf = v["longest_family_run"]
+        if lf["untransformed"] > N["max_family_s"]:
+            w.append(f"visual family '{lf['family']}' holds {lf['untransformed']:.1f}s ({lf['start']:.1f}-{lf['end']:.1f}s, "
+                     f"target <= {N['max_family_s']:.0f}s unless it is transforming)")
     h = c["longest_static_hold"]
     if h["seconds"] > C["max_hold_s"]:
         w.append(f"one composition holds {h['seconds']:.1f}s without a reset ({h['start']:.1f}-{h['end']:.1f}s, "
@@ -759,6 +848,7 @@ def render(plan, out_path, overwrite=False, limits=None):
             "shots": len(plan["shots"]), "info_events_first_10s": sum(1 for e in plan["events"] if e["t"] < 10),
             "composition_resets": plan["compositions"]["composition_resets"],
             "distinct_compositions_first_10s": plan["compositions"]["distinct_first_10s"],
+            **({"visual_family_transitions": plan["novelty"]["transitions"]} if plan.get("novelty") else {}),
             "warnings": plan["warnings"]}
 
 
@@ -771,9 +861,11 @@ def _manifest(plan, painter, shot_credits, out_path):
                           if plan["voice"] else None),
             "shots": [{"id": s["id"], "beat": s["beat"], "start": round(s["start"], 3), "end": round(s["end"], 3),
                        "info": s["info"], "claims": s["claims"], "layers": [L["type"] for L in s["layers"]],
-                       "credit": shot_credits.get(s["id"])} for s in plan["shots"]],
+                       "credit": shot_credits.get(s["id"]),
+                       **({"visual_family": s["family"]} if s["family"] else {})} for s in plan["shots"]],
             "info_events": plan["events"],
             "compositions": plan["compositions"],
+            **({"visual_novelty": plan["novelty"]} if plan.get("novelty") else {}),
             "caption_boxes": [painter.caption_boxes[k] for k in sorted(painter.caption_boxes)],
             "assets": {k: {"label": a["label"], "credit": a["credit"], "prov": a["prov"], "kind": a["kind"]}
                        for k, a in plan["assets"].items()},
@@ -787,6 +879,7 @@ def public_plan(plan):
                        "layers": [L["type"] for L in s["layers"]]} for s in plan["shots"]],
             "info_events": plan["events"], "info_events_first_10s": sum(1 for e in plan["events"] if e["t"] < 10),
             "compositions": plan["compositions"],
+            **({"visual_novelty": plan["novelty"]} if plan.get("novelty") else {}),
             "narration": ({k: plan["voice"][k] for k in ("duration", "end", "gain_db", "voice_name")}
                           if plan["voice"] else None),
             "warnings": plan["warnings"]}

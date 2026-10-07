@@ -15,7 +15,9 @@ Override with --width/--height/--fps/--vcodec/--acodec/--max-mb.
 static freezes (warn 1.5 s, fail 2.5 s), loudness (warn outside -16..-12 LUFS), audio within
 0.5 s, and - from the render manifest (<video>.manifest.json or --manifest) - >= 5 information
 events in the first 10 s, >= 3 distinct compositions in the first 10 s (fail), about 7-10
-composition resets and no composition held over 6 s (warn), captions inside the Shorts safe area
+composition resets and no composition held over 6 s (warn), visual-family novelty when the storyboard
+tags visual_family (>= 3 families in the first 10 s, >= 6 transitions, no family over 10 s unless it is
+transforming - warn only), captions inside the Shorts safe area
 and a source credit on every shot.
 --contact-sheet out.jpg writes the first frame plus the middle of every shot.
 
@@ -149,7 +151,8 @@ CHECKS = [check_file, check_container, check_streams, check_duration, check_deco
 PROFILES = {"short": {"width": 1080, "height": 1920, "fps": 30.0, "min_s": 35.0, "max_s": 60.0,
                       "target": (45.0, 55.0), "black_s": 0.1, "freeze_warn": 1.5, "freeze_fail": 2.5,
                       "lufs": (-16.0, -12.0), "first_audio_s": 0.5, "events_first_10s": 5,
-                      "compositions_first_10s": 3, "composition_resets": (7, 10), "composition_hold_s": 6.0}}
+                      "compositions_first_10s": 3, "composition_resets": (7, 10), "composition_hold_s": 6.0,
+                      "families_first_10s": 3, "family_transitions": 6, "family_max_s": 10.0}}
 
 
 def check_short_duration(ctx):
@@ -261,7 +264,30 @@ def check_compositions(ctx):
     return out
 
 
-SHORT_CHECKS = [check_short_duration, check_black, check_freeze, check_audio, check_manifest, check_compositions]
+def check_visual_novelty(ctx):
+    """Visual-family transitions from the storyboard tags in the manifest. A new composition of the same
+    visual idea is not new. Creative warnings only; recounted from the manifest's runs."""
+    v = (ctx.get("manifest") or {}).get("visual_novelty")
+    if not v:
+        return [_skip("visual_novelty", "no visual_family tags in the storyboard/manifest")]
+    P = ctx["profile"]
+    runs = [x for x in v.get("runs") or [] if isinstance(x, dict) and _f(x.get("start")) is not None and x.get("family")]
+    if not runs:
+        return [_skip("visual_novelty", "the manifest's visual_novelty block has no runs")]
+    first = len({x["family"] for x in runs if _f(x["start"]) < 10})
+    longest = max(runs, key=lambda x: _f(x.get("untransformed")) or 0)
+    held = _f(longest.get("untransformed")) or 0
+    return [_check("visual_families_first_10s", first >= P["families_first_10s"], f">= {P['families_first_10s']}", first,
+                   warn=True),
+            _check("visual_family_transitions", len(runs) - 1 >= P["family_transitions"], f">= {P['family_transitions']}",
+                   len(runs) - 1, [f"{x['start']}s {x['family']}" for x in runs], warn=True),
+            _check("visual_family_dominance", held <= P["family_max_s"], f"<= {P['family_max_s']} s of one family "
+                   "unless it is transforming", held, f"{longest['family']} {longest.get('start')}-{longest.get('end')} s",
+                   warn=True)]
+
+
+SHORT_CHECKS = [check_short_duration, check_black, check_freeze, check_audio, check_manifest, check_compositions,
+                check_visual_novelty]
 
 
 def contact_sheet(path, manifest, out, timeout=300):
