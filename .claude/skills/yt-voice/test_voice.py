@@ -119,6 +119,43 @@ class Script(unittest.TestCase):
         self.assertIsNone(v.words_from_alignment("ab", {"characters": list("ab"), "start": ["x", 1], "end": [1, 2]}, 0))
 
 
+ADAM = "pNInz6obpgDQGcFmaJgB"
+
+
+class DefaultVoice(Base):
+    def test_adam_is_the_elevenlabs_default(self):
+        self.assertEqual(v.ElevenLabs.default_voice, {"name": "Adam", "voice_id": ADAM})
+
+    def test_plan_uses_adam_when_no_voice_id(self):
+        code, d, _ = run(["--text", "Hello.", "--output", self.out])
+        self.assertEqual((code, d["status"]), (2, "confirm_required"))
+        self.assertEqual((d["voice_id"], d["voice_name"], d["voice_source"]), (ADAM, "Adam", "default"))
+        self.assertClean()
+
+    def test_explicit_voice_id_overrides_default(self):
+        code, d, _ = run(["--text", "Hello.", "--output", self.out, "--voice-id", VOICE])
+        self.assertEqual((d["voice_id"], d["voice_name"], d["voice_source"]), (VOICE, None, "argument"))
+
+    def test_provider_without_default_needs_voice_id(self):
+        class NoDefault(v.Provider):
+            name = "nodefault"
+        with mock.patch.dict(v.PROVIDERS, {"nodefault": NoDefault}):
+            code, d, _ = run(["--text", "Hello.", "--output", self.out, "--provider", "nodefault"])
+        self.assertEqual(code, 2); self.assertIn("--voice-id is required", d["error"])
+
+    @unittest.skipUnless(HAVE_FF, "ffmpeg not installed")
+    def test_generation_requests_adam_and_records_it(self):
+        reqs = []
+        code, d, _ = run(["--text", "Hello there.", "--output", self.out, "--confirm"],
+                         eleven(0.5, requests=reqs), key=None, auth_env="proxy")
+        self.assertEqual((code, d["voice_id"], d["voice_name"]), (0, ADAM, "Adam"), d)
+        self.assertIn(f"/v1/text-to-speech/{ADAM}/with-timestamps", reqs[0]["url"])
+        self.assertNotIn("Xi-api-key", reqs[0]["headers"])
+        with open(os.path.join(self.dir, "narration.voice.json")) as f:
+            meta = json.load(f)
+        self.assertEqual((meta["voice_id"], meta["voice_name"], meta["voice_source"]), (ADAM, "Adam", "default"))
+
+
 class Guards(Base):
     def test_needs_confirm_and_sends_nothing(self):
         code, d, _ = run(self.args())

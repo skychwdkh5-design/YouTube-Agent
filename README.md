@@ -33,13 +33,14 @@ python3 .claude/skills/yt-render/test_render.py && python3 .claude/skills/yt-qc/
 
 ### yt-voice and yt-captions
 
-Narration through a TTS provider (ElevenLabs first, `ELEVENLABS_API_KEY`) with word timings, and
-SRT/VTT captions built from those timings. Generation is a paid request: it needs `--confirm` and
+Narration through a TTS provider (ElevenLabs first, `ELEVENLABS_API_KEY` or `YT_VOICE_AUTH=proxy`)
+with word timings, and SRT/VTT captions built from those timings. The channel narrator is Adam
+(`pNInz6obpgDQGcFmaJgB`), the default voice. Generation is a paid request: it needs `--confirm` and
 stays under `--max-chars`. Captions are local and free. How script → voice → captions → render
 connect: [`docs/production-pipeline.md`](docs/production-pipeline.md).
 
 ```bash
-python3 .claude/skills/yt-voice/voice.py --script script.md --voice-id VOICE --output voice/narration.wav
+python3 .claude/skills/yt-voice/voice.py --script script.md --output voice/narration.wav   # narrator: Adam
 python3 .claude/skills/yt-captions/captions.py --voice voice/narration.voice.json --out-dir captions/
 python3 .claude/skills/yt-voice/test_voice.py && python3 .claude/skills/yt-captions/test_captions.py
 ```
