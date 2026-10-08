@@ -347,7 +347,7 @@ class ComposeVideo(unittest.TestCase):
     def test_still_pipeline_untouched_by_the_video_code(self):
         """A version 3 timeline without video assets builds the same Painter state as before."""
         import compose
-        self.assertEqual(compose.FULL_FRAME, ("graphic", "video"))
+        self.assertEqual(compose.FULL_FRAME, ("graphic", "video", "still"))
         self.assertEqual([t for t in compose.LAYER_TYPES if t not in ("video",)], ["image", "flip", "wipe", "fill", "outline", "label", "arrow", "pin", "graphic"])
 
 
