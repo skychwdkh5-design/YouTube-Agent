@@ -10,9 +10,11 @@
  "source": "NASA Earth Observatory, \"A Deluge for the Sahara\"",
  "credit": null,
  "steps": [
+  "g05-rain.step1.png",
   "g05-rain.png"
  ],
  "sha256": {
+  "g05-rain.step1.png": "bfa9ff7f256c16d4cfe4813619e9fd44d08a01c70925f5b134fa8037c814842e",
   "g05-rain.png": "e11ae9f1935cd6a867db38ccdea1ba04cf068fa93bbf93ecb7c74298033efdf9"
  },
  "safe_area": {

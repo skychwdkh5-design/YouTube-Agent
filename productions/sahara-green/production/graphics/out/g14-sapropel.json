@@ -1,7 +1,7 @@
 {
  "schema": "yt-graphics/1",
  "id": "g14-sapropel",
- "type": "flow",
+ "type": "diagram",
  "style": "documentary_dark",
  "size": [
   1920,
@@ -14,14 +14,16 @@
   "g14-sapropel.step2.png",
   "g14-sapropel.step3.png",
   "g14-sapropel.step4.png",
+  "g14-sapropel.step5.png",
   "g14-sapropel.png"
  ],
  "sha256": {
-  "g14-sapropel.step1.png": "dd45c09d599156653dfd45da28f7d4b11482cc6b5dff2e953e37d929b90c57d2",
-  "g14-sapropel.step2.png": "8414142f86261ecac4e4187db57ae61fe40feb27982057f9040c114963a2a34e",
-  "g14-sapropel.step3.png": "92a3032d92987cb9751937d5f5689b493b977c117683e064116fcb15a599d959",
-  "g14-sapropel.step4.png": "92a3032d92987cb9751937d5f5689b493b977c117683e064116fcb15a599d959",
-  "g14-sapropel.png": "92a3032d92987cb9751937d5f5689b493b977c117683e064116fcb15a599d959"
+  "g14-sapropel.step1.png": "6e636d9b03ea1bb2a3ce293d3e794aea0955c3e5a6f83c5ff63eee2c3d02c0c2",
+  "g14-sapropel.step2.png": "57e53516a0c5913844a018dbbcf752b92b40b683ded3bc8d03e5119cf5416cdd",
+  "g14-sapropel.step3.png": "4cd87d6120fd4a9fd2351977695286b27a2878d552f5a37023cbb8300760ffe2",
+  "g14-sapropel.step4.png": "9a8539748a205e09de1afcd2173db5fc9a7c625facc216d692979c42f0582388",
+  "g14-sapropel.step5.png": "e922160aac3bbb9d8a5c17892a559334fc46ae7d955e6a270f11b0e4e842aa2f",
+  "g14-sapropel.png": "9da48ddcba1b4c30514a99c9a5df10d94c0b3638ac10c0c5ba05ee1802de7e0d"
  },
  "safe_area": {
   "top": 0.07,
@@ -65,36 +67,36 @@
    ]
   },
   {
-   "where": "node s0",
+   "where": "node n0",
    "text": "Layers of Mediterranean seabed mud (sapropels)",
-   "size": 28,
+   "size": 34,
    "box": [
-    229.5,
-    446.6,
-    538.5,
-    546.2
+    186.5,
+    430.1,
+    593.0,
+    511.0
    ]
   },
   {
-   "where": "node s1",
+   "where": "node n1",
    "text": "Laid down when African monsoon floods surged into the sea",
-   "size": 26,
+   "size": 34,
    "box": [
-    807.0,
-    450.1,
-    1113.0,
-    542.7
+    759.8,
+    410.0,
+    1160.2,
+    531.0
    ]
   },
   {
-   "where": "node s2",
+   "where": "node n2",
    "text": "230+ green periods inferred in 8 million years",
    "size": 34,
    "box": [
-    1383.5,
-    435.9,
-    1688.5,
-    556.9
+    1320.2,
+    430.1,
+    1740.2,
+    511.0
    ]
   }
  ]

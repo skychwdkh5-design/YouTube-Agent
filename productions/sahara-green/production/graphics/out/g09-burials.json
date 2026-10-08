@@ -10,9 +10,15 @@
  "source": "Sereno et al. 2008, PLoS ONE 3(8): e2995",
  "credit": null,
  "steps": [
+  "g09-burials.step1.png",
+  "g09-burials.step2.png",
+  "g09-burials.step3.png",
   "g09-burials.png"
  ],
  "sha256": {
+  "g09-burials.step1.png": "4ad51cf03b17e3ac23b828f1a7bf4826300fd250fcc7835920a93e08bfadd5a9",
+  "g09-burials.step2.png": "b9dd9a8f9ccbbeac886ce380586e1c85d999510dd051b7b6660e451085bd87e8",
+  "g09-burials.step3.png": "d863363d23e7584c00419c11ea3871099e31e616c5438d35494dc4440b6d2219",
   "g09-burials.png": "b0bfea01b4f142128dca9bbf91e6acbedc78f0c266b8a22cbd699914f3b01c76"
  },
  "safe_area": {

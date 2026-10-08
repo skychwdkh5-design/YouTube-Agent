@@ -235,5 +235,63 @@ class Validation(Base):
         self.assertIn("no such graphic", d["error"])
 
 
+class BuildEmphasis(Base):
+    """hl (emphasis ring / brighter note), callout build steps and circulation step_map: each build step is a real visual change."""
+    def render(self, spec):
+        code, d = run([self.spec([spec]), "--out-dir", os.path.join(self.dir, "out")])
+        self.assertEqual((code, d["status"]), (0, "ok"), d)
+        return d
+
+    def img(self, name):
+        return np.asarray(Image.open(os.path.join(self.dir, "out", name)).convert("RGB")).astype(float)
+
+    def test_node_ring_and_bright_note_appear_only_at_their_step(self):
+        spec = {"type": "diagram", "id": "emph", "source": SRC, "nodes": [
+                    {"id": "a", "text": "A", "x": 0.3, "y": 0.5, "step": 1, "hl": [2]}, {"id": "b", "text": "B", "x": 0.7, "y": 0.5, "step": 1}],
+                "notes": [{"text": "note", "x": 0.5, "y": 0.9, "step": 1, "hl": [3]}]}
+        self.render(spec)
+        s1, s2, s3 = self.img("emph.step1.png"), self.img("emph.step2.png"), self.img("emph.png")
+        mafd = lambda a, b: np.abs(a - b).mean()
+        self.assertGreater(mafd(s1, s2), 0.2)           # the ring is a large enough change to count as an event
+        self.assertGreater(mafd(s2, s3), 0.05)          # ring gone, note brighter
+        self.assertEqual(json.load(open(os.path.join(self.dir, "out", "emph.json")))["steps"][-1], "emph.png")
+
+    def test_hl_extends_the_step_count_and_is_validated(self):
+        d = self.render({"type": "diagram", "id": "emph", "source": SRC, "nodes": [{"id": "a", "text": "A", "x": 0.5, "y": 0.5, "hl": [4]}]})
+        self.assertEqual(len(json.load(open(os.path.join(self.dir, "out", "emph.json")))["steps"]), 4)
+        for bad in ([], [0], [21], ["x"], True):
+            code, d = run([self.spec([{"type": "diagram", "id": "bad", "source": SRC, "nodes": [{"id": "a", "text": "A", "x": 0.5, "y": 0.5, "hl": bad}]}]),
+                           "--out-dir", os.path.join(self.dir, "out")])
+            self.assertEqual(code, 2, bad); self.assertIn("hl", d["error"])
+
+    def test_callout_build_steps(self):
+        base = {"type": "callout", "id": "cb", "source": SRC, "value": 7, "unit": "km", "label": "Label text", "context": "Context text", "build": True}
+        self.render(dict(base, title="Title"))
+        steps = json.load(open(os.path.join(self.dir, "out", "cb.json")))["steps"]
+        self.assertEqual(len(steps), 4)                 # title alone, number, label, context
+        imgs = [self.img(f) for f in steps]
+        self.assertTrue(all(np.abs(a - b).mean() > 0.1 for a, b in zip(imgs, imgs[1:])))
+        self.render(dict(base, id="cc"))                # untitled: number, label, context
+        self.assertEqual(len(json.load(open(os.path.join(self.dir, "out", "cc.json")))["steps"]), 3)
+        self.render(dict(base, id="cd", build=False))   # without build: one image, as before
+        self.assertEqual(len(json.load(open(os.path.join(self.dir, "out", "cd.json")))["steps"]), 1)
+
+    def test_circulation_step_map_and_cloud_step(self):
+        spec = {"type": "circulation", "id": "circ", "source": SRC, "build": True, "rising_cloud": True, "cloud_step": 2, "step_map": [1, 3, 4, 5],
+                "labels": {"rising": "up", "aloft": "across", "sinking": "down", "surface": "back"}}
+        self.render(spec)
+        self.assertEqual(len(json.load(open(os.path.join(self.dir, "out", "circ.json")))["steps"]), 5)
+        s1, s2 = self.img("circ.step1.png"), self.img("circ.step2.png")
+        self.assertGreater(np.abs(s1 - s2).mean(), 0.1)  # the cloud appears at step 2 and nothing else does
+        code, d = run([self.spec([dict(spec, id="bad", step_map=[1, 2, 3])]), "--out-dir", os.path.join(self.dir, "out")])
+        self.assertEqual(code, 2); self.assertIn("step_map", d["error"])
+
+    def test_default_graphics_are_unchanged(self):
+        base = {"type": "circulation", "id": "old", "source": SRC, "build": True, "rising_cloud": True,
+                "labels": {"rising": "up", "aloft": "across", "sinking": "down", "surface": "back"}}
+        self.render(base)
+        self.assertEqual(len(json.load(open(os.path.join(self.dir, "out", "old.json")))["steps"]), 4)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

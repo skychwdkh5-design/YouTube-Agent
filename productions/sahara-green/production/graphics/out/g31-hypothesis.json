@@ -11,11 +11,13 @@
  "credit": null,
  "steps": [
   "g31-hypothesis.step1.png",
+  "g31-hypothesis.step2.png",
   "g31-hypothesis.png"
  ],
  "sha256": {
   "g31-hypothesis.step1.png": "a1ce7dfeab234cd3a52b3b230e59058caf31e08b36eeb089a275daabc3a61eff",
-  "g31-hypothesis.png": "8b0d67231f697bd6868799c46faccb8cabee3019e76e11223bca8790b062ce29"
+  "g31-hypothesis.step2.png": "8b0d67231f697bd6868799c46faccb8cabee3019e76e11223bca8790b062ce29",
+  "g31-hypothesis.png": "47fde4c4a201d1e6abd1518d8c792e851ecf2b6618184313c86f95f3db9505de"
  },
  "safe_area": {
   "top": 0.07,

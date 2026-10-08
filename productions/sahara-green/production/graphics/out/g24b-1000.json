@@ -10,9 +10,15 @@
  "source": "Ornstein et al. 2009, section 3.1 (p.418)",
  "credit": null,
  "steps": [
+  "g24b-1000.step1.png",
+  "g24b-1000.step2.png",
+  "g24b-1000.step3.png",
   "g24b-1000.png"
  ],
  "sha256": {
+  "g24b-1000.step1.png": "a3f1fa63f85d3da48414d0fe7f541607bb358031b6865c75e8a559ae9287ba01",
+  "g24b-1000.step2.png": "96f0742cc9d62d78fb92010443e7bbbb4bc7584bc0185f8ed8d8a9ea893a95ef",
+  "g24b-1000.step3.png": "2edf0c066ebf8904dd8747e355bffdd16bf8c12acc0949f3b271d15280baa5c7",
   "g24b-1000.png": "bb9a1d0c2d5f2195ad7a4b5ef7d76074a318605e83bc89cc3e9f290e50f11629"
  },
  "safe_area": {

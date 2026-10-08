@@ -14,14 +14,28 @@
   "g25-budget.step2.png",
   "g25-budget.step3.png",
   "g25-budget.step4.png",
+  "g25-budget.step5.png",
+  "g25-budget.step6.png",
+  "g25-budget.step7.png",
+  "g25-budget.step8.png",
+  "g25-budget.step9.png",
+  "g25-budget.step10.png",
+  "g25-budget.step11.png",
   "g25-budget.png"
  ],
  "sha256": {
-  "g25-budget.step1.png": "f1b77cd3e9b06001d5478dd4b6a9c94a7516c94ea0ecd9389f39476acff84cf3",
-  "g25-budget.step2.png": "d085e89519e7d6ce6a4a3d03dfb45ab4444f806299dc5347e0912f556115a000",
-  "g25-budget.step3.png": "29f34de6d3ee2bfe902285e1ac1ccd17f1765669ef108af4b0ee58953abbb9d1",
-  "g25-budget.step4.png": "2d29538dda65fea33390f92bde576c52ef3404ddbcc73d5157cd4fb681561340",
-  "g25-budget.png": "3015ec55303e9c74dd131852bd9af04a4ce6bd84e073ae4ca2cf256f0581ddf5"
+  "g25-budget.step1.png": "b1e6de85b18f13c1fd34ebe910ef7f8200fb15d7bc17a600d7cb41d93d1b3a0a",
+  "g25-budget.step2.png": "f1b77cd3e9b06001d5478dd4b6a9c94a7516c94ea0ecd9389f39476acff84cf3",
+  "g25-budget.step3.png": "2f9992b0732f2bdabdd8ccad515f11eec236f9dddbf766ee07fb75571104d150",
+  "g25-budget.step4.png": "d085e89519e7d6ce6a4a3d03dfb45ab4444f806299dc5347e0912f556115a000",
+  "g25-budget.step5.png": "29f34de6d3ee2bfe902285e1ac1ccd17f1765669ef108af4b0ee58953abbb9d1",
+  "g25-budget.step6.png": "5806b40eec1357cda1a1fc5832be9802187147be6fc6441be35fd7ec95c749e3",
+  "g25-budget.step7.png": "697037679889770a53e52df6228a6c0025289487a3ef25d9e22270e74e5bdd18",
+  "g25-budget.step8.png": "5806b40eec1357cda1a1fc5832be9802187147be6fc6441be35fd7ec95c749e3",
+  "g25-budget.step9.png": "1c9fdb98db2568317709520a9dd204a2e0ef8ec3e4a020e075ab67ed2fa59d85",
+  "g25-budget.step10.png": "2e5d28a3a0c9e3a7b64fcb8a9ad979e1320789e2110942dd2fbe8e151040d6a9",
+  "g25-budget.step11.png": "05f18ec8624cf52c9d55b7f0c042135cc6450edeb75dd8b51f2945bf39d79b48",
+  "g25-budget.png": "b3e4c32fc364e568675d3ae48336a28ac5d348ee1ca57115c6bcea8a69b9a4b8"
  },
  "safe_area": {
   "top": 0.07,
@@ -117,6 +131,17 @@
     514.8,
     1816.9,
     581.5
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Much of the moisture was carried south, over the Sahel and the ocean",
+   "size": 28,
+   "box": [
+    1146.4,
+    421.7,
+    1810.4,
+    488.3
    ]
   }
  ]

@@ -12,11 +12,23 @@
  "steps": [
   "g19-aquifer.step1.png",
   "g19-aquifer.step2.png",
+  "g19-aquifer.step3.png",
+  "g19-aquifer.step4.png",
+  "g19-aquifer.step5.png",
+  "g19-aquifer.step6.png",
+  "g19-aquifer.step7.png",
+  "g19-aquifer.step8.png",
   "g19-aquifer.png"
  ],
  "sha256": {
   "g19-aquifer.step1.png": "49dff8357fabb0e287daa8856876c9b4bb87f5937662c8d697ac779c93dee308",
-  "g19-aquifer.step2.png": "a7e846b5028725405d730bb045e9d9132a407f2aa0d46d55188963014f691ac4",
+  "g19-aquifer.step2.png": "80f50845064549e77d1c8d8c7f2b1791e695cbd0b77ae5070934ff4fa502200f",
+  "g19-aquifer.step3.png": "4e688cc17a86a521770c06d27fe386b396cb25f70eb8d415f35a5e5afceec532",
+  "g19-aquifer.step4.png": "4c538738d2201293082a27ffb5487c7a106034a779018496e28022698b1f1cde",
+  "g19-aquifer.step5.png": "fdd7a7d1201bb69786146eb1114b27ea957da04cd6ae5645da0e005bf688a4cb",
+  "g19-aquifer.step6.png": "a7e846b5028725405d730bb045e9d9132a407f2aa0d46d55188963014f691ac4",
+  "g19-aquifer.step7.png": "b6734ae74fbab8f7bdd4c0ace5a393c9198de41e14a66dfc1fbd5fcd30fb947b",
+  "g19-aquifer.step8.png": "a7e846b5028725405d730bb045e9d9132a407f2aa0d46d55188963014f691ac4",
   "g19-aquifer.png": "22826a8f344b959051d324e8bf35b6bf0990eb31c66e790dd84a4f21222a5e26"
  },
  "safe_area": {

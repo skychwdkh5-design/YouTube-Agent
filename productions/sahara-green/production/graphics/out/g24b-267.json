@@ -10,9 +10,15 @@
  "source": "Kemena et al., Climate Dynamics (manuscript 2017; journal version 2018)",
  "credit": null,
  "steps": [
+  "g24b-267.step1.png",
+  "g24b-267.step2.png",
+  "g24b-267.step3.png",
   "g24b-267.png"
  ],
  "sha256": {
+  "g24b-267.step1.png": "b86940e05e4aa49870d2e13237d79d31f5912181e87e39c8f49331d2d903d435",
+  "g24b-267.step2.png": "25f41a6f4eae2c102cdffb285e29ffa838d25b050c97f330729bb55d50199097",
+  "g24b-267.step3.png": "a0029e12dbebf7ebe11469a97fb03848147031e202660fbeaa431cde1c044880",
   "g24b-267.png": "6a4928f36db5999a7e251e973ea2d0c4aa5f1669cf5166f6c50b3460ac1a250f"
  },
  "safe_area": {

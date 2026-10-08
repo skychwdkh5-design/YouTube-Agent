@@ -15,14 +15,16 @@
   "g13-models.step3.png",
   "g13-models.step4.png",
   "g13-models.step5.png",
+  "g13-models.step6.png",
   "g13-models.png"
  ],
  "sha256": {
   "g13-models.step1.png": "aa98243fb840be8c10bd20f5f846000b85c1c90b9c4c701300c3d0c0559ba7f7",
   "g13-models.step2.png": "3a57a2397af1edb43384f4dff035ce373ce2a039aabe45b69ef2cff516da436e",
-  "g13-models.step3.png": "8a215bbf6a43e7595d36ec88db9ee370caa38665f917a49f197a30c6b3f5a29c",
-  "g13-models.step4.png": "3b787bd0a043da7dc033a03e2f25437d334eb65fdefd0370c6faca07e52c519a",
-  "g13-models.step5.png": "d54fdf474a0f7ff46c814469287fd17c440e5a3d7637f66db799f41274bb86e6",
+  "g13-models.step3.png": "1ff5cf0d68ee96086d14f534792a699a2014b4f8bbff7a28351917cfb75f31ae",
+  "g13-models.step4.png": "8a215bbf6a43e7595d36ec88db9ee370caa38665f917a49f197a30c6b3f5a29c",
+  "g13-models.step5.png": "3b787bd0a043da7dc033a03e2f25437d334eb65fdefd0370c6faca07e52c519a",
+  "g13-models.step6.png": "d54fdf474a0f7ff46c814469287fd17c440e5a3d7637f66db799f41274bb86e6",
   "g13-models.png": "f78635b9c949e56b87c9b04a4b04ce8b95009fb35fb50b114ccfd25433772c47"
  },
  "safe_area": {

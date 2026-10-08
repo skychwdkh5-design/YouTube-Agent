@@ -13,12 +13,18 @@
   "g07-timeline.step1.png",
   "g07-timeline.step2.png",
   "g07-timeline.step3.png",
+  "g07-timeline.step4.png",
+  "g07-timeline.step5.png",
+  "g07-timeline.step6.png",
   "g07-timeline.png"
  ],
  "sha256": {
   "g07-timeline.step1.png": "8559348222da6e3c66b5a719a6d382fc7277ab80eac6ae90f4cee5fb1a9bd24a",
   "g07-timeline.step2.png": "cd33126892dbd0ce9959b152b7af455b7c1573979681591bc20df7e77404cf93",
-  "g07-timeline.step3.png": "159909d10f5bac2052423d9c5ec8a646a97ca8ee78095b665ee843b2d3acab85",
+  "g07-timeline.step3.png": "3298ca942eb0827607a1beb1c99976eb6160b83732f70a6f174ca5aecbb87e46",
+  "g07-timeline.step4.png": "cd33126892dbd0ce9959b152b7af455b7c1573979681591bc20df7e77404cf93",
+  "g07-timeline.step5.png": "159909d10f5bac2052423d9c5ec8a646a97ca8ee78095b665ee843b2d3acab85",
+  "g07-timeline.step6.png": "1f1515d1d67fa5d560df641512522a56c201c10b1c3d26e35829203e683f4d6e",
   "g07-timeline.png": "eb6b891bb65159b5166c641f8513aeb8431324cb0d5811cb8f0138d3fec87478"
  },
  "safe_area": {

@@ -12,12 +12,30 @@
  "steps": [
   "g33-sahel.step1.png",
   "g33-sahel.step2.png",
+  "g33-sahel.step3.png",
+  "g33-sahel.step4.png",
+  "g33-sahel.step5.png",
+  "g33-sahel.step6.png",
+  "g33-sahel.step7.png",
+  "g33-sahel.step8.png",
+  "g33-sahel.step9.png",
+  "g33-sahel.step10.png",
+  "g33-sahel.step11.png",
   "g33-sahel.png"
  ],
  "sha256": {
-  "g33-sahel.step1.png": "a413268ee77c29cf45d3886cb99fb408e454f24755524ebb4c5592f4ef10b789",
-  "g33-sahel.step2.png": "a07e33e657591f457b6b47de538b0d6dd9f93383a1628b560cf6d8db51b84738",
-  "g33-sahel.png": "3c26cfe4c286d49c06cbc7db3d0222c1717916039763eafc8f5501dd80bf3862"
+  "g33-sahel.step1.png": "d0df2b0220b36b9686b9263c40c85b735f0c352704ee17d5a75b1c8fab6747d6",
+  "g33-sahel.step2.png": "0acb922bd9a59833494c003904ea9500ee9a08b2e87b0a4efb9ba59a58ca1eaf",
+  "g33-sahel.step3.png": "991e891c5b21431a94decf9da94e0efe75ec5aaac8e8b09c5b7693739aefd110",
+  "g33-sahel.step4.png": "0acb922bd9a59833494c003904ea9500ee9a08b2e87b0a4efb9ba59a58ca1eaf",
+  "g33-sahel.step5.png": "991e891c5b21431a94decf9da94e0efe75ec5aaac8e8b09c5b7693739aefd110",
+  "g33-sahel.step6.png": "0acb922bd9a59833494c003904ea9500ee9a08b2e87b0a4efb9ba59a58ca1eaf",
+  "g33-sahel.step7.png": "64bab69b3b8db83d2575f5ae7c54f21f003c0b37b9c8e36ab2cc888f53a68084",
+  "g33-sahel.step8.png": "7feb566c366da507ae4c08db1563a34f816df096995063d76e1fd71bcb368ad2",
+  "g33-sahel.step9.png": "416c90fb36e4dfb1d71dce88f3edc0ee2cc6c23a596f14bec6ff8aeba0170be5",
+  "g33-sahel.step10.png": "dd4077ac219024b0f922000e4b5d26a753335b86a257d992ce293440771dc428",
+  "g33-sahel.step11.png": "e9b734e53345bac1aba0ebeb190a2b2c364a3db18dc639b8b6a9f1c99f4853cf",
+  "g33-sahel.png": "2ad19e9776e3b614d1948bf331d9a2f4da3ec597823d61e60d072f0d3d565571"
  },
  "safe_area": {
   "top": 0.07,
@@ -40,12 +58,12 @@
   },
   {
    "where": "subtitle",
-   "text": "Reported figures; they differ by region and report",
+   "text": "Satellite records and reported figures",
    "size": 30,
    "box": [
     96.0,
     179.6,
-    807.0,
+    635.5,
     215.6
    ]
   },
@@ -102,6 +120,17 @@
     651.8,
     1667.2,
     713.7
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Reported figures; they differ by region and report",
+   "size": 26,
+   "box": [
+    237.0,
+    667.1,
+    853.5,
+    698.3
    ]
   }
  ]

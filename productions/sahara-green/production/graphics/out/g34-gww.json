@@ -13,13 +13,23 @@
   "g34-gww.step1.png",
   "g34-gww.step2.png",
   "g34-gww.step3.png",
+  "g34-gww.step4.png",
+  "g34-gww.step5.png",
+  "g34-gww.step6.png",
+  "g34-gww.step7.png",
+  "g34-gww.step8.png",
   "g34-gww.png"
  ],
  "sha256": {
-  "g34-gww.step1.png": "0fa6c4fc1e66730a859d0c81a55296136dd3ebc1489912b69f61210a00bd0597",
-  "g34-gww.step2.png": "992db3314f06f2f883700d4d79bbdc6b14824d36b8e61a0ca1358e3ec17a413a",
-  "g34-gww.step3.png": "136ad63ef5ce45387c38e2269eeea563b509d8dabfc9d5a7f43a6c098dd2dbe6",
-  "g34-gww.png": "9481789c766130740901e074b824471bb65ef54908eb7acdc6504bd54b8793ab"
+  "g34-gww.step1.png": "73c77dbbbb44bbec5ae7c08e2989b8da94f1ba277ca8cbb480e24614a64c7bb3",
+  "g34-gww.step2.png": "0fa6c4fc1e66730a859d0c81a55296136dd3ebc1489912b69f61210a00bd0597",
+  "g34-gww.step3.png": "4dd4ead090e7e83a835d54fc713e9150faad5cb6978afebe4618f33b5befc22a",
+  "g34-gww.step4.png": "992db3314f06f2f883700d4d79bbdc6b14824d36b8e61a0ca1358e3ec17a413a",
+  "g34-gww.step5.png": "97e16c1436bad4b987d9d53978a41175330ffb97876dc352b8a24ccc04dcbbbe",
+  "g34-gww.step6.png": "136ad63ef5ce45387c38e2269eeea563b509d8dabfc9d5a7f43a6c098dd2dbe6",
+  "g34-gww.step7.png": "bead637f18fdd9b3b41f0c402780ac2307dcb7470ba2c171bb0050f7db7a042d",
+  "g34-gww.step8.png": "9481789c766130740901e074b824471bb65ef54908eb7acdc6504bd54b8793ab",
+  "g34-gww.png": "61505bd47879d3a64495f35e1dd33eb8c99e50b1291b121f3824ba7f99a98e46"
  },
  "safe_area": {
   "top": 0.07,

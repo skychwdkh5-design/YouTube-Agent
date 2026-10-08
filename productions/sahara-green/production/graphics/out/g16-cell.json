@@ -13,12 +13,14 @@
   "g16-cell.step1.png",
   "g16-cell.step2.png",
   "g16-cell.step3.png",
+  "g16-cell.step4.png",
   "g16-cell.png"
  ],
  "sha256": {
-  "g16-cell.step1.png": "98fe2dcb87d9bd41d6e0ed45a351484bab0505e5b653b8f78f8ae7a0d8128e2c",
-  "g16-cell.step2.png": "e314b4338a3e1f19eb81eaa0752149e8adb59078b11fe5d5e859ff0640bc4237",
-  "g16-cell.step3.png": "068a8bd727db3eba7a1f2de989bc5001d517a6ae075d1c20193eec258e788ca5",
+  "g16-cell.step1.png": "c67009959edc066a8b468971d6a5a40888e47ca5a6821c26bdb8dffd1e1611e7",
+  "g16-cell.step2.png": "98fe2dcb87d9bd41d6e0ed45a351484bab0505e5b653b8f78f8ae7a0d8128e2c",
+  "g16-cell.step3.png": "e314b4338a3e1f19eb81eaa0752149e8adb59078b11fe5d5e859ff0640bc4237",
+  "g16-cell.step4.png": "068a8bd727db3eba7a1f2de989bc5001d517a6ae075d1c20193eec258e788ca5",
   "g16-cell.png": "8a5f25900b30126faf52d9ba4de25aada5dde963152d9e72bd167a7f4207259b"
  },
  "safe_area": {

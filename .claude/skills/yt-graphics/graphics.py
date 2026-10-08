@@ -24,6 +24,7 @@ SS = 2                                   # supersampling: draw at 2x, downsample
 SAFE = {"top": 0.07, "bottom": 0.13, "left": 0.05, "right": 0.05}   # same as yt-render profile "long"
 CAPTION_TOP = 0.74                       # burned-in captions of profile "long" sit below this line
 CREDIT_BAND = 44                         # yt-render draws the shot credit just inside the top safe edge
+MAX_STEPS = 20                           # build steps per graphic
 MIN_TEXT_PX = 24                         # smallest text at 1080p: ~10.5 pt on a phone in landscape fullscreen
 STYLES = {
     "documentary_dark": {"bg": (12, 18, 28), "panel": (26, 36, 52), "fg": (240, 244, 248), "muted": (150, 166, 186),
@@ -395,7 +396,7 @@ def v_diagram(g, where):
     ids = set()
     for i, n in enumerate(nodes):
         w = f"{where}.nodes[{i}]"
-        _keys(n, ("id", "text", "x", "y", "w", "h", "style", "step"), w)
+        _keys(n, ("id", "text", "x", "y", "w", "h", "style", "step", "hl"), w)
         _text(n.get("id"), f"{w}.id", 40)
         if n["id"] in ids:
             raise E(f"{w}.id {n['id']!r} is used twice")
@@ -407,7 +408,7 @@ def v_diagram(g, where):
             _num(n.get(k, d), f"{w}.{k}", 0.04, 1)
         if n.get("style", "default") not in NODE_STYLES:
             raise E(f"{w}.style must be one of {sorted(NODE_STYLES)}")
-        _step(n, w)
+        _step(n, w); _hl(n, w)
     for i, a in enumerate(g.get("arrows") or []):
         w = f"{where}.arrows[{i}]"
         _keys(a, ("from", "to", "label", "color", "step"), w)
@@ -426,18 +427,26 @@ def v_diagram(g, where):
         _step(a, w)
     for i, n in enumerate(g.get("notes") or []):
         w = f"{where}.notes[{i}]"
-        _keys(n, ("text", "x", "y", "step", "size"), w)
+        _keys(n, ("text", "x", "y", "step", "size", "hl"), w)
         _text(n.get("text"), f"{w}.text", 120)
         _num(n.get("x"), f"{w}.x", 0, 1); _num(n.get("y"), f"{w}.y", 0, 1)
         _num(n.get("size", 30), f"{w}.size", MIN_TEXT_PX, 60)
-        _step(n, w)
+        _step(n, w); _hl(n, w)
 
 
 def _step(e, where):
     if "step" in e:
         v = e["step"]
-        if isinstance(v, bool) or not isinstance(v, int) or not 1 <= v <= 12:
-            raise E(f"{where}.step must be an integer 1-12")
+        if isinstance(v, bool) or not isinstance(v, int) or not 1 <= v <= MAX_STEPS:
+            raise E(f"{where}.step must be an integer 1-{MAX_STEPS}")
+
+
+def _hl(e, where):
+    """`hl`: the build steps at which this node / note is emphasised (a ring around a node, brighter text for a note)"""
+    if "hl" in e:
+        v = e["hl"]
+        if not (isinstance(v, list) and v and all(isinstance(x, int) and not isinstance(x, bool) and 1 <= x <= MAX_STEPS for x in v)):
+            raise E(f"{where}.hl must be a list of build steps (1-{MAX_STEPS})")
 
 
 def d_diagram(cv, g, step):
@@ -484,6 +493,8 @@ def d_diagram(cv, g, step):
             cv.rect((cx - hw, cy - hh, cx + hw, cy + hh), fill=fill, radius=14)
         else:
             cv.rect((cx - hw, cy - hh, cx + hw, cy + hh), outline="muted", width=3, radius=14)
+        if step in (n.get("hl") or []):
+            cv.rect((cx - hw - 9, cy - hh - 9, cx + hw + 9, cy + hh + 9), outline="fg", width=7, radius=20)
         cv.text(n["text"], cx, cy, 34, "Bold", fg, max_w=hw * 2 - 24, max_lines=3, where=f"node {n['id']}")
     for text, (mx, my), (ox, oy), col in labels:        # labels last, so nodes never cover them
         n = math.hypot(ox, oy) or 1
@@ -492,7 +503,7 @@ def d_diagram(cv, g, step):
         cv.place(text, cands, 30, "Bold", col, g.get("_label_w", 360), stroke=3, where="arrow label")
     for n in g.get("notes") or []:
         if n.get("step", 1) <= step:
-            cv.text(n["text"], nx(box, n["x"]), ny(box, n["y"]), int(n.get("size", 30)), "SemiBold", "muted",
+            cv.text(n["text"], nx(box, n["x"]), ny(box, n["y"]), int(n.get("size", 30)), "SemiBold", "fg" if step in (n.get("hl") or []) else "muted",
                     max_w=(box[2] - box[0]) * 0.4, max_lines=3, where="note")
 
 
@@ -526,7 +537,12 @@ def flow_as_diagram(g):
 
 def v_circulation(g, where):
     _keys(g, ("type", "id", "title", "subtitle", "source", "style", "caption_band", "labels", "ground_labels",
-              "rising_cloud", "build"), where)
+              "rising_cloud", "build", "step_map", "cloud_step"), where)
+    sm = g.get("step_map")
+    if sm is not None and not (isinstance(sm, list) and len(sm) == 4 and all(isinstance(x, int) and not isinstance(x, bool) and 1 <= x <= MAX_STEPS for x in sm)):
+        raise E(f"{where}.step_map must list the build step of rising, aloft, sinking and surface (four integers)")
+    if "cloud_step" in g and (isinstance(g["cloud_step"], bool) or not isinstance(g["cloud_step"], int) or not 1 <= g["cloud_step"] <= MAX_STEPS):
+        raise E(f"{where}.cloud_step must be an integer 1-{MAX_STEPS}")
     labels = g.get("labels") or {}
     _keys(labels, ("rising", "aloft", "sinking", "surface"), f"{where}.labels")
     for k, v in labels.items():
@@ -563,10 +579,11 @@ def d_circulation(cv, g, step):
             ("aloft", (left + 30, top - 10), (right - 30, top - 10), "accent", ((left + right) / 2, top - 52), "mm"),
             ("sinking", (right, top), (right, bot), "blue", (right - 26, (top + bot) / 2), "rm"),
             ("surface", (right - 30, bot + 12), (left + 30, bot + 12), "blue", ((left + right) / 2, bot - 28), "mm")]
-    if g.get("rising_cloud") and (not build or step >= 1):
+    smap = g.get("step_map") or [1, 2, 3, 4]
+    if g.get("rising_cloud") and (not build or step >= g.get("cloud_step", 1)):
         _cloud(cv, left, top + 30, 42)
     for k, (name, p0, p1, col, lp, anc) in enumerate(segs):
-        if build and k + 1 > step:
+        if build and smap[k] > step:
             continue
         cv.arrow(p0, p1, col, 12, head=40)
         if L.get(name):
@@ -763,7 +780,7 @@ def d_line(cv, g, step):
 
 def v_callout(g, where):
     _keys(g, ("type", "id", "title", "subtitle", "source", "style", "caption_band", "value", "unit", "label",
-              "context", "decimals"), where)
+              "context", "decimals", "build"), where)
     _num(g.get("value"), f"{where}.value")
     _text(g.get("unit"), f"{where}.unit", 30)
     _text(g.get("label"), f"{where}.label", 80)
@@ -772,8 +789,16 @@ def v_callout(g, where):
         _num(g["decimals"], f"{where}.decimals", 0, 4)
 
 
+def _callout_first(g):
+    """build steps of a callout: [title alone,] number and unit, label, context (the title step exists only for a titled callout)"""
+    return 2 if (g.get("build") and g.get("title")) else 1
+
+
 def d_callout(cv, g, step):
     box = frame_parts(cv, g)
+    first = _callout_first(g)
+    if step < first:                       # build: the title (and source line) alone
+        return
     cx, cy = (box[0] + box[2]) / 2, (box[1] + box[3]) / 2 - 40
     dec = int(g["decimals"]) if "decimals" in g else None
     val = fmt_num(g["value"], dec)
@@ -783,8 +808,9 @@ def d_callout(cv, g, step):
     cv.text(val, cx - total / 2, cy, 190, "Black", "accent", anchor="lm", max_w=box[2] - box[0] - uw - 40, min_size=90,
             where="value")
     cv.text(g["unit"], cx - total / 2 + vw + 24, cy + 30, 90, "Black", "accent", anchor="lm", max_w=uw + 4, where="unit")
-    cv.text(g["label"], cx, cy + 150, 44, "Bold", "fg", max_w=box[2] - box[0] - 80, max_lines=2, where="label")
-    if g.get("context"):
+    if not g.get("build") or step >= first + 1:
+        cv.text(g["label"], cx, cy + 150, 44, "Bold", "fg", max_w=box[2] - box[0] - 80, max_lines=2, where="label")
+    if g.get("context") and (not g.get("build") or step >= first + 2):
         cv.text(g["context"], cx, cy + 240, 30, "SemiBold", "muted", max_w=box[2] - box[0] - 200, max_lines=2,
                 where="context")
 
@@ -1069,12 +1095,14 @@ def steps_of(g):
     if g["type"] == "flow":
         return len(g["steps"]) * 2 - 1 if g.get("build") else 1
     if g["type"] == "circulation":
-        return 4 if g.get("build") else 1
+        return max((g.get("step_map") or [1, 2, 3, 4]) + [g.get("cloud_step", 1)]) if g.get("build") else 1
     if g["type"] == "water_cycle":
         return 4 if g.get("build") else 1
+    if g["type"] == "callout":
+        return (_callout_first(g) + 1 + (1 if g.get("context") else 0)) if g.get("build") else 1
     if g["type"] in ("diagram", "geo"):
         items = list(g.get("nodes") or []) + list(g.get("arrows") or []) + list(g.get("notes") or []) + list(g.get("callouts") or [])
-        return max([1] + [x.get("step", 1) for x in items])
+        return max([1] + [x.get("step", 1) for x in items] + [h for x in items for h in (x.get("hl") or [])])
     return 1
 
 

@@ -10,9 +10,13 @@
  "source": "Larrasoaña, Roberts & Rohling 2013, PLoS ONE 8(10): e76514",
  "credit": null,
  "steps": [
+  "g02-230.step1.png",
+  "g02-230.step2.png",
   "g02-230.png"
  ],
  "sha256": {
+  "g02-230.step1.png": "0e7449b73e3520d2c5d6e899d5dd7d367b64583ecb4e1bd745475f8685af0d8a",
+  "g02-230.step2.png": "cea9ac3625d46e09f299050bed8c5b6f4b530d785d10be9e9ef9e6213b23ca46",
   "g02-230.png": "e2e2314617fcd6b6e046d321c15f9075e840c7160312e96cae5d46890f67d32a"
  },
  "safe_area": {
