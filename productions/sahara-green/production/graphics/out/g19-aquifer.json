@@ -15,9 +15,9 @@
   "g19-aquifer.png"
  ],
  "sha256": {
-  "g19-aquifer.step1.png": "e818a65f53cc75fe4e0117b694e8f7da00c80de204f2e6dd7e1837af6aea6c99",
-  "g19-aquifer.step2.png": "20cc787f173521b5e6a63889990d7792893d94a6a5b91fa51d57c758ec8128bf",
-  "g19-aquifer.png": "17a5c55150144b60c18596c7018d1991b99dec84315fa9babe011c75676cd5fd"
+  "g19-aquifer.step1.png": "49dff8357fabb0e287daa8856876c9b4bb87f5937662c8d697ac779c93dee308",
+  "g19-aquifer.step2.png": "a7e846b5028725405d730bb045e9d9132a407f2aa0d46d55188963014f691ac4",
+  "g19-aquifer.png": "22826a8f344b959051d324e8bf35b6bf0990eb31c66e790dd84a4f21222a5e26"
  },
  "safe_area": {
   "top": 0.07,
@@ -61,25 +61,14 @@
    ]
   },
   {
-   "where": "node f",
-   "text": "SOAKED IN 10,000 TO 1,000,000 YEARS AGO",
-   "size": 34,
-   "box": [
-    583.8,
-    341.4,
-    1336.2,
-    382.2
-   ]
-  },
-  {
    "where": "node e",
    "text": "Egypt",
    "size": 34,
    "box": [
     393.4,
-    486.4,
+    372.5,
     489.9,
-    527.2
+    413.3
    ]
   },
   {
@@ -88,9 +77,9 @@
    "size": 34,
    "box": [
     742.7,
-    486.4,
+    372.5,
     831.7,
-    527.2
+    413.3
    ]
   },
   {
@@ -99,9 +88,9 @@
    "size": 34,
    "box": [
     1079.8,
-    486.4,
+    372.5,
     1185.8,
-    527.2
+    413.3
    ]
   },
   {
@@ -110,31 +99,42 @@
    "size": 34,
    "box": [
     1434.7,
-    486.4,
+    372.5,
     1522.2,
-    527.2
+    413.3
+   ]
+  },
+  {
+   "where": "node f",
+   "text": "SOAKED IN 10,000 TO 1,000,000 YEARS AGO",
+   "size": 34,
+   "box": [
+    583.8,
+    517.4,
+    1336.2,
+    558.2
    ]
   },
   {
    "where": "note",
-   "text": "A vast store of groundwater shared by four countries",
-   "size": 30,
+   "text": "A vast store of fossil groundwater shared by four countries",
+   "size": 32,
    "box": [
-    217.2,
-    626.3,
-    838.8,
-    697.7
+    618.8,
+    261.6,
+    1301.2,
+    337.8
    ]
   },
   {
    "where": "note",
    "text": "Recharges slowly: considered non-renewable",
-   "size": 30,
+   "size": 32,
    "box": [
-    1060.8,
-    644.0,
-    1723.2,
-    680.0
+    728.2,
+    644.7,
+    1191.8,
+    720.8
    ]
   }
  ]

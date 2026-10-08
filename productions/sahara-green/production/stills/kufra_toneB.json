@@ -1,0 +1,32 @@
+{
+ "key": "kufra",
+ "kind": "landsat_toneB_crop",
+ "scene": "LC09_L1TP_181043_20260919_20260919_02_T1",
+ "date_acquired": "2026-09-19",
+ "scene_center_time_utc": null,
+ "sun_elevation": null,
+ "epsg": null,
+ "pixel_m": 30.0,
+ "src_window_px": [
+  2975,
+  3938,
+  3600,
+  2025
+ ],
+ "ul_lonlat": null,
+ "georeferenced": false,
+ "note": "Kufra oasis, Libya",
+ "bands": "B4,B3,B2 (red,green,blue)",
+ "processing": "USGS 8-bit Natural Color browse JPEG as delivered (no stretch); not georeferenced (GeoTIFF unreachable), location identified from the visible centre-pivot fields; NOT tone B, not radiometrically comparable with the locked sequences; native pixels, no resampling, collar excluded",
+ "kind_source": "browse",
+ "file": "kufra_toneB.png",
+ "sha256": "6a462948f7e7cc17c6a3397928773d19bb3cf761b64b9338f4424cdd59de14dd",
+ "size": [
+  3600,
+  2025
+ ],
+ "credit": "Landsat 9 \u00b7 USGS",
+ "licence": "USGS Landsat: public domain, credit requested",
+ "source_url": "https://earthexplorer.usgs.gov/ (USGS M2M, Landsat Collection 2 Level-1 Full-Resolution Browse Natural Color JPEG)",
+ "retrieved": "2026-10-08"
+}

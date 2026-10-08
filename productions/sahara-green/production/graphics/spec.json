@@ -108,31 +108,82 @@
    ],
    "notes": [
     {
-     "text": "Not a jungle: savanna",
-     "x": 0.74,
-     "y": 0.22,
+     "text": "Other records place it a few thousand years earlier or later",
+     "x": 0.8,
+     "y": 0.3,
      "step": 3,
+     "size": 28
+    },
+    {
+     "text": "Not a jungle: savanna",
+     "x": 0.8,
+     "y": 0.86,
+     "step": 4,
      "size": 34
     }
    ]
   },
   {
-   "type": "bar",
+   "type": "callout",
+   "id": "g09-burials",
+   "style": "documentary_light",
+   "source": "Sereno et al. 2008, PLoS ONE 3(8): e2995",
+   "title": "Gobero, Niger",
+   "value": 200,
+   "unit": "burials",
+   "label": "About 200 burials beside a vanished lake",
+   "context": "Alongside crocodile and large fish remains"
+  },
+  {
+   "type": "diagram",
    "id": "g10-rain",
    "style": "documentary_light",
    "source": "Larrasoaña, Roberts & Rohling 2013 (rough estimates, no error bars)",
    "title": "How much wetter?",
-   "subtitle": "One reconstruction of the last green period; 23-29°N for the NE Sahara core",
-   "unit": "mm per year",
-   "bars": [
+   "subtitle": "One reconstruction of the last green period, rainfall in millimeters a year",
+   "nodes": [
     {
-     "label": "NE Sahara core, ~4 in",
-     "value": 100
+     "id": "a",
+     "text": "100 mm/yr",
+     "x": 0.1111,
+     "y": 0.36,
+     "w": 0.2222,
+     "h": 0.17,
+     "style": "blue",
+     "step": 1
     },
     {
-     "label": "Near 18°N, ~18 in",
-     "value": 450,
-     "highlight": true
+     "id": "b",
+     "text": "450 mm/yr",
+     "x": 0.5,
+     "y": 0.82,
+     "w": 1.0,
+     "h": 0.17,
+     "style": "accent",
+     "step": 2
+    }
+   ],
+   "notes": [
+    {
+     "text": "Heart of the NE Sahara (23-29°N), about 4 inches",
+     "x": 0.22,
+     "y": 0.21,
+     "step": 1,
+     "size": 28
+    },
+    {
+     "text": "Near 18°N, about 18 inches",
+     "x": 0.5,
+     "y": 0.67,
+     "step": 2,
+     "size": 28
+    },
+    {
+     "text": "Rough estimates, without error bars",
+     "x": 0.72,
+     "y": 0.36,
+     "step": 3,
+     "size": 30
     }
    ]
   },
@@ -151,7 +202,8 @@
      "y": 0.45,
      "w": 0.22,
      "h": 0.28,
-     "style": "default"
+     "style": "default",
+     "step": 1
     },
     {
      "id": "s",
@@ -161,7 +213,7 @@
      "w": 0.22,
      "h": 0.28,
      "style": "accent",
-     "step": 1
+     "step": 2
     },
     {
      "id": "m",
@@ -171,7 +223,7 @@
      "w": 0.22,
      "h": 0.28,
      "style": "blue",
-     "step": 2
+     "step": 3
     },
     {
      "id": "r",
@@ -181,24 +233,24 @@
      "w": 0.18,
      "h": 0.28,
      "style": "green",
-     "step": 3
+     "step": 4
     }
    ],
    "arrows": [
     {
      "from": "o",
      "to": "s",
-     "step": 1
+     "step": 2
     },
     {
      "from": "s",
      "to": "m",
-     "step": 2
+     "step": 3
     },
     {
      "from": "m",
      "to": "r",
-     "step": 3
+     "step": 4
     }
    ],
    "notes": [
@@ -206,7 +258,7 @@
      "text": "Sunlight alone may not explain it",
      "x": 0.5,
      "y": 0.86,
-     "step": 3,
+     "step": 5,
      "size": 32
     }
    ]
@@ -226,7 +278,8 @@
      "y": 0.34,
      "w": 0.3,
      "h": 0.26,
-     "style": "default"
+     "style": "default",
+     "step": 1
     },
     {
      "id": "q",
@@ -256,7 +309,7 @@
      "w": 0.16,
      "h": 0.17,
      "style": "blue",
-     "step": 3
+     "step": 4
     },
     {
      "id": "v",
@@ -266,7 +319,7 @@
      "w": 0.2,
      "h": 0.17,
      "style": "green",
-     "step": 3
+     "step": 5
     }
    ],
    "arrows": [
@@ -278,19 +331,19 @@
     {
      "from": "l",
      "to": "r",
-     "step": 3,
+     "step": 4,
      "color": "blue"
     },
     {
      "from": "r",
      "to": "v",
-     "step": 3,
+     "step": 5,
      "color": "blue"
     },
     {
      "from": "v",
      "to": "l",
-     "step": 3,
+     "step": 6,
      "color": "blue"
     }
    ],
@@ -302,24 +355,6 @@
      "step": 3,
      "size": 30
     }
-   ]
-  },
-  {
-   "type": "flow",
-   "id": "g14-sapropel",
-   "style": "documentary_dark",
-   "build": true,
-   "source": "Larrasoaña, Roberts & Rohling 2013, PLoS ONE 8(10): e76514",
-   "title": "How the count is made",
-   "subtitle": "A reconstruction, not 230 observed events",
-   "steps": [
-    "African monsoon floods surge into the sea",
-    "Layers of Mediterranean seabed mud (sapropels)",
-    "230+ green periods inferred in 8 million years"
-   ],
-   "arrow_labels": [
-    "laid down as",
-    "read as"
    ]
   },
   {
@@ -348,6 +383,20 @@
    ]
   },
   {
+   "type": "flow",
+   "id": "g14-sapropel",
+   "style": "documentary_dark",
+   "build": true,
+   "source": "Larrasoaña, Roberts & Rohling 2013, PLoS ONE 8(10): e76514",
+   "title": "How the count is made",
+   "subtitle": "A reconstruction, not 230 observed events",
+   "steps": [
+    "Layers of Mediterranean seabed mud (sapropels)",
+    "Laid down when African monsoon floods surged into the sea",
+    "230+ green periods inferred in 8 million years"
+   ]
+  },
+  {
    "type": "diagram",
    "id": "g19-aquifer",
    "style": "documentary_dark",
@@ -356,86 +405,71 @@
    "subtitle": "Nubian Sandstone Aquifer",
    "nodes": [
     {
-     "id": "f",
-     "text": "SOAKED IN 10,000 TO 1,000,000 YEARS AGO",
-     "x": 0.5,
-     "y": 0.24,
-     "w": 0.7,
-     "h": 0.22,
-     "style": "accent"
-    },
-    {
      "id": "e",
      "text": "Egypt",
      "x": 0.2,
-     "y": 0.52,
+     "y": 0.3,
      "w": 0.15,
      "h": 0.14,
      "style": "default",
-     "step": 2
+     "step": 1
     },
     {
      "id": "li",
      "text": "Libya",
      "x": 0.4,
-     "y": 0.52,
+     "y": 0.3,
      "w": 0.15,
      "h": 0.14,
      "style": "default",
-     "step": 2
+     "step": 1
     },
     {
      "id": "su",
      "text": "Sudan",
      "x": 0.6,
-     "y": 0.52,
+     "y": 0.3,
      "w": 0.15,
      "h": 0.14,
      "style": "default",
-     "step": 2
+     "step": 1
     },
     {
      "id": "ch",
      "text": "Chad",
      "x": 0.8,
-     "y": 0.52,
+     "y": 0.3,
      "w": 0.15,
      "h": 0.14,
      "style": "default",
+     "step": 1
+    },
+    {
+     "id": "f",
+     "text": "SOAKED IN 10,000 TO 1,000,000 YEARS AGO",
+     "x": 0.5,
+     "y": 0.58,
+     "w": 0.7,
+     "h": 0.22,
+     "style": "accent",
      "step": 2
     }
    ],
    "notes": [
     {
-     "text": "A vast store of groundwater shared by four countries",
-     "x": 0.25,
-     "y": 0.82,
-     "step": 2,
-     "size": 30
+     "text": "A vast store of fossil groundwater shared by four countries",
+     "x": 0.5,
+     "y": 0.12,
+     "step": 1,
+     "size": 32
     },
     {
      "text": "Recharges slowly: considered non-renewable",
-     "x": 0.75,
-     "y": 0.82,
+     "x": 0.5,
+     "y": 0.86,
      "step": 3,
-     "size": 30
+     "size": 32
     }
-   ]
-  },
-  {
-   "type": "flow",
-   "id": "g23-proposal",
-   "style": "documentary_dark",
-   "build": true,
-   "source": "Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
-   "title": "PROPOSAL (2009)",
-   "subtitle": "Carbon figures are the authors' estimate from plantation data, with large error bars; not a climate-model result",
-   "steps": [
-    "Seawater",
-    "Desalination",
-    "Pipeline",
-    "Irrigation",
-    "Forest"
    ]
   },
   {
@@ -475,6 +509,104 @@
    "context": "Over roughly half of the irrigated Sahara; the authors asked other models to check it"
   },
   {
+   "type": "diagram",
+   "id": "g23-proposal",
+   "style": "documentary_dark",
+   "source": "Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+   "title": "PROPOSAL (2009)",
+   "subtitle": "Not a climate-model result",
+   "nodes": [
+    {
+     "id": "n0",
+     "text": "Seawater",
+     "x": 0.1,
+     "y": 0.32,
+     "w": 0.16,
+     "h": 0.2,
+     "style": "default",
+     "step": 1
+    },
+    {
+     "id": "n1",
+     "text": "Desalination",
+     "x": 0.29,
+     "y": 0.32,
+     "w": 0.16,
+     "h": 0.2,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "n2",
+     "text": "Pipeline",
+     "x": 0.5,
+     "y": 0.32,
+     "w": 0.16,
+     "h": 0.2,
+     "style": "default",
+     "step": 3
+    },
+    {
+     "id": "n3",
+     "text": "Irrigation",
+     "x": 0.71,
+     "y": 0.32,
+     "w": 0.16,
+     "h": 0.2,
+     "style": "default",
+     "step": 4
+    },
+    {
+     "id": "n4",
+     "text": "Forest",
+     "x": 0.9,
+     "y": 0.32,
+     "w": 0.16,
+     "h": 0.2,
+     "style": "accent",
+     "step": 5
+    }
+   ],
+   "arrows": [
+    {
+     "from": "n0",
+     "to": "n1",
+     "step": 2
+    },
+    {
+     "from": "n1",
+     "to": "n2",
+     "step": 3
+    },
+    {
+     "from": "n2",
+     "to": "n3",
+     "step": 4
+    },
+    {
+     "from": "n3",
+     "to": "n4",
+     "step": 5
+    }
+   ],
+   "notes": [
+    {
+     "text": "Carbon uptake: the authors' estimate from plantation data, with large error bars",
+     "x": 0.28,
+     "y": 0.78,
+     "step": 6,
+     "size": 28
+    },
+    {
+     "text": "A forest stops gaining carbon after about a century",
+     "x": 0.74,
+     "y": 0.78,
+     "step": 7,
+     "size": 28
+    }
+   ]
+  },
+  {
    "type": "callout",
    "id": "g24b-267",
    "style": "documentary_light",
@@ -484,6 +616,41 @@
    "unit": "mm/yr",
    "label": "Whole-Sahara average increase in rain (about 10 in)",
    "context": "Surface air about 6.3 °C cooler (about 11 °F). The authors call the rain increase weak"
+  },
+  {
+   "type": "diagram",
+   "id": "g24b-diff",
+   "style": "documentary_dark",
+   "source": "Ornstein et al. 2009 (section 3.1); Kemena et al.",
+   "title": "Two numbers, two different things",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "Rain over half the irrigated Sahara: over 1,000 mm/yr (2009)",
+     "x": 0.25,
+     "y": 0.38,
+     "w": 0.4,
+     "h": 0.34,
+     "style": "blue"
+    },
+    {
+     "id": "b",
+     "text": "Whole-Sahara average: +267 mm/yr (later model)",
+     "x": 0.75,
+     "y": 0.38,
+     "w": 0.4,
+     "h": 0.34,
+     "style": "accent"
+    }
+   ],
+   "notes": [
+    {
+     "text": "Not comparable: never on one axis",
+     "x": 0.5,
+     "y": 0.78,
+     "size": 36
+    }
+   ]
   },
   {
    "type": "diagram",
@@ -501,7 +668,7 @@
      "w": 0.24,
      "h": 0.8,
      "style": "blue",
-     "step": 2
+     "step": 1
     },
     {
      "id": "rain",
@@ -511,7 +678,7 @@
      "w": 0.24,
      "h": 0.206,
      "style": "green",
-     "step": 1
+     "step": 2
     },
     {
      "id": "sup",
@@ -521,7 +688,7 @@
      "w": 0.24,
      "h": 0.594,
      "style": "accent",
-     "step": 3
+     "step": 4
     }
    ],
    "notes": [
@@ -529,14 +696,14 @@
      "text": "Rain 319 is about a quarter of 1,238: a ratio of totals, not a tracked drop of water",
      "x": 0.8,
      "y": 0.2,
-     "step": 2,
+     "step": 3,
      "size": 28
     },
     {
      "text": "Water supply is assumed by the model, not shown to be feasible",
      "x": 0.8,
      "y": 0.6,
-     "step": 3,
+     "step": 5,
      "size": 28
     }
    ]
@@ -716,30 +883,6 @@
    ]
   },
   {
-   "type": "bar",
-   "id": "g34-gww",
-   "style": "documentary_light",
-   "source": "UNCCD, The Great Green Wall: Implementation Status and Way Ahead to 2030 (2020)",
-   "title": "Great Green Wall: two targets, one preliminary count",
-   "subtitle": "Million hectares; counted figure as reported to the Wall's own agency; never combined",
-   "unit": "million hectares",
-   "bars": [
-    {
-     "label": "COP21 pledge, by 2030",
-     "value": 100
-    },
-    {
-     "label": "PA-GGW target, by 2030",
-     "value": 25
-    },
-    {
-     "label": "Counted by 2020 (preliminary)",
-     "value": 4,
-     "highlight": true
-    }
-   ]
-  },
-  {
    "type": "diagram",
    "id": "g36-uncertain",
    "style": "documentary_dark",
@@ -772,6 +915,76 @@
      "y": 0.86,
      "step": 2,
      "size": 36
+    }
+   ]
+  },
+  {
+   "type": "diagram",
+   "id": "g34-gww",
+   "style": "documentary_light",
+   "source": "UNCCD, The Great Green Wall: Implementation Status and Way Ahead to 2030 (2020)",
+   "title": "Great Green Wall: two targets, one preliminary count",
+   "subtitle": "Million hectares; the bars are never combined",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "100",
+     "x": 0.5,
+     "y": 0.2,
+     "w": 1.0,
+     "h": 0.17,
+     "style": "blue",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "25",
+     "x": 0.125,
+     "y": 0.5,
+     "w": 0.25,
+     "h": 0.17,
+     "style": "blue",
+     "step": 2
+    },
+    {
+     "id": "c",
+     "text": "4",
+     "x": 0.02,
+     "y": 0.8,
+     "w": 0.04,
+     "h": 0.17,
+     "style": "accent",
+     "step": 3
+    }
+   ],
+   "notes": [
+    {
+     "text": "COP21 pledge, by 2030",
+     "x": 0.5,
+     "y": 0.05,
+     "step": 1,
+     "size": 28
+    },
+    {
+     "text": "PA-GGW target, by 2030",
+     "x": 0.22,
+     "y": 0.35,
+     "step": 2,
+     "size": 28
+    },
+    {
+     "text": "Counted by 2020, as reported (preliminary)",
+     "x": 0.25,
+     "y": 0.65,
+     "step": 3,
+     "size": 28
+    },
+    {
+     "text": "A mosaic of land uses, not a literal wall of trees",
+     "x": 0.74,
+     "y": 0.62,
+     "step": 4,
+     "size": 30
     }
    ]
   }

@@ -1,0 +1,34 @@
+{
+ "key": "ounianga",
+ "kind": "landsat_toneB_crop",
+ "scene": "LC09_L1TP_182047_20260622_20260622_02_T1",
+ "date_acquired": "2026-06-22",
+ "scene_center_time_utc": "09:03:33.3696259Z",
+ "sun_elevation": 66.45991127,
+ "epsg": 32634,
+ "pixel_m": 30.0,
+ "src_window_px": [
+  4093,
+  2067,
+  3000,
+  1687
+ ],
+ "ul_lonlat": [
+  19.91404,
+  19.28021
+ ],
+ "note": "Lakes of Ounianga, Chad (Ounianga Kebir 19.05N 20.47E; Ounianga Serir 18.9N 20.7E)",
+ "bands": "B4,B3,B2 (red,green,blue)",
+ "processing": "TOA reflectance, tone B (lock), native 30 m pixels, no resampling, black collar excluded",
+ "kind_source": "band",
+ "file": "ounianga_toneB.png",
+ "sha256": "c79b65eb1164ac412982c6aeaa2582688b89c626d98a60fd62519a6e53dcdb3b",
+ "size": [
+  3000,
+  1687
+ ],
+ "credit": "Landsat 9 \u00b7 USGS",
+ "licence": "USGS Landsat: public domain, credit requested",
+ "source_url": "https://earthexplorer.usgs.gov/ (USGS M2M, Landsat Collection 2 Level-1 band file)",
+ "retrieved": "2026-10-08"
+}

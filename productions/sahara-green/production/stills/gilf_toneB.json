@@ -1,0 +1,35 @@
+{
+ "key": "gilf",
+ "kind": "landsat_toneB_crop",
+ "scene": "LC09_L1TP_179044_20251121_20251121_02_T1",
+ "date_acquired": "2025-11-21",
+ "scene_center_time_utc": null,
+ "sun_elevation": null,
+ "epsg": 32635,
+ "pixel_m": 30.0,
+ "src_window_px": [
+  3419,
+  2155,
+  3600,
+  2025
+ ],
+ "ul_lonlat": [
+  25.38068,
+  23.58273
+ ],
+ "georeferenced": true,
+ "note": "Gilf Kebir plateau, Egypt",
+ "bands": "B4,B3,B2 (red,green,blue)",
+ "processing": "USGS 8-bit Natural Color browse JPEG as delivered (no stretch); georeferenced with the browse GeoTIFF of the same scene; NOT tone B, not radiometrically comparable with the locked sequences; native pixels, no resampling, collar excluded",
+ "kind_source": "browse",
+ "file": "gilf_toneB.png",
+ "sha256": "f9f80f0e2571f533d561e40c192f8b2b37f8dc7a6963126ac18d0490477f1959",
+ "size": [
+  3600,
+  2025
+ ],
+ "credit": "Landsat 9 \u00b7 USGS",
+ "licence": "USGS Landsat: public domain, credit requested",
+ "source_url": "https://earthexplorer.usgs.gov/ (USGS M2M, Landsat Collection 2 Level-1 Full-Resolution Browse Natural Color JPEG)",
+ "retrieved": "2026-10-08"
+}

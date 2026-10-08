@@ -1,0 +1,33 @@
+{
+ "key": "bodele",
+ "kind": "landsat_toneB_crop",
+ "scene": "LC09_L1TP_183048_20260731_20260731_02_T1",
+ "date_acquired": "2026-07-31",
+ "scene_center_time_utc": "09:10:29.5185670Z",
+ "sun_elevation": 65.22357208,
+ "epsg": 32633,
+ "pixel_m": 30.0,
+ "src_window_px": [
+  1475,
+  3594,
+  5000,
+  2812
+ ],
+ "ul_lonlat": [
+  17.31245,
+  17.41618
+ ],
+ "note": "Bodele Depression, Chad",
+ "bands": "B4,B3,B2 (red,green,blue)",
+ "processing": "TOA reflectance, tone B (lock), native 30 m pixels, no resampling, black collar excluded",
+ "file": "bodele_toneB.png",
+ "sha256": "317fa5bd5282663a2af8440bd5753fbea2021b4c5fde096211e604f6c3b8c743",
+ "size": [
+  5000,
+  2812
+ ],
+ "credit": "Landsat 9 \u00b7 USGS",
+ "licence": "USGS Landsat: public domain, credit requested",
+ "source_url": "https://earthexplorer.usgs.gov/ (USGS M2M, Landsat Collection 2 Level-1 band file)",
+ "retrieved": "2026-10-08"
+}

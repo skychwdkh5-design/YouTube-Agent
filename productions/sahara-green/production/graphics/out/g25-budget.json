@@ -12,11 +12,15 @@
  "steps": [
   "g25-budget.step1.png",
   "g25-budget.step2.png",
+  "g25-budget.step3.png",
+  "g25-budget.step4.png",
   "g25-budget.png"
  ],
  "sha256": {
-  "g25-budget.step1.png": "026b481a4356f4c2180e03a52a1aa6bb7208597ab3f0f9dbd2500cbec10bcf2a",
-  "g25-budget.step2.png": "29f34de6d3ee2bfe902285e1ac1ccd17f1765669ef108af4b0ee58953abbb9d1",
+  "g25-budget.step1.png": "f1b77cd3e9b06001d5478dd4b6a9c94a7516c94ea0ecd9389f39476acff84cf3",
+  "g25-budget.step2.png": "d085e89519e7d6ce6a4a3d03dfb45ab4444f806299dc5347e0912f556115a000",
+  "g25-budget.step3.png": "29f34de6d3ee2bfe902285e1ac1ccd17f1765669ef108af4b0ee58953abbb9d1",
+  "g25-budget.step4.png": "2d29538dda65fea33390f92bde576c52ef3404ddbcc73d5157cd4fb681561340",
   "g25-budget.png": "3015ec55303e9c74dd131852bd9af04a4ce6bd84e073ae4ca2cf256f0581ddf5"
  },
  "safe_area": {

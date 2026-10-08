@@ -12,11 +12,15 @@
  "steps": [
   "g12-orbit.step1.png",
   "g12-orbit.step2.png",
+  "g12-orbit.step3.png",
+  "g12-orbit.step4.png",
   "g12-orbit.png"
  ],
  "sha256": {
-  "g12-orbit.step1.png": "0b6cfc0977fd0c21d3fc3ede3f7a34a4e38b6c46036538b6eeb880e5a7a3b6d9",
-  "g12-orbit.step2.png": "5e290ebe12e1cc74d881933e7e0d1db192374d953472ca5e616fb2bb76641ad6",
+  "g12-orbit.step1.png": "c03364020d16d660d50d6bdde10f3904ee1a2f09bdf7c2c45f00929d0529a2fe",
+  "g12-orbit.step2.png": "0b6cfc0977fd0c21d3fc3ede3f7a34a4e38b6c46036538b6eeb880e5a7a3b6d9",
+  "g12-orbit.step3.png": "5e290ebe12e1cc74d881933e7e0d1db192374d953472ca5e616fb2bb76641ad6",
+  "g12-orbit.step4.png": "101dd73f5efecdc44f0a05f912bac9f2528418788b44d873d4416640a3ec24b2",
   "g12-orbit.png": "e79594c14dee6a35976cd5ab3791d4ddebac1247f98ee2f509f8b641fdf2e3cb"
  },
  "safe_area": {

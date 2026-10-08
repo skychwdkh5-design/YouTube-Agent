@@ -1,7 +1,7 @@
 {
  "schema": "yt-graphics/1",
  "id": "g23-proposal",
- "type": "flow",
+ "type": "diagram",
  "style": "documentary_dark",
  "size": [
   1920,
@@ -16,20 +16,16 @@
   "g23-proposal.step4.png",
   "g23-proposal.step5.png",
   "g23-proposal.step6.png",
-  "g23-proposal.step7.png",
-  "g23-proposal.step8.png",
   "g23-proposal.png"
  ],
  "sha256": {
-  "g23-proposal.step1.png": "3d751485972ca4c20f5de59aa28385f49e1d2e4633632a73f1ec57e26690d801",
-  "g23-proposal.step2.png": "833a5b98efce0563dbe5e262eb7c983c25d43d14f8f4c3f6c7bf9d72a0b9c45d",
-  "g23-proposal.step3.png": "91d7e08f6377ab67742e0943f7e1e3213bd1e9c35d3ac6725412cd5b2522747f",
-  "g23-proposal.step4.png": "43448c043fd7ab8eb98e11a4fe64c804537ec1f43594ec678fd18ad73410bdb4",
-  "g23-proposal.step5.png": "9bd5d4f0f76293e1e58726b367a5c10def4afd9e8ce3b8b8e5a16e2e492828ca",
-  "g23-proposal.step6.png": "9bd5d4f0f76293e1e58726b367a5c10def4afd9e8ce3b8b8e5a16e2e492828ca",
-  "g23-proposal.step7.png": "9bd5d4f0f76293e1e58726b367a5c10def4afd9e8ce3b8b8e5a16e2e492828ca",
-  "g23-proposal.step8.png": "9bd5d4f0f76293e1e58726b367a5c10def4afd9e8ce3b8b8e5a16e2e492828ca",
-  "g23-proposal.png": "9bd5d4f0f76293e1e58726b367a5c10def4afd9e8ce3b8b8e5a16e2e492828ca"
+  "g23-proposal.step1.png": "d611ad4312a9bd99a172de9d2fbf9ec4ba05abca9fc8a437d85c5f346ede8f79",
+  "g23-proposal.step2.png": "631067b672620a996ba227fec104ca846ed4e6303b5b605b1dff5efa99695228",
+  "g23-proposal.step3.png": "c6cff8a9b3c6d43d81150bf6dda5f863fcb32dc254f45b3b73f3348823f5271a",
+  "g23-proposal.step4.png": "705b5ad84fbc5ded93c9ed206932e8f1675219af4a12239777cdc4c6eabb3d62",
+  "g23-proposal.step5.png": "f489b93f89d8b4faa0c93bfdb735cf710a8aa97918d24aa70aa469aee26772de",
+  "g23-proposal.step6.png": "e348acbc38e8cefa1301dd102847de6451c49035438d7315bc5a96492f77ad83",
+  "g23-proposal.png": "a281fb124211f8ccfe6e5b1945aedffc6bbcebe2d8d5b26a25953363999d0fbf"
  },
  "safe_area": {
   "top": 0.07,
@@ -52,12 +48,12 @@
   },
   {
    "where": "subtitle",
-   "text": "Carbon figures are the authors' estimate from plantation data, with large error bars; not a climate-model result",
+   "text": "Not a climate-model result",
    "size": 30,
    "box": [
     96.0,
     179.6,
-    1688.5,
+    479.5,
     215.6
    ]
   },
@@ -73,58 +69,80 @@
    ]
   },
   {
-   "where": "node s0",
+   "where": "node n0",
    "text": "Seawater",
    "size": 34,
    "box": [
     190.1,
-    476.0,
+    382.8,
     347.6,
-    516.8
+    423.6
    ]
   },
   {
-   "where": "node s1",
+   "where": "node n1",
    "text": "Desalination",
-   "size": 30,
+   "size": 34,
    "box": [
-    523.1,
-    478.4,
-    705.6,
-    514.4
+    493.9,
+    382.8,
+    700.4,
+    423.6
    ]
   },
   {
-   "where": "node s2",
+   "where": "node n2",
    "text": "Pipeline",
    "size": 34,
    "box": [
     893.5,
-    476.0,
+    382.8,
     1026.5,
-    516.8
+    423.6
    ]
   },
   {
-   "where": "node s3",
+   "where": "node n3",
    "text": "Irrigation",
    "size": 34,
    "box": [
-    1229.6,
-    476.0,
-    1381.6,
-    516.8
+    1246.9,
+    382.8,
+    1398.9,
+    423.6
    ]
   },
   {
-   "where": "node s4",
+   "where": "node n4",
    "text": "Forest",
    "size": 34,
    "box": [
     1599.0,
-    476.0,
+    382.8,
     1703.5,
-    516.8
+    423.6
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Carbon uptake: the authors' estimate from plantation data, with large error bars",
+   "size": 28,
+   "box": [
+    293.1,
+    608.0,
+    866.6,
+    674.6
+   ]
+  },
+  {
+   "where": "note",
+   "text": "A forest stops gaining carbon after about a century",
+   "size": 28,
+   "box": [
+    1030.2,
+    624.5,
+    1719.2,
+    658.1
    ]
   }
  ]

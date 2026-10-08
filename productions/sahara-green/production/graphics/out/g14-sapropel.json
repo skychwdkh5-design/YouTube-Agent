@@ -17,11 +17,11 @@
   "g14-sapropel.png"
  ],
  "sha256": {
-  "g14-sapropel.step1.png": "fe24be246e985d12ea79506b5876b6bfa730582e80925967e02bfdd26565e039",
-  "g14-sapropel.step2.png": "96cb7f6a2f96c66ddce527860427a88d4905ee7a8400cd0f59f7f1b1096cb9e6",
-  "g14-sapropel.step3.png": "84225e92d0c227afe61996d8358448fb5ed397948c0aa7765025ccd8c9e56d8e",
-  "g14-sapropel.step4.png": "84225e92d0c227afe61996d8358448fb5ed397948c0aa7765025ccd8c9e56d8e",
-  "g14-sapropel.png": "84225e92d0c227afe61996d8358448fb5ed397948c0aa7765025ccd8c9e56d8e"
+  "g14-sapropel.step1.png": "dd45c09d599156653dfd45da28f7d4b11482cc6b5dff2e953e37d929b90c57d2",
+  "g14-sapropel.step2.png": "8414142f86261ecac4e4187db57ae61fe40feb27982057f9040c114963a2a34e",
+  "g14-sapropel.step3.png": "92a3032d92987cb9751937d5f5689b493b977c117683e064116fcb15a599d959",
+  "g14-sapropel.step4.png": "92a3032d92987cb9751937d5f5689b493b977c117683e064116fcb15a599d959",
+  "g14-sapropel.png": "92a3032d92987cb9751937d5f5689b493b977c117683e064116fcb15a599d959"
  },
  "safe_area": {
   "top": 0.07,
@@ -66,24 +66,24 @@
   },
   {
    "where": "node s0",
-   "text": "African monsoon floods surge into the sea",
-   "size": 34,
+   "text": "Layers of Mediterranean seabed mud (sapropels)",
+   "size": 28,
    "box": [
-    241.0,
-    435.9,
-    527.0,
-    556.9
+    229.5,
+    446.6,
+    538.5,
+    546.2
    ]
   },
   {
    "where": "node s1",
-   "text": "Layers of Mediterranean seabed mud (sapropels)",
-   "size": 28,
+   "text": "Laid down when African monsoon floods surged into the sea",
+   "size": 26,
    "box": [
-    805.5,
-    446.6,
-    1114.5,
-    546.2
+    807.0,
+    450.1,
+    1113.0,
+    542.7
    ]
   },
   {
@@ -95,28 +95,6 @@
     435.9,
     1688.5,
     556.9
-   ]
-  },
-  {
-   "where": "arrow label",
-   "text": "laid down as",
-   "size": 30,
-   "box": [
-    581.0,
-    444.4,
-    763.0,
-    480.4
-   ]
-  },
-  {
-   "where": "arrow label",
-   "text": "read as",
-   "size": 30,
-   "box": [
-    1194.2,
-    444.4,
-    1301.8,
-    480.4
    ]
   }
  ]

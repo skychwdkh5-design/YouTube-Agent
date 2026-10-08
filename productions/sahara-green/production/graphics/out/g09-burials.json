@@ -1,0 +1,93 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g09-burials",
+ "type": "callout",
+ "style": "documentary_light",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Sereno et al. 2008, PLoS ONE 3(8): e2995",
+ "credit": null,
+ "steps": [
+  "g09-burials.png"
+ ],
+ "sha256": {
+  "g09-burials.png": "b0bfea01b4f142128dca9bbf91e6acbedc78f0c266b8a22cbd699914f3b01c76"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "Gobero, Niger",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    414.5,
+    177.2
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Sereno et al. 2008, PLoS ONE 3(8): e2995",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    676.5,
+    797.6
+   ]
+  },
+  {
+   "where": "value",
+   "text": "200",
+   "size": 190,
+   "box": [
+    593.8,
+    322.4,
+    986.8,
+    550.4
+   ]
+  },
+  {
+   "where": "unit",
+   "text": "burials",
+   "size": 90,
+   "box": [
+    1010.8,
+    412.4,
+    1326.2,
+    520.4
+   ]
+  },
+  {
+   "where": "label",
+   "text": "About 200 burials beside a vanished lake",
+   "size": 44,
+   "box": [
+    518.5,
+    560.0,
+    1401.5,
+    612.8
+   ]
+  },
+  {
+   "where": "context",
+   "text": "Alongside crocodile and large fish remains",
+   "size": 30,
+   "box": [
+    652.0,
+    658.4,
+    1268.0,
+    694.4
+   ]
+  }
+ ]
+}
