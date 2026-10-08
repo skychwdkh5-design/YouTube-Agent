@@ -124,18 +124,17 @@ def main(ws):
     sshot('s17', 'scene 17', S('17'), 'gilf', ((0.62, 0.52), 0.50), ((0.5, 0.5), 1.0))
     vshot('s18', 'scene 18', seq['eo']['start'], 'seq_eo', CAP_EO)
     t19 = seq['eo']['end']
-    gshot('s19', 'scene 19', t19, 'g19-aquifer', [t19, at('egypt', t19), at('libya', t19), at('sudan', t19), at('chad', t19), at('nasa says', t19), at('soaked', t19), at('a million', t19), at('recharges slowly', t19)])
+    gshot('s19', 'scene 19', t19, 'g19-aquifer', [t19, at('egypt', t19), at('libya', t19), at('sudan', t19), at('chad', t19), at('nasa says', t19), at('soaked', t19), at('a million', t19), at('when the region', t19), at('recharges slowly', t19)])
     sshot('s20', 'scene 20', S('20'), 'kufra', ((0.52, 0.5), 1.0), ((0.72, 0.60), 0.45), [{'text': 'KUFRA, LIBYA', 't0': at('kufra', S('20')), 't1': E('20')}])
     vshot('s21', 'scene 21', seq['toshka']['start'], 'seq_toshka', CAP_TO)
     vshot('s22', 'scene 22', seq['s22']['start'], 'seq_s22', CAP_EO)
     t23 = S('23')
-    steps23 = [t23, at('proposed going', t23), at('outback', t23), at('watered with', t23), at('desalinated', t23), at('seawater', t23), at('about as much carbon', t23),
-               at('that estimate', t23), at('calculations', t23), at('not from a climate', t23), at('carbon removal', t23), at('stop gaining', t23)]
+    steps23 = [t23, at('outback', t23), at('watered with', t23), at('desalinated', t23), at('seawater', t23), at('about as much carbon', t23), at('that estimate', t23), at('calculations', t23), at('not from a climate', t23), at('carbon removal', t23), at('stop gaining', t23)]
     gshot('s23', 'scene 23', t23, 'g23-proposal', steps23)
     gshot('s24', 'scene 24', S('24'), 'g24-trillion', [S('24')])
     t24b = S('24b'); gshot('s24b1', 'scene 24b', t24b, 'g24b-1000', [t24b, at('rainfall rose', t24b), at('more than 1,000', t24b), at('over roughly', t24b)])
     t24c = at('a later team', t24b); gshot('s24b2', 'scene 24b', t24c, 'g24b-267', [t24c, at('across the whole', t24c), at('rose by about', t24c), at('cooled by', t24c)])
-    t24d = at('those two numbers', t24b); gshot('s24b3', 'scene 24b', t24d, 'g24b-diff', [t24d, at('rain over half', t24d), at('versus', t24d), q(at('versus', t24d) + 1.5)])
+    t24d = at('those two numbers', t24b); gshot('s24b3', 'scene 24b', t24d, 'g24b-diff', [t24d, at('versus', t24d), q(at('versus', t24d) + 1.5)])
     t25 = S('25'); gshot('s25', 'scene 25', t25, 'g25-budget', [t25, at('lost about', t25), at('evaporation', t25), at('total rainfall', t25), at("that's a ratio", t25), at('carried south', t25), at('semi-arid', t25), at('nearby ocean', t25), at('took about', t25), at('of desalinated', t25), at('the model simply', t25), at('whether it could', t25)])
     sshot('s25b', 'scene 25b', S('25b'), 'bluemarble', ((0.30, 0.62), 0.30), ((0.5, 0.5), 1.0))
     t29 = S('29'); n_fr = round((E('29') - t29) * FPS)
@@ -150,7 +149,7 @@ def main(ws):
     t31 = S('31'); gshot('s31', 'scene 31', t31, 'g31-hypothesis', [t31, at('would the amazon', t31), at('planted sahara', t31)])
     t32 = S('32'); gshot('s32', 'scene 32', t32, 'g32-storms', [t32, at('researchers simulated', t32), at('when the sahara', t32), at('covered in', t32), at('dust was cut', t32), at('compared with', t32), at('that produced', t32), at('in both hemispheres', t32), at('especially around', t32), at('though some', t32), at('a stronger', t32), at('changed winds', t32), at('of the past', t32), at("there aren't", t32), at('to check it', t32)])
     t33 = S('33'); gshot('s33', 'scene 33', t33, 'g33-sahel', [t33, at('after the droughts', t33), at('satellite records', t33), at('came back', t33), at('researchers concluded', t33), at('lasting desertification', t33), at('unccd', t33), at('more than five', t33), at('maradi', t33), at('over seven', t33), at('across niger', t33), at('those are reported', t33)])
-    t34 = S('34'); gshot('s34', 'scene 34', t34, 'g34-gww', [t34, at('pledge made', t34), at('restore 100', t34), at('coordinating agency', t34), at('25 million', t34), at('figures reported', t34), at('about 4', t34), at('the project has', t34), at('mosaic', t34)])
+    t34 = S('34'); gshot('s34', 'scene 34', t34, 'g34-gww', [t34, at('pledge made', t34), at('restore 100', t34), at('coordinating agency', t34), at('25 million', t34), at('figures reported', t34), at('about 4', t34), at('the project has', t34), at('mosaic', t34), at('including regrown', t34)])
     vshot('s35', 'scene 35', seq['s35']['start'], 'seq_s35', CAP_EO)
     t36 = S('36'); gshot('s36', 'scene 36', t36, 'g36-uncertain', [t36, at('coming centuries', t36)])
     sshot('s37', 'scene 37', S('37'), 'tassili', ((0.55, 0.60), 0.32), ((0.5, 0.5), 0.95))

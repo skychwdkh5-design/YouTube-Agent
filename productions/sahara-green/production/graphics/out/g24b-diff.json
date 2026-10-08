@@ -12,13 +12,11 @@
  "steps": [
   "g24b-diff.step1.png",
   "g24b-diff.step2.png",
-  "g24b-diff.step3.png",
   "g24b-diff.png"
  ],
  "sha256": {
-  "g24b-diff.step1.png": "5911469c3f1508d08cb9148905f4449aee77ca12c4b45dd1b8c97f6a623fd5a8",
-  "g24b-diff.step2.png": "f2ab2ec1d42b724e564b3bdfeefa6be1629cc0ac92e33fca0301a1bc55619bf4",
-  "g24b-diff.step3.png": "55867d667613a86d5f00e5c86c70ad191462282bb8ea1ee35f4be18bc9018963",
+  "g24b-diff.step1.png": "f2ab2ec1d42b724e564b3bdfeefa6be1629cc0ac92e33fca0301a1bc55619bf4",
+  "g24b-diff.step2.png": "55867d667613a86d5f00e5c86c70ad191462282bb8ea1ee35f4be18bc9018963",
   "g24b-diff.png": "b26ba3e1d6d83e0428c4e0d5ccaa76eddd3bf8a5f390006904e0077e4b2d1092"
  },
  "safe_area": {

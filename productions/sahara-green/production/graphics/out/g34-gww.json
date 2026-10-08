@@ -18,6 +18,7 @@
   "g34-gww.step6.png",
   "g34-gww.step7.png",
   "g34-gww.step8.png",
+  "g34-gww.step9.png",
   "g34-gww.png"
  ],
  "sha256": {
@@ -29,7 +30,8 @@
   "g34-gww.step6.png": "136ad63ef5ce45387c38e2269eeea563b509d8dabfc9d5a7f43a6c098dd2dbe6",
   "g34-gww.step7.png": "bead637f18fdd9b3b41f0c402780ac2307dcb7470ba2c171bb0050f7db7a042d",
   "g34-gww.step8.png": "9481789c766130740901e074b824471bb65ef54908eb7acdc6504bd54b8793ab",
-  "g34-gww.png": "61505bd47879d3a64495f35e1dd33eb8c99e50b1291b121f3824ba7f99a98e46"
+  "g34-gww.step9.png": "61505bd47879d3a64495f35e1dd33eb8c99e50b1291b121f3824ba7f99a98e46",
+  "g34-gww.png": "35ad7e65d4c44698b3043c94ed5a71441a233ea4fee62068eba2fbddcf3e9f3a"
  },
  "safe_area": {
   "top": 0.07,
@@ -147,6 +149,17 @@
     540.5,
     1714.0,
     576.5
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Regrown vegetation and water-holding measures",
+   "size": 28,
+   "box": [
+    1111.1,
+    479.6,
+    1776.6,
+    513.2
    ]
   }
  ]

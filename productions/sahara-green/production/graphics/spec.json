@@ -525,7 +525,8 @@
      "style": "accent",
      "step": 6,
      "hl": [
-      7
+      7,
+      9
      ]
     }
    ],
@@ -541,7 +542,7 @@
      "text": "Recharges slowly: considered non-renewable",
      "x": 0.5,
      "y": 0.86,
-     "step": 9,
+     "step": 10,
      "size": 32
     }
    ]
@@ -574,7 +575,7 @@
   {
    "type": "callout",
    "id": "g24b-1000",
-   "style": "documentary_dark",
+   "style": "documentary_light",
    "source": "Ornstein et al. 2009, section 3.1 (p.418)",
    "title": "2009 simulation: one model (GISS ModelE)",
    "value": 1000,
@@ -599,7 +600,7 @@
      "w": 0.16,
      "h": 0.2,
      "style": "default",
-     "step": 3
+     "step": 2
     },
     {
      "id": "n1",
@@ -609,7 +610,7 @@
      "w": 0.16,
      "h": 0.2,
      "style": "default",
-     "step": 4
+     "step": 3
     },
     {
      "id": "n2",
@@ -619,7 +620,7 @@
      "w": 0.16,
      "h": 0.2,
      "style": "default",
-     "step": 5
+     "step": 4
     },
     {
      "id": "n3",
@@ -629,7 +630,7 @@
      "w": 0.16,
      "h": 0.2,
      "style": "default",
-     "step": 6
+     "step": 5
     },
     {
      "id": "n4",
@@ -639,9 +640,9 @@
      "w": 0.16,
      "h": 0.2,
      "style": "accent",
-     "step": 2,
+     "step": 1,
      "hl": [
-      7
+      6
      ]
     }
    ],
@@ -649,22 +650,22 @@
     {
      "from": "n0",
      "to": "n1",
-     "step": 4
+     "step": 3
     },
     {
      "from": "n1",
      "to": "n2",
-     "step": 5
+     "step": 4
     },
     {
      "from": "n2",
      "to": "n3",
-     "step": 6
+     "step": 5
     },
     {
      "from": "n3",
      "to": "n4",
-     "step": 6
+     "step": 5
     }
    ],
    "notes": [
@@ -672,20 +673,20 @@
      "text": "Carbon uptake: the authors' estimate from plantation data, with large error bars",
      "x": 0.28,
      "y": 0.78,
-     "step": 8,
+     "step": 7,
      "size": 28,
      "hl": [
-      9
+      8
      ]
     },
     {
      "text": "A forest stops gaining carbon after about a century",
      "x": 0.74,
      "y": 0.78,
-     "step": 11,
+     "step": 10,
      "size": 28,
      "hl": [
-      12
+      11
      ]
     }
    ]
@@ -717,7 +718,7 @@
      "w": 0.4,
      "h": 0.34,
      "style": "blue",
-     "step": 2
+     "step": 1
     },
     {
      "id": "b",
@@ -727,7 +728,7 @@
      "w": 0.4,
      "h": 0.34,
      "style": "accent",
-     "step": 3
+     "step": 2
     }
    ],
    "notes": [
@@ -736,7 +737,7 @@
      "x": 0.5,
      "y": 0.78,
      "size": 36,
-     "step": 4
+     "step": 3
     }
    ]
   },
@@ -876,9 +877,9 @@
      "w": 0.24,
      "h": 0.3,
      "style": "green",
-     "step": 2,
+     "step": 1,
      "hl": [
-      3,
+      2,
       5,
       13
      ]
@@ -913,7 +914,8 @@
      "style": "accent",
      "step": 7,
      "hl": [
-      8
+      8,
+      10
      ]
     }
    ],
@@ -940,10 +942,7 @@
      "x": 0.28,
      "y": 0.72,
      "step": 9,
-     "size": 28,
-     "hl": [
-      10
-     ]
+     "size": 28
     },
     {
      "text": "Too few paleostorm records to check it",
@@ -1138,6 +1137,13 @@
      "hl": [
       9
      ]
+    },
+    {
+     "text": "Regrown vegetation and water-holding measures",
+     "x": 0.78,
+     "y": 0.5,
+     "step": 10,
+     "size": 28
     }
    ]
   }

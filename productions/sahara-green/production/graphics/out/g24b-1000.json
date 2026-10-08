@@ -2,7 +2,7 @@
  "schema": "yt-graphics/1",
  "id": "g24b-1000",
  "type": "callout",
- "style": "documentary_dark",
+ "style": "documentary_light",
  "size": [
   1920,
   1080
@@ -16,10 +16,10 @@
   "g24b-1000.png"
  ],
  "sha256": {
-  "g24b-1000.step1.png": "a3f1fa63f85d3da48414d0fe7f541607bb358031b6865c75e8a559ae9287ba01",
-  "g24b-1000.step2.png": "96f0742cc9d62d78fb92010443e7bbbb4bc7584bc0185f8ed8d8a9ea893a95ef",
-  "g24b-1000.step3.png": "2edf0c066ebf8904dd8747e355bffdd16bf8c12acc0949f3b271d15280baa5c7",
-  "g24b-1000.png": "bb9a1d0c2d5f2195ad7a4b5ef7d76074a318605e83bc89cc3e9f290e50f11629"
+  "g24b-1000.step1.png": "ea4083ea220f749f87de35e464b2eefed416edfa641fc6d941d5d39191e8a8c7",
+  "g24b-1000.step2.png": "4798e4403f80d7f1e25e55fa5d9a802cc6d7a95c9b9b68a38a9d91f087111a41",
+  "g24b-1000.step3.png": "2b2ff0726fff2155f068de4c27933e82d2454b3a57ad40b28692f3370736b153",
+  "g24b-1000.png": "fa4d147c505c6152bf29efb33d2beee280c1822a2d780d9f9ccc3d98faf38e1a"
  },
  "safe_area": {
   "top": 0.07,
