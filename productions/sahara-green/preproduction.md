@@ -6,7 +6,7 @@
 
 | File | Contents |
 |---|---|
-| `script.md` | Narration draft v0.2: 1,455 spoken words (v0.1 had 1,374 by the same count method), about 10:00 at 145 wpm |
+| `script.md` | Narration draft v0.4: 1,588 spoken words (v0.1 had 1,374 by the same count method), about 11:00 at 145 wpm |
 | `story/claims.md` | Fact-check ledger |
 | `storyboard.md` | 37 scenes, plus the visual novelty plan |
 

@@ -1,6 +1,6 @@
-# Episode 001 storyboard: draft v0.3 (16:9, profile `long`)
+# Episode 001 storyboard: draft v0.4 (16:9, profile `long`)
 
-Round 2 (2026-10-08): scenes 2, 3, 14, 16, 21, 29, 30, 31 and 34 were aligned with the reviewer-approved corrections in `script.md` v0.2 (P20, N1, L3, R1/S4, S18). Narration is now 1,492 spoken words (script v0.3), about 10:15 at 145 wpm; the per-scene times below are from v0.1 and must be re-timed after the voice pass. Landsat scene candidates are in `landsat/scene_candidates.json`.
+Round 2 (2026-10-08): scenes 2, 3, 14, 16, 21, 29, 30, 31 and 34 were aligned with the reviewer-approved corrections in `script.md` v0.2 (P20, N1, L3, R1/S4, S18). Narration is now 1,588 spoken words (script v0.4), about 10:15 at 145 wpm; the per-scene times below are from v0.1 and must be re-timed after the voice pass. Landsat scene candidates are in `landsat/scene_candidates.json`.
 
 ## How to read this
 
@@ -92,7 +92,7 @@ Round 2 (2026-10-08): scenes 2, 3, 14, 16, 21, 29, 30, 31 and 34 were aligned wi
 |---|---|---|---|---|---|---|
 | 23 | 5:00-5:20 | "In 2009, three scientists proposed…" | process_diagram | Flow: seawater → desalination → pipeline → drip irrigation → forest (build steps) | PROPOSAL (2009) | Ornstein et al. 2009 |
 | 24 | 5:20-5:28 | "…two trillion dollars a year." | number_callout | callout "~$2 trillion / year", subtitle "authors' estimate" | AUTHORS' ESTIMATE | Ornstein et al. 2009 [G4 pending] |
-| 25 | 5:28-5:52 | "Would it rain?" | data_chart | Bar chart, MODEL: "Rain added: +267 mm/yr"; "Fell back on the Sahara: ~26%" | CLIMATE MODEL RESULT | Kemena et al. 2018 |
+| 25 | 5:28-5:52 | "Would it rain?" | data_chart | **Water-budget graphic (MODEL; mm per year, Sahara average of a 30-year simulation).** One stacked bar: "Water lost to evaporation + transpiration: 1,238" = "rain 319" + "desalinated water supplied in the model 919" (Kemena et al., Fig. 4). The 319 is total rain, which includes 52 that also falls without a forest. **Separate label, outside the bar:** "Rain increase vs. no-forest run: +267 mm/yr (authors: weak, much smaller than earlier simulations)". **Separate label:** "Ratio of totals: 319 / 1,238 ≈ 26% (not tracked water)". Optional second callout: "Surface-air cooling: −6.3 °C on average (about 4 to 8 °C by region)". **Footer, on screen for the whole scene:** "ONE MODEL SIMULATION (CESM-WACCM) · CO₂ FIXED AT 1960 · TREES FULLY GROWN FROM THE START · WATER SUPPLY ASSUMED, NOT DEMONSTRATED". No dollar amount and no "solution" framing on this graphic. | CLIMATE MODEL RESULT · NOT A MEASUREMENT | Kemena et al., Climate Dynamics (manuscript 2017; journal version 2018) |
 | 26 | 5:52-6:09 | "A different simulation covered the Sahara with wind and solar farms…" | data_chart | Bar chart, MODEL: Sahel +200–500 mm/yr (range bar) | CLIMATE MODEL RESULT | Li et al. 2018 |
 
 ## ACT 6: What you'd change far away (6:09-7:50)

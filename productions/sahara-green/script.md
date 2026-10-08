@@ -1,4 +1,4 @@
-# What If We Turned the Sahara Desert Green? — Episode 001 — NARRATION DRAFT v0.3 (NOT VOICED, NOT LOCKED)
+# What If We Turned the Sahara Desert Green? — Episode 001 — NARRATION DRAFT v0.4 (NOT VOICED, NOT LOCKED)
 
 Claim IDs in [brackets] map to `story/claims.md`. Brackets and headings are not spoken.
 Round 2 (2026-10-08) applied the reviewer-approved corrections N1, L3, S18, R1, P20 and S4; see `story/source_audit_round2.md` and `story/source_audit_round3.md`.
@@ -55,7 +55,7 @@ So yes, we can green the desert. One field at a time, with water that doesn't co
 ## ACT 5 — THE BIG PLAN
 In 2009, three scientists proposed going much bigger: forests of fast-growing trees across the Sahara and the Australian Outback, watered with desalinated seawater through drip irrigation. [G1 ⛔BLOCKED] They argued these forests could absorb as much carbon dioxide each year as fossil fuels emit. [G2 ⛔BLOCKED] The estimated price: on the order of two trillion dollars a year. [G4 ⛔BLOCKED]
 
-Would it rain? In 2018, another team tested an irrigated Sahara forest in a different climate model. The Sahara cooled by about 6 degrees Celsius, around 11 degrees Fahrenheit, and rainfall rose by about 267 millimeters a year, roughly 10 inches. [G5 ⛔BLOCKED] But only about a quarter of the water the trees gave off fell back as rain over the Sahara. Much of the rest drifted south, and fed the monsoon over the Sahel. [G6 ⛔BLOCKED] In that model, the forest wouldn't water itself. You'd have to keep pumping.
+Would it rain? A later study tested an irrigated Sahara forest in a different climate model. Averaged across the Sahara, the forest cooled the surface air by about 6.3 degrees Celsius, around 11 degrees Fahrenheit, and rainfall rose by about 267 millimeters a year, roughly 10 inches. The authors called that a weak increase, much smaller than earlier simulations had found. [G5 ✓] Then they compared totals. The irrigated Sahara lost about 1,238 millimeters of water a year to evaporation and transpiration, and total rainfall over the Sahara was 319, about a quarter as much. That's a ratio of totals, not a tracked drop of water. Much of the moisture was carried south, over the Sahel and the nearby ocean, where it strengthened the West African monsoon. [G6 ✓] In that model, the forest wouldn't water itself. It would need about 919 millimeters, roughly 36 inches, of desalinated water a year on top of the rain. [G6b ✓] The model simply assumes that water is supplied; whether it could be produced and delivered at that scale is not something the simulation shows. That's one simulation, not a measurement.
 
 A different simulation covered the Sahara with wind and solar farms instead. Rainfall more than doubled, and the Sahel gained 200 to 500 millimeters a year. [G8 ⛔BLOCKED]
 
