@@ -1,0 +1,4145 @@
+{
+ "schema": "yt-render-manifest/1",
+ "profile": "long",
+ "output": "EP001_review_master_1080p30.mp4",
+ "width": 1920,
+ "height": 1080,
+ "fps": 30,
+ "duration": 747.367,
+ "safe": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "right": 0.05,
+  "left": 0.05
+ },
+ "first_word_start": 0.0,
+ "narration": {
+  "start": 0.0,
+  "duration": 747.357,
+  "end": 747.35746,
+  "gain_db": -0.8,
+  "voice_name": "Adam",
+  "voice_id": "pNInz6obpgDQGcFmaJgB"
+ },
+ "shots": [
+  {
+   "id": "s01",
+   "beat": "scene 1",
+   "start": 0.0,
+   "end": 2.067,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "still"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "s02",
+   "beat": "scene 2",
+   "start": 2.067,
+   "end": 8.233,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s03",
+   "beat": "scene 3",
+   "start": 8.233,
+   "end": 13.333,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "still",
+    "label"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "s04",
+   "beat": "scene 4",
+   "start": 13.333,
+   "end": 17.3,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "still",
+    "label"
+   ],
+   "credit": "NASA Earth Observatory · Blue Marble"
+  },
+  {
+   "id": "s05",
+   "beat": "scene 5",
+   "start": 17.3,
+   "end": 22.767,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s06",
+   "beat": "scene 6",
+   "start": 22.767,
+   "end": 36.267,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "video"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s07",
+   "beat": "scene 7",
+   "start": 36.267,
+   "end": 57.933,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s08",
+   "beat": "scene 8",
+   "start": 57.933,
+   "end": 73.3,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "still",
+    "label",
+    "label"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "s09a",
+   "beat": "scene 9",
+   "start": 73.3,
+   "end": 85.233,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s09b",
+   "beat": "scene 9",
+   "start": 85.233,
+   "end": 94.1,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "still",
+    "label",
+    "label"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "s10",
+   "beat": "scene 10",
+   "start": 94.1,
+   "end": 117.4,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s11",
+   "beat": "scene 11",
+   "start": 117.4,
+   "end": 148.467,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "still",
+    "label",
+    "label",
+    "label"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "s12",
+   "beat": "scene 12",
+   "start": 148.467,
+   "end": 174.467,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s13",
+   "beat": "scene 13",
+   "start": 174.467,
+   "end": 192.567,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s14",
+   "beat": "scene 14",
+   "start": 192.567,
+   "end": 214.3,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s15",
+   "beat": "scene 15",
+   "start": 214.3,
+   "end": 236.9,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "still",
+    "label",
+    "label",
+    "label"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "s16",
+   "beat": "scene 16",
+   "start": 236.9,
+   "end": 265.967,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s17",
+   "beat": "scene 17",
+   "start": 265.967,
+   "end": 274.333,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "still"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "s18",
+   "beat": "scene 18",
+   "start": 274.333,
+   "end": 292.667,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "video"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "s19",
+   "beat": "scene 19",
+   "start": 292.667,
+   "end": 317.0,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s20",
+   "beat": "scene 20",
+   "start": 317.0,
+   "end": 328.467,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "still",
+    "label"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "s21",
+   "beat": "scene 21",
+   "start": 328.467,
+   "end": 349.5,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "video"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "s22",
+   "beat": "scene 22",
+   "start": 349.5,
+   "end": 357.167,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "video"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "s23",
+   "beat": "scene 23",
+   "start": 357.167,
+   "end": 395.3,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s24",
+   "beat": "scene 24",
+   "start": 395.3,
+   "end": 398.0,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s24b1",
+   "beat": "scene 24b",
+   "start": 398.0,
+   "end": 414.4,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s24b2",
+   "beat": "scene 24b",
+   "start": 414.4,
+   "end": 436.2,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s24b3",
+   "beat": "scene 24b",
+   "start": 436.2,
+   "end": 443.567,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s25",
+   "beat": "scene 25",
+   "start": 443.567,
+   "end": 492.267,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s25b",
+   "beat": "scene 25b",
+   "start": 492.267,
+   "end": 498.167,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "still"
+   ],
+   "credit": "NASA Earth Observatory · Blue Marble"
+  },
+  {
+   "id": "s29",
+   "beat": "scene 29",
+   "start": 498.167,
+   "end": 525.033,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "video",
+    "label",
+    "label",
+    "label"
+   ],
+   "credit": "NASA Earth Observatory · Blue Marble"
+  },
+  {
+   "id": "s30",
+   "beat": "scene 30",
+   "start": 525.033,
+   "end": 556.067,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "still",
+    "label",
+    "label"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "s31",
+   "beat": "scene 31",
+   "start": 556.067,
+   "end": 568.167,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s32",
+   "beat": "scene 32",
+   "start": 568.167,
+   "end": 616.133,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s33",
+   "beat": "scene 33",
+   "start": 616.133,
+   "end": 663.033,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s34",
+   "beat": "scene 34",
+   "start": 663.033,
+   "end": 702.4,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s35",
+   "beat": "scene 35",
+   "start": 702.4,
+   "end": 720.767,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "video"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s36",
+   "beat": "scene 36",
+   "start": 720.767,
+   "end": 740.033,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Graphic: Sahara Green · sources on the graphic"
+  },
+  {
+   "id": "s37",
+   "beat": "scene 37",
+   "start": 740.033,
+   "end": 747.367,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "still"
+   ],
+   "credit": "Landsat 9 · USGS"
+  }
+ ],
+ "info_events": [],
+ "compositions": {
+  "rule": "composition-reset/1",
+  "thresholds": {
+   "zoom_ratio": 1.5,
+   "shift": 0.35,
+   "merge_s": 0.75,
+   "timelapse_min": 3,
+   "timelapse_max_step": 1.0,
+   "sample_s": 0.1,
+   "first_10s_min": 3,
+   "resets_per_min": 5.0,
+   "max_hold_s": 8.0
+  },
+  "composition_resets": 38,
+  "distinct_first_10s": 3,
+  "longest_static_hold": {
+   "seconds": 48.7,
+   "start": 443.567,
+   "end": 492.267
+  },
+  "resets": [
+   {
+    "t": 2.067,
+    "shot": "s02",
+    "kind": "graphic",
+    "what": "graphic g02-230"
+   },
+   {
+    "t": 8.233,
+    "shot": "s03",
+    "kind": "still",
+    "what": "still bodele"
+   },
+   {
+    "t": 13.333,
+    "shot": "s04",
+    "kind": "still",
+    "what": "still bluemarble"
+   },
+   {
+    "t": 17.3,
+    "shot": "s05",
+    "kind": "graphic",
+    "what": "graphic g05-rain"
+   },
+   {
+    "t": 22.767,
+    "shot": "s06",
+    "kind": "video",
+    "what": "video seq_s6"
+   },
+   {
+    "t": 36.267,
+    "shot": "s07",
+    "kind": "graphic",
+    "what": "graphic g07-timeline"
+   },
+   {
+    "t": 57.933,
+    "shot": "s08",
+    "kind": "still",
+    "what": "still bodele"
+   },
+   {
+    "t": 73.3,
+    "shot": "s09a",
+    "kind": "graphic",
+    "what": "graphic g09-burials"
+   },
+   {
+    "t": 85.233,
+    "shot": "s09b",
+    "kind": "still",
+    "what": "still tassili"
+   },
+   {
+    "t": 94.1,
+    "shot": "s10",
+    "kind": "graphic",
+    "what": "graphic g10-rain"
+   },
+   {
+    "t": 117.4,
+    "shot": "s11",
+    "kind": "still",
+    "what": "still ounianga"
+   },
+   {
+    "t": 148.467,
+    "shot": "s12",
+    "kind": "graphic",
+    "what": "graphic g12-orbit"
+   },
+   {
+    "t": 174.467,
+    "shot": "s13",
+    "kind": "graphic",
+    "what": "graphic g13-models"
+   },
+   {
+    "t": 192.567,
+    "shot": "s14",
+    "kind": "graphic",
+    "what": "graphic g14-sapropel"
+   },
+   {
+    "t": 214.3,
+    "shot": "s15",
+    "kind": "still",
+    "what": "still ounianga"
+   },
+   {
+    "t": 236.9,
+    "shot": "s16",
+    "kind": "graphic",
+    "what": "graphic g16-cell"
+   },
+   {
+    "t": 265.967,
+    "shot": "s17",
+    "kind": "still",
+    "what": "still gilf"
+   },
+   {
+    "t": 274.333,
+    "shot": "s18",
+    "kind": "video",
+    "what": "video seq_eo"
+   },
+   {
+    "t": 292.667,
+    "shot": "s19",
+    "kind": "graphic",
+    "what": "graphic g19-aquifer"
+   },
+   {
+    "t": 317.0,
+    "shot": "s20",
+    "kind": "still",
+    "what": "still kufra"
+   },
+   {
+    "t": 328.467,
+    "shot": "s21",
+    "kind": "video",
+    "what": "video seq_toshka"
+   },
+   {
+    "t": 349.5,
+    "shot": "s22",
+    "kind": "video",
+    "what": "video seq_s22"
+   },
+   {
+    "t": 357.167,
+    "shot": "s23",
+    "kind": "graphic",
+    "what": "graphic g23-proposal"
+   },
+   {
+    "t": 395.3,
+    "shot": "s24",
+    "kind": "graphic",
+    "what": "graphic g24-trillion"
+   },
+   {
+    "t": 398.0,
+    "shot": "s24b1",
+    "kind": "graphic",
+    "what": "graphic g24b-1000"
+   },
+   {
+    "t": 414.4,
+    "shot": "s24b2",
+    "kind": "graphic",
+    "what": "graphic g24b-267"
+   },
+   {
+    "t": 436.2,
+    "shot": "s24b3",
+    "kind": "graphic",
+    "what": "graphic g24b-diff"
+   },
+   {
+    "t": 443.567,
+    "shot": "s25",
+    "kind": "graphic",
+    "what": "graphic g25-budget"
+   },
+   {
+    "t": 492.267,
+    "shot": "s25b",
+    "kind": "still",
+    "what": "still bluemarble"
+   },
+   {
+    "t": 498.167,
+    "shot": "s29",
+    "kind": "video",
+    "what": "video calipso"
+   },
+   {
+    "t": 525.033,
+    "shot": "s30",
+    "kind": "still",
+    "what": "still bodele"
+   },
+   {
+    "t": 556.067,
+    "shot": "s31",
+    "kind": "graphic",
+    "what": "graphic g31-hypothesis"
+   },
+   {
+    "t": 568.167,
+    "shot": "s32",
+    "kind": "graphic",
+    "what": "graphic g32-storms"
+   },
+   {
+    "t": 616.133,
+    "shot": "s33",
+    "kind": "graphic",
+    "what": "graphic g33-sahel"
+   },
+   {
+    "t": 663.033,
+    "shot": "s34",
+    "kind": "graphic",
+    "what": "graphic g34-gww"
+   },
+   {
+    "t": 702.4,
+    "shot": "s35",
+    "kind": "video",
+    "what": "video seq_s35"
+   },
+   {
+    "t": 720.767,
+    "shot": "s36",
+    "kind": "graphic",
+    "what": "graphic g36-uncertain"
+   },
+   {
+    "t": 740.033,
+    "shot": "s37",
+    "kind": "still",
+    "what": "still tassili"
+   }
+  ],
+  "segments": [
+   {
+    "start": 0.0,
+    "end": 2.067,
+    "seconds": 2.067,
+    "static_hold": 2.067
+   },
+   {
+    "start": 2.067,
+    "end": 8.233,
+    "seconds": 6.166,
+    "static_hold": 6.166
+   },
+   {
+    "start": 8.233,
+    "end": 13.333,
+    "seconds": 5.1,
+    "static_hold": 5.1
+   },
+   {
+    "start": 13.333,
+    "end": 17.3,
+    "seconds": 3.967,
+    "static_hold": 3.967
+   },
+   {
+    "start": 17.3,
+    "end": 22.767,
+    "seconds": 5.467,
+    "static_hold": 5.467
+   },
+   {
+    "start": 22.767,
+    "end": 36.267,
+    "seconds": 13.5,
+    "static_hold": 13.5
+   },
+   {
+    "start": 36.267,
+    "end": 57.933,
+    "seconds": 21.666,
+    "static_hold": 21.666
+   },
+   {
+    "start": 57.933,
+    "end": 73.3,
+    "seconds": 15.367,
+    "static_hold": 15.367
+   },
+   {
+    "start": 73.3,
+    "end": 85.233,
+    "seconds": 11.933,
+    "static_hold": 11.933
+   },
+   {
+    "start": 85.233,
+    "end": 94.1,
+    "seconds": 8.867,
+    "static_hold": 8.867
+   },
+   {
+    "start": 94.1,
+    "end": 117.4,
+    "seconds": 23.3,
+    "static_hold": 23.3
+   },
+   {
+    "start": 117.4,
+    "end": 148.467,
+    "seconds": 31.067,
+    "static_hold": 31.067
+   },
+   {
+    "start": 148.467,
+    "end": 174.467,
+    "seconds": 26.0,
+    "static_hold": 26.0
+   },
+   {
+    "start": 174.467,
+    "end": 192.567,
+    "seconds": 18.1,
+    "static_hold": 18.1
+   },
+   {
+    "start": 192.567,
+    "end": 214.3,
+    "seconds": 21.733,
+    "static_hold": 21.733
+   },
+   {
+    "start": 214.3,
+    "end": 236.9,
+    "seconds": 22.6,
+    "static_hold": 22.6
+   },
+   {
+    "start": 236.9,
+    "end": 265.967,
+    "seconds": 29.067,
+    "static_hold": 29.067
+   },
+   {
+    "start": 265.967,
+    "end": 274.333,
+    "seconds": 8.366,
+    "static_hold": 8.366
+   },
+   {
+    "start": 274.333,
+    "end": 292.667,
+    "seconds": 18.334,
+    "static_hold": 18.334
+   },
+   {
+    "start": 292.667,
+    "end": 317.0,
+    "seconds": 24.333,
+    "static_hold": 24.333
+   },
+   {
+    "start": 317.0,
+    "end": 328.467,
+    "seconds": 11.467,
+    "static_hold": 11.467
+   },
+   {
+    "start": 328.467,
+    "end": 349.5,
+    "seconds": 21.033,
+    "static_hold": 21.033
+   },
+   {
+    "start": 349.5,
+    "end": 357.167,
+    "seconds": 7.667,
+    "static_hold": 7.667
+   },
+   {
+    "start": 357.167,
+    "end": 395.3,
+    "seconds": 38.133,
+    "static_hold": 38.133
+   },
+   {
+    "start": 395.3,
+    "end": 398.0,
+    "seconds": 2.7,
+    "static_hold": 2.7
+   },
+   {
+    "start": 398.0,
+    "end": 414.4,
+    "seconds": 16.4,
+    "static_hold": 16.4
+   },
+   {
+    "start": 414.4,
+    "end": 436.2,
+    "seconds": 21.8,
+    "static_hold": 21.8
+   },
+   {
+    "start": 436.2,
+    "end": 443.567,
+    "seconds": 7.367,
+    "static_hold": 7.367
+   },
+   {
+    "start": 443.567,
+    "end": 492.267,
+    "seconds": 48.7,
+    "static_hold": 48.7
+   },
+   {
+    "start": 492.267,
+    "end": 498.167,
+    "seconds": 5.9,
+    "static_hold": 5.9
+   },
+   {
+    "start": 498.167,
+    "end": 525.033,
+    "seconds": 26.866,
+    "static_hold": 26.866
+   },
+   {
+    "start": 525.033,
+    "end": 556.067,
+    "seconds": 31.034,
+    "static_hold": 31.034
+   },
+   {
+    "start": 556.067,
+    "end": 568.167,
+    "seconds": 12.1,
+    "static_hold": 12.1
+   },
+   {
+    "start": 568.167,
+    "end": 616.133,
+    "seconds": 47.966,
+    "static_hold": 47.966
+   },
+   {
+    "start": 616.133,
+    "end": 663.033,
+    "seconds": 46.9,
+    "static_hold": 46.9
+   },
+   {
+    "start": 663.033,
+    "end": 702.4,
+    "seconds": 39.367,
+    "static_hold": 39.367
+   },
+   {
+    "start": 702.4,
+    "end": 720.767,
+    "seconds": 18.367,
+    "static_hold": 18.367
+   },
+   {
+    "start": 720.767,
+    "end": 740.033,
+    "seconds": 19.266,
+    "static_hold": 19.266
+   },
+   {
+    "start": 740.033,
+    "end": 747.367,
+    "seconds": 7.334,
+    "static_hold": 7.334
+   }
+  ]
+ },
+ "caption_boxes": [
+  {
+   "cue": 1,
+   "band": 0.815,
+   "box": [
+    585,
+    857,
+    1335,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 2,
+   "band": 0.815,
+   "box": [
+    466,
+    830,
+    1454,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 3,
+   "band": 0.815,
+   "box": [
+    583,
+    830,
+    1337,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 4,
+   "band": 0.815,
+   "box": [
+    613,
+    857,
+    1307,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 5,
+   "band": 0.815,
+   "box": [
+    670,
+    830,
+    1250,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 6,
+   "band": 0.815,
+   "box": [
+    520,
+    830,
+    1400,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 7,
+   "band": 0.76,
+   "box": [
+    869,
+    798,
+    1691,
+    844
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 8,
+   "band": 0.76,
+   "box": [
+    1010,
+    771,
+    1550,
+    871
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 9,
+   "band": 0.76,
+   "box": [
+    888,
+    771,
+    1672,
+    871
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 10,
+   "band": 0.76,
+   "box": [
+    1009,
+    771,
+    1551,
+    871
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 11,
+   "band": 0.815,
+   "box": [
+    586,
+    830,
+    1334,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 12,
+   "band": 0.815,
+   "box": [
+    557,
+    830,
+    1363,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 13,
+   "band": 0.815,
+   "box": [
+    595,
+    830,
+    1325,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 14,
+   "band": 0.815,
+   "box": [
+    539,
+    830,
+    1381,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 15,
+   "band": 0.815,
+   "box": [
+    703,
+    857,
+    1217,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 16,
+   "band": 0.815,
+   "box": [
+    549,
+    830,
+    1371,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 17,
+   "band": 0.815,
+   "box": [
+    484,
+    830,
+    1436,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 18,
+   "band": 0.815,
+   "box": [
+    563,
+    830,
+    1357,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 19,
+   "band": 0.815,
+   "box": [
+    505,
+    830,
+    1415,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 20,
+   "band": 0.815,
+   "box": [
+    499,
+    830,
+    1421,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 21,
+   "band": 0.815,
+   "box": [
+    660,
+    830,
+    1260,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 22,
+   "band": 0.815,
+   "box": [
+    517,
+    830,
+    1403,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 23,
+   "band": 0.815,
+   "box": [
+    745,
+    857,
+    1175,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 24,
+   "band": 0.815,
+   "box": [
+    596,
+    830,
+    1324,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 25,
+   "band": 0.815,
+   "box": [
+    667,
+    830,
+    1253,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 26,
+   "band": 0.815,
+   "box": [
+    541,
+    830,
+    1379,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 27,
+   "band": 0.815,
+   "box": [
+    485,
+    857,
+    1435,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 28,
+   "band": 0.815,
+   "box": [
+    644,
+    830,
+    1276,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 29,
+   "band": 0.815,
+   "box": [
+    536,
+    857,
+    1384,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 30,
+   "band": 0.815,
+   "box": [
+    498,
+    830,
+    1422,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 31,
+   "band": 0.815,
+   "box": [
+    654,
+    830,
+    1266,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 32,
+   "band": 0.815,
+   "box": [
+    569,
+    830,
+    1351,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 33,
+   "band": 0.815,
+   "box": [
+    460,
+    857,
+    1460,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 34,
+   "band": 0.815,
+   "box": [
+    476,
+    830,
+    1444,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 35,
+   "band": 0.815,
+   "box": [
+    605,
+    857,
+    1315,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 36,
+   "band": 0.815,
+   "box": [
+    572,
+    857,
+    1348,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 37,
+   "band": 0.815,
+   "box": [
+    671,
+    857,
+    1249,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 38,
+   "band": 0.815,
+   "box": [
+    594,
+    857,
+    1326,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 39,
+   "band": 0.815,
+   "box": [
+    603,
+    830,
+    1317,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 40,
+   "band": 0.815,
+   "box": [
+    515,
+    830,
+    1405,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 41,
+   "band": 0.815,
+   "box": [
+    507,
+    830,
+    1413,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 42,
+   "band": 0.815,
+   "box": [
+    506,
+    857,
+    1414,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 43,
+   "band": 0.815,
+   "box": [
+    604,
+    830,
+    1316,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 44,
+   "band": 0.815,
+   "box": [
+    550,
+    830,
+    1370,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 45,
+   "band": 0.815,
+   "box": [
+    475,
+    857,
+    1445,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 46,
+   "band": 0.815,
+   "box": [
+    579,
+    830,
+    1341,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 47,
+   "band": 0.815,
+   "box": [
+    449,
+    830,
+    1471,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 48,
+   "band": 0.815,
+   "box": [
+    646,
+    857,
+    1274,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 49,
+   "band": 0.815,
+   "box": [
+    619,
+    857,
+    1301,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 50,
+   "band": 0.815,
+   "box": [
+    499,
+    830,
+    1421,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 51,
+   "band": 0.815,
+   "box": [
+    653,
+    830,
+    1267,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 52,
+   "band": 0.815,
+   "box": [
+    542,
+    830,
+    1378,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 53,
+   "band": 0.815,
+   "box": [
+    573,
+    830,
+    1347,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 54,
+   "band": 0.815,
+   "box": [
+    667,
+    857,
+    1253,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 55,
+   "band": 0.815,
+   "box": [
+    578,
+    830,
+    1342,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 56,
+   "band": 0.815,
+   "box": [
+    479,
+    857,
+    1441,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 57,
+   "band": 0.815,
+   "box": [
+    652,
+    830,
+    1268,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 58,
+   "band": 0.815,
+   "box": [
+    432,
+    830,
+    1488,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 59,
+   "band": 0.815,
+   "box": [
+    608,
+    830,
+    1312,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 60,
+   "band": 0.815,
+   "box": [
+    689,
+    857,
+    1231,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 61,
+   "band": 0.815,
+   "box": [
+    662,
+    830,
+    1258,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 62,
+   "band": 0.815,
+   "box": [
+    578,
+    830,
+    1342,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 63,
+   "band": 0.815,
+   "box": [
+    570,
+    857,
+    1350,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 64,
+   "band": 0.815,
+   "box": [
+    618,
+    830,
+    1302,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 65,
+   "band": 0.815,
+   "box": [
+    629,
+    830,
+    1291,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 66,
+   "band": 0.815,
+   "box": [
+    493,
+    830,
+    1427,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 67,
+   "band": 0.815,
+   "box": [
+    637,
+    830,
+    1283,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 68,
+   "band": 0.815,
+   "box": [
+    615,
+    830,
+    1305,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 69,
+   "band": 0.815,
+   "box": [
+    589,
+    830,
+    1331,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 70,
+   "band": 0.76,
+   "box": [
+    823,
+    798,
+    1737,
+    844
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 71,
+   "band": 0.76,
+   "box": [
+    893,
+    771,
+    1667,
+    871
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 72,
+   "band": 0.76,
+   "box": [
+    872,
+    771,
+    1688,
+    871
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 73,
+   "band": 0.76,
+   "box": [
+    873,
+    798,
+    1687,
+    844
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 74,
+   "band": 0.76,
+   "box": [
+    941,
+    798,
+    1619,
+    844
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 75,
+   "band": 0.815,
+   "box": [
+    547,
+    830,
+    1373,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 76,
+   "band": 0.815,
+   "box": [
+    492,
+    830,
+    1428,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 77,
+   "band": 0.815,
+   "box": [
+    401,
+    830,
+    1519,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 78,
+   "band": 0.815,
+   "box": [
+    484,
+    830,
+    1436,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 79,
+   "band": 0.815,
+   "box": [
+    579,
+    830,
+    1341,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 80,
+   "band": 0.815,
+   "box": [
+    534,
+    830,
+    1386,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 81,
+   "band": 0.815,
+   "box": [
+    569,
+    830,
+    1351,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 82,
+   "band": 0.815,
+   "box": [
+    644,
+    857,
+    1276,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 83,
+   "band": 0.76,
+   "box": [
+    635,
+    771,
+    1285,
+    871
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 84,
+   "band": 0.76,
+   "box": [
+    587,
+    798,
+    1333,
+    844
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 85,
+   "band": 0.76,
+   "box": [
+    670,
+    771,
+    1250,
+    871
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 86,
+   "band": 0.76,
+   "box": [
+    606,
+    771,
+    1314,
+    871
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 87,
+   "band": 0.76,
+   "box": [
+    515,
+    771,
+    1405,
+    871
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 88,
+   "band": 0.76,
+   "box": [
+    587,
+    798,
+    1333,
+    844
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 89,
+   "band": 0.76,
+   "box": [
+    860,
+    771,
+    1700,
+    871
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 90,
+   "band": 0.815,
+   "box": [
+    621,
+    830,
+    1299,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 91,
+   "band": 0.815,
+   "box": [
+    425,
+    830,
+    1495,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 92,
+   "band": 0.815,
+   "box": [
+    549,
+    857,
+    1371,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 93,
+   "band": 0.815,
+   "box": [
+    427,
+    830,
+    1493,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 94,
+   "band": 0.815,
+   "box": [
+    566,
+    857,
+    1354,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 95,
+   "band": 0.815,
+   "box": [
+    493,
+    830,
+    1427,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 96,
+   "band": 0.815,
+   "box": [
+    655,
+    830,
+    1265,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 97,
+   "band": 0.815,
+   "box": [
+    525,
+    857,
+    1395,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 98,
+   "band": 0.815,
+   "box": [
+    532,
+    830,
+    1388,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 99,
+   "band": 0.815,
+   "box": [
+    679,
+    830,
+    1241,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 100,
+   "band": 0.815,
+   "box": [
+    535,
+    857,
+    1385,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 101,
+   "band": 0.815,
+   "box": [
+    801,
+    857,
+    1119,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 102,
+   "band": 0.815,
+   "box": [
+    465,
+    830,
+    1455,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 103,
+   "band": 0.815,
+   "box": [
+    493,
+    830,
+    1427,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 104,
+   "band": 0.815,
+   "box": [
+    538,
+    857,
+    1382,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 105,
+   "band": 0.815,
+   "box": [
+    519,
+    830,
+    1401,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 106,
+   "band": 0.815,
+   "box": [
+    526,
+    830,
+    1394,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 107,
+   "band": 0.815,
+   "box": [
+    528,
+    830,
+    1392,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 108,
+   "band": 0.815,
+   "box": [
+    616,
+    857,
+    1304,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 109,
+   "band": 0.815,
+   "box": [
+    495,
+    857,
+    1425,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 110,
+   "band": 0.815,
+   "box": [
+    519,
+    830,
+    1401,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 111,
+   "band": 0.815,
+   "box": [
+    454,
+    857,
+    1466,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 112,
+   "band": 0.815,
+   "box": [
+    545,
+    857,
+    1375,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 113,
+   "band": 0.815,
+   "box": [
+    482,
+    830,
+    1438,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 114,
+   "band": 0.815,
+   "box": [
+    588,
+    830,
+    1332,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 115,
+   "band": 0.815,
+   "box": [
+    673,
+    857,
+    1247,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 116,
+   "band": 0.815,
+   "box": [
+    645,
+    830,
+    1275,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 117,
+   "band": 0.815,
+   "box": [
+    568,
+    830,
+    1352,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 118,
+   "band": 0.815,
+   "box": [
+    539,
+    830,
+    1381,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 119,
+   "band": 0.815,
+   "box": [
+    483,
+    830,
+    1437,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 120,
+   "band": 0.815,
+   "box": [
+    683,
+    830,
+    1237,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 121,
+   "band": 0.815,
+   "box": [
+    485,
+    830,
+    1435,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 122,
+   "band": 0.815,
+   "box": [
+    508,
+    830,
+    1412,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 123,
+   "band": 0.815,
+   "box": [
+    467,
+    857,
+    1453,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 124,
+   "band": 0.815,
+   "box": [
+    611,
+    830,
+    1309,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 125,
+   "band": 0.815,
+   "box": [
+    576,
+    857,
+    1344,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 126,
+   "band": 0.2,
+   "box": [
+    834,
+    193,
+    1086,
+    239
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 127,
+   "band": 0.2,
+   "box": [
+    483,
+    166,
+    1437,
+    266
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 128,
+   "band": 0.2,
+   "box": [
+    499,
+    166,
+    1421,
+    266
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 129,
+   "band": 0.2,
+   "box": [
+    640,
+    166,
+    1280,
+    266
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 130,
+   "band": 0.2,
+   "box": [
+    561,
+    166,
+    1359,
+    266
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 131,
+   "band": 0.2,
+   "box": [
+    597,
+    166,
+    1323,
+    266
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 132,
+   "band": 0.815,
+   "box": [
+    659,
+    857,
+    1261,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 133,
+   "band": 0.815,
+   "box": [
+    486,
+    830,
+    1434,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 134,
+   "band": 0.815,
+   "box": [
+    540,
+    857,
+    1380,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 135,
+   "band": 0.815,
+   "box": [
+    552,
+    830,
+    1368,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 136,
+   "band": 0.815,
+   "box": [
+    665,
+    830,
+    1255,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 137,
+   "band": 0.815,
+   "box": [
+    556,
+    830,
+    1364,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 138,
+   "band": 0.815,
+   "box": [
+    678,
+    830,
+    1242,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 139,
+   "band": 0.815,
+   "box": [
+    631,
+    857,
+    1289,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 140,
+   "band": 0.815,
+   "box": [
+    492,
+    830,
+    1428,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 141,
+   "band": 0.815,
+   "box": [
+    459,
+    830,
+    1461,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 142,
+   "band": 0.815,
+   "box": [
+    770,
+    857,
+    1150,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 143,
+   "band": 0.815,
+   "box": [
+    432,
+    830,
+    1488,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 144,
+   "band": 0.815,
+   "box": [
+    524,
+    830,
+    1396,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 145,
+   "band": 0.815,
+   "box": [
+    529,
+    857,
+    1391,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 146,
+   "band": 0.815,
+   "box": [
+    554,
+    830,
+    1366,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 147,
+   "band": 0.815,
+   "box": [
+    423,
+    830,
+    1497,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 148,
+   "band": 0.815,
+   "box": [
+    510,
+    830,
+    1410,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 149,
+   "band": 0.815,
+   "box": [
+    563,
+    830,
+    1357,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 150,
+   "band": 0.815,
+   "box": [
+    558,
+    830,
+    1362,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 151,
+   "band": 0.815,
+   "box": [
+    591,
+    830,
+    1329,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 152,
+   "band": 0.815,
+   "box": [
+    493,
+    857,
+    1427,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 153,
+   "band": 0.815,
+   "box": [
+    410,
+    830,
+    1510,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 154,
+   "band": 0.815,
+   "box": [
+    462,
+    830,
+    1458,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 155,
+   "band": 0.815,
+   "box": [
+    619,
+    830,
+    1301,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 156,
+   "band": 0.815,
+   "box": [
+    428,
+    830,
+    1492,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 157,
+   "band": 0.815,
+   "box": [
+    603,
+    830,
+    1317,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 158,
+   "band": 0.815,
+   "box": [
+    529,
+    830,
+    1391,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 159,
+   "band": 0.815,
+   "box": [
+    595,
+    830,
+    1325,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 160,
+   "band": 0.815,
+   "box": [
+    617,
+    830,
+    1303,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 161,
+   "band": 0.815,
+   "box": [
+    498,
+    830,
+    1422,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 162,
+   "band": 0.815,
+   "box": [
+    545,
+    830,
+    1375,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 163,
+   "band": 0.815,
+   "box": [
+    603,
+    830,
+    1317,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 164,
+   "band": 0.815,
+   "box": [
+    425,
+    830,
+    1495,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 165,
+   "band": 0.815,
+   "box": [
+    586,
+    830,
+    1334,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 166,
+   "band": 0.815,
+   "box": [
+    542,
+    830,
+    1378,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 167,
+   "band": 0.815,
+   "box": [
+    731,
+    857,
+    1189,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 168,
+   "band": 0.815,
+   "box": [
+    518,
+    830,
+    1402,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 169,
+   "band": 0.815,
+   "box": [
+    582,
+    830,
+    1338,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 170,
+   "band": 0.815,
+   "box": [
+    536,
+    830,
+    1384,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 171,
+   "band": 0.815,
+   "box": [
+    490,
+    830,
+    1430,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 172,
+   "band": 0.76,
+   "box": [
+    868,
+    798,
+    1692,
+    844
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 173,
+   "band": 0.76,
+   "box": [
+    972,
+    798,
+    1588,
+    844
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 174,
+   "band": 0.76,
+   "box": [
+    936,
+    771,
+    1624,
+    871
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 175,
+   "band": 0.76,
+   "box": [
+    983,
+    771,
+    1577,
+    871
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 176,
+   "band": 0.76,
+   "box": [
+    869,
+    771,
+    1691,
+    871
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 177,
+   "band": 0.76,
+   "box": [
+    866,
+    771,
+    1694,
+    871
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 178,
+   "band": 0.76,
+   "box": [
+    1039,
+    798,
+    1521,
+    844
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 179,
+   "band": 0.815,
+   "box": [
+    676,
+    830,
+    1244,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 180,
+   "band": 0.815,
+   "box": [
+    596,
+    830,
+    1324,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 181,
+   "band": 0.815,
+   "box": [
+    491,
+    830,
+    1429,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 182,
+   "band": 0.815,
+   "box": [
+    567,
+    830,
+    1353,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 183,
+   "band": 0.815,
+   "box": [
+    579,
+    830,
+    1341,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 184,
+   "band": 0.815,
+   "box": [
+    560,
+    830,
+    1360,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 185,
+   "band": 0.815,
+   "box": [
+    532,
+    830,
+    1388,
+    930
+   ],
+   "font_size": 46
+  }
+ ],
+ "assets": {
+  "tassili": {
+   "label": "Tassili n'Ajjer",
+   "credit": "Landsat 9 · USGS",
+   "prov": null,
+   "kind": "external_still",
+   "source_url": "https://earthexplorer.usgs.gov/",
+   "license": "USGS Landsat: public domain, credit requested",
+   "retrieved": "2026-10-08",
+   "image_date": "2025-12-20",
+   "derived_from": "LC09_L1TP_190042_20251220_20251220_02_T1",
+   "size": [
+    4200,
+    2362
+   ]
+  },
+  "bodele": {
+   "label": "Bodélé",
+   "credit": "Landsat 9 · USGS",
+   "prov": null,
+   "kind": "external_still",
+   "source_url": "https://earthexplorer.usgs.gov/",
+   "license": "USGS Landsat: public domain, credit requested",
+   "retrieved": "2026-10-08",
+   "image_date": "2026-07-31",
+   "derived_from": "LC09_L1TP_183048_20260731_20260731_02_T1",
+   "size": [
+    5000,
+    2812
+   ]
+  },
+  "ounianga": {
+   "label": "Ounianga",
+   "credit": "Landsat 9 · USGS",
+   "prov": null,
+   "kind": "external_still",
+   "source_url": "https://earthexplorer.usgs.gov/",
+   "license": "USGS Landsat: public domain, credit requested",
+   "retrieved": "2026-10-08",
+   "image_date": "2026-06-22",
+   "derived_from": "LC09_L1TP_182047_20260622_20260622_02_T1",
+   "size": [
+    3000,
+    1687
+   ]
+  },
+  "gilf": {
+   "label": "Gilf Kebir",
+   "credit": "Landsat 9 · USGS",
+   "prov": null,
+   "kind": "external_still",
+   "source_url": "https://earthexplorer.usgs.gov/",
+   "license": "USGS Landsat: public domain, credit requested",
+   "retrieved": "2026-10-08",
+   "image_date": "2025-11-21",
+   "derived_from": "LC09_L1TP_179044_20251121_20251121_02_T1",
+   "size": [
+    3600,
+    2025
+   ]
+  },
+  "kufra": {
+   "label": "Kufra",
+   "credit": "Landsat 9 · USGS",
+   "prov": null,
+   "kind": "external_still",
+   "source_url": "https://earthexplorer.usgs.gov/",
+   "license": "USGS Landsat: public domain, credit requested",
+   "retrieved": "2026-10-08",
+   "image_date": "2026-09-19",
+   "derived_from": "LC09_L1TP_181043_20260919_20260919_02_T1",
+   "size": [
+    3600,
+    2025
+   ]
+  },
+  "bluemarble": {
+   "label": "Blue Marble: Africa",
+   "credit": "NASA Earth Observatory · Blue Marble",
+   "prov": null,
+   "kind": "external_still",
+   "source_url": "https://svs.gsfc.nasa.gov/3539",
+   "license": "NASA media usage guidelines: public domain unless noted; credit NASA",
+   "retrieved": "2026-10-08",
+   "image_date": "2004 (monthly composites)",
+   "derived_from": "SVS 3539 africa.0700.jpg",
+   "size": [
+    7506,
+    4587
+   ]
+  },
+  "seq_eo": {
+   "label": "seq_eo",
+   "credit": "Landsat 5, 7, 8, 9 · USGS (East Oweinat sequence)",
+   "prov": null,
+   "kind": "video"
+  },
+  "seq_toshka": {
+   "label": "seq_toshka",
+   "credit": "Landsat 5, 7, 8 · USGS (Toshka sequence)",
+   "prov": null,
+   "kind": "video"
+  },
+  "seq_s6": {
+   "label": "seq_s6",
+   "credit": "Landsat 5, 9 · USGS (East Oweinat)",
+   "prov": null,
+   "kind": "video"
+  },
+  "seq_s22": {
+   "label": "seq_s22",
+   "credit": "Landsat 9 · USGS (East Oweinat)",
+   "prov": null,
+   "kind": "video"
+  },
+  "seq_s35": {
+   "label": "seq_s35",
+   "credit": "Landsat 5, 9 · USGS (East Oweinat)",
+   "prov": null,
+   "kind": "video"
+  },
+  "calipso": {
+   "label": "calipso",
+   "credit": "NASA Goddard SVS · CALIPSO dust (Dust in the Wind)",
+   "prov": null,
+   "kind": "video"
+  },
+  "g02-230_1": {
+   "label": "g02-230_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g02-230_2": {
+   "label": "g02-230_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g02-230_3": {
+   "label": "g02-230_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g05-rain_1": {
+   "label": "g05-rain_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g05-rain_2": {
+   "label": "g05-rain_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g07-timeline_1": {
+   "label": "g07-timeline_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g07-timeline_2": {
+   "label": "g07-timeline_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g07-timeline_3": {
+   "label": "g07-timeline_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g07-timeline_4": {
+   "label": "g07-timeline_4",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g07-timeline_5": {
+   "label": "g07-timeline_5",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g07-timeline_6": {
+   "label": "g07-timeline_6",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g07-timeline_7": {
+   "label": "g07-timeline_7",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g09-burials_1": {
+   "label": "g09-burials_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g09-burials_2": {
+   "label": "g09-burials_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g09-burials_3": {
+   "label": "g09-burials_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g09-burials_4": {
+   "label": "g09-burials_4",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g10-rain_1": {
+   "label": "g10-rain_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g10-rain_2": {
+   "label": "g10-rain_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g10-rain_3": {
+   "label": "g10-rain_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g12-orbit_1": {
+   "label": "g12-orbit_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g12-orbit_2": {
+   "label": "g12-orbit_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g12-orbit_3": {
+   "label": "g12-orbit_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g12-orbit_4": {
+   "label": "g12-orbit_4",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g12-orbit_5": {
+   "label": "g12-orbit_5",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g13-models_1": {
+   "label": "g13-models_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g13-models_2": {
+   "label": "g13-models_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g13-models_3": {
+   "label": "g13-models_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g13-models_4": {
+   "label": "g13-models_4",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g13-models_5": {
+   "label": "g13-models_5",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g13-models_6": {
+   "label": "g13-models_6",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g13-models_7": {
+   "label": "g13-models_7",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g14-sapropel_1": {
+   "label": "g14-sapropel_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g14-sapropel_2": {
+   "label": "g14-sapropel_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g14-sapropel_3": {
+   "label": "g14-sapropel_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g14-sapropel_4": {
+   "label": "g14-sapropel_4",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g14-sapropel_5": {
+   "label": "g14-sapropel_5",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g14-sapropel_6": {
+   "label": "g14-sapropel_6",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g16-cell_1": {
+   "label": "g16-cell_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g16-cell_2": {
+   "label": "g16-cell_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g16-cell_3": {
+   "label": "g16-cell_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g16-cell_4": {
+   "label": "g16-cell_4",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g16-cell_5": {
+   "label": "g16-cell_5",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g19-aquifer_1": {
+   "label": "g19-aquifer_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g19-aquifer_2": {
+   "label": "g19-aquifer_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g19-aquifer_3": {
+   "label": "g19-aquifer_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g19-aquifer_4": {
+   "label": "g19-aquifer_4",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g19-aquifer_5": {
+   "label": "g19-aquifer_5",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g19-aquifer_6": {
+   "label": "g19-aquifer_6",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g19-aquifer_7": {
+   "label": "g19-aquifer_7",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g19-aquifer_8": {
+   "label": "g19-aquifer_8",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g19-aquifer_9": {
+   "label": "g19-aquifer_9",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g19-aquifer_10": {
+   "label": "g19-aquifer_10",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g23-proposal_1": {
+   "label": "g23-proposal_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g23-proposal_2": {
+   "label": "g23-proposal_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g23-proposal_3": {
+   "label": "g23-proposal_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g23-proposal_4": {
+   "label": "g23-proposal_4",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g23-proposal_5": {
+   "label": "g23-proposal_5",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g23-proposal_6": {
+   "label": "g23-proposal_6",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g23-proposal_7": {
+   "label": "g23-proposal_7",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g23-proposal_8": {
+   "label": "g23-proposal_8",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g23-proposal_9": {
+   "label": "g23-proposal_9",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g23-proposal_10": {
+   "label": "g23-proposal_10",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g23-proposal_11": {
+   "label": "g23-proposal_11",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g24-trillion_1": {
+   "label": "g24-trillion_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g24b-1000_1": {
+   "label": "g24b-1000_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g24b-1000_2": {
+   "label": "g24b-1000_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g24b-1000_3": {
+   "label": "g24b-1000_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g24b-1000_4": {
+   "label": "g24b-1000_4",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g24b-267_1": {
+   "label": "g24b-267_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g24b-267_2": {
+   "label": "g24b-267_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g24b-267_3": {
+   "label": "g24b-267_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g24b-267_4": {
+   "label": "g24b-267_4",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g24b-diff_1": {
+   "label": "g24b-diff_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g24b-diff_2": {
+   "label": "g24b-diff_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g24b-diff_3": {
+   "label": "g24b-diff_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g25-budget_1": {
+   "label": "g25-budget_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g25-budget_2": {
+   "label": "g25-budget_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g25-budget_3": {
+   "label": "g25-budget_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g25-budget_4": {
+   "label": "g25-budget_4",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g25-budget_5": {
+   "label": "g25-budget_5",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g25-budget_6": {
+   "label": "g25-budget_6",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g25-budget_7": {
+   "label": "g25-budget_7",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g25-budget_8": {
+   "label": "g25-budget_8",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g25-budget_9": {
+   "label": "g25-budget_9",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g25-budget_10": {
+   "label": "g25-budget_10",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g25-budget_11": {
+   "label": "g25-budget_11",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g25-budget_12": {
+   "label": "g25-budget_12",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g31-hypothesis_1": {
+   "label": "g31-hypothesis_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g31-hypothesis_2": {
+   "label": "g31-hypothesis_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g31-hypothesis_3": {
+   "label": "g31-hypothesis_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g32-storms_1": {
+   "label": "g32-storms_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g32-storms_2": {
+   "label": "g32-storms_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g32-storms_3": {
+   "label": "g32-storms_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g32-storms_4": {
+   "label": "g32-storms_4",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g32-storms_5": {
+   "label": "g32-storms_5",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g32-storms_6": {
+   "label": "g32-storms_6",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g32-storms_7": {
+   "label": "g32-storms_7",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g32-storms_8": {
+   "label": "g32-storms_8",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g32-storms_9": {
+   "label": "g32-storms_9",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g32-storms_10": {
+   "label": "g32-storms_10",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g32-storms_11": {
+   "label": "g32-storms_11",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g32-storms_12": {
+   "label": "g32-storms_12",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g32-storms_13": {
+   "label": "g32-storms_13",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g32-storms_14": {
+   "label": "g32-storms_14",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g32-storms_15": {
+   "label": "g32-storms_15",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g33-sahel_1": {
+   "label": "g33-sahel_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g33-sahel_2": {
+   "label": "g33-sahel_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g33-sahel_3": {
+   "label": "g33-sahel_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g33-sahel_4": {
+   "label": "g33-sahel_4",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g33-sahel_5": {
+   "label": "g33-sahel_5",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g33-sahel_6": {
+   "label": "g33-sahel_6",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g33-sahel_7": {
+   "label": "g33-sahel_7",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g33-sahel_8": {
+   "label": "g33-sahel_8",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g33-sahel_9": {
+   "label": "g33-sahel_9",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g33-sahel_10": {
+   "label": "g33-sahel_10",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g33-sahel_11": {
+   "label": "g33-sahel_11",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g33-sahel_12": {
+   "label": "g33-sahel_12",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g34-gww_1": {
+   "label": "g34-gww_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g34-gww_2": {
+   "label": "g34-gww_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g34-gww_3": {
+   "label": "g34-gww_3",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g34-gww_4": {
+   "label": "g34-gww_4",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g34-gww_5": {
+   "label": "g34-gww_5",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g34-gww_6": {
+   "label": "g34-gww_6",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g34-gww_7": {
+   "label": "g34-gww_7",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g34-gww_8": {
+   "label": "g34-gww_8",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g34-gww_9": {
+   "label": "g34-gww_9",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g34-gww_10": {
+   "label": "g34-gww_10",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g36-uncertain_1": {
+   "label": "g36-uncertain_1",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "g36-uncertain_2": {
+   "label": "g36-uncertain_2",
+   "credit": "Graphic: Sahara Green · sources on the graphic",
+   "prov": null,
+   "kind": "graphic"
+  }
+ },
+ "warnings": [
+  "only 0 information events in the first 10 s (target >= 3)",
+  "38 composition resets = 3.1/min (target >= 5/min)",
+  "one composition holds 48.7s without a reset (443.6-492.3s, target <= 8s)"
+ ],
+ "segments": [
+  {
+   "index": 0,
+   "start_frame": 0,
+   "frames": 1800,
+   "start": 0.0,
+   "sha256": "03b0c500aa3cec6fbd36a181c63b77d4238312a0693797a52ce2229c8be7c22c"
+  },
+  {
+   "index": 1,
+   "start_frame": 1800,
+   "frames": 1800,
+   "start": 60.0,
+   "sha256": "07c9808899fe1620a0de42dc6eb9236601a4dc56253e5e9425991669c0d7a3e6"
+  },
+  {
+   "index": 2,
+   "start_frame": 3600,
+   "frames": 1800,
+   "start": 120.0,
+   "sha256": "4f2516a6ee333ea6f2c3a2e051ffff7223c6823584f51ff33cc53bf96c082222"
+  },
+  {
+   "index": 3,
+   "start_frame": 5400,
+   "frames": 1800,
+   "start": 180.0,
+   "sha256": "cc67460ab435f5b4b31cdf8ca89c724ee42195277bfbe9cb10cf9e7004a83878"
+  },
+  {
+   "index": 4,
+   "start_frame": 7200,
+   "frames": 1800,
+   "start": 240.0,
+   "sha256": "442fa8e61cf6db3430b4f12face763de46d2072533bf87a8512c930e2fe5fd2c"
+  },
+  {
+   "index": 5,
+   "start_frame": 9000,
+   "frames": 1800,
+   "start": 300.0,
+   "sha256": "f8390bf2e8bfcf917cc5fe8dd55260707a387709586a67184015c36018bc0da1"
+  },
+  {
+   "index": 6,
+   "start_frame": 10800,
+   "frames": 1800,
+   "start": 360.0,
+   "sha256": "3d972cbd78d65f7dec295d53c7794da7ab0056d3c369f3d224a354720e1244f9"
+  },
+  {
+   "index": 7,
+   "start_frame": 12600,
+   "frames": 1800,
+   "start": 420.0,
+   "sha256": "1e09e65bfdd4e97e30a238835313d3af50c29d413566736a225d8962ae00f3f3"
+  },
+  {
+   "index": 8,
+   "start_frame": 14400,
+   "frames": 1800,
+   "start": 480.0,
+   "sha256": "98b92667d23017ee87641f7b5faa3f402f4f30913a39ab154f0f1e35b6b83896"
+  },
+  {
+   "index": 9,
+   "start_frame": 16200,
+   "frames": 1800,
+   "start": 540.0,
+   "sha256": "35bf01e988762aa67ea96d0c77084034c204668fa52fb5d5f3128f840146e92e"
+  },
+  {
+   "index": 10,
+   "start_frame": 18000,
+   "frames": 1800,
+   "start": 600.0,
+   "sha256": "546659b3926065324aa87239d3d519ccc1a32710afb7a829e28142d65d887a1c"
+  },
+  {
+   "index": 11,
+   "start_frame": 19800,
+   "frames": 1800,
+   "start": 660.0,
+   "sha256": "f6288ad3aa8f1dd643fd678fbc77d4c730337c25d018bb466466e48dbdb4effd"
+  },
+  {
+   "index": 12,
+   "start_frame": 21600,
+   "frames": 821,
+   "start": 720.0,
+   "sha256": "1dc35a25fc322d422ca79a3a8081564a391205b385128794fb65f9094e8e7a0e"
+  }
+ ]
+}
