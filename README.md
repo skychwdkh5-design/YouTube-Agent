@@ -45,6 +45,12 @@ python3 .claude/skills/yt-captions/captions.py --voice voice/narration.voice.jso
 python3 .claude/skills/yt-voice/test_voice.py && python3 .claude/skills/yt-captions/test_captions.py
 ```
 
+### Long-form documentaries (16:9)
+
+Timeline v3 also renders `"profile": "long"`: 1920x1080, 30 fps, up to 15 minutes, in segments joined
+without re-encoding, with landscape captions and the same camera, wipes, labels, credits and pacing
+checks; `yt-qc --profile long` checks it.
+
 ### Vertical Shorts (MVP v0.1)
 
 `yt-geo` aligns several Landsat dates on one grid; `yt-render` timeline version 3 renders a

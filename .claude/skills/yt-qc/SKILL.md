@@ -57,6 +57,20 @@ only: `visual_families_first_10s` (>= 3), `visual_family_transitions` (>= 6) and
 (no family over 10 s unless it is transforming). Untagged manifests skip it. `--contact-sheet`
 writes the first frame plus the middle of every shot, labelled, for review.
 
+## Profile `long` (16:9 documentaries)
+
+```bash
+python3 qc.py episode.mp4 --profile long --timeline timeline.json --contact-sheet sheet.jpg
+```
+
+1920x1080 30 fps, 60-900 s (480-720 s target - warn), black frames, freezes (warn 2.5 s, fail 5 s),
+loudness (warn outside -16..-12 LUFS), audio within 1 s, captions inside the 16:9 safe area and a credit on
+every shot. Pacing is checked as rates and only warns: information events and compositions in the first
+10 s, composition resets per minute, static holds over 8 s, visual-family transitions per minute and
+dominance over 30 s. For segmented renders the manifest's segments must tile the video frame-exactly
+(`segments_tile_video`) and every segment start must be a keyframe in the file
+(`segment_boundaries_keyframes`) - both fail if not. The contact sheet uses 16:9 tiles.
+
 ## Adding checks later
 
 Every check is a function in `CHECKS` that takes the probe context and returns a list of results.

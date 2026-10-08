@@ -306,6 +306,110 @@ class Rendering(Base):
         self.assertEqual(sorted(f for f in os.listdir(self.dir) if f.endswith(".mp4") or f.startswith(".render")), [])
 
 
+@unittest.skipUnless(HAVE_FF, "ffmpeg/ffprobe not installed")
+class LongProfile(Base):
+    """profile "long": 1920x1080 documentary, segmented render, one narration mux."""
+    voice = Rendering.voice
+    def long_tl(self, seconds=3.2, segment_s=1, **extra):
+        return self.timeline(
+            [self.shot(0, info="hook", layers=[{"type": "image", "asset": "b"},
+                                               {"type": "label", "text": "2026", "style": "year"},
+                                               {"type": "pin", "at": CENTER, "text": "HERE"}]),
+             self.shot(1.0, info="wipe", camera={"from": {"center": CENTER, "width_km": 12},
+                                                 "to": {"center": [CENTER[0] + 0.03, CENTER[1]], "width_km": 8}},
+                       layers=[{"type": "wipe", "from": "a", "to": "b", "t": [0, 0.6]},
+                               {"type": "arrow", "from": [-114.52, 36.22], "to": [-114.49, 36.19]}]),
+             self.shot(2.0, layers=[{"type": "flip", "assets": ["a", "b", "a"], "step": 0.3}])],
+            profile="long", voice={"src": "n.wav", "meta": "n.voice.json"},
+            captions={"src": "c.srt", "preset": "default"}, end={"seconds": seconds},
+            **({"render": {"segment_s": segment_s}} if segment_s else {}), **extra)
+
+    def probe(self, path):
+        p = r.ffprobe_json(path)
+        v = [s for s in p["streams"] if s["codec_type"] == "video"][0]
+        a = [s for s in p["streams"] if s["codec_type"] == "audio"][0]
+        return v, a
+
+    def md5(self, path, stream):
+        return subprocess.run(["ffmpeg", "-v", "error", "-i", path, "-map", f"0:{stream}", "-f", "md5", "-"],
+                              capture_output=True, text=True, check=True).stdout.strip()
+
+    def frames(self, path, idx):
+        out = []
+        for i in idx:
+            raw = subprocess.run(["ffmpeg", "-v", "error", "-i", path, "-vf", f"select=eq(n\\,{i})", "-vsync", "0",
+                                  "-frames:v", "1", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
+                                 capture_output=True, check=True).stdout
+            out.append(np.frombuffer(raw, np.uint8).astype(np.float64))
+        return out
+
+    def test_plan_layout_and_rules(self):
+        self.voice(3.0)
+        code, d = run(["--timeline", self.long_tl()])
+        self.assertEqual(d["status"], "confirm_required", d)
+        p = d["plan"]
+        self.assertEqual((p["profile"], p["total_frames"], p["segments"], p["segment_frames"]), ("long", 96, 4, 30))
+        self.assertEqual(c.LAYOUTS["short"]["caption"], c.CAPTION)                 # Shorts layout untouched
+        self.assertIn("resets_per_min", p["compositions"]["thresholds"])
+        self.assertIn("duration 3.2s outside 60.0-900.0 s", p["warnings"])
+        # captions preset per profile; render settings only for long; 15-minute cap
+        tl = json.load(open(self.long_tl())); tl["captions"]["preset"] = "short"; json.dump(tl, open(os.path.join(self.dir, "x.json"), "w"))
+        self.assertIn("captions.preset must be 'default'", run(["--timeline", os.path.join(self.dir, "x.json")])[1]["error"])
+        tl = json.load(open(self.long_tl())); tl["end"] = {"seconds": 901}; json.dump(tl, open(os.path.join(self.dir, "x.json"), "w"))
+        self.assertIn("901", run(["--timeline", os.path.join(self.dir, "x.json")])[1]["error"])
+        short = self.timeline([self.shot(0)], render={"segment_s": 5}, end={"seconds": 1})
+        self.assertIn("only for profile 'long'", run(["--timeline", short])[1]["error"])
+
+    def test_long_rates_not_short_counts(self):
+        self.voice(3.0)
+        tl = json.load(open(self.long_tl())); tl["end"] = {"seconds": 120}; tl.pop("captions"); tl.pop("voice")
+        json.dump(tl, open(os.path.join(self.dir, "x.json"), "w"))
+        p = run(["--timeline", os.path.join(self.dir, "x.json")])[1]["plan"]
+        w = " | ".join(p["warnings"])
+        self.assertIn("/min (target >= 5/min)", w)                                 # a rate, not "about 7-10"
+        self.assertNotIn("target about 7-10", w)
+        self.assertIn("target <= 8s", w)                                           # long hold limit
+
+    def test_segmented_render_sync_boundaries_and_determinism(self):
+        self.voice(3.0)
+        seg_out, one_out, again = (os.path.join(self.dir, n) for n in ("seg.mp4", "one.mp4", "again.mp4"))
+        code, d = run(["--timeline", self.long_tl(segment_s=1), "--output", seg_out, "--confirm"])
+        self.assertEqual((code, d["status"], d["segments"]), (0, "ok", 4), d)
+        v, a = self.probe(seg_out)
+        self.assertEqual((v["width"], v["height"], v["avg_frame_rate"], int(v["nb_frames"])), (1920, 1080, "30/1", 96))
+        self.assertAlmostEqual(float(a["duration"]), 3.2, places=2)
+        man = json.load(open(seg_out[:-4] + ".manifest.json"))
+        self.assertEqual([(s["start_frame"], s["frames"]) for s in man["segments"]], [(0, 30), (30, 30), (60, 30), (90, 6)])
+        H, W, safe = 1080, 1920, man["safe"]
+        for cb in man["caption_boxes"]:
+            x0, y0, x1, y1 = cb["box"]
+            self.assertTrue(y0 >= H * safe["top"] and y1 <= H * (1 - safe["bottom"]) and x0 >= W * safe["left"]
+                            and x1 <= W * (1 - safe["right"]), cb)
+        self.assertEqual([s["credit"] for s in man["shots"]], ["Test B", "Test A / Test B", "Test A"])
+        # deterministic: same timeline, same bytes
+        run(["--timeline", self.long_tl(segment_s=1), "--output", again, "--confirm"])
+        self.assertEqual(r._sha256(seg_out), r._sha256(again))
+        # one segment vs four: identical narration, the same pictures at every boundary
+        code, d = run(["--timeline", self.long_tl(segment_s=300), "--output", one_out, "--confirm"])
+        self.assertEqual((code, d["segments"]), (0, 1), d)
+        self.assertEqual(self.md5(seg_out, "a"), self.md5(one_out, "a"))
+        idx = [0, 29, 30, 31, 59, 60, 89, 90, 95]
+        for i, fa, fb in zip(idx, self.frames(seg_out, idx), self.frames(one_out, idx)):
+            mse = float(np.mean((fa - fb) ** 2))
+            psnr = 99.0 if mse == 0 else 10 * np.log10(255 ** 2 / mse)
+            self.assertGreater(psnr, 38, f"frame {i}: {psnr:.1f} dB")
+        # QC long: technically sound apart from the (intentional) 3 s duration; boundaries are keyframes
+        sys.path.insert(0, os.path.join(HERE, "..", "yt-qc"))
+        import qc
+        rep = qc.run_qc(seg_out, profile="long", manifest=man)
+        ids = {x["id"]: x["status"] for x in rep["checks"]}
+        for k in ("resolution", "frame_rate", "frame_count", "streams_aligned", "full_decode", "captions_in_safe_zone",
+                  "shot_credits", "segments_tile_video", "segment_boundaries_keyframes"):
+            self.assertEqual(ids[k], "pass", k)
+        self.assertEqual(ids["long_duration"], "fail")
+        self.assertEqual([x for x in os.listdir(self.dir) if x.startswith(".render")], [])
+
+
 class BackwardCompat(unittest.TestCase):
     def test_v1_and_v2_never_load_compose_path(self):
         self.assertEqual(r.SUPPORTED_VERSIONS, (1, 2))
