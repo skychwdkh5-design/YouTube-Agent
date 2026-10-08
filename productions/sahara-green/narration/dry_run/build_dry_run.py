@@ -71,7 +71,7 @@ def main(ws):
     json.dump(eo_s, open(os.path.join(ws, 'sched_eo_SIMULATED.json'), 'w'), indent=1); json.dump(to_s, open(os.path.join(ws, 'sched_toshka_SIMULATED.json'), 'w'), indent=1)
     # simulated narration for the window: silent audio, shifted words
     win_words = [{'text': w['text'], 'start': round(w['start'] - W0, 3), 'end': round(w['end'] - W0, 3)} for w in words if w['end'] > W0 and w['start'] - W0 < t_end]
-    win_words = [w for w in win_words if w['start'] >= 0]
+    win_words = [w for w in win_words if w['start'] >= 0 and w['end'] <= t_end - 0.05]
     subprocess.run(['ffmpeg', '-v', 'error', '-nostdin', '-y', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=mono', '-t', f'{t_end:.3f}', '-c:a', 'pcm_s16le', os.path.join(ws, 'narration_SIMULATED.wav')], check=True)
     sha = hashlib.sha256(open(os.path.join(ws, 'narration_SIMULATED.wav'), 'rb').read()).hexdigest()
     json.dump({'schema': 'yt-voice/1', 'simulated': True, 'provider': 'SIMULATED (silent audio, timings generated at 145 wpm; not a TTS result)', 'voice_name': None, 'voice_id': None,
