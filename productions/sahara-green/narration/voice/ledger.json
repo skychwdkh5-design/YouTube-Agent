@@ -23,7 +23,9 @@
    "characters": 2484,
    "credits": null,
    "status": "failed",
-   "error": "elevenlabs HTTP 502: upstream request failed (run 1; not retried automatically; charge, if any, unknown)"
+   "error": "elevenlabs HTTP 502: upstream request failed (run 1; not retried automatically; charge, if any, unknown)",
+   "credits_charged_inferred": 1093,
+   "evidence": "usage stats today = 3187 = 1001 (request 1) + 2 x 1093 (0.44 x 2484): the 502 responses were billed"
   },
   {
    "key": "2637e606179ea0ee1e182d8f",
@@ -32,7 +34,59 @@
    "status": "failed",
    "error": "elevenlabs HTTP 502: upstream request failed",
    "seconds": 30.4,
-   "time": "2026-10-08T17:41:14Z"
+   "time": "2026-10-08T17:41:14Z",
+   "credits_charged_inferred": 1093,
+   "evidence": "usage stats today = 3187 = 1001 (request 1) + 2 x 1093 (0.44 x 2484): the 502 responses were billed"
+  },
+  {
+   "key": "99a12d146902f07c5bf747ac",
+   "characters": 1679,
+   "credits": 739,
+   "usage_before": 3187.0,
+   "usage_after": 3187.0,
+   "request_id": "55QjNI8WquVdYBHvfa2S",
+   "seconds": 19.9,
+   "status": "ok",
+   "time": "2026-10-08T17:51:42Z"
+  },
+  {
+   "key": "e24f437470eb8b36c0e6f9cb",
+   "characters": 1524,
+   "credits": 671,
+   "usage_before": 3926.0,
+   "usage_after": 4597.0,
+   "request_id": "9DRHcjFBEeyqXOCqfFTp",
+   "seconds": 23.7,
+   "status": "ok",
+   "time": "2026-10-08T17:54:13Z"
+  },
+  {
+   "key": "9f7fee6f04e127325156951f",
+   "characters": 1410,
+   "credits": 620,
+   "usage_before": 4597.0,
+   "usage_after": 5217.0,
+   "request_id": "t3FbuNiOdDWGECeB9mld",
+   "seconds": 23.2,
+   "status": "ok",
+   "time": "2026-10-08T17:54:37Z"
+  },
+  {
+   "key": "7f5501f57de62f524462d6d6",
+   "characters": 1592,
+   "credits": 700,
+   "usage_before": 5217.0,
+   "usage_after": 5917.0,
+   "request_id": "4zuEHHtnHC5ykmkP6zjM",
+   "seconds": 30.7,
+   "status": "ok",
+   "time": "2026-10-08T17:55:09Z"
   }
- ]
+ ],
+ "confirmed_charges_before_resplit": {
+  "credits": 3187,
+  "successful": 1001,
+  "failed_502_billed": 2186,
+  "source": "GET /v1/usage/character-stats (today, UTC)"
+ }
 }

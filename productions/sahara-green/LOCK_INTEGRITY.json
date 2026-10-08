@@ -1,6 +1,6 @@
 {
  "baseline_commit": "c7e5b39",
- "head": "c7e5b39",
+ "head": "9477995",
  "locks": {
   "SCRIPT_LOCK_v1.1": {
    "script_body_sha256": "d646001c83d3421d43510ece1926d7bd49bc197dcdde07b94fd2f4f3a049f335",
@@ -70,8 +70,22 @@
  },
  "protected_paths_changed_since_baseline": [],
  "changed_files_since_baseline": [
+  ".gitignore",
+  "productions/sahara-green/LOCK_INTEGRITY.json",
+  "productions/sahara-green/lock_check.py",
+  "productions/sahara-green/narration/TTS_STATUS.md",
+  "productions/sahara-green/narration/audition/AUDITION_COMMANDS.md",
+  "productions/sahara-green/narration/audition/run_audition.py",
+  "productions/sahara-green/narration/audition/sample_verification.json",
+  "productions/sahara-green/narration/audition/verify_sample.py",
   "productions/sahara-green/narration/cues.py",
+  "productions/sahara-green/narration/dry_run/dry_run_report.json",
+  "productions/sahara-green/narration/generate_ep001.py",
   "productions/sahara-green/narration/test_cues.py",
+  "productions/sahara-green/narration/voice/cache/7438fd805d22cbc3ad38cb5b.json",
+  "productions/sahara-green/narration/voice/cache/7438fd805d22cbc3ad38cb5b.mp3",
+  "productions/sahara-green/narration/voice/ledger.json",
+  "productions/sahara-green/visuals/VISUAL_LOCK.md",
   "productions/sahara-green/visuals/scripts/render.py"
  ],
  "intentional_changes_since_baseline": [

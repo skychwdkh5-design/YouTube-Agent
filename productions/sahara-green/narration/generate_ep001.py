@@ -27,8 +27,9 @@ class Cached(voice.ElevenLabs):
         if os.path.exists(mp3) and os.path.exists(js):
             d = json.load(open(js)); print(f'  cached  {k}  ({len(text)} chars, no request)', flush=True)
             return {'audio': open(mp3, 'rb').read(), 'format': 'mp3', 'alignment': d['alignment']}
-        spent = sum(e.get('credits', e['characters']) for e in ledger()['requests'] if e['status'] == 'ok')
-        if spent + len(text) > BUDGET: raise voice.VoiceError(f'budget guard: {spent} used + {len(text)} would exceed {BUDGET}; stopped for approval')
+        spent = usage_today(); remaining = sum(len(c) for c in Cached.chunks if not os.path.exists(os.path.join(CACHE, key(c) + '.mp3')))
+        if spent + remaining * RATE_MARGIN > BUDGET: raise BillingStop(f'budget guard: {spent:.0f} credits used today + {remaining} uncached characters x {RATE_MARGIN} would exceed {BUDGET}; stopped for approval')
+        before = spent
         print(f'  REQUEST {k}  ({len(text)} chars): sending ONE paid request, no retry', flush=True)
         t0 = time.time()
         try:
@@ -36,12 +37,29 @@ class Cached(voice.ElevenLabs):
         except voice.VoiceError as e:
             add({'key': k, 'characters': len(text), 'credits': None, 'status': 'failed', 'error': str(e)[:200], 'seconds': round(time.time() - t0, 1), 'time': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())}); raise
         h = captured.get('headers', {})
+        cost = int(h['character-cost']) if str(h.get('character-cost', '')).isdigit() else None
+        after = usage_today()
+        for _ in range(12):            # the usage endpoint lags the request by a few seconds to a minute: wait for it to catch up before judging
+            if cost is None or abs((after - before) - cost) <= 1: break
+            time.sleep(10); after = usage_today()
         os.makedirs(CACHE, exist_ok=True)
         tmp = mp3 + '.tmp'; open(tmp, 'wb').write(res['audio']); os.replace(tmp, mp3)
         json.dump({'alignment': res['alignment'], 'characters': len(text), 'headers': h}, open(js + '.tmp', 'w')); os.replace(js + '.tmp', js)
-        add({'key': k, 'characters': len(text), 'credits': int(h['character-cost']) if str(h.get('character-cost', '')).isdigit() else None, 'request_id': h.get('request-id'), 'seconds': round(time.time() - t0, 1), 'status': 'ok', 'time': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())})
-        print(f'  saved   {k}  character-cost header: {h.get("character-cost")}', flush=True)
+        add({'key': k, 'characters': len(text), 'credits': cost, 'usage_before': before, 'usage_after': after, 'request_id': h.get('request-id'), 'seconds': round(time.time() - t0, 1), 'status': 'ok', 'time': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())})
+        print(f'  saved   {k}  character-cost header: {h.get("character-cost")}; usage today {before:.0f} -> {after:.0f}', flush=True)
+        if cost is None or abs((after - before) - cost) > 1 or not (0.2 <= cost / len(text) <= 0.8):
+            raise BillingStop(f'unexpected billing: header {cost}, usage delta {after - before:.0f}, {len(text)} characters; the segment is saved; stopped')
         return res
+def usage_today():
+    """Credits ElevenLabs reports as used today (UTC), from the free /v1/usage/character-stats endpoint. Conservative: everything counted today is treated as ours."""
+    import urllib.request, datetime
+    now = int(time.time() * 1000); d0 = int(datetime.datetime.now(datetime.timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0).timestamp() * 1000)
+    url = f'https://api.elevenlabs.io/v1/usage/character-stats?start_unix={d0}&end_unix={now}&aggregation_interval=day'
+    with urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': 'yt-voice'}), timeout=30) as r:
+        return float(sum(json.load(r)['usage'].get('All', [])))
+RATE_MARGIN = 0.55          # forward projection: measured rate is 0.44 credits per character; 25 percent margin
+class BillingStop(voice.VoiceError):
+    pass
 def ledger():
     return json.load(open(LEDGER)) if os.path.exists(LEDGER) else {'voice': VOICE_NAME, 'voice_id': VOICE_ID, 'model': MODEL, 'settings': SETTINGS, 'budget_credits': BUDGET, 'requests': []}
 def add(entry):
@@ -73,11 +91,16 @@ def main():
     os.makedirs(OUT, exist_ok=True); os.makedirs(CACHE, exist_ok=True); record_headers()
     options = {'max_chars': BUDGET, 'max_chunk_chars': 2500, 'timeout_s': 180, 'auth': 'proxy', 'language': 'en', 'voice_settings': SETTINGS, 'context': True, 'model': MODEL}
     p = voice.plan(text, 'elevenlabs', VOICE_ID, os.path.join(OUT, 'narration.wav'), options)
+    Cached.chunks = chunks
+    base = usage_today(); print(f'confirmed charges today before this run: {base:.0f} credits (ceiling {BUDGET})'); 
+    if base + sum(len(c) for c in chunks if not os.path.exists(os.path.join(CACHE, key(c) + '.mp3'))) * RATE_MARGIN > BUDGET: print('STOP: projected total exceeds the ceiling'); return 3
     p['provider'] = Cached(options); p['voice_name'] = VOICE_NAME
     if resplit: p['chunks'] = chunks; p['characters'] = billed
     try:
         res = voice.generate(p, options, overwrite=True)
     except voice.VoiceError as e:
+        try: print(f'usage today at the stop: {usage_today():.0f} credits')
+        except Exception: pass
         print('STOPPED:', e, '(successful segments are cached; rerun resumes; nothing is retried automatically)'); return 2
     print(json.dumps({k: res[k] for k in ('status', 'output', 'duration', 'characters', 'chunks', 'timing', 'words')}, indent=1))
     d = ledger(); d['total_credits_header'] = sum(e['credits'] for e in d['requests'] if e.get('credits') is not None); d['requests_ok'] = sum(1 for e in d['requests'] if e['status'] == 'ok'); json.dump(d, open(LEDGER, 'w'), indent=1)
