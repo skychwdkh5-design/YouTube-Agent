@@ -45,7 +45,7 @@ Each page below was fetched in full over HTTPS (curl through the agent proxy) an
 
 | ID | What was read | Why blocked |
 |---|---|---|
-| G4 | Only the UNCCD web search and NASA/UNCCD pages. | The $2 trillion figure is the authors' cost estimate in Ornstein et al. 2009 (Climatic Change 97:409). link.springer.com is behind an anti-bot challenge and `WebFetch` cannot resolve it. UNCCD publications cover other numbers (e.g. $878 billion a year of losses in its 2024 assessment, per its search results) and do not support $2T. Keep it as "the authors' estimate", unconfirmed. |
+| G4 | Only the UNCCD web search and NASA/UNCCD pages. | (Superseded in round 7: the $2 trillion figure is NOT in Ornstein et al. 2009 and was removed from the episode.) The round-2 text said it was the authors' estimate in Climatic Change 97:409. link.springer.com is behind an anti-bot challenge and `WebFetch` cannot resolve it. UNCCD publications cover other numbers (e.g. $878 billion a year of losses in its 2024 assessment, per its search results) and do not support $2T. Keep it as "the authors' estimate", unconfirmed. |
 | G17 | NASA EO 89820 and 152356 name the aquifer. | Neither gives 150,000 km³. IAEA/UNESCO/USGS sources unreachable. |
 | G18 | EO 89820: the aquifer "recharges slowly and is considered a non-renewable resource". | Supports "barely refilled" in spirit; "effectively zero" needs the primary hydrogeology paper. |
 | L1 | EO 89820: agriculture began in the 1980s; crops visible in 1999 and 2001 images; pivots watered from the aquifer. | "Bare desert in the earliest Landsat" and "~1 km" circles are not on the page. These are SCENE-CHECK lines and need the actual scenes. |

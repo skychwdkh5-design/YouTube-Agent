@@ -78,7 +78,7 @@ All claims not listed above remain **PENDING**: not audited in this round, whate
 | L3 | Toshka: appeared late 1990s, ~1,450 km² max, −80% by 2012, full by 2021 | Direct satellite observation (NASA measurement) | PENDING + SCENE-CHECK |
 | G1 | 2009 Sahara/Outback forest proposal | Published proposal | PENDING |
 | G2 | Uptake ≈ fossil-fuel emissions | Authors' claim (proposal/estimate) | PENDING |
-| G4 | ~$2 trillion/yr | Authors' cost estimate (press only so far) | PENDING |
+| G4 | ~~$2 trillion/yr~~ (superseded: round 7 found the figure is not in the paper) | Now: authors' phrase "multi-trillion-dollar projects" | see `source_audit_round7.md` |
 | G5 | −6 °C, +267 mm/yr | Model result | PENDING |
 | G6 | ~26% recycled locally; rest to the Sahel | Model result | PENDING |
 | G8 | Wind/solar farms: rain more than doubles; Sahel +200-500 mm | Model result | PENDING |

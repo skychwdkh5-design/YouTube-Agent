@@ -6,7 +6,7 @@
 
 | File | Contents |
 |---|---|
-| `script.md` | Narration draft v0.4: 1,588 spoken words (v0.1 had 1,374 by the same count method), about 11:00 at 145 wpm |
+| `script.md` | Narration draft v0.5: 1,740 spoken words (v0.1 had 1,374 by the same count method), about 12:00 at 145 wpm |
 | `story/claims.md` | Fact-check ledger |
 | `storyboard.md` | 37 scenes, plus the visual novelty plan |
 
@@ -125,7 +125,7 @@ Discrepancies:
 | # | Blocker | Blocks | Fix |
 |---|---|---|---|
 | B1 | All sources were verified from search snippets only. Direct fetches of nasa.gov, unesco, ncbi, springer, wiley, unccd and support.google.com failed (DNS / proxy 403). | Ledger lock (factcheck.lock) | A human opens the primary pages for the USED claims. Alternatively, allow these hosts in the environment's network policy. |
-| B2 | Claims without an adequate source: N1 (Hadley sinking air, PENDING); S1, S2, S3, G17, G18, G19, S21 (secondary only); G4 ($2T, press only) | ACT 3, cold-open numbers, ACT 4, ACT 5 | Find agency or paper sources, or cut the lines. |
+| B2 | Claims without an adequate source: N1 (Hadley sinking air, PENDING); S1, S2, S3, G17, G18, G19, S21 (secondary only); G4 (the $2T figure was removed in round 7) | ACT 3, cold-open numbers, ACT 4, ACT 5 | Find agency or paper sources, or cut the lines. |
 | B3 | **Update 2026-10-08:** scenes searched and previewed (see `landsat/scene_candidates.json`, `story/source_audit_round3.md`); L1 wording and L3 scene choice pending review. Original text: Landsat scenes not searched or downloaded yet. "Bare desert in the earliest images" (L1) and the Toshka year sequence (L3) are SCENE-CHECK lines. | ACT 4, close | /yt-satellite search, then browse review, then yt-geo stacks. This is free, but downloads await approval. |
 | B4 | v3 cannot place non-grid stills (NASA Blue Marble, SVS dust) except as a static full-frame `graphic`. | Scenes 4 and 29 (fallbacks exist) | Use the fallbacks now. A feature later. |
 | B5 | No continental base map or vector overlays (Mega-Chad outline, Sahara-vs-US, GGW belt, Sahel NDVI). | Scenes 4, 8 and 34 visual richness | Fallbacks are in the storyboard. Feature later. |
