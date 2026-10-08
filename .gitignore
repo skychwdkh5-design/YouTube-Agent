@@ -8,4 +8,7 @@ __pycache__/
 # generated narration and production folders - never committed
 *.wav
 *.mp3
-productions/
+productions/*
+# exception: Episode 001 preproduction text (scripts, ledgers, storyboards only;
+# media stays ignored by the *.mp4 / *.wav / *.mp3 rules above)
+!productions/sahara-green/
