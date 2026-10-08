@@ -57,6 +57,13 @@ claims ledger, not this tool, decides what a diagram says.
   the graphic is refused (`"status": "overflow"`). Every text box must sit inside the landscape safe
   area (5 % sides, 7 % top, 13 % bottom) and, with `caption_band`, above the burned-in caption band
   (74 % of the height). A 44 px band under the top edge is left for yt-render's shot credit.
+- **Mobile minimum:** no text is smaller than 24 px at 1080p (`MIN_TEXT_PX`), so a 1920 px frame shown
+  ~844 px wide on a phone still reads at ~10 px. Smaller text is refused, not shrunk further.
+- **No collisions:** text may not overlap other text, and may not be drawn across an arrow, a chart
+  series line or a callout leader (only its own leader may touch it). Arrow labels, line-chart
+  annotations and geo callouts try several positions off the line and take the first free one;
+  if none is free the graphic is refused (`"status": "overflow"`). Longitude ticks keep clear of
+  the scale bar.
 - Views that leave the imagery, callouts outside the view and paths outside the spec folder are refused.
 
 ## In a LONG timeline (yt-render v3)

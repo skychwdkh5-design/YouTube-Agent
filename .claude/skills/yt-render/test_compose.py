@@ -441,7 +441,9 @@ class Graphics(Base):
                 {"id": "g", "start": 1.0, "layers": [{"type": "graphic", "asset": "d1"},
                                                     {"type": "graphic", "asset": "d2", "t": [1.0, None]}]},
                 self.shot(3.0, camera={"center": CENTER, "width_km": 12},
-                          layers=[{"type": "image", "asset": "b"}, {"type": "graphic", "asset": "num", "t": [0.3, 0.8]}])]
+                          layers=[{"type": "image", "asset": "b"}, {"type": "label", "text": "MAP LABEL", "style": "tag"},
+                                  {"type": "pin", "at": CENTER, "text": "PIN"},
+                                  {"type": "graphic", "asset": "num", "t": [0.3, 0.8]}])]
 
     def test_plan_rules(self):
         self.make_graphics()
@@ -486,7 +488,8 @@ class Graphics(Base):
 
         self.assertGreater(psnr(frame(1.5), "d.step1.png"), 35)
         self.assertGreater(psnr(frame(2.5), "d.png"), 35)                     # the build step appears on time
-        self.assertGreater(psnr(frame(3.72), "n.png"), 35)                    # the timed insert, after its 0.35 s fade-in
+        self.assertGreater(psnr(frame(3.72), "n.png"), 35)                    # the timed insert, after its 0.35 s fade-in,
+                                                                              # with the map's label and pin hidden
         self.assertLess(psnr(frame(3.95), "n.png"), 25)                       # ... and it is gone again
         man = json.load(open(out[:-4] + ".manifest.json"))
         self.assertEqual([s["credit"] for s in man["shots"]], ["Test B", "Graphic (TEST)", "Test B"])

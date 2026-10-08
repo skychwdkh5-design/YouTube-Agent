@@ -174,7 +174,9 @@ An asset with `"kind": "graphic"` is a full-frame PNG at the profile's output si
 `long`) with a `credit`, and an optional `group` shared by the build steps of one graphic. A shot whose
 first layer is `{"type": "graphic", ...}` at `t = 0` needs no camera (a graphics shot; labels allowed,
 map layers not). A graphic layer with a `t` window in a map shot is a timed insert with a 0.35 s
-fade-in; map annotations are hidden while a graphic covers the frame. A new graphic counts as a
+fade-in; while an insert is on screen (from the first frame of its fade) the map shot's labels, pins,
+arrows and fills are not drawn, so nothing of the map sits on the graphic. A graphics shot keeps
+its own labels. A new graphic counts as a
 composition reset, its build steps do not, and returning to the imagery does.
 
 ## Safety

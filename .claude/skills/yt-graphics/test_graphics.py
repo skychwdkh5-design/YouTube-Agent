@@ -193,6 +193,38 @@ class Validation(Base):
         self.err(dict(DIAGRAM, notes=[{"text": "A note centred on the very edge of the frame", "x": 0.0, "y": 0.5}]),
                  "outside the landscape safe area", "overflow")
 
+    def test_text_is_readable_on_a_phone(self):
+        self.err(dict(DIAGRAM, notes=[{"text": "Tiny note", "x": 0.5, "y": 0.9, "size": 20}]), "notes[0].size")
+        line = dict(LINE, annotations=[{"x": 2010, "y": 13, "text": "test annotation"}])
+        geo = {"type": "geo", "id": "geo", "source": SRC, "credit": "Synthetic", "image": self.geo_image(),
+               "arrows": [{"from": [-114.53, 36.18], "to": [-114.46, 36.22], "label": "test path"}],
+               "callouts": [{"at": [-114.46, 36.225], "text": "Test place"}]}
+        code, d = self.render([DIAGRAM, BAR, line, geo])
+        self.assertEqual((code, d["status"]), (0, "ok"), d)
+        for name in ("d", "bars", "line", "geo"):
+            side = json.load(open(os.path.join(self.dir, "out", name + ".json")))
+            self.assertGreaterEqual(min(t["size"] for t in side["text_boxes"]), gx.MIN_TEXT_PX, name)
+
+    def test_text_never_sits_on_lines_or_other_text(self):
+        def canvas():
+            cv = gx.Canvas("documentary_dark", gx.Fonts())
+            cv.arrow((400, 500), (1400, 500), "accent", 8)
+            return cv
+        cv = canvas()
+        cv.text("on the arrow", 900, 500, 32)
+        with self.assertRaises(gx.E) as e:
+            cv.check_safe(True)
+        self.assertIn("across a line or arrow", str(e.exception))
+        cv = canvas()
+        cv.text("first", 900, 300, 32); cv.text("second", 920, 305, 32)
+        with self.assertRaises(gx.E) as e:
+            cv.check_safe(True)
+        self.assertIn("text overlaps", str(e.exception))
+        cv = canvas()                                     # place() moves a label off the arrow
+        box = cv.place("label", [(900, 500, "mm"), (900, 450, "mm")], 32, "Bold", "accent", 300)
+        self.assertLess(box[3], 490)
+        cv.check_safe(True)
+
     def test_cli_errors_are_json(self):
         code, d = run([self.spec([BAR])])
         self.assertEqual((code, d["status"]), (2, "error"))

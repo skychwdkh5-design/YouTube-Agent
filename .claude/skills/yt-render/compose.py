@@ -732,9 +732,14 @@ class Painter:
         if base is None:
             raise E(f"shot {shot['id']} has no visible image at {t:.2f}s")
         base = base.copy()
-        if cover >= 1.0:                          # a covering graphic: no map annotations on top of it
+        insert = cover > 0 and shot["views"] is not None    # a timed graphic over a map shot
+        if insert:                                # the map's annotations leave with the map: the graphic stands alone
+            overlays = []
+        elif cover >= 1.0:                        # a graphics shot keeps its own labels, nothing else
             overlays = [o for o in overlays if o[0] == "label"]
         for L in shot["layers"]:
+            if insert:
+                break
             if L["type"] in ("fill", "outline") and cover < 1.0 and lt >= L["t0"] and (L["t1"] is None or lt < L["t1"]):
                 fade = 1.0 if L["t0"] == 0 else min(1.0, (lt - L["t0"]) / 0.35)   # t0 = 0: there from frame one
                 m = self.crop_mask(L["mask"], box)

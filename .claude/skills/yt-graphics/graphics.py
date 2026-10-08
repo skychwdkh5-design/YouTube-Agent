@@ -24,6 +24,7 @@ SS = 2                                   # supersampling: draw at 2x, downsample
 SAFE = {"top": 0.07, "bottom": 0.13, "left": 0.05, "right": 0.05}   # same as yt-render profile "long"
 CAPTION_TOP = 0.74                       # burned-in captions of profile "long" sit below this line
 CREDIT_BAND = 44                         # yt-render draws the shot credit just inside the top safe edge
+MIN_TEXT_PX = 24                         # smallest text at 1080p: ~10.5 pt on a phone in landscape fullscreen
 STYLES = {
     "documentary_dark": {"bg": (12, 18, 28), "panel": (26, 36, 52), "fg": (240, 244, 248), "muted": (150, 166, 186),
                          "grid": (48, 62, 82), "accent": (255, 210, 63), "accent2": (255, 122, 40),
@@ -160,7 +161,9 @@ class Canvas:
         self.im = Image.new("RGB", (W * SS, H * SS), self.s["bg"])
         self.d = ImageDraw.Draw(self.im, "RGBA")
         self.text_boxes = []
+        self.obstacles = []                  # drawn lines/arrows text must not cross: (points, half-width, owner)
         self.safe = (W * SAFE["left"], H * SAFE["top"], W * (1 - SAFE["right"]), H * (1 - SAFE["bottom"]))
+        self.content_bottom = H * CAPTION_TOP
 
     def c(self, name):
         return self.s[name] if isinstance(name, str) else tuple(name)
@@ -187,8 +190,12 @@ class Canvas:
     def polygon(self, pts, fill):
         self.d.polygon(self._p(pts), fill=self.c(fill))
 
-    def arrow(self, p0, p1, color, width=6, head=None):
+    def obstacle(self, pts, width, owner=None):
+        self.obstacles.append(([tuple(p) for p in pts], width / 2 + 2, owner))
+
+    def arrow(self, p0, p1, color, width=6, head=None, owner=None):
         head = head or width * 3.2
+        self.obstacle([p0, p1], max(width, head * 0.8), owner)
         ang = math.atan2(p1[1] - p0[1], p1[0] - p0[0])
         base = (p1[0] - head * 0.85 * math.cos(ang), p1[1] - head * 0.85 * math.sin(ang))
         self.line([p0, base], color, width)
@@ -218,7 +225,12 @@ class Canvas:
              min_size=None, stroke=0, where="text"):
         """Fit text (shrinking to min_size, wrapping to max_lines) into max_w; draw it; record its box.
         Raises if it cannot fit."""
-        min_size = min_size or max(18, int(size * 0.7))
+        lay = self.layout(text, x, y, size, weight, anchor, max_w, max_lines, min_size, where)
+        return self.draw_layout(lay, color, stroke, where)
+
+    def layout(self, text, x, y, size=36, weight="Bold", anchor="mm", max_w=None, max_lines=1, min_size=None,
+               where="text"):
+        min_size = max(MIN_TEXT_PX, min_size or int(size * 0.7))
         max_w = max_w or W
         s_ = size
         while True:
@@ -227,26 +239,79 @@ class Canvas:
             if len(lines) <= max_lines and widest <= max_w + 0.5:
                 break
             if s_ <= min_size:
-                raise E(f"{where}: {text!r} does not fit in {max_w:.0f} px on {max_lines} line(s)", status="overflow")
+                raise E(f"{where}: {text!r} does not fit in {max_w:.0f} px on {max_lines} line(s) at >= {min_size} px",
+                        status="overflow")
             s_ -= 2
-        f = self.fonts.get(weight, s_)
         lh = s_ * 1.18
         total = lh * len(lines)
         top = {"m": y - total / 2, "t": y, "b": y - total}[anchor[1]]
-        boxes = []
+        rows = []
         for i, l in enumerate(lines):
             lw = self.measure(l, weight, s_)[0]
             lx = {"m": x - lw / 2, "l": x, "r": x - lw}[anchor[0]]
             cy = top + lh * (i + 0.5)
+            rows.append((l, lx, cy, (lx, cy - s_ * 0.6, lx + lw, cy + s_ * 0.6)))
+        box = (min(r[3][0] for r in rows), min(r[3][1] for r in rows), max(r[3][2] for r in rows),
+               max(r[3][3] for r in rows))
+        return {"text": text, "size": s_, "weight": weight, "rows": rows, "box": box}
+
+    def draw_layout(self, lay, color, stroke, where):
+        f = self.fonts.get(lay["weight"], lay["size"])
+        for l, lx, cy, _ in lay["rows"]:
             self.d.text((lx * SS, cy * SS), l, font=f, fill=self.c(color), anchor="lm",
                         stroke_width=int(stroke * SS), stroke_fill=self.s["bg"])
-            boxes.append((lx, cy - s_ * 0.6, lx + lw, cy + s_ * 0.6))
-        box = (min(b[0] for b in boxes), min(b[1] for b in boxes), max(b[2] for b in boxes), max(b[3] for b in boxes))
-        self.text_boxes.append({"where": where, "text": text, "size": s_, "box": [round(v, 1) for v in box]})
-        return box
+        self.text_boxes.append({"where": where, "text": lay["text"], "size": lay["size"],
+                                "box": [round(v, 1) for v in lay["box"]]})
+        return lay["box"]
+
+    def collides(self, box, pad=4):
+        b = (box[0] - pad, box[1] - pad, box[2] + pad, box[3] + pad)
+        for t in self.text_boxes:
+            o = t["box"]
+            if b[0] < o[2] and o[0] < b[2] and b[1] < o[3] and o[1] < b[3]:
+                return f"text {t['where']!r}"
+        for pts, hw, _ in self.obstacles:
+            for p0, p1 in zip(pts, pts[1:]):
+                if _seg_hits_box(p0, p1, (box[0] - hw, box[1] - hw, box[2] + hw, box[3] + hw)):
+                    return "a drawn line or arrow"
+        return None
+
+    def place(self, text, candidates, size, weight, color, max_w, max_lines=2, stroke=3, where="label"):
+        """Draw text at the first candidate (x, y, anchor) where it touches no other text and no line."""
+        last = None
+        for x, y, anchor in candidates:
+            lay = self.layout(text, x, y, size, weight, anchor, max_w, max_lines, where=where)
+            last = self.collides(lay["box"])
+            if last is None and self.inside(lay["box"]):
+                return self.draw_layout(lay, color, stroke, where)
+        raise E(f"{where}: no free place for {text!r} (it would overlap {last or 'the safe-area edge'})",
+                status="overflow")
+
+    def inside(self, box):
+        x0, y0, x1, y1 = self.safe
+        return box[0] >= x0 and box[1] >= y0 and box[2] <= x1 and box[3] <= self.content_bottom
 
     def check_safe(self, caption_band):
         x0, y0, x1, y1 = self.safe
+        small = [t for t in self.text_boxes if t["size"] < MIN_TEXT_PX]
+        if small:
+            raise E("text below the mobile minimum of %d px: " % MIN_TEXT_PX
+                    + ", ".join(f"{t['where']} {t['size']} px" for t in small[:4]), status="overflow")
+        tb = self.text_boxes
+        for i in range(len(tb)):
+            for j in range(i + 1, len(tb)):
+                a, b = tb[i]["box"], tb[j]["box"]
+                if a[0] < b[2] and b[0] < a[2] and a[1] < b[3] and b[1] < a[3]:
+                    raise E(f"text overlaps: {tb[i]['where']} {tb[i]['text']!r} and {tb[j]['where']} {tb[j]['text']!r}",
+                            status="overflow")
+        for t in tb:
+            for pts, hw, owner in self.obstacles:
+                if owner == (t["where"], t["text"]):
+                    continue
+                for p0, p1 in zip(pts, pts[1:]):
+                    bx = t["box"]
+                    if _seg_hits_box(p0, p1, (bx[0] - hw + 2, bx[1] - hw + 2, bx[2] + hw - 2, bx[3] + hw - 2)):
+                        raise E(f"{t['where']} {t['text']!r} is drawn across a line or arrow", status="overflow")
         if caption_band:
             y1 = min(y1, H * CAPTION_TOP)
         bad = [t for t in self.text_boxes
@@ -257,6 +322,26 @@ class Canvas:
 
     def finish(self):
         return self.im.resize((W, H), Image.LANCZOS)
+
+
+def _seg_hits_box(p0, p1, box):
+    """Liang-Barsky: does the segment p0-p1 pass through the rectangle?"""
+    x0, y0, x1, y1 = box
+    dx, dy = p1[0] - p0[0], p1[1] - p0[1]
+    t0, t1 = 0.0, 1.0
+    for p, q in ((-dx, p0[0] - x0), (dx, x1 - p0[0]), (-dy, p0[1] - y0), (dy, y1 - p0[1])):
+        if p == 0:
+            if q < 0:
+                return False
+        else:
+            r = q / p
+            if p < 0:
+                t0 = max(t0, r)
+            else:
+                t1 = min(t1, r)
+            if t0 > t1:
+                return False
+    return True
 
 
 # --- layout -------------------------------------------------------------------------------------
@@ -270,12 +355,12 @@ def frame_parts(cv, g):
     if g.get("title"):
         cv.text(g["title"], x0, y0 + 30, 46, "Black", "fg", anchor="lm", max_w=x1 - x0, where="title")
         if g.get("subtitle"):
-            cv.text(g["subtitle"], x0, y0 + 78, 28, "SemiBold", "muted", anchor="lm", max_w=x1 - x0, where="subtitle")
+            cv.text(g["subtitle"], x0, y0 + 78, 30, "SemiBold", "muted", anchor="lm", max_w=x1 - x0, where="subtitle")
             top = y0 + 108
         else:
             top = y0 + 68
     cv.text(("Source: " if not g["source"].lower().startswith(("source", "data")) else "") + g["source"],
-            x0, bottom - 16, 22, "SemiBold", "muted", anchor="lm", max_w=x1 - x0, min_size=16, where="source")
+            x0, bottom - 16, 24, "SemiBold", "muted", anchor="lm", max_w=x1 - x0, where="source")
     return (x0, top + 10, x1, bottom - 44)
 
 
@@ -344,7 +429,7 @@ def v_diagram(g, where):
         _keys(n, ("text", "x", "y", "step", "size"), w)
         _text(n.get("text"), f"{w}.text", 120)
         _num(n.get("x"), f"{w}.x", 0, 1); _num(n.get("y"), f"{w}.y", 0, 1)
-        _num(n.get("size", 30), f"{w}.size", 18, 60)
+        _num(n.get("size", 30), f"{w}.size", MIN_TEXT_PX, 60)
         _step(n, w)
 
 
@@ -389,7 +474,7 @@ def d_diagram(cv, g, step):
             ox, oy = -math.sin(ang) * off, math.cos(ang) * off
             if oy > 0:
                 ox, oy = -ox, -oy
-            labels.append((a["label"], mx + ox, my + oy, a.get("color", "accent")))
+            labels.append((a["label"], (mx, my), (ox, oy), a.get("color", "accent")))
     for n in g["nodes"]:
         if n.get("step", 1) > step:
             continue
@@ -400,8 +485,11 @@ def d_diagram(cv, g, step):
         else:
             cv.rect((cx - hw, cy - hh, cx + hw, cy + hh), outline="muted", width=3, radius=14)
         cv.text(n["text"], cx, cy, 34, "Bold", fg, max_w=hw * 2 - 24, max_lines=3, where=f"node {n['id']}")
-    for text, x, y, col in labels:                       # labels last, so nodes never cover them
-        cv.text(text, x, y, 30, "Bold", col, max_w=g.get("_label_w", 360), max_lines=2, stroke=3, where="arrow label")
+    for text, (mx, my), (ox, oy), col in labels:        # labels last, so nodes never cover them
+        n = math.hypot(ox, oy) or 1
+        cands = [(mx + ox / n * d, my + oy / n * d, "mm") for d in (n, n + 24, n + 52)] + \
+                [(mx - ox / n * d, my - oy / n * d, "mm") for d in (n, n + 24, n + 52)]
+        cv.place(text, cands, 30, "Bold", col, g.get("_label_w", 360), stroke=3, where="arrow label")
     for n in g.get("notes") or []:
         if n.get("step", 1) <= step:
             cv.text(n["text"], nx(box, n["x"]), ny(box, n["y"]), int(n.get("size", 30)), "SemiBold", "muted",
@@ -569,9 +657,9 @@ def d_bar(cv, g, step):
     v = lo
     while v <= hi + st * 1e-6:
         cv.line([(x0, ty(v)), (x1, ty(v))], "grid", 2)
-        cv.text(fmt_num(v, dec), x0 - 16, ty(v), 24, "SemiBold", "muted", anchor="rm", max_w=110, where="axis")
+        cv.text(fmt_num(v, dec), x0 - 16, ty(v), 26, "SemiBold", "muted", anchor="rm", max_w=110, where="axis")
         v += st
-    cv.text(g["unit"], x0, y0 - 26, 26, "Bold", "muted", anchor="lm", max_w=500, where="unit")
+    cv.text(g["unit"], x0, y0 - 28, 28, "Bold", "muted", anchor="lm", max_w=500, where="unit")
     n = len(bars)
     slot = (x1 - x0) / n
     bw = slot * 0.62
@@ -640,32 +728,37 @@ def d_line(cv, g, step):
     v = ylo
     while v <= yhi + st * 1e-6:
         cv.line([(x0, py(v)), (x1, py(v))], "grid", 2)
-        cv.text(fmt_num(v, dec), x0 - 16, py(v), 24, "SemiBold", "muted", anchor="rm", max_w=110, where="axis")
+        cv.text(fmt_num(v, dec), x0 - 16, py(v), 26, "SemiBold", "muted", anchor="rm", max_w=110, where="axis")
         v += st
     xst = nice_step(xhi - xlo, 6)
     v = math.ceil(xlo / xst) * xst
     while v <= xhi + xst * 1e-6:
         cv.line([(px(v), y1), (px(v), y1 + 10)], "muted", 2)
-        cv.text(str(int(round(v))) if years else fmt_num(v), px(v), y1 + 32, 24, "SemiBold", "muted", max_w=160,
+        cv.text(str(int(round(v))) if years else fmt_num(v), px(v), y1 + 32, 26, "SemiBold", "muted", max_w=160,
                 where="x axis")
         v += xst
-    cv.text(g["y_unit"], x0, y0 - 26, 26, "Bold", "muted", anchor="lm", max_w=600, where="y unit")
-    xl = (g.get("x_label") + " " if g.get("x_label") else "") + f"({g['x_unit']})"
-    cv.text(xl, x1, y1 + 70, 24, "Bold", "muted", anchor="rm", max_w=400, where="x unit")
+    cv.text(g["y_unit"], x0, y0 - 28, 28, "Bold", "muted", anchor="lm", max_w=600, where="y unit")
+    xl = g.get("x_label") or ""
+    if xl.strip().lower() != g["x_unit"].strip().lower():              # no "Year (year)"
+        xl = (xl + " " if xl else "") + f"({g['x_unit']})"
+    cv.text(xl, x1, y1 + 72, 26, "Bold", "muted", anchor="rm", max_w=400, where="x unit")
     for k, s in enumerate(g["series"]):
         col = SERIES[k]
         pts = [(px(x), py(y)) for x, y in s["points"]]
         cv.line(pts, col, 6)
+        cv.obstacle(pts, 6, f"series {k}")
         for p in pts:
             cv.ellipse((p[0] - 6, p[1] - 6, p[0] + 6, p[1] + 6), fill=col)
         if len(g["series"]) > 1:
             lx = x0 + k * 360
             cv.rect((lx, box[1] + 18, lx + 30, box[1] + 30), fill=col)
-            cv.text(s["name"], lx + 42, box[1] + 24, 26, "Bold", "fg", anchor="lm", max_w=300, where="legend")
+            cv.text(s["name"], lx + 42, box[1] + 24, 28, "Bold", "fg", anchor="lm", max_w=300, where="legend")
     for a in g.get("annotations") or []:
         p = (px(a["x"]), py(a["y"]))
         cv.ellipse((p[0] - 10, p[1] - 10, p[0] + 10, p[1] + 10), outline="accent", width=4)
-        cv.text(a["text"], p[0], p[1] - 40, 28, "Bold", "accent", max_w=420, max_lines=2, stroke=3, where="annotation")
+        cv.place(a["text"], [(p[0], p[1] - 44, "mm"), (p[0], p[1] + 48, "mm"), (p[0] - 24, p[1] - 44, "rm"),
+                             (p[0] + 24, p[1] + 44, "lm"), (p[0], p[1] - 90, "mm"), (p[0], p[1] + 92, "mm")],
+                 30, "Bold", "accent", 420, where="annotation")
 
 
 def v_callout(g, where):
@@ -777,7 +870,7 @@ def _draw_scale(cv, sb, x, y):
     cv.rect((x, y - 6, x + sb["px"], y + 6), fill="fg")
     cv.rect((x, y - 6, x + sb["px"] / 2, y + 6), fill=(0, 0, 0))
     cv.rect((x, y - 6, x + sb["px"], y + 6), outline="fg", width=2)
-    cv.text(sb["label"], x + sb["px"] / 2, y - 26, 26, "Bold", "fg", max_w=max(sb["px"], 120), where="scale bar")
+    cv.text(sb["label"], x + sb["px"] / 2, y - 26, 28, "Bold", "fg", max_w=max(sb["px"], 140), where="scale bar")
 
 
 def v_geo(g, where, root):
@@ -813,6 +906,8 @@ def d_geo(cv, g, step, root, where):
     meta = g["credit"] + (f" · {g['date']}" if g.get("date") else "")
     cv.text(meta, x0, ty + 78, 26, "SemiBold", "fg", anchor="lm", max_w=x1 - x0, stroke=3, where="credit")
     info = {}
+    sb = scale_bar(view.m_per_px, (x1 - x0) * 0.22) if g.get("scale_bar", True) else None
+    tick_x1 = x1 - sb["px"] - 20 - 90 if sb else x1 - 60    # longitude labels stay clear of the scale bar
     if g.get("graticule", True):
         lon0, lat0 = view.lonlat(0, 0)
         lon1, lat1 = view.lonlat(W, H)
@@ -821,10 +916,10 @@ def d_geo(cv, g, step, root, where):
         ticks = []
         while v <= max(lon0, lon1):
             sx, _ = view.screen(v, (lat0 + lat1) / 2)
-            if x0 + 60 < sx < x1 - 60:
+            if x0 + 60 < sx < tick_x1:
                 cv.line([(sx, bottom - 30), (sx, bottom - 12)], "fg", 3)
                 cv.text(f"{abs(v):.{max(0, -int(math.floor(math.log10(st))))}f}°{'E' if v >= 0 else 'W'}", sx, bottom - 50,
-                        22, "Bold", "fg", stroke=3, max_w=200, where="graticule")
+                        26, "Bold", "fg", stroke=3, max_w=220, where="graticule")
                 ticks.append(round(v, 6))
             v += st
         st2 = nice_step(abs(lat0 - lat1), 3)
@@ -834,9 +929,10 @@ def d_geo(cv, g, step, root, where):
             if y0 + CREDIT_BAND + 170 < sy < bottom - 90:
                 cv.line([(x0 - 30, sy), (x0 - 12, sy)], "fg", 3)
                 cv.text(f"{abs(v):.{max(0, -int(math.floor(math.log10(st2))))}f}°{'N' if v >= 0 else 'S'}", x0, sy,
-                        22, "Bold", "fg", anchor="lm", stroke=3, max_w=200, where="graticule")
+                        26, "Bold", "fg", anchor="lm", stroke=3, max_w=220, where="graticule")
             v += st2
         info["graticule_lon"] = ticks
+    pending_arrow_labels = []
     for a in g.get("arrows") or []:
         if a.get("step", 1) > step:
             continue
@@ -844,8 +940,7 @@ def d_geo(cv, g, step, root, where):
         cv.arrow(p0, p1, (0, 0, 0), 14, 48)
         cv.arrow(p0, p1, "accent", 8, 40)
         if a.get("label"):
-            cv.text(a["label"], (p0[0] + p1[0]) / 2, (p0[1] + p1[1]) / 2 - 44, 32, "Bold", "accent", max_w=420,
-                    stroke=4, where="arrow label")
+            pending_arrow_labels.append((a["label"], p0, p1))
     for c in g.get("callouts") or []:
         if c.get("step", 1) > step:
             continue
@@ -853,17 +948,33 @@ def d_geo(cv, g, step, root, where):
         if not (0 <= p[0] <= W and 0 <= p[1] <= H):
             raise E(f"{where}: callout {c['text']!r} at {c['at']} is outside the view")
         cv.ellipse((p[0] - 12, p[1] - 12, p[0] + 12, p[1] + 12), fill="accent", outline=(0, 0, 0), width=3)
-        tx = min(max(p[0] + 140, x0 + 160), x1 - 160)
-        ty = p[1] - 90 if p[1] > y0 + CREDIT_BAND + 220 else p[1] + 90
-        cv.line([p, (tx, ty + (24 if ty < p[1] else -24))], (0, 0, 0), 6)
-        cv.line([p, (tx, ty + (24 if ty < p[1] else -24))], "accent", 3)
-        cv.text(c["text"], tx, ty, 34, "Black", "accent", max_w=320, max_lines=2, stroke=4, where="callout")
-    if g.get("scale_bar", True):
-        sb = scale_bar(view.m_per_px, (x1 - x0) * 0.22)
+        placed = None
+        for dx, dy in ((150, -100), (-150, -100), (150, 100), (-150, 100), (0, -130), (0, 130)):
+            tx, ty = p[0] + dx, p[1] + dy
+            lay = cv.layout(c["text"], tx, ty, 34, "Black", "mm", 320, 2, where="callout")
+            end = (tx, ty + (26 if dy < 0 else -26))
+            hit = cv.collides(lay["box"]) or any(_seg_hits_box(p, end, tb["box"]) for tb in cv.text_boxes)
+            if not hit and cv.inside(lay["box"]):
+                placed = (lay, end)
+                break
+        if placed is None:
+            raise E(f"{where}: no free place for callout {c['text']!r}", status="overflow")
+        lay, end = placed
+        cv.line([p, end], (0, 0, 0), 6)
+        cv.line([p, end], "accent", 3)
+        cv.obstacle([p, end], 6, ("callout", c["text"]))   # its own leader may touch it
+        cv.draw_layout(lay, "accent", 4, "callout")
+    for text, p0, p1 in pending_arrow_labels:            # after callouts: arrow labels find a free side
+        mx, my = (p0[0] + p1[0]) / 2, (p0[1] + p1[1]) / 2
+        ang = math.atan2(p1[1] - p0[1], p1[0] - p0[0])
+        nxv, nyv = -math.sin(ang), math.cos(ang)
+        cands = [(mx + nxv * d * sg, my + nyv * d * sg, "mm") for d in (52, 80, 112) for sg in (-1, 1)]
+        cv.place(text, cands, 32, "Bold", "accent", 420, stroke=4, where="arrow label")
+    if sb:
         _draw_scale(cv, sb, x1 - sb["px"] - 20, bottom - 30)
         info["scale_bar"] = sb
     cv.text(("Source: " if not g["source"].lower().startswith(("source", "data")) else "") + g["source"],
-            x0, bottom - 16, 22, "SemiBold", "fg", anchor="lm", max_w=(x1 - x0) * 0.6, min_size=16, stroke=3,
+            x0, bottom - 16, 24, "SemiBold", "fg", anchor="lm", max_w=(x1 - x0) * 0.6, stroke=3,
             where="source")
     return info
 
@@ -919,7 +1030,7 @@ def d_compare(cv, g, step, root, where):
         cv.im.paste(img, (int(round(ox * SS)), int(round(oy * SS))))
         cv.rect((ox, oy, ox + pw, oy + ph), outline="fg", width=2)
         cv.text(s["label"], ox + 16, oy - 24, 32, "Black", "fg", anchor="lm", max_w=pw - 32, where=f"{side} label")
-        cv.text(s["credit"], ox + 14, oy + ph - 20, 20, "SemiBold", "fg", anchor="lm", max_w=pw * 0.6, min_size=14,
+        cv.text(s["credit"], ox + 14, oy + ph - 22, 24, "SemiBold", "fg", anchor="lm", max_w=pw * 0.55,
                 stroke=3, where=f"{side} credit")
         if sb:
             _draw_scale(cv, sb, ox + pw - sb["px"] - 20, oy + ph - 24)
