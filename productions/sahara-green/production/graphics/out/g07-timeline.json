@@ -1,0 +1,130 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g07-timeline",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Larrasoaña, Roberts & Rohling 2013, PLoS ONE 8(10): e76514",
+ "credit": null,
+ "steps": [
+  "g07-timeline.step1.png",
+  "g07-timeline.step2.png",
+  "g07-timeline.png"
+ ],
+ "sha256": {
+  "g07-timeline.step1.png": "8559348222da6e3c66b5a719a6d382fc7277ab80eac6ae90f4cee5fb1a9bd24a",
+  "g07-timeline.step2.png": "cd33126892dbd0ce9959b152b7af455b7c1573979681591bc20df7e77404cf93",
+  "g07-timeline.png": "7efd9d93e467b129756da6ca21ed0c1b88c9c5d9093a2a60859a64d213e037fd"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "The last green Sahara",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    595.0,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "One reconstruction; other records place it a few thousand years earlier or later",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    1230.5,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Larrasoaña, Roberts & Rohling 2013, PLoS ONE 8(10): e76514",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    896.0,
+    797.6
+   ]
+  },
+  {
+   "where": "node t15",
+   "text": "15,000 years ago",
+   "size": 34,
+   "box": [
+    151.7,
+    538.1,
+    437.7,
+    578.9
+   ]
+  },
+  {
+   "where": "node t11",
+   "text": "11,000",
+   "size": 34,
+   "box": [
+    577.4,
+    538.1,
+    685.9,
+    578.9
+   ]
+  },
+  {
+   "where": "node t6",
+   "text": "6,000",
+   "size": 34,
+   "box": [
+    1048.2,
+    538.1,
+    1148.2,
+    578.9
+   ]
+  },
+  {
+   "where": "node tnow",
+   "text": "Today",
+   "size": 34,
+   "box": [
+    1600.2,
+    538.1,
+    1702.2,
+    578.9
+   ]
+  },
+  {
+   "where": "node band",
+   "text": "GREEN SAHARA: GRASSLAND, SAVANNA, LAKES",
+   "size": 34,
+   "box": [
+    659.7,
+    363.4,
+    1070.2,
+    484.5
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Not a jungle: savanna",
+   "size": 34,
+   "box": [
+    1198.0,
+    331.1,
+    1551.5,
+    371.9
+   ]
+  }
+ ]
+}

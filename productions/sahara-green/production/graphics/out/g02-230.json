@@ -1,0 +1,82 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g02-230",
+ "type": "callout",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Larrasoaña, Roberts & Rohling 2013, PLoS ONE 8(10): e76514",
+ "credit": null,
+ "steps": [
+  "g02-230.png"
+ ],
+ "sha256": {
+  "g02-230.png": "e2e2314617fcd6b6e046d321c15f9075e840c7160312e96cae5d46890f67d32a"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "source",
+   "text": "Source: Larrasoaña, Roberts & Rohling 2013, PLoS ONE 8(10): e76514",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    896.0,
+    797.6
+   ]
+  },
+  {
+   "where": "value",
+   "text": "230",
+   "size": 190,
+   "box": [
+    724.2,
+    292.4,
+    1109.2,
+    520.4
+   ]
+  },
+  {
+   "where": "unit",
+   "text": "+",
+   "size": 90,
+   "box": [
+    1133.2,
+    382.4,
+    1195.8,
+    490.4
+   ]
+  },
+  {
+   "where": "label",
+   "text": "Reconstructed green Sahara periods in the last 8 million years",
+   "size": 44,
+   "box": [
+    296.5,
+    530.0,
+    1623.5,
+    582.8
+   ]
+  },
+  {
+   "where": "context",
+   "text": "Inferred from seabed mud layers, not 230 events anyone observed",
+   "size": 30,
+   "box": [
+    477.5,
+    628.4,
+    1442.5,
+    664.4
+   ]
+  }
+ ]
+}

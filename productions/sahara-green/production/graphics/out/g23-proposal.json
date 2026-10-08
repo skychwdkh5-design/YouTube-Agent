@@ -1,0 +1,131 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g23-proposal",
+ "type": "flow",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+ "credit": null,
+ "steps": [
+  "g23-proposal.step1.png",
+  "g23-proposal.step2.png",
+  "g23-proposal.step3.png",
+  "g23-proposal.step4.png",
+  "g23-proposal.step5.png",
+  "g23-proposal.step6.png",
+  "g23-proposal.step7.png",
+  "g23-proposal.step8.png",
+  "g23-proposal.png"
+ ],
+ "sha256": {
+  "g23-proposal.step1.png": "3d751485972ca4c20f5de59aa28385f49e1d2e4633632a73f1ec57e26690d801",
+  "g23-proposal.step2.png": "833a5b98efce0563dbe5e262eb7c983c25d43d14f8f4c3f6c7bf9d72a0b9c45d",
+  "g23-proposal.step3.png": "91d7e08f6377ab67742e0943f7e1e3213bd1e9c35d3ac6725412cd5b2522747f",
+  "g23-proposal.step4.png": "43448c043fd7ab8eb98e11a4fe64c804537ec1f43594ec678fd18ad73410bdb4",
+  "g23-proposal.step5.png": "9bd5d4f0f76293e1e58726b367a5c10def4afd9e8ce3b8b8e5a16e2e492828ca",
+  "g23-proposal.step6.png": "9bd5d4f0f76293e1e58726b367a5c10def4afd9e8ce3b8b8e5a16e2e492828ca",
+  "g23-proposal.step7.png": "9bd5d4f0f76293e1e58726b367a5c10def4afd9e8ce3b8b8e5a16e2e492828ca",
+  "g23-proposal.step8.png": "9bd5d4f0f76293e1e58726b367a5c10def4afd9e8ce3b8b8e5a16e2e492828ca",
+  "g23-proposal.png": "9bd5d4f0f76293e1e58726b367a5c10def4afd9e8ce3b8b8e5a16e2e492828ca"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "PROPOSAL (2009)",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    521.5,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "Carbon figures are the authors' estimate from plantation data, with large error bars; not a climate-model result",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    1688.5,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    887.5,
+    797.6
+   ]
+  },
+  {
+   "where": "node s0",
+   "text": "Seawater",
+   "size": 34,
+   "box": [
+    190.1,
+    476.0,
+    347.6,
+    516.8
+   ]
+  },
+  {
+   "where": "node s1",
+   "text": "Desalination",
+   "size": 30,
+   "box": [
+    523.1,
+    478.4,
+    705.6,
+    514.4
+   ]
+  },
+  {
+   "where": "node s2",
+   "text": "Pipeline",
+   "size": 34,
+   "box": [
+    893.5,
+    476.0,
+    1026.5,
+    516.8
+   ]
+  },
+  {
+   "where": "node s3",
+   "text": "Irrigation",
+   "size": 34,
+   "box": [
+    1229.6,
+    476.0,
+    1381.6,
+    516.8
+   ]
+  },
+  {
+   "where": "node s4",
+   "text": "Forest",
+   "size": 34,
+   "box": [
+    1599.0,
+    476.0,
+    1703.5,
+    516.8
+   ]
+  }
+ ]
+}

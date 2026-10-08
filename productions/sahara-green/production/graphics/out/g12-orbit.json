@@ -1,0 +1,119 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g12-orbit",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Larrasoaña et al. 2013; NASA Earth Observatory 153475",
+ "credit": null,
+ "steps": [
+  "g12-orbit.step1.png",
+  "g12-orbit.step2.png",
+  "g12-orbit.png"
+ ],
+ "sha256": {
+  "g12-orbit.step1.png": "0b6cfc0977fd0c21d3fc3ede3f7a34a4e38b6c46036538b6eeb880e5a7a3b6d9",
+  "g12-orbit.step2.png": "5e290ebe12e1cc74d881933e7e0d1db192374d953472ca5e616fb2bb76641ad6",
+  "g12-orbit.png": "e79594c14dee6a35976cd5ab3791d4ddebac1247f98ee2f509f8b641fdf2e3cb"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "What flips the switch",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    585.5,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "Orbital cycle (precession); no cycle length shown",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    811.0,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Larrasoaña et al. 2013; NASA Earth Observatory 153475",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    839.0,
+    797.6
+   ]
+  },
+  {
+   "where": "node o",
+   "text": "Slow wobble of Earth's orbit",
+   "size": 34,
+   "box": [
+    211.4,
+    430.1,
+    464.4,
+    511.0
+   ]
+  },
+  {
+   "where": "node s",
+   "text": "Sunnier northern summers",
+   "size": 34,
+   "box": [
+    645.7,
+    430.1,
+    928.7,
+    511.0
+   ]
+  },
+  {
+   "where": "node m",
+   "text": "West African monsoon pushed north",
+   "size": 34,
+   "box": [
+    1092.7,
+    410.0,
+    1380.2,
+    531.0
+   ]
+  },
+  {
+   "where": "node r",
+   "text": "Rain deep into the Sahara",
+   "size": 34,
+   "box": [
+    1516.4,
+    430.1,
+    1751.4,
+    511.0
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Sunlight alone may not explain it",
+   "size": 32,
+   "box": [
+    710.2,
+    663.5,
+    1209.8,
+    701.9
+   ]
+  }
+ ]
+}

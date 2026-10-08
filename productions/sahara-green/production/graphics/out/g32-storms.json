@@ -1,0 +1,132 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g32-storms",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Pausata et al. 2017, PNAS 114:6221",
+ "credit": null,
+ "steps": [
+  "g32-storms.step1.png",
+  "g32-storms.step2.png",
+  "g32-storms.step3.png",
+  "g32-storms.png"
+ ],
+ "sha256": {
+  "g32-storms.step1.png": "ddae74e032b48173535a48fd1b9f5d8d7d198ea3536e577dbebda5d8f7fe0ceb",
+  "g32-storms.step2.png": "934565c93b418fbe1b7f151876ebf23800419730452f0d2b2ad4b39d3ab45842",
+  "g32-storms.step3.png": "1d3ada0ce341a0b947a38cdb85b35bb66e2e413089e0416584e03ee7a1343530",
+  "g32-storms.png": "6c9e081ec6f0d025ce78c6754409618169eb346d6b6bbff5828b07183c4e7bc1"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "A simulation of the past, not a forecast",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    984.0,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "The world about 6,000 years ago (one model, EC-Earth)",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    905.0,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Pausata et al. 2017, PNAS 114:6221",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    590.0,
+    797.6
+   ]
+  },
+  {
+   "where": "node a",
+   "text": "Green Sahara: shrubs, dust cut by up to 80%",
+   "size": 34,
+   "box": [
+    152.4,
+    373.1,
+    523.4,
+    454.0
+   ]
+  },
+  {
+   "where": "node b",
+   "text": "Stronger West African monsoon",
+   "size": 34,
+   "box": [
+    696.0,
+    373.1,
+    982.0,
+    454.0
+   ]
+  },
+  {
+   "where": "node c",
+   "text": "Winds change across the tropics",
+   "size": 34,
+   "box": [
+    1156.6,
+    373.1,
+    1454.6,
+    454.0
+   ]
+  },
+  {
+   "where": "node d",
+   "text": "More tropical cyclone activity in both hemispheres",
+   "size": 34,
+   "box": [
+    1144.3,
+    611.2,
+    1674.3,
+    692.1
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Most around the Caribbean and the southeastern US; some ocean regions: fewer",
+   "size": 28,
+   "box": [
+    247.8,
+    577.0,
+    911.8,
+    643.6
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Too few paleostorm records to check it",
+   "size": 28,
+   "box": [
+    316.8,
+    697.0,
+    842.8,
+    730.6
+   ]
+  }
+ ]
+}

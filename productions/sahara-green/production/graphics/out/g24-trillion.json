@@ -1,0 +1,60 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g24-trillion",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Ornstein, Aleinov & Rind 2009, conclusion (p.431)",
+ "credit": null,
+ "steps": [
+  "g24-trillion.png"
+ ],
+ "sha256": {
+  "g24-trillion.png": "aa5c2698e926885c1f51c6092d89424ba3e0fb20b0f503cce271f0b0e6f3190a"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "source",
+   "text": "Source: Ornstein, Aleinov & Rind 2009, conclusion (p.431)",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    767.0,
+    797.6
+   ]
+  },
+  {
+   "where": "node t",
+   "text": "\"MULTI-TRILLION-DOLLAR PROJECTS\"",
+   "size": 34,
+   "box": [
+    633.8,
+    376.6,
+    1286.2,
+    417.4
+   ]
+  },
+  {
+   "where": "note",
+   "text": "The authors' own words, not a calculated annual cost",
+   "size": 36,
+   "box": [
+    696.8,
+    564.1,
+    1223.2,
+    649.8
+   ]
+  }
+ ]
+}

@@ -1,0 +1,203 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g34-gww",
+ "type": "bar",
+ "style": "documentary_light",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "UNCCD, The Great Green Wall: Implementation Status and Way Ahead to 2030 (2020)",
+ "credit": null,
+ "steps": [
+  "g34-gww.png"
+ ],
+ "sha256": {
+  "g34-gww.png": "dbe4de93d02583b20ac6152998edcfbe9ba65a53b4ea889adbc3b3354901b2d8"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "Great Green Wall: two targets, one preliminary count",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    1304.0,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "Million hectares; counted figure as reported to the Wall's own agency; never combined",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    1351.0,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: UNCCD, The Great Green Wall: Implementation Status and Way Ahead to 2030 (2020)",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    1183.5,
+    797.6
+   ]
+  },
+  {
+   "where": "axis",
+   "text": "0",
+   "size": 26,
+   "box": [
+    183.0,
+    669.6,
+    200.0,
+    700.8
+   ]
+  },
+  {
+   "where": "axis",
+   "text": "20",
+   "size": 26,
+   "box": [
+    166.5,
+    588.1,
+    200.0,
+    619.3
+   ]
+  },
+  {
+   "where": "axis",
+   "text": "40",
+   "size": 26,
+   "box": [
+    165.5,
+    506.6,
+    200.0,
+    537.8
+   ]
+  },
+  {
+   "where": "axis",
+   "text": "60",
+   "size": 26,
+   "box": [
+    166.0,
+    425.0,
+    200.0,
+    456.2
+   ]
+  },
+  {
+   "where": "axis",
+   "text": "80",
+   "size": 26,
+   "box": [
+    166.0,
+    343.5,
+    200.0,
+    374.7
+   ]
+  },
+  {
+   "where": "axis",
+   "text": "100",
+   "size": 26,
+   "box": [
+    154.5,
+    262.0,
+    200.0,
+    293.2
+   ]
+  },
+  {
+   "where": "unit",
+   "text": "million hectares",
+   "size": 28,
+   "box": [
+    216.0,
+    232.8,
+    433.5,
+    266.4
+   ]
+  },
+  {
+   "where": "value",
+   "text": "100",
+   "size": 30,
+   "box": [
+    452.7,
+    233.6,
+    508.7,
+    269.6
+   ]
+  },
+  {
+   "where": "bar label",
+   "text": "COP21 pledge, by 2030",
+   "size": 26,
+   "box": [
+    332.2,
+    705.6,
+    629.2,
+    736.8
+   ]
+  },
+  {
+   "where": "value",
+   "text": "25",
+   "size": 30,
+   "box": [
+    990.2,
+    539.3,
+    1029.8,
+    575.3
+   ]
+  },
+  {
+   "where": "bar label",
+   "text": "PA-GGW target, by 2030",
+   "size": 26,
+   "box": [
+    853.2,
+    705.6,
+    1166.8,
+    736.8
+   ]
+  },
+  {
+   "where": "value",
+   "text": "4",
+   "size": 30,
+   "box": [
+    1528.8,
+    624.9,
+    1549.8,
+    660.9
+   ]
+  },
+  {
+   "where": "bar label",
+   "text": "Counted by 2020 (preliminary)",
+   "size": 26,
+   "box": [
+    1343.6,
+    705.6,
+    1735.1,
+    736.8
+   ]
+  }
+ ]
+}

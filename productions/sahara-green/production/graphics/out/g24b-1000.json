@@ -1,0 +1,93 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g24b-1000",
+ "type": "callout",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Ornstein et al. 2009, section 3.1 (p.418)",
+ "credit": null,
+ "steps": [
+  "g24b-1000.png"
+ ],
+ "sha256": {
+  "g24b-1000.png": "bb9a1d0c2d5f2195ad7a4b5ef7d76074a318605e83bc89cc3e9f290e50f11629"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "2009 simulation: one model (GISS ModelE)",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    1078.0,
+    177.2
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Ornstein et al. 2009, section 3.1 (p.418)",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    643.5,
+    797.6
+   ]
+  },
+  {
+   "where": "value",
+   "text": "1,000",
+   "size": 190,
+   "box": [
+    478.2,
+    322.4,
+    1034.2,
+    550.4
+   ]
+  },
+  {
+   "where": "unit",
+   "text": "mm/yr +",
+   "size": 90,
+   "box": [
+    1058.2,
+    412.4,
+    1441.8,
+    520.4
+   ]
+  },
+  {
+   "where": "label",
+   "text": "More than 1,000 mm of rain a year (about 40 in)",
+   "size": 44,
+   "box": [
+    451.5,
+    560.0,
+    1468.5,
+    612.8
+   ]
+  },
+  {
+   "where": "context",
+   "text": "Over roughly half of the irrigated Sahara; the authors asked other models to check it",
+   "size": 30,
+   "box": [
+    352.5,
+    658.4,
+    1567.5,
+    694.4
+   ]
+  }
+ ]
+}

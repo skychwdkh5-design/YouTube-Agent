@@ -1,0 +1,181 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g10-rain",
+ "type": "bar",
+ "style": "documentary_light",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Larrasoaña, Roberts & Rohling 2013 (rough estimates, no error bars)",
+ "credit": null,
+ "steps": [
+  "g10-rain.png"
+ ],
+ "sha256": {
+  "g10-rain.png": "ac3ae3adf8d8686a8d236c4a32c6b813fda5f0214b1772d655a08bf5ecb8bf4e"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "How much wetter?",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    526.0,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "One reconstruction of the last green period; 23-29°N for the NE Sahara core",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    1195.0,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Larrasoaña, Roberts & Rohling 2013 (rough estimates, no error bars)",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    978.0,
+    797.6
+   ]
+  },
+  {
+   "where": "axis",
+   "text": "0",
+   "size": 26,
+   "box": [
+    183.0,
+    669.6,
+    200.0,
+    700.8
+   ]
+  },
+  {
+   "where": "axis",
+   "text": "100",
+   "size": 26,
+   "box": [
+    154.5,
+    588.1,
+    200.0,
+    619.3
+   ]
+  },
+  {
+   "where": "axis",
+   "text": "200",
+   "size": 26,
+   "box": [
+    149.5,
+    506.6,
+    200.0,
+    537.8
+   ]
+  },
+  {
+   "where": "axis",
+   "text": "300",
+   "size": 26,
+   "box": [
+    149.0,
+    425.0,
+    200.0,
+    456.2
+   ]
+  },
+  {
+   "where": "axis",
+   "text": "400",
+   "size": 26,
+   "box": [
+    148.5,
+    343.5,
+    200.0,
+    374.7
+   ]
+  },
+  {
+   "where": "axis",
+   "text": "500",
+   "size": 26,
+   "box": [
+    149.5,
+    262.0,
+    200.0,
+    293.2
+   ]
+  },
+  {
+   "where": "unit",
+   "text": "mm per year",
+   "size": 28,
+   "box": [
+    216.0,
+    232.8,
+    387.0,
+    266.4
+   ]
+  },
+  {
+   "where": "value",
+   "text": "100",
+   "size": 30,
+   "box": [
+    585.0,
+    559.7,
+    641.0,
+    595.7
+   ]
+  },
+  {
+   "where": "bar label",
+   "text": "NE Sahara core, ~4 in",
+   "size": 26,
+   "box": [
+    477.0,
+    705.6,
+    749.0,
+    736.8
+   ]
+  },
+  {
+   "where": "value",
+   "text": "450",
+   "size": 30,
+   "box": [
+    1375.8,
+    274.4,
+    1438.2,
+    310.4
+   ]
+  },
+  {
+   "where": "bar label",
+   "text": "Near 18°N, ~18 in",
+   "size": 26,
+   "box": [
+    1298.8,
+    705.6,
+    1515.2,
+    736.8
+   ]
+  }
+ ]
+}

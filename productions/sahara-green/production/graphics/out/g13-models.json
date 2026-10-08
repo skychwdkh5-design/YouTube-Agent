@@ -1,0 +1,130 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g13-models",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "NASA Earth Observatory 153475; Larrasoaña et al. 2013",
+ "credit": null,
+ "steps": [
+  "g13-models.step1.png",
+  "g13-models.step2.png",
+  "g13-models.png"
+ ],
+ "sha256": {
+  "g13-models.step1.png": "aa98243fb840be8c10bd20f5f846000b85c1c90b9c4c701300c3d0c0559ba7f7",
+  "g13-models.step2.png": "3a57a2397af1edb43384f4dff035ce373ce2a039aabe45b69ef2cff516da436e",
+  "g13-models.png": "f78635b9c949e56b87c9b04a4b04ce8b95009fb35fb50b114ccfd25433772c47"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "A puzzle for the models",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    639.0,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "The feedback loop is a proposal, not a result",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    736.0,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: NASA Earth Observatory 153475; Larrasoaña et al. 2013",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    839.0,
+    797.6
+   ]
+  },
+  {
+   "where": "node p",
+   "text": "Models struggle to fill all the lakes geologists infer",
+   "size": 34,
+   "box": [
+    207.6,
+    373.1,
+    675.6,
+    454.0
+   ]
+  },
+  {
+   "where": "node q",
+   "text": "What are the models missing?",
+   "size": 34,
+   "box": [
+    270.9,
+    569.8,
+    612.4,
+    650.7
+   ]
+  },
+  {
+   "where": "node l",
+   "text": "More lakes and plants",
+   "size": 34,
+   "box": [
+    1007.0,
+    342.1,
+    1258.5,
+    423.0
+   ]
+  },
+  {
+   "where": "node r",
+   "text": "More rain",
+   "size": 34,
+   "box": [
+    1537.9,
+    486.4,
+    1695.4,
+    527.2
+   ]
+  },
+  {
+   "where": "node v",
+   "text": "More plants",
+   "size": 34,
+   "box": [
+    1034.5,
+    610.6,
+    1231.0,
+    651.4
+   ]
+  },
+  {
+   "where": "note",
+   "text": "PROPOSED AMPLIFIER",
+   "size": 30,
+   "box": [
+    1141.1,
+    281.7,
+    1470.1,
+    317.7
+   ]
+  }
+ ]
+}

@@ -1,0 +1,779 @@
+{
+ "graphics": [
+  {
+   "type": "callout",
+   "id": "g02-230",
+   "style": "documentary_dark",
+   "source": "Larrasoaña, Roberts & Rohling 2013, PLoS ONE 8(10): e76514",
+   "value": 230,
+   "unit": "+",
+   "label": "Reconstructed green Sahara periods in the last 8 million years",
+   "context": "Inferred from seabed mud layers, not 230 events anyone observed"
+  },
+  {
+   "type": "diagram",
+   "id": "g05-rain",
+   "style": "documentary_light",
+   "source": "NASA Earth Observatory, \"A Deluge for the Sahara\"",
+   "title": "How dry is it?",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "IN SOME AREAS: JUST A FEW INCHES OF RAIN A YEAR",
+     "x": 0.5,
+     "y": 0.42,
+     "w": 0.78,
+     "h": 0.3,
+     "style": "accent"
+    }
+   ],
+   "notes": [
+    {
+     "text": "Tens of millimeters a year, in some areas of the Sahara",
+     "x": 0.5,
+     "y": 0.8,
+     "size": 36
+    }
+   ]
+  },
+  {
+   "type": "diagram",
+   "id": "g07-timeline",
+   "style": "documentary_dark",
+   "source": "Larrasoaña, Roberts & Rohling 2013, PLoS ONE 8(10): e76514",
+   "title": "The last green Sahara",
+   "subtitle": "One reconstruction; other records place it a few thousand years earlier or later",
+   "nodes": [
+    {
+     "id": "t15",
+     "text": "15,000 years ago",
+     "x": 0.115,
+     "y": 0.62,
+     "w": 0.19,
+     "h": 0.12,
+     "style": "plain"
+    },
+    {
+     "id": "t11",
+     "text": "11,000",
+     "x": 0.31,
+     "y": 0.62,
+     "w": 0.09,
+     "h": 0.12,
+     "style": "plain",
+     "step": 2
+    },
+    {
+     "id": "t6",
+     "text": "6,000",
+     "x": 0.58,
+     "y": 0.62,
+     "w": 0.09,
+     "h": 0.12,
+     "style": "plain",
+     "step": 2
+    },
+    {
+     "id": "tnow",
+     "text": "Today",
+     "x": 0.9,
+     "y": 0.62,
+     "w": 0.1,
+     "h": 0.12,
+     "style": "plain"
+    },
+    {
+     "id": "band",
+     "text": "GREEN SAHARA: GRASSLAND, SAVANNA, LAKES",
+     "x": 0.445,
+     "y": 0.36,
+     "w": 0.27,
+     "h": 0.22,
+     "style": "green",
+     "step": 2
+    }
+   ],
+   "arrows": [
+    {
+     "from": [
+      0.03,
+      0.5
+     ],
+     "to": [
+      0.97,
+      0.5
+     ],
+     "color": "muted"
+    }
+   ],
+   "notes": [
+    {
+     "text": "Not a jungle: savanna",
+     "x": 0.74,
+     "y": 0.22,
+     "step": 3,
+     "size": 34
+    }
+   ]
+  },
+  {
+   "type": "bar",
+   "id": "g10-rain",
+   "style": "documentary_light",
+   "source": "Larrasoaña, Roberts & Rohling 2013 (rough estimates, no error bars)",
+   "title": "How much wetter?",
+   "subtitle": "One reconstruction of the last green period; 23-29°N for the NE Sahara core",
+   "unit": "mm per year",
+   "bars": [
+    {
+     "label": "NE Sahara core, ~4 in",
+     "value": 100
+    },
+    {
+     "label": "Near 18°N, ~18 in",
+     "value": 450,
+     "highlight": true
+    }
+   ]
+  },
+  {
+   "type": "diagram",
+   "id": "g12-orbit",
+   "style": "documentary_dark",
+   "source": "Larrasoaña et al. 2013; NASA Earth Observatory 153475",
+   "title": "What flips the switch",
+   "subtitle": "Orbital cycle (precession); no cycle length shown",
+   "nodes": [
+    {
+     "id": "o",
+     "text": "Slow wobble of Earth's orbit",
+     "x": 0.14,
+     "y": 0.45,
+     "w": 0.22,
+     "h": 0.28,
+     "style": "default"
+    },
+    {
+     "id": "s",
+     "text": "Sunnier northern summers",
+     "x": 0.4,
+     "y": 0.45,
+     "w": 0.22,
+     "h": 0.28,
+     "style": "accent",
+     "step": 1
+    },
+    {
+     "id": "m",
+     "text": "West African monsoon pushed north",
+     "x": 0.66,
+     "y": 0.45,
+     "w": 0.22,
+     "h": 0.28,
+     "style": "blue",
+     "step": 2
+    },
+    {
+     "id": "r",
+     "text": "Rain deep into the Sahara",
+     "x": 0.89,
+     "y": 0.45,
+     "w": 0.18,
+     "h": 0.28,
+     "style": "green",
+     "step": 3
+    }
+   ],
+   "arrows": [
+    {
+     "from": "o",
+     "to": "s",
+     "step": 1
+    },
+    {
+     "from": "s",
+     "to": "m",
+     "step": 2
+    },
+    {
+     "from": "m",
+     "to": "r",
+     "step": 3
+    }
+   ],
+   "notes": [
+    {
+     "text": "Sunlight alone may not explain it",
+     "x": 0.5,
+     "y": 0.86,
+     "step": 3,
+     "size": 32
+    }
+   ]
+  },
+  {
+   "type": "diagram",
+   "id": "g13-models",
+   "style": "documentary_dark",
+   "source": "NASA Earth Observatory 153475; Larrasoaña et al. 2013",
+   "title": "A puzzle for the models",
+   "subtitle": "The feedback loop is a proposal, not a result",
+   "nodes": [
+    {
+     "id": "p",
+     "text": "Models struggle to fill all the lakes geologists infer",
+     "x": 0.2,
+     "y": 0.34,
+     "w": 0.3,
+     "h": 0.26,
+     "style": "default"
+    },
+    {
+     "id": "q",
+     "text": "What are the models missing?",
+     "x": 0.2,
+     "y": 0.72,
+     "w": 0.3,
+     "h": 0.2,
+     "style": "red",
+     "step": 2
+    },
+    {
+     "id": "l",
+     "text": "More lakes and plants",
+     "x": 0.6,
+     "y": 0.28,
+     "w": 0.2,
+     "h": 0.17,
+     "style": "blue",
+     "step": 3
+    },
+    {
+     "id": "r",
+     "text": "More rain",
+     "x": 0.88,
+     "y": 0.52,
+     "w": 0.16,
+     "h": 0.17,
+     "style": "blue",
+     "step": 3
+    },
+    {
+     "id": "v",
+     "text": "More plants",
+     "x": 0.6,
+     "y": 0.76,
+     "w": 0.2,
+     "h": 0.17,
+     "style": "green",
+     "step": 3
+    }
+   ],
+   "arrows": [
+    {
+     "from": "p",
+     "to": "q",
+     "step": 2
+    },
+    {
+     "from": "l",
+     "to": "r",
+     "step": 3,
+     "color": "blue"
+    },
+    {
+     "from": "r",
+     "to": "v",
+     "step": 3,
+     "color": "blue"
+    },
+    {
+     "from": "v",
+     "to": "l",
+     "step": 3,
+     "color": "blue"
+    }
+   ],
+   "notes": [
+    {
+     "text": "PROPOSED AMPLIFIER",
+     "x": 0.7,
+     "y": 0.12,
+     "step": 3,
+     "size": 30
+    }
+   ]
+  },
+  {
+   "type": "flow",
+   "id": "g14-sapropel",
+   "style": "documentary_dark",
+   "build": true,
+   "source": "Larrasoaña, Roberts & Rohling 2013, PLoS ONE 8(10): e76514",
+   "title": "How the count is made",
+   "subtitle": "A reconstruction, not 230 observed events",
+   "steps": [
+    "African monsoon floods surge into the sea",
+    "Layers of Mediterranean seabed mud (sapropels)",
+    "230+ green periods inferred in 8 million years"
+   ],
+   "arrow_labels": [
+    "laid down as",
+    "read as"
+   ]
+  },
+  {
+   "type": "circulation",
+   "id": "g16-cell",
+   "style": "documentary_dark",
+   "build": true,
+   "rising_cloud": true,
+   "source": "NASA Earth Observatory, \"Cloudy Earth\" and \"Southeastern Australia\"",
+   "title": "Why deserts sit near 30° latitude",
+   "labels": {
+    "rising": "Warm, moist air rises: clouds and rain",
+    "aloft": "Flows toward the poles",
+    "sinking": "Sinks, already dry: few clouds",
+    "surface": "Returns at the surface"
+   },
+   "ground_labels": [
+    {
+     "x": 0.06,
+     "text": "Equator"
+    },
+    {
+     "x": 0.94,
+     "text": "~30° latitude"
+    }
+   ]
+  },
+  {
+   "type": "diagram",
+   "id": "g19-aquifer",
+   "style": "documentary_dark",
+   "source": "NASA Earth Observatory 152356 and 89820",
+   "title": "Fossil water",
+   "subtitle": "Nubian Sandstone Aquifer",
+   "nodes": [
+    {
+     "id": "f",
+     "text": "SOAKED IN 10,000 TO 1,000,000 YEARS AGO",
+     "x": 0.5,
+     "y": 0.24,
+     "w": 0.7,
+     "h": 0.22,
+     "style": "accent"
+    },
+    {
+     "id": "e",
+     "text": "Egypt",
+     "x": 0.2,
+     "y": 0.52,
+     "w": 0.15,
+     "h": 0.14,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "li",
+     "text": "Libya",
+     "x": 0.4,
+     "y": 0.52,
+     "w": 0.15,
+     "h": 0.14,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "su",
+     "text": "Sudan",
+     "x": 0.6,
+     "y": 0.52,
+     "w": 0.15,
+     "h": 0.14,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "ch",
+     "text": "Chad",
+     "x": 0.8,
+     "y": 0.52,
+     "w": 0.15,
+     "h": 0.14,
+     "style": "default",
+     "step": 2
+    }
+   ],
+   "notes": [
+    {
+     "text": "A vast store of groundwater shared by four countries",
+     "x": 0.25,
+     "y": 0.82,
+     "step": 2,
+     "size": 30
+    },
+    {
+     "text": "Recharges slowly: considered non-renewable",
+     "x": 0.75,
+     "y": 0.82,
+     "step": 3,
+     "size": 30
+    }
+   ]
+  },
+  {
+   "type": "flow",
+   "id": "g23-proposal",
+   "style": "documentary_dark",
+   "build": true,
+   "source": "Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+   "title": "PROPOSAL (2009)",
+   "subtitle": "Carbon figures are the authors' estimate from plantation data, with large error bars; not a climate-model result",
+   "steps": [
+    "Seawater",
+    "Desalination",
+    "Pipeline",
+    "Irrigation",
+    "Forest"
+   ]
+  },
+  {
+   "type": "diagram",
+   "id": "g24-trillion",
+   "style": "documentary_dark",
+   "source": "Ornstein, Aleinov & Rind 2009, conclusion (p.431)",
+   "nodes": [
+    {
+     "id": "t",
+     "text": "\"MULTI-TRILLION-DOLLAR PROJECTS\"",
+     "x": 0.5,
+     "y": 0.42,
+     "w": 0.8,
+     "h": 0.28,
+     "style": "accent"
+    }
+   ],
+   "notes": [
+    {
+     "text": "The authors' own words, not a calculated annual cost",
+     "x": 0.5,
+     "y": 0.76,
+     "size": 36
+    }
+   ]
+  },
+  {
+   "type": "callout",
+   "id": "g24b-1000",
+   "style": "documentary_dark",
+   "source": "Ornstein et al. 2009, section 3.1 (p.418)",
+   "title": "2009 simulation: one model (GISS ModelE)",
+   "value": 1000,
+   "unit": "mm/yr +",
+   "label": "More than 1,000 mm of rain a year (about 40 in)",
+   "context": "Over roughly half of the irrigated Sahara; the authors asked other models to check it"
+  },
+  {
+   "type": "callout",
+   "id": "g24b-267",
+   "style": "documentary_light",
+   "source": "Kemena et al., Climate Dynamics (manuscript 2017; journal version 2018)",
+   "title": "A later simulation: a different model (CESM-WACCM)",
+   "value": 267,
+   "unit": "mm/yr",
+   "label": "Whole-Sahara average increase in rain (about 10 in)",
+   "context": "Surface air about 6.3 °C cooler (about 11 °F). The authors call the rain increase weak"
+  },
+  {
+   "type": "diagram",
+   "id": "g25-budget",
+   "style": "documentary_light",
+   "source": "Kemena et al., Climate Dynamics (manuscript 2017; journal version 2018)",
+   "title": "Water budget of the model forest",
+   "subtitle": "Millimeters per year, Sahara average of a 30-year simulation",
+   "nodes": [
+    {
+     "id": "lost",
+     "text": "Water lost: evaporation + transpiration 1,238",
+     "x": 0.17,
+     "y": 0.5,
+     "w": 0.24,
+     "h": 0.8,
+     "style": "blue",
+     "step": 2
+    },
+    {
+     "id": "rain",
+     "text": "Rain 319",
+     "x": 0.45,
+     "y": 0.203,
+     "w": 0.24,
+     "h": 0.206,
+     "style": "green",
+     "step": 1
+    },
+    {
+     "id": "sup",
+     "text": "Desalinated water supplied in the model 919",
+     "x": 0.45,
+     "y": 0.603,
+     "w": 0.24,
+     "h": 0.594,
+     "style": "accent",
+     "step": 3
+    }
+   ],
+   "notes": [
+    {
+     "text": "Rain 319 is about a quarter of 1,238: a ratio of totals, not a tracked drop of water",
+     "x": 0.8,
+     "y": 0.2,
+     "step": 2,
+     "size": 28
+    },
+    {
+     "text": "Water supply is assumed by the model, not shown to be feasible",
+     "x": 0.8,
+     "y": 0.6,
+     "step": 3,
+     "size": 28
+    }
+   ]
+  },
+  {
+   "type": "diagram",
+   "id": "g31-hypothesis",
+   "style": "documentary_dark",
+   "source": "No study found that models this for a planted Sahara",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "A greener Sahara blows less dust",
+     "x": 0.25,
+     "y": 0.4,
+     "w": 0.34,
+     "h": 0.28,
+     "style": "default"
+    },
+    {
+     "id": "b",
+     "text": "Less phosphorus for the Amazon?",
+     "x": 0.75,
+     "y": 0.4,
+     "w": 0.34,
+     "h": 0.28,
+     "style": "red",
+     "step": 2
+    }
+   ],
+   "arrows": [
+    {
+     "from": "a",
+     "to": "b",
+     "step": 2
+    }
+   ],
+   "notes": [
+    {
+     "text": "HYPOTHESIS · NO STUDY FOUND",
+     "x": 0.5,
+     "y": 0.8,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "type": "diagram",
+   "id": "g32-storms",
+   "style": "documentary_dark",
+   "source": "Pausata et al. 2017, PNAS 114:6221",
+   "title": "A simulation of the past, not a forecast",
+   "subtitle": "The world about 6,000 years ago (one model, EC-Earth)",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "Green Sahara: shrubs, dust cut by up to 80%",
+     "x": 0.14,
+     "y": 0.34,
+     "w": 0.24,
+     "h": 0.3,
+     "style": "green",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "Stronger West African monsoon",
+     "x": 0.43,
+     "y": 0.34,
+     "w": 0.22,
+     "h": 0.3,
+     "style": "blue",
+     "step": 2
+    },
+    {
+     "id": "c",
+     "text": "Winds change across the tropics",
+     "x": 0.7,
+     "y": 0.34,
+     "w": 0.22,
+     "h": 0.3,
+     "style": "default",
+     "step": 3
+    },
+    {
+     "id": "d",
+     "text": "More tropical cyclone activity in both hemispheres",
+     "x": 0.76,
+     "y": 0.8,
+     "w": 0.34,
+     "h": 0.24,
+     "style": "accent",
+     "step": 4
+    }
+   ],
+   "arrows": [
+    {
+     "from": "a",
+     "to": "b",
+     "step": 2
+    },
+    {
+     "from": "b",
+     "to": "c",
+     "step": 3
+    },
+    {
+     "from": "c",
+     "to": "d",
+     "step": 4
+    }
+   ],
+   "notes": [
+    {
+     "text": "Most around the Caribbean and the southeastern US; some ocean regions: fewer",
+     "x": 0.28,
+     "y": 0.72,
+     "step": 4,
+     "size": 28
+    },
+    {
+     "text": "Too few paleostorm records to check it",
+     "x": 0.28,
+     "y": 0.92,
+     "step": 4,
+     "size": 28
+    }
+   ]
+  },
+  {
+   "type": "diagram",
+   "id": "g33-sahel",
+   "style": "documentary_light",
+   "source": "NASA Earth Observatory, \"Defining Desertification\"; UNCCD 2020; Davies, UNCCD 2017",
+   "title": "The Sahel",
+   "subtitle": "Reported figures; they differ by region and report",
+   "nodes": [
+    {
+     "id": "v",
+     "text": "Vegetation followed the rains: down in the 1970s-80s, back in the 1990s-2000s",
+     "x": 0.26,
+     "y": 0.45,
+     "w": 0.44,
+     "h": 0.46,
+     "style": "green",
+     "step": 1
+    },
+    {
+     "id": "m",
+     "text": "More than 5 million ha restored: Maradi, Niger",
+     "x": 0.74,
+     "y": 0.28,
+     "w": 0.4,
+     "h": 0.22,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "n",
+     "text": "Over 7 million ha restored: Niger",
+     "x": 0.74,
+     "y": 0.62,
+     "w": 0.4,
+     "h": 0.22,
+     "style": "default",
+     "step": 3
+    }
+   ],
+   "notes": [
+    {
+     "text": "UNCCD documents credit farmers who protect self-sprouting trees",
+     "x": 0.74,
+     "y": 0.86,
+     "step": 3,
+     "size": 26
+    }
+   ]
+  },
+  {
+   "type": "bar",
+   "id": "g34-gww",
+   "style": "documentary_light",
+   "source": "UNCCD, The Great Green Wall: Implementation Status and Way Ahead to 2030 (2020)",
+   "title": "Great Green Wall: two targets, one preliminary count",
+   "subtitle": "Million hectares; counted figure as reported to the Wall's own agency; never combined",
+   "unit": "million hectares",
+   "bars": [
+    {
+     "label": "COP21 pledge, by 2030",
+     "value": 100
+    },
+    {
+     "label": "PA-GGW target, by 2030",
+     "value": 25
+    },
+    {
+     "label": "Counted by 2020 (preliminary)",
+     "value": 4,
+     "highlight": true
+    }
+   ]
+  },
+  {
+   "type": "diagram",
+   "id": "g36-uncertain",
+   "style": "documentary_dark",
+   "source": "NASA Earth Observatory 153475, \"Water for a Desert Lake in Algeria\"",
+   "nodes": [
+    {
+     "id": "u",
+     "text": "UNCLEAR WHETHER, AND HOW MUCH, THE SAHARA MIGHT GREEN AGAIN",
+     "x": 0.5,
+     "y": 0.3,
+     "w": 0.84,
+     "h": 0.26,
+     "style": "default"
+    },
+    {
+     "id": "c",
+     "text": "OVER THE COMING CENTURIES AND MILLENNIA",
+     "x": 0.5,
+     "y": 0.6,
+     "w": 0.84,
+     "h": 0.16,
+     "style": "accent",
+     "step": 2
+    }
+   ],
+   "notes": [
+    {
+     "text": "Greenhouse gases are layered on top of the orbital cycles",
+     "x": 0.5,
+     "y": 0.86,
+     "step": 2,
+     "size": 36
+    }
+   ]
+  }
+ ]
+}

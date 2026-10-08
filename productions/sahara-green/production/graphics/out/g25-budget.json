@@ -1,0 +1,119 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g25-budget",
+ "type": "diagram",
+ "style": "documentary_light",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Kemena et al., Climate Dynamics (manuscript 2017; journal version 2018)",
+ "credit": null,
+ "steps": [
+  "g25-budget.step1.png",
+  "g25-budget.step2.png",
+  "g25-budget.png"
+ ],
+ "sha256": {
+  "g25-budget.step1.png": "026b481a4356f4c2180e03a52a1aa6bb7208597ab3f0f9dbd2500cbec10bcf2a",
+  "g25-budget.step2.png": "29f34de6d3ee2bfe902285e1ac1ccd17f1765669ef108af4b0ee58953abbb9d1",
+  "g25-budget.png": "3015ec55303e9c74dd131852bd9af04a4ce6bd84e073ae4ca2cf256f0581ddf5"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "Water budget of the model forest",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    854.5,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "Millimeters per year, Sahara average of a 30-year simulation",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    968.5,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Kemena et al., Climate Dynamics (manuscript 2017; journal version 2018)",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    1035.5,
+    797.6
+   ]
+  },
+  {
+   "where": "node lost",
+   "text": "Water lost: evaporation + transpiration 1,238",
+   "size": 34,
+   "box": [
+    196.3,
+    455.9,
+    583.3,
+    536.9
+   ]
+  },
+  {
+   "where": "node rain",
+   "text": "Rain 319",
+   "size": 34,
+   "box": [
+    804.1,
+    322.3,
+    943.1,
+    363.1
+   ]
+  },
+  {
+   "where": "node sup",
+   "text": "Desalinated water supplied in the model 919",
+   "size": 34,
+   "box": [
+    696.4,
+    489.2,
+    1050.8,
+    610.2
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Rain 319 is about a quarter of 1,238: a ratio of totals, not a tracked drop of water",
+   "size": 28,
+   "box": [
+    1173.9,
+    307.8,
+    1782.9,
+    374.4
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Water supply is assumed by the model, not shown to be feasible",
+   "size": 28,
+   "box": [
+    1139.9,
+    514.8,
+    1816.9,
+    581.5
+   ]
+  }
+ ]
+}
