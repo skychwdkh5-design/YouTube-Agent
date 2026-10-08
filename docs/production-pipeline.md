@@ -119,6 +119,12 @@ whole video, so audio and burned-in captions stay frame-exact across segment bou
 `/yt-qc --profile long` checks the result, including that every segment boundary is a keyframe.
 Pacing targets are per minute and are warnings; the technical checks fail.
 
+### Explanatory graphics
+
+`/yt-graphics` turns a JSON spec into original 1920x1080 diagrams, charts, annotated Landsat views
+(scale bar from the yt-geo grid) and before/after panels, each with its source on it. They go into a
+long timeline as `"kind": "graphic"` assets: full-frame graphics shots, timed inserts and build steps.
+
 ## Shorts format rule: composition resets
 
 New information is not automatically a new visual composition. A Short has to reset the viewer's

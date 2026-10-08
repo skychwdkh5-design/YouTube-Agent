@@ -168,6 +168,15 @@ layers, wipes, flips, labels, arrows, pins, credits, composition and visual-fami
   tags >= 2 family transitions per minute and no family over 30 s unless it is transforming.
 - H.264 CRF 20 (Shorts keep CRF 18). Shorts are unchanged and still render in one pass.
 
+### Graphics from `/yt-graphics`
+
+An asset with `"kind": "graphic"` is a full-frame PNG at the profile's output size (1920x1080 for
+`long`) with a `credit`, and an optional `group` shared by the build steps of one graphic. A shot whose
+first layer is `{"type": "graphic", ...}` at `t = 0` needs no camera (a graphics shot; labels allowed,
+map layers not). A graphic layer with a `t` window in a map shot is a timed insert with a 0.35 s
+fade-in; map annotations are hidden while a graphic covers the frame. A new graphic counts as a
+composition reset, its build steps do not, and returning to the imagery does.
+
 ## Safety
 
 - **No render without `--confirm`.** Without it you get `"status": "confirm_required"` and the
