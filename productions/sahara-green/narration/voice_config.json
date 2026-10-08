@@ -1,0 +1,21 @@
+{
+  "schema": "ep001-voice-config/1",
+  "status": "prepared, nothing sent",
+  "provider": "elevenlabs",
+  "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps (via .claude/skills/yt-voice/voice.py)",
+  "auth": "proxy (YT_VOICE_AUTH=proxy): the egress proxy adds the key for api.elevenlabs.io; no key is stored or passed",
+  "language": "en (American English, US viewer; scripts are not translated)",
+  "model_id": "eleven_multilingual_v2",
+  "output_format": "mp3_44100_128 from the API, converted to 44.1 kHz mono WAV by voice.py",
+  "narrator": {"default": {"name": "Adam", "voice_id": "pNInz6obpgDQGcFmaJgB", "labels": {"gender": "male", "accent": "american", "age": "middle_aged", "use_case": "social_media"}, "note": "channel narrator in yt-voice; ElevenLabs describes it as 'bright, brash, openly confident', which may be too forceful for a calm science documentary: listen before committing"},
+               "candidates_for_listening_test": [
+                 {"name": "Brian", "voice_id": "nPczCjzI2devNBz1zQrb", "labels": "male, american, middle_aged, 'Deep, Resonant and Comforting'"},
+                 {"name": "Bill", "voice_id": "pqHfZKP75CvOlQylNhV4", "labels": "male, american, old, 'Wise, Mature, Balanced', crisp"},
+                 {"name": "Eric", "voice_id": "cjVigY5qzO86Huf0OWal", "labels": "male, american, middle_aged, 'Smooth, Trustworthy'"}]},
+  "voice_settings": {"stability": 0.55, "similarity_boost": 0.75, "style": 0.0, "speed": 1.0, "use_speaker_boost": true,
+                     "note": "starting values; the API default for Adam is stability 0.5, similarity 0.75, style 0, speed 1.0. Tune only from the sample: target 140-150 words per minute (about 12 minutes total), speed within 0.92-1.05"},
+  "context_between_chunks": "--context (previous_text and next_text, no extra billed characters) so prosody is continuous across chunk joins",
+  "chunking": "voice.py default 2,500 characters at paragraph then sentence boundaries: 5 requests for 10,518 characters",
+  "listening_test": {"excerpts": [["S001", "S004", 245], ["S046", "S049", 272], ["S055", "S058", 273]], "characters_per_voice": 790, "voices": ["Adam", "Brian", "Bill"], "characters_total": 2370},
+  "text_file": "narration/narration_text.txt (sha256 in narration_manifest.json)"
+}

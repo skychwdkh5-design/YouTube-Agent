@@ -21,7 +21,8 @@ ZOOM_SRC = (960, 540)
 T = {'kicker': (30, 'Medium'), 'title': (44, 'Medium'), 'date': (64, 'Medium'), 'date2': (44, 'Medium'), 'sub': (32, 'Regular'), 'label': (30, 'Medium'), 'note': (28, 'Regular'), 'chip': (28, 'Medium'), 'scale': (30, 'Medium'), 'cap': (36, 'Medium')}
 MX, MT, MB = 96, 72, 72          # safe margins (design px): 5% sides, 6.7% top and bottom (bottom keeps clear of mobile player UI)
 DISSOLVE_S = 0.8
-CHIP_TEXT = 'Dissolve, not an observation'
+FPS = 30                           # fps policy: 30 fps, the yt-render default for the long profile; all sequence times are defined in seconds
+CHIP_TEXT = 'Transition between satellite images'
 def smooth(t): t = min(max(t, 0), 1); return t * t * (3 - 2 * t)
 def view(img, box, size): return Image.fromarray(img).resize(size, Image.LANCZOS, box=box)
 def grad_shade(im, h, a, top):
@@ -142,7 +143,7 @@ class TO:
         im = Image.alpha_composite(base.convert('RGBA'), L.im).convert('RGB')
         m = {'label': TO_LABEL[cur], 'screen_px_per_src_px': round(CW / 3840, 3)}
         return (im, m, base, L) if parts else (im, m)
-def encode(frames_iter, out, w, h, fps=24, crf=24):
+def encode(frames_iter, out, w, h, fps=30, crf=24):
     p = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{w}x{h}', '-r', str(fps), '-i', '-', '-c:v', 'libx264', '-preset', 'medium', '-crf', str(crf), '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out], stdin=subprocess.PIPE)
     n = 0
     for im in frames_iter: p.stdin.write(np.asarray(im).tobytes()); n += 1
@@ -166,7 +167,7 @@ def to_timeline(fps):
     for _ in range(int(1.5 * fps)): seq.append((('2021', None), 0))
     return seq
 if __name__ == '__main__':
-    what = sys.argv[1]; sc = float(sys.argv[2]) if len(sys.argv) > 2 else 2 / 3; out = sys.argv[3] if len(sys.argv) > 3 else None; fps = 24
+    what = sys.argv[1]; sc = float(sys.argv[2]) if len(sys.argv) > 2 else 2 / 3; out = sys.argv[3] if len(sys.argv) > 3 else None; fps = int(sys.argv[4]) if len(sys.argv) > 4 else FPS
     CW, CH = int(1920 * sc), int(1080 * sc)
     if what == 'eo':
         e = EO(); tgt = e.target()

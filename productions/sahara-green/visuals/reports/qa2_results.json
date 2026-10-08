@@ -51,7 +51,7 @@
    "result": "PASS",
    "detail": {
     "min": [
-     5.5,
+     5.48,
      4.5,
      "TO",
      [
@@ -64,10 +64,10 @@
    }
   },
   {
-   "check": "every dissolve state shows both source dates, both timeline nodes and the \"not an observation\" chip",
+   "check": "every dissolve state shows both source dates, both timeline nodes and the transition chip",
    "result": "PASS",
    "detail": {
-    "chip": "Dissolve, not an observation"
+    "chip": "Transition between satellite images"
    }
   },
   {
@@ -172,22 +172,41 @@
    ]
   },
   {
-   "check": "eo_review.mp4 probe (new render)",
+   "check": "eo_review.mp4: encoded 30 fps (r and avg), 651 frames, 1280x720, h264 yuv420p",
    "result": "PASS",
    "detail": {
-    "size": "1915878",
-    "dur": "21.666667",
-    "frames": "520"
+    "r": "30/1",
+    "avg": "30/1",
+    "frames": "651",
+    "expected": 651,
+    "duration_s": "21.700000",
+    "size": "1884820"
    }
   },
   {
-   "check": "toshka_review.mp4 probe (new render)",
+   "check": "toshka_review.mp4: encoded 30 fps (r and avg), 477 frames, 1280x720, h264 yuv420p",
    "result": "PASS",
    "detail": {
-    "size": "826087",
-    "dur": "15.875000",
-    "frames": "381"
+    "r": "30/1",
+    "avg": "30/1",
+    "frames": "477",
+    "expected": 477,
+    "duration_s": "15.900000",
+    "size": "875707"
    }
+  },
+  {
+   "check": "sequence durations are defined in seconds and are fps-independent (24 and 30 fps give the same duration)",
+   "result": "PASS",
+   "detail": {
+    "EO_s": 21.7,
+    "TO_s": 15.9
+   }
+  },
+  {
+   "check": "transition label text is exactly \"Transition between satellite images\"",
+   "result": "PASS",
+   "detail": "Transition between satellite images"
   }
  ]
 }

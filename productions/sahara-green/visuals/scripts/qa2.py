@@ -55,7 +55,7 @@ for seq, st, base, L in frames:
     if y1 is not None and 0 < a < 1 and not ((seq == 'EO' and 'chip' in tags) or seq == 'TO'):
         if not (f'date:{y0}' in tags and f'date:{y1}' in tags and 'chip' in tags): miss.append((seq, st[0]))
     if y1 is not None and 0 < a < 1 and not ({f'date:{y0}', f'date:{y1}', 'chip'} <= tags): miss.append((seq, st[0], sorted(tags)))
-add('every dissolve state shows both source dates, both timeline nodes and the "not an observation" chip', not miss, miss[:4] or {'chip': r.CHIP_TEXT})
+add('every dissolve state shows both source dates, both timeline nodes and the transition chip', not miss, miss[:4] or {'chip': r.CHIP_TEXT})
 seqs_ok = all(0 < (j + 1) / (int(r.DISSOLVE_S * 24) + 1) < 1 for j in range(int(r.DISSOLVE_S * 24)))
 add('dissolve frames use strictly interior blend weights (no frame is ambiguous between two dates)', seqs_ok, {'dissolve_s': r.DISSOLVE_S})
 # 6 imagery invariance: pass-2 base frames vs pass-1 pipeline (same cached tone-B arrays; viewport box identical)
@@ -87,10 +87,13 @@ def order(seq, f):
         if not o or o[-1] != cur: o.append(cur)
     return o
 add('temporal order EO', order(r.eo_timeline(24), lambda s: (s[0], s[1])) == r.EO_YEARS, r.EO_YEARS); add('temporal order Toshka', order(r.to_timeline(24), lambda s: (s[0], s[1])) == r.TO_YEARS, r.TO_YEARS)
-# 10 videos
-for f in ('eo_review.mp4', 'toshka_review.mp4'):
+# 10 videos: encoded fps, frame count and duration must follow the single fps policy
+for f, n in (('eo_review.mp4', len(r.eo_timeline(r.FPS))), ('toshka_review.mp4', len(r.to_timeline(r.FPS)))):
     p = c.VIS + f
     if os.path.exists(p):
-        j = json.loads(subprocess.check_output(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height,r_frame_rate,nb_frames,codec_name,pix_fmt:format=duration,size', '-of', 'json', p]))
-        add(f'{f} probe (new render)', j['streams'][0]['width'] == 1280 and j['streams'][0]['height'] == 720 and os.path.getmtime(p) > os.path.getmtime(c.VIS + 'render.py'), {'size': j['format']['size'], 'dur': j['format']['duration'], 'frames': j['streams'][0]['nb_frames']})
+        j = json.loads(subprocess.check_output(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-count_frames', '-show_entries', 'stream=width,height,r_frame_rate,avg_frame_rate,nb_read_frames,codec_name,pix_fmt:format=duration,size', '-of', 'json', p]))
+        st = j['streams'][0]
+        add(f'{f}: encoded 30 fps (r and avg), {n} frames, 1280x720, h264 yuv420p', st['r_frame_rate'] == '30/1' and st['avg_frame_rate'] == '30/1' and int(st['nb_read_frames']) == n and (st['width'], st['height']) == (1280, 720) and st['pix_fmt'] == 'yuv420p', {'r': st['r_frame_rate'], 'avg': st['avg_frame_rate'], 'frames': st['nb_read_frames'], 'expected': n, 'duration_s': j['format']['duration'], 'size': j['format']['size']})
+add('sequence durations are defined in seconds and are fps-independent (24 and 30 fps give the same duration)', abs(len(r.eo_timeline(24)) / 24 - len(r.eo_timeline(30)) / 30) < 0.05 and abs(len(r.to_timeline(24)) / 24 - len(r.to_timeline(30)) / 30) < 0.05, {'EO_s': len(r.eo_timeline(30)) / 30, 'TO_s': len(r.to_timeline(30)) / 30})
+add('transition label text is exactly "Transition between satellite images"', r.CHIP_TEXT == 'Transition between satellite images', r.CHIP_TEXT)
 json.dump(res, open(c.VIS + 'qa2_results.json', 'w'), indent=1); print('fails', sum(x['result'] == 'FAIL' for x in res['checks']))
