@@ -1,0 +1,155 @@
+{
+ "scene": "LT05_L1TP_177044_20100122_20200825_02_T1",
+ "entity": "LT51770442010022MTI00",
+ "acquired": "2010-01-22",
+ "sensor": "Landsat 5 TM, Collection 2 Level-1 (L1TP, T1)",
+ "pixel_m": 30,
+ "method": "NDVI=(B4-B3)/(B4+B3) from 8-bit Level-1 DN (not radiometrically calibrated; used only for geometry); threshold NDVI; 4-connected components; keep components of 250-1400 px whose bounding box is within 2 px of square and whose fill ratio (area / (pi/4*h*w)) is >=0.85; equivalent diameter = 2*sqrt(area/pi)*30 m; bbox diameter = mean(h,w)*30 m.",
+ "uncertainty": "one pixel (30 m) on any single diameter; thresholds 0.2-0.4 change the median by <=10 m; circles that are only partly irrigated or partly harvested read smaller, so the median is biased low and the upper quartile / maximum is closer to the design diameter; DN-based NDVI is only approximate.",
+ "by_threshold": {
+  "0.20": {
+   "n": 304,
+   "equiv_diameter_m": {
+    "median": 755.8033990892966,
+    "q25": 672.7827718910097,
+    "q75": 797.8444234013735,
+    "p90": 821.5499270671928,
+    "max": 829.8766593580335
+   },
+   "bbox_diameter_m": {
+    "median": 765.0,
+    "q25": 686.25,
+    "q75": 810.0,
+    "p90": 825.0,
+    "max": 840.0
+   }
+  },
+  "0.30": {
+   "n": 287,
+   "equiv_diameter_m": {
+    "median": 752.3844107829809,
+    "q25": 667.2241171204907,
+    "q75": 791.355001896315,
+    "p90": 810.314527341034,
+    "max": 815.2490676791693
+   },
+   "bbox_diameter_m": {
+    "median": 765.0,
+    "q25": 675.0,
+    "q75": 795.0,
+    "p90": 810.0,
+    "max": 825.0
+   }
+  },
+  "0.40": {
+   "n": 261,
+   "equiv_diameter_m": {
+    "median": 746.2673628580847,
+    "q25": 652.0235302403364,
+    "q75": 780.0520357187296,
+    "p90": 796.7667393942547,
+    "max": 801.784663196287
+   },
+   "bbox_diameter_m": {
+    "median": 750.0,
+    "q25": 660.0,
+    "q75": 780.0,
+    "p90": 810.0,
+    "max": 810.0
+   }
+  }
+ },
+ "examples_largest_8_at_ndvi_0.30": [
+  {
+   "lon": 28.72993,
+   "lat": 22.69041,
+   "equiv_diameter_m": 815,
+   "bbox_diameter_m": 810
+  },
+  {
+   "lon": 28.62318,
+   "lat": 22.63912,
+   "equiv_diameter_m": 815,
+   "bbox_diameter_m": 810
+  },
+  {
+   "lon": 28.61351,
+   "lat": 22.63036,
+   "equiv_diameter_m": 815,
+   "bbox_diameter_m": 810
+  },
+  {
+   "lon": 28.71944,
+   "lat": 22.68137,
+   "equiv_diameter_m": 814,
+   "bbox_diameter_m": 810
+  },
+  {
+   "lon": 28.63283,
+   "lat": 22.63462,
+   "equiv_diameter_m": 813,
+   "bbox_diameter_m": 810
+  },
+  {
+   "lon": 28.69081,
+   "lat": 22.66262,
+   "equiv_diameter_m": 813,
+   "bbox_diameter_m": 810
+  },
+  {
+   "lon": 28.67072,
+   "lat": 22.68039,
+   "equiv_diameter_m": 812,
+   "bbox_diameter_m": 810
+  },
+  {
+   "lon": 28.7293,
+   "lat": 22.67243,
+   "equiv_diameter_m": 812,
+   "bbox_diameter_m": 810
+  }
+ ],
+ "examples_random_6_at_ndvi_0.30": [
+  {
+   "lon": 28.65533,
+   "lat": 22.52495,
+   "equiv_diameter_m": 726,
+   "bbox_diameter_m": 735
+  },
+  {
+   "lon": 28.5986,
+   "lat": 22.59304,
+   "equiv_diameter_m": 749,
+   "bbox_diameter_m": 750
+  },
+  {
+   "lon": 28.70725,
+   "lat": 22.30464,
+   "equiv_diameter_m": 658,
+   "bbox_diameter_m": 660
+  },
+  {
+   "lon": 28.42977,
+   "lat": 22.59971,
+   "equiv_diameter_m": 668,
+   "bbox_diameter_m": 660
+  },
+  {
+   "lon": 28.72955,
+   "lat": 22.66335,
+   "equiv_diameter_m": 810,
+   "bbox_diameter_m": 810
+  },
+  {
+   "lon": 28.49941,
+   "lat": 22.77154,
+   "equiv_diameter_m": 795,
+   "bbox_diameter_m": 810
+  }
+ ],
+ "centre_to_centre_spacing_m": {
+  "median": 900.8877743329895,
+  "q25": 829.3241750523496,
+  "q75": 996.3392037450068
+ }
+}

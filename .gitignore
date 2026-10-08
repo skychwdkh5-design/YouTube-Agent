@@ -12,3 +12,10 @@ productions/*
 # exception: Episode 001 preproduction text (scripts, ledgers, storyboards only;
 # media stays ignored by the *.mp4 / *.wav / *.mp3 rules above)
 !productions/sahara-green/
+
+# Landsat working data for Episode 001: never commit scene bundles or GeoTIFFs
+productions/sahara-green/landsat/work/
+productions/sahara-green/landsat/raw/
+*.tar
+*_refl.tif
+*_B[0-9]*.TIF
