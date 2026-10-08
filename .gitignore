@@ -19,3 +19,6 @@ productions/sahara-green/landsat/raw/
 *.tar
 *_refl.tif
 *_B[0-9]*.TIF
+
+# local-only test artefacts of the narration pipeline
+productions/sahara-green/narration/voice/partial_test/
