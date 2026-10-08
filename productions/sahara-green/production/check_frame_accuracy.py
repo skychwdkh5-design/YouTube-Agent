@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+"""EP001 timing QC: every pre-rendered video shot (sequences, CALIPSO) lands on exactly its frames in the review master.
+PSNR between the source clip frame and the master frame at the expected index and at +-1 (rows without captions/labels only);
+inside static holds neighbours tie, so first/last frame are also checked against the frame just outside the shot.
+  python3 check_frame_accuracy.py WORKSPACE"""
+import json, subprocess, sys, os
+import numpy as np
+FPS = 30
+def frame(path, n, w=1920, h=1080):
+    r = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-i', path, '-vf', f'select=eq(n\\,{n})', '-vsync', '0', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True)
+    return np.frombuffer(r.stdout, np.uint8).reshape(h, w, 3) if len(r.stdout) == w * h * 3 else None
+def psnr(a, b, rows):
+    a, b = a[rows[0]:rows[1]].astype(np.float64), b[rows[0]:rows[1]].astype(np.float64); m = ((a - b) ** 2).mean()
+    return 99.0 if m == 0 else 10 * np.log10(255 ** 2 / m)
+def main(ws):
+    tl = json.load(open(os.path.join(ws, 'timeline.json'))); master = os.path.join(ws, 'EP001_review_master_1080p30.mp4')
+    shots = tl['shots']; ends = [s['start'] for s in shots[1:]] + [tl['end']['seconds']]
+    out = []
+    for s, e in zip(shots, ends):
+        L = s['layers'][0]
+        if L['type'] != 'video': continue
+        src = os.path.join(ws, tl['assets'][L['asset']]['src']); f0 = round(s['start'] * FPS); n = round(e * FPS) - f0; k0 = round(L.get('trim', 0) * FPS)
+        rows = (520, 1000) if L['asset'] == 'calipso' else (0, 700)
+        res = {'shot': s['id'], 'asset': L['asset'], 'frames': n, 'checks': []}
+        for k in sorted({0, 1, n // 2, n - 2, n - 1}):
+            a = frame(src, k0 + k); b = {d: frame(master, f0 + k + d) for d in (-1, 0, 1)}
+            ps = {d: (psnr(a, b[d], rows) if b[d] is not None and a is not None else 0) for d in (-1, 0, 1)}
+            ok = ps[0] > 30 and ps[0] >= max(ps[-1], ps[1]) - 0.1
+            res['checks'].append({'k': k, 'psnr0': round(ps[0], 1), 'psnr_prev': round(ps[-1], 1), 'psnr_next': round(ps[1], 1), 'ok': bool(ok)})
+        # boundaries: the frame before the shot and after it must not be this clip's first / last frame
+        a0, a1 = frame(src, k0), frame(src, k0 + n - 1)
+        pre, post = frame(master, f0 - 1), frame(master, f0 + n)
+        res['first_not_previous'] = bool(f0 == 0 or psnr(a0, pre, rows) < 25); res['last_not_next'] = bool(post is None or psnr(a1, post, rows) < 25)
+        res['ok'] = all(c['ok'] for c in res['checks']) and res['first_not_previous'] and res['last_not_next']
+        out.append(res); print(res['shot'], res['asset'], 'OK' if res['ok'] else 'FAIL', [c['psnr0'] for c in res['checks']], flush=True)
+    json.dump({'shots': out, 'all_ok': all(r['ok'] for r in out)}, open(os.path.join(ws, 'frame_accuracy.json'), 'w'), indent=1)
+    print('ALL OK' if all(r['ok'] for r in out) else 'SOME FAILED')
+if __name__ == '__main__': main(sys.argv[1])
