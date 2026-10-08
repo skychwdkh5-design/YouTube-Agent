@@ -97,7 +97,7 @@ def main(ws):
                  {'id': 'mid', 'start': t_eo_end, 'layers': [{'type': 'graphic', 'asset': 'ph_mid'}]},
                  {'id': 'toshka', 'beat': 'scene 21', 'start': t_to, 'layers': [{'type': 'video', 'asset': 'seq_toshka', 'credit': False, 'captions': captions, 'caption': capTO}]},
                  {'id': 'tail', 'start': t_to_end, 'layers': [{'type': 'graphic', 'asset': 'ph_tail'}]}]
-        tl = {'version': 3, 'profile': 'long', 'grid': 'grid.json',
+        tl = {'version': 3, 'profile': 'long', 'grid': 'grid.json', 'shots': shots,
               'assets': {**{f'ph_{n}': {'src': f'ph_{n}.png', 'kind': 'graphic', 'credit': 'Placeholder (simulated timing)'} for n in ('pre', 'mid', 'tail')},
                          'seq_eo': {'src': 'seq_eo_SIMULATED_720p.mp4', 'kind': 'video', 'credit': 'Landsat 5, 8, 9 / USGS (locked sequence, 720p review render)'},
                          'seq_toshka': {'src': 'seq_toshka_SIMULATED_720p.mp4', 'kind': 'video', 'credit': 'Landsat 5, 8 / USGS (locked sequence, 720p review render)'}},
