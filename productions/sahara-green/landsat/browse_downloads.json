@@ -1,0 +1,109 @@
+{
+ "date": "2026-10-08",
+ "product": "Full-Resolution Browse (Natural Color) GeoTIFF",
+ "new_bytes_this_step": 24206010,
+ "items": [
+  {
+   "label": "1984",
+   "displayId": "LT05_L1TP_177044_19840826_20200918_02_T1",
+   "entityId": "LT51770441984239XXX04",
+   "bytes": 1376397,
+   "status": "ok",
+   "cleanup": "removed"
+  },
+  {
+   "label": "2000",
+   "displayId": "LT05_L1TP_177044_20000111_20200907_02_T1",
+   "entityId": "LT51770442000011RSA00",
+   "bytes": 1264977,
+   "status": "ok",
+   "cleanup": "removed"
+  },
+  {
+   "label": "2010 (already downloaded)",
+   "displayId": "LT05_L1TP_177044_20100122_20200825_02_T1",
+   "bytes": 1677867,
+   "status": "already downloaded (previous step)"
+  },
+  {
+   "label": "2016",
+   "displayId": "LC08_L1TP_177044_20160107_20200907_02_T1",
+   "entityId": "LC81770442016007LGN02",
+   "bytes": 2133997,
+   "status": "ok",
+   "cleanup": "removed"
+  },
+  {
+   "label": "2024",
+   "displayId": "LC09_L1TP_177044_20240105_20240105_02_T1",
+   "entityId": "LC91770442024005LGN00",
+   "bytes": 2391257,
+   "status": "ok",
+   "cleanup": "removed"
+  },
+  {
+   "label": "1999 baseline 176044",
+   "displayId": "LT05_L1TP_176044_19990101_20200908_02_T1",
+   "entityId": "LT51760441999001RSA00",
+   "bytes": 1609521,
+   "status": "ok",
+   "cleanup": "removed"
+  },
+  {
+   "label": "2002 176044",
+   "displayId": "LT05_L1TP_176044_20020109_20200905_02_T1",
+   "entityId": "LT51760442002009RSA01",
+   "bytes": 1572623,
+   "status": "ok",
+   "cleanup": "removed"
+  },
+  {
+   "label": "2002 175044",
+   "displayId": "LT05_L1TP_175044_20020118_20200905_02_T1",
+   "entityId": "LT51750442002018MTI00",
+   "bytes": 2198045,
+   "status": "ok",
+   "cleanup": "removed"
+  },
+  {
+   "label": "2011 176044",
+   "displayId": "LT05_L1TP_176044_20110729_20200820_02_T1",
+   "entityId": "LT51760442011210MTI00",
+   "bytes": 1764907,
+   "status": "ok",
+   "cleanup": "removed"
+  },
+  {
+   "label": "2011 175044",
+   "displayId": "LT05_L1TP_175044_20111010_20200820_02_T1",
+   "entityId": "LT51750442011283MTI00",
+   "bytes": 2318709,
+   "status": "ok",
+   "cleanup": "removed"
+  },
+  {
+   "label": "2021 176044",
+   "displayId": "LC08_L1TP_176044_20211113_20211125_02_T1",
+   "entityId": "LC81760442021317LGN00",
+   "bytes": 2137043,
+   "status": "ok",
+   "cleanup": "removed"
+  },
+  {
+   "label": "2021 175044",
+   "displayId": "LC08_L1TP_175044_20211106_20211117_02_T1",
+   "entityId": "LC81750442021310LGN00",
+   "bytes": 3193055,
+   "status": "ok",
+   "cleanup": "removed"
+  },
+  {
+   "label": "1999 baseline 175044 (added)",
+   "displayId": "LT05_L1TP_175044_19990110_20200908_02_T1",
+   "entityId": "LT51750441999010RSA00",
+   "bytes": 2245479,
+   "status": "ok",
+   "cleanup": "removed"
+  }
+ ]
+}

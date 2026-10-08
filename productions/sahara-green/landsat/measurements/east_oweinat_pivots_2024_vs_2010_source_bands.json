@@ -1,0 +1,277 @@
+{
+ "date": "2026-10-08",
+ "method": "TOA reflectance = (REFLECTANCE_MULT*DN + REFLECTANCE_ADD)/sin(sun elevation) from each scene MTL; NDVI = (NIR-red)/(NIR+red) with TM B4/B3 (2010) and OLI B5/B4 (2024); threshold NDVI; 4-connected components; isolated near-circular components only (250-1,400 px; bounding box square within 2 px; fill ratio (area/(pi/4*h*w)) >= 0.85); equivalent diameter = 2*sqrt(area/pi)*30 m; bbox diameter = mean(h,w)*30 m; centre-to-centre spacing = nearest-neighbour distance between detected circle centres. Pixel size 30 m for both sensors, same UTM zone 35N grid convention.",
+ "uncertainty": "+-30 m (1 pixel) on a single diameter; threshold 0.2-0.4 moves the 2024 full-circle median between 837 and 810 m and the 2010 one between 779 and 761 m; 0.30 is used as the primary threshold; mixed edge pixels and partly irrigated circles bias diameters; only isolated circles are measured (touching circles are skipped), so the sample is not every pivot; geometric RMSE of the scenes 3.9 m (2010) and 5.0 m (2024) is negligible.",
+ "scenes": {
+  "2010": {
+   "scene": "LT05_L1TP_177044_20100122_20200825_02_T1",
+   "acquired": "2010-01-22",
+   "sun_elevation": 38.92187181,
+   "red": "B3",
+   "nir": "B4",
+   "by_threshold": {
+    "0.2": {
+     "equiv_diameter_m": {
+      "n": 315,
+      "median": 777.8453777314289,
+      "q25": 696.2195181296293,
+      "q75": 813.4900917400523,
+      "p90": 837.43676850263,
+      "max": 843.5719184233686,
+      "min": 566.4418463295777
+     },
+     "bbox_diameter_m": {
+      "n": 315,
+      "median": 780.0,
+      "q25": 705.0,
+      "q75": 825.0,
+      "p90": 840.0,
+      "max": 870.0,
+      "min": 570.0
+     },
+     "nn_centre_spacing_m": {
+      "n": 315,
+      "median": 894.5874701702502,
+      "q25": 831.6086038639984,
+      "q75": 988.3697652078777,
+      "p90": 1007.5302571286305,
+      "max": 3336.4148523859008,
+      "min": 779.5066065820714
+     }
+    },
+    "0.3": {
+     "equiv_diameter_m": {
+      "n": 300,
+      "median": 756.9382427189654,
+      "q25": 672.9947337193212,
+      "q75": 797.4855187369949,
+      "p90": 820.9219907039343,
+      "max": 828.4946822802946,
+      "min": 539.5021407987722
+     },
+     "bbox_diameter_m": {
+      "n": 300,
+      "median": 765.0,
+      "q25": 690.0,
+      "q75": 798.75,
+      "p90": 825.0,
+      "max": 840.0,
+      "min": 525.0
+     },
+     "nn_centre_spacing_m": {
+      "n": 300,
+      "median": 895.7265208565448,
+      "q25": 830.8866914081485,
+      "q75": 993.9713118102487,
+      "p90": 1014.7806882233264,
+      "max": 14085.926024325197,
+      "min": 755.6995199924877
+     }
+    },
+    "0.4": {
+     "equiv_diameter_m": {
+      "n": 286,
+      "median": 752.0034565532245,
+      "q25": 670.4366140263364,
+      "q75": 790.8118201673251,
+      "p90": 808.5448155209008,
+      "max": 816.6534598789613,
+      "min": 574.476883778063
+     },
+     "bbox_diameter_m": {
+      "n": 286,
+      "median": 765.0,
+      "q25": 675.0,
+      "q75": 795.0,
+      "p90": 810.0,
+      "max": 825.0,
+      "min": 600.0
+     },
+     "nn_centre_spacing_m": {
+      "n": 286,
+      "median": 904.4407168789473,
+      "q25": 830.7762058015044,
+      "q75": 997.0512346691231,
+      "p90": 1194.602344263796,
+      "max": 3320.987887877295,
+      "min": 792.3480999863863
+     }
+    }
+   }
+  },
+  "2024": {
+   "scene": "LC09_L1TP_177044_20240105_20240105_02_T1",
+   "acquired": "2024-01-05",
+   "sun_elevation": 38.34841501,
+   "red": "B4",
+   "nir": "B5",
+   "by_threshold": {
+    "0.2": {
+     "equiv_diameter_m": {
+      "n": 1457,
+      "median": 836.0672879975656,
+      "q25": 820.1539193856154,
+      "q75": 844.9292353404549,
+      "p90": 858.384368763923,
+      "max": 907.0652643596612,
+      "min": 611.2024888899723
+     },
+     "bbox_diameter_m": {
+      "n": 1457,
+      "median": 840.0,
+      "q25": 825.0,
+      "q75": 855.0,
+      "p90": 870.0,
+      "max": 930.0,
+      "min": 600.0
+     },
+     "nn_centre_spacing_m": {
+      "n": 1457,
+      "median": 986.2188828647992,
+      "q25": 956.94022960303,
+      "q75": 1175.417034864842,
+      "p90": 1244.281037641285,
+      "max": 4566.616727975994,
+      "min": 745.9954879223667
+     }
+    },
+    "0.3": {
+     "equiv_diameter_m": {
+      "n": 1350,
+      "median": 818.7555314641014,
+      "q25": 795.5072516958152,
+      "q75": 829.1859587312052,
+      "p90": 842.8924403280769,
+      "max": 890.4906447914315,
+      "min": 548.9770489180881
+     },
+     "bbox_diameter_m": {
+      "n": 1350,
+      "median": 825.0,
+      "q25": 810.0,
+      "q75": 840.0,
+      "p90": 840.0,
+      "max": 900.0,
+      "min": 585.0
+     },
+     "nn_centre_spacing_m": {
+      "n": 1350,
+      "median": 984.8209686356762,
+      "q25": 940.1470730418583,
+      "q75": 1152.9825565553515,
+      "p90": 1244.3947111719629,
+      "max": 4562.831958131327,
+      "min": 696.807286553213
+     }
+    },
+    "0.4": {
+     "equiv_diameter_m": {
+      "n": 1161,
+      "median": 808.190501335631,
+      "q25": 776.3707880115184,
+      "q75": 818.7555314641014,
+      "p90": 831.2563388797541,
+      "max": 877.5279349717742,
+      "min": 580.4301711118436
+     },
+     "bbox_diameter_m": {
+      "n": 1161,
+      "median": 810.0,
+      "q25": 795.0,
+      "q75": 825.0,
+      "p90": 840.0,
+      "max": 900.0,
+      "min": 585.0
+     },
+     "nn_centre_spacing_m": {
+      "n": 1161,
+      "median": 981.095262619376,
+      "q25": 875.6042386498339,
+      "q75": 1118.1975750022714,
+      "p90": 1246.521500940678,
+      "max": 14430.58508466723,
+      "min": 652.3632714591887
+     }
+    }
+   }
+  }
+ },
+ "summary_at_ndvi_0.30": {
+  "2010": {
+   "all_isolated_equiv_diameter_m": {
+    "n": 300,
+    "median": 757,
+    "q25": 673,
+    "q75": 797,
+    "p90": 821,
+    "max": 828,
+    "min": 540
+   },
+   "full_circles_fill>=0.95_equiv_diameter_m": {
+    "n": 261,
+    "median": 764,
+    "q25": 677,
+    "q75": 805,
+    "p90": 822,
+    "max": 828,
+    "min": 540
+   },
+   "full_circles_bbox_diameter_m": {
+    "n": 261,
+    "median": 765,
+    "q25": 690,
+    "q75": 810,
+    "p90": 825,
+    "max": 840,
+    "min": 525
+   },
+   "share_full": 0.87
+  },
+  "2024": {
+   "all_isolated_equiv_diameter_m": {
+    "n": 1350,
+    "median": 819,
+    "q25": 796,
+    "q75": 829,
+    "p90": 843,
+    "max": 890,
+    "min": 549
+   },
+   "full_circles_fill>=0.95_equiv_diameter_m": {
+    "n": 1234,
+    "median": 821,
+    "q25": 803,
+    "q75": 830,
+    "p90": 843,
+    "max": 890,
+    "min": 596
+   },
+   "full_circles_bbox_diameter_m": {
+    "n": 1234,
+    "median": 825,
+    "q25": 810,
+    "q75": 840,
+    "p90": 840,
+    "max": 900,
+    "min": 600
+   },
+   "share_full": 0.91
+  },
+  "pairs": {
+   "n_pairs": 115,
+   "median_diff_all_m": -5,
+   "iqr_diff_all_m": [
+    -18,
+    14
+   ],
+   "n_both_full": 90,
+   "median_2010_both_full_m": 804,
+   "median_2024_both_full_m": 803,
+   "median_diff_both_full_m": -5
+  }
+ },
+ "reading": {
+  "diameter_vs_spacing": "Typical full circle is about 0.80-0.82 km across (about half a mile). Neighbouring circle centres are about 0.9-1.0 km apart (2010 median 896 m; 2024 median 985 m). \"A kilometer\" matches the spacing, not the diameter.",
+  "comparison": "115 circles found in both years (centres within 90 m, mean offset 10 m): median diameter difference 2024 minus 2010 is -5 m (IQR -18 to +14 m); among 90 pairs where both are full circles the medians are 804 m (2010) and 803 m (2024). The larger 2024 population median (819 m against 757 m) reflects which circles were detected and how complete they were in January, not growth or shrinkage of a circle; vegetation masks alone cannot show physical change in diameter."
+ }
+}
