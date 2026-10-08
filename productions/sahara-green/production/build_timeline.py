@@ -65,9 +65,16 @@ def main(ws):
         for aid, t in list(zip(ids, times))[1:]:
             layers.append({'type': 'graphic', 'asset': aid, 't': [round(q(t) - t0, 4), None]})
         shots.append({'id': sid, 'beat': beat, 'start': t0, 'layers': layers})
-    def vw(c, w): return {'center': [c[0], c[1]], 'width': min(w, 0.99)}
+    from PIL import Image
+    SIZES = {}
+    def vw(c, w, asset):
+        if asset not in SIZES:
+            with Image.open(os.path.join(ws, assets[asset]['src'])) as im: SIZES[asset] = im.size
+        iw, ih = SIZES[asset]; w = min(w, 0.99, 0.99 * ih * 16 / 9 / iw); bw = w * iw; bh = bw * 9 / 16
+        cx = min(max(c[0], bw / 2 / iw + 1e-4), 1 - bw / 2 / iw - 1e-4); cy = min(max(c[1], bh / 2 / ih + 1e-4), 1 - bh / 2 / ih - 1e-4)
+        return {'center': [round(cx, 5), round(cy, 5)], 'width': round(w, 5)}
     def sshot(sid, beat, start, asset, v0, v1, labels=(), ease='in_out'):
-        L = [{'type': 'still', 'asset': asset, 'view': {'from': vw(*v0), 'to': vw(*v1), 'ease': ease}}]
+        L = [{'type': 'still', 'asset': asset, 'view': {'from': vw(*v0, asset), 'to': vw(*v1, asset), 'ease': ease}}]
         for lab in labels:
             d = {'type': 'label', 'text': lab['text'], 'style': lab.get('style', 'tag'), 'slot': lab.get('slot', 'upper'), 't': [round(q(lab['t0']) - start, 4), round(q(lab['t1']) - start, 4)]}
             if lab.get('sub'): d['sub'] = lab['sub']
