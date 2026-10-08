@@ -1,0 +1,94 @@
+{
+ "baseline_commit": "c7e5b39",
+ "head": "c7e5b39",
+ "locks": {
+  "SCRIPT_LOCK_v1.1": {
+   "script_body_sha256": "d646001c83d3421d43510ece1926d7bd49bc197dcdde07b94fd2f4f3a049f335",
+   "recorded_in_SCRIPT_LOCK_md": "d646001c83d3421d43510ece1926d7bd49bc197dcdde07b94fd2f4f3a049f335",
+   "match": true,
+   "script_md_changed_since_baseline": false
+  },
+  "narration_text": {
+   "sha256": "101a143c9e96b3507153d95cdc8af76db56a945ae575050a3abbd374edddb091",
+   "manifest": "101a143c9e96b3507153d95cdc8af76db56a945ae575050a3abbd374edddb091",
+   "match": true,
+   "words": 1778,
+   "characters": 10518
+  },
+  "imagery_tone_B_frames": {
+   "frames_checked": 9,
+   "all_match": true,
+   "frames": {
+    "EO_1984_base.npy": {
+     "recorded": "3ec807f63eeada3c",
+     "now": "3ec807f63eeada3c",
+     "match": true
+    },
+    "EO_2000_base.npy": {
+     "recorded": "ac47afdb231c0100",
+     "now": "ac47afdb231c0100",
+     "match": true
+    },
+    "EO_2010_base.npy": {
+     "recorded": "2fe2e208bdfd346f",
+     "now": "2fe2e208bdfd346f",
+     "match": true
+    },
+    "EO_2016_base.npy": {
+     "recorded": "e4ed95ea71975857",
+     "now": "e4ed95ea71975857",
+     "match": true
+    },
+    "EO_2024_base.npy": {
+     "recorded": "f88302721a96ee6d",
+     "now": "f88302721a96ee6d",
+     "match": true
+    },
+    "TOSH_1999_base.npy": {
+     "recorded": "491b1ee5d8db9afa",
+     "now": "491b1ee5d8db9afa",
+     "match": true
+    },
+    "TOSH_2002_base.npy": {
+     "recorded": "45d511bfa24a4c04",
+     "now": "45d511bfa24a4c04",
+     "match": true
+    },
+    "TOSH_2011_base.npy": {
+     "recorded": "13f7fa2c99d6de3c",
+     "now": "13f7fa2c99d6de3c",
+     "match": true
+    },
+    "TOSH_2021_base.npy": {
+     "recorded": "0e848ff93847e3ca",
+     "now": "0e848ff93847e3ca",
+     "match": true
+    }
+   },
+   "note": "cached tone-B frames derived from the verified source bands (landsat/source_bands/manifest.json); outside Git"
+  }
+ },
+ "protected_paths_changed_since_baseline": [],
+ "changed_files_since_baseline": [
+  "productions/sahara-green/narration/cues.py",
+  "productions/sahara-green/narration/test_cues.py",
+  "productions/sahara-green/visuals/scripts/render.py"
+ ],
+ "intentional_changes_since_baseline": [
+  {
+   "file": "productions/sahara-green/visuals/scripts/render.py",
+   "change": "visual lock v1.2: 1984 hold push-in (<= 3 percent) and schedule-driven sequences; imagery, tone B, crops, dates, zoom target and zoom window unchanged"
+  },
+  {
+   "file": "productions/sahara-green/visuals/VISUAL_LOCK.md",
+   "change": "documents v1.2"
+  },
+  {
+   "file": "productions/sahara-green/narration/cues.py",
+   "change": "scene 19 shift capped at 2.2 s and reported (reviewer decision 4)"
+  }
+ ],
+ "render_py_sha256": "9426de3351d9c95f4d20c7c040a941891a78e15ff700a3f6f1b276bab61fc3a5",
+ "render_py_sha256_in_visual_lock_hashes_v1": "9ccda1ee5fb8c299d5409223d44b3208d1781c1470a2bd7ef77b414500472cf4",
+ "ALL_LOCKS_OK": true
+}

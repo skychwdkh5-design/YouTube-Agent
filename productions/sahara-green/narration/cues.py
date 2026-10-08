@@ -10,7 +10,7 @@ Frame i of a final render is drawn at i / fps (30 fps policy), so cue times map 
 import json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = 0.8                      # dissolve length (s), fixed by the visual lock
-EO = {'lead': 0.25, 'hold_min': 0.7, 'hold_pref': 0.9, 'hold_max': 1.5, 'zoom_min': 3.5, 'zoom_max': 6.0, 'tail_into_next_max': 2.6}
+EO = {'lead': 0.25, 'hold_min': 0.7, 'hold_pref': 0.9, 'hold_max': 1.5, 'zoom_min': 3.5, 'zoom_max': 6.0, 'tail_into_next_max': 2.6, 'scene19_shift_max': 2.2}
 TO = {'cue_offset': 0.3, 'end_pad': 1.0}
 def tok(s): return re.findall(r"\S+", s)
 def norm(w): return re.sub(r'[^\w]', '', w.lower())
@@ -33,7 +33,7 @@ def fit_eo(c, p=EO):
     """East Oweinat: 1984 from the start of S047 until the lead before S049; then 2000, 2010, 2016, 2024 with 0.8 s dissolves and a zoom that may run
     into the start of S050 (scene 19) by at most tail_into_next_max. Returns the schedule or raises with the shortfall."""
     t0, t1, t_end = c['S047']['start'], c['S049']['start'] - p['lead'], c['S049']['end'] + p['tail_into_next_max']
-    if 'S050' in c: t_end = min(t_end, c['S050']['end'])          # the zoom never runs past the end of S050 ("The water comes from below.")
+    if 'S050' in c: t_end = min(t_end, c['S050']['end'], c['S050']['start'] + p['scene19_shift_max'])   # never past the end of S050; scene 19 starts at most scene19_shift_max s late (reviewer: up to 2.2 s)
     A = t_end - t1; need_min = 4 * D + 3 * p['hold_min'] + p['zoom_min']
     if A < need_min: raise ValueError(f'East Oweinat window too short by {need_min - A:.2f} s (have {A:.2f} s, need {need_min:.2f} s): extend the scene or drop a frame')
     Z = min(p['zoom_max'], max(p['zoom_min'], A - 4 * D - 3 * p['hold_pref'])); H = min(p['hold_max'], (A - 4 * D - Z) / 3)
@@ -41,7 +41,7 @@ def fit_eo(c, p=EO):
     for y in ('2000', '2010', '2016'):
         seq += [(f'dissolve to {y}', t, t + D)]; t += D; seq += [(f'{y} hold', t, t + H)]; t += H
     seq += [('dissolve to 2024', t, t + D)]; t += D; seq += [('zoom into circles', t, t + Z)]; t += Z
-    return {'schedule': [{'step': s, 'start': round(a, 3), 'end': round(b, 3)} for s, a, b in seq], 'hold_s': round(H, 3), 'zoom_s': round(Z, 3), 'ends': round(t, 3), 'window_end_limit': round(t_end, 3), 'fits': t <= t_end + 1e-6}
+    return {'schedule': [{'step': s, 'start': round(a, 3), 'end': round(b, 3)} for s, a, b in seq], 'hold_s': round(H, 3), 'zoom_s': round(Z, 3), 'ends': round(t, 3), 'window_end_limit': round(t_end, 3), 'fits': t <= t_end + 1e-6, 'scene19_start_shift_s': round(max(0.0, t - c['S050']['start']), 3) if 'S050' in c else None}
 def fit_toshka(c, p=TO):
     """Toshka: 1999 from the start of S055; 2002 fully in at S056 (+offset), 2011 at S057, 2021 at S058; 2021 holds to the end of S058 + pad."""
     t0 = c['S055']['start']; cuts = [('2002', c['S056']['start']), ('2011', c['S057']['start']), ('2021', c['S058']['start'])]

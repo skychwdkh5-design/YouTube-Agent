@@ -24,6 +24,13 @@ class T(unittest.TestCase):
         c = cues.locate(synthetic(), man['units']); eo = cues.fit_eo(c) if True else None
         self.assertTrue(eo['fits']); self.assertGreaterEqual(eo['hold_s'], 0.7); self.assertGreaterEqual(eo['zoom_s'], 3.5)
         ts = cues.fit_toshka(c); self.assertGreater(ts['ends'], c['S058']['end'])
+    def test_scene19_shift_is_capped_at_2_2_seconds(self):
+        c = cues.locate(synthetic(), man['units']); eo = cues.fit_eo(c)
+        self.assertLessEqual(eo['scene19_start_shift_s'], 2.2 + 1e-6)
+        short = dict(c); short['S050'] = {'start': c['S050']['start'], 'end': c['S050']['end']}
+        short['S049'] = {'start': c['S049']['start'], 'end': c['S049']['start'] + 1.0}      # a very short S049: the window cannot hold the schedule within the cap
+        with self.assertRaises(ValueError) as e: cues.fit_eo(short)
+        self.assertIn('too short', str(e.exception))
     def test_infeasible_window_reports_shortfall(self):
         c = {'S047': {'start': 0, 'end': 2}, 'S049': {'start': 3, 'end': 6}}
         with self.assertRaises(ValueError) as e: cues.fit_eo(c)

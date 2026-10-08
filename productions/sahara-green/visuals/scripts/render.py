@@ -17,6 +17,7 @@ TO_SENSOR = {'1999': 'Landsat 5 TM', '2002': 'Landsat 5 TM', '2011': 'Landsat 5 
 EO_YEARS = ['1984', '2000', '2010', '2016', '2024']; TO_YEARS = ['1999', '2002', '2011', '2021']
 BG = (14, 17, 20); FG = (244, 244, 240); ACC = (246, 184, 70); LINE = (170, 176, 180)
 ZOOM_SRC = (960, 540)
+PUSH_MAX = 0.03     # 1984 hold: continuous push-in of at most 3 percent of the viewport width (visual lock v1.2); same viewport for every date afterwards
 # ---- shared type scale (design px at 1080p; identical for both sequences). Minimum secondary text 28 px = 18.7 px at 720p.
 T = {'kicker': (30, 'Medium'), 'title': (44, 'Medium'), 'date': (64, 'Medium'), 'date2': (44, 'Medium'), 'sub': (32, 'Regular'), 'label': (30, 'Medium'), 'note': (28, 'Regular'), 'chip': (28, 'Medium'), 'scale': (30, 'Medium'), 'cap': (36, 'Medium')}
 MX, MT, MB = 96, 72, 72          # safe margins (design px): 5% sides, 6.7% top and bottom (bottom keeps clear of mobile player UI)
@@ -96,10 +97,12 @@ def timeline(L, pts, cur, a, years, horizontal, x0, y0, x1, y1, lab, ta=1.0):
 class EO:
     def __init__(s): s.f = {k: np.load(f'{CACHE}EO_{k}_base.npy') for k in EO_YEARS}; s.W, s.H = s.f['2024'].shape[1], s.f['2024'].shape[0]
     def target(s): return json.load(open(c.VIS + 'eo_target.json'))['zoom_target_src_px']
-    def frame(s, sc, years, alpha, zoom, tgt, text_alpha=1.0, note=False, parts=False):
+    def frame(s, sc, years, alpha, zoom, tgt, text_alpha=1.0, note=False, parts=False, push=0.0):
+        assert 0.0 <= push <= PUSH_MAX + 1e-9, push
         CW, CH = int(1920 * sc), int(1080 * sc); z = smooth(zoom)
         dw = (1276 + 644 * z) * sc; dx0 = CW - dw
-        bw = float(np.exp(np.log(s.W) * (1 - z) + np.log(ZOOM_SRC[0]) * z)); bh = bw * CH / dw
+        w0 = s.W / (1.0 + push)           # push-in: the viewport narrows by `push` (0..3 %) around the frame centre; the zoom then starts from this view
+        bw = float(np.exp(np.log(w0) * (1 - z) + np.log(ZOOM_SRC[0]) * z)); bh = bw * CH / dw
         cx = (s.W / 2) * (1 - z) + tgt[0] * z; cy = (s.H / 2) * (1 - z) + tgt[1] * z
         cx = min(max(cx, bw / 2), s.W - bw / 2); cy = min(max(cy, bh / 2), s.H - bh / 2)
         if bh > s.H: bh = s.H; bw = bh * dw / CH; cx = s.W / 2
@@ -124,7 +127,7 @@ class EO:
             L.text(CW / sc - MX, 1080 - MB - 100, EO_LABEL[cur] + ' · ' + EO_SENSOR[cur], 'cap', FG, a, anchor='r', tag=f'date:{cur}')
             if note: L.text(CW / sc - MX, 1080 - MB - 52, 'Center-pivot circles, about half a mile across.', 'sub', FG, a, anchor='r', tag='zoom note')
         im = Image.alpha_composite(base.convert('RGBA'), L.im).convert('RGB')
-        m = {'box_src': [round(v, 1) for v in box], 'dest': size, 'screen_px_per_src_px': round(dw / bw, 3), 'label': EO_LABEL[cur]}
+        m = {'box_src': [round(v, 1) for v in box], 'dest': size, 'screen_px_per_src_px': round(dw / bw, 3), 'label': EO_LABEL[cur], 'push': round(push, 5), 'box_exact': list(box)}
         return (im, m, base, L) if parts else (im, m)
 class TO:
     def __init__(s): s.f = {k: np.load(f'{CACHE}TOSH_{k}_base.npy') for k in TO_YEARS}
@@ -175,19 +178,21 @@ def _alpha(tt, a, b, fps):
 def eo_states_from_schedule(sched, fps):
     """frames of the East Oweinat sequence for a cues.fit_eo schedule (absolute seconds); the zoom end is held to ."""
     steps = sched['schedule']; t0, end = steps[0]['start'], sched['clip_end']; n = int(round((end - t0) * fps)); out = []; prev = '1984'
+    hold_end = steps[0]['end']
     for i in range(n):
         tt = t0 + i / fps
+        pu = PUSH_MAX * min(1.0, max(0.0, (tt - t0) / max(hold_end - t0, 1e-6)))     # linear during the 1984 hold, then constant
         st = next((x for x in steps if x['start'] <= tt + 1e-9 < x['end']), None)
         if st is None:
-            out.append((('2024', None), 0, 1, 0, True)); continue
+            out.append((('2024', None), 0, 1, 0, True, PUSH_MAX)); continue
         name = st['step']
-        if name == '1984 hold': out.append((('1984', None), 0, 0, 1, False)); prev = '1984'
+        if name == '1984 hold': out.append((('1984', None), 0, 0, 1, False, pu)); prev = '1984'
         elif name.startswith('dissolve to'):
-            y = name.split()[-1]; out.append(((prev, y), _alpha(tt, st['start'], st['end'], fps), 0, 1, False))
+            y = name.split()[-1]; out.append(((prev, y), _alpha(tt, st['start'], st['end'], fps), 0, 1, False, PUSH_MAX))
             if tt + 1 / fps >= st['end'] - 1e-9: prev = y
-        elif name.endswith(' hold'): y = name.split()[0]; out.append(((y, None), 0, 0, 1, False)); prev = y
+        elif name.endswith(' hold'): y = name.split()[0]; out.append(((y, None), 0, 0, 1, False, PUSH_MAX)); prev = y
         elif name == 'zoom into circles':
-            z = (tt - st['start']) / (st['end'] - st['start']); out.append((('2024', None), 0, z, max(0, 1 - z * 5), z > 0.95))
+            z = (tt - st['start']) / (st['end'] - st['start']); out.append((('2024', None), 0, z, max(0, 1 - z * 5), z > 0.95, PUSH_MAX))
     return out
 def to_states_from_schedule(sched, fps):
     steps = sched['schedule']; t0, end = steps[0]['start'], sched['clip_end']; n = int(round((end - t0) * fps)); out = []; cur = '1999'
@@ -208,6 +213,6 @@ if __name__ == '__main__':
     elif what == 'to':
         t = TO(); print(encode((t.frame(sc, y, a)[0] for (y, a) in to_timeline(fps)), out, CW, CH, fps), 'frames')
     elif what == 'eo-sched':
-        e = EO(); tgt = e.target(); sched = json.load(open(sys.argv[5])); print(encode((e.frame(sc, y, a, z, tgt, ta, nt)[0] for (y, a, z, ta, nt) in eo_states_from_schedule(sched, fps)), out, CW, CH, fps), 'frames')
+        e = EO(); tgt = e.target(); sched = json.load(open(sys.argv[5])); print(encode((e.frame(sc, y, a, z, tgt, ta, nt, push=pu)[0] for (y, a, z, ta, nt, pu) in eo_states_from_schedule(sched, fps)), out, CW, CH, fps), 'frames')
     elif what == 'to-sched':
         t = TO(); sched = json.load(open(sys.argv[5])); print(encode((t.frame(sc, y, a, clarify=True)[0] for (y, a) in to_states_from_schedule(sched, fps)), out, CW, CH, fps), 'frames')
