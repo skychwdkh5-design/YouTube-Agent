@@ -23,6 +23,7 @@ MX, MT, MB = 96, 72, 72          # safe margins (design px): 5% sides, 6.7% top 
 DISSOLVE_S = 0.8
 FPS = 30                           # fps policy: 30 fps, the yt-render default for the long profile; all sequence times are defined in seconds
 CHIP_TEXT = 'Transition between satellite images'
+CLARIFY_2011 = 'Narration says "by 2012"; this image is from January 2011.'
 def smooth(t): t = min(max(t, 0), 1); return t * t * (3 - 2 * t)
 def view(img, box, size): return Image.fromarray(img).resize(size, Image.LANCZOS, box=box)
 def grad_shade(im, h, a, top):
@@ -127,14 +128,17 @@ class EO:
         return (im, m, base, L) if parts else (im, m)
 class TO:
     def __init__(s): s.f = {k: np.load(f'{CACHE}TOSH_{k}_base.npy') for k in TO_YEARS}
-    def frame(s, sc, years, alpha, parts=False):
+    def frame(s, sc, years, alpha, parts=False, clarify=False):
         CW, CH = int(1920 * sc), int(1080 * sc)
         A = view(s.f[years[0]], (0, 0, 3840, 2160), (CW, CH))
         if years[1] is not None and alpha > 0: A = Image.blend(A, view(s.f[years[1]], (0, 0, 3840, 2160), (CW, CH)), alpha)
         cur = years[1] if (years[1] is not None and alpha >= 0.5) else years[0]
         base = grad_shade(A, 340 * sc, 0.48, True); base = grad_shade(base, 210 * sc, 0.45, False)
         L = Layer(sc, CW, CH)
-        draw_info(L, MX, MT, TOS, years, alpha, 'TOSHKA LAKES, EGYPT', pill=True)
+        end_y = draw_info(L, MX, MT, TOS, years, alpha, 'TOSHKA LAKES, EGYPT', pill=True)
+        if clarify and years[1] is None and years[0] == '2011':      # narration says "By 2012"; the image date stays January 2011
+            tw = L.d.textlength(CLARIFY_2011, font=font(T['note'][0] * sc, T['note'][1])) / sc
+            L.pill(MX - 22, end_y + 10, MX + tw + 14, end_y + 10 + 46, 0.70); L.text(MX, end_y + 16, CLARIFY_2011, 'note', FG, tag='clarify 2011')
         tl0, tl1 = CW / sc - MX - 110 - 700, CW / sc - MX - 110; L.pill(tl0 - 72, MT - 16, tl1 + 72, MT + 124, 0.70)
         timeline(L, TO_YEARS, cur, alpha, years, True, tl0, MT + 38, tl1, MT + 38, TO_SHORT)
         km = 20; wpx = 20 / (0.03 / (CW / 3840)); L.pill(MX - 14, 1080 - MB - 84, MX + wpx + 18, 1080 - MB + 2, 0.70); L.bar(MX, 1080 - MB - 16, km, wpx)
@@ -166,6 +170,35 @@ def to_timeline(fps):
             for j in range(dis): seq.append(((k, TO_YEARS[i + 1]), (j + 1) / (dis + 1)))
     for _ in range(int(1.5 * fps)): seq.append((('2021', None), 0))
     return seq
+def _alpha(tt, a, b, fps):
+    return min(max((tt - a) / (b - a), 0.5 / (fps * (b - a))), 1 - 0.5 / (fps * (b - a)))      # strictly inside (0, 1): every dissolve frame shows both dates
+def eo_states_from_schedule(sched, fps):
+    """frames of the East Oweinat sequence for a cues.fit_eo schedule (absolute seconds); the zoom end is held to ."""
+    steps = sched['schedule']; t0, end = steps[0]['start'], sched['clip_end']; n = int(round((end - t0) * fps)); out = []; prev = '1984'
+    for i in range(n):
+        tt = t0 + i / fps
+        st = next((x for x in steps if x['start'] <= tt + 1e-9 < x['end']), None)
+        if st is None:
+            out.append((('2024', None), 0, 1, 0, True)); continue
+        name = st['step']
+        if name == '1984 hold': out.append((('1984', None), 0, 0, 1, False)); prev = '1984'
+        elif name.startswith('dissolve to'):
+            y = name.split()[-1]; out.append(((prev, y), _alpha(tt, st['start'], st['end'], fps), 0, 1, False))
+            if tt + 1 / fps >= st['end'] - 1e-9: prev = y
+        elif name.endswith(' hold'): y = name.split()[0]; out.append(((y, None), 0, 0, 1, False)); prev = y
+        elif name == 'zoom into circles':
+            z = (tt - st['start']) / (st['end'] - st['start']); out.append((('2024', None), 0, z, max(0, 1 - z * 5), z > 0.95))
+    return out
+def to_states_from_schedule(sched, fps):
+    steps = sched['schedule']; t0, end = steps[0]['start'], sched['clip_end']; n = int(round((end - t0) * fps)); out = []; cur = '1999'
+    for i in range(n):
+        tt = t0 + i / fps
+        st = next((x for x in steps if x['start'] <= tt + 1e-9 < x['end']), steps[-1])
+        if st['step'].startswith('dissolve to'):
+            y = st['step'].split()[-1]; out.append(((cur, y), _alpha(tt, st['start'], st['end'], fps)))
+            if tt + 1 / fps >= st['end'] - 1e-9: cur = y
+        else: out.append(((cur, None), 0))
+    return out
 if __name__ == '__main__':
     what = sys.argv[1]; sc = float(sys.argv[2]) if len(sys.argv) > 2 else 2 / 3; out = sys.argv[3] if len(sys.argv) > 3 else None; fps = int(sys.argv[4]) if len(sys.argv) > 4 else FPS
     CW, CH = int(1920 * sc), int(1080 * sc)
@@ -174,3 +207,7 @@ if __name__ == '__main__':
         print(encode((e.frame(sc, y, a, z, tgt, ta, nt)[0] for (y, a, z, ta, nt) in eo_timeline(fps)), out, CW, CH, fps), 'frames')
     elif what == 'to':
         t = TO(); print(encode((t.frame(sc, y, a)[0] for (y, a) in to_timeline(fps)), out, CW, CH, fps), 'frames')
+    elif what == 'eo-sched':
+        e = EO(); tgt = e.target(); sched = json.load(open(sys.argv[5])); print(encode((e.frame(sc, y, a, z, tgt, ta, nt)[0] for (y, a, z, ta, nt) in eo_states_from_schedule(sched, fps)), out, CW, CH, fps), 'frames')
+    elif what == 'to-sched':
+        t = TO(); sched = json.load(open(sys.argv[5])); print(encode((t.frame(sc, y, a, clarify=True)[0] for (y, a) in to_states_from_schedule(sched, fps)), out, CW, CH, fps), 'frames')

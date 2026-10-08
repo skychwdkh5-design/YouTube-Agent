@@ -28,7 +28,8 @@ PROFILES = {"short": {"width": 1080, "height": 1920, "fps": 30, "min_s": 35.0, "
             "long": {"width": 1920, "height": 1080, "fps": 30, "min_s": 60.0, "max_s": 900.0,
                      "safe": {"top": 0.07, "bottom": 0.13, "right": 0.05, "left": 0.05},
                      "crf": 20, "segment_s": 60.0, "captions_preset": "default"}}
-LAYER_TYPES = ("image", "flip", "wipe", "fill", "outline", "label", "arrow", "pin", "graphic")
+LAYER_TYPES = ("image", "flip", "wipe", "fill", "outline", "label", "arrow", "pin", "graphic", "video")
+FULL_FRAME = ("graphic", "video")      # layers that replace the whole picture (no camera needed)
 CAPTION = {"size": 68, "stroke": 7, "max_width": 820, "band_lower": 0.645, "band_upper": 0.33,
            "line_gap": 10}
 STYLES = {"year": (150, "Black", "#FFFFFF"), "stat": (120, "Black", "#FFD23F"),
@@ -175,9 +176,22 @@ def validate(tl, root, limits):
         where = f"assets.{aid}"
         r._keys(a, ("src", "kind", "label", "credit", "prov", "group"), where)
         kind = a.get("kind", "image")
-        if kind not in ("image", "mask", "graphic"):
-            raise E(f"{where}.kind must be 'image', 'mask' or 'graphic'")
+        if kind not in ("image", "mask", "graphic", "video"):
+            raise E(f"{where}.kind must be 'image', 'mask', 'graphic' or 'video'")
         src = r.resolve_src(a.get("src"), root, where)
+        if kind == "video":
+            # a full-frame video clip (for example a pre-rendered Landsat sequence): same frame rate as the profile, same aspect
+            info = r.probe_video(src, where, limits)
+            if info["fps"] != (fps, 1):
+                raise E(f"{where}: the video runs at {info['fps'][0]}/{info['fps'][1]} fps but profile {tl['profile']} renders {fps} fps; "
+                        f"re-render the clip at {fps} fps (frame-accurate timing needs identical rates)")
+            if abs(info["width"] / info["height"] - W / H) > 0.005 * (W / H):
+                raise E(f"{where} is {info['width']}x{info['height']}; profile {tl['profile']} needs {W}:{H} (it is scaled, never cropped or stretched)")
+            if not (isinstance(a.get("credit"), str) and a["credit"].strip()):
+                raise E(f"{where}: every video needs an on-screen 'credit' (its provenance)")
+            assets[aid] = {"src": src, "kind": "video", "label": a.get("label", aid), "credit": a.get("credit"), "prov": a.get("prov"),
+                           "group": aid, "frames": info["frames"], "source_size": [info["width"], info["height"]], "has_audio": info["has_audio"]}
+            continue
         if not src.lower().endswith(".png"):
             raise E(f"{where}: grid assets must be PNG (from yt-geo)" if kind != "graphic"
                     else f"{where}: graphics must be PNG (from yt-graphics)")
@@ -245,10 +259,10 @@ def validate(tl, root, limits):
         if i == 0 and start != 0:
             raise E("the first shot must start at 0 - the first frame is the hook")
         cam = s.get("camera")
-        layers = [_layer(L, assets, grid, f"{where}.layers[{j}]") for j, L in enumerate(s.get("layers") or [])]
-        if cam is None and any(L["type"] == "graphic" and L["t0"] == 0 for L in layers):
-            # a graphics shot: a full-frame yt-graphics image from its first frame, no map underneath
-            bad = sorted({L["type"] for L in layers} - {"graphic", "label"})
+        layers = [_layer(L, assets, grid, f"{where}.layers[{j}]", fps) for j, L in enumerate(s.get("layers") or [])]
+        if cam is None and any(L["type"] in FULL_FRAME and L["t0"] == 0 for L in layers):
+            # a graphics shot: a full-frame yt-graphics image or video from its first frame, no map underneath
+            bad = sorted({L["type"] for L in layers} - {"graphic", "video", "label"})
             if bad:
                 raise E(f"{where} has no camera (a graphics shot) and cannot use map layers {bad}")
             if s.get("focus") is not None:
@@ -291,6 +305,16 @@ def validate(tl, root, limits):
         raise E(f"shot {shots[-1]['id']} starts after the end of the video")
     for a, b in zip(shots, shots[1:] + [None]):
         a["end"] = b["start"] if b else duration
+    for s_ in shots:                                    # a video layer must have a frame for every frame it is on screen
+        for L in s_["layers"]:
+            if L["type"] != "video":
+                continue
+            t_end = s_["end"] if L["t1"] is None else min(s_["end"], s_["start"] + L["t1"])
+            need = int(round(t_end * fps)) - int(round((s_["start"] + L["t0"]) * fps))
+            have = assets[L["asset"]]["frames"] - L["start_frame"]
+            if need > have:
+                raise E(f"shot {s_['id']}: the video '{L['asset']}' has {have} frames from its start frame but the shot shows it for {need} "
+                        f"({(need - have) / fps:.3f}s short); shorten the shot, trim less, or hold a different image")
 
     plan = {"version": 3, "profile": tl["profile"], "output": dict(prof, width=W, height=H, fps=fps,
             video_codec="h264", audio_codec="aac", audio_rate=48000, audio_channels=2, crf=prof.get("crf", 18),
@@ -305,15 +329,15 @@ def validate(tl, root, limits):
     return plan
 
 
-def _layer(L, assets, grid, where):
+def _layer(L, assets, grid, where, fps=30):
     if not isinstance(L, dict) or L.get("type") not in LAYER_TYPES:
         raise E(f"{where}.type must be one of {LAYER_TYPES}")
     t = L["type"]
     allowed = {"image": ("asset",), "flip": ("assets", "step"), "wipe": ("from", "to"),
                "fill": ("mask", "minus", "color", "opacity"), "outline": ("mask", "color", "width"),
                "label": ("text", "sub", "slot", "style", "color"), "arrow": ("from", "to", "color", "width"),
-               "pin": ("at", "text", "color"), "graphic": ("asset",)}[t]
-    r._keys(L, ("type", "t", "info") + allowed + (("visual_family",) if t in ("image", "flip", "wipe", "graphic") else ()), where)
+               "pin": ("at", "text", "color"), "graphic": ("asset",), "video": ("asset", "trim", "credit", "captions", "caption")}[t]
+    r._keys(L, ("type", "t", "info") + allowed + (("visual_family",) if t in ("image", "flip", "wipe", "graphic", "video") else ()), where)
     out = {"type": t, "info": L.get("info"), "family": _family(L.get("visual_family"), f"{where}.visual_family")}
     tw = L.get("t", [0, None])
     if not (isinstance(tw, list) and len(tw) == 2):
@@ -329,6 +353,23 @@ def _layer(L, assets, grid, where):
         out["asset"] = asset(L.get("asset"), "image", f"{where}.asset")
     elif t == "graphic":
         out["asset"] = asset(L.get("asset"), "graphic", f"{where}.asset")
+    elif t == "video":
+        out["asset"] = asset(L.get("asset"), "video", f"{where}.asset")
+        tr = r._num(L.get("trim", 0), f"{where}.trim", 0, 100000)       # seconds into the video file where this layer's first frame is
+        out["start_frame"] = int(round(tr * fps))
+        for k in ("credit", "captions"):
+            if k in L and not isinstance(L[k], bool):
+                raise E(f"{where}.{k} must be true or false")
+        out["credit"], out["captions"] = L.get("credit", True), L.get("captions", True)   # false: the video already carries its own credit / the captions would cover it
+        cap = L.get("caption")      # where this layer's captions go when the video has its own text: {"band", "center_x", "max_width"}
+        if cap is not None:
+            if not isinstance(cap, dict):
+                raise E(f"{where}.caption must be an object with band, center_x and/or max_width")
+            r._keys(cap, ("band", "center_x", "max_width"), f"{where}.caption")
+            cap = {"band": None if cap.get("band") is None else r._num(cap["band"], f"{where}.caption.band", 0.1, 0.95),
+                   "center_x": None if cap.get("center_x") is None else r._num(cap["center_x"], f"{where}.caption.center_x", 0.1, 0.9),
+                   "max_width": None if cap.get("max_width") is None else r._num(cap["max_width"], f"{where}.caption.max_width", 300, 1900)}
+        out["caption"] = cap
     elif t == "flip":
         ids = L.get("assets")
         if not (isinstance(ids, list) and len(ids) >= 2):
@@ -434,16 +475,16 @@ def compositions(plan):
     for s in plan["shots"]:
         events = []
         if s["views"] is not None and group is not None and not any(
-                L["type"] == "graphic" and L["t0"] == 0 for L in s["layers"]):
+                L["type"] in FULL_FRAME and L["t0"] == 0 for L in s["layers"]):
             group = None
         for L in s["layers"]:
             t0 = s["start"] + L["t0"]
             if t0 >= s["end"]:
                 continue
-            if L["type"] == "graphic":
+            if L["type"] in FULL_FRAME:
                 g = plan["assets"][L["asset"]]["group"]
                 if g != group:
-                    events.append((t0, "graphic", f"graphic {g}"))
+                    events.append((t0, L["type"], f"{L['type']} {g}"))
                     group = g
                 if L["t1"] is not None and s["start"] + L["t1"] < s["end"] and s["views"] is not None:
                     events.append((s["start"] + L["t1"], "cut", "back to the imagery"))
@@ -658,6 +699,58 @@ class Fonts:
         return self.cache[key]
 
 
+class VideoSource:
+    """Frame k of a video asset as an RGB array at the output size. Frames come from one ffmpeg decode process read
+    in order; a request for an earlier frame or a far jump (a new render segment) restarts the decode at that frame
+    (an input seek half a frame early, so the first frame delivered is exactly k). Nothing is resampled in time."""
+    SKIP_LIMIT = 90            # read-and-discard up to this many frames instead of restarting the decoder
+
+    def __init__(self, asset, W, H, fps):
+        self.src, self.W, self.H, self.fps, self.frames = asset["src"], W, H, fps, asset["frames"]
+        self.proc, self.next, self.last = None, 0, None
+
+    def _open(self, k):
+        self.close()
+        cmd = ["ffmpeg", "-hide_banner", "-nostdin", "-v", "error"]
+        if k > 0:
+            cmd += ["-ss", f"{(k - 0.5) / self.fps:.6f}"]
+        cmd += ["-i", self.src, "-an", "-vf", f"scale={self.W}:{self.H}:flags=lanczos,format=rgb24", "-f", "rawvideo", "-"]
+        try:
+            self.proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+        except FileNotFoundError:
+            raise E("ffmpeg is not installed or not on PATH")
+        self.next = k
+
+    def _read(self):
+        n = self.W * self.H * 3
+        buf = self.proc.stdout.read(n)
+        if len(buf) != n:
+            raise E(f"the video {os.path.basename(self.src)} ended before frame {self.next}")
+        self.next += 1
+        return np.frombuffer(buf, np.uint8).reshape(self.H, self.W, 3)
+
+    def get(self, k):
+        if not 0 <= k < self.frames:
+            raise E(f"video frame {k} is outside {os.path.basename(self.src)} (0..{self.frames - 1})")
+        if self.last is not None and self.last[0] == k:
+            return self.last[1]
+        if self.proc is None or k < self.next or k - self.next > self.SKIP_LIMIT:
+            self._open(k)
+        while True:
+            fr = self._read()
+            if self.next - 1 == k:
+                self.last = (k, fr)
+                return fr
+
+    def close(self):
+        if self.proc is not None:
+            try:
+                self.proc.stdout.close(); self.proc.kill(); self.proc.wait(timeout=5)
+            except Exception:
+                pass
+            self.proc = None
+
+
 class Painter:
     def __init__(self, plan):
         self.p = plan
@@ -665,8 +758,11 @@ class Painter:
         self.safe = plan["output"]["safe"]
         self.img = {}
         self.mask = {}
+        self.vid = {}
         for aid, a in plan["assets"].items():
-            if a["kind"] == "image":
+            if a["kind"] == "video":
+                self.vid[aid] = VideoSource(a, self.W, self.H, plan["output"]["fps"])
+            elif a["kind"] == "image":
                 self.img[aid] = Image.open(a["src"]).convert("RGB")
             elif a["kind"] == "graphic":
                 self.img[aid] = np.asarray(Image.open(a["src"]).convert("RGB"))
@@ -675,6 +771,10 @@ class Painter:
         self.fonts = Fonts()
         self.caption_boxes = {}
         self.lay = LAYOUTS[plan["profile"]]
+
+    def close(self):
+        for v in self.vid.values():
+            v.close()
 
     # camera ------------------------------------------------------------------------------------
     def box(self, shot, t):
@@ -701,8 +801,15 @@ class Painter:
         def active(L):
             return L["t0"] <= lt and (L["t1"] is None or lt < L["t1"])
 
+        vlayer = None
         for L in shot["layers"]:
-            if L["type"] == "image" and active(L):
+            if L["type"] == "video" and active(L):
+                fps = self.p["output"]["fps"]
+                k = L["start_frame"] + int(round(t * fps)) - int(round((shot["start"] + L["t0"]) * fps))
+                base = self.vid[L["asset"]].get(k); vlayer = L
+                if L["credit"]:
+                    credits.append(L["asset"])
+            elif L["type"] == "image" and active(L):
                 base = self.crop(L["asset"], box); credits.append(L["asset"])
             elif L["type"] == "flip":
                 k = min(max(0, int((lt - L["t0"]) / L["step"])), len(L["assets"]) - 1)
@@ -782,7 +889,8 @@ class Painter:
                 self._arrow(d, self.to_screen(L["from"], box), self.to_screen(L["to"], box), L, a)
             elif kind == "pin":
                 self._pin(d, self.to_screen(L["at"], box), L, a)
-        self._caption(d, shot, box, t)
+        if vlayer is None or vlayer["captions"]:
+            self._caption(d, shot, box, t, vlayer["caption"] if vlayer else None)
         self._credit(d, credits)
         return im
 
@@ -827,7 +935,7 @@ class Painter:
         ty = y - dy if y > self.H * 0.3 else y + dy
         self._text(d, L["text"], font, (int(tx), int(ty)), L["color"], a)
 
-    def _caption(self, d, shot, box, t):
+    def _caption(self, d, shot, box, t, opts=None):
         cap = self.p["captions"]
         if not cap:
             return
@@ -837,12 +945,15 @@ class Painter:
         idx = cue[0]
         src_lines = self._srt_lines(idx)
         CAP = self.lay["caption"]
+        opts = opts or {}
         size = CAP["size"]
+        max_w = opts.get("max_width") or CAP["max_width"]
+        cap_x = int(self.W * opts["center_x"]) if opts.get("center_x") else self.W // 2
         font = self.fonts.get("Black", size)
-        while max(d.textlength(l, font=font) for l in src_lines) > CAP["max_width"] and size > CAP.get("min_size", 40):
+        while max(d.textlength(l, font=font) for l in src_lines) > max_w and size > CAP.get("min_size", 40):
             size -= 4
             font = self.fonts.get("Black", size)
-        band = CAP["band_lower"]
+        band = opts.get("band") or CAP["band_lower"]
         if shot["focus"]:
             g = self.p["grid"]
             x0, y0 = self.to_screen(g.px(shot["focus"][0], shot["focus"][3]), box)
@@ -854,10 +965,10 @@ class Painter:
         lh = size + CAP["line_gap"]
         cy = self.H * band - (len(src_lines) - 1) * lh / 2
         for k, line in enumerate(src_lines):
-            self._text(d, line, font, (self.W // 2, int(cy + k * lh)), (255, 255, 255), 1.0, CAP["stroke"])
+            self._text(d, line, font, (cap_x, int(cy + k * lh)), (255, 255, 255), 1.0, CAP["stroke"])
         bw = max(d.textlength(l, font=font) for l in src_lines)
         self.caption_boxes.setdefault(idx, {"cue": idx + 1, "band": band,
-            "box": [round(self.W / 2 - bw / 2), round(cy - size / 2), round(self.W / 2 + bw / 2),
+            "box": [round(cap_x - bw / 2), round(cy - size / 2), round(cap_x + bw / 2),
                     round(cy + (len(src_lines) - 1) * lh + size / 2)], "font_size": size})
 
     def _srt_lines(self, idx):
@@ -964,6 +1075,7 @@ def render(plan, out_path, overwrite=False, limits=None):
         raise
     finally:
         err.close()
+        painter.close()
     return {"status": "ok", "output": out_path, "manifest": man_path, "bytes": size, "sha256": r._sha256(out_path),
             "duration": round(got, 3), "expected_duration": plan["expected_duration"], "profile": plan["profile"],
             "shots": len(plan["shots"]), "info_events_first_10s": sum(1 for e in plan["events"] if e["t"] < 10),
@@ -1076,6 +1188,7 @@ def _render_segmented(plan, painter, out_path, limits):
             os.remove(tmp)
         raise
     finally:
+        painter.close()
         for fn in os.listdir(work):
             os.remove(os.path.join(work, fn))
         os.rmdir(work)

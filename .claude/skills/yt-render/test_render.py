@@ -77,8 +77,7 @@ class Validation(Base):
         a = self.img("a.png")
         for extra, clip in (({"audio": {"music": [{"src": "m.wav"}]}}, {}),
                             ({"audio": {"sfx": [{"src": "s.wav"}]}}, {}),
-                            ({"overlays": [{"type": "text"}]}, {}),
-                            ({}, {"type": "video"})):
+                            ({"overlays": [{"type": "text"}]}, {})):     # "type": "video" is supported since test_video.py
             tl = self.timeline([dict({"type": "image", "src": a, "duration": 2}, **clip)], **extra)
             code, d = run(["--timeline", tl, "--output", self.out(), "--confirm"])
             self.assertEqual((code, d["status"]), (2, "unsupported"), extra or clip)

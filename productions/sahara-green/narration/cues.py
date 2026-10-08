@@ -10,7 +10,7 @@ Frame i of a final render is drawn at i / fps (30 fps policy), so cue times map 
 import json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = 0.8                      # dissolve length (s), fixed by the visual lock
-EO = {'lead': 0.25, 'hold_min': 0.7, 'hold_pref': 0.9, 'hold_max': 1.5, 'zoom_min': 3.5, 'zoom_max': 6.0, 'tail_into_next_max': 1.5}
+EO = {'lead': 0.25, 'hold_min': 0.7, 'hold_pref': 0.9, 'hold_max': 1.5, 'zoom_min': 3.5, 'zoom_max': 6.0, 'tail_into_next_max': 2.6}
 TO = {'cue_offset': 0.3, 'end_pad': 1.0}
 def tok(s): return re.findall(r"\S+", s)
 def norm(w): return re.sub(r'[^\w]', '', w.lower())
@@ -33,6 +33,7 @@ def fit_eo(c, p=EO):
     """East Oweinat: 1984 from the start of S047 until the lead before S049; then 2000, 2010, 2016, 2024 with 0.8 s dissolves and a zoom that may run
     into the start of S050 (scene 19) by at most tail_into_next_max. Returns the schedule or raises with the shortfall."""
     t0, t1, t_end = c['S047']['start'], c['S049']['start'] - p['lead'], c['S049']['end'] + p['tail_into_next_max']
+    if 'S050' in c: t_end = min(t_end, c['S050']['end'])          # the zoom never runs past the end of S050 ("The water comes from below.")
     A = t_end - t1; need_min = 4 * D + 3 * p['hold_min'] + p['zoom_min']
     if A < need_min: raise ValueError(f'East Oweinat window too short by {need_min - A:.2f} s (have {A:.2f} s, need {need_min:.2f} s): extend the scene or drop a frame')
     Z = min(p['zoom_max'], max(p['zoom_min'], A - 4 * D - 3 * p['hold_pref'])); H = min(p['hold_max'], (A - 4 * D - Z) / 3)
