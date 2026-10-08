@@ -1,4 +1,8 @@
-# EP001 VISUAL LOCK v1.1 (East Oweinat and Toshka sequences)
+# EP001 VISUAL LOCK v1.2 (East Oweinat and Toshka sequences)
+
+v1.2 (2026-10-08, reviewer decision 3): a continuous push-in of at most 3 percent (`PUSH_MAX = 0.03` in `scripts/render.py`) during the East Oweinat 1984 hold, then the same 3 percent-narrower viewport for every later date and as the start of the zoom (so all dates always share one viewport and stay registered; the zoom end window is unchanged). QA (`reports/qa2_results.json`): push never above 3 percent, monotone, same viewport for both frames of every dissolve, panel is a pure Lanczos resample of the source box, 2010 and 2024 registered to 0.01 px inside the pushed viewport. **Result for the freeze check: not enough on its own.** The push adds about 0.025 grey levels of change per frame to the image panel (50 times the static 0.0005), but yt-qc's `freezedetect` (n = 0.0015, about 0.38 levels) still reports the 1984 hold as one 7.5 s freeze in the isolated sequence, and 5.43 s in the dry-run film (captions break it up); the check stays failed until the real narration, caption cues and a decision (waive, or an earlier dissolve) are in.
+
+
 
 v1.1 (2026-10-08, reviewer decision 5): one concise note on the Toshka January 2011 frame only, `Narration says "by 2012"; this image is from January 2011.` The image date, the label "January 2011", tone B, imagery, crops, zoom, scale bars and the 30 fps standard are unchanged. The sequences are now driven by narration timings (`narration/cues.py fit`): the hold, dissolve and zoom lengths come from the audio, so the delivered 21.7 s and 15.9 s review cuts are the *unfitted* versions. Dissolve length (0.8 s), the transition label and every visual rule below stay fixed.
 

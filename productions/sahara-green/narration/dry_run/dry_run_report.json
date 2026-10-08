@@ -139,65 +139,65 @@
    {
     "sequence": "seq_eo",
     "frame": 0,
-    "psnr_same_frame_db": 45.32,
+    "psnr_same_frame_db": 45.37,
     "psnr_prev_db": 6.19,
-    "psnr_next_db": 45.13,
+    "psnr_next_db": 44.98,
     "ok": true,
     "first_frame_matches_and_previous_is_other_shot": true
    },
    {
     "sequence": "seq_eo",
     "frame": 1,
-    "psnr_same_frame_db": 45.25,
-    "psnr_prev_db": 44.92,
-    "psnr_next_db": 45.21,
+    "psnr_same_frame_db": 45.35,
+    "psnr_prev_db": 44.8,
+    "psnr_next_db": 45.24,
     "ok": true
    },
    {
     "sequence": "seq_eo",
     "frame": 2,
-    "psnr_same_frame_db": 45.26,
-    "psnr_prev_db": 45.25,
-    "psnr_next_db": 45.25,
+    "psnr_same_frame_db": 45.32,
+    "psnr_prev_db": 45.28,
+    "psnr_next_db": 45.23,
     "ok": true
    },
    {
     "sequence": "seq_eo",
     "frame": 169,
-    "psnr_same_frame_db": 45.33,
-    "psnr_prev_db": 45.32,
-    "psnr_next_db": 45.33,
+    "psnr_same_frame_db": 45.24,
+    "psnr_prev_db": 45.18,
+    "psnr_next_db": 45.17,
     "ok": true
    },
    {
     "sequence": "seq_eo",
     "frame": 253,
-    "psnr_same_frame_db": 43.0,
-    "psnr_prev_db": 42.96,
+    "psnr_same_frame_db": 42.92,
+    "psnr_prev_db": 42.92,
     "psnr_next_db": 42.93,
     "ok": true
    },
    {
     "sequence": "seq_eo",
     "frame": 504,
-    "psnr_same_frame_db": 38.55,
-    "psnr_prev_db": 28.17,
-    "psnr_next_db": 29.88,
+    "psnr_same_frame_db": 38.27,
+    "psnr_prev_db": 28.14,
+    "psnr_next_db": 29.91,
     "ok": true
    },
    {
     "sequence": "seq_eo",
     "frame": 505,
-    "psnr_same_frame_db": 39.09,
-    "psnr_prev_db": 29.9,
-    "psnr_next_db": 33.42,
+    "psnr_same_frame_db": 38.88,
+    "psnr_prev_db": 29.93,
+    "psnr_next_db": 33.3,
     "ok": true
    },
    {
     "sequence": "seq_eo",
     "frame": 506,
-    "psnr_same_frame_db": 38.58,
-    "psnr_prev_db": 33.59,
+    "psnr_same_frame_db": 38.49,
+    "psnr_prev_db": 33.43,
     "psnr_next_db": 7.28,
     "ok": true,
     "last_frame_matches_and_next_is_other_shot": true
@@ -291,7 +291,7 @@
   "result": "FAIL",
   "file": "/tmp/claude-0/-home-user-YouTube-Agent/726a1102-cde7-58e4-becc-72fd703579dc/scratchpad/dryrun/dry_run_SIMULATED.mp4",
   "summary": {
-   "bytes": 13313708,
+   "bytes": 13419965,
    "duration": 82.5,
    "resolution": "1920x1080",
    "fps": 30.0,
@@ -317,7 +317,7 @@
     "id": "file_size",
     "status": "pass",
     "expected": "> 0 and <= 2000.0 MB",
-    "actual": 13313708
+    "actual": 13419965
    },
    {
     "id": "container",
