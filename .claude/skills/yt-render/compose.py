@@ -28,8 +28,10 @@ PROFILES = {"short": {"width": 1080, "height": 1920, "fps": 30, "min_s": 35.0, "
             "long": {"width": 1920, "height": 1080, "fps": 30, "min_s": 60.0, "max_s": 900.0,
                      "safe": {"top": 0.07, "bottom": 0.13, "right": 0.05, "left": 0.05},
                      "crf": 20, "segment_s": 60.0, "captions_preset": "default"}}
-LAYER_TYPES = ("image", "flip", "wipe", "fill", "outline", "label", "arrow", "pin", "graphic", "video")
-FULL_FRAME = ("graphic", "video")      # layers that replace the whole picture (no camera needed)
+LAYER_TYPES = ("image", "flip", "wipe", "fill", "outline", "label", "arrow", "pin", "graphic", "video", "still")
+FULL_FRAME = ("graphic", "video", "still")
+STILL_MAX_UPSCALE = 4.0    # external stills: at most 4 screen px per source px (the same upscale policy as the Landsat sequences); no AI, no sharpening
+STILL_PROVENANCE = ("credit", "source_url", "license", "retrieved")      # layers that replace the whole picture (no camera needed)
 CAPTION = {"size": 68, "stroke": 7, "max_width": 820, "band_lower": 0.645, "band_upper": 0.33,
            "line_gap": 10}
 STYLES = {"year": (150, "Black", "#FFFFFF"), "stat": (120, "Black", "#FFD23F"),
@@ -174,11 +176,30 @@ def validate(tl, root, limits):
     assets = {}
     for aid, a in (tl.get("assets") or {}).items():
         where = f"assets.{aid}"
-        r._keys(a, ("src", "kind", "label", "credit", "prov", "group"), where)
+        r._keys(a, ("src", "kind", "label", "credit", "prov", "group", "source_url", "license", "retrieved", "image_date", "derived_from"), where)
         kind = a.get("kind", "image")
-        if kind not in ("image", "mask", "graphic", "video"):
-            raise E(f"{where}.kind must be 'image', 'mask', 'graphic' or 'video'")
+        if kind not in ("image", "mask", "graphic", "video", "external_still"):
+            raise E(f"{where}.kind must be 'image', 'mask', 'graphic', 'video' or 'external_still'")
         src = r.resolve_src(a.get("src"), root, where)
+        if kind == "external_still":
+            # a still from outside the geo stack (NASA image, a Landsat crop made elsewhere): provenance is mandatory and is carried to the manifest
+            if not src.lower().endswith((".jpg", ".jpeg", ".png")):
+                raise E(f"{where}: an external still must be a JPEG or PNG")
+            miss = [k for k in STILL_PROVENANCE if not (isinstance(a.get(k), str) and a[k].strip())]
+            if miss:
+                raise E(f"{where}: an external still needs {', '.join(miss)} (on-screen credit, source URL, licence, retrieval date)")
+            if not re.match(r"^https://[^\s/]+\.[^\s/]+/", a["source_url"]):
+                raise E(f"{where}.source_url must be an https URL")
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", a["retrieved"]):
+                raise E(f"{where}.retrieved must be a date YYYY-MM-DD")
+            with Image.open(src) as im:
+                size = im.size
+            if size[0] < 1280 or size[0] * size[1] > 400_000_000:
+                raise E(f"{where} is {size[0]}x{size[1]}; an external still must be at least 1280 px wide")
+            assets[aid] = {"src": src, "kind": "external_still", "label": a.get("label", aid), "credit": a["credit"], "prov": a.get("prov"), "group": aid,
+                           "source_url": a["source_url"], "license": a["license"], "retrieved": a["retrieved"], "image_date": a.get("image_date"),
+                           "derived_from": a.get("derived_from"), "size": list(size)}
+            continue
         if kind == "video":
             # a full-frame video clip (for example a pre-rendered Landsat sequence): same frame rate as the profile, same aspect
             info = r.probe_video(src, where, limits)
@@ -262,7 +283,7 @@ def validate(tl, root, limits):
         layers = [_layer(L, assets, grid, f"{where}.layers[{j}]", fps) for j, L in enumerate(s.get("layers") or [])]
         if cam is None and any(L["type"] in FULL_FRAME and L["t0"] == 0 for L in layers):
             # a graphics shot: a full-frame yt-graphics image or video from its first frame, no map underneath
-            bad = sorted({L["type"] for L in layers} - {"graphic", "video", "label"})
+            bad = sorted({L["type"] for L in layers} - {"graphic", "video", "still", "label"})
             if bad:
                 raise E(f"{where} has no camera (a graphics shot) and cannot use map layers {bad}")
             if s.get("focus") is not None:
@@ -305,6 +326,17 @@ def validate(tl, root, limits):
         raise E(f"shot {shots[-1]['id']} starts after the end of the video")
     for a, b in zip(shots, shots[1:] + [None]):
         a["end"] = b["start"] if b else duration
+    for s_ in shots:                                    # an external still: the view stays inside the image and never exceeds the upscale policy
+        for L in s_["layers"]:
+            if L["type"] != "still":
+                continue
+            iw, ih = assets[L["asset"]]["size"]
+            for end, (cx, cy, wf) in zip(("from", "to"), L["view"]):
+                bw = wf * iw; bh = bw * H / W
+                if bh > ih + 1e-6 or cx * iw - bw / 2 < -1e-6 or cx * iw + bw / 2 > iw + 1e-6 or cy * ih - bh / 2 < -1e-6 or cy * ih + bh / 2 > ih + 1e-6:
+                    raise E(f"shot {s_['id']}: the {end} view of '{L['asset']}' leaves the image (a {W}:{H} window of width {wf} at {cx:.2f},{cy:.2f})")
+                if W / bw > STILL_MAX_UPSCALE + 1e-9:
+                    raise E(f"shot {s_['id']}: the {end} view of '{L['asset']}' would magnify {W / bw:.2f}x (limit {STILL_MAX_UPSCALE}x); use a wider view or a larger source")
     for s_ in shots:                                    # a video layer must have a frame for every frame it is on screen
         for L in s_["layers"]:
             if L["type"] != "video":
@@ -336,8 +368,8 @@ def _layer(L, assets, grid, where, fps=30):
     allowed = {"image": ("asset",), "flip": ("assets", "step"), "wipe": ("from", "to"),
                "fill": ("mask", "minus", "color", "opacity"), "outline": ("mask", "color", "width"),
                "label": ("text", "sub", "slot", "style", "color"), "arrow": ("from", "to", "color", "width"),
-               "pin": ("at", "text", "color"), "graphic": ("asset",), "video": ("asset", "trim", "credit", "captions", "caption")}[t]
-    r._keys(L, ("type", "t", "info") + allowed + (("visual_family",) if t in ("image", "flip", "wipe", "graphic", "video") else ()), where)
+               "pin": ("at", "text", "color"), "graphic": ("asset",), "video": ("asset", "trim", "credit", "captions", "caption"), "still": ("asset", "view", "credit", "captions", "caption")}[t]
+    r._keys(L, ("type", "t", "info") + allowed + (("visual_family",) if t in ("image", "flip", "wipe", "graphic", "video", "still") else ()), where)
     out = {"type": t, "info": L.get("info"), "family": _family(L.get("visual_family"), f"{where}.visual_family")}
     tw = L.get("t", [0, None])
     if not (isinstance(tw, list) and len(tw) == 2):
@@ -353,6 +385,33 @@ def _layer(L, assets, grid, where, fps=30):
         out["asset"] = asset(L.get("asset"), "image", f"{where}.asset")
     elif t == "graphic":
         out["asset"] = asset(L.get("asset"), "graphic", f"{where}.asset")
+    elif t == "still":
+        out["asset"] = asset(L.get("asset"), "external_still", f"{where}.asset")
+        v = L.get("view") or {"from": {"center": [0.5, 0.5], "width": 1.0}}
+        r._keys(v, ("from", "to", "ease"), f"{where}.view")
+        def vw(x, w):
+            r._keys(x, ("center", "width"), w)
+            c = x.get("center")
+            if not (isinstance(c, list) and len(c) == 2):
+                raise E(f"{w}.center must be [x, y] as fractions of the image")
+            return (r._num(c[0], f"{w}.center[0]", 0, 1), r._num(c[1], f"{w}.center[1]", 0, 1), r._num(x.get("width"), f"{w}.width", 0.02, 1.0))
+        out["view"] = (vw(v["from"], f"{where}.view.from"), vw(v.get("to", v["from"]), f"{where}.view.to"))
+        out["ease"] = v.get("ease", "in_out")
+        if out["ease"] not in ("in_out", "linear"):
+            raise E(f"{where}.view.ease must be 'in_out' or 'linear'")
+        for k in ("credit", "captions"):
+            if k in L and not isinstance(L[k], bool):
+                raise E(f"{where}.{k} must be true or false")
+        out["credit"], out["captions"] = L.get("credit", True), L.get("captions", True)
+        cap = L.get("caption")
+        if cap is not None:
+            if not isinstance(cap, dict):
+                raise E(f"{where}.caption must be an object with band, center_x and/or max_width")
+            r._keys(cap, ("band", "center_x", "max_width"), f"{where}.caption")
+            cap = {"band": None if cap.get("band") is None else r._num(cap["band"], f"{where}.caption.band", 0.1, 0.95),
+                   "center_x": None if cap.get("center_x") is None else r._num(cap["center_x"], f"{where}.caption.center_x", 0.1, 0.9),
+                   "max_width": None if cap.get("max_width") is None else r._num(cap["max_width"], f"{where}.caption.max_width", 300, 1900)}
+        out["caption"] = cap
     elif t == "video":
         out["asset"] = asset(L.get("asset"), "video", f"{where}.asset")
         tr = r._num(L.get("trim", 0), f"{where}.trim", 0, 100000)       # seconds into the video file where this layer's first frame is
@@ -762,6 +821,8 @@ class Painter:
         for aid, a in plan["assets"].items():
             if a["kind"] == "video":
                 self.vid[aid] = VideoSource(a, self.W, self.H, plan["output"]["fps"])
+            elif a["kind"] == "external_still":
+                self.img[aid] = Image.open(a["src"]).convert("RGB")
             elif a["kind"] == "image":
                 self.img[aid] = Image.open(a["src"]).convert("RGB")
             elif a["kind"] == "graphic":
@@ -803,7 +864,19 @@ class Painter:
 
         vlayer = None
         for L in shot["layers"]:
-            if L["type"] == "video" and active(L):
+            if L["type"] == "still" and active(L):
+                (x0, y0, w0), (x1, y1, w1) = L["view"]
+                k = _ease(min(1.0, max(0.0, (lt - L["t0"]) / max((shot["end"] - shot["start"] if L["t1"] is None else L["t1"]) - L["t0"], 1e-6))), L["ease"])
+                cx, cy = x0 + (x1 - x0) * k, y0 + (y1 - y0) * k
+                wf = math.exp(math.log(w0) * (1 - k) + math.log(w1) * k)           # logarithmic zoom, like the map camera
+                im_ = self.img[L["asset"]]; bw = wf * im_.size[0]; bh = bw * self.H / self.W
+                box_ = (cx * im_.size[0] - bw / 2, cy * im_.size[1] - bh / 2, cx * im_.size[0] + bw / 2, cy * im_.size[1] + bh / 2)
+                iw_, ih_ = im_.size                                                 # rounding in exp/log must not push the window off the image
+                box_ = (max(0.0, box_[0]), max(0.0, box_[1]), min(float(iw_), box_[2]), min(float(ih_), box_[3]))
+                base = np.asarray(im_.resize((self.W, self.H), Image.LANCZOS, box=box_)); vlayer = L
+                if L["credit"]:
+                    credits.append(L["asset"])
+            elif L["type"] == "video" and active(L):
                 fps = self.p["output"]["fps"]
                 k = L["start_frame"] + int(round(t * fps)) - int(round((shot["start"] + L["t0"]) * fps))
                 base = self.vid[L["asset"]].get(k); vlayer = L
@@ -1217,7 +1290,9 @@ def _manifest(plan, painter, shot_credits, out_path):
             "compositions": plan["compositions"],
             **({"visual_novelty": plan["novelty"]} if plan.get("novelty") else {}),
             "caption_boxes": [painter.caption_boxes[k] for k in sorted(painter.caption_boxes)],
-            "assets": {k: {"label": a["label"], "credit": a["credit"], "prov": a["prov"], "kind": a["kind"]}
+            "assets": {k: {"label": a["label"], "credit": a["credit"], "prov": a["prov"], "kind": a["kind"],
+                           **({kk: a[kk] for kk in ("source_url", "license", "retrieved", "image_date", "derived_from", "size")}
+                              if a["kind"] == "external_still" else {})}
                        for k, a in plan["assets"].items()},
             "warnings": plan["warnings"]}
 
