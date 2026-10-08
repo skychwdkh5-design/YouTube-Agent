@@ -7,10 +7,11 @@
 | Round-2 status | IDs |
 |---|---|
 | ✓ VERIFIED (wording as in script v0.2) | P20, S4, S5, S6, S7, S7b, S9, S17, S18, S18b, S19, S21, L2, G19, N1, L3 |
-| ⛔ BLOCKED (primary source unreachable) | G4, G17, G18, P10 |
+| ⛔ BLOCKED (primary source unreachable) | G4, G17, G18, P10, G1, G2, G5, G6, G8, G10, G11, G20, P24, P5, P17, P18 |
+| ✎ NEEDS_REVISION (round 4; wording for the reviewer) | P2, P3, P19 |
 | ◇ HYPOTHESIS (narrated as one) | G14 |
-| NEEDS_REVISION / SCENE-CHECK | L1 (Landsat supports bare 1984 scene; "earliest Landsat" and "~1 km" pending) |
-| ⚠ UNVERIFIED (not yet read in full) | S1, S2, S3, P2, P11, P12, P14, P8, L4, P18, P3, P5, P17, P19, G1, G2, G5, G6, G8, G20, G10, G11, P24, S12, S13, S14, P23 |
+| ✓ VERIFIED (wording approved by reviewer, round 4) | L1 (1984 Landsat image "almost entirely barren"; circles "roughly a kilometer across"; the exact diameter stays PROVISIONAL) |
+| ⚠ UNVERIFIED (not yet read in full) | S1, S2, S3, P11, P12, P14, P8, L4, S12, S13, S14, P23 |
 
 Corrections applied in script v0.2 (reviewer-approved): N1 (no "warming and drying"; NASA: air descends at about 15-30° and inhibits cloud formation), L3 (1,450 km², 80% and "late 1990s" removed; NASA's 2002 / 2012 / 2021 observations kept), S18 (COP21 100 Mha ambition and the PA-GGW 25 Mha target stated separately), R1 (Bodélé not presented as the Amazon's main source; reduction in Amazon phosphorus narrated as an unmodeled hypothesis), P20 (a reconstruction, not 230 observed events), S4 (dust carried past the Sahara's western edge).
 
@@ -48,7 +49,7 @@ Corrections applied in script v0.2 (reviewer-approved): N1 (no "warming and dryi
 | P17 | Mauritania dust record: abrupt end | DISPUTED | SNIPPET | deMenocal et al. 2000, QSR 19:347 | |
 | P19 | Time-transgressive end: fast locally, later further south | ESTABLISHED (leading synthesis) | SNIPPET | Shanahan et al. 2015, Nat. Geosci. 8:140 | |
 | N1 | NASA: descending air at about 15-30° latitude inhibits cloud formation, so clouds are rare and deserts common there; the air has already lost most of its water | ESTABLISHED (textbook) | **VERIFIED (read in full, round 2)** | NASA EO Cloudy Earth https://science.nasa.gov/earth/earth-observatory/cloudy-earth-85843/ ; NASA EO Southeastern Australia https://science.nasa.gov/earth/earth-observatory/southeastern-australia-3973/ | No "warming as it falls" claim: it is not in these sources. |
-| L1 | East Oweinat: no visible fields in a 1984 Landsat 5 scene (LT05_L1TP_177044_19840826), first small fields by Jan 2000, large pivot fields by 2016-2024; pivots measure ~0.9 km (median of 88 circles, Landsat 9, 2024-01-05) | OBSERVATION (Landsat) | **NEEDS_REVISION (wording)** | USGS Landsat Collection 2 scenes in `landsat/scene_candidates.json`; NASA EO https://science.nasa.gov/earth/earth-observatory/cultivating-egypts-desert-89820/ (development began in the 1980s) | "Earliest Landsat images" is not shown: MSS scenes (1972-83) were not searched. Recommended: "in a 1984 Landsat image" and "each close to a kilometer across". Reviewer to approve before the script changes. |
+| L1 | In a 1984 Landsat image the East Oweinat area is almost entirely barren; today it is covered in irrigation circles, each roughly a kilometer across | OBSERVATION (Landsat) | **VERIFIED (wording approved, round 4); exact diameter PROVISIONAL** | LT05_L1TP_177044_19840826_20200918_02_T1 (full-resolution browse viewed, no fields or regular geometry in the area where the 2024 fields lie); LC09_L1TP_177044_20240105_20240105_02_T1; NASA EO https://science.nasa.gov/earth/earth-observatory/cultivating-egypts-desert-89820/ | Median diameter of 88 circles on the 2024 browse image: ~0.87 km, assuming 30 m pixels and counting strongly green pixels only. Confirm on original band data (a 128 MB Level-1 bundle for TM; larger for OLI) before any exact figure is spoken or shown. MSS (1972-83) was not searched. |
 | G17 | Nubian Sandstone Aquifer System holds >150,000 km³ under Egypt, Libya, Sudan and Chad | ESTABLISHED | SECONDARY (AGU Eos) | https://eos.org/articles/ancient-water-underlies-arid-egypt | **Needs an IAEA/UNESCO primary source.** |
 | G18 | Recharge effectively zero ("barely being refilled") | ESTABLISHED | SECONDARY | Same Eos article (USGS hydrogeologist quoted) | |
 | L2 | Kufra runs on the same fossil groundwater; the water entered the ground in wetter times | ESTABLISHED | SNIPPET | NASA EO https://earthobservatory.nasa.gov/images/152356/water-beneath-the-sand | EO gives roughly 10,000 to 1,000,000 years. The script says "thousands of years ago or more". |

@@ -48,7 +48,7 @@ Round 2 (2026-10-08): scenes 2, 3, 14, 16, 21, 29, 30, 31 and 34 were aligned wi
 | 3 | 0:12-0:18 | "…what you'd change thousands of miles away…" | annotated_map | Bodélé (L5) geo graphic, with a plain arrow pointing west labelled "dust crosses the Atlantic" (no claim that the Bodélé is the source of the Amazon's dust; see R1) | THOUSANDS OF MILES AWAY | Landsat 8 · USGS |
 | 4 | 0:18-0:30 | "The Sahara covers about 9 million…" | external_still → fallback data_chart | Preferred: NASA Blue Marble Africa (B4). Fallback: a bar chart of area, Sahara vs the lower 48. | 9.2M km² vs 8.1M km² | Census; [S1 source] |
 | 5 | 0:30-0:36 | "…less than 100 millimeters of rain…" | number_callout | callout "<100 mm (4 in)" a year | | WWF/[S3] |
-| 6 | 0:36-0:46 | "So could we really cover it in green?" | pivot_fields | East Oweinat (L1), wipe from bare (earliest) to green (2024) | GREEN, IN THE DESERT, TODAY | Landsat 5 / 8 · USGS |
+| 6 | 0:36-0:46 | "So could we really cover it in green?" | pivot_fields | East Oweinat (L1), wipe from the 1984 scene (LT05_L1TP_177044_19840826) to the 2024 scene (LC09_L1TP_177044_20240105) | GREEN, IN THE DESERT, TODAY | Landsat 5 / 9 · USGS |
 
 ## ACT 1: The Green Sahara (0:46-1:59)
 
@@ -117,7 +117,7 @@ Round 2 (2026-10-08): scenes 2, 3, 14, 16, 21, 29, 30, 31 and 34 were aligned wi
 
 | # | ~Time | Narration (first words) | Family | Visual | On-screen labels | Source on screen |
 |---|---|---|---|---|---|---|
-| 35 | 8:38-8:58 | "So, could we turn the Sahara green?" | pivot_fields | East Oweinat widest view, wipe earliest → 2024 | — | Landsat · USGS |
+| 35 | 8:38-8:58 | "So, could we turn the Sahara green?" | pivot_fields | East Oweinat widest view, wipe 1984 → 2024 | — | Landsat · USGS |
 | 36 | 8:58-9:10 | "…turn green again on its own." | number_callout | callout "~10,000 years (one estimate)" | ONE SCIENTIST'S ESTIMATE | UC Irvine |
 | 37 | 9:10-9:21 + outro | "…whether we should be the ones to flip the switch." | orbit_wide | Ounianga or Tassili, slow pull-out, then the outro | — | Landsat 8 · USGS |
 
