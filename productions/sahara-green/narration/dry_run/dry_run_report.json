@@ -1,0 +1,144 @@
+{
+ "SIMULATED": true,
+ "window": {
+  "start_offset_s": 257.56666666666666,
+  "duration_s": 82.5
+ },
+ "simulated_pace_wpm": 145,
+ "full_narration_simulated_s": 735.7,
+ "shots": {
+  "pre": [
+   0,
+   6.0
+  ],
+  "east_oweinat": [
+   6.0,
+   22.9
+  ],
+  "mid": [
+   22.9,
+   57.86666666666667
+  ],
+  "toshka": [
+   57.86666666666667,
+   78.5
+  ],
+  "tail": [
+   78.5,
+   82.5
+  ]
+ },
+ "fit_east_oweinat": {
+  "schedule": [
+   {
+    "step": "1984 hold",
+    "start": 6.0,
+    "end": 13.486
+   },
+   {
+    "step": "dissolve to 2000",
+    "start": 13.486,
+    "end": 14.286
+   },
+   {
+    "step": "2000 hold",
+    "start": 14.286,
+    "end": 15.186
+   },
+   {
+    "step": "dissolve to 2010",
+    "start": 15.186,
+    "end": 15.986
+   },
+   {
+    "step": "2010 hold",
+    "start": 15.986,
+    "end": 16.886
+   },
+   {
+    "step": "dissolve to 2016",
+    "start": 16.886,
+    "end": 17.686
+   },
+   {
+    "step": "2016 hold",
+    "start": 17.686,
+    "end": 18.586
+   },
+   {
+    "step": "dissolve to 2024",
+    "start": 18.586,
+    "end": 19.386
+   },
+   {
+    "step": "zoom into circles",
+    "start": 19.386,
+    "end": 22.894
+   }
+  ],
+  "clip_end": 22.9
+ },
+ "fit_toshka": {
+  "schedule": [
+   {
+    "step": "hold before 2002",
+    "start": 57.86666666666667,
+    "end": 63.643
+   },
+   {
+    "step": "dissolve to 2002",
+    "start": 63.643,
+    "end": 64.443
+   },
+   {
+    "step": "hold before 2011",
+    "start": 64.443,
+    "end": 67.483
+   },
+   {
+    "step": "dissolve to 2011",
+    "start": 67.483,
+    "end": 68.283
+   },
+   {
+    "step": "hold before 2021",
+    "start": 68.283,
+    "end": 72.302
+   },
+   {
+    "step": "dissolve to 2021",
+    "start": 72.302,
+    "end": 73.102
+   },
+   {
+    "step": "2021 hold",
+    "start": 73.102,
+    "end": 78.505
+   }
+  ],
+  "clip_end": 78.5
+ },
+ "render_nocaptions": {
+  "duration": 82.5,
+  "expected_duration": 82.5,
+  "segments": 3,
+  "composition_resets": 4,
+  "warnings": [
+   "only 0 information events in the first 10 s (target >= 3)",
+   "only 2 distinct compositions in the first 10 s (target >= 3; new text or overlays on the same view do not count)",
+   "4 composition resets = 2.9/min (target >= 5/min)",
+   "one composition holds 35.0s without a reset (22.9-57.9s, target <= 8s)"
+  ]
+ },
+ "frame_accuracy": {
+  "checked_frames": 16,
+  "all_best_offset_zero": false,
+  "checks": [
+   {
+    "sequence": "seq_eo",
+    "frame": 0,
+    "psnr_same_frame_db": 45.32,
+    "psnr_prev_db": 6.19,
+    "psnr_next_db": 45.13,
+    "best_offset": 0,
+    "ok": 

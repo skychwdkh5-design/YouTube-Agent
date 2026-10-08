@@ -1,0 +1,116 @@
+{
+ "version": 3,
+ "profile": "long",
+ "grid": "grid.json",
+ "shots": [
+  {
+   "id": "pre",
+   "start": 0,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "ph_pre"
+    }
+   ]
+  },
+  {
+   "id": "east_oweinat",
+   "beat": "scene 18",
+   "start": 6.0,
+   "layers": [
+    {
+     "type": "video",
+     "asset": "seq_eo",
+     "credit": false,
+     "captions": true,
+     "caption": {
+      "band": 0.76,
+      "center_x": 0.667,
+      "max_width": 1100
+     }
+    }
+   ]
+  },
+  {
+   "id": "mid",
+   "start": 22.9,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "ph_mid"
+    }
+   ]
+  },
+  {
+   "id": "toshka",
+   "beat": "scene 21",
+   "start": 57.86666666666667,
+   "layers": [
+    {
+     "type": "video",
+     "asset": "seq_toshka",
+     "credit": false,
+     "captions": true,
+     "caption": {
+      "band": 0.76
+     }
+    }
+   ]
+  },
+  {
+   "id": "tail",
+   "start": 78.5,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "ph_tail"
+    }
+   ]
+  }
+ ],
+ "assets": {
+  "ph_pre": {
+   "src": "ph_pre.png",
+   "kind": "graphic",
+   "credit": "Placeholder (simulated timing)"
+  },
+  "ph_mid": {
+   "src": "ph_mid.png",
+   "kind": "graphic",
+   "credit": "Placeholder (simulated timing)"
+  },
+  "ph_tail": {
+   "src": "ph_tail.png",
+   "kind": "graphic",
+   "credit": "Placeholder (simulated timing)"
+  },
+  "seq_eo": {
+   "src": "seq_eo_SIMULATED_720p.mp4",
+   "kind": "video",
+   "credit": "Landsat 5, 8, 9 / USGS (locked sequence, 720p review render)"
+  },
+  "seq_toshka": {
+   "src": "seq_toshka_SIMULATED_720p.mp4",
+   "kind": "video",
+   "credit": "Landsat 5, 8 / USGS (locked sequence, 720p review render)"
+  }
+ },
+ "voice": {
+  "src": "narration_SIMULATED.wav",
+  "meta": "narration_SIMULATED.voice.json",
+  "normalize": false
+ },
+ "end": {
+  "seconds": 82.5
+ },
+ "render": {
+  "segment_s": 30
+ },
+ "meta": {
+  "SIMULATED": "narration timings are simulated; replace narration_SIMULATED.* with the real narration"
+ },
+ "captions": {
+  "src": "captions_SIMULATED/captions.srt",
+  "preset": "default"
+ }
+}
