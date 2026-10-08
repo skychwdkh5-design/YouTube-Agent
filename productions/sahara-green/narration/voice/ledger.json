@@ -1,0 +1,38 @@
+{
+ "voice": "Adam",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "model": "eleven_multilingual_v2",
+ "settings": {
+  "stability": 0.55,
+  "similarity_boost": 0.75,
+  "style": 0.0,
+  "speed": 1.0
+ },
+ "budget_credits": 10510,
+ "requests": [
+  {
+   "key": "7438fd805d22cbc3ad38cb5b",
+   "characters": 2276,
+   "credits": 1001,
+   "request_id": "uaUsA5xB7rFeuTC4RmNX",
+   "status": "ok",
+   "time": "run 1"
+  },
+  {
+   "key": "2637e606179ea0ee1e182d8f",
+   "characters": 2484,
+   "credits": null,
+   "status": "failed",
+   "error": "elevenlabs HTTP 502: upstream request failed (run 1; not retried automatically; charge, if any, unknown)"
+  },
+  {
+   "key": "2637e606179ea0ee1e182d8f",
+   "characters": 2484,
+   "credits": null,
+   "status": "failed",
+   "error": "elevenlabs HTTP 502: upstream request failed",
+   "seconds": 30.4,
+   "time": "2026-10-08T17:41:14Z"
+  }
+ ]
+}
