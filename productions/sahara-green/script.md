@@ -1,4 +1,4 @@
-# What If We Turned the Sahara Desert Green? — Episode 001 — NARRATION DRAFT v0.2 (NOT VOICED, NOT LOCKED)
+# What If We Turned the Sahara Desert Green? — Episode 001 — NARRATION DRAFT v0.3 (NOT VOICED, NOT LOCKED)
 
 Claim IDs in [brackets] map to `story/claims.md`. Brackets and headings are not spoken.
 Round 2 (2026-10-08) applied the reviewer-approved corrections N1, L3, S18, R1, P20 and S4; see `story/source_audit_round2.md` and `story/source_audit_round3.md`.
@@ -8,31 +8,31 @@ Lines marked (SCENE-CHECK) describe Landsat imagery and must be confirmed agains
 ## COLD OPEN
 You could turn the Sahara green. Geological records suggest it has happened more than 230 times before. [P20 ✓] But this time, what you'd change thousands of miles away is the part that's easy to miss.
 
-The Sahara covers about 9 million square kilometers, roughly 3.5 million square miles. That's bigger than the entire lower 48 United States. [S1 ⚠UNVERIFIED, S2 ⚠UNVERIFIED] Across most of it, less than 100 millimeters of rain falls in a year. That's under 4 inches. [S3 ⚠UNVERIFIED]
+The Sahara covers about 9 million square kilometers, roughly 3.5 million square miles. That's bigger than the entire lower 48 United States. [S1 ⛔BLOCKED, S2 ⛔BLOCKED] Across most of it, less than 100 millimeters of rain falls in a year. That's under 4 inches. [S3 ✎NEEDS_REVISION]
 
 So could we really cover it in green? Scientists have run the numbers. Engineers have already done it, in patches. And climate models have tested what happens if we go all the way. But first, the Sahara that was already green.
 
 ## ACT 1 — THE GREEN SAHARA
-Between roughly 11,000 and 5,000 years ago, much of the Sahara was grassland and savanna, dotted with lakes and wetlands. [P2 ✎NEEDS_REVISION, P11 ⚠UNVERIFIED] Not a jungle. Think of the open plains of East Africa today.
+According to one reconstruction of the last green period, between roughly 11,000 and 6,000 years ago much of the Sahara was grassland and savanna, dotted with lakes and wetlands. Other records place the wet phase a few thousand years earlier or later. [P2 ✓, P11 ✓] Not a jungle. Think of the open plains of East Africa today.
 
 In what is now Chad, a lake called Mega-Chad covered at least 400,000 square kilometers. That's more than 150,000 square miles of water, in a place that is now desert. [P10 ⛔BLOCKED]
 
-At a site called Gobero, in Niger, archaeologists found about 200 graves beside a vanished lake, among the bones of crocodiles and large fish. [P12 ⚠UNVERIFIED] In Algeria's Tassili n'Ajjer, more than 15,000 drawings and engravings record animals and people from a wetter time. [P14 ⚠UNVERIFIED]
+At a site called Gobero, in Niger, archaeologists found about 200 graves beside a vanished lake, among the bones of crocodiles and large fish. [P12 ✓] In Algeria's Tassili n'Ajjer, more than 15,000 drawings and engravings record animals and people from a wetter time. [P14 ✓]
 
-How much wetter? One of the scientists who reconstructed the ancient rainfall, Jessica Tierney, put it simply: the Sahara was "ten times as wet as today." [P8 ⚠UNVERIFIED]
+How much wetter? One of the scientists who reconstructed the ancient rainfall, Jessica Tierney, put it simply: the Sahara was "ten times as wet as today." [P8 ⛔BLOCKED]
 
-And a piece of that world is still here. In northern Chad, the Lakes of Ounianga sit in the middle of the desert, fed by ancient groundwater. [L4 ⚠UNVERIFIED] The mud at the bottom of one of them, Lake Yoa, holds a layer-by-layer record of the Sahara drying out. [P18 ⛔BLOCKED]
+And a piece of that world is still here. In northern Chad, the Lakes of Ounianga sit in the middle of the desert, fed by ancient groundwater. [L4 ✓] The mud at the bottom of one of them, Lake Yoa, holds a layer-by-layer record of the Sahara drying out. [P18 ⛔BLOCKED]
 
 ## ACT 2 — WHAT FLIPS THE SWITCH
 So what turned the Sahara green? Not people. Earth's orbit.
 
-Earth's orbit has a slow wobble, a cycle of roughly 21,000 years. It changes how much summer sunlight reaches the Northern Hemisphere. When northern summers were sunnier, the West African monsoon pushed its rains far north, deep into the Sahara. [P3 ✎NEEDS_REVISION]
+Earth's orbit has a slow wobble, a cycle that plays out over many thousands of years. It changes how much summer sunlight reaches the Northern Hemisphere. When northern summers were sunnier, the West African monsoon pushed its rains far north, deep into the Sahara. [P3 ✓]
 
-But sunlight alone can't explain how wet it got. Climate models only match the evidence when they add two amplifiers: plants, and cleaner air with less dust. [P5 ⛔BLOCKED] More plants meant more rain. More rain meant more plants.
+But sunlight alone may not explain how wet it got. Climate models struggle to reproduce all the rain that geologists think fell on the Sahara, and researchers are still working out what the models are missing. One proposed amplifier is feedback: more lakes and plants could mean more rain, and more rain, more plants. [P5 ✓]
 
 And it's not a one-time event. Geological records, mostly marine and desert sediments, point to more than 230 green Sahara periods in the last 8 million years. That's a reconstruction, not 230 events anyone observed. [P20 ✓]
 
-How did the last one end? Scientists argued about that for years. A dust record off the coast of Mauritania pointed to a sudden end. [P17 ⛔BLOCKED] Lake Yoa pointed to a slow one. [P18 ⛔BLOCKED] The leading explanation today is that both are partly right. At any one place, the end came fairly fast. But it came later the farther south you go. The desert crept south. [P19 ✎NEEDS_REVISION]
+How did the last one end? Scientists still debate whether it was abrupt or gradual. One reconstruction, built from dated lake and river sediments across the Sahara, finds the monsoon rains retreating gradually southward over two to three thousand years. Other records have been read as showing a more abrupt end. The desert crept south. [P19 ✓, P17 ◇DEBATE]
 
 ## ACT 3 — WHY IT'S A DESERT NOW
 Today, the Sahara sits under a belt of sinking air. Near the equator, warm, moist air rises, and forms clouds and rain. High up, it flows toward the poles, then sinks around 30 degrees latitude, by then dry. NASA notes that descending air inhibits cloud formation, which is why clouds are rare and deserts are common at those latitudes. [N1 ✓]
@@ -73,14 +73,14 @@ So here's the open question. If a greener Sahara blew less dust, would the Amazo
 Third, storms. In a climate model of the last Green Sahara, adding plants and removing dust increased tropical cyclone activity around the world, with the biggest increase over the Caribbean and the US East Coast. [P24 ⛔BLOCKED] That's a model of the past, not a forecast. But it shows how far the Sahara reaches.
 
 ## ACT 7 — WHAT'S ACTUALLY HAPPENING
-Meanwhile, something real has been happening on the Sahara's southern edge. Since the droughts of the 1970s and 80s, satellites have watched much of the Sahel grow greener. [S12 ⚠UNVERIFIED] Returning rain explains much of it. Farmers explain some. [S13 ⚠UNVERIFIED] In Niger, farmers protecting trees that sprout on their own land covered about 7 million hectares by 2017, around 17 million acres, according to a USGS estimate. [S14 ⚠UNVERIFIED]
+Meanwhile, something real has been happening on the Sahara's southern edge. Since the droughts of the 1970s and 80s, satellites have watched much of the Sahel grow greener. [S12 ✓] Returning rain explains much of it. Farmers explain some. [S13 ✎NEEDS_REVISION] In Niger, farmers protecting trees that sprout on their own land covered about 7 million hectares by 2017, around 17 million acres, according to a USGS estimate. [S14 ✎NEEDS_REVISION]
 
 In 2007, the African Union launched the Great Green Wall. Its stated ambition, a pledge made at the COP21 climate conference, is to restore 100 million hectares of degraded land by 2030. [S17 ✓, S18 ✓] The Wall's own coordinating agency has set a separate, smaller target: 25 million hectares. [S18b ✓] By 2020, a preliminary UN assessment counted about 4 million hectares restored inside its core zones. [S19 ✓] The project has shifted from a literal wall of trees to a patchwork of restored farmland, pasture and forest. [S21 ✓]
 
 ## CLOSE
 So, could we turn the Sahara green? In patches, we already are. All of it would take water we'd have to make from the sea, energy on a scale nobody has built, and changes to weather far beyond Africa that we still can't fully predict.
 
-And here's the twist. The Sahara will probably turn green again on its own. One scientist estimates the next orbital window is roughly 10,000 years away. [P23 ⚠UNVERIFIED — ATTRIBUTED]
+And here's the twist. The Sahara will probably turn green again on its own. One scientist estimates the next orbital window is roughly 10,000 years away. [P23 ⛔BLOCKED — ATTRIBUTED]
 
 So the real question isn't whether the desert can be green. It's whether we should be the ones to flip the switch.
 

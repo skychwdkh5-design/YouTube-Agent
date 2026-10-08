@@ -1,6 +1,6 @@
-# Episode 001 storyboard: draft v0.2 (16:9, profile `long`)
+# Episode 001 storyboard: draft v0.3 (16:9, profile `long`)
 
-Round 2 (2026-10-08): scenes 2, 3, 14, 16, 21, 29, 30, 31 and 34 were aligned with the reviewer-approved corrections in `script.md` v0.2 (P20, N1, L3, R1/S4, S18). Narration is now 1,455 spoken words, about 10:00 at 145 wpm; the per-scene times below are from v0.1 and must be re-timed after the voice pass. Landsat scene candidates are in `landsat/scene_candidates.json`.
+Round 2 (2026-10-08): scenes 2, 3, 14, 16, 21, 29, 30, 31 and 34 were aligned with the reviewer-approved corrections in `script.md` v0.2 (P20, N1, L3, R1/S4, S18). Narration is now 1,492 spoken words (script v0.3), about 10:15 at 145 wpm; the per-scene times below are from v0.1 and must be re-timed after the voice pass. Landsat scene candidates are in `landsat/scene_candidates.json`.
 
 ## How to read this
 
@@ -46,28 +46,28 @@ Round 2 (2026-10-08): scenes 2, 3, 14, 16, 21, 29, 30, 31 and 34 were aligned wi
 | 1 | 0:00-0:06 | "You could turn the Sahara green." | orbit_wide | Tassili n'Ajjer plateau (L6), slow push-in, 2024 OLI | — | Landsat 8 · USGS |
 | 2 | 0:06-0:12 | "It has happened more than 230 times…" | number_callout | callout "230+" with the subtitle "reconstructed green Sahara periods, last 8 million years" | 230+ RECONSTRUCTED GREEN PERIODS | Larrasoaña et al. 2013 |
 | 3 | 0:12-0:18 | "…what you'd change thousands of miles away…" | annotated_map | Bodélé (L5) geo graphic, with a plain arrow pointing west labelled "dust crosses the Atlantic" (no claim that the Bodélé is the source of the Amazon's dust; see R1) | THOUSANDS OF MILES AWAY | Landsat 8 · USGS |
-| 4 | 0:18-0:30 | "The Sahara covers about 9 million…" | external_still → fallback data_chart | Preferred: NASA Blue Marble Africa (B4). Fallback: a bar chart of area, Sahara vs the lower 48. | 9.2M km² vs 8.1M km² | Census; [S1 source] |
-| 5 | 0:30-0:36 | "…less than 100 millimeters of rain…" | number_callout | callout "<100 mm (4 in)" a year | | WWF/[S3] |
+| 4 | 0:18-0:30 | "The Sahara covers about 9 million…" | external_still → fallback data_chart | Preferred: NASA Blue Marble Africa (B4). Fallback: a bar chart of area, Sahara vs the lower 48. | ⛔ S1/S2 BLOCKED: do not show area numbers until sourced (fallback label: "world's largest non-polar desert", NASA EO) | NASA EO; [S1/S2 pending] |
+| 5 | 0:30-0:36 | "…less than 100 millimeters of rain…" | number_callout | ✎ S3: callout "tens of millimeters (a few inches) a year in some areas" | | NASA EO (A Deluge for the Sahara) |
 | 6 | 0:36-0:46 | "So could we really cover it in green?" | pivot_fields | East Oweinat (L1), wipe from the 1984 scene (LT05_L1TP_177044_19840826) to the 2024 scene (LC09_L1TP_177044_20240105) | GREEN, IN THE DESERT, TODAY | Landsat 5 / 9 · USGS |
 
 ## ACT 1: The Green Sahara (0:46-1:59)
 
 | # | ~Time | Narration (first words) | Family | Visual | On-screen labels | Source on screen |
 |---|---|---|---|---|---|---|
-| 7 | 0:46-0:58 | "Between roughly 11,000 and 5,000 years ago…" | data_chart | A line/timeline graphic from 15,000 years ago to today with a shaded band from 11,000 to 5,000 | GREEN SAHARA ≈11,000–5,000 YEARS AGO | Tierney et al. 2017 |
+| 7 | 0:46-0:58 | "Between roughly 11,000 and 5,000 years ago…" | data_chart | A line/timeline graphic from 15,000 years ago to today with a shaded band from 11,000 to 6,000 | ONE RECONSTRUCTION: GREEN SAHARA ≈11,000–6,000 YEARS AGO (OTHER RECORDS DIFFER) | Larrasoaña et al. 2013 |
 | 8 | 0:58-1:08 | "In what is now Chad, a lake called Mega-Chad…" | annotated_map | Bodélé (L5) wide view with the callout "floor of Lake Mega-Chad". The full lake outline is not drawn (B5). | MEGA-CHAD ≥400,000 km² | Landsat 8 · USGS; Drake & Bristow 2006 |
 | 9 | 1:08-1:20 | "At a site called Gobero…" | number_callout → rock_plateau | callout "~200 graves" (insert), then Tassili n'Ajjer canyons (L6) | GOBERO, NIGER · TASSILI N'AJJER: 15,000+ ROCK IMAGES | Sereno 2008; UNESCO |
-| 10 | 1:20-1:32 | "How much wetter?" | number_callout | Quote card: "ten times as wet as today", attributed to Jessica Tierney | — | Lamont-Doherty (Columbia) |
+| 10 | 1:20-1:32 | "How much wetter?" | number_callout | ⛔ P8 BLOCKED: the quote cannot be shown. Verified replacement: card "~100 mm/yr at the core of the NE Sahara; ~450 mm/yr near 18°N (reconstruction)" | — | Larrasoaña et al. 2013 |
 | 11 | 1:32-1:59 | "And a piece of that world is still here." | oasis_lakes | Ounianga (L4): wide view of both groups at 60 km, push to Ounianga Serir at 15 km, then a callout on Lake Yoa | LAKES OF OUNIANGA · LAKE YOA | Landsat 8 · USGS; UNESCO |
 
 ## ACT 2: What flips the switch (1:59-3:12)
 
 | # | ~Time | Narration (first words) | Family | Visual | On-screen labels | Source on screen |
 |---|---|---|---|---|---|---|
-| 12 | 1:59-2:20 | "Not people. Earth's orbit." | process_diagram | Diagram with 3 build steps: sunnier northern summer → monsoon pushed north → rain in the Sahara | ~21,000-YEAR CYCLE | Armstrong et al. 2023 |
-| 13 | 2:20-2:38 | "…two amplifiers: plants, and cleaner air…" | process_diagram | Flow with build steps: more plants → more rain → more plants (loop), plus "less dust" | FEEDBACK | Tierney et al. 2017 |
+| 12 | 1:59-2:20 | "Not people. Earth's orbit." | process_diagram | Diagram with 3 build steps: sunnier northern summer → monsoon pushed north → rain in the Sahara | ORBITAL CYCLE (PRECESSION) · NO CYCLE LENGTH SHOWN | Larrasoaña et al. 2013; NASA EO |
+| 13 | 2:20-2:38 | "…models struggle to reproduce all the rain…" | process_diagram | Flow with build steps: "geologists infer more rain than models produce" → "what are the models missing?" → proposed feedback loop: more lakes and plants → more rain → more plants (labelled as a proposal; no dust step) | MODELS STRUGGLE · FEEDBACK IS A PROPOSAL | NASA Earth Observatory (Sebkha el Melah, 2024); Larrasoaña et al. 2013 |
 | 14 | 2:38-2:48 | "…more than 230 times in the last 8 million years." | data_chart | Graphic of discrete green episodes on a time axis. **Schematic only: real episode dates are not in hand**, so the graphic is labelled "schematic" or reduced to a callout. | RECONSTRUCTED FROM SEDIMENTS: 230+ PERIODS IN 8 MILLION YEARS | Larrasoaña 2013 |
-| 15 | 2:48-3:12 | "How did the last one end?" | annotated_map | Ounianga (L4) geo graphic. Insert: an original redraw of a simple N→S schematic, "end came later further south (~5 ka at 20°N → ~3 ka in Ghana)". | THE DESERT CREPT SOUTH | Shanahan 2015; deMenocal 2000; Kröpelin 2008 |
+| 15 | 2:48-3:12 | "How did the last one end?" | annotated_map | Ounianga (L4) geo graphic. Insert: a simple N→S arrow, "monsoon rains retreat southward over ~2-3 thousand years (one reconstruction)". No site dates and no latitude-by-date numbers (not verified). | THE DESERT CREPT SOUTH · ABRUPT OR GRADUAL IS DEBATED | Larrasoaña et al. 2013 |
 
 ## ACT 3: Why it's a desert now (3:12-3:39)
 
@@ -110,7 +110,7 @@ Round 2 (2026-10-08): scenes 2, 3, 14, 16, 21, 29, 30, 31 and 34 were aligned wi
 
 | # | ~Time | Narration (first words) | Family | Visual | On-screen labels | Source on screen |
 |---|---|---|---|---|---|---|
-| 33 | 7:50-8:10 | "…something real has been happening on the Sahara's southern edge." | orbit_wide → data_chart | Optional: Lake Chad (reserve location), 1987 vs 2023 single wipe, no area claim. Then a bar callout for Niger FMNR "~7M ha by 2017 (USGS)". | SAHEL · NIGER | USGS (Smale, Tappan & Reij 2018) |
+| 33 | 7:50-8:10 | "…something real has been happening on the Sahara's southern edge." | orbit_wide → data_chart | Optional: Lake Chad (reserve location), 1987 vs 2023 single wipe, no area claim. Then, only if reworded, a callout for Niger tree regeneration ("5 to 7 million hectares", UNCCD-hosted sources); "by 2017 (USGS)" is NOT verified. | SAHEL · NIGER | UNCCD; NASA EO (Defining Desertification) |
 | 34 | 8:10-8:38 | "In 2007, African nations launched the Great Green Wall…" | data_chart | Three separately labelled bars, never combined into one percentage: "COP21 pledge: 100 Mha by 2030", "PA-GGW target: 25 Mha", "Restored in core zones by 2020 (preliminary): ~4 Mha" | GREAT GREEN WALL · TWO TARGETS, ONE PRELIMINARY COUNT | UNCCD 2020 |
 
 ## CLOSE (8:38-9:21)
@@ -118,7 +118,7 @@ Round 2 (2026-10-08): scenes 2, 3, 14, 16, 21, 29, 30, 31 and 34 were aligned wi
 | # | ~Time | Narration (first words) | Family | Visual | On-screen labels | Source on screen |
 |---|---|---|---|---|---|---|
 | 35 | 8:38-8:58 | "So, could we turn the Sahara green?" | pivot_fields | East Oweinat widest view, wipe 1984 → 2024 | — | Landsat · USGS |
-| 36 | 8:58-9:10 | "…turn green again on its own." | number_callout | callout "~10,000 years (one estimate)" | ONE SCIENTIST'S ESTIMATE | UC Irvine |
+| 36 | 8:58-9:10 | "…turn green again on its own." | number_callout | ⛔ P23 BLOCKED: card removed until the UC Irvine source is read | — | — |
 | 37 | 9:10-9:21 + outro | "…whether we should be the ones to flip the switch." | orbit_wide | Ounianga or Tassili, slow pull-out, then the outro | — | Landsat 8 · USGS |
 
 ---
