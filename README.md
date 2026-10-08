@@ -6,7 +6,7 @@ Claude Code workspace for running a YouTube channel.
 
 Each skill lives in `.claude/skills/<name>/` (a `SKILL.md` plus any helper scripts):
 `yt-audit`, `yt-chapters`, `yt-comment`, `yt-edit`, `yt-package`, `yt-plan`, `yt-retention`,
-`yt-script`, `yt-seo`, `yt-shorts`, `yt-viral`, `yt-satellite`, `yt-geo`, `yt-render`, `yt-qc`, `yt-voice` and `yt-captions`.
+`yt-script`, `yt-seo`, `yt-shorts`, `yt-viral`, `yt-satellite`, `yt-geo`, `yt-graphics`, `yt-render`, `yt-qc`, `yt-voice` and `yt-captions`.
 
 ### yt-satellite (optional)
 
@@ -49,7 +49,8 @@ python3 .claude/skills/yt-voice/test_voice.py && python3 .claude/skills/yt-capti
 
 Timeline v3 also renders `"profile": "long"`: 1920x1080, 30 fps, up to 15 minutes, in segments joined
 without re-encoding, with landscape captions and the same camera, wipes, labels, credits and pacing
-checks; `yt-qc --profile long` checks it.
+checks; `yt-qc --profile long` checks it. `yt-graphics` makes the explanatory diagrams, charts and annotated
+satellite views that go into it.
 
 ### Vertical Shorts (MVP v0.1)
 

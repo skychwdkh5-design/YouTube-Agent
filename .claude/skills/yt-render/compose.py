@@ -28,7 +28,7 @@ PROFILES = {"short": {"width": 1080, "height": 1920, "fps": 30, "min_s": 35.0, "
             "long": {"width": 1920, "height": 1080, "fps": 30, "min_s": 60.0, "max_s": 900.0,
                      "safe": {"top": 0.07, "bottom": 0.13, "right": 0.05, "left": 0.05},
                      "crf": 20, "segment_s": 60.0, "captions_preset": "default"}}
-LAYER_TYPES = ("image", "flip", "wipe", "fill", "outline", "label", "arrow", "pin")
+LAYER_TYPES = ("image", "flip", "wipe", "fill", "outline", "label", "arrow", "pin", "graphic")
 CAPTION = {"size": 68, "stroke": 7, "max_width": 820, "band_lower": 0.645, "band_upper": 0.33,
            "line_gap": 10}
 STYLES = {"year": (150, "Black", "#FFFFFF"), "stat": (120, "Black", "#FFD23F"),
@@ -173,21 +173,28 @@ def validate(tl, root, limits):
     assets = {}
     for aid, a in (tl.get("assets") or {}).items():
         where = f"assets.{aid}"
-        r._keys(a, ("src", "kind", "label", "credit", "prov"), where)
+        r._keys(a, ("src", "kind", "label", "credit", "prov", "group"), where)
         kind = a.get("kind", "image")
-        if kind not in ("image", "mask"):
-            raise E(f"{where}.kind must be 'image' or 'mask'")
+        if kind not in ("image", "mask", "graphic"):
+            raise E(f"{where}.kind must be 'image', 'mask' or 'graphic'")
         src = r.resolve_src(a.get("src"), root, where)
         if not src.lower().endswith(".png"):
-            raise E(f"{where}: grid assets must be PNG (from yt-geo)")
+            raise E(f"{where}: grid assets must be PNG (from yt-geo)" if kind != "graphic"
+                    else f"{where}: graphics must be PNG (from yt-graphics)")
         with Image.open(src) as im:
             size = im.size
-        if size != (grid.d["width"], grid.d["height"]):
+        if kind == "graphic":
+            # a full-frame graphic (yt-graphics): exactly the output size of this profile, not the grid
+            if size != (W, H):
+                raise E(f"{where} is {size[0]}x{size[1]} but profile {tl['profile']} renders {W}x{H}")
+        elif size != (grid.d["width"], grid.d["height"]):
             raise E(f"{where} is {size[0]}x{size[1]} but the grid is {grid.d['width']}x{grid.d['height']}")
-        if kind == "image" and not (isinstance(a.get("credit"), str) and a["credit"].strip()):
-            raise E(f"{where}: every image needs an on-screen 'credit' (its provenance)")
+        if kind in ("image", "graphic") and not (isinstance(a.get("credit"), str) and a["credit"].strip()):
+            raise E(f"{where}: every {kind} needs an on-screen 'credit' (its provenance)")
+        if "group" in a and (kind != "graphic" or not (isinstance(a["group"], str) and a["group"].strip())):
+            raise E(f"{where}.group is a non-empty name, for graphics only (build steps of one graphic share it)")
         assets[aid] = {"src": src, "kind": kind, "label": a.get("label", aid), "credit": a.get("credit"),
-                       "prov": a.get("prov")}
+                       "prov": a.get("prov"), **({"group": a.get("group", aid)} if kind == "graphic" else {})}
     if not assets:
         raise E("timeline.assets is empty")
 
@@ -238,20 +245,30 @@ def validate(tl, root, limits):
         if i == 0 and start != 0:
             raise E("the first shot must start at 0 - the first frame is the hook")
         cam = s.get("camera")
-        if not isinstance(cam, dict):
-            raise E(f"{where}.camera is required")
-        r._keys(cam, ("from", "to", "center", "width_km", "ease"), f"{where}.camera")
-        if "from" in cam:
-            v0 = _view(cam["from"], grid, H / W, f"{where}.camera.from")
-            v1 = _view(cam.get("to", cam["from"]), grid, H / W, f"{where}.camera.to")
-        else:
-            v0 = v1 = _view({"center": cam.get("center"), "width_km": cam.get("width_km")}, grid, H / W, f"{where}.camera")
-        ease = cam.get("ease", "in_out")
-        if ease not in ("in_out", "linear"):
-            raise E(f"{where}.camera.ease must be 'in_out' or 'linear'")
         layers = [_layer(L, assets, grid, f"{where}.layers[{j}]") for j, L in enumerate(s.get("layers") or [])]
-        if not any(L["type"] in ("image", "flip", "wipe") for L in layers):
-            raise E(f"{where} needs an image, flip or wipe layer")
+        if cam is None and any(L["type"] == "graphic" and L["t0"] == 0 for L in layers):
+            # a graphics shot: a full-frame yt-graphics image from its first frame, no map underneath
+            bad = sorted({L["type"] for L in layers} - {"graphic", "label"})
+            if bad:
+                raise E(f"{where} has no camera (a graphics shot) and cannot use map layers {bad}")
+            if s.get("focus") is not None:
+                raise E(f"{where}.focus needs a camera")
+            v0 = v1 = None
+            ease = None
+        else:
+            if not isinstance(cam, dict):
+                raise E(f"{where}.camera is required (or start the shot with a full-frame graphic layer)")
+            r._keys(cam, ("from", "to", "center", "width_km", "ease"), f"{where}.camera")
+            if "from" in cam:
+                v0 = _view(cam["from"], grid, H / W, f"{where}.camera.from")
+                v1 = _view(cam.get("to", cam["from"]), grid, H / W, f"{where}.camera.to")
+            else:
+                v0 = v1 = _view({"center": cam.get("center"), "width_km": cam.get("width_km")}, grid, H / W, f"{where}.camera")
+            ease = cam.get("ease", "in_out")
+            if ease not in ("in_out", "linear"):
+                raise E(f"{where}.camera.ease must be 'in_out' or 'linear'")
+            if not any(L["type"] in ("image", "flip", "wipe") for L in layers):
+                raise E(f"{where} needs an image, flip or wipe layer")
         focus = None
         if s.get("focus") is not None:
             f_ = s["focus"]
@@ -259,7 +276,8 @@ def validate(tl, root, limits):
                 raise E(f"{where}.focus must be [lon_min, lat_min, lon_max, lat_max]")
             focus = f_
         family = _family(s.get("visual_family"), f"{where}.visual_family")
-        shots.append({"id": str(s.get("id", f"s{i + 1}")), "beat": s.get("beat"), "start": start, "views": (v0, v1),
+        shots.append({"id": str(s.get("id", f"s{i + 1}")), "beat": s.get("beat"), "start": start,
+                      "views": (v0, v1) if v0 is not None else None,
                       "ease": ease, "layers": layers, "info": s.get("info"), "focus": focus,
                       "claims": s.get("claims") or [], "family": family})
     tagged = [s["family"] is not None for s in shots]
@@ -294,8 +312,8 @@ def _layer(L, assets, grid, where):
     allowed = {"image": ("asset",), "flip": ("assets", "step"), "wipe": ("from", "to"),
                "fill": ("mask", "minus", "color", "opacity"), "outline": ("mask", "color", "width"),
                "label": ("text", "sub", "slot", "style", "color"), "arrow": ("from", "to", "color", "width"),
-               "pin": ("at", "text", "color")}[t]
-    r._keys(L, ("type", "t", "info") + allowed + (("visual_family",) if t in ("image", "flip", "wipe") else ()), where)
+               "pin": ("at", "text", "color"), "graphic": ("asset",)}[t]
+    r._keys(L, ("type", "t", "info") + allowed + (("visual_family",) if t in ("image", "flip", "wipe", "graphic") else ()), where)
     out = {"type": t, "info": L.get("info"), "family": _family(L.get("visual_family"), f"{where}.visual_family")}
     tw = L.get("t", [0, None])
     if not (isinstance(tw, list) and len(tw) == 2):
@@ -309,6 +327,8 @@ def _layer(L, assets, grid, where):
         return aid
     if t == "image":
         out["asset"] = asset(L.get("asset"), "image", f"{where}.asset")
+    elif t == "graphic":
+        out["asset"] = asset(L.get("asset"), "graphic", f"{where}.asset")
     elif t == "flip":
         ids = L.get("assets")
         if not (isinstance(ids, list) and len(ids) >= 2):
@@ -410,11 +430,24 @@ def compositions(plan):
             resets.append({"t": round(t, 3), "shot": shot["id"], "kind": kind, "what": what})
 
     anchor = None
+    group = None                           # the yt-graphics graphic on screen; its build steps are not new pictures
     for s in plan["shots"]:
         events = []
+        if s["views"] is not None and group is not None and not any(
+                L["type"] == "graphic" and L["t0"] == 0 for L in s["layers"]):
+            group = None
         for L in s["layers"]:
             t0 = s["start"] + L["t0"]
             if t0 >= s["end"]:
+                continue
+            if L["type"] == "graphic":
+                g = plan["assets"][L["asset"]]["group"]
+                if g != group:
+                    events.append((t0, "graphic", f"graphic {g}"))
+                    group = g
+                if L["t1"] is not None and s["start"] + L["t1"] < s["end"] and s["views"] is not None:
+                    events.append((s["start"] + L["t1"], "cut", "back to the imagery"))
+                    group = None
                 continue
             if L["type"] == "wipe":
                 events.append((t0, "wipe", f"wipe {L['from']} -> {L['to']}"))
@@ -424,6 +457,11 @@ def compositions(plan):
                 events.append((t0, "timelapse", f"timelapse of {len(L['assets'])} dates"))
                 moving.append((t0, min(t0 + len(L["assets"]) * L["step"], s["end"])))
         events.sort(key=lambda e: e[0])
+        if s["views"] is None:                 # a graphics shot: no camera, its pictures are its graphics
+            for e in events:
+                add(e[0], s, e[1], e[2])
+            anchor = "graphic"
+            continue
         if not _same_view(*s["views"]):
             moving.append((s["start"], s["end"]))
         moved = False
@@ -436,7 +474,10 @@ def compositions(plan):
                 e = events.pop(0)
                 add(e[0], s, e[1], e[2])
             view = _camera(s, t)
-            if anchor is None or moved:
+            if anchor == "graphic":             # back from a graphics shot: a new picture
+                add(t, s, "cut", "from a graphic")
+                anchor = view
+            elif anchor is None or moved:
                 anchor = view       # one continuous move is one reset, however far it travels
             elif not _same_view(anchor, view):
                 ratio = view[2] / anchor[2]
@@ -627,6 +668,8 @@ class Painter:
         for aid, a in plan["assets"].items():
             if a["kind"] == "image":
                 self.img[aid] = Image.open(a["src"]).convert("RGB")
+            elif a["kind"] == "graphic":
+                self.img[aid] = np.asarray(Image.open(a["src"]).convert("RGB"))
             else:
                 self.mask[aid] = Image.open(a["src"]).convert("L")
         self.fonts = Fonts()
@@ -651,7 +694,7 @@ class Painter:
     # frame -------------------------------------------------------------------------------------
     def frame(self, t):
         shot = next(s for s in reversed(self.p["shots"]) if s["start"] <= t + 1e-9)
-        box = self.box(shot, t)
+        box = self.box(shot, t) if shot["views"] is not None else None
         lt = t - shot["start"]
         base, overlays, credits = None, [], []
 
@@ -678,11 +721,26 @@ class Painter:
                     overlays.append(("divider", xw, 1.0))
                 if lt < L["t1"] + 0.6:          # year labels while the comparison is happening
                     overlays.append(("wipe_labels", (L["to"], L["from"], xw), 1.0))
+        cover = 0.0                              # how much a full-frame yt-graphics image hides the map
+        for L in shot["layers"]:
+            if L["type"] == "graphic" and active(L):
+                a = 1.0 if (L["t0"] == 0 or base is None) else min(1.0, (lt - L["t0"]) / 0.35)
+                g = self.img[L["asset"]]
+                base = g if base is None or a >= 1.0 else (base * (1 - a) + g * a).astype(np.uint8)
+                cover = max(cover, a)
+                credits = ([] if a >= 1.0 else credits) + [L["asset"]]
         if base is None:
             raise E(f"shot {shot['id']} has no visible image at {t:.2f}s")
         base = base.copy()
+        insert = cover > 0 and shot["views"] is not None    # a timed graphic over a map shot
+        if insert:                                # the map's annotations leave with the map: the graphic stands alone
+            overlays = []
+        elif cover >= 1.0:                        # a graphics shot keeps its own labels, nothing else
+            overlays = [o for o in overlays if o[0] == "label"]
         for L in shot["layers"]:
-            if L["type"] in ("fill", "outline") and lt >= L["t0"] and (L["t1"] is None or lt < L["t1"]):
+            if insert:
+                break
+            if L["type"] in ("fill", "outline") and cover < 1.0 and lt >= L["t0"] and (L["t1"] is None or lt < L["t1"]):
                 fade = 1.0 if L["t0"] == 0 else min(1.0, (lt - L["t0"]) / 0.35)   # t0 = 0: there from frame one
                 m = self.crop_mask(L["mask"], box)
                 if L["minus"]:
@@ -701,7 +759,8 @@ class Painter:
                     alpha = L["opacity"] * fade
                 col = np.array(L["color"], dtype=np.float32)
                 base[m] = (base[m] * (1 - alpha) + col * alpha).astype(np.uint8)
-            elif L["type"] in ("label", "arrow", "pin") and lt >= L["t0"] and (L["t1"] is None or lt < L["t1"]):
+            elif (L["type"] == "label" or (L["type"] in ("arrow", "pin") and cover < 1.0)) and lt >= L["t0"] and (
+                    L["t1"] is None or lt < L["t1"]):
                 overlays.append((L["type"], L, 1.0 if L["t0"] == 0 else min(1.0, (lt - L["t0"]) / 0.25)))
 
         im = Image.fromarray(base)

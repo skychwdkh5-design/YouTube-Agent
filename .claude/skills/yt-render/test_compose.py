@@ -410,6 +410,92 @@ class LongProfile(Base):
         self.assertEqual([x for x in os.listdir(self.dir) if x.startswith(".render")], [])
 
 
+@unittest.skipUnless(HAVE_FF, "ffmpeg/ffprobe not installed")
+class Graphics(Base):
+    """yt-graphics images as full-frame shots and timed inserts in a LONG timeline."""
+    def make_graphics(self):
+        sys.path.insert(0, os.path.join(HERE, "..", "yt-graphics"))
+        import graphics as gx
+        os.makedirs(os.path.join(self.dir, "graphics"), exist_ok=True)
+        spec = {"graphics": [
+            {"type": "diagram", "id": "d", "source": "TEST DATA", "title": "Diagram (TEST DATA)",
+             "nodes": [{"id": "a", "text": "A", "x": 0.2, "y": 0.5}, {"id": "b", "text": "B", "x": 0.8, "y": 0.5, "step": 2}],
+             "arrows": [{"from": "a", "to": "b", "step": 2}]},
+            {"type": "callout", "id": "n", "source": "TEST DATA", "value": 42, "unit": "km", "label": "Callout (TEST DATA)"}]}
+        gx.render_spec(spec, self.dir, os.path.join(self.dir, "graphics"))
+
+    def gtl(self, shots, profile="long", **extra):
+        a = self.assets()
+        a.update({"d1": {"src": "graphics/d.step1.png", "kind": "graphic", "credit": "Graphic (TEST)", "group": "d"},
+                  "d2": {"src": "graphics/d.png", "kind": "graphic", "credit": "Graphic (TEST)", "group": "d"},
+                  "num": {"src": "graphics/n.png", "kind": "graphic", "credit": "Callout (TEST)"}})
+        tl = {"version": 3, "profile": profile, "grid": "stack/grid.json", "assets": a, "shots": shots,
+              "end": {"seconds": 4.0}}
+        tl.update(extra)
+        p = os.path.join(self.dir, "timeline.json")
+        json.dump(tl, open(p, "w"))
+        return p
+
+    def shots(self):
+        return [self.shot(0, camera={"center": CENTER, "width_km": 12}),
+                {"id": "g", "start": 1.0, "layers": [{"type": "graphic", "asset": "d1"},
+                                                    {"type": "graphic", "asset": "d2", "t": [1.0, None]}]},
+                self.shot(3.0, camera={"center": CENTER, "width_km": 12},
+                          layers=[{"type": "image", "asset": "b"}, {"type": "label", "text": "MAP LABEL", "style": "tag"},
+                                  {"type": "pin", "at": CENTER, "text": "PIN"},
+                                  {"type": "graphic", "asset": "num", "t": [0.3, 0.8]}])]
+
+    def test_plan_rules(self):
+        self.make_graphics()
+        p = run(["--timeline", self.gtl(self.shots(), render={"segment_s": 1})])[1]["plan"]
+        resets = [(x["t"], x["kind"]) for x in p["compositions"]["resets"]]
+        # the graphic is a new picture; its build step (same group) is not; back to the map is
+        self.assertEqual([k for _, k in resets][:2], ["graphic", "cut"])
+        kinds = [x["kind"] for x in p["compositions"]["resets"]]
+        self.assertIn("graphic", kinds)
+        self.assertFalse(any(abs(x["t"] - 2.0) < 1e-6 for x in p["compositions"]["resets"]))
+        bad = [({"id": "g", "start": 1.0, "layers": [{"type": "graphic", "asset": "d1", "t": [0.5, None]}]},
+                "camera is required"),
+               ({"id": "g", "start": 1.0, "layers": [{"type": "graphic", "asset": "d1"},
+                                                    {"type": "pin", "at": CENTER, "text": "x"}]}, "cannot use map layers"),
+               ({"id": "g", "start": 1.0, "layers": [{"type": "graphic", "asset": "a"}]}, "is not a graphic asset")]
+        for shot, msg in bad:
+            sh = self.shots(); sh[1] = shot
+            self.assertIn(msg, run(["--timeline", self.gtl(sh)])[1]["error"])
+        tl = json.load(open(self.gtl(self.shots()))); tl["assets"]["num"].pop("credit")
+        json.dump(tl, open(os.path.join(self.dir, "x.json"), "w"))
+        self.assertIn("needs an on-screen 'credit'", run(["--timeline", os.path.join(self.dir, "x.json")])[1]["error"])
+        # a 1920x1080 graphic in a vertical Short is refused (wrong size for the profile)
+        self.assertIn("profile short renders 1080x1920",
+                      run(["--timeline", self.gtl(self.shots(), profile="short")])[1]["error"])
+
+    def test_long_render_shows_the_graphics(self):
+        self.make_graphics()
+        out = os.path.join(self.dir, "g.mp4")
+        code, d = run(["--timeline", self.gtl(self.shots(), render={"segment_s": 1}), "--output", out, "--confirm"])
+        self.assertEqual((code, d["status"], d["segments"]), (0, "ok", 4), d)
+
+        def frame(t):
+            raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", str(t), "-i", out, "-frames:v", "1", "-f", "rawvideo",
+                                  "-pix_fmt", "rgb24", "-"], capture_output=True, check=True).stdout
+            return np.frombuffer(raw, np.uint8).reshape(1080, 1920, 3).astype(float)
+
+        def psnr(f, png):
+            gimg = np.asarray(Image.open(os.path.join(self.dir, "graphics", png)).convert("RGB")).astype(float)
+            m = np.ones((1080, 1920), bool); m[60:130, 60:900] = False      # the renderer's credit line
+            mse = np.mean((f[m] - gimg[m]) ** 2)
+            return 99.0 if mse == 0 else 10 * np.log10(255 ** 2 / mse)
+
+        self.assertGreater(psnr(frame(1.5), "d.step1.png"), 35)
+        self.assertGreater(psnr(frame(2.5), "d.png"), 35)                     # the build step appears on time
+        self.assertGreater(psnr(frame(3.72), "n.png"), 35)                    # the timed insert, after its 0.35 s fade-in,
+                                                                              # with the map's label and pin hidden
+        self.assertLess(psnr(frame(3.95), "n.png"), 25)                       # ... and it is gone again
+        man = json.load(open(out[:-4] + ".manifest.json"))
+        self.assertEqual([s["credit"] for s in man["shots"]], ["Test B", "Graphic (TEST)", "Test B"])
+        self.assertEqual(man["shots"][1]["layers"], ["graphic", "graphic"])
+
+
 class BackwardCompat(unittest.TestCase):
     def test_v1_and_v2_never_load_compose_path(self):
         self.assertEqual(r.SUPPORTED_VERSIONS, (1, 2))
