@@ -1,0 +1,193 @@
+{
+ "checks": [
+  {
+   "check": "type scale: secondary text >= 28 design px (18.7 px at 720p); labels/captions >= 30",
+   "result": "PASS",
+   "detail": {
+    "kicker": 30,
+    "title": 44,
+    "date": 64,
+    "date2": 44,
+    "sub": 32,
+    "label": 30,
+    "note": 28,
+    "chip": 28,
+    "scale": 30,
+    "cap": 36
+   }
+  },
+  {
+   "check": "same type roles used by both sequences (single shared T table; EO and Toshka call draw_info/timeline/Layer.bar)",
+   "result": "PASS",
+   "detail": {
+    "font": "Inter",
+    "roles": [
+     "cap",
+     "chip",
+     "date",
+     "date2",
+     "kicker",
+     "label",
+     "note",
+     "scale",
+     "sub",
+     "title"
+    ]
+   }
+  },
+  {
+   "check": "safe margins: text, timeline and scale bar inside 96/72/72 px (5% sides); text panels inside the 3.5% action-safe area; 14 sampled states",
+   "result": "PASS",
+   "detail": {
+    "margins": [
+     96,
+     72,
+     72
+    ]
+   }
+  },
+  {
+   "check": "text contrast >= 4.5:1 (>= 3:1 for large text) against the brightest 10% of pixels under every text box (stroke halo not counted)",
+   "result": "PASS",
+   "detail": {
+    "min": [
+     5.5,
+     4.5,
+     "TO",
+     [
+      "1999",
+      "2002"
+     ],
+     "chip"
+    ],
+    "fails": []
+   }
+  },
+  {
+   "check": "every dissolve state shows both source dates, both timeline nodes and the \"not an observation\" chip",
+   "result": "PASS",
+   "detail": {
+    "chip": "Dissolve, not an observation"
+   }
+  },
+  {
+   "check": "dissolve frames use strictly interior blend weights (no frame is ambiguous between two dates)",
+   "result": "PASS",
+   "detail": {
+    "dissolve_s": 0.8
+   }
+  },
+  {
+   "check": "East Oweinat imagery equals tone B applied to the verified reflectance (no change since pass 1)",
+   "result": "PASS",
+   "detail": {
+    "lo": 0.02,
+    "hi": 0.6,
+    "gamma": 1.8
+   }
+  },
+  {
+   "check": "Toshka imagery equals tone B (float16 cache tolerance 1) and crop is the pass-1 3840x2160 box (y0=60, x0=312)",
+   "result": "PASS",
+   "detail": {
+    "lo": 0.02,
+    "hi": 0.6,
+    "gamma": 1.8
+   }
+  },
+  {
+   "check": "East Oweinat zoom target and zoom window unchanged",
+   "result": "PASS",
+   "detail": {
+    "target": [
+     480.0,
+     630.0
+    ],
+    "zoom_src": [
+     960,
+     540
+    ]
+   }
+  },
+  {
+   "check": "East Oweinat viewport box identical to pass 1 at zoom 0.7",
+   "result": "PASS",
+   "detail": [
+    33.5,
+    339.9,
+    1167.4,
+    1027.5
+   ]
+  },
+  {
+   "check": "resampling identical (Lanczos, no sharpening)",
+   "result": "PASS",
+   "detail": "PIL LANCZOS, box crop only"
+  },
+  {
+   "check": "max screen px per source px at 4K <= 4.0",
+   "result": "PASS",
+   "detail": {
+    "max": 4.0
+   }
+  },
+  {
+   "check": "all date labels (long and short) match acquisition metadata; 1984 = August 26, 1984; 2021 = November 2021",
+   "result": "PASS",
+   "detail": {
+    "EO": {
+     "1984": "August 26, 1984",
+     "2000": "January 2000",
+     "2010": "January 2010",
+     "2016": "January 2016",
+     "2024": "January 2024"
+    },
+    "TO": {
+     "1999": "January 1999",
+     "2002": "January 2002",
+     "2011": "January 2011",
+     "2021": "November 2021"
+    }
+   }
+  },
+  {
+   "check": "temporal order EO",
+   "result": "PASS",
+   "detail": [
+    "1984",
+    "2000",
+    "2010",
+    "2016",
+    "2024"
+   ]
+  },
+  {
+   "check": "temporal order Toshka",
+   "result": "PASS",
+   "detail": [
+    "1999",
+    "2002",
+    "2011",
+    "2021"
+   ]
+  },
+  {
+   "check": "eo_review.mp4 probe (new render)",
+   "result": "PASS",
+   "detail": {
+    "size": "1915878",
+    "dur": "21.666667",
+    "frames": "520"
+   }
+  },
+  {
+   "check": "toshka_review.mp4 probe (new render)",
+   "result": "PASS",
+   "detail": {
+    "size": "826087",
+    "dur": "15.875000",
+    "frames": "381"
+   }
+  }
+ ]
+}

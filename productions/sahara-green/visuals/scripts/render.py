@@ -1,4 +1,5 @@
-"""EP001 visual pass 1 renderer. Review animations (default 1280x720) and stills; same code at --scale 2 = 3840x2160 (final, not run in this pass).
+"""EP001 visual pass 2 renderer (presentation polish). Imagery path unchanged from pass 1: same cached tone-B frames, same crops, same Lanczos resampling.
+Review animations (default 1280x720) and stills; the same code at --scale 2 gives 3840x2160 (final, not run).
 Upscale policy: Lanczos only (PIL), no sharpening, no AI; the zoom ends at a 960x540 source window (<= 4.0 screen px per source px at 4K)."""
 import sys, os, json, subprocess, numpy as np
 from PIL import Image, ImageDraw, ImageFont
@@ -6,129 +7,169 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import vis_common as c
 CACHE = c.VIS + 'cache/'
 FD = '/usr/share/fonts/opentype/inter/'
-def font(sz, w='Regular'): return ImageFont.truetype(FD + f'Inter-{w}.otf', int(round(sz)))
+def font(sz, w='Regular'): return ImageFont.truetype(FD + f'Inter-{w}.otf', max(1, int(round(sz))))
 EO_LABEL = {'1984': 'August 26, 1984', '2000': 'January 2000', '2010': 'January 2010', '2016': 'January 2016', '2024': 'January 2024'}
+EO_SHORT = {'1984': 'Aug 26, 1984', '2000': 'Jan 2000', '2010': 'Jan 2010', '2016': 'Jan 2016', '2024': 'Jan 2024'}
 EO_SENSOR = {'1984': 'Landsat 5 TM', '2000': 'Landsat 5 TM', '2010': 'Landsat 5 TM', '2016': 'Landsat 8 OLI', '2024': 'Landsat 9 OLI-2'}
 TO_LABEL = {'1999': 'January 1999', '2002': 'January 2002', '2011': 'January 2011', '2021': 'November 2021'}
+TO_SHORT = {'1999': 'Jan 1999', '2002': 'Jan 2002', '2011': 'Jan 2011', '2021': 'Nov 2021'}
 TO_SENSOR = {'1999': 'Landsat 5 TM', '2002': 'Landsat 5 TM', '2011': 'Landsat 5 TM', '2021': 'Landsat 8 OLI'}
 EO_YEARS = ['1984', '2000', '2010', '2016', '2024']; TO_YEARS = ['1999', '2002', '2011', '2021']
-BG = (14, 17, 20); FG = (240, 240, 236); MUTED = (150, 156, 160); ACC = (242, 178, 64)
-ZOOM_SRC = (960, 540)    # final zoom window in source pixels (30 m): 28.8 x 16.2 km
+BG = (14, 17, 20); FG = (244, 244, 240); ACC = (246, 184, 70); LINE = (170, 176, 180)
+ZOOM_SRC = (960, 540)
+# ---- shared type scale (design px at 1080p; identical for both sequences). Minimum secondary text 28 px = 18.7 px at 720p.
+T = {'kicker': (30, 'Medium'), 'title': (44, 'Medium'), 'date': (64, 'Medium'), 'date2': (44, 'Medium'), 'sub': (32, 'Regular'), 'label': (30, 'Medium'), 'note': (28, 'Regular'), 'chip': (28, 'Medium'), 'scale': (30, 'Medium'), 'cap': (36, 'Medium')}
+MX, MT, MB = 96, 72, 72          # safe margins (design px): 5% sides, 6.7% top and bottom (bottom keeps clear of mobile player UI)
+DISSOLVE_S = 0.8
+CHIP_TEXT = 'Dissolve, not an observation'
 def smooth(t): t = min(max(t, 0), 1); return t * t * (3 - 2 * t)
-def view(img, box, size):
-    """Lanczos resample of the float box (x0,y0,x1,y1; source px) into size (w,h). Pillow resizes only the box; nothing else is added."""
-    return Image.fromarray(img).resize(size, Image.LANCZOS, box=box)
+def view(img, box, size): return Image.fromarray(img).resize(size, Image.LANCZOS, box=box)
+def grad_shade(im, h, a, top):
+    ramp = np.linspace(a, 0, int(h)) if top else np.linspace(0, a, int(h)); arr = np.asarray(im).astype(np.float32)
+    sl = slice(0, int(h)) if top else slice(im.size[1] - int(h), im.size[1]); arr[sl] *= (1 - ramp)[:, None, None]; return Image.fromarray(arr.astype(np.uint8))
 def nice_bar(km_per_px, lo=110, hi=300):
     for km in (1, 2, 5, 10, 20, 50):
         w = km / km_per_px
         if lo <= w <= hi: return km, w
-    km = 10; return km, km / km_per_px
-def draw_scalebar(d, x, y, km, wpx, sc):
-    d.rectangle((x, y, x + wpx, y + 6 * sc), fill=FG); d.rectangle((x, y - 6 * sc, x + 2 * sc, y + 6 * sc), fill=FG); d.rectangle((x + wpx - 2 * sc, y - 6 * sc, x + wpx, y + 6 * sc), fill=FG)
-    d.text((x, y - 36 * sc), f'{km} km', font=font(24 * sc, 'Medium'), fill=FG)
-def shade(im, rect, a):
-    ov = Image.new('RGBA', im.size, (0, 0, 0, 0)); ImageDraw.Draw(ov).rectangle(rect, fill=(0, 0, 0, int(255 * a))); return Image.alpha_composite(im.convert('RGBA'), ov).convert('RGB')
-def grad_shade(im, h, a, top):
-    w = im.size[0]; ramp = np.linspace(a, 0, int(h)) if top else np.linspace(0, a, int(h)); arr = np.asarray(im).astype(np.float32)
-    sl = slice(0, int(h)) if top else slice(im.size[1] - int(h), im.size[1]); arr[sl] *= (1 - ramp)[:, None, None]; return Image.fromarray(arr.astype(np.uint8))
+    return 10, 10 / km_per_px
+class Layer:
+    """RGBA text/graphics overlay with design-px coordinates; tracks the bounding box of everything drawn."""
+    def __init__(s, sc, CW, CH): s.sc = sc; s.im = Image.new('RGBA', (CW, CH), (0, 0, 0, 0)); s.d = ImageDraw.Draw(s.im); s.items = []
+    def text(s, x, y, t, role, col=FG, a=1.0, anchor='l', tag=''):
+        sz, w = T[role]; f = font(sz * s.sc, w); tw = s.d.textlength(t, font=f) / s.sc
+        if anchor == 'r': x = x - tw
+        sw = max(1, int(round(2 * s.sc))); s.d.text((x * s.sc, y * s.sc), t, font=f, fill=col + (int(255 * a),), stroke_width=sw, stroke_fill=(0, 0, 0, int(190 * a)))
+        s.items.append({'tag': tag or t, 'role': role, 'size': sz, 'bbox': [x, y, x + tw, y + sz * 1.2], 'alpha': a, 'color': col}); return tw
+    def pill(s, x0, y0, x1, y1, a=0.58):
+        s.d.rounded_rectangle((x0 * s.sc, y0 * s.sc, x1 * s.sc, y1 * s.sc), radius=14 * s.sc, fill=(8, 10, 12, int(255 * a))); s.items.append({'tag': 'pill', 'role': 'pill', 'bbox': [x0, y0, x1, y1], 'alpha': a})
+    def bar(s, x, y, km, wpx):
+        sc = s.sc; d = s.d; o = 3 * sc
+        d.rectangle(((x - o) * sc / sc, (y - 6 * sc - o), x * 1 + wpx * sc / sc * 0 + 0, 0)) if False else None
+        X, Y, Wd = x * sc, y * sc, wpx
+        d.rectangle((X - o, Y - 8 * sc - o, X + Wd + o, Y + 8 * sc + o), fill=(0, 0, 0, 170)); d.rectangle((X, Y - 8 * sc, X + Wd, Y + 8 * sc), fill=FG + (255,))
+        d.rectangle((X + 3 * sc, Y - 5 * sc, X + Wd - 3 * sc, Y + 5 * sc), fill=(8, 10, 12, 255)) if False else None
+        s.items.append({'tag': 'scalebar', 'role': 'bar', 'alpha': 1.0, 'bbox': [x, y - 8, x + Wd / sc, y + 8]})
+        s.text(x, y - 50, f'{km} km', 'scale', tag='scalebar label')
+def date_block(L, x, y, years, alpha, base_a=1.0, big=True):
+    """Date + sensor block. Single date outside a dissolve; during a dissolve both dates are listed (outgoing, then incoming) so each stays identifiable."""
+    y0, y1 = years
+    if y1 is None or alpha <= 0.0 or alpha >= 1.0:
+        k = y1 if (y1 is not None and alpha >= 1.0) else y0; return [('single', k, 1.0)] if True else None
+    return [('pair', (y0, y1), 1.0)]
+class Style:  # per-sequence label tables
+    def __init__(s, lab, sensor): s.lab = lab; s.sensor = sensor
+EOS, TOS = Style(EO_LABEL, EO_SENSOR), Style(TO_LABEL, TO_SENSOR)
+def draw_info(L, x, y, st, years, a, kicker, chip_y_gap=0, text_alpha=1.0, pill=False):
+    """Common info block: kicker, date(s), sensor(s), dissolve chip. Returns y of the block end."""
+    y0, y1 = years; yy = y + 46
+    single = (y1 is None or a <= 0.0 or a >= 1.0)
+    if pill: L.pill(x - 22, y - 16, x + 600, (yy + 82 + 44) if single else (yy + 204 - 6), 0.70)
+    L.text(x, y, kicker, 'kicker', ACC, text_alpha)
+    if y1 is None or a <= 0.0 or a >= 1.0:
+        k = y1 if (y1 is not None and a >= 1.0) else y0
+        L.text(x, yy, st.lab[k], 'date', FG, text_alpha, tag=f'date:{k}'); L.text(x, yy + 82, st.sensor[k], 'sub', (214, 216, 212), text_alpha, tag=f'sensor:{k}')
+        return yy + 82 + 40
+    L.text(x, yy, st.lab[y0], 'date2', FG, text_alpha, tag=f'date:{y0}'); L.text(x, yy + 52, '→ ' + st.lab[y1], 'date2', FG, text_alpha, tag=f'date:{y1}')
+    s0, s1 = st.sensor[y0], st.sensor[y1]; L.text(x, yy + 108, s0 if s0 == s1 else f'{s0} → {s1}', 'sub', (214, 216, 212), text_alpha, tag='sensors')
+    tw = L.d.textlength(CHIP_TEXT, font=font(T['chip'][0] * L.sc, T['chip'][1])) / L.sc
+    L.pill(x - 14, yy + 156, x + tw + 14, yy + 156 + 44, 0.62); L.text(x, yy + 160, CHIP_TEXT, 'chip', ACC, text_alpha, tag='chip')
+    return yy + 204
+def timeline(L, pts, cur, a, years, horizontal, x0, y0, x1, y1, lab, ta=1.0):
+    """pts: ordered years; cur highlighted; during a dissolve both endpoints are highlighted and joined."""
+    act = {years[0]} if (years[1] is None or a <= 0 or a >= 1) else {years[0], years[1]}
+    if years[1] is not None and a >= 1: act = {years[1]}
+    n = len(pts); pos = {}
+    for i, k in enumerate(pts): pos[k] = (x0 + (x1 - x0) * i / (n - 1), y0 + (y1 - y0) * i / (n - 1))
+    sc = L.sc; d = L.d
+    d.line((pos[pts[0]][0] * sc, pos[pts[0]][1] * sc, pos[pts[-1]][0] * sc, pos[pts[-1]][1] * sc), fill=LINE + (int(255 * ta),), width=int(3 * sc))
+    if len(act) == 2:
+        p = [pos[k] for k in sorted(act, key=pts.index)]; d.line((p[0][0] * sc, p[0][1] * sc, p[1][0] * sc, p[1][1] * sc), fill=ACC + (int(255 * ta),), width=int(7 * sc))
+    for k in pts:
+        x, y = pos[k]; on = k in act; r = 11 if on else 8
+        d.ellipse(((x - r) * sc, (y - r) * sc, (x + r) * sc, (y + r) * sc), fill=(ACC if on else (226, 228, 224)) + (int(255 * ta),), outline=(0, 0, 0, int(200 * ta)), width=int(2 * sc))
+        if horizontal:
+            tw = d.textlength(lab[k], font=font(T['label'][0] * sc, T['label'][1])) / sc; L.text(x - tw / 2, y + 26, lab[k], 'label', FG if on else (226, 228, 224), ta, tag=f'tl:{k}')
+        else:
+            L.text(x + 34, y - 18, lab[k], 'label', FG if on else (226, 228, 224), ta, tag=f'tl:{k}')
 class EO:
     def __init__(s): s.f = {k: np.load(f'{CACHE}EO_{k}_base.npy') for k in EO_YEARS}; s.W, s.H = s.f['2024'].shape[1], s.f['2024'].shape[0]
-    def target(s):   # zoom centre: densest field area in 2024 (dark = irrigated circles)
-        g = (s.f['2024'].astype(np.float32).mean(2) < 110).astype(np.float32); I = g.cumsum(0).cumsum(1); w, h = ZOOM_SRC; best = (0, 0, 0)
-        for y in range(0, s.H - h, 20):
-            for x in range(0, s.W - w, 20):
-                v = I[y + h - 1, x + w - 1] - I[y, x + w - 1] - I[y + h - 1, x] + I[y, x]
-                if v > best[0]: best = (v, x, y)
-        return best[1] + w / 2, best[2] + h / 2
-    def frame(s, sc, years, alpha, zoom, tgt, tick_idx, text_alpha=1.0, note=False):
+    def target(s): return json.load(open(c.VIS + 'eo_target.json'))['zoom_target_src_px']
+    def frame(s, sc, years, alpha, zoom, tgt, text_alpha=1.0, note=False, parts=False):
         CW, CH = int(1920 * sc), int(1080 * sc); z = smooth(zoom)
         dw = (1276 + 644 * z) * sc; dx0 = CW - dw
-        # box: aspect = dest aspect; log-interpolated width
-        w0 = s.W; w1 = ZOOM_SRC[0]; bw = float(np.exp(np.log(w0) * (1 - z) + np.log(w1) * z)); bh = bw * CH / dw
+        bw = float(np.exp(np.log(s.W) * (1 - z) + np.log(ZOOM_SRC[0]) * z)); bh = bw * CH / dw
         cx = (s.W / 2) * (1 - z) + tgt[0] * z; cy = (s.H / 2) * (1 - z) + tgt[1] * z
         cx = min(max(cx, bw / 2), s.W - bw / 2); cy = min(max(cy, bh / 2), s.H - bh / 2)
         if bh > s.H: bh = s.H; bw = bh * dw / CH; cx = s.W / 2
         box = (cx - bw / 2, cy - bh / 2, cx + bw / 2, cy + bh / 2); size = (int(round(dw)), CH)
         A = view(s.f[years[0]], box, size)
         if years[1] is not None and alpha > 0: A = Image.blend(A, view(s.f[years[1]], box, size), alpha)
-        im = Image.new('RGB', (CW, CH), BG); im.paste(A, (int(round(dx0)), 0))
+        base = Image.new('RGB', (CW, CH), BG); base.paste(A, (int(round(dx0)), 0))
         cur = years[1] if (years[1] is not None and alpha >= 0.5) else years[0]
-        d = ImageDraw.Draw(im)
-        # left info panel (slides off with the zoom)
+        L = Layer(sc, CW, CH)
         if dx0 > 2 * sc:
-            pn = Image.new('RGB', (int(644 * sc), CH), BG); d = ImageDraw.Draw(pn)
-            def fade(col): return tuple(int(BG[i] + (col[i] - BG[i]) * text_alpha) for i in range(3))
-            d.text((40 * sc, 54 * sc), 'EAST OWEINAT, EGYPT', font=font(26 * sc, 'Medium'), fill=fade(ACC))
-            d.text((40 * sc, 104 * sc), 'Desert to irrigated', font=font(44 * sc, 'Medium'), fill=fade(FG)); d.text((40 * sc, 154 * sc), 'circles, 1984 to 2024', font=font(44 * sc, 'Medium'), fill=fade(FG))
-            d.text((40 * sc, 380 * sc), EO_LABEL[cur], font=font(46 * sc, 'Medium'), fill=fade(FG)); d.text((40 * sc, 446 * sc), EO_SENSOR[cur], font=font(26 * sc), fill=fade(MUTED))
-            # timeline
-            ty0, ty1 = 560 * sc, 940 * sc; xx = 70 * sc; d.line((xx, ty0, xx, ty1), fill=fade((70, 76, 80)), width=int(3 * sc))
-            for i, k in enumerate(EO_YEARS):
-                yy = ty0 + (ty1 - ty0) * i / 4; on = (k == cur)
-                d.ellipse((xx - 9 * sc, yy - 9 * sc, xx + 9 * sc, yy + 9 * sc), fill=fade(ACC if on else (70, 76, 80)))
-                d.text((xx + 28 * sc, yy - 16 * sc), EO_LABEL[k] if k == '1984' else EO_LABEL[k].replace('January ', 'Jan '), font=font(26 * sc, 'Medium' if on else 'Regular'), fill=fade(FG if on else MUTED))
-            d.text((40 * sc, 1000 * sc), 'Single dates, not a continuous record.', font=font(20 * sc), fill=fade(MUTED))
-            d.text((40 * sc, 1028 * sc), 'Landsat / USGS. Same tone curve for every frame.', font=font(20 * sc), fill=fade(MUTED))
-            im.paste(pn.crop((0, 0, int(dx0), CH)), (0, 0)); d = ImageDraw.Draw(im)
-        # zoom-stage overlays
+            ta = text_alpha
+            end = draw_info(L, MX, MT, EOS, years, alpha, 'EAST OWEINAT, EGYPT', text_alpha=ta)
+            # (title lines sit above the date block in pass 1; pass 2 keeps one shared info block for both sequences)
+            timeline(L, EO_YEARS, cur, alpha, years, False, 110, 590, 110, 840, EO_SHORT, ta)
+            for i, line in enumerate(('Single dates, not a continuous record.', 'Landsat / USGS · same tone', 'curve for every frame.')): L.text(MX, 892 + i * 34, line, 'note', (214, 216, 212), ta, tag='footnote')
+            keep = Image.new('L', (CW, CH), 0); ImageDraw.Draw(keep).rectangle((0, 0, int(dx0), CH), fill=255)
+            a_ch = L.im.getchannel('A'); L.im.putalpha(Image.fromarray(np.minimum(np.asarray(a_ch), np.asarray(keep))))
         if z > 0.85:
-            a = min(1, (z - 0.85) / 0.15); im = grad_shade(im, 220 * sc, 0.62 * a, False); d = ImageDraw.Draw(im)
-            km, wpx = nice_bar(0.03 / (dw / bw)); draw_scalebar(d, 60 * sc, CH - 70 * sc, km, wpx, sc)
-            d.text((CW - 780 * sc, CH - 150 * sc), EO_LABEL[cur] + ' · ' + EO_SENSOR[cur], font=font(34 * sc, 'Medium'), fill=FG)
-            if note: d.text((CW - 780 * sc, CH - 100 * sc), 'Center-pivot circles, about half a mile across.', font=font(26 * sc), fill=FG)
-        d.text((dx0 + 20 * sc, CH - 36 * sc), '', font=font(10 * sc))
-        return im, {'box_src': [round(v, 1) for v in box], 'dest': size, 'screen_px_per_src_px': round(dw / bw, 3), 'label': EO_LABEL[cur]}
+            a = min(1, (z - 0.85) / 0.15); base = grad_shade(base, 230 * sc, 0.55 * a, False)
+            km, wpx = nice_bar(0.03 / (dw / bw)); L.pill(MX - 14, 1080 - MB - 84, MX + wpx + 18, 1080 - MB + 2, 0.70 * a); L.bar(MX, 1080 - MB - 16, km, wpx)
+            L.pill(CW / sc - MX - 740, 1080 - MB - 112, CW / sc - MX + 14, 1080 - MB + 2, 0.70 * a)
+            L.text(CW / sc - MX, 1080 - MB - 100, EO_LABEL[cur] + ' · ' + EO_SENSOR[cur], 'cap', FG, a, anchor='r', tag=f'date:{cur}')
+            if note: L.text(CW / sc - MX, 1080 - MB - 52, 'Center-pivot circles, about half a mile across.', 'sub', FG, a, anchor='r', tag='zoom note')
+        im = Image.alpha_composite(base.convert('RGBA'), L.im).convert('RGB')
+        m = {'box_src': [round(v, 1) for v in box], 'dest': size, 'screen_px_per_src_px': round(dw / bw, 3), 'label': EO_LABEL[cur]}
+        return (im, m, base, L) if parts else (im, m)
 class TO:
     def __init__(s): s.f = {k: np.load(f'{CACHE}TOSH_{k}_base.npy') for k in TO_YEARS}
-    def frame(s, sc, years, alpha):
+    def frame(s, sc, years, alpha, parts=False):
         CW, CH = int(1920 * sc), int(1080 * sc)
         A = view(s.f[years[0]], (0, 0, 3840, 2160), (CW, CH))
         if years[1] is not None and alpha > 0: A = Image.blend(A, view(s.f[years[1]], (0, 0, 3840, 2160), (CW, CH)), alpha)
         cur = years[1] if (years[1] is not None and alpha >= 0.5) else years[0]
-        im = grad_shade(A, 270 * sc, 0.62, True); im = grad_shade(im, 170 * sc, 0.62, False); d = ImageDraw.Draw(im)
-        d.text((50 * sc, 36 * sc), 'TOSHKA LAKES, EGYPT', font=font(26 * sc, 'Medium'), fill=ACC)
-        d.text((50 * sc, 78 * sc), TO_LABEL[cur], font=font(58 * sc, 'Medium'), fill=FG); d.text((50 * sc, 156 * sc), TO_SENSOR[cur], font=font(26 * sc), fill=(210, 212, 208))
-        # timeline top right
-        x0 = CW - 760 * sc; d.line((x0, 96 * sc, x0 + 680 * sc, 96 * sc), fill=(120, 124, 126), width=int(3 * sc))
-        for i, k in enumerate(TO_YEARS):
-            xx = x0 + 680 * sc * i / 3; on = (k == cur)
-            d.ellipse((xx - 9 * sc, 96 * sc - 9 * sc, xx + 9 * sc, 96 * sc + 9 * sc), fill=ACC if on else (120, 124, 126))
-            t = TO_LABEL[k].replace('January ', 'Jan ').replace('November ', 'Nov '); tw = d.textlength(t, font=font(22 * sc)); d.text((xx - tw / 2, 120 * sc), t, font=font(22 * sc, 'Medium' if on else 'Regular'), fill=FG if on else (200, 202, 198))
-        km, wpx = nice_bar(0.03 / (CW / 3840), 140, 320); km = 20; wpx = 20 / (0.03 / (CW / 3840))
-        draw_scalebar(d, 60 * sc, CH - 62 * sc, km, wpx, sc)
-        d.text((CW - 880 * sc, CH - 92 * sc), 'Single dates, not a continuous record.', font=font(24 * sc), fill=FG)
-        d.text((CW - 880 * sc, CH - 56 * sc), 'Landsat / USGS · same tone curve for every frame', font=font(20 * sc), fill=(210, 212, 208))
-        return im, {'label': TO_LABEL[cur], 'screen_px_per_src_px': round(CW / 3840, 3)}
-def encode(frames_iter, out, w, h, fps=24, crf=26):
+        base = grad_shade(A, 340 * sc, 0.48, True); base = grad_shade(base, 210 * sc, 0.45, False)
+        L = Layer(sc, CW, CH)
+        draw_info(L, MX, MT, TOS, years, alpha, 'TOSHKA LAKES, EGYPT', pill=True)
+        tl0, tl1 = CW / sc - MX - 110 - 700, CW / sc - MX - 110; L.pill(tl0 - 72, MT - 16, tl1 + 72, MT + 124, 0.70)
+        timeline(L, TO_YEARS, cur, alpha, years, True, tl0, MT + 38, tl1, MT + 38, TO_SHORT)
+        km = 20; wpx = 20 / (0.03 / (CW / 3840)); L.pill(MX - 14, 1080 - MB - 84, MX + wpx + 18, 1080 - MB + 2, 0.70); L.bar(MX, 1080 - MB - 16, km, wpx)
+        L.pill(CW / sc - MX - 724, 1080 - MB - 88, CW / sc - MX + 14, 1080 - MB + 2, 0.70)
+        L.text(CW / sc - MX, 1080 - MB - 72, 'Single dates, not a continuous record.', 'note', FG, anchor='r', tag='footnote'); L.text(CW / sc - MX, 1080 - MB - 36, 'Landsat / USGS · same tone curve for every frame', 'note', (214, 216, 212), anchor='r', tag='footnote')
+        im = Image.alpha_composite(base.convert('RGBA'), L.im).convert('RGB')
+        m = {'label': TO_LABEL[cur], 'screen_px_per_src_px': round(CW / 3840, 3)}
+        return (im, m, base, L) if parts else (im, m)
+def encode(frames_iter, out, w, h, fps=24, crf=24):
     p = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{w}x{h}', '-r', str(fps), '-i', '-', '-c:v', 'libx264', '-preset', 'medium', '-crf', str(crf), '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out], stdin=subprocess.PIPE)
     n = 0
     for im in frames_iter: p.stdin.write(np.asarray(im).tobytes()); n += 1
     p.stdin.close(); p.wait(); return n
 def eo_timeline(fps):
-    seq = []   # (years, alpha, zoom, text_alpha, note)
-    hold, dis = int(2.0 * fps), int(1.0 * fps)
+    seq = []; hold, dis = int(2.0 * fps), int(DISSOLVE_S * fps)
     for i, k in enumerate(EO_YEARS):
         for _ in range(hold): seq.append(((k, None), 0, 0, 1, False))
         if i < 4:
-            for j in range(dis): seq.append(((k, EO_YEARS[i + 1]), smooth((j + 1) / dis), 0, 1, False))
+            for j in range(dis): seq.append(((k, EO_YEARS[i + 1]), (j + 1) / (dis + 1), 0, 1, False))   # strictly inside (0,1): the outgoing and incoming dates are both shown
     zf = int(6.0 * fps)
-    for j in range(zf): t = (j + 1) / zf; seq.append((('2024', None), 0, t, max(0, 1 - t * 3), t > 0.95))
+    for j in range(zf): t = (j + 1) / zf; seq.append((('2024', None), 0, t, max(0, 1 - t * 5), t > 0.95))
     for _ in range(int(2.5 * fps)): seq.append((('2024', None), 0, 1, 0, True))
     return seq
 def to_timeline(fps):
-    seq = []; hold, dis = int(3.0 * fps), int(1.2 * fps)
+    seq = []; hold, dis = int(3.0 * fps), int(DISSOLVE_S * fps)
     for i, k in enumerate(TO_YEARS):
         for _ in range(hold): seq.append(((k, None), 0))
         if i < 3:
-            for j in range(dis): seq.append(((k, TO_YEARS[i + 1]), smooth((j + 1) / dis)))
+            for j in range(dis): seq.append(((k, TO_YEARS[i + 1]), (j + 1) / (dis + 1)))
     for _ in range(int(1.5 * fps)): seq.append((('2021', None), 0))
     return seq
 if __name__ == '__main__':
     what = sys.argv[1]; sc = float(sys.argv[2]) if len(sys.argv) > 2 else 2 / 3; out = sys.argv[3] if len(sys.argv) > 3 else None; fps = 24
     CW, CH = int(1920 * sc), int(1080 * sc)
     if what == 'eo':
-        e = EO(); tgt = e.target(); print('zoom target', tgt, flush=True); json.dump({'zoom_target_src_px': tgt}, open(c.VIS + 'eo_target.json', 'w'))
-        enc = lambda: (e.frame(sc, y, a, z, tgt, 0, ta, nt)[0] for (y, a, z, ta, nt) in eo_timeline(fps))
-        print(encode(enc(), out, CW, CH, fps), 'frames')
+        e = EO(); tgt = e.target()
+        print(encode((e.frame(sc, y, a, z, tgt, ta, nt)[0] for (y, a, z, ta, nt) in eo_timeline(fps)), out, CW, CH, fps), 'frames')
     elif what == 'to':
         t = TO(); print(encode((t.frame(sc, y, a)[0] for (y, a) in to_timeline(fps)), out, CW, CH, fps), 'frames')
