@@ -1,0 +1,7160 @@
+[
+ {
+  "group": "EO",
+  "label": "1984",
+  "displayId": "LT05_L1TP_177044_19840826_20200918_02_T1",
+  "entityId": "LT51770441984239XXX04",
+  "dataset": "landsat_tm_c2_l1",
+  "bandProductId": "6448124210926491",
+  "files": {
+   "ANG.txt": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_ANG_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 34755,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "d075487ba0689d6a861e9649fd80e824bc43690e600fea398e532f4f1e7156995a06c73e952017282024a610c96596490c3dfacd51b2abef8e3ab2b643c8714b"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B1.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_B1_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 22632185,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "6b5fc9d641c34e9b4b78db396e7ec3922fdc95ae8495284cfb4ffc52b88119efb8c2c07e312ee86c2f9907cbbcc633acf4addb586f733a5ffebf6b1023fd0dbd"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B2.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_B2_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 17442902,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "40a4b87b71b0ce13dd0a8565afc5f57583b5e64d71ae0b5c294100dbde278f190f7d6e8355c677b991b7b09e0f77fe7e402a3a7aca512c7af7f5c49d58a10672"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B3.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_B3_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 21272161,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "52510edb4b2fd81d0c3ae3c1cdb31718048cfed746bfce911e265bedd5a267a1a140f0c63aba988156c7539a350a7db7319052549d4a81d21f23b81afa943896"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B4.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_B4_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 20538150,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "d6ad54c8063822e33da1f11873699246185a29e18b924b4107c17d21b8d4e3b7b5f0a638f0169548cc304924d1d268efbf6c16bdf81128fc8790c0cb4a46ac5b"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B5.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_B5_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 893462,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "466664937d210d3e4e0d46730226d85b9db9d02d8d0fd11740d0b08e7a7615b70ab92b13de219097db7b6de17ca239bce21fa7f6e8e13e49260b7256b816227f"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B6.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_B6_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 6387903,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "e3a0f6cf4f4f3ef5825ffe444ac90ea29f1a4047f139c154beb632e17eb1b6612aa2ed6ed9762149b03c517ccee5c73868c9c1a8d48d7093e40734387426e812"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B7.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_B7_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 23209596,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "a5dd40c2b646fc08ac203ce7e7ed60afc086935d4e83bb1e0ca11581673fe4cfc27458e4f40b694ef1fe5d421be04a631a1a2d3f1ff60a0e9d05a72da0dce222"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "GCP.txt": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_GCP_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 22388,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "a9a6802fc8032bb9535cc5f78d5e3b7ef1bad61992518fc53ba973da795902044ec0255ec89ec9859295545d5454a6849eb2f7f2c0f1d3b2e5a45d29247aa485"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.txt": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_MTL_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 10836,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "f093d801068be7888f017cb91f37ce69545384a34de160abc95c0907d29267a2af1e743efde2f921825b90209a530b388750484ba37c3d8c01abcd63790606fa"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.xml": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_MTL_XML",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 15692,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "80870558cf5f65e77a143c7798fdc01df3ff9b469ab102fdc376ef7ad5ef42064550bfaa5fd500b0be6ad7468adb202945e7769da34189f5af81f825fad5071c"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_PIXEL.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_QA_PIXEL_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 309429,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "8c3a59f0adfd71ad84177ff5df0fb5de9835908b4610c3dfc9d9c4b4e1c0cca859e8d61d39ef5f9c31207b3caa6352c1f25ed6b61e3a0a51101e328a78fb2e72"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_RADSAT.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_QA_RADSAT_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 567398,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "8f613257c3c47f12e0946aae1b006e72e4ee0767ec61fae3f8adcfbccfc7f946cec425c5a2cfa838857b08178097ac13fb9fab3f85fed475c18e90b7fd90d024"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SAA.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_SAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2523383,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "bd9a7fb36339972e714842b99e7276df3545ad5012fbcb8e7dc20bc5997571413f84e1049e0553dd4c13c4b5c74b2d8167a04853d3850d1fd4db54d9a343d7b9"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SZA.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_SZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 1900669,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "affb693a24a310703f684b32fba9f16c8c9f2f8f23cfdbed16680f209860c5d9cb05093f33d2ace17508fbdd3d9ce200e236d5e9b4c247d368f12233a05633a3"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VAA.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_VAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 6926088,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "4312e5cefbd3bbd895615176ee4a85ed0bf1af0732fd21f06c706eba82ac9abbd2d5693a43a6b2e9dc2f2ec144ad1cc7919d828f85b3a215a3032eceaff76046"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.jpg": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_VER_JPG",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 61412,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "c00e13d402f9077ffc743e42884dec2c566c7f39b6d254e5f8a7cf000a3008ea063f57ab0dd3318eb6012e6b4f3c8855d14e0efe809ad417322f1147f3df1be2"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.txt": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_VER_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 15198,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "5f105ee0ab6f28bad8e64fc790c11df3955053633162eea329d2e9874c9a83a87fffb139bd0629af4982a2dde85c81de9ee8d9cb4864f9f9910786442f097de8"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VZA.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_VZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 4065083,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "efbcb3a8c1b941973a337cd126673f60991927d83d2969d71d6a62d3a76bc00bc7f749f974fba79df55f7b93a50d4d238b8e35d9a8fdab641a55432af2081f64"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   }
+  }
+ },
+ {
+  "group": "EO",
+  "label": "2000",
+  "displayId": "LT05_L1TP_177044_20000111_20200907_02_T1",
+  "entityId": "LT51770442000011RSA00",
+  "dataset": "landsat_tm_c2_l1",
+  "bandProductId": "6448124210926491",
+  "files": {
+   "ANG.txt": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_ANG_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 35015,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "e1a18d87df341b9b318ac9a9bd46b25ecbd4dbed60b42fa0362c31515d4027bbc6312870790c5a73543ead8fec7eb83cd8483799495fd6e6703701b3689ffa4c"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B1.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_B1_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 20774954,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "61f8f50b907d233e9c3ec1621c5735bb8962d146e56122092683ce1844e83372e7201d04a2208cacdf052db56ca246807b2863fc1a81091fe2c1dfadd06eaabb"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B2.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_B2_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 15663120,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "770e3df20181b2cedda3b3f41c9a6f00564c88a6863223a7a9963cec3f7807488cf4f03add61a4e521e99a5abaf33735ff99cf127d5540e1ce300ed4d2a22593"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B3.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_B3_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 19884657,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "b25ca5a42bfdee8b68a6f9820876876fc0c18dcf18e0d1cdbc687a35ee1a1a4029692c993ffabe46c525bc6423997e37e22d898db57e70f54101b6c579695c03"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B4.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_B4_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 18726604,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "1e941671d0544d98066ba3cc54a0b2a20194dd40180550b87bc955d4467a95815eb6340ab20cb05451af19650589ee23553dacc54c0180bcccc58da0314ba57f"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B5.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_B5_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 25212842,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "97ed7d15d9cd7914e61f8a99eed90df46079b40f5393d0c9381f75528d56eb7d30f5db922566a20eb816168b507ae8b6e2c14ce99bb8f9e03072097406961048"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B6.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_B6_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 5091154,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "3260503944f7398d79917b82891f1a81bcaa839c40caf2b6af25ccecbde96a334bcac890c2f58ea9834138abb74dcbfb19ce9dc6d60a6f3ec2698fd0c3385c6a"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B7.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_B7_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 22225623,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "c6aae0a4acb8b8001ce2f1525c1152efd12f2f5e83c9172194d343d85ad63f007f4625f89d52dbd108b59b2f7936ba43cd86f5dada72ca298c015f93f0be139d"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "GCP.txt": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_GCP_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 36385,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "bf45e7604ce8eab944755779f9be921e46584f85d931e8f97afc92dd89e86be782506d9d7d63fb08c9325d0ebd4faf5275be658e851a674b275867abf50fd314"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.txt": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_MTL_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 10837,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "f6cc5746ed8642bce7c2a2d73409cc61c9a939760282b2d11da8980c9ee90ba2385827660b0d7da697cb21002c456a246d97bfa8b917e1131290cc2651ce4154"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.xml": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_MTL_XML",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 15693,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "4711d424b2f19b1165be169033a39a000b9394ce5014f0e13972a8047b7c4bb58716d541b938164457b5eec370d1410e8c79e25c23d32eadf06d458b108d0808"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_PIXEL.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_QA_PIXEL_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 309071,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "33f8d9e4e3de6e158dbfc2091f3ba925b79878401cb5938feb1187dfee717650415faa415f167750f10fdaeaf650a69cb7b2063d46c657b046837cc8f50ef2e0"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_RADSAT.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_QA_RADSAT_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 215057,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "af51a41ddd5fbd5db59143177956500cddcd80d3d47c643b43af7939cbbd5c76e732afab55d65c6d4f8f893e6a623cd330f5fe70eafcbfc7494c772c2b9af956"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SAA.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_SAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2037785,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "419d06d94a878a170140f9d48c1dd90ec9470eab7f4ac6c717660c7ac392b4429b62864051336c20086c42d7bacbf810353213c865872291b555bc62ea177076"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SZA.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_SZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2119901,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "80833268326d6a8c9c6ad65e89dc614e412b396f0cdd162612cb1afb6ba8661fa1f8605560f39a05ea17c7d5e38b9c3b32edf85a079eeddc5e00eca32d13ef4d"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VAA.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_VAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 6464771,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "542e1c5f24416f8db2884a433e9441d511bd7ba6f807003206313fddc07920a809dde5be76c39a237781fb33529162937f95d4f367b34af957b20df4087a5301"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.jpg": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_VER_JPG",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 351139,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "fcf7290c1e6f15331ba7c4da9ca8f29826f16881f37d50486f398d822a72d010bc2f7b40065c367deba2299343d46c09b1bbf701abc998c53ad81aeccbd9bc13"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.txt": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_VER_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 145114,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "91bc5f6081297083d9d786ff52152246f5543d8a3435253ca859db29f4add1dcab22a3dae5841b116640ee1bcae38f1f04f0b1a2a521d0a7ad795dd14b628e23"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VZA.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_VZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 4117951,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "41d6fab5f4a051ddad282b56d57ff668aab4acae09e13c9b29ea77903e5f7da441d482a604b1cbbe0809a5b1e5f8cc377bee8cdcf7b874d1fbe9580a7211cca2"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   }
+  }
+ },
+ {
+  "group": "EO",
+  "label": "2010",
+  "displayId": "LT05_L1TP_177044_20100122_20200825_02_T1",
+  "entityId": "LT51770442010022MTI00",
+  "dataset": "landsat_tm_c2_l1",
+  "bandProductId": "6448124210926491",
+  "files": {
+   "ANG.txt": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_ANG_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 34755,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "25d835147f73f5b2c2efddc5f03c3b39ad84b4f4a9b83cf89e601abe9ca56fec45b7aaca63841cc3074fe05b0c594bc3e939331f1109a9b4967894f1b0d7b6b9"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B1.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_B1_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 22003503,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "e76c3ef2a454a8a483d074de72583d9019497895303d4d25b551663ad0f3ae89795f2aafb47207e95e8e6ca42afd536a13cf2d935597fecdd0e355065ba78445"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B2.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_B2_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 16980859,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "5bfb887c4cc2770b61ad458e2ea88e91262dfbf524a65f8dc65c62a2f1f11cfd77f348c26bbe8f4d6343c09db60c92f0e811f1e60c5ec14139238b3289e5b5d7"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B3.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_B3_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 21267744,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "8631a1c30fa7b0eb50e7f00f0e57dd37899da61ad856ca5d3cc75a6b3b1af7bcd0206892ef5dae7015c221d8c74b83eb8883463d15e962ded61a52d341a8ac27"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B4.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_B4_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 20102876,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "03106b0a151c842a715c972ff12335740f9c9bb261373bf9e2a1d1e66ca9e2b244cea5e42c777c0cc2517402fac4d551b3a8324f569f515fb59540a03b12669a"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B5.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_B5_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 26551859,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "d795a2554310d2914f9551a9d61d3f519ece67f71c157126c59601d83490f11715b500696248ddcbf3bbba8a66e899b38c2001c39201aa4bf413d61b9ee837c0"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B6.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_B6_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 5808294,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "326a9a4540f0d517f0f4e75ce5980fdbcb1c6dd820aeff9e28e41d1645f583a3d4302e8e5485f7db8d135f6295cfcf895cdf9b4827447bec8f366e6c3f38bd39"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B7.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_B7_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 23538939,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "5b7957b29f5f1ca6f0e2a6a8629dfbffa05b470dfde461054bd2a4748b6146f0083f3424d318a9269cd56b7724e20c5a7ed0319d43f2c868d927c4d4992d8073"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "GCP.txt": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_GCP_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 39355,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "1dba8bd7f769ffd56067dbd93be8564683154e882aed5a6d0ce03e3d5968df26f714e756ac5059b6bde0c9f0f1019d5b3285be562010f563e4b6b903e8b94732"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.txt": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_MTL_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 10840,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "54d51cc2930b3c71a79814dcc00966a9ac9cbbcbda305696bece3e6c84eab95c3267fc34f707bf47e9b2240338fbaa83a5dafd6acc7ad46820b66729bc071c66"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.xml": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_MTL_XML",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 15696,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "c223b8c35c84658482a9f52d72c3fc0d7c788a80ac18761f4e2353b0083297f26afbbe6c397e6f9c615a37545a12ef212b5f6c71bbef2b9cde0947e70158dfd1"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_PIXEL.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_QA_PIXEL_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 360643,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "0c528573fbf714e99fae2776ab3dbe7b771693811ce8cda6ea972aff125c1c9474ae6f2d71bd404c77e3972cd87719b662077b00c2cbd707ee1beff174405af8"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_RADSAT.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_QA_RADSAT_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 236078,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "e066e7802646dbaf78a6513e7cdb488fed65c69190d6d3b70f1255d856fc8f07ba79ccd6319f8a630f9001c2d916f041bf062222910f1f78357a2ea66491f9cb"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SAA.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_SAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2195429,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "16d775d4e515d27ab61b0fce6ac651ba622eaf631fca1e2efd1a3dd7c1728166697a9bc4df8589cd701e592dbdd1526556722cb1c994c8ea027674a249b1b9c2"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SZA.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_SZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2164414,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "0c9c025e9c63d902b94a99f49d08d69106918360b3cb5474547960f4926d6b52e09e7a8e7c901479a65e4c5c66a00d6c82a90923132963157d677f32da02d7ad"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VAA.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_VAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 6593688,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "8597a8c8ab7096fa2bf8ff351a4f9a10972d2bcc6481703e0dc1ab6dd10d33ebf1c99e133d1fbbb8dbbcf11e106e17ad25172cf9ed0649a4a8c8553e4584450e"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.jpg": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_VER_JPG",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 339735,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "7c8f1f3e4c810db8c42c0047999f04f09930e61ef113f8112890991ed3f0e70e27405a9f2de136e77aac74909dcbf06af600cc0b3a005d3927864ddbea8584da"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.txt": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_VER_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 121033,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "9e1ef924db919b730cdf18ed58309d19732820200f86e5b3065a650abd0b6ff68f24bce1d9ffa665db946e8127ca8b9f759c63f9ea7578c47da885d9eb73cf93"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VZA.TIF": {
+    "entityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_VZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 4131958,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "72166b6d89ee22b6f1106f0179e4927986961b5518369415ab78b706c533b8f5c9a0ec0ce6e489470f5f02c532281263e571ef1a74c68173e8dd0ddba4f3dd8e"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   }
+  }
+ },
+ {
+  "group": "EO",
+  "label": "2016",
+  "displayId": "LC08_L1TP_177044_20160107_20200907_02_T1",
+  "entityId": "LC81770442016007LGN02",
+  "dataset": "landsat_ot_c2_l1",
+  "bandProductId": "73ceb05468b7e8c2",
+  "files": {
+   "ANG.txt": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_ANG_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 117122,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "287eea98ec734ba8167de1df5e1f251bf9d27a12cf6c5981a73c334e9b11aa39e79589db2f8090b02e21a2cd5f80d2176cf0544a76112cf63df48c6986af50c8"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B10.TIF": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_B10_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 70744495,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "f2f857e860eb657a6544bff6fb98602e3760db3189493176ad67f9e8b7539e45fd9a8b378cfc0037633f672f9f5cf44de6464106e6134aeb3f3dfe91b1346ac5"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B11.TIF": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_B11_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 69184620,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "e0c889db83257c0c14dcf55f59e441f579d29a454f68fd395cef322ec5ae7980a9c093193f8a42d7e4ed1b46f0356bcd272b38b98308645fc321727c2e8677d3"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B1.TIF": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_B1_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 73700083,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "fbafe0470ee268493ef92dca1554532c7bccb46cea7cb81c7f6d8403d49399f8fd0965849ee55a4495f6ef7e35848032e30870ba753c2be15dcfb3a86c85662b"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B2.TIF": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_B2_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 75458580,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "e412a6d90962e3b4ea370f801f490d3bda2dbe77ce0552ac0b1ccd32e34bf18d1f0bbec27f45b9f692ac5d249f64b1454176d5dc33c50ca46e30e15751be0b88"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B3.TIF": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_B3_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 79966797,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "7b1f1dbb12b087dc15bdc9b5d2d7b1924b4e13adfb72817342f1e1a08f17cf019175a57c2d28aea372c60ca16e549bba1852716fb982785e1f4fc300110ab2ef"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B4.TIF": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_B4_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 83753671,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "2b0bcd6c8a37df967a62df28d4164fae4daa1614193ad54cbd463ce2a0908b612833661a6ce92cc00a032762e6c78e3d3e61ab56c2b40606a467194fbaee84ea"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B5.TIF": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_B5_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 85670969,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "f914dffeac43049e1c76aedced8a933c9d3ec182ab3268c0f28ed67fdf7f88035b0eee43a1849226b289a5f3205ab3f9bfcb901e654fdf537e2140b7bacbdaed"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B6.TIF": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_B6_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 85949243,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "2ecb55b78969152d2c99ceb8086f30def423a8d5976b297589166ca060ffd4a829e4843311e1066e7a85c6bb0a63f7c6382bd2b2821bf5b974b80b1f69573895"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B7.TIF": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_B7_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 85363486,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "dc609439feb96e30872bd0dac596f108b370070981e734817d7c78e9f772c8b0ec903dee07ecbdb5e270e7385133892ff7e78f4e9e28f4706a431bdf1ac6ee70"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B8.TIF": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_B8_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 320703027,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "fe141edc4319251a10078f3a56938e5ee1183b4c7a86c09a7661ae45aec2ee7db27159851eac2b96703c7a57a0ef3aa59831addc82f12d0be91a0bc0d753c9c7"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B9.TIF": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_B9_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 49510614,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "04c7bddb10c42a9a9a0a2f84d99e3fa633b6b2887275a63aa3813ceedcf9993d31be2d477a61c6497f0b638064548596ce8ea679699ec66fd3fdaed713f9a37d"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.txt": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_MTL_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 12349,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "35f6239bf664f33b46ebc62c5799e44f6ab5e924c25fdcfea1de56731c84aa3f4dff15f3313fca6ad4c0181cc5bbbe69c270c776f28e14227681db9c16ccf9b7"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.xml": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_MTL_XML",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 18045,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "4332f78359f0686bfcfdcf55e0775b109ab685ae0aa2e80186082f9eb7d78931b5be44fa456bdd202e3d4c1761919e7a77614fd1c548854da554f38a23da43de"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_PIXEL.TIF": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_QA_PIXEL_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 341429,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "92c6461631bb1b3dfdb5cfa41587bfaf6612753926c1de0c35f5c987cc0ed1c001682e1aa960997e2362cb4948262e534ec9af03c245465b908b38bfdb5fd04a"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_RADSAT.TIF": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_QA_RADSAT_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 222832,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "e6c1d52f0577bd8bb7702e5c439239b29e68d02669239abc4c4133ae6736e159a0314c788d59f66aa5b249b8ae4ca2bc7df26fb130a45040f048d4660eba327a"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SAA.TIF": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_SAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 1833225,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "a091608ed8d38b69a2c4eb7b97718214419a4aa4aa44e77e0942700c8c488e81465957e410de2656fa59a043aa5ce3267211e4bbbc40e996e08ba6e38c30b2e9"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SZA.TIF": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_SZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2013236,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "67d43140d33ede8903379bb66deda873769a457079406f72f00af5eab631e92968da6332431f59d11ee3bc30d4c12d683725b143bf78555d413acba6e4cf7e37"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VAA.TIF": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_VAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 8454594,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "d678c85dc866140b7b48d54af99190b66d3d1bfe6798f390e991088bb17d111ff39043e3314faa91371153e6f9b2148e58e4aa2b17f44b2590e05c0d2ab6b2ac"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VZA.TIF": {
+    "entityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_VZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 3206115,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "c1d9d416e432e04ed40f1f5bd0f19db053a39aee1eed00305f388802811a41171ed603251a9329bddaeb3a36d4a7242c5b22818ab91eaefbdb6639d43923445b"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   }
+  }
+ },
+ {
+  "group": "EO",
+  "label": "2024",
+  "displayId": "LC09_L1TP_177044_20240105_20240105_02_T1",
+  "entityId": "LC91770442024005LGN00",
+  "dataset": "landsat_ot_c2_l1",
+  "bandProductId": "73ceb05468b7e8c2",
+  "files": {
+   "ANG.txt": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_ANG_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 117248,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "4953bfe88fb509dc4a9aff7629749a614877251676e9f1f87e0da0243b6d8bad07291e6ab1d44cf1a238c39ff68b2b0b6a276aa0f97765a80bfcfb35f5886ad4"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B10.TIF": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_B10_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 65576923,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "a65d65ab3b83dbb0b106aeb454666dab24738aeafb68bc393a9ba345e0a2949df2b7248d713ac820cee9270346c40afb5f7aab388a1115d0ada88585c460d4e2"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B11.TIF": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_B11_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 65339792,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "0fa5fa6f20efa5dfde36e7cf06f37d4fd31748444270b73bddbcbcb96360709cb6957879109d35fb85a5eb02cec1050b90c8c08c14ca2acda3d04b703ca714c8"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B1.TIF": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_B1_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 73839437,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "938be336f1b02a1dc09b32c39ce08488691826f6e2a2329054f537fbae559363faf79f4b12f2808d05bcf087de2effdf8ef6218e0d2d1ed3aab92ce8ca249fab"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B2.TIF": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_B2_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 75608694,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "edef1bcfe42c49fcc5103119f8103d637acccace8c0666ec8f8027f73754d24d4bb9c54c0526ab55bea9d949f8b08862e09a432caabb8937da32c04b41a2158d"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B3.TIF": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_B3_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 80181274,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "31568127da038464443686f29d437300d3622ce4f9f65c7c3b5414db27db91e222692d69231a6a8028066af012fe927eb3f6d9eb853606f12e43932245740508"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B4.TIF": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_B4_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 84233606,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "834d91d8dba80b1d8f379c8b4ab4c7607a0a743de9a5e24102742c3046ff7e0a667322658cbe5fee87c4c6afc6afddd991df28c58079ac5258a1ecff4b544ff3"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B5.TIF": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_B5_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 86048274,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "3009572ce80318cad514b9dfd11a3c3c175093e7e887c3e88fcf7ebc60bc068e11363aff457f7454bd2aff11083a5a3282f308f64a47a00bfc103e5d51ca144a"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B6.TIF": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_B6_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 86300839,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "e78716c1df6390ffe3935cd459519fa8b824b9048926c9929cb6744b4bcf9e81abc6f18031d3f30dd2d4b149bbdc408a5a4545f0e8b2fdbcf566561efc746598"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B7.TIF": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_B7_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 85626301,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "bfb0d78b507b6797ca1ed7dce38dbab0bf2d91cd120d7c2d221e1d3330950e430b00c27887f13de87d3b9c37979e6cb8eb108916d95f491ebbb73eedf16bc0d2"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B8.TIF": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_B8_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 321453674,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "c7c42b550c87e27a55f501a54a1165cac813ae3ccfdfb7373c5e980c72d76bdde07ef7de9de7b7fdae1fb2b95a090e17f012eecacf76004bf84b588acb61f5a4"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B9.TIF": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_B9_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 45414526,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "90a8976b0cabb57cc218d2aac58fb56a3d4cd2a17637db98b3d15d4756c86251ce35906fa01305cfc74983098abb026f325ba2fad5ff4f7de9565201a0994b7f"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.txt": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_MTL_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 12204,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "f2ab13d5b186dd718b6f0e0612b08bedc93a4541726e6dd4eb162f1ce7d1edd8f92ff5f2e87e8a1137358974c01db8f8030a19f20f1f5169bb9ed3bc8351fef5"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.xml": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_MTL_XML",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 17809,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "399342afb066220372f2d19c8222e08b24bdac15abe8548b3ab09f483d6b3af7352f6a298e564fbc2084401a8eb8566fb60cab1efff644a8356277cf2a476a38"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_PIXEL.TIF": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_QA_PIXEL_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 336408,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "3557f4347cdece584dc66ae3b46f2c0c0f8aff28d182478c573777f64de934ebc11645a89497eb6d77f35315bf4b0811a11daf221c36cf4b4ce2eb369e716a1d"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_RADSAT.TIF": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_QA_RADSAT_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 222730,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "5bac6ecf0aaa42baaca56ba6a8474886772e05b421023ee855899f4139e84a845846adac34f88a6ada28c11208d6a4f335192e49d0ad227ba64db04de79f4fd3"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SAA.TIF": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_SAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 1833965,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "1cb504e6863a7396a5c052120f85aad51d3c406df221b97d42f53d183df7b823592d5f6ab90d99952ec88f2f3d8dff56dd91f1f0825d9e7f260fcb025834f437"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SZA.TIF": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_SZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 1976116,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "39a3d6ddae95e65dca8356b2251bfac0df03f77574aa6fd6e399094d1ade5bbb58a1d4fc1e003d8118c0f51c1dadaf9b9996d6c032a26235ce2f1846f066ba4a"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VAA.TIF": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_VAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 8336113,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "ff804e720c2ce7a372f4e04d1d7657d2c42bf5be0d9c499deaf4147ebe378627c54795b12424a860b30aaa5e9d5fdbed15cf6a608188703f572e51c89347e393"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VZA.TIF": {
+    "entityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_VZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 3138072,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "d342b2cdc7f1789e0e4b28dcf9a52008fa4857ef20e80b5974788a88efe0859c4cc44292a24c4cd7565df81c3ef674e67e79f76ceaeb11d5d2b0239fff4ccaa9"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   }
+  }
+ },
+ {
+  "group": "TW",
+  "label": "1999",
+  "displayId": "LT05_L1TP_176044_19990101_20200908_02_T1",
+  "entityId": "LT51760441999001RSA00",
+  "dataset": "landsat_tm_c2_l1",
+  "bandProductId": "6448124210926491",
+  "files": {
+   "ANG.txt": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_ANG_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 34885,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "1884af14b1c79f7aa934bff68ae8f764d4b95f711bee75682c2fb6ef36cdb29e69b6ba31ddbdd314b2eb334be99af52501b3a33aa07a2074bbd00e4df695f730"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B1.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_B1_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 23943737,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "92080a9e83874fda9847af6507a2004637e8fa1761217d402a6a40cf3a6ff51c84db52f5fc5bc124f46ae7b6a818d3ca2d307251959daf550581400d7003a17b"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B2.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_B2_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 20356582,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "70b9430732d81fe178663b1670f4dc3e1de21c6188719d140715dc7757b199ef60b9d4f714f5d0c4c7c68c8ed96308316b9ed2503dff44e00078617f4e040b14"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B3.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_B3_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 25484523,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "0f99751e388d72e1d54310902cc31174770beb4350651fbb0e0c8c57873d925ede9de81f88f7e6432bb08a3d40a915d02f02f52af857c0fa5dc58a8e33f78161"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B4.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_B4_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 25123787,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "7251f3892ae126cdc0768747d5a063b6d5fa2d8cc43aaf70e07a08f96100cd98a6db708113ab7d25e393eb8e733341d2bb4ffcd94ca235996d9b9f2e1d5cf6b1"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B5.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_B5_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 30979648,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "08560c8bdd32dd3d8b4b197792dec250cdedcbae06deda2e4f04c0a0c02d6ce5875f17574de1807591c2437c223877cd8a3973612d0dc01717d1903b67e7a8cd"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B6.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_B6_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 7754417,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "0649d7c9cb33faf2831ad9b47334ebb2b8ff5056d71466431119367ff923ebdb9fa454ce0270345b9fe34b4309285c633136b318a6b7a4f9538ea92b5bfdb3de"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B7.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_B7_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 27455259,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "58701984fb129db11f59ad291bdb3887754a4524f8d0d66488286158acb2696f25cfd5beb40077bc326465accc10b98dae51c6bf12712ed68971c1f5390b4497"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "GCP.txt": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_GCP_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 57703,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "0d95254d40449983772a7cf15556d8f0f6b6c1526fcf38f7c52d3772c2ca78c25c7d7334f4dfb9541be8b85aec6d81467a8ca0038ca40f209f9bba065b8f6dae"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.txt": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_MTL_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 10835,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "aaf8aaf3a9fbd262356db1ca54d8ddc688903fe46d23358c67e4f01d2b991f3f472b90fb49ced11d1a191cc18585f5ceab8adcc8f89295bd3fedacf2daf4c5a1"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.xml": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_MTL_XML",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 15691,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "a8965bc034d113976ccb153218a410eb08c3bbeb7f4fad7438b78699b3a4099ff3a14b55d2e01a8a5fed9c30c804b56ab95f7950c5797782b8d0dab3b9b7a890"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_PIXEL.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_QA_PIXEL_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 337823,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "af8bc196578295ed94be4ce959c744eebae16dde76c3822486544267b33c0f3cee8ba085fe7d36955eb1db3ec52e73b272938ebe837b8786ee281a360fa1df85"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_RADSAT.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_QA_RADSAT_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 238078,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "845d87d4cd8fbc1d93ff66967986d26be63e2b7de1cec58508211b0ed30aaa679c6948dbefc236af31f7140dd8e2b7804a414d353181d397ed990926287620d5"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SAA.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_SAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 1902532,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "01c4408c4452e2e533d55a4fd670466d2807b8f7b8995481c9d20ae2c4d0b56ff4da4f8ff838a3b399e18a76a718b29e6273866f5661d13b13a8a9170fa8596d"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SZA.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_SZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2515230,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "67331795c0c60a8a74de1c4caab20834e5d840847010bf7078c5c4ed243113a33ca0a6c4cbf1baf54238dfbc0a1e52911d9d86f19d0e9eaa101989f037a96bab"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VAA.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_VAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 6723190,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "d7ba62b91cfe351991c3ed723346ac72cb4808269f6c00450f769aa082492571994f0e101e538306e32e030bf9cebe55f21f1b5562c3bed807d6afc9b53666f7"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.jpg": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_VER_JPG",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 437202,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "f523e048af9c02a927f7680f0ec678c8f44a7e321397e3337015a0bf9c590382b7ecdd306ed96db31b802936677ae00df662e06fb0a778397fe76cb5b95d27f2"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.txt": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_VER_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 185721,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "46ca509db6ae87cc1a67d7f0863b9a9b95da8bb79913c5bfa5ca962a0bde5de00e51fec0526e459c092917275ce3b1ed5a6adc47fe6153fe4ff084e61c1b5e1e"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VZA.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_VZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 4005596,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "13ae75d33cd40350272d5c26bac9bac93ceadb7846eb08c4601f82be3385e9e869d0dcc9d67e269f011837a0b6f749a25d57e61e8b0825272863f3fc1aa46166"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   }
+  }
+ },
+ {
+  "group": "TW",
+  "label": "2002",
+  "displayId": "LT05_L1TP_176044_20020109_20200905_02_T1",
+  "entityId": "LT51760442002009RSA01",
+  "dataset": "landsat_tm_c2_l1",
+  "bandProductId": "6448124210926491",
+  "files": {
+   "ANG.txt": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_ANG_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 34885,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "fe4971844691b89723e29ce4417d6c14411c69dfb20343dec31e154b303ef09fa34969499d9ab98191bfb6660c28ed4f836831617fa5c740f1c7f58f42a56369"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B1.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_B1_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 23804813,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "b647a761913f9634cdca0970893f4397f9e287b398194a14453c862a285dd683e2968521395640ff2d6ad489131e39db1eb78421604c71f857cc29dd337e6cc9"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B2.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_B2_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 20050812,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "2a477a45a06df4b7b743e83483d96797dd57d40ac9db815e26ff234047350960425b156bbad54c1e1dadbcb144a422619ecba5d223d92697e53be8701fdc1730"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B3.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_B3_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 24924802,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "74062ab5d1d39c8330857924a7692363a05f22b66c6bd7933e30d6d0043897159954ffa10f5d35950f989f3f96d04e0365acbf29e0ab1bb3ddd34adbbcc1b64d"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B4.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_B4_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 24508040,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "89552258ddb41c194ba9aff680e0cdc5fd85a889b1b5e17ade4266aefcbb4ab1cc6c63d8537c1fd69d8f495fcfe7497dd934a641542877595c70ad5527f241d4"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B5.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_B5_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 30182732,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "5645c499e0e25d3cba5532d0e0f2920f059e8f25f03897e4b946b5c7334faadc9cca3e231a7cd41511df1ba2ca0e828662f28f2cb0541ba838b324d3f442d653"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B6.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_B6_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 8148246,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "8beed746f4997a7fd6efb6f6a19e612466e48da15928293085722050278d820f8dcf067ff310fe1947fe7705c6bc03bba923864e4a9484810597c67d4eee17a0"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B7.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_B7_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 27011555,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "275fb750291e84054543d47b5bf7c699c2c2957825f3dcd12edb1002249093dc5c3dbfa6f3eeefab01ad39fd6d42e529bad75686eb45a349b63c457fcec7b0c7"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "GCP.txt": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_GCP_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 65983,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "866e910c1a86ee344e474f759ca91d448e7bcea39d89bf5fe9bbcfb5b18144934f18a9f41ede482d6f7e1f7c35e3eea7665ad2966a209244ec3965ac5af3548b"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.txt": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_MTL_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 10835,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "3dc8b22c17fd93676e8fce8cba7d161e91ea38448a509217dd85e69fd3f65494e3f5e613948b0e09db34344d787dbcd4627b9b07ffbf38d61bd3f0b861978a16"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.xml": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_MTL_XML",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 15691,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "d470858a2ad4960ade919c24c6eccf822a93bd55ebe43b9560b78250e2311857d6bcc32d6ed78e8b4339e4c75f753f075200a64ba56e1a6fa070f6e406de4968"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_PIXEL.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_QA_PIXEL_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 415210,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "b4838dc56ebb2fb1f72bb1f78be397857b81c17c9d2a30bf5a8b441da099bdb65fda56178dc34355c91c6955106133a5a9107fcc7179e9996e6eac53e246e5b6"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_RADSAT.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_QA_RADSAT_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 242102,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "1159c703afe6850e09f2486dc912ebb2c1274eac79a87453187405ec2ef61af27ac562daacca4b28e219d197df7924eb52057216d0f5b3de5e3b1c2410f141f6"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SAA.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_SAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 1968246,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "5cc520866cab6e0ba9f6d18de54d77e67542248101981e7a9e48167041696eacd47b3e1a17b9fbc87687c423b52678fceec251d7e0c5482f575309bfb55cdc6e"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SZA.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_SZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2596512,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "0d77d2d5e1f923e31f9ada95c06dba4820bf909487a0eb48ebafb2529afca0d6ccd638a391fea0d5ceb1f95f2d16e4241b6d000e1351db13c941448d6286e726"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VAA.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_VAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 6451164,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "b19d91347aad47d5f38073b8ccf6c912169da4232ae5f9bd49c45f3eb907d4081427ab172babe5dd9ba682ee255ab09441b8e087b3a8271cc5f18ce865ef4d55"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.jpg": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_VER_JPG",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 452680,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "654a67d221ecda2bc5a9a84eb489a2b96adf1e537e2ecb7d9701b17ceeaf02b1b7e5045b252aee861d7dde351149479308c70a59a5a0ddd4bf40f1307cb25210"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.txt": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_VER_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 196207,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "822dc3d0e6970242cb22ac2a7339c226dc652fd51fed1a558ef015b0c94f95c42c7cbbac90b75787cdce31b2f2149aa9c0a3c888554795ca40503246367e36da"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VZA.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_VZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 4055560,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "52ba5eba85179a34dfbeaecd864dc5ff930987f45b38eeaba5e6a78fd5d349322095b44dc3b0337e98042ad060891b454224ac2a14dca269405d8ecf2dfe82f4"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   }
+  }
+ },
+ {
+  "group": "TW",
+  "label": "2011",
+  "displayId": "LT05_L1TP_176044_20110102_20200823_02_T1",
+  "entityId": "LT51760442011002MTI00",
+  "dataset": "landsat_tm_c2_l1",
+  "bandProductId": "6448124210926491",
+  "files": {
+   "ANG.txt": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_ANG_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 34885,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "52459b2c14a19d92790cd8f87fb33e0e5a07460f26830e5855cb6aa37ad233b4a9f0e173dac4f5dddf2c96520188b362189af771915611eb4fe2250037528951"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B1.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_B1_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 24585080,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "d8caa025127b84bdfc28bfc7e4d4e8a7f17037aedd9446f5deb35f9c65229c342ed65197386e6c0aa1b4aca19612d613bd9c8ea51d817e2ecadaf97a2ad84ed7"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B2.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_B2_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 20531368,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "74cc9526c6d7a3922e3cd423b1876402de7982cfd3c2ee786d42f884e063fe3ba3ca412b98365672b8794049768addffd19d42d808d580a6bfbd171be372f463"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B3.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_B3_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 25575302,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "31df6cd0db73e5b03ba70f98c2e1adcc53d2cf6eb2702ab41d0af4eb99eae05a2466ab29a450067b8b8bcae97672908295c9a1dbf3e53764374eacb58853f483"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B4.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_B4_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 24949192,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "9616824489f27fe46899539b96f506c4f1d12bade4d237fcec5aa28201d49f7c975856f74a28d5faa86864f7fec9107d6406476e2761b559e78e006a22a20334"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B5.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_B5_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 31628708,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "9f3ebbe7cb98f078d1d782daff7a5c5bae9a438781a5662f7a1b776e4932b02eaa25f7fa6eace003056fd0cc708b4379dcdd48751994dd3afeced55a40dea0dd"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B6.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_B6_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 8987426,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "37943506549339353e1331d047c25ff79ed1178ec8fcd40d9fe3049412b1e9c6e58d5c0b27d44527720467ba810faf800ea95a22c5587ffe6b125f3de8e040e9"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B7.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_B7_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 27581301,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "efc2c01524b20f6a016d0ecb4c96bbbd7a7a0dc26ee76fb8c3f352758cb762fe7102c84fbe8431753991b51874a091216adc4886261df05cd9ee2f909161888d"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "GCP.txt": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_GCP_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 68503,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "7ffa873432e577fb085b86c3db59475284202d8f0b29cdcb2df06023a8aa36c7a0f79d45350d9f77f6b3a9c04e26717824fc8f6c10cadb05516a7b8655e94bfc"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.txt": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_MTL_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 10838,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "05846e8326fa3eb19730b1f5f4fd3ddee7d8431c40577e3dc8c76ca62a7323b05de729838284ae51a3795de8a3c9790fc6aad7e29453a17cf4ed6d6c61d0a17e"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.xml": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_MTL_XML",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 15694,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "d94230de22573214cde9e39a5c991bfa33ff595e19b2d02c1d1d94c46fb4809d64bd4fdb7396b27fde111d24226b059c0e547e2d7eaa0adcfef099da6507dcea"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_PIXEL.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_QA_PIXEL_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 451578,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "f61d0db1a4c306029acdf2c050b42c6be49b6ff507cb4718211220e404be8596710b4c1e6a746d141072f37fe63de03cbfb233bb54a11f3d5fd69b671b825a9b"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_RADSAT.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_QA_RADSAT_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 233145,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "cb783af90d036bf235fcdec36c8fcac4d108753aea7f862685f327aa264d34f559d04baebc09ec8ee0c11ba3867f22e9dd02baf362518447740a199984e5712b"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SAA.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_SAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2182839,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "b218126d570696cf187a137e9483eb38e73e19404cca7ff45bf34708ea1b7231afe71d1e2aff4c57b07bfc393df41bc13705beb16851482ccdbb9b9792f1235e"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SZA.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_SZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2360147,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "b9e3e3a65b57b6cc4a060e68abcd42e732958802e2907167d827b5ef25cd05d444a2f6bd79e52b5f467238ca370b34f832a305e94cf3314fca896c54a1893490"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VAA.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_VAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 7188014,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "1020cdd73149a5c755f74fd809500ad2465f6b3c2b2fd8191de19f833a3048b9d15e85baf6110f1a09dc1a73e337b613e9353859c8393797fd001eb002d03b2c"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.jpg": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_VER_JPG",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 440143,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "2f67ff05ae4513b9d484c905f2dd5ee616d7404815e43d0b710cd9099d6fcb6d876c68323dae03cda852c96f608660ab43433d2ace979b6239091a7714f3f568"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.txt": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_VER_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 168850,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "e3ad366b708420c97bedd0cf67cd67ab4930aa2a2aae878d34b2642c953b843422f313c7d8a31a2d3a6ef2d87ed46845f2bde71f45afa6ff2808882ec3967b9d"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VZA.TIF": {
+    "entityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_VZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 4008491,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "cbf1baf9754f3880663b9cc559e02684491e75beabeb37086f9b24855456957d12377f2619027f2f5893f2ea04f132bac6eb88748a0a3e392cded636685b0dc0"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   }
+  }
+ },
+ {
+  "group": "TW",
+  "label": "2021",
+  "displayId": "LC08_L1TP_176044_20211113_20211125_02_T1",
+  "entityId": "LC81760442021317LGN00",
+  "dataset": "landsat_ot_c2_l1",
+  "bandProductId": "73ceb05468b7e8c2",
+  "files": {
+   "ANG.txt": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_ANG_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 117122,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "4a6195669392fb6e3efb77fb015519653e440c7c3ba3e517d49f25e4aa679a4924906a52a1ce9d39c18d21f7d8e74e6b0b77964b8044509358451fc02c36e3a0"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B10.TIF": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_B10_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 72842418,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "8aeb6bb4c82ddcf3319b6011ecebd18aa8bd3203b76cccd556c4990775c799994acb2ef2b90e88e91dd85edf66714cdfe482895e602b4c66a52a66a4dcd7c99d"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B11.TIF": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_B11_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 70304621,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "fe79955b859e37a6cfbd8472c538802ef09f952a75458c31a02759a37b842c479013590e1400c958bd2fa4154d64565536319577d1ef0dbfd1729b00801ef536"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B1.TIF": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_B1_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 76757564,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "c46f4cc181d7655f2eb54d2ffcc4cf7f7535c6519a13b2afc1224df4d35b90cae6b4112580f2c5b6494545d8860b021e4c02ec852fec8770d985539bdb5658c9"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B2.TIF": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_B2_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 78844689,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "59f27416a0284b90ab67424f1c1269a8ce042a705c75db91191830e6011fbee8ea43114ddaab6dc34fee621e9076d0c3e2502b3ad82a9ba336b500a9617acd5a"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B3.TIF": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_B3_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 83869801,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "15caf77d397d780e8b3afc2dbbb18dcaa870a3b54e8c662b5befe8ade0e5ba0b66bd3c7418652552f260452b6cf7e25506ddf9f0d2d64b375c7bb6fa9ee993c0"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B4.TIF": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_B4_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 87569624,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "529078183ce17ef9ea86d43b67537773de66d8218daefd27885aac654a6afeb1989d1ca4f643ab81fcad9d8a77ba221855818ded1a36b94286f08b15fb642fda"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B5.TIF": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_B5_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 89809037,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "b8a554dde0ae22c91af472f74e54b9335813779b3883a80623fbf28d2c599a6d7c0c24f416ad0b3a42b8d106f30fda43275e23b5c7029564cefa8d723f3d8cbf"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B6.TIF": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_B6_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 89788992,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "c8bd010317ac441fb0864ee22232ccfe6acb9e062afa31e3d32b43fe903fe4272935cc5fe7718432dfc24733ffa09196ec574292780b5f46645e616fa87836f9"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B7.TIF": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_B7_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 89197757,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "75986ab022d31a4d6d6d742c70bf066c91251bab3b38d66b283611c77477198dd3ba5b0b44de3aeeffeb4e1f2201072a4027114ceac9e91919d881663ef3d8aa"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B8.TIF": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_B8_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 336535933,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "031a37d559364bda66d8b4550f181d6bafadec536873513be0a0331b61fac31f8d465d1436c02e85846978c1e1129db80d8c12787067cf19f58b8466ab18b04c"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B9.TIF": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_B9_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 47041102,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "4f1ed32ab55b344acd23a29fcb1dc1cf7cdf1abad3513eb0ac61511d201fa28483d316a02d622ace3a7e869e5f06cd760c0d351a91b57411b2d55043c9c47ea8"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.txt": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_MTL_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 12364,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "7399778dd106446aaf15ccaa37e6503adc8011331597711510e2b51fe3c3468453434a91ea35ea74fe3121328111f14f04f94a75ed8406f590a6b5bbca6ba402"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.xml": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_MTL_XML",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 18060,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "734b3aa85b05231cae8397e65a09c38774e79b6fd29188938ff7a1b5911b06c8fd3bb6af69b3efcb84d295d8bfa4a1545a927c2cb7026f3c808edea2240f7731"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_PIXEL.TIF": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_QA_PIXEL_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 441571,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "14d9ea554a282471ec52b602b5d473cb9ae181ea1cc6fddae24193d8a4074e1d82bcfd0f41e519e3e90a5583ab219dc6f65a0f1b05f78fc5871953801b8f60a8"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_RADSAT.TIF": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_QA_RADSAT_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 230417,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "aa850aa626bada811d49f52d11469bc91d296ae9e15a35222b86ccfbab88ab8b37bf9b0863daa1b6532f7f087e607c36d7fc3744203cedab09807ade38324740"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SAA.TIF": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_SAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2095359,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "b40068a670cab59c2b588132f109cb15e37e76892428f774b1892408a3c218ef1f828ef969748cd7d8d91c17c1a8e58eb61995fc9db30fe0e0c91f177ad1cbfa"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SZA.TIF": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_SZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 1890037,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "a48d432fea44f6d1b4cadbbef3134e6357289ac58123a7b436ad3bff6cbbfe0fc051c70459bc58af9effbc9c76b0b956476679ae89c9699fb74cd10cdd0bf6dd"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VAA.TIF": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_VAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 8409930,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "ed62b23f05278b9d0051908ab5d85024e5f631d2c1fca8e49b7cdc3400be3aef2172863fd1278f623c8c226e47dc6b42d49833a5a64a65daf9a6ea7be268a568"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VZA.TIF": {
+    "entityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_VZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 3112999,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "ef99769c18c122b4da5a8f8c112f177c7fd68d4f59bb21abc8a16d50875cfa58c5e3e8daf438c3bfd14f5892f7da58a12bb5f9b0f8201093280e52756b35f763"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   }
+  }
+ },
+ {
+  "group": "TE",
+  "label": "1999",
+  "displayId": "LT05_L1TP_175044_19990110_20200908_02_T1",
+  "entityId": "LT51750441999010RSA00",
+  "dataset": "landsat_tm_c2_l1",
+  "bandProductId": "6448124210926491",
+  "files": {
+   "ANG.txt": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_ANG_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 34884,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "b85e71be28f783e078ebbe267ccc2f7b6c548e50877783ac31fa76ea65003c19f6226b2b53b6510780289ced0a91096e758c354adc8fe4972ddf7e09d7906d22"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B1.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_B1_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 26105053,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "2de382c749bc9ec4188d9f141407dec642093af78a5d6fdb38cb05e6c2ddb9931a816f3cef82b6cdaf0f4dca84d8b87e87a0e5b3a0acff105012e1f922ce1c33"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B2.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_B2_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 23216038,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "6346cd10ab2f3dd4c28bda14a1f734783884bf0cd44aae87b7a77784179a5c55086706c18f55f316c53be273b5080464d0745251541c3c1ac5c0dac3cc251778"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B3.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_B3_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 28537627,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "c1f7dc9f9a5eb070c458f1159c9e86e9d14860e97854d522f5f4054c3f8358d42d5efb44a4773fd29d466f2fdcb2767de9ed417c99bc22ab47cdfeb623f08561"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B4.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_B4_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 28410187,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "4ed26d0366d26a33962a5a100726c208247a5a24be4d404403292f26e928a37d233c0f34192e99860b412e33a6e8db1ff57f72d1ed71148db483882e0b4dede2"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B5.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_B5_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 33977859,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "ca249d5589fc13cf46d09c6a5a28e77df9cf8038a84451913ee354a670c4d990749c20e520ffa6d777c5be063ab4d111b353dcb7021ea9155e286521222582b6"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B6.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_B6_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 10026009,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "6e4831dd990480e703d770e09508d685e3853a62752ae8446d83d107c2208825448ee90143d882b8cab7824f49458d7ca98f09ac39d71ab115c1a25414939256"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B7.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_B7_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 30020960,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "1eca2b00043f4b7121a2b63a9581d18a0bcbf61cff60e0c954a1da60e80359f691f233058190aed443d9defa1f7e906b0909f09f8f14d080bd608e69cd4a7e8f"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "GCP.txt": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_GCP_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 74040,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "3a062d18b6f4e87d7a845ff5956a6281968d3ee5ee59566fc29610b4c3d863b966b8633f4a4fd6d11552558daeb2c8a4bdbee272fd267051096b6301e1749e9a"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.txt": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_MTL_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 10837,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "b11bdf409f72129f60e24edf472aface337bfadb52bc4835601736e229b0446066f332e4b2629a27b709757994fc990935c3290535be42a2a9fa154b76652813"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.xml": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_MTL_XML",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 15693,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "1c327ec68803bc92529bea790f929f03f42f361924ac3ce0614b1a49d13f9427c2c55ab905b69a5eb3ea5a6af73b975243746feb9072375e83d579a105a8dc09"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_PIXEL.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_QA_PIXEL_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 789848,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "06d7f0da3329c86e311b50d5fc8ae8f1d0a3f0e0f8542f2075c8c2ada7d40009d01dd3501726bb9ce5ef3e83efd7d445e4c45237c68d320669da74556a195511"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_RADSAT.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_QA_RADSAT_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 271818,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "e0a7a2a67574666955c0f98e2c461a2f9fa4bc7806ed09cad3863f853e5348a33dad4826d10f503c32e188d55e341cc0c16d465326a3503d26b2e19ab694e183"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SAA.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_SAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2029680,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "4c088da77325ab9fec9f8e96c478d938820624a9f69a6cfe13596903a3c1c4daea0eaac8f6e38690082cc32afc9a94aca1cb5cfeff41348035c764087e3747ea"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SZA.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_SZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2495623,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "c1522392bd3668ac659f8e8b0c8ff89dbf93856cfff14efe5bf26f8e870a87f19905d2149b225f2e2d3057247dcd178732ee9198522c7564b64ace72cacd6d2e"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VAA.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_VAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 5734316,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "86be970f6d154e78e53871ce97ec5c7756f2b9bb26cb2cc32d73de677977a6368624246c63b95cd93819c3b0baca1942c50791b1704b69a63d86a08586656578"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.jpg": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_VER_JPG",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 528621,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "2bdf0eef63a317f9dcfe85cf118edb8d274ed95a64bd3375a95c2cf7136061345942f4ba4c4d069e0d160b74676f1b1864ae0b3a68a8f3646c2c38d998c6fa5d"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.txt": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_VER_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 219668,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "513949fc82bf116ad7559950e1426e82bab55a18c161432ec5f5597f29ccf16c31f838c5b04fc4d1935a3b1f032d6c79b7948a02ba1639f6b2815de087f839df"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VZA.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_VZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 4321443,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "2734ee1d328282f6aa57ff7f283bda719817af4aa23c3f29e07d15f5abaead62c35327ccc34a9b973ba3176af6ce92e00693daf26926146b4db6b1e7add75257"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   }
+  }
+ },
+ {
+  "group": "TE",
+  "label": "2002",
+  "displayId": "LT05_L1TP_175044_20020118_20200905_02_T1",
+  "entityId": "LT51750442002018MTI00",
+  "dataset": "landsat_tm_c2_l1",
+  "bandProductId": "6448124210926491",
+  "files": {
+   "ANG.txt": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_ANG_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 35015,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "f3ae6492863b5765391307acef8986cd9f7b618a680f1b4516be41a1dd82087f204f9aa4d9bc9f9d92813f3ae6c0afec6a174d148100d8f70906b143cfee1753"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B1.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_B1_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 26711900,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "f87841af5853ad13b5875104bb09cfec5bda4f0ba43373f4f15ea0b13b2d629bb5f24f039b9e8d3e73d7377b591316df75525e07312b5344780f66bae03702bf"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B2.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_B2_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 23700850,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "6d1fcda60262b520383398375de7d522465750dc38b5cd17bfb1f97353ce3e587878b335a750fb7981e6d3bc7090815c9f6849e5e0c5bedffc710b53d8fa75e4"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B3.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_B3_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 28869398,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "5e1db8002208c651414d785b82fe90876308e46c39d46570ec307612b8dae0a52b4b199a766b16791053dcab2bffd7a6113a983da923597023b2f9ef48136920"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B4.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_B4_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 28715191,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "0485da706d008de065c660660d61a2ce3c6352fe10b13dc29314e69625ba79d5b3642cbee70f259fe892a79049e2e5392948115eb403582f41902241615aae5f"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B5.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_B5_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 34134323,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "bde161836507ec6ec67593c2c77c1b6f4a4b486fa2c2e979c05e47c4ea2ceb7a6dd71691ce099bff3a618c220d25c8ec4dde34af605b223d58f3a1ea4cab425b"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B6.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_B6_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 10160864,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "e04ac13da4ee98274c37e92c36f58afd9949d291a9ec657a093efadaccdf672d36c52ef9d543ea2f64123da49721c796770beee3ae95efa0fd937b5bd0c1ca35"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B7.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_B7_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 30401900,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "c27bdcfbb2a65098ae5ba6ae11e393d0dbab1b8ad38a89d390570a07bd34c0ac1d5484b7babbe5cc2410157f9301bd84a4ed7182765448a92c2186643f5e75c3"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "GCP.txt": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_GCP_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 72600,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "09fde5d90c70b3146731b03836a8a6079fd502bf0b2146384709cdbc900740ffa37e1d72bdf8d15b678342dff3526688858c53e5a688fd5289084208f8665620"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.txt": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_MTL_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 10837,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "527c0252a36d454feee171b3e0fc7b92f6460fcb98a109dcb481b3b882aff4e38cc0809992cb048da8e2d458489c5cf11a159a8e50e113edc52e2d5e2e91b3e5"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.xml": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_MTL_XML",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 15693,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "3dbf750a43f33f06496766d82f4c212b3b05212fbdea1b49300b460b2387d4e8435ff37ae2b1a651547d26c210c6b723b4f39385baa5c0fc7d81953af1b4e8a5"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_PIXEL.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_QA_PIXEL_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 759830,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "a166fd18cacf5f5c44efec00aa8d27736b0be2996935d6b07892543ec71a7fb68240a4d64cbc3a402eb844229d14c00a3b575c7afe762dcc4fefdb59712db327"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_RADSAT.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_QA_RADSAT_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 296442,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "f4ef1ab033cc03beae876f7d0fac53b487293cba648d44a37869eef46c891dc40aa314f896c32bb0c2ab8b61286382120b94c7fb1d1ea6511f48add0683eccfb"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SAA.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_SAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2084085,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "7171cdce2cfcde705bd0a04ea9108a4fd286d46ab7cbc17bdcafd11f89860544689fe698a707e777a706cd259fcfa5ba9832a0a262987b942fd4d3076cbae0bd"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SZA.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_SZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2154905,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "18b3facf823a7dfd2de00898c04504107a9424a8944b0c0d0d0d4bd7da8d9167e0ecc1b536d50bdc5d0def6848d75d4b1d886f481968fea0bb4133a0948e1514"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VAA.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_VAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 5213546,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "ea8ef67ee319ade381594f220495f1138e8396df1026408238e7c6cac2e88b6746cd9535200139f0fcfea15ddcc0db3c0778f213df63cb20a50f60854e649fa5"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.jpg": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_VER_JPG",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 539477,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "fb3848fcb63306c39f3c9a79a64607ec8e81a2e5209d1133e9c1bea065b1806ccfe9aeaafa256e1029e4b1c8d303699838aad7770d76417e0e015d217ca17752"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.txt": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_VER_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 224839,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "0649fcfd1864ff46c1ee894074697a5ceb8bfeea4123dc4145d027e13b7fbbc04a6688f1705dbcdf2a22ae80b6112eb2392a50852a6df6a201710ed888d6d580"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VZA.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_VZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 4338797,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "6ae4a8afbae4f770a278e92435889f3f94558bddfcd8c7d7f69d02200c8918e592fb1dd265cc4eb2776bdf46fdb2df4a673d37427cc87077a7a7788adf53f1ff"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   }
+  }
+ },
+ {
+  "group": "TE",
+  "label": "2011",
+  "displayId": "LT05_L1TP_175044_20110111_20200823_02_T1",
+  "entityId": "LT51750442011011MTI00",
+  "dataset": "landsat_tm_c2_l1",
+  "bandProductId": "6448124210926491",
+  "files": {
+   "ANG.txt": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_ANG_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 34885,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "32dab2d01faef90c53ad7a4a5a45216acc7cdad5e495e1ad36bb37a8bfe32e930ea87299ff6f5d457c2a20189de29c14c2e7d2885685205aa4b12fcc353ec9dd"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B1.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_B1_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 27594491,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "2d05bc070e2f9e5adf2dd9daf2627b410189298a12ff47edb07a1c03342def3753a14d1fe2187e7cf6c4aae78b6586abd8a9afa13b20daa57aa59afe8104608a"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B2.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_B2_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 24646367,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "b5039948735fe9fe7ad4cccea9449cebe03bc1258553d78ae4583b7d596a1206e48a163adb8326f417d73ab001b365f747e19f371f589c7ec79f75f7efd8d448"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B3.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_B3_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 30008541,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "8b779ff7579a111ca0a6925052c5037719e1fae6b6353eaf7e4a7b1dc5d0ebc9b0576b3ecc847cfef566c403dd39eced6951abd40740c7579bcd66c08b5412ac"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B4.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_B4_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 29672193,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "72ce9f8b75d3d36d68bdbea4972151b2d943366faf05e7a4a25ad6a1edfaae2679b4d4e011ee48e721b8fc4c2e9d2524b843d7448880f341d51dca36ba50eb98"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B5.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_B5_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 35917092,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "53db43bcc8dbcb241f1ed3b13d174fd9237a41a73b052a2030ea4069bc34b538ac01c93069c302cb40a02fbd295b1dc58d12b1e41c8d4fe6d3b6122c340e8b90"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B6.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_B6_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 11005634,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "8151f67a2615fbd72c73d8f30b82aa2e37255aedac06016943f460e9462bea6394d5a6de763987838f3cd5c1bcfd99de9ea474dfe833510a694fe43de0360283"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B7.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_B7_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 31451316,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "dd338e7f092b000c3ea2ed7ba71a70516b371ebb8e071002e08afc7b56b73c3bfe9df6d96731e5dc6e8907a46d68445f716673d96c786e02611517a5d125c87e"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "GCP.txt": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_GCP_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 66930,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "4fb81d2dbc30090207df97988c748c1936a6e2c566f10cba692ba19feeb66dd5a0935fe60d0c8b0f5d7f0acac07bfd0bd954f7c9b3a413dec5adf26835c77629"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.txt": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_MTL_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 10840,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "df23a0c291049954be4071c047944bc8c3dc51adc1f5396b8349e0c61101095899ef6a3d6d5e0a01a3e39e2bb79c34e0e1dff75a604028e92afd70409fb51a34"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.xml": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_MTL_XML",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 15696,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "d1377d05e445f17b6c4bd329cd1da3d4960d1a98e83611f5b4603107c51941dffe9b1de971fc94b2fe692f2621aaf7611c6d0445d918771e9e58c77c050c7c6b"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_PIXEL.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_QA_PIXEL_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 776881,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "bf2c591934e5f080589d10e1ff87017120c99949a70fb3fa3f20246469c6dff7f93cfa92d20d2dd6859b6a227768827ba6c7402fae3f76b02178a5dc56ee863c"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_RADSAT.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_QA_RADSAT_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 330679,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "8f68055e01f4ae6f15871bfc345f4ee2860ee67d9c1be4b92ea171dded9cd75c4bdd7309261a7efc580a63f0857ee175b1957526b13d4a319dc50043b088b6e8"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SAA.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_SAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2076744,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "56309faef7b9520e83684ff4d3bee7378d50d5051da2e068796b934a7dcc42aadfcd1da77f044b190414e054b09b9192294ce90598db44b49a51820094040ac0"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SZA.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_SZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2501040,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "7fb03f389f9b1c6717e6c3dcfcd0e33a18fd6e87a4cc4010654f711e840e99ec56878c89c007d1ec27f539438028729658a232d8dc08d48f8c4c9f0f7376510c"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VAA.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_VAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 6882275,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "7611e45598c23ea1e668cbe02d4681bfe3b3c0945c1a7c3b42b318fb34bbe1cb67a439d280c758dfbf325602980aef4c2369c712a96693d3ea7cdf0b89f6f5b4"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.jpg": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_VER_JPG",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 525939,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "bcf015731675b5fbf2c8276861e11bed58cbcec53777cc95f6d7130101336a6b93e6ade359b0464b58963521a5870064e1d6ebb86df6138d0cd2909dd64c3410"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VER.txt": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_VER_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 208185,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "56befbf4c6c596344b92b4187a8b0e5b36df0784547e499d77cea533aa0eeb0d716d1f1798f00deec8f412e57bbb3ee74f33c8ff88d9e7d2342276427a089b25"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VZA.TIF": {
+    "entityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_VZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 4211347,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "abb474a3c1bbc7fe872483c4bfcc7de39193dde5eadd8813332f92aafcfbb6cdaa66424f0e945e4632776aad24e2fb833464c47c604f243c38482bb2256c05ad"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   }
+  }
+ },
+ {
+  "group": "TE",
+  "label": "2021",
+  "displayId": "LC08_L1TP_175044_20211106_20211117_02_T1",
+  "entityId": "LC81750442021310LGN00",
+  "dataset": "landsat_ot_c2_l1",
+  "bandProductId": "73ceb05468b7e8c2",
+  "files": {
+   "ANG.txt": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_ANG_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 117122,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "271ab074aa80c4ab4449e8b4b7b01c7329bda4e80c862a635d185649b59af6cc3977e28e4a19c56bae69ae5ffc929246adc1f2fc13584c10172a26636222009e"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B10.TIF": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_B10_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 80200057,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "92dc3b5cc78deefee9cfe3ca26cf98ae89eaff5ffc3917fcc53b66c2a843a5b27d851ee6cf942d6ddb3cf710337bd839903914bfffea66d42dc4a4efe91f882e"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B11.TIF": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_B11_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 77588296,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "b7470ca6d5c91f228b5440ec9210356803e1fc405d27655c3a4a90dc66cef3975dc7ed9242fa81207274b7199d1ecab785c1678e68600c54c1a7df9509ce95ac"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B1.TIF": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_B1_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 80078840,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "b4f656a89a64dddde567f0c0c49ded42b784b6aebbc96a5154f18a259d4df2b70fbd92df845f8993be3b385d02292a2128fc6412b028c124ddfb01fc7460a159"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B2.TIF": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_B2_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 82045018,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "83112a811550e4614ee99ff96e11c256c61b354d09e08cb6cb8bce3a23b6bf207ea14d9c823598b7e4f7d17a6b4975f1a7e7bd30702c0c22a9be4ff84b6832ef"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B3.TIF": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_B3_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 87248036,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "550b79aa56d3b9f674a98fadcdd6d6aa8a8e33b4a471c542d3a10527ba9319edcb688f999632a5ec1cbe2442092c6722041abea092774225567f3ae5dc8f1f47"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B4.TIF": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_B4_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 90626433,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "a22c5823b80c65281a15ee39830f32946423241cce5957337bf887eb71f526a31d5ccf8608a78d196e4d9a1510608e326b2f60e9b3c1fba77579a927490c3628"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B5.TIF": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_B5_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 92561999,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "728133e448ff3bd52be8945e8a21572de9b4a949f98c0364fea8d8b1a2ce8603e058d811482b43582f338592433a611a0723d99453cb0c5d659bec682257b1a0"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B6.TIF": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_B6_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 92607931,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "dbfca5f7eced1ed7592ef9b59c59cc800ff5c3800b300018fb388fbd448752005503f8217570aef783add3b3b3eb027b6fcf7fde3d1d1be5e6123a6c3bb4bdd0"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B7.TIF": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_B7_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 91473118,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "fde91e3477c1e13c27e5077f63f7e412abac1a5a1fa5eff838bb1fc405ea2977e2f4e191caedbe651360f371d5e3548c4a1723889bff8813b855a3f7d3a567d6"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B8.TIF": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_B8_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 349504272,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "367ec58577fc193edd6120ef8b7c8bd61d2fd0d60eb1b7eeea21345ca760ff5cf71abf58f2193d9e23f47563b4782cb45123d25edffac5e1d3a73b08f45a37ee"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "B9.TIF": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_B9_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 47235028,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "360fb42a9eb026acf826bd28200eca24392685629df8186a0645600251b13e175848ca7b3ba240ff04c2d2ca6a61f5c6df3992dc5a38c5c99cec6f40694c1b66"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.txt": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_MTL_TXT",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 12293,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "0295909242d25414ff297cce42fe507c9f38fc94c6bfc91cfdf11205d395aa4cd591999581633514ac63c5ded81b209987ee4807cce8b135f597ce0a93948ed5"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "MTL.xml": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_MTL_XML",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 17936,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "1cda9bdeb765ea01a1c776756bf1f155818d6fbd8aa7ade581b586cbf9c29ab16268a20a272e4fda7869bc9a959e1302cf81890de6272b3131d20b98c6efd050"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_PIXEL.TIF": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_QA_PIXEL_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 686079,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "9b8ecfd9156b029d7ec5e80c710085c5a5787dd83930d467a42792de50aaea4895cf9e2b3674e73fe3bcb3dd360ddae043b8bc262b4e0e78f8b96e1f17221e24"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "QA_RADSAT.TIF": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_QA_RADSAT_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 222730,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "42531a1aefce71b9ececd6e102118654083101e43d196d62cd9242bd65bdfa1073538d5f2438d2b9dc9e5adda67f00aaa189d30029d419f41298b48de457a702"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SAA.TIF": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_SAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 2196411,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "a471d8b14b2417023645dee1d91bc4c3a3f06f861e4ce3ad4390f5ded346589f6d899805c558199ca8b109bb1517ba5dc5db63f2fa1e3191515ff36555d36e62"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "SZA.TIF": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_SZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 1800550,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "7da74d2a967ea844942a6777473dc0a00019ae5efd5314bd011438b55c92799399f83424c4a68ba2eedd42ca3b45d44add513fe6678bc48498e6e2e07a745072"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VAA.TIF": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_VAA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 7848559,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "9677b20410754eb577679f88fee9a4fe1cffdaec56c9158a4f193884de9874259cee6735e0d129620658721d2ceebd79b8f12fcc2a3dbccaaca40f08b610a00a"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   },
+   "VZA.TIF": {
+    "entityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_VZA_TIF",
+    "productId": "5e8206bf6bc4a163",
+    "filesize": 3079804,
+    "checksum": [
+     {
+      "id": "sha512",
+      "value": "5f97a326319fd88186e5bcdf26aafe8aaf1b4a1b47c6b1b9e3d0d4be264d996a0043283ac666ad500da84c8075c87e92d4f77321011aa38bb1df1fefa51c4f74"
+     }
+    ],
+    "keys": [
+     "id",
+     "downloadName",
+     "displayId",
+     "entityId",
+     "datasetId",
+     "available",
+     "filesize",
+     "productName",
+     "productCode",
+     "bulkAvailable",
+     "downloadSystem",
+     "secondaryDownloads",
+     "fileGroups",
+     "displayOrder",
+     "checksum"
+    ]
+   }
+  }
+ }
+]

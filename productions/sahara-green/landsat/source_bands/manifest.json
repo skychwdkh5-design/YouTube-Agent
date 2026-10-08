@@ -1,0 +1,1003 @@
+{
+ "schema": "ep001-source-band-manifest/1",
+ "created": "2026-10-08",
+ "source": "USGS EROS M2M, product \"Landsat Collection 2 Level-1 Band File\" (individual bands, secondary downloads of the Level-1 product)",
+ "workspace_note": "Imagery is NOT in Git. WORKSPACE = any local directory; files live in WORKSPACE/src_bands/<displayId>/<displayId>_<suffix> (reused 2010/2024 files may sit elsewhere, see local_path_hint). Credentials come from env USGS_M2M_USERNAME / USGS_M2M_TOKEN and are never stored.",
+ "restore": "python3 restore_source_bands.py --manifest manifest.json --workspace WORKSPACE   (verifies size and SHA-512; downloads only missing or corrupt files; stops over --budget-bytes)",
+ "totals": {
+  "files": 78,
+  "new_bytes_this_step": 1945917679,
+  "reused_bytes": 251356957,
+  "budget_bytes": 2000000000
+ },
+ "scenes": [
+  {
+   "group": "EO",
+   "label": "1984",
+   "displayId": "LT05_L1TP_177044_19840826_20200918_02_T1",
+   "entityId": "LT51770441984239XXX04",
+   "dataset": "landsat_tm_c2_l1",
+   "productId": "6448124210926491",
+   "files": [
+    {
+     "name": "LT05_L1TP_177044_19840826_20200918_02_T1_B1.TIF",
+     "suffix": "B1.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_B1_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 22632185,
+     "sha512": "6b5fc9d641c34e9b4b78db396e7ec3922fdc95ae8495284cfb4ffc52b88119efb8c2c07e312ee86c2f9907cbbcc633acf4addb586f733a5ffebf6b1023fd0dbd",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_177044_19840826_20200918_02_T1/LT05_L1TP_177044_19840826_20200918_02_T1_B1.TIF"
+    },
+    {
+     "name": "LT05_L1TP_177044_19840826_20200918_02_T1_B2.TIF",
+     "suffix": "B2.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_B2_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 17442902,
+     "sha512": "40a4b87b71b0ce13dd0a8565afc5f57583b5e64d71ae0b5c294100dbde278f190f7d6e8355c677b991b7b09e0f77fe7e402a3a7aca512c7af7f5c49d58a10672",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_177044_19840826_20200918_02_T1/LT05_L1TP_177044_19840826_20200918_02_T1_B2.TIF"
+    },
+    {
+     "name": "LT05_L1TP_177044_19840826_20200918_02_T1_B3.TIF",
+     "suffix": "B3.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_B3_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 21272161,
+     "sha512": "52510edb4b2fd81d0c3ae3c1cdb31718048cfed746bfce911e265bedd5a267a1a140f0c63aba988156c7539a350a7db7319052549d4a81d21f23b81afa943896",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_177044_19840826_20200918_02_T1/LT05_L1TP_177044_19840826_20200918_02_T1_B3.TIF"
+    },
+    {
+     "name": "LT05_L1TP_177044_19840826_20200918_02_T1_B4.TIF",
+     "suffix": "B4.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_B4_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 20538150,
+     "sha512": "d6ad54c8063822e33da1f11873699246185a29e18b924b4107c17d21b8d4e3b7b5f0a638f0169548cc304924d1d268efbf6c16bdf81128fc8790c0cb4a46ac5b",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_177044_19840826_20200918_02_T1/LT05_L1TP_177044_19840826_20200918_02_T1_B4.TIF"
+    },
+    {
+     "name": "LT05_L1TP_177044_19840826_20200918_02_T1_QA_PIXEL.TIF",
+     "suffix": "QA_PIXEL.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_QA_PIXEL_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 309429,
+     "sha512": "8c3a59f0adfd71ad84177ff5df0fb5de9835908b4610c3dfc9d9c4b4e1c0cca859e8d61d39ef5f9c31207b3caa6352c1f25ed6b61e3a0a51101e328a78fb2e72",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_177044_19840826_20200918_02_T1/LT05_L1TP_177044_19840826_20200918_02_T1_QA_PIXEL.TIF"
+    },
+    {
+     "name": "LT05_L1TP_177044_19840826_20200918_02_T1_MTL.txt",
+     "suffix": "MTL.txt",
+     "sourceEntityId": "L1_LT05_L1TP_177044_19840826_20200918_02_T1_MTL_TXT",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 10836,
+     "sha512": "f093d801068be7888f017cb91f37ce69545384a34de160abc95c0907d29267a2af1e743efde2f921825b90209a530b388750484ba37c3d8c01abcd63790606fa",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_177044_19840826_20200918_02_T1/LT05_L1TP_177044_19840826_20200918_02_T1_MTL.txt"
+    }
+   ]
+  },
+  {
+   "group": "EO",
+   "label": "2000",
+   "displayId": "LT05_L1TP_177044_20000111_20200907_02_T1",
+   "entityId": "LT51770442000011RSA00",
+   "dataset": "landsat_tm_c2_l1",
+   "productId": "6448124210926491",
+   "files": [
+    {
+     "name": "LT05_L1TP_177044_20000111_20200907_02_T1_B1.TIF",
+     "suffix": "B1.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_B1_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 20774954,
+     "sha512": "61f8f50b907d233e9c3ec1621c5735bb8962d146e56122092683ce1844e83372e7201d04a2208cacdf052db56ca246807b2863fc1a81091fe2c1dfadd06eaabb",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_177044_20000111_20200907_02_T1/LT05_L1TP_177044_20000111_20200907_02_T1_B1.TIF"
+    },
+    {
+     "name": "LT05_L1TP_177044_20000111_20200907_02_T1_B2.TIF",
+     "suffix": "B2.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_B2_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 15663120,
+     "sha512": "770e3df20181b2cedda3b3f41c9a6f00564c88a6863223a7a9963cec3f7807488cf4f03add61a4e521e99a5abaf33735ff99cf127d5540e1ce300ed4d2a22593",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_177044_20000111_20200907_02_T1/LT05_L1TP_177044_20000111_20200907_02_T1_B2.TIF"
+    },
+    {
+     "name": "LT05_L1TP_177044_20000111_20200907_02_T1_B3.TIF",
+     "suffix": "B3.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_B3_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 19884657,
+     "sha512": "b25ca5a42bfdee8b68a6f9820876876fc0c18dcf18e0d1cdbc687a35ee1a1a4029692c993ffabe46c525bc6423997e37e22d898db57e70f54101b6c579695c03",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_177044_20000111_20200907_02_T1/LT05_L1TP_177044_20000111_20200907_02_T1_B3.TIF"
+    },
+    {
+     "name": "LT05_L1TP_177044_20000111_20200907_02_T1_B4.TIF",
+     "suffix": "B4.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_B4_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 18726604,
+     "sha512": "1e941671d0544d98066ba3cc54a0b2a20194dd40180550b87bc955d4467a95815eb6340ab20cb05451af19650589ee23553dacc54c0180bcccc58da0314ba57f",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_177044_20000111_20200907_02_T1/LT05_L1TP_177044_20000111_20200907_02_T1_B4.TIF"
+    },
+    {
+     "name": "LT05_L1TP_177044_20000111_20200907_02_T1_QA_PIXEL.TIF",
+     "suffix": "QA_PIXEL.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_QA_PIXEL_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 309071,
+     "sha512": "33f8d9e4e3de6e158dbfc2091f3ba925b79878401cb5938feb1187dfee717650415faa415f167750f10fdaeaf650a69cb7b2063d46c657b046837cc8f50ef2e0",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_177044_20000111_20200907_02_T1/LT05_L1TP_177044_20000111_20200907_02_T1_QA_PIXEL.TIF"
+    },
+    {
+     "name": "LT05_L1TP_177044_20000111_20200907_02_T1_MTL.txt",
+     "suffix": "MTL.txt",
+     "sourceEntityId": "L1_LT05_L1TP_177044_20000111_20200907_02_T1_MTL_TXT",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 10837,
+     "sha512": "f6cc5746ed8642bce7c2a2d73409cc61c9a939760282b2d11da8980c9ee90ba2385827660b0d7da697cb21002c456a246d97bfa8b917e1131290cc2651ce4154",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_177044_20000111_20200907_02_T1/LT05_L1TP_177044_20000111_20200907_02_T1_MTL.txt"
+    }
+   ]
+  },
+  {
+   "group": "EO",
+   "label": "2010",
+   "displayId": "LT05_L1TP_177044_20100122_20200825_02_T1",
+   "entityId": "LT51770442010022MTI00",
+   "dataset": "landsat_tm_c2_l1",
+   "productId": "6448124210926491",
+   "files": [
+    {
+     "name": "LT05_L1TP_177044_20100122_20200825_02_T1_B1.TIF",
+     "suffix": "B1.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_B1_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 22003503,
+     "sha512": "e76c3ef2a454a8a483d074de72583d9019497895303d4d25b551663ad0f3ae89795f2aafb47207e95e8e6ca42afd536a13cf2d935597fecdd0e355065ba78445",
+     "sha512_matches_usgs": true,
+     "status": "reused (downloaded in an earlier step)",
+     "local_path_hint": "l1/LT05_L1TP_177044_20100122_20200825_02_T1_B1.TIF"
+    },
+    {
+     "name": "LT05_L1TP_177044_20100122_20200825_02_T1_B2.TIF",
+     "suffix": "B2.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_B2_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 16980859,
+     "sha512": "5bfb887c4cc2770b61ad458e2ea88e91262dfbf524a65f8dc65c62a2f1f11cfd77f348c26bbe8f4d6343c09db60c92f0e811f1e60c5ec14139238b3289e5b5d7",
+     "sha512_matches_usgs": true,
+     "status": "reused (downloaded in an earlier step)",
+     "local_path_hint": "l1/LT05_L1TP_177044_20100122_20200825_02_T1_B2.TIF"
+    },
+    {
+     "name": "LT05_L1TP_177044_20100122_20200825_02_T1_B3.TIF",
+     "suffix": "B3.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_B3_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 21267744,
+     "sha512": "8631a1c30fa7b0eb50e7f00f0e57dd37899da61ad856ca5d3cc75a6b3b1af7bcd0206892ef5dae7015c221d8c74b83eb8883463d15e962ded61a52d341a8ac27",
+     "sha512_matches_usgs": true,
+     "status": "reused (downloaded in an earlier step)",
+     "local_path_hint": "l1/LT05_L1TP_177044_20100122_20200825_02_T1_B3.TIF"
+    },
+    {
+     "name": "LT05_L1TP_177044_20100122_20200825_02_T1_B4.TIF",
+     "suffix": "B4.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_B4_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 20102876,
+     "sha512": "03106b0a151c842a715c972ff12335740f9c9bb261373bf9e2a1d1e66ca9e2b244cea5e42c777c0cc2517402fac4d551b3a8324f569f515fb59540a03b12669a",
+     "sha512_matches_usgs": true,
+     "status": "reused (downloaded in an earlier step)",
+     "local_path_hint": "l1/LT05_L1TP_177044_20100122_20200825_02_T1_B4.TIF"
+    },
+    {
+     "name": "LT05_L1TP_177044_20100122_20200825_02_T1_QA_PIXEL.TIF",
+     "suffix": "QA_PIXEL.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_QA_PIXEL_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 360643,
+     "sha512": "0c528573fbf714e99fae2776ab3dbe7b771693811ce8cda6ea972aff125c1c9474ae6f2d71bd404c77e3972cd87719b662077b00c2cbd707ee1beff174405af8",
+     "sha512_matches_usgs": true,
+     "status": "reused (downloaded in an earlier step)",
+     "local_path_hint": "l1/LT05_L1TP_177044_20100122_20200825_02_T1_QA_PIXEL.TIF"
+    },
+    {
+     "name": "LT05_L1TP_177044_20100122_20200825_02_T1_MTL.txt",
+     "suffix": "MTL.txt",
+     "sourceEntityId": "L1_LT05_L1TP_177044_20100122_20200825_02_T1_MTL_TXT",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 10840,
+     "sha512": "54d51cc2930b3c71a79814dcc00966a9ac9cbbcbda305696bece3e6c84eab95c3267fc34f707bf47e9b2240338fbaa83a5dafd6acc7ad46820b66729bc071c66",
+     "sha512_matches_usgs": true,
+     "status": "reused (downloaded in an earlier step)",
+     "local_path_hint": "l1/LT05_L1TP_177044_20100122_20200825_02_T1_MTL.txt"
+    }
+   ]
+  },
+  {
+   "group": "EO",
+   "label": "2016",
+   "displayId": "LC08_L1TP_177044_20160107_20200907_02_T1",
+   "entityId": "LC81770442016007LGN02",
+   "dataset": "landsat_ot_c2_l1",
+   "productId": "73ceb05468b7e8c2",
+   "files": [
+    {
+     "name": "LC08_L1TP_177044_20160107_20200907_02_T1_B2.TIF",
+     "suffix": "B2.TIF",
+     "sourceEntityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_B2_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 75458580,
+     "sha512": "e412a6d90962e3b4ea370f801f490d3bda2dbe77ce0552ac0b1ccd32e34bf18d1f0bbec27f45b9f692ac5d249f64b1454176d5dc33c50ca46e30e15751be0b88",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_177044_20160107_20200907_02_T1/LC08_L1TP_177044_20160107_20200907_02_T1_B2.TIF"
+    },
+    {
+     "name": "LC08_L1TP_177044_20160107_20200907_02_T1_B3.TIF",
+     "suffix": "B3.TIF",
+     "sourceEntityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_B3_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 79966797,
+     "sha512": "7b1f1dbb12b087dc15bdc9b5d2d7b1924b4e13adfb72817342f1e1a08f17cf019175a57c2d28aea372c60ca16e549bba1852716fb982785e1f4fc300110ab2ef",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_177044_20160107_20200907_02_T1/LC08_L1TP_177044_20160107_20200907_02_T1_B3.TIF"
+    },
+    {
+     "name": "LC08_L1TP_177044_20160107_20200907_02_T1_B4.TIF",
+     "suffix": "B4.TIF",
+     "sourceEntityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_B4_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 83753671,
+     "sha512": "2b0bcd6c8a37df967a62df28d4164fae4daa1614193ad54cbd463ce2a0908b612833661a6ce92cc00a032762e6c78e3d3e61ab56c2b40606a467194fbaee84ea",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_177044_20160107_20200907_02_T1/LC08_L1TP_177044_20160107_20200907_02_T1_B4.TIF"
+    },
+    {
+     "name": "LC08_L1TP_177044_20160107_20200907_02_T1_B5.TIF",
+     "suffix": "B5.TIF",
+     "sourceEntityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_B5_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 85670969,
+     "sha512": "f914dffeac43049e1c76aedced8a933c9d3ec182ab3268c0f28ed67fdf7f88035b0eee43a1849226b289a5f3205ab3f9bfcb901e654fdf537e2140b7bacbdaed",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_177044_20160107_20200907_02_T1/LC08_L1TP_177044_20160107_20200907_02_T1_B5.TIF"
+    },
+    {
+     "name": "LC08_L1TP_177044_20160107_20200907_02_T1_QA_PIXEL.TIF",
+     "suffix": "QA_PIXEL.TIF",
+     "sourceEntityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_QA_PIXEL_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 341429,
+     "sha512": "92c6461631bb1b3dfdb5cfa41587bfaf6612753926c1de0c35f5c987cc0ed1c001682e1aa960997e2362cb4948262e534ec9af03c245465b908b38bfdb5fd04a",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_177044_20160107_20200907_02_T1/LC08_L1TP_177044_20160107_20200907_02_T1_QA_PIXEL.TIF"
+    },
+    {
+     "name": "LC08_L1TP_177044_20160107_20200907_02_T1_MTL.txt",
+     "suffix": "MTL.txt",
+     "sourceEntityId": "L1_LC08_L1TP_177044_20160107_20200907_02_T1_MTL_TXT",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 12349,
+     "sha512": "35f6239bf664f33b46ebc62c5799e44f6ab5e924c25fdcfea1de56731c84aa3f4dff15f3313fca6ad4c0181cc5bbbe69c270c776f28e14227681db9c16ccf9b7",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_177044_20160107_20200907_02_T1/LC08_L1TP_177044_20160107_20200907_02_T1_MTL.txt"
+    }
+   ]
+  },
+  {
+   "group": "EO",
+   "label": "2024",
+   "displayId": "LC09_L1TP_177044_20240105_20240105_02_T1",
+   "entityId": "LC91770442024005LGN00",
+   "dataset": "landsat_ot_c2_l1",
+   "productId": "73ceb05468b7e8c2",
+   "files": [
+    {
+     "name": "LC09_L1TP_177044_20240105_20240105_02_T1_B2.TIF",
+     "suffix": "B2.TIF",
+     "sourceEntityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_B2_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 75608694,
+     "sha512": "edef1bcfe42c49fcc5103119f8103d637acccace8c0666ec8f8027f73754d24d4bb9c54c0526ab55bea9d949f8b08862e09a432caabb8937da32c04b41a2158d",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC09_L1TP_177044_20240105_20240105_02_T1/LC09_L1TP_177044_20240105_20240105_02_T1_B2.TIF"
+    },
+    {
+     "name": "LC09_L1TP_177044_20240105_20240105_02_T1_B3.TIF",
+     "suffix": "B3.TIF",
+     "sourceEntityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_B3_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 80181274,
+     "sha512": "31568127da038464443686f29d437300d3622ce4f9f65c7c3b5414db27db91e222692d69231a6a8028066af012fe927eb3f6d9eb853606f12e43932245740508",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC09_L1TP_177044_20240105_20240105_02_T1/LC09_L1TP_177044_20240105_20240105_02_T1_B3.TIF"
+    },
+    {
+     "name": "LC09_L1TP_177044_20240105_20240105_02_T1_B4.TIF",
+     "suffix": "B4.TIF",
+     "sourceEntityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_B4_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 84233606,
+     "sha512": "834d91d8dba80b1d8f379c8b4ab4c7607a0a743de9a5e24102742c3046ff7e0a667322658cbe5fee87c4c6afc6afddd991df28c58079ac5258a1ecff4b544ff3",
+     "sha512_matches_usgs": true,
+     "status": "reused (downloaded in an earlier step)",
+     "local_path_hint": "l1_2024/LC09_L1TP_177044_20240105_20240105_02_T1_B4.TIF"
+    },
+    {
+     "name": "LC09_L1TP_177044_20240105_20240105_02_T1_B5.TIF",
+     "suffix": "B5.TIF",
+     "sourceEntityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_B5_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 86048274,
+     "sha512": "3009572ce80318cad514b9dfd11a3c3c175093e7e887c3e88fcf7ebc60bc068e11363aff457f7454bd2aff11083a5a3282f308f64a47a00bfc103e5d51ca144a",
+     "sha512_matches_usgs": true,
+     "status": "reused (downloaded in an earlier step)",
+     "local_path_hint": "l1_2024/LC09_L1TP_177044_20240105_20240105_02_T1_B5.TIF"
+    },
+    {
+     "name": "LC09_L1TP_177044_20240105_20240105_02_T1_QA_PIXEL.TIF",
+     "suffix": "QA_PIXEL.TIF",
+     "sourceEntityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_QA_PIXEL_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 336408,
+     "sha512": "3557f4347cdece584dc66ae3b46f2c0c0f8aff28d182478c573777f64de934ebc11645a89497eb6d77f35315bf4b0811a11daf221c36cf4b4ce2eb369e716a1d",
+     "sha512_matches_usgs": true,
+     "status": "reused (downloaded in an earlier step)",
+     "local_path_hint": "l1_2024/LC09_L1TP_177044_20240105_20240105_02_T1_QA_PIXEL.TIF"
+    },
+    {
+     "name": "LC09_L1TP_177044_20240105_20240105_02_T1_MTL.txt",
+     "suffix": "MTL.txt",
+     "sourceEntityId": "L1_LC09_L1TP_177044_20240105_20240105_02_T1_MTL_TXT",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 12204,
+     "sha512": "f2ab13d5b186dd718b6f0e0612b08bedc93a4541726e6dd4eb162f1ce7d1edd8f92ff5f2e87e8a1137358974c01db8f8030a19f20f1f5169bb9ed3bc8351fef5",
+     "sha512_matches_usgs": true,
+     "status": "reused (downloaded in an earlier step)",
+     "local_path_hint": "l1_2024/LC09_L1TP_177044_20240105_20240105_02_T1_MTL.txt"
+    }
+   ]
+  },
+  {
+   "group": "TW",
+   "label": "1999",
+   "displayId": "LT05_L1TP_176044_19990101_20200908_02_T1",
+   "entityId": "LT51760441999001RSA00",
+   "dataset": "landsat_tm_c2_l1",
+   "productId": "6448124210926491",
+   "files": [
+    {
+     "name": "LT05_L1TP_176044_19990101_20200908_02_T1_B1.TIF",
+     "suffix": "B1.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_B1_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 23943737,
+     "sha512": "92080a9e83874fda9847af6507a2004637e8fa1761217d402a6a40cf3a6ff51c84db52f5fc5bc124f46ae7b6a818d3ca2d307251959daf550581400d7003a17b",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_19990101_20200908_02_T1/LT05_L1TP_176044_19990101_20200908_02_T1_B1.TIF"
+    },
+    {
+     "name": "LT05_L1TP_176044_19990101_20200908_02_T1_B2.TIF",
+     "suffix": "B2.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_B2_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 20356582,
+     "sha512": "70b9430732d81fe178663b1670f4dc3e1de21c6188719d140715dc7757b199ef60b9d4f714f5d0c4c7c68c8ed96308316b9ed2503dff44e00078617f4e040b14",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_19990101_20200908_02_T1/LT05_L1TP_176044_19990101_20200908_02_T1_B2.TIF"
+    },
+    {
+     "name": "LT05_L1TP_176044_19990101_20200908_02_T1_B3.TIF",
+     "suffix": "B3.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_B3_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 25484523,
+     "sha512": "0f99751e388d72e1d54310902cc31174770beb4350651fbb0e0c8c57873d925ede9de81f88f7e6432bb08a3d40a915d02f02f52af857c0fa5dc58a8e33f78161",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_19990101_20200908_02_T1/LT05_L1TP_176044_19990101_20200908_02_T1_B3.TIF"
+    },
+    {
+     "name": "LT05_L1TP_176044_19990101_20200908_02_T1_B4.TIF",
+     "suffix": "B4.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_B4_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 25123787,
+     "sha512": "7251f3892ae126cdc0768747d5a063b6d5fa2d8cc43aaf70e07a08f96100cd98a6db708113ab7d25e393eb8e733341d2bb4ffcd94ca235996d9b9f2e1d5cf6b1",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_19990101_20200908_02_T1/LT05_L1TP_176044_19990101_20200908_02_T1_B4.TIF"
+    },
+    {
+     "name": "LT05_L1TP_176044_19990101_20200908_02_T1_QA_PIXEL.TIF",
+     "suffix": "QA_PIXEL.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_QA_PIXEL_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 337823,
+     "sha512": "af8bc196578295ed94be4ce959c744eebae16dde76c3822486544267b33c0f3cee8ba085fe7d36955eb1db3ec52e73b272938ebe837b8786ee281a360fa1df85",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_19990101_20200908_02_T1/LT05_L1TP_176044_19990101_20200908_02_T1_QA_PIXEL.TIF"
+    },
+    {
+     "name": "LT05_L1TP_176044_19990101_20200908_02_T1_MTL.txt",
+     "suffix": "MTL.txt",
+     "sourceEntityId": "L1_LT05_L1TP_176044_19990101_20200908_02_T1_MTL_TXT",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 10835,
+     "sha512": "aaf8aaf3a9fbd262356db1ca54d8ddc688903fe46d23358c67e4f01d2b991f3f472b90fb49ced11d1a191cc18585f5ceab8adcc8f89295bd3fedacf2daf4c5a1",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_19990101_20200908_02_T1/LT05_L1TP_176044_19990101_20200908_02_T1_MTL.txt"
+    }
+   ]
+  },
+  {
+   "group": "TW",
+   "label": "2002",
+   "displayId": "LT05_L1TP_176044_20020109_20200905_02_T1",
+   "entityId": "LT51760442002009RSA01",
+   "dataset": "landsat_tm_c2_l1",
+   "productId": "6448124210926491",
+   "files": [
+    {
+     "name": "LT05_L1TP_176044_20020109_20200905_02_T1_B1.TIF",
+     "suffix": "B1.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_B1_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 23804813,
+     "sha512": "b647a761913f9634cdca0970893f4397f9e287b398194a14453c862a285dd683e2968521395640ff2d6ad489131e39db1eb78421604c71f857cc29dd337e6cc9",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_20020109_20200905_02_T1/LT05_L1TP_176044_20020109_20200905_02_T1_B1.TIF"
+    },
+    {
+     "name": "LT05_L1TP_176044_20020109_20200905_02_T1_B2.TIF",
+     "suffix": "B2.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_B2_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 20050812,
+     "sha512": "2a477a45a06df4b7b743e83483d96797dd57d40ac9db815e26ff234047350960425b156bbad54c1e1dadbcb144a422619ecba5d223d92697e53be8701fdc1730",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_20020109_20200905_02_T1/LT05_L1TP_176044_20020109_20200905_02_T1_B2.TIF"
+    },
+    {
+     "name": "LT05_L1TP_176044_20020109_20200905_02_T1_B3.TIF",
+     "suffix": "B3.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_B3_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 24924802,
+     "sha512": "74062ab5d1d39c8330857924a7692363a05f22b66c6bd7933e30d6d0043897159954ffa10f5d35950f989f3f96d04e0365acbf29e0ab1bb3ddd34adbbcc1b64d",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_20020109_20200905_02_T1/LT05_L1TP_176044_20020109_20200905_02_T1_B3.TIF"
+    },
+    {
+     "name": "LT05_L1TP_176044_20020109_20200905_02_T1_B4.TIF",
+     "suffix": "B4.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_B4_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 24508040,
+     "sha512": "89552258ddb41c194ba9aff680e0cdc5fd85a889b1b5e17ade4266aefcbb4ab1cc6c63d8537c1fd69d8f495fcfe7497dd934a641542877595c70ad5527f241d4",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_20020109_20200905_02_T1/LT05_L1TP_176044_20020109_20200905_02_T1_B4.TIF"
+    },
+    {
+     "name": "LT05_L1TP_176044_20020109_20200905_02_T1_QA_PIXEL.TIF",
+     "suffix": "QA_PIXEL.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_QA_PIXEL_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 415210,
+     "sha512": "b4838dc56ebb2fb1f72bb1f78be397857b81c17c9d2a30bf5a8b441da099bdb65fda56178dc34355c91c6955106133a5a9107fcc7179e9996e6eac53e246e5b6",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_20020109_20200905_02_T1/LT05_L1TP_176044_20020109_20200905_02_T1_QA_PIXEL.TIF"
+    },
+    {
+     "name": "LT05_L1TP_176044_20020109_20200905_02_T1_MTL.txt",
+     "suffix": "MTL.txt",
+     "sourceEntityId": "L1_LT05_L1TP_176044_20020109_20200905_02_T1_MTL_TXT",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 10835,
+     "sha512": "3dc8b22c17fd93676e8fce8cba7d161e91ea38448a509217dd85e69fd3f65494e3f5e613948b0e09db34344d787dbcd4627b9b07ffbf38d61bd3f0b861978a16",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_20020109_20200905_02_T1/LT05_L1TP_176044_20020109_20200905_02_T1_MTL.txt"
+    }
+   ]
+  },
+  {
+   "group": "TW",
+   "label": "2011",
+   "displayId": "LT05_L1TP_176044_20110102_20200823_02_T1",
+   "entityId": "LT51760442011002MTI00",
+   "dataset": "landsat_tm_c2_l1",
+   "productId": "6448124210926491",
+   "files": [
+    {
+     "name": "LT05_L1TP_176044_20110102_20200823_02_T1_B1.TIF",
+     "suffix": "B1.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_B1_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 24585080,
+     "sha512": "d8caa025127b84bdfc28bfc7e4d4e8a7f17037aedd9446f5deb35f9c65229c342ed65197386e6c0aa1b4aca19612d613bd9c8ea51d817e2ecadaf97a2ad84ed7",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_20110102_20200823_02_T1/LT05_L1TP_176044_20110102_20200823_02_T1_B1.TIF"
+    },
+    {
+     "name": "LT05_L1TP_176044_20110102_20200823_02_T1_B2.TIF",
+     "suffix": "B2.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_B2_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 20531368,
+     "sha512": "74cc9526c6d7a3922e3cd423b1876402de7982cfd3c2ee786d42f884e063fe3ba3ca412b98365672b8794049768addffd19d42d808d580a6bfbd171be372f463",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_20110102_20200823_02_T1/LT05_L1TP_176044_20110102_20200823_02_T1_B2.TIF"
+    },
+    {
+     "name": "LT05_L1TP_176044_20110102_20200823_02_T1_B3.TIF",
+     "suffix": "B3.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_B3_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 25575302,
+     "sha512": "31df6cd0db73e5b03ba70f98c2e1adcc53d2cf6eb2702ab41d0af4eb99eae05a2466ab29a450067b8b8bcae97672908295c9a1dbf3e53764374eacb58853f483",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_20110102_20200823_02_T1/LT05_L1TP_176044_20110102_20200823_02_T1_B3.TIF"
+    },
+    {
+     "name": "LT05_L1TP_176044_20110102_20200823_02_T1_B4.TIF",
+     "suffix": "B4.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_B4_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 24949192,
+     "sha512": "9616824489f27fe46899539b96f506c4f1d12bade4d237fcec5aa28201d49f7c975856f74a28d5faa86864f7fec9107d6406476e2761b559e78e006a22a20334",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_20110102_20200823_02_T1/LT05_L1TP_176044_20110102_20200823_02_T1_B4.TIF"
+    },
+    {
+     "name": "LT05_L1TP_176044_20110102_20200823_02_T1_QA_PIXEL.TIF",
+     "suffix": "QA_PIXEL.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_QA_PIXEL_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 451578,
+     "sha512": "f61d0db1a4c306029acdf2c050b42c6be49b6ff507cb4718211220e404be8596710b4c1e6a746d141072f37fe63de03cbfb233bb54a11f3d5fd69b671b825a9b",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_20110102_20200823_02_T1/LT05_L1TP_176044_20110102_20200823_02_T1_QA_PIXEL.TIF"
+    },
+    {
+     "name": "LT05_L1TP_176044_20110102_20200823_02_T1_MTL.txt",
+     "suffix": "MTL.txt",
+     "sourceEntityId": "L1_LT05_L1TP_176044_20110102_20200823_02_T1_MTL_TXT",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 10838,
+     "sha512": "05846e8326fa3eb19730b1f5f4fd3ddee7d8431c40577e3dc8c76ca62a7323b05de729838284ae51a3795de8a3c9790fc6aad7e29453a17cf4ed6d6c61d0a17e",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_176044_20110102_20200823_02_T1/LT05_L1TP_176044_20110102_20200823_02_T1_MTL.txt"
+    }
+   ]
+  },
+  {
+   "group": "TW",
+   "label": "2021",
+   "displayId": "LC08_L1TP_176044_20211113_20211125_02_T1",
+   "entityId": "LC81760442021317LGN00",
+   "dataset": "landsat_ot_c2_l1",
+   "productId": "73ceb05468b7e8c2",
+   "files": [
+    {
+     "name": "LC08_L1TP_176044_20211113_20211125_02_T1_B2.TIF",
+     "suffix": "B2.TIF",
+     "sourceEntityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_B2_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 78844689,
+     "sha512": "59f27416a0284b90ab67424f1c1269a8ce042a705c75db91191830e6011fbee8ea43114ddaab6dc34fee621e9076d0c3e2502b3ad82a9ba336b500a9617acd5a",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_176044_20211113_20211125_02_T1/LC08_L1TP_176044_20211113_20211125_02_T1_B2.TIF"
+    },
+    {
+     "name": "LC08_L1TP_176044_20211113_20211125_02_T1_B3.TIF",
+     "suffix": "B3.TIF",
+     "sourceEntityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_B3_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 83869801,
+     "sha512": "15caf77d397d780e8b3afc2dbbb18dcaa870a3b54e8c662b5befe8ade0e5ba0b66bd3c7418652552f260452b6cf7e25506ddf9f0d2d64b375c7bb6fa9ee993c0",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_176044_20211113_20211125_02_T1/LC08_L1TP_176044_20211113_20211125_02_T1_B3.TIF"
+    },
+    {
+     "name": "LC08_L1TP_176044_20211113_20211125_02_T1_B4.TIF",
+     "suffix": "B4.TIF",
+     "sourceEntityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_B4_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 87569624,
+     "sha512": "529078183ce17ef9ea86d43b67537773de66d8218daefd27885aac654a6afeb1989d1ca4f643ab81fcad9d8a77ba221855818ded1a36b94286f08b15fb642fda",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_176044_20211113_20211125_02_T1/LC08_L1TP_176044_20211113_20211125_02_T1_B4.TIF"
+    },
+    {
+     "name": "LC08_L1TP_176044_20211113_20211125_02_T1_B5.TIF",
+     "suffix": "B5.TIF",
+     "sourceEntityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_B5_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 89809037,
+     "sha512": "b8a554dde0ae22c91af472f74e54b9335813779b3883a80623fbf28d2c599a6d7c0c24f416ad0b3a42b8d106f30fda43275e23b5c7029564cefa8d723f3d8cbf",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_176044_20211113_20211125_02_T1/LC08_L1TP_176044_20211113_20211125_02_T1_B5.TIF"
+    },
+    {
+     "name": "LC08_L1TP_176044_20211113_20211125_02_T1_QA_PIXEL.TIF",
+     "suffix": "QA_PIXEL.TIF",
+     "sourceEntityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_QA_PIXEL_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 441571,
+     "sha512": "14d9ea554a282471ec52b602b5d473cb9ae181ea1cc6fddae24193d8a4074e1d82bcfd0f41e519e3e90a5583ab219dc6f65a0f1b05f78fc5871953801b8f60a8",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_176044_20211113_20211125_02_T1/LC08_L1TP_176044_20211113_20211125_02_T1_QA_PIXEL.TIF"
+    },
+    {
+     "name": "LC08_L1TP_176044_20211113_20211125_02_T1_MTL.txt",
+     "suffix": "MTL.txt",
+     "sourceEntityId": "L1_LC08_L1TP_176044_20211113_20211125_02_T1_MTL_TXT",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 12364,
+     "sha512": "7399778dd106446aaf15ccaa37e6503adc8011331597711510e2b51fe3c3468453434a91ea35ea74fe3121328111f14f04f94a75ed8406f590a6b5bbca6ba402",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_176044_20211113_20211125_02_T1/LC08_L1TP_176044_20211113_20211125_02_T1_MTL.txt"
+    }
+   ]
+  },
+  {
+   "group": "TE",
+   "label": "1999",
+   "displayId": "LT05_L1TP_175044_19990110_20200908_02_T1",
+   "entityId": "LT51750441999010RSA00",
+   "dataset": "landsat_tm_c2_l1",
+   "productId": "6448124210926491",
+   "files": [
+    {
+     "name": "LT05_L1TP_175044_19990110_20200908_02_T1_B1.TIF",
+     "suffix": "B1.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_B1_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 26105053,
+     "sha512": "2de382c749bc9ec4188d9f141407dec642093af78a5d6fdb38cb05e6c2ddb9931a816f3cef82b6cdaf0f4dca84d8b87e87a0e5b3a0acff105012e1f922ce1c33",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_19990110_20200908_02_T1/LT05_L1TP_175044_19990110_20200908_02_T1_B1.TIF"
+    },
+    {
+     "name": "LT05_L1TP_175044_19990110_20200908_02_T1_B2.TIF",
+     "suffix": "B2.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_B2_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 23216038,
+     "sha512": "6346cd10ab2f3dd4c28bda14a1f734783884bf0cd44aae87b7a77784179a5c55086706c18f55f316c53be273b5080464d0745251541c3c1ac5c0dac3cc251778",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_19990110_20200908_02_T1/LT05_L1TP_175044_19990110_20200908_02_T1_B2.TIF"
+    },
+    {
+     "name": "LT05_L1TP_175044_19990110_20200908_02_T1_B3.TIF",
+     "suffix": "B3.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_B3_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 28537627,
+     "sha512": "c1f7dc9f9a5eb070c458f1159c9e86e9d14860e97854d522f5f4054c3f8358d42d5efb44a4773fd29d466f2fdcb2767de9ed417c99bc22ab47cdfeb623f08561",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_19990110_20200908_02_T1/LT05_L1TP_175044_19990110_20200908_02_T1_B3.TIF"
+    },
+    {
+     "name": "LT05_L1TP_175044_19990110_20200908_02_T1_B4.TIF",
+     "suffix": "B4.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_B4_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 28410187,
+     "sha512": "4ed26d0366d26a33962a5a100726c208247a5a24be4d404403292f26e928a37d233c0f34192e99860b412e33a6e8db1ff57f72d1ed71148db483882e0b4dede2",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_19990110_20200908_02_T1/LT05_L1TP_175044_19990110_20200908_02_T1_B4.TIF"
+    },
+    {
+     "name": "LT05_L1TP_175044_19990110_20200908_02_T1_QA_PIXEL.TIF",
+     "suffix": "QA_PIXEL.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_QA_PIXEL_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 789848,
+     "sha512": "06d7f0da3329c86e311b50d5fc8ae8f1d0a3f0e0f8542f2075c8c2ada7d40009d01dd3501726bb9ce5ef3e83efd7d445e4c45237c68d320669da74556a195511",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_19990110_20200908_02_T1/LT05_L1TP_175044_19990110_20200908_02_T1_QA_PIXEL.TIF"
+    },
+    {
+     "name": "LT05_L1TP_175044_19990110_20200908_02_T1_MTL.txt",
+     "suffix": "MTL.txt",
+     "sourceEntityId": "L1_LT05_L1TP_175044_19990110_20200908_02_T1_MTL_TXT",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 10837,
+     "sha512": "b11bdf409f72129f60e24edf472aface337bfadb52bc4835601736e229b0446066f332e4b2629a27b709757994fc990935c3290535be42a2a9fa154b76652813",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_19990110_20200908_02_T1/LT05_L1TP_175044_19990110_20200908_02_T1_MTL.txt"
+    }
+   ]
+  },
+  {
+   "group": "TE",
+   "label": "2002",
+   "displayId": "LT05_L1TP_175044_20020118_20200905_02_T1",
+   "entityId": "LT51750442002018MTI00",
+   "dataset": "landsat_tm_c2_l1",
+   "productId": "6448124210926491",
+   "files": [
+    {
+     "name": "LT05_L1TP_175044_20020118_20200905_02_T1_B1.TIF",
+     "suffix": "B1.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_B1_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 26711900,
+     "sha512": "f87841af5853ad13b5875104bb09cfec5bda4f0ba43373f4f15ea0b13b2d629bb5f24f039b9e8d3e73d7377b591316df75525e07312b5344780f66bae03702bf",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_20020118_20200905_02_T1/LT05_L1TP_175044_20020118_20200905_02_T1_B1.TIF"
+    },
+    {
+     "name": "LT05_L1TP_175044_20020118_20200905_02_T1_B2.TIF",
+     "suffix": "B2.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_B2_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 23700850,
+     "sha512": "6d1fcda60262b520383398375de7d522465750dc38b5cd17bfb1f97353ce3e587878b335a750fb7981e6d3bc7090815c9f6849e5e0c5bedffc710b53d8fa75e4",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_20020118_20200905_02_T1/LT05_L1TP_175044_20020118_20200905_02_T1_B2.TIF"
+    },
+    {
+     "name": "LT05_L1TP_175044_20020118_20200905_02_T1_B3.TIF",
+     "suffix": "B3.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_B3_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 28869398,
+     "sha512": "5e1db8002208c651414d785b82fe90876308e46c39d46570ec307612b8dae0a52b4b199a766b16791053dcab2bffd7a6113a983da923597023b2f9ef48136920",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_20020118_20200905_02_T1/LT05_L1TP_175044_20020118_20200905_02_T1_B3.TIF"
+    },
+    {
+     "name": "LT05_L1TP_175044_20020118_20200905_02_T1_B4.TIF",
+     "suffix": "B4.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_B4_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 28715191,
+     "sha512": "0485da706d008de065c660660d61a2ce3c6352fe10b13dc29314e69625ba79d5b3642cbee70f259fe892a79049e2e5392948115eb403582f41902241615aae5f",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_20020118_20200905_02_T1/LT05_L1TP_175044_20020118_20200905_02_T1_B4.TIF"
+    },
+    {
+     "name": "LT05_L1TP_175044_20020118_20200905_02_T1_QA_PIXEL.TIF",
+     "suffix": "QA_PIXEL.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_QA_PIXEL_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 759830,
+     "sha512": "a166fd18cacf5f5c44efec00aa8d27736b0be2996935d6b07892543ec71a7fb68240a4d64cbc3a402eb844229d14c00a3b575c7afe762dcc4fefdb59712db327",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_20020118_20200905_02_T1/LT05_L1TP_175044_20020118_20200905_02_T1_QA_PIXEL.TIF"
+    },
+    {
+     "name": "LT05_L1TP_175044_20020118_20200905_02_T1_MTL.txt",
+     "suffix": "MTL.txt",
+     "sourceEntityId": "L1_LT05_L1TP_175044_20020118_20200905_02_T1_MTL_TXT",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 10837,
+     "sha512": "527c0252a36d454feee171b3e0fc7b92f6460fcb98a109dcb481b3b882aff4e38cc0809992cb048da8e2d458489c5cf11a159a8e50e113edc52e2d5e2e91b3e5",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_20020118_20200905_02_T1/LT05_L1TP_175044_20020118_20200905_02_T1_MTL.txt"
+    }
+   ]
+  },
+  {
+   "group": "TE",
+   "label": "2011",
+   "displayId": "LT05_L1TP_175044_20110111_20200823_02_T1",
+   "entityId": "LT51750442011011MTI00",
+   "dataset": "landsat_tm_c2_l1",
+   "productId": "6448124210926491",
+   "files": [
+    {
+     "name": "LT05_L1TP_175044_20110111_20200823_02_T1_B1.TIF",
+     "suffix": "B1.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_B1_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 27594491,
+     "sha512": "2d05bc070e2f9e5adf2dd9daf2627b410189298a12ff47edb07a1c03342def3753a14d1fe2187e7cf6c4aae78b6586abd8a9afa13b20daa57aa59afe8104608a",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_20110111_20200823_02_T1/LT05_L1TP_175044_20110111_20200823_02_T1_B1.TIF"
+    },
+    {
+     "name": "LT05_L1TP_175044_20110111_20200823_02_T1_B2.TIF",
+     "suffix": "B2.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_B2_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 24646367,
+     "sha512": "b5039948735fe9fe7ad4cccea9449cebe03bc1258553d78ae4583b7d596a1206e48a163adb8326f417d73ab001b365f747e19f371f589c7ec79f75f7efd8d448",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_20110111_20200823_02_T1/LT05_L1TP_175044_20110111_20200823_02_T1_B2.TIF"
+    },
+    {
+     "name": "LT05_L1TP_175044_20110111_20200823_02_T1_B3.TIF",
+     "suffix": "B3.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_B3_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 30008541,
+     "sha512": "8b779ff7579a111ca0a6925052c5037719e1fae6b6353eaf7e4a7b1dc5d0ebc9b0576b3ecc847cfef566c403dd39eced6951abd40740c7579bcd66c08b5412ac",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_20110111_20200823_02_T1/LT05_L1TP_175044_20110111_20200823_02_T1_B3.TIF"
+    },
+    {
+     "name": "LT05_L1TP_175044_20110111_20200823_02_T1_B4.TIF",
+     "suffix": "B4.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_B4_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 29672193,
+     "sha512": "72ce9f8b75d3d36d68bdbea4972151b2d943366faf05e7a4a25ad6a1edfaae2679b4d4e011ee48e721b8fc4c2e9d2524b843d7448880f341d51dca36ba50eb98",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_20110111_20200823_02_T1/LT05_L1TP_175044_20110111_20200823_02_T1_B4.TIF"
+    },
+    {
+     "name": "LT05_L1TP_175044_20110111_20200823_02_T1_QA_PIXEL.TIF",
+     "suffix": "QA_PIXEL.TIF",
+     "sourceEntityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_QA_PIXEL_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 776881,
+     "sha512": "bf2c591934e5f080589d10e1ff87017120c99949a70fb3fa3f20246469c6dff7f93cfa92d20d2dd6859b6a227768827ba6c7402fae3f76b02178a5dc56ee863c",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_20110111_20200823_02_T1/LT05_L1TP_175044_20110111_20200823_02_T1_QA_PIXEL.TIF"
+    },
+    {
+     "name": "LT05_L1TP_175044_20110111_20200823_02_T1_MTL.txt",
+     "suffix": "MTL.txt",
+     "sourceEntityId": "L1_LT05_L1TP_175044_20110111_20200823_02_T1_MTL_TXT",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 10840,
+     "sha512": "df23a0c291049954be4071c047944bc8c3dc51adc1f5396b8349e0c61101095899ef6a3d6d5e0a01a3e39e2bb79c34e0e1dff75a604028e92afd70409fb51a34",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LT05_L1TP_175044_20110111_20200823_02_T1/LT05_L1TP_175044_20110111_20200823_02_T1_MTL.txt"
+    }
+   ]
+  },
+  {
+   "group": "TE",
+   "label": "2021",
+   "displayId": "LC08_L1TP_175044_20211106_20211117_02_T1",
+   "entityId": "LC81750442021310LGN00",
+   "dataset": "landsat_ot_c2_l1",
+   "productId": "73ceb05468b7e8c2",
+   "files": [
+    {
+     "name": "LC08_L1TP_175044_20211106_20211117_02_T1_B2.TIF",
+     "suffix": "B2.TIF",
+     "sourceEntityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_B2_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 82045018,
+     "sha512": "83112a811550e4614ee99ff96e11c256c61b354d09e08cb6cb8bce3a23b6bf207ea14d9c823598b7e4f7d17a6b4975f1a7e7bd30702c0c22a9be4ff84b6832ef",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_175044_20211106_20211117_02_T1/LC08_L1TP_175044_20211106_20211117_02_T1_B2.TIF"
+    },
+    {
+     "name": "LC08_L1TP_175044_20211106_20211117_02_T1_B3.TIF",
+     "suffix": "B3.TIF",
+     "sourceEntityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_B3_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 87248036,
+     "sha512": "550b79aa56d3b9f674a98fadcdd6d6aa8a8e33b4a471c542d3a10527ba9319edcb688f999632a5ec1cbe2442092c6722041abea092774225567f3ae5dc8f1f47",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_175044_20211106_20211117_02_T1/LC08_L1TP_175044_20211106_20211117_02_T1_B3.TIF"
+    },
+    {
+     "name": "LC08_L1TP_175044_20211106_20211117_02_T1_B4.TIF",
+     "suffix": "B4.TIF",
+     "sourceEntityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_B4_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 90626433,
+     "sha512": "a22c5823b80c65281a15ee39830f32946423241cce5957337bf887eb71f526a31d5ccf8608a78d196e4d9a1510608e326b2f60e9b3c1fba77579a927490c3628",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_175044_20211106_20211117_02_T1/LC08_L1TP_175044_20211106_20211117_02_T1_B4.TIF"
+    },
+    {
+     "name": "LC08_L1TP_175044_20211106_20211117_02_T1_B5.TIF",
+     "suffix": "B5.TIF",
+     "sourceEntityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_B5_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 92561999,
+     "sha512": "728133e448ff3bd52be8945e8a21572de9b4a949f98c0364fea8d8b1a2ce8603e058d811482b43582f338592433a611a0723d99453cb0c5d659bec682257b1a0",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_175044_20211106_20211117_02_T1/LC08_L1TP_175044_20211106_20211117_02_T1_B5.TIF"
+    },
+    {
+     "name": "LC08_L1TP_175044_20211106_20211117_02_T1_QA_PIXEL.TIF",
+     "suffix": "QA_PIXEL.TIF",
+     "sourceEntityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_QA_PIXEL_TIF",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 686079,
+     "sha512": "9b8ecfd9156b029d7ec5e80c710085c5a5787dd83930d467a42792de50aaea4895cf9e2b3674e73fe3bcb3dd360ddae043b8bc262b4e0e78f8b96e1f17221e24",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_175044_20211106_20211117_02_T1/LC08_L1TP_175044_20211106_20211117_02_T1_QA_PIXEL.TIF"
+    },
+    {
+     "name": "LC08_L1TP_175044_20211106_20211117_02_T1_MTL.txt",
+     "suffix": "MTL.txt",
+     "sourceEntityId": "L1_LC08_L1TP_175044_20211106_20211117_02_T1_MTL_TXT",
+     "sourceProductId": "5e8206bf6bc4a163",
+     "bytes": 12293,
+     "sha512": "0295909242d25414ff297cce42fe507c9f38fc94c6bfc91cfdf11205d395aa4cd591999581633514ac63c5ded81b209987ee4807cce8b135f597ce0a93948ed5",
+     "sha512_matches_usgs": true,
+     "status": "downloaded",
+     "local_path_hint": "src_bands/LC08_L1TP_175044_20211106_20211117_02_T1/LC08_L1TP_175044_20211106_20211117_02_T1_MTL.txt"
+    }
+   ]
+  }
+ ]
+}
