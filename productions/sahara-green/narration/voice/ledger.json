@@ -81,6 +81,28 @@
    "seconds": 30.7,
    "status": "ok",
    "time": "2026-10-08T17:55:09Z"
+  },
+  {
+   "key": "50df8c397869096d5048bea6",
+   "characters": 1580,
+   "credits": 695,
+   "usage_before": 5917.0,
+   "usage_after": 6612.0,
+   "request_id": "oOUzv7fNN7zCa9qk5DWb",
+   "seconds": 29.3,
+   "status": "ok",
+   "time": "2026-10-08T17:55:39Z"
+  },
+  {
+   "key": "4306f83b652d640d81b413a9",
+   "characters": 445,
+   "credits": 196,
+   "usage_before": 6612.0,
+   "usage_after": 6808.0,
+   "request_id": "7YPFAcq67wQ6AjuO8jtl",
+   "seconds": 15.5,
+   "status": "ok",
+   "time": "2026-10-08T17:55:56Z"
   }
  ],
  "confirmed_charges_before_resplit": {
@@ -88,5 +110,7 @@
   "successful": 1001,
   "failed_502_billed": 2186,
   "source": "GET /v1/usage/character-stats (today, UTC)"
- }
+ },
+ "total_credits_header": 4622,
+ "requests_ok": 7
 }

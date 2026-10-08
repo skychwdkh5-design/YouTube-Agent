@@ -1,0 +1,1137 @@
+{
+ "schema": "yt-captions/1",
+ "language": "en",
+ "source": "narration.voice.json",
+ "settings": {
+  "max_chars": 84,
+  "max_lines": 2,
+  "max_duration": 6.0,
+  "min_duration": 0.8,
+  "pause": 0.6
+ },
+ "cue_count": 185,
+ "duration": 747.357,
+ "validation": {
+  "wording_preserved": true,
+  "no_overlaps": true,
+  "timestamps_valid": true,
+  "problems": [],
+  "warnings": []
+ },
+ "cues": [
+  {
+   "index": 1,
+   "start": 0.0,
+   "end": 1.614,
+   "text": "You could turn the Sahara green."
+  },
+  {
+   "index": 2,
+   "start": 2.055,
+   "end": 6.861,
+   "text": "Geological records suggest it has happened more than 230 times before."
+  },
+  {
+   "index": 3,
+   "start": 7.245,
+   "end": 10.553,
+   "text": "But this time, what you'd change thousands of miles away"
+  },
+  {
+   "index": 4,
+   "start": 10.832,
+   "end": 12.887,
+   "text": "is the part that's easy to miss."
+  },
+  {
+   "index": 5,
+   "start": 13.328,
+   "end": 16.973,
+   "text": "The Sahara is the world's largest non-polar desert."
+  },
+  {
+   "index": 6,
+   "start": 17.298,
+   "end": 22.384,
+   "text": "In some areas, it gets just a few inches of rain a year, tens of millimeters."
+  },
+  {
+   "index": 7,
+   "start": 22.767,
+   "end": 24.729,
+   "text": "So could we really cover it in green?"
+  },
+  {
+   "index": 8,
+   "start": 24.973,
+   "end": 27.678,
+   "text": "Engineers have already done it, in patches."
+  },
+  {
+   "index": 9,
+   "start": 28.003,
+   "end": 31.683,
+   "text": "And climate models have tested what happens if we go all the way."
+  },
+  {
+   "index": 10,
+   "start": 32.125,
+   "end": 35.561,
+   "text": "But first, the Sahara that was already green."
+  },
+  {
+   "index": 11,
+   "start": 36.258,
+   "end": 39.625,
+   "text": "According to one reconstruction of the last green period,"
+  },
+  {
+   "index": 12,
+   "start": 39.706,
+   "end": 44.791,
+   "text": "between roughly 11,000 and 6,000 years ago much of the Sahara"
+  },
+  {
+   "index": 13,
+   "start": 44.872,
+   "end": 49.667,
+   "text": "was grassland and savanna, dotted with lakes and wetlands."
+  },
+  {
+   "index": 14,
+   "start": 50.108,
+   "end": 54.659,
+   "text": "Other records place the wet phase a few thousand years earlier or later."
+  },
+  {
+   "index": 15,
+   "start": 54.868,
+   "end": 56.97,
+   "text": "Not a jungle: savanna."
+  },
+  {
+   "index": 16,
+   "start": 57.922,
+   "end": 63.437,
+   "text": "In north-central Africa, about 7,000 years ago, a lake called Mega-Chad"
+  },
+  {
+   "index": 17,
+   "start": 63.646,
+   "end": 68.696,
+   "text": "spanned an area larger than all of the Great Lakes combined, NASA says."
+  },
+  {
+   "index": 18,
+   "start": 69.079,
+   "end": 72.852,
+   "text": "Geologists think it was the world's largest lake at the time."
+  },
+  {
+   "index": 19,
+   "start": 73.293,
+   "end": 78.773,
+   "text": "At a site called Gobero, in Niger, archaeologists found about 200 burials"
+  },
+  {
+   "index": 20,
+   "start": 78.855,
+   "end": 84.439,
+   "text": "beside a vanished lake, alongside the remains of crocodiles and large fish."
+  },
+  {
+   "index": 21,
+   "start": 85.043,
+   "end": 88.863,
+   "text": "In Algeria's Tassili n'Ajjer, a World Heritage site,"
+  },
+  {
+   "index": 22,
+   "start": 89.107,
+   "end": 93.6,
+   "text": "there are more than 15,000 prehistoric etchings and illustrations."
+  },
+  {
+   "index": 23,
+   "start": 94.111,
+   "end": 95.016,
+   "text": "How much wetter?"
+  },
+  {
+   "index": 24,
+   "start": 95.457,
+   "end": 99.672,
+   "text": "During the last green period, one reconstruction puts rainfall"
+  },
+  {
+   "index": 25,
+   "start": 99.753,
+   "end": 103.747,
+   "text": "at around 100 millimeters a year, about 4 inches,"
+  },
+  {
+   "index": 26,
+   "start": 104.072,
+   "end": 109.378,
+   "text": "in the heart of the northeastern Sahara, and around 450 millimeters,"
+  },
+  {
+   "index": 27,
+   "start": 109.622,
+   "end": 113.407,
+   "text": "roughly 18 inches, near 18 degrees north."
+  },
+  {
+   "index": 28,
+   "start": 113.848,
+   "end": 117.017,
+   "text": "Those are rough estimates, without error bars."
+  },
+  {
+   "index": 29,
+   "start": 117.401,
+   "end": 119.804,
+   "text": "And a piece of that world is still here."
+  },
+  {
+   "index": 30,
+   "start": 120.129,
+   "end": 125.086,
+   "text": "In northern Chad, the Lakes of Ounianga sit in the middle of the desert,"
+  },
+  {
+   "index": 31,
+   "start": 125.33,
+   "end": 128.964,
+   "text": "fed by groundwater stored during the last wet period."
+  },
+  {
+   "index": 32,
+   "start": 129.347,
+   "end": 132.842,
+   "text": "Pollen preserved in the sediments of the region's original lake,"
+  },
+  {
+   "index": 33,
+   "start": 133.016,
+   "end": 136.882,
+   "text": "which was about 50 meters, 160 feet, deep,"
+  },
+  {
+   "index": 34,
+   "start": 137.091,
+   "end": 142.397,
+   "text": "suggests a wooded grassland, with plants that now grow about 300 kilometers,"
+  },
+  {
+   "index": 35,
+   "start": 142.42,
+   "end": 145.636,
+   "text": "about 190 miles, farther south."
+  },
+  {
+   "index": 36,
+   "start": 146.019,
+   "end": 148.039,
+   "text": "So what turned the Sahara green?"
+  },
+  {
+   "index": 37,
+   "start": 148.48,
+   "end": 151.174,
+   "text": "Not people. Earth's orbit."
+  },
+  {
+   "index": 38,
+   "start": 151.499,
+   "end": 153.798,
+   "text": "Earth's orbit has a slow wobble,"
+  },
+  {
+   "index": 39,
+   "start": 153.972,
+   "end": 157.303,
+   "text": "a cycle that plays out over many thousands of years."
+  },
+  {
+   "index": 40,
+   "start": 157.687,
+   "end": 161.529,
+   "text": "It changes how much summer sunlight reaches the Northern Hemisphere."
+  },
+  {
+   "index": 41,
+   "start": 161.971,
+   "end": 166.278,
+   "text": "When northern summers were sunnier, the West African monsoon pushed"
+  },
+  {
+   "index": 42,
+   "start": 166.324,
+   "end": 170.156,
+   "text": "its rains far north, deep into the Sahara."
+  },
+  {
+   "index": 43,
+   "start": 170.156,
+   "end": 173.349,
+   "text": "But sunlight alone may not explain how wet it got."
+  },
+  {
+   "index": 44,
+   "start": 173.952,
+   "end": 177.494,
+   "text": "Climate models struggle to produce enough rain to fill all the lakes"
+  },
+  {
+   "index": 45,
+   "start": 177.528,
+   "end": 180.28,
+   "text": "that geologists think the Sahara once had,"
+  },
+  {
+   "index": 46,
+   "start": 180.605,
+   "end": 184.123,
+   "text": "and researchers are still working out what the models are missing."
+  },
+  {
+   "index": 47,
+   "start": 184.564,
+   "end": 189.87,
+   "text": "One proposed amplifier is feedback: more lakes and plants could mean more rain,"
+  },
+  {
+   "index": 48,
+   "start": 190.044,
+   "end": 192.18,
+   "text": "and more rain, more plants."
+  },
+  {
+   "index": 49,
+   "start": 192.563,
+   "end": 194.374,
+   "text": "And it's not a one-time event."
+  },
+  {
+   "index": 50,
+   "start": 194.816,
+   "end": 199.912,
+   "text": "Geological records, mainly layers of Mediterranean seabed mud laid down"
+  },
+  {
+   "index": 51,
+   "start": 199.97,
+   "end": 203.198,
+   "text": "when African monsoon floods surged into the sea,"
+  },
+  {
+   "index": 52,
+   "start": 203.523,
+   "end": 208.596,
+   "text": "point to more than 230 green Sahara periods in the last 8 million years."
+  },
+  {
+   "index": 53,
+   "start": 209.2,
+   "end": 213.798,
+   "text": "That's a reconstruction, not 230 events anyone observed."
+  },
+  {
+   "index": 54,
+   "start": 214.309,
+   "end": 215.725,
+   "text": "How did the last one end?"
+  },
+  {
+   "index": 55,
+   "start": 216.236,
+   "end": 219.8,
+   "text": "Scientists still debate whether it was abrupt or gradual."
+  },
+  {
+   "index": 56,
+   "start": 220.125,
+   "end": 222.587,
+   "text": "One reconstruction, built from dated lake,"
+  },
+  {
+   "index": 57,
+   "start": 222.68,
+   "end": 225.292,
+   "text": "marsh and river sediments across the Sahara,"
+  },
+  {
+   "index": 58,
+   "start": 225.536,
+   "end": 231.259,
+   "text": "finds the monsoon rains retreating southward over about two to three thousand years."
+  },
+  {
+   "index": 59,
+   "start": 231.538,
+   "end": 234.684,
+   "text": "Other records have been read as showing a more abrupt end."
+  },
+  {
+   "index": 60,
+   "start": 235.009,
+   "end": 236.669,
+   "text": "The desert crept south."
+  },
+  {
+   "index": 61,
+   "start": 236.913,
+   "end": 240.501,
+   "text": "Today, the Sahara sits under a belt of sinking air."
+  },
+  {
+   "index": 62,
+   "start": 240.71,
+   "end": 246.004,
+   "text": "Near the equator, warm, moist air rises, and forms clouds and rain."
+  },
+  {
+   "index": 63,
+   "start": 246.387,
+   "end": 248.849,
+   "text": "High up, it flows toward the poles,"
+  },
+  {
+   "index": 64,
+   "start": 248.965,
+   "end": 252.947,
+   "text": "then sinks around 30 degrees latitude, by then dry."
+  },
+  {
+   "index": 65,
+   "start": 253.644,
+   "end": 257.626,
+   "text": "NASA notes that descending air inhibits cloud formation,"
+  },
+  {
+   "index": 66,
+   "start": 257.8,
+   "end": 261.991,
+   "text": "which is why clouds are rare and deserts are common at those latitudes."
+  },
+  {
+   "index": 67,
+   "start": 262.432,
+   "end": 265.718,
+   "text": "So greening the Sahara isn't just about finding water."
+  },
+  {
+   "index": 68,
+   "start": 265.962,
+   "end": 268.667,
+   "text": "You'd be planting against the atmosphere itself."
+  },
+  {
+   "index": 69,
+   "start": 268.992,
+   "end": 273.891,
+   "text": "And yet, from orbit, you can find green in the Sahara right now."
+  },
+  {
+   "index": 70,
+   "start": 274.332,
+   "end": 277.664,
+   "text": "This is East Oweinat, in southern Egypt."
+  },
+  {
+   "index": 71,
+   "start": 278.268,
+   "end": 283.238,
+   "text": "In a 1984 Landsat image, this area is almost entirely barren."
+  },
+  {
+   "index": 72,
+   "start": 283.679,
+   "end": 287.928,
+   "text": "Today, it's covered in green circles, each about half a mile across,"
+  },
+  {
+   "index": 73,
+   "start": 288.137,
+   "end": 291.039,
+   "text": "watered by rotating sprinkler arms."
+  },
+  {
+   "index": 74,
+   "start": 291.039,
+   "end": 292.676,
+   "text": "The water comes from below."
+  },
+  {
+   "index": 75,
+   "start": 293.059,
+   "end": 295.811,
+   "text": "It's pumped from the Nubian Sandstone Aquifer,"
+  },
+  {
+   "index": 76,
+   "start": 296.02,
+   "end": 301.871,
+   "text": "a vast store of fossil groundwater shared by Egypt, Libya, Sudan and Chad."
+  },
+  {
+   "index": 77,
+   "start": 302.382,
+   "end": 307.688,
+   "text": "NASA says that water soaked into the sandstone anywhere from 10,000 to a million"
+  },
+  {
+   "index": 78,
+   "start": 307.757,
+   "end": 313.04,
+   "text": "years ago, when the region got more rain, and that the aquifer recharges slowly"
+  },
+  {
+   "index": 79,
+   "start": 313.284,
+   "end": 316.314,
+   "text": "and is considered a non-renewable resource today."
+  },
+  {
+   "index": 80,
+   "start": 317.01,
+   "end": 321.852,
+   "text": "Across the border in Libya, the Kufra oasis runs on the same kind of water."
+  },
+  {
+   "index": 81,
+   "start": 322.235,
+   "end": 326.38,
+   "text": "In the 1980s, Libya began building the Great Man-Made River"
+  },
+  {
+   "index": 82,
+   "start": 326.461,
+   "end": 328.203,
+   "text": "to pipe it north to the coast."
+  },
+  {
+   "index": 83,
+   "start": 328.481,
+   "end": 332.034,
+   "text": "And at Toshka, Egypt let water from Lake Nasser spill"
+  },
+  {
+   "index": 84,
+   "start": 332.104,
+   "end": 334.147,
+   "text": "into natural basins in the desert."
+  },
+  {
+   "index": 85,
+   "start": 334.588,
+   "end": 338.442,
+   "text": "In NASA's photographs, the lakes are full in 2002."
+  },
+  {
+   "index": 86,
+   "start": 338.825,
+   "end": 343.527,
+   "text": "By 2012, they had mostly dried up, as the Nile's flow dropped."
+  },
+  {
+   "index": 87,
+   "start": 343.841,
+   "end": 348.496,
+   "text": "In 2021, after floods upstream, they held more water than ever before."
+  },
+  {
+   "index": 88,
+   "start": 348.775,
+   "end": 351.016,
+   "text": "So yes, we can green the desert."
+  },
+  {
+   "index": 89,
+   "start": 351.341,
+   "end": 356.484,
+   "text": "One field at a time, with water stored long ago and only slowly replaced."
+  },
+  {
+   "index": 90,
+   "start": 357.181,
+   "end": 361.245,
+   "text": "In 2009, three researchers proposed going much bigger:"
+  },
+  {
+   "index": 91,
+   "start": 361.686,
+   "end": 366.411,
+   "text": "forests of fast-growing trees across the Sahara and the Australian Outback,"
+  },
+  {
+   "index": 92,
+   "start": 366.736,
+   "end": 369.244,
+   "text": "watered with desalinated seawater."
+  },
+  {
+   "index": 93,
+   "start": 369.755,
+   "end": 374.144,
+   "text": "By their estimate, such forests could take up about as much carbon each year"
+  },
+  {
+   "index": 94,
+   "start": 374.225,
+   "end": 376.431,
+   "text": "as the world's fossil fuels release."
+  },
+  {
+   "index": 95,
+   "start": 376.872,
+   "end": 381.876,
+   "text": "That estimate came from plantation data and calculations with large error bars,"
+  },
+  {
+   "index": 96,
+   "start": 382.12,
+   "end": 384.952,
+   "text": "not from a climate model that simulated the carbon."
+  },
+  {
+   "index": 97,
+   "start": 385.394,
+   "end": 387.588,
+   "text": "And it wasn't carbon removal forever:"
+  },
+  {
+   "index": 98,
+   "start": 387.797,
+   "end": 392.127,
+   "text": "the authors expected a forest to stop gaining carbon after about a century."
+  },
+  {
+   "index": 99,
+   "start": 392.569,
+   "end": 395.076,
+   "text": "The authors themselves described such projects"
+  },
+  {
+   "index": 100,
+   "start": 395.123,
+   "end": 397.99,
+   "text": "as multi-trillion-dollar undertakings."
+  },
+  {
+   "index": 101,
+   "start": 397.99,
+   "end": 398.977,
+   "text": "Would it rain?"
+  },
+  {
+   "index": 102,
+   "start": 399.673,
+   "end": 405.618,
+   "text": "In the authors' own simulation, one climate model, rainfall rose by more than 1,000"
+  },
+  {
+   "index": 103,
+   "start": 405.699,
+   "end": 411.481,
+   "text": "millimeters a year, about 40 inches, over roughly half of the irrigated Sahara."
+  },
+  {
+   "index": 104,
+   "start": 411.922,
+   "end": 414.081,
+   "text": "They asked other models to check it."
+  },
+  {
+   "index": 105,
+   "start": 414.406,
+   "end": 418.841,
+   "text": "A later team tested an irrigated Sahara forest in a different climate model."
+  },
+  {
+   "index": 106,
+   "start": 419.166,
+   "end": 424.936,
+   "text": "Across the whole Sahara, rainfall rose by about 267 millimeters a year,"
+  },
+  {
+   "index": 107,
+   "start": 425.111,
+   "end": 430.776,
+   "text": "roughly 10 inches, and the surface air cooled by about 6.3 degrees Celsius,"
+  },
+  {
+   "index": 108,
+   "start": 430.95,
+   "end": 433.029,
+   "text": "around 11 degrees Fahrenheit."
+  },
+  {
+   "index": 109,
+   "start": 433.539,
+   "end": 435.873,
+   "text": "The authors called that a weak increase."
+  },
+  {
+   "index": 110,
+   "start": 436.198,
+   "end": 440.505,
+   "text": "Those two numbers measure different things: rain over half the forest,"
+  },
+  {
+   "index": 111,
+   "start": 440.68,
+   "end": 443.385,
+   "text": "versus an average across the whole Sahara."
+  },
+  {
+   "index": 112,
+   "start": 443.559,
+   "end": 445.706,
+   "text": "And the forest wouldn't water itself."
+  },
+  {
+   "index": 113,
+   "start": 446.032,
+   "end": 451.895,
+   "text": "In that model, it lost about 1,238 millimeters of water a year to evaporation"
+  },
+  {
+   "index": 114,
+   "start": 451.941,
+   "end": 457.015,
+   "text": "and transpiration, and total rainfall over the Sahara was 319,"
+  },
+  {
+   "index": 115,
+   "start": 457.258,
+   "end": 458.826,
+   "text": "about a quarter as much."
+  },
+  {
+   "index": 116,
+   "start": 459.151,
+   "end": 462.645,
+   "text": "That's a ratio of totals, not a tracked drop of water."
+  },
+  {
+   "index": 117,
+   "start": 462.97,
+   "end": 466.082,
+   "text": "Much of the moisture was carried south, over the Sahel,"
+  },
+  {
+   "index": 118,
+   "start": 466.256,
+   "end": 470.946,
+   "text": "the semi-arid band just south of the Sahara, and the nearby ocean."
+  },
+  {
+   "index": 119,
+   "start": 471.643,
+   "end": 477.227,
+   "text": "Keeping the forest alive took about 919 millimeters, roughly 36 inches,"
+  },
+  {
+   "index": 120,
+   "start": 477.355,
+   "end": 480.502,
+   "text": "of desalinated water a year on top of the rain."
+  },
+  {
+   "index": 121,
+   "start": 480.827,
+   "end": 484.89,
+   "text": "The model simply assumes that water is supplied; whether it could be produced"
+  },
+  {
+   "index": 122,
+   "start": 484.937,
+   "end": 488.687,
+   "text": "and delivered at that scale is not something the simulation shows."
+  },
+  {
+   "index": 123,
+   "start": 489.012,
+   "end": 491.949,
+   "text": "That's one simulation, not a measurement."
+  },
+  {
+   "index": 124,
+   "start": 492.274,
+   "end": 495.385,
+   "text": "But the biggest changes may not be in the Sahara at all."
+  },
+  {
+   "index": 125,
+   "start": 495.827,
+   "end": 498.16,
+   "text": "Now, the part that's easy to miss."
+  },
+  {
+   "index": 126,
+   "start": 498.161,
+   "end": 499.694,
+   "text": "First, dust."
+  },
+  {
+   "index": 127,
+   "start": 500.495,
+   "end": 505.986,
+   "text": "NASA satellite data suggest that, on average, about 182 million tons of dust"
+  },
+  {
+   "index": 128,
+   "start": 506.044,
+   "end": 511.118,
+   "text": "a year are carried past the Sahara's western edge, and out over the Atlantic."
+  },
+  {
+   "index": 129,
+   "start": 511.559,
+   "end": 515.344,
+   "text": "Roughly 28 million tons of it settle on the Amazon basin."
+  },
+  {
+   "index": 130,
+   "start": 515.785,
+   "end": 520.661,
+   "text": "That dust carries an estimated 22,000 tons of phosphorus a year,"
+  },
+  {
+   "index": 131,
+   "start": 520.986,
+   "end": 524.655,
+   "text": "about as much as the rainforest loses to rain and floods."
+  },
+  {
+   "index": 132,
+   "start": 525.038,
+   "end": 526.257,
+   "text": "Where does it come from?"
+  },
+  {
+   "index": 133,
+   "start": 526.698,
+   "end": 532.051,
+   "text": "The Bodélé Depression in Chad is one of the world's most prolific dust sources:"
+  },
+  {
+   "index": 134,
+   "start": 532.376,
+   "end": 535.592,
+   "text": "the dry floor of old Lake Mega-Chad,"
+  },
+  {
+   "index": 135,
+   "start": 535.836,
+   "end": 540.491,
+   "text": "where the dust is mostly quartz and the fossil remains of tiny algae."
+  },
+  {
+   "index": 136,
+   "start": 541.002,
+   "end": 544.148,
+   "text": "But it may not be the main supplier to the Amazon."
+  },
+  {
+   "index": 137,
+   "start": 544.531,
+   "end": 550.302,
+   "text": "A newer analysis points to El Djouf, a desert in Mauritania and Mali,"
+  },
+  {
+   "index": 138,
+   "start": 550.604,
+   "end": 555.84,
+   "text": "about 2,500 kilometers, 1,600 miles, to the west."
+  },
+  {
+   "index": 139,
+   "start": 556.061,
+   "end": 557.419,
+   "text": "So here's the open question."
+  },
+  {
+   "index": 140,
+   "start": 557.976,
+   "end": 562.818,
+   "text": "If a greener Sahara blew less dust, would the Amazon get less phosphorus?"
+  },
+  {
+   "index": 141,
+   "start": 563.119,
+   "end": 567.671,
+   "text": "That's a hypothesis, and we found no study that models it for a planted Sahara."
+  },
+  {
+   "index": 142,
+   "start": 568.181,
+   "end": 570.074,
+   "text": "Second, storms."
+  },
+  {
+   "index": 143,
+   "start": 570.77,
+   "end": 575.786,
+   "text": "Researchers simulated the world about 6,000 years ago, when the Sahara was green."
+  },
+  {
+   "index": 144,
+   "start": 576.297,
+   "end": 580.906,
+   "text": "In their model the Sahara was covered in shrubs, not an artificial forest,"
+  },
+  {
+   "index": 145,
+   "start": 581.15,
+   "end": 583.762,
+   "text": "and dust was cut by up to 80 percent."
+  },
+  {
+   "index": 146,
+   "start": 584.458,
+   "end": 588.324,
+   "text": "Compared with the same model's pre-industrial world, that produced"
+  },
+  {
+   "index": 147,
+   "start": 588.382,
+   "end": 593.514,
+   "text": "more tropical cyclone activity in both hemispheres, especially around the Caribbean"
+  },
+  {
+   "index": 148,
+   "start": 593.607,
+   "end": 598.483,
+   "text": "and the southeastern United States, though some ocean regions saw fewer."
+  },
+  {
+   "index": 149,
+   "start": 599.296,
+   "end": 603.661,
+   "text": "A stronger West African monsoon changed winds across the tropics."
+  },
+  {
+   "index": 150,
+   "start": 603.87,
+   "end": 608.503,
+   "text": "That's a simulation of the past, not a forecast for a planted Sahara,"
+  },
+  {
+   "index": 151,
+   "start": 608.712,
+   "end": 611.823,
+   "text": "and there aren't enough records of ancient storms to check it."
+  },
+  {
+   "index": 152,
+   "start": 612.334,
+   "end": 615.097,
+   "text": "But it shows how far the Sahara reaches."
+  },
+  {
+   "index": 153,
+   "start": 615.097,
+   "end": 619.787,
+   "text": "Meanwhile, something real has been happening on the Sahara's southern edge."
+  },
+  {
+   "index": 154,
+   "start": 620.171,
+   "end": 625.337,
+   "text": "After the droughts of the 1970s and 80s, satellite records show vegetation returning"
+  },
+  {
+   "index": 155,
+   "start": 625.383,
+   "end": 629.807,
+   "text": "to the Sahel as the rains came back in the 1990s and 2000s."
+  },
+  {
+   "index": 156,
+   "start": 630.086,
+   "end": 634.95,
+   "text": "Researchers concluded that those large-scale changes are mainly driven by rainfall,"
+  },
+  {
+   "index": 157,
+   "start": 635.101,
+   "end": 638.654,
+   "text": "and that lasting desertification was limited to local areas."
+  },
+  {
+   "index": 158,
+   "start": 638.932,
+   "end": 643.994,
+   "text": "Separately, UNCCD documents credit farmers who protect trees sprouting"
+  },
+  {
+   "index": 159,
+   "start": 644.053,
+   "end": 647.826,
+   "text": "on their own land with restoring more than five million hectares"
+  },
+  {
+   "index": 160,
+   "start": 647.895,
+   "end": 652.389,
+   "text": "in southern Niger's Maradi region, about 12 million acres,"
+  },
+  {
+   "index": 161,
+   "start": 652.714,
+   "end": 657.961,
+   "text": "and over seven million hectares across Niger, more than 17 million acres."
+  },
+  {
+   "index": 162,
+   "start": 658.402,
+   "end": 662.605,
+   "text": "Those are reported figures, and they differ by region and report."
+  },
+  {
+   "index": 163,
+   "start": 663.046,
+   "end": 667.168,
+   "text": "In 2007, the African Union launched the Great Green Wall."
+  },
+  {
+   "index": 164,
+   "start": 667.493,
+   "end": 672.241,
+   "text": "Its stated ambition, a pledge made at the UN climate conference known as COP21,"
+  },
+  {
+   "index": 165,
+   "start": 672.566,
+   "end": 677.025,
+   "text": "is to restore 100 million hectares of degraded land by 2030."
+  },
+  {
+   "index": 166,
+   "start": 677.535,
+   "end": 681.657,
+   "text": "The Wall's own coordinating agency has set a separate, smaller target:"
+  },
+  {
+   "index": 167,
+   "start": 682.04,
+   "end": 683.758,
+   "text": "25 million hectares."
+  },
+  {
+   "index": 168,
+   "start": 684.2,
+   "end": 688.797,
+   "text": "By 2020, a UN report, based on figures reported to the Wall's own agency,"
+  },
+  {
+   "index": 169,
+   "start": 689.006,
+   "end": 692.977,
+   "text": "counted about 4 million hectares restored inside its core zones."
+  },
+  {
+   "index": 170,
+   "start": 693.302,
+   "end": 697.273,
+   "text": "The project has shifted from a literal wall of trees to a mosaic"
+  },
+  {
+   "index": 171,
+   "start": 697.342,
+   "end": 702.091,
+   "text": "of different land uses, including regrown vegetation and water-holding measures."
+  },
+  {
+   "index": 172,
+   "start": 702.416,
+   "end": 704.912,
+   "text": "So, could we turn the Sahara green?"
+  },
+  {
+   "index": 173,
+   "start": 705.237,
+   "end": 706.967,
+   "text": "In patches, we already are."
+  },
+  {
+   "index": 174,
+   "start": 707.176,
+   "end": 709.498,
+   "text": "All of it would take water we'd have to make from the sea,"
+  },
+  {
+   "index": 175,
+   "start": 709.545,
+   "end": 712.354,
+   "text": "and a great deal of energy to desalinate and pump it."
+  },
+  {
+   "index": 176,
+   "start": 712.679,
+   "end": 715.628,
+   "text": "The simulations disagree about how much rain it would bring."
+  },
+  {
+   "index": 177,
+   "start": 715.872,
+   "end": 719.308,
+   "text": "And what it would do far from Africa is still an open question."
+  },
+  {
+   "index": 178,
+   "start": 719.308,
+   "end": 720.457,
+   "text": "And here's the twist."
+  },
+  {
+   "index": 179,
+   "start": 720.782,
+   "end": 723.789,
+   "text": "Orbital cycles turned the Sahara green before."
+  },
+  {
+   "index": 180,
+   "start": 724.115,
+   "end": 727.586,
+   "text": "According to NASA, it's unclear whether, and how much,"
+  },
+  {
+   "index": 181,
+   "start": 727.76,
+   "end": 732.021,
+   "text": "the Sahara might green again over the coming centuries and millennia,"
+  },
+  {
+   "index": 182,
+   "start": 732.404,
+   "end": 735.91,
+   "text": "now that greenhouse gases are layered on top of those cycles."
+  },
+  {
+   "index": 183,
+   "start": 736.235,
+   "end": 739.544,
+   "text": "So the real question isn't whether the desert can be green."
+  },
+  {
+   "index": 184,
+   "start": 739.823,
+   "end": 742.609,
+   "text": "It's whether we should be the ones to flip the switch."
+  },
+  {
+   "index": 185,
+   "start": 743.12,
+   "end": 747.357,
+   "text": "If you want to see what else satellites have caught changing, subscribe."
+  }
+ ],
+ "files": {
+  "srt": "captions.srt",
+  "vtt": "captions.vtt"
+ }
+}

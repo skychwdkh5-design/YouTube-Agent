@@ -1,0 +1,8968 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "argument",
+ "language": "en",
+ "audio": "narration.wav",
+ "audio_format": "wav",
+ "audio_sha256": "49e53528cd445a75a71c819c71d542b2f84d8c3898eff34c2a6c9fc7ee7245e2",
+ "duration": 747.357,
+ "characters": 10506,
+ "text": "You could turn the Sahara green. Geological records suggest it has happened more than 230 times before. But this time, what you'd change thousands of miles away is the part that's easy to miss.\n\nThe Sahara is the world's largest non-polar desert. In some areas, it gets just a few inches of rain a year, tens of millimeters.\n\nSo could we really cover it in green? Engineers have already done it, in patches. And climate models have tested what happens if we go all the way. But first, the Sahara that was already green.\n\nAccording to one reconstruction of the last green period, between roughly 11,000 and 6,000 years ago much of the Sahara was grassland and savanna, dotted with lakes and wetlands. Other records place the wet phase a few thousand years earlier or later. Not a jungle: savanna.\n\nIn north-central Africa, about 7,000 years ago, a lake called Mega-Chad spanned an area larger than all of the Great Lakes combined, NASA says. Geologists think it was the world's largest lake at the time.\n\nAt a site called Gobero, in Niger, archaeologists found about 200 burials beside a vanished lake, alongside the remains of crocodiles and large fish. In Algeria's Tassili n'Ajjer, a World Heritage site, there are more than 15,000 prehistoric etchings and illustrations.\n\nHow much wetter? During the last green period, one reconstruction puts rainfall at around 100 millimeters a year, about 4 inches, in the heart of the northeastern Sahara, and around 450 millimeters, roughly 18 inches, near 18 degrees north. Those are rough estimates, without error bars.\n\nAnd a piece of that world is still here. In northern Chad, the Lakes of Ounianga sit in the middle of the desert, fed by groundwater stored during the last wet period. Pollen preserved in the sediments of the region's original lake, which was about 50 meters, 160 feet, deep, suggests a wooded grassland, with plants that now grow about 300 kilometers, about 190 miles, farther south.\n\nSo what turned the Sahara green? Not people. Earth's orbit.\n\nEarth's orbit has a slow wobble, a cycle that plays out over many thousands of years. It changes how much summer sunlight reaches the Northern Hemisphere. When northern summers were sunnier, the West African monsoon pushed its rains far north, deep into the Sahara.\n\nBut sunlight alone may not explain how wet it got. Climate models struggle to produce enough rain to fill all the lakes that geologists think the Sahara once had, and researchers are still working out what the models are missing. One proposed amplifier is feedback: more lakes and plants could mean more rain, and more rain, more plants.\n\nAnd it's not a one-time event. Geological records, mainly layers of Mediterranean seabed mud laid down when African monsoon floods surged into the sea, point to more than 230 green Sahara periods in the last 8 million years. That's a reconstruction, not 230 events anyone observed.\n\nHow did the last one end? Scientists still debate whether it was abrupt or gradual. One reconstruction, built from dated lake, marsh and river sediments across the Sahara, finds the monsoon rains retreating southward over about two to three thousand years. Other records have been read as showing a more abrupt end. The desert crept south.\n\nToday, the Sahara sits under a belt of sinking air. Near the equator, warm, moist air rises, and forms clouds and rain. High up, it flows toward the poles, then sinks around 30 degrees latitude, by then dry. NASA notes that descending air inhibits cloud formation, which is why clouds are rare and deserts are common at those latitudes.\n\nSo greening the Sahara isn't just about finding water. You'd be planting against the atmosphere itself.\n\nAnd yet, from orbit, you can find green in the Sahara right now.\n\nThis is East Oweinat, in southern Egypt. In a 1984 Landsat image, this area is almost entirely barren. Today, it's covered in green circles, each about half a mile across, watered by rotating sprinkler arms.\n\nThe water comes from below. It's pumped from the Nubian Sandstone Aquifer, a vast store of fossil groundwater shared by Egypt, Libya, Sudan and Chad. NASA says that water soaked into the sandstone anywhere from 10,000 to a million years ago, when the region got more rain, and that the aquifer recharges slowly and is considered a non-renewable resource today.\n\nAcross the border in Libya, the Kufra oasis runs on the same kind of water. In the 1980s, Libya began building the Great Man-Made River to pipe it north to the coast.\n\nAnd at Toshka, Egypt let water from Lake Nasser spill into natural basins in the desert. In NASA's photographs, the lakes are full in 2002. By 2012, they had mostly dried up, as the Nile's flow dropped. In 2021, after floods upstream, they held more water than ever before.\n\nSo yes, we can green the desert. One field at a time, with water stored long ago and only slowly replaced.\n\nIn 2009, three researchers proposed going much bigger: forests of fast-growing trees across the Sahara and the Australian Outback, watered with desalinated seawater. By their estimate, such forests could take up about as much carbon each year as the world's fossil fuels release. That estimate came from plantation data and calculations with large error bars, not from a climate model that simulated the carbon. And it wasn't carbon removal forever: the authors expected a forest to stop gaining carbon after about a century. The authors themselves described such projects as multi-trillion-dollar undertakings.\n\nWould it rain? In the authors' own simulation, one climate model, rainfall rose by more than 1,000 millimeters a year, about 40 inches, over roughly half of the irrigated Sahara. They asked other models to check it.\n\nA later team tested an irrigated Sahara forest in a different climate model. Across the whole Sahara, rainfall rose by about 267 millimeters a year, roughly 10 inches, and the surface air cooled by about 6.3 degrees Celsius, around 11 degrees Fahrenheit. The authors called that a weak increase. Those two numbers measure different things: rain over half the forest, versus an average across the whole Sahara.\n\nAnd the forest wouldn't water itself. In that model, it lost about 1,238 millimeters of water a year to evaporation and transpiration, and total rainfall over the Sahara was 319, about a quarter as much. That's a ratio of totals, not a tracked drop of water. Much of the moisture was carried south, over the Sahel, the semi-arid band just south of the Sahara, and the nearby ocean. Keeping the forest alive took about 919 millimeters, roughly 36 inches, of desalinated water a year on top of the rain. The model simply assumes that water is supplied; whether it could be produced and delivered at that scale is not something the simulation shows. That's one simulation, not a measurement.\n\nBut the biggest changes may not be in the Sahara at all.\n\nNow, the part that's easy to miss.\n\nFirst, dust. NASA satellite data suggest that, on average, about 182 million tons of dust a year are carried past the Sahara's western edge, and out over the Atlantic. Roughly 28 million tons of it settle on the Amazon basin. That dust carries an estimated 22,000 tons of phosphorus a year, about as much as the rainforest loses to rain and floods.\n\nWhere does it come from? The Bodélé Depression in Chad is one of the world's most prolific dust sources: the dry floor of old Lake Mega-Chad, where the dust is mostly quartz and the fossil remains of tiny algae. But it may not be the main supplier to the Amazon. A newer analysis points to El Djouf, a desert in Mauritania and Mali, about 2,500 kilometers, 1,600 miles, to the west.\n\nSo here's the open question. If a greener Sahara blew less dust, would the Amazon get less phosphorus? That's a hypothesis, and we found no study that models it for a planted Sahara.\n\nSecond, storms. Researchers simulated the world about 6,000 years ago, when the Sahara was green. In their model the Sahara was covered in shrubs, not an artificial forest, and dust was cut by up to 80 percent. Compared with the same model's pre-industrial world, that produced more tropical cyclone activity in both hemispheres, especially around the Caribbean and the southeastern United States, though some ocean regions saw fewer. A stronger West African monsoon changed winds across the tropics. That's a simulation of the past, not a forecast for a planted Sahara, and there aren't enough records of ancient storms to check it. But it shows how far the Sahara reaches.\n\nMeanwhile, something real has been happening on the Sahara's southern edge. After the droughts of the 1970s and 80s, satellite records show vegetation returning to the Sahel as the rains came back in the 1990s and 2000s. Researchers concluded that those large-scale changes are mainly driven by rainfall, and that lasting desertification was limited to local areas. Separately, UNCCD documents credit farmers who protect trees sprouting on their own land with restoring more than five million hectares in southern Niger's Maradi region, about 12 million acres, and over seven million hectares across Niger, more than 17 million acres. Those are reported figures, and they differ by region and report.\n\nIn 2007, the African Union launched the Great Green Wall. Its stated ambition, a pledge made at the UN climate conference known as COP21, is to restore 100 million hectares of degraded land by 2030. The Wall's own coordinating agency has set a separate, smaller target: 25 million hectares. By 2020, a UN report, based on figures reported to the Wall's own agency, counted about 4 million hectares restored inside its core zones. The project has shifted from a literal wall of trees to a mosaic of different land uses, including regrown vegetation and water-holding measures.\n\nSo, could we turn the Sahara green? In patches, we already are. All of it would take water we'd have to make from the sea, and a great deal of energy to desalinate and pump it. The simulations disagree about how much rain it would bring. And what it would do far from Africa is still an open question.\n\nAnd here's the twist. Orbital cycles turned the Sahara green before. According to NASA, it's unclear whether, and how much, the Sahara might green again over the coming centuries and millennia, now that greenhouse gases are layered on top of those cycles.\n\nSo the real question isn't whether the desert can be green. It's whether we should be the ones to flip the switch.\n\nIf you want to see what else satellites have caught changing, subscribe.",
+ "text_sha256": "5432e59e130fc076a6e8523b9f7570f12e3b34e644563761ae2e2293a949d483",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 2276,
+   "offset": 0.0,
+   "duration": 170.156,
+   "timing": true
+  },
+  {
+   "index": 1,
+   "characters": 1679,
+   "offset": 170.156,
+   "duration": 120.883,
+   "timing": true
+  },
+  {
+   "index": 2,
+   "characters": 1524,
+   "offset": 291.039,
+   "duration": 106.951,
+   "timing": true
+  },
+  {
+   "index": 3,
+   "characters": 1410,
+   "offset": 397.99,
+   "duration": 100.171,
+   "timing": true
+  },
+  {
+   "index": 4,
+   "characters": 1592,
+   "offset": 498.161,
+   "duration": 116.936,
+   "timing": true
+  },
+  {
+   "index": 5,
+   "characters": 1580,
+   "offset": 615.097,
+   "duration": 104.211,
+   "timing": true
+  },
+  {
+   "index": 6,
+   "characters": 445,
+   "offset": 719.308,
+   "duration": 28.05,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "You",
+   "start": 0.0,
+   "end": 0.151
+  },
+  {
+   "text": "could",
+   "start": 0.197,
+   "end": 0.325
+  },
+  {
+   "text": "turn",
+   "start": 0.348,
+   "end": 0.534
+  },
+  {
+   "text": "the",
+   "start": 0.569,
+   "end": 0.639
+  },
+  {
+   "text": "Sahara",
+   "start": 0.685,
+   "end": 1.022
+  },
+  {
+   "text": "green.",
+   "start": 1.08,
+   "end": 1.614
+  },
+  {
+   "text": "Geological",
+   "start": 2.055,
+   "end": 2.752
+  },
+  {
+   "text": "records",
+   "start": 2.821,
+   "end": 3.158
+  },
+  {
+   "text": "suggest",
+   "start": 3.181,
+   "end": 3.611
+  },
+  {
+   "text": "it",
+   "start": 3.669,
+   "end": 3.738
+  },
+  {
+   "text": "has",
+   "start": 3.785,
+   "end": 3.901
+  },
+  {
+   "text": "happened",
+   "start": 3.971,
+   "end": 4.342
+  },
+  {
+   "text": "more",
+   "start": 4.4,
+   "end": 4.574
+  },
+  {
+   "text": "than",
+   "start": 4.609,
+   "end": 4.76
+  },
+  {
+   "text": "230",
+   "start": 4.83,
+   "end": 5.677
+  },
+  {
+   "text": "times",
+   "start": 5.735,
+   "end": 6.13
+  },
+  {
+   "text": "before.",
+   "start": 6.211,
+   "end": 6.861
+  },
+  {
+   "text": "But",
+   "start": 7.245,
+   "end": 7.407
+  },
+  {
+   "text": "this",
+   "start": 7.454,
+   "end": 7.616
+  },
+  {
+   "text": "time,",
+   "start": 7.686,
+   "end": 8.15
+  },
+  {
+   "text": "what",
+   "start": 8.243,
+   "end": 8.429
+  },
+  {
+   "text": "you'd",
+   "start": 8.475,
+   "end": 8.638
+  },
+  {
+   "text": "change",
+   "start": 8.673,
+   "end": 9.056
+  },
+  {
+   "text": "thousands",
+   "start": 9.102,
+   "end": 9.567
+  },
+  {
+   "text": "of",
+   "start": 9.601,
+   "end": 9.648
+  },
+  {
+   "text": "miles",
+   "start": 9.718,
+   "end": 10.066
+  },
+  {
+   "text": "away",
+   "start": 10.112,
+   "end": 10.553
+  },
+  {
+   "text": "is",
+   "start": 10.832,
+   "end": 10.995
+  },
+  {
+   "text": "the",
+   "start": 11.053,
+   "end": 11.122
+  },
+  {
+   "text": "part",
+   "start": 11.18,
+   "end": 11.413
+  },
+  {
+   "text": "that's",
+   "start": 11.447,
+   "end": 11.656
+  },
+  {
+   "text": "easy",
+   "start": 11.773,
+   "end": 12.109
+  },
+  {
+   "text": "to",
+   "start": 12.179,
+   "end": 12.249
+  },
+  {
+   "text": "miss.",
+   "start": 12.341,
+   "end": 12.887
+  },
+  {
+   "text": "The",
+   "start": 13.328,
+   "end": 13.444
+  },
+  {
+   "text": "Sahara",
+   "start": 13.502,
+   "end": 14.002
+  },
+  {
+   "text": "is",
+   "start": 14.071,
+   "end": 14.187
+  },
+  {
+   "text": "the",
+   "start": 14.257,
+   "end": 14.327
+  },
+  {
+   "text": "world's",
+   "start": 14.385,
+   "end": 14.791
+  },
+  {
+   "text": "largest",
+   "start": 14.907,
+   "end": 15.464
+  },
+  {
+   "text": "non-polar",
+   "start": 15.615,
+   "end": 16.381
+  },
+  {
+   "text": "desert.",
+   "start": 16.439,
+   "end": 16.973
+  },
+  {
+   "text": "In",
+   "start": 17.298,
+   "end": 17.449
+  },
+  {
+   "text": "some",
+   "start": 17.519,
+   "end": 17.728
+  },
+  {
+   "text": "areas,",
+   "start": 17.763,
+   "end": 18.297
+  },
+  {
+   "text": "it",
+   "start": 18.448,
+   "end": 18.575
+  },
+  {
+   "text": "gets",
+   "start": 18.634,
+   "end": 18.854
+  },
+  {
+   "text": "just",
+   "start": 18.924,
+   "end": 19.133
+  },
+  {
+   "text": "a",
+   "start": 19.179,
+   "end": 19.202
+  },
+  {
+   "text": "few",
+   "start": 19.272,
+   "end": 19.435
+  },
+  {
+   "text": "inches",
+   "start": 19.481,
+   "end": 19.725
+  },
+  {
+   "text": "of",
+   "start": 19.771,
+   "end": 19.829
+  },
+  {
+   "text": "rain",
+   "start": 19.911,
+   "end": 20.166
+  },
+  {
+   "text": "a",
+   "start": 20.224,
+   "end": 20.259
+  },
+  {
+   "text": "year,",
+   "start": 20.352,
+   "end": 20.816
+  },
+  {
+   "text": "tens",
+   "start": 21.025,
+   "end": 21.385
+  },
+  {
+   "text": "of",
+   "start": 21.432,
+   "end": 21.49
+  },
+  {
+   "text": "millimeters.",
+   "start": 21.571,
+   "end": 22.384
+  },
+  {
+   "text": "So",
+   "start": 22.767,
+   "end": 22.906
+  },
+  {
+   "text": "could",
+   "start": 22.964,
+   "end": 23.115
+  },
+  {
+   "text": "we",
+   "start": 23.15,
+   "end": 23.231
+  },
+  {
+   "text": "really",
+   "start": 23.312,
+   "end": 23.568
+  },
+  {
+   "text": "cover",
+   "start": 23.626,
+   "end": 23.881
+  },
+  {
+   "text": "it",
+   "start": 23.939,
+   "end": 24.009
+  },
+  {
+   "text": "in",
+   "start": 24.055,
+   "end": 24.113
+  },
+  {
+   "text": "green?",
+   "start": 24.183,
+   "end": 24.729
+  },
+  {
+   "text": "Engineers",
+   "start": 24.973,
+   "end": 25.541
+  },
+  {
+   "text": "have",
+   "start": 25.576,
+   "end": 25.692
+  },
+  {
+   "text": "already",
+   "start": 25.716,
+   "end": 25.994
+  },
+  {
+   "text": "done",
+   "start": 26.052,
+   "end": 26.261
+  },
+  {
+   "text": "it,",
+   "start": 26.296,
+   "end": 26.575
+  },
+  {
+   "text": "in",
+   "start": 26.656,
+   "end": 26.842
+  },
+  {
+   "text": "patches.",
+   "start": 26.935,
+   "end": 27.678
+  },
+  {
+   "text": "And",
+   "start": 28.003,
+   "end": 28.165
+  },
+  {
+   "text": "climate",
+   "start": 28.235,
+   "end": 28.653
+  },
+  {
+   "text": "models",
+   "start": 28.688,
+   "end": 29.024
+  },
+  {
+   "text": "have",
+   "start": 29.071,
+   "end": 29.199
+  },
+  {
+   "text": "tested",
+   "start": 29.233,
+   "end": 29.582
+  },
+  {
+   "text": "what",
+   "start": 29.628,
+   "end": 29.767
+  },
+  {
+   "text": "happens",
+   "start": 29.826,
+   "end": 30.197
+  },
+  {
+   "text": "if",
+   "start": 30.255,
+   "end": 30.325
+  },
+  {
+   "text": "we",
+   "start": 30.383,
+   "end": 30.488
+  },
+  {
+   "text": "go",
+   "start": 30.557,
+   "end": 30.72
+  },
+  {
+   "text": "all",
+   "start": 30.801,
+   "end": 31.022
+  },
+  {
+   "text": "the",
+   "start": 31.068,
+   "end": 31.138
+  },
+  {
+   "text": "way.",
+   "start": 31.196,
+   "end": 31.683
+  },
+  {
+   "text": "But",
+   "start": 32.125,
+   "end": 32.299
+  },
+  {
+   "text": "first,",
+   "start": 32.368,
+   "end": 32.914
+  },
+  {
+   "text": "the",
+   "start": 33.042,
+   "end": 33.158
+  },
+  {
+   "text": "Sahara",
+   "start": 33.228,
+   "end": 33.843
+  },
+  {
+   "text": "that",
+   "start": 34.052,
+   "end": 34.214
+  },
+  {
+   "text": "was",
+   "start": 34.261,
+   "end": 34.377
+  },
+  {
+   "text": "already",
+   "start": 34.435,
+   "end": 34.818
+  },
+  {
+   "text": "green.",
+   "start": 34.888,
+   "end": 35.561
+  },
+  {
+   "text": "According",
+   "start": 36.258,
+   "end": 36.711
+  },
+  {
+   "text": "to",
+   "start": 36.769,
+   "end": 36.838
+  },
+  {
+   "text": "one",
+   "start": 36.954,
+   "end": 37.163
+  },
+  {
+   "text": "reconstruction",
+   "start": 37.21,
+   "end": 38.011
+  },
+  {
+   "text": "of",
+   "start": 38.092,
+   "end": 38.173
+  },
+  {
+   "text": "the",
+   "start": 38.22,
+   "end": 38.29
+  },
+  {
+   "text": "last",
+   "start": 38.359,
+   "end": 38.661
+  },
+  {
+   "text": "green",
+   "start": 38.731,
+   "end": 39.009
+  },
+  {
+   "text": "period,",
+   "start": 39.079,
+   "end": 39.625
+  },
+  {
+   "text": "between",
+   "start": 39.706,
+   "end": 40.089
+  },
+  {
+   "text": "roughly",
+   "start": 40.147,
+   "end": 40.472
+  },
+  {
+   "text": "11,000",
+   "start": 40.53,
+   "end": 41.447
+  },
+  {
+   "text": "and",
+   "start": 41.517,
+   "end": 41.656
+  },
+  {
+   "text": "6,000",
+   "start": 41.773,
+   "end": 42.469
+  },
+  {
+   "text": "years",
+   "start": 42.539,
+   "end": 42.794
+  },
+  {
+   "text": "ago",
+   "start": 42.841,
+   "end": 43.143
+  },
+  {
+   "text": "much",
+   "start": 43.653,
+   "end": 43.944
+  },
+  {
+   "text": "of",
+   "start": 43.99,
+   "end": 44.048
+  },
+  {
+   "text": "the",
+   "start": 44.106,
+   "end": 44.176
+  },
+  {
+   "text": "Sahara",
+   "start": 44.234,
+   "end": 44.791
+  },
+  {
+   "text": "was",
+   "start": 44.872,
+   "end": 45.058
+  },
+  {
+   "text": "grassland",
+   "start": 45.139,
+   "end": 45.859
+  },
+  {
+   "text": "and",
+   "start": 45.941,
+   "end": 46.08
+  },
+  {
+   "text": "savanna,",
+   "start": 46.161,
+   "end": 46.962
+  },
+  {
+   "text": "dotted",
+   "start": 47.287,
+   "end": 47.67
+  },
+  {
+   "text": "with",
+   "start": 47.728,
+   "end": 47.891
+  },
+  {
+   "text": "lakes",
+   "start": 47.984,
+   "end": 48.39
+  },
+  {
+   "text": "and",
+   "start": 48.471,
+   "end": 48.645
+  },
+  {
+   "text": "wetlands.",
+   "start": 48.727,
+   "end": 49.667
+  },
+  {
+   "text": "Other",
+   "start": 50.108,
+   "end": 50.387
+  },
+  {
+   "text": "records",
+   "start": 50.468,
+   "end": 50.851
+  },
+  {
+   "text": "place",
+   "start": 50.909,
+   "end": 51.211
+  },
+  {
+   "text": "the",
+   "start": 51.258,
+   "end": 51.327
+  },
+  {
+   "text": "wet",
+   "start": 51.397,
+   "end": 51.606
+  },
+  {
+   "text": "phase",
+   "start": 51.652,
+   "end": 52.105
+  },
+  {
+   "text": "a",
+   "start": 52.152,
+   "end": 52.186
+  },
+  {
+   "text": "few",
+   "start": 52.256,
+   "end": 52.419
+  },
+  {
+   "text": "thousand",
+   "start": 52.465,
+   "end": 52.883
+  },
+  {
+   "text": "years",
+   "start": 52.953,
+   "end": 53.278
+  },
+  {
+   "text": "earlier",
+   "start": 53.359,
+   "end": 53.823
+  },
+  {
+   "text": "or",
+   "start": 53.916,
+   "end": 54.079
+  },
+  {
+   "text": "later.",
+   "start": 54.149,
+   "end": 54.659
+  },
+  {
+   "text": "Not",
+   "start": 54.868,
+   "end": 55.077
+  },
+  {
+   "text": "a",
+   "start": 55.124,
+   "end": 55.159
+  },
+  {
+   "text": "jungle:",
+   "start": 55.24,
+   "end": 55.844
+  },
+  {
+   "text": "savanna.",
+   "start": 56.169,
+   "end": 56.97
+  },
+  {
+   "text": "In",
+   "start": 57.922,
+   "end": 58.061
+  },
+  {
+   "text": "north-central",
+   "start": 58.131,
+   "end": 58.734
+  },
+  {
+   "text": "Africa,",
+   "start": 58.816,
+   "end": 59.35
+  },
+  {
+   "text": "about",
+   "start": 59.373,
+   "end": 59.652
+  },
+  {
+   "text": "7,000",
+   "start": 59.721,
+   "end": 60.441
+  },
+  {
+   "text": "years",
+   "start": 60.499,
+   "end": 60.755
+  },
+  {
+   "text": "ago,",
+   "start": 60.789,
+   "end": 61.335
+  },
+  {
+   "text": "a",
+   "start": 61.509,
+   "end": 61.591
+  },
+  {
+   "text": "lake",
+   "start": 61.707,
+   "end": 61.997
+  },
+  {
+   "text": "called",
+   "start": 62.067,
+   "end": 62.461
+  },
+  {
+   "text": "Mega-Chad",
+   "start": 62.612,
+   "end": 63.437
+  },
+  {
+   "text": "spanned",
+   "start": 63.646,
+   "end": 64.18
+  },
+  {
+   "text": "an",
+   "start": 64.226,
+   "end": 64.296
+  },
+  {
+   "text": "area",
+   "start": 64.377,
+   "end": 64.772
+  },
+  {
+   "text": "larger",
+   "start": 64.865,
+   "end": 65.283
+  },
+  {
+   "text": "than",
+   "start": 65.341,
+   "end": 65.491
+  },
+  {
+   "text": "all",
+   "start": 65.573,
+   "end": 65.863
+  },
+  {
+   "text": "of",
+   "start": 65.921,
+   "end": 65.968
+  },
+  {
+   "text": "the",
+   "start": 66.026,
+   "end": 66.095
+  },
+  {
+   "text": "Great",
+   "start": 66.153,
+   "end": 66.374
+  },
+  {
+   "text": "Lakes",
+   "start": 66.455,
+   "end": 66.745
+  },
+  {
+   "text": "combined,",
+   "start": 66.803,
+   "end": 67.558
+  },
+  {
+   "text": "NASA",
+   "start": 67.639,
+   "end": 68.057
+  },
+  {
+   "text": "says.",
+   "start": 68.092,
+   "end": 68.696
+  },
+  {
+   "text": "Geologists",
+   "start": 69.079,
+   "end": 69.938
+  },
+  {
+   "text": "think",
+   "start": 70.019,
+   "end": 70.24
+  },
+  {
+   "text": "it",
+   "start": 70.286,
+   "end": 70.344
+  },
+  {
+   "text": "was",
+   "start": 70.391,
+   "end": 70.495
+  },
+  {
+   "text": "the",
+   "start": 70.542,
+   "end": 70.611
+  },
+  {
+   "text": "world's",
+   "start": 70.67,
+   "end": 71.053
+  },
+  {
+   "text": "largest",
+   "start": 71.134,
+   "end": 71.633
+  },
+  {
+   "text": "lake",
+   "start": 71.714,
+   "end": 71.97
+  },
+  {
+   "text": "at",
+   "start": 72.005,
+   "end": 72.074
+  },
+  {
+   "text": "the",
+   "start": 72.109,
+   "end": 72.179
+  },
+  {
+   "text": "time.",
+   "start": 72.237,
+   "end": 72.852
+  },
+  {
+   "text": "At",
+   "start": 73.293,
+   "end": 73.433
+  },
+  {
+   "text": "a",
+   "start": 73.479,
+   "end": 73.502
+  },
+  {
+   "text": "site",
+   "start": 73.572,
+   "end": 73.862
+  },
+  {
+   "text": "called",
+   "start": 73.909,
+   "end": 74.245
+  },
+  {
+   "text": "Gobero,",
+   "start": 74.315,
+   "end": 75.058
+  },
+  {
+   "text": "in",
+   "start": 75.093,
+   "end": 75.209
+  },
+  {
+   "text": "Niger,",
+   "start": 75.29,
+   "end": 75.998
+  },
+  {
+   "text": "archaeologists",
+   "start": 76.126,
+   "end": 77.032
+  },
+  {
+   "text": "found",
+   "start": 77.09,
+   "end": 77.322
+  },
+  {
+   "text": "about",
+   "start": 77.368,
+   "end": 77.589
+  },
+  {
+   "text": "200",
+   "start": 77.636,
+   "end": 78.158
+  },
+  {
+   "text": "burials",
+   "start": 78.228,
+   "end": 78.773
+  },
+  {
+   "text": "beside",
+   "start": 78.855,
+   "end": 79.331
+  },
+  {
+   "text": "a",
+   "start": 79.354,
+   "end": 79.389
+  },
+  {
+   "text": "vanished",
+   "start": 79.47,
+   "end": 79.911
+  },
+  {
+   "text": "lake,",
+   "start": 80.004,
+   "end": 80.503
+  },
+  {
+   "text": "alongside",
+   "start": 80.712,
+   "end": 81.444
+  },
+  {
+   "text": "the",
+   "start": 81.478,
+   "end": 81.548
+  },
+  {
+   "text": "remains",
+   "start": 81.618,
+   "end": 82.071
+  },
+  {
+   "text": "of",
+   "start": 82.117,
+   "end": 82.187
+  },
+  {
+   "text": "crocodiles",
+   "start": 82.268,
+   "end": 83.057
+  },
+  {
+   "text": "and",
+   "start": 83.115,
+   "end": 83.278
+  },
+  {
+   "text": "large",
+   "start": 83.395,
+   "end": 83.812
+  },
+  {
+   "text": "fish.",
+   "start": 83.871,
+   "end": 84.439
+  },
+  {
+   "text": "In",
+   "start": 85.043,
+   "end": 85.182
+  },
+  {
+   "text": "Algeria's",
+   "start": 85.241,
+   "end": 85.879
+  },
+  {
+   "text": "Tassili",
+   "start": 85.96,
+   "end": 86.483
+  },
+  {
+   "text": "n'Ajjer,",
+   "start": 86.599,
+   "end": 87.307
+  },
+  {
+   "text": "a",
+   "start": 87.377,
+   "end": 87.446
+  },
+  {
+   "text": "World",
+   "start": 87.528,
+   "end": 87.795
+  },
+  {
+   "text": "Heritage",
+   "start": 87.841,
+   "end": 88.294
+  },
+  {
+   "text": "site,",
+   "start": 88.329,
+   "end": 88.863
+  },
+  {
+   "text": "there",
+   "start": 89.107,
+   "end": 89.316
+  },
+  {
+   "text": "are",
+   "start": 89.35,
+   "end": 89.478
+  },
+  {
+   "text": "more",
+   "start": 89.525,
+   "end": 89.687
+  },
+  {
+   "text": "than",
+   "start": 89.722,
+   "end": 89.873
+  },
+  {
+   "text": "15,000",
+   "start": 89.954,
+   "end": 90.987
+  },
+  {
+   "text": "prehistoric",
+   "start": 91.08,
+   "end": 91.847
+  },
+  {
+   "text": "etchings",
+   "start": 91.928,
+   "end": 92.381
+  },
+  {
+   "text": "and",
+   "start": 92.427,
+   "end": 92.532
+  },
+  {
+   "text": "illustrations.",
+   "start": 92.601,
+   "end": 93.6
+  },
+  {
+   "text": "How",
+   "start": 94.111,
+   "end": 94.261
+  },
+  {
+   "text": "much",
+   "start": 94.308,
+   "end": 94.47
+  },
+  {
+   "text": "wetter?",
+   "start": 94.529,
+   "end": 95.016
+  },
+  {
+   "text": "During",
+   "start": 95.457,
+   "end": 95.724
+  },
+  {
+   "text": "the",
+   "start": 95.771,
+   "end": 95.84
+  },
+  {
+   "text": "last",
+   "start": 95.91,
+   "end": 96.224
+  },
+  {
+   "text": "green",
+   "start": 96.305,
+   "end": 96.607
+  },
+  {
+   "text": "period,",
+   "start": 96.7,
+   "end": 97.35
+  },
+  {
+   "text": "one",
+   "start": 97.524,
+   "end": 97.791
+  },
+  {
+   "text": "reconstruction",
+   "start": 97.849,
+   "end": 98.65
+  },
+  {
+   "text": "puts",
+   "start": 98.72,
+   "end": 98.952
+  },
+  {
+   "text": "rainfall",
+   "start": 99.033,
+   "end": 99.672
+  },
+  {
+   "text": "at",
+   "start": 99.753,
+   "end": 99.846
+  },
+  {
+   "text": "around",
+   "start": 99.881,
+   "end": 100.241
+  },
+  {
+   "text": "100",
+   "start": 100.357,
+   "end": 100.891
+  },
+  {
+   "text": "millimeters",
+   "start": 100.961,
+   "end": 101.53
+  },
+  {
+   "text": "a",
+   "start": 101.576,
+   "end": 101.611
+  },
+  {
+   "text": "year,",
+   "start": 101.692,
+   "end": 102.157
+  },
+  {
+   "text": "about",
+   "start": 102.331,
+   "end": 102.644
+  },
+  {
+   "text": "4",
+   "start": 102.726,
+   "end": 102.969
+  },
+  {
+   "text": "inches,",
+   "start": 103.051,
+   "end": 103.747
+  },
+  {
+   "text": "in",
+   "start": 104.072,
+   "end": 104.212
+  },
+  {
+   "text": "the",
+   "start": 104.258,
+   "end": 104.328
+  },
+  {
+   "text": "heart",
+   "start": 104.397,
+   "end": 104.63
+  },
+  {
+   "text": "of",
+   "start": 104.676,
+   "end": 104.734
+  },
+  {
+   "text": "the",
+   "start": 104.769,
+   "end": 104.839
+  },
+  {
+   "text": "northeastern",
+   "start": 104.897,
+   "end": 105.524
+  },
+  {
+   "text": "Sahara,",
+   "start": 105.593,
+   "end": 106.325
+  },
+  {
+   "text": "and",
+   "start": 106.568,
+   "end": 106.743
+  },
+  {
+   "text": "around",
+   "start": 106.801,
+   "end": 107.161
+  },
+  {
+   "text": "450",
+   "start": 107.277,
+   "end": 108.345
+  },
+  {
+   "text": "millimeters,",
+   "start": 108.461,
+   "end": 109.378
+  },
+  {
+   "text": "roughly",
+   "start": 109.622,
+   "end": 110.017
+  },
+  {
+   "text": "18",
+   "start": 110.098,
+   "end": 110.562
+  },
+  {
+   "text": "inches,",
+   "start": 110.678,
+   "end": 111.329
+  },
+  {
+   "text": "near",
+   "start": 111.491,
+   "end": 111.7
+  },
+  {
+   "text": "18",
+   "start": 111.77,
+   "end": 112.211
+  },
+  {
+   "text": "degrees",
+   "start": 112.281,
+   "end": 112.698
+  },
+  {
+   "text": "north.",
+   "start": 112.78,
+   "end": 113.407
+  },
+  {
+   "text": "Those",
+   "start": 113.848,
+   "end": 114.103
+  },
+  {
+   "text": "are",
+   "start": 114.138,
+   "end": 114.266
+  },
+  {
+   "text": "rough",
+   "start": 114.335,
+   "end": 114.568
+  },
+  {
+   "text": "estimates,",
+   "start": 114.649,
+   "end": 115.415
+  },
+  {
+   "text": "without",
+   "start": 115.531,
+   "end": 115.914
+  },
+  {
+   "text": "error",
+   "start": 115.973,
+   "end": 116.286
+  },
+  {
+   "text": "bars.",
+   "start": 116.356,
+   "end": 117.017
+  },
+  {
+   "text": "And",
+   "start": 117.401,
+   "end": 117.551
+  },
+  {
+   "text": "a",
+   "start": 117.61,
+   "end": 117.633
+  },
+  {
+   "text": "piece",
+   "start": 117.691,
+   "end": 117.946
+  },
+  {
+   "text": "of",
+   "start": 117.981,
+   "end": 118.039
+  },
+  {
+   "text": "that",
+   "start": 118.086,
+   "end": 118.236
+  },
+  {
+   "text": "world",
+   "start": 118.306,
+   "end": 118.701
+  },
+  {
+   "text": "is",
+   "start": 118.771,
+   "end": 118.863
+  },
+  {
+   "text": "still",
+   "start": 118.91,
+   "end": 119.188
+  },
+  {
+   "text": "here.",
+   "start": 119.27,
+   "end": 119.804
+  },
+  {
+   "text": "In",
+   "start": 120.129,
+   "end": 120.303
+  },
+  {
+   "text": "northern",
+   "start": 120.373,
+   "end": 120.756
+  },
+  {
+   "text": "Chad,",
+   "start": 120.825,
+   "end": 121.452
+  },
+  {
+   "text": "the",
+   "start": 121.661,
+   "end": 121.766
+  },
+  {
+   "text": "Lakes",
+   "start": 121.836,
+   "end": 122.114
+  },
+  {
+   "text": "of",
+   "start": 122.184,
+   "end": 122.288
+  },
+  {
+   "text": "Ounianga",
+   "start": 122.404,
+   "end": 123.205
+  },
+  {
+   "text": "sit",
+   "start": 123.38,
+   "end": 123.635
+  },
+  {
+   "text": "in",
+   "start": 123.693,
+   "end": 123.751
+  },
+  {
+   "text": "the",
+   "start": 123.798,
+   "end": 123.867
+  },
+  {
+   "text": "middle",
+   "start": 123.925,
+   "end": 124.192
+  },
+  {
+   "text": "of",
+   "start": 124.227,
+   "end": 124.285
+  },
+  {
+   "text": "the",
+   "start": 124.343,
+   "end": 124.413
+  },
+  {
+   "text": "desert,",
+   "start": 124.471,
+   "end": 125.086
+  },
+  {
+   "text": "fed",
+   "start": 125.33,
+   "end": 125.562
+  },
+  {
+   "text": "by",
+   "start": 125.632,
+   "end": 125.783
+  },
+  {
+   "text": "groundwater",
+   "start": 125.864,
+   "end": 126.63
+  },
+  {
+   "text": "stored",
+   "start": 126.747,
+   "end": 127.199
+  },
+  {
+   "text": "during",
+   "start": 127.246,
+   "end": 127.513
+  },
+  {
+   "text": "the",
+   "start": 127.559,
+   "end": 127.629
+  },
+  {
+   "text": "last",
+   "start": 127.71,
+   "end": 127.989
+  },
+  {
+   "text": "wet",
+   "start": 128.058,
+   "end": 128.267
+  },
+  {
+   "text": "period.",
+   "start": 128.325,
+   "end": 128.964
+  },
+  {
+   "text": "Pollen",
+   "start": 129.347,
+   "end": 129.73
+  },
+  {
+   "text": "preserved",
+   "start": 129.788,
+   "end": 130.346
+  },
+  {
+   "text": "in",
+   "start": 130.392,
+   "end": 130.45
+  },
+  {
+   "text": "the",
+   "start": 130.497,
+   "end": 130.566
+  },
+  {
+   "text": "sediments",
+   "start": 130.624,
+   "end": 131.158
+  },
+  {
+   "text": "of",
+   "start": 131.228,
+   "end": 131.309
+  },
+  {
+   "text": "the",
+   "start": 131.356,
+   "end": 131.425
+  },
+  {
+   "text": "region's",
+   "start": 131.483,
+   "end": 131.867
+  },
+  {
+   "text": "original",
+   "start": 131.913,
+   "end": 132.343
+  },
+  {
+   "text": "lake,",
+   "start": 132.401,
+   "end": 132.842
+  },
+  {
+   "text": "which",
+   "start": 133.016,
+   "end": 133.225
+  },
+  {
+   "text": "was",
+   "start": 133.26,
+   "end": 133.364
+  },
+  {
+   "text": "about",
+   "start": 133.422,
+   "end": 133.689
+  },
+  {
+   "text": "50",
+   "start": 133.771,
+   "end": 134.072
+  },
+  {
+   "text": "meters,",
+   "start": 134.165,
+   "end": 134.769
+  },
+  {
+   "text": "160",
+   "start": 134.978,
+   "end": 135.837
+  },
+  {
+   "text": "feet,",
+   "start": 135.918,
+   "end": 136.278
+  },
+  {
+   "text": "deep,",
+   "start": 136.359,
+   "end": 136.882
+  },
+  {
+   "text": "suggests",
+   "start": 137.091,
+   "end": 137.718
+  },
+  {
+   "text": "a",
+   "start": 137.776,
+   "end": 137.799
+  },
+  {
+   "text": "wooded",
+   "start": 137.869,
+   "end": 138.159
+  },
+  {
+   "text": "grassland,",
+   "start": 138.217,
+   "end": 139.134
+  },
+  {
+   "text": "with",
+   "start": 139.285,
+   "end": 139.459
+  },
+  {
+   "text": "plants",
+   "start": 139.506,
+   "end": 139.831
+  },
+  {
+   "text": "that",
+   "start": 139.877,
+   "end": 140.017
+  },
+  {
+   "text": "now",
+   "start": 140.075,
+   "end": 140.272
+  },
+  {
+   "text": "grow",
+   "start": 140.353,
+   "end": 140.62
+  },
+  {
+   "text": "about",
+   "start": 140.702,
+   "end": 140.969
+  },
+  {
+   "text": "300",
+   "start": 141.027,
+   "end": 141.654
+  },
+  {
+   "text": "kilometers,",
+   "start": 141.712,
+   "end": 142.397
+  },
+  {
+   "text": "about",
+   "start": 142.42,
+   "end": 142.687
+  },
+  {
+   "text": "190",
+   "start": 142.745,
+   "end": 143.639
+  },
+  {
+   "text": "miles,",
+   "start": 143.732,
+   "end": 144.394
+  },
+  {
+   "text": "farther",
+   "start": 144.603,
+   "end": 145.032
+  },
+  {
+   "text": "south.",
+   "start": 145.102,
+   "end": 145.636
+  },
+  {
+   "text": "So",
+   "start": 146.019,
+   "end": 146.193
+  },
+  {
+   "text": "what",
+   "start": 146.251,
+   "end": 146.437
+  },
+  {
+   "text": "turned",
+   "start": 146.495,
+   "end": 146.797
+  },
+  {
+   "text": "the",
+   "start": 146.832,
+   "end": 146.901
+  },
+  {
+   "text": "Sahara",
+   "start": 146.948,
+   "end": 147.424
+  },
+  {
+   "text": "green?",
+   "start": 147.482,
+   "end": 148.039
+  },
+  {
+   "text": "Not",
+   "start": 148.48,
+   "end": 148.805
+  },
+  {
+   "text": "people.",
+   "start": 148.898,
+   "end": 149.572
+  },
+  {
+   "text": "Earth's",
+   "start": 149.815,
+   "end": 150.338
+  },
+  {
+   "text": "orbit.",
+   "start": 150.454,
+   "end": 151.174
+  },
+  {
+   "text": "Earth's",
+   "start": 151.499,
+   "end": 151.87
+  },
+  {
+   "text": "orbit",
+   "start": 151.94,
+   "end": 152.323
+  },
+  {
+   "text": "has",
+   "start": 152.37,
+   "end": 152.532
+  },
+  {
+   "text": "a",
+   "start": 152.59,
+   "end": 152.625
+  },
+  {
+   "text": "slow",
+   "start": 152.706,
+   "end": 153.078
+  },
+  {
+   "text": "wobble,",
+   "start": 153.171,
+   "end": 153.798
+  },
+  {
+   "text": "a",
+   "start": 153.972,
+   "end": 154.041
+  },
+  {
+   "text": "cycle",
+   "start": 154.123,
+   "end": 154.541
+  },
+  {
+   "text": "that",
+   "start": 154.575,
+   "end": 154.703
+  },
+  {
+   "text": "plays",
+   "start": 154.761,
+   "end": 155.086
+  },
+  {
+   "text": "out",
+   "start": 155.144,
+   "end": 155.318
+  },
+  {
+   "text": "over",
+   "start": 155.376,
+   "end": 155.562
+  },
+  {
+   "text": "many",
+   "start": 155.632,
+   "end": 155.852
+  },
+  {
+   "text": "thousands",
+   "start": 155.933,
+   "end": 156.479
+  },
+  {
+   "text": "of",
+   "start": 156.514,
+   "end": 156.584
+  },
+  {
+   "text": "years.",
+   "start": 156.653,
+   "end": 157.303
+  },
+  {
+   "text": "It",
+   "start": 157.687,
+   "end": 157.826
+  },
+  {
+   "text": "changes",
+   "start": 157.872,
+   "end": 158.279
+  },
+  {
+   "text": "how",
+   "start": 158.325,
+   "end": 158.453
+  },
+  {
+   "text": "much",
+   "start": 158.523,
+   "end": 158.708
+  },
+  {
+   "text": "summer",
+   "start": 158.766,
+   "end": 159.068
+  },
+  {
+   "text": "sunlight",
+   "start": 159.149,
+   "end": 159.66
+  },
+  {
+   "text": "reaches",
+   "start": 159.73,
+   "end": 160.078
+  },
+  {
+   "text": "the",
+   "start": 160.148,
+   "end": 160.218
+  },
+  {
+   "text": "Northern",
+   "start": 160.287,
+   "end": 160.636
+  },
+  {
+   "text": "Hemisphere.",
+   "start": 160.682,
+   "end": 161.529
+  },
+  {
+   "text": "When",
+   "start": 161.971,
+   "end": 162.156
+  },
+  {
+   "text": "northern",
+   "start": 162.214,
+   "end": 162.598
+  },
+  {
+   "text": "summers",
+   "start": 162.667,
+   "end": 163.004
+  },
+  {
+   "text": "were",
+   "start": 163.05,
+   "end": 163.201
+  },
+  {
+   "text": "sunnier,",
+   "start": 163.259,
+   "end": 163.886
+  },
+  {
+   "text": "the",
+   "start": 164.095,
+   "end": 164.2
+  },
+  {
+   "text": "West",
+   "start": 164.246,
+   "end": 164.49
+  },
+  {
+   "text": "African",
+   "start": 164.571,
+   "end": 164.989
+  },
+  {
+   "text": "monsoon",
+   "start": 165.059,
+   "end": 165.848
+  },
+  {
+   "text": "pushed",
+   "start": 165.941,
+   "end": 166.278
+  },
+  {
+   "text": "its",
+   "start": 166.324,
+   "end": 166.464
+  },
+  {
+   "text": "rains",
+   "start": 166.533,
+   "end": 166.94
+  },
+  {
+   "text": "far",
+   "start": 167.009,
+   "end": 167.253
+  },
+  {
+   "text": "north,",
+   "start": 167.346,
+   "end": 167.915
+  },
+  {
+   "text": "deep",
+   "start": 168.159,
+   "end": 168.426
+  },
+  {
+   "text": "into",
+   "start": 168.495,
+   "end": 168.693
+  },
+  {
+   "text": "the",
+   "start": 168.774,
+   "end": 168.844
+  },
+  {
+   "text": "Sahara.",
+   "start": 168.902,
+   "end": 170.156
+  },
+  {
+   "text": "But",
+   "start": 170.156,
+   "end": 170.377
+  },
+  {
+   "text": "sunlight",
+   "start": 170.435,
+   "end": 170.876
+  },
+  {
+   "text": "alone",
+   "start": 170.911,
+   "end": 171.34
+  },
+  {
+   "text": "may",
+   "start": 171.387,
+   "end": 171.514
+  },
+  {
+   "text": "not",
+   "start": 171.572,
+   "end": 171.723
+  },
+  {
+   "text": "explain",
+   "start": 171.77,
+   "end": 172.188
+  },
+  {
+   "text": "how",
+   "start": 172.257,
+   "end": 172.397
+  },
+  {
+   "text": "wet",
+   "start": 172.478,
+   "end": 172.687
+  },
+  {
+   "text": "it",
+   "start": 172.722,
+   "end": 172.791
+  },
+  {
+   "text": "got.",
+   "start": 172.85,
+   "end": 173.349
+  },
+  {
+   "text": "Climate",
+   "start": 173.952,
+   "end": 174.417
+  },
+  {
+   "text": "models",
+   "start": 174.452,
+   "end": 174.823
+  },
+  {
+   "text": "struggle",
+   "start": 174.87,
+   "end": 175.276
+  },
+  {
+   "text": "to",
+   "start": 175.311,
+   "end": 175.38
+  },
+  {
+   "text": "produce",
+   "start": 175.439,
+   "end": 175.775
+  },
+  {
+   "text": "enough",
+   "start": 175.822,
+   "end": 176.065
+  },
+  {
+   "text": "rain",
+   "start": 176.135,
+   "end": 176.414
+  },
+  {
+   "text": "to",
+   "start": 176.472,
+   "end": 176.53
+  },
+  {
+   "text": "fill",
+   "start": 176.6,
+   "end": 176.82
+  },
+  {
+   "text": "all",
+   "start": 176.878,
+   "end": 177.029
+  },
+  {
+   "text": "the",
+   "start": 177.087,
+   "end": 177.157
+  },
+  {
+   "text": "lakes",
+   "start": 177.215,
+   "end": 177.494
+  },
+  {
+   "text": "that",
+   "start": 177.528,
+   "end": 177.679
+  },
+  {
+   "text": "geologists",
+   "start": 177.737,
+   "end": 178.411
+  },
+  {
+   "text": "think",
+   "start": 178.457,
+   "end": 178.689
+  },
+  {
+   "text": "the",
+   "start": 178.759,
+   "end": 178.829
+  },
+  {
+   "text": "Sahara",
+   "start": 178.887,
+   "end": 179.374
+  },
+  {
+   "text": "once",
+   "start": 179.456,
+   "end": 179.688
+  },
+  {
+   "text": "had,",
+   "start": 179.734,
+   "end": 180.28
+  },
+  {
+   "text": "and",
+   "start": 180.605,
+   "end": 180.779
+  },
+  {
+   "text": "researchers",
+   "start": 180.872,
+   "end": 181.476
+  },
+  {
+   "text": "are",
+   "start": 181.522,
+   "end": 181.65
+  },
+  {
+   "text": "still",
+   "start": 181.685,
+   "end": 181.94
+  },
+  {
+   "text": "working",
+   "start": 182.01,
+   "end": 182.335
+  },
+  {
+   "text": "out",
+   "start": 182.404,
+   "end": 182.579
+  },
+  {
+   "text": "what",
+   "start": 182.625,
+   "end": 182.776
+  },
+  {
+   "text": "the",
+   "start": 182.822,
+   "end": 182.892
+  },
+  {
+   "text": "models",
+   "start": 182.962,
+   "end": 183.368
+  },
+  {
+   "text": "are",
+   "start": 183.415,
+   "end": 183.531
+  },
+  {
+   "text": "missing.",
+   "start": 183.565,
+   "end": 184.123
+  },
+  {
+   "text": "One",
+   "start": 184.564,
+   "end": 184.785
+  },
+  {
+   "text": "proposed",
+   "start": 184.831,
+   "end": 185.284
+  },
+  {
+   "text": "amplifier",
+   "start": 185.342,
+   "end": 185.992
+  },
+  {
+   "text": "is",
+   "start": 186.062,
+   "end": 186.143
+  },
+  {
+   "text": "feedback:",
+   "start": 186.213,
+   "end": 186.944
+  },
+  {
+   "text": "more",
+   "start": 187.455,
+   "end": 187.675
+  },
+  {
+   "text": "lakes",
+   "start": 187.733,
+   "end": 187.989
+  },
+  {
+   "text": "and",
+   "start": 188.024,
+   "end": 188.117
+  },
+  {
+   "text": "plants",
+   "start": 188.175,
+   "end": 188.558
+  },
+  {
+   "text": "could",
+   "start": 188.604,
+   "end": 188.755
+  },
+  {
+   "text": "mean",
+   "start": 188.802,
+   "end": 188.987
+  },
+  {
+   "text": "more",
+   "start": 189.057,
+   "end": 189.278
+  },
+  {
+   "text": "rain,",
+   "start": 189.324,
+   "end": 189.87
+  },
+  {
+   "text": "and",
+   "start": 190.044,
+   "end": 190.218
+  },
+  {
+   "text": "more",
+   "start": 190.299,
+   "end": 190.52
+  },
+  {
+   "text": "rain,",
+   "start": 190.578,
+   "end": 191.066
+  },
+  {
+   "text": "more",
+   "start": 191.24,
+   "end": 191.46
+  },
+  {
+   "text": "plants.",
+   "start": 191.507,
+   "end": 192.18
+  },
+  {
+   "text": "And",
+   "start": 192.563,
+   "end": 192.726
+  },
+  {
+   "text": "it's",
+   "start": 192.784,
+   "end": 192.912
+  },
+  {
+   "text": "not",
+   "start": 192.97,
+   "end": 193.132
+  },
+  {
+   "text": "a",
+   "start": 193.179,
+   "end": 193.202
+  },
+  {
+   "text": "one-time",
+   "start": 193.271,
+   "end": 193.747
+  },
+  {
+   "text": "event.",
+   "start": 193.794,
+   "end": 194.374
+  },
+  {
+   "text": "Geological",
+   "start": 194.816,
+   "end": 195.57
+  },
+  {
+   "text": "records,",
+   "start": 195.651,
+   "end": 196.302
+  },
+  {
+   "text": "mainly",
+   "start": 196.511,
+   "end": 196.905
+  },
+  {
+   "text": "layers",
+   "start": 196.987,
+   "end": 197.335
+  },
+  {
+   "text": "of",
+   "start": 197.381,
+   "end": 197.439
+  },
+  {
+   "text": "Mediterranean",
+   "start": 197.509,
+   "end": 198.229
+  },
+  {
+   "text": "seabed",
+   "start": 198.31,
+   "end": 198.763
+  },
+  {
+   "text": "mud",
+   "start": 198.844,
+   "end": 199.146
+  },
+  {
+   "text": "laid",
+   "start": 199.227,
+   "end": 199.471
+  },
+  {
+   "text": "down",
+   "start": 199.541,
+   "end": 199.912
+  },
+  {
+   "text": "when",
+   "start": 199.97,
+   "end": 200.144
+  },
+  {
+   "text": "African",
+   "start": 200.226,
+   "end": 200.667
+  },
+  {
+   "text": "monsoon",
+   "start": 200.736,
+   "end": 201.305
+  },
+  {
+   "text": "floods",
+   "start": 201.387,
+   "end": 201.758
+  },
+  {
+   "text": "surged",
+   "start": 201.805,
+   "end": 202.223
+  },
+  {
+   "text": "into",
+   "start": 202.269,
+   "end": 202.432
+  },
+  {
+   "text": "the",
+   "start": 202.501,
+   "end": 202.571
+  },
+  {
+   "text": "sea,",
+   "start": 202.629,
+   "end": 203.198
+  },
+  {
+   "text": "point",
+   "start": 203.523,
+   "end": 203.767
+  },
+  {
+   "text": "to",
+   "start": 203.801,
+   "end": 203.86
+  },
+  {
+   "text": "more",
+   "start": 203.918,
+   "end": 204.069
+  },
+  {
+   "text": "than",
+   "start": 204.092,
+   "end": 204.219
+  },
+  {
+   "text": "230",
+   "start": 204.289,
+   "end": 205.148
+  },
+  {
+   "text": "green",
+   "start": 205.23,
+   "end": 205.52
+  },
+  {
+   "text": "Sahara",
+   "start": 205.601,
+   "end": 206.031
+  },
+  {
+   "text": "periods",
+   "start": 206.1,
+   "end": 206.599
+  },
+  {
+   "text": "in",
+   "start": 206.646,
+   "end": 206.727
+  },
+  {
+   "text": "the",
+   "start": 206.774,
+   "end": 206.843
+  },
+  {
+   "text": "last",
+   "start": 206.901,
+   "end": 207.203
+  },
+  {
+   "text": "8",
+   "start": 207.284,
+   "end": 207.459
+  },
+  {
+   "text": "million",
+   "start": 207.54,
+   "end": 207.888
+  },
+  {
+   "text": "years.",
+   "start": 207.958,
+   "end": 208.596
+  },
+  {
+   "text": "That's",
+   "start": 209.2,
+   "end": 209.456
+  },
+  {
+   "text": "a",
+   "start": 209.49,
+   "end": 209.514
+  },
+  {
+   "text": "reconstruction,",
+   "start": 209.595,
+   "end": 210.605
+  },
+  {
+   "text": "not",
+   "start": 210.884,
+   "end": 211.104
+  },
+  {
+   "text": "230",
+   "start": 211.174,
+   "end": 212.033
+  },
+  {
+   "text": "events",
+   "start": 212.091,
+   "end": 212.497
+  },
+  {
+   "text": "anyone",
+   "start": 212.579,
+   "end": 212.997
+  },
+  {
+   "text": "observed.",
+   "start": 213.031,
+   "end": 213.798
+  },
+  {
+   "text": "How",
+   "start": 214.309,
+   "end": 214.448
+  },
+  {
+   "text": "did",
+   "start": 214.494,
+   "end": 214.599
+  },
+  {
+   "text": "the",
+   "start": 214.622,
+   "end": 214.692
+  },
+  {
+   "text": "last",
+   "start": 214.75,
+   "end": 214.982
+  },
+  {
+   "text": "one",
+   "start": 215.052,
+   "end": 215.214
+  },
+  {
+   "text": "end?",
+   "start": 215.249,
+   "end": 215.725
+  },
+  {
+   "text": "Scientists",
+   "start": 216.236,
+   "end": 217.014
+  },
+  {
+   "text": "still",
+   "start": 217.13,
+   "end": 217.42
+  },
+  {
+   "text": "debate",
+   "start": 217.49,
+   "end": 217.85
+  },
+  {
+   "text": "whether",
+   "start": 217.873,
+   "end": 218.129
+  },
+  {
+   "text": "it",
+   "start": 218.187,
+   "end": 218.256
+  },
+  {
+   "text": "was",
+   "start": 218.303,
+   "end": 218.442
+  },
+  {
+   "text": "abrupt",
+   "start": 218.5,
+   "end": 218.906
+  },
+  {
+   "text": "or",
+   "start": 218.964,
+   "end": 219.057
+  },
+  {
+   "text": "gradual.",
+   "start": 219.115,
+   "end": 219.8
+  },
+  {
+   "text": "One",
+   "start": 220.125,
+   "end": 220.358
+  },
+  {
+   "text": "reconstruction,",
+   "start": 220.404,
+   "end": 221.205
+  },
+  {
+   "text": "built",
+   "start": 221.252,
+   "end": 221.507
+  },
+  {
+   "text": "from",
+   "start": 221.553,
+   "end": 221.716
+  },
+  {
+   "text": "dated",
+   "start": 221.809,
+   "end": 222.146
+  },
+  {
+   "text": "lake,",
+   "start": 222.227,
+   "end": 222.587
+  },
+  {
+   "text": "marsh",
+   "start": 222.68,
+   "end": 223.005
+  },
+  {
+   "text": "and",
+   "start": 223.051,
+   "end": 223.156
+  },
+  {
+   "text": "river",
+   "start": 223.249,
+   "end": 223.504
+  },
+  {
+   "text": "sediments",
+   "start": 223.585,
+   "end": 224.05
+  },
+  {
+   "text": "across",
+   "start": 224.084,
+   "end": 224.444
+  },
+  {
+   "text": "the",
+   "start": 224.491,
+   "end": 224.56
+  },
+  {
+   "text": "Sahara,",
+   "start": 224.619,
+   "end": 225.292
+  },
+  {
+   "text": "finds",
+   "start": 225.536,
+   "end": 225.907
+  },
+  {
+   "text": "the",
+   "start": 225.965,
+   "end": 226.035
+  },
+  {
+   "text": "monsoon",
+   "start": 226.081,
+   "end": 226.639
+  },
+  {
+   "text": "rains",
+   "start": 226.732,
+   "end": 227.08
+  },
+  {
+   "text": "retreating",
+   "start": 227.161,
+   "end": 227.649
+  },
+  {
+   "text": "southward",
+   "start": 227.765,
+   "end": 228.415
+  },
+  {
+   "text": "over",
+   "start": 228.624,
+   "end": 228.879
+  },
+  {
+   "text": "about",
+   "start": 228.949,
+   "end": 229.204
+  },
+  {
+   "text": "two",
+   "start": 229.251,
+   "end": 229.564
+  },
+  {
+   "text": "to",
+   "start": 229.68,
+   "end": 229.762
+  },
+  {
+   "text": "three",
+   "start": 229.843,
+   "end": 230.098
+  },
+  {
+   "text": "thousand",
+   "start": 230.144,
+   "end": 230.562
+  },
+  {
+   "text": "years.",
+   "start": 230.62,
+   "end": 231.259
+  },
+  {
+   "text": "Other",
+   "start": 231.538,
+   "end": 231.793
+  },
+  {
+   "text": "records",
+   "start": 231.851,
+   "end": 232.199
+  },
+  {
+   "text": "have",
+   "start": 232.246,
+   "end": 232.374
+  },
+  {
+   "text": "been",
+   "start": 232.408,
+   "end": 232.548
+  },
+  {
+   "text": "read",
+   "start": 232.606,
+   "end": 232.85
+  },
+  {
+   "text": "as",
+   "start": 232.908,
+   "end": 233.001
+  },
+  {
+   "text": "showing",
+   "start": 233.059,
+   "end": 233.372
+  },
+  {
+   "text": "a",
+   "start": 233.419,
+   "end": 233.442
+  },
+  {
+   "text": "more",
+   "start": 233.5,
+   "end": 233.697
+  },
+  {
+   "text": "abrupt",
+   "start": 233.732,
+   "end": 234.127
+  },
+  {
+   "text": "end.",
+   "start": 234.196,
+   "end": 234.684
+  },
+  {
+   "text": "The",
+   "start": 235.009,
+   "end": 235.125
+  },
+  {
+   "text": "desert",
+   "start": 235.195,
+   "end": 235.59
+  },
+  {
+   "text": "crept",
+   "start": 235.648,
+   "end": 235.961
+  },
+  {
+   "text": "south.",
+   "start": 236.042,
+   "end": 236.669
+  },
+  {
+   "text": "Today,",
+   "start": 236.913,
+   "end": 237.586
+  },
+  {
+   "text": "the",
+   "start": 237.703,
+   "end": 237.807
+  },
+  {
+   "text": "Sahara",
+   "start": 237.865,
+   "end": 238.306
+  },
+  {
+   "text": "sits",
+   "start": 238.364,
+   "end": 238.597
+  },
+  {
+   "text": "under",
+   "start": 238.655,
+   "end": 238.864
+  },
+  {
+   "text": "a",
+   "start": 238.922,
+   "end": 238.956
+  },
+  {
+   "text": "belt",
+   "start": 239.038,
+   "end": 239.34
+  },
+  {
+   "text": "of",
+   "start": 239.398,
+   "end": 239.467
+  },
+  {
+   "text": "sinking",
+   "start": 239.549,
+   "end": 239.932
+  },
+  {
+   "text": "air.",
+   "start": 240.013,
+   "end": 240.501
+  },
+  {
+   "text": "Near",
+   "start": 240.71,
+   "end": 240.907
+  },
+  {
+   "text": "the",
+   "start": 240.953,
+   "end": 241.023
+  },
+  {
+   "text": "equator,",
+   "start": 241.093,
+   "end": 241.685
+  },
+  {
+   "text": "warm,",
+   "start": 241.801,
+   "end": 242.265
+  },
+  {
+   "text": "moist",
+   "start": 242.312,
+   "end": 242.706
+  },
+  {
+   "text": "air",
+   "start": 242.776,
+   "end": 243.032
+  },
+  {
+   "text": "rises,",
+   "start": 243.148,
+   "end": 243.751
+  },
+  {
+   "text": "and",
+   "start": 243.775,
+   "end": 243.926
+  },
+  {
+   "text": "forms",
+   "start": 244.042,
+   "end": 244.494
+  },
+  {
+   "text": "clouds",
+   "start": 244.564,
+   "end": 245.11
+  },
+  {
+   "text": "and",
+   "start": 245.156,
+   "end": 245.261
+  },
+  {
+   "text": "rain.",
+   "start": 245.377,
+   "end": 246.004
+  },
+  {
+   "text": "High",
+   "start": 246.387,
+   "end": 246.689
+  },
+  {
+   "text": "up,",
+   "start": 246.747,
+   "end": 247.084
+  },
+  {
+   "text": "it",
+   "start": 247.2,
+   "end": 247.328
+  },
+  {
+   "text": "flows",
+   "start": 247.386,
+   "end": 247.722
+  },
+  {
+   "text": "toward",
+   "start": 247.781,
+   "end": 248.024
+  },
+  {
+   "text": "the",
+   "start": 248.059,
+   "end": 248.129
+  },
+  {
+   "text": "poles,",
+   "start": 248.175,
+   "end": 248.849
+  },
+  {
+   "text": "then",
+   "start": 248.965,
+   "end": 249.174
+  },
+  {
+   "text": "sinks",
+   "start": 249.29,
+   "end": 249.603
+  },
+  {
+   "text": "around",
+   "start": 249.65,
+   "end": 249.986
+  },
+  {
+   "text": "30",
+   "start": 250.068,
+   "end": 250.323
+  },
+  {
+   "text": "degrees",
+   "start": 250.381,
+   "end": 250.729
+  },
+  {
+   "text": "latitude,",
+   "start": 250.788,
+   "end": 251.565
+  },
+  {
+   "text": "by",
+   "start": 251.716,
+   "end": 251.89
+  },
+  {
+   "text": "then",
+   "start": 251.96,
+   "end": 252.192
+  },
+  {
+   "text": "dry.",
+   "start": 252.285,
+   "end": 252.947
+  },
+  {
+   "text": "NASA",
+   "start": 253.644,
+   "end": 254.085
+  },
+  {
+   "text": "notes",
+   "start": 254.154,
+   "end": 254.433
+  },
+  {
+   "text": "that",
+   "start": 254.479,
+   "end": 254.654
+  },
+  {
+   "text": "descending",
+   "start": 254.735,
+   "end": 255.281
+  },
+  {
+   "text": "air",
+   "start": 255.362,
+   "end": 255.664
+  },
+  {
+   "text": "inhibits",
+   "start": 255.78,
+   "end": 256.325
+  },
+  {
+   "text": "cloud",
+   "start": 256.384,
+   "end": 256.732
+  },
+  {
+   "text": "formation,",
+   "start": 256.801,
+   "end": 257.626
+  },
+  {
+   "text": "which",
+   "start": 257.8,
+   "end": 257.986
+  },
+  {
+   "text": "is",
+   "start": 258.032,
+   "end": 258.102
+  },
+  {
+   "text": "why",
+   "start": 258.148,
+   "end": 258.346
+  },
+  {
+   "text": "clouds",
+   "start": 258.415,
+   "end": 258.787
+  },
+  {
+   "text": "are",
+   "start": 258.822,
+   "end": 258.938
+  },
+  {
+   "text": "rare",
+   "start": 258.996,
+   "end": 259.309
+  },
+  {
+   "text": "and",
+   "start": 259.367,
+   "end": 259.541
+  },
+  {
+   "text": "deserts",
+   "start": 259.623,
+   "end": 260.006
+  },
+  {
+   "text": "are",
+   "start": 260.041,
+   "end": 260.157
+  },
+  {
+   "text": "common",
+   "start": 260.215,
+   "end": 260.586
+  },
+  {
+   "text": "at",
+   "start": 260.633,
+   "end": 260.702
+  },
+  {
+   "text": "those",
+   "start": 260.76,
+   "end": 261.028
+  },
+  {
+   "text": "latitudes.",
+   "start": 261.086,
+   "end": 261.991
+  },
+  {
+   "text": "So",
+   "start": 262.432,
+   "end": 262.63
+  },
+  {
+   "text": "greening",
+   "start": 262.711,
+   "end": 263.129
+  },
+  {
+   "text": "the",
+   "start": 263.187,
+   "end": 263.256
+  },
+  {
+   "text": "Sahara",
+   "start": 263.314,
+   "end": 263.79
+  },
+  {
+   "text": "isn't",
+   "start": 263.872,
+   "end": 264.127
+  },
+  {
+   "text": "just",
+   "start": 264.174,
+   "end": 264.359
+  },
+  {
+   "text": "about",
+   "start": 264.406,
+   "end": 264.638
+  },
+  {
+   "text": "finding",
+   "start": 264.696,
+   "end": 265.091
+  },
+  {
+   "text": "water.",
+   "start": 265.172,
+   "end": 265.718
+  },
+  {
+   "text": "You'd",
+   "start": 265.962,
+   "end": 266.194
+  },
+  {
+   "text": "be",
+   "start": 266.229,
+   "end": 266.321
+  },
+  {
+   "text": "planting",
+   "start": 266.38,
+   "end": 266.809
+  },
+  {
+   "text": "against",
+   "start": 266.867,
+   "end": 267.181
+  },
+  {
+   "text": "the",
+   "start": 267.215,
+   "end": 267.297
+  },
+  {
+   "text": "atmosphere",
+   "start": 267.378,
+   "end": 267.9
+  },
+  {
+   "text": "itself.",
+   "start": 267.947,
+   "end": 268.667
+  },
+  {
+   "text": "And",
+   "start": 268.992,
+   "end": 269.154
+  },
+  {
+   "text": "yet,",
+   "start": 269.224,
+   "end": 269.688
+  },
+  {
+   "text": "from",
+   "start": 269.897,
+   "end": 270.095
+  },
+  {
+   "text": "orbit,",
+   "start": 270.188,
+   "end": 270.791
+  },
+  {
+   "text": "you",
+   "start": 271.07,
+   "end": 271.163
+  },
+  {
+   "text": "can",
+   "start": 271.221,
+   "end": 271.337
+  },
+  {
+   "text": "find",
+   "start": 271.395,
+   "end": 271.662
+  },
+  {
+   "text": "green",
+   "start": 271.743,
+   "end": 272.173
+  },
+  {
+   "text": "in",
+   "start": 272.254,
+   "end": 272.37
+  },
+  {
+   "text": "the",
+   "start": 272.417,
+   "end": 272.486
+  },
+  {
+   "text": "Sahara",
+   "start": 272.544,
+   "end": 273.02
+  },
+  {
+   "text": "right",
+   "start": 273.09,
+   "end": 273.311
+  },
+  {
+   "text": "now.",
+   "start": 273.369,
+   "end": 273.891
+  },
+  {
+   "text": "This",
+   "start": 274.332,
+   "end": 274.611
+  },
+  {
+   "text": "is",
+   "start": 274.704,
+   "end": 274.866
+  },
+  {
+   "text": "East",
+   "start": 274.983,
+   "end": 275.273
+  },
+  {
+   "text": "Oweinat,",
+   "start": 275.424,
+   "end": 276.225
+  },
+  {
+   "text": "in",
+   "start": 276.376,
+   "end": 276.515
+  },
+  {
+   "text": "southern",
+   "start": 276.608,
+   "end": 276.968
+  },
+  {
+   "text": "Egypt.",
+   "start": 277.037,
+   "end": 277.664
+  },
+  {
+   "text": "In",
+   "start": 278.268,
+   "end": 278.431
+  },
+  {
+   "text": "a",
+   "start": 278.477,
+   "end": 278.5
+  },
+  {
+   "text": "1984",
+   "start": 278.558,
+   "end": 279.476
+  },
+  {
+   "text": "Landsat",
+   "start": 279.592,
+   "end": 280.253
+  },
+  {
+   "text": "image,",
+   "start": 280.335,
+   "end": 280.753
+  },
+  {
+   "text": "this",
+   "start": 280.776,
+   "end": 280.95
+  },
+  {
+   "text": "area",
+   "start": 281.02,
+   "end": 281.392
+  },
+  {
+   "text": "is",
+   "start": 281.461,
+   "end": 281.566
+  },
+  {
+   "text": "almost",
+   "start": 281.624,
+   "end": 281.949
+  },
+  {
+   "text": "entirely",
+   "start": 282.007,
+   "end": 282.576
+  },
+  {
+   "text": "barren.",
+   "start": 282.646,
+   "end": 283.238
+  },
+  {
+   "text": "Today,",
+   "start": 283.679,
+   "end": 284.248
+  },
+  {
+   "text": "it's",
+   "start": 284.294,
+   "end": 284.48
+  },
+  {
+   "text": "covered",
+   "start": 284.526,
+   "end": 284.828
+  },
+  {
+   "text": "in",
+   "start": 284.863,
+   "end": 284.933
+  },
+  {
+   "text": "green",
+   "start": 285.002,
+   "end": 285.281
+  },
+  {
+   "text": "circles,",
+   "start": 285.351,
+   "end": 285.931
+  },
+  {
+   "text": "each",
+   "start": 286.105,
+   "end": 286.314
+  },
+  {
+   "text": "about",
+   "start": 286.349,
+   "end": 286.581
+  },
+  {
+   "text": "half",
+   "start": 286.639,
+   "end": 286.802
+  },
+  {
+   "text": "a",
+   "start": 286.848,
+   "end": 286.872
+  },
+  {
+   "text": "mile",
+   "start": 286.93,
+   "end": 287.197
+  },
+  {
+   "text": "across,",
+   "start": 287.231,
+   "end": 287.928
+  },
+  {
+   "text": "watered",
+   "start": 288.137,
+   "end": 288.578
+  },
+  {
+   "text": "by",
+   "start": 288.625,
+   "end": 288.764
+  },
+  {
+   "text": "rotating",
+   "start": 288.857,
+   "end": 289.368
+  },
+  {
+   "text": "sprinkler",
+   "start": 289.437,
+   "end": 289.89
+  },
+  {
+   "text": "arms.",
+   "start": 289.96,
+   "end": 291.04
+  },
+  {
+   "text": "The",
+   "start": 291.039,
+   "end": 291.167
+  },
+  {
+   "text": "water",
+   "start": 291.225,
+   "end": 291.503
+  },
+  {
+   "text": "comes",
+   "start": 291.561,
+   "end": 291.794
+  },
+  {
+   "text": "from",
+   "start": 291.84,
+   "end": 291.991
+  },
+  {
+   "text": "below.",
+   "start": 292.049,
+   "end": 292.676
+  },
+  {
+   "text": "It's",
+   "start": 293.059,
+   "end": 293.268
+  },
+  {
+   "text": "pumped",
+   "start": 293.326,
+   "end": 293.628
+  },
+  {
+   "text": "from",
+   "start": 293.674,
+   "end": 293.814
+  },
+  {
+   "text": "the",
+   "start": 293.849,
+   "end": 293.918
+  },
+  {
+   "text": "Nubian",
+   "start": 293.965,
+   "end": 294.359
+  },
+  {
+   "text": "Sandstone",
+   "start": 294.441,
+   "end": 295.079
+  },
+  {
+   "text": "Aquifer,",
+   "start": 295.137,
+   "end": 295.811
+  },
+  {
+   "text": "a",
+   "start": 296.02,
+   "end": 296.089
+  },
+  {
+   "text": "vast",
+   "start": 296.171,
+   "end": 296.542
+  },
+  {
+   "text": "store",
+   "start": 296.635,
+   "end": 297.065
+  },
+  {
+   "text": "of",
+   "start": 297.111,
+   "end": 297.157
+  },
+  {
+   "text": "fossil",
+   "start": 297.227,
+   "end": 297.587
+  },
+  {
+   "text": "groundwater",
+   "start": 297.645,
+   "end": 298.318
+  },
+  {
+   "text": "shared",
+   "start": 298.388,
+   "end": 298.702
+  },
+  {
+   "text": "by",
+   "start": 298.736,
+   "end": 298.911
+  },
+  {
+   "text": "Egypt,",
+   "start": 299.027,
+   "end": 299.514
+  },
+  {
+   "text": "Libya,",
+   "start": 299.665,
+   "end": 300.176
+  },
+  {
+   "text": "Sudan",
+   "start": 300.269,
+   "end": 300.931
+  },
+  {
+   "text": "and",
+   "start": 301.0,
+   "end": 301.175
+  },
+  {
+   "text": "Chad.",
+   "start": 301.244,
+   "end": 301.871
+  },
+  {
+   "text": "NASA",
+   "start": 302.382,
+   "end": 302.788
+  },
+  {
+   "text": "says",
+   "start": 302.835,
+   "end": 303.102
+  },
+  {
+   "text": "that",
+   "start": 303.16,
+   "end": 303.311
+  },
+  {
+   "text": "water",
+   "start": 303.392,
+   "end": 303.705
+  },
+  {
+   "text": "soaked",
+   "start": 303.787,
+   "end": 304.135
+  },
+  {
+   "text": "into",
+   "start": 304.181,
+   "end": 304.332
+  },
+  {
+   "text": "the",
+   "start": 304.402,
+   "end": 304.472
+  },
+  {
+   "text": "sandstone",
+   "start": 304.53,
+   "end": 305.412
+  },
+  {
+   "text": "anywhere",
+   "start": 305.563,
+   "end": 306.016
+  },
+  {
+   "text": "from",
+   "start": 306.05,
+   "end": 306.178
+  },
+  {
+   "text": "10,000",
+   "start": 306.236,
+   "end": 306.944
+  },
+  {
+   "text": "to",
+   "start": 307.003,
+   "end": 307.107
+  },
+  {
+   "text": "a",
+   "start": 307.2,
+   "end": 307.223
+  },
+  {
+   "text": "million",
+   "start": 307.304,
+   "end": 307.688
+  },
+  {
+   "text": "years",
+   "start": 307.757,
+   "end": 308.024
+  },
+  {
+   "text": "ago,",
+   "start": 308.071,
+   "end": 308.593
+  },
+  {
+   "text": "when",
+   "start": 308.686,
+   "end": 308.849
+  },
+  {
+   "text": "the",
+   "start": 308.883,
+   "end": 308.953
+  },
+  {
+   "text": "region",
+   "start": 309.011,
+   "end": 309.325
+  },
+  {
+   "text": "got",
+   "start": 309.383,
+   "end": 309.568
+  },
+  {
+   "text": "more",
+   "start": 309.626,
+   "end": 309.824
+  },
+  {
+   "text": "rain,",
+   "start": 309.882,
+   "end": 310.427
+  },
+  {
+   "text": "and",
+   "start": 310.671,
+   "end": 310.834
+  },
+  {
+   "text": "that",
+   "start": 310.892,
+   "end": 311.031
+  },
+  {
+   "text": "the",
+   "start": 311.078,
+   "end": 311.159
+  },
+  {
+   "text": "aquifer",
+   "start": 311.24,
+   "end": 311.751
+  },
+  {
+   "text": "recharges",
+   "start": 311.844,
+   "end": 312.471
+  },
+  {
+   "text": "slowly",
+   "start": 312.517,
+   "end": 313.04
+  },
+  {
+   "text": "and",
+   "start": 313.284,
+   "end": 313.458
+  },
+  {
+   "text": "is",
+   "start": 313.516,
+   "end": 313.585
+  },
+  {
+   "text": "considered",
+   "start": 313.643,
+   "end": 314.131
+  },
+  {
+   "text": "a",
+   "start": 314.177,
+   "end": 314.201
+  },
+  {
+   "text": "non-renewable",
+   "start": 314.282,
+   "end": 315.118
+  },
+  {
+   "text": "resource",
+   "start": 315.176,
+   "end": 315.664
+  },
+  {
+   "text": "today.",
+   "start": 315.698,
+   "end": 316.314
+  },
+  {
+   "text": "Across",
+   "start": 317.01,
+   "end": 317.463
+  },
+  {
+   "text": "the",
+   "start": 317.51,
+   "end": 317.579
+  },
+  {
+   "text": "border",
+   "start": 317.626,
+   "end": 317.916
+  },
+  {
+   "text": "in",
+   "start": 317.962,
+   "end": 318.02
+  },
+  {
+   "text": "Libya,",
+   "start": 318.09,
+   "end": 318.659
+  },
+  {
+   "text": "the",
+   "start": 318.903,
+   "end": 319.007
+  },
+  {
+   "text": "Kufra",
+   "start": 319.054,
+   "end": 319.472
+  },
+  {
+   "text": "oasis",
+   "start": 319.553,
+   "end": 320.075
+  },
+  {
+   "text": "runs",
+   "start": 320.145,
+   "end": 320.377
+  },
+  {
+   "text": "on",
+   "start": 320.435,
+   "end": 320.505
+  },
+  {
+   "text": "the",
+   "start": 320.552,
+   "end": 320.621
+  },
+  {
+   "text": "same",
+   "start": 320.668,
+   "end": 320.935
+  },
+  {
+   "text": "kind",
+   "start": 320.993,
+   "end": 321.225
+  },
+  {
+   "text": "of",
+   "start": 321.271,
+   "end": 321.318
+  },
+  {
+   "text": "water.",
+   "start": 321.388,
+   "end": 321.852
+  },
+  {
+   "text": "In",
+   "start": 322.235,
+   "end": 322.363
+  },
+  {
+   "text": "the",
+   "start": 322.398,
+   "end": 322.467
+  },
+  {
+   "text": "1980s,",
+   "start": 322.502,
+   "end": 323.477
+  },
+  {
+   "text": "Libya",
+   "start": 323.651,
+   "end": 324.035
+  },
+  {
+   "text": "began",
+   "start": 324.116,
+   "end": 324.453
+  },
+  {
+   "text": "building",
+   "start": 324.534,
+   "end": 324.882
+  },
+  {
+   "text": "the",
+   "start": 324.94,
+   "end": 325.01
+  },
+  {
+   "text": "Great",
+   "start": 325.079,
+   "end": 325.323
+  },
+  {
+   "text": "Man-Made",
+   "start": 325.416,
+   "end": 326.055
+  },
+  {
+   "text": "River",
+   "start": 326.113,
+   "end": 326.38
+  },
+  {
+   "text": "to",
+   "start": 326.461,
+   "end": 326.542
+  },
+  {
+   "text": "pipe",
+   "start": 326.635,
+   "end": 326.925
+  },
+  {
+   "text": "it",
+   "start": 326.96,
+   "end": 327.042
+  },
+  {
+   "text": "north",
+   "start": 327.123,
+   "end": 327.39
+  },
+  {
+   "text": "to",
+   "start": 327.448,
+   "end": 327.529
+  },
+  {
+   "text": "the",
+   "start": 327.599,
+   "end": 327.669
+  },
+  {
+   "text": "coast.",
+   "start": 327.727,
+   "end": 328.203
+  },
+  {
+   "text": "And",
+   "start": 328.481,
+   "end": 328.644
+  },
+  {
+   "text": "at",
+   "start": 328.713,
+   "end": 328.806
+  },
+  {
+   "text": "Toshka,",
+   "start": 328.864,
+   "end": 329.549
+  },
+  {
+   "text": "Egypt",
+   "start": 329.758,
+   "end": 330.118
+  },
+  {
+   "text": "let",
+   "start": 330.176,
+   "end": 330.35
+  },
+  {
+   "text": "water",
+   "start": 330.42,
+   "end": 330.745
+  },
+  {
+   "text": "from",
+   "start": 330.792,
+   "end": 330.931
+  },
+  {
+   "text": "Lake",
+   "start": 331.001,
+   "end": 331.21
+  },
+  {
+   "text": "Nasser",
+   "start": 331.268,
+   "end": 331.674
+  },
+  {
+   "text": "spill",
+   "start": 331.744,
+   "end": 332.034
+  },
+  {
+   "text": "into",
+   "start": 332.104,
+   "end": 332.278
+  },
+  {
+   "text": "natural",
+   "start": 332.359,
+   "end": 332.812
+  },
+  {
+   "text": "basins",
+   "start": 332.893,
+   "end": 333.346
+  },
+  {
+   "text": "in",
+   "start": 333.392,
+   "end": 333.462
+  },
+  {
+   "text": "the",
+   "start": 333.508,
+   "end": 333.578
+  },
+  {
+   "text": "desert.",
+   "start": 333.636,
+   "end": 334.147
+  },
+  {
+   "text": "In",
+   "start": 334.588,
+   "end": 334.739
+  },
+  {
+   "text": "NASA's",
+   "start": 334.785,
+   "end": 335.203
+  },
+  {
+   "text": "photographs,",
+   "start": 335.249,
+   "end": 336.027
+  },
+  {
+   "text": "the",
+   "start": 336.143,
+   "end": 336.26
+  },
+  {
+   "text": "lakes",
+   "start": 336.329,
+   "end": 336.619
+  },
+  {
+   "text": "are",
+   "start": 336.666,
+   "end": 336.782
+  },
+  {
+   "text": "full",
+   "start": 336.828,
+   "end": 337.072
+  },
+  {
+   "text": "in",
+   "start": 337.142,
+   "end": 337.212
+  },
+  {
+   "text": "2002.",
+   "start": 337.281,
+   "end": 338.442
+  },
+  {
+   "text": "By",
+   "start": 338.825,
+   "end": 338.999
+  },
+  {
+   "text": "2012,",
+   "start": 339.069,
+   "end": 340.114
+  },
+  {
+   "text": "they",
+   "start": 340.137,
+   "end": 340.265
+  },
+  {
+   "text": "had",
+   "start": 340.3,
+   "end": 340.404
+  },
+  {
+   "text": "mostly",
+   "start": 340.451,
+   "end": 340.776
+  },
+  {
+   "text": "dried",
+   "start": 340.834,
+   "end": 341.182
+  },
+  {
+   "text": "up,",
+   "start": 341.252,
+   "end": 341.565
+  },
+  {
+   "text": "as",
+   "start": 341.739,
+   "end": 341.914
+  },
+  {
+   "text": "the",
+   "start": 341.983,
+   "end": 342.053
+  },
+  {
+   "text": "Nile's",
+   "start": 342.134,
+   "end": 342.506
+  },
+  {
+   "text": "flow",
+   "start": 342.575,
+   "end": 342.877
+  },
+  {
+   "text": "dropped.",
+   "start": 342.958,
+   "end": 343.527
+  },
+  {
+   "text": "In",
+   "start": 343.841,
+   "end": 343.992
+  },
+  {
+   "text": "2021,",
+   "start": 344.061,
+   "end": 345.071
+  },
+  {
+   "text": "after",
+   "start": 345.095,
+   "end": 345.315
+  },
+  {
+   "text": "floods",
+   "start": 345.373,
+   "end": 345.698
+  },
+  {
+   "text": "upstream,",
+   "start": 345.745,
+   "end": 346.302
+  },
+  {
+   "text": "they",
+   "start": 346.325,
+   "end": 346.453
+  },
+  {
+   "text": "held",
+   "start": 346.511,
+   "end": 346.708
+  },
+  {
+   "text": "more",
+   "start": 346.79,
+   "end": 347.057
+  },
+  {
+   "text": "water",
+   "start": 347.115,
+   "end": 347.44
+  },
+  {
+   "text": "than",
+   "start": 347.486,
+   "end": 347.614
+  },
+  {
+   "text": "ever",
+   "start": 347.672,
+   "end": 347.846
+  },
+  {
+   "text": "before.",
+   "start": 347.904,
+   "end": 348.496
+  },
+  {
+   "text": "So",
+   "start": 348.775,
+   "end": 348.938
+  },
+  {
+   "text": "yes,",
+   "start": 349.019,
+   "end": 349.483
+  },
+  {
+   "text": "we",
+   "start": 349.762,
+   "end": 349.89
+  },
+  {
+   "text": "can",
+   "start": 349.948,
+   "end": 350.064
+  },
+  {
+   "text": "green",
+   "start": 350.11,
+   "end": 350.331
+  },
+  {
+   "text": "the",
+   "start": 350.366,
+   "end": 350.435
+  },
+  {
+   "text": "desert.",
+   "start": 350.493,
+   "end": 351.016
+  },
+  {
+   "text": "One",
+   "start": 351.341,
+   "end": 351.573
+  },
+  {
+   "text": "field",
+   "start": 351.631,
+   "end": 351.956
+  },
+  {
+   "text": "at",
+   "start": 352.014,
+   "end": 352.096
+  },
+  {
+   "text": "a",
+   "start": 352.142,
+   "end": 352.177
+  },
+  {
+   "text": "time,",
+   "start": 352.235,
+   "end": 352.792
+  },
+  {
+   "text": "with",
+   "start": 352.909,
+   "end": 353.094
+  },
+  {
+   "text": "water",
+   "start": 353.152,
+   "end": 353.454
+  },
+  {
+   "text": "stored",
+   "start": 353.512,
+   "end": 353.872
+  },
+  {
+   "text": "long",
+   "start": 353.93,
+   "end": 354.186
+  },
+  {
+   "text": "ago",
+   "start": 354.244,
+   "end": 354.522
+  },
+  {
+   "text": "and",
+   "start": 354.604,
+   "end": 354.72
+  },
+  {
+   "text": "only",
+   "start": 354.813,
+   "end": 355.068
+  },
+  {
+   "text": "slowly",
+   "start": 355.138,
+   "end": 355.59
+  },
+  {
+   "text": "replaced.",
+   "start": 355.672,
+   "end": 356.484
+  },
+  {
+   "text": "In",
+   "start": 357.181,
+   "end": 357.32
+  },
+  {
+   "text": "2009,",
+   "start": 357.378,
+   "end": 358.505
+  },
+  {
+   "text": "three",
+   "start": 358.621,
+   "end": 358.888
+  },
+  {
+   "text": "researchers",
+   "start": 358.957,
+   "end": 359.515
+  },
+  {
+   "text": "proposed",
+   "start": 359.573,
+   "end": 360.06
+  },
+  {
+   "text": "going",
+   "start": 360.107,
+   "end": 360.397
+  },
+  {
+   "text": "much",
+   "start": 360.455,
+   "end": 360.652
+  },
+  {
+   "text": "bigger:",
+   "start": 360.71,
+   "end": 361.245
+  },
+  {
+   "text": "forests",
+   "start": 361.686,
+   "end": 362.255
+  },
+  {
+   "text": "of",
+   "start": 362.301,
+   "end": 362.371
+  },
+  {
+   "text": "fast-growing",
+   "start": 362.44,
+   "end": 363.137
+  },
+  {
+   "text": "trees",
+   "start": 363.195,
+   "end": 363.555
+  },
+  {
+   "text": "across",
+   "start": 363.613,
+   "end": 363.961
+  },
+  {
+   "text": "the",
+   "start": 364.008,
+   "end": 364.077
+  },
+  {
+   "text": "Sahara",
+   "start": 364.124,
+   "end": 364.693
+  },
+  {
+   "text": "and",
+   "start": 364.751,
+   "end": 364.878
+  },
+  {
+   "text": "the",
+   "start": 364.925,
+   "end": 364.995
+  },
+  {
+   "text": "Australian",
+   "start": 365.064,
+   "end": 365.61
+  },
+  {
+   "text": "Outback,",
+   "start": 365.668,
+   "end": 366.411
+  },
+  {
+   "text": "watered",
+   "start": 366.736,
+   "end": 367.166
+  },
+  {
+   "text": "with",
+   "start": 367.212,
+   "end": 367.375
+  },
+  {
+   "text": "desalinated",
+   "start": 367.444,
+   "end": 368.327
+  },
+  {
+   "text": "seawater.",
+   "start": 368.408,
+   "end": 369.244
+  },
+  {
+   "text": "By",
+   "start": 369.755,
+   "end": 369.906
+  },
+  {
+   "text": "their",
+   "start": 369.964,
+   "end": 370.161
+  },
+  {
+   "text": "estimate,",
+   "start": 370.231,
+   "end": 370.8
+  },
+  {
+   "text": "such",
+   "start": 371.044,
+   "end": 371.288
+  },
+  {
+   "text": "forests",
+   "start": 371.346,
+   "end": 371.81
+  },
+  {
+   "text": "could",
+   "start": 371.856,
+   "end": 372.007
+  },
+  {
+   "text": "take",
+   "start": 372.031,
+   "end": 372.228
+  },
+  {
+   "text": "up",
+   "start": 372.274,
+   "end": 372.391
+  },
+  {
+   "text": "about",
+   "start": 372.449,
+   "end": 372.692
+  },
+  {
+   "text": "as",
+   "start": 372.727,
+   "end": 372.797
+  },
+  {
+   "text": "much",
+   "start": 372.855,
+   "end": 373.041
+  },
+  {
+   "text": "carbon",
+   "start": 373.099,
+   "end": 373.505
+  },
+  {
+   "text": "each",
+   "start": 373.598,
+   "end": 373.819
+  },
+  {
+   "text": "year",
+   "start": 373.877,
+   "end": 374.144
+  },
+  {
+   "text": "as",
+   "start": 374.225,
+   "end": 374.341
+  },
+  {
+   "text": "the",
+   "start": 374.411,
+   "end": 374.48
+  },
+  {
+   "text": "world's",
+   "start": 374.538,
+   "end": 374.922
+  },
+  {
+   "text": "fossil",
+   "start": 374.98,
+   "end": 375.328
+  },
+  {
+   "text": "fuels",
+   "start": 375.398,
+   "end": 375.781
+  },
+  {
+   "text": "release.",
+   "start": 375.85,
+   "end": 376.431
+  },
+  {
+   "text": "That",
+   "start": 376.872,
+   "end": 377.093
+  },
+  {
+   "text": "estimate",
+   "start": 377.162,
+   "end": 377.545
+  },
+  {
+   "text": "came",
+   "start": 377.58,
+   "end": 377.812
+  },
+  {
+   "text": "from",
+   "start": 377.847,
+   "end": 377.987
+  },
+  {
+   "text": "plantation",
+   "start": 378.045,
+   "end": 378.66
+  },
+  {
+   "text": "data",
+   "start": 378.73,
+   "end": 379.066
+  },
+  {
+   "text": "and",
+   "start": 379.24,
+   "end": 379.449
+  },
+  {
+   "text": "calculations",
+   "start": 379.519,
+   "end": 380.262
+  },
+  {
+   "text": "with",
+   "start": 380.309,
+   "end": 380.448
+  },
+  {
+   "text": "large",
+   "start": 380.518,
+   "end": 380.854
+  },
+  {
+   "text": "error",
+   "start": 380.912,
+   "end": 381.203
+  },
+  {
+   "text": "bars,",
+   "start": 381.261,
+   "end": 381.876
+  },
+  {
+   "text": "not",
+   "start": 382.12,
+   "end": 382.305
+  },
+  {
+   "text": "from",
+   "start": 382.352,
+   "end": 382.48
+  },
+  {
+   "text": "a",
+   "start": 382.526,
+   "end": 382.549
+  },
+  {
+   "text": "climate",
+   "start": 382.596,
+   "end": 383.002
+  },
+  {
+   "text": "model",
+   "start": 383.049,
+   "end": 383.362
+  },
+  {
+   "text": "that",
+   "start": 383.408,
+   "end": 383.536
+  },
+  {
+   "text": "simulated",
+   "start": 383.606,
+   "end": 384.21
+  },
+  {
+   "text": "the",
+   "start": 384.256,
+   "end": 384.325
+  },
+  {
+   "text": "carbon.",
+   "start": 384.36,
+   "end": 384.952
+  },
+  {
+   "text": "And",
+   "start": 385.394,
+   "end": 385.556
+  },
+  {
+   "text": "it",
+   "start": 385.614,
+   "end": 385.672
+  },
+  {
+   "text": "wasn't",
+   "start": 385.719,
+   "end": 385.974
+  },
+  {
+   "text": "carbon",
+   "start": 386.02,
+   "end": 386.357
+  },
+  {
+   "text": "removal",
+   "start": 386.427,
+   "end": 386.833
+  },
+  {
+   "text": "forever:",
+   "start": 386.903,
+   "end": 387.588
+  },
+  {
+   "text": "the",
+   "start": 387.797,
+   "end": 387.913
+  },
+  {
+   "text": "authors",
+   "start": 387.983,
+   "end": 388.319
+  },
+  {
+   "text": "expected",
+   "start": 388.377,
+   "end": 388.819
+  },
+  {
+   "text": "a",
+   "start": 388.853,
+   "end": 388.888
+  },
+  {
+   "text": "forest",
+   "start": 388.958,
+   "end": 389.364
+  },
+  {
+   "text": "to",
+   "start": 389.411,
+   "end": 389.48
+  },
+  {
+   "text": "stop",
+   "start": 389.55,
+   "end": 389.863
+  },
+  {
+   "text": "gaining",
+   "start": 389.933,
+   "end": 390.235
+  },
+  {
+   "text": "carbon",
+   "start": 390.316,
+   "end": 390.734
+  },
+  {
+   "text": "after",
+   "start": 390.804,
+   "end": 391.048
+  },
+  {
+   "text": "about",
+   "start": 391.106,
+   "end": 391.349
+  },
+  {
+   "text": "a",
+   "start": 391.384,
+   "end": 391.408
+  },
+  {
+   "text": "century.",
+   "start": 391.466,
+   "end": 392.127
+  },
+  {
+   "text": "The",
+   "start": 392.569,
+   "end": 392.685
+  },
+  {
+   "text": "authors",
+   "start": 392.743,
+   "end": 393.056
+  },
+  {
+   "text": "themselves",
+   "start": 393.091,
+   "end": 393.637
+  },
+  {
+   "text": "described",
+   "start": 393.695,
+   "end": 394.24
+  },
+  {
+   "text": "such",
+   "start": 394.287,
+   "end": 394.484
+  },
+  {
+   "text": "projects",
+   "start": 394.542,
+   "end": 395.076
+  },
+  {
+   "text": "as",
+   "start": 395.123,
+   "end": 395.227
+  },
+  {
+   "text": "multi-trillion-dollar",
+   "start": 395.308,
+   "end": 396.493
+  },
+  {
+   "text": "undertakings.",
+   "start": 396.562,
+   "end": 397.99
+  },
+  {
+   "text": "Would",
+   "start": 397.99,
+   "end": 398.211
+  },
+  {
+   "text": "it",
+   "start": 398.257,
+   "end": 398.315
+  },
+  {
+   "text": "rain?",
+   "start": 398.385,
+   "end": 398.977
+  },
+  {
+   "text": "In",
+   "start": 399.673,
+   "end": 399.813
+  },
+  {
+   "text": "the",
+   "start": 399.859,
+   "end": 399.929
+  },
+  {
+   "text": "authors'",
+   "start": 399.999,
+   "end": 400.382
+  },
+  {
+   "text": "own",
+   "start": 400.428,
+   "end": 400.625
+  },
+  {
+   "text": "simulation,",
+   "start": 400.695,
+   "end": 401.554
+  },
+  {
+   "text": "one",
+   "start": 401.763,
+   "end": 401.995
+  },
+  {
+   "text": "climate",
+   "start": 402.042,
+   "end": 402.448
+  },
+  {
+   "text": "model,",
+   "start": 402.483,
+   "end": 403.029
+  },
+  {
+   "text": "rainfall",
+   "start": 403.238,
+   "end": 403.83
+  },
+  {
+   "text": "rose",
+   "start": 403.911,
+   "end": 404.271
+  },
+  {
+   "text": "by",
+   "start": 404.317,
+   "end": 404.457
+  },
+  {
+   "text": "more",
+   "start": 404.526,
+   "end": 404.689
+  },
+  {
+   "text": "than",
+   "start": 404.712,
+   "end": 404.84
+  },
+  {
+   "text": "1,000",
+   "start": 404.91,
+   "end": 405.618
+  },
+  {
+   "text": "millimeters",
+   "start": 405.699,
+   "end": 406.28
+  },
+  {
+   "text": "a",
+   "start": 406.326,
+   "end": 406.349
+  },
+  {
+   "text": "year,",
+   "start": 406.43,
+   "end": 406.965
+  },
+  {
+   "text": "about",
+   "start": 407.139,
+   "end": 407.464
+  },
+  {
+   "text": "40",
+   "start": 407.533,
+   "end": 407.858
+  },
+  {
+   "text": "inches,",
+   "start": 407.94,
+   "end": 408.602
+  },
+  {
+   "text": "over",
+   "start": 408.776,
+   "end": 408.996
+  },
+  {
+   "text": "roughly",
+   "start": 409.066,
+   "end": 409.414
+  },
+  {
+   "text": "half",
+   "start": 409.507,
+   "end": 409.797
+  },
+  {
+   "text": "of",
+   "start": 409.867,
+   "end": 409.925
+  },
+  {
+   "text": "the",
+   "start": 409.983,
+   "end": 410.064
+  },
+  {
+   "text": "irrigated",
+   "start": 410.146,
+   "end": 410.715
+  },
+  {
+   "text": "Sahara.",
+   "start": 410.773,
+   "end": 411.481
+  },
+  {
+   "text": "They",
+   "start": 411.922,
+   "end": 412.108
+  },
+  {
+   "text": "asked",
+   "start": 412.166,
+   "end": 412.514
+  },
+  {
+   "text": "other",
+   "start": 412.583,
+   "end": 412.816
+  },
+  {
+   "text": "models",
+   "start": 412.874,
+   "end": 413.245
+  },
+  {
+   "text": "to",
+   "start": 413.303,
+   "end": 413.373
+  },
+  {
+   "text": "check",
+   "start": 413.454,
+   "end": 413.71
+  },
+  {
+   "text": "it.",
+   "start": 413.768,
+   "end": 414.081
+  },
+  {
+   "text": "A",
+   "start": 414.406,
+   "end": 414.488
+  },
+  {
+   "text": "later",
+   "start": 414.58,
+   "end": 414.847
+  },
+  {
+   "text": "team",
+   "start": 414.905,
+   "end": 415.196
+  },
+  {
+   "text": "tested",
+   "start": 415.265,
+   "end": 415.649
+  },
+  {
+   "text": "an",
+   "start": 415.683,
+   "end": 415.753
+  },
+  {
+   "text": "irrigated",
+   "start": 415.823,
+   "end": 416.368
+  },
+  {
+   "text": "Sahara",
+   "start": 416.438,
+   "end": 416.856
+  },
+  {
+   "text": "forest",
+   "start": 416.937,
+   "end": 417.344
+  },
+  {
+   "text": "in",
+   "start": 417.402,
+   "end": 417.483
+  },
+  {
+   "text": "a",
+   "start": 417.529,
+   "end": 417.553
+  },
+  {
+   "text": "different",
+   "start": 417.611,
+   "end": 417.901
+  },
+  {
+   "text": "climate",
+   "start": 417.936,
+   "end": 418.33
+  },
+  {
+   "text": "model.",
+   "start": 418.377,
+   "end": 418.841
+  },
+  {
+   "text": "Across",
+   "start": 419.166,
+   "end": 419.608
+  },
+  {
+   "text": "the",
+   "start": 419.654,
+   "end": 419.724
+  },
+  {
+   "text": "whole",
+   "start": 419.77,
+   "end": 420.072
+  },
+  {
+   "text": "Sahara,",
+   "start": 420.13,
+   "end": 420.734
+  },
+  {
+   "text": "rainfall",
+   "start": 420.885,
+   "end": 421.465
+  },
+  {
+   "text": "rose",
+   "start": 421.546,
+   "end": 421.93
+  },
+  {
+   "text": "by",
+   "start": 421.976,
+   "end": 422.127
+  },
+  {
+   "text": "about",
+   "start": 422.197,
+   "end": 422.452
+  },
+  {
+   "text": "267",
+   "start": 422.498,
+   "end": 423.694
+  },
+  {
+   "text": "millimeters",
+   "start": 423.776,
+   "end": 424.321
+  },
+  {
+   "text": "a",
+   "start": 424.368,
+   "end": 424.402
+  },
+  {
+   "text": "year,",
+   "start": 424.484,
+   "end": 424.936
+  },
+  {
+   "text": "roughly",
+   "start": 425.111,
+   "end": 425.482
+  },
+  {
+   "text": "10",
+   "start": 425.552,
+   "end": 425.796
+  },
+  {
+   "text": "inches,",
+   "start": 425.865,
+   "end": 426.446
+  },
+  {
+   "text": "and",
+   "start": 426.62,
+   "end": 426.782
+  },
+  {
+   "text": "the",
+   "start": 426.841,
+   "end": 426.91
+  },
+  {
+   "text": "surface",
+   "start": 426.968,
+   "end": 427.386
+  },
+  {
+   "text": "air",
+   "start": 427.421,
+   "end": 427.595
+  },
+  {
+   "text": "cooled",
+   "start": 427.665,
+   "end": 428.048
+  },
+  {
+   "text": "by",
+   "start": 428.106,
+   "end": 428.257
+  },
+  {
+   "text": "about",
+   "start": 428.327,
+   "end": 428.605
+  },
+  {
+   "text": "6.3",
+   "start": 428.686,
+   "end": 429.511
+  },
+  {
+   "text": "degrees",
+   "start": 429.58,
+   "end": 429.929
+  },
+  {
+   "text": "Celsius,",
+   "start": 429.975,
+   "end": 430.776
+  },
+  {
+   "text": "around",
+   "start": 430.95,
+   "end": 431.357
+  },
+  {
+   "text": "11",
+   "start": 431.403,
+   "end": 431.786
+  },
+  {
+   "text": "degrees",
+   "start": 431.844,
+   "end": 432.204
+  },
+  {
+   "text": "Fahrenheit.",
+   "start": 432.274,
+   "end": 433.029
+  },
+  {
+   "text": "The",
+   "start": 433.539,
+   "end": 433.656
+  },
+  {
+   "text": "authors",
+   "start": 433.725,
+   "end": 434.062
+  },
+  {
+   "text": "called",
+   "start": 434.12,
+   "end": 434.399
+  },
+  {
+   "text": "that",
+   "start": 434.433,
+   "end": 434.584
+  },
+  {
+   "text": "a",
+   "start": 434.631,
+   "end": 434.666
+  },
+  {
+   "text": "weak",
+   "start": 434.747,
+   "end": 434.991
+  },
+  {
+   "text": "increase.",
+   "start": 435.084,
+   "end": 435.873
+  },
+  {
+   "text": "Those",
+   "start": 436.198,
+   "end": 436.477
+  },
+  {
+   "text": "two",
+   "start": 436.512,
+   "end": 436.639
+  },
+  {
+   "text": "numbers",
+   "start": 436.721,
+   "end": 437.08
+  },
+  {
+   "text": "measure",
+   "start": 437.15,
+   "end": 437.44
+  },
+  {
+   "text": "different",
+   "start": 437.475,
+   "end": 437.789
+  },
+  {
+   "text": "things:",
+   "start": 437.835,
+   "end": 438.404
+  },
+  {
+   "text": "rain",
+   "start": 438.729,
+   "end": 439.112
+  },
+  {
+   "text": "over",
+   "start": 439.193,
+   "end": 439.391
+  },
+  {
+   "text": "half",
+   "start": 439.461,
+   "end": 439.669
+  },
+  {
+   "text": "the",
+   "start": 439.728,
+   "end": 439.797
+  },
+  {
+   "text": "forest,",
+   "start": 439.867,
+   "end": 440.505
+  },
+  {
+   "text": "versus",
+   "start": 440.68,
+   "end": 441.039
+  },
+  {
+   "text": "an",
+   "start": 441.086,
+   "end": 441.156
+  },
+  {
+   "text": "average",
+   "start": 441.237,
+   "end": 441.771
+  },
+  {
+   "text": "across",
+   "start": 441.817,
+   "end": 442.212
+  },
+  {
+   "text": "the",
+   "start": 442.259,
+   "end": 442.328
+  },
+  {
+   "text": "whole",
+   "start": 442.375,
+   "end": 442.63
+  },
+  {
+   "text": "Sahara.",
+   "start": 442.676,
+   "end": 443.385
+  },
+  {
+   "text": "And",
+   "start": 443.559,
+   "end": 443.71
+  },
+  {
+   "text": "the",
+   "start": 443.756,
+   "end": 443.826
+  },
+  {
+   "text": "forest",
+   "start": 443.884,
+   "end": 444.267
+  },
+  {
+   "text": "wouldn't",
+   "start": 444.325,
+   "end": 444.627
+  },
+  {
+   "text": "water",
+   "start": 444.673,
+   "end": 444.975
+  },
+  {
+   "text": "itself.",
+   "start": 445.033,
+   "end": 445.706
+  },
+  {
+   "text": "In",
+   "start": 446.032,
+   "end": 446.194
+  },
+  {
+   "text": "that",
+   "start": 446.252,
+   "end": 446.438
+  },
+  {
+   "text": "model,",
+   "start": 446.519,
+   "end": 447.1
+  },
+  {
+   "text": "it",
+   "start": 447.251,
+   "end": 447.367
+  },
+  {
+   "text": "lost",
+   "start": 447.425,
+   "end": 447.669
+  },
+  {
+   "text": "about",
+   "start": 447.703,
+   "end": 447.936
+  },
+  {
+   "text": "1,238",
+   "start": 448.005,
+   "end": 449.538
+  },
+  {
+   "text": "millimeters",
+   "start": 449.584,
+   "end": 450.083
+  },
+  {
+   "text": "of",
+   "start": 450.13,
+   "end": 450.176
+  },
+  {
+   "text": "water",
+   "start": 450.258,
+   "end": 450.548
+  },
+  {
+   "text": "a",
+   "start": 450.606,
+   "end": 450.629
+  },
+  {
+   "text": "year",
+   "start": 450.71,
+   "end": 450.943
+  },
+  {
+   "text": "to",
+   "start": 451.012,
+   "end": 451.082
+  },
+  {
+   "text": "evaporation",
+   "start": 451.163,
+   "end": 451.895
+  },
+  {
+   "text": "and",
+   "start": 451.941,
+   "end": 452.022
+  },
+  {
+   "text": "transpiration,",
+   "start": 452.057,
+   "end": 453.079
+  },
+  {
+   "text": "and",
+   "start": 453.357,
+   "end": 453.508
+  },
+  {
+   "text": "total",
+   "start": 453.566,
+   "end": 453.833
+  },
+  {
+   "text": "rainfall",
+   "start": 453.903,
+   "end": 454.472
+  },
+  {
+   "text": "over",
+   "start": 454.553,
+   "end": 454.727
+  },
+  {
+   "text": "the",
+   "start": 454.774,
+   "end": 454.844
+  },
+  {
+   "text": "Sahara",
+   "start": 454.89,
+   "end": 455.331
+  },
+  {
+   "text": "was",
+   "start": 455.401,
+   "end": 455.587
+  },
+  {
+   "text": "319,",
+   "start": 455.703,
+   "end": 457.015
+  },
+  {
+   "text": "about",
+   "start": 457.258,
+   "end": 457.549
+  },
+  {
+   "text": "a",
+   "start": 457.583,
+   "end": 457.607
+  },
+  {
+   "text": "quarter",
+   "start": 457.676,
+   "end": 458.036
+  },
+  {
+   "text": "as",
+   "start": 458.106,
+   "end": 458.199
+  },
+  {
+   "text": "much.",
+   "start": 458.28,
+   "end": 458.826
+  },
+  {
+   "text": "That's",
+   "start": 459.151,
+   "end": 459.406
+  },
+  {
+   "text": "a",
+   "start": 459.441,
+   "end": 459.464
+  },
+  {
+   "text": "ratio",
+   "start": 459.534,
+   "end": 459.952
+  },
+  {
+   "text": "of",
+   "start": 460.022,
+   "end": 460.091
+  },
+  {
+   "text": "totals,",
+   "start": 460.149,
+   "end": 460.741
+  },
+  {
+   "text": "not",
+   "start": 460.985,
+   "end": 461.148
+  },
+  {
+   "text": "a",
+   "start": 461.194,
+   "end": 461.217
+  },
+  {
+   "text": "tracked",
+   "start": 461.275,
+   "end": 461.612
+  },
+  {
+   "text": "drop",
+   "start": 461.67,
+   "end": 461.949
+  },
+  {
+   "text": "of",
+   "start": 462.007,
+   "end": 462.053
+  },
+  {
+   "text": "water.",
+   "start": 462.134,
+   "end": 462.645
+  },
+  {
+   "text": "Much",
+   "start": 462.97,
+   "end": 463.179
+  },
+  {
+   "text": "of",
+   "start": 463.214,
+   "end": 463.261
+  },
+  {
+   "text": "the",
+   "start": 463.307,
+   "end": 463.377
+  },
+  {
+   "text": "moisture",
+   "start": 463.423,
+   "end": 463.806
+  },
+  {
+   "text": "was",
+   "start": 463.841,
+   "end": 463.946
+  },
+  {
+   "text": "carried",
+   "start": 464.004,
+   "end": 464.34
+  },
+  {
+   "text": "south,",
+   "start": 464.398,
+   "end": 464.932
+  },
+  {
+   "text": "over",
+   "start": 465.025,
+   "end": 465.211
+  },
+  {
+   "text": "the",
+   "start": 465.258,
+   "end": 465.327
+  },
+  {
+   "text": "Sahel,",
+   "start": 465.374,
+   "end": 466.082
+  },
+  {
+   "text": "the",
+   "start": 466.256,
+   "end": 466.349
+  },
+  {
+   "text": "semi-arid",
+   "start": 466.407,
+   "end": 467.069
+  },
+  {
+   "text": "band",
+   "start": 467.115,
+   "end": 467.463
+  },
+  {
+   "text": "just",
+   "start": 467.58,
+   "end": 467.8
+  },
+  {
+   "text": "south",
+   "start": 467.87,
+   "end": 468.195
+  },
+  {
+   "text": "of",
+   "start": 468.241,
+   "end": 468.299
+  },
+  {
+   "text": "the",
+   "start": 468.346,
+   "end": 468.415
+  },
+  {
+   "text": "Sahara,",
+   "start": 468.462,
+   "end": 469.182
+  },
+  {
+   "text": "and",
+   "start": 469.356,
+   "end": 469.646
+  },
+  {
+   "text": "the",
+   "start": 469.727,
+   "end": 469.797
+  },
+  {
+   "text": "nearby",
+   "start": 469.855,
+   "end": 470.273
+  },
+  {
+   "text": "ocean.",
+   "start": 470.354,
+   "end": 470.946
+  },
+  {
+   "text": "Keeping",
+   "start": 471.643,
+   "end": 471.956
+  },
+  {
+   "text": "the",
+   "start": 472.003,
+   "end": 472.073
+  },
+  {
+   "text": "forest",
+   "start": 472.119,
+   "end": 472.456
+  },
+  {
+   "text": "alive",
+   "start": 472.514,
+   "end": 472.99
+  },
+  {
+   "text": "took",
+   "start": 473.025,
+   "end": 473.199
+  },
+  {
+   "text": "about",
+   "start": 473.245,
+   "end": 473.489
+  },
+  {
+   "text": "919",
+   "start": 473.582,
+   "end": 474.406
+  },
+  {
+   "text": "millimeters,",
+   "start": 474.476,
+   "end": 475.289
+  },
+  {
+   "text": "roughly",
+   "start": 475.439,
+   "end": 475.857
+  },
+  {
+   "text": "36",
+   "start": 475.974,
+   "end": 476.566
+  },
+  {
+   "text": "inches,",
+   "start": 476.682,
+   "end": 477.227
+  },
+  {
+   "text": "of",
+   "start": 477.355,
+   "end": 477.471
+  },
+  {
+   "text": "desalinated",
+   "start": 477.552,
+   "end": 478.307
+  },
+  {
+   "text": "water",
+   "start": 478.377,
+   "end": 478.69
+  },
+  {
+   "text": "a",
+   "start": 478.772,
+   "end": 478.83
+  },
+  {
+   "text": "year",
+   "start": 478.946,
+   "end": 479.19
+  },
+  {
+   "text": "on",
+   "start": 479.259,
+   "end": 479.352
+  },
+  {
+   "text": "top",
+   "start": 479.41,
+   "end": 479.631
+  },
+  {
+   "text": "of",
+   "start": 479.689,
+   "end": 479.747
+  },
+  {
+   "text": "the",
+   "start": 479.793,
+   "end": 479.863
+  },
+  {
+   "text": "rain.",
+   "start": 479.944,
+   "end": 480.502
+  },
+  {
+   "text": "The",
+   "start": 480.827,
+   "end": 480.943
+  },
+  {
+   "text": "model",
+   "start": 481.001,
+   "end": 481.256
+  },
+  {
+   "text": "simply",
+   "start": 481.314,
+   "end": 481.581
+  },
+  {
+   "text": "assumes",
+   "start": 481.628,
+   "end": 482.022
+  },
+  {
+   "text": "that",
+   "start": 482.057,
+   "end": 482.185
+  },
+  {
+   "text": "water",
+   "start": 482.243,
+   "end": 482.498
+  },
+  {
+   "text": "is",
+   "start": 482.556,
+   "end": 482.626
+  },
+  {
+   "text": "supplied;",
+   "start": 482.661,
+   "end": 483.392
+  },
+  {
+   "text": "whether",
+   "start": 483.671,
+   "end": 483.961
+  },
+  {
+   "text": "it",
+   "start": 484.019,
+   "end": 484.089
+  },
+  {
+   "text": "could",
+   "start": 484.124,
+   "end": 484.286
+  },
+  {
+   "text": "be",
+   "start": 484.333,
+   "end": 484.414
+  },
+  {
+   "text": "produced",
+   "start": 484.461,
+   "end": 484.89
+  },
+  {
+   "text": "and",
+   "start": 484.937,
+   "end": 485.018
+  },
+  {
+   "text": "delivered",
+   "start": 485.076,
+   "end": 485.482
+  },
+  {
+   "text": "at",
+   "start": 485.505,
+   "end": 485.563
+  },
+  {
+   "text": "that",
+   "start": 485.598,
+   "end": 485.738
+  },
+  {
+   "text": "scale",
+   "start": 485.796,
+   "end": 486.306
+  },
+  {
+   "text": "is",
+   "start": 486.457,
+   "end": 486.608
+  },
+  {
+   "text": "not",
+   "start": 486.678,
+   "end": 486.841
+  },
+  {
+   "text": "something",
+   "start": 486.887,
+   "end": 487.189
+  },
+  {
+   "text": "the",
+   "start": 487.235,
+   "end": 487.305
+  },
+  {
+   "text": "simulation",
+   "start": 487.34,
+   "end": 487.967
+  },
+  {
+   "text": "shows.",
+   "start": 488.036,
+   "end": 488.687
+  },
+  {
+   "text": "That's",
+   "start": 489.012,
+   "end": 489.337
+  },
+  {
+   "text": "one",
+   "start": 489.43,
+   "end": 489.72
+  },
+  {
+   "text": "simulation,",
+   "start": 489.766,
+   "end": 490.718
+  },
+  {
+   "text": "not",
+   "start": 490.927,
+   "end": 491.125
+  },
+  {
+   "text": "a",
+   "start": 491.171,
+   "end": 491.194
+  },
+  {
+   "text": "measurement.",
+   "start": 491.252,
+   "end": 491.949
+  },
+  {
+   "text": "But",
+   "start": 492.274,
+   "end": 492.437
+  },
+  {
+   "text": "the",
+   "start": 492.471,
+   "end": 492.541
+  },
+  {
+   "text": "biggest",
+   "start": 492.599,
+   "end": 492.889
+  },
+  {
+   "text": "changes",
+   "start": 492.924,
+   "end": 493.307
+  },
+  {
+   "text": "may",
+   "start": 493.365,
+   "end": 493.505
+  },
+  {
+   "text": "not",
+   "start": 493.574,
+   "end": 493.737
+  },
+  {
+   "text": "be",
+   "start": 493.806,
+   "end": 493.934
+  },
+  {
+   "text": "in",
+   "start": 493.981,
+   "end": 494.05
+  },
+  {
+   "text": "the",
+   "start": 494.085,
+   "end": 494.155
+  },
+  {
+   "text": "Sahara",
+   "start": 494.201,
+   "end": 494.666
+  },
+  {
+   "text": "at",
+   "start": 494.735,
+   "end": 494.84
+  },
+  {
+   "text": "all.",
+   "start": 494.898,
+   "end": 495.385
+  },
+  {
+   "text": "Now,",
+   "start": 495.827,
+   "end": 496.21
+  },
+  {
+   "text": "the",
+   "start": 496.279,
+   "end": 496.384
+  },
+  {
+   "text": "part",
+   "start": 496.43,
+   "end": 496.616
+  },
+  {
+   "text": "that's",
+   "start": 496.651,
+   "end": 496.848
+  },
+  {
+   "text": "easy",
+   "start": 496.895,
+   "end": 497.104
+  },
+  {
+   "text": "to",
+   "start": 497.15,
+   "end": 497.197
+  },
+  {
+   "text": "miss.",
+   "start": 497.255,
+   "end": 498.16
+  },
+  {
+   "text": "First,",
+   "start": 498.161,
+   "end": 498.73
+  },
+  {
+   "text": "dust.",
+   "start": 498.904,
+   "end": 499.694
+  },
+  {
+   "text": "NASA",
+   "start": 500.495,
+   "end": 500.866
+  },
+  {
+   "text": "satellite",
+   "start": 500.913,
+   "end": 501.412
+  },
+  {
+   "text": "data",
+   "start": 501.447,
+   "end": 501.702
+  },
+  {
+   "text": "suggest",
+   "start": 501.76,
+   "end": 502.224
+  },
+  {
+   "text": "that,",
+   "start": 502.271,
+   "end": 502.492
+  },
+  {
+   "text": "on",
+   "start": 502.538,
+   "end": 502.712
+  },
+  {
+   "text": "average,",
+   "start": 502.782,
+   "end": 503.223
+  },
+  {
+   "text": "about",
+   "start": 503.246,
+   "end": 503.525
+  },
+  {
+   "text": "182",
+   "start": 503.606,
+   "end": 504.616
+  },
+  {
+   "text": "million",
+   "start": 504.744,
+   "end": 505.127
+  },
+  {
+   "text": "tons",
+   "start": 505.197,
+   "end": 505.487
+  },
+  {
+   "text": "of",
+   "start": 505.533,
+   "end": 505.591
+  },
+  {
+   "text": "dust",
+   "start": 505.673,
+   "end": 505.986
+  },
+  {
+   "text": "a",
+   "start": 506.044,
+   "end": 506.079
+  },
+  {
+   "text": "year",
+   "start": 506.195,
+   "end": 506.497
+  },
+  {
+   "text": "are",
+   "start": 506.822,
+   "end": 507.019
+  },
+  {
+   "text": "carried",
+   "start": 507.054,
+   "end": 507.368
+  },
+  {
+   "text": "past",
+   "start": 507.414,
+   "end": 507.728
+  },
+  {
+   "text": "the",
+   "start": 507.774,
+   "end": 507.844
+  },
+  {
+   "text": "Sahara's",
+   "start": 507.902,
+   "end": 508.389
+  },
+  {
+   "text": "western",
+   "start": 508.424,
+   "end": 508.819
+  },
+  {
+   "text": "edge,",
+   "start": 508.889,
+   "end": 509.341
+  },
+  {
+   "text": "and",
+   "start": 509.492,
+   "end": 509.69
+  },
+  {
+   "text": "out",
+   "start": 509.771,
+   "end": 509.957
+  },
+  {
+   "text": "over",
+   "start": 510.015,
+   "end": 510.247
+  },
+  {
+   "text": "the",
+   "start": 510.293,
+   "end": 510.363
+  },
+  {
+   "text": "Atlantic.",
+   "start": 510.421,
+   "end": 511.118
+  },
+  {
+   "text": "Roughly",
+   "start": 511.559,
+   "end": 511.93
+  },
+  {
+   "text": "28",
+   "start": 512.0,
+   "end": 512.476
+  },
+  {
+   "text": "million",
+   "start": 512.534,
+   "end": 512.871
+  },
+  {
+   "text": "tons",
+   "start": 512.941,
+   "end": 513.254
+  },
+  {
+   "text": "of",
+   "start": 513.301,
+   "end": 513.359
+  },
+  {
+   "text": "it",
+   "start": 513.417,
+   "end": 513.498
+  },
+  {
+   "text": "settle",
+   "start": 513.568,
+   "end": 513.869
+  },
+  {
+   "text": "on",
+   "start": 513.916,
+   "end": 513.997
+  },
+  {
+   "text": "the",
+   "start": 514.032,
+   "end": 514.102
+  },
+  {
+   "text": "Amazon",
+   "start": 514.171,
+   "end": 514.601
+  },
+  {
+   "text": "basin.",
+   "start": 514.659,
+   "end": 515.344
+  },
+  {
+   "text": "That",
+   "start": 515.785,
+   "end": 516.006
+  },
+  {
+   "text": "dust",
+   "start": 516.075,
+   "end": 516.493
+  },
+  {
+   "text": "carries",
+   "start": 516.586,
+   "end": 516.992
+  },
+  {
+   "text": "an",
+   "start": 517.039,
+   "end": 517.109
+  },
+  {
+   "text": "estimated",
+   "start": 517.19,
+   "end": 517.736
+  },
+  {
+   "text": "22,000",
+   "start": 517.817,
+   "end": 518.85
+  },
+  {
+   "text": "tons",
+   "start": 518.908,
+   "end": 519.222
+  },
+  {
+   "text": "of",
+   "start": 519.268,
+   "end": 519.326
+  },
+  {
+   "text": "phosphorus",
+   "start": 519.373,
+   "end": 519.918
+  },
+  {
+   "text": "a",
+   "start": 519.965,
+   "end": 519.988
+  },
+  {
+   "text": "year,",
+   "start": 520.104,
+   "end": 520.661
+  },
+  {
+   "text": "about",
+   "start": 520.986,
+   "end": 521.265
+  },
+  {
+   "text": "as",
+   "start": 521.3,
+   "end": 521.369
+  },
+  {
+   "text": "much",
+   "start": 521.427,
+   "end": 521.613
+  },
+  {
+   "text": "as",
+   "start": 521.648,
+   "end": 521.729
+  },
+  {
+   "text": "the",
+   "start": 521.787,
+   "end": 521.857
+  },
+  {
+   "text": "rainforest",
+   "start": 521.927,
+   "end": 522.588
+  },
+  {
+   "text": "loses",
+   "start": 522.681,
+   "end": 523.064
+  },
+  {
+   "text": "to",
+   "start": 523.134,
+   "end": 523.215
+  },
+  {
+   "text": "rain",
+   "start": 523.332,
+   "end": 523.622
+  },
+  {
+   "text": "and",
+   "start": 523.691,
+   "end": 523.796
+  },
+  {
+   "text": "floods.",
+   "start": 523.877,
+   "end": 524.655
+  },
+  {
+   "text": "Where",
+   "start": 525.038,
+   "end": 525.247
+  },
+  {
+   "text": "does",
+   "start": 525.27,
+   "end": 525.398
+  },
+  {
+   "text": "it",
+   "start": 525.445,
+   "end": 525.514
+  },
+  {
+   "text": "come",
+   "start": 525.561,
+   "end": 525.77
+  },
+  {
+   "text": "from?",
+   "start": 525.804,
+   "end": 526.257
+  },
+  {
+   "text": "The",
+   "start": 526.698,
+   "end": 526.803
+  },
+  {
+   "text": "Bodélé",
+   "start": 526.861,
+   "end": 527.291
+  },
+  {
+   "text": "Depression",
+   "start": 527.349,
+   "end": 527.917
+  },
+  {
+   "text": "in",
+   "start": 527.987,
+   "end": 528.068
+  },
+  {
+   "text": "Chad",
+   "start": 528.15,
+   "end": 528.626
+  },
+  {
+   "text": "is",
+   "start": 528.951,
+   "end": 529.113
+  },
+  {
+   "text": "one",
+   "start": 529.171,
+   "end": 529.299
+  },
+  {
+   "text": "of",
+   "start": 529.322,
+   "end": 529.38
+  },
+  {
+   "text": "the",
+   "start": 529.427,
+   "end": 529.497
+  },
+  {
+   "text": "world's",
+   "start": 529.543,
+   "end": 529.903
+  },
+  {
+   "text": "most",
+   "start": 529.961,
+   "end": 530.193
+  },
+  {
+   "text": "prolific",
+   "start": 530.286,
+   "end": 530.867
+  },
+  {
+   "text": "dust",
+   "start": 530.936,
+   "end": 531.192
+  },
+  {
+   "text": "sources:",
+   "start": 531.25,
+   "end": 532.051
+  },
+  {
+   "text": "the",
+   "start": 532.376,
+   "end": 532.48
+  },
+  {
+   "text": "dry",
+   "start": 532.538,
+   "end": 532.922
+  },
+  {
+   "text": "floor",
+   "start": 533.038,
+   "end": 533.467
+  },
+  {
+   "text": "of",
+   "start": 533.56,
+   "end": 533.676
+  },
+  {
+   "text": "old",
+   "start": 533.792,
+   "end": 534.106
+  },
+  {
+   "text": "Lake",
+   "start": 534.222,
+   "end": 534.5
+  },
+  {
+   "text": "Mega-Chad,",
+   "start": 534.582,
+   "end": 535.592
+  },
+  {
+   "text": "where",
+   "start": 535.836,
+   "end": 536.021
+  },
+  {
+   "text": "the",
+   "start": 536.056,
+   "end": 536.126
+  },
+  {
+   "text": "dust",
+   "start": 536.172,
+   "end": 536.416
+  },
+  {
+   "text": "is",
+   "start": 536.474,
+   "end": 536.555
+  },
+  {
+   "text": "mostly",
+   "start": 536.613,
+   "end": 536.962
+  },
+  {
+   "text": "quartz",
+   "start": 537.043,
+   "end": 537.519
+  },
+  {
+   "text": "and",
+   "start": 537.798,
+   "end": 537.995
+  },
+  {
+   "text": "the",
+   "start": 538.042,
+   "end": 538.111
+  },
+  {
+   "text": "fossil",
+   "start": 538.181,
+   "end": 538.576
+  },
+  {
+   "text": "remains",
+   "start": 538.657,
+   "end": 539.133
+  },
+  {
+   "text": "of",
+   "start": 539.191,
+   "end": 539.261
+  },
+  {
+   "text": "tiny",
+   "start": 539.33,
+   "end": 539.679
+  },
+  {
+   "text": "algae.",
+   "start": 539.748,
+   "end": 540.491
+  },
+  {
+   "text": "But",
+   "start": 541.002,
+   "end": 541.165
+  },
+  {
+   "text": "it",
+   "start": 541.211,
+   "end": 541.281
+  },
+  {
+   "text": "may",
+   "start": 541.339,
+   "end": 541.466
+  },
+  {
+   "text": "not",
+   "start": 541.548,
+   "end": 541.699
+  },
+  {
+   "text": "be",
+   "start": 541.757,
+   "end": 541.861
+  },
+  {
+   "text": "the",
+   "start": 541.908,
+   "end": 541.977
+  },
+  {
+   "text": "main",
+   "start": 542.047,
+   "end": 542.291
+  },
+  {
+   "text": "supplier",
+   "start": 542.372,
+   "end": 542.953
+  },
+  {
+   "text": "to",
+   "start": 543.022,
+   "end": 543.092
+  },
+  {
+   "text": "the",
+   "start": 543.162,
+   "end": 543.243
+  },
+  {
+   "text": "Amazon.",
+   "start": 543.312,
+   "end": 544.148
+  },
+  {
+   "text": "A",
+   "start": 544.531,
+   "end": 544.613
+  },
+  {
+   "text": "newer",
+   "start": 544.729,
+   "end": 545.007
+  },
+  {
+   "text": "analysis",
+   "start": 545.077,
+   "end": 545.681
+  },
+  {
+   "text": "points",
+   "start": 545.762,
+   "end": 546.134
+  },
+  {
+   "text": "to",
+   "start": 546.192,
+   "end": 546.413
+  },
+  {
+   "text": "El",
+   "start": 546.622,
+   "end": 546.912
+  },
+  {
+   "text": "Djouf,",
+   "start": 547.028,
+   "end": 547.667
+  },
+  {
+   "text": "a",
+   "start": 547.875,
+   "end": 547.945
+  },
+  {
+   "text": "desert",
+   "start": 548.061,
+   "end": 548.468
+  },
+  {
+   "text": "in",
+   "start": 548.526,
+   "end": 548.607
+  },
+  {
+   "text": "Mauritania",
+   "start": 548.688,
+   "end": 549.42
+  },
+  {
+   "text": "and",
+   "start": 549.466,
+   "end": 549.64
+  },
+  {
+   "text": "Mali,",
+   "start": 549.721,
+   "end": 550.302
+  },
+  {
+   "text": "about",
+   "start": 550.604,
+   "end": 550.894
+  },
+  {
+   "text": "2,500",
+   "start": 550.952,
+   "end": 552.078
+  },
+  {
+   "text": "kilometers,",
+   "start": 552.125,
+   "end": 552.891
+  },
+  {
+   "text": "1,600",
+   "start": 553.112,
+   "end": 554.215
+  },
+  {
+   "text": "miles,",
+   "start": 554.273,
+   "end": 554.865
+  },
+  {
+   "text": "to",
+   "start": 555.085,
+   "end": 555.19
+  },
+  {
+   "text": "the",
+   "start": 555.248,
+   "end": 555.317
+  },
+  {
+   "text": "west.",
+   "start": 555.352,
+   "end": 555.84
+  },
+  {
+   "text": "So",
+   "start": 556.061,
+   "end": 556.177
+  },
+  {
+   "text": "here's",
+   "start": 556.235,
+   "end": 556.42
+  },
+  {
+   "text": "the",
+   "start": 556.455,
+   "end": 556.513
+  },
+  {
+   "text": "open",
+   "start": 556.583,
+   "end": 556.78
+  },
+  {
+   "text": "question.",
+   "start": 556.838,
+   "end": 557.419
+  },
+  {
+   "text": "If",
+   "start": 557.976,
+   "end": 558.115
+  },
+  {
+   "text": "a",
+   "start": 558.162,
+   "end": 558.185
+  },
+  {
+   "text": "greener",
+   "start": 558.255,
+   "end": 558.568
+  },
+  {
+   "text": "Sahara",
+   "start": 558.638,
+   "end": 559.102
+  },
+  {
+   "text": "blew",
+   "start": 559.16,
+   "end": 559.381
+  },
+  {
+   "text": "less",
+   "start": 559.451,
+   "end": 559.694
+  },
+  {
+   "text": "dust,",
+   "start": 559.764,
+   "end": 560.31
+  },
+  {
+   "text": "would",
+   "start": 560.612,
+   "end": 560.786
+  },
+  {
+   "text": "the",
+   "start": 560.797,
+   "end": 560.867
+  },
+  {
+   "text": "Amazon",
+   "start": 560.937,
+   "end": 561.401
+  },
+  {
+   "text": "get",
+   "start": 561.471,
+   "end": 561.633
+  },
+  {
+   "text": "less",
+   "start": 561.715,
+   "end": 561.947
+  },
+  {
+   "text": "phosphorus?",
+   "start": 562.005,
+   "end": 562.818
+  },
+  {
+   "text": "That's",
+   "start": 563.119,
+   "end": 563.328
+  },
+  {
+   "text": "a",
+   "start": 563.363,
+   "end": 563.386
+  },
+  {
+   "text": "hypothesis,",
+   "start": 563.433,
+   "end": 564.292
+  },
+  {
+   "text": "and",
+   "start": 564.443,
+   "end": 564.571
+  },
+  {
+   "text": "we",
+   "start": 564.629,
+   "end": 564.71
+  },
+  {
+   "text": "found",
+   "start": 564.78,
+   "end": 565.012
+  },
+  {
+   "text": "no",
+   "start": 565.105,
+   "end": 565.267
+  },
+  {
+   "text": "study",
+   "start": 565.349,
+   "end": 565.639
+  },
+  {
+   "text": "that",
+   "start": 565.685,
+   "end": 565.801
+  },
+  {
+   "text": "models",
+   "start": 565.848,
+   "end": 566.184
+  },
+  {
+   "text": "it",
+   "start": 566.243,
+   "end": 566.301
+  },
+  {
+   "text": "for",
+   "start": 566.347,
+   "end": 566.463
+  },
+  {
+   "text": "a",
+   "start": 566.498,
+   "end": 566.521
+  },
+  {
+   "text": "planted",
+   "start": 566.568,
+   "end": 566.928
+  },
+  {
+   "text": "Sahara.",
+   "start": 566.986,
+   "end": 567.671
+  },
+  {
+   "text": "Second,",
+   "start": 568.181,
+   "end": 568.797
+  },
+  {
+   "text": "storms.",
+   "start": 569.18,
+   "end": 570.074
+  },
+  {
+   "text": "Researchers",
+   "start": 570.77,
+   "end": 571.339
+  },
+  {
+   "text": "simulated",
+   "start": 571.374,
+   "end": 571.897
+  },
+  {
+   "text": "the",
+   "start": 571.931,
+   "end": 572.001
+  },
+  {
+   "text": "world",
+   "start": 572.036,
+   "end": 572.256
+  },
+  {
+   "text": "about",
+   "start": 572.291,
+   "end": 572.477
+  },
+  {
+   "text": "6,000",
+   "start": 572.558,
+   "end": 573.22
+  },
+  {
+   "text": "years",
+   "start": 573.29,
+   "end": 573.522
+  },
+  {
+   "text": "ago,",
+   "start": 573.557,
+   "end": 574.01
+  },
+  {
+   "text": "when",
+   "start": 574.091,
+   "end": 574.277
+  },
+  {
+   "text": "the",
+   "start": 574.311,
+   "end": 574.381
+  },
+  {
+   "text": "Sahara",
+   "start": 574.439,
+   "end": 574.892
+  },
+  {
+   "text": "was",
+   "start": 574.95,
+   "end": 575.066
+  },
+  {
+   "text": "green.",
+   "start": 575.147,
+   "end": 575.786
+  },
+  {
+   "text": "In",
+   "start": 576.297,
+   "end": 576.448
+  },
+  {
+   "text": "their",
+   "start": 576.494,
+   "end": 576.668
+  },
+  {
+   "text": "model",
+   "start": 576.738,
+   "end": 577.04
+  },
+  {
+   "text": "the",
+   "start": 577.098,
+   "end": 577.168
+  },
+  {
+   "text": "Sahara",
+   "start": 577.226,
+   "end": 577.644
+  },
+  {
+   "text": "was",
+   "start": 577.702,
+   "end": 577.818
+  },
+  {
+   "text": "covered",
+   "start": 577.887,
+   "end": 578.201
+  },
+  {
+   "text": "in",
+   "start": 578.236,
+   "end": 578.305
+  },
+  {
+   "text": "shrubs,",
+   "start": 578.398,
+   "end": 579.141
+  },
+  {
+   "text": "not",
+   "start": 579.35,
+   "end": 579.536
+  },
+  {
+   "text": "an",
+   "start": 579.582,
+   "end": 579.64
+  },
+  {
+   "text": "artificial",
+   "start": 579.687,
+   "end": 580.186
+  },
+  {
+   "text": "forest,",
+   "start": 580.256,
+   "end": 580.906
+  },
+  {
+   "text": "and",
+   "start": 581.15,
+   "end": 581.323
+  },
+  {
+   "text": "dust",
+   "start": 581.44,
+   "end": 581.811
+  },
+  {
+   "text": "was",
+   "start": 581.892,
+   "end": 582.032
+  },
+  {
+   "text": "cut",
+   "start": 582.101,
+   "end": 582.275
+  },
+  {
+   "text": "by",
+   "start": 582.334,
+   "end": 582.45
+  },
+  {
+   "text": "up",
+   "start": 582.508,
+   "end": 582.612
+  },
+  {
+   "text": "to",
+   "start": 582.67,
+   "end": 582.728
+  },
+  {
+   "text": "80",
+   "start": 582.844,
+   "end": 583.077
+  },
+  {
+   "text": "percent.",
+   "start": 583.146,
+   "end": 583.762
+  },
+  {
+   "text": "Compared",
+   "start": 584.458,
+   "end": 584.888
+  },
+  {
+   "text": "with",
+   "start": 584.911,
+   "end": 585.039
+  },
+  {
+   "text": "the",
+   "start": 585.073,
+   "end": 585.143
+  },
+  {
+   "text": "same",
+   "start": 585.201,
+   "end": 585.503
+  },
+  {
+   "text": "model's",
+   "start": 585.549,
+   "end": 585.967
+  },
+  {
+   "text": "pre-industrial",
+   "start": 586.037,
+   "end": 586.896
+  },
+  {
+   "text": "world,",
+   "start": 586.954,
+   "end": 587.512
+  },
+  {
+   "text": "that",
+   "start": 587.755,
+   "end": 587.918
+  },
+  {
+   "text": "produced",
+   "start": 587.964,
+   "end": 588.324
+  },
+  {
+   "text": "more",
+   "start": 588.382,
+   "end": 588.556
+  },
+  {
+   "text": "tropical",
+   "start": 588.603,
+   "end": 589.056
+  },
+  {
+   "text": "cyclone",
+   "start": 589.114,
+   "end": 589.625
+  },
+  {
+   "text": "activity",
+   "start": 589.659,
+   "end": 590.193
+  },
+  {
+   "text": "in",
+   "start": 590.263,
+   "end": 590.344
+  },
+  {
+   "text": "both",
+   "start": 590.414,
+   "end": 590.646
+  },
+  {
+   "text": "hemispheres,",
+   "start": 590.704,
+   "end": 591.529
+  },
+  {
+   "text": "especially",
+   "start": 591.772,
+   "end": 592.318
+  },
+  {
+   "text": "around",
+   "start": 592.376,
+   "end": 592.666
+  },
+  {
+   "text": "the",
+   "start": 592.701,
+   "end": 592.771
+  },
+  {
+   "text": "Caribbean",
+   "start": 592.817,
+   "end": 593.514
+  },
+  {
+   "text": "and",
+   "start": 593.607,
+   "end": 593.793
+  },
+  {
+   "text": "the",
+   "start": 593.851,
+   "end": 593.92
+  },
+  {
+   "text": "southeastern",
+   "start": 593.967,
+   "end": 594.582
+  },
+  {
+   "text": "United",
+   "start": 594.652,
+   "end": 595.012
+  },
+  {
+   "text": "States,",
+   "start": 595.07,
+   "end": 595.673
+  },
+  {
+   "text": "though",
+   "start": 595.882,
+   "end": 596.115
+  },
+  {
+   "text": "some",
+   "start": 596.161,
+   "end": 596.475
+  },
+  {
+   "text": "ocean",
+   "start": 596.544,
+   "end": 596.928
+  },
+  {
+   "text": "regions",
+   "start": 596.997,
+   "end": 597.462
+  },
+  {
+   "text": "saw",
+   "start": 597.578,
+   "end": 597.845
+  },
+  {
+   "text": "fewer.",
+   "start": 597.938,
+   "end": 598.483
+  },
+  {
+   "text": "A",
+   "start": 599.296,
+   "end": 599.366
+  },
+  {
+   "text": "stronger",
+   "start": 599.447,
+   "end": 599.911
+  },
+  {
+   "text": "West",
+   "start": 599.969,
+   "end": 600.213
+  },
+  {
+   "text": "African",
+   "start": 600.294,
+   "end": 600.654
+  },
+  {
+   "text": "monsoon",
+   "start": 600.712,
+   "end": 601.386
+  },
+  {
+   "text": "changed",
+   "start": 601.479,
+   "end": 601.966
+  },
+  {
+   "text": "winds",
+   "start": 602.048,
+   "end": 602.431
+  },
+  {
+   "text": "across",
+   "start": 602.477,
+   "end": 602.849
+  },
+  {
+   "text": "the",
+   "start": 602.895,
+   "end": 602.965
+  },
+  {
+   "text": "tropics.",
+   "start": 603.011,
+   "end": 603.661
+  },
+  {
+   "text": "That's",
+   "start": 603.87,
+   "end": 604.102
+  },
+  {
+   "text": "a",
+   "start": 604.137,
+   "end": 604.161
+  },
+  {
+   "text": "simulation",
+   "start": 604.207,
+   "end": 604.834
+  },
+  {
+   "text": "of",
+   "start": 604.88,
+   "end": 604.927
+  },
+  {
+   "text": "the",
+   "start": 604.973,
+   "end": 605.043
+  },
+  {
+   "text": "past,",
+   "start": 605.089,
+   "end": 605.809
+  },
+  {
+   "text": "not",
+   "start": 606.088,
+   "end": 606.274
+  },
+  {
+   "text": "a",
+   "start": 606.308,
+   "end": 606.332
+  },
+  {
+   "text": "forecast",
+   "start": 606.401,
+   "end": 607.017
+  },
+  {
+   "text": "for",
+   "start": 607.075,
+   "end": 607.191
+  },
+  {
+   "text": "a",
+   "start": 607.237,
+   "end": 607.26
+  },
+  {
+   "text": "planted",
+   "start": 607.318,
+   "end": 607.713
+  },
+  {
+   "text": "Sahara,",
+   "start": 607.783,
+   "end": 608.503
+  },
+  {
+   "text": "and",
+   "start": 608.712,
+   "end": 608.851
+  },
+  {
+   "text": "there",
+   "start": 608.886,
+   "end": 609.037
+  },
+  {
+   "text": "aren't",
+   "start": 609.072,
+   "end": 609.292
+  },
+  {
+   "text": "enough",
+   "start": 609.339,
+   "end": 609.571
+  },
+  {
+   "text": "records",
+   "start": 609.652,
+   "end": 610.012
+  },
+  {
+   "text": "of",
+   "start": 610.058,
+   "end": 610.116
+  },
+  {
+   "text": "ancient",
+   "start": 610.186,
+   "end": 610.523
+  },
+  {
+   "text": "storms",
+   "start": 610.569,
+   "end": 611.022
+  },
+  {
+   "text": "to",
+   "start": 611.068,
+   "end": 611.15
+  },
+  {
+   "text": "check",
+   "start": 611.219,
+   "end": 611.463
+  },
+  {
+   "text": "it.",
+   "start": 611.521,
+   "end": 611.823
+  },
+  {
+   "text": "But",
+   "start": 612.334,
+   "end": 612.496
+  },
+  {
+   "text": "it",
+   "start": 612.543,
+   "end": 612.612
+  },
+  {
+   "text": "shows",
+   "start": 612.659,
+   "end": 612.972
+  },
+  {
+   "text": "how",
+   "start": 613.03,
+   "end": 613.158
+  },
+  {
+   "text": "far",
+   "start": 613.251,
+   "end": 613.553
+  },
+  {
+   "text": "the",
+   "start": 613.634,
+   "end": 613.715
+  },
+  {
+   "text": "Sahara",
+   "start": 613.773,
+   "end": 614.215
+  },
+  {
+   "text": "reaches.",
+   "start": 614.284,
+   "end": 615.097
+  },
+  {
+   "text": "Meanwhile,",
+   "start": 615.097,
+   "end": 615.921
+  },
+  {
+   "text": "something",
+   "start": 616.13,
+   "end": 616.49
+  },
+  {
+   "text": "real",
+   "start": 616.583,
+   "end": 616.943
+  },
+  {
+   "text": "has",
+   "start": 617.036,
+   "end": 617.152
+  },
+  {
+   "text": "been",
+   "start": 617.21,
+   "end": 617.361
+  },
+  {
+   "text": "happening",
+   "start": 617.407,
+   "end": 617.825
+  },
+  {
+   "text": "on",
+   "start": 617.907,
+   "end": 618.046
+  },
+  {
+   "text": "the",
+   "start": 618.092,
+   "end": 618.162
+  },
+  {
+   "text": "Sahara's",
+   "start": 618.208,
+   "end": 618.719
+  },
+  {
+   "text": "southern",
+   "start": 618.754,
+   "end": 619.102
+  },
+  {
+   "text": "edge.",
+   "start": 619.184,
+   "end": 619.787
+  },
+  {
+   "text": "After",
+   "start": 620.171,
+   "end": 620.449
+  },
+  {
+   "text": "the",
+   "start": 620.496,
+   "end": 620.565
+  },
+  {
+   "text": "droughts",
+   "start": 620.612,
+   "end": 620.937
+  },
+  {
+   "text": "of",
+   "start": 620.972,
+   "end": 621.03
+  },
+  {
+   "text": "the",
+   "start": 621.065,
+   "end": 621.134
+  },
+  {
+   "text": "1970s",
+   "start": 621.169,
+   "end": 622.017
+  },
+  {
+   "text": "and",
+   "start": 622.051,
+   "end": 622.133
+  },
+  {
+   "text": "80s,",
+   "start": 622.202,
+   "end": 622.818
+  },
+  {
+   "text": "satellite",
+   "start": 623.061,
+   "end": 623.537
+  },
+  {
+   "text": "records",
+   "start": 623.584,
+   "end": 623.944
+  },
+  {
+   "text": "show",
+   "start": 623.99,
+   "end": 624.153
+  },
+  {
+   "text": "vegetation",
+   "start": 624.222,
+   "end": 624.849
+  },
+  {
+   "text": "returning",
+   "start": 624.919,
+   "end": 625.337
+  },
+  {
+   "text": "to",
+   "start": 625.383,
+   "end": 625.43
+  },
+  {
+   "text": "the",
+   "start": 625.488,
+   "end": 625.558
+  },
+  {
+   "text": "Sahel",
+   "start": 625.604,
+   "end": 626.103
+  },
+  {
+   "text": "as",
+   "start": 626.428,
+   "end": 626.602
+  },
+  {
+   "text": "the",
+   "start": 626.661,
+   "end": 626.73
+  },
+  {
+   "text": "rains",
+   "start": 626.8,
+   "end": 627.148
+  },
+  {
+   "text": "came",
+   "start": 627.218,
+   "end": 627.427
+  },
+  {
+   "text": "back",
+   "start": 627.462,
+   "end": 627.659
+  },
+  {
+   "text": "in",
+   "start": 627.717,
+   "end": 627.775
+  },
+  {
+   "text": "the",
+   "start": 627.81,
+   "end": 627.88
+  },
+  {
+   "text": "1990s",
+   "start": 627.914,
+   "end": 628.774
+  },
+  {
+   "text": "and",
+   "start": 628.82,
+   "end": 628.913
+  },
+  {
+   "text": "2000s.",
+   "start": 628.983,
+   "end": 629.807
+  },
+  {
+   "text": "Researchers",
+   "start": 630.086,
+   "end": 630.689
+  },
+  {
+   "text": "concluded",
+   "start": 630.747,
+   "end": 631.258
+  },
+  {
+   "text": "that",
+   "start": 631.293,
+   "end": 631.409
+  },
+  {
+   "text": "those",
+   "start": 631.444,
+   "end": 631.664
+  },
+  {
+   "text": "large-scale",
+   "start": 631.723,
+   "end": 632.454
+  },
+  {
+   "text": "changes",
+   "start": 632.5,
+   "end": 632.953
+  },
+  {
+   "text": "are",
+   "start": 633.011,
+   "end": 633.162
+  },
+  {
+   "text": "mainly",
+   "start": 633.209,
+   "end": 633.557
+  },
+  {
+   "text": "driven",
+   "start": 633.615,
+   "end": 633.917
+  },
+  {
+   "text": "by",
+   "start": 633.975,
+   "end": 634.114
+  },
+  {
+   "text": "rainfall,",
+   "start": 634.23,
+   "end": 634.95
+  },
+  {
+   "text": "and",
+   "start": 635.101,
+   "end": 635.24
+  },
+  {
+   "text": "that",
+   "start": 635.287,
+   "end": 635.414
+  },
+  {
+   "text": "lasting",
+   "start": 635.484,
+   "end": 635.937
+  },
+  {
+   "text": "desertification",
+   "start": 636.018,
+   "end": 636.877
+  },
+  {
+   "text": "was",
+   "start": 636.935,
+   "end": 637.063
+  },
+  {
+   "text": "limited",
+   "start": 637.156,
+   "end": 637.493
+  },
+  {
+   "text": "to",
+   "start": 637.527,
+   "end": 637.597
+  },
+  {
+   "text": "local",
+   "start": 637.713,
+   "end": 638.038
+  },
+  {
+   "text": "areas.",
+   "start": 638.12,
+   "end": 638.654
+  },
+  {
+   "text": "Separately,",
+   "start": 638.932,
+   "end": 639.594
+  },
+  {
+   "text": "UNCCD",
+   "start": 639.838,
+   "end": 640.755
+  },
+  {
+   "text": "documents",
+   "start": 640.906,
+   "end": 641.452
+  },
+  {
+   "text": "credit",
+   "start": 641.521,
+   "end": 641.858
+  },
+  {
+   "text": "farmers",
+   "start": 641.916,
+   "end": 642.299
+  },
+  {
+   "text": "who",
+   "start": 642.334,
+   "end": 642.439
+  },
+  {
+   "text": "protect",
+   "start": 642.508,
+   "end": 642.892
+  },
+  {
+   "text": "trees",
+   "start": 642.926,
+   "end": 643.391
+  },
+  {
+   "text": "sprouting",
+   "start": 643.507,
+   "end": 643.994
+  },
+  {
+   "text": "on",
+   "start": 644.053,
+   "end": 644.145
+  },
+  {
+   "text": "their",
+   "start": 644.192,
+   "end": 644.354
+  },
+  {
+   "text": "own",
+   "start": 644.412,
+   "end": 644.563
+  },
+  {
+   "text": "land",
+   "start": 644.645,
+   "end": 645.016
+  },
+  {
+   "text": "with",
+   "start": 645.086,
+   "end": 645.26
+  },
+  {
+   "text": "restoring",
+   "start": 645.33,
+   "end": 645.852
+  },
+  {
+   "text": "more",
+   "start": 645.922,
+   "end": 646.084
+  },
+  {
+   "text": "than",
+   "start": 646.119,
+   "end": 646.27
+  },
+  {
+   "text": "five",
+   "start": 646.363,
+   "end": 646.758
+  },
+  {
+   "text": "million",
+   "start": 646.816,
+   "end": 647.152
+  },
+  {
+   "text": "hectares",
+   "start": 647.21,
+   "end": 647.826
+  },
+  {
+   "text": "in",
+   "start": 647.895,
+   "end": 648.0
+  },
+  {
+   "text": "southern",
+   "start": 648.116,
+   "end": 648.488
+  },
+  {
+   "text": "Niger's",
+   "start": 648.546,
+   "end": 649.08
+  },
+  {
+   "text": "Maradi",
+   "start": 649.149,
+   "end": 649.614
+  },
+  {
+   "text": "region,",
+   "start": 649.695,
+   "end": 650.241
+  },
+  {
+   "text": "about",
+   "start": 650.484,
+   "end": 650.821
+  },
+  {
+   "text": "12",
+   "start": 650.879,
+   "end": 651.332
+  },
+  {
+   "text": "million",
+   "start": 651.425,
+   "end": 651.785
+  },
+  {
+   "text": "acres,",
+   "start": 651.854,
+   "end": 652.389
+  },
+  {
+   "text": "and",
+   "start": 652.714,
+   "end": 652.865
+  },
+  {
+   "text": "over",
+   "start": 652.923,
+   "end": 653.12
+  },
+  {
+   "text": "seven",
+   "start": 653.236,
+   "end": 653.596
+  },
+  {
+   "text": "million",
+   "start": 653.642,
+   "end": 653.956
+  },
+  {
+   "text": "hectares",
+   "start": 654.026,
+   "end": 654.536
+  },
+  {
+   "text": "across",
+   "start": 654.583,
+   "end": 654.966
+  },
+  {
+   "text": "Niger,",
+   "start": 655.036,
+   "end": 655.616
+  },
+  {
+   "text": "more",
+   "start": 655.825,
+   "end": 655.988
+  },
+  {
+   "text": "than",
+   "start": 656.022,
+   "end": 656.162
+  },
+  {
+   "text": "17",
+   "start": 656.22,
+   "end": 656.824
+  },
+  {
+   "text": "million",
+   "start": 656.916,
+   "end": 657.276
+  },
+  {
+   "text": "acres.",
+   "start": 657.346,
+   "end": 657.961
+  },
+  {
+   "text": "Those",
+   "start": 658.402,
+   "end": 658.809
+  },
+  {
+   "text": "are",
+   "start": 658.855,
+   "end": 658.983
+  },
+  {
+   "text": "reported",
+   "start": 659.029,
+   "end": 659.47
+  },
+  {
+   "text": "figures,",
+   "start": 659.528,
+   "end": 660.097
+  },
+  {
+   "text": "and",
+   "start": 660.306,
+   "end": 660.457
+  },
+  {
+   "text": "they",
+   "start": 660.504,
+   "end": 660.62
+  },
+  {
+   "text": "differ",
+   "start": 660.689,
+   "end": 660.968
+  },
+  {
+   "text": "by",
+   "start": 661.049,
+   "end": 661.177
+  },
+  {
+   "text": "region",
+   "start": 661.293,
+   "end": 661.699
+  },
+  {
+   "text": "and",
+   "start": 661.792,
+   "end": 661.932
+  },
+  {
+   "text": "report.",
+   "start": 662.013,
+   "end": 662.605
+  },
+  {
+   "text": "In",
+   "start": 663.046,
+   "end": 663.185
+  },
+  {
+   "text": "2007,",
+   "start": 663.244,
+   "end": 664.23
+  },
+  {
+   "text": "the",
+   "start": 664.254,
+   "end": 664.323
+  },
+  {
+   "text": "African",
+   "start": 664.416,
+   "end": 664.822
+  },
+  {
+   "text": "Union",
+   "start": 664.915,
+   "end": 665.194
+  },
+  {
+   "text": "launched",
+   "start": 665.264,
+   "end": 665.647
+  },
+  {
+   "text": "the",
+   "start": 665.728,
+   "end": 665.844
+  },
+  {
+   "text": "Great",
+   "start": 665.902,
+   "end": 666.169
+  },
+  {
+   "text": "Green",
+   "start": 666.251,
+   "end": 666.576
+  },
+  {
+   "text": "Wall.",
+   "start": 666.657,
+   "end": 667.168
+  },
+  {
+   "text": "Its",
+   "start": 667.493,
+   "end": 667.679
+  },
+  {
+   "text": "stated",
+   "start": 667.713,
+   "end": 668.085
+  },
+  {
+   "text": "ambition,",
+   "start": 668.131,
+   "end": 668.723
+  },
+  {
+   "text": "a",
+   "start": 668.758,
+   "end": 668.816
+  },
+  {
+   "text": "pledge",
+   "start": 668.886,
+   "end": 669.223
+  },
+  {
+   "text": "made",
+   "start": 669.269,
+   "end": 669.501
+  },
+  {
+   "text": "at",
+   "start": 669.536,
+   "end": 669.606
+  },
+  {
+   "text": "the",
+   "start": 669.641,
+   "end": 669.71
+  },
+  {
+   "text": "UN",
+   "start": 669.803,
+   "end": 670.035
+  },
+  {
+   "text": "climate",
+   "start": 670.093,
+   "end": 670.477
+  },
+  {
+   "text": "conference",
+   "start": 670.511,
+   "end": 670.964
+  },
+  {
+   "text": "known",
+   "start": 670.987,
+   "end": 671.162
+  },
+  {
+   "text": "as",
+   "start": 671.196,
+   "end": 671.266
+  },
+  {
+   "text": "COP21,",
+   "start": 671.336,
+   "end": 672.241
+  },
+  {
+   "text": "is",
+   "start": 672.566,
+   "end": 672.717
+  },
+  {
+   "text": "to",
+   "start": 672.775,
+   "end": 672.833
+  },
+  {
+   "text": "restore",
+   "start": 672.915,
+   "end": 673.379
+  },
+  {
+   "text": "100",
+   "start": 673.437,
+   "end": 673.971
+  },
+  {
+   "text": "million",
+   "start": 674.041,
+   "end": 674.354
+  },
+  {
+   "text": "hectares",
+   "start": 674.424,
+   "end": 674.912
+  },
+  {
+   "text": "of",
+   "start": 674.958,
+   "end": 675.016
+  },
+  {
+   "text": "degraded",
+   "start": 675.086,
+   "end": 675.538
+  },
+  {
+   "text": "land",
+   "start": 675.608,
+   "end": 675.91
+  },
+  {
+   "text": "by",
+   "start": 675.98,
+   "end": 676.096
+  },
+  {
+   "text": "2030.",
+   "start": 676.165,
+   "end": 677.025
+  },
+  {
+   "text": "The",
+   "start": 677.535,
+   "end": 677.652
+  },
+  {
+   "text": "Wall's",
+   "start": 677.71,
+   "end": 678.046
+  },
+  {
+   "text": "own",
+   "start": 678.116,
+   "end": 678.313
+  },
+  {
+   "text": "coordinating",
+   "start": 678.383,
+   "end": 678.998
+  },
+  {
+   "text": "agency",
+   "start": 679.056,
+   "end": 679.474
+  },
+  {
+   "text": "has",
+   "start": 679.521,
+   "end": 679.625
+  },
+  {
+   "text": "set",
+   "start": 679.672,
+   "end": 679.834
+  },
+  {
+   "text": "a",
+   "start": 679.881,
+   "end": 679.904
+  },
+  {
+   "text": "separate,",
+   "start": 679.974,
+   "end": 680.461
+  },
+  {
+   "text": "smaller",
+   "start": 680.589,
+   "end": 681.053
+  },
+  {
+   "text": "target:",
+   "start": 681.111,
+   "end": 681.657
+  },
+  {
+   "text": "25",
+   "start": 682.04,
+   "end": 682.574
+  },
+  {
+   "text": "million",
+   "start": 682.644,
+   "end": 682.946
+  },
+  {
+   "text": "hectares.",
+   "start": 683.004,
+   "end": 683.758
+  },
+  {
+   "text": "By",
+   "start": 684.2,
+   "end": 684.362
+  },
+  {
+   "text": "2020,",
+   "start": 684.432,
+   "end": 685.163
+  },
+  {
+   "text": "a",
+   "start": 685.198,
+   "end": 685.233
+  },
+  {
+   "text": "UN",
+   "start": 685.349,
+   "end": 685.581
+  },
+  {
+   "text": "report,",
+   "start": 685.651,
+   "end": 686.08
+  },
+  {
+   "text": "based",
+   "start": 686.115,
+   "end": 686.405
+  },
+  {
+   "text": "on",
+   "start": 686.452,
+   "end": 686.545
+  },
+  {
+   "text": "figures",
+   "start": 686.626,
+   "end": 686.951
+  },
+  {
+   "text": "reported",
+   "start": 687.009,
+   "end": 687.439
+  },
+  {
+   "text": "to",
+   "start": 687.474,
+   "end": 687.52
+  },
+  {
+   "text": "the",
+   "start": 687.566,
+   "end": 687.636
+  },
+  {
+   "text": "Wall's",
+   "start": 687.671,
+   "end": 687.938
+  },
+  {
+   "text": "own",
+   "start": 687.984,
+   "end": 688.124
+  },
+  {
+   "text": "agency,",
+   "start": 688.17,
+   "end": 688.797
+  },
+  {
+   "text": "counted",
+   "start": 689.006,
+   "end": 689.366
+  },
+  {
+   "text": "about",
+   "start": 689.401,
+   "end": 689.633
+  },
+  {
+   "text": "4",
+   "start": 689.703,
+   "end": 689.947
+  },
+  {
+   "text": "million",
+   "start": 690.028,
+   "end": 690.353
+  },
+  {
+   "text": "hectares",
+   "start": 690.411,
+   "end": 690.887
+  },
+  {
+   "text": "restored",
+   "start": 690.957,
+   "end": 691.479
+  },
+  {
+   "text": "inside",
+   "start": 691.526,
+   "end": 691.921
+  },
+  {
+   "text": "its",
+   "start": 691.955,
+   "end": 692.06
+  },
+  {
+   "text": "core",
+   "start": 692.118,
+   "end": 692.362
+  },
+  {
+   "text": "zones.",
+   "start": 692.397,
+   "end": 692.977
+  },
+  {
+   "text": "The",
+   "start": 693.302,
+   "end": 693.407
+  },
+  {
+   "text": "project",
+   "start": 693.453,
+   "end": 693.883
+  },
+  {
+   "text": "has",
+   "start": 693.917,
+   "end": 694.022
+  },
+  {
+   "text": "shifted",
+   "start": 694.057,
+   "end": 694.417
+  },
+  {
+   "text": "from",
+   "start": 694.463,
+   "end": 694.602
+  },
+  {
+   "text": "a",
+   "start": 694.649,
+   "end": 694.684
+  },
+  {
+   "text": "literal",
+   "start": 694.753,
+   "end": 695.125
+  },
+  {
+   "text": "wall",
+   "start": 695.195,
+   "end": 695.473
+  },
+  {
+   "text": "of",
+   "start": 695.531,
+   "end": 695.589
+  },
+  {
+   "text": "trees",
+   "start": 695.659,
+   "end": 696.193
+  },
+  {
+   "text": "to",
+   "start": 696.437,
+   "end": 696.553
+  },
+  {
+   "text": "a",
+   "start": 696.646,
+   "end": 696.669
+  },
+  {
+   "text": "mosaic",
+   "start": 696.727,
+   "end": 697.273
+  },
+  {
+   "text": "of",
+   "start": 697.342,
+   "end": 697.4
+  },
+  {
+   "text": "different",
+   "start": 697.47,
+   "end": 697.784
+  },
+  {
+   "text": "land",
+   "start": 697.83,
+   "end": 698.097
+  },
+  {
+   "text": "uses,",
+   "start": 698.178,
+   "end": 698.724
+  },
+  {
+   "text": "including",
+   "start": 698.875,
+   "end": 699.362
+  },
+  {
+   "text": "regrown",
+   "start": 699.432,
+   "end": 699.897
+  },
+  {
+   "text": "vegetation",
+   "start": 699.955,
+   "end": 700.628
+  },
+  {
+   "text": "and",
+   "start": 700.674,
+   "end": 700.756
+  },
+  {
+   "text": "water-holding",
+   "start": 700.825,
+   "end": 701.487
+  },
+  {
+   "text": "measures.",
+   "start": 701.545,
+   "end": 702.091
+  },
+  {
+   "text": "So,",
+   "start": 702.416,
+   "end": 702.88
+  },
+  {
+   "text": "could",
+   "start": 703.054,
+   "end": 703.252
+  },
+  {
+   "text": "we",
+   "start": 703.287,
+   "end": 703.38
+  },
+  {
+   "text": "turn",
+   "start": 703.426,
+   "end": 703.681
+  },
+  {
+   "text": "the",
+   "start": 703.728,
+   "end": 703.797
+  },
+  {
+   "text": "Sahara",
+   "start": 703.844,
+   "end": 704.262
+  },
+  {
+   "text": "green?",
+   "start": 704.32,
+   "end": 704.912
+  },
+  {
+   "text": "In",
+   "start": 705.237,
+   "end": 705.388
+  },
+  {
+   "text": "patches,",
+   "start": 705.458,
+   "end": 705.887
+  },
+  {
+   "text": "we",
+   "start": 705.922,
+   "end": 706.027
+  },
+  {
+   "text": "already",
+   "start": 706.085,
+   "end": 706.468
+  },
+  {
+   "text": "are.",
+   "start": 706.538,
+   "end": 706.967
+  },
+  {
+   "text": "All",
+   "start": 707.176,
+   "end": 707.397
+  },
+  {
+   "text": "of",
+   "start": 707.443,
+   "end": 707.49
+  },
+  {
+   "text": "it",
+   "start": 707.536,
+   "end": 707.594
+  },
+  {
+   "text": "would",
+   "start": 707.617,
+   "end": 707.757
+  },
+  {
+   "text": "take",
+   "start": 707.791,
+   "end": 707.954
+  },
+  {
+   "text": "water",
+   "start": 708.0,
+   "end": 708.256
+  },
+  {
+   "text": "we'd",
+   "start": 708.291,
+   "end": 708.43
+  },
+  {
+   "text": "have",
+   "start": 708.465,
+   "end": 708.581
+  },
+  {
+   "text": "to",
+   "start": 708.604,
+   "end": 708.651
+  },
+  {
+   "text": "make",
+   "start": 708.709,
+   "end": 708.86
+  },
+  {
+   "text": "from",
+   "start": 708.883,
+   "end": 708.999
+  },
+  {
+   "text": "the",
+   "start": 709.045,
+   "end": 709.115
+  },
+  {
+   "text": "sea,",
+   "start": 709.173,
+   "end": 709.498
+  },
+  {
+   "text": "and",
+   "start": 709.545,
+   "end": 709.684
+  },
+  {
+   "text": "a",
+   "start": 709.742,
+   "end": 709.765
+  },
+  {
+   "text": "great",
+   "start": 709.835,
+   "end": 710.055
+  },
+  {
+   "text": "deal",
+   "start": 710.102,
+   "end": 710.276
+  },
+  {
+   "text": "of",
+   "start": 710.322,
+   "end": 710.369
+  },
+  {
+   "text": "energy",
+   "start": 710.439,
+   "end": 710.764
+  },
+  {
+   "text": "to",
+   "start": 710.822,
+   "end": 710.88
+  },
+  {
+   "text": "desalinate",
+   "start": 710.949,
+   "end": 711.681
+  },
+  {
+   "text": "and",
+   "start": 711.704,
+   "end": 711.785
+  },
+  {
+   "text": "pump",
+   "start": 711.855,
+   "end": 712.087
+  },
+  {
+   "text": "it.",
+   "start": 712.145,
+   "end": 712.354
+  },
+  {
+   "text": "The",
+   "start": 712.679,
+   "end": 712.795
+  },
+  {
+   "text": "simulations",
+   "start": 712.853,
+   "end": 713.538
+  },
+  {
+   "text": "disagree",
+   "start": 713.596,
+   "end": 714.049
+  },
+  {
+   "text": "about",
+   "start": 714.084,
+   "end": 714.339
+  },
+  {
+   "text": "how",
+   "start": 714.386,
+   "end": 714.49
+  },
+  {
+   "text": "much",
+   "start": 714.537,
+   "end": 714.688
+  },
+  {
+   "text": "rain",
+   "start": 714.746,
+   "end": 714.908
+  },
+  {
+   "text": "it",
+   "start": 714.943,
+   "end": 714.99
+  },
+  {
+   "text": "would",
+   "start": 715.013,
+   "end": 715.152
+  },
+  {
+   "text": "bring.",
+   "start": 715.175,
+   "end": 715.628
+  },
+  {
+   "text": "And",
+   "start": 715.872,
+   "end": 716.023
+  },
+  {
+   "text": "what",
+   "start": 716.069,
+   "end": 716.197
+  },
+  {
+   "text": "it",
+   "start": 716.232,
+   "end": 716.278
+  },
+  {
+   "text": "would",
+   "start": 716.302,
+   "end": 716.429
+  },
+  {
+   "text": "do",
+   "start": 716.464,
+   "end": 716.592
+  },
+  {
+   "text": "far",
+   "start": 716.684,
+   "end": 716.905
+  },
+  {
+   "text": "from",
+   "start": 716.963,
+   "end": 717.102
+  },
+  {
+   "text": "Africa",
+   "start": 717.184,
+   "end": 717.602
+  },
+  {
+   "text": "is",
+   "start": 717.671,
+   "end": 717.799
+  },
+  {
+   "text": "still",
+   "start": 717.845,
+   "end": 718.066
+  },
+  {
+   "text": "an",
+   "start": 718.124,
+   "end": 718.182
+  },
+  {
+   "text": "open",
+   "start": 718.24,
+   "end": 718.461
+  },
+  {
+   "text": "question.",
+   "start": 718.519,
+   "end": 719.308
+  },
+  {
+   "text": "And",
+   "start": 719.308,
+   "end": 719.482
+  },
+  {
+   "text": "here's",
+   "start": 719.529,
+   "end": 719.738
+  },
+  {
+   "text": "the",
+   "start": 719.772,
+   "end": 719.842
+  },
+  {
+   "text": "twist.",
+   "start": 719.877,
+   "end": 720.457
+  },
+  {
+   "text": "Orbital",
+   "start": 720.782,
+   "end": 721.177
+  },
+  {
+   "text": "cycles",
+   "start": 721.235,
+   "end": 721.642
+  },
+  {
+   "text": "turned",
+   "start": 721.688,
+   "end": 722.002
+  },
+  {
+   "text": "the",
+   "start": 722.06,
+   "end": 722.129
+  },
+  {
+   "text": "Sahara",
+   "start": 722.199,
+   "end": 722.64
+  },
+  {
+   "text": "green",
+   "start": 722.698,
+   "end": 722.977
+  },
+  {
+   "text": "before.",
+   "start": 723.046,
+   "end": 723.789
+  },
+  {
+   "text": "According",
+   "start": 724.115,
+   "end": 724.521
+  },
+  {
+   "text": "to",
+   "start": 724.567,
+   "end": 724.625
+  },
+  {
+   "text": "NASA,",
+   "start": 724.695,
+   "end": 725.31
+  },
+  {
+   "text": "it's",
+   "start": 725.461,
+   "end": 725.647
+  },
+  {
+   "text": "unclear",
+   "start": 725.705,
+   "end": 726.123
+  },
+  {
+   "text": "whether,",
+   "start": 726.193,
+   "end": 726.553
+  },
+  {
+   "text": "and",
+   "start": 726.587,
+   "end": 726.715
+  },
+  {
+   "text": "how",
+   "start": 726.785,
+   "end": 726.947
+  },
+  {
+   "text": "much,",
+   "start": 727.029,
+   "end": 727.586
+  },
+  {
+   "text": "the",
+   "start": 727.76,
+   "end": 727.865
+  },
+  {
+   "text": "Sahara",
+   "start": 727.934,
+   "end": 728.375
+  },
+  {
+   "text": "might",
+   "start": 728.445,
+   "end": 728.642
+  },
+  {
+   "text": "green",
+   "start": 728.7,
+   "end": 729.002
+  },
+  {
+   "text": "again",
+   "start": 729.049,
+   "end": 729.467
+  },
+  {
+   "text": "over",
+   "start": 729.583,
+   "end": 729.78
+  },
+  {
+   "text": "the",
+   "start": 729.815,
+   "end": 729.885
+  },
+  {
+   "text": "coming",
+   "start": 729.943,
+   "end": 730.256
+  },
+  {
+   "text": "centuries",
+   "start": 730.337,
+   "end": 730.895
+  },
+  {
+   "text": "and",
+   "start": 730.964,
+   "end": 731.092
+  },
+  {
+   "text": "millennia,",
+   "start": 731.161,
+   "end": 732.021
+  },
+  {
+   "text": "now",
+   "start": 732.404,
+   "end": 732.601
+  },
+  {
+   "text": "that",
+   "start": 732.671,
+   "end": 732.798
+  },
+  {
+   "text": "greenhouse",
+   "start": 732.857,
+   "end": 733.402
+  },
+  {
+   "text": "gases",
+   "start": 733.449,
+   "end": 733.925
+  },
+  {
+   "text": "are",
+   "start": 733.971,
+   "end": 734.076
+  },
+  {
+   "text": "layered",
+   "start": 734.122,
+   "end": 734.424
+  },
+  {
+   "text": "on",
+   "start": 734.47,
+   "end": 734.563
+  },
+  {
+   "text": "top",
+   "start": 734.621,
+   "end": 734.842
+  },
+  {
+   "text": "of",
+   "start": 734.9,
+   "end": 734.946
+  },
+  {
+   "text": "those",
+   "start": 734.993,
+   "end": 735.167
+  },
+  {
+   "text": "cycles.",
+   "start": 735.202,
+   "end": 735.91
+  },
+  {
+   "text": "So",
+   "start": 736.235,
+   "end": 736.374
+  },
+  {
+   "text": "the",
+   "start": 736.432,
+   "end": 736.502
+  },
+  {
+   "text": "real",
+   "start": 736.56,
+   "end": 736.769
+  },
+  {
+   "text": "question",
+   "start": 736.839,
+   "end": 737.35
+  },
+  {
+   "text": "isn't",
+   "start": 737.442,
+   "end": 737.733
+  },
+  {
+   "text": "whether",
+   "start": 737.768,
+   "end": 738.035
+  },
+  {
+   "text": "the",
+   "start": 738.093,
+   "end": 738.162
+  },
+  {
+   "text": "desert",
+   "start": 738.22,
+   "end": 738.545
+  },
+  {
+   "text": "can",
+   "start": 738.58,
+   "end": 738.696
+  },
+  {
+   "text": "be",
+   "start": 738.754,
+   "end": 738.847
+  },
+  {
+   "text": "green.",
+   "start": 738.905,
+   "end": 739.544
+  },
+  {
+   "text": "It's",
+   "start": 739.823,
+   "end": 740.008
+  },
+  {
+   "text": "whether",
+   "start": 740.043,
+   "end": 740.287
+  },
+  {
+   "text": "we",
+   "start": 740.345,
+   "end": 740.426
+  },
+  {
+   "text": "should",
+   "start": 740.473,
+   "end": 740.658
+  },
+  {
+   "text": "be",
+   "start": 740.693,
+   "end": 740.809
+  },
+  {
+   "text": "the",
+   "start": 740.856,
+   "end": 740.925
+  },
+  {
+   "text": "ones",
+   "start": 741.007,
+   "end": 741.32
+  },
+  {
+   "text": "to",
+   "start": 741.378,
+   "end": 741.448
+  },
+  {
+   "text": "flip",
+   "start": 741.518,
+   "end": 741.761
+  },
+  {
+   "text": "the",
+   "start": 741.831,
+   "end": 741.901
+  },
+  {
+   "text": "switch.",
+   "start": 741.959,
+   "end": 742.609
+  },
+  {
+   "text": "If",
+   "start": 743.12,
+   "end": 743.247
+  },
+  {
+   "text": "you",
+   "start": 743.294,
+   "end": 743.375
+  },
+  {
+   "text": "want",
+   "start": 743.445,
+   "end": 743.619
+  },
+  {
+   "text": "to",
+   "start": 743.654,
+   "end": 743.712
+  },
+  {
+   "text": "see",
+   "start": 743.77,
+   "end": 743.921
+  },
+  {
+   "text": "what",
+   "start": 743.967,
+   "end": 744.118
+  },
+  {
+   "text": "else",
+   "start": 744.165,
+   "end": 744.362
+  },
+  {
+   "text": "satellites",
+   "start": 744.397,
+   "end": 744.954
+  },
+  {
+   "text": "have",
+   "start": 744.989,
+   "end": 745.093
+  },
+  {
+   "text": "caught",
+   "start": 745.128,
+   "end": 745.372
+  },
+  {
+   "text": "changing,",
+   "start": 745.419,
+   "end": 746.127
+  },
+  {
+   "text": "subscribe.",
+   "start": 746.301,
+   "end": 747.357
+  }
+ ],
+ "created": "2026-10-08T17:55:57Z",
+ "warnings": []
+}
