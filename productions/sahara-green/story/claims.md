@@ -1,6 +1,18 @@
 # Fact-check ledger: Episode 001 "What If We Turned the Sahara Desert Green?"
 
-**Ledger status: DRAFT v0.1, not locked.**
+**Ledger status: DRAFT v0.2, not locked.**
+
+**Round 2/3 (2026-10-08).** Sources for the IDs below were read in full (see `source_audit_round2.md`, `source_audit_round3.md`). Where this table and those files differ, the audit files are newer.
+
+| Round-2 status | IDs |
+|---|---|
+| ✓ VERIFIED (wording as in script v0.2) | P20, S4, S5, S6, S7, S7b, S9, S17, S18, S18b, S19, S21, L2, G19, N1, L3 |
+| ⛔ BLOCKED (primary source unreachable) | G4, G17, G18, P10 |
+| ◇ HYPOTHESIS (narrated as one) | G14 |
+| NEEDS_REVISION / SCENE-CHECK | L1 (Landsat supports bare 1984 scene; "earliest Landsat" and "~1 km" pending) |
+| ⚠ UNVERIFIED (not yet read in full) | S1, S2, S3, P2, P11, P12, P14, P8, L4, P18, P3, P5, P17, P19, G1, G2, G5, G6, G8, G20, G10, G11, P24, S12, S13, S14, P23 |
+
+Corrections applied in script v0.2 (reviewer-approved): N1 (no "warming and drying"; NASA: air descends at about 15-30° and inhibits cloud formation), L3 (1,450 km², 80% and "late 1990s" removed; NASA's 2002 / 2012 / 2021 observations kept), S18 (COP21 100 Mha ambition and the PA-GGW 25 Mha target stated separately), R1 (Bodélé not presented as the Amazon's main source; reduction in Amazon phosphorus narrated as an unmodeled hypothesis), P20 (a reconstruction, not 230 observed events), S4 (dust carried past the Sahara's western edge).
 
 **How the checks were done.** Direct page fetches from this environment were refused for every source host: nasa.gov, science.nasa.gov, svs.gsfc.nasa.gov, noaa.gov, unccd.int, unesco.org, ncbi/pmc, springer, wiley/agu and support.google.com (DNS ENOTFOUND or proxy 403). Each claim was therefore checked only against search-engine snippets of the source: abstracts, press releases and the agency pages themselves. Earlier productions (Lake Mead, Kīlauea, Sirhan) used the same method. Before the lock, the primary page for every **USED** claim has to be opened by a human, or from an environment with web access.
 
@@ -32,16 +44,16 @@
 | P18 | Lake Yoa sediments record the drying | ESTABLISHED (record); DISPUTED (interpretation) | SNIPPET | Kröpelin et al. 2008, Science 320:765 | The narration describes the record, not the dispute. |
 | P3 | Orbital wobble (~21,000 yr precession) → sunnier northern summers → monsoon pushed north | ESTABLISHED | SNIPPET | Armstrong et al. 2023, Nat. Commun. (PMC10491769); Bristol release https://bristol.ac.uk/news/2023/september/sahara-desert-greening.html | "Wobble in Earth's orbit" is a simplification of precession. Acceptable. |
 | P5 | Models match the evidence only with vegetation and dust feedbacks | ESTABLISHED + MODEL | SNIPPET | Tierney et al. 2017 | |
-| P20 | Green Sahara >230 times in 8 million years | ESTABLISHED (proxy compilation) | SNIPPET | Larrasoaña et al. 2013, PLoS ONE https://pmc.ncbi.nlm.nih.gov/articles/PMC3797788 | Used in the hook. Say "suggest". |
+| P20 | Geological records suggest the Sahara turned green >230 times in 8 million years (a reconstruction from marine and desert sediments, esp. Mediterranean sapropels; not 230 observed events) | RECONSTRUCTION | **VERIFIED (read in full, round 2)** | Larrasoaña et al. 2013, PLoS ONE 8(10): e76514 https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0076514 | "over 230 GSPs within the last 8 million years"; sapropels used "as markers". |
 | P17 | Mauritania dust record: abrupt end | DISPUTED | SNIPPET | deMenocal et al. 2000, QSR 19:347 | |
 | P19 | Time-transgressive end: fast locally, later further south | ESTABLISHED (leading synthesis) | SNIPPET | Shanahan et al. 2015, Nat. Geosci. 8:140 | |
-| N1 | Sinking air of the subtropical (Hadley) circulation suppresses rain over the Sahara | ESTABLISHED (textbook) | **PENDING** | Needs a NOAA/NASA/NCAR explainer | **Blocking for ACT 3.** |
-| L1 | East Oweinat: bare desert in the earliest Landsat images, now ~1 km center-pivot circles | ESTABLISHED | SNIPPET + **SCENE-CHECK** | NASA EO https://earthobservatory.nasa.gov/images/89820/cultivating-egypts-desert ; ESA 2019 | "Bare desert" must be confirmed on the actual earliest scene we use. |
+| N1 | NASA: descending air at about 15-30° latitude inhibits cloud formation, so clouds are rare and deserts common there; the air has already lost most of its water | ESTABLISHED (textbook) | **VERIFIED (read in full, round 2)** | NASA EO Cloudy Earth https://science.nasa.gov/earth/earth-observatory/cloudy-earth-85843/ ; NASA EO Southeastern Australia https://science.nasa.gov/earth/earth-observatory/southeastern-australia-3973/ | No "warming as it falls" claim: it is not in these sources. |
+| L1 | East Oweinat: no visible fields in a 1984 Landsat 5 scene (LT05_L1TP_177044_19840826), first small fields by Jan 2000, large pivot fields by 2016-2024; pivots measure ~0.9 km (median of 88 circles, Landsat 9, 2024-01-05) | OBSERVATION (Landsat) | **NEEDS_REVISION (wording)** | USGS Landsat Collection 2 scenes in `landsat/scene_candidates.json`; NASA EO https://science.nasa.gov/earth/earth-observatory/cultivating-egypts-desert-89820/ (development began in the 1980s) | "Earliest Landsat images" is not shown: MSS scenes (1972-83) were not searched. Recommended: "in a 1984 Landsat image" and "each close to a kilometer across". Reviewer to approve before the script changes. |
 | G17 | Nubian Sandstone Aquifer System holds >150,000 km³ under Egypt, Libya, Sudan and Chad | ESTABLISHED | SECONDARY (AGU Eos) | https://eos.org/articles/ancient-water-underlies-arid-egypt | **Needs an IAEA/UNESCO primary source.** |
 | G18 | Recharge effectively zero ("barely being refilled") | ESTABLISHED | SECONDARY | Same Eos article (USGS hydrogeologist quoted) | |
 | L2 | Kufra runs on the same fossil groundwater; the water entered the ground in wetter times | ESTABLISHED | SNIPPET | NASA EO https://earthobservatory.nasa.gov/images/152356/water-beneath-the-sand | EO gives roughly 10,000 to 1,000,000 years. The script says "thousands of years ago or more". |
 | G19 | Libya began the Great Man-Made River in the 1980s (1984) | ESTABLISHED | SECONDARY (Wikipedia) | — | **Needs a primary source.** Do not use a capacity figure. |
-| L3 | Toshka lakes appeared in the late 1990s, max ~1,450 km² (~560 sq mi), ~80% smaller by 2012, full again by 2021 | ESTABLISHED | SNIPPET + **SCENE-CHECK** | NASA EO https://earthobservatory.nasa.gov/images/149334/two-decades-of-change-at-toshka-lakes | The NASA page uses ISS photos. Our Landsat dates must bracket these years (see LANDSAT_LOCATIONS). |
+| L3 | NASA photographs: Toshka lakes full in 2002, mostly dried up by 2012 (low Nile flow), more water than ever before in Nov 2021 | OBSERVATION | **VERIFIED (read in full, round 2)** | NASA EO https://science.nasa.gov/earth/earth-observatory/two-decades-of-change-at-toshka-lakes-149334/ | 1,450 km², ~80% and "late 1990s" REMOVED: not on the page. Landsat check in `source_audit_round3.md`. |
 | G1 | 2009 proposal: irrigated forests on the Sahara and the Outback, desalinated seawater, drip irrigation | ESTABLISHED (that it was proposed) | SNIPPET | Ornstein, Aleinov & Rind 2009, Climatic Change 97:409 https://link.springer.com/article/10.1007/s10584-009-9626-y | |
 | G2 | The authors argued uptake could equal fossil-fuel emissions | HYPOTHESIS | SNIPPET (abstract) | Same | Always attribute ("they argued"). |
 | G4 | Estimated cost ~$2 trillion a year | HYPOTHESIS | SECONDARY (Popular Science, SciDev) | https://www.popsci.com/environment/article/2009-09/scientists-concoct-2-trillion-year-plan-geoengineer-sahara-desert/ | **Confirm in the paper (open access).** |
@@ -51,10 +63,11 @@
 | G20 | Dryland afforestation: albedo warming cancels much of the carbon benefit | MODEL / analysis | SNIPPET | Rohatyn, Yakir, Rotenberg & Carmel 2022, Science 377:1436; Technion release | Covers drylands, not the hyper-arid Sahara. The script says "forests planted in drylands". |
 | G10 | Panels over 20% of the Sahara: about +0.16 °C global | MODEL | SNIPPET | Lu, Pausata et al. 2021, GRL 48(2), doi:10.1029/2020GL090789 | The model name was not verified. |
 | G11 | Lu 2021: rain shifted away from the Amazon (the tropical rain belt moves north) | MODEL | SNIPPET | Same | No percentage (the 10–30% figure is NOT VERIFIED). |
-| S4 | ~182 million tons of dust a year leave the Sahara over the Atlantic (2007–2013 average) | ESTABLISHED (satellite-based estimate) | SNIPPET | Yu et al. 2015, GRL doi:10.1002/2015GL063040; NASA SVS https://svs.gsfc.nasa.gov/11775 | "Tons" means metric tonnes (Tg). On screen: "million tonnes". |
+| S4 | ~182 million tons of dust a year are carried past the Sahara's western edge (15°W); the dust then crosses the Atlantic (2007–2013 average) | SATELLITE-DERIVED ESTIMATE | **VERIFIED (read in full, round 2)** | NASA SVS 4273 https://svs.gsfc.nasa.gov/4273/ ; Yu et al. 2015, GRL doi:10.1002/2015GL063040 (paper not read) | "Tons" as on NASA's page; on screen "million tons". |
 | S5 | ~28 million tons settle on the Amazon basin | ESTABLISHED (estimate, range 8–48) | SNIPPET | Same | |
 | S6 | ~22,000 tons of phosphorus a year, comparable to the Amazon's hydrological loss | ESTABLISHED (estimate) | SNIPPET | Same | This is delivery to the basin, not uptake by plants. |
-| S7 | The Bodélé is one of the biggest dust sources on Earth | ESTABLISHED | SNIPPET | NASA EO https://earthobservatory.nasa.gov/images/146011/bodele-dust ; Koren et al. 2006 | Do NOT say it supplies most of the Amazon's dust (DISPUTED: Yu et al. 2020 point to El Djouf). |
+| S7 | The Bodélé is one of the biggest dust sources on Earth | ESTABLISHED | **VERIFIED (read in full, round 2)** | NASA EO https://earthobservatory.nasa.gov/images/146011/bodele-dust ; Koren et al. 2006 | Do NOT say it supplies most of the Amazon's dust (DISPUTED: Yu et al. 2020 point to El Djouf). |
+| S7b | A newer analysis finds most Amazon-bound dust comes from El Djouf (Mauritania/Mali), ~2,500 km (1,600 mi) west of the Bodélé | ESTABLISHED (reported by NASA EO; DISPUTED vs Koren 2006) | **VERIFIED as NASA's reporting (round 2)** | NASA EO https://science.nasa.gov/earth/earth-observatory/another-dusty-day-in-chad-147816/ | Underlying paper (Yu et al. 2020) not read. The narration says "may not be the main supplier". |
 | S9 | The Bodélé floor is ancient Lake Mega-Chad lakebed, covered in diatomite (fossil algae skeletons) | ESTABLISHED | SNIPPET | NASA EO https://earthobservatory.nasa.gov/images/147816/another-dusty-day-in-chad | |
 | G14 | The effect of a greened Sahara on Amazon nutrients has not been measured for a planted Sahara | HYPOTHESIS (narrated as an open question) | SNIPPET (absence) | — | The narration says "open question". It must stay that way. |
 | P24 | Paleo-model: green, less dusty Sahara → more tropical cyclone activity, most over the Caribbean and the US East Coast | MODEL | SNIPPET | Pausata et al. 2017, PNAS 114:6221 https://pmc.ncbi.nlm.nih.gov/articles/PMC5474772 | Narrated as "a model of the past, not a forecast". |
@@ -62,7 +75,8 @@
 | S13 | Mostly returning rain, partly farmers | DISPUTED (balance) | SNIPPET | Hickler et al. 2005; Niger FMNR literature | |
 | S14 | Niger farmer-managed regeneration covered ~7 Mha (≈17M acres) by 2017 (USGS estimate) | ESTABLISHED (as a USGS estimate) | SNIPPET | Smale, Tappan & Reij 2018 (USGS) https://www.usgs.gov/publications/farmer-managed-restoration-agroforestry-parklands-niger | The source word is "affected"; the script says "covered". Keep this close to the source. |
 | S17 | The Great Green Wall was launched in 2007 by African nations (African Union) | ESTABLISHED | SNIPPET | UNCCD https://www.unccd.int/our-work/ggwi | |
-| S18 | Target: 100 Mha restored by 2030 | ESTABLISHED (target) | SNIPPET | Same | |
+| S18 | The initiative's ambition, pledged at COP21: restore 100 Mha by 2030 | OFFICIAL TARGET | **VERIFIED (read in full, round 2)** | UNCCD https://www.unccd.int/our-work/ggwi ; UNCCD 2020 report p.22 | Never combine with S18b. |
+| S18b | The Wall's own coordinating agency (PA-GGW) targets 25 Mha by 2030 | OFFICIAL TARGET | **VERIFIED (read in full, round 3)** | UNCCD 2020 report, section 3.3, p.22: "the PA-GGW aims to restore 25 Mha by 2030" | Separate from S18. |
 | S19 | 2020 status report: ~4 Mha inside the core zones | ESTABLISHED (official self-report) | SNIPPET | UNCCD 2020 https://www.unccd.int/resources/publications/great-green-wall-implementation-status-and-way-ahead-2030 | Do not present the 18 Mha "wider" figure as Wall progress. |
 | S21 | Shift from a literal tree line to a mosaic of land restoration | ESTABLISHED | SECONDARY | ISS Africa; Wikipedia | **Needs a UNCCD wording source.** |
 | P23 | One scientist estimates the next orbital window is ~10,000 years away | UNCERTAIN | ATTRIBUTED + SNIPPET | UC Irvine (Kathleen Johnson) https://ess.uci.edu/news/858 | Name her on screen, or keep "one scientist". |

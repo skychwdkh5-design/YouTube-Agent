@@ -1,4 +1,6 @@
-# Episode 001 storyboard: draft v0.1 (16:9, profile `long`)
+# Episode 001 storyboard: draft v0.2 (16:9, profile `long`)
+
+Round 2 (2026-10-08): scenes 2, 3, 14, 16, 21, 29, 30, 31 and 34 were aligned with the reviewer-approved corrections in `script.md` v0.2 (P20, N1, L3, R1/S4, S18). Narration is now 1,455 spoken words, about 10:00 at 145 wpm; the per-scene times below are from v0.1 and must be re-timed after the voice pass. Landsat scene candidates are in `landsat/scene_candidates.json`.
 
 ## How to read this
 
@@ -42,8 +44,8 @@
 | # | ~Time | Narration (first words) | Family | Visual | On-screen labels | Source on screen |
 |---|---|---|---|---|---|---|
 | 1 | 0:00-0:06 | "You could turn the Sahara green." | orbit_wide | Tassili n'Ajjer plateau (L6), slow push-in, 2024 OLI | — | Landsat 8 · USGS |
-| 2 | 0:06-0:12 | "It has happened more than 230 times…" | number_callout | callout "230+" with the subtitle "green Sahara episodes in 8 million years" | 230+ GREEN PERIODS | Larrasoaña et al. 2013 |
-| 3 | 0:12-0:18 | "…what you'd change thousands of miles away…" | annotated_map | Bodélé (L5) geo graphic, with an arrow pointing west labelled "toward the Atlantic" | THOUSANDS OF MILES AWAY | Landsat 8 · USGS |
+| 2 | 0:06-0:12 | "It has happened more than 230 times…" | number_callout | callout "230+" with the subtitle "reconstructed green Sahara periods, last 8 million years" | 230+ RECONSTRUCTED GREEN PERIODS | Larrasoaña et al. 2013 |
+| 3 | 0:12-0:18 | "…what you'd change thousands of miles away…" | annotated_map | Bodélé (L5) geo graphic, with a plain arrow pointing west labelled "dust crosses the Atlantic" (no claim that the Bodélé is the source of the Amazon's dust; see R1) | THOUSANDS OF MILES AWAY | Landsat 8 · USGS |
 | 4 | 0:18-0:30 | "The Sahara covers about 9 million…" | external_still → fallback data_chart | Preferred: NASA Blue Marble Africa (B4). Fallback: a bar chart of area, Sahara vs the lower 48. | 9.2M km² vs 8.1M km² | Census; [S1 source] |
 | 5 | 0:30-0:36 | "…less than 100 millimeters of rain…" | number_callout | callout "<100 mm (4 in)" a year | | WWF/[S3] |
 | 6 | 0:36-0:46 | "So could we really cover it in green?" | pivot_fields | East Oweinat (L1), wipe from bare (earliest) to green (2024) | GREEN, IN THE DESERT, TODAY | Landsat 5 / 8 · USGS |
@@ -64,24 +66,24 @@
 |---|---|---|---|---|---|---|
 | 12 | 1:59-2:20 | "Not people. Earth's orbit." | process_diagram | Diagram with 3 build steps: sunnier northern summer → monsoon pushed north → rain in the Sahara | ~21,000-YEAR CYCLE | Armstrong et al. 2023 |
 | 13 | 2:20-2:38 | "…two amplifiers: plants, and cleaner air…" | process_diagram | Flow with build steps: more plants → more rain → more plants (loop), plus "less dust" | FEEDBACK | Tierney et al. 2017 |
-| 14 | 2:38-2:48 | "…more than 230 times in the last 8 million years." | data_chart | Graphic of discrete green episodes on a time axis. **Schematic only: real episode dates are not in hand**, so the graphic is labelled "schematic" or reduced to a callout. | 230+ IN 8 MILLION YEARS | Larrasoaña 2013 |
+| 14 | 2:38-2:48 | "…more than 230 times in the last 8 million years." | data_chart | Graphic of discrete green episodes on a time axis. **Schematic only: real episode dates are not in hand**, so the graphic is labelled "schematic" or reduced to a callout. | RECONSTRUCTED FROM SEDIMENTS: 230+ PERIODS IN 8 MILLION YEARS | Larrasoaña 2013 |
 | 15 | 2:48-3:12 | "How did the last one end?" | annotated_map | Ounianga (L4) geo graphic. Insert: an original redraw of a simple N→S schematic, "end came later further south (~5 ka at 20°N → ~3 ka in Ghana)". | THE DESERT CREPT SOUTH | Shanahan 2015; deMenocal 2000; Kröpelin 2008 |
 
 ## ACT 3: Why it's a desert now (3:12-3:39)
 
 | # | ~Time | Narration (first words) | Family | Visual | On-screen labels | Source on screen |
 |---|---|---|---|---|---|---|
-| 16 | 3:12-3:30 | "Today, the Sahara sits under a belt of sinking air." | process_diagram | yt-graphics `circulation`: rising air at the equator, flow aloft, sinking at ~30°N, surface return (build steps) | RISING AIR · SINKING AIR | **N1 source pending** |
+| 16 | 3:12-3:30 | "Today, the Sahara sits under a belt of sinking air." | process_diagram | yt-graphics `circulation`: rising air at the equator, flow aloft, sinking at ~30°N, surface return (build steps) | RISING AIR · SINKING AIR (DRY, ~30° LATITUDE) | NASA Earth Observatory (Cloudy Earth; Southeastern Australia) |
 | 17 | 3:30-3:39 | "You'd be planting against the atmosphere itself." | orbit_wide | Gilf Kebir (L7) or a Tassili wide view, slow pull-out | — | Landsat 8 · USGS |
 
 ## ACT 4: Already doing it, in patches (3:39-5:00)
 
 | # | ~Time | Narration (first words) | Family | Visual | On-screen labels | Source on screen |
 |---|---|---|---|---|---|---|
-| 18 | 3:39-3:58 | "This is East Oweinat…" | pivot_fields | L1 timelapse flip, earliest → 2000s → 2016 → 2024 at 40-60 km, then zoom to the circles at 8 km | EAST OWEINAT, EGYPT · ~1 KM CIRCLES | Landsat 5/7/8 · USGS |
-| 19 | 3:58-4:15 | "The water comes from below." | annotated_map / number_callout | callout ">150,000 km³", then a geo graphic of East Oweinat with a "Nubian Sandstone Aquifer System" label | ANCIENT GROUNDWATER · RECHARGE ≈ 0 | [G17 primary pending]; Eos/USGS |
+| 18 | 3:39-3:58 | "This is East Oweinat…" | pivot_fields | L1 timelapse flip, 1984 (Landsat 5, no fields visible) → 2000 → 2010 → 2016 → 2024 at 40-60 km (scene IDs in `landsat/scene_candidates.json`), then zoom to the circles at 8 km | EAST OWEINAT, EGYPT · ("~1 KM CIRCLES" only after the pivot diameter is measured on a full-resolution scene) | Landsat 5/7/8 · USGS |
+| 19 | 3:58-4:15 | "The water comes from below." | annotated_map / number_callout | callout ">150,000 km³", then a geo graphic of East Oweinat with a "Nubian Sandstone Aquifer System" label | ANCIENT GROUNDWATER (⛔ G17 volume and G18 "recharge ≈ 0" BLOCKED: do not show until sourced) | [G17 primary pending] |
 | 20 | 4:15-4:27 | "Across the border in Libya, the Kufra oasis…" | pivot_fields | Kufra (L2): one date, push-in, with a pin on the field cluster | KUFRA, LIBYA | Landsat 8 · USGS |
-| 21 | 4:27-4:50 | "And at Toshka…" | lake_change | Toshka (L3) wipe chain: before the lakes (1987/1997), 2002, ~2011-13, 2021 | TOSHKA LAKES · UP TO ~1,450 km² · −80% BY 2012 | Landsat 5/7/8 · USGS; NASA EO |
+| 21 | 4:27-4:50 | "And at Toshka…" | lake_change | Toshka (L3) wipe chain: before the lakes (Landsat 5, 1 Jan 1999; no lakes visible), 2002, ~2011-12, Nov 2021 (Landsat 8). Candidate scene IDs: `landsat/scene_candidates.json` | TOSHKA LAKES · FULL 2002 · MOSTLY DRY 2012 · FULL AGAIN 2021 | Landsat 5/7/8 · USGS; NASA EO. No area or percent figures are shown (not verified). |
 | 22 | 4:50-5:00 | "So yes, we can green the desert." | pivot_fields | East Oweinat close-up, 2024 | WATER THAT DOESN'T COME BACK | Landsat 8 · USGS |
 
 ## ACT 5: The big plan (5:00-6:09)
@@ -99,9 +101,9 @@
 |---|---|---|---|---|---|---|
 | 27 | 6:09-6:30 | "First, color." | annotated_map | compare graphic: bright sand vs dark pivot fields at East Oweinat (real imagery), with "reflects / absorbs" arrows | ALBEDO | Landsat 8 · USGS; Rohatyn 2022 |
 | 28 | 6:30-6:45 | "…a 2021 model found that solar panels…" | number_callout | callout "+0.16 °C global (model)" | MODEL · 20% OF SAHARA COVERED | Lu et al. 2021 |
-| 29 | 6:45-7:05 | "Second, dust." | external_still → fallback process_diagram | Preferred: a NASA SVS CALIPSO dust visual (B4, licence check per item). Fallback: a flow graphic Sahara → Atlantic → Amazon with the numbers. | 182M t / yr · 28M t TO THE AMAZON · 22,000 t PHOSPHORUS | NASA / Yu et al. 2015 |
-| 30 | 7:05-7:25 | "One of the biggest sources is here: the Bodélé…" | dust_source | Bodélé (L5) at 100-150 km, push to the white diatomite flats | BODÉLÉ DEPRESSION, CHAD · ANCIENT LAKEBED | Landsat 8 · USGS; NASA EO |
-| 31 | 7:25-7:30 | "What that would mean for the Amazon is an open question." | number_callout | Text card: "OPEN QUESTION" | — | — |
+| 29 | 6:45-7:05 | "Second, dust." | external_still → fallback process_diagram | Preferred: a NASA SVS CALIPSO dust visual (B4, licence check per item). Fallback: a flow graphic Sahara → Atlantic → Amazon with the numbers. | 182M t / yr PAST THE SAHARA'S WESTERN EDGE · 28M t SETTLE ON THE AMAZON · 22,000 t PHOSPHORUS (SATELLITE-DERIVED ESTIMATES, 2007-2013) | NASA / Yu et al. 2015 |
+| 30 | 7:05-7:25 | "One of the biggest sources is here: the Bodélé…" | dust_source | Bodélé (L5) at 100-150 km, push to the white diatomite flats | BODÉLÉ DEPRESSION, CHAD · ANCIENT LAKEBED · SOURCE OF AMAZON DUST: DEBATED | Landsat 8 · USGS; NASA EO (Bodélé Dust; Another Dusty Day in Chad) |
+| 31 | 7:25-7:30 | "What that would mean for the Amazon is an open question." | number_callout | Text card: "HYPOTHESIS · NOT YET MODELED" (less Saharan dust → less phosphorus for the Amazon?) | — | — |
 | 32 | 7:30-7:50 | "Third, storms." | process_diagram | Diagram: green Sahara + less dust → more tropical cyclone activity (model), with "Caribbean / US East Coast" labels. **No track map** (B5). | MODEL OF THE PAST, NOT A FORECAST | Pausata et al. 2017 |
 
 ## ACT 7: What's actually happening (7:50-8:38)
@@ -109,7 +111,7 @@
 | # | ~Time | Narration (first words) | Family | Visual | On-screen labels | Source on screen |
 |---|---|---|---|---|---|---|
 | 33 | 7:50-8:10 | "…something real has been happening on the Sahara's southern edge." | orbit_wide → data_chart | Optional: Lake Chad (reserve location), 1987 vs 2023 single wipe, no area claim. Then a bar callout for Niger FMNR "~7M ha by 2017 (USGS)". | SAHEL · NIGER | USGS (Smale, Tappan & Reij 2018) |
-| 34 | 8:10-8:38 | "In 2007, African nations launched the Great Green Wall…" | data_chart | Bar chart: target 100 Mha vs ~4 Mha by 2020 (core zones) | GREAT GREEN WALL · TARGET vs 2020 | UNCCD 2020 |
+| 34 | 8:10-8:38 | "In 2007, African nations launched the Great Green Wall…" | data_chart | Three separately labelled bars, never combined into one percentage: "COP21 pledge: 100 Mha by 2030", "PA-GGW target: 25 Mha", "Restored in core zones by 2020 (preliminary): ~4 Mha" | GREAT GREEN WALL · TWO TARGETS, ONE PRELIMINARY COUNT | UNCCD 2020 |
 
 ## CLOSE (8:38-9:21)
 

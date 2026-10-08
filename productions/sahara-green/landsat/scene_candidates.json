@@ -1,0 +1,257 @@
+{
+ "generated": "2026-10-08",
+ "tool": ".claude/skills/yt-satellite/usgs_m2m.py (auth, search, options, one download)",
+ "note": "Cloud cover is the USGS scene-level value. Scene IDs, dates and cloud values come from the live M2M search. 'browsePreviewChecked' states what was seen in the ~30-50 KB reduced-resolution browse JPEG (not a measurement).",
+ "east_oweinat": {
+  "searchPoint": [
+   22.56,
+   28.44
+  ],
+  "radiusKm": 5,
+  "pathRow": "177044",
+  "scenesFoundInSearch": {
+   "landsat_tm_c2_l1": 400,
+   "landsat_etm_c2_l1": 438,
+   "landsat_ot_c2_l1": 829,
+   "note": "counts include neighbouring path/rows and all cloud values"
+  },
+  "candidates": [
+   {
+    "role": "BEFORE (earliest TM scene in the dataset at this location)",
+    "displayId": "LT05_L1TP_177044_19840826_20200918_02_T1",
+    "entityId": "LT51770441984239XXX04",
+    "acquired": "1984-08-26",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "177044",
+    "dataset": "landsat_tm_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": "no cultivated fields visible at ~180 m/px",
+    "note": ""
+   },
+   {
+    "role": "before",
+    "displayId": "LT05_L1TP_177044_19900115_20200916_02_T1",
+    "entityId": "LT51770441990015RSA01",
+    "acquired": "1990-01-15",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "177044",
+    "dataset": "landsat_tm_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": "no fields visible",
+    "note": ""
+   },
+   {
+    "role": "first small fields",
+    "displayId": "LT05_L1TP_177044_20000111_20200907_02_T1",
+    "entityId": "LT51770442000011RSA00",
+    "acquired": "2000-01-11",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "177044",
+    "dataset": "landsat_tm_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": "a few tiny green patches at the southern edge",
+    "note": ""
+   },
+   {
+    "role": "mid",
+    "displayId": "LT05_L1TP_177044_20100122_20200825_02_T1",
+    "entityId": "LT51770442010022MTI00",
+    "acquired": "2010-01-22",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "177044",
+    "dataset": "landsat_tm_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": "fields clearly visible; TM stripes at the scene edge",
+    "note": ""
+   },
+   {
+    "role": "mid-late",
+    "displayId": "LC08_L1TP_177044_20160107_20200907_02_T1",
+    "entityId": "LC81770442016007LGN02",
+    "acquired": "2016-01-07",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "177044",
+    "dataset": "landsat_ot_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": "large field clusters",
+    "note": ""
+   },
+   {
+    "role": "AFTER",
+    "displayId": "LC09_L1TP_177044_20240105_20240105_02_T1",
+    "entityId": "LC91770442024005LGN00",
+    "acquired": "2024-01-05",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "177044",
+    "dataset": "landsat_ot_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": "largest extent; full-resolution natural-colour browse downloaded (0.9 MB) and pivot diameter measured",
+    "note": ""
+   }
+  ]
+ },
+ "toshka": {
+  "searchPoint": [
+   23.1,
+   30.9
+  ],
+  "radiusKm": 30,
+  "pathRows": [
+   "176044",
+   "175044"
+  ],
+  "scenesFoundInSearch": {
+   "landsat_tm_c2_l1": 814,
+   "landsat_etm_c2_l1": 705,
+   "landsat_ot_c2_l1": 829
+  },
+  "candidates": [
+   {
+    "role": "before",
+    "displayId": "LT05_L1TP_176044_19970212_20200910_02_T1",
+    "entityId": "LT51760441997043RSA02",
+    "acquired": "1997-02-12",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "176044",
+    "dataset": "landsat_tm_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": "no lakes visible",
+    "note": ""
+   },
+   {
+    "role": "before",
+    "displayId": "LT05_L1TP_176044_19980130_20200909_02_T1",
+    "entityId": "LT51760441998030RSA00",
+    "acquired": "1998-01-30",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "176044",
+    "dataset": "landsat_tm_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": "no lakes visible",
+    "note": ""
+   },
+   {
+    "role": "BEFORE (last scene without lakes that we previewed)",
+    "displayId": "LT05_L1TP_176044_19990101_20200908_02_T1",
+    "entityId": "LT51760441999001RSA00",
+    "acquired": "1999-01-01",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "176044",
+    "dataset": "landsat_tm_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": "no lakes visible",
+    "note": ""
+   },
+   {
+    "role": "lakes present",
+    "displayId": "LE07_L1TP_176044_20000112_20200918_02_T1",
+    "entityId": "LE71760442000012SGS00",
+    "acquired": "2000-01-12",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "176044",
+    "dataset": "landsat_etm_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": "two lake groups visible",
+    "note": ""
+   },
+   {
+    "role": "lakes present",
+    "displayId": "LT05_L1TP_176044_20010106_20200906_02_T1",
+    "entityId": "LT51760442001006RSA01",
+    "acquired": "2001-01-06",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "176044",
+    "dataset": "landsat_tm_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": "lakes visible",
+    "note": ""
+   },
+   {
+    "role": "FULL 2002",
+    "displayId": "LT05_L1TP_176044_20020109_20200905_02_T1",
+    "entityId": "LT51760442002009RSA01",
+    "acquired": "2002-01-09",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "176044",
+    "dataset": "landsat_tm_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": "lakes full; NASA EO 2002 photo is dated 11 Sep 2002 (ISS), so a Landsat scene closer to Sep 2002 may be preferable",
+    "note": ""
+   },
+   {
+    "role": "MOSTLY DRY 2012",
+    "displayId": "LE07_L1TP_176044_20120113_20200909_02_T1",
+    "entityId": "LE71760442012013ASN00",
+    "acquired": "2012-01-13",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "176044",
+    "dataset": "landsat_etm_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": "one small lake and remnants; ETM+ SLC-off stripes (scan-line corrector failed 2003)",
+    "note": ""
+   },
+   {
+    "role": "after drying",
+    "displayId": "LC08_L1TP_176044_20180105_20200902_02_T1",
+    "entityId": "LC81760442018005LGN00",
+    "acquired": "2018-01-05",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "176044",
+    "dataset": "landsat_ot_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": "only a small lake and damp remnants",
+    "note": ""
+   },
+   {
+    "role": "FULL AGAIN Nov 2021",
+    "displayId": "LC08_L1TP_176044_20211113_20211125_02_T1",
+    "entityId": "LC81760442021317LGN00",
+    "acquired": "2021-11-13",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "176044",
+    "dataset": "landsat_ot_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": "lakes full; extend beyond the eastern edge of this scene",
+    "note": ""
+   }
+  ],
+  "unpreviewed": [
+   {
+    "role": "adjacent path for the eastern lakes, nearest to the NASA 2002 date",
+    "displayId": "LT05_L1TP_175044_20020729_20200905_02_T1",
+    "entityId": "LT51750442002210RSA00",
+    "acquired": "2002-07-29",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "175044",
+    "dataset": "landsat_tm_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": null,
+    "note": "not previewed"
+   },
+   {
+    "role": "adjacent path for the eastern lakes, nearest to the NASA Nov 2021 date",
+    "displayId": "LE07_L1TP_175044_20211130_20211227_02_T1",
+    "entityId": "LE71750442021334NPA00",
+    "acquired": "2021-11-30",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "175044",
+    "dataset": "landsat_etm_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": null,
+    "note": "not previewed"
+   },
+   {
+    "role": "late-2011 scene (Landsat 7 ETM+ SLC-off, so striped; no Landsat 5 TM scene for Dec 2011 was previewed)",
+    "displayId": "LE07_L1TP_176044_20111212_20200909_02_T1",
+    "entityId": "LE71760442011346ASN00",
+    "acquired": "2011-12-12",
+    "cloudCoverPct": 0,
+    "wrsPathRow": "176044",
+    "dataset": "landsat_etm_c2_l1",
+    "source": "USGS EROS M2M scene-search (Landsat Collection 2 Level-1, tier T1)",
+    "browsePreviewChecked": null,
+    "note": "not previewed"
+   }
+  ]
+ }
+}
