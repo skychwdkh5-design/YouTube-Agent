@@ -6,7 +6,7 @@
 
 | File | Contents |
 |---|---|
-| `script.md` | Narration draft v0.5: 1,740 spoken words (v0.1 had 1,374 by the same count method), about 12:00 at 145 wpm |
+| `script.md` | Narration draft v0.6: 1,759 spoken words (v0.1 had 1,374 by the same count method), about 12.1 minutes at 145 wpm |
 | `story/claims.md` | Fact-check ledger |
 | `storyboard.md` | 37 scenes, plus the visual novelty plan |
 
@@ -124,8 +124,8 @@ Discrepancies:
 
 | # | Blocker | Blocks | Fix |
 |---|---|---|---|
-| B1 | All sources were verified from search snippets only. Direct fetches of nasa.gov, unesco, ncbi, springer, wiley, unccd and support.google.com failed (DNS / proxy 403). | Ledger lock (factcheck.lock) | A human opens the primary pages for the USED claims. Alternatively, allow these hosts in the environment's network policy. |
-| B2 | Claims without an adequate source: N1 (Hadley sinking air, PENDING); S1, S2, S3, G17, G18, G19, S21 (secondary only); G4 (the $2T figure was removed in round 7) | ACT 3, cold-open numbers, ACT 4, ACT 5 | Find agency or paper sources, or cut the lines. |
+| B1 | **Updated 2026-10-08 (round 8):** the narration's claims were re-read from full sources (rounds 2-8); no ⛔ or ⚠ claim remains in script v0.6. Original text: All sources were verified from search snippets only. | Ledger lock (factcheck.lock) | Remaining checks: Kemena journal version, Landsat scene-by-scene review of the final graphics, reviewer sign-off. |
+| B2 | **Resolved (round 8):** N1, S1, S3, G17, G18, G19, S21, G4 and the other source gaps were fixed or removed; S2 and the model claims G8, G10, G11, G20 were removed from the episode. | ACT 3, cold-open numbers, ACT 4, ACT 5 | None for the narration. |
 | B3 | **Update 2026-10-08:** scenes searched and previewed (see `landsat/scene_candidates.json`, `story/source_audit_round3.md`); L1 wording and L3 scene choice pending review. Original text: Landsat scenes not searched or downloaded yet. "Bare desert in the earliest images" (L1) and the Toshka year sequence (L3) are SCENE-CHECK lines. | ACT 4, close | /yt-satellite search, then browse review, then yt-geo stacks. This is free, but downloads await approval. |
 | B4 | v3 cannot place non-grid stills (NASA Blue Marble, SVS dust) except as a static full-frame `graphic`. | Scenes 4 and 29 (fallbacks exist) | Use the fallbacks now. A feature later. |
 | B5 | No continental base map or vector overlays (Mega-Chad outline, Sahara-vs-US, GGW belt, Sahel NDVI). | Scenes 4, 8 and 34 visual richness | Fallbacks are in the storyboard. Feature later. |
@@ -136,4 +136,4 @@ Discrepancies:
 
 ## Ready for script review
 
-Yes, as a draft. The story, structure, hooks and storyboard are ready to review. The narration cannot be locked until B1 and B2 are cleared and the SCENE-CHECK lines are confirmed (B3).
+Yes, as a draft (script v0.6). B1 and B2 are cleared for the narration. Before a lock: confirm the Kemena journal version (G5, G6, G6b), review the final Landsat graphics scene by scene (B3), and get reviewer sign-off.

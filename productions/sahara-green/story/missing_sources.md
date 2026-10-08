@@ -1,4 +1,25 @@
-# Episode 001: missing-source inventory and lock assessment (2026-10-08, script v0.3)
+# Episode 001: missing-source inventory and lock assessment (2026-10-08; status updated for script v0.6)
+
+## Status after round 8 (script v0.6)
+No PDF is outstanding for any claim in the narration. Every row below is either received and read, replaced by a verified statement, or removed:
+
+| Row | Publication | Outcome |
+|---|---|---|
+| 1, 2, 6 | Ornstein 2009; Kemena (manuscript 2017); Pausata 2017 | Received and read (rounds 6-7) |
+| 3 | Li et al. 2018 (G8) | **Removed** from the episode |
+| 4 | Lu, Pausata et al. 2021 (G10, G11) | **Removed** |
+| 5 | Rohatyn et al. 2022 (G20) | **Removed** |
+| 7 | Kröpelin et al. 2008 (P18) | **Replaced** by NASA EO 41425 (pollen, wooded grassland) |
+| 8 | deMenocal et al. 2000 (P17) | Only the existence of the debate is narrated (PLoS ONE e0170989) |
+| 9 | Drake & Bristow 2006 (P10) | **Replaced** by NASA EO 146011 / 147816 ("larger than all the Great Lakes combined") |
+| 10 | Nubian aquifer volume and recharge (G17, G18) | **Replaced** by NASA EO 152356 and 89820; no volume |
+| 11 | Area references (S1, S2, S3) | S1 and S3 replaced by NASA EO 153320; S2 removed |
+| 12 | Lamont release (P8) | **Replaced** by Larrasoaña 2013 reconstruction numbers |
+| 13 | UC Irvine page (P23) | **Replaced** by NASA EO 153475 |
+| 14 | Yu et al. 2015 (S4-S6) | Optional upgrade; NASA SVS pages already read |
+
+Open verification (not PDFs): confirm the Kemena journal metadata and numbers; Landsat scene-by-scene checks of the final graphics. The detailed table below is kept as history.
+
 
 Titles and authors below come only from what was read in this project (the claim ledger, citation lists inside the PLOS ONE papers, and search results). A field marked "title not confirmed" must be filled from the DOI page by whoever obtains the PDF. Nothing here is invented.
 
