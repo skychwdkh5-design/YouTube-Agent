@@ -1,4 +1,4 @@
-# Episode 001: missing-source inventory and lock assessment (2026-10-08; status updated for script v0.6)
+# Episode 001: missing-source inventory and lock assessment (2026-10-08; status updated for SCRIPT LOCK v1.0)
 
 ## Status after round 8 (script v0.6)
 No PDF is outstanding for any claim in the narration. Every row below is either received and read, replaced by a verified statement, or removed:
@@ -18,7 +18,7 @@ No PDF is outstanding for any claim in the narration. Every row below is either 
 | 13 | UC Irvine page (P23) | **Replaced** by NASA EO 153475 |
 | 14 | Yu et al. 2015 (S4-S6) | Optional upgrade; NASA SVS pages already read |
 
-Open verification (not PDFs): confirm the Kemena journal metadata and numbers; Landsat scene-by-scene checks of the final graphics. The detailed table below is kept as history.
+Open verification (not PDFs): the Kemena journal version was never compared with the manuscript (the reviewer accepted the manuscript as the source for G5, G6, G6b; see `story/SCRIPT_LOCK.md`). Landsat scene-by-scene checks of the final graphics belong to visual production. The detailed table below is kept as history.
 
 
 Titles and authors below come only from what was read in this project (the claim ledger, citation lists inside the PLOS ONE papers, and search results). A field marked "title not confirmed" must be filled from the DOI page by whoever obtains the PDF. Nothing here is invented.

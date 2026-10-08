@@ -6,7 +6,7 @@
 
 | File | Contents |
 |---|---|
-| `script.md` | Narration draft v0.6: 1,759 spoken words (v0.1 had 1,374 by the same count method), about 12.1 minutes at 145 wpm |
+| `script.md` | **SCRIPT LOCK v1.0** narration: 1,777 spoken words (v0.1 had 1,374 by the same count method), about 12.3 minutes at 145 wpm (see `story/SCRIPT_LOCK.md`) |
 | `story/claims.md` | Fact-check ledger |
 | `storyboard.md` | 37 scenes, plus the visual novelty plan |
 
@@ -136,4 +136,4 @@ Discrepancies:
 
 ## Ready for script review
 
-Yes, as a draft (script v0.6). B1 and B2 are cleared for the narration. Before a lock: confirm the Kemena journal version (G5, G6, G6b), review the final Landsat graphics scene by scene (B3), and get reviewer sign-off.
+The narration is locked (SCRIPT LOCK v1.0, 2026-10-08): B1 and B2 are cleared; the Kemena journal PDF was not compared with the manuscript (accepted, recorded in `story/SCRIPT_LOCK.md`). Visual production is still open: build and review the final Landsat graphics scene by scene (B3), re-time the storyboard, then voice (needs the paid ElevenLabs plan, B8).
