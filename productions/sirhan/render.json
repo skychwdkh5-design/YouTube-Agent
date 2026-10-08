@@ -1,0 +1,15 @@
+{
+ "status": "ok",
+ "output": "/home/user/YouTube-Agent/productions/sirhan/sirhan_short.mp4",
+ "manifest": "/home/user/YouTube-Agent/productions/sirhan/sirhan_short.manifest.json",
+ "bytes": 18045482,
+ "sha256": "5544096049738930cbd592072bd2bf305b97232926be0b283cca8e0403285205",
+ "duration": 47.233,
+ "expected_duration": 47.233,
+ "profile": "short",
+ "shots": 9,
+ "info_events_first_10s": 12,
+ "composition_resets": 9,
+ "distinct_compositions_first_10s": 4,
+ "warnings": []
+}

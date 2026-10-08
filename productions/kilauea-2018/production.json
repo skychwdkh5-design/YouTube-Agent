@@ -1,0 +1,33 @@
+{
+ "stage": "rendered_awaiting_human_review",
+ "winner": "kilauea-2018 Kapoho",
+ "tts": {
+  "provider": "elevenlabs",
+  "voice": "Adam pNInz6obpgDQGcFmaJgB",
+  "requests": 1,
+  "duration": 50.155,
+  "characters": 668
+ },
+ "render": "not done",
+ "stack": "stack/ (7 dates, grid EPSG:32605, 30 m)",
+ "storyboard": "timeline_storyboard.json (predicted times)",
+ "contact_sheets": [
+  "contact_dates.jpg",
+  "contact_sheet_story.jpg",
+  "storyboard_frames.jpg"
+ ],
+ "video": {
+  "path": "kilauea-2018_short.mp4",
+  "sha256": "86a56a54e3eff1d77581b416d359c4fe7c3c2a881198034e03d14b9ad07057a8",
+  "duration": 51.667,
+  "bytes": 15470379
+ },
+ "qc": {
+  "result": "PASS",
+  "warn": [
+   "freezes",
+   "loudness"
+  ]
+ },
+ "published": false
+}

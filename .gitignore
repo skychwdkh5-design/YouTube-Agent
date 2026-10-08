@@ -8,4 +8,23 @@ __pycache__/
 # generated narration and production folders - never committed
 *.wav
 *.mp3
-productions/
+productions/*
+# exception: benchmark productions - text only (scripts, ledgers, timelines,
+# manifests, captions, build scripts). Media stays out via the rules below.
+!productions/lake-mead/
+!productions/kilauea-2018/
+!productions/sirhan/
+!productions/BENCHMARKS.json
+!productions/BENCHMARKS.md
+productions/**/*.png
+productions/**/*.jpg
+productions/**/*.jpeg
+productions/**/*.tif
+productions/**/*.tiff
+productions/**/*.pcm
+
+# secrets - never committed
+.env
+.env.*
+*.pem
+*.key

@@ -1,0 +1,663 @@
+{
+ "version": 3,
+ "profile": "short",
+ "grid": "stack/grid.json",
+ "assets": {
+  "d20180327": {
+   "src": "stack/d20180327.png",
+   "label": "MAR 2018",
+   "credit": "Landsat 8 · USGS"
+  },
+  "d20180514": {
+   "src": "stack/d20180514.png",
+   "label": "MAY 14, 2018",
+   "credit": "Landsat 8 · USGS"
+  },
+  "d20180530": {
+   "src": "stack/d20180530.png",
+   "label": "MAY 30, 2018",
+   "credit": "Landsat 8 · USGS"
+  },
+  "d20190226": {
+   "src": "stack/d20190226.png",
+   "label": "FEB 2019",
+   "credit": "Landsat 8 · USGS"
+  },
+  "d20190720": {
+   "src": "stack/d20190720.png",
+   "label": "JUL 2019",
+   "credit": "Landsat 8 · USGS"
+  }
+ },
+ "shots": [
+  {
+   "id": "S1_hook",
+   "beat": "hook",
+   "start": 0,
+   "info": "after-image: black lava where Kapoho Bay was",
+   "camera": {
+    "from": {
+     "center": [
+      -154.845,
+      19.49
+     ],
+     "width_km": 7.0
+    },
+    "to": {
+     "center": [
+      -154.842,
+      19.492
+     ],
+     "width_km": 6.3
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "d20190226"
+    },
+    {
+     "type": "label",
+     "text": "A BAY — GONE",
+     "style": "stat",
+     "slot": "top",
+     "t": [
+      0.0,
+      null
+     ],
+     "info": "hook claim"
+    },
+    {
+     "type": "pin",
+     "at": [
+      -154.826,
+      19.503
+     ],
+     "text": "KAPOHO BAY",
+     "t": [
+      0.5,
+      null
+     ],
+     "info": "where the bay was"
+    },
+    {
+     "type": "label",
+     "text": "FEB 2019",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      1.2,
+      null
+     ],
+     "info": "image date"
+    }
+   ]
+  },
+  {
+   "id": "S2_proof",
+   "beat": "proof",
+   "start": {
+    "word": 9,
+    "edge": "start",
+    "offset": -0.2
+   },
+   "info": "wipe back to the bay before the eruption",
+   "camera": {
+    "center": [
+     -154.842,
+     19.492
+    ],
+    "width_km": 6.3
+   },
+   "layers": [
+    {
+     "type": "wipe",
+     "from": "d20190226",
+     "to": "d20180327",
+     "t": [
+      0.0,
+      0.8
+     ]
+    },
+    {
+     "type": "pin",
+     "at": [
+      -154.826,
+      19.503
+     ],
+     "text": "KAPOHO BAY",
+     "t": [
+      0.9,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S3_eruption",
+   "beat": "proof",
+   "start": {
+    "word": 13,
+    "edge": "start",
+    "offset": -0.2
+   },
+   "info": "zoom out: four-date timelapse of the eruption",
+   "camera": {
+    "from": {
+     "center": [
+      -154.88,
+      19.465
+     ],
+     "width_km": 12.0
+    },
+    "to": {
+     "center": [
+      -154.88,
+      19.468
+     ],
+     "width_km": 11.0
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "flip",
+     "assets": [
+      "d20180327",
+      "d20180514",
+      "d20180530",
+      "d20190226"
+     ],
+     "step": 0.9
+    },
+    {
+     "type": "label",
+     "text": "ERUPTION BEGINS",
+     "style": "tag",
+     "slot": "middle",
+     "t": [
+      0.2,
+      4.1
+     ],
+     "sub": "May 3, 2018",
+     "info": "start date"
+    },
+    {
+     "type": "label",
+     "text": "24 FISSURES",
+     "style": "stat",
+     "slot": "middle",
+     "t": [
+      4.4,
+      null
+     ],
+     "info": "24 fissures"
+    }
+   ]
+  },
+  {
+   "id": "S4_heat",
+   "beat": "escalation",
+   "start": {
+    "word": 26,
+    "edge": "start",
+    "offset": -0.2
+   },
+   "info": "zoom in 2x: eruption zone, heat in infrared",
+   "camera": {
+    "from": {
+     "center": [
+      -154.885,
+      19.485
+     ],
+     "width_km": 6.0
+    },
+    "to": {
+     "center": [
+      -154.885,
+      19.485
+     ],
+     "width_km": 5.5
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "d20180530"
+    },
+    {
+     "type": "label",
+     "text": "HEAT SEEN IN INFRARED",
+     "style": "tag",
+     "slot": "top",
+     "t": [
+      0.0,
+      null
+     ],
+     "sub": "Landsat 8 · May 30, 2018",
+     "info": "infrared heat"
+    }
+   ]
+  },
+  {
+   "id": "S5_flow",
+   "beat": "escalation",
+   "start": {
+    "word": 34,
+    "edge": "start",
+    "offset": -0.2
+   },
+   "info": "camera follows the lava path east to the sea",
+   "camera": {
+    "from": {
+     "center": [
+      -154.89,
+      19.478
+     ],
+     "width_km": 6.5
+    },
+    "to": {
+     "center": [
+      -154.845,
+      19.492
+     ],
+     "width_km": 7.5
+    },
+    "ease": "linear"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "d20190226"
+    },
+    {
+     "type": "arrow",
+     "from": [
+      -154.872,
+      19.482
+     ],
+     "to": [
+      -154.832,
+      19.499
+     ],
+     "t": [
+      0.8,
+      null
+     ],
+     "info": "path to the ocean"
+    },
+    {
+     "type": "label",
+     "text": "TO THE OCEAN",
+     "style": "tag",
+     "slot": "top",
+     "t": [
+      0.3,
+      null
+     ],
+     "sub": "Landsat 8 · Feb 2019",
+     "info": "flow reached the sea"
+    }
+   ]
+  },
+  {
+   "id": "S6_bay",
+   "beat": "escalation",
+   "start": {
+    "word": 44,
+    "edge": "start",
+    "offset": -0.2
+   },
+   "info": "tight on the bay: before -> after",
+   "camera": {
+    "center": [
+     -154.84,
+     19.497
+    ],
+    "width_km": 5.5
+   },
+   "layers": [
+    {
+     "type": "wipe",
+     "from": "d20180327",
+     "to": "d20190226",
+     "t": [
+      3.26,
+      4.06
+     ]
+    },
+    {
+     "type": "label",
+     "text": "JUNE 3: LAVA ARRIVES",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      0.0,
+      3.26
+     ],
+     "info": "june 3"
+    },
+    {
+     "type": "label",
+     "text": "JUNE 7: BAY GONE",
+     "style": "stat",
+     "slot": "upper",
+     "t": [
+      4.66,
+      null
+     ],
+     "info": "june 7"
+    },
+    {
+     "type": "pin",
+     "at": [
+      -154.826,
+      19.503
+     ],
+     "text": "KAPOHO BAY",
+     "t": [
+      0.0,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S7_scale",
+   "beat": "escalation",
+   "start": {
+    "word": 58,
+    "edge": "start",
+    "offset": -0.2
+   },
+   "info": "pull back: the whole lava field",
+   "camera": {
+    "from": {
+     "center": [
+      -154.93,
+      19.41
+     ],
+     "width_km": 18.0
+    },
+    "to": {
+     "center": [
+      -154.93,
+      19.41
+     ],
+     "width_km": 16.5
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "d20190226"
+    },
+    {
+     "type": "label",
+     "text": "13.7 SQ MI OF LAVA",
+     "style": "stat",
+     "slot": "top",
+     "t": [
+      0.0,
+      null
+     ],
+     "sub": "35.5 km²",
+     "info": "area"
+    },
+    {
+     "type": "label",
+     "text": "1,839 STRUCTURES",
+     "style": "stat",
+     "slot": "upper",
+     "t": [
+      2.96,
+      null
+     ],
+     "sub": "destroyed",
+     "info": "structures"
+    }
+   ]
+  },
+  {
+   "id": "S8_rift",
+   "beat": "explanation",
+   "start": {
+    "word": 69,
+    "edge": "start",
+    "offset": -0.2
+   },
+   "info": "travel 30 km up the rift to the summit",
+   "camera": {
+    "from": {
+     "center": [
+      -154.95,
+      19.405
+     ],
+     "width_km": 18.0
+    },
+    "to": {
+     "center": [
+      -155.245,
+      19.405
+     ],
+     "width_km": 12.0
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "d20190720"
+    },
+    {
+     "type": "label",
+     "text": "MEANWHILE, AT THE SUMMIT",
+     "style": "tag",
+     "slot": "top",
+     "t": [
+      1.5,
+      null
+     ],
+     "info": "summit"
+    }
+   ]
+  },
+  {
+   "id": "S9_collapse",
+   "beat": "explanation",
+   "start": {
+    "word": 77,
+    "edge": "start",
+    "offset": -0.2
+   },
+   "info": "summit crater before/after",
+   "camera": {
+    "from": {
+     "center": [
+      -155.278,
+      19.405
+     ],
+     "width_km": 6.0
+    },
+    "to": {
+     "center": [
+      -155.278,
+      19.405
+     ],
+     "width_km": 5.4
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "wipe",
+     "from": "d20180327",
+     "to": "d20190720",
+     "t": [
+      0.3,
+      1.2
+     ]
+    },
+    {
+     "type": "pin",
+     "at": [
+      -155.281,
+      19.4055
+     ],
+     "text": "HALEMAʻUMAʻU",
+     "t": [
+      0.0,
+      1.2
+     ]
+    },
+    {
+     "type": "label",
+     "text": "−1,600 FT",
+     "style": "stat",
+     "slot": "top",
+     "t": [
+      1.8,
+      null
+     ],
+     "sub": "caldera floor dropped (500+ m)",
+     "info": "collapse depth"
+    }
+   ]
+  },
+  {
+   "id": "S10_newland",
+   "beat": "payoff",
+   "start": {
+    "word": 86,
+    "edge": "start",
+    "offset": -0.2
+   },
+   "info": "the new coastline",
+   "camera": {
+    "from": {
+     "center": [
+      -154.83,
+      19.482
+     ],
+     "width_km": 6.0
+    },
+    "to": {
+     "center": [
+      -154.832,
+      19.481
+     ],
+     "width_km": 5.6
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "d20190226"
+    },
+    {
+     "type": "label",
+     "text": "+875 ACRES",
+     "style": "stat",
+     "slot": "top",
+     "t": [
+      0.71,
+      null
+     ],
+     "sub": "brand-new land",
+     "info": "new land"
+    },
+    {
+     "type": "pin",
+     "at": [
+      -154.815,
+      19.488
+     ],
+     "text": "NEW LAND",
+     "t": [
+      0.4,
+      null
+     ],
+     "info": "where"
+    }
+   ]
+  },
+  {
+   "id": "S11_owner",
+   "beat": "payoff",
+   "start": {
+    "word": 95,
+    "edge": "start",
+    "offset": -0.2
+   },
+   "info": "pull back over the new coast",
+   "camera": {
+    "from": {
+     "center": [
+      -154.835,
+      19.48
+     ],
+     "width_km": 6.5
+    },
+    "to": {
+     "center": [
+      -154.88,
+      19.46
+     ],
+     "width_km": 13.0
+    },
+    "ease": "linear"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "d20190226"
+    },
+    {
+     "type": "label",
+     "text": "WHO OWNS IT?",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      0.0,
+      5.29
+     ],
+     "info": "question"
+    },
+    {
+     "type": "label",
+     "text": "THE STATE OF HAWAII",
+     "style": "stat",
+     "slot": "upper",
+     "t": [
+      5.29,
+      null
+     ],
+     "sub": "1977 court ruling",
+     "info": "answer"
+    }
+   ]
+  }
+ ],
+ "end": {
+  "after_last_word": 1.5,
+  "min_total": 45.0
+ },
+ "meta": {
+  "title": "Kilauea 2018 - A bay disappeared",
+  "claims": "story/claims.json",
+  "provenance": "stack/provenance.json",
+  "storyboard": "timeline_storyboard.json (approved v2)"
+ },
+ "voice": {
+  "src": "voice/narration.wav",
+  "meta": "voice/narration.voice.json"
+ },
+ "captions": {
+  "src": "captions/captions.srt",
+  "preset": "short"
+ }
+}

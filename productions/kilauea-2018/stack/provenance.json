@@ -1,0 +1,205 @@
+{
+ "d20180327": {
+  "kind": "landsat",
+  "entityId": "LC80620472018086LGN00",
+  "displayId": "LC08_L1TP_062047_20180327_20200901_02_T1",
+  "dataset": "landsat_ot_c2_l1",
+  "satellite": "Landsat 8",
+  "sensor": "OLI/TIRS",
+  "acquired": "2018-03-27",
+  "start_time_utc": "2018-03-27 20:41:43.029678",
+  "wrs_path_row": "062/047",
+  "land_cloud_cover": "25.99",
+  "tier": "T1",
+  "product": "Full-Resolution Browse (Natural Color) GeoTIFF",
+  "source": "USGS EROS M2M API",
+  "license": {
+   "name": "Public domain (U.S. Government work)",
+   "commercial_use": true
+  },
+  "credit": "Landsat imagery courtesy of the U.S. Geological Survey",
+  "derived_png": "d20180327.png",
+  "processing": [
+   {
+    "op": "reproject_resample",
+    "method": "bilinear",
+    "grid_epsg": 32605,
+    "pixel_m": 30.0
+   }
+  ]
+ },
+ "d20180514": {
+  "kind": "landsat",
+  "entityId": "LC80620472018134LGN00",
+  "displayId": "LC08_L1TP_062047_20180514_20200901_02_T1",
+  "dataset": "landsat_ot_c2_l1",
+  "satellite": "Landsat 8",
+  "sensor": "OLI/TIRS",
+  "acquired": "2018-05-14",
+  "start_time_utc": "2018-05-14 20:41:15.296916",
+  "wrs_path_row": "062/047",
+  "land_cloud_cover": "27.13",
+  "tier": "T1",
+  "product": "Full-Resolution Browse (Natural Color) GeoTIFF",
+  "source": "USGS EROS M2M API",
+  "license": {
+   "name": "Public domain (U.S. Government work)",
+   "commercial_use": true
+  },
+  "credit": "Landsat imagery courtesy of the U.S. Geological Survey",
+  "derived_png": "d20180514.png",
+  "processing": [
+   {
+    "op": "reproject_resample",
+    "method": "bilinear",
+    "grid_epsg": 32605,
+    "pixel_m": 30.0
+   }
+  ]
+ },
+ "d20180530": {
+  "kind": "landsat",
+  "entityId": "LC80620472018150LGN00",
+  "displayId": "LC08_L1GT_062047_20180530_20200831_02_T2",
+  "dataset": "landsat_ot_c2_l1",
+  "satellite": "Landsat 8",
+  "sensor": "OLI/TIRS",
+  "acquired": "2018-05-30",
+  "start_time_utc": "2018-05-30 20:41:02.317799",
+  "wrs_path_row": "062/047",
+  "land_cloud_cover": "61.12",
+  "tier": "T2",
+  "product": "Full-Resolution Browse (Natural Color) GeoTIFF",
+  "source": "USGS EROS M2M API",
+  "license": {
+   "name": "Public domain (U.S. Government work)",
+   "commercial_use": true
+  },
+  "credit": "Landsat imagery courtesy of the U.S. Geological Survey",
+  "derived_png": "d20180530.png",
+  "processing": [
+   {
+    "op": "reproject_resample",
+    "method": "bilinear",
+    "grid_epsg": 32605,
+    "pixel_m": 30.0
+   }
+  ]
+ },
+ "d20190226": {
+  "kind": "landsat",
+  "entityId": "LC80620472019057LGN00",
+  "displayId": "LC08_L1TP_062047_20190226_20200829_02_T1",
+  "dataset": "landsat_ot_c2_l1",
+  "satellite": "Landsat 8",
+  "sensor": "OLI/TIRS",
+  "acquired": "2019-02-26",
+  "start_time_utc": "2019-02-26 20:41:55.792754",
+  "wrs_path_row": "062/047",
+  "land_cloud_cover": "19.71",
+  "tier": "T1",
+  "product": "Full-Resolution Browse (Natural Color) GeoTIFF",
+  "source": "USGS EROS M2M API",
+  "license": {
+   "name": "Public domain (U.S. Government work)",
+   "commercial_use": true
+  },
+  "credit": "Landsat imagery courtesy of the U.S. Geological Survey",
+  "derived_png": "d20190226.png",
+  "processing": [
+   {
+    "op": "reproject_resample",
+    "method": "bilinear",
+    "grid_epsg": 32605,
+    "pixel_m": 30.0
+   }
+  ]
+ },
+ "d20190330": {
+  "kind": "landsat",
+  "entityId": "LC80620472019089LGN00",
+  "displayId": "LC08_L1TP_062047_20190330_20200829_02_T1",
+  "dataset": "landsat_ot_c2_l1",
+  "satellite": "Landsat 8",
+  "sensor": "OLI/TIRS",
+  "acquired": "2019-03-30",
+  "start_time_utc": "2019-03-30 20:41:46.990127",
+  "wrs_path_row": "062/047",
+  "land_cloud_cover": "50.50",
+  "tier": "T1",
+  "product": "Full-Resolution Browse (Natural Color) GeoTIFF",
+  "source": "USGS EROS M2M API",
+  "license": {
+   "name": "Public domain (U.S. Government work)",
+   "commercial_use": true
+  },
+  "credit": "Landsat imagery courtesy of the U.S. Geological Survey",
+  "derived_png": "d20190330.png",
+  "processing": [
+   {
+    "op": "reproject_resample",
+    "method": "bilinear",
+    "grid_epsg": 32605,
+    "pixel_m": 30.0
+   }
+  ]
+ },
+ "d20190720": {
+  "kind": "landsat",
+  "entityId": "LC80620472019201LGN00",
+  "displayId": "LC08_L1TP_062047_20190720_20200827_02_T1",
+  "dataset": "landsat_ot_c2_l1",
+  "satellite": "Landsat 8",
+  "sensor": "OLI/TIRS",
+  "acquired": "2019-07-20",
+  "start_time_utc": "2019-07-20 20:42:12.25516",
+  "wrs_path_row": "062/047",
+  "land_cloud_cover": "11.00",
+  "tier": "T1",
+  "product": "Full-Resolution Browse (Natural Color) GeoTIFF",
+  "source": "USGS EROS M2M API",
+  "license": {
+   "name": "Public domain (U.S. Government work)",
+   "commercial_use": true
+  },
+  "credit": "Landsat imagery courtesy of the U.S. Geological Survey",
+  "derived_png": "d20190720.png",
+  "processing": [
+   {
+    "op": "reproject_resample",
+    "method": "bilinear",
+    "grid_epsg": 32605,
+    "pixel_m": 30.0
+   }
+  ]
+ },
+ "d20250805": {
+  "kind": "landsat",
+  "entityId": "LC80620472025217LGN00",
+  "displayId": "LC08_L1TP_062047_20250805_20250815_02_T1",
+  "dataset": "landsat_ot_c2_l1",
+  "satellite": "Landsat 8",
+  "sensor": "OLI/TIRS",
+  "acquired": "2025-08-05",
+  "start_time_utc": "2025-08-05 20:42:12",
+  "wrs_path_row": "062/047",
+  "land_cloud_cover": "9.21",
+  "tier": "T1",
+  "product": "Full-Resolution Browse (Natural Color) GeoTIFF",
+  "source": "USGS EROS M2M API",
+  "license": {
+   "name": "Public domain (U.S. Government work)",
+   "commercial_use": true
+  },
+  "credit": "Landsat imagery courtesy of the U.S. Geological Survey",
+  "derived_png": "d20250805.png",
+  "processing": [
+   {
+    "op": "reproject_resample",
+    "method": "bilinear",
+    "grid_epsg": 32605,
+    "pixel_m": 30.0
+   }
+  ]
+ }
+}

@@ -1,0 +1,210 @@
+{
+ "result": "PASS",
+ "file": "/home/user/YouTube-Agent/productions/kilauea-2018/kilauea-2018_short.mp4",
+ "summary": {
+  "bytes": 15470379,
+  "duration": 51.666667,
+  "resolution": "1080x1920",
+  "fps": 30.0,
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "expected_duration": 51.667,
+  "profile": "short"
+ },
+ "checks": [
+  {
+   "id": "file_exists",
+   "status": "pass",
+   "expected": "exists",
+   "actual": "exists"
+  },
+  {
+   "id": "container_readable",
+   "status": "pass",
+   "expected": "ffprobe reads the file",
+   "actual": "ok"
+  },
+  {
+   "id": "file_size",
+   "status": "pass",
+   "expected": "> 0 and <= 2000.0 MB",
+   "actual": 15470379
+  },
+  {
+   "id": "container",
+   "status": "pass",
+   "expected": "mp4",
+   "actual": "mov,mp4,m4a,3gp,3g2,mj2"
+  },
+  {
+   "id": "video_stream",
+   "status": "pass",
+   "expected": "1 video stream",
+   "actual": 1
+  },
+  {
+   "id": "audio_stream",
+   "status": "pass",
+   "expected": "1 audio stream",
+   "actual": 1
+  },
+  {
+   "id": "resolution",
+   "status": "pass",
+   "expected": "1080x1920",
+   "actual": "1080x1920"
+  },
+  {
+   "id": "frame_rate",
+   "status": "pass",
+   "expected": 30.0,
+   "actual": 30.0
+  },
+  {
+   "id": "video_codec",
+   "status": "pass",
+   "expected": "h264",
+   "actual": "h264"
+  },
+  {
+   "id": "pixel_format",
+   "status": "pass",
+   "expected": "yuv420p",
+   "actual": "yuv420p",
+   "detail": "other pixel formats play badly on some devices"
+  },
+  {
+   "id": "audio_codec",
+   "status": "pass",
+   "expected": "aac",
+   "actual": "aac"
+  },
+  {
+   "id": "duration_readable",
+   "status": "pass",
+   "expected": "> 0 s",
+   "actual": 51.666667
+  },
+  {
+   "id": "duration_matches_timeline",
+   "status": "pass",
+   "expected": "51.667 s \u00b1 0.25",
+   "actual": 51.667
+  },
+  {
+   "id": "streams_aligned",
+   "status": "pass",
+   "expected": "video, audio and container end together",
+   "actual": {
+    "container": 51.666667,
+    "video": 51.666667,
+    "audio": 51.666
+   }
+  },
+  {
+   "id": "frame_count",
+   "status": "pass",
+   "expected": 1550,
+   "actual": 1550
+  },
+  {
+   "id": "full_decode",
+   "status": "pass",
+   "expected": "decodes with no errors",
+   "actual": "ok"
+  },
+  {
+   "id": "short_duration",
+   "status": "pass",
+   "expected": "35.0-60.0 s",
+   "actual": 51.667
+  },
+  {
+   "id": "short_target_window",
+   "status": "pass",
+   "expected": "45.0-55.0 s",
+   "actual": 51.667
+  },
+  {
+   "id": "black_frames",
+   "status": "pass",
+   "expected": "none",
+   "actual": 0
+  },
+  {
+   "id": "freezes",
+   "status": "warn",
+   "expected": "< 1.5 s static",
+   "actual": 1.53
+  },
+  {
+   "id": "loudness",
+   "status": "warn",
+   "expected": "-16.0 to -12.0 LUFS",
+   "actual": -17.9,
+   "detail": "levelling to the Shorts target needs a timing-safe limiter (not built yet)"
+  },
+  {
+   "id": "audio_starts",
+   "status": "pass",
+   "expected": "<= 0.5 s",
+   "actual": 0.0
+  },
+  {
+   "id": "info_events_first_10s",
+   "status": "pass",
+   "expected": ">= 5",
+   "actual": 10
+  },
+  {
+   "id": "captions_in_safe_zone",
+   "status": "pass",
+   "expected": "every caption inside the Shorts safe area",
+   "actual": "ok"
+  },
+  {
+   "id": "shot_credits",
+   "status": "pass",
+   "expected": "a source credit on every shot",
+   "actual": "ok"
+  },
+  {
+   "id": "manifest_matches",
+   "status": "pass",
+   "expected": 51.667,
+   "actual": 51.667
+  },
+  {
+   "id": "compositions_first_10s",
+   "status": "pass",
+   "expected": ">= 3 distinct compositions",
+   "actual": 3
+  },
+  {
+   "id": "composition_resets",
+   "status": "pass",
+   "expected": "about 7-10",
+   "actual": 10,
+   "detail": [
+    "3.155s S2_proof: wipe",
+    "6.441s S3_eruption: timelapse",
+    "12.153s S4_heat: cut",
+    "17.891s S5_flow: camera_move",
+    "22.158s S6_bay: wipe",
+    "24.75s S7_scale: cut",
+    "31.399s S8_rift: camera_move",
+    "34.803s S9_collapse: cut",
+    "38.727s S10_newland: cut",
+    "47.053s S11_owner: camera_move"
+   ]
+  },
+  {
+   "id": "composition_hold",
+   "status": "pass",
+   "expected": "<= 6.0 s on one composition",
+   "actual": 5.549,
+   "detail": "24.75-31.399 s"
+  }
+ ],
+ "contact_sheet": "contact_sheet.jpg"
+}

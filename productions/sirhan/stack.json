@@ -1,0 +1,137 @@
+{
+ "aoi": [
+  37.98,
+  29.78,
+  38.9,
+  30.55
+ ],
+ "pixel_m": 30,
+ "out_dir": "stack",
+ "scenes": [
+  {
+   "id": "y1987",
+   "src": "raw/LT05_L1TP_172039_19870410_20201014_02_T1_refl.tif",
+   "label": "1987",
+   "provenance": {
+    "kind": "landsat",
+    "entityId": "LT51720391987100AAA08",
+    "displayId": "LT05_L1TP_172039_19870410_20201014_02_T1",
+    "dataset": "landsat_tm_c2_l1",
+    "satellite": "Landsat 5",
+    "sensor": "TM",
+    "acquired": "1987-04-10",
+    "start_time_utc": "1987-04-10 07:21:41.88081",
+    "wrs_path_row": "172/039",
+    "land_cloud_cover": "0.00",
+    "tier": "T1",
+    "product": "Full-Resolution Browse (Natural Color) GeoTIFF",
+    "source": "USGS EROS M2M API",
+    "license": {
+     "name": "Public domain (U.S. Government work)",
+     "commercial_use": true
+    },
+    "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+   }
+  },
+  {
+   "id": "y2000",
+   "src": "raw/LT05_L1TP_172039_20000328_20200907_02_T1_refl.tif",
+   "label": "2000",
+   "provenance": {
+    "kind": "landsat",
+    "entityId": "LT51720392000088XXX02",
+    "displayId": "LT05_L1TP_172039_20000328_20200907_02_T1",
+    "dataset": "landsat_tm_c2_l1",
+    "satellite": "Landsat 5",
+    "sensor": "TM",
+    "acquired": "2000-03-28",
+    "start_time_utc": "2000-03-28 07:33:14.95494",
+    "wrs_path_row": "172/039",
+    "land_cloud_cover": "0.00",
+    "tier": "T1",
+    "product": "Full-Resolution Browse (Natural Color) GeoTIFF",
+    "source": "USGS EROS M2M API",
+    "license": {
+     "name": "Public domain (U.S. Government work)",
+     "commercial_use": true
+    },
+    "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+   }
+  },
+  {
+   "id": "y2008",
+   "src": "raw/LT05_L1TP_172039_20080403_20200829_02_T1_refl.tif",
+   "label": "2008",
+   "provenance": {
+    "kind": "landsat",
+    "entityId": "LT51720392008094MTI00",
+    "displayId": "LT05_L1TP_172039_20080403_20200829_02_T1",
+    "dataset": "landsat_tm_c2_l1",
+    "satellite": "Landsat 5",
+    "sensor": "TM",
+    "acquired": "2008-04-03",
+    "start_time_utc": "2008-04-03 07:48:31.14869",
+    "wrs_path_row": "172/039",
+    "land_cloud_cover": "0.00",
+    "tier": "T1",
+    "product": "Full-Resolution Browse (Natural Color) GeoTIFF",
+    "source": "USGS EROS M2M API",
+    "license": {
+     "name": "Public domain (U.S. Government work)",
+     "commercial_use": true
+    },
+    "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+   }
+  },
+  {
+   "id": "y2015",
+   "src": "raw/LC08_L1TP_172039_20150407_20200909_02_T1_refl.tif",
+   "label": "2015",
+   "provenance": {
+    "kind": "landsat",
+    "entityId": "LC81720392015097LGN01",
+    "displayId": "LC08_L1TP_172039_20150407_20200909_02_T1",
+    "dataset": "landsat_ot_c2_l1",
+    "satellite": "Landsat 8",
+    "sensor": "OLI/TIRS",
+    "acquired": "2015-04-07",
+    "start_time_utc": "2015-04-07 07:58:15.160601",
+    "wrs_path_row": "172/039",
+    "land_cloud_cover": "0.00",
+    "tier": "T1",
+    "product": "Full-Resolution Browse (Natural Color) GeoTIFF",
+    "source": "USGS EROS M2M API",
+    "license": {
+     "name": "Public domain (U.S. Government work)",
+     "commercial_use": true
+    },
+    "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+   }
+  },
+  {
+   "id": "y2025",
+   "src": "raw/LC08_L1TP_172039_20250402_20250411_02_T1_refl.tif",
+   "label": "2025",
+   "provenance": {
+    "kind": "landsat",
+    "entityId": "LC81720392025092LGN00",
+    "displayId": "LC08_L1TP_172039_20250402_20250411_02_T1",
+    "dataset": "landsat_ot_c2_l1",
+    "satellite": "Landsat 8",
+    "sensor": "OLI/TIRS",
+    "acquired": "2025-04-02",
+    "start_time_utc": "2025-04-02 07:58:32",
+    "wrs_path_row": "172/039",
+    "land_cloud_cover": "0.01",
+    "tier": "T1",
+    "product": "Full-Resolution Browse (Natural Color) GeoTIFF",
+    "source": "USGS EROS M2M API",
+    "license": {
+     "name": "Public domain (U.S. Government work)",
+     "commercial_use": true
+    },
+    "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+   }
+  }
+ ]
+}

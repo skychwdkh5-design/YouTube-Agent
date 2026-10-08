@@ -1,0 +1,15 @@
+{
+ "status": "ok",
+ "output": "/home/user/YouTube-Agent/productions/kilauea-2018/kilauea-2018_short.mp4",
+ "manifest": "/home/user/YouTube-Agent/productions/kilauea-2018/kilauea-2018_short.manifest.json",
+ "bytes": 15470379,
+ "sha256": "86a56a54e3eff1d77581b416d359c4fe7c3c2a881198034e03d14b9ad07057a8",
+ "duration": 51.667,
+ "expected_duration": 51.667,
+ "profile": "short",
+ "shots": 11,
+ "info_events_first_10s": 10,
+ "composition_resets": 10,
+ "distinct_compositions_first_10s": 3,
+ "warnings": []
+}

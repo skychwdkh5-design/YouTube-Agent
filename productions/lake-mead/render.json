@@ -1,0 +1,13 @@
+{
+ "status": "ok",
+ "output": "/home/user/YouTube-Agent/productions/lake-mead/lake-mead_short.mp4",
+ "manifest": "/home/user/YouTube-Agent/productions/lake-mead/lake-mead_short.manifest.json",
+ "bytes": 30415749,
+ "sha256": "235bc6f0b44f0d144c5acee9b1a59cd84588eafee41e348b8bc7694639fc4813",
+ "duration": 46.267,
+ "expected_duration": 46.267,
+ "profile": "short",
+ "shots": 12,
+ "info_events_first_10s": 11,
+ "warnings": []
+}

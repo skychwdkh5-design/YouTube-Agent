@@ -1,0 +1,72 @@
+{
+ "epsg": 32637,
+ "x0": 401400.0,
+ "y_top": 3380190.0,
+ "pixel_m": 30.0,
+ "width": 2967,
+ "height": 2860,
+ "schema": "yt-geo-stack/1",
+ "aoi": [
+  37.98,
+  29.78,
+  38.9,
+  30.55
+ ],
+ "scenes": [
+  {
+   "id": "y1987",
+   "label": "1987",
+   "src": "raw/LT05_L1TP_172039_19870410_20201014_02_T1_refl.tif",
+   "scene_epsg": 32637,
+   "scene_size": [
+    7831,
+    7081
+   ],
+   "png": "y1987.png"
+  },
+  {
+   "id": "y2000",
+   "label": "2000",
+   "src": "raw/LT05_L1TP_172039_20000328_20200907_02_T1_refl.tif",
+   "scene_epsg": 32637,
+   "scene_size": [
+    7871,
+    7171
+   ],
+   "png": "y2000.png"
+  },
+  {
+   "id": "y2008",
+   "label": "2008",
+   "src": "raw/LT05_L1TP_172039_20080403_20200829_02_T1_refl.tif",
+   "scene_epsg": 32637,
+   "scene_size": [
+    7981,
+    7101
+   ],
+   "png": "y2008.png"
+  },
+  {
+   "id": "y2015",
+   "label": "2015",
+   "src": "raw/LC08_L1TP_172039_20150407_20200909_02_T1_refl.tif",
+   "scene_epsg": 32637,
+   "scene_size": [
+    7691,
+    7831
+   ],
+   "png": "y2015.png"
+  },
+  {
+   "id": "y2025",
+   "label": "2025",
+   "src": "raw/LC08_L1TP_172039_20250402_20250411_02_T1_refl.tif",
+   "scene_epsg": 32637,
+   "scene_size": [
+    7691,
+    7831
+   ],
+   "png": "y2025.png"
+  }
+ ]
+}

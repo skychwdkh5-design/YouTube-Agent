@@ -1,0 +1,571 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "narration.wav",
+ "audio_format": "wav",
+ "audio_sha256": "e4a6978d85fc6550ad9793dd76e4fb5be22f174d5081ea4ae2aa771270452fb3",
+ "duration": 45.743,
+ "characters": 619,
+ "text": "These farms run on water from the last Ice Age.\n\nIn 1987, this was empty desert.\n\nThen the circles came.\n\nEach is a farm about a kilometer wide, watered by a rotating sprinkler arm.\n\nBy 1992, the desert kingdom was exporting over two million tons of wheat.\n\nThe water is pumped from deep aquifers filled about twenty thousand years ago.\n\nRain here can't refill them.\n\nIn 2016, Saudi Arabia ended its wheat program to save water.\n\nMany farmers switched to alfalfa, which uses three times the water.\n\nThat year, hydrologists estimated about fifty more years of pumping. All of this, built on water that doesn't come back.",
+ "text_sha256": "1684034d1424cac3a24e4b84542d197e77320a4b83675be3145feb32d7f2242f",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 619,
+   "offset": 0.0,
+   "duration": 45.743,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "These",
+   "start": 0.0,
+   "end": 0.255
+  },
+  {
+   "text": "farms",
+   "start": 0.302,
+   "end": 0.627
+  },
+  {
+   "text": "run",
+   "start": 0.673,
+   "end": 0.824
+  },
+  {
+   "text": "on",
+   "start": 0.882,
+   "end": 0.975
+  },
+  {
+   "text": "water",
+   "start": 1.045,
+   "end": 1.324
+  },
+  {
+   "text": "from",
+   "start": 1.37,
+   "end": 1.509
+  },
+  {
+   "text": "the",
+   "start": 1.556,
+   "end": 1.625
+  },
+  {
+   "text": "last",
+   "start": 1.672,
+   "end": 1.95
+  },
+  {
+   "text": "Ice",
+   "start": 2.032,
+   "end": 2.276
+  },
+  {
+   "text": "Age.",
+   "start": 2.334,
+   "end": 2.821
+  },
+  {
+   "text": "In",
+   "start": 3.204,
+   "end": 3.355
+  },
+  {
+   "text": "1987,",
+   "start": 3.413,
+   "end": 4.47
+  },
+  {
+   "text": "this",
+   "start": 4.505,
+   "end": 4.667
+  },
+  {
+   "text": "was",
+   "start": 4.737,
+   "end": 4.876
+  },
+  {
+   "text": "empty",
+   "start": 4.969,
+   "end": 5.317
+  },
+  {
+   "text": "desert.",
+   "start": 5.387,
+   "end": 5.944
+  },
+  {
+   "text": "Then",
+   "start": 6.269,
+   "end": 6.548
+  },
+  {
+   "text": "the",
+   "start": 6.629,
+   "end": 6.711
+  },
+  {
+   "text": "circles",
+   "start": 6.769,
+   "end": 7.14
+  },
+  {
+   "text": "came.",
+   "start": 7.198,
+   "end": 7.744
+  },
+  {
+   "text": "Each",
+   "start": 8.127,
+   "end": 8.417
+  },
+  {
+   "text": "is",
+   "start": 8.464,
+   "end": 8.557
+  },
+  {
+   "text": "a",
+   "start": 8.615,
+   "end": 8.638
+  },
+  {
+   "text": "farm",
+   "start": 8.696,
+   "end": 8.998
+  },
+  {
+   "text": "about",
+   "start": 9.044,
+   "end": 9.265
+  },
+  {
+   "text": "a",
+   "start": 9.3,
+   "end": 9.323
+  },
+  {
+   "text": "kilometer",
+   "start": 9.369,
+   "end": 9.88
+  },
+  {
+   "text": "wide,",
+   "start": 9.95,
+   "end": 10.577
+  },
+  {
+   "text": "watered",
+   "start": 10.786,
+   "end": 11.18
+  },
+  {
+   "text": "by",
+   "start": 11.215,
+   "end": 11.355
+  },
+  {
+   "text": "a",
+   "start": 11.424,
+   "end": 11.447
+  },
+  {
+   "text": "rotating",
+   "start": 11.529,
+   "end": 12.028
+  },
+  {
+   "text": "sprinkler",
+   "start": 12.098,
+   "end": 12.585
+  },
+  {
+   "text": "arm.",
+   "start": 12.666,
+   "end": 13.154
+  },
+  {
+   "text": "By",
+   "start": 13.595,
+   "end": 13.758
+  },
+  {
+   "text": "1992,",
+   "start": 13.816,
+   "end": 15.116
+  },
+  {
+   "text": "the",
+   "start": 15.267,
+   "end": 15.383
+  },
+  {
+   "text": "desert",
+   "start": 15.464,
+   "end": 15.778
+  },
+  {
+   "text": "kingdom",
+   "start": 15.824,
+   "end": 16.184
+  },
+  {
+   "text": "was",
+   "start": 16.242,
+   "end": 16.37
+  },
+  {
+   "text": "exporting",
+   "start": 16.44,
+   "end": 16.997
+  },
+  {
+   "text": "over",
+   "start": 17.055,
+   "end": 17.253
+  },
+  {
+   "text": "two",
+   "start": 17.322,
+   "end": 17.531
+  },
+  {
+   "text": "million",
+   "start": 17.624,
+   "end": 18.007
+  },
+  {
+   "text": "tons",
+   "start": 18.077,
+   "end": 18.425
+  },
+  {
+   "text": "of",
+   "start": 18.472,
+   "end": 18.542
+  },
+  {
+   "text": "wheat.",
+   "start": 18.623,
+   "end": 19.192
+  },
+  {
+   "text": "The",
+   "start": 19.575,
+   "end": 19.691
+  },
+  {
+   "text": "water",
+   "start": 19.761,
+   "end": 20.039
+  },
+  {
+   "text": "is",
+   "start": 20.097,
+   "end": 20.179
+  },
+  {
+   "text": "pumped",
+   "start": 20.248,
+   "end": 20.55
+  },
+  {
+   "text": "from",
+   "start": 20.597,
+   "end": 20.759
+  },
+  {
+   "text": "deep",
+   "start": 20.875,
+   "end": 21.119
+  },
+  {
+   "text": "aquifers",
+   "start": 21.2,
+   "end": 21.827
+  },
+  {
+   "text": "filled",
+   "start": 21.897,
+   "end": 22.28
+  },
+  {
+   "text": "about",
+   "start": 22.315,
+   "end": 22.559
+  },
+  {
+   "text": "twenty",
+   "start": 22.593,
+   "end": 22.895
+  },
+  {
+   "text": "thousand",
+   "start": 22.953,
+   "end": 23.325
+  },
+  {
+   "text": "years",
+   "start": 23.395,
+   "end": 23.627
+  },
+  {
+   "text": "ago.",
+   "start": 23.673,
+   "end": 24.219
+  },
+  {
+   "text": "Rain",
+   "start": 24.66,
+   "end": 24.915
+  },
+  {
+   "text": "here",
+   "start": 24.985,
+   "end": 25.159
+  },
+  {
+   "text": "can't",
+   "start": 25.206,
+   "end": 25.473
+  },
+  {
+   "text": "refill",
+   "start": 25.531,
+   "end": 25.949
+  },
+  {
+   "text": "them.",
+   "start": 26.018,
+   "end": 26.378
+  },
+  {
+   "text": "In",
+   "start": 27.191,
+   "end": 27.33
+  },
+  {
+   "text": "2016,",
+   "start": 27.4,
+   "end": 28.515
+  },
+  {
+   "text": "Saudi",
+   "start": 28.665,
+   "end": 29.037
+  },
+  {
+   "text": "Arabia",
+   "start": 29.095,
+   "end": 29.641
+  },
+  {
+   "text": "ended",
+   "start": 29.722,
+   "end": 30.012
+  },
+  {
+   "text": "its",
+   "start": 30.059,
+   "end": 30.175
+  },
+  {
+   "text": "wheat",
+   "start": 30.233,
+   "end": 30.43
+  },
+  {
+   "text": "program",
+   "start": 30.488,
+   "end": 31.034
+  },
+  {
+   "text": "to",
+   "start": 31.104,
+   "end": 31.173
+  },
+  {
+   "text": "save",
+   "start": 31.289,
+   "end": 31.777
+  },
+  {
+   "text": "water.",
+   "start": 31.847,
+   "end": 32.427
+  },
+  {
+   "text": "Many",
+   "start": 32.752,
+   "end": 32.984
+  },
+  {
+   "text": "farmers",
+   "start": 33.054,
+   "end": 33.507
+  },
+  {
+   "text": "switched",
+   "start": 33.542,
+   "end": 33.867
+  },
+  {
+   "text": "to",
+   "start": 33.89,
+   "end": 33.96
+  },
+  {
+   "text": "alfalfa,",
+   "start": 34.041,
+   "end": 34.923
+  },
+  {
+   "text": "which",
+   "start": 34.993,
+   "end": 35.19
+  },
+  {
+   "text": "uses",
+   "start": 35.26,
+   "end": 35.55
+  },
+  {
+   "text": "three",
+   "start": 35.608,
+   "end": 35.852
+  },
+  {
+   "text": "times",
+   "start": 35.899,
+   "end": 36.305
+  },
+  {
+   "text": "the",
+   "start": 36.363,
+   "end": 36.433
+  },
+  {
+   "text": "water.",
+   "start": 36.491,
+   "end": 37.002
+  },
+  {
+   "text": "That",
+   "start": 37.605,
+   "end": 37.861
+  },
+  {
+   "text": "year,",
+   "start": 37.93,
+   "end": 38.43
+  },
+  {
+   "text": "hydrologists",
+   "start": 38.639,
+   "end": 39.44
+  },
+  {
+   "text": "estimated",
+   "start": 39.521,
+   "end": 40.067
+  },
+  {
+   "text": "about",
+   "start": 40.113,
+   "end": 40.345
+  },
+  {
+   "text": "fifty",
+   "start": 40.427,
+   "end": 40.845
+  },
+  {
+   "text": "more",
+   "start": 40.926,
+   "end": 41.135
+  },
+  {
+   "text": "years",
+   "start": 41.193,
+   "end": 41.483
+  },
+  {
+   "text": "of",
+   "start": 41.53,
+   "end": 41.599
+  },
+  {
+   "text": "pumping.",
+   "start": 41.669,
+   "end": 42.261
+  },
+  {
+   "text": "All",
+   "start": 42.505,
+   "end": 42.737
+  },
+  {
+   "text": "of",
+   "start": 42.795,
+   "end": 42.841
+  },
+  {
+   "text": "this,",
+   "start": 42.9,
+   "end": 43.132
+  },
+  {
+   "text": "built",
+   "start": 43.178,
+   "end": 43.434
+  },
+  {
+   "text": "on",
+   "start": 43.503,
+   "end": 43.608
+  },
+  {
+   "text": "water",
+   "start": 43.689,
+   "end": 44.014
+  },
+  {
+   "text": "that",
+   "start": 44.061,
+   "end": 44.188
+  },
+  {
+   "text": "doesn't",
+   "start": 44.235,
+   "end": 44.513
+  },
+  {
+   "text": "come",
+   "start": 44.56,
+   "end": 44.745
+  },
+  {
+   "text": "back.",
+   "start": 44.78,
+   "end": 45.744
+  }
+ ],
+ "created": "2026-10-07T11:20:05Z",
+ "warnings": []
+}

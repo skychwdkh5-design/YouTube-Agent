@@ -1,0 +1,18 @@
+{
+ "schema": "yt-geo-watermask/1",
+ "source": "stack/y2000.png",
+ "mask": "geo/water_y2000.png",
+ "size": [
+  3057,
+  2447
+ ],
+ "method": "dark & non-red pixels, 3x3 cross opening, connected regions >= min_area_px",
+ "params": {
+  "max_brightness": 75,
+  "blue_margin": 5,
+  "min_area_px": 400
+ },
+ "water_pixels": 579141,
+ "water_fraction": 0.07742,
+ "note": "display aid traced from imagery; not a survey measurement"
+}

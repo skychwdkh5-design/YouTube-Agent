@@ -1,0 +1,18 @@
+{
+ "status": "ok",
+ "files": {
+  "srt": "/home/user/YouTube-Agent/productions/sirhan/captions/captions.srt",
+  "vtt": "/home/user/YouTube-Agent/productions/sirhan/captions/captions.vtt",
+  "json": "/home/user/YouTube-Agent/productions/sirhan/captions/captions.json"
+ },
+ "cues": 25,
+ "language": "en",
+ "duration": 45.744,
+ "validation": {
+  "wording_preserved": true,
+  "no_overlaps": true,
+  "timestamps_valid": true,
+  "problems": [],
+  "warnings": []
+ }
+}

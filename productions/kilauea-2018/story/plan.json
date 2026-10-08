@@ -1,0 +1,457 @@
+{
+ "status": "confirm_required",
+ "error": "rendering needs --confirm; the timeline is valid, plan attached",
+ "plan": {
+  "version": 3,
+  "profile": "short",
+  "expected_duration": 48.6,
+  "total_frames": 1458,
+  "shots": [
+   {
+    "id": "S1_hook",
+    "beat": "hook",
+    "start": 0.0,
+    "end": 3.64,
+    "layers": [
+     "image",
+     "label",
+     "pin",
+     "label"
+    ]
+   },
+   {
+    "id": "S2_proof",
+    "beat": "proof",
+    "start": 3.64,
+    "end": 5.69,
+    "layers": [
+     "wipe",
+     "pin"
+    ]
+   },
+   {
+    "id": "S3_eruption",
+    "beat": "proof",
+    "start": 5.69,
+    "end": 11.37,
+    "layers": [
+     "flip",
+     "label",
+     "label"
+    ]
+   },
+   {
+    "id": "S4_heat",
+    "beat": "escalation",
+    "start": 11.37,
+    "end": 14.77,
+    "layers": [
+     "image",
+     "label"
+    ]
+   },
+   {
+    "id": "S5_flow",
+    "beat": "escalation",
+    "start": 14.77,
+    "end": 18.16,
+    "layers": [
+     "image",
+     "arrow",
+     "label"
+    ]
+   },
+   {
+    "id": "S6_bay",
+    "beat": "escalation",
+    "start": 18.16,
+    "end": 23.16,
+    "layers": [
+     "wipe",
+     "label",
+     "label",
+     "pin"
+    ]
+   },
+   {
+    "id": "S7_scale",
+    "beat": "escalation",
+    "start": 23.16,
+    "end": 28.69,
+    "layers": [
+     "image",
+     "label",
+     "label"
+    ]
+   },
+   {
+    "id": "S8_rift",
+    "beat": "explanation",
+    "start": 28.69,
+    "end": 32.33,
+    "layers": [
+     "image",
+     "label"
+    ]
+   },
+   {
+    "id": "S9_collapse",
+    "beat": "explanation",
+    "start": 32.33,
+    "end": 36.26,
+    "layers": [
+     "wipe",
+     "pin",
+     "label"
+    ]
+   },
+   {
+    "id": "S10_newland",
+    "beat": "payoff",
+    "start": 36.26,
+    "end": 40.23,
+    "layers": [
+     "image",
+     "label",
+     "pin"
+    ]
+   },
+   {
+    "id": "S11_owner",
+    "beat": "payoff",
+    "start": 40.23,
+    "end": 48.6,
+    "layers": [
+     "image",
+     "label",
+     "label"
+    ]
+   }
+  ],
+  "info_events": [
+   {
+    "t": 0.0,
+    "shot": "S1_hook",
+    "what": "after-image: black lava where Kapoho Bay was"
+   },
+   {
+    "t": 0.0,
+    "shot": "S1_hook",
+    "what": "hook claim"
+   },
+   {
+    "t": 0.5,
+    "shot": "S1_hook",
+    "what": "where the bay was"
+   },
+   {
+    "t": 1.2,
+    "shot": "S1_hook",
+    "what": "image date"
+   },
+   {
+    "t": 3.64,
+    "shot": "S2_proof",
+    "what": "wipe back to the bay before the eruption"
+   },
+   {
+    "t": 5.69,
+    "shot": "S3_eruption",
+    "what": "zoom out: four-date timelapse of the eruption"
+   },
+   {
+    "t": 5.89,
+    "shot": "S3_eruption",
+    "what": "start date"
+   },
+   {
+    "t": 6.59,
+    "shot": "S3_eruption",
+    "what": "flip to d20180514"
+   },
+   {
+    "t": 7.49,
+    "shot": "S3_eruption",
+    "what": "flip to d20180530"
+   },
+   {
+    "t": 8.39,
+    "shot": "S3_eruption",
+    "what": "flip to d20190226"
+   },
+   {
+    "t": 9.49,
+    "shot": "S3_eruption",
+    "what": "24 fissures"
+   },
+   {
+    "t": 11.37,
+    "shot": "S4_heat",
+    "what": "zoom in 2x: eruption zone, heat in infrared"
+   },
+   {
+    "t": 11.37,
+    "shot": "S4_heat",
+    "what": "infrared heat"
+   },
+   {
+    "t": 14.77,
+    "shot": "S5_flow",
+    "what": "camera follows the lava path east to the sea"
+   },
+   {
+    "t": 15.07,
+    "shot": "S5_flow",
+    "what": "flow reached the sea"
+   },
+   {
+    "t": 15.57,
+    "shot": "S5_flow",
+    "what": "path to the ocean"
+   },
+   {
+    "t": 18.16,
+    "shot": "S6_bay",
+    "what": "tight on the bay: before -> after"
+   },
+   {
+    "t": 18.16,
+    "shot": "S6_bay",
+    "what": "june 3"
+   },
+   {
+    "t": 22.06,
+    "shot": "S6_bay",
+    "what": "june 7"
+   },
+   {
+    "t": 23.16,
+    "shot": "S7_scale",
+    "what": "pull back: the whole lava field"
+   },
+   {
+    "t": 23.16,
+    "shot": "S7_scale",
+    "what": "area"
+   },
+   {
+    "t": 25.36,
+    "shot": "S7_scale",
+    "what": "structures"
+   },
+   {
+    "t": 28.69,
+    "shot": "S8_rift",
+    "what": "travel 30 km up the rift to the summit"
+   },
+   {
+    "t": 30.19,
+    "shot": "S8_rift",
+    "what": "summit"
+   },
+   {
+    "t": 32.33,
+    "shot": "S9_collapse",
+    "what": "summit crater before/after"
+   },
+   {
+    "t": 34.13,
+    "shot": "S9_collapse",
+    "what": "collapse depth"
+   },
+   {
+    "t": 36.26,
+    "shot": "S10_newland",
+    "what": "the new coastline"
+   },
+   {
+    "t": 36.26,
+    "shot": "S10_newland",
+    "what": "new land"
+   },
+   {
+    "t": 36.66,
+    "shot": "S10_newland",
+    "what": "where"
+   },
+   {
+    "t": 40.23,
+    "shot": "S11_owner",
+    "what": "pull back over the new coast"
+   },
+   {
+    "t": 40.23,
+    "shot": "S11_owner",
+    "what": "question"
+   },
+   {
+    "t": 43.83,
+    "shot": "S11_owner",
+    "what": "answer"
+   }
+  ],
+  "info_events_first_10s": 11,
+  "compositions": {
+   "rule": "composition-reset/1",
+   "thresholds": {
+    "zoom_ratio": 1.5,
+    "shift": 0.35,
+    "merge_s": 0.75,
+    "timelapse_min": 3,
+    "timelapse_max_step": 1.0,
+    "sample_s": 0.1,
+    "first_10s_min": 3,
+    "resets": [
+     7,
+     10
+    ],
+    "max_hold_s": 6.0
+   },
+   "composition_resets": 10,
+   "distinct_first_10s": 3,
+   "longest_static_hold": {
+    "seconds": 5.53,
+    "start": 23.16,
+    "end": 29.59
+   },
+   "resets": [
+    {
+     "t": 3.64,
+     "shot": "S2_proof",
+     "kind": "wipe",
+     "what": "wipe d20190226 -> d20180327"
+    },
+    {
+     "t": 5.69,
+     "shot": "S3_eruption",
+     "kind": "timelapse",
+     "what": "timelapse of 4 dates",
+     "also": [
+      "cut"
+     ]
+    },
+    {
+     "t": 11.37,
+     "shot": "S4_heat",
+     "kind": "cut",
+     "what": "zoom in x2.0"
+    },
+    {
+     "t": 16.97,
+     "shot": "S5_flow",
+     "kind": "camera_move",
+     "what": "camera relocation"
+    },
+    {
+     "t": 20.66,
+     "shot": "S6_bay",
+     "kind": "wipe",
+     "what": "wipe d20180327 -> d20190226"
+    },
+    {
+     "t": 23.16,
+     "shot": "S7_scale",
+     "kind": "cut",
+     "what": "camera relocation"
+    },
+    {
+     "t": 29.59,
+     "shot": "S8_rift",
+     "kind": "camera_move",
+     "what": "camera relocation"
+    },
+    {
+     "t": 32.33,
+     "shot": "S9_collapse",
+     "kind": "cut",
+     "what": "zoom in x2.0",
+     "also": [
+      "wipe"
+     ]
+    },
+    {
+     "t": 36.26,
+     "shot": "S10_newland",
+     "kind": "cut",
+     "what": "camera relocation"
+    },
+    {
+     "t": 44.23,
+     "shot": "S11_owner",
+     "kind": "camera_move",
+     "what": "zoom out x1.5"
+    }
+   ],
+   "segments": [
+    {
+     "start": 0.0,
+     "end": 3.64,
+     "seconds": 3.64,
+     "static_hold": 3.64
+    },
+    {
+     "start": 3.64,
+     "end": 5.69,
+     "seconds": 2.05,
+     "static_hold": 1.25
+    },
+    {
+     "start": 5.69,
+     "end": 11.37,
+     "seconds": 5.68,
+     "static_hold": 2.08
+    },
+    {
+     "start": 11.37,
+     "end": 16.97,
+     "seconds": 5.6,
+     "static_hold": 3.4
+    },
+    {
+     "start": 16.97,
+     "end": 20.66,
+     "seconds": 3.69,
+     "static_hold": 2.5
+    },
+    {
+     "start": 20.66,
+     "end": 23.16,
+     "seconds": 2.5,
+     "static_hold": 1.7
+    },
+    {
+     "start": 23.16,
+     "end": 29.59,
+     "seconds": 6.43,
+     "static_hold": 5.53
+    },
+    {
+     "start": 29.59,
+     "end": 32.33,
+     "seconds": 2.74,
+     "static_hold": 0.0
+    },
+    {
+     "start": 32.33,
+     "end": 36.26,
+     "seconds": 3.93,
+     "static_hold": 2.73
+    },
+    {
+     "start": 36.26,
+     "end": 44.23,
+     "seconds": 7.97,
+     "static_hold": 3.97
+    },
+    {
+     "start": 44.23,
+     "end": 48.6,
+     "seconds": 4.37,
+     "static_hold": 0.0
+    }
+   ]
+  },
+  "narration": null,
+  "warnings": []
+ }
+}

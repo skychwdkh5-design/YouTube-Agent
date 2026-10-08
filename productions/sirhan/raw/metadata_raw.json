@@ -1,0 +1,531 @@
+{
+ "entityId": "LT51720391987100AAA08",
+ "displayId": "LT05_L1TP_172039_19870410_20201014_02_T1",
+ "acquired": "1987-04-10",
+ "cloudCover": 0,
+ "publishDate": "2022-06-22T19:23:13",
+ "spatialBounds": {
+  "type": "Polygon",
+  "coordinates": [
+   [
+    [
+     36.95802,
+     29.36507
+    ],
+    [
+     36.95802,
+     31.2238
+    ],
+    [
+     39.27079,
+     31.2238
+    ],
+    [
+     39.27079,
+     29.36507
+    ],
+    [
+     36.95802,
+     29.36507
+    ]
+   ]
+  ]
+ },
+ "browse": [
+  "https://landsatlook.usgs.gov/gen-browse?size=rrb&type=refl&product_id=LT05_L1TP_172039_19870410_20201014_02_T1",
+  "https://landsatlook.usgs.gov/gen-browse?size=rrb&type=tir&product_id=LT05_L1TP_172039_19870410_20201014_02_T1",
+  "https://landsatlook.usgs.gov/gen-browse?size=rrb&type=qb&product_id=LT05_L1TP_172039_19870410_20201014_02_T1"
+ ],
+ "fields": {
+  "Landsat Product Identifier L1": "LT05_L1TP_172039_19870410_20201014_02_T1",
+  "Landsat Scene Identifier": "LT51720391987100AAA08",
+  "Date Acquired": "1987/04/10",
+  "Collection Category": "T1",
+  "Collection Number": 2,
+  "Sensor Mode": null,
+  "WRS Path": " 172",
+  "WRS Row": " 039",
+  "Full Partial Scene": "FULL",
+  "Date Product Generated L1": "2020/10/14",
+  "Reflective Lines": 7081,
+  "Start Time": "1987-04-10 07:21:41.88081",
+  "Stop Time": "1987-04-10 07:22:08.55781",
+  "Station Identifier": "AAA",
+  "Day/Night Indicator": "DAY",
+  "Ground Control Points Model": 1066,
+  "Land Cloud Cover": "   0.00",
+  "Scene Cloud Cover L1": "   0.00",
+  "Ground Control Points Version": 5,
+  "Geometric RMSE Model": "    3.017",
+  "Geometric RMSE Model X": "    1.936",
+  "Geometric RMSE Model Y": "    2.314",
+  "Sensor Anomalies": "NONE",
+  "Data Anomaly": null,
+  "Image Quality": 9,
+  "Gain Change": "N",
+  "Processing Software Version": "LPGS_15.3.1c",
+  "Sun Elevation L1": " 52.69366119",
+  "Sun Azimuth L1": " 120.52384053",
+  "Data Type L1": "TM_L1TP",
+  "Sensor Identifier": "TM",
+  "Satellite": 5,
+  "Ephemeris Type": "PREDICTIVE",
+  "Reflective Samples": 7831,
+  "Thermal Lines": 7081,
+  "Thermal Samples": 7831,
+  "Product Map Projection L1": "UTM",
+  "UTM Zone": 37,
+  "Datum": "WGS84",
+  "Ellipsoid": "WGS84",
+  "Grid Cell Size Reflective": "30.00",
+  "Grid Cell Size Thermal": "30.00",
+  "Calibration Parameter File": "LT05CPF_19870401_19870518_02.01",
+  "Scene Center Lat DMS": "30&deg;17'48.95\"N",
+  "Scene Center Long DMS": "38&deg;06'25.70\"E",
+  "Corner Upper Left Lat DMS": "31&deg;13'25.68\"N",
+  "Corner Upper Left Long DMS": "37&deg;21'32.98\"E",
+  "Corner Upper Right Lat DMS": "30&deg;56'44.70\"N",
+  "Corner Upper Right Long DMS": "39&deg;16'14.84\"E",
+  "Corner Lower Left Lat DMS": "29&deg;38'19.68\"N",
+  "Corner Lower Left Long DMS": "36&deg;57'28.87\"E",
+  "Corner Lower Right Lat DMS": "29&deg;21'54.25\"N",
+  "Corner Lower Right Long DMS": "38&deg;50'24.68\"E",
+  "Scene Center Latitude": " 30.29693",
+  "Scene Center Longitude": "  38.10714",
+  "Corner Upper Left Latitude": " 31.22380",
+  "Corner Upper Left Longitude": "  37.35916",
+  "Corner Upper Right Latitude": " 30.94575",
+  "Corner Upper Right Longitude": "  39.27079",
+  "Corner Lower Left Latitude": " 29.63880",
+  "Corner Lower Left Longitude": "  36.95802",
+  "Corner Lower Right Latitude": " 29.36507",
+  "Corner Lower Right Longitude": "  38.84019"
+ },
+ "source": "USGS EROS M2M API (https://m2m.cr.usgs.gov/api/api/json/stable/)"
+}
+{
+ "entityId": "LT51720392000088XXX02",
+ "displayId": "LT05_L1TP_172039_20000328_20200907_02_T1",
+ "acquired": "2000-03-28",
+ "cloudCover": 0,
+ "publishDate": "2022-06-22T19:23:13",
+ "spatialBounds": {
+  "type": "Polygon",
+  "coordinates": [
+   [
+    [
+     36.96917,
+     29.36695
+    ],
+    [
+     36.96917,
+     31.22568
+    ],
+    [
+     39.28198,
+     31.22568
+    ],
+    [
+     39.28198,
+     29.36695
+    ],
+    [
+     36.96917,
+     29.36695
+    ]
+   ]
+  ]
+ },
+ "browse": [
+  "https://landsatlook.usgs.gov/gen-browse?size=rrb&type=refl&product_id=LT05_L1TP_172039_20000328_20200907_02_T1",
+  "https://landsatlook.usgs.gov/gen-browse?size=rrb&type=tir&product_id=LT05_L1TP_172039_20000328_20200907_02_T1",
+  "https://landsatlook.usgs.gov/gen-browse?size=rrb&type=qb&product_id=LT05_L1TP_172039_20000328_20200907_02_T1"
+ ],
+ "fields": {
+  "Landsat Product Identifier L1": "LT05_L1TP_172039_20000328_20200907_02_T1",
+  "Landsat Scene Identifier": "LT51720392000088XXX02",
+  "Date Acquired": "2000/03/28",
+  "Collection Category": "T1",
+  "Collection Number": 2,
+  "Sensor Mode": null,
+  "WRS Path": " 172",
+  "WRS Row": " 039",
+  "Full Partial Scene": "FULL",
+  "Date Product Generated L1": "2020/09/07",
+  "Reflective Lines": 7171,
+  "Start Time": "2000-03-28 07:33:14.95494",
+  "Stop Time": "2000-03-28 07:33:42.06131",
+  "Station Identifier": "XXX",
+  "Day/Night Indicator": "DAY",
+  "Ground Control Points Model": 1137,
+  "Land Cloud Cover": "   0.00",
+  "Scene Cloud Cover L1": "   0.00",
+  "Ground Control Points Version": 5,
+  "Geometric RMSE Model": "    3.053",
+  "Geometric RMSE Model X": "    1.980",
+  "Geometric RMSE Model Y": "    2.324",
+  "Sensor Anomalies": "NONE",
+  "Data Anomaly": null,
+  "Image Quality": 9,
+  "Gain Change": "N",
+  "Processing Software Version": "LPGS_15.3.1c",
+  "Sun Elevation L1": " 50.89644135",
+  "Sun Azimuth L1": " 128.17129006",
+  "Data Type L1": "TM_L1TP",
+  "Sensor Identifier": "TM",
+  "Satellite": 5,
+  "Ephemeris Type": "PREDICTIVE",
+  "Reflective Samples": 7871,
+  "Thermal Lines": 7171,
+  "Thermal Samples": 7871,
+  "Product Map Projection L1": "UTM",
+  "UTM Zone": 37,
+  "Datum": "WGS84",
+  "Ellipsoid": "WGS84",
+  "Grid Cell Size Reflective": "30.00",
+  "Grid Cell Size Thermal": "30.00",
+  "Calibration Parameter File": "LT05CPF_20000101_20000331_02.01",
+  "Scene Center Lat DMS": "30&deg;17'55.72\"N",
+  "Scene Center Long DMS": "38&deg;07'05.92\"E",
+  "Corner Upper Left Lat DMS": "31&deg;13'32.45\"N",
+  "Corner Upper Left Long DMS": "37&deg;22'13.15\"E",
+  "Corner Upper Right Lat DMS": "30&deg;56'51.47\"N",
+  "Corner Upper Right Long DMS": "39&deg;16'55.13\"E",
+  "Corner Lower Left Lat DMS": "29&deg;38'26.45\"N",
+  "Corner Lower Left Long DMS": "36&deg;58'09.01\"E",
+  "Corner Lower Right Lat DMS": "29&deg;22'01.02\"N",
+  "Corner Lower Right Long DMS": "38&deg;51'04.93\"E",
+  "Scene Center Latitude": " 30.29881",
+  "Scene Center Longitude": "  38.11831",
+  "Corner Upper Left Latitude": " 31.22568",
+  "Corner Upper Left Longitude": "  37.37032",
+  "Corner Upper Right Latitude": " 30.94763",
+  "Corner Upper Right Longitude": "  39.28198",
+  "Corner Lower Left Latitude": " 29.64068",
+  "Corner Lower Left Longitude": "  36.96917",
+  "Corner Lower Right Latitude": " 29.36695",
+  "Corner Lower Right Longitude": "  38.85137"
+ },
+ "source": "USGS EROS M2M API (https://m2m.cr.usgs.gov/api/api/json/stable/)"
+}
+{
+ "entityId": "LT51720392008094MTI00",
+ "displayId": "LT05_L1TP_172039_20080403_20200829_02_T1",
+ "acquired": "2008-04-03",
+ "cloudCover": 0,
+ "publishDate": "2022-06-22T19:23:13",
+ "spatialBounds": {
+  "type": "Polygon",
+  "coordinates": [
+   [
+    [
+     36.93765,
+     29.36792
+    ],
+    [
+     36.93765,
+     31.22666
+    ],
+    [
+     39.25049,
+     31.22666
+    ],
+    [
+     39.25049,
+     29.36792
+    ],
+    [
+     36.93765,
+     29.36792
+    ]
+   ]
+  ]
+ },
+ "browse": [
+  "https://landsatlook.usgs.gov/gen-browse?size=rrb&type=refl&product_id=LT05_L1TP_172039_20080403_20200829_02_T1",
+  "https://landsatlook.usgs.gov/gen-browse?size=rrb&type=tir&product_id=LT05_L1TP_172039_20080403_20200829_02_T1",
+  "https://landsatlook.usgs.gov/gen-browse?size=rrb&type=qb&product_id=LT05_L1TP_172039_20080403_20200829_02_T1"
+ ],
+ "fields": {
+  "Landsat Product Identifier L1": "LT05_L1TP_172039_20080403_20200829_02_T1",
+  "Landsat Scene Identifier": "LT51720392008094MTI00",
+  "Date Acquired": "2008/04/03",
+  "Collection Category": "T1",
+  "Collection Number": 2,
+  "Sensor Mode": "BUMPER",
+  "WRS Path": " 172",
+  "WRS Row": " 039",
+  "Full Partial Scene": "FULL",
+  "Date Product Generated L1": "2020/08/29",
+  "Reflective Lines": 7101,
+  "Start Time": "2008-04-03 07:48:31.14869",
+  "Stop Time": "2008-04-03 07:48:57.76156",
+  "Station Identifier": "MTI",
+  "Day/Night Indicator": "DAY",
+  "Ground Control Points Model": 1172,
+  "Land Cloud Cover": "   0.00",
+  "Scene Cloud Cover L1": "   0.00",
+  "Ground Control Points Version": 5,
+  "Geometric RMSE Model": "    2.847",
+  "Geometric RMSE Model X": "    1.842",
+  "Geometric RMSE Model Y": "    2.171",
+  "Sensor Anomalies": "NONE",
+  "Data Anomaly": null,
+  "Image Quality": 9,
+  "Gain Change": "N",
+  "Processing Software Version": "LPGS_15.3.1c",
+  "Sun Elevation L1": " 55.46454317",
+  "Sun Azimuth L1": " 130.79217684",
+  "Data Type L1": "TM_L1TP",
+  "Sensor Identifier": "TM",
+  "Satellite": 5,
+  "Ephemeris Type": "DEFINITIVE",
+  "Reflective Samples": 7981,
+  "Thermal Lines": 7101,
+  "Thermal Samples": 7981,
+  "Product Map Projection L1": "UTM",
+  "UTM Zone": 37,
+  "Datum": "WGS84",
+  "Ellipsoid": "WGS84",
+  "Grid Cell Size Reflective": "30.00",
+  "Grid Cell Size Thermal": "30.00",
+  "Calibration Parameter File": "LT05CPF_20080401_20080630_02.01",
+  "Scene Center Lat DMS": "30&deg;17'59.21\"N",
+  "Scene Center Long DMS": "38&deg;05'12.48\"E",
+  "Corner Upper Left Lat DMS": "31&deg;13'35.98\"N",
+  "Corner Upper Left Long DMS": "37&deg;20'19.68\"E",
+  "Corner Upper Right Lat DMS": "30&deg;56'54.96\"N",
+  "Corner Upper Right Long DMS": "39&deg;15'01.76\"E",
+  "Corner Lower Left Lat DMS": "29&deg;38'29.98\"N",
+  "Corner Lower Left Long DMS": "36&deg;56'15.54\"E",
+  "Corner Lower Right Lat DMS": "29&deg;22'04.51\"N",
+  "Corner Lower Right Long DMS": "38&deg;49'11.50\"E",
+  "Scene Center Latitude": " 30.29978",
+  "Scene Center Longitude": "  38.08680",
+  "Corner Upper Left Latitude": " 31.22666",
+  "Corner Upper Left Longitude": "  37.33880",
+  "Corner Upper Right Latitude": " 30.94860",
+  "Corner Upper Right Longitude": "  39.25049",
+  "Corner Lower Left Latitude": " 29.64166",
+  "Corner Lower Left Longitude": "  36.93765",
+  "Corner Lower Right Latitude": " 29.36792",
+  "Corner Lower Right Longitude": "  38.81986"
+ },
+ "source": "USGS EROS M2M API (https://m2m.cr.usgs.gov/api/api/json/stable/)"
+}
+{
+ "entityId": "LC81720392015097LGN01",
+ "displayId": "LC08_L1TP_172039_20150407_20200909_02_T1",
+ "acquired": "2015-04-07",
+ "cloudCover": 0,
+ "publishDate": "2022-06-22T18:27:47",
+ "spatialBounds": {
+  "type": "Polygon",
+  "coordinates": [
+   [
+    [
+     36.92368,
+     29.24597
+    ],
+    [
+     36.92368,
+     31.35387
+    ],
+    [
+     39.30737,
+     31.35387
+    ],
+    [
+     39.30737,
+     29.24597
+    ],
+    [
+     36.92368,
+     29.24597
+    ]
+   ]
+  ]
+ },
+ "browse": [
+  "https://landsatlook.usgs.gov/gen-browse?size=rrb&type=refl&product_id=LC08_L1TP_172039_20150407_20200909_02_T1",
+  "https://landsatlook.usgs.gov/gen-browse?size=rrb&type=tir&product_id=LC08_L1TP_172039_20150407_20200909_02_T1",
+  "https://landsatlook.usgs.gov/gen-browse?size=rrb&type=qb&product_id=LC08_L1TP_172039_20150407_20200909_02_T1"
+ ],
+ "fields": {
+  "Landsat Product Identifier L1": "LC08_L1TP_172039_20150407_20200909_02_T1",
+  "Landsat Scene Identifier": "LC81720392015097LGN01",
+  "Date Acquired": "2015/04/07",
+  "Collection Category": "T1",
+  "Collection Number": 2,
+  "WRS Path": " 172",
+  "WRS Row": " 039",
+  "Nadir/Off Nadir": "NADIR",
+  "Roll Angle": "   0.000",
+  "Date Product Generated L1": "2020/09/09",
+  "Land Cloud Cover": "   0.00",
+  "Scene Cloud Cover L1": "   0.00",
+  "Start Time": "2015-04-07 07:58:15.160601",
+  "Stop Time": "2015-04-07 07:58:46.930598",
+  "Station Identifier": "LGN",
+  "Day/Night Indicator": "DAY",
+  "Ground Control Points Model": 1131,
+  "Ground Control Points Version": 5,
+  "Geometric RMSE Model": "    3.778",
+  "Geometric RMSE Model X": "    2.651",
+  "Geometric RMSE Model Y": "2.692",
+  "Image Quality": 9,
+  "Processing Software Version": "LPGS_15.3.1c",
+  "Sun Elevation L0RA": "58.15707814",
+  "Sun Azimuth L0RA": "133.09255366",
+  "TIRS SSM Model": "ACTUAL",
+  "Data Type L1": "OLI_TIRS_L1TP",
+  "Sensor Identifier": "OLI_TIRS",
+  "Satellite": 8,
+  "Panchromatic Lines": 15661,
+  "Panchromatic Samples": 15381,
+  "Reflective Lines": 7831,
+  "Reflective Samples": 7691,
+  "Thermal Lines": 7831,
+  "Thermal Samples": 7691,
+  "Product Map Projection L1": "UTM",
+  "UTM Zone": 37,
+  "Datum": "WGS84",
+  "Ellipsoid": "WGS84",
+  "Grid Cell Size Panchromatic": "15.00",
+  "Grid Cell Size Reflective": "30.00",
+  "Grid Cell Size Thermal": "30.00",
+  "Bias Parameter File Name OLI": "LO8BPF20150407074224_20150407082746.03",
+  "Bias Parameter File Name TIRS": "LT8BPF20150407073830_20150407082839.03",
+  "Calibration Parameter File": "LC08CPF_20150401_20150630_02.01",
+  "RLUT File Name": "LC08RLUT_20150303_20431231_02_01.h5",
+  "Scene Center Lat DMS": "30&deg;18'23.26\"N",
+  "Scene Center Long DMS": "38&deg;06'29.45\"E",
+  "Corner Upper Left Lat DMS": "31&deg;20'52.73\"N",
+  "Corner Upper Left Long DMS": "36&deg;53'05.82\"E",
+  "Corner Upper Right Lat DMS": "31&deg;21'54.14\"N",
+  "Corner Upper Right Long DMS": "39&deg;18'36.72\"E",
+  "Corner Lower Left Lat DMS": "29&deg;13'46.60\"N",
+  "Corner Lower Left Long DMS": "36&deg;55'47.78\"E",
+  "Corner Lower Right Lat DMS": "29&deg;14'43.04\"N",
+  "Corner Lower Right Long DMS": "39&deg;18'12.92\"E",
+  "Scene Center Latitude": " 30.30646",
+  "Scene Center Longitude": "  38.10818",
+  "Corner Upper Left Latitude": " 31.34798",
+  "Corner Upper Left Longitude": "  36.88495",
+  "Corner Upper Right Latitude": " 31.36504",
+  "Corner Upper Right Longitude": "  39.31020",
+  "Corner Lower Left Latitude": " 29.22961",
+  "Corner Lower Left Longitude": "  36.92994",
+  "Corner Lower Right Latitude": " 29.24529",
+  "Corner Lower Right Longitude": "  39.30359"
+ },
+ "source": "USGS EROS M2M API (https://m2m.cr.usgs.gov/api/api/json/stable/)"
+}
+{
+ "entityId": "LC81720392025092LGN00",
+ "displayId": "LC08_L1TP_172039_20250402_20250411_02_T1",
+ "acquired": "2025-04-02",
+ "cloudCover": 0,
+ "publishDate": "2025-04-02T09:06:31",
+ "spatialBounds": {
+  "type": "Polygon",
+  "coordinates": [
+   [
+    [
+     36.91085,
+     29.2458
+    ],
+    [
+     36.91085,
+     31.3538
+    ],
+    [
+     39.29501,
+     31.3538
+    ],
+    [
+     39.29501,
+     29.2458
+    ],
+    [
+     36.91085,
+     29.2458
+    ]
+   ]
+  ]
+ },
+ "browse": [
+  "https://landsatlook.usgs.gov/gen-browse?size=rrb&type=refl&product_id=LC08_L1TP_172039_20250402_20250411_02_T1",
+  "https://landsatlook.usgs.gov/gen-browse?size=rrb&type=tir&product_id=LC08_L1TP_172039_20250402_20250411_02_T1",
+  "https://landsatlook.usgs.gov/gen-browse?size=rrb&type=qb&product_id=LC08_L1TP_172039_20250402_20250411_02_T1"
+ ],
+ "fields": {
+  "Landsat Product Identifier L1": "LC08_L1TP_172039_20250402_20250411_02_T1",
+  "Landsat Scene Identifier": "LC81720392025092LGN00",
+  "Date Acquired": "2025/04/02",
+  "Collection Category": "T1",
+  "Collection Number": 2,
+  "WRS Path": " 172",
+  "WRS Row": " 039",
+  "Nadir/Off Nadir": "NADIR",
+  "Roll Angle": "  -0.001",
+  "Date Product Generated L1": "2025/04/11",
+  "Land Cloud Cover": "   0.01",
+  "Scene Cloud Cover L1": "   0.01",
+  "Start Time": "2025-04-02 07:58:32",
+  "Stop Time": "2025-04-02 07:59:04",
+  "Station Identifier": "LGN",
+  "Day/Night Indicator": "DAY",
+  "Ground Control Points Model": 993,
+  "Ground Control Points Version": 5,
+  "Geometric RMSE Model": "    4.164",
+  "Geometric RMSE Model X": "    2.930",
+  "Geometric RMSE Model Y": "2.958",
+  "Image Quality": 9,
+  "Processing Software Version": "LPGS_16.4.0",
+  "Sun Elevation L0RA": "56.68560947",
+  "Sun Azimuth L0RA": "134.67631261",
+  "TIRS SSM Model": "FINAL",
+  "Data Type L1": "OLI_TIRS_L1TP",
+  "Sensor Identifier": "OLI_TIRS",
+  "Satellite": 8,
+  "Panchromatic Lines": 15661,
+  "Panchromatic Samples": 15381,
+  "Reflective Lines": 7831,
+  "Reflective Samples": 7691,
+  "Thermal Lines": 7831,
+  "Thermal Samples": 7691,
+  "Product Map Projection L1": "UTM",
+  "UTM Zone": 37,
+  "Datum": "WGS84",
+  "Ellipsoid": "WGS84",
+  "Grid Cell Size Panchromatic": "15.00",
+  "Grid Cell Size Reflective": "30.00",
+  "Grid Cell Size Thermal": "30.00",
+  "Bias Parameter File Name OLI": "LO8BPF20250402071338_20250403075319.02",
+  "Bias Parameter File Name TIRS": "LT8BPF20250330114334_20250406112802.01",
+  "Calibration Parameter File": "LC08CPF_20250401_20250630_02.01",
+  "RLUT File Name": "LC08RLUT_20150303_20431231_02_01.h5",
+  "Scene Center Lat DMS": "30&deg;18'22.79\"N",
+  "Scene Center Long DMS": "38&deg;05'44.12\"E",
+  "Corner Upper Left Lat DMS": "31&deg;20'51.97\"N",
+  "Corner Upper Left Long DMS": "36&deg;52'20.42\"E",
+  "Corner Upper Right Lat DMS": "31&deg;21'54.25\"N",
+  "Corner Upper Right Long DMS": "39&deg;17'51.29\"E",
+  "Corner Lower Left Lat DMS": "29&deg;13'45.91\"N",
+  "Corner Lower Left Long DMS": "36&deg;55'03.36\"E",
+  "Corner Lower Right Lat DMS": "29&deg;14'43.12\"N",
+  "Corner Lower Right Long DMS": "39&deg;17'28.46\"E",
+  "Scene Center Latitude": " 30.30633",
+  "Scene Center Longitude": "  38.09559",
+  "Corner Upper Left Latitude": " 31.34777",
+  "Corner Upper Left Longitude": "  36.87234",
+  "Corner Upper Right Latitude": " 31.36507",
+  "Corner Upper Right Longitude": "  39.29758",
+  "Corner Lower Left Latitude": " 29.22942",
+  "Corner Lower Left Longitude": "  36.91760",
+  "Corner Lower Right Latitude": " 29.24531",
+  "Corner Lower Right Longitude": "  39.29124"
+ },
+ "source": "USGS EROS M2M API (https://m2m.cr.usgs.gov/api/api/json/stable/)"
+}

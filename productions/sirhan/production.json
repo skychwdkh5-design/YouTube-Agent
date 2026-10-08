@@ -1,0 +1,33 @@
+{
+ "stage": "rendered_awaiting_human_review",
+ "story": "Wadi As-Sirhan - Ice Age water",
+ "tts": {
+  "provider": "elevenlabs",
+  "voice": "Adam pNInz6obpgDQGcFmaJgB",
+  "requests": 1,
+  "duration": 45.743,
+  "characters": 619
+ },
+ "render": "not done",
+ "stack": "stack/ (1987, 2000, 2008, 2015, 2025; Apr/late Mar; EPSG:32637, 30 m)",
+ "storyboard": "timeline_storyboard.json",
+ "contact_sheets": [
+  "contact_dates.jpg",
+  "contact_sheet_story.jpg",
+  "storyboard_frames.jpg"
+ ],
+ "video": {
+  "path": "sirhan_short.mp4",
+  "sha256": "5544096049738930cbd592072bd2bf305b97232926be0b283cca8e0403285205",
+  "duration": 47.233,
+  "bytes": 18045482
+ },
+ "qc": {
+  "result": "PASS",
+  "warn": [
+   "freezes",
+   "loudness"
+  ]
+ },
+ "published": false
+}

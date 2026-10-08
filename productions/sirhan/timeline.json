@@ -1,0 +1,526 @@
+{
+ "version": 3,
+ "profile": "short",
+ "grid": "stack/grid.json",
+ "assets": {
+  "y1987": {
+   "src": "stack/y1987.png",
+   "label": "1987",
+   "credit": "Landsat 5 · USGS"
+  },
+  "y2000": {
+   "src": "stack/y2000.png",
+   "label": "2000",
+   "credit": "Landsat 5 · USGS"
+  },
+  "y2008": {
+   "src": "stack/y2008.png",
+   "label": "2008",
+   "credit": "Landsat 5 · USGS"
+  },
+  "y2015": {
+   "src": "stack/y2015.png",
+   "label": "2015",
+   "credit": "Landsat 8 · USGS"
+  },
+  "y2025": {
+   "src": "stack/y2025.png",
+   "label": "2025",
+   "credit": "Landsat 8 · USGS"
+  }
+ },
+ "shots": [
+  {
+   "id": "S1_hook",
+   "beat": "hook",
+   "start": 0,
+   "info": "thousands of green circles in sand (2015)",
+   "camera": {
+    "from": {
+     "center": [
+      38.47,
+      30.17
+     ],
+     "width_km": 14.0
+    },
+    "to": {
+     "center": [
+      38.47,
+      30.17
+     ],
+     "width_km": 13.0
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2015"
+    },
+    {
+     "type": "label",
+     "text": "WATER FROM THE ICE AGE",
+     "style": "stat",
+     "slot": "top",
+     "t": [
+      0.0,
+      null
+     ],
+     "info": "hook claim"
+    },
+    {
+     "type": "label",
+     "text": "SAUDI ARABIA",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      1.0,
+      null
+     ],
+     "sub": "Wadi As-Sirhan Basin",
+     "info": "place"
+    },
+    {
+     "type": "label",
+     "text": "2015",
+     "style": "tag",
+     "slot": "middle",
+     "t": [
+      2.0,
+      null
+     ],
+     "info": "image date"
+    }
+   ]
+  },
+  {
+   "id": "S2_proof",
+   "beat": "proof",
+   "start": {
+    "word": 10,
+    "edge": "start",
+    "offset": -0.2
+   },
+   "info": "same view, 1987: empty desert",
+   "camera": {
+    "center": [
+     38.47,
+     30.17
+    ],
+    "width_km": 13.0
+   },
+   "layers": [
+    {
+     "type": "wipe",
+     "from": "y2015",
+     "to": "y1987",
+     "t": [
+      0.0,
+      0.9
+     ]
+    },
+    {
+     "type": "label",
+     "text": "EMPTY DESERT",
+     "style": "stat",
+     "slot": "upper",
+     "t": [
+      1.6,
+      null
+     ],
+     "info": "empty"
+    }
+   ]
+  },
+  {
+   "id": "S3_timelapse",
+   "beat": "proof",
+   "start": {
+    "word": 16,
+    "edge": "start",
+    "offset": -0.2
+   },
+   "info": "zoom out: 1987-2015 timelapse",
+   "camera": {
+    "from": {
+     "center": [
+      38.35,
+      30.12
+     ],
+     "width_km": 24.0
+    },
+    "to": {
+     "center": [
+      38.35,
+      30.12
+     ],
+     "width_km": 22.0
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "flip",
+     "assets": [
+      "y1987",
+      "y2000",
+      "y2008",
+      "y2015"
+     ],
+     "step": 0.5
+    }
+   ]
+  },
+  {
+   "id": "S4_closeup",
+   "beat": "proof",
+   "start": {
+    "word": 20,
+    "edge": "start",
+    "offset": 0.0
+   },
+   "info": "close-up: individual circles",
+   "camera": {
+    "from": {
+     "center": [
+      38.33,
+      30.2
+     ],
+     "width_km": 7.0
+    },
+    "to": {
+     "center": [
+      38.33,
+      30.2
+     ],
+     "width_km": 6.3
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2015"
+    },
+    {
+     "type": "label",
+     "text": "≈1 KM WIDE",
+     "style": "stat",
+     "slot": "top",
+     "t": [
+      0.0,
+      null
+     ],
+     "sub": "each circle is one farm",
+     "info": "size"
+    },
+    {
+     "type": "label",
+     "text": "CENTER-PIVOT IRRIGATION",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      2.66,
+      null
+     ],
+     "info": "mechanism"
+    }
+   ]
+  },
+  {
+   "id": "S5_exports",
+   "beat": "escalation",
+   "start": {
+    "word": 34,
+    "edge": "start",
+    "offset": -0.2
+   },
+   "info": "whole basin, 2000",
+   "camera": {
+    "center": [
+     38.44,
+     30.165
+    ],
+    "width_km": 46.0
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2000"
+    },
+    {
+     "type": "label",
+     "text": "1992: 2,000,000+ TONS",
+     "style": "stat",
+     "slot": "top",
+     "t": [
+      0.3,
+      null
+     ],
+     "sub": "of wheat exported (net)",
+     "info": "exports"
+    },
+    {
+     "type": "label",
+     "text": "2000 IMAGE",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      1.2,
+      null
+     ],
+     "info": "image date"
+    }
+   ]
+  },
+  {
+   "id": "S6_aquifer",
+   "beat": "explanation",
+   "start": {
+    "word": 47,
+    "edge": "start",
+    "offset": -0.6
+   },
+   "info": "fly to the northeastern fields",
+   "camera": {
+    "from": {
+     "center": [
+      38.44,
+      30.165
+     ],
+     "width_km": 46.0
+    },
+    "to": {
+     "center": [
+      38.7,
+      30.4
+     ],
+     "width_km": 14.0
+    },
+    "ease": "linear"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2015"
+    },
+    {
+     "type": "label",
+     "text": "WATER: ~20,000 YEARS OLD",
+     "style": "stat",
+     "slot": "top",
+     "t": [
+      1.9,
+      null
+     ],
+     "info": "fossil water"
+    },
+    {
+     "type": "label",
+     "text": "RAIN: 100–200 MM A YEAR",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      5.69,
+      null
+     ],
+     "sub": "about 4–8 inches · no recharge",
+     "info": "no recharge"
+    }
+   ]
+  },
+  {
+   "id": "S7_policy",
+   "beat": "explanation",
+   "start": {
+    "word": 65,
+    "edge": "start",
+    "offset": -0.2
+   },
+   "info": "core fields, 2015 image",
+   "camera": {
+    "from": {
+     "center": [
+      38.35,
+      30.1
+     ],
+     "width_km": 20.0
+    },
+    "to": {
+     "center": [
+      38.35,
+      30.1
+     ],
+     "width_km": 18.5
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2015"
+    },
+    {
+     "type": "label",
+     "text": "2016: WHEAT PROGRAM ENDS",
+     "style": "stat",
+     "slot": "top",
+     "t": [
+      0.2,
+      null
+     ],
+     "sub": "to save water (USDA)",
+     "info": "policy"
+    },
+    {
+     "type": "label",
+     "text": "2015 IMAGE",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      1.0,
+      null
+     ],
+     "info": "image date"
+    }
+   ]
+  },
+  {
+   "id": "S8_alfalfa",
+   "beat": "payoff",
+   "start": {
+    "word": 76,
+    "edge": "start",
+    "offset": -0.2
+   },
+   "info": "close-up 2025",
+   "camera": {
+    "from": {
+     "center": [
+      38.3,
+      30.2
+     ],
+     "width_km": 7.0
+    },
+    "to": {
+     "center": [
+      38.3,
+      30.2
+     ],
+     "width_km": 6.3
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2025"
+    },
+    {
+     "type": "label",
+     "text": "ALFALFA",
+     "style": "tag",
+     "slot": "top",
+     "t": [
+      0.0,
+      null
+     ],
+     "sub": "2025 image",
+     "info": "crop switch"
+    },
+    {
+     "type": "label",
+     "text": "3× THE WATER",
+     "style": "stat",
+     "slot": "upper",
+     "t": [
+      2.44,
+      null
+     ],
+     "sub": "of wheat (USDA)",
+     "info": "3x"
+    }
+   ]
+  },
+  {
+   "id": "S9_payoff",
+   "beat": "payoff",
+   "start": {
+    "word": 87,
+    "edge": "start",
+    "offset": -0.2
+   },
+   "info": "widest view: 1987 -> 2025, push in",
+   "camera": {
+    "from": {
+     "center": [
+      38.44,
+      30.165
+     ],
+     "width_km": 46.0
+    },
+    "to": {
+     "center": [
+      38.35,
+      30.13
+     ],
+     "width_km": 28.0
+    },
+    "ease": "linear"
+   },
+   "layers": [
+    {
+     "type": "wipe",
+     "from": "y1987",
+     "to": "y2025",
+     "t": [
+      0.3,
+      1.5
+     ]
+    },
+    {
+     "type": "label",
+     "text": "~50 MORE YEARS",
+     "style": "stat",
+     "slot": "upper",
+     "t": [
+      1.23,
+      5.0
+     ],
+     "sub": "of pumping (2016 estimate)",
+     "info": "50 years"
+    },
+    {
+     "type": "label",
+     "text": "BUILT ON ICE AGE WATER",
+     "style": "stat",
+     "slot": "upper",
+     "t": [
+      5.1,
+      null
+     ],
+     "sub": "it doesn't come back",
+     "info": "non-renewable"
+    }
+   ]
+  }
+ ],
+ "end": {
+  "after_last_word": 1.5,
+  "min_total": 45.0
+ },
+ "meta": {
+  "title": "Wadi As-Sirhan - Ice Age water",
+  "claims": "story/claims.json",
+  "provenance": "stack/provenance.json",
+  "storyboard": "timeline_storyboard.json (approved)"
+ },
+ "voice": {
+  "src": "voice/narration.wav",
+  "meta": "voice/narration.voice.json"
+ },
+ "captions": {
+  "src": "captions/captions.srt",
+  "preset": "short"
+ }
+}

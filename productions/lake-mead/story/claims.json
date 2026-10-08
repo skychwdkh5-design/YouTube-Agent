@@ -1,0 +1,194 @@
+{
+ "schema": "yt-claims/0.1",
+ "story": "Lake Mead shoreline 2000-2026",
+ "sources": {
+  "nasa_record": {
+   "url": "https://science.nasa.gov/earth/earth-observatory/lake-mead-drops-to-a-record-low-148758/",
+   "publisher": "NASA Earth Observatory",
+   "title": "Lake Mead Drops to a Record Low"
+  },
+  "nasa_keeps": {
+   "url": "https://earthobservatory.nasa.gov/images/150111/lake-mead-keeps-dropping",
+   "publisher": "NASA Earth Observatory",
+   "title": "Lake Mead Keeps Dropping"
+  },
+  "earthdata_2026": {
+   "url": "https://www.earthdata.nasa.gov/news/worldview-image-archive/low-water-levels-lake-powell-lake-mead-august-2026",
+   "publisher": "NASA Earthdata (Worldview Image Archive)",
+   "title": "Low Water Levels in Lake Powell and Lake Mead in August 2026"
+  },
+  "usgs_hist": {
+   "url": "https://www.usgs.gov/media/images/lake-mead-reaches-historic-low",
+   "publisher": "USGS",
+   "title": "Lake Mead Reaches Historic Low"
+  },
+  "usbr_dcp": {
+   "url": "https://www.usbr.gov/ColoradoRiverBasin/dcp/",
+   "publisher": "U.S. Bureau of Reclamation",
+   "title": "Drought Contingency Plans"
+  },
+  "usbr_line": {
+   "url": "https://www.usbr.gov/lc/region/g4000/lakemead_line.pdf",
+   "publisher": "U.S. Bureau of Reclamation",
+   "title": "Lake Mead end-of-month elevations"
+  }
+ },
+ "claims": [
+  {
+   "id": "C1",
+   "text": "Everything in orange was underwater in 2000.",
+   "where": "spoken+on_screen",
+   "type": "visual",
+   "evidence": {
+    "assets": [
+     "y2000",
+     "y2026",
+     "water_y2000",
+     "water_y2026"
+    ],
+    "method": "orange = water mask of 2000-07-06 minus water mask of 2026-07-30, same 30 m grid (yt-geo watermask.py)"
+   },
+   "status": "verified"
+  },
+  {
+   "id": "C2",
+   "text": "Lake Mead is America's largest reservoir.",
+   "where": "spoken",
+   "type": "external",
+   "sources": [
+    "nasa_record"
+   ],
+   "quote": "Lake Mead is the largest reservoir in the United States",
+   "status": "verified",
+   "verification": "WebSearch restricted to nasa.gov/usbr.gov/usgs.gov/nps.gov (search-engine excerpts of these pages); direct page fetch is blocked by this environment's egress policy"
+  },
+  {
+   "id": "C3",
+   "text": "Since 2000, its surface has dropped about 160 feet (about 49 m).",
+   "where": "spoken+on_screen",
+   "type": "external_derived",
+   "sources": [
+    "nasa_keeps",
+    "earthdata_2026"
+   ],
+   "quote": "end of July 2000: 1,199.97 feet; August 2026: 1,039.77 feet (USBR)",
+   "derivation": "1199.97 - 1039.77 = 160.2 ft = 48.8 m",
+   "status": "verified",
+   "verification": "WebSearch restricted to nasa.gov/usbr.gov/usgs.gov/nps.gov (search-engine excerpts of these pages); direct page fetch is blocked by this environment's egress policy"
+  },
+  {
+   "id": "C4",
+   "text": "Its northern arm pulled back about nine miles (about 14 km).",
+   "where": "spoken+on_screen",
+   "type": "visual_measured",
+   "evidence": {
+    "assets": [
+     "water_y2000",
+     "water_y2026"
+    ],
+    "method": "northernmost water pixel of the Overton Arm (columns 1300-1800): row 432 (2000) vs 912 (2026) x 30 m = 14.4 km = 8.9 mi"
+   },
+   "status": "verified"
+  },
+  {
+   "id": "C5",
+   "text": "In 2022, it hit its lowest level since it was first filled in the 1930s.",
+   "where": "spoken",
+   "type": "external",
+   "sources": [
+    "nasa_record",
+    "usgs_hist"
+   ],
+   "quote": "July 2022: lowest level since the lake began filling in the 1930s (about 1,040 ft)",
+   "status": "verified",
+   "verification": "WebSearch restricted to nasa.gov/usbr.gov/usgs.gov/nps.gov (search-engine excerpts of these pages); direct page fetch is blocked by this environment's egress policy"
+  },
+  {
+   "id": "C11",
+   "text": "About half of its surface water is gone.",
+   "where": "spoken+on_screen",
+   "type": "visual_measured",
+   "evidence": {
+    "assets": [
+     "water_y2000",
+     "water_y2026"
+    ],
+    "method": "water-mask pixels over the whole lake (the stack area covers all of Lake Mead): 296,190 (2026-07-30) / 579,141 (2000-07-06) = 0.51; display-aid classification, hence 'about half'"
+   },
+   "status": "verified"
+  },
+  {
+   "id": "C6",
+   "text": "A long drought on the Colorado River.",
+   "where": "spoken",
+   "type": "external",
+   "sources": [
+    "usbr_dcp",
+    "nasa_record"
+   ],
+   "quote": "since the onset of the current drought in 2000, Lake Powell and Lake Mead have fallen to historically low elevations",
+   "status": "verified",
+   "verification": "WebSearch restricted to nasa.gov/usbr.gov/usgs.gov/nps.gov (search-engine excerpts of these pages); direct page fetch is blocked by this environment's egress policy"
+  },
+  {
+   "id": "C7",
+   "text": "Year after year, more water left the lake than flowed in.",
+   "where": "spoken",
+   "type": "external",
+   "sources": [
+    "nasa_keeps"
+   ],
+   "quote": "the amount of water flowing out of and evaporating from Lake Mead has consistently exceeded the amount flowing in",
+   "status": "verified",
+   "verification": "WebSearch restricted to nasa.gov/usbr.gov/usgs.gov/nps.gov (search-engine excerpts of these pages); direct page fetch is blocked by this environment's egress policy"
+  },
+  {
+   "id": "C8",
+   "text": "That river system supplies water to about 40 million people.",
+   "where": "spoken",
+   "type": "external",
+   "sources": [
+    "nasa_record"
+   ],
+   "quote": "part of a system that supplies water to at least 40 million people across seven states and northern Mexico",
+   "status": "verified",
+   "verification": "WebSearch restricted to nasa.gov/usbr.gov/usgs.gov/nps.gov (search-engine excerpts of these pages); direct page fetch is blocked by this environment's egress policy"
+  },
+  {
+   "id": "C9",
+   "text": "Then, in August 2026, Lake Mead broke that record. Lower than ever.",
+   "where": "spoken+on_screen",
+   "type": "external",
+   "sources": [
+    "earthdata_2026"
+   ],
+   "quote": "lowest level, 1,039.77 feet according to USBR, in August 2026 - the lowest since it was filled in 1937",
+   "status": "verified",
+   "verification": "WebSearch restricted to nasa.gov/usbr.gov/usgs.gov/nps.gov (search-engine excerpts of these pages); direct page fetch is blocked by this environment's egress policy"
+  },
+  {
+   "id": "C10",
+   "text": "That white line is where the water used to be.",
+   "where": "spoken",
+   "type": "visual",
+   "evidence": {
+    "assets": [
+     "water_y2000"
+    ],
+    "method": "white line = edge of the 2000-07-06 water mask"
+   },
+   "status": "verified"
+  },
+  {
+   "id": "M1",
+   "text": "Year labels 2000, 2005, 2010, 2015, 2022, 2026 and satellite names",
+   "where": "on_screen",
+   "type": "metadata",
+   "evidence": {
+    "field": "Date Acquired / Spacecraft",
+    "file": "raw/metadata.jsonl"
+   },
+   "status": "verified"
+  }
+ ]
+}

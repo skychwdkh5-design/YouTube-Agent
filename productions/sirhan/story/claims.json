@@ -1,0 +1,126 @@
+{
+ "schema": "claims/1",
+ "method": "domain-restricted search (nasa.gov, usgs.gov, usda.gov, fao.org); direct page fetch blocked by network policy",
+ "claims": [
+  {
+   "id": "C1",
+   "text": "The fields are watered with 'fossil' water dating to the last Ice Age; aquifers filled about 20,000 years ago, buried deep",
+   "status": "verified",
+   "sources": [
+    "https://science.nasa.gov/earth/earth-observatory/crop-circles-in-the-desert-77900/"
+   ],
+   "used_in": "lines 1, 6"
+  },
+  {
+   "id": "C2",
+   "text": "As recently as 1986 there was little to no agriculture in the Wadi As-Sirhan Basin",
+   "status": "verified",
+   "sources": [
+    "https://science.nasa.gov/earth/earth-observatory/crop-circles-in-the-desert-77900/",
+    "https://eros.usgs.gov/earthshots/wadi-as-sirhan-basin-saudi-arabia"
+   ],
+   "used_in": "line 2 (spoken as 1987, the image date)"
+  },
+  {
+   "id": "C3",
+   "text": "Fields are about one kilometer across and use center-pivot irrigation (sprinkler rotating about a central pivot)",
+   "status": "verified",
+   "sources": [
+    "https://science.nasa.gov/earth/earth-observatory/crop-circles-in-the-desert-77900/",
+    "https://eros.usgs.gov/earthshots/wadi-as-sirhan-basin-saudi-arabia"
+   ],
+   "used_in": "line 4"
+  },
+  {
+   "id": "C4",
+   "text": "Net imports of 500,000 t (1980) turned into net exports of more than 2,000,000 t of wheat in 1992",
+   "status": "verified",
+   "sources": [
+    "https://www.fao.org/4/w4356e/w4356e0q.HTM"
+   ],
+   "used_in": "line 5"
+  },
+  {
+   "id": "C5",
+   "text": "Water is pumped from deep underground aquifers",
+   "status": "verified",
+   "sources": [
+    "https://science.nasa.gov/earth/earth-observatory/crop-circles-in-the-desert-77900/"
+   ],
+   "used_in": "line 6"
+  },
+  {
+   "id": "C6",
+   "text": "Aquifers are not recharged; rainfall averages 100-200 mm a year; groundwater is a nonrenewable resource",
+   "status": "verified",
+   "sources": [
+    "https://www.usgs.gov/news/science-snippet/earthview-saudi-wheat-experiment-relied-fossil-water"
+   ],
+   "used_in": "lines 7, 11"
+  },
+  {
+   "id": "C7",
+   "text": "Saudi Arabia ended its domestic wheat production program by the beginning of 2016 (decree 335 of 2007); main reason: water depletion",
+   "status": "verified",
+   "sources": [
+    "https://apps.fas.usda.gov/newgainapi/api/report/downloadreportbyfilename?filename=Grain+and+Feed+Annual_Riyadh_Saudi+Arabia_3-14-2016.pdf"
+   ],
+   "used_in": "line 8"
+  },
+  {
+   "id": "C8",
+   "text": "Many farmers switched from wheat to forage crops such as alfalfa, which consume three times the water of wheat",
+   "status": "verified",
+   "sources": [
+    "https://apps.fas.usda.gov/newgainapi/api/report/downloadreportbyfilename?filename=Grain+and+Feed+Annual_Riyadh_Saudi+Arabia_3-14-2016.pdf"
+   ],
+   "used_in": "line 9"
+  },
+  {
+   "id": "C9",
+   "text": "In 2016 hydrologists predicted pumping would be feasible for only about another 50 years",
+   "status": "verified",
+   "sources": [
+    "https://www.usgs.gov/news/science-snippet/earthview-saudi-wheat-experiment-relied-fossil-water"
+   ],
+   "used_in": "line 10"
+  },
+  {
+   "id": "C10",
+   "text": "Development was largely financed by the Saudi government's oil revenues",
+   "status": "verified, not used",
+   "sources": [
+    "https://science.nasa.gov/earth/earth-observatory/crop-circles-in-the-desert-77900/"
+   ],
+   "used_in": "-"
+  }
+ ],
+ "observations": [
+  {
+   "id": "O1",
+   "text": "1987-04-10: no fields in the hook and core views; 2000/2008/2015/2025: dense center-pivot grids (same grid, same season)",
+   "status": "satellite observation"
+  },
+  {
+   "id": "O2",
+   "text": "Green area in the stack AOI on the April dates: ~7 km2 (1987), ~629 (2000), ~1016 (2008), ~1268 (2015), ~980 (2025)",
+   "status": "observation from a crude color threshold on single dates - NOT published, not spoken"
+  }
+ ],
+ "inferences": [
+  {
+   "id": "H1",
+   "text": "The 2015->2025 drop in green area is NOT interpreted (single spring date per year; crop cycles and fallow vary)",
+   "status": "inference withheld"
+  }
+ ],
+ "excluded": [
+  "Arizona / Fondomonte (Saudi-owned alfalfa farm, leases ended 2023-24): verified by the Arizona Governor's office, but no visual proof on this grid -> WEAK_PROOF, removed",
+  "'The circles stayed green' after 2016: single-date imagery shows ~23% less green in 2025 than 2015 -> could mislead, removed",
+  "Number of fields / exact area: only my own threshold estimate -> not published",
+  "Town names in frame (not verified against a gazetteer) -> not labelled",
+  "Saudi reintroduction of some local wheat purchases after 2019 (not checked) -> no claim about present-day crops",
+  "'Fossil water 20,000 years' is NASA's figure for the aquifers; no age range beyond that"
+ ],
+ "factcheck": "PASSED for every spoken line and on-screen label"
+}

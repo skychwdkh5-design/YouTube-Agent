@@ -1,0 +1,844 @@
+{
+ "schema": "yt-render-manifest/1",
+ "profile": "short",
+ "output": "kilauea-2018_short.mp4",
+ "width": 1080,
+ "height": 1920,
+ "fps": 30,
+ "duration": 51.667,
+ "safe": {
+  "top": 0.08,
+  "bottom": 0.22,
+  "right": 0.12,
+  "left": 0.06
+ },
+ "first_word_start": 0.0,
+ "narration": {
+  "start": 0.0,
+  "duration": 50.155,
+  "end": 50.155102,
+  "gain_db": -0.3,
+  "voice_name": "Adam",
+  "voice_id": "pNInz6obpgDQGcFmaJgB"
+ },
+ "shots": [
+  {
+   "id": "S1_hook",
+   "beat": "hook",
+   "start": 0.0,
+   "end": 3.155,
+   "info": "after-image: black lava where Kapoho Bay was",
+   "claims": [],
+   "layers": [
+    "image",
+    "label",
+    "pin",
+    "label"
+   ],
+   "credit": "Landsat 8 · USGS"
+  },
+  {
+   "id": "S2_proof",
+   "beat": "proof",
+   "start": 3.155,
+   "end": 6.441,
+   "info": "wipe back to the bay before the eruption",
+   "claims": [],
+   "layers": [
+    "wipe",
+    "pin"
+   ],
+   "credit": "Landsat 8 · USGS"
+  },
+  {
+   "id": "S3_eruption",
+   "beat": "proof",
+   "start": 6.441,
+   "end": 12.153,
+   "info": "zoom out: four-date timelapse of the eruption",
+   "claims": [],
+   "layers": [
+    "flip",
+    "label",
+    "label"
+   ],
+   "credit": "Landsat 8 · USGS"
+  },
+  {
+   "id": "S4_heat",
+   "beat": "escalation",
+   "start": 12.153,
+   "end": 15.891,
+   "info": "zoom in 2x: eruption zone, heat in infrared",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8 · USGS"
+  },
+  {
+   "id": "S5_flow",
+   "beat": "escalation",
+   "start": 15.891,
+   "end": 18.898,
+   "info": "camera follows the lava path east to the sea",
+   "claims": [],
+   "layers": [
+    "image",
+    "arrow",
+    "label"
+   ],
+   "credit": "Landsat 8 · USGS"
+  },
+  {
+   "id": "S6_bay",
+   "beat": "escalation",
+   "start": 18.898,
+   "end": 24.75,
+   "info": "tight on the bay: before -> after",
+   "claims": [],
+   "layers": [
+    "wipe",
+    "label",
+    "label",
+    "pin"
+   ],
+   "credit": "Landsat 8 · USGS"
+  },
+  {
+   "id": "S7_scale",
+   "beat": "escalation",
+   "start": 24.75,
+   "end": 30.299,
+   "info": "pull back: the whole lava field",
+   "claims": [],
+   "layers": [
+    "image",
+    "label",
+    "label"
+   ],
+   "credit": "Landsat 8 · USGS"
+  },
+  {
+   "id": "S8_rift",
+   "beat": "explanation",
+   "start": 30.299,
+   "end": 34.803,
+   "info": "travel 30 km up the rift to the summit",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8 · USGS"
+  },
+  {
+   "id": "S9_collapse",
+   "beat": "explanation",
+   "start": 34.803,
+   "end": 38.727,
+   "info": "summit crater before/after",
+   "claims": [],
+   "layers": [
+    "wipe",
+    "pin",
+    "label"
+   ],
+   "credit": "Landsat 8 · USGS"
+  },
+  {
+   "id": "S10_newland",
+   "beat": "payoff",
+   "start": 38.727,
+   "end": 42.953,
+   "info": "the new coastline",
+   "claims": [],
+   "layers": [
+    "image",
+    "label",
+    "pin"
+   ],
+   "credit": "Landsat 8 · USGS"
+  },
+  {
+   "id": "S11_owner",
+   "beat": "payoff",
+   "start": 42.953,
+   "end": 51.655,
+   "info": "pull back over the new coast",
+   "claims": [],
+   "layers": [
+    "image",
+    "label",
+    "label"
+   ],
+   "credit": "Landsat 8 · USGS"
+  }
+ ],
+ "info_events": [
+  {
+   "t": 0.0,
+   "shot": "S1_hook",
+   "what": "after-image: black lava where Kapoho Bay was"
+  },
+  {
+   "t": 0.0,
+   "shot": "S1_hook",
+   "what": "hook claim"
+  },
+  {
+   "t": 0.5,
+   "shot": "S1_hook",
+   "what": "where the bay was"
+  },
+  {
+   "t": 1.2,
+   "shot": "S1_hook",
+   "what": "image date"
+  },
+  {
+   "t": 3.155,
+   "shot": "S2_proof",
+   "what": "wipe back to the bay before the eruption"
+  },
+  {
+   "t": 6.441,
+   "shot": "S3_eruption",
+   "what": "zoom out: four-date timelapse of the eruption"
+  },
+  {
+   "t": 6.641,
+   "shot": "S3_eruption",
+   "what": "start date"
+  },
+  {
+   "t": 7.341,
+   "shot": "S3_eruption",
+   "what": "flip to d20180514"
+  },
+  {
+   "t": 8.241,
+   "shot": "S3_eruption",
+   "what": "flip to d20180530"
+  },
+  {
+   "t": 9.141,
+   "shot": "S3_eruption",
+   "what": "flip to d20190226"
+  },
+  {
+   "t": 10.841,
+   "shot": "S3_eruption",
+   "what": "24 fissures"
+  },
+  {
+   "t": 12.153,
+   "shot": "S4_heat",
+   "what": "zoom in 2x: eruption zone, heat in infrared"
+  },
+  {
+   "t": 12.153,
+   "shot": "S4_heat",
+   "what": "infrared heat"
+  },
+  {
+   "t": 15.891,
+   "shot": "S5_flow",
+   "what": "camera follows the lava path east to the sea"
+  },
+  {
+   "t": 16.191,
+   "shot": "S5_flow",
+   "what": "flow reached the sea"
+  },
+  {
+   "t": 16.691,
+   "shot": "S5_flow",
+   "what": "path to the ocean"
+  },
+  {
+   "t": 18.898,
+   "shot": "S6_bay",
+   "what": "tight on the bay: before -> after"
+  },
+  {
+   "t": 18.898,
+   "shot": "S6_bay",
+   "what": "june 3"
+  },
+  {
+   "t": 23.558,
+   "shot": "S6_bay",
+   "what": "june 7"
+  },
+  {
+   "t": 24.75,
+   "shot": "S7_scale",
+   "what": "pull back: the whole lava field"
+  },
+  {
+   "t": 24.75,
+   "shot": "S7_scale",
+   "what": "area"
+  },
+  {
+   "t": 27.71,
+   "shot": "S7_scale",
+   "what": "structures"
+  },
+  {
+   "t": 30.299,
+   "shot": "S8_rift",
+   "what": "travel 30 km up the rift to the summit"
+  },
+  {
+   "t": 31.799,
+   "shot": "S8_rift",
+   "what": "summit"
+  },
+  {
+   "t": 34.803,
+   "shot": "S9_collapse",
+   "what": "summit crater before/after"
+  },
+  {
+   "t": 36.603,
+   "shot": "S9_collapse",
+   "what": "collapse depth"
+  },
+  {
+   "t": 38.727,
+   "shot": "S10_newland",
+   "what": "the new coastline"
+  },
+  {
+   "t": 39.127,
+   "shot": "S10_newland",
+   "what": "where"
+  },
+  {
+   "t": 39.437,
+   "shot": "S10_newland",
+   "what": "new land"
+  },
+  {
+   "t": 42.953,
+   "shot": "S11_owner",
+   "what": "pull back over the new coast"
+  },
+  {
+   "t": 42.953,
+   "shot": "S11_owner",
+   "what": "question"
+  },
+  {
+   "t": 48.243,
+   "shot": "S11_owner",
+   "what": "answer"
+  }
+ ],
+ "compositions": {
+  "rule": "composition-reset/1",
+  "thresholds": {
+   "zoom_ratio": 1.5,
+   "shift": 0.35,
+   "merge_s": 0.75,
+   "timelapse_min": 3,
+   "timelapse_max_step": 1.0,
+   "sample_s": 0.1,
+   "first_10s_min": 3,
+   "resets": [
+    7,
+    10
+   ],
+   "max_hold_s": 6.0
+  },
+  "composition_resets": 10,
+  "distinct_first_10s": 3,
+  "longest_static_hold": {
+   "seconds": 5.549,
+   "start": 24.75,
+   "end": 31.399
+  },
+  "resets": [
+   {
+    "t": 3.155,
+    "shot": "S2_proof",
+    "kind": "wipe",
+    "what": "wipe d20190226 -> d20180327"
+   },
+   {
+    "t": 6.441,
+    "shot": "S3_eruption",
+    "kind": "timelapse",
+    "what": "timelapse of 4 dates",
+    "also": [
+     "cut"
+    ]
+   },
+   {
+    "t": 12.153,
+    "shot": "S4_heat",
+    "kind": "cut",
+    "what": "zoom in x2.0"
+   },
+   {
+    "t": 17.891,
+    "shot": "S5_flow",
+    "kind": "camera_move",
+    "what": "camera relocation"
+   },
+   {
+    "t": 22.158,
+    "shot": "S6_bay",
+    "kind": "wipe",
+    "what": "wipe d20180327 -> d20190226"
+   },
+   {
+    "t": 24.75,
+    "shot": "S7_scale",
+    "kind": "cut",
+    "what": "camera relocation"
+   },
+   {
+    "t": 31.399,
+    "shot": "S8_rift",
+    "kind": "camera_move",
+    "what": "camera relocation"
+   },
+   {
+    "t": 34.803,
+    "shot": "S9_collapse",
+    "kind": "cut",
+    "what": "zoom in x2.0",
+    "also": [
+     "wipe"
+    ]
+   },
+   {
+    "t": 38.727,
+    "shot": "S10_newland",
+    "kind": "cut",
+    "what": "camera relocation"
+   },
+   {
+    "t": 47.053,
+    "shot": "S11_owner",
+    "kind": "camera_move",
+    "what": "zoom out x1.5"
+   }
+  ],
+  "segments": [
+   {
+    "start": 0.0,
+    "end": 3.155,
+    "seconds": 3.155,
+    "static_hold": 3.155
+   },
+   {
+    "start": 3.155,
+    "end": 6.441,
+    "seconds": 3.286,
+    "static_hold": 2.486
+   },
+   {
+    "start": 6.441,
+    "end": 12.153,
+    "seconds": 5.712,
+    "static_hold": 2.112
+   },
+   {
+    "start": 12.153,
+    "end": 17.891,
+    "seconds": 5.738,
+    "static_hold": 3.738
+   },
+   {
+    "start": 17.891,
+    "end": 22.158,
+    "seconds": 4.267,
+    "static_hold": 3.26
+   },
+   {
+    "start": 22.158,
+    "end": 24.75,
+    "seconds": 2.592,
+    "static_hold": 1.792
+   },
+   {
+    "start": 24.75,
+    "end": 31.399,
+    "seconds": 6.649,
+    "static_hold": 5.549
+   },
+   {
+    "start": 31.399,
+    "end": 34.803,
+    "seconds": 3.404,
+    "static_hold": 0.0
+   },
+   {
+    "start": 34.803,
+    "end": 38.727,
+    "seconds": 3.924,
+    "static_hold": 2.724
+   },
+   {
+    "start": 38.727,
+    "end": 47.053,
+    "seconds": 8.326,
+    "static_hold": 4.226
+   },
+   {
+    "start": 47.053,
+    "end": 51.667,
+    "seconds": 4.614,
+    "static_hold": 0.012
+   }
+  ]
+ },
+ "caption_boxes": [
+  {
+   "cue": 1,
+   "band": 0.645,
+   "box": [
+    278,
+    1165,
+    802,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 2,
+   "band": 0.645,
+   "box": [
+    324,
+    1165,
+    756,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 3,
+   "band": 0.645,
+   "box": [
+    325,
+    1204,
+    755,
+    1272
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 4,
+   "band": 0.645,
+   "box": [
+    328,
+    1204,
+    752,
+    1272
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 5,
+   "band": 0.645,
+   "box": [
+    233,
+    1165,
+    847,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 6,
+   "band": 0.645,
+   "box": [
+    163,
+    1165,
+    917,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 7,
+   "band": 0.645,
+   "box": [
+    324,
+    1165,
+    756,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 8,
+   "band": 0.645,
+   "box": [
+    227,
+    1165,
+    853,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 9,
+   "band": 0.645,
+   "box": [
+    374,
+    1165,
+    706,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 10,
+   "band": 0.645,
+   "box": [
+    339,
+    1165,
+    741,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 11,
+   "band": 0.645,
+   "box": [
+    318,
+    1165,
+    762,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 12,
+   "band": 0.645,
+   "box": [
+    337,
+    1165,
+    743,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 13,
+   "band": 0.645,
+   "box": [
+    327,
+    1204,
+    753,
+    1272
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 14,
+   "band": 0.645,
+   "box": [
+    231,
+    1165,
+    849,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 15,
+   "band": 0.645,
+   "box": [
+    269,
+    1165,
+    811,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 16,
+   "band": 0.645,
+   "box": [
+    414,
+    1204,
+    666,
+    1272
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 17,
+   "band": 0.645,
+   "box": [
+    299,
+    1165,
+    781,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 18,
+   "band": 0.645,
+   "box": [
+    353,
+    1165,
+    727,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 19,
+   "band": 0.645,
+   "box": [
+    229,
+    1165,
+    851,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 20,
+   "band": 0.645,
+   "box": [
+    239,
+    1165,
+    841,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 21,
+   "band": 0.645,
+   "box": [
+    308,
+    1165,
+    772,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 22,
+   "band": 0.645,
+   "box": [
+    233,
+    1165,
+    847,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 23,
+   "band": 0.645,
+   "box": [
+    300,
+    1165,
+    780,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 24,
+   "band": 0.645,
+   "box": [
+    217,
+    1165,
+    863,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 25,
+   "band": 0.645,
+   "box": [
+    309,
+    1204,
+    771,
+    1272
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 26,
+   "band": 0.645,
+   "box": [
+    353,
+    1165,
+    727,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 27,
+   "band": 0.645,
+   "box": [
+    323,
+    1165,
+    757,
+    1311
+   ],
+   "font_size": 68
+  },
+  {
+   "cue": 28,
+   "band": 0.645,
+   "box": [
+    332,
+    1165,
+    748,
+    1311
+   ],
+   "font_size": 68
+  }
+ ],
+ "assets": {
+  "d20180327": {
+   "label": "MAR 2018",
+   "credit": "Landsat 8 · USGS",
+   "prov": null,
+   "kind": "image"
+  },
+  "d20180514": {
+   "label": "MAY 14, 2018",
+   "credit": "Landsat 8 · USGS",
+   "prov": null,
+   "kind": "image"
+  },
+  "d20180530": {
+   "label": "MAY 30, 2018",
+   "credit": "Landsat 8 · USGS",
+   "prov": null,
+   "kind": "image"
+  },
+  "d20190226": {
+   "label": "FEB 2019",
+   "credit": "Landsat 8 · USGS",
+   "prov": null,
+   "kind": "image"
+  },
+  "d20190720": {
+   "label": "JUL 2019",
+   "credit": "Landsat 8 · USGS",
+   "prov": null,
+   "kind": "image"
+  }
+ },
+ "warnings": []
+}

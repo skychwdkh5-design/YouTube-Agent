@@ -1,0 +1,591 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "narration.wav",
+ "audio_format": "wav",
+ "audio_sha256": "c7f3f233f2eca6657b4104577dbda67b024f94af66263018dd813982b1fb434a",
+ "duration": 50.155,
+ "characters": 668,
+ "text": "A Hawaiian bay disappeared in less than a week.\n\nKapoho Bay. March 2018.\n\nThen, on May 3rd, the ground under a neighborhood split open.\n\nTwenty-four fissures.\n\nFrom orbit, Landsat's infrared picked up the heat.\n\nOne vent sent lava all the way to the ocean.\n\nIt reached Kapoho Bay on June 3rd. By June 7th, the bay was gone.\n\nNearly fourteen square miles of lava. Over eighteen hundred structures destroyed.\n\nMeanwhile, as magma drained away, the summit collapsed.\n\nThe caldera floor dropped more than sixteen hundred feet.\n\nHawaii gained eight hundred seventy-five acres of new land.\n\nWho owns it? Not the neighbors. Under a 1977 court ruling, it belongs to the State.",
+ "text_sha256": "6152a7ebc59744521858b73fad475b63285e52ea7a3128c49407a122c5fe976c",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 668,
+   "offset": 0.0,
+   "duration": 50.155,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "A",
+   "start": 0.0,
+   "end": 0.081
+  },
+  {
+   "text": "Hawaiian",
+   "start": 0.151,
+   "end": 0.65
+  },
+  {
+   "text": "bay",
+   "start": 0.72,
+   "end": 1.022
+  },
+  {
+   "text": "disappeared",
+   "start": 1.138,
+   "end": 1.73
+  },
+  {
+   "text": "in",
+   "start": 1.765,
+   "end": 1.834
+  },
+  {
+   "text": "less",
+   "start": 1.904,
+   "end": 2.101
+  },
+  {
+   "text": "than",
+   "start": 2.136,
+   "end": 2.276
+  },
+  {
+   "text": "a",
+   "start": 2.322,
+   "end": 2.357
+  },
+  {
+   "text": "week.",
+   "start": 2.426,
+   "end": 2.914
+  },
+  {
+   "text": "Kapoho",
+   "start": 3.355,
+   "end": 3.901
+  },
+  {
+   "text": "Bay.",
+   "start": 3.982,
+   "end": 4.54
+  },
+  {
+   "text": "March",
+   "start": 4.818,
+   "end": 5.155
+  },
+  {
+   "text": "2018.",
+   "start": 5.236,
+   "end": 6.258
+  },
+  {
+   "text": "Then,",
+   "start": 6.641,
+   "end": 6.954
+  },
+  {
+   "text": "on",
+   "start": 7.012,
+   "end": 7.187
+  },
+  {
+   "text": "May",
+   "start": 7.245,
+   "end": 7.407
+  },
+  {
+   "text": "3rd,",
+   "start": 7.5,
+   "end": 8.046
+  },
+  {
+   "text": "the",
+   "start": 8.22,
+   "end": 8.324
+  },
+  {
+   "text": "ground",
+   "start": 8.371,
+   "end": 8.766
+  },
+  {
+   "text": "under",
+   "start": 8.835,
+   "end": 9.009
+  },
+  {
+   "text": "a",
+   "start": 9.056,
+   "end": 9.091
+  },
+  {
+   "text": "neighborhood",
+   "start": 9.149,
+   "end": 9.648
+  },
+  {
+   "text": "split",
+   "start": 9.694,
+   "end": 9.996
+  },
+  {
+   "text": "open.",
+   "start": 10.043,
+   "end": 10.519
+  },
+  {
+   "text": "Twenty-four",
+   "start": 10.844,
+   "end": 11.389
+  },
+  {
+   "text": "fissures.",
+   "start": 11.459,
+   "end": 12.109
+  },
+  {
+   "text": "From",
+   "start": 12.353,
+   "end": 12.527
+  },
+  {
+   "text": "orbit,",
+   "start": 12.597,
+   "end": 13.108
+  },
+  {
+   "text": "Landsat's",
+   "start": 13.259,
+   "end": 13.967
+  },
+  {
+   "text": "infrared",
+   "start": 14.025,
+   "end": 14.64
+  },
+  {
+   "text": "picked",
+   "start": 14.71,
+   "end": 14.965
+  },
+  {
+   "text": "up",
+   "start": 15.012,
+   "end": 15.128
+  },
+  {
+   "text": "the",
+   "start": 15.186,
+   "end": 15.256
+  },
+  {
+   "text": "heat.",
+   "start": 15.314,
+   "end": 15.766
+  },
+  {
+   "text": "One",
+   "start": 16.091,
+   "end": 16.335
+  },
+  {
+   "text": "vent",
+   "start": 16.393,
+   "end": 16.684
+  },
+  {
+   "text": "sent",
+   "start": 16.753,
+   "end": 17.009
+  },
+  {
+   "text": "lava",
+   "start": 17.078,
+   "end": 17.426
+  },
+  {
+   "text": "all",
+   "start": 17.484,
+   "end": 17.67
+  },
+  {
+   "text": "the",
+   "start": 17.728,
+   "end": 17.798
+  },
+  {
+   "text": "way",
+   "start": 17.844,
+   "end": 17.995
+  },
+  {
+   "text": "to",
+   "start": 18.053,
+   "end": 18.111
+  },
+  {
+   "text": "the",
+   "start": 18.181,
+   "end": 18.251
+  },
+  {
+   "text": "ocean.",
+   "start": 18.332,
+   "end": 18.889
+  },
+  {
+   "text": "It",
+   "start": 19.098,
+   "end": 19.237
+  },
+  {
+   "text": "reached",
+   "start": 19.295,
+   "end": 19.574
+  },
+  {
+   "text": "Kapoho",
+   "start": 19.655,
+   "end": 20.189
+  },
+  {
+   "text": "Bay",
+   "start": 20.271,
+   "end": 20.607
+  },
+  {
+   "text": "on",
+   "start": 20.724,
+   "end": 20.932
+  },
+  {
+   "text": "June",
+   "start": 21.014,
+   "end": 21.292
+  },
+  {
+   "text": "3rd.",
+   "start": 21.362,
+   "end": 21.931
+  },
+  {
+   "text": "By",
+   "start": 22.256,
+   "end": 22.43
+  },
+  {
+   "text": "June",
+   "start": 22.511,
+   "end": 22.778
+  },
+  {
+   "text": "7th,",
+   "start": 22.86,
+   "end": 23.301
+  },
+  {
+   "text": "the",
+   "start": 23.359,
+   "end": 23.463
+  },
+  {
+   "text": "bay",
+   "start": 23.533,
+   "end": 23.742
+  },
+  {
+   "text": "was",
+   "start": 23.812,
+   "end": 23.939
+  },
+  {
+   "text": "gone.",
+   "start": 24.009,
+   "end": 24.624
+  },
+  {
+   "text": "Nearly",
+   "start": 24.95,
+   "end": 25.286
+  },
+  {
+   "text": "fourteen",
+   "start": 25.356,
+   "end": 25.844
+  },
+  {
+   "text": "square",
+   "start": 25.913,
+   "end": 26.238
+  },
+  {
+   "text": "miles",
+   "start": 26.285,
+   "end": 26.645
+  },
+  {
+   "text": "of",
+   "start": 26.703,
+   "end": 26.761
+  },
+  {
+   "text": "lava.",
+   "start": 26.842,
+   "end": 27.469
+  },
+  {
+   "text": "Over",
+   "start": 27.713,
+   "end": 27.968
+  },
+  {
+   "text": "eighteen",
+   "start": 28.049,
+   "end": 28.456
+  },
+  {
+   "text": "hundred",
+   "start": 28.514,
+   "end": 28.816
+  },
+  {
+   "text": "structures",
+   "start": 28.874,
+   "end": 29.326
+  },
+  {
+   "text": "destroyed.",
+   "start": 29.385,
+   "end": 30.174
+  },
+  {
+   "text": "Meanwhile,",
+   "start": 30.499,
+   "end": 31.149
+  },
+  {
+   "text": "as",
+   "start": 31.184,
+   "end": 31.381
+  },
+  {
+   "text": "magma",
+   "start": 31.474,
+   "end": 31.962
+  },
+  {
+   "text": "drained",
+   "start": 32.032,
+   "end": 32.426
+  },
+  {
+   "text": "away,",
+   "start": 32.473,
+   "end": 33.1
+  },
+  {
+   "text": "the",
+   "start": 33.309,
+   "end": 33.413
+  },
+  {
+   "text": "summit",
+   "start": 33.46,
+   "end": 33.761
+  },
+  {
+   "text": "collapsed.",
+   "start": 33.807,
+   "end": 34.562
+  },
+  {
+   "text": "The",
+   "start": 35.003,
+   "end": 35.108
+  },
+  {
+   "text": "caldera",
+   "start": 35.166,
+   "end": 35.723
+  },
+  {
+   "text": "floor",
+   "start": 35.793,
+   "end": 36.129
+  },
+  {
+   "text": "dropped",
+   "start": 36.199,
+   "end": 36.513
+  },
+  {
+   "text": "more",
+   "start": 36.571,
+   "end": 36.745
+  },
+  {
+   "text": "than",
+   "start": 36.78,
+   "end": 36.931
+  },
+  {
+   "text": "sixteen",
+   "start": 37.047,
+   "end": 37.685
+  },
+  {
+   "text": "hundred",
+   "start": 37.766,
+   "end": 38.103
+  },
+  {
+   "text": "feet.",
+   "start": 38.184,
+   "end": 38.718
+  },
+  {
+   "text": "Hawaii",
+   "start": 38.927,
+   "end": 39.357
+  },
+  {
+   "text": "gained",
+   "start": 39.438,
+   "end": 39.787
+  },
+  {
+   "text": "eight",
+   "start": 39.903,
+   "end": 40.135
+  },
+  {
+   "text": "hundred",
+   "start": 40.181,
+   "end": 40.506
+  },
+  {
+   "text": "seventy-five",
+   "start": 40.622,
+   "end": 41.307
+  },
+  {
+   "text": "acres",
+   "start": 41.354,
+   "end": 41.714
+  },
+  {
+   "text": "of",
+   "start": 41.772,
+   "end": 41.83
+  },
+  {
+   "text": "new",
+   "start": 41.9,
+   "end": 42.039
+  },
+  {
+   "text": "land.",
+   "start": 42.109,
+   "end": 42.712
+  },
+  {
+   "text": "Who",
+   "start": 43.153,
+   "end": 43.351
+  },
+  {
+   "text": "owns",
+   "start": 43.432,
+   "end": 43.699
+  },
+  {
+   "text": "it?",
+   "start": 43.769,
+   "end": 44.071
+  },
+  {
+   "text": "Not",
+   "start": 44.512,
+   "end": 44.686
+  },
+  {
+   "text": "the",
+   "start": 44.721,
+   "end": 44.79
+  },
+  {
+   "text": "neighbors.",
+   "start": 44.849,
+   "end": 45.441
+  },
+  {
+   "text": "Under",
+   "start": 45.684,
+   "end": 45.917
+  },
+  {
+   "text": "a",
+   "start": 45.975,
+   "end": 45.998
+  },
+  {
+   "text": "1977",
+   "start": 46.068,
+   "end": 47.171
+  },
+  {
+   "text": "court",
+   "start": 47.252,
+   "end": 47.519
+  },
+  {
+   "text": "ruling,",
+   "start": 47.577,
+   "end": 48.123
+  },
+  {
+   "text": "it",
+   "start": 48.239,
+   "end": 48.39
+  },
+  {
+   "text": "belongs",
+   "start": 48.448,
+   "end": 49.063
+  },
+  {
+   "text": "to",
+   "start": 49.133,
+   "end": 49.225
+  },
+  {
+   "text": "the",
+   "start": 49.307,
+   "end": 49.376
+  },
+  {
+   "text": "State.",
+   "start": 49.434,
+   "end": 50.154
+  }
+ ],
+ "created": "2026-10-07T10:40:24Z",
+ "warnings": []
+}

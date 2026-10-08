@@ -1,0 +1,571 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "narration.wav",
+ "audio_format": "wav",
+ "audio_sha256": "841e2f99c7f8f0fbebc2b5bfcac99a3d515096d65733cd6a6373340a7872077a",
+ "duration": 44.675,
+ "characters": 604,
+ "text": "Everything in orange was underwater in 2000.\n\nLake Mead. America's largest reservoir.\n\nWatch it drain.\n\nSince 2000, its water level has dropped about 160 feet.\n\nIts northern arm pulled back about nine miles.\n\nAbout half of its surface water is gone.\n\nIn 2022, it hit its lowest level since it was first filled in the 1930s.\n\nWhy? A long drought on the Colorado River. Year after year, more water left the lake than flowed in.\n\nThat river system supplies water to about 40 million people.\n\nThen, in August 2026, Lake Mead broke that record. Lower than ever.\n\nThat white line is where the water used to be.",
+ "text_sha256": "d8dd24b991f5606bf1f6845922d55e4b8dcb1321abcfb123d66d5b70700abcd9",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 604,
+   "offset": 0.0,
+   "duration": 44.675,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "Everything",
+   "start": 0.0,
+   "end": 0.418
+  },
+  {
+   "text": "in",
+   "start": 0.476,
+   "end": 0.546
+  },
+  {
+   "text": "orange",
+   "start": 0.627,
+   "end": 1.045
+  },
+  {
+   "text": "was",
+   "start": 1.08,
+   "end": 1.196
+  },
+  {
+   "text": "underwater",
+   "start": 1.277,
+   "end": 1.834
+  },
+  {
+   "text": "in",
+   "start": 1.892,
+   "end": 1.962
+  },
+  {
+   "text": "2000.",
+   "start": 2.02,
+   "end": 2.868
+  },
+  {
+   "text": "Lake",
+   "start": 3.019,
+   "end": 3.274
+  },
+  {
+   "text": "Mead.",
+   "start": 3.344,
+   "end": 3.866
+  },
+  {
+   "text": "America's",
+   "start": 3.982,
+   "end": 4.54
+  },
+  {
+   "text": "largest",
+   "start": 4.621,
+   "end": 5.039
+  },
+  {
+   "text": "reservoir.",
+   "start": 5.108,
+   "end": 5.886
+  },
+  {
+   "text": "Watch",
+   "start": 6.211,
+   "end": 6.478
+  },
+  {
+   "text": "it",
+   "start": 6.525,
+   "end": 6.583
+  },
+  {
+   "text": "drain.",
+   "start": 6.618,
+   "end": 7.233
+  },
+  {
+   "text": "Since",
+   "start": 7.558,
+   "end": 7.837
+  },
+  {
+   "text": "2000,",
+   "start": 7.872,
+   "end": 8.522
+  },
+  {
+   "text": "its",
+   "start": 8.545,
+   "end": 8.661
+  },
+  {
+   "text": "water",
+   "start": 8.719,
+   "end": 9.009
+  },
+  {
+   "text": "level",
+   "start": 9.044,
+   "end": 9.253
+  },
+  {
+   "text": "has",
+   "start": 9.311,
+   "end": 9.427
+  },
+  {
+   "text": "dropped",
+   "start": 9.474,
+   "end": 9.764
+  },
+  {
+   "text": "about",
+   "start": 9.787,
+   "end": 9.985
+  },
+  {
+   "text": "160",
+   "start": 10.066,
+   "end": 10.96
+  },
+  {
+   "text": "feet.",
+   "start": 11.018,
+   "end": 11.447
+  },
+  {
+   "text": "Its",
+   "start": 11.726,
+   "end": 11.923
+  },
+  {
+   "text": "northern",
+   "start": 11.993,
+   "end": 12.388
+  },
+  {
+   "text": "arm",
+   "start": 12.446,
+   "end": 12.794
+  },
+  {
+   "text": "pulled",
+   "start": 12.864,
+   "end": 13.142
+  },
+  {
+   "text": "back",
+   "start": 13.189,
+   "end": 13.398
+  },
+  {
+   "text": "about",
+   "start": 13.456,
+   "end": 13.688
+  },
+  {
+   "text": "nine",
+   "start": 13.769,
+   "end": 14.071
+  },
+  {
+   "text": "miles.",
+   "start": 14.118,
+   "end": 14.791
+  },
+  {
+   "text": "About",
+   "start": 15.0,
+   "end": 15.29
+  },
+  {
+   "text": "half",
+   "start": 15.348,
+   "end": 15.546
+  },
+  {
+   "text": "of",
+   "start": 15.592,
+   "end": 15.639
+  },
+  {
+   "text": "its",
+   "start": 15.697,
+   "end": 15.825
+  },
+  {
+   "text": "surface",
+   "start": 15.871,
+   "end": 16.254
+  },
+  {
+   "text": "water",
+   "start": 16.301,
+   "end": 16.603
+  },
+  {
+   "text": "is",
+   "start": 16.672,
+   "end": 16.754
+  },
+  {
+   "text": "gone.",
+   "start": 16.823,
+   "end": 17.404
+  },
+  {
+   "text": "In",
+   "start": 17.729,
+   "end": 17.88
+  },
+  {
+   "text": "2022,",
+   "start": 17.938,
+   "end": 19.087
+  },
+  {
+   "text": "it",
+   "start": 19.331,
+   "end": 19.482
+  },
+  {
+   "text": "hit",
+   "start": 19.552,
+   "end": 19.737
+  },
+  {
+   "text": "its",
+   "start": 19.784,
+   "end": 19.923
+  },
+  {
+   "text": "lowest",
+   "start": 20.004,
+   "end": 20.341
+  },
+  {
+   "text": "level",
+   "start": 20.422,
+   "end": 20.736
+  },
+  {
+   "text": "since",
+   "start": 20.806,
+   "end": 21.014
+  },
+  {
+   "text": "it",
+   "start": 21.049,
+   "end": 21.119
+  },
+  {
+   "text": "was",
+   "start": 21.154,
+   "end": 21.258
+  },
+  {
+   "text": "first",
+   "start": 21.34,
+   "end": 21.607
+  },
+  {
+   "text": "filled",
+   "start": 21.688,
+   "end": 22.083
+  },
+  {
+   "text": "in",
+   "start": 22.117,
+   "end": 22.187
+  },
+  {
+   "text": "the",
+   "start": 22.234,
+   "end": 22.303
+  },
+  {
+   "text": "1930s.",
+   "start": 22.35,
+   "end": 23.511
+  },
+  {
+   "text": "Why?",
+   "start": 23.894,
+   "end": 24.474
+  },
+  {
+   "text": "A",
+   "start": 24.718,
+   "end": 24.811
+  },
+  {
+   "text": "long",
+   "start": 24.904,
+   "end": 25.241
+  },
+  {
+   "text": "drought",
+   "start": 25.31,
+   "end": 25.635
+  },
+  {
+   "text": "on",
+   "start": 25.682,
+   "end": 25.751
+  },
+  {
+   "text": "the",
+   "start": 25.786,
+   "end": 25.856
+  },
+  {
+   "text": "Colorado",
+   "start": 25.891,
+   "end": 26.413
+  },
+  {
+   "text": "River.",
+   "start": 26.506,
+   "end": 26.924
+  },
+  {
+   "text": "Year",
+   "start": 27.203,
+   "end": 27.539
+  },
+  {
+   "text": "after",
+   "start": 27.621,
+   "end": 27.888
+  },
+  {
+   "text": "year,",
+   "start": 27.98,
+   "end": 28.375
+  },
+  {
+   "text": "more",
+   "start": 28.468,
+   "end": 28.77
+  },
+  {
+   "text": "water",
+   "start": 28.816,
+   "end": 29.153
+  },
+  {
+   "text": "left",
+   "start": 29.234,
+   "end": 29.455
+  },
+  {
+   "text": "the",
+   "start": 29.501,
+   "end": 29.583
+  },
+  {
+   "text": "lake",
+   "start": 29.652,
+   "end": 29.896
+  },
+  {
+   "text": "than",
+   "start": 29.931,
+   "end": 30.093
+  },
+  {
+   "text": "flowed",
+   "start": 30.175,
+   "end": 30.511
+  },
+  {
+   "text": "in.",
+   "start": 30.569,
+   "end": 30.964
+  },
+  {
+   "text": "That",
+   "start": 31.289,
+   "end": 31.51
+  },
+  {
+   "text": "river",
+   "start": 31.591,
+   "end": 31.835
+  },
+  {
+   "text": "system",
+   "start": 31.893,
+   "end": 32.23
+  },
+  {
+   "text": "supplies",
+   "start": 32.299,
+   "end": 32.764
+  },
+  {
+   "text": "water",
+   "start": 32.833,
+   "end": 33.147
+  },
+  {
+   "text": "to",
+   "start": 33.217,
+   "end": 33.298
+  },
+  {
+   "text": "about",
+   "start": 33.391,
+   "end": 33.669
+  },
+  {
+   "text": "40",
+   "start": 33.762,
+   "end": 34.087
+  },
+  {
+   "text": "million",
+   "start": 34.169,
+   "end": 34.529
+  },
+  {
+   "text": "people.",
+   "start": 34.587,
+   "end": 35.237
+  },
+  {
+   "text": "Then,",
+   "start": 35.84,
+   "end": 36.235
+  },
+  {
+   "text": "in",
+   "start": 36.293,
+   "end": 36.421
+  },
+  {
+   "text": "August",
+   "start": 36.514,
+   "end": 36.862
+  },
+  {
+   "text": "2026,",
+   "start": 36.92,
+   "end": 38.116
+  },
+  {
+   "text": "Lake",
+   "start": 38.267,
+   "end": 38.522
+  },
+  {
+   "text": "Mead",
+   "start": 38.58,
+   "end": 38.929
+  },
+  {
+   "text": "broke",
+   "start": 39.022,
+   "end": 39.312
+  },
+  {
+   "text": "that",
+   "start": 39.347,
+   "end": 39.509
+  },
+  {
+   "text": "record.",
+   "start": 39.59,
+   "end": 40.125
+  },
+  {
+   "text": "Lower",
+   "start": 40.728,
+   "end": 40.995
+  },
+  {
+   "text": "than",
+   "start": 41.042,
+   "end": 41.158
+  },
+  {
+   "text": "ever.",
+   "start": 41.204,
+   "end": 41.611
+  },
+  {
+   "text": "That",
+   "start": 42.121,
+   "end": 42.342
+  },
+  {
+   "text": "white",
+   "start": 42.4,
+   "end": 42.656
+  },
+  {
+   "text": "line",
+   "start": 42.702,
+   "end": 43.015
+  },
+  {
+   "text": "is",
+   "start": 43.05,
+   "end": 43.132
+  },
+  {
+   "text": "where",
+   "start": 43.19,
+   "end": 43.352
+  },
+  {
+   "text": "the",
+   "start": 43.375,
+   "end": 43.445
+  },
+  {
+   "text": "water",
+   "start": 43.491,
+   "end": 43.758
+  },
+  {
+   "text": "used",
+   "start": 43.828,
+   "end": 44.025
+  },
+  {
+   "text": "to",
+   "start": 44.049,
+   "end": 44.107
+  },
+  {
+   "text": "be.",
+   "start": 44.165,
+   "end": 44.676
+  }
+ ],
+ "created": "2026-10-07T08:39:11Z",
+ "warnings": []
+}

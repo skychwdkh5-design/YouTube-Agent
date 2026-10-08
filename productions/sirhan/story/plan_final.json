@@ -1,0 +1,407 @@
+{
+ "status": "confirm_required",
+ "error": "rendering needs --confirm; the timeline is valid, plan attached",
+ "plan": {
+  "version": 3,
+  "profile": "short",
+  "expected_duration": 47.233,
+  "total_frames": 1417,
+  "shots": [
+   {
+    "id": "S1_hook",
+    "beat": "hook",
+    "start": 0.0,
+    "end": 3.004,
+    "layers": [
+     "image",
+     "label",
+     "label",
+     "label"
+    ]
+   },
+   {
+    "id": "S2_proof",
+    "beat": "proof",
+    "start": 3.004,
+    "end": 6.069,
+    "layers": [
+     "wipe",
+     "label"
+    ]
+   },
+   {
+    "id": "S3_timelapse",
+    "beat": "proof",
+    "start": 6.069,
+    "end": 8.127,
+    "layers": [
+     "flip"
+    ]
+   },
+   {
+    "id": "S4_closeup",
+    "beat": "proof",
+    "start": 8.127,
+    "end": 13.395,
+    "layers": [
+     "image",
+     "label",
+     "label"
+    ]
+   },
+   {
+    "id": "S5_exports",
+    "beat": "escalation",
+    "start": 13.395,
+    "end": 18.975,
+    "layers": [
+     "image",
+     "label",
+     "label"
+    ]
+   },
+   {
+    "id": "S6_aquifer",
+    "beat": "explanation",
+    "start": 18.975,
+    "end": 26.991,
+    "layers": [
+     "image",
+     "label",
+     "label"
+    ]
+   },
+   {
+    "id": "S7_policy",
+    "beat": "explanation",
+    "start": 26.991,
+    "end": 32.552,
+    "layers": [
+     "image",
+     "label",
+     "label"
+    ]
+   },
+   {
+    "id": "S8_alfalfa",
+    "beat": "payoff",
+    "start": 32.552,
+    "end": 37.405,
+    "layers": [
+     "image",
+     "label",
+     "label"
+    ]
+   },
+   {
+    "id": "S9_payoff",
+    "beat": "payoff",
+    "start": 37.405,
+    "end": 47.243,
+    "layers": [
+     "wipe",
+     "label",
+     "label"
+    ]
+   }
+  ],
+  "info_events": [
+   {
+    "t": 0.0,
+    "shot": "S1_hook",
+    "what": "thousands of green circles in sand (2015)"
+   },
+   {
+    "t": 0.0,
+    "shot": "S1_hook",
+    "what": "hook claim"
+   },
+   {
+    "t": 1.0,
+    "shot": "S1_hook",
+    "what": "place"
+   },
+   {
+    "t": 2.0,
+    "shot": "S1_hook",
+    "what": "image date"
+   },
+   {
+    "t": 3.004,
+    "shot": "S2_proof",
+    "what": "same view, 1987: empty desert"
+   },
+   {
+    "t": 4.604,
+    "shot": "S2_proof",
+    "what": "empty"
+   },
+   {
+    "t": 6.069,
+    "shot": "S3_timelapse",
+    "what": "zoom out: 1987-2015 timelapse"
+   },
+   {
+    "t": 6.569,
+    "shot": "S3_timelapse",
+    "what": "flip to y2000"
+   },
+   {
+    "t": 7.069,
+    "shot": "S3_timelapse",
+    "what": "flip to y2008"
+   },
+   {
+    "t": 7.569,
+    "shot": "S3_timelapse",
+    "what": "flip to y2015"
+   },
+   {
+    "t": 8.127,
+    "shot": "S4_closeup",
+    "what": "close-up: individual circles"
+   },
+   {
+    "t": 8.127,
+    "shot": "S4_closeup",
+    "what": "size"
+   },
+   {
+    "t": 10.787,
+    "shot": "S4_closeup",
+    "what": "mechanism"
+   },
+   {
+    "t": 13.395,
+    "shot": "S5_exports",
+    "what": "whole basin, 2000"
+   },
+   {
+    "t": 13.695,
+    "shot": "S5_exports",
+    "what": "exports"
+   },
+   {
+    "t": 14.595,
+    "shot": "S5_exports",
+    "what": "image date"
+   },
+   {
+    "t": 18.975,
+    "shot": "S6_aquifer",
+    "what": "fly to the northeastern fields"
+   },
+   {
+    "t": 20.875,
+    "shot": "S6_aquifer",
+    "what": "fossil water"
+   },
+   {
+    "t": 24.665,
+    "shot": "S6_aquifer",
+    "what": "no recharge"
+   },
+   {
+    "t": 26.991,
+    "shot": "S7_policy",
+    "what": "core fields, 2015 image"
+   },
+   {
+    "t": 27.191,
+    "shot": "S7_policy",
+    "what": "policy"
+   },
+   {
+    "t": 27.991,
+    "shot": "S7_policy",
+    "what": "image date"
+   },
+   {
+    "t": 32.552,
+    "shot": "S8_alfalfa",
+    "what": "close-up 2025"
+   },
+   {
+    "t": 32.552,
+    "shot": "S8_alfalfa",
+    "what": "crop switch"
+   },
+   {
+    "t": 34.992,
+    "shot": "S8_alfalfa",
+    "what": "3x"
+   },
+   {
+    "t": 37.405,
+    "shot": "S9_payoff",
+    "what": "widest view: 1987 -> 2025, push in"
+   },
+   {
+    "t": 38.635,
+    "shot": "S9_payoff",
+    "what": "50 years"
+   },
+   {
+    "t": 42.505,
+    "shot": "S9_payoff",
+    "what": "non-renewable"
+   }
+  ],
+  "info_events_first_10s": 12,
+  "compositions": {
+   "rule": "composition-reset/1",
+   "thresholds": {
+    "zoom_ratio": 1.5,
+    "shift": 0.35,
+    "merge_s": 0.75,
+    "timelapse_min": 3,
+    "timelapse_max_step": 1.0,
+    "sample_s": 0.1,
+    "first_10s_min": 3,
+    "resets": [
+     7,
+     10
+    ],
+    "max_hold_s": 6.0
+   },
+   "composition_resets": 9,
+   "distinct_first_10s": 4,
+   "longest_static_hold": {
+    "seconds": 5.58,
+    "start": 13.395,
+    "end": 21.775
+   },
+   "resets": [
+    {
+     "t": 3.004,
+     "shot": "S2_proof",
+     "kind": "wipe",
+     "what": "wipe y2015 -> y1987"
+    },
+    {
+     "t": 6.069,
+     "shot": "S3_timelapse",
+     "kind": "timelapse",
+     "what": "timelapse of 4 dates",
+     "also": [
+      "cut"
+     ]
+    },
+    {
+     "t": 8.127,
+     "shot": "S4_closeup",
+     "kind": "cut",
+     "what": "camera relocation"
+    },
+    {
+     "t": 13.395,
+     "shot": "S5_exports",
+     "kind": "cut",
+     "what": "zoom out x6.6"
+    },
+    {
+     "t": 21.775,
+     "shot": "S6_aquifer",
+     "kind": "camera_move",
+     "what": "zoom in x1.5"
+    },
+    {
+     "t": 26.991,
+     "shot": "S7_policy",
+     "kind": "cut",
+     "what": "camera relocation"
+    },
+    {
+     "t": 32.552,
+     "shot": "S8_alfalfa",
+     "kind": "cut",
+     "what": "camera relocation"
+    },
+    {
+     "t": 37.405,
+     "shot": "S9_payoff",
+     "kind": "cut",
+     "what": "zoom out x6.6",
+     "also": [
+      "wipe"
+     ]
+    },
+    {
+     "t": 45.505,
+     "shot": "S9_payoff",
+     "kind": "camera_move",
+     "what": "zoom in x1.5"
+    }
+   ],
+   "segments": [
+    {
+     "start": 0.0,
+     "end": 3.004,
+     "seconds": 3.004,
+     "static_hold": 3.004
+    },
+    {
+     "start": 3.004,
+     "end": 6.069,
+     "seconds": 3.065,
+     "static_hold": 2.165
+    },
+    {
+     "start": 6.069,
+     "end": 8.127,
+     "seconds": 2.058,
+     "static_hold": 0.058
+    },
+    {
+     "start": 8.127,
+     "end": 13.395,
+     "seconds": 5.268,
+     "static_hold": 5.268
+    },
+    {
+     "start": 13.395,
+     "end": 21.775,
+     "seconds": 8.38,
+     "static_hold": 5.58
+    },
+    {
+     "start": 21.775,
+     "end": 26.991,
+     "seconds": 5.216,
+     "static_hold": 0.0
+    },
+    {
+     "start": 26.991,
+     "end": 32.552,
+     "seconds": 5.561,
+     "static_hold": 5.561
+    },
+    {
+     "start": 32.552,
+     "end": 37.405,
+     "seconds": 4.853,
+     "static_hold": 4.853
+    },
+    {
+     "start": 37.405,
+     "end": 45.505,
+     "seconds": 8.1,
+     "static_hold": 0.0
+    },
+    {
+     "start": 45.505,
+     "end": 47.233,
+     "seconds": 1.728,
+     "static_hold": 0.0
+    }
+   ]
+  },
+  "narration": {
+   "duration": 45.743,
+   "end": 45.743311,
+   "gain_db": 0.1,
+   "voice_name": "Adam"
+  },
+  "warnings": []
+ }
+}

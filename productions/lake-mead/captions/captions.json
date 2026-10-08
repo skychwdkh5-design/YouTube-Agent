@@ -1,0 +1,177 @@
+{
+ "schema": "yt-captions/1",
+ "language": "en",
+ "source": "narration.voice.json",
+ "settings": {
+  "max_chars": 32,
+  "max_lines": 2,
+  "max_duration": 2.8,
+  "min_duration": 0.5,
+  "pause": 0.45
+ },
+ "cue_count": 25,
+ "duration": 44.676,
+ "validation": {
+  "wording_preserved": true,
+  "no_overlaps": true,
+  "timestamps_valid": true,
+  "problems": [],
+  "warnings": []
+ },
+ "cues": [
+  {
+   "index": 1,
+   "start": 0.0,
+   "end": 1.045,
+   "text": "Everything in orange"
+  },
+  {
+   "index": 2,
+   "start": 1.08,
+   "end": 2.868,
+   "text": "was underwater in 2000."
+  },
+  {
+   "index": 3,
+   "start": 3.019,
+   "end": 3.866,
+   "text": "Lake Mead."
+  },
+  {
+   "index": 4,
+   "start": 3.982,
+   "end": 5.886,
+   "text": "America's largest reservoir."
+  },
+  {
+   "index": 5,
+   "start": 6.211,
+   "end": 7.233,
+   "text": "Watch it drain."
+  },
+  {
+   "index": 6,
+   "start": 7.558,
+   "end": 9.253,
+   "text": "Since 2000, its water level"
+  },
+  {
+   "index": 7,
+   "start": 9.311,
+   "end": 11.447,
+   "text": "has dropped about 160 feet."
+  },
+  {
+   "index": 8,
+   "start": 11.726,
+   "end": 13.142,
+   "text": "Its northern arm pulled"
+  },
+  {
+   "index": 9,
+   "start": 13.189,
+   "end": 14.791,
+   "text": "back about nine miles."
+  },
+  {
+   "index": 10,
+   "start": 15.0,
+   "end": 16.603,
+   "text": "About half of its surface water"
+  },
+  {
+   "index": 11,
+   "start": 16.672,
+   "end": 17.404,
+   "text": "is gone."
+  },
+  {
+   "index": 12,
+   "start": 17.729,
+   "end": 20.341,
+   "text": "In 2022, it hit its lowest"
+  },
+  {
+   "index": 13,
+   "start": 20.422,
+   "end": 21.607,
+   "text": "level since it was first"
+  },
+  {
+   "index": 14,
+   "start": 21.688,
+   "end": 23.511,
+   "text": "filled in the 1930s."
+  },
+  {
+   "index": 15,
+   "start": 23.894,
+   "end": 25.635,
+   "text": "Why? A long drought"
+  },
+  {
+   "index": 16,
+   "start": 25.682,
+   "end": 26.924,
+   "text": "on the Colorado River."
+  },
+  {
+   "index": 17,
+   "start": 27.203,
+   "end": 29.455,
+   "text": "Year after year, more water left"
+  },
+  {
+   "index": 18,
+   "start": 29.501,
+   "end": 30.964,
+   "text": "the lake than flowed in."
+  },
+  {
+   "index": 19,
+   "start": 31.289,
+   "end": 33.147,
+   "text": "That river system supplies water"
+  },
+  {
+   "index": 20,
+   "start": 33.217,
+   "end": 35.237,
+   "text": "to about 40 million people."
+  },
+  {
+   "index": 21,
+   "start": 35.84,
+   "end": 38.116,
+   "text": "Then, in August 2026,"
+  },
+  {
+   "index": 22,
+   "start": 38.267,
+   "end": 40.125,
+   "text": "Lake Mead broke that record."
+  },
+  {
+   "index": 23,
+   "start": 40.728,
+   "end": 41.611,
+   "text": "Lower than ever."
+  },
+  {
+   "index": 24,
+   "start": 42.121,
+   "end": 43.015,
+   "text": "That white line"
+  },
+  {
+   "index": 25,
+   "start": 43.05,
+   "end": 44.676,
+   "text": "is where the water used to be."
+  }
+ ],
+ "files": {
+  "srt": "captions.srt",
+  "vtt": "captions.vtt"
+ }
+}

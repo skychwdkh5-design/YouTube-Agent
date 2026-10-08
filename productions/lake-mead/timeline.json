@@ -1,0 +1,696 @@
+{
+ "version": 3,
+ "profile": "short",
+ "grid": "stack/grid.json",
+ "assets": {
+  "y2000": {
+   "src": "stack/y2000.png",
+   "label": "2000",
+   "credit": "Landsat 7 · USGS",
+   "prov": "stack/provenance.json#y2000"
+  },
+  "y2005": {
+   "src": "stack/y2005.png",
+   "label": "2005",
+   "credit": "Landsat 5 · USGS",
+   "prov": "stack/provenance.json#y2005"
+  },
+  "y2010": {
+   "src": "stack/y2010.png",
+   "label": "2010",
+   "credit": "Landsat 5 · USGS",
+   "prov": "stack/provenance.json#y2010"
+  },
+  "y2015": {
+   "src": "stack/y2015.png",
+   "label": "2015",
+   "credit": "Landsat 8 · USGS",
+   "prov": "stack/provenance.json#y2015"
+  },
+  "y2022": {
+   "src": "stack/y2022.png",
+   "label": "2022",
+   "credit": "Landsat 9 · USGS",
+   "prov": "stack/provenance.json#y2022"
+  },
+  "y2026": {
+   "src": "stack/y2026.png",
+   "label": "2026",
+   "credit": "Landsat 9 · USGS",
+   "prov": "stack/provenance.json#y2026"
+  },
+  "water2000": {
+   "src": "geo/water_y2000.png",
+   "kind": "mask",
+   "prov": "geo/water_y2000.json"
+  },
+  "water2026": {
+   "src": "geo/water_y2026.png",
+   "kind": "mask",
+   "prov": "geo/water_y2026.json"
+  }
+ },
+ "meta": {
+  "title": "Lake Mead - Everything in orange",
+  "claims": "story/claims.json",
+  "provenance": "stack/provenance.json"
+ },
+ "shots": [
+  {
+   "id": "hook",
+   "beat": "hook",
+   "info": "2026 lake with 2000 water shown in orange",
+   "claims": [
+    "C1"
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -114.43,
+      36.3
+     ],
+     "width_km": 38
+    },
+    "to": {
+     "center": [
+      -114.43,
+      36.3
+     ],
+     "width_km": 35
+    }
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "fill",
+     "mask": "water2000",
+     "minus": "water2026",
+     "color": "#FF7A28",
+     "opacity": 0.66
+    },
+    {
+     "type": "label",
+     "text": "2026",
+     "style": "year",
+     "slot": "top"
+    },
+    {
+     "type": "label",
+     "text": "ORANGE = WATER IN 2000",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      0.5,
+      null
+     ],
+     "info": "legend: orange = water in 2000"
+    },
+    {
+     "type": "outline",
+     "mask": "water2000",
+     "color": "#FFFFFF",
+     "width": 4,
+     "t": [
+      1.6,
+      null
+     ],
+     "info": "2000 shoreline drawn"
+    }
+   ],
+   "start": 0
+  },
+  {
+   "id": "wipe2000",
+   "beat": "proof",
+   "info": "wipe back to the full lake of 2000",
+   "claims": [
+    "C2",
+    "M1"
+   ],
+   "camera": {
+    "center": [
+     -114.43,
+     36.3
+    ],
+    "width_km": 35
+   },
+   "layers": [
+    {
+     "type": "wipe",
+     "from": "y2026",
+     "to": "y2000",
+     "t": [
+      0.0,
+      0.8
+     ]
+    },
+    {
+     "type": "label",
+     "text": "LAKE MEAD",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      0.3,
+      null
+     ],
+     "sub": "AMERICA'S LARGEST RESERVOIR",
+     "info": "name + largest reservoir"
+    }
+   ],
+   "start": {
+    "word": 7
+   }
+  },
+  {
+   "id": "flip",
+   "beat": "proof",
+   "info": null,
+   "claims": [
+    "M1"
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -114.43,
+      36.3
+     ],
+     "width_km": 36
+    },
+    "to": {
+     "center": [
+      -114.43,
+      36.3
+     ],
+     "width_km": 33
+    }
+   },
+   "layers": [
+    {
+     "type": "flip",
+     "assets": [
+      "y2000",
+      "y2005",
+      "y2010",
+      "y2015",
+      "y2022",
+      "y2026"
+     ],
+     "step": 0.42
+    }
+   ],
+   "start": {
+    "word": 12,
+    "offset": -0.9
+   }
+  },
+  {
+   "id": "drop",
+   "beat": "escalation",
+   "info": "-160 ft since 2000",
+   "claims": [
+    "C3"
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -114.43,
+      36.3
+     ],
+     "width_km": 33
+    },
+    "to": {
+     "center": [
+      -114.43,
+      36.3
+     ],
+     "width_km": 31
+    }
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "outline",
+     "mask": "water2000",
+     "color": "#FFFFFF",
+     "width": 4
+    },
+    {
+     "type": "label",
+     "text": "-160 FT",
+     "style": "stat",
+     "slot": "top",
+     "sub": "≈ 49 M LOWER SINCE 2000"
+    }
+   ],
+   "start": {
+    "word": 15
+   }
+  },
+  {
+   "id": "arm",
+   "beat": "escalation",
+   "info": "zoom to the northern arm",
+   "claims": [
+    "C4"
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -114.385,
+      36.455
+     ],
+     "width_km": 19
+    },
+    "to": {
+     "center": [
+      -114.385,
+      36.455
+     ],
+     "width_km": 17
+    }
+   },
+   "layers": [
+    {
+     "type": "wipe",
+     "from": "y2000",
+     "to": "y2026",
+     "t": [
+      0.15,
+      1.1
+     ],
+     "info": "2000 -> 2026 wipe on the arm"
+    },
+    {
+     "type": "arrow",
+     "from": [
+      -114.40402,
+      36.51408
+     ],
+     "to": [
+      -114.36724,
+      36.3835
+     ],
+     "t": [
+      1.1,
+      null
+     ],
+     "info": "retreat arrow"
+    },
+    {
+     "type": "label",
+     "text": "≈ 9 MILES",
+     "style": "stat",
+     "slot": "top",
+     "sub": "≈ 14 KM OF ARM GONE",
+     "t": [
+      1.3,
+      null
+     ]
+    }
+   ],
+   "start": {
+    "word": 25
+   }
+  },
+  {
+   "id": "half",
+   "beat": "escalation",
+   "info": "about half the water surface gone",
+   "claims": [
+    "C11"
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -114.43,
+      36.3
+     ],
+     "width_km": 31
+    },
+    "to": {
+     "center": [
+      -114.43,
+      36.3
+     ],
+     "width_km": 38
+    }
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "fill",
+     "mask": "water2000",
+     "minus": "water2026",
+     "color": "#FF7A28",
+     "opacity": 0.66
+    },
+    {
+     "type": "outline",
+     "mask": "water2000",
+     "color": "#FFFFFF",
+     "width": 4
+    },
+    {
+     "type": "label",
+     "text": "≈ HALF THE WATER",
+     "style": "stat",
+     "slot": "top",
+     "sub": "SURFACE GONE SINCE 2000"
+    }
+   ],
+   "start": {
+    "word": 33
+   }
+  },
+  {
+   "id": "record2022",
+   "beat": "escalation",
+   "info": "2022 record low near Hoover Dam basin",
+   "claims": [
+    "C5"
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -114.7,
+      36.2
+     ],
+     "width_km": 27
+    },
+    "to": {
+     "center": [
+      -114.7,
+      36.2
+     ],
+     "width_km": 24
+    }
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2022"
+    },
+    {
+     "type": "outline",
+     "mask": "water2000",
+     "color": "#FFFFFF",
+     "width": 4
+    },
+    {
+     "type": "label",
+     "text": "2022",
+     "style": "year",
+     "slot": "top"
+    },
+    {
+     "type": "label",
+     "text": "RECORD LOW",
+     "style": "tag",
+     "slot": "upper",
+     "sub": "LOWEST SINCE THE 1930s",
+     "color": "#FF6B6B",
+     "t": [
+      0.4,
+      null
+     ],
+     "info": "record low tag"
+    }
+   ],
+   "start": {
+    "word": 41
+   }
+  },
+  {
+   "id": "river",
+   "beat": "explanation",
+   "info": "the Colorado River flowing in",
+   "claims": [
+    "C6"
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -114.09501,
+      36.16427
+     ],
+     "width_km": 24
+    },
+    "to": {
+     "center": [
+      -114.06503,
+      36.16354
+     ],
+     "width_km": 21
+    }
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "pin",
+     "at": [
+      -114.03393,
+      36.19251
+     ],
+     "text": "COLORADO RIVER",
+     "t": [
+      0.3,
+      null
+     ],
+     "info": "river pinned"
+    },
+    {
+     "type": "label",
+     "text": "DROUGHT",
+     "style": "tag",
+     "slot": "top",
+     "sub": "SINCE 2000",
+     "t": [
+      0.9,
+      null
+     ]
+    }
+   ],
+   "start": {
+    "word": 56
+   }
+  },
+  {
+   "id": "budget",
+   "beat": "explanation",
+   "info": "out > in",
+   "claims": [
+    "C7"
+   ],
+   "camera": {
+    "center": [
+     -114.10824,
+     36.1673
+    ],
+    "width_km": 21
+   },
+   "layers": [
+    {
+     "type": "flip",
+     "assets": [
+      "y2000",
+      "y2010",
+      "y2022"
+     ],
+     "step": 0.9
+    },
+    {
+     "type": "label",
+     "text": "OUT > IN",
+     "style": "stat",
+     "slot": "upper",
+     "sub": "OUTFLOW + EVAPORATION > INFLOW",
+     "t": [
+      0.5,
+      null
+     ],
+     "info": "water budget"
+    }
+   ],
+   "start": {
+    "word": 64
+   }
+  },
+  {
+   "id": "people",
+   "beat": "explanation",
+   "info": "40 million people",
+   "claims": [
+    "C8"
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -114.43,
+      36.3
+     ],
+     "width_km": 30
+    },
+    "to": {
+     "center": [
+      -114.43,
+      36.3
+     ],
+     "width_km": 37
+    }
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "outline",
+     "mask": "water2000",
+     "color": "#FFFFFF",
+     "width": 4
+    },
+    {
+     "type": "label",
+     "text": "40 MILLION",
+     "style": "stat",
+     "slot": "top",
+     "sub": "PEOPLE ON THIS RIVER SYSTEM"
+    }
+   ],
+   "start": {
+    "word": 75
+   }
+  },
+  {
+   "id": "record2026",
+   "beat": "payoff",
+   "info": "August 2026 new record low",
+   "claims": [
+    "C9"
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -114.43,
+      36.3
+     ],
+     "width_km": 37
+    },
+    "to": {
+     "center": [
+      -114.43,
+      36.3
+     ],
+     "width_km": 33
+    }
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "fill",
+     "mask": "water2000",
+     "minus": "water2026",
+     "color": "#FF7A28",
+     "opacity": 0.66
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "top"
+    },
+    {
+     "type": "label",
+     "text": "NEW RECORD LOW",
+     "style": "tag",
+     "slot": "upper",
+     "color": "#FF6B6B",
+     "t": [
+      0.3,
+      null
+     ],
+     "info": "new record"
+    }
+   ],
+   "start": {
+    "word": 85
+   }
+  },
+  {
+   "id": "line",
+   "beat": "payoff",
+   "info": "the white line = 2000 shoreline",
+   "claims": [
+    "C10"
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -114.43,
+      36.3
+     ],
+     "width_km": 30
+    },
+    "to": {
+     "center": [
+      -114.43,
+      36.3
+     ],
+     "width_km": 38
+    }
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "outline",
+     "mask": "water2000",
+     "color": "#FFFFFF",
+     "width": 6
+    },
+    {
+     "type": "label",
+     "text": "2000 SHORELINE",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      0.4,
+      null
+     ]
+    }
+   ],
+   "start": {
+    "word": 97
+   }
+  }
+ ],
+ "voice": {
+  "src": "voice/narration.wav",
+  "meta": "voice/narration.voice.json"
+ },
+ "captions": {
+  "src": "captions/captions.srt",
+  "preset": "short"
+ },
+ "end": {
+  "after_last_word": 1.6,
+  "min_total": 45.5
+ }
+}

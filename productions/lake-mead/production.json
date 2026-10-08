@@ -1,0 +1,130 @@
+{
+ "title": "Lake Mead - Everything in orange (MVP v0.1 Short)",
+ "vss": {
+  "total": 91,
+  "V": 5,
+  "C": 4,
+  "P": 5,
+  "I": 5,
+  "Y": 4,
+  "S": 5,
+  "A": 5,
+  "H": 5,
+  "E": 3,
+  "M": 4
+ },
+ "landsat": [
+  {
+   "entityId": "LE70390352000188EDC00",
+   "displayId": "LE07_L1TP_039035_20000706_20200918_02_T1",
+   "acquired": "2000-07-06",
+   "cloud": 0,
+   "land_cloud": "0.00",
+   "start_time": "2000-07-06 18:06:55.945032",
+   "sensor": "ETM",
+   "path": "039",
+   "row": "035",
+   "tier": "T1"
+  },
+  {
+   "entityId": "LT50390352005193PAC01",
+   "displayId": "LT05_L1TP_039035_20050712_20200902_02_T1",
+   "acquired": "2005-07-12",
+   "cloud": 0,
+   "land_cloud": "0.00",
+   "start_time": "2005-07-12 18:03:04.70538",
+   "sensor": "TM",
+   "path": "039",
+   "row": "035",
+   "tier": "T1"
+  },
+  {
+   "entityId": "LT50390352010175EDC00",
+   "displayId": "LT05_L1TP_039035_20100624_20200823_02_T1",
+   "acquired": "2010-06-24",
+   "cloud": 0,
+   "land_cloud": "0.00",
+   "start_time": "2010-06-24 18:05:56.44025",
+   "sensor": "TM",
+   "path": "039",
+   "row": "035",
+   "tier": "T1"
+  },
+  {
+   "entityId": "LC80390352015205LGN03",
+   "displayId": "LC08_L1TP_039035_20150724_20200908_02_T1",
+   "acquired": "2015-07-24",
+   "cloud": 0,
+   "land_cloud": "0.00",
+   "start_time": "2015-07-24 18:14:54.551401",
+   "sensor": "OLI_TIRS",
+   "path": "039",
+   "row": "035",
+   "tier": "T1"
+  },
+  {
+   "entityId": "LC90390352022200LGN01",
+   "displayId": "LC09_L1TP_039035_20220719_20230407_02_T1",
+   "acquired": "2022-07-19",
+   "cloud": 2,
+   "land_cloud": "1.91",
+   "start_time": "2022-07-19 18:15:11",
+   "sensor": "OLI_TIRS",
+   "path": "039",
+   "row": "035",
+   "tier": "T1"
+  },
+  {
+   "entityId": "LC90390352026211LGN00",
+   "displayId": "LC09_L1TP_039035_20260730_20260730_02_T1",
+   "acquired": "2026-07-30",
+   "cloud": 0,
+   "land_cloud": "0.43",
+   "start_time": "2026-07-30 18:15:05",
+   "sensor": "OLI_TIRS",
+   "path": "039",
+   "row": "035",
+   "tier": "T1"
+  }
+ ],
+ "not_used": [
+  "LC09_L1TP_039035_20250711_20250711_02_T1"
+ ],
+ "voice": {
+  "provider": "elevenlabs",
+  "model_id": "eleven_multilingual_v2",
+  "voice_id": "pNInz6obpgDQGcFmaJgB",
+  "voice_name": "Adam",
+  "voice_source": "default",
+  "characters": 604,
+  "duration": 44.675,
+  "audio_sha256": "841e2f99c7f8f0fbebc2b5bfcac99a3d515096d65733cd6a6373340a7872077a"
+ },
+ "elevenlabs_requests": 1,
+ "predicted_seconds": [
+  46.9,
+  52.5
+ ],
+ "narration_text": "Everything in orange was underwater in 2000.\n\nLake Mead. America's largest reservoir.\n\nWatch it drain.\n\nSince 2000, its water level has dropped about 160 feet.\n\nIts northern arm pulled back about nine miles.\n\nAbout half of its surface water is gone.\n\nIn 2022, it hit its lowest level since it was first filled in the 1930s.\n\nWhy? A long drought on the Colorado River. Year after year, more water left the lake than flowed in.\n\nThat river system supplies water to about 40 million people.\n\nThen, in August 2026, Lake Mead broke that record. Lower than ever.\n\nThat white line is where the water used to be.",
+ "render": {
+  "output": "/home/user/YouTube-Agent/productions/lake-mead/lake-mead_short.mp4",
+  "sha256": "235bc6f0b44f0d144c5acee9b1a59cd84588eafee41e348b8bc7694639fc4813",
+  "duration": 46.267,
+  "shots": 12,
+  "info_events_first_10s": 11
+ },
+ "qc": "PASS",
+ "files": {
+  "video": "lake-mead_short.mp4",
+  "manifest": "lake-mead_short.manifest.json",
+  "captions": "captions/captions.srt",
+  "contact_sheet": "contact_sheet.jpg",
+  "dates_sheet": "contact_dates.jpg",
+  "script": "script.md",
+  "claims": "story/claims.json",
+  "factcheck_lock": "story/factcheck.lock",
+  "provenance": "stack/provenance.json",
+  "timeline": "timeline.json",
+  "storyboard": "build_timeline.py"
+ }
+}

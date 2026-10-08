@@ -1,0 +1,1148 @@
+{
+ "schema": "benchmark-inventory/1",
+ "created": "2026-10-08",
+ "base_main": "a043a69",
+ "benchmarks": [
+  {
+   "name": "Lake Mead",
+   "folder": "productions/lake-mead",
+   "final_video": {
+    "path": "productions/lake-mead/lake-mead_short.mp4",
+    "bytes": 30415749,
+    "sha256": "235bc6f0b44f0d144c5acee9b1a59cd84588eafee41e348b8bc7694639fc4813"
+   },
+   "file_count": 42,
+   "text_files": 22,
+   "binary_files": 20,
+   "binary_bytes": 122236298,
+   "files": [
+    {
+     "path": "productions/lake-mead/animatic.manifest.json",
+     "bytes": 6600,
+     "sha256": "628c7d63705e349c60a026ff4338118aff55aab08cd6fdfb449a6dc8c9aede5e",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/animatic.mp4",
+     "bytes": 31864862,
+     "sha256": "25a5f8e29323118243e7f26bbc1f83fdf45f053f3682f81cfe5119f51ed03de8",
+     "kind": "binary",
+     "role": "animatic video",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/build_timeline.py",
+     "bytes": 8365,
+     "sha256": "2fa72ff8d358bfd3c3656c0d55b4f940423c86475d52cb85e84ee1f2dab4ec53",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/captions/captions.json",
+     "bytes": 2923,
+     "sha256": "83c422c6ea2b92cd5aa67d46b0958e693a7cc17e165d7c857268e1b793c293e4",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/captions/captions.srt",
+     "bytes": 1435,
+     "sha256": "77db244d536a4744ce7b4dc9c9d8c81afb107f9d8f73a7c040a510bc26387b40",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/captions/captions.vtt",
+     "bytes": 1377,
+     "sha256": "e9fd53deedb6766b4dc586fab25e5e6a9afa4784cf0bc4e70897fddaf0fb895d",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/contact_dates.jpg",
+     "bytes": 490767,
+     "sha256": "4fc70dee6e48d43977d8f141914b29be0cadaa30b7db0ebc8a906e2e4d1dbe7c",
+     "kind": "binary",
+     "role": "contact/review sheet (regenerable)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/contact_sheet.jpg",
+     "bytes": 509765,
+     "sha256": "4ca4d4c493c1ad44ed3b7671de1426aa957c3fa1fc6f6e93f39c4763a2e03158",
+     "kind": "binary",
+     "role": "contact/review sheet (regenerable)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/geo/water_y2000.json",
+     "bytes": 421,
+     "sha256": "a606eb448082d9da58bdac01f816f4a8be0f2d540fe2675039b7f465c9074edd",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/geo/water_y2000.png",
+     "bytes": 41872,
+     "sha256": "24616cb3690dba78f3ff244bd425ef034ff658680be6dcf668c8452c3368881f",
+     "kind": "binary",
+     "role": "water mask (regenerable)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/geo/water_y2026.json",
+     "bytes": 420,
+     "sha256": "9d46cfaffe96b4a2880693d1682a89f8fa012ab30184358b061749b7c6ae808d",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/geo/water_y2026.png",
+     "bytes": 32119,
+     "sha256": "fb0de80d50fad331c0723e015be94cd6232277fb99cea3e0c5c9757cdde71382",
+     "kind": "binary",
+     "role": "water mask (regenerable)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/lake-mead_short.manifest.json",
+     "bytes": 9618,
+     "sha256": "5e728d96218fce3d2eeb0d9fec0d9bee545cdcdfa87c091595e1196a48aa4e96",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/lake-mead_short.mp4",
+     "bytes": 30415749,
+     "sha256": "235bc6f0b44f0d144c5acee9b1a59cd84588eafee41e348b8bc7694639fc4813",
+     "kind": "binary",
+     "role": "final video (accepted benchmark)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/production.json",
+     "bytes": 3752,
+     "sha256": "1d5c71240e1f39de196f9ba052c80644a07328b5467270276aaf8aed0770f35d",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/qc.json",
+     "bytes": 3399,
+     "sha256": "dfeb1c54eadc201e9e29cd610ce8285fb1be0cb6c2e81fedddb87762648bd237",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/raw/LC08_L1TP_039035_20150724_20200908_02_T1_refl.tif",
+     "bytes": 3663077,
+     "sha256": "0201e6e889cd38011db8c119e05588cdd692d0b4c35988068f31d83fca348814",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/raw/LC09_L1TP_039035_20220719_20230407_02_T1_refl.tif",
+     "bytes": 3770313,
+     "sha256": "4964b0015743490b724f73f25090c4720356964a3976964bdd1740bc68329e1e",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/raw/LC09_L1TP_039035_20250711_20250711_02_T1_refl.tif",
+     "bytes": 3285475,
+     "sha256": "659a2731dcde66088219319e39707ccc72bffc8719ec1b3b974908dfca4639d0",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/raw/LC09_L1TP_039035_20260730_20260730_02_T1_refl.tif",
+     "bytes": 3490125,
+     "sha256": "e618614bbeccb5484088ed2ef5411b8905266b893b6499ecc648f65f26e799b0",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/raw/LE07_L1TP_039035_20000706_20200918_02_T1_refl.tif",
+     "bytes": 2525527,
+     "sha256": "59e91a93a30d60206f1a19278613c1ac4c3becf5dc9841fb9d8447f196a1bc86",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/raw/LT05_L1TP_039035_20050712_20200902_02_T1_refl.tif",
+     "bytes": 2807435,
+     "sha256": "44a7144be0a4ffb3ed6ebdd4b9493a33d8aa441aa0883df4840a6f36d38ef970",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/raw/LT05_L1TP_039035_20100624_20200823_02_T1_refl.tif",
+     "bytes": 2735249,
+     "sha256": "18a18f2edbd911c2caa44d27d46294523e81469282717effac001c32a6ceef0b",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/raw/metadata.jsonl",
+     "bytes": 1808,
+     "sha256": "dc96230af929c63cf0540084869467c60ea6bf90bf9453c2e5f27566db408fcd",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/render.json",
+     "bytes": 426,
+     "sha256": "3fc4d3909e20a8a699e89d4f605e55ef64beff9dd979cc2dfe86c71800748a1e",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/script.md",
+     "bytes": 1374,
+     "sha256": "156ca63e1daa9969b5ef52f4fd7afb0052fc1386f8ad55a22f22dcb399e44a2a",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/stack.json",
+     "bytes": 5248,
+     "sha256": "9b97a62e26ead9bea36ccdb4fe161e22a51371061184bf52c3400c1e32cf49b5",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/stack/grid.json",
+     "bytes": 1531,
+     "sha256": "36205c2a7c0716026da80071890fc539adeb67c972a42b02812ec58a9d9c954e",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/stack/provenance.json",
+     "bytes": 5094,
+     "sha256": "28a7b9b20944d4ec84d36b7984b7ee9a2ade30c5f440e3eb214c105d1f5d0c59",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/stack/y2000.png",
+     "bytes": 5461996,
+     "sha256": "0888efcc4a4b778545a1ff8ed2f097f6427474ffe17c0dc38969414d5e119f27",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/stack/y2005.png",
+     "bytes": 5527660,
+     "sha256": "8fd32da59dbb991e02c3801cadd9c91f940d8e998e81f81678aebf5b285458d3",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/stack/y2010.png",
+     "bytes": 5498779,
+     "sha256": "949c654dd07f82325c12cee5baf2b36d51fd5998314bba33eea90d228cb67707",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/stack/y2015.png",
+     "bytes": 5435212,
+     "sha256": "8bc4a08b437cb8568d4b26c3a33d77716de8a30415bc40f4b24e7f6b76922d76",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/stack/y2022.png",
+     "bytes": 5270912,
+     "sha256": "4bd3b7bbdb693977e068831dcf82203a9dd5e2a6b4e65737e171aef0c104d7c6",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/stack/y2026.png",
+     "bytes": 5469008,
+     "sha256": "c465c4034cd6f0c1cf8a69ff64f5a23a1afa38fcb3e191041934d7de85447388",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/story/claims.json",
+     "bytes": 6752,
+     "sha256": "07bc169b180c3a951ca293d4ea740b6c4824c7dc35b3a75dbb658f116e50e9b2",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/story/factcheck.lock",
+     "bytes": 263,
+     "sha256": "e92e072a4c11e207ac7de9a8c71b6bf7bae1c9dc8be21fbabea39cd68ff784f5",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/timeline.json",
+     "bytes": 10701,
+     "sha256": "ee34b91ee70d9794bf638d4c854142d2e4aae50a2f15269b36dd4a81d634506f",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/timeline_animatic.json",
+     "bytes": 10321,
+     "sha256": "c6be11734e4749ed236947acb7de628b53a85e32e4ec44a4bbb4f02dfdc4ebf5",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/voice/narration.voice.json",
+     "bytes": 8433,
+     "sha256": "30721eb11de29465e4b7f37e8ddfc9777a38fe793aeb9e134f41fee59fe96f88",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/lake-mead/voice/narration.wav",
+     "bytes": 3940396,
+     "sha256": "841e2f99c7f8f0fbebc2b5bfcac99a3d515096d65733cd6a6373340a7872077a",
+     "kind": "binary",
+     "role": "narration audio (ElevenLabs output; paid to regenerate)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/lake-mead/voice/predicted_text.txt",
+     "bytes": 604,
+     "sha256": "d8dd24b991f5606bf1f6845922d55e4b8dcb1321abcfb123d66d5b70700abcd9",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    }
+   ]
+  },
+  {
+   "name": "Kilauea (Kapoho, 2018)",
+   "folder": "productions/kilauea-2018",
+   "final_video": {
+    "path": "productions/kilauea-2018/kilauea-2018_short.mp4",
+    "bytes": 15470379,
+    "sha256": "86a56a54e3eff1d77581b416d359c4fe7c3c2a881198034e03d14b9ad07057a8"
+   },
+   "file_count": 51,
+   "text_files": 28,
+   "binary_files": 23,
+   "binary_bytes": 65531449,
+   "files": [
+    {
+     "path": "productions/kilauea-2018/build_stack.py",
+     "bytes": 2286,
+     "sha256": "970c03cd9bdfd6ae6901aa6b7878896dc362eef2942ffd6f443ae1bdd20ba205",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/build_storyboard.py",
+     "bytes": 5946,
+     "sha256": "bbbb3b47b033cab5c27300c68c61c98e8d150f699d2cc34135be83d81440aac3",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/build_timeline.py",
+     "bytes": 2544,
+     "sha256": "bddc9780a1dd7b306aa9603afb81272fe42ed0cf70c8d52f9df15fb33b7be99a",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/captions/captions.json",
+     "bytes": 3215,
+     "sha256": "8f6e0ce1a88708881091bbaa518a1be631527a53140c692cd66a12f27fe2205d",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/captions/captions.srt",
+     "bytes": 1600,
+     "sha256": "a18b29a3438c8700467bd820bdaf392e9284704d93bb33c30a700eeb9d2370a6",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/captions/captions.vtt",
+     "bytes": 1533,
+     "sha256": "872d9c8593a1f09cf85fe367b9e309d1e8d3555a5bc4eb21b073bba72a836dc6",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/captions/result.json",
+     "bytes": 478,
+     "sha256": "b882fd03fba26ed472189b712f0cf2c1172185ff6a91b4ebbb475f6de38d83b4",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/contact_dates.jpg",
+     "bytes": 445910,
+     "sha256": "4548993f3881b676541643e5f65eb0b8abc34adcb8466c795e99c8ae1ff30c21",
+     "kind": "binary",
+     "role": "contact/review sheet (regenerable)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/contact_sheet.jpg",
+     "bytes": 335607,
+     "sha256": "94acc1da5aa8988cc39307c104c5cceb68be062f6b5aa03dc488c8b8ba7d1447",
+     "kind": "binary",
+     "role": "contact/review sheet (regenerable)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/contact_sheet_story.jpg",
+     "bytes": 302337,
+     "sha256": "5b4e24ae84f8ed383a46919ec257913ca68135db51039b7528c79bd7ded3b76b",
+     "kind": "binary",
+     "role": "contact/review sheet (regenerable)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/contact_story.py",
+     "bytes": 1765,
+     "sha256": "44a0684249c7e96a7a6f3395fcb8add848874289af192d75fb927f06a7758da3",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/kilauea-2018_short.manifest.json",
+     "bytes": 12317,
+     "sha256": "c860a42b15c634caedcf7752523b63938e32997c3a376da454e9b5ba8dd7be88",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/kilauea-2018_short.mp4",
+     "bytes": 15470379,
+     "sha256": "86a56a54e3eff1d77581b416d359c4fe7c3c2a881198034e03d14b9ad07057a8",
+     "kind": "binary",
+     "role": "final video (accepted benchmark)",
+     "storage": "github: branch media/kilauea-2018-short (kilauea-2018_short.mp4, git blob 6b1a52cff77377afcfbef77edea37b7450b60ce9); otherwise container-only"
+    },
+    {
+     "path": "productions/kilauea-2018/preview_frames.py",
+     "bytes": 1105,
+     "sha256": "cf4b8dc02453777221b80c6bf47525521485ce68c85cd7e9826a408a9a0e76fe",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/production.json",
+     "bytes": 733,
+     "sha256": "268bed613f446e6e1763f3ce76e276ba2e8966826147fbfe99b428d12212ca0a",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/qc.json",
+     "bytes": 4138,
+     "sha256": "335bec69a213f4740a6ea18ccbb7adf04ad38476186b7d148521db4ad4077fc0",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/raw/LC08_L1GT_062047_20180530_20200831_02_T2_refl.tif",
+     "bytes": 3520986,
+     "sha256": "70e0a6a96b5320a74a588d06ab6d20b99291d4a551e003bb7ef01dc1bd49f9d1",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/raw/LC08_L1GT_062047_20180818_20200831_02_T2_refl.tif",
+     "bytes": 3562338,
+     "sha256": "65c792092034f16aa4b13d58858d068c3e2ddc7947ea83ec2307e9a0f5e7426d",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/raw/LC08_L1TP_062046_20180701_20200831_02_T1_refl.tif",
+     "bytes": 3073694,
+     "sha256": "ebae2927aba05a6a6756021e2cf2e89eb6545ce806a2769d2680a0906ce504fa",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/raw/LC08_L1TP_062046_20180802_20200831_02_T1_refl.tif",
+     "bytes": 4002150,
+     "sha256": "5c4248d2ec31ba94baae76ab7b9ea4299c975f9e2bdcf7024ecd332b72a0aeeb",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/raw/LC08_L1TP_062047_20180327_20200901_02_T1_refl.tif",
+     "bytes": 3032602,
+     "sha256": "5a13d106d302272efcd85db99f6509d35cfff06a37e105cbd858e22628362bec",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/raw/LC08_L1TP_062047_20180514_20200901_02_T1_refl.tif",
+     "bytes": 3527496,
+     "sha256": "e00483521768d7666902a8a0e7cf5b4ed972513ca846409ddee3cd7c9b5efaae",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/raw/LC08_L1TP_062047_20190226_20200829_02_T1_refl.tif",
+     "bytes": 2135990,
+     "sha256": "e3f2a34c00f4cee2d9ce99774b9023d26a6eff3190c810cec07addf3a8a9cbf2",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/raw/LC08_L1TP_062047_20190330_20200829_02_T1_refl.tif",
+     "bytes": 2868670,
+     "sha256": "301443638af50d0974fe2d07b44d1c550f8ff10f785e39bcb5885dc71ea5ec57",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/raw/LC08_L1TP_062047_20190720_20200827_02_T1_refl.tif",
+     "bytes": 2797650,
+     "sha256": "d55aac0946e08123e057850d21d5a9eb74252267b22aa0f40bd8546d8ca7504d",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/raw/LC08_L1TP_062047_20250805_20250815_02_T1_refl.tif",
+     "bytes": 2827777,
+     "sha256": "fe6d891f88ec0120fb763cd0ff5770bc2a8f08ccf73593a18bac21c2f73a6e10",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/raw/metadata.jsonl",
+     "bytes": 1848,
+     "sha256": "363acb7652b6e751248c2f5f2833f6d483ef3779d81f1a93d542956acdf08cbe",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/raw/metadata_raw.json",
+     "bytes": 36337,
+     "sha256": "511997f56e2ab494ecdafce7368dda44cb27f00468b7cc0844e4f828a30ade50",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/render.json",
+     "bytes": 504,
+     "sha256": "71df6b7f76db93bb18d2758a1a98e9f93a97e681ab2d226b6dfbc603ae08d38c",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/script.md",
+     "bytes": 1855,
+     "sha256": "0aefaba231ee718f99cf6b32201184fe47b3d2fef8e1ea49bf06ae58bef0c0a7",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/stack.json",
+     "bytes": 5727,
+     "sha256": "a35cc7d197c929d769e8ef9ecda7ca62e31e345bfb53e3346902a2b84a846ca6",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/stack/d20180327.png",
+     "bytes": 1729444,
+     "sha256": "e24fd754106f2bb945752c438606f8a69233776cf322fba918286155ec9c97bc",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/stack/d20180514.png",
+     "bytes": 2096739,
+     "sha256": "ad19c3ca23f7e8fa5437855675045fde545b12cd8546d232b1a92f6f07f7a006",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/stack/d20180530.png",
+     "bytes": 1546510,
+     "sha256": "f34ae5c7fcdf5c4fde93e3eb774eb598baf983d1867806aa1feb4e8252e6f99a",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/stack/d20190226.png",
+     "bytes": 1660432,
+     "sha256": "04b09d7a05229a9add153494e9dbcab3314a03e0776a284332cee1e87c0e60ff",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/stack/d20190330.png",
+     "bytes": 1936227,
+     "sha256": "a18d6ab7a33bd179307050dd9ac7fa92d32bb3bf23a7037840cada45d8311b07",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/stack/d20190720.png",
+     "bytes": 1869254,
+     "sha256": "dd7be1803294bc644a7d657ce6d11a006f322d8a4bac229c3bb4a61d038b4527",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/stack/d20250805.png",
+     "bytes": 1938755,
+     "sha256": "684b7106eb70de83ee912ee0273010392384f8cc3e79000d42bc4c7be0c2aa3a",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/stack/grid.json",
+     "bytes": 1731,
+     "sha256": "ad5e97d5a317ef0256c9b98f66acc4b27592824d412178245766c6ae7b2b513b",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/stack/provenance.json",
+     "bytes": 5656,
+     "sha256": "a25a576a2d3612255dcd84aa0a05c912c700fa79f700add119ef1b1e6de1b82c",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/story/claims.json",
+     "bytes": 5770,
+     "sha256": "362d37d03bc062856e6ea04133c3d405df8325bc928b4e3d1b088bf22949d65a",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/story/factcheck.lock",
+     "bytes": 275,
+     "sha256": "291a9f03b1cb78da01bfe741a5139cfef82c68fcc4b131e98310fb06ab519da2",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/story/plan.json",
+     "bytes": 7549,
+     "sha256": "ce114abb14a59f3d85d9030e6fac75a512e1eeb8f29c117f8e531524a5a81398",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/story/plan_final.json",
+     "bytes": 7743,
+     "sha256": "9efe268e27ffbbfafe2262360023e141583a601e821c72ea9681c236da9049ed",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/story/predicted_timing.json",
+     "bytes": 863,
+     "sha256": "4e33268fc6207e213cc776afa82e1411c20112a85ebcceca82881c80eba38c5f",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/storyboard_frames.jpg",
+     "bytes": 426778,
+     "sha256": "a7ea1b3e2ed075e1201337322b5a8937beb63d2b085f6a75553f1f9ed2e2ad5f",
+     "kind": "binary",
+     "role": "contact/review sheet (regenerable)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/timeline.json",
+     "bytes": 10369,
+     "sha256": "3c6394a8bc5b306196529d438b602b1edee319cf7df52a506d54b36305fc8e5e",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/timeline_storyboard.json",
+     "bytes": 9487,
+     "sha256": "2693df78dec8c4ad5d4134fd42f08755b1ed680e76d1b07de64b3cf2fb63723a",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/voice/narration.voice.json",
+     "bytes": 8803,
+     "sha256": "0b240940c2ddef7958dda94937ea1f7e60b34d6523a6a243c5b4545fa907af7b",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/kilauea-2018/voice/narration.wav",
+     "bytes": 4423724,
+     "sha256": "c7f3f233f2eca6657b4104577dbda67b024f94af66263018dd813982b1fb434a",
+     "kind": "binary",
+     "role": "narration audio (ElevenLabs output; paid to regenerate)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/kilauea-2018/voice/tts_result.json",
+     "bytes": 1674,
+     "sha256": "3275d25c441397fa3267025ea549bc1ee821710bd7d82c454e1c2a2c4b8e47a3",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    }
+   ]
+  },
+  {
+   "name": "Wadi As-Sirhan",
+   "folder": "productions/sirhan",
+   "final_video": {
+    "path": "productions/sirhan/sirhan_short.mp4",
+    "bytes": 18045482,
+    "sha256": "5544096049738930cbd592072bd2bf305b97232926be0b283cca8e0403285205"
+   },
+   "file_count": 44,
+   "text_files": 28,
+   "binary_files": 16,
+   "binary_bytes": 58594865,
+   "files": [
+    {
+     "path": "productions/sirhan/build_stack.py",
+     "bytes": 2287,
+     "sha256": "5b669d21edeea8ba2dd53b353580514d20969d0e1a6e1c04870a76f86757d3f7",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/build_storyboard.py",
+     "bytes": 4987,
+     "sha256": "f04b90ffb2682d5173f7dfce2a74abcb8c74f03a2922707b06a190ea862faab2",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/build_timeline.py",
+     "bytes": 2197,
+     "sha256": "626f0ed912849d1d549a1ab83e4ed773a26f50c52720925b0da1679a234eb79d",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/captions/captions.json",
+     "bytes": 2938,
+     "sha256": "6ea503311cf452ff056e077abd1ad4689a075b8710d280f06321f3c1324257e0",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/captions/captions.srt",
+     "bytes": 1451,
+     "sha256": "d7e89d08ab65ba875cb705aab582cfe471f4a7810d7e62586bc31f1fce611bf4",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/captions/captions.vtt",
+     "bytes": 1393,
+     "sha256": "6354b34e44ad0b3c9aebaa57e62be5740b73c24253ebd08c1509ce7429e3879c",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/captions/result.json",
+     "bytes": 460,
+     "sha256": "ee8115de6b7ce114a6d8ddfb4ef4d788add926d52fec9595a647dea6e086aeb2",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/contact_dates.jpg",
+     "bytes": 363153,
+     "sha256": "741fa34701de0576f8d3fbd42af698db27cde6c78b0e4d1e7e757846e4b3d6ae",
+     "kind": "binary",
+     "role": "contact/review sheet (regenerable)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/sirhan/contact_sheet.jpg",
+     "bytes": 301043,
+     "sha256": "379331f36d1b211263da7d1ee7289ea421184e558b6b082b0c959ccaf2e47f39",
+     "kind": "binary",
+     "role": "contact/review sheet (regenerable)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/sirhan/contact_sheet_story.jpg",
+     "bytes": 293189,
+     "sha256": "e76c2b5ca6d319731fbf5800e01db148ca59ab7b8271c8b8266b81e5b662759d",
+     "kind": "binary",
+     "role": "contact/review sheet (regenerable)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/sirhan/preview_frames.py",
+     "bytes": 1105,
+     "sha256": "cf4b8dc02453777221b80c6bf47525521485ce68c85cd7e9826a408a9a0e76fe",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/production.json",
+     "bytes": 749,
+     "sha256": "313f27b50fe3921c3988a8e16d267dd40887c2ef8ce72647cab53a472368a95b",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/qc.json",
+     "bytes": 4096,
+     "sha256": "db7dadb8762b8c117c80cfdc63100817eeb4d9bdcd513dd6ca6f67b6595b95fc",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/raw/LC08_L1TP_172039_20150407_20200909_02_T1_refl.tif",
+     "bytes": 3246545,
+     "sha256": "452b8d8f6bb5d8148ba6fd30bdc61cc8872bdc5b1e69a2e74c0464538fce4315",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/sirhan/raw/LC08_L1TP_172039_20250402_20250411_02_T1_refl.tif",
+     "bytes": 2806787,
+     "sha256": "762277e326a148cc0414da70450dd64b7e9631777a06555bbb46f3ecab2b7ffb",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/sirhan/raw/LT05_L1TP_172039_19870410_20201014_02_T1_refl.tif",
+     "bytes": 2327011,
+     "sha256": "254bde6d6aaaecc77f1f2292fe2505fb4f795c24ad8786382aa1273da1d4cfda",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/sirhan/raw/LT05_L1TP_172039_20000328_20200907_02_T1_refl.tif",
+     "bytes": 2573299,
+     "sha256": "a9731ea089544e886be3de7ca6d260a8e8aeb6cc70e62c5f6f5b4114d37619fb",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/sirhan/raw/LT05_L1TP_172039_20080403_20200829_02_T1_refl.tif",
+     "bytes": 2729183,
+     "sha256": "abd85cfcb2539fbf7c7bfbeb7893bcadee78bd50f534e1956e1f63291e4cb3c3",
+     "kind": "binary",
+     "role": "Landsat scene extract (re-downloadable from USGS by scene ID)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/sirhan/raw/metadata.jsonl",
+     "bytes": 1292,
+     "sha256": "9f347dcc61862f0b1878b363746026d49175a1ca8f4a9304505e7b65eeaa6aaf",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/raw/metadata_raw.json",
+     "bytes": 17396,
+     "sha256": "9036159cb5f7a71988de9d594d97470037ffc76a7580f215dba61330d7d97a0a",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/render.json",
+     "bytes": 478,
+     "sha256": "a584a67bd8f9aaa94ae2be502313fba64760ceb83547154e19f5ce3bfcf4ee79",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/script.md",
+     "bytes": 1462,
+     "sha256": "74e320d950388a47b68f0180dcb8413fe107e16801880af0eb481dfdf8ebb3cc",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/sirhan_short.manifest.json",
+     "bytes": 10721,
+     "sha256": "f7a4e9fb8ddf8ff6cdbb4cee3f1cbfa85e3b5178e3287d43482f3e51a81c531f",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/sirhan_short.mp4",
+     "bytes": 18045482,
+     "sha256": "5544096049738930cbd592072bd2bf305b97232926be0b283cca8e0403285205",
+     "kind": "binary",
+     "role": "final video (accepted benchmark)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/sirhan/stack.json",
+     "bytes": 4040,
+     "sha256": "7e34c35a41a811ba0fd2d3ca2ac5e0d2c020c0ab6a8af2d0089c8ac334705d71",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/stack/grid.json",
+     "bytes": 1220,
+     "sha256": "9eab42d18b95a922a46d9548a4b2ab049d8a6b6f04565c5ea23da03d87d891b2",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/stack/provenance.json",
+     "bytes": 3974,
+     "sha256": "01fa0ea503405c4a533dc10e9f84ebc8b4470b1440f5bee15fd3e165895c9cc3",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/stack/y1987.png",
+     "bytes": 2647066,
+     "sha256": "ba6db94b4f49223982e0dbe030673e8d5436c904d2b8bae8eca7b1488af2f324",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/sirhan/stack/y2000.png",
+     "bytes": 4246819,
+     "sha256": "f662f7db1c8a122e790f74a982e31607bf6b071fa67670b37027300f77e8ca08",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/sirhan/stack/y2008.png",
+     "bytes": 4561150,
+     "sha256": "b5af8a97b3af566c1396fc60b90ed34cca0ba05e5a004bde5cf21c2c1b36c562",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/sirhan/stack/y2015.png",
+     "bytes": 5361525,
+     "sha256": "ee5a3d2c7f0eef663ba325bcdc646d3544ec3bc25feec8bb065446bfc0f66f8f",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/sirhan/stack/y2025.png",
+     "bytes": 4663942,
+     "sha256": "944cd9768a51de3f465356b25109e3e54bca51839cc83df471e17c0c5bd48d6a",
+     "kind": "binary",
+     "role": "geo stack frame (regenerable from raw + build script)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/sirhan/story/claims.json",
+     "bytes": 4833,
+     "sha256": "242327b6927cffceead6c8e1bdbfed876db0df3c7ae8315460cf6ffe04d12253",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/story/factcheck.lock",
+     "bytes": 335,
+     "sha256": "703fcc1d614ac9e87b0f3c078e25b576a162a9bb99f5011a252703e761892067",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/story/plan.json",
+     "bytes": 6542,
+     "sha256": "2d8040f0d3a5b3e3694646a8c9a260710450f0d99ce7269e74ce70286375b498",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/story/plan_final.json",
+     "bytes": 6728,
+     "sha256": "acdf9579c9f0dd452727e5ffb5626f3fb76aed77e1b1fdc81f363503d615be75",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/story/predicted_timing.json",
+     "bytes": 895,
+     "sha256": "84f94eaad53e2e9a50a60d9d3b53adadfdcecef0cce70666e79df32d565d7eab",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/storyboard_frames.jpg",
+     "bytes": 394067,
+     "sha256": "045aba06e1784cc278481c5684418977e698c2e36cf8ae57cea204878597de85",
+     "kind": "binary",
+     "role": "contact/review sheet (regenerable)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/sirhan/timeline.json",
+     "bytes": 8285,
+     "sha256": "258d1f1443b5b090e7760527fcfbeb3c8d08ce4a284d76a3271a21d1ef3b2e5f",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/timeline_storyboard.json",
+     "bytes": 7524,
+     "sha256": "9c091347c8701750928b1fa3edf26396593aebd2fd4dd7d3dd4440a90a2d995a",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/voice/narration.voice.json",
+     "bytes": 8443,
+     "sha256": "b97b02e8b50a0fbba4611b8a0173050c759b781be7860a30a1b51d1bb825d667",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/voice/narration.wav",
+     "bytes": 4034604,
+     "sha256": "e4a6978d85fc6550ad9793dd76e4fb5be22f174d5081ea4ae2aa771270452fb3",
+     "kind": "binary",
+     "role": "narration audio (ElevenLabs output; paid to regenerate)",
+     "storage": "container-only (NOT on GitHub)"
+    },
+    {
+     "path": "productions/sirhan/voice/plan.json",
+     "bytes": 2036,
+     "sha256": "ec4d0e4bc8f63b2e30e70315e1dd2306bc4b74db9af282b7b4016c0314cbeea8",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    },
+    {
+     "path": "productions/sirhan/voice/tts_result.json",
+     "bytes": 1304,
+     "sha256": "3e429398011b94da77618ff25b3b315b3852d6582681afbc4a08401b5fb549dc",
+     "kind": "text",
+     "role": "text",
+     "storage": "git: branch preservation/benchmarks"
+    }
+   ]
+  }
+ ]
+}

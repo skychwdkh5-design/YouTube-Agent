@@ -1,0 +1,137 @@
+{
+ "schema": "claims/1",
+ "method": "domain-restricted search (usgs.gov, nasa.gov); direct page fetch blocked by network policy",
+ "claims": [
+  {
+   "id": "C1",
+   "text": "Eruption began May 3, 2018 in Leilani Estates (a subdivision)",
+   "status": "verified",
+   "sources": [
+    "https://www.usgs.gov/volcanoes/kilauea/news/photo-and-video-chronology-kilauea-may-3-2018",
+    "https://eros.usgs.gov/earthshots/2018-eruption"
+   ]
+  },
+  {
+   "id": "C2",
+   "text": "24 fissures opened (along a 6-km line); eruption focused at fissure 8, whose flow reached the ocean",
+   "status": "verified",
+   "sources": [
+    "https://eros.usgs.gov/earthshots/2018-eruption"
+   ]
+  },
+  {
+   "id": "C3",
+   "text": "Lava from fissure 8 entered Kapoho Bay beginning June 3; by June 7 it had completely filled the bay",
+   "status": "verified",
+   "sources": [
+    "https://www.usgs.gov/media/images/beginning-june-3-lava-fissure-8-entered-ocean-kapoh",
+    "https://www.usgs.gov/media/images/fissure-8-lava-flow-front-had-completely-filled-kapoho-bay"
+   ]
+  },
+  {
+   "id": "C4",
+   "text": "Green Lake, Hawaii's largest natural freshwater lake, boiled away in hours on June 2, 2018",
+   "status": "verified but REMOVED from script and screen (no visual proof with the selected Landsat assets)",
+   "sources": [
+    "https://www.usgs.gov/media/images/fissure-8-lava-flowed-green-lake-lake-water-boiled-awa",
+    "https://science.nasa.gov/earth/earth-observatory/lava-consumes-vacationland-and-kapoho-bay-92287/"
+   ]
+  },
+  {
+   "id": "C5",
+   "text": "35.5 km2 (13.7 sq mi; 'nearly fourteen') covered by lava",
+   "status": "verified (sq mi = arithmetic conversion)",
+   "sources": [
+    "https://www.usgs.gov/volcanoes/kilauea/science/2018-lower-east-rift-zone-eruption-and-summit-collapse-kilauea"
+   ]
+  },
+  {
+   "id": "C6",
+   "text": "1,839 structures destroyed, 90 damaged",
+   "status": "verified",
+   "sources": [
+    "https://www.usgs.gov/observatories/hvo/news/volcano-watch-learning-impacts-kilaueas-2018-lerz-lava-flows"
+   ]
+  },
+  {
+   "id": "C7",
+   "text": "The LERZ eruption partially drained the summit magma reservoir; the caldera floor collapsed",
+   "status": "verified",
+   "sources": [
+    "https://www.usgs.gov/volcanoes/kilauea/science/2018-lower-east-rift-zone-eruption-and-summit-collapse-kilauea"
+   ]
+  },
+  {
+   "id": "C8",
+   "text": "Caldera deepened by more than 500 m (1,600 ft); Halema'uma'u widened x2, deepened x3",
+   "status": "verified",
+   "sources": [
+    "https://www.usgs.gov/volcanoes/kilauea/science/2018-lower-east-rift-zone-eruption-and-summit-collapse-kilauea"
+   ]
+  },
+  {
+   "id": "C9",
+   "text": "875 acres of new land created",
+   "status": "verified",
+   "sources": [
+    "https://www.usgs.gov/volcanoes/kilauea/science/2018-lower-east-rift-zone-eruption-and-summit-collapse-kilauea"
+   ]
+  },
+  {
+   "id": "C10",
+   "text": "New land from lava belongs to the State of Hawaii - 1977 Hawaii Supreme Court, State v. Zimring (adjacent owners lost)",
+   "status": "verified",
+   "sources": [
+    "https://www.usgs.gov/observatories/hvo/news/volcano-watch-who-owns-new-coastal-lands-created-lava-flows"
+   ]
+  },
+  {
+   "id": "C11",
+   "text": "Landsat 8 shortwave infrared records the heat of fresh lava; LandsatLook natural color = bands 6-5-4",
+   "status": "verified (principle) - now spoken; demonstrated by the red SWIR pixels in the 2018-05-30 frame (observation O2)",
+   "sources": [
+    "https://science.nasa.gov/earth/earth-observatory/the-infrared-glow-of-kilaueas-lava-flows-92194/",
+    "https://pubs.usgs.gov/fs/2011/3153/pdf/fs2011-3153.pdf"
+   ]
+  }
+ ],
+ "observations": [
+  {
+   "id": "O1",
+   "text": "2018-03-27 -> 2019-02-26: green vegetation east of ~-154.92 replaced by black lava reaching the coast; coastline at Kapoho moved seaward (~1.5 km at 19.49-19.50 N)",
+   "status": "satellite observation (stack, same grid)"
+  },
+  {
+   "id": "O2",
+   "text": "Red (SWIR-hot) pixels: 2018-05-14 near -154.864,19.486; 2018-05-30 cluster -154.90..-154.87, 19.47..19.50; 2018-03-27 summit lava lake -155.281,19.4055",
+   "status": "satellite observation"
+  },
+  {
+   "id": "O3",
+   "text": "Halema'uma'u pit appears larger in 2019-07-20 than 2018-03-27 (hazy)",
+   "status": "satellite observation - weak, supporting only"
+  }
+ ],
+ "inferences": [
+  {
+   "id": "H1",
+   "text": "Pin positions KAPOHO BAY (-154.826,19.503) and NEW LAND (-154.815,19.488) read from the imagery, not from a gazetteer",
+   "status": "inference - check against a USGS map before render"
+  },
+  {
+   "id": "H2",
+   "text": "The C-shaped green rim surrounded by lava near -154.845,19.497 is Kapoho Crater (where Green Lake was)",
+   "status": "inference - NOT pinned, NOT spoken"
+  }
+ ],
+ "excluded": [
+  "'Hawaii got bigger by 875 acres' as NET island area (lava also covered existing land) - script says 'gained 875 acres of new land'",
+  "Distance summit -> fissure 8 in miles (not verified) - not stated",
+  "'Over 700 homes' (other USGS page says 'over 700 structures'; inconsistent wording) - replaced by 1,839 structures from the damage assessment",
+  "Exact time the bay 'vanished' (June 5 vs June 7) - script says 'by June 7th' / 'less than a week'",
+  "Football-field or Manhattan comparisons - not sourced",
+  "2025 summit image as 'after the collapse' - post-2020 eruptions refilled the crater; not used for that claim",
+  "Green Lake sentence removed (decision B): the lake (~200 m) is not resolvable at 30 m and its location is only inferred; USGS photos are public domain but the timeline-v3 renderer has no non-Landsat image path yet"
+ ],
+ "factcheck": "PASSED: every spoken/on-screen claim is in claims C1-C3, C5-C11; pins KAPOHO BAY/NEW LAND and the arrow are imagery-read positions (labelled as such in the ledger)"
+}

@@ -1,0 +1,402 @@
+{
+ "schema": "yt-render-manifest/1",
+ "profile": "short",
+ "output": "animatic.mp4",
+ "width": 1080,
+ "height": 1920,
+ "fps": 30,
+ "duration": 51.0,
+ "safe": {
+  "top": 0.08,
+  "bottom": 0.22,
+  "right": 0.12,
+  "left": 0.06
+ },
+ "first_word_start": null,
+ "narration": null,
+ "shots": [
+  {
+   "id": "hook",
+   "beat": "hook",
+   "start": 0.0,
+   "end": 3.659,
+   "info": "2026 lake with 2000 water shown in orange",
+   "claims": [
+    "C1"
+   ],
+   "layers": [
+    "image",
+    "fill",
+    "label",
+    "label",
+    "outline"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "wipe2000",
+   "beat": "proof",
+   "start": 3.659,
+   "end": 6.4,
+   "info": "wipe back to the full lake of 2000",
+   "claims": [
+    "C2",
+    "M1"
+   ],
+   "layers": [
+    "wipe",
+    "label"
+   ],
+   "credit": "Landsat 9 · USGS / Landsat 7 · USGS"
+  },
+  {
+   "id": "flip",
+   "beat": "proof",
+   "start": 6.4,
+   "end": 8.826,
+   "info": null,
+   "claims": [
+    "M1"
+   ],
+   "layers": [
+    "flip"
+   ],
+   "credit": "Landsat 7 · USGS"
+  },
+  {
+   "id": "drop",
+   "beat": "escalation",
+   "start": 8.826,
+   "end": 13.444,
+   "info": "-160 ft since 2000",
+   "claims": [
+    "C3"
+   ],
+   "layers": [
+    "image",
+    "outline",
+    "label"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "arm",
+   "beat": "escalation",
+   "start": 13.444,
+   "end": 17.25,
+   "info": "zoom to the northern arm",
+   "claims": [
+    "C4"
+   ],
+   "layers": [
+    "wipe",
+    "arrow",
+    "label"
+   ],
+   "credit": "Landsat 7 · USGS / Landsat 9 · USGS"
+  },
+  {
+   "id": "half",
+   "beat": "escalation",
+   "start": 17.25,
+   "end": 20.615,
+   "info": "about half the water surface gone",
+   "claims": [
+    "C11"
+   ],
+   "layers": [
+    "image",
+    "fill",
+    "outline",
+    "label"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "record2022",
+   "beat": "escalation",
+   "start": 20.615,
+   "end": 26.482,
+   "info": "2022 record low near Hoover Dam basin",
+   "claims": [
+    "C5"
+   ],
+   "layers": [
+    "image",
+    "outline",
+    "label",
+    "label"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "river",
+   "beat": "explanation",
+   "start": 26.482,
+   "end": 30.344,
+   "info": "the Colorado River flowing in",
+   "claims": [
+    "C6"
+   ],
+   "layers": [
+    "image",
+    "pin",
+    "label"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "budget",
+   "beat": "explanation",
+   "start": 30.344,
+   "end": 35.109,
+   "info": "out > in",
+   "claims": [
+    "C7"
+   ],
+   "layers": [
+    "flip",
+    "label"
+   ],
+   "credit": "Landsat 7 · USGS"
+  },
+  {
+   "id": "people",
+   "beat": "explanation",
+   "start": 35.109,
+   "end": 39.944,
+   "info": "40 million people",
+   "claims": [
+    "C8"
+   ],
+   "layers": [
+    "image",
+    "outline",
+    "label"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "record2026",
+   "beat": "payoff",
+   "start": 39.944,
+   "end": 45.944,
+   "info": "August 2026 new record low",
+   "claims": [
+    "C9"
+   ],
+   "layers": [
+    "image",
+    "fill",
+    "label",
+    "label"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "line",
+   "beat": "payoff",
+   "start": 45.944,
+   "end": 51.0,
+   "info": "the white line = 2000 shoreline",
+   "claims": [
+    "C10"
+   ],
+   "layers": [
+    "image",
+    "outline",
+    "label"
+   ],
+   "credit": "Landsat 9 · USGS"
+  }
+ ],
+ "info_events": [
+  {
+   "t": 0.0,
+   "shot": "hook",
+   "what": "2026 lake with 2000 water shown in orange"
+  },
+  {
+   "t": 0.5,
+   "shot": "hook",
+   "what": "legend: orange = water in 2000"
+  },
+  {
+   "t": 1.6,
+   "shot": "hook",
+   "what": "2000 shoreline drawn"
+  },
+  {
+   "t": 3.659,
+   "shot": "wipe2000",
+   "what": "wipe back to the full lake of 2000"
+  },
+  {
+   "t": 3.959,
+   "shot": "wipe2000",
+   "what": "name + largest reservoir"
+  },
+  {
+   "t": 6.82,
+   "shot": "flip",
+   "what": "flip to y2005"
+  },
+  {
+   "t": 7.24,
+   "shot": "flip",
+   "what": "flip to y2010"
+  },
+  {
+   "t": 7.66,
+   "shot": "flip",
+   "what": "flip to y2015"
+  },
+  {
+   "t": 8.08,
+   "shot": "flip",
+   "what": "flip to y2022"
+  },
+  {
+   "t": 8.5,
+   "shot": "flip",
+   "what": "flip to y2026"
+  },
+  {
+   "t": 8.826,
+   "shot": "drop",
+   "what": "-160 ft since 2000"
+  },
+  {
+   "t": 13.444,
+   "shot": "arm",
+   "what": "zoom to the northern arm"
+  },
+  {
+   "t": 13.594,
+   "shot": "arm",
+   "what": "2000 -> 2026 wipe on the arm"
+  },
+  {
+   "t": 14.544,
+   "shot": "arm",
+   "what": "retreat arrow"
+  },
+  {
+   "t": 17.25,
+   "shot": "half",
+   "what": "about half the water surface gone"
+  },
+  {
+   "t": 20.615,
+   "shot": "record2022",
+   "what": "2022 record low near Hoover Dam basin"
+  },
+  {
+   "t": 21.015,
+   "shot": "record2022",
+   "what": "record low tag"
+  },
+  {
+   "t": 26.482,
+   "shot": "river",
+   "what": "the Colorado River flowing in"
+  },
+  {
+   "t": 26.782,
+   "shot": "river",
+   "what": "river pinned"
+  },
+  {
+   "t": 30.344,
+   "shot": "budget",
+   "what": "out > in"
+  },
+  {
+   "t": 30.844,
+   "shot": "budget",
+   "what": "water budget"
+  },
+  {
+   "t": 31.244,
+   "shot": "budget",
+   "what": "flip to y2010"
+  },
+  {
+   "t": 32.144,
+   "shot": "budget",
+   "what": "flip to y2022"
+  },
+  {
+   "t": 35.109,
+   "shot": "people",
+   "what": "40 million people"
+  },
+  {
+   "t": 39.944,
+   "shot": "record2026",
+   "what": "August 2026 new record low"
+  },
+  {
+   "t": 40.244,
+   "shot": "record2026",
+   "what": "new record"
+  },
+  {
+   "t": 45.944,
+   "shot": "line",
+   "what": "the white line = 2000 shoreline"
+  }
+ ],
+ "caption_boxes": [],
+ "assets": {
+  "y2000": {
+   "label": "2000",
+   "credit": "Landsat 7 · USGS",
+   "prov": "stack/provenance.json#y2000",
+   "kind": "image"
+  },
+  "y2005": {
+   "label": "2005",
+   "credit": "Landsat 5 · USGS",
+   "prov": "stack/provenance.json#y2005",
+   "kind": "image"
+  },
+  "y2010": {
+   "label": "2010",
+   "credit": "Landsat 5 · USGS",
+   "prov": "stack/provenance.json#y2010",
+   "kind": "image"
+  },
+  "y2015": {
+   "label": "2015",
+   "credit": "Landsat 8 · USGS",
+   "prov": "stack/provenance.json#y2015",
+   "kind": "image"
+  },
+  "y2022": {
+   "label": "2022",
+   "credit": "Landsat 9 · USGS",
+   "prov": "stack/provenance.json#y2022",
+   "kind": "image"
+  },
+  "y2026": {
+   "label": "2026",
+   "credit": "Landsat 9 · USGS",
+   "prov": "stack/provenance.json#y2026",
+   "kind": "image"
+  },
+  "water2000": {
+   "label": "water2000",
+   "credit": null,
+   "prov": "geo/water_y2000.json",
+   "kind": "mask"
+  },
+  "water2026": {
+   "label": "water2026",
+   "credit": null,
+   "prov": "geo/water_y2026.json",
+   "kind": "mask"
+  }
+ },
+ "warnings": []
+}

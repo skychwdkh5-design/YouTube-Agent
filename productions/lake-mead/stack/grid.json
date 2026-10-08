@@ -1,0 +1,83 @@
+{
+ "epsg": 32611,
+ "x0": 683310.0,
+ "y_top": 4057080.0,
+ "pixel_m": 30.0,
+ "width": 3057,
+ "height": 2447,
+ "schema": "yt-geo-stack/1",
+ "aoi": [
+  -114.95,
+  35.98,
+  -113.95,
+  36.62
+ ],
+ "scenes": [
+  {
+   "id": "y2000",
+   "label": "2000 \u00b7 Landsat 7",
+   "src": "raw/LE07_L1TP_039035_20000706_20200918_02_T1_refl.tif",
+   "scene_epsg": 32611,
+   "scene_size": [
+    7801,
+    7041
+   ],
+   "png": "y2000.png"
+  },
+  {
+   "id": "y2005",
+   "label": "2005 \u00b7 Landsat 5",
+   "src": "raw/LT05_L1TP_039035_20050712_20200902_02_T1_refl.tif",
+   "scene_epsg": 32611,
+   "scene_size": [
+    7831,
+    7001
+   ],
+   "png": "y2005.png"
+  },
+  {
+   "id": "y2010",
+   "label": "2010 \u00b7 Landsat 5",
+   "src": "raw/LT05_L1TP_039035_20100624_20200823_02_T1_refl.tif",
+   "scene_epsg": 32611,
+   "scene_size": [
+    7901,
+    7001
+   ],
+   "png": "y2010.png"
+  },
+  {
+   "id": "y2015",
+   "label": "2015 \u00b7 Landsat 8",
+   "src": "raw/LC08_L1TP_039035_20150724_20200908_02_T1_refl.tif",
+   "scene_epsg": 32611,
+   "scene_size": [
+    7601,
+    7731
+   ],
+   "png": "y2015.png"
+  },
+  {
+   "id": "y2022",
+   "label": "2022 \u00b7 Landsat 9",
+   "src": "raw/LC09_L1TP_039035_20220719_20230407_02_T1_refl.tif",
+   "scene_epsg": 32611,
+   "scene_size": [
+    7591,
+    7731
+   ],
+   "png": "y2022.png"
+  },
+  {
+   "id": "y2026",
+   "label": "2026 \u00b7 Landsat 9",
+   "src": "raw/LC09_L1TP_039035_20260730_20260730_02_T1_refl.tif",
+   "scene_epsg": 32611,
+   "scene_size": [
+    7591,
+    7721
+   ],
+   "png": "y2026.png"
+  }
+ ]
+}
