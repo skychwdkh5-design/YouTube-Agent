@@ -1,7 +1,7 @@
-# What If We Turned the Sahara Desert Green? — Episode 001 — NARRATION: SCRIPT LOCK v1.0 (NOT YET VOICED)
+# What If We Turned the Sahara Desert Green? — Episode 001 — NARRATION: SCRIPT LOCK v1.1 (NOT YET VOICED)
 
 Claim IDs in [brackets] map to `story/claims.md`. Brackets and headings are not spoken.
-**SCRIPT LOCK v1.0 (2026-10-08).** The narration below is locked for the factual audit: no ⛔ or ⚠ claim remains, all 47 claim IDs are VERIFIED (or narrated as a hypothesis), and the integrity hash is in `story/SCRIPT_LOCK.md`. Any later change to the spoken text needs a new audit entry. Rounds 2-9 (2026-10-08) applied the reviewer-approved corrections; see `story/source_audit_round2.md` to `story/source_audit_round9.md`. v0.6 removed the unsourced model claims G8, G10, G11 and G20 and replaced the blocked claims S1, S2, S3, P8, P10, P18, P23, G17, G18, S13 and S14 with sourced statements.
+**SCRIPT LOCK v1.1 (2026-10-08; v1.0 changed in one sentence, see `story/source_audit_round10.md`).** The narration below is locked for the factual audit: no ⛔ or ⚠ claim remains, all 47 claim IDs are VERIFIED (or narrated as a hypothesis), and the integrity hash is in `story/SCRIPT_LOCK.md`. Any later change to the spoken text needs a new audit entry. Rounds 2-10 (2026-10-08) applied the reviewer-approved corrections; see `story/source_audit_round2.md` to `story/source_audit_round10.md`. v0.6 removed the unsourced model claims G8, G10, G11 and G20 and replaced the blocked claims S1, S2, S3, P8, P10, P18, P23, G17, G18, S13 and S14 with sourced statements.
 Status marks: ✓ = source read in full (round 2/3); ⚠UNVERIFIED = primary source not read yet; ⛔BLOCKED = primary source unreachable (none left in the narration); ✎NEEDS_REVISION = read, wording to be decided by the reviewer; ◇HYPOTHESIS = narrated as a hypothesis. The lock holds only while no ⚠ or ⛔ mark appears.
 Lines marked (SCENE-CHECK) describe Landsat imagery and must be confirmed against the actual scene before lock.
 
@@ -42,7 +42,7 @@ So greening the Sahara isn't just about finding water. You'd be planting against
 ## ACT 4 — WE'RE ALREADY DOING IT, IN PATCHES
 And yet, from orbit, you can find green in the Sahara right now. [L1 ✓]
 
-This is East Oweinat, in southern Egypt. In a 1984 Landsat image, this area is almost entirely barren. Today, it's covered in green circles, each roughly a kilometer across, watered by rotating sprinkler arms. [L1 ✓ wording approved; exact pivot diameter PROVISIONAL (~0.9 km measured on a 30 m browse image)]
+This is East Oweinat, in southern Egypt. In a 1984 Landsat image, this area is almost entirely barren. Today, it's covered in green circles, each about half a mile across, watered by rotating sprinkler arms. [L1 ✓ diameter measured on Level-1 source bands, Landsat 9 2024 and Landsat 5 2010]
 
 The water comes from below. It's pumped from the Nubian Sandstone Aquifer, a vast store of fossil groundwater shared by Egypt, Libya, Sudan and Chad. [G17 ✓] NASA says that water soaked into the sandstone anywhere from 10,000 to a million years ago, when the region got more rain, and that the aquifer recharges slowly and is considered a non-renewable resource today. [G18 ✓, L2 ✓]
 

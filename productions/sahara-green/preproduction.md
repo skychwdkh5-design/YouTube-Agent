@@ -6,7 +6,7 @@
 
 | File | Contents |
 |---|---|
-| `script.md` | **SCRIPT LOCK v1.0** narration: 1,777 spoken words (v0.1 had 1,374 by the same count method), about 12.3 minutes at 145 wpm (see `story/SCRIPT_LOCK.md`) |
+| `script.md` | **SCRIPT LOCK v1.1** narration: 1,778 spoken words (v0.1 had 1,374 by the same count method), about 12.3 minutes at 145 wpm (see `story/SCRIPT_LOCK.md`) |
 | `story/claims.md` | Fact-check ledger |
 | `storyboard.md` | 37 scenes, plus the visual novelty plan |
 
@@ -136,4 +136,4 @@ Discrepancies:
 
 ## Ready for script review
 
-The narration is locked (SCRIPT LOCK v1.0, 2026-10-08): B1 and B2 are cleared; the Kemena journal PDF was not compared with the manuscript (accepted, recorded in `story/SCRIPT_LOCK.md`). Visual production is still open: build and review the final Landsat graphics scene by scene (B3), re-time the storyboard, then voice (needs the paid ElevenLabs plan, B8).
+The narration is locked (SCRIPT LOCK v1.1, 2026-10-08; v1.1 changed only the L1 pivot-diameter sentence, pivot diameter now measured on Level-1 source bands): B1 and B2 are cleared; the Kemena journal PDF was not compared with the manuscript (accepted, recorded in `story/SCRIPT_LOCK.md`). Visual production is still open: build and review the final Landsat graphics scene by scene (B3), re-time the storyboard, then voice (needs the paid ElevenLabs plan, B8).
