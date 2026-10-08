@@ -1,0 +1,116 @@
+{
+ "eo_1984": {
+  "box_src": [
+   0.0,
+   0.4,
+   2075.0,
+   1756.6
+  ],
+  "dest": [
+   1276,
+   1080
+  ],
+  "screen_px_per_src_px": 0.615,
+  "label": "August 26, 1984"
+ },
+ "eo_2000": {
+  "box_src": [
+   0.0,
+   0.4,
+   2075.0,
+   1756.6
+  ],
+  "dest": [
+   1276,
+   1080
+  ],
+  "screen_px_per_src_px": 0.615,
+  "label": "January 2000"
+ },
+ "eo_2010": {
+  "box_src": [
+   0.0,
+   0.4,
+   2075.0,
+   1756.6
+  ],
+  "dest": [
+   1276,
+   1080
+  ],
+  "screen_px_per_src_px": 0.615,
+  "label": "January 2010"
+ },
+ "eo_2016": {
+  "box_src": [
+   0.0,
+   0.4,
+   2075.0,
+   1756.6
+  ],
+  "dest": [
+   1276,
+   1080
+  ],
+  "screen_px_per_src_px": 0.615,
+  "label": "January 2016"
+ },
+ "eo_2024": {
+  "box_src": [
+   0.0,
+   0.4,
+   2075.0,
+   1756.6
+  ],
+  "dest": [
+   1276,
+   1080
+  ],
+  "screen_px_per_src_px": 0.615,
+  "label": "January 2024"
+ },
+ "eo_zoom_50": {
+  "box_src": [
+   53.1,
+   277.3,
+   1464.4,
+   1231.2
+  ],
+  "dest": [
+   1598,
+   1080
+  ],
+  "screen_px_per_src_px": 1.132,
+  "label": "January 2024"
+ },
+ "eo_zoom_100": {
+  "box_src": [
+   0.0,
+   360.0,
+   960.0,
+   900.0
+  ],
+  "dest": [
+   1920,
+   1080
+  ],
+  "screen_px_per_src_px": 2.0,
+  "label": "January 2024"
+ },
+ "toshka_1999": {
+  "label": "January 1999",
+  "screen_px_per_src_px": 0.5
+ },
+ "toshka_2002": {
+  "label": "January 2002",
+  "screen_px_per_src_px": 0.5
+ },
+ "toshka_2011": {
+  "label": "January 2011",
+  "screen_px_per_src_px": 0.5
+ },
+ "toshka_2021": {
+  "label": "November 2021",
+  "screen_px_per_src_px": 0.5
+ }
+}
