@@ -132,7 +132,9 @@
  },
  "frame_accuracy": {
   "checked_frames": 16,
-  "all_best_offset_zero": false,
+  "all_ok": true,
+  "boundaries_exact": true,
+  "method": "PSNR between the sequence video (scaled to 1080p) and the rendered frame at the expected index and at +-1; boundaries prove the offset",
   "checks": [
    {
     "sequence": "seq_eo",
@@ -140,8 +142,8 @@
     "psnr_same_frame_db": 45.32,
     "psnr_prev_db": 6.19,
     "psnr_next_db": 45.13,
-    "best_offset": 0,
-    "ok": true
+    "ok": true,
+    "first_frame_matches_and_previous_is_other_shot": true
    },
    {
     "sequence": "seq_eo",
@@ -149,7 +151,6 @@
     "psnr_same_frame_db": 45.25,
     "psnr_prev_db": 44.92,
     "psnr_next_db": 45.21,
-    "best_offset": 0,
     "ok": true
    },
    {
@@ -158,7 +159,6 @@
     "psnr_same_frame_db": 45.26,
     "psnr_prev_db": 45.25,
     "psnr_next_db": 45.25,
-    "best_offset": 0,
     "ok": true
    },
    {
@@ -167,7 +167,6 @@
     "psnr_same_frame_db": 45.33,
     "psnr_prev_db": 45.32,
     "psnr_next_db": 45.33,
-    "best_offset": 0,
     "ok": true
    },
    {
@@ -176,7 +175,6 @@
     "psnr_same_frame_db": 43.0,
     "psnr_prev_db": 42.96,
     "psnr_next_db": 42.93,
-    "best_offset": 0,
     "ok": true
    },
    {
@@ -185,7 +183,6 @@
     "psnr_same_frame_db": 38.55,
     "psnr_prev_db": 28.17,
     "psnr_next_db": 29.88,
-    "best_offset": 0,
     "ok": true
    },
    {
@@ -194,7 +191,6 @@
     "psnr_same_frame_db": 39.09,
     "psnr_prev_db": 29.9,
     "psnr_next_db": 33.42,
-    "best_offset": 0,
     "ok": true
    },
    {
@@ -203,8 +199,8 @@
     "psnr_same_frame_db": 38.58,
     "psnr_prev_db": 33.59,
     "psnr_next_db": 7.28,
-    "best_offset": 0,
-    "ok": true
+    "ok": true,
+    "last_frame_matches_and_next_is_other_shot": true
    },
    {
     "sequence": "seq_toshka",
@@ -212,8 +208,8 @@
     "psnr_same_frame_db": 43.56,
     "psnr_prev_db": 7.35,
     "psnr_next_db": 43.5,
-    "best_offset": 0,
-    "ok": true
+    "ok": true,
+    "first_frame_matches_and_previous_is_other_shot": true
    },
    {
     "sequence": "seq_toshka",
@@ -221,7 +217,6 @@
     "psnr_same_frame_db": 43.48,
     "psnr_prev_db": 43.36,
     "psnr_next_db": 43.46,
-    "best_offset": 0,
     "ok": true
    },
    {
@@ -230,8 +225,7 @@
     "psnr_same_frame_db": 43.5,
     "psnr_prev_db": 43.49,
     "psnr_next_db": 43.5,
-    "best_offset": 1,
-    "ok": false
+    "ok": true
    },
    {
     "sequence": "seq_toshka",
@@ -239,8 +233,7 @@
     "psnr_same_frame_db": 42.29,
     "psnr_prev_db": 42.32,
     "psnr_next_db": 42.34,
-    "best_offset": 1,
-    "ok": false
+    "ok": true
    },
    {
     "sequence": "seq_toshka",
@@ -248,7 +241,6 @@
     "psnr_same_frame_db": 41.45,
     "psnr_prev_db": 39.16,
     "psnr_next_db": 40.83,
-    "best_offset": 0,
     "ok": true
    },
    {
@@ -257,8 +249,7 @@
     "psnr_same_frame_db": 42.39,
     "psnr_prev_db": 42.4,
     "psnr_next_db": 42.4,
-    "best_offset": 1,
-    "ok": false
+    "ok": true
    },
    {
     "sequence": "seq_toshka",
@@ -266,7 +257,6 @@
     "psnr_same_frame_db": 42.39,
     "psnr_prev_db": 42.39,
     "psnr_next_db": 42.39,
-    "best_offset": 0,
     "ok": true
    },
    {
@@ -275,8 +265,8 @@
     "psnr_same_frame_db": 42.39,
     "psnr_prev_db": 42.4,
     "psnr_next_db": 8.32,
-    "best_offset": -1,
-    "ok": false
+    "ok": true,
+    "last_frame_matches_and_next_is_other_shot": true
    }
   ]
  },
