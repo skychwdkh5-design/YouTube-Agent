@@ -110,6 +110,15 @@ Shots anchor to words of the narration, so the edit follows Adam's real timing. 
 the hook. Production folders (raw imagery, stacks, audio, renders) stay in `productions/`, which
 is git-ignored.
 
+## Long-form (16:9) with timeline v3
+
+The same storyboard model makes 8-15 minute documentaries: `"profile": "long"` (1920x1080, 30 fps,
+up to 900 s). Captions come from `/yt-captions` with the default preset. Long timelines render in
+segments (default 60 s) that are joined without re-encoding; the narration is added once over the
+whole video, so audio and burned-in captions stay frame-exact across segment boundaries.
+`/yt-qc --profile long` checks the result, including that every segment boundary is a keyframe.
+Pacing targets are per minute and are warnings; the technical checks fail.
+
 ## Shorts format rule: composition resets
 
 New information is not automatically a new visual composition. A Short has to reset the viewer's

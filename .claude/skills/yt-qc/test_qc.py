@@ -226,6 +226,50 @@ class ShortProfile(Base):
         self.assertEqual(run([p, "--contact-sheet", os.path.join(self.dir, "s.jpg")])[0], 2)
 
 
+class LongProfile(Base):
+    def landscape(self, seconds=2):
+        p = os.path.join(self.dir, "l.mp4")
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", f"testsrc2=s=1920x1080:r=30:d={seconds}",
+                        "-f", "lavfi", "-i", f"sine=f=440:d={seconds}", "-c:v", "libx264", "-g", "30",
+                        "-pix_fmt", "yuv420p", "-c:a", "aac", "-shortest", p], check=True)
+        return p
+
+    def manifest(self, segments, boxes=None):
+        m = {"width": 1920, "height": 1080, "fps": 30, "duration": 2.0,
+             "safe": {"top": 0.07, "bottom": 0.13, "right": 0.05, "left": 0.05},
+             "info_events": [{"t": 0}, {"t": 1}], "caption_boxes": boxes or [{"cue": 1, "box": [700, 830, 1220, 930]}],
+             "shots": [{"id": "s1", "start": 0, "end": 2, "credit": "Landsat 9 · USGS"}],
+             "compositions": {"resets": [{"t": 1.0, "kind": "cut"}], "segments": [{"start": 0, "end": 2, "static_hold": 1.0}]},
+             "segments": segments}
+        path = os.path.join(self.dir, "l.manifest.json")
+        with open(path, "w") as f: json.dump(m, f)
+        return path
+
+    def test_long_profile_checks(self):
+        p = self.landscape()
+        code, d = run([p, "--profile", "long", "--manifest",
+                       self.manifest([{"index": 0, "start_frame": 0, "frames": 30}, {"index": 1, "start_frame": 30, "frames": 30}])])
+        ids = {c["id"]: c for c in d["checks"]}
+        self.assertEqual((ids["resolution"]["status"], ids["resolution"]["actual"]), ("pass", "1920x1080"))
+        self.assertEqual(ids["long_duration"]["status"], "fail")                    # 2 s is not an episode
+        self.assertNotIn("short_duration", ids)
+        for k in ("captions_in_safe_zone", "segments_tile_video", "segment_boundaries_keyframes", "shot_credits"):
+            self.assertEqual(ids[k]["status"], "pass", k)
+        self.assertEqual(ids["info_events_first_10s"]["status"], "warn")            # a warning in long-form, not a fail
+        self.assertEqual(ids["composition_resets"]["actual"], 30.0)                  # per minute
+        # a boundary without a keyframe, a gap, and a caption in the player's control bar all fail
+        code, d = run([p, "--profile", "long", "--manifest",
+                       self.manifest([{"index": 0, "start_frame": 0, "frames": 15}, {"index": 1, "start_frame": 16, "frames": 44}],
+                                     boxes=[{"cue": 1, "box": [700, 960, 1220, 1050]}])])
+        ids = {c["id"]: c["status"] for c in d["checks"]}
+        self.assertEqual([ids[k] for k in ("segments_tile_video", "segment_boundaries_keyframes", "captions_in_safe_zone")],
+                         ["fail", "fail", "fail"])
+
+    def test_short_profile_unchanged_by_long(self):
+        self.assertNotIn("name", qc.PROFILES["short"])
+        self.assertEqual(qc.PROFILES["short"]["composition_resets"], (7, 10))
+
+
 class Args(Base):
     def test_bad_args_are_json(self):
         for argv in (["a.mp4", "--expected-duration", "x"], ["a.mp4", "--fps", "nan"],

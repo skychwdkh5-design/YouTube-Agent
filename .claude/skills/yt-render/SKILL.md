@@ -5,7 +5,7 @@ description: >-
   and Landsat frames with Ken Burns pan/zoom and crossfades, the yt-voice narration, burned-in
   yt-captions subtitles and the on-screen source credit, 1920x1080 30 fps H.264 + AAC. Use for
   "render this", "make the video", "turn these images into a video", or any request for an actual
-  video file. Timeline version 3 renders vertical 1080x1920 Shorts from yt-geo stacks. Rendering needs --confirm. Not for edit lists from a transcript (that is /yt-edit).
+  video file. Timeline version 3 renders vertical 1080x1920 Shorts and 1920x1080 long-form documentaries (up to 15 min, segmented) from yt-geo stacks. Rendering needs --confirm. Not for edit lists from a transcript (that is /yt-edit).
 ---
 
 # yt-render
@@ -147,7 +147,26 @@ and 2 never touch this path and still render byte-identically.
 - **Credits per shot** come from the visible images' `credit` (e.g. "Landsat 7 · USGS / Landsat 9 · USGS").
 - Next to the MP4 the renderer writes `<name>.manifest.json`: shots, credits, information events,
   caption boxes and warnings. `/yt-qc --profile short` reads it.
-- Not built yet (FORMAT SPEC v1): music, sound effects, LONG 16:9 profile, locator maps, scale bars.
+- Not built yet (FORMAT SPEC v1): music, sound effects, locator maps, scale bars.
+
+### Profile `long` - 16:9 documentaries
+
+`"profile": "long"` renders 1920x1080, 30 fps, up to 15 minutes (900 s) with the same shots, camera,
+layers, wipes, flips, labels, arrows, pins, credits, composition and visual-family logic as Shorts.
+
+- **Layout:** landscape typography and safe area (text clear of the top 7 % and the player controls in
+  the bottom 13 %, 5 % at the sides); captions sit low (Inter Black 46 px, up to 2 lines, 1500 px wide)
+  and move up when a shot's `focus` would be covered. Use `/yt-captions` with the default preset
+  (`"captions": {"preset": "default"}`), not `short`.
+- **Segmented render:** frames are encoded in segments (`"render": {"segment_s": 60}` by default, 1-300 s),
+  each by its own FFmpeg process starting on a keyframe with identical settings, then joined with the
+  concat demuxer without re-encoding. The narration is muxed once over the whole video, and every frame
+  is drawn at its global time (frame i = i / fps), so audio, captions and shot changes cannot drift at a
+  boundary. The manifest lists every segment (start frame, frame count, sha256). Output is deterministic.
+- **Pacing targets** are rates (warnings): >= 3 compositions and >= 3 information events in the first
+  10 s, >= 5 composition resets per minute, no composition static over 8 s; with `visual_family`
+  tags >= 2 family transitions per minute and no family over 30 s unless it is transforming.
+- H.264 CRF 20 (Shorts keep CRF 18). Shorts are unchanged and still render in one pass.
 
 ## Safety
 

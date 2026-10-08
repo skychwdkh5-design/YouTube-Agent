@@ -1,4 +1,4 @@
-"""compose.py - timeline version 3: vertical Shorts built from geographically aligned imagery.
+"""compose.py - timeline version 3: Shorts and long-form video built from geographically aligned imagery.
 
 Used by render.py for timelines with "version": 3. Versions 1/2 never reach this file.
 
@@ -8,8 +8,10 @@ yt-geo/geostack.py wrote, so every date shares exactly the same framing and a wi
 compares like with like. Sub-pixel crops (no zoompan jitter), word-anchored shot timing,
 mobile-safe captions and per-shot source credits.
 
-Only what a Short needs today: layers image, flip, wipe, fill, outline, label, arrow, pin.
-Profile "short" = 1080x1920, 30 fps.
+Layers image, flip, wipe, fill, outline, label, arrow, pin.
+Profile "short" = 1080x1920, 30 fps, up to 60 s, rendered in one pass.
+Profile "long"  = 1920x1080, 30 fps, up to 15 min, rendered in segments that are joined losslessly
+and given the narration in one final mux, so audio and burned-in captions stay frame-exact.
 """
 import json, math, os, re, subprocess, tempfile
 
@@ -21,7 +23,11 @@ import render as r      # RenderError, resolve_src, parse_voice, parse_srt, _sha
 Image.MAX_IMAGE_PIXELS = 400_000_000
 PROFILES = {"short": {"width": 1080, "height": 1920, "fps": 30, "min_s": 35.0, "max_s": 60.0,
                       # YouTube Shorts UI: keep text out of the top 8 %, bottom 22 % and right 12 %
-                      "safe": {"top": 0.08, "bottom": 0.22, "right": 0.12, "left": 0.06}}}
+                      "safe": {"top": 0.08, "bottom": 0.22, "right": 0.12, "left": 0.06}},
+            # long-form 16:9: keep text clear of the player's title gradient (top) and controls/progress bar
+            "long": {"width": 1920, "height": 1080, "fps": 30, "min_s": 60.0, "max_s": 900.0,
+                     "safe": {"top": 0.07, "bottom": 0.13, "right": 0.05, "left": 0.05},
+                     "crf": 20, "segment_s": 60.0, "captions_preset": "default"}}
 LAYER_TYPES = ("image", "flip", "wipe", "fill", "outline", "label", "arrow", "pin")
 CAPTION = {"size": 68, "stroke": 7, "max_width": 820, "band_lower": 0.645, "band_upper": 0.33,
            "line_gap": 10}
@@ -29,6 +35,20 @@ STYLES = {"year": (150, "Black", "#FFFFFF"), "stat": (120, "Black", "#FFD23F"),
           "tag": (58, "Bold", "#FFFFFF"), "sub": (46, "SemiBold", "#FFFFFF"),
           "legend": (44, "Bold", "#FFFFFF")}
 SLOTS = {"top": 0.155, "upper": 0.255, "middle": 0.36}
+# Per-profile typography and placement. "short" is exactly the values above (Shorts render unchanged).
+LAYOUTS = {
+    "short": {"caption": CAPTION, "styles": STYLES, "slots": SLOTS, "wipe_font": 84, "wipe_min": 260,
+              "pin_font": 52, "pin_r": 16, "pin_dy": 70, "pin_x_min": 70, "credit_font": 30, "sub_gap": 40,
+              "sub_stroke": 5},
+    "long": {"caption": {"size": 46, "stroke": 5, "max_width": 1500, "band_lower": 0.815, "band_upper": 0.2,
+                         "line_gap": 8, "min_size": 32},
+             "styles": {"year": (104, "Black", "#FFFFFF"), "stat": (84, "Black", "#FFD23F"),
+                        "tag": (44, "Bold", "#FFFFFF"), "sub": (34, "SemiBold", "#FFFFFF"),
+                        "legend": (34, "Bold", "#FFFFFF")},
+             "slots": {"top": 0.16, "upper": 0.27, "middle": 0.4},
+             "wipe_font": 64, "wipe_min": 320, "pin_font": 38, "pin_r": 12, "pin_dy": 52, "pin_x_min": 60,
+             "credit_font": 24, "sub_gap": 30, "sub_stroke": 4},
+}
 E = r.RenderError
 
 
@@ -129,11 +149,20 @@ def _color(c, where):
 
 
 def validate(tl, root, limits):
-    r._keys(tl, ("version", "profile", "grid", "assets", "voice", "captions", "end", "shots", "meta"), "timeline")
+    r._keys(tl, ("version", "profile", "grid", "assets", "voice", "captions", "end", "shots", "meta", "render"),
+            "timeline")
     prof = PROFILES.get(tl.get("profile"))
     if not prof:
         raise E(f"timeline.profile must be one of {sorted(PROFILES)}")
     W, H, fps = prof["width"], prof["height"], prof["fps"]
+    segment_s = None
+    if tl.get("render") is not None:
+        if "segment_s" not in prof:
+            raise E(f"timeline.render (segmented rendering) is only for profile 'long'")
+        r._keys(tl["render"], ("segment_s",), "render")
+        segment_s = r._num(tl["render"].get("segment_s", prof["segment_s"]), "render.segment_s", 1, 300)
+    elif "segment_s" in prof:
+        segment_s = prof["segment_s"]
     gpath = r.resolve_src(tl.get("grid"), root, "grid")
     try:
         with open(gpath) as f:
@@ -188,8 +217,9 @@ def validate(tl, root, limits):
     if tl.get("captions"):
         c = tl["captions"]
         r._keys(c, ("src", "preset"), "captions")
-        if c.get("preset", "short") != "short":
-            raise E("captions.preset must be 'short'")
+        want = prof.get("captions_preset", "short")
+        if c.get("preset", want) != want:
+            raise E(f"captions.preset must be '{want}' for profile {tl['profile']}")
         src = r.resolve_src(c.get("src"), root, "captions")
         with open(src, encoding="utf-8") as f:
             cues = r.parse_srt(f.read())
@@ -245,8 +275,9 @@ def validate(tl, root, limits):
         a["end"] = b["start"] if b else duration
 
     plan = {"version": 3, "profile": tl["profile"], "output": dict(prof, width=W, height=H, fps=fps,
-            video_codec="h264", audio_codec="aac", audio_rate=48000, audio_channels=2, crf=18,
+            video_codec="h264", audio_codec="aac", audio_rate=48000, audio_channels=2, crf=prof.get("crf", 18),
             preset="medium", audio_bitrate="192k"),
+            "segment_frames": int(round(segment_s * fps)) if segment_s else None,
             "grid": grid, "assets": assets, "voice": voice, "words": words, "captions": captions,
             "shots": shots, "total_frames": total_frames, "expected_duration": round(total_frames / fps, 3)}
     plan["events"] = info_events(plan)
@@ -348,6 +379,11 @@ COMPOSITION = {"zoom_ratio": 1.5,      # a framing this much wider/narrower is a
                "first_10s_min": 3, "resets": (7, 10), "max_hold_s": 6.0}
 
 
+# Long-form targets: a documentary breathes more than a Short, so the reset target is a rate and the hold
+# limit is longer. Creative warnings, like the Shorts ones.
+COMPOSITION_LONG = {"first_10s_min": 3, "resets_per_min": 5.0, "max_hold_s": 8.0}
+
+
 def _same_view(a, b):
     C = COMPOSITION
     if abs(math.log(a[2] / b[2])) >= math.log(C["zoom_ratio"]):
@@ -425,7 +461,12 @@ def compositions(plan):
         segments.append({"start": round(a, 3), "end": round(b, 3), "seconds": round(b - a, 3),
                          "static_hold": round(max(free), 3)})
     longest = max(segments, key=lambda x: x["static_hold"])
-    return {"rule": "composition-reset/1", "thresholds": dict(COMPOSITION, resets=list(C["resets"])),
+    if plan["profile"] == "long":
+        thresholds = dict({k: v for k, v in COMPOSITION.items() if k not in ("first_10s_min", "resets", "max_hold_s")},
+                          **COMPOSITION_LONG)
+    else:
+        thresholds = dict(COMPOSITION, resets=list(C["resets"]))
+    return {"rule": "composition-reset/1", "thresholds": thresholds,
             "composition_resets": len(resets),
             "distinct_first_10s": 1 + sum(1 for x in resets if x["t"] < 10),
             "longest_static_hold": {"seconds": longest["static_hold"], "start": longest["start"], "end": longest["end"]},
@@ -444,6 +485,7 @@ def _family(v, where):
 # by hand in the storyboard. A composition reset is a new picture; a visual novelty reset is a new idea.
 # Zoom, relocation, crop, year, text or overlays on the same idea stay in the same family.
 NOVELTY = {"first_10s_min": 3, "transitions_min": 6, "max_family_s": 10.0}
+NOVELTY_LONG = {"first_10s_min": 3, "transitions_per_min": 2.0, "max_family_s": 30.0}
 
 
 def visual_novelty(plan):
@@ -495,7 +537,7 @@ def visual_novelty(plan):
                     "seconds": round(r_["end"] - r_["start"], 3), "untransformed": round(max(free), 3),
                     "shot": r_["shot"]})
     longest = max(out, key=lambda x: x["untransformed"])
-    return {"rule": "visual-novelty/1", "thresholds": dict(NOVELTY),
+    return {"rule": "visual-novelty/1", "thresholds": dict(NOVELTY_LONG if plan["profile"] == "long" else NOVELTY),
             "transitions": len(out) - 1,
             "families": sorted({x["family"] for x in out}),
             "families_first_10s": len({x["family"] for x in out if x["start"] < 10}),
@@ -504,24 +546,38 @@ def visual_novelty(plan):
 
 
 def lint(plan):
+    long_ = plan["profile"] == "long"
     w = []
     first10 = [e for e in plan["events"] if e["t"] < 10]
-    if len(first10) < 5:
-        w.append(f"only {len(first10)} information events in the first 10 s (target >= 5)")
-    c, C = plan["compositions"], COMPOSITION
+    min_events = 3 if long_ else 5
+    if len(first10) < min_events:
+        w.append(f"only {len(first10)} information events in the first 10 s (target >= {min_events})")
+    c = plan["compositions"]
+    C = c["thresholds"]
+    minutes = max(plan["expected_duration"] / 60.0, 1e-9)
     if c["distinct_first_10s"] < C["first_10s_min"]:
         w.append(f"only {c['distinct_first_10s']} distinct compositions in the first 10 s "
                  f"(target >= {C['first_10s_min']}; new text or overlays on the same view do not count)")
-    lo, hi = C["resets"]
-    if not lo <= c["composition_resets"] <= hi:
-        w.append(f"{c['composition_resets']} composition resets (target about {lo}-{hi})")
+    if long_:
+        rate = c["composition_resets"] / minutes
+        if rate < C["resets_per_min"]:
+            w.append(f"{c['composition_resets']} composition resets = {rate:.1f}/min (target >= {C['resets_per_min']:g}/min)")
+    else:
+        lo, hi = C["resets"]
+        if not lo <= c["composition_resets"] <= hi:
+            w.append(f"{c['composition_resets']} composition resets (target about {lo}-{hi})")
     v = plan.get("novelty")
     if v:
-        N = NOVELTY
+        N = v["thresholds"]
         if v["families_first_10s"] < N["first_10s_min"]:
             w.append(f"only {v['families_first_10s']} visual families in the first 10 s (target >= {N['first_10s_min']}; "
                      "a new view of the same visual idea is not new)")
-        if v["transitions"] < N["transitions_min"]:
+        if long_:
+            rate = v["transitions"] / minutes
+            if rate < N["transitions_per_min"]:
+                w.append(f"{v['transitions']} visual-family transitions = {rate:.1f}/min "
+                         f"(target >= {N['transitions_per_min']:g}/min)")
+        elif v["transitions"] < N["transitions_min"]:
             w.append(f"{v['transitions']} visual-family transitions (target >= {N['transitions_min']})")
         lf = v["longest_family_run"]
         if lf["untransformed"] > N["max_family_s"]:
@@ -575,6 +631,7 @@ class Painter:
                 self.mask[aid] = Image.open(a["src"]).convert("L")
         self.fonts = Fonts()
         self.caption_boxes = {}
+        self.lay = LAYOUTS[plan["profile"]]
 
     # camera ------------------------------------------------------------------------------------
     def box(self, shot, t):
@@ -654,11 +711,11 @@ class Painter:
                 d.rectangle([L - 3, 0, L + 3, self.H], fill=(255, 255, 255, 230))
             elif kind == "wipe_labels":
                 to_id, from_id, xw = L
-                f = self.fonts.get("Black", 84)
-                top = int(self.H * SLOTS["top"])
-                if xw > 260:
+                f = self.fonts.get("Black", self.lay["wipe_font"])
+                top = int(self.H * self.lay["slots"]["top"])
+                if xw > self.lay["wipe_min"]:
                     self._text(d, self.p["assets"][to_id]["label"], f, (min(xw, self.W) // 2, top), (255, 255, 255))
-                if self.W - xw > 260:
+                if self.W - xw > self.lay["wipe_min"]:
                     self._text(d, self.p["assets"][from_id]["label"], f, ((xw + self.W) // 2, top), (255, 255, 255))
             elif kind == "label":
                 self._label(d, L, a)
@@ -675,17 +732,18 @@ class Painter:
                stroke_width=stroke, stroke_fill=(0, 0, 0, int(220 * alpha)))
 
     def _label(self, d, L, a):
-        size, style, color = STYLES[L["style"]]
+        size, style, color = self.lay["styles"][L["style"]]
         col = L["color"] or tuple(int(color[i:i + 2], 16) for i in (1, 3, 5))
-        y = int(self.H * SLOTS[L["slot"]])
+        y = int(self.H * self.lay["slots"][L["slot"]])
         font = self.fonts.get(style, size)
         while d.textlength(L["text"], font=font) > self.W * 0.82 and size > 30:
             size -= 6
             font = self.fonts.get(style, size)
         self._text(d, L["text"], font, (self.W // 2, y), col, a, stroke=max(4, size // 14))
         if L.get("sub"):
-            sz, st, _ = STYLES["sub"]
-            self._text(d, L["sub"], self.fonts.get(st, sz), (self.W // 2, y + size // 2 + 40), (255, 255, 255), a, 5)
+            sz, st, _ = self.lay["styles"]["sub"]
+            self._text(d, L["sub"], self.fonts.get(st, sz), (self.W // 2, y + size // 2 + self.lay["sub_gap"]),
+                       (255, 255, 255), a, self.lay["sub_stroke"])
 
     def _arrow(self, d, p0, p1, L, a):
         col = L["color"] + (int(255 * a),)
@@ -702,11 +760,12 @@ class Painter:
     def _pin(self, d, p, L, a):
         col = L["color"] + (int(255 * a),)
         x, y = p
-        d.ellipse([x - 16, y - 16, x + 16, y + 16], fill=col, outline=(0, 0, 0, int(200 * a)), width=4)
-        font = self.fonts.get("Black", 52)
+        pr, dy = self.lay["pin_r"], self.lay["pin_dy"]
+        d.ellipse([x - pr, y - pr, x + pr, y + pr], fill=col, outline=(0, 0, 0, int(200 * a)), width=4)
+        font = self.fonts.get("Black", self.lay["pin_font"])
         tw = d.textlength(L["text"], font=font)
-        tx = min(max(x, tw / 2 + 70), self.W * (1 - self.safe["right"]) - tw / 2 - 10)
-        ty = y - 70 if y > self.H * 0.3 else y + 70
+        tx = min(max(x, tw / 2 + self.lay["pin_x_min"]), self.W * (1 - self.safe["right"]) - tw / 2 - 10)
+        ty = y - dy if y > self.H * 0.3 else y + dy
         self._text(d, L["text"], font, (int(tx), int(ty)), L["color"], a)
 
     def _caption(self, d, shot, box, t):
@@ -718,24 +777,25 @@ class Painter:
             return
         idx = cue[0]
         src_lines = self._srt_lines(idx)
-        size = CAPTION["size"]
+        CAP = self.lay["caption"]
+        size = CAP["size"]
         font = self.fonts.get("Black", size)
-        while max(d.textlength(l, font=font) for l in src_lines) > CAPTION["max_width"] and size > 40:
+        while max(d.textlength(l, font=font) for l in src_lines) > CAP["max_width"] and size > CAP.get("min_size", 40):
             size -= 4
             font = self.fonts.get("Black", size)
-        band = CAPTION["band_lower"]
+        band = CAP["band_lower"]
         if shot["focus"]:
             g = self.p["grid"]
             x0, y0 = self.to_screen(g.px(shot["focus"][0], shot["focus"][3]), box)
             x1, y1 = self.to_screen(g.px(shot["focus"][2], shot["focus"][1]), box)
-            lh = len(src_lines) * (size + CAPTION["line_gap"])
+            lh = len(src_lines) * (size + CAP["line_gap"])
             cy = self.H * band
             if y0 < cy + lh / 2 and y1 > cy - lh / 2:
-                band = CAPTION["band_upper"]
-        lh = size + CAPTION["line_gap"]
+                band = CAP["band_upper"]
+        lh = size + CAP["line_gap"]
         cy = self.H * band - (len(src_lines) - 1) * lh / 2
         for k, line in enumerate(src_lines):
-            self._text(d, line, font, (self.W // 2, int(cy + k * lh)), (255, 255, 255), 1.0, CAPTION["stroke"])
+            self._text(d, line, font, (self.W // 2, int(cy + k * lh)), (255, 255, 255), 1.0, CAP["stroke"])
         bw = max(d.textlength(l, font=font) for l in src_lines)
         self.caption_boxes.setdefault(idx, {"cue": idx + 1, "band": band,
             "box": [round(self.W / 2 - bw / 2), round(cy - size / 2), round(self.W / 2 + bw / 2),
@@ -757,7 +817,7 @@ class Painter:
         if not seen:
             return
         text = " / ".join(seen)
-        font = self.fonts.get("SemiBold", 30)
+        font = self.fonts.get("SemiBold", self.lay["credit_font"])
         x, y = int(self.W * self.safe["left"]), int(self.H * self.safe["top"]) + 6
         d.text((x, y), text, font=font, fill=(255, 255, 255, 215), stroke_width=3, stroke_fill=(0, 0, 0, 170))
         self.last_credit = text
@@ -779,6 +839,8 @@ def render(plan, out_path, overwrite=False, limits=None):
     duration = n / fps
     max_bytes = limits["max_output_mb"] * 1048576
     painter = Painter(plan)          # fonts and imagery load before any file exists, so a failure here leaves nothing
+    if plan.get("segment_frames"):
+        return _render_segmented(plan, painter, out_path, limits)
     fd, tmp = tempfile.mkstemp(prefix=".render-", suffix=".partial.mp4", dir=os.path.dirname(out_path))
     os.close(fd)
     cmd = ["ffmpeg", "-hide_banner", "-nostdin", "-v", "error", "-y",
@@ -852,6 +914,122 @@ def render(plan, out_path, overwrite=False, limits=None):
             "warnings": plan["warnings"]}
 
 
+def _audio_args(voice, input_index):
+    """The narration chain, identical for one-pass and segmented renders: sample-exact, one constant gain."""
+    if voice:
+        chain = f"[{input_index}:a]aformat=sample_fmts=fltp,"
+        if voice["gain_db"]:
+            chain += f"volume={voice['gain_db']:.2f}dB,"
+        chain += "aresample=48000,aformat=channel_layouts=stereo"
+        if voice["start"] > 0:
+            chain += f",adelay=delays={round(voice['start'] * 48000)}S:all=1"
+        return ["-i", voice["src"]], ["-filter_complex", chain + ",apad[aout]", "-map", "0:v", "-map", "[aout]"]
+    return ["-f", "lavfi", "-i", "anullsrc=r=48000:cl=stereo"], ["-map", "0:v", "-map", f"{input_index}:a"]
+
+
+def _render_segmented(plan, painter, out_path, limits):
+    """Long-form: frames [0, n) are encoded in segments of `segment_frames` (each its own FFmpeg process,
+    starting on a keyframe, identical encoder settings), joined with the concat demuxer without
+    re-encoding, and the narration is muxed once over the whole video. Frame times are global (frame i is
+    always t = i / fps), so captions, shot changes and the audio cannot drift at a boundary."""
+    o, voice, fps = plan["output"], plan["voice"], plan["output"]["fps"]
+    W, H, n = o["width"], o["height"], plan["total_frames"]
+    seg = plan["segment_frames"]
+    duration = n / fps
+    max_bytes = limits["max_output_mb"] * 1048576
+    out_dir = os.path.dirname(out_path)
+    work = tempfile.mkdtemp(prefix=".render-segments-", dir=out_dir)
+    fd, tmp = tempfile.mkstemp(prefix=".render-", suffix=".partial.mp4", dir=out_dir)
+    os.close(fd)
+    shot_credits, segments = {}, []
+    try:
+        for k, a in enumerate(range(0, n, seg)):
+            b = min(n, a + seg)
+            path = os.path.join(work, f"seg{k:04d}.mp4")
+            cmd = ["ffmpeg", "-hide_banner", "-nostdin", "-v", "error", "-y",
+                   "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(fps), "-i", "-",
+                   "-an", "-c:v", "libx264", "-preset", o["preset"], "-crf", str(o["crf"]), "-pix_fmt", "yuv420p",
+                   "-profile:v", "high", "-r", str(fps), "-g", str(fps * 2), "-frames:v", str(b - a),
+                   "-map_metadata", "-1", "-fflags", "+bitexact", "-flags:v", "+bitexact",
+                   "-video_track_timescale", str(fps * 512), "-f", "mp4", path]
+            err = tempfile.TemporaryFile()
+            try:
+                try:
+                    proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=err)
+                except FileNotFoundError:
+                    raise E("ffmpeg is not installed or not on PATH")
+                try:
+                    for i in range(a, b):
+                        t = i / fps
+                        im = painter.frame(t)
+                        sid = next(s["id"] for s in reversed(plan["shots"]) if s["start"] <= t + 1e-9)
+                        shot_credits.setdefault(sid, getattr(painter, "last_credit", None))
+                        proc.stdin.write(im.tobytes())
+                    proc.stdin.close()
+                    rc = proc.wait(timeout=limits["timeout_s"])
+                except BaseException:
+                    proc.kill()
+                    raise
+                if rc != 0:
+                    err.seek(0)
+                    raise E(f"ffmpeg failed on segment {k}: " + err.read().decode(errors="replace").strip()[-600:])
+            finally:
+                err.close()
+            got = int((r.ffprobe_json(path).get("streams") or [{}])[0].get("nb_frames") or 0)
+            if got != b - a:
+                raise E(f"segment {k} has {got} frames, expected {b - a}")
+            segments.append({"index": k, "start_frame": a, "frames": b - a, "start": round(a / fps, 6),
+                             "sha256": r._sha256(path)})
+        listing = os.path.join(work, "segments.txt")
+        with open(listing, "w") as f:
+            for sgm in segments:
+                f.write(f"file 'seg{sgm['index']:04d}.mp4'\n")
+        a_in, a_map = _audio_args(voice, 1)
+        cmd = (["ffmpeg", "-hide_banner", "-nostdin", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", listing]
+               + a_in + a_map +
+               ["-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-t", f"{duration:.6f}",
+                "-map_metadata", "-1", "-fflags", "+bitexact", "-flags:a", "+bitexact",
+                "-movflags", "+faststart", "-fs", str(int(max_bytes)), "-f", "mp4", tmp])
+        res = subprocess.run(cmd, capture_output=True, timeout=limits["timeout_s"])
+        if res.returncode != 0:
+            raise E("ffmpeg failed joining segments: " + res.stderr.decode(errors="replace").strip()[-600:])
+        size = os.path.getsize(tmp)
+        if size >= max_bytes:
+            raise E(f"output reached --max-output-mb {limits['max_output_mb']}; discarded")
+        d = r.ffprobe_json(tmp)
+        got = float((d.get("format") or {}).get("duration") or 0)
+        if abs(got - duration) > max(0.25, 2 / fps):
+            raise E(f"rendered duration {got:.3f}s does not match the plan's {duration:.3f}s")
+        v = [s_ for s_ in d.get("streams") or [] if s_.get("codec_type") == "video"]
+        if not v or int(v[0].get("nb_frames") or 0) != n:
+            raise E(f"joined video has {v[0].get('nb_frames') if v else 0} frames, expected {n}")
+        umask = os.umask(0); os.umask(umask)
+        os.chmod(tmp, 0o666 & ~umask)
+        manifest = _manifest(plan, painter, shot_credits, out_path)
+        manifest["segments"] = segments
+        man_path = out_path[:-4] + ".manifest.json"
+        with open(man_path + ".tmp", "w") as f:
+            json.dump(manifest, f, indent=1, ensure_ascii=False)
+        os.replace(tmp, out_path)
+        os.replace(man_path + ".tmp", man_path)
+    except BaseException:
+        if os.path.exists(tmp):
+            os.remove(tmp)
+        raise
+    finally:
+        for fn in os.listdir(work):
+            os.remove(os.path.join(work, fn))
+        os.rmdir(work)
+    return {"status": "ok", "output": out_path, "manifest": man_path, "bytes": size, "sha256": r._sha256(out_path),
+            "duration": round(got, 3), "expected_duration": plan["expected_duration"], "profile": plan["profile"],
+            "shots": len(plan["shots"]), "segments": len(segments),
+            "info_events_first_10s": sum(1 for e in plan["events"] if e["t"] < 10),
+            "composition_resets": plan["compositions"]["composition_resets"],
+            "distinct_compositions_first_10s": plan["compositions"]["distinct_first_10s"],
+            **({"visual_family_transitions": plan["novelty"]["transitions"]} if plan.get("novelty") else {}),
+            "warnings": plan["warnings"]}
+
+
 def _manifest(plan, painter, shot_credits, out_path):
     return {"schema": "yt-render-manifest/1", "profile": plan["profile"], "output": os.path.basename(out_path),
             "width": plan["output"]["width"], "height": plan["output"]["height"], "fps": plan["output"]["fps"],
@@ -880,6 +1058,8 @@ def public_plan(plan):
             "info_events": plan["events"], "info_events_first_10s": sum(1 for e in plan["events"] if e["t"] < 10),
             "compositions": plan["compositions"],
             **({"visual_novelty": plan["novelty"]} if plan.get("novelty") else {}),
+            **({"segments": -(-plan["total_frames"] // plan["segment_frames"]), "segment_frames": plan["segment_frames"]}
+               if plan.get("segment_frames") else {}),
             "narration": ({k: plan["voice"][k] for k in ("duration", "end", "gain_db", "voice_name")}
                           if plan["voice"] else None),
             "warnings": plan["warnings"]}

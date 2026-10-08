@@ -19,6 +19,10 @@ composition resets and no composition held over 6 s (warn), visual-family novelt
 tags visual_family (>= 3 families in the first 10 s, >= 6 transitions, no family over 10 s unless it is
 transforming - warn only), captions inside the Shorts safe area
 and a source credit on every shot.
+--profile long (16:9 documentary, timeline v3 "long"): 1920x1080 30 fps, 60-900 s (480-720 target, warn),
+black frames, freezes (warn 2.5 s, fail 5 s), loudness, audio within 1 s, captions inside the 16:9 safe
+area, a credit on every shot, composition and visual-family checks as rates (warnings), and for segmented
+renders: the segments tile the video frame-exactly and every segment boundary is a keyframe.
 --contact-sheet out.jpg writes the first frame plus the middle of every shot.
 
 Each check is one function in CHECKS returning {"id", "status", "expected", "actual", "detail"}
@@ -152,14 +156,22 @@ PROFILES = {"short": {"width": 1080, "height": 1920, "fps": 30.0, "min_s": 35.0,
                       "target": (45.0, 55.0), "black_s": 0.1, "freeze_warn": 1.5, "freeze_fail": 2.5,
                       "lufs": (-16.0, -12.0), "first_audio_s": 0.5, "events_first_10s": 5,
                       "compositions_first_10s": 3, "composition_resets": (7, 10), "composition_hold_s": 6.0,
-                      "families_first_10s": 3, "family_transitions": 6, "family_max_s": 10.0}}
+                      "families_first_10s": 3, "family_transitions": 6, "family_max_s": 10.0},
+            # long-form 16:9 documentary (timeline v3 profile "long"): creative checks are rates and warnings
+            "long": {"name": "long", "width": 1920, "height": 1080, "fps": 30.0, "min_s": 60.0, "max_s": 900.0,
+                     "target": (480.0, 720.0), "black_s": 0.1, "freeze_warn": 2.5, "freeze_fail": 5.0,
+                     "lufs": (-16.0, -12.0), "first_audio_s": 1.0, "events_first_10s": 3, "events_warn": True,
+                     "compositions_first_10s": 3, "first10_warn": True, "resets_per_min": 5.0,
+                     "composition_hold_s": 8.0, "families_first_10s": 3, "families_per_min": 2.0,
+                     "family_max_s": 30.0, "safe_name": "16:9 safe area"}}
 
 
 def check_short_duration(ctx):
     P, d = ctx["profile"], _f((ctx["probe"].get("format") or {}).get("duration")) or 0
     lo, hi = P["target"]
-    return [_check("short_duration", P["min_s"] <= d <= P["max_s"], f"{P['min_s']}-{P['max_s']} s", round(d, 3)),
-            _check("short_target_window", lo <= d <= hi, f"{lo}-{hi} s", round(d, 3), warn=True)]
+    name = P.get("name", "short")
+    return [_check(f"{name}_duration", P["min_s"] <= d <= P["max_s"], f"{P['min_s']}-{P['max_s']} s", round(d, 3)),
+            _check(f"{name}_target_window", lo <= d <= hi, f"{lo}-{hi} s", round(d, 3), warn=True)]
 
 
 def _filter_log(ctx, args):
@@ -219,7 +231,8 @@ def check_manifest(ctx):
     P, W, H = ctx["profile"], m.get("width"), m.get("height")
     out = []
     ev = [e for e in m.get("info_events") or [] if e["t"] < 10]
-    out.append(_check("info_events_first_10s", len(ev) >= P["events_first_10s"], f">= {P['events_first_10s']}", len(ev)))
+    out.append(_check("info_events_first_10s", len(ev) >= P["events_first_10s"], f">= {P['events_first_10s']}", len(ev),
+                      warn=P.get("events_warn", False)))
     safe = m.get("safe") or {}
     bad = []
     for c in m.get("caption_boxes") or []:
@@ -227,7 +240,7 @@ def check_manifest(ctx):
         if (y0 < H * safe.get("top", 0) or y1 > H * (1 - safe.get("bottom", 0)) or
                 x1 > W * (1 - safe.get("right", 0)) or x0 < W * safe.get("left", 0)):
             bad.append(c["cue"])
-    out.append(_check("captions_in_safe_zone", not bad, "every caption inside the Shorts safe area",
+    out.append(_check("captions_in_safe_zone", not bad, f"every caption inside the {P.get('safe_name', 'Shorts safe area')}",
                       "ok" if not bad else {"cues": bad}))
     missing = [s["id"] for s in m.get("shots") or [] if not s.get("credit")]
     out.append(_check("shot_credits", not missing, "a source credit on every shot", "ok" if not missing else missing))
@@ -248,13 +261,20 @@ def check_compositions(ctx):
     P = ctx["profile"]
     resets = [x for x in c.get("resets") or [] if isinstance(x, dict) and _f(x.get("t")) is not None]
     first = 1 + sum(1 for x in resets if _f(x["t"]) < 10)
-    lo, hi = P["composition_resets"]
     holds = [x for x in c.get("segments") or [] if isinstance(x, dict) and _f(x.get("static_hold")) is not None]
     worst = max(holds, key=lambda x: _f(x["static_hold"])) if holds else None
+    detail = [f"{x['t']}s {x.get('shot')}: {x.get('kind')}" for x in resets]
     out = [_check("compositions_first_10s", first >= P["compositions_first_10s"],
-                  f">= {P['compositions_first_10s']} distinct compositions", first),
-           _check("composition_resets", lo <= len(resets) <= hi, f"about {lo}-{hi}", len(resets),
-                  [f"{x['t']}s {x.get('shot')}: {x.get('kind')}" for x in resets], warn=True)]
+                  f">= {P['compositions_first_10s']} distinct compositions", first, warn=P.get("first10_warn", False))]
+    if "resets_per_min" in P:
+        minutes = max((_f((m or {}).get("duration")) or 0) / 60.0, 1e-9)
+        rate = round(len(resets) / minutes, 2)
+        out.append(_check("composition_resets", rate >= P["resets_per_min"], f">= {P['resets_per_min']} per minute",
+                          rate, detail, warn=True))
+    else:
+        lo, hi = P["composition_resets"]
+        out.append(_check("composition_resets", lo <= len(resets) <= hi, f"about {lo}-{hi}", len(resets), detail,
+                          warn=True))
     if worst is None:
         out.append(_skip("composition_hold", "no segments in the manifest"))
     else:
@@ -277,23 +297,60 @@ def check_visual_novelty(ctx):
     first = len({x["family"] for x in runs if _f(x["start"]) < 10})
     longest = max(runs, key=lambda x: _f(x.get("untransformed")) or 0)
     held = _f(longest.get("untransformed")) or 0
+    trans = [f"{x['start']}s {x['family']}" for x in runs]
+    if "families_per_min" in P:
+        minutes = max((_f((ctx.get("manifest") or {}).get("duration")) or 0) / 60.0, 1e-9)
+        rate = round((len(runs) - 1) / minutes, 2)
+        tcheck = _check("visual_family_transitions", rate >= P["families_per_min"], f">= {P['families_per_min']} per minute",
+                        rate, trans, warn=True)
+    else:
+        tcheck = _check("visual_family_transitions", len(runs) - 1 >= P["family_transitions"],
+                        f">= {P['family_transitions']}", len(runs) - 1, trans, warn=True)
     return [_check("visual_families_first_10s", first >= P["families_first_10s"], f">= {P['families_first_10s']}", first,
                    warn=True),
-            _check("visual_family_transitions", len(runs) - 1 >= P["family_transitions"], f">= {P['family_transitions']}",
-                   len(runs) - 1, [f"{x['start']}s {x['family']}" for x in runs], warn=True),
+            tcheck,
             _check("visual_family_dominance", held <= P["family_max_s"], f"<= {P['family_max_s']} s of one family "
                    "unless it is transforming", held, f"{longest['family']} {longest.get('start')}-{longest.get('end')} s",
                    warn=True)]
 
 
+def check_segments(ctx):
+    """Segmented long renders: the manifest's segments must tile the video frame-exactly, and every
+    segment boundary must be a keyframe in the joined file (proof the concat did not re-encode or shift)."""
+    m = ctx.get("manifest") or {}
+    segs = m.get("segments")
+    if not segs:
+        return [_skip("segments", "no segments in the manifest (rendered in one pass)")]
+    fps = _f(m.get("fps")) or 30.0
+    total = round((_f(m.get("duration")) or 0) * fps)
+    pos, gaps = 0, []
+    for sgm in segs:
+        if sgm.get("start_frame") != pos:
+            gaps.append(sgm.get("index"))
+        pos = (sgm.get("start_frame") or 0) + (sgm.get("frames") or 0)
+    out = [_check("segments_tile_video", not gaps and pos == total, f"{total} frames, contiguous",
+                  {"frames": pos, "gaps_at": gaps} if gaps or pos != total else pos)]
+    r = _run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-skip_frame", "nokey", "-show_entries",
+              "frame=pts_time", "-of", "csv=p=0", ctx["path"]], ctx["spec"]["timeout"])
+    keys = [_f(x.split(",")[0]) for x in r.stdout.split() if _f(x.split(",")[0]) is not None]
+    missing = [sgm["index"] for sgm in segs
+               if not any(abs(k - sgm["start_frame"] / fps) < 0.5 / fps for k in keys)]
+    out.append(_check("segment_boundaries_keyframes", not missing, "a keyframe at every segment start",
+                      "ok" if not missing else {"segments": missing}))
+    return out
+
+
 SHORT_CHECKS = [check_short_duration, check_black, check_freeze, check_audio, check_manifest, check_compositions,
                 check_visual_novelty]
+LONG_CHECKS = SHORT_CHECKS + [check_segments]
 
 
 def contact_sheet(path, manifest, out, timeout=300):
     """First frame + the middle of every shot, labelled - for the human review step."""
     from PIL import Image, ImageDraw
     times = [(0.0, "first frame")] + [(round((s["start"] + s["end"]) / 2, 2), s["id"]) for s in manifest["shots"]]
+    landscape = (manifest.get("width") or 0) > (manifest.get("height") or 0)
+    size, per_row = ((480, 270), 4) if landscape else ((270, 480), 7)
     tiles = []
     with tempfile.TemporaryDirectory() as tmp:
         for k, (t, name) in enumerate(times):
@@ -301,15 +358,15 @@ def contact_sheet(path, manifest, out, timeout=300):
             r = _run(["ffmpeg", "-v", "error", "-y", "-ss", str(t), "-i", path, "-frames:v", "1", p], timeout)
             if r.returncode != 0 or not os.path.exists(p):
                 raise QCError(f"contact sheet: cannot read a frame at {t}s")
-            tiles.append((Image.open(p).convert("RGB").resize((270, 480)), f"{name}  {t:.1f}s"))
-    cols = min(7, len(tiles))
+            tiles.append((Image.open(p).convert("RGB").resize(size), f"{name}  {t:.1f}s"))
+    cols = min(per_row, len(tiles))
     rows = math.ceil(len(tiles) / cols)
-    sheet = Image.new("RGB", (cols * 270, rows * 510), "black")
+    sheet = Image.new("RGB", (cols * size[0], rows * (size[1] + 30)), "black")
     d = ImageDraw.Draw(sheet)
     for i, (im, label) in enumerate(tiles):
-        x, y = (i % cols) * 270, (i // cols) * 510
+        x, y = (i % cols) * size[0], (i // cols) * (size[1] + 30)
         sheet.paste(im, (x, y))
-        d.text((x + 6, y + 488), label, fill="white")
+        d.text((x + 6, y + size[1] + 8), label, fill="white")
     sheet.save(out, quality=90)
     return out
 
@@ -349,7 +406,7 @@ def run_qc(path, spec=None, expected_duration=None, quick=False, profile=None, m
            "video": videos[0] if len(videos) == 1 else None,
            "audio": audios[0] if len(audios) == 1 else None,
            "expected_duration": expected_duration, "quick": quick, "profile": prof, "manifest": manifest}
-    for fn in CHECKS + (SHORT_CHECKS if prof else []):
+    for fn in CHECKS + ((LONG_CHECKS if prof.get("name") == "long" else SHORT_CHECKS) if prof else []):
         checks += fn(ctx)
     fmt = probe.get("format") or {}
     v, a = ctx["video"] or {}, ctx["audio"] or {}

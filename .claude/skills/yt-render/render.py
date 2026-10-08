@@ -21,7 +21,7 @@ crossfades or hard cuts between them. Optional, in the same timeline:
 Video clips, music, sound effects and generic overlays are still refused explicitly instead of
 being silently dropped. A timeline without the optional keys renders exactly as before.
 
-"version": 3 is a different format - vertical Shorts from geographically aligned imagery - and is
+"version": 3 is a different format - Shorts and 16:9 long-form from geographically aligned imagery - and is
 handled by compose.py (see SKILL.md). Versions 1 and 2 never load it.
 """
 import hashlib, json, math, os, re, shutil, subprocess, sys, tempfile
@@ -682,7 +682,7 @@ def main(argv=None):
         tl = load_timeline(tl_path)
         if isinstance(tl, dict) and tl.get("version") == 3 and not isinstance(tl.get("version"), bool):
             sys.modules.setdefault("render", sys.modules[__name__])   # one RenderError class, script or module
-            import compose      # timeline v3 (vertical Shorts); v1/v2 never load it
+            import compose      # timeline v3 (Shorts and long-form); v1/v2 never load it
             plan = compose.validate(tl, root, limits)
             public, do_render = compose.public_plan, compose.render
         else:
