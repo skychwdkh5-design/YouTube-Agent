@@ -1,4 +1,7 @@
-# EP001 VISUAL LOCK v1 (East Oweinat and Toshka sequences)
+# EP001 VISUAL LOCK v1.1 (East Oweinat and Toshka sequences)
+
+v1.1 (2026-10-08, reviewer decision 5): one concise note on the Toshka January 2011 frame only, `Narration says "by 2012"; this image is from January 2011.` The image date, the label "January 2011", tone B, imagery, crops, zoom, scale bars and the 30 fps standard are unchanged. The sequences are now driven by narration timings (`narration/cues.py fit`): the hold, dissolve and zoom lengths come from the audio, so the delivered 21.7 s and 15.9 s review cuts are the *unfitted* versions. Dissolve length (0.8 s), the transition label and every visual rule below stay fixed.
+
 
 Status: **LOCKED for production** (presentation v2.1, 2026-10-08), pending the reviewer's look at the two 30 fps review videos in `previews/visual_lock/`. Locked means: any change to the items below needs a new QA run and a new entry here. The final 4K render has not been started.
 

@@ -120,9 +120,14 @@ def main(ws):
         out = frames_at(os.path.join(ws, 'dry_nocap.mp4'), [f0 + k + d for k in pick for d in (-1, 0, 1)], 1920, 1080)
         for k in pick:
             ps = {d: psnr(src[k], out[f0 + k + d]) for d in (-1, 0, 1) if out.get(f0 + k + d) is not None and src[k] is not None}
-            best = max(ps, key=ps.get)
-            checks.append({'sequence': name, 'frame': k, 'psnr_same_frame_db': round(ps[0], 2), 'psnr_prev_db': round(ps.get(-1, 0), 2), 'psnr_next_db': round(ps.get(1, 0), 2), 'best_offset': int(best), 'ok': bool(best == 0 and ps[0] > 30)})
-    rep['frame_accuracy'] = {'checked_frames': len(checks), 'all_best_offset_zero': all(c['best_offset'] == 0 for c in checks), 'checks': checks}
+            # static holds make neighbouring frames identical, so inside a hold the offset cannot be told apart (ties are fine);
+            # the boundaries are the proof: frame 0 must NOT look like the frame before the shot, the last frame NOT like the frame after it.
+            tie_ok = ps[0] > 30 and ps[0] >= max(ps.get(-1, 0), ps.get(1, 0)) - 0.1
+            start_ok = None if k != 0 else bool(ps[0] > 30 and ps.get(-1, 0) < 15)
+            end_ok = None if k != n - 1 else bool(ps[0] > 30 and ps.get(1, 0) < 15)
+            checks.append({'sequence': name, 'frame': k, 'psnr_same_frame_db': round(ps[0], 2), 'psnr_prev_db': round(ps.get(-1, 0), 2), 'psnr_next_db': round(ps.get(1, 0), 2),
+                           'ok': bool(tie_ok), **({'first_frame_matches_and_previous_is_other_shot': start_ok} if start_ok is not None else {}), **({'last_frame_matches_and_next_is_other_shot': end_ok} if end_ok is not None else {})})
+    rep['frame_accuracy'] = {'checked_frames': len(checks), 'all_ok': all(c['ok'] for c in checks), 'boundaries_exact': all(c.get('first_frame_matches_and_previous_is_other_shot', True) and c.get('last_frame_matches_and_next_is_other_shot', True) for c in checks), 'method': 'PSNR between the sequence video (scaled to 1080p) and the rendered frame at the expected index and at +-1; boundaries prove the offset', 'checks': checks}
     # 2) with captions: collisions between caption boxes and the sequences' own UI
     tl = timeline(True); json.dump(tl, open(os.path.join(ws, 'timeline.json'), 'w'), indent=1)
     r = sh([sys.executable, RENDER, '--timeline', os.path.join(ws, 'timeline.json'), '--output', os.path.join(ws, 'dry_run_SIMULATED.mp4'), '--confirm', '--overwrite']); res = json.loads(r.stdout); assert res['status'] == 'ok', res
@@ -146,5 +151,5 @@ def main(ws):
     except Exception: rep['yt_qc'] = {'raw': (qc.stdout + qc.stderr)[:400]} if qc else None
     json.dump(tl, open(os.path.join(HERE, 'timeline_dry_run_SIMULATED.json'), 'w'), indent=1)
     json.dump(rep, open(os.path.join(HERE, 'dry_run_report.json'), 'w'), indent=1, default=lambda o: bool(o) if isinstance(o, np.bool_) else float(o))
-    print(json.dumps({k: rep[k] for k in ('SIMULATED', 'shots', 'render', 'caption_collisions')}, indent=1)); print('frame accuracy', rep['frame_accuracy']['checked_frames'], rep['frame_accuracy']['all_best_offset_zero'])
+    print(json.dumps({k: rep[k] for k in ('SIMULATED', 'shots', 'render', 'caption_collisions')}, indent=1)); print('frame accuracy', rep['frame_accuracy']['checked_frames'], rep['frame_accuracy']['all_ok'], rep['frame_accuracy']['boundaries_exact'])
 if __name__ == '__main__': main(sys.argv[1])
