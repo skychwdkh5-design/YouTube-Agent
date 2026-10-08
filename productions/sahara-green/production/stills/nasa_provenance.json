@@ -1,0 +1,9 @@
+{"schema": "ep001-nasa-provenance/1",
+ "svs3539": {"title": "Blue Marble Next Generation images from Terra/MODIS", "file": "africa.0700.jpg", "source_url": "https://svs.gsfc.nasa.gov/3539",
+   "credit": "NASA Goddard Space Flight Center Scientific Visualization Studio; Blue Marble data: Reto Stockli, NASA Earth Observatory", "image_date": "2004 (monthly composites)", "released": "2008-08-29",
+   "license": "NASA media usage guidelines: public domain unless noted; credit NASA", "license_url": "https://svs.gsfc.nasa.gov/help/", "retrieved": "2026-10-08"},
+ "svs4362": {"title": "Dust in the Wind (CALIPSO)", "file": "SaharanDust_1080p_60fps.webm", "source_url": "https://svs.gsfc.nasa.gov/4362",
+   "credit": "NASA Goddard Space Flight Center Scientific Visualization Studio; visualizer Kel Elkins (USRA); CALIPSO data", "released": "2015-09-28", "image_date": "CALIPSO 2010 and 2007-2013 averages",
+   "license": "NASA media usage guidelines: public domain unless noted; credit NASA", "license_url": "https://svs.gsfc.nasa.gov/help/", "retrieved": "2026-10-08",
+   "derived": "calipso_dust_30fps.mp4: ffmpeg fps=30 (60 fps exact decimation, no retiming), libx264 crf 12, 1920x1080, 3127 frames, duration 104.233 s (source 104.25 s)",
+   "note": "the video's own end card shows 27.6 million tons settling on the Amazon basin; the narration and ledger S5 say about 28 million (SVS 11775: 27.7)"}}

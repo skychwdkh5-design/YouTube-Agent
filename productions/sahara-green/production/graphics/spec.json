@@ -776,7 +776,7 @@
      "w": 0.22,
      "h": 0.3,
      "style": "blue",
-     "step": 2
+     "step": 3
     },
     {
      "id": "c",
@@ -786,7 +786,7 @@
      "w": 0.22,
      "h": 0.3,
      "style": "default",
-     "step": 3
+     "step": 4
     },
     {
      "id": "d",
@@ -796,19 +796,19 @@
      "w": 0.34,
      "h": 0.24,
      "style": "accent",
-     "step": 4
+     "step": 2
     }
    ],
    "arrows": [
     {
      "from": "a",
      "to": "b",
-     "step": 2
+     "step": 3
     },
     {
      "from": "b",
      "to": "c",
-     "step": 3
+     "step": 4
     },
     {
      "from": "c",
@@ -821,14 +821,14 @@
      "text": "Most around the Caribbean and the southeastern US; some ocean regions: fewer",
      "x": 0.28,
      "y": 0.72,
-     "step": 4,
+     "step": 2,
      "size": 28
     },
     {
      "text": "Too few paleostorm records to check it",
      "x": 0.28,
      "y": 0.92,
-     "step": 4,
+     "step": 5,
      "size": 28
     }
    ]

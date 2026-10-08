@@ -204,6 +204,26 @@ def to_states_from_schedule(sched, fps):
             if tt + 1 / fps >= st['end'] - 1e-9: cur = y
         else: out.append(((cur, None), 0))
     return out
+def eo_states_custom(spec, fps):
+    """Extra East Oweinat shots (scenes 6, 22, 35). Same frames, tone, viewport and 3 percent push-in as the locked sequence; only the order of states differs.
+    spec: {"dur": s, "kind": "dissolve" | "close", "t_d0": s, "dissolve_s": s, "z_to": 0..1, "z_from": 0..1}
+      dissolve: 1984 hold (push-in 0 -> PUSH_MAX over the hold), dissolve to 2024, then a slow zoom toward the circles from z_from=0 to z_to
+      close:    2024 only, close-up pulling back slowly from z_from (default 1.0) to z_to"""
+    n = int(round(spec['dur'] * fps)); out = []
+    for i in range(n):
+        tt = i / fps
+        if spec['kind'] == 'close':
+            u = i / max(n - 1, 1); z = spec.get('z_from', 1.0) + (spec['z_to'] - spec.get('z_from', 1.0)) * u
+            out.append((('2024', None), 0, z, max(0, 1 - z * 5), z > 0.95, PUSH_MAX)); continue
+        t0, t1 = spec['t_d0'], spec['t_d0'] + spec['dissolve_s']
+        if tt + 1e-9 < t0:
+            out.append((('1984', None), 0, 0, 1, False, PUSH_MAX * min(1.0, tt / max(t0, 1e-6))))
+        elif tt + 1e-9 < t1:
+            out.append((('1984', '2024'), _alpha(tt, t0, t1, fps), 0, 1, False, PUSH_MAX))
+        else:
+            u = (tt - t1) / max(spec['dur'] - t1 - 1 / fps, 1e-6); z = spec.get('z_from', 0.0) + (spec['z_to'] - spec.get('z_from', 0.0)) * min(1.0, u)
+            out.append((('2024', None), 0, z, max(0, 1 - z * 5), z > 0.95, PUSH_MAX))
+    return out
 if __name__ == '__main__':
     what = sys.argv[1]; sc = float(sys.argv[2]) if len(sys.argv) > 2 else 2 / 3; out = sys.argv[3] if len(sys.argv) > 3 else None; fps = int(sys.argv[4]) if len(sys.argv) > 4 else FPS
     CW, CH = int(1920 * sc), int(1080 * sc)
@@ -216,3 +236,5 @@ if __name__ == '__main__':
         e = EO(); tgt = e.target(); sched = json.load(open(sys.argv[5])); print(encode((e.frame(sc, y, a, z, tgt, ta, nt, push=pu)[0] for (y, a, z, ta, nt, pu) in eo_states_from_schedule(sched, fps)), out, CW, CH, fps), 'frames')
     elif what == 'to-sched':
         t = TO(); sched = json.load(open(sys.argv[5])); print(encode((t.frame(sc, y, a, clarify=True)[0] for (y, a) in to_states_from_schedule(sched, fps)), out, CW, CH, fps), 'frames')
+    elif what == 'eo-custom':
+        e = EO(); tgt = e.target(); spec = json.load(open(sys.argv[5])); print(encode((e.frame(sc, y, a, z, tgt, ta, nt, push=pu)[0] for (y, a, z, ta, nt, pu) in eo_states_custom(spec, fps)), out, CW, CH, fps), 'frames')

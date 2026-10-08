@@ -28,6 +28,7 @@ res['changed_files_since_baseline'] = changed
 res['intentional_changes_since_baseline'] = [
     {'file': 'productions/sahara-green/visuals/scripts/render.py', 'change': 'visual lock v1.2: 1984 hold push-in (<= 3 percent) and schedule-driven sequences; imagery, tone B, crops, dates, zoom target and zoom window unchanged'},
     {'file': 'productions/sahara-green/visuals/VISUAL_LOCK.md', 'change': 'documents v1.2'},
+    {'file': 'productions/sahara-green/visuals/scripts/render.py', 'change': 'visual lock v1.3 (additive): eo-custom mode for scenes 6, 22, 35 reusing the locked frames, tone, viewport, push-in and zoom window'},
     {'file': 'productions/sahara-green/narration/cues.py', 'change': 'scene 19 shift capped at 2.2 s and reported (reviewer decision 4)'}]
 res['render_py_sha256'] = sha(P('visuals', 'scripts', 'render.py')); res['render_py_sha256_in_visual_lock_hashes_v1'] = vh.get('render.py')
 res['ALL_LOCKS_OK'] = res['locks']['SCRIPT_LOCK_v1.1']['match'] and not res['locks']['SCRIPT_LOCK_v1.1']['script_md_changed_since_baseline'] and res['locks']['narration_text']['match'] and res['locks']['imagery_tone_B_frames']['all_match'] is not False and not res['protected_paths_changed_since_baseline']
