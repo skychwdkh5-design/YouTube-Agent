@@ -28,3 +28,14 @@ Used by `../poc_c1.py`. No OpenCV, scipy, geodata or network. Run from the repo 
 
 ## Conventions
 Source-pixel coordinates are in PIL box (edge) convention. Every annotation is defined in the pixel space of the image it sits on, so it moves with the camera. Cue times come from word index / 2.42 words per second of the locked narration until yt-voice word timings exist. Output is deterministic and video-only; yt-render can take it as a `video` asset.
+
+## v2 additions (motionlib.py, used by ../poc_c1_v2.py)
+| component | function | notes |
+|---|---|---|
+| continuous camera | `SplineCam` | monotone cubic (PCHIP) per channel through keys (t, cx, cy, crop height): velocity is continuous, no overshoot, rest only at the first and last key and at true turning points; log-space zoom; allows up to 15 % overscan |
+| image paste with honest edges | `paste_image` | pastes the part of the image inside the view; if the view runs past the image the edge is feathered, never extended |
+| motion blur on fast travel | `SplineCam.speed` plus sub-frame blending in the scene file | 2-11 samples at a 0.4-frame shutter only while the camera moves quickly; overlays stay sharp |
+| selective markers | `brackets`, `crosshair` | for groups or points where individual outlines are not readable |
+| title plate | `title_plate` | large title on a translucent plate with accent bar |
+| collision registry | `UIREG`, `ui_reset`, scene `--ui-check` | every text or plate registers its rectangle; the check samples the timeline every 0.1 s and reports overlaps and safe-margin breaches |
+| display rotation | scene file (`rot`, `rot1`) | the source can be shown rotated 90 degrees so a coast runs left to right; outlines and anchors are rotated with it and the on-screen note says so |
