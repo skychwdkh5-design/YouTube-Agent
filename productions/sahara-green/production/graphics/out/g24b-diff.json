@@ -15,9 +15,9 @@
   "g24b-diff.png"
  ],
  "sha256": {
-  "g24b-diff.step1.png": "f2ab2ec1d42b724e564b3bdfeefa6be1629cc0ac92e33fca0301a1bc55619bf4",
-  "g24b-diff.step2.png": "55867d667613a86d5f00e5c86c70ad191462282bb8ea1ee35f4be18bc9018963",
-  "g24b-diff.png": "b26ba3e1d6d83e0428c4e0d5ccaa76eddd3bf8a5f390006904e0077e4b2d1092"
+  "g24b-diff.step1.png": "9ae36d5b6c435d32cbab25e2a16f134f03bca9d38a18aa8f64a95c1e8f5f8571",
+  "g24b-diff.step2.png": "ff5c0300ced88a0be7d191bcc6048c0ca4bdd2ed402fc39bd263d8a5684e29f3",
+  "g24b-diff.png": "14e91faa6b5cf639ddfc264ff22e8a7a9281926d8591cc58aaa107c702b0c72b"
  },
  "safe_area": {
   "top": 0.07,
@@ -40,12 +40,12 @@
   },
   {
    "where": "source",
-   "text": "Source: Ornstein et al. 2009 (section 3.1); Kemena et al.",
+   "text": "Source: Ornstein et al. 2009 (section 3.1); Kemena et al. · Imagery: NASA Blue Marble (SVS 3539)",
    "size": 24,
    "box": [
     96.0,
     768.8,
-    738.0,
+    1218.5,
     797.6
    ]
   },
@@ -82,5 +82,11 @@
     654.1
    ]
   }
- ]
+ ],
+ "backdrop": {
+  "path": "backdrops/africa_backdrop.jpg",
+  "sha256": "e6e84a195ae0fc0bed22bf6f2fecf3e19e04ac56047ac850279196cc39173063",
+  "credit": "NASA Blue Marble (SVS 3539)",
+  "scrim": 0.62
+ }
 }

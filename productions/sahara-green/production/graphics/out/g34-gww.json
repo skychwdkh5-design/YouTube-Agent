@@ -2,7 +2,7 @@
  "schema": "yt-graphics/1",
  "id": "g34-gww",
  "type": "diagram",
- "style": "documentary_light",
+ "style": "documentary_dark",
  "size": [
   1920,
   1080
@@ -22,16 +22,16 @@
   "g34-gww.png"
  ],
  "sha256": {
-  "g34-gww.step1.png": "73c77dbbbb44bbec5ae7c08e2989b8da94f1ba277ca8cbb480e24614a64c7bb3",
-  "g34-gww.step2.png": "0fa6c4fc1e66730a859d0c81a55296136dd3ebc1489912b69f61210a00bd0597",
-  "g34-gww.step3.png": "4dd4ead090e7e83a835d54fc713e9150faad5cb6978afebe4618f33b5befc22a",
-  "g34-gww.step4.png": "992db3314f06f2f883700d4d79bbdc6b14824d36b8e61a0ca1358e3ec17a413a",
-  "g34-gww.step5.png": "97e16c1436bad4b987d9d53978a41175330ffb97876dc352b8a24ccc04dcbbbe",
-  "g34-gww.step6.png": "136ad63ef5ce45387c38e2269eeea563b509d8dabfc9d5a7f43a6c098dd2dbe6",
-  "g34-gww.step7.png": "bead637f18fdd9b3b41f0c402780ac2307dcb7470ba2c171bb0050f7db7a042d",
-  "g34-gww.step8.png": "9481789c766130740901e074b824471bb65ef54908eb7acdc6504bd54b8793ab",
-  "g34-gww.step9.png": "61505bd47879d3a64495f35e1dd33eb8c99e50b1291b121f3824ba7f99a98e46",
-  "g34-gww.png": "35ad7e65d4c44698b3043c94ed5a71441a233ea4fee62068eba2fbddcf3e9f3a"
+  "g34-gww.step1.png": "78b271cbc5643ac6fbaaf64beb8c8b5341d743668b36751dad17c1de805fdf9b",
+  "g34-gww.step2.png": "6b87852d117c1a5fd5facbbc95df50fb1aebf9ed6d09a3dd2fb9e92e13ec204e",
+  "g34-gww.step3.png": "cfa6e78f1f5c8e21e34be158a48f3aff7f70b06d55c313a8a9437f73d0858e1d",
+  "g34-gww.step4.png": "c36c79e06c34dce3de1e3b6b911cb719a9b8a651896bca10ac587c2b60a73cc9",
+  "g34-gww.step5.png": "85047ea8cc234890f197fd53f6dfeb61c3c4e2c710dd7adb45d2b584930ec6e4",
+  "g34-gww.step6.png": "022ae14151d9f38bc983dc9d9e0410e79033fb16850200acf6bbc25ebf6e5f13",
+  "g34-gww.step7.png": "4a431bea761ed85cbdd0c5f104c420e30f41073b64f1edb5a2fb5e8ac674464e",
+  "g34-gww.step8.png": "f12de81f0547f28621ce43a1beaa9a0940648fc7b89539f25f83414095180daf",
+  "g34-gww.step9.png": "f12de81f0547f28621ce43a1beaa9a0940648fc7b89539f25f83414095180daf",
+  "g34-gww.png": "839bb6d8694c8a0036d08d0d3ee5d029749e57c568877cefc51690b7855b0c54"
  },
  "safe_area": {
   "top": 0.07,
@@ -65,12 +65,12 @@
   },
   {
    "where": "source",
-   "text": "Source: UNCCD, The Great Green Wall: Implementation Status and Way Ahead to 2030 (2020)",
+   "text": "Source: UNCCD, The Great Green Wall: Implementation Status and Way Ahead to 2030 (2020) · Imagery: NASA Blue Marble (SVS 3539)",
    "size": 24,
    "box": [
     96.0,
     768.8,
-    1183.5,
+    1664.5,
     797.6
    ]
   },
@@ -162,5 +162,11 @@
     513.2
    ]
   }
- ]
+ ],
+ "backdrop": {
+  "path": "backdrops/sahel_backdrop.jpg",
+  "sha256": "fea4a8bf4627d78c1df22de8a46003fa1fc9da2c96e0e20a92d63203f24c5c09",
+  "credit": "NASA Blue Marble (SVS 3539)",
+  "scrim": 0.62
+ }
 }

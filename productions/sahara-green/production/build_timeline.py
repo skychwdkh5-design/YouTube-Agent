@@ -27,7 +27,8 @@ def S(i): return q(PLAN[i]['start'])
 def E(i): return q(PLAN[i]['end'])
 CRED = {'landsat9': 'Landsat 9 · USGS', 'landsat8': 'Landsat 8 · USGS', 'nasa_bm': 'NASA Earth Observatory · Blue Marble', 'nasa_calipso': 'NASA Goddard SVS · CALIPSO dust (Dust in the Wind)',
         'gfx': 'Original graphic · sources on the image'}
-GFX_DIR = os.path.join(HERE, 'graphics', 'out'); ST_DIR = os.path.join(HERE, 'stills')
+GFX_DIR = os.path.join(HERE, 'graphics', 'out'); GFX_REV = os.path.join(HERE, 'graphics', 'out_revision'); ST_DIR = os.path.join(HERE, 'stills')
+FINAL = os.environ.get('EP001_FINAL') == '1'            # final cut: approved revised opening and proposal, backdrop graphics, normalised narration
 def main(ws):
     seq = json.load(open(os.path.join(ws, 'sequences.json')))
     assets, shots = {}, []
@@ -54,10 +55,11 @@ def main(ws):
     assets['calipso'] = {'src': 'calipso_dust_30fps.mp4', 'kind': 'video', 'credit': CRED['nasa_calipso']}
     gfx_steps = {}
     def graphic(gid):
-        j = json.load(open(os.path.join(GFX_DIR, gid + '.json'))); files = j['steps'] if isinstance(j.get('steps'), list) else [gid + '.png']
+        gdir = GFX_REV if os.path.exists(os.path.join(GFX_REV, gid + '.json')) else GFX_DIR
+        j = json.load(open(os.path.join(gdir, gid + '.json'))); files = j['steps'] if isinstance(j.get('steps'), list) else [gid + '.png']
         ids = []
         for n, f in enumerate(files, 1):
-            aid = f'{gid}_{n}'; assets[aid] = {'src': put(os.path.join(GFX_DIR, f), f), 'kind': 'graphic', 'credit': CRED['gfx'], 'group': gid}; ids.append(aid)
+            aid = f'{gid}_{n}'; assets[aid] = {'src': put(os.path.join(gdir, f), f), 'kind': 'graphic', 'credit': CRED['gfx'], 'group': gid}; ids.append(aid)
         gfx_steps[gid] = ids; return ids
     def gshot(sid, beat, start, gid, times):
         ids = graphic(gid); assert len(times) == len(ids), (gid, len(times), len(ids))
@@ -73,8 +75,8 @@ def main(ws):
         iw, ih = SIZES[asset]; w = min(w, 0.99, 0.99 * ih * 16 / 9 / iw); bw = w * iw; bh = bw * 9 / 16
         cx = min(max(c[0], bw / 2 / iw + 1e-4), 1 - bw / 2 / iw - 1e-4); cy = min(max(c[1], bh / 2 / ih + 1e-4), 1 - bh / 2 / ih - 1e-4)
         return {'center': [round(cx, 5), round(cy, 5)], 'width': round(w, 5)}
-    def sshot(sid, beat, start, asset, v0, v1, labels=(), ease='in_out'):
-        L = [{'type': 'still', 'asset': asset, 'view': {'from': vw(*v0, asset), 'to': vw(*v1, asset), 'ease': ease}}]
+    def sshot(sid, beat, start, asset, v0, v1, labels=(), ease='in_out', scrim=0.0):
+        L = [{'type': 'still', 'asset': asset, 'view': {'from': vw(*v0, asset), 'to': vw(*v1, asset), 'ease': ease}, **({'scrim': scrim} if scrim else {})}]
         for lab in labels:
             d = {'type': 'label', 'text': lab['text'], 'style': lab.get('style', 'tag'), 'slot': lab.get('slot', 'upper'), 't': [round(q(lab['t0']) - start, 4), round(q(lab['t1']) - start, 4)]}
             if lab.get('sub'): d['sub'] = lab['sub']
@@ -90,11 +92,19 @@ def main(ws):
         shots.append({'id': sid, 'beat': beat, 'start': start, 'layers': L})
     CAP_EO = {'band': 0.76, 'center_x': 0.667, 'max_width': 1100}; CAP_TO = {'band': 0.76}
     # --- scenes -----------------------------------------------------------------------------------------------------------------------
-    sshot('s01', 'scene 1', 0.0, 'tassili', ((0.5, 0.5), 0.80), ((0.5, 0.5), 0.72))
-    gshot('s02', 'scene 2', S('2'), 'g02-230', [S('2'), at('geological', S('2')), at('than 230', S('2'))])
-    sshot('s03', 'scene 3', S('3'), 'bodele', ((0.5, 0.5), 0.96), ((0.5, 0.5), 0.84), [{'text': 'THOUSANDS OF MILES AWAY', 't0': at('thousands of miles'), 't1': E('3')}])
+    if FINAL:
+        sshot('s01', 'scene 1 (hook: the planet)', 0.0, 'bluemarble', ((0.5, 0.5), 0.99), ((0.42, 0.56), 0.74))
+        gshot('s02', 'scene 2', S('2'), 'r02-230', [S('2'), at('geological', S('2')), at('than 230', S('2'))])
+    else:
+        sshot('s01', 'scene 1', 0.0, 'tassili', ((0.5, 0.5), 0.80), ((0.5, 0.5), 0.72))
+        gshot('s02', 'scene 2', S('2'), 'g02-230', [S('2'), at('geological', S('2')), at('than 230', S('2'))])
+    if FINAL:
+        sshot('s03', 'scene 3', S('3'), 'bodele', ((0.30, 0.28), 0.55), ((0.45, 0.30), 0.42), [{'text': 'THOUSANDS OF MILES AWAY', 't0': at('thousands of miles'), 't1': E('3')}, {'text': 'BODÉLÉ DEPRESSION, CHAD', 'sub': "ONE OF THE WORLD'S BIGGEST DUST SOURCES", 'slot': 'middle', 't0': at("part that's"), 't1': E('3')}], scrim=0.62)
+    else:
+        sshot('s03', 'scene 3', S('3'), 'bodele', ((0.5, 0.5), 0.96), ((0.5, 0.5), 0.84), [{'text': 'THOUSANDS OF MILES AWAY', 't0': at('thousands of miles'), 't1': E('3')}])
     sshot('s04', 'scene 4', S('4'), 'bluemarble', ((0.5, 0.5), 0.90), ((0.36, 0.62), 0.62), [{'text': "WORLD'S LARGEST NON-POLAR DESERT", 't0': at("world's largest"), 't1': E('4')}])
-    gshot('s05', 'scene 5', S('5'), 'g05-rain', [S('5'), at('tens of', S('5'))])
+    if FINAL: gshot('s05', 'scene 5', S('5'), 'r05-rain', [S('5'), at('few inches', S('5')), at('tens of', S('5'))])
+    else: gshot('s05', 'scene 5', S('5'), 'g05-rain', [S('5'), at('tens of', S('5'))])
     vshot('s06', 'scene 6', seq['s6']['start'], 'seq_s6', CAP_EO)
     t7 = S('7'); gshot('s07', 'scene 7', t7, 'g07-timeline', [t7, at('11,000', t7), at('grassland', t7), at('dotted', t7), at('other records', t7), at('a few thousand', t7), at('not a jungle', t7)])
     t8 = S('8')
@@ -129,8 +139,16 @@ def main(ws):
     vshot('s21', 'scene 21', seq['toshka']['start'], 'seq_toshka', CAP_TO)
     vshot('s22', 'scene 22', seq['s22']['start'], 'seq_s22', CAP_EO)
     t23 = S('23')
-    steps23 = [t23, at('outback', t23), at('watered with', t23), at('desalinated', t23), at('seawater', t23), at('about as much carbon', t23), at('that estimate', t23), at('calculations', t23), at('not from a climate', t23), at('carbon removal', t23), at('stop gaining', t23)]
-    gshot('s23', 'scene 23', t23, 'g23-proposal', steps23)
+    if FINAL:
+        p2 = q(at('watered with', t23) - 0.3); p3 = at('by their estimate', t23); p4 = at('that estimate', t23); p5 = at("and it wasn't", t23)
+        gshot('s23a', 'scene 23a', t23, 'r23a-sites', [t23, at('going much', t23), at('forests of', t23), at('across the sahara', t23), at('australian outback', t23)])
+        gshot('s23b', 'scene 23b', p2, 'r23b-mechanism', [p2, at('watered with', t23), at('desalinated', t23), at('seawater', t23)])
+        gshot('s23c', 'scene 23c', p3, 'r23c-carbon', [p3, at('take up', t23), at('as much carbon', t23), at("world's fossil", t23)])
+        gshot('s23d', 'scene 23d', p4, 'r23d-estimate', [p4, at('plantation data', t23), at('calculations with', t23), at('not from a climate', t23)])
+        gshot('s23e', 'scene 23e', p5, 'r23e-century', [p5, at('stop gaining', t23), at('the authors themselves', t23)])
+    else:
+        steps23 = [t23, at('outback', t23), at('watered with', t23), at('desalinated', t23), at('seawater', t23), at('about as much carbon', t23), at('that estimate', t23), at('calculations', t23), at('not from a climate', t23), at('carbon removal', t23), at('stop gaining', t23)]
+        gshot('s23', 'scene 23', t23, 'g23-proposal', steps23)
     gshot('s24', 'scene 24', S('24'), 'g24-trillion', [S('24')])
     t24b = S('24b'); gshot('s24b1', 'scene 24b', t24b, 'g24b-1000', [t24b, at('rainfall rose', t24b), at('more than 1,000', t24b), at('over roughly', t24b)])
     t24c = at('a later team', t24b); gshot('s24b2', 'scene 24b', t24c, 'g24b-267', [t24c, at('across the whole', t24c), at('rose by about', t24c), at('cooled by', t24c)])
@@ -159,14 +177,20 @@ def main(ws):
     assert starts[0] == 0
     # --- narration, captions, timeline ------------------------------------------------------------------------------------------------
     put(os.path.join(NAR, 'voice', 'narration.wav'), 'narration.wav'); put(os.path.join(NAR, 'voice', 'narration.voice.json'), 'narration.voice.json')
+    if FINAL:                                   # mastered narration: the locked WAV with one constant gain (+1.03 dB) and a transparent peak limiter (audio_normalization_test.py); words and timing unchanged
+        nw = os.path.join(ws, 'narration_norm16.wav'); shutil.copyfile(os.environ['EP001_NORM_WAV'], nw)
+        import hashlib
+        m = json.load(open(os.path.join(NAR, 'voice', 'narration.voice.json'))); m['audio'] = 'narration_norm16.wav'; m['audio_sha256'] = hashlib.sha256(open(nw, 'rb').read()).hexdigest()
+        m['mastering'] = {'source_sha256': '49e53528cd445a75a71c819c71d542b2f84d8c3898eff34c2a6c9fc7ee7245e2', 'gain_db': 1.03, 'limiter_ceiling_dbfs': -1.8, 'target_lufs': -16.0}
+        json.dump(m, open(os.path.join(ws, 'narration_norm16.voice.json'), 'w'), indent=1, ensure_ascii=False)
     os.makedirs(os.path.join(ws, 'captions'), exist_ok=True)
     for f in ('captions.srt',): shutil.copyfile(os.path.join(NAR, 'captions', f), os.path.join(ws, 'captions', f))
     json.dump({'schema': 'yt-geo-stack/1', 'epsg': 32635, 'x0': 600000.0, 'y_top': 2600000.0, 'pixel_m': 30.0, 'width': 100, 'height': 100}, open(os.path.join(ws, 'grid.json'), 'w'))
     dur = json.load(open(os.path.join(NAR, 'voice', 'narration.voice.json')))['duration']
     tl = {'version': 3, 'profile': 'long', 'grid': 'grid.json', 'assets': assets, 'shots': shots,
-          'voice': {'src': 'narration.wav', 'meta': 'narration.voice.json'}, 'captions': {'src': 'captions/captions.srt', 'preset': 'default'},
+          'voice': ({'src': 'narration_norm16.wav', 'meta': 'narration_norm16.voice.json', 'normalize': False} if FINAL else {'src': 'narration.wav', 'meta': 'narration.voice.json'}), 'captions': {'src': 'captions/captions.srt', 'preset': 'default'},
           'end': {'seconds': round(q(dur + 0.02) , 4)}, 'render': {'segment_s': 60},
           'meta': {'episode': 'EP001', 'title': 'What If We Turned the Sahara Desert Green?', 'review_master': True}}
-    json.dump(tl, open(os.path.join(ws, 'timeline.json'), 'w'), indent=1, ensure_ascii=False)
+    json.dump(tl, open(os.path.join(ws, 'timeline_final.json' if FINAL else 'timeline.json'), 'w'), indent=1, ensure_ascii=False)
     print(len(shots), 'shots,', len(assets), 'assets, end', tl['end'])
 if __name__ == '__main__': main(sys.argv[1])

@@ -575,14 +575,19 @@
   {
    "type": "callout",
    "id": "g24b-1000",
-   "style": "documentary_light",
+   "style": "documentary_dark",
    "source": "Ornstein et al. 2009, section 3.1 (p.418)",
    "title": "2009 simulation: one model (GISS ModelE)",
    "value": 1000,
    "unit": "mm/yr +",
    "label": "More than 1,000 mm of rain a year (about 40 in)",
    "context": "Over roughly half of the irrigated Sahara; the authors asked other models to check it",
-   "build": true
+   "build": true,
+   "backdrop": {
+    "src": "backdrops/africa_backdrop.jpg",
+    "credit": "NASA Blue Marble (SVS 3539)",
+    "scrim": 0.62
+   }
   },
   {
    "type": "diagram",
@@ -694,14 +699,19 @@
   {
    "type": "callout",
    "id": "g24b-267",
-   "style": "documentary_light",
+   "style": "documentary_dark",
    "source": "Kemena et al., Climate Dynamics (manuscript 2017; journal version 2018)",
    "title": "A later simulation: a different model (CESM-WACCM)",
    "value": 267,
    "unit": "mm/yr",
    "label": "Whole-Sahara average increase in rain (about 10 in)",
    "context": "Surface air about 6.3 °C cooler (about 11 °F). The authors call the rain increase weak",
-   "build": true
+   "build": true,
+   "backdrop": {
+    "src": "backdrops/africa_backdrop.jpg",
+    "credit": "NASA Blue Marble (SVS 3539)",
+    "scrim": 0.62
+   }
   },
   {
    "type": "diagram",
@@ -739,12 +749,17 @@
      "size": 36,
      "step": 3
     }
-   ]
+   ],
+   "backdrop": {
+    "src": "backdrops/africa_backdrop.jpg",
+    "credit": "NASA Blue Marble (SVS 3539)",
+    "scrim": 0.62
+   }
   },
   {
    "type": "diagram",
    "id": "g25-budget",
-   "style": "documentary_light",
+   "style": "documentary_dark",
    "source": "Kemena et al., Climate Dynamics (manuscript 2017; journal version 2018)",
    "title": "Water budget of the model forest",
    "subtitle": "Millimeters per year, Sahara average of a 30-year simulation",
@@ -814,7 +829,12 @@
       7
      ]
     }
-   ]
+   ],
+   "backdrop": {
+    "src": "backdrops/sahel_backdrop.jpg",
+    "credit": "NASA Blue Marble (SVS 3539)",
+    "scrim": 0.62
+   }
   },
   {
    "type": "diagram",
@@ -859,7 +879,12 @@
      "y": 0.8,
      "size": 44
     }
-   ]
+   ],
+   "backdrop": {
+    "src": "backdrops/sahel_backdrop.jpg",
+    "credit": "NASA Blue Marble (SVS 3539)",
+    "scrim": 0.62
+   }
   },
   {
    "type": "diagram",
@@ -954,12 +979,17 @@
       15
      ]
     }
-   ]
+   ],
+   "backdrop": {
+    "src": "backdrops/sahel_backdrop.jpg",
+    "credit": "NASA Blue Marble (SVS 3539)",
+    "scrim": 0.62
+   }
   },
   {
    "type": "diagram",
    "id": "g33-sahel",
-   "style": "documentary_light",
+   "style": "documentary_dark",
    "source": "NASA Earth Observatory, \"Defining Desertification\"; UNCCD 2020; Davies, UNCCD 2017",
    "title": "The Sahel",
    "subtitle": "Satellite records and reported figures",
@@ -1020,7 +1050,12 @@
      "step": 12,
      "size": 26
     }
-   ]
+   ],
+   "backdrop": {
+    "src": "backdrops/sahel_backdrop.jpg",
+    "credit": "NASA Blue Marble (SVS 3539)",
+    "scrim": 0.62
+   }
   },
   {
    "type": "diagram",
@@ -1061,7 +1096,7 @@
   {
    "type": "diagram",
    "id": "g34-gww",
-   "style": "documentary_light",
+   "style": "documentary_dark",
    "source": "UNCCD, The Great Green Wall: Implementation Status and Way Ahead to 2030 (2020)",
    "title": "Great Green Wall: two targets, one preliminary count",
    "subtitle": "Million hectares; the bars are never combined",
@@ -1145,7 +1180,12 @@
      "step": 10,
      "size": 28
     }
-   ]
+   ],
+   "backdrop": {
+    "src": "backdrops/sahel_backdrop.jpg",
+    "credit": "NASA Blue Marble (SVS 3539)",
+    "scrim": 0.62
+   }
   }
  ]
 }

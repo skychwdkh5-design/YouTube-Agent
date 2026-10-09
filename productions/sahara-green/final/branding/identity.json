@@ -1,0 +1,13 @@
+{
+  "status": "TEMPORARY - editable, not approved, no accounts created, nothing published",
+  "recommended_name": "Orbital Atlas",
+  "alternatives": ["Edge of the Map", "Seen From Orbit"],
+  "temporary_identity_used_in_files": "Orbital Atlas",
+  "tagline": "Earth's strangest places, seen from space",
+  "avatar": "avatar_800x800.png",
+  "banner": "banner_2560x1440.png",
+  "banner_safe_area_px": "1546x423 centred; title width 1509 px, all text inside",
+  "availability_caveat": "Web search (standard, 3 queries) found no channel with these exact names, but search engines do not index YouTube handles reliably. Handle, trademark and domain availability are NOT verified; check youtube.com/@name and a trademark search before approving.",
+  "episode_working_name": "Sahara Green (working title only, not a channel name)",
+  "to_change": "Edit the text strings in the banner/avatar generator (productions/sahara-green/production/build_branding.py (to be regenerated; current PNGs are final)) and re-run."
+}

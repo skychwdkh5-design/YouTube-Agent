@@ -15,9 +15,9 @@
   "g31-hypothesis.png"
  ],
  "sha256": {
-  "g31-hypothesis.step1.png": "a1ce7dfeab234cd3a52b3b230e59058caf31e08b36eeb089a275daabc3a61eff",
-  "g31-hypothesis.step2.png": "8b0d67231f697bd6868799c46faccb8cabee3019e76e11223bca8790b062ce29",
-  "g31-hypothesis.png": "47fde4c4a201d1e6abd1518d8c792e851ecf2b6618184313c86f95f3db9505de"
+  "g31-hypothesis.step1.png": "800b736bc7c3ff5c5499ed923ebfbb46bc54087ff8f7cc6b6eaf52733a286a03",
+  "g31-hypothesis.step2.png": "a3d58b7f09094197f448a9e689183a689e8d474a668c980c41de9499f305e77b",
+  "g31-hypothesis.png": "22bbef0d009cdbea5e3385b4ebd590558e97039f221d1d01dd9ddf77a6f74201"
  },
  "safe_area": {
   "top": 0.07,
@@ -29,12 +29,12 @@
  "text_boxes": [
   {
    "where": "source",
-   "text": "Source: No study found that models this for a planted Sahara",
+   "text": "Source: No study found that models this for a planted Sahara · Imagery: NASA Blue Marble (SVS 3539)",
    "size": 24,
    "box": [
     96.0,
     768.8,
-    800.5,
+    1281.5,
     797.6
    ]
   },
@@ -71,5 +71,11 @@
     684.0
    ]
   }
- ]
+ ],
+ "backdrop": {
+  "path": "backdrops/sahel_backdrop.jpg",
+  "sha256": "fea4a8bf4627d78c1df22de8a46003fa1fc9da2c96e0e20a92d63203f24c5c09",
+  "credit": "NASA Blue Marble (SVS 3539)",
+  "scrim": 0.62
+ }
 }

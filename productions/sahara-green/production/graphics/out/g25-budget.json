@@ -2,7 +2,7 @@
  "schema": "yt-graphics/1",
  "id": "g25-budget",
  "type": "diagram",
- "style": "documentary_light",
+ "style": "documentary_dark",
  "size": [
   1920,
   1080
@@ -24,18 +24,18 @@
   "g25-budget.png"
  ],
  "sha256": {
-  "g25-budget.step1.png": "b1e6de85b18f13c1fd34ebe910ef7f8200fb15d7bc17a600d7cb41d93d1b3a0a",
-  "g25-budget.step2.png": "f1b77cd3e9b06001d5478dd4b6a9c94a7516c94ea0ecd9389f39476acff84cf3",
-  "g25-budget.step3.png": "2f9992b0732f2bdabdd8ccad515f11eec236f9dddbf766ee07fb75571104d150",
-  "g25-budget.step4.png": "d085e89519e7d6ce6a4a3d03dfb45ab4444f806299dc5347e0912f556115a000",
-  "g25-budget.step5.png": "29f34de6d3ee2bfe902285e1ac1ccd17f1765669ef108af4b0ee58953abbb9d1",
-  "g25-budget.step6.png": "5806b40eec1357cda1a1fc5832be9802187147be6fc6441be35fd7ec95c749e3",
-  "g25-budget.step7.png": "697037679889770a53e52df6228a6c0025289487a3ef25d9e22270e74e5bdd18",
-  "g25-budget.step8.png": "5806b40eec1357cda1a1fc5832be9802187147be6fc6441be35fd7ec95c749e3",
-  "g25-budget.step9.png": "1c9fdb98db2568317709520a9dd204a2e0ef8ec3e4a020e075ab67ed2fa59d85",
-  "g25-budget.step10.png": "2e5d28a3a0c9e3a7b64fcb8a9ad979e1320789e2110942dd2fbe8e151040d6a9",
-  "g25-budget.step11.png": "05f18ec8624cf52c9d55b7f0c042135cc6450edeb75dd8b51f2945bf39d79b48",
-  "g25-budget.png": "b3e4c32fc364e568675d3ae48336a28ac5d348ee1ca57115c6bcea8a69b9a4b8"
+  "g25-budget.step1.png": "1594ba30bd7edf674088ab096adcb80451d0ccd0a792b15c64d87ff8c8cd3fe3",
+  "g25-budget.step2.png": "7bd03cab60337ccfa8244f28fe46a54a2611213d9a09ee86eb7511fd9bf483f7",
+  "g25-budget.step3.png": "396ee7d1a704d086ef5a5fcbfa3d7fb6e9aa9eae0612568dd9b57f6d3948ae32",
+  "g25-budget.step4.png": "8e37c75da434ffd4e9f7165e3d03ef30a1de04b2537e4bbb161218cce81873d5",
+  "g25-budget.step5.png": "31490ea3584f6c3b6f933789b41c270adbf833008f13a6e9ffbcab4a7a0c246a",
+  "g25-budget.step6.png": "49ba983a3c17f6fa86bdb08b818f306522e11ce44e862431470c93b8820f0c3c",
+  "g25-budget.step7.png": "49ba983a3c17f6fa86bdb08b818f306522e11ce44e862431470c93b8820f0c3c",
+  "g25-budget.step8.png": "49ba983a3c17f6fa86bdb08b818f306522e11ce44e862431470c93b8820f0c3c",
+  "g25-budget.step9.png": "5368f05e20436d66e8f002f7f6ce56bc7aa2ca048f0e932db115530e82539df2",
+  "g25-budget.step10.png": "d01aeca49fa0a06843e41b53077313ce4b9fa1179c024fe3adcb62b309684ca6",
+  "g25-budget.step11.png": "7af9116f38d3de806c638bb0f35e0c2eb3bb685236d9ceb619de8c24ba06fe1d",
+  "g25-budget.png": "7af9116f38d3de806c638bb0f35e0c2eb3bb685236d9ceb619de8c24ba06fe1d"
  },
  "safe_area": {
   "top": 0.07,
@@ -69,12 +69,12 @@
   },
   {
    "where": "source",
-   "text": "Source: Kemena et al., Climate Dynamics (manuscript 2017; journal version 2018)",
+   "text": "Source: Kemena et al., Climate Dynamics (manuscript 2017; journal version 2018) · Imagery: NASA Blue Marble (SVS 3539)",
    "size": 24,
    "box": [
     96.0,
     768.8,
-    1035.5,
+    1516.5,
     797.6
    ]
   },
@@ -144,5 +144,11 @@
     488.3
    ]
   }
- ]
+ ],
+ "backdrop": {
+  "path": "backdrops/sahel_backdrop.jpg",
+  "sha256": "fea4a8bf4627d78c1df22de8a46003fa1fc9da2c96e0e20a92d63203f24c5c09",
+  "credit": "NASA Blue Marble (SVS 3539)",
+  "scrim": 0.62
+ }
 }

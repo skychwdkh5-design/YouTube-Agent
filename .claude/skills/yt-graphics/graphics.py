@@ -547,7 +547,7 @@ def d_diagram(cv, g, step):
         cv.place(text, cands, 30, "Bold", col, g.get("_label_w", 360), stroke=3, where="arrow label")
     for n in g.get("notes") or []:
         if n.get("step", 1) <= step:
-            cv.text(n["text"], nx(box, n["x"]), ny(box, n["y"]), int(n.get("size", 30)), "SemiBold", "fg" if step in (n.get("hl") or []) else "muted",
+            cv.text(n["text"], nx(box, n["x"]), ny(box, n["y"]), int(n.get("size", 30)), "SemiBold", "fg" if (step in (n.get("hl") or []) or g.get("backdrop")) else "muted",
                     max_w=(box[2] - box[0]) * 0.4, max_lines=3, where="note")
 
 
@@ -855,7 +855,7 @@ def d_callout(cv, g, step):
     if not g.get("build") or step >= first + 1:
         cv.text(g["label"], cx, cy + 150, 44, "Bold", "fg", max_w=box[2] - box[0] - 80, max_lines=2, where="label")
     if g.get("context") and (not g.get("build") or step >= first + 2):
-        cv.text(g["context"], cx, cy + 240, 30, "SemiBold", "muted", max_w=box[2] - box[0] - 200, max_lines=2,
+        cv.text(g["context"], cx, cy + 240, 30, "SemiBold", "fg" if g.get("backdrop") else "muted", max_w=box[2] - box[0] - 200, max_lines=2,
                 where="context")
 
 

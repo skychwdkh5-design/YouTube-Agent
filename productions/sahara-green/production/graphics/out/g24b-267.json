@@ -2,7 +2,7 @@
  "schema": "yt-graphics/1",
  "id": "g24b-267",
  "type": "callout",
- "style": "documentary_light",
+ "style": "documentary_dark",
  "size": [
   1920,
   1080
@@ -16,10 +16,10 @@
   "g24b-267.png"
  ],
  "sha256": {
-  "g24b-267.step1.png": "b86940e05e4aa49870d2e13237d79d31f5912181e87e39c8f49331d2d903d435",
-  "g24b-267.step2.png": "25f41a6f4eae2c102cdffb285e29ffa838d25b050c97f330729bb55d50199097",
-  "g24b-267.step3.png": "a0029e12dbebf7ebe11469a97fb03848147031e202660fbeaa431cde1c044880",
-  "g24b-267.png": "6a4928f36db5999a7e251e973ea2d0c4aa5f1669cf5166f6c50b3460ac1a250f"
+  "g24b-267.step1.png": "756da4344d01e8cd1ec79db0a8e7987246a6c42b673e73f14fb7aaafad3e22d4",
+  "g24b-267.step2.png": "38a4f0bb4f43af1116e9bfcd90afa33aaaf69c8be5e89c6a15c55b6b76cf1a42",
+  "g24b-267.step3.png": "b4cff701410eeee71c3616d807474d487be803ab30095578b728e563ee66da20",
+  "g24b-267.png": "d2b1ac5fad4fc16a508943a8f4228abaa9767b02e45e7c264febe0c1ce20d518"
  },
  "safe_area": {
   "top": 0.07,
@@ -42,12 +42,12 @@
   },
   {
    "where": "source",
-   "text": "Source: Kemena et al., Climate Dynamics (manuscript 2017; journal version 2018)",
+   "text": "Source: Kemena et al., Climate Dynamics (manuscript 2017; journal version 2018) · Imagery: NASA Blue Marble (SVS 3539)",
    "size": 24,
    "box": [
     96.0,
     768.8,
-    1035.5,
+    1516.5,
     797.6
    ]
   },
@@ -95,5 +95,11 @@
     694.4
    ]
   }
- ]
+ ],
+ "backdrop": {
+  "path": "backdrops/africa_backdrop.jpg",
+  "sha256": "e6e84a195ae0fc0bed22bf6f2fecf3e19e04ac56047ac850279196cc39173063",
+  "credit": "NASA Blue Marble (SVS 3539)",
+  "scrim": 0.62
+ }
 }
