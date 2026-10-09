@@ -38,3 +38,7 @@ Keep episode data (images, anchors, outlines, text, timings) in the episode fold
 Import only what exists; features marked NOT built in `docs/ORBITALATLAS_VISUAL_MASTER.md §7` must be listed as limitations.
 Overlays live in `orbitalatlas.layers` (`DrawOnPolyline`, `AnchoredText`, `MaskFill`, `PulseMarker`, ...) and take SOURCE-pixel geometry; tracing/validation helpers are still in
 `productions/dubai/motion/engine/` (promotion to the shared package is roadmap). `cls`/`source`/`validation` fields document what an overlay is; they are not enforced.
+
+## Real geography (class B) — `orbitalatlas.geo`
+Use for any locator (world → region → country → city). Fetch data with `tools/fetch_natural_earth.sh` (public domain, pinned, checksummed); never invent coastlines/borders; put dataset names in `source` fields and in an on-screen chip. Template: `orbitalatlas/demo/geo_locator_proof.py`. Map ends where the data stops being meaningful (city scale at 1:10M); hand off to documentary imagery with `GeoFocus` and the chips "STYLISED MAP" / "NOT GEOREGISTERED". Unregistered photographs are never a basemap.
+Reference style and catalogue: `docs/references/`.

@@ -24,3 +24,15 @@ refuses to draw `map` over `evidence` unless `registered.rms_m` is set. (Enforce
 | terrain | relief | needs DEM (SRTM/Copernicus) download | NOT built; network allowlist unknown |
 Satellite evidence vs illustration: label illustrations "illustration"; never texture them with photo crops.
 Validation of any overlay: sample both sides of each vertex; review full-res frame by eye; log residuals.
+
+## Real geography data (added in Phase D)
+| item | status |
+|---|---|
+| dataset | Natural Earth 5.2.0-pre vector (public domain, https://github.com/nvkelso/natural-earth-vector, commit `ca96624a56bd078437bca8184e78163e5039ad19`) — land 1:10M, admin-0 countries, populated places, marine polygons, regions |
+| how obtained | `git clone --filter=blob:none --sparse` through the session's git proxy (`tools/fetch_natural_earth.sh`); naciscdn.org and raw.githubusercontent.com are blocked (HTTP 403 on CONNECT) |
+| stored | `data/natural_earth/` (git-ignored, ~48 MB); checksums in `data/natural_earth.sha256` (committed) |
+| licence | public domain; credit not required, chip still names the dataset |
+| accuracy | 1:10M generalisation (≈1–2 km at best); disputed borders follow Natural Earth's de-facto lines; marine polygons are label-grade extents |
+| coordinates used by the locator proof | Dubai (55.2869 E, 25.2149 N) = NE populated-places point; Persian Gulf label anchor (52.00 E, 26.82 N) = centroid of the NE marine polygon (bbox 47.72–57.20 E, 23.97–30.51 N); Arabian Peninsula label anchor (46.52 E, 22.61 N) = centroid of the NE region polygon; UAE anchor (54.31 E, 23.90 N) = centroid of the mainland ring. Anchors are label positions, not boundaries. |
+| not available | imagery basemap (NASA hosts blocked), DEM, rivers (file not fetched), city-scale vector data (Palm Jumeirah-scale features come only from the photograph) |
+| hand-off rule | the map ends at region/city-point scale; imagery is introduced as a separate class-A scene with "NOT GEOREGISTERED". ASTER/ISS frames are never used as a basemap. |

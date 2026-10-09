@@ -38,6 +38,9 @@ highest level reached and must not use the words "approved/premium/cinematic" fo
 4. Locked narration/word timings only; no TTS calls without explicit user authorisation.
 5. Gates in `VISUAL_QUALITY_RUBRIC.md`; report status vocabulary honestly.
 
+## 6b. Reference style
+Reference-derived mechanics (continuous camera, event cadence, highlight rules, labelling) are in `docs/references/ORBITALATLAS_REFERENCE_STYLE.md`; effect catalogue and engine gap status in `docs/references/VISUAL_EFFECT_CATALOG.md`; analyses of the two user-supplied references in `docs/references/REFERENCE_0{1,2}_ANALYSIS.md`.
+
 ## 7. Component status (honest; shared engine = `orbitalatlas/`, see `orbitalatlas/README.md`)
 | capability | Built? | where |
 |---|---|---|
@@ -51,8 +54,9 @@ highest level reached and must not use the words "approved/premium/cinematic" fo
 | automated visual QA (black, blank, jumps, static, transitions, crops, overlays, assets) | yes, heuristic | `orbitalatlas/qa.py` |
 | contour tracing + validation of outlines from an image | yes, but still project-local | `productions/dubai/motion/engine/trace.py`, `validate.py` (promotion = roadmap) |
 | word-timed subtitles (ASS), loudness mastering | yes, project-local | `productions/dubai/motion/engine/av.py` |
-| georeferenced map camera (CRS) | NO — no pyproj/GDAL, no network for pip/npm | — |
-| 3D globe/terrain | NO — no Blender/DEM | — |
+| georeferenced globe camera from vector data (class B: lon/lat, great-circle path, km scale, Natural Earth polygons/lines, labels, markers) | yes, tested; orthographic projection in pure numpy, no pyproj needed | `orbitalatlas/geo.py` (data: `tools/fetch_natural_earth.sh`) |
+| flat/tilted map plane, photoreal basemap, relief, rivers | NO — needs raster/vector data not fetched (NASA hosts blocked; rivers not fetched) | — |
+| 3D globe with terrain (class C) | NO — no DEM, no 3D renderer | — |
 | split-screen compare, data charts, SVG shape animation, audio-reactive animation | NO | — |
 | layer-class enforcement (map over photo refused) | NO — classes are metadata (roadmap R3) | `layers.py` |
 The Dubai engine under `productions/dubai/motion/engine/` is unchanged and still works (EP002 scripts import it); the shared package

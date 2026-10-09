@@ -40,3 +40,6 @@ Import only what exists; features marked NOT built in `docs/ORBITALATLAS_VISUAL_
 Transitions available in code: `Dissolve, Push, WhipPan, CinematicPush, MaskReveal, GeoFocus, ScaleMatch, DateTransition`
 (`transitions.from_spec({"type": "push", ...})`). Chain them with `sequence.Sequence`; run `qa.run_video` with declared cuts/holds;
 `qa.check_schedule` flags out-of-range durations and three identical transitions in a row. `ScaleMatch` needs the subject's frame position and size in both shots.
+
+## Reference style and camera
+Continuous camera first (0.5–1.5 s pans, 2–3 s zooms), cuts only for medium changes through `GeoFocus`; whips ≤ 1 per video. `geo.GeoCamera` (great-circle path, `arc`) is the class-B camera; see `docs/references/ORBITALATLAS_REFERENCE_STYLE.md`.

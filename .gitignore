@@ -24,3 +24,6 @@ productions/sahara-green/landsat/raw/
 
 # local-only test artefacts of the narration pipeline
 productions/sahara-green/narration/voice/partial_test/
+
+# Natural Earth data (public domain; fetch with tools/fetch_natural_earth.sh)
+data/natural_earth/

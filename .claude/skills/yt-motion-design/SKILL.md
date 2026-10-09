@@ -39,3 +39,6 @@ Claim "cinematic/premium/approved" below USER_APPROVED; patch one video instead 
 Run from the repo root; tests: `python3 -m unittest discover -s orbitalatlas/tests -t .`; demo: `python3 -m orbitalatlas.demo.render_demo OUT.mp4 --qa`.
 Keep episode data (images, anchors, outlines, text, timings) in the episode folder; do not edit the package for one episode.
 Import only what exists; features marked NOT built in `docs/ORBITALATLAS_VISUAL_MASTER.md §7` must be listed as limitations.
+
+## Reference style
+Read `docs/references/ORBITALATLAS_REFERENCE_STYLE.md` and `docs/references/VISUAL_EFFECT_CATALOG.md` before storyboarding a geographic video: event cadence 1–3 s, hold ≤ 3 s, highlight = fill + outline, labels anchored, one hero per beat. The catalogue lists which effects exist (IMPLEMENTED / PARTIALLY / NOT / REQUIRES data).
