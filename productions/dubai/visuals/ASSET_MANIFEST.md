@@ -1,5 +1,7 @@
 # EP002 Dubai — Visual Asset Manifest
 
+> UPDATE (base 0760a48): all 14 image assets are now in the repository or the uploaded archive and were inspected at full resolution. ASTER-2006 = visuals/palm2.jpg (AVAILABLE, 3072x3797). ISS-2022 = visuals/iss067e003785_lrg.jpg (AVAILABLE, 2768x4928). WOC-2000 to WOC-2011 = AVAILABLE in the ZIP (3000x3000). The crop rectangles, labels, transitions and per-scene status in VISUAL_PRODUCTION_PLAN.md and FULL_RES_VISUAL_AUDIT.md SUPERSEDE every UNVERIFIED crop and URL_KNOWN status below. D1 now uses palm2.jpg (Palm Jebel Ali visible).
+
 Base: 007f735 (updated after URL extraction, base 527df67) · Script locked (SHA-256 d050d5e3...60d). No VO line touched. Nothing here has been downloaded.
 Visual evidence level: ASTER 2006 and ISS 2022 are USER_SCREENSHOT_VERIFIED only; World of Change (WoC) frames are not visually checked at all. All crop coordinates are UNVERIFIED.
 
