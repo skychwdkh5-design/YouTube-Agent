@@ -29,3 +29,19 @@ Keep the safe default: text card over a labeled ASTER 2006 crop of The World onl
 
 ## To close
 A person opens the two file URLs above (about 5 MB total), confirms: (1) Palm Jumeirah, Jebel Ali, The World and Deira are identifiable in ASTER-2006; (2) both palm islands are in the ISS frame and whether The World is; (3) which 16:9 crops work. Then script lock.
+
+---
+# Update: user screenshot review (base 3f0452f)
+
+Labels: USER_SCREENSHOT_VERIFIED = reported by the user from screenshots of the official NASA pages in Safari. I did not see the screenshots; they are not stored in this repository. No full-resolution file and no final 16:9 crop has been inspected by anyone.
+
+| image | finding | status |
+|---|---|---|
+| ASTER-2006 (18 Sep 2006) | Palm Jumeirah, Palm Jebel Ali, The World Islands and the northern Palm Deira construction area are visually identifiable | USER_SCREENSHOT_VERIFIED |
+| ISS-2022 (ISS067-E-3785, 6 Apr 2022) | The displayed image visibly shows and labels The World Islands, Palm Jumeirah and Palm Jebel Ali | USER_SCREENSHOT_VERIFIED |
+
+## Effect on scenes
+- C1, C3, C5: identification supported at screenshot level; crops still need checking in the editor. C3's phrase "you can see... Palm Deira had barely begun" is now supported at screenshot level for the northern Deira construction area.
+- E2: both palm islands visible in the screenshot; crop coverage unconfirmed.
+- C4: the ISS photograph MAY be used for The World (claim 33, screenshot scope). Narration unchanged; it speaks only of NASA's caption. Final crop validation is required before use; the text-card fallback stays available.
+- Claim 32 remains UNVERIFIED: no overlay, wipe, alignment or before/after registration between ASTER and ISS images, and no statement about exact pixel or geographic boundaries.
