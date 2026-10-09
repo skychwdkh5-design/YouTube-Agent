@@ -33,3 +33,9 @@ Read first: `docs/ORBITALATLAS_VISUAL_MASTER.md`, `docs/MOTION_DESIGN_STANDARDS.
 Run the gates in `docs/VISUAL_QUALITY_RUBRIC.md`; write one evidence sentence per rubric item.
 ## Do not
 Claim "cinematic/premium/approved" below USER_APPROVED; patch one video instead of fixing the component.
+
+## Shared engine (use it; do not copy it)
+`orbitalatlas/` (repo root; see `orbitalatlas/README.md`): `camera`, `easing`, `layers` (Scene + overlays), `transitions`, `sequence`, `timing`, `qa`, `spec`.
+Run from the repo root; tests: `python3 -m unittest discover -s orbitalatlas/tests -t .`; demo: `python3 -m orbitalatlas.demo.render_demo OUT.mp4 --qa`.
+Keep episode data (images, anchors, outlines, text, timings) in the episode folder; do not edit the package for one episode.
+Import only what exists; features marked NOT built in `docs/ORBITALATLAS_VISUAL_MASTER.md §7` must be listed as limitations.

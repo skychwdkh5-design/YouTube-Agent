@@ -1,8 +1,9 @@
 # Transition design system
 Rule: pick by what changes in the story. Never use one pattern 3 times in a row. Test every transition for
 black frames (mean luma < 8 for >2 frames unless a deliberate fade), text jump, and registration claims.
-Status: only the first three have working reference code (EP002 `proof_v3.py`, Dubai-specific). None is in a
-shared library yet (roadmap R2).
+Status: implemented in `orbitalatlas/transitions.py` (real rendered frames, unit-tested, demo in `orbitalatlas/demo`): dissolve, push, whip pan,
+cinematic push, mask reveal, geo focus, scale match, date/timeline transition. Not implemented: line-trace reveal as a *transition*
+(the draw-on overlay exists), map-to-imagery reveal and directional map travel (need class B). Class names in the table below map to the code names above.
 
 | transition | story purpose | implementation | limits | verify |
 |---|---|---|---|---|

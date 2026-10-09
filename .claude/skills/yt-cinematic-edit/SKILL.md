@@ -31,3 +31,12 @@ blackdetect, frame-diff per second, cut-frame centroid check, subtitle check, wo
 ## Do not
 Hide weak story with flashy transitions; claim spatial continuity between unregistered images;
 describe an image zoom as a flyover.
+
+## Shared engine (use it; do not copy it)
+`orbitalatlas/` (repo root; see `orbitalatlas/README.md`): `camera`, `easing`, `layers` (Scene + overlays), `transitions`, `sequence`, `timing`, `qa`, `spec`.
+Run from the repo root; tests: `python3 -m unittest discover -s orbitalatlas/tests -t .`; demo: `python3 -m orbitalatlas.demo.render_demo OUT.mp4 --qa`.
+Keep episode data (images, anchors, outlines, text, timings) in the episode folder; do not edit the package for one episode.
+Import only what exists; features marked NOT built in `docs/ORBITALATLAS_VISUAL_MASTER.md §7` must be listed as limitations.
+Transitions available in code: `Dissolve, Push, WhipPan, CinematicPush, MaskReveal, GeoFocus, ScaleMatch, DateTransition`
+(`transitions.from_spec({"type": "push", ...})`). Chain them with `sequence.Sequence`; run `qa.run_video` with declared cuts/holds;
+`qa.check_schedule` flags out-of-range durations and three identical transitions in a row. `ScaleMatch` needs the subject's frame position and size in both shots.

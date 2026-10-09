@@ -30,3 +30,11 @@ Read: `docs/ANIMATED_CARTOGRAPHY.md`, `docs/CINEMATIC_CAMERA_SYSTEM.md`. Code: `
 6. Keep geography out of global modules: scene files hold coordinates/anchors; engine takes them as parameters.
 ## Verify
 Overlay residual/validation recorded · full-res frame review · label bbox inside frame at keyframes · collisions = 0.
+
+## Shared engine (use it; do not copy it)
+`orbitalatlas/` (repo root; see `orbitalatlas/README.md`): `camera`, `easing`, `layers` (Scene + overlays), `transitions`, `sequence`, `timing`, `qa`, `spec`.
+Run from the repo root; tests: `python3 -m unittest discover -s orbitalatlas/tests -t .`; demo: `python3 -m orbitalatlas.demo.render_demo OUT.mp4 --qa`.
+Keep episode data (images, anchors, outlines, text, timings) in the episode folder; do not edit the package for one episode.
+Import only what exists; features marked NOT built in `docs/ORBITALATLAS_VISUAL_MASTER.md §7` must be listed as limitations.
+Overlays live in `orbitalatlas.layers` (`DrawOnPolyline`, `AnchoredText`, `MaskFill`, `PulseMarker`, ...) and take SOURCE-pixel geometry; tracing/validation helpers are still in
+`productions/dubai/motion/engine/` (promotion to the shared package is roadmap). `cls`/`source`/`validation` fields document what an overlay is; they are not enforced.

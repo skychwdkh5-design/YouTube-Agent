@@ -2,7 +2,7 @@
 ## Classes
 | class | what moves | needs | status |
 |---|---|---|---|
-| A image-space | a crop window (x, y, height, optional rotation) over one image's pixels | image only | Built (`SplineCam`, `View`) |
+| A image-space | a crop window (x, y, height, optional rotation) over one image's pixels | image only | Built: `orbitalatlas/camera.py` (`Camera`, `View`, `Pyramid`, `fit`); older `SplineCam` kept in the Dubai engine |
 | B georeferenced map | a camera over a CRS (lon/lat, or projected) with real extent | CRS, extent, georeferenced rasters/vectors, map renderer | NOT built: no pyproj/GDAL; MapLibre/GDAL cannot be installed here (no PyPI/npm DNS) |
 | C 3D globe/terrain | a 3D camera over DEM + imagery | DEM, georeferenced imagery, 3D renderer (Blender or WebGL/Three.js/Cesium) | NOT built; Chromium has software WebGL (tested), Blender absent |
 **Language rule**: class A is called "image push/pan", never "flyover". A "flyover" needs C. Spatial continuity

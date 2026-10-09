@@ -38,17 +38,22 @@ highest level reached and must not use the words "approved/premium/cinematic" fo
 4. Locked narration/word timings only; no TTS calls without explicit user authorisation.
 5. Gates in `VISUAL_QUALITY_RUBRIC.md`; report status vocabulary honestly.
 
-## 7. Component status (honest)
+## 7. Component status (honest; shared engine = `orbitalatlas/`, see `orbitalatlas/README.md`)
 | capability | Built? | where |
 |---|---|---|
-| image-space spline camera, log zoom, motion blur | yes | `productions/dubai/motion/engine/motionlib.py` (SplineCam) |
-| traced coastline/outline, validated | yes | `engine/trace.py`, `validate.py` |
-| land/sea fills, spotlight, anchored/rotated text, year roll, coast trail | yes | `engine/fx.py` |
-| word-timed cues, ASS subs, loudness | yes | `engine/av.py` |
-| match cut between two images at equal scale | yes (in scene file, Dubai-specific) | `av_test/proof_v3.py` |
-| generic transition library | NO (roadmap) | — |
+| keyframed image-space camera: anchors, rotation, easing per key, spline/eased modes, subject tracking, safe-frame fit, crop checks | yes, tested | `orbitalatlas/camera.py` |
+| camera motion blur (temporal sub-sampling) | yes | `orbitalatlas/layers.py` (`Scene.render`) |
+| easing library incl. cubic-bezier | yes | `orbitalatlas/easing.py` |
+| anchored overlays (draw-on line, marker, anchored/rotated text, chip, year counter, mask fill, spotlight, brackets) | yes | `orbitalatlas/layers.py` |
+| transitions: dissolve, push (+blur), whip, cinematic push, mask reveal, geo focus, scale match, date/timeline | yes, render real frames, tested | `orbitalatlas/transitions.py` |
+| shots + transitions on one timeline, FFmpeg encode | yes | `orbitalatlas/sequence.py` |
+| narration cues from provider word timestamps | yes (lookup only; no audio code) | `orbitalatlas/timing.py` |
+| automated visual QA (black, blank, jumps, static, transitions, crops, overlays, assets) | yes, heuristic | `orbitalatlas/qa.py` |
+| contour tracing + validation of outlines from an image | yes, but still project-local | `productions/dubai/motion/engine/trace.py`, `validate.py` (promotion = roadmap) |
+| word-timed subtitles (ASS), loudness mastering | yes, project-local | `productions/dubai/motion/engine/av.py` |
 | georeferenced map camera (CRS) | NO — no pyproj/GDAL, no network for pip/npm | — |
-| 3D globe/terrain | NO — no Blender/DEM; WebGL via headless Chromium untested | — |
-| split-screen compare, data charts, SVG shape animation | NO | — |
-The engine lives under `productions/dubai/…/engine` and is partly Dubai-coupled (scene files hardcode
-geography). Promoting it to a shared package is roadmap step R1.
+| 3D globe/terrain | NO — no Blender/DEM | — |
+| split-screen compare, data charts, SVG shape animation, audio-reactive animation | NO | — |
+| layer-class enforcement (map over photo refused) | NO — classes are metadata (roadmap R3) | `layers.py` |
+The Dubai engine under `productions/dubai/motion/engine/` is unchanged and still works (EP002 scripts import it); the shared package
+is an independent, geography-free generalisation, not yet used by EP002 scenes (roadmap: migrate in Phase E).
