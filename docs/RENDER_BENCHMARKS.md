@@ -14,3 +14,4 @@ Estimates (**assumption, not measured**): removing redundant renders and prewarm
 Rule: 12–15 s proofs only; log every benchmark here with date; do not repeat the WebGL capability test unless the environment changes.
 
 | Cesium static frame (Phase 2) | same harness, 1 browser, 1280x720, close-up Dubai, GIBS layers | config A 12.4 s, config B 22.7 s including start-up and tile fetch (cold cache) |
+| EP002 transition proof (Phase 3) | 56 Cesium frames 1280x720, 3 workers (cache warm for the Gulf region) | 187 s (first run; one worker timed out on page load and was re-run, +88 s); the earlier cfg-A render of the same path 267 s. Composite of 120 frames (GeoFocus, CPU) 58-62 s; H.264 encode 4 s |

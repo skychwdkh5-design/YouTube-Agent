@@ -7,26 +7,24 @@ const v=new Cesium.Viewer('c',{baseLayer:false,baseLayerPicker:false,geocoder:fa
 v.resolutionScale=1;v.scene.globe.enableLighting=false;v.scene.globe.showGroundAtmosphere=true;v.scene.skyAtmosphere.show=true;v.scene.highDynamicRange=false;
 v.scene.globe.maximumScreenSpaceError=2;
 const g=(l,d,lv,ext)=>new Cesium.UrlTemplateImageryProvider({url:`/gibs/wmts/epsg3857/best/${l}/default/${d}/GoogleMapsCompatible_Level${lv}/{z}/{y}/{x}.${ext}`,maximumLevel:lv,tilingScheme:new Cesium.WebMercatorTilingScheme(),credit:'NASA GIBS'});
-const cfg=new URLSearchParams(location.search).get('cfg')||'A';
+const cfg=new URLSearchParams(location.search).get('cfg')||'E';
 const L={bm:()=>g('BlueMarble_NextGeneration','2004-08-01',8,'jpeg'),
  weld:()=>g('Landsat_WELD_CorrectedReflectance_TrueColor_Global_Annual','2000-12-01',12,'jpeg'),
  viirs:()=>g('VIIRS_SNPP_CorrectedReflectance_TrueColor','2026-10-07',9,'jpeg'),
  hls:()=>g('HLS_S30_Nadir_BRDF_Adjusted_Reflectance','2026-10-07',12,'png')};
-const plan={A:['bm','weld'],B:['bm','viirs','hls'],C:['bm','viirs'],D:['bm']}[cfg];
-plan.forEach(k=>v.imageryLayers.addImageryProvider(L[k]()));
+const plan={E:['bm','weld'],A:['bm','weld'],B:['bm','viirs','hls'],C:['bm','viirs'],D:['bm']}[cfg];
+plan.forEach(k=>{const ly=v.imageryLayers.addImageryProvider(L[k]());if(cfg==='E'&&k==='weld'){ly.colorToAlpha=new Cesium.Color(0.12,0.22,0.29,1);ly.colorToAlphaThreshold=0.25;}});
 window.setView=function(lon,lat,range,head,pitch){
   v.camera.lookAt(Cesium.Cartesian3.fromDegrees(lon,lat,0),new Cesium.HeadingPitchRange(Cesium.Math.toRadians(head),Cesium.Math.toRadians(pitch),range));
   v.camera.frustum.near=Math.max(1,range*0.001);v.scene.render();};
 const ease=x=>x*x*x*(x*(6*x-15)+10);
-window.setFrame=function(u){ // u in [0,1]
-  const e=ease(u), e2=ease(Math.min(1,Math.max(0,(u-0.25)/0.75)));
-  const lon=Cesium.Math.lerp(15,55.14,e), lat=Cesium.Math.lerp(10,25.12,e);
-  const range=Math.exp(Cesium.Math.lerp(Math.log(2.2e7),Math.log(30000),e));
-  const pitch=Cesium.Math.toRadians(Cesium.Math.lerp(-90,-38,e2*e2));
-  const head=Cesium.Math.toRadians(Cesium.Math.lerp(0,-35,e2));
+window.setFrame=function(u){ // EP002 handoff descent: Arabian Gulf region -> Palm Jumeirah area, ends nadir at 41 km
+  const e=ease(u), p=ease(Math.min(1,Math.max(0,(u-0.15)/0.85)));
+  const lon=Cesium.Math.lerp(52,55.2108,e), lat=Cesium.Math.lerp(24,25.1518,e);
+  const range=Math.exp(Cesium.Math.lerp(Math.log(9e6),Math.log(41000),e));
+  const pitch=Cesium.Math.toRadians(Cesium.Math.lerp(-58,-90,p)), head=Cesium.Math.toRadians(Cesium.Math.lerp(6,16.5,p));
   v.camera.lookAt(Cesium.Cartesian3.fromDegrees(lon,lat,0),new Cesium.HeadingPitchRange(head,pitch,range));
-  v.camera.frustum.near=Math.max(1,range*0.001);
-  v.scene.render();
+  v.camera.frustum.near=Math.max(1,range*0.001);v.scene.render();
 };
 window.settled=()=>v.scene.globe.tilesLoaded;
 window.ready=true;

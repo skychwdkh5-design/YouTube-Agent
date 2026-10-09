@@ -17,6 +17,9 @@
 - No free photoreal 3D buildings identified. Terrain: no source verified.
 - Image-space zoom is not a 3D flyover; never fake continuity (see Visual Master).
 
+## Phase 3: spotlight hand-off proof (2026-10-09)
+Design in `productions/dubai/motion/transition_proof/DESIGN.md`. Result: the hand-off device works (no black edges, matched coast orientation, honest chips; `orbitalatlas.qa.run_video` ok) but the Cesium close frames are soft and still show a smudge where the Palm is not yet in the WELD layer; keying the sea out of Landsat WELD (`colorToAlpha`) removed the swath stripes but leaves speckle. Status VISUALLY_REVIEWED at best, below the references on A3/D2.
+
 ## Phase 2 conclusion (2026-10-09)
 The renderer is not the bottleneck; **free reachable data is**. Hosts tested and blocked (HTTP 403 via proxy): overpass-api.de, overpass.kumi.systems, tile.openstreetmap.org, overturemaps-us-west-2.s3.amazonaws.com, elevation-tiles-prod.s3.amazonaws.com, copernicus-dem-30m.s3.amazonaws.com, planetarycomputer.microsoft.com, earth-search.aws.element84.com, sentinel-cogs.s3.us-west-2.amazonaws.com, download.blender.org, raw.githubusercontent.com, unpkg.com, cdnjs.cloudflare.com (github.com returned 400). Only GIBS (<=38 m) and USGS Landsat (30 m, 15 m pan; large scene downloads) remain, which cannot reach reference-level city detail. Photoreal Dubai close-ups from free, legally usable data are not currently obtainable; a creative decision (hybrid, below) or an allowlist for open buildings/DEM hosts is required. Do not re-test these hosts; re-check one only if the user says the allowlist changed.
 
