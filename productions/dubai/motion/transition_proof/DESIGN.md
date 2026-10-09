@@ -17,3 +17,7 @@ Run: `node tools/cesium_proof/run_frames.js ...` (3 workers) then `python3 produ
 - Reused the 56 cached Cesium frames (no Cesium re-render). Compose + encode ~107 s.
 - Media discrepancy: the exported V1 file was 1280x720, 24 fps, 120 frames, 3,084,621 bytes (ffprobe). A 910x512, 30 fps copy seen by the user is therefore a re-encode by the delivery/preview path, not our export. V2 is 1280x720, 24 fps, 120 frames, 5,785,326 bytes, md5 prefix e4f8cc5409af; compare size/checksum with the user's download.
 Remaining weaknesses: soft Cesium close frames, a smudge in the sea where the Landsat layer has a pre-Palm sediment plume, Cesium and ASTER still differ in detail level.
+
+## V3/V4 finalisation (autonomous)
+- The V2 GeoFocus spotlight (hard-edged iris, 70 % dim) was judged intrusive. Replaced in `build_transition.py` by `soft()`: a Palm-centred radial dissolve with a 0.30H feather, no frame dimming, A drifting 1.0->1.10x and B settling 1.10->1.0x over 2.2-3.7 s. The Palm composition of V2 (ring, label, third-ish drift, <=1.30x) is unchanged. `orbitalatlas.qa.run_video` ok, no black frames, full decode ok.
+- Delivery: the user's 910x512/30 fps copy was a re-encode by the preview path. Original export properties are recorded per release (ffprobe + sha256) and the file is also served untouched from an Artifact page and as an attachment card.

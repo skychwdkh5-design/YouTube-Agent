@@ -1,14 +1,14 @@
 """EP002 transition proof V2: CesiumJS descent (real GIBS imagery, real 3D camera) -> GeoFocus hand-off -> NASA ASTER 2006 still (Palm Jumeirah).
 Usage: python3 build_transition.py CESIUM_FRAMES_DIR OUT_DIR [--palm2 PATH]   (frames f0000.png.. rendered by tools/cesium_proof/run_frames.js)
 The hand-off is a SCALE/POSITION match chosen by eye (Palm Jumeirah at screen 0.38, 0.73), not a georegistration of the two sources.
-V2 changes: Cesium side is tone/sharpness-matched to the ASTER crop (UI treatment of the render, never applied to ASTER), rack-focus on arrival,
+V3: GeoFocus replaced by a soft Palm-centred radial dissolve (no iris edge). V2 changes: Cesium side is tone/sharpness-matched to the ASTER crop (UI treatment of the render, never applied to ASTER), rack-focus on arrival,
 shared film grain, final 1.5 s = slow push + drift that brings the Palm to the third, persistent soft spotlight and a leader-line label on the Palm.
 Engine pieces used: orbitalatlas.transitions.GeoFocus, orbitalatlas.easing."""
 import sys, os, glob
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../..')))
-from orbitalatlas.transitions import GeoFocus
+from orbitalatlas.transitions import warp
 from orbitalatlas import easing as E
 
 W, H, FPS, DUR = 1280, 720, 24, 5.0
@@ -25,7 +25,17 @@ pm = Image.open(palm).convert('RGB')
 S0 = 1920 / 2650
 hi = pm.crop((50, 850, 3050, 2700)).resize((round(3000 * S0), round(1850 * S0)), Image.LANCZOS)
 PALM_HI = ((1358 - 50) * S0, (2111 - 850) * S0)
-gf = GeoFocus(focus=FOCUS, radius=0.17, dim=0.7, a_zoom=1.2, b_zoom=1.2, split=0.45, duration=T_GF, ease='in_out_cubic')
+T_SOFT0, T_SOFT = 2.2, 1.5
+_yy, _xx = np.mgrid[0:H, 0:W].astype(np.float32)
+_D = np.hypot(_xx - FOCUS[0] * W, _yy - FOCUS[1] * H); _FAR = float(np.hypot(max(FOCUS[0] * W, W - FOCUS[0] * W), max(FOCUS[1] * H, H - FOCUS[1] * H)))
+def soft(a, b, u):
+    """V3 hand-off: very soft radial dissolve centred on the Palm (feather 0.30 H, no iris edge, no dimming of the frame);
+    A drifts in 1.0->1.10x toward the Palm, B settles 1.10->1.0x. Replaces the V2 GeoFocus spotlight."""
+    e = E.smoother(E.clamp(u)); c = (FOCUS[0] * W, FOCUS[1] * H)
+    R = E.lerp(0.02 * H, _FAR + 0.36 * H, e); v = np.clip((R - _D) / (0.30 * H), 0, 1); m = (v * v * (3 - 2 * v))[..., None]
+    A = np.asarray(warp(a, E.lerp(1.0, 1.10, e), c, c), np.float32) * (1 - 0.12 * e)
+    B = np.asarray(warp(b, E.lerp(1.10, 1.0, e), c, c), np.float32)
+    return Image.fromarray(np.clip(A * (1 - m) + B * m, 0, 255).astype(np.uint8))
 rng = np.random.default_rng(2)
 
 def aster(s, pos):
@@ -76,7 +86,7 @@ for i in range(int(DUR * FPS)):
     pos_k = E.smoother(E.clamp((t - 3.6) / 1.4)); pos = (FOCUS[0] + (END[0] - FOCUS[0]) * pos_k, FOCUS[1] + (END[1] - FOCUS[1]) * pos_k)
     b = aster(s, pos).resize((W, H), Image.LANCZOS)
     b = b.filter(ImageFilter.GaussianBlur(3.5 * (1 - E.smooth(E.clamp((t - 2.7) / 1.1)))))   # rack focus: B arrives soft, then sharpens
-    fr = gf(a, b, (t - T_GF0) / T_GF).convert('RGBA')
+    fr = (soft(a, b, (t - T_SOFT0) / T_SOFT) if t >= T_SOFT0 else a).convert('RGBA')
     c = (pos[0] * W, pos[1] * H)
     fr = spot(fr, c, E.smooth(E.clamp((t - 3.9) / 0.7)))
     pill(fr, (48, H - 62), 'NASA GIBS · BLUE MARBLE + LANDSAT · 3D GLOBE VIEW (CESIUMJS)', E.clamp((t - 0.3) / 0.4) * (1 - E.clamp((t - 2.8) / 0.4)))
