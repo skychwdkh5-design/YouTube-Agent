@@ -555,6 +555,23 @@ class ExternalStill(Base):
         self.assertEqual(man["shots"][0]["credit"], "NASA/Test")
         self.assertEqual(man["shots"][0]["layers"], ["still"])
 
+    @unittest.skipUnless(HAVE_FF, "ffmpeg not installed")
+    def test_scrim_darkens_the_top_for_labels_only(self):
+        def frame_mean(scrim):
+            tl = json.load(open(self.tl()))
+            tl["shots"][0]["layers"][0]["scrim"] = scrim
+            p = os.path.join(self.dir, "s.json"); json.dump(tl, open(p, "w")); out = os.path.join(self.dir, f"s{scrim}.mp4")
+            code, d = run(["--timeline", p, "--output", out, "--confirm"]); self.assertEqual((code, d["status"]), (0, "ok"), d)
+            raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", "0.5", "-i", out, "-frames:v", "1", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True, check=True).stdout
+            f = np.frombuffer(raw, np.uint8).reshape(1080, 1920, 3).astype(float)
+            return f[150:250, 600:1300].mean(), f[600:700, 600:1300].mean()
+        top0, low0 = frame_mean(0.0); top5, low5 = frame_mean(0.6)
+        self.assertLess(top5, top0 * 0.75)                 # the top is clearly darker
+        self.assertAlmostEqual(low5, low0, delta=3)        # the lower half (below the ramp) is untouched
+        bad = json.load(open(self.tl())); bad["shots"][0]["layers"][0]["scrim"] = 0.95
+        json.dump(bad, open(os.path.join(self.dir, "b.json"), "w"))
+        self.assertIn("scrim", run(["--timeline", os.path.join(self.dir, "b.json")])[1]["error"])
+
 
 class CreditPill(Base):
     """the on-screen credit sits on a dark pill, so it stays legible on a light graphic"""

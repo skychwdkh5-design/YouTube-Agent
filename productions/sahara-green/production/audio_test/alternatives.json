@@ -1,0 +1,26 @@
+{
+ "-16.0": {
+  "gain_db": 1.03,
+  "ceiling_dbfs": -1.8,
+  "samples_over_ceiling": 30322,
+  "seconds_touched": 42.0,
+  "share_touched_pct": 5.62,
+  "max_reduction_db": 2.13
+ },
+ "-16.5": {
+  "gain_db": 0.53,
+  "ceiling_dbfs": -1.8,
+  "samples_over_ceiling": 12075,
+  "seconds_touched": 21.6,
+  "share_touched_pct": 2.89,
+  "max_reduction_db": 1.63
+ },
+ "-17.0": {
+  "gain_db": 0.03,
+  "ceiling_dbfs": -1.8,
+  "samples_over_ceiling": 2788,
+  "seconds_touched": 6.6,
+  "share_touched_pct": 0.88,
+  "max_reduction_db": 1.13
+ }
+}

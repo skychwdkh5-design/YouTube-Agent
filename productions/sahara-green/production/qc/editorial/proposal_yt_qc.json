@@ -1,0 +1,222 @@
+{
+ "result": "FAIL",
+ "file": "/tmp/claude-0/-home-user-YouTube-Agent/726a1102-cde7-58e4-becc-72fd703579dc/scratchpad/ep001_build/proposal/PROPOSAL_REVISED_1080p30.mp4",
+ "summary": {
+  "bytes": 4833842,
+  "duration": 38.166667,
+  "resolution": "1920x1080",
+  "fps": 30.0,
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "expected_duration": 38.167,
+  "profile": "long"
+ },
+ "checks": [
+  {
+   "id": "file_exists",
+   "status": "pass",
+   "expected": "exists",
+   "actual": "exists"
+  },
+  {
+   "id": "container_readable",
+   "status": "pass",
+   "expected": "ffprobe reads the file",
+   "actual": "ok"
+  },
+  {
+   "id": "file_size",
+   "status": "pass",
+   "expected": "> 0 and <= 2000.0 MB",
+   "actual": 4833842
+  },
+  {
+   "id": "container",
+   "status": "pass",
+   "expected": "mp4",
+   "actual": "mov,mp4,m4a,3gp,3g2,mj2"
+  },
+  {
+   "id": "video_stream",
+   "status": "pass",
+   "expected": "1 video stream",
+   "actual": 1
+  },
+  {
+   "id": "audio_stream",
+   "status": "pass",
+   "expected": "1 audio stream",
+   "actual": 1
+  },
+  {
+   "id": "resolution",
+   "status": "pass",
+   "expected": "1920x1080",
+   "actual": "1920x1080"
+  },
+  {
+   "id": "frame_rate",
+   "status": "pass",
+   "expected": 30.0,
+   "actual": 30.0
+  },
+  {
+   "id": "video_codec",
+   "status": "pass",
+   "expected": "h264",
+   "actual": "h264"
+  },
+  {
+   "id": "pixel_format",
+   "status": "pass",
+   "expected": "yuv420p",
+   "actual": "yuv420p",
+   "detail": "other pixel formats play badly on some devices"
+  },
+  {
+   "id": "audio_codec",
+   "status": "pass",
+   "expected": "aac",
+   "actual": "aac"
+  },
+  {
+   "id": "duration_readable",
+   "status": "pass",
+   "expected": "> 0 s",
+   "actual": 38.166667
+  },
+  {
+   "id": "duration_matches_timeline",
+   "status": "pass",
+   "expected": "38.167 s \u00b1 0.25",
+   "actual": 38.167
+  },
+  {
+   "id": "streams_aligned",
+   "status": "pass",
+   "expected": "video, audio and container end together",
+   "actual": {
+    "container": 38.166667,
+    "video": 38.166667,
+    "audio": 38.166
+   }
+  },
+  {
+   "id": "frame_count",
+   "status": "pass",
+   "expected": 1145,
+   "actual": 1145
+  },
+  {
+   "id": "full_decode",
+   "status": "pass",
+   "expected": "decodes with no errors",
+   "actual": "ok"
+  },
+  {
+   "id": "long_duration",
+   "status": "fail",
+   "expected": "60.0-900.0 s",
+   "actual": 38.167
+  },
+  {
+   "id": "long_target_window",
+   "status": "warn",
+   "expected": "480.0-720.0 s",
+   "actual": 38.167
+  },
+  {
+   "id": "black_frames",
+   "status": "pass",
+   "expected": "none",
+   "actual": 0
+  },
+  {
+   "id": "freezes",
+   "status": "warn",
+   "expected": "< 2.5 s static",
+   "actual": 2.53
+  },
+  {
+   "id": "loudness",
+   "status": "warn",
+   "expected": "-16.0 to -12.0 LUFS",
+   "actual": -18.1,
+   "detail": "levelling to the Shorts target needs a timing-safe limiter (not built yet)"
+  },
+  {
+   "id": "audio_starts",
+   "status": "pass",
+   "expected": "<= 1.0 s",
+   "actual": 0.0
+  },
+  {
+   "id": "info_events_first_10s",
+   "status": "warn",
+   "expected": ">= 3",
+   "actual": 0
+  },
+  {
+   "id": "captions_in_safe_zone",
+   "status": "pass",
+   "expected": "every caption inside the 16:9 safe area",
+   "actual": "ok"
+  },
+  {
+   "id": "shot_credits",
+   "status": "pass",
+   "expected": "a source credit on every shot",
+   "actual": "ok"
+  },
+  {
+   "id": "manifest_matches",
+   "status": "pass",
+   "expected": 38.167,
+   "actual": 38.167
+  },
+  {
+   "id": "compositions_first_10s",
+   "status": "warn",
+   "expected": ">= 3 distinct compositions",
+   "actual": 2
+  },
+  {
+   "id": "composition_resets",
+   "status": "pass",
+   "expected": ">= 5.0 per minute",
+   "actual": 6.29,
+   "detail": [
+    "9.267s p2: graphic",
+    "12.6s p3: graphic",
+    "19.7s p4: graphic",
+    "28.233s p5: graphic"
+   ]
+  },
+  {
+   "id": "composition_hold",
+   "status": "warn",
+   "expected": "<= 8.0 s on one composition",
+   "actual": 9.934,
+   "detail": "28.233-38.167 s"
+  },
+  {
+   "id": "visual_novelty",
+   "status": "skip",
+   "expected": null,
+   "actual": null,
+   "detail": "no visual_family tags in the storyboard/manifest"
+  },
+  {
+   "id": "segments_tile_video",
+   "status": "pass",
+   "expected": "1145 frames, contiguous",
+   "actual": 1145
+  },
+  {
+   "id": "segment_boundaries_keyframes",
+   "status": "pass",
+   "expected": "a keyframe at every segment start",
+   "actual": "ok"
+  }
+ ]
+}

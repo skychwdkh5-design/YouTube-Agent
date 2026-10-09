@@ -1,0 +1,132 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "r23c-carbon",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+ "credit": null,
+ "steps": [
+  "r23c-carbon.step1.png",
+  "r23c-carbon.step2.png",
+  "r23c-carbon.step3.png",
+  "r23c-carbon.png"
+ ],
+ "sha256": {
+  "r23c-carbon.step1.png": "2abd1d4478e4e0796bee9217131bd285a57afc3bdc11c7c8b109bc1f1c079ffd",
+  "r23c-carbon.step2.png": "f35115cd6c5db9047a0b423b2fab291632346c85ef190829064815b6b1c0210b",
+  "r23c-carbon.step3.png": "e7d346fab70fd1886b5c8b9f5cd7dd3cdaff3fb0a41894ab1b4db19da11b722e",
+  "r23c-carbon.png": "416e1dc9edf64fdd0abe6ff2dbb51cdc3598f4962a0755accfb1f11ced9adfab"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "By their estimate",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    488.0,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "The authors' figure for the proposed forests: an estimate, not a measurement",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    1212.5,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    887.5,
+    797.6
+   ]
+  },
+  {
+   "where": "node l",
+   "text": "FORESTS",
+   "size": 34,
+   "box": [
+    484.3,
+    538.1,
+    640.8,
+    578.9
+   ]
+  },
+  {
+   "where": "node r",
+   "text": "FOSSIL FUELS",
+   "size": 34,
+   "box": [
+    1240.2,
+    538.1,
+    1474.7,
+    578.9
+   ]
+  },
+  {
+   "where": "note",
+   "text": "CARBON TAKEN UP EACH YEAR (ESTIMATE)",
+   "size": 28,
+   "box": [
+    261.1,
+    293.3,
+    864.1,
+    326.9
+   ]
+  },
+  {
+   "where": "note",
+   "text": "CARBON RELEASED EACH YEAR",
+   "size": 28,
+   "box": [
+    1138.4,
+    293.3,
+    1576.4,
+    326.9
+   ]
+  },
+  {
+   "where": "note",
+   "text": "≈",
+   "size": 60,
+   "box": [
+    939.8,
+    512.2,
+    980.2,
+    584.2
+   ]
+  },
+  {
+   "where": "note",
+   "text": "DASHED = PROPOSED IN THE 2009 STUDY",
+   "size": 26,
+   "box": [
+    689.0,
+    729.2,
+    1231.0,
+    760.4
+   ]
+  }
+ ]
+}

@@ -368,7 +368,7 @@ def _layer(L, assets, grid, where, fps=30):
     allowed = {"image": ("asset",), "flip": ("assets", "step"), "wipe": ("from", "to"),
                "fill": ("mask", "minus", "color", "opacity"), "outline": ("mask", "color", "width"),
                "label": ("text", "sub", "slot", "style", "color"), "arrow": ("from", "to", "color", "width"),
-               "pin": ("at", "text", "color"), "graphic": ("asset",), "video": ("asset", "trim", "credit", "captions", "caption"), "still": ("asset", "view", "credit", "captions", "caption")}[t]
+               "pin": ("at", "text", "color"), "graphic": ("asset",), "video": ("asset", "trim", "credit", "captions", "caption"), "still": ("asset", "view", "credit", "captions", "caption", "scrim")}[t]
     r._keys(L, ("type", "t", "info") + allowed + (("visual_family",) if t in ("image", "flip", "wipe", "graphic", "video", "still") else ()), where)
     out = {"type": t, "info": L.get("info"), "family": _family(L.get("visual_family"), f"{where}.visual_family")}
     tw = L.get("t", [0, None])
@@ -403,6 +403,7 @@ def _layer(L, assets, grid, where, fps=30):
             if k in L and not isinstance(L[k], bool):
                 raise E(f"{where}.{k} must be true or false")
         out["credit"], out["captions"] = L.get("credit", True), L.get("captions", True)
+        out["scrim"] = r._num(L.get("scrim", 0.0), f"{where}.scrim", 0.0, 0.8)     # top-down darkening for label legibility; a display aid, the picture itself is untouched
         cap = L.get("caption")
         if cap is not None:
             if not isinstance(cap, dict):
@@ -874,6 +875,9 @@ class Painter:
                 iw_, ih_ = im_.size                                                 # rounding in exp/log must not push the window off the image
                 box_ = (max(0.0, box_[0]), max(0.0, box_[1]), min(float(iw_), box_[2]), min(float(ih_), box_[3]))
                 base = np.asarray(im_.resize((self.W, self.H), Image.LANCZOS, box=box_)); vlayer = L
+                if L["scrim"] > 0:
+                    ramp = np.clip(1.0 - np.arange(self.H) / (0.5 * self.H), 0.0, 1.0) * L["scrim"]
+                    base = (base * (1.0 - ramp)[:, None, None]).astype(np.uint8)
                 if L["credit"]:
                     credits.append(L["asset"])
             elif L["type"] == "video" and active(L):

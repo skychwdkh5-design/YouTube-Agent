@@ -1,0 +1,385 @@
+{
+ "schema": "yt-render-manifest/1",
+ "profile": "long",
+ "output": "OPENING_REVISED_1080p30.mp4",
+ "width": 1920,
+ "height": 1080,
+ "fps": 30,
+ "duration": 30.0,
+ "safe": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "right": 0.05,
+  "left": 0.05
+ },
+ "first_word_start": 0.0,
+ "narration": {
+  "start": 0.0,
+  "duration": 30.0,
+  "end": 30.0,
+  "gain_db": 0.0,
+  "voice_name": "Adam",
+  "voice_id": "pNInz6obpgDQGcFmaJgB"
+ },
+ "shots": [
+  {
+   "id": "o01",
+   "beat": "scene 1 (hook: the planet)",
+   "start": 0.0,
+   "end": 2.067,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "still"
+   ],
+   "credit": "NASA Earth Observatory · Blue Marble"
+  },
+  {
+   "id": "o02",
+   "beat": "scene 2 (230+ over the ground)",
+   "start": 2.067,
+   "end": 8.233,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Original graphic · sources on the image"
+  },
+  {
+   "id": "o03",
+   "beat": "scene 3",
+   "start": 8.233,
+   "end": 13.333,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "still",
+    "label",
+    "label"
+   ],
+   "credit": "Landsat 9 · USGS"
+  },
+  {
+   "id": "o04",
+   "beat": "scene 4",
+   "start": 13.333,
+   "end": 17.3,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "still",
+    "label"
+   ],
+   "credit": "NASA Earth Observatory · Blue Marble"
+  },
+  {
+   "id": "o05",
+   "beat": "scene 5 (rain over a real landscape)",
+   "start": 17.3,
+   "end": 22.767,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Original graphic · sources on the image"
+  },
+  {
+   "id": "o06",
+   "beat": "scene 6",
+   "start": 22.767,
+   "end": 30.0,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "video"
+   ],
+   "credit": "Original graphic · sources on the image"
+  }
+ ],
+ "info_events": [],
+ "compositions": {
+  "rule": "composition-reset/1",
+  "thresholds": {
+   "zoom_ratio": 1.5,
+   "shift": 0.35,
+   "merge_s": 0.75,
+   "timelapse_min": 3,
+   "timelapse_max_step": 1.0,
+   "sample_s": 0.1,
+   "first_10s_min": 3,
+   "resets_per_min": 5.0,
+   "max_hold_s": 8.0
+  },
+  "composition_resets": 5,
+  "distinct_first_10s": 3,
+  "longest_static_hold": {
+   "seconds": 7.233,
+   "start": 22.767,
+   "end": 30.0
+  },
+  "resets": [
+   {
+    "t": 2.067,
+    "shot": "o02",
+    "kind": "graphic",
+    "what": "graphic r02-230"
+   },
+   {
+    "t": 8.233,
+    "shot": "o03",
+    "kind": "still",
+    "what": "still bodele"
+   },
+   {
+    "t": 13.333,
+    "shot": "o04",
+    "kind": "still",
+    "what": "still bluemarble"
+   },
+   {
+    "t": 17.3,
+    "shot": "o05",
+    "kind": "graphic",
+    "what": "graphic r05-rain"
+   },
+   {
+    "t": 22.767,
+    "shot": "o06",
+    "kind": "video",
+    "what": "video seq_s6"
+   }
+  ],
+  "segments": [
+   {
+    "start": 0.0,
+    "end": 2.067,
+    "seconds": 2.067,
+    "static_hold": 2.067
+   },
+   {
+    "start": 2.067,
+    "end": 8.233,
+    "seconds": 6.166,
+    "static_hold": 6.166
+   },
+   {
+    "start": 8.233,
+    "end": 13.333,
+    "seconds": 5.1,
+    "static_hold": 5.1
+   },
+   {
+    "start": 13.333,
+    "end": 17.3,
+    "seconds": 3.967,
+    "static_hold": 3.967
+   },
+   {
+    "start": 17.3,
+    "end": 22.767,
+    "seconds": 5.467,
+    "static_hold": 5.467
+   },
+   {
+    "start": 22.767,
+    "end": 30.0,
+    "seconds": 7.233,
+    "static_hold": 7.233
+   }
+  ]
+ },
+ "caption_boxes": [
+  {
+   "cue": 1,
+   "band": 0.815,
+   "box": [
+    585,
+    857,
+    1335,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 2,
+   "band": 0.815,
+   "box": [
+    466,
+    830,
+    1454,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 3,
+   "band": 0.815,
+   "box": [
+    583,
+    830,
+    1337,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 4,
+   "band": 0.815,
+   "box": [
+    613,
+    857,
+    1307,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 5,
+   "band": 0.815,
+   "box": [
+    670,
+    830,
+    1250,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 6,
+   "band": 0.815,
+   "box": [
+    520,
+    830,
+    1400,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 7,
+   "band": 0.76,
+   "box": [
+    869,
+    798,
+    1691,
+    844
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 8,
+   "band": 0.76,
+   "box": [
+    1010,
+    771,
+    1550,
+    871
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 9,
+   "band": 0.76,
+   "box": [
+    888,
+    771,
+    1672,
+    871
+   ],
+   "font_size": 46
+  }
+ ],
+ "assets": {
+  "bluemarble": {
+   "label": "Blue Marble: Africa",
+   "credit": "NASA Earth Observatory · Blue Marble",
+   "prov": null,
+   "kind": "external_still",
+   "source_url": "https://svs.gsfc.nasa.gov/3539",
+   "license": "NASA media usage guidelines: public domain unless noted; credit NASA",
+   "retrieved": "2026-10-08",
+   "image_date": "2004 (monthly composites)",
+   "derived_from": "SVS 3539 africa.0700.jpg",
+   "size": [
+    7506,
+    4587
+   ]
+  },
+  "bodele": {
+   "label": "Bodélé",
+   "credit": "Landsat 9 · USGS",
+   "prov": null,
+   "kind": "external_still",
+   "source_url": "https://earthexplorer.usgs.gov/ (USGS M2M, Landsat Collection 2 Level-1 band file)",
+   "license": "USGS Landsat: public domain, credit requested",
+   "retrieved": "2026-10-08",
+   "image_date": "2026-07-31",
+   "derived_from": "LC09_L1TP_183048_20260731_20260731_02_T1",
+   "size": [
+    5000,
+    2812
+   ]
+  },
+  "seq_s6": {
+   "label": "seq_s6",
+   "credit": "Landsat 5, 9 · USGS (East Oweinat)",
+   "prov": null,
+   "kind": "video"
+  },
+  "r02-230_1": {
+   "label": "r02-230_1",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r02-230_2": {
+   "label": "r02-230_2",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r02-230_3": {
+   "label": "r02-230_3",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r05-rain_1": {
+   "label": "r05-rain_1",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r05-rain_2": {
+   "label": "r05-rain_2",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r05-rain_3": {
+   "label": "r05-rain_3",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  }
+ },
+ "warnings": [
+  "only 0 information events in the first 10 s (target >= 3)",
+  "duration 30.0s outside 60.0-900.0 s"
+ ],
+ "segments": [
+  {
+   "index": 0,
+   "start_frame": 0,
+   "frames": 900,
+   "start": 0.0,
+   "sha256": "354442e46dd50cbc5b5c6cfda17f2f9bc8aa6b843eca29725019d471a341808e"
+  }
+ ]
+}

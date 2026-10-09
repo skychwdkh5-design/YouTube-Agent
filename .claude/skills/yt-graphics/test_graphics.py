@@ -293,5 +293,55 @@ class BuildEmphasis(Base):
         self.assertEqual(len(json.load(open(os.path.join(self.dir, "out", "old.json")))["steps"]), 4)
 
 
+class BackdropDashedLines(Base):
+    """backdrop (real image under a scrim, credit in the source line), dashed proposed elements, and plain rules."""
+    def make_backdrop(self):
+        arr = np.zeros((1080, 1920, 3), np.uint8); arr[:, :960] = (200, 60, 40); arr[:, 960:] = (40, 80, 200)
+        Image.fromarray(arr).save(os.path.join(self.dir, "bd.png"))
+
+    def render(self, graphics):
+        code, d = run([self.spec(graphics), "--out-dir", os.path.join(self.dir, "out")])
+        return code, d
+
+    def test_backdrop_is_under_the_scrim_and_recorded(self):
+        self.make_backdrop()
+        spec = {"type": "callout", "id": "bd", "source": SRC, "value": 5, "unit": "km", "label": "Label",
+                "backdrop": {"src": "bd.png", "credit": "Test imagery", "scrim": 0.5}}
+        code, d = self.render([spec]); self.assertEqual(code, 0, d)
+        im = np.asarray(Image.open(os.path.join(self.dir, "out", "bd.png")).convert("RGB")).astype(float)
+        left, right = im[900, 300], im[900, 1600]                       # clear of text, caption band excluded
+        self.assertGreater(left[0], right[0]); self.assertGreater(right[2], left[2])   # red left, blue right: the image shows through
+        self.assertLess(left[0], 200)                                    # but darkened by the scrim
+        side = json.load(open(os.path.join(self.dir, "out", "bd.json")))
+        self.assertEqual(side["backdrop"]["credit"], "Test imagery"); self.assertEqual(len(side["backdrop"]["sha256"]), 64)
+        self.assertTrue(any("Imagery: Test imagery" in t["text"] for t in side["text_boxes"]))
+
+    def test_backdrop_is_validated(self):
+        self.make_backdrop()
+        base = {"type": "callout", "id": "bd", "source": SRC, "value": 5, "unit": "km", "label": "Label"}
+        for bad, msg in (({"src": "nope.png", "credit": "x"}, "not found"), ({"src": "bd.png"}, "credit"),
+                         ({"src": "bd.png", "credit": "x", "scrim": 1.5}, "scrim"), ({"src": "../x.png", "credit": "x"}, "outside"),
+                         ({"src": "bd.png", "credit": "x", "view": {"center": [0.5], "width": 1}}, "center")):
+            code, d = self.render([dict(base, backdrop=bad)]); self.assertEqual(code, 2, bad); self.assertIn(msg, d["error"])
+
+    def test_dashed_nodes_arrows_and_lines(self):
+        spec = {"type": "diagram", "id": "dash", "source": SRC, "nodes": [
+                    {"id": "a", "text": "A", "x": 0.25, "y": 0.5, "w": 0.2, "h": 0.3, "style": "accent", "dashed": True},
+                    {"id": "b", "text": "B", "x": 0.75, "y": 0.5, "w": 0.2, "h": 0.3, "style": "accent"}],
+                "arrows": [{"from": "a", "to": "b", "dashed": True, "step": 2}],
+                "lines": [{"from": [0.05, 0.9], "to": [0.95, 0.9], "color": "muted", "width": 5, "step": 3}]}
+        code, d = self.render([spec]); self.assertEqual(code, 0, d)
+        s1 = np.asarray(Image.open(os.path.join(self.dir, "out", "dash.step1.png")).convert("RGB")).astype(int)
+        s3 = np.asarray(Image.open(os.path.join(self.dir, "out", "dash.png")).convert("RGB")).astype(int)
+        self.assertEqual(len(json.load(open(os.path.join(self.dir, "out", "dash.json")))["steps"]), 3)
+        bg = s1[2, 2]
+        # the dashed outline of node a: along its top edge pixels alternate between outline and background (gaps), the solid node b has none
+        top = s1[:, :, :]
+        ys, xs = np.nonzero(np.abs(s1 - bg).sum(2) > 60)
+        self.assertGreater(len(ys), 100)
+        self.assertGreater(np.abs(s3 - s1).sum(), 0)                      # later steps add the arrow and the rule
+        code, d = self.render([dict(spec, id="bad", lines=[{"from": [2, 0], "to": [0, 0]}])]); self.assertEqual(code, 2)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

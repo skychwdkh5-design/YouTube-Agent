@@ -1,0 +1,51 @@
+{
+ "shots": [
+  {
+   "shot": "o06",
+   "asset": "seq_s6",
+   "frames": 217,
+   "checks": [
+    {
+     "k": 0,
+     "psnr0": 46.3,
+     "psnr_prev": 8.1,
+     "psnr_next": 46.0,
+     "ok": true
+    },
+    {
+     "k": 1,
+     "psnr0": 46.3,
+     "psnr_prev": 45.4,
+     "psnr_next": 46.2,
+     "ok": true
+    },
+    {
+     "k": 108,
+     "psnr0": 41.9,
+     "psnr_prev": 41.3,
+     "psnr_next": 41.2,
+     "ok": true
+    },
+    {
+     "k": 215,
+     "psnr0": 39.6,
+     "psnr_prev": 31.2,
+     "psnr_next": 31.1,
+     "ok": true
+    },
+    {
+     "k": 216,
+     "psnr0": 39.3,
+     "psnr_prev": 31.1,
+     "psnr_next": 0.0,
+     "ok": true
+    }
+   ],
+   "source_frames_readable": true,
+   "first_not_previous": true,
+   "last_not_next": true,
+   "ok": true
+  }
+ ],
+ "all_ok": true
+}

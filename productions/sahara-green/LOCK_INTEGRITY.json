@@ -1,6 +1,6 @@
 {
  "baseline_commit": "c7e5b39",
- "head": "69c389a",
+ "head": "614f0ed",
  "locks": {
   "SCRIPT_LOCK_v1.1": {
    "script_body_sha256": "d646001c83d3421d43510ece1926d7bd49bc197dcdde07b94fd2f4f3a049f335",
@@ -272,6 +272,11 @@
   "productions/sahara-green/production/qc/SHA256.txt",
   "productions/sahara-green/production/qc/frame_accuracy.json",
   "productions/sahara-green/production/qc/freeze_intervals.json",
+  "productions/sahara-green/production/qc/prefinal/SHA256.txt",
+  "productions/sahara-green/production/qc/prefinal/frame_accuracy.json",
+  "productions/sahara-green/production/qc/prefinal/freeze_intervals.json",
+  "productions/sahara-green/production/qc/prefinal/manifest.json",
+  "productions/sahara-green/production/qc/prefinal/yt_qc.json",
   "productions/sahara-green/production/qc/review_master.manifest.json",
   "productions/sahara-green/production/qc/sequences.json",
   "productions/sahara-green/production/qc/yt_qc_review_master.json",

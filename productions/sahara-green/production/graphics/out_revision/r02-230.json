@@ -1,0 +1,92 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "r02-230",
+ "type": "callout",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Larrasoaña, Roberts & Rohling 2013, PLoS ONE 8(10): e76514",
+ "credit": null,
+ "steps": [
+  "r02-230.step1.png",
+  "r02-230.step2.png",
+  "r02-230.png"
+ ],
+ "sha256": {
+  "r02-230.step1.png": "562eb5a0fc6388e196b3f16711b965824daa0a10a261e42d8fb006d37b55bbcc",
+  "r02-230.step2.png": "5c5904066a5db287a460f1a0a41ff7e5baf8c62d14cf3d32b785f773dee94116",
+  "r02-230.png": "8a8e82a7b387437eb484bd686a7bc3c07bbcd287d96f45e95e58f6a32816f9d2"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "source",
+   "text": "Source: Larrasoaña, Roberts & Rohling 2013, PLoS ONE 8(10): e76514 · Imagery: Landsat 9 · USGS, Tassili n'Ajjer",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    1391.5,
+    797.6
+   ]
+  },
+  {
+   "where": "value",
+   "text": "230",
+   "size": 190,
+   "box": [
+    724.2,
+    292.4,
+    1109.2,
+    520.4
+   ]
+  },
+  {
+   "where": "unit",
+   "text": "+",
+   "size": 90,
+   "box": [
+    1133.2,
+    382.4,
+    1195.8,
+    490.4
+   ]
+  },
+  {
+   "where": "label",
+   "text": "Reconstructed green Sahara periods in the last 8 million years",
+   "size": 44,
+   "box": [
+    296.5,
+    530.0,
+    1623.5,
+    582.8
+   ]
+  },
+  {
+   "where": "context",
+   "text": "Inferred from seabed mud layers, not 230 events anyone observed",
+   "size": 30,
+   "box": [
+    477.5,
+    628.4,
+    1442.5,
+    664.4
+   ]
+  }
+ ],
+ "backdrop": {
+  "path": "backdrops/tassili_backdrop.jpg",
+  "sha256": "2e3241b4e2fd060945205dfd916d6049f981427d34761ca066b073d44862815d",
+  "credit": "Landsat 9 · USGS, Tassili n'Ajjer",
+  "scrim": 0.48
+ }
+}

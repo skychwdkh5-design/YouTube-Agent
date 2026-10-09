@@ -194,12 +194,31 @@ class Canvas:
     def obstacle(self, pts, width, owner=None):
         self.obstacles.append(([tuple(p) for p in pts], width / 2 + 2, owner))
 
-    def arrow(self, p0, p1, color, width=6, head=None, owner=None):
+    def dashed_line(self, p0, p1, color, width, dash=22, gap=14):
+        length = math.hypot(p1[0] - p0[0], p1[1] - p0[1])
+        if length < 1:
+            return
+        ux, uy = (p1[0] - p0[0]) / length, (p1[1] - p0[1]) / length
+        t = 0.0
+        while t < length:
+            e = min(t + dash, length)
+            self.line([(p0[0] + ux * t, p0[1] + uy * t), (p0[0] + ux * e, p0[1] + uy * e)], color, width)
+            t += dash + gap
+
+    def dashed_rect(self, box, color, width=5, dash=22, gap=14):
+        x0, y0, x1, y1 = box
+        for a, b in (((x0, y0), (x1, y0)), ((x1, y0), (x1, y1)), ((x1, y1), (x0, y1)), ((x0, y1), (x0, y0))):
+            self.dashed_line(a, b, color, width, dash, gap)
+
+    def arrow(self, p0, p1, color, width=6, head=None, owner=None, dashed=False):
         head = head or width * 3.2
         self.obstacle([p0, p1], max(width, head * 0.8), owner)
         ang = math.atan2(p1[1] - p0[1], p1[0] - p0[0])
         base = (p1[0] - head * 0.85 * math.cos(ang), p1[1] - head * 0.85 * math.sin(ang))
-        self.line([p0, base], color, width)
+        if dashed:
+            self.dashed_line(p0, base, color, width)
+        else:
+            self.line([p0, base], color, width)
         pts = [p1, (p1[0] - head * math.cos(ang - 0.42), p1[1] - head * math.sin(ang - 0.42)),
                (p1[0] - head * math.cos(ang + 0.42), p1[1] - head * math.sin(ang + 0.42))]
         self.polygon(pts, color)
@@ -356,12 +375,12 @@ def frame_parts(cv, g):
     if g.get("title"):
         cv.text(g["title"], x0, y0 + 30, 46, "Black", "fg", anchor="lm", max_w=x1 - x0, where="title")
         if g.get("subtitle"):
-            cv.text(g["subtitle"], x0, y0 + 78, 30, "SemiBold", "muted", anchor="lm", max_w=x1 - x0, where="subtitle")
+            cv.text(g["subtitle"], x0, y0 + 78, 30, "SemiBold", "fg" if g.get("backdrop") else "muted", anchor="lm", max_w=x1 - x0, where="subtitle")
             top = y0 + 108
         else:
             top = y0 + 68
     cv.text(("Source: " if not g["source"].lower().startswith(("source", "data")) else "") + g["source"],
-            x0, bottom - 16, 24, "SemiBold", "muted", anchor="lm", max_w=x1 - x0, where="source")
+            x0, bottom - 16, 24, "SemiBold", "fg" if g.get("backdrop") else "muted", anchor="lm", max_w=x1 - x0, where="source")
     return (x0, top + 10, x1, bottom - 44)
 
 
@@ -389,14 +408,26 @@ NODE_STYLES = {"default": ("panel", "fg"), "accent": ("accent", "bg"), "blue": (
 
 
 def v_diagram(g, where):
-    _keys(g, ("type", "id", "title", "subtitle", "source", "style", "caption_band", "nodes", "arrows", "notes"), where)
+    _keys(g, ("type", "id", "title", "subtitle", "source", "style", "caption_band", "nodes", "arrows", "notes", "lines"), where)
+    for i, ln in enumerate(g.get("lines") or []):
+        w = f"{where}.lines[{i}]"
+        _keys(ln, ("from", "to", "color", "width", "dashed", "step"), w)
+        for k in ("from", "to"):
+            v = ln.get(k)
+            if not (isinstance(v, list) and len(v) == 2):
+                raise E(f"{w}.{k} must be [x, y] (0-1)")
+            _num(v[0], f"{w}.{k}[0]", 0, 1); _num(v[1], f"{w}.{k}[1]", 0, 1)
+        if ln.get("color", "muted") not in STYLES["documentary_dark"]:
+            raise E(f"{w}.color must be a style colour name")
+        _num(ln.get("width", 6), f"{w}.width", 1, 30)
+        _step(ln, w)
     nodes = g.get("nodes") or []
     if not isinstance(nodes, list) or not nodes:
         raise E(f"{where}.nodes must be a non-empty list")
     ids = set()
     for i, n in enumerate(nodes):
         w = f"{where}.nodes[{i}]"
-        _keys(n, ("id", "text", "x", "y", "w", "h", "style", "step", "hl"), w)
+        _keys(n, ("id", "text", "x", "y", "w", "h", "style", "step", "hl", "dashed"), w)
         _text(n.get("id"), f"{w}.id", 40)
         if n["id"] in ids:
             raise E(f"{w}.id {n['id']!r} is used twice")
@@ -411,7 +442,7 @@ def v_diagram(g, where):
         _step(n, w); _hl(n, w)
     for i, a in enumerate(g.get("arrows") or []):
         w = f"{where}.arrows[{i}]"
-        _keys(a, ("from", "to", "label", "color", "step"), w)
+        _keys(a, ("from", "to", "label", "color", "step", "dashed"), w)
         for k in ("from", "to"):
             v = a.get(k)
             if isinstance(v, str):
@@ -470,12 +501,20 @@ def d_diagram(cv, g, step):
         return (geo[v][0], geo[v][1]) if isinstance(v, str) else (nx(box, v[0]), ny(box, v[1]))
 
     labels = []
+    for ln in g.get("lines") or []:                      # plain (optionally dashed) rules: axes, whiskers, schematic curves
+        if ln.get("step", 1) > step:
+            continue
+        p0 = (nx(box, ln["from"][0]), ny(box, ln["from"][1])); p1 = (nx(box, ln["to"][0]), ny(box, ln["to"][1]))
+        if ln.get("dashed"):
+            cv.dashed_line(p0, p1, ln.get("color", "muted"), ln.get("width", 6))
+        else:
+            cv.line([p0, p1], ln.get("color", "muted"), ln.get("width", 6))
     for a in g.get("arrows") or []:
         if a.get("step", 1) > step:
             continue
         c0, c1 = centre(a["from"]), centre(a["to"])
         p0, p1 = pt(a["from"], c1), pt(a["to"], c0)
-        cv.arrow(p0, p1, a.get("color", "accent"), 7)
+        cv.arrow(p0, p1, a.get("color", "accent"), 7, dashed=bool(a.get("dashed")))
         if a.get("label"):
             mx, my = (p0[0] + p1[0]) / 2, (p0[1] + p1[1]) / 2
             ang = math.atan2(p1[1] - p0[1], p1[0] - p0[0])
@@ -489,7 +528,12 @@ def d_diagram(cv, g, step):
             continue
         cx, cy, hw, hh = geo[n["id"]]
         fill, fg = NODE_STYLES[n.get("style", "default")]
-        if fill:
+        if n.get("dashed"):                              # a PROPOSED element: dashed outline, no fill, light text
+            if fill:                                    # a light wash of the element's colour keeps a proposed element visible, the dashed outline marks it as proposed
+                cv.rect((cx - hw, cy - hh, cx + hw, cy + hh), fill=tuple(cv.c(fill)) + (64,), radius=0)
+            cv.dashed_rect((cx - hw, cy - hh, cx + hw, cy + hh), fill or "muted", 5)
+            fg = "fg"
+        elif fill:
             cv.rect((cx - hw, cy - hh, cx + hw, cy + hh), fill=fill, radius=14)
         else:
             cv.rect((cx - hw, cy - hh, cx + hw, cy + hh), outline="muted", width=3, radius=14)
@@ -1074,6 +1118,39 @@ VALIDATE = {"diagram": v_diagram, "flow": v_flow, "circulation": v_circulation, 
             "bar": v_bar, "line": v_line, "callout": v_callout}
 
 
+def v_backdrop(b, where, root):
+    """`backdrop`: a real image under a scrim, behind the whole graphic (numbers and diagrams over geography). Its credit is printed in the source line."""
+    _keys(b, ("src", "credit", "scrim", "view"), where)
+    _resolve(b.get("src"), root, f"{where}.src")
+    _text(b.get("credit"), f"{where}.credit", 80)
+    _num(b.get("scrim", 0.6), f"{where}.scrim", 0.0, 0.95)
+    v = b.get("view")
+    if v is not None:
+        _keys(v, ("center", "width"), f"{where}.view")
+        c = v.get("center")
+        if not (isinstance(c, list) and len(c) == 2):
+            raise E(f"{where}.view.center must be [x, y] as fractions of the image")
+        _num(c[0], f"{where}.view.center[0]", 0, 1); _num(c[1], f"{where}.view.center[1]", 0, 1)
+        _num(v.get("width"), f"{where}.view.width", 0.05, 1.0)
+
+
+def apply_backdrop(cv, b, root, where):
+    path = _resolve(b["src"], root, f"{where}.backdrop.src")
+    with Image.open(path) as im0:
+        im0 = im0.convert("RGB")
+        iw, ih = im0.size
+        v = b.get("view") or {"center": [0.5, 0.5], "width": 1.0}
+        bw = v["width"] * iw; bh = bw * H / W
+        if bh > ih + 1e-6:
+            bh = float(ih); bw = bh * W / H
+        cx = min(max(v["center"][0] * iw, bw / 2), iw - bw / 2); cy = min(max(v["center"][1] * ih, bh / 2), ih - bh / 2)
+        crop = im0.resize((W * SS, H * SS), Image.LANCZOS, box=(cx - bw / 2, cy - bh / 2, cx + bw / 2, cy + bh / 2))
+    bg = Image.new("RGB", crop.size, cv.s["bg"])
+    cv.im = Image.blend(crop, bg, float(b.get("scrim", 0.6)))
+    cv.d = ImageDraw.Draw(cv.im, "RGBA")
+    return {"path": os.path.relpath(path, root), "sha256": _sha256(path), "credit": b["credit"], "scrim": float(b.get("scrim", 0.6))}
+
+
 def validate_graphic(g, where, root):
     if not isinstance(g, dict) or g.get("type") not in TYPES:
         raise E(f"{where}.type must be one of {list(TYPES)}")
@@ -1085,6 +1162,9 @@ def validate_graphic(g, where, root):
     _text(g.get("subtitle"), f"{where}.subtitle", 120, required=False)
     if g.get("style", "documentary_dark") not in STYLES:
         raise E(f"{where}.style must be one of {sorted(STYLES)}")
+    if "backdrop" in g:
+        v_backdrop(g["backdrop"], f"{where}.backdrop", root)
+        g = {k: v for k, v in g.items() if k != "backdrop"}
     if g["type"] in ("geo", "compare"):
         (v_geo if g["type"] == "geo" else v_compare)(g, where, root)
     else:
@@ -1101,7 +1181,7 @@ def steps_of(g):
     if g["type"] == "callout":
         return (_callout_first(g) + 1 + (1 if g.get("context") else 0)) if g.get("build") else 1
     if g["type"] in ("diagram", "geo"):
-        items = list(g.get("nodes") or []) + list(g.get("arrows") or []) + list(g.get("notes") or []) + list(g.get("callouts") or [])
+        items = list(g.get("nodes") or []) + list(g.get("arrows") or []) + list(g.get("notes") or []) + list(g.get("callouts") or []) + list(g.get("lines") or [])
         return max([1] + [x.get("step", 1) for x in items] + [h for x in items for h in (x.get("hl") or [])])
     return 1
 
@@ -1112,6 +1192,9 @@ def draw(g, step, fonts, root, where):
         g = flow_as_diagram(g)
     cv = Canvas(g.get("style", "documentary_dark"), fonts)
     info = {}
+    if g.get("backdrop"):
+        info["backdrop"] = apply_backdrop(cv, g["backdrop"], root, where)
+        g = dict(g, source=f"{g['source']} · Imagery: {g['backdrop']['credit']}")
     if g["type"] == "diagram":
         d_diagram(cv, g, step)
     elif g["type"] == "circulation":
