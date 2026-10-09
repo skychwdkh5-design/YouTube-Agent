@@ -54,3 +54,18 @@ Decision rules:
 `/yt-satellite` works worldwide - Landsat covers the whole globe. Stories in Sweden, Norway, Denmark
 or anywhere else may use it when satellite evidence materially improves the story. The no-
 fabrication rules in that skill apply everywhere: no scene, no satellite claim.
+
+## Visual production standards (mandatory for every video)
+
+Before storyboarding or rendering any video, read `docs/ORBITALATLAS_VISUAL_MASTER.md` and load
+`/yt-motion-design`, `/yt-cinematic-edit` and, for any map or satellite overlay, `/yt-geographic-animation`.
+Rules in short:
+- Motion storyboard per scene (fields in `docs/MOTION_DESIGN_STANDARDS.md`); filename + zoom is not a storyboard.
+- Check every planned effect against the "Built?" table in the Visual Master; list unsupported ones as limitations
+  before rendering. Never substitute a pan/zoom for a missing effect without saying so.
+- Image-space zoom is not a 3D flyover; never fake spatial continuity between unregistered images.
+- Render a 12-15 s proof of the hardest sequence first; scale only after user approval.
+- Use locked narration and provider word timings only; no TTS, paid API, merge to main or large media commits
+  without explicit user approval.
+- Report status as TECHNICALLY_VALID, VISUALLY_REVIEWED or USER_APPROVED. Only the user grants USER_APPROVED;
+  do not call unapproved work cinematic or premium.
