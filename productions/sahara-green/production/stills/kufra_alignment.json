@@ -1,0 +1,139 @@
+{
+ "scene": "LC09_L1TP_181043_20260919_20260919_02_T1",
+ "epsg": 32634,
+ "size": [
+  7571,
+  7711
+ ],
+ "reference_point_lat_lon": [
+  24.18,
+  23.29
+ ],
+ "corner_check": {
+  "UL": {
+   "mtl_utm": [
+    564600.0,
+    2831700.0
+   ],
+   "mtl_lat_lon": [
+    25.60141,
+    21.64333
+   ],
+   "pixel_from_transform": [
+    0.0,
+    0.0
+   ],
+   "expected_pixel_corner": [
+    0,
+    0
+   ],
+   "pixel_residual": 0.0,
+   "latlon_roundtrip_error_m": 0.6
+  },
+  "UR": {
+   "mtl_utm": [
+    791700.0,
+    2831700.0
+   ],
+   "mtl_lat_lon": [
+    25.57399,
+    23.90356
+   ],
+   "pixel_from_transform": [
+    7570.0,
+    0.0
+   ],
+   "expected_pixel_corner": [
+    7571,
+    0
+   ],
+   "pixel_residual": 1.0,
+   "latlon_roundtrip_error_m": 0.5
+  },
+  "LL": {
+   "mtl_utm": [
+    564600.0,
+    2600400.0
+   ],
+   "mtl_lat_lon": [
+    23.51252,
+    21.63276
+   ],
+   "pixel_from_transform": [
+    0.0,
+    7710.0
+   ],
+   "expected_pixel_corner": [
+    0,
+    7711
+   ],
+   "pixel_residual": 1.0,
+   "latlon_roundtrip_error_m": 0.4
+  },
+  "LR": {
+   "mtl_utm": [
+    791700.0,
+    2600400.0
+   ],
+   "mtl_lat_lon": [
+    23.48762,
+    23.85592
+   ],
+   "pixel_from_transform": [
+    7570.0,
+    7710.0
+   ],
+   "expected_pixel_corner": [
+    7571,
+    7711
+   ],
+   "pixel_residual": 1.0,
+   "latlon_roundtrip_error_m": 0.2
+  }
+ },
+ "corner_check_ok": true,
+ "footprint_contains_reference": true,
+ "green_pixels_ndvi_gt_0.20": 52026,
+ "field_cluster": {
+  "pixels": 50426,
+  "centroid_pixel": [
+   5493,
+   5184
+  ],
+  "centroid_lat_lon": [
+   24.1814,
+   23.2583
+  ],
+  "distance_to_reference_km": 3.2,
+  "extent_pixels": [
+   4925,
+   4468,
+   6306,
+   5881
+  ]
+ },
+ "field_cluster_within_30km_of_reference": true,
+ "video_window_px": [
+  3011,
+  3764,
+  3600,
+  2025
+ ],
+ "video_window_corner_lat_lon": {
+  "UL": [
+   24.5753,
+   22.53
+  ],
+  "LR": [
+   24.0125,
+   23.5847
+  ]
+ },
+ "video_window_contains_field_cluster_core": true,
+ "video_window_fraction_of_cluster_pixels": 0.999,
+ "position_of_cluster_in_window_fraction": [
+  0.689,
+  0.701
+ ],
+ "ALIGNMENT_VERIFIED": true
+}

@@ -26,7 +26,7 @@ PLAN = {s['scene']: s for s in json.load(open(os.path.join(HERE, 'scene_plan.jso
 def S(i): return q(PLAN[i]['start'])
 def E(i): return q(PLAN[i]['end'])
 CRED = {'landsat9': 'Landsat 9 · USGS', 'landsat8': 'Landsat 8 · USGS', 'nasa_bm': 'NASA Earth Observatory · Blue Marble', 'nasa_calipso': 'NASA Goddard SVS · CALIPSO dust (Dust in the Wind)',
-        'gfx': 'Graphic: Sahara Green · sources on the graphic'}
+        'gfx': 'Original graphic · sources on the image'}
 GFX_DIR = os.path.join(HERE, 'graphics', 'out'); ST_DIR = os.path.join(HERE, 'stills')
 def main(ws):
     seq = json.load(open(os.path.join(ws, 'sequences.json')))
@@ -125,7 +125,7 @@ def main(ws):
     vshot('s18', 'scene 18', seq['eo']['start'], 'seq_eo', CAP_EO)
     t19 = seq['eo']['end']
     gshot('s19', 'scene 19', t19, 'g19-aquifer', [t19, at('egypt', t19), at('libya', t19), at('sudan', t19), at('chad', t19), at('nasa says', t19), at('soaked', t19), at('a million', t19), at('when the region', t19), at('recharges slowly', t19)])
-    sshot('s20', 'scene 20', S('20'), 'kufra', ((0.52, 0.5), 1.0), ((0.72, 0.60), 0.45), [{'text': 'KUFRA, LIBYA', 't0': at('kufra', S('20')), 't1': E('20')}])
+    sshot('s20', 'scene 20', S('20'), 'kufra', ((0.58, 0.55), 1.0), ((0.689, 0.70), 0.42), [{'text': 'KUFRA, LIBYA', 't0': at('kufra', S('20')), 't1': E('20')}])
     vshot('s21', 'scene 21', seq['toshka']['start'], 'seq_toshka', CAP_TO)
     vshot('s22', 'scene 22', seq['s22']['start'], 'seq_s22', CAP_EO)
     t23 = S('23')
