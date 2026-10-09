@@ -1,0 +1,154 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g25-budget",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Kemena et al., Climate Dynamics (manuscript 2017; journal version 2018)",
+ "credit": null,
+ "steps": [
+  "g25-budget.step1.png",
+  "g25-budget.step2.png",
+  "g25-budget.step3.png",
+  "g25-budget.step4.png",
+  "g25-budget.step5.png",
+  "g25-budget.step6.png",
+  "g25-budget.step7.png",
+  "g25-budget.step8.png",
+  "g25-budget.step9.png",
+  "g25-budget.step10.png",
+  "g25-budget.step11.png",
+  "g25-budget.png"
+ ],
+ "sha256": {
+  "g25-budget.step1.png": "1594ba30bd7edf674088ab096adcb80451d0ccd0a792b15c64d87ff8c8cd3fe3",
+  "g25-budget.step2.png": "7bd03cab60337ccfa8244f28fe46a54a2611213d9a09ee86eb7511fd9bf483f7",
+  "g25-budget.step3.png": "396ee7d1a704d086ef5a5fcbfa3d7fb6e9aa9eae0612568dd9b57f6d3948ae32",
+  "g25-budget.step4.png": "8e37c75da434ffd4e9f7165e3d03ef30a1de04b2537e4bbb161218cce81873d5",
+  "g25-budget.step5.png": "31490ea3584f6c3b6f933789b41c270adbf833008f13a6e9ffbcab4a7a0c246a",
+  "g25-budget.step6.png": "49ba983a3c17f6fa86bdb08b818f306522e11ce44e862431470c93b8820f0c3c",
+  "g25-budget.step7.png": "49ba983a3c17f6fa86bdb08b818f306522e11ce44e862431470c93b8820f0c3c",
+  "g25-budget.step8.png": "49ba983a3c17f6fa86bdb08b818f306522e11ce44e862431470c93b8820f0c3c",
+  "g25-budget.step9.png": "5368f05e20436d66e8f002f7f6ce56bc7aa2ca048f0e932db115530e82539df2",
+  "g25-budget.step10.png": "d01aeca49fa0a06843e41b53077313ce4b9fa1179c024fe3adcb62b309684ca6",
+  "g25-budget.step11.png": "7af9116f38d3de806c638bb0f35e0c2eb3bb685236d9ceb619de8c24ba06fe1d",
+  "g25-budget.png": "7af9116f38d3de806c638bb0f35e0c2eb3bb685236d9ceb619de8c24ba06fe1d"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "Water budget of the model forest",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    854.5,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "Millimeters per year, Sahara average of a 30-year simulation",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    968.5,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Kemena et al., Climate Dynamics (manuscript 2017; journal version 2018) · Imagery: NASA Blue Marble (SVS 3539)",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    1516.5,
+    797.6
+   ]
+  },
+  {
+   "where": "node lost",
+   "text": "Water lost: evaporation + transpiration 1,238",
+   "size": 34,
+   "box": [
+    196.3,
+    455.9,
+    583.3,
+    536.9
+   ]
+  },
+  {
+   "where": "node rain",
+   "text": "Rain 319",
+   "size": 34,
+   "box": [
+    804.1,
+    322.3,
+    943.1,
+    363.1
+   ]
+  },
+  {
+   "where": "node sup",
+   "text": "Desalinated water supplied in the model 919",
+   "size": 34,
+   "box": [
+    696.4,
+    489.2,
+    1050.8,
+    610.2
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Rain 319 is about a quarter of 1,238: a ratio of totals, not a tracked drop of water",
+   "size": 28,
+   "box": [
+    1173.9,
+    307.8,
+    1782.9,
+    374.4
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Water supply is assumed by the model, not shown to be feasible",
+   "size": 28,
+   "box": [
+    1139.9,
+    514.8,
+    1816.9,
+    581.5
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Much of the moisture was carried south, over the Sahel and the ocean",
+   "size": 28,
+   "box": [
+    1146.4,
+    421.7,
+    1810.4,
+    488.3
+   ]
+  }
+ ],
+ "backdrop": {
+  "path": "backdrops/sahel_backdrop.jpg",
+  "sha256": "fea4a8bf4627d78c1df22de8a46003fa1fc9da2c96e0e20a92d63203f24c5c09",
+  "credit": "NASA Blue Marble (SVS 3539)",
+  "scrim": 0.62
+ }
+}

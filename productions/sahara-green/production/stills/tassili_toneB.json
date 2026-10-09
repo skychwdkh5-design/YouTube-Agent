@@ -1,0 +1,35 @@
+{
+ "key": "tassili",
+ "kind": "landsat_toneB_crop",
+ "scene": "LC09_L1TP_190042_20251220_20251220_02_T1",
+ "date_acquired": "2025-12-20",
+ "scene_center_time_utc": "09:51:58.9765660Z",
+ "sun_elevation": 36.09477182,
+ "epsg": 32632,
+ "pixel_m": 30.0,
+ "src_window_px": [
+  825,
+  2744,
+  4200,
+  2362
+ ],
+ "ul_lonlat": [
+  8.28727,
+  26.29617
+ ],
+ "georeferenced": true,
+ "note": "Tassili n'Ajjer sandstone plateau and canyons, Algeria",
+ "bands": "B4,B3,B2 (red,green,blue)",
+ "processing": "TOA reflectance, tone B (lock), native 30 m pixels, no resampling, black collar excluded",
+ "kind_source": "band",
+ "file": "tassili_toneB.png",
+ "sha256": "032963a4a837d584fe7af0f28b36ff07ea1ff8d83018b4bf00f43c53ba5f1b9a",
+ "size": [
+  4200,
+  2362
+ ],
+ "credit": "Landsat 9 \u00b7 USGS",
+ "licence": "USGS Landsat: public domain, credit requested",
+ "source_url": "https://earthexplorer.usgs.gov/ (USGS M2M, Landsat Collection 2 Level-1 band file)",
+ "retrieved": "2026-10-08"
+}

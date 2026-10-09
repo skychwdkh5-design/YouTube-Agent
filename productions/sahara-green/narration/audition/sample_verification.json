@@ -1,0 +1,18 @@
+{
+ "narration_text_sha256": "101a143c9e96b3507153d95cdc8af76db56a945ae575050a3abbd374edddb091",
+ "narration_text_sha256_matches_manifest": true,
+ "script_body_sha256": "d646001c83d3421d43510ece1926d7bd49bc197dcdde07b94fd2f4f3a049f335",
+ "script_body_sha256_matches_manifest": true,
+ "sample_paragraphs": 3,
+ "each_paragraph_is_the_concatenation_of_locked_sentences": true,
+ "each_paragraph_is_a_byte_exact_substring_of_the_locked_narration_text": true,
+ "sample_has_no_markup": true,
+ "sample_sha256": "a21adac1c73daae67bc4c3affd9602be7b421f731b628961cb941f2efe605642",
+ "sample_characters": 677,
+ "voice_py_plan_status": "confirm_required",
+ "voice_py_billed_characters": 677,
+ "voice_py_chunks": 1,
+ "voice_py_spoken_text_equals_sample_file": true,
+ "voice_py_removed_nothing": true,
+ "ALL_OK": true
+}

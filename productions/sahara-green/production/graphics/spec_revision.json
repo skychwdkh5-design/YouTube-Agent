@@ -1,0 +1,821 @@
+{
+ "schema": "yt-graphics/1",
+ "graphics": [
+  {
+   "type": "callout",
+   "id": "r02-230",
+   "style": "documentary_dark",
+   "build": true,
+   "source": "Larrasoaña, Roberts & Rohling 2013, PLoS ONE 8(10): e76514",
+   "value": 230,
+   "unit": "+",
+   "label": "Reconstructed green Sahara periods in the last 8 million years",
+   "context": "Inferred from seabed mud layers, not 230 events anyone observed",
+   "backdrop": {
+    "src": "backdrops/tassili_backdrop.jpg",
+    "credit": "Landsat 9 · USGS, Tassili n'Ajjer",
+    "scrim": 0.48
+   }
+  },
+  {
+   "type": "diagram",
+   "id": "r05-rain",
+   "style": "documentary_dark",
+   "source": "NASA Earth Observatory, \"A Deluge for the Sahara\"",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "A FEW INCHES OF RAIN A YEAR",
+     "x": 0.5,
+     "y": 0.36,
+     "w": 0.66,
+     "h": 0.24,
+     "style": "accent",
+     "step": 2
+    },
+    {
+     "id": "b",
+     "text": "= TENS OF MILLIMETERS",
+     "x": 0.5,
+     "y": 0.68,
+     "w": 0.66,
+     "h": 0.22,
+     "style": "blue",
+     "step": 3
+    }
+   ],
+   "notes": [
+    {
+     "text": "IN SOME AREAS OF THE SAHARA",
+     "x": 0.5,
+     "y": 0.1,
+     "size": 40,
+     "step": 1,
+     "hl": [
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "text": "1 inch = 25.4 millimeters",
+     "x": 0.5,
+     "y": 0.92,
+     "size": 30,
+     "step": 3,
+     "hl": [
+      3
+     ]
+    }
+   ],
+   "backdrop": {
+    "src": "backdrops/gilf_backdrop.jpg",
+    "credit": "Landsat 9 · USGS, Gilf Kebir, Egypt (illustrative)",
+    "scrim": 0.5
+   }
+  },
+  {
+   "type": "diagram",
+   "id": "r23a-sites",
+   "style": "documentary_dark",
+   "source": "Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+   "title": "PROPOSAL (2009)",
+   "subtitle": "Three researchers: forests of fast-growing trees, watered with desalinated seawater",
+   "nodes": [
+    {
+     "id": "f",
+     "text": "FORESTS OF FAST-GROWING TREES",
+     "x": 0.43,
+     "y": 0.3,
+     "w": 0.34,
+     "h": 0.17,
+     "style": "accent",
+     "dashed": true,
+     "step": 3
+    },
+    {
+     "id": "s",
+     "text": "THE SAHARA",
+     "x": 0.43,
+     "y": 0.66,
+     "w": 0.18,
+     "h": 0.11,
+     "style": "default",
+     "step": 4
+    },
+    {
+     "id": "o",
+     "text": "AND THE AUSTRALIAN OUTBACK",
+     "x": 0.85,
+     "y": 0.3,
+     "w": 0.27,
+     "h": 0.2,
+     "style": "accent",
+     "dashed": true,
+     "step": 5
+    }
+   ],
+   "arrows": [
+    {
+     "from": "f",
+     "to": "s",
+     "dashed": true,
+     "step": 4
+    }
+   ],
+   "notes": [
+    {
+     "text": "GOING MUCH BIGGER",
+     "x": 0.5,
+     "y": 0.12,
+     "size": 44,
+     "hl": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "step": 2
+    },
+    {
+     "text": "Not on this map",
+     "x": 0.85,
+     "y": 0.52,
+     "size": 28,
+     "hl": [
+      5
+     ],
+     "step": 5
+    },
+    {
+     "text": "DASHED = PROPOSED IN THE 2009 STUDY",
+     "x": 0.3,
+     "y": 0.97,
+     "size": 26,
+     "hl": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "step": 1
+    }
+   ],
+   "backdrop": {
+    "src": "backdrops/africa_backdrop.jpg",
+    "credit": "NASA Blue Marble (SVS 3539)",
+    "scrim": 0.58
+   },
+   "lines": [
+    {
+     "from": [
+      0.7,
+      0.04
+     ],
+     "to": [
+      0.7,
+      0.94
+     ],
+     "color": "fg",
+     "width": 3,
+     "dashed": true,
+     "step": 5
+    }
+   ]
+  },
+  {
+   "type": "diagram",
+   "id": "r23b-mechanism",
+   "style": "documentary_dark",
+   "source": "Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+   "title": "How the proposal works",
+   "subtitle": "A conceptual schematic, not a route map: no site or route is shown",
+   "nodes": [
+    {
+     "id": "fo",
+     "text": "FOREST",
+     "x": 0.86,
+     "y": 0.18,
+     "w": 0.22,
+     "h": 0.17,
+     "style": "accent",
+     "dashed": true,
+     "step": 1
+    },
+    {
+     "id": "ir",
+     "text": "IRRIGATION",
+     "x": 0.62,
+     "y": 0.42,
+     "w": 0.22,
+     "h": 0.17,
+     "style": "accent",
+     "dashed": true,
+     "step": 2
+    },
+    {
+     "id": "de",
+     "text": "DESALINATION",
+     "x": 0.38,
+     "y": 0.66,
+     "w": 0.22,
+     "h": 0.17,
+     "style": "accent",
+     "dashed": true,
+     "step": 3
+    },
+    {
+     "id": "se",
+     "text": "SEAWATER",
+     "x": 0.14,
+     "y": 0.88,
+     "w": 0.2,
+     "h": 0.14,
+     "style": "blue",
+     "step": 4
+    }
+   ],
+   "arrows": [
+    {
+     "from": "ir",
+     "to": "fo",
+     "dashed": true,
+     "step": 2
+    },
+    {
+     "from": "de",
+     "to": "ir",
+     "dashed": true,
+     "step": 3
+    },
+    {
+     "from": "se",
+     "to": "de",
+     "dashed": true,
+     "step": 4
+    }
+   ],
+   "notes": [
+    {
+     "text": "DASHED = PROPOSED IN THE 2009 STUDY",
+     "x": 0.7,
+     "y": 0.92,
+     "size": 26,
+     "step": 1
+    },
+    {
+     "text": "WATERED WITH DESALINATED SEAWATER",
+     "x": 0.26,
+     "y": 0.24,
+     "size": 44,
+     "step": 1
+    }
+   ]
+  },
+  {
+   "type": "diagram",
+   "id": "r23c-carbon",
+   "style": "documentary_dark",
+   "source": "Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+   "title": "By their estimate",
+   "subtitle": "The authors' figure for the proposed forests: an estimate, not a measurement",
+   "lines": [
+    {
+     "from": [
+      0.06,
+      0.9
+     ],
+     "to": [
+      0.94,
+      0.9
+     ],
+     "color": "muted",
+     "width": 5,
+     "step": 1
+    }
+   ],
+   "nodes": [
+    {
+     "id": "l",
+     "text": "FORESTS",
+     "x": 0.27,
+     "y": 0.62,
+     "w": 0.2,
+     "h": 0.56,
+     "style": "accent",
+     "dashed": true,
+     "step": 2
+    },
+    {
+     "id": "r",
+     "text": "FOSSIL FUELS",
+     "x": 0.73,
+     "y": 0.62,
+     "w": 0.2,
+     "h": 0.56,
+     "style": "blue",
+     "step": 4
+    }
+   ],
+   "notes": [
+    {
+     "text": "CARBON TAKEN UP EACH YEAR (ESTIMATE)",
+     "x": 0.27,
+     "y": 0.14,
+     "size": 28,
+     "step": 1
+    },
+    {
+     "text": "CARBON RELEASED EACH YEAR",
+     "x": 0.73,
+     "y": 0.14,
+     "size": 28,
+     "step": 1
+    },
+    {
+     "text": "≈",
+     "x": 0.5,
+     "y": 0.6,
+     "size": 60,
+     "step": 3
+    },
+    {
+     "text": "DASHED = PROPOSED IN THE 2009 STUDY",
+     "x": 0.5,
+     "y": 0.98,
+     "size": 26,
+     "step": 1
+    }
+   ]
+  },
+  {
+   "type": "diagram",
+   "id": "r23d-estimate",
+   "style": "documentary_dark",
+   "source": "Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+   "title": "Where the estimate comes from",
+   "subtitle": "Plantation data and calculations; large error bars",
+   "nodes": [
+    {
+     "id": "h1",
+     "text": "THE ESTIMATE CAME FROM",
+     "x": 0.25,
+     "y": 0.12,
+     "w": 0.42,
+     "h": 0.14,
+     "style": "green",
+     "step": 1
+    },
+    {
+     "id": "h2",
+     "text": "IT WAS NOT",
+     "x": 0.75,
+     "y": 0.12,
+     "w": 0.42,
+     "h": 0.14,
+     "style": "red",
+     "step": 1
+    },
+    {
+     "id": "p1",
+     "text": "PLANTATION DATA",
+     "x": 0.25,
+     "y": 0.4,
+     "w": 0.42,
+     "h": 0.2,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "p2",
+     "text": "CALCULATIONS WITH LARGE ERROR BARS",
+     "x": 0.25,
+     "y": 0.7,
+     "w": 0.42,
+     "h": 0.24,
+     "style": "default",
+     "step": 3
+    },
+    {
+     "id": "p3",
+     "text": "A CLIMATE-MODEL RESULT THAT SIMULATED THE CARBON",
+     "x": 0.75,
+     "y": 0.55,
+     "w": 0.42,
+     "h": 0.46,
+     "style": "default",
+     "dashed": true,
+     "step": 4
+    }
+   ],
+   "lines": [
+    {
+     "from": [
+      0.54,
+      0.06
+     ],
+     "to": [
+      0.54,
+      0.94
+     ],
+     "color": "grid",
+     "width": 4,
+     "step": 1
+    }
+   ]
+  },
+  {
+   "type": "diagram",
+   "id": "r23e-century",
+   "style": "documentary_dark",
+   "source": "Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+   "title": "Not carbon removal forever",
+   "subtitle": "Schematic: the shape described by the authors, not data",
+   "lines": [
+    {
+     "from": [
+      0.12,
+      0.9
+     ],
+     "to": [
+      0.12,
+      0.1
+     ],
+     "color": "muted",
+     "width": 5,
+     "step": 1
+    },
+    {
+     "from": [
+      0.12,
+      0.9
+     ],
+     "to": [
+      0.92,
+      0.9
+     ],
+     "color": "muted",
+     "width": 5,
+     "step": 1
+    },
+    {
+     "from": [
+      0.12,
+      0.9
+     ],
+     "to": [
+      0.1418,
+      0.8038
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.1418,
+      0.8038
+     ],
+     "to": [
+      0.1636,
+      0.7211
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.1636,
+      0.7211
+     ],
+     "to": [
+      0.1855,
+      0.65
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.1855,
+      0.65
+     ],
+     "to": [
+      0.2073,
+      0.5889
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.2073,
+      0.5889
+     ],
+     "to": [
+      0.2291,
+      0.5364
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.2291,
+      0.5364
+     ],
+     "to": [
+      0.2509,
+      0.4913
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.2509,
+      0.4913
+     ],
+     "to": [
+      0.2727,
+      0.4526
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.2727,
+      0.4526
+     ],
+     "to": [
+      0.2945,
+      0.4192
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.2945,
+      0.4192
+     ],
+     "to": [
+      0.3164,
+      0.3906
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.3164,
+      0.3906
+     ],
+     "to": [
+      0.3382,
+      0.366
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.3382,
+      0.366
+     ],
+     "to": [
+      0.36,
+      0.3449
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.36,
+      0.3449
+     ],
+     "to": [
+      0.3818,
+      0.3267
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.3818,
+      0.3267
+     ],
+     "to": [
+      0.4036,
+      0.3111
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.4036,
+      0.3111
+     ],
+     "to": [
+      0.4255,
+      0.2976
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.4255,
+      0.2976
+     ],
+     "to": [
+      0.4473,
+      0.2861
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.4473,
+      0.2861
+     ],
+     "to": [
+      0.4691,
+      0.2762
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.4691,
+      0.2762
+     ],
+     "to": [
+      0.4909,
+      0.2677
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.4909,
+      0.2677
+     ],
+     "to": [
+      0.5127,
+      0.2603
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.5127,
+      0.2603
+     ],
+     "to": [
+      0.5345,
+      0.2541
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.5345,
+      0.2541
+     ],
+     "to": [
+      0.5564,
+      0.2486
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.5564,
+      0.2486
+     ],
+     "to": [
+      0.5782,
+      0.244
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.5782,
+      0.244
+     ],
+     "to": [
+      0.6,
+      0.24
+     ],
+     "color": "green",
+     "width": 9,
+     "step": 1
+    },
+    {
+     "from": [
+      0.6,
+      0.24
+     ],
+     "to": [
+      0.88,
+      0.24
+     ],
+     "color": "green",
+     "width": 9,
+     "dashed": true,
+     "step": 2
+    },
+    {
+     "from": [
+      0.6,
+      0.9
+     ],
+     "to": [
+      0.6,
+      0.24
+     ],
+     "color": "accent",
+     "width": 4,
+     "dashed": true,
+     "step": 2
+    }
+   ],
+   "nodes": [
+    {
+     "id": "au",
+     "text": "THE AUTHORS THEMSELVES DESCRIBED SUCH PROJECTS AS...",
+     "x": 0.77,
+     "y": 0.64,
+     "w": 0.3,
+     "h": 0.22,
+     "style": "accent",
+     "step": 3
+    }
+   ],
+   "notes": [
+    {
+     "text": "CARBON STORED IN THE FOREST (SCHEMATIC)",
+     "x": 0.34,
+     "y": 0.06,
+     "size": 26,
+     "step": 1
+    },
+    {
+     "text": "TIME",
+     "x": 0.94,
+     "y": 0.97,
+     "size": 26,
+     "step": 1
+    },
+    {
+     "text": "ABOUT A CENTURY",
+     "x": 0.6,
+     "y": 0.97,
+     "size": 28,
+     "step": 2
+    },
+    {
+     "text": "THE FOREST STOPS GAINING CARBON",
+     "x": 0.74,
+     "y": 0.15,
+     "size": 28,
+     "step": 2
+    }
+   ]
+  }
+ ]
+}

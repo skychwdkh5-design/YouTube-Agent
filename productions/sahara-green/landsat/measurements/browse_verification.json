@@ -1,0 +1,405 @@
+[
+ {
+  "displayId": "LC08_L1TP_175044_20211106_20211117_02_T1",
+  "acquired": "2021-11-06",
+  "cloud": 0,
+  "bytes": 3193055,
+  "size": [
+   7661,
+   7811
+  ],
+  "epsg": 32636,
+  "pixel_m": 30.0,
+  "pixel_is_area": true,
+  "corner_lon_range": [
+   30.541,
+   32.806
+  ],
+  "corner_lat_range": [
+   22.038,
+   24.172
+  ],
+  "usgs_footprint_lon": [
+   30.575,
+   32.802
+  ],
+  "usgs_footprint_lat": [
+   22.055,
+   24.158
+  ],
+  "centre_in_footprint": true,
+  "nonblank_share": 0.696
+ },
+ {
+  "displayId": "LC08_L1TP_176044_20211113_20211125_02_T1",
+  "acquired": "2021-11-13",
+  "cloud": 0,
+  "bytes": 2137043,
+  "size": [
+   7721,
+   7871
+  ],
+  "epsg": 32636,
+  "pixel_m": 30.0,
+  "pixel_is_area": true,
+  "corner_lon_range": [
+   28.987,
+   31.292
+  ],
+  "corner_lat_range": [
+   22.022,
+   24.192
+  ],
+  "usgs_footprint_lon": [
+   29.039,
+   31.267
+  ],
+  "usgs_footprint_lat": [
+   22.056,
+   24.159
+  ],
+  "centre_in_footprint": true,
+  "nonblank_share": 0.687
+ },
+ {
+  "displayId": "LC08_L1TP_177044_20160107_20200907_02_T1",
+  "acquired": "2016-01-07",
+  "cloud": 0,
+  "bytes": 2133997,
+  "size": [
+   7561,
+   7721
+  ],
+  "epsg": 32635,
+  "pixel_m": 30.0,
+  "pixel_is_area": true,
+  "corner_lon_range": [
+   27.498,
+   29.738
+  ],
+  "corner_lat_range": [
+   22.047,
+   24.161
+  ],
+  "usgs_footprint_lon": [
+   27.5,
+   29.728
+  ],
+  "usgs_footprint_lat": [
+   22.056,
+   24.159
+  ],
+  "centre_in_footprint": true,
+  "nonblank_share": 0.714
+ },
+ {
+  "displayId": "LC09_L1TP_177044_20240105_20240105_02_T1",
+  "acquired": "2024-01-05",
+  "cloud": 0,
+  "bytes": 2391257,
+  "size": [
+   7571,
+   7711
+  ],
+  "epsg": 32635,
+  "pixel_m": 30.0,
+  "pixel_is_area": true,
+  "corner_lon_range": [
+   27.478,
+   29.72
+  ],
+  "corner_lat_range": [
+   22.05,
+   24.161
+  ],
+  "usgs_footprint_lon": [
+   27.482,
+   29.71
+  ],
+  "usgs_footprint_lat": [
+   22.057,
+   24.157
+  ],
+  "centre_in_footprint": true,
+  "nonblank_share": 0.714
+ },
+ {
+  "displayId": "LT05_L1TP_175044_19990110_20200908_02_T1",
+  "acquired": "1999-01-10",
+  "cloud": 0,
+  "bytes": 2245479,
+  "size": [
+   7831,
+   7111
+  ],
+  "epsg": 32636,
+  "pixel_m": 30.0,
+  "pixel_is_area": true,
+  "corner_lon_range": [
+   30.526,
+   32.838
+  ],
+  "corner_lat_range": [
+   22.127,
+   24.072
+  ],
+  "usgs_footprint_lon": [
+   30.611,
+   32.775
+  ],
+  "usgs_footprint_lat": [
+   22.19,
+   24.036
+  ],
+  "centre_in_footprint": true,
+  "nonblank_share": 0.717
+ },
+ {
+  "displayId": "LT05_L1TP_175044_20020118_20200905_02_T1",
+  "acquired": "2002-01-18",
+  "cloud": 0,
+  "bytes": 2198045,
+  "size": [
+   7841,
+   7131
+  ],
+  "epsg": 32636,
+  "pixel_m": 30.0,
+  "pixel_is_area": true,
+  "corner_lon_range": [
+   30.443,
+   32.76
+  ],
+  "corner_lat_range": [
+   22.126,
+   24.077
+  ],
+  "usgs_footprint_lon": [
+   30.531,
+   32.695
+  ],
+  "usgs_footprint_lat": [
+   22.204,
+   24.05
+  ],
+  "centre_in_footprint": true,
+  "nonblank_share": 0.717
+ },
+ {
+  "displayId": "LT05_L1TP_175044_20111010_20200820_02_T1",
+  "acquired": "2011-10-10",
+  "cloud": 0,
+  "bytes": 2318709,
+  "size": [
+   7991,
+   7051
+  ],
+  "epsg": 32636,
+  "pixel_m": 30.0,
+  "pixel_is_area": true,
+  "corner_lon_range": [
+   30.514,
+   32.873
+  ],
+  "corner_lat_range": [
+   22.135,
+   24.064
+  ],
+  "usgs_footprint_lon": [
+   30.625,
+   32.789
+  ],
+  "usgs_footprint_lat": [
+   22.183,
+   24.029
+  ],
+  "centre_in_footprint": true,
+  "nonblank_share": 0.728
+ },
+ {
+  "displayId": "LT05_L1TP_176044_19990101_20200908_02_T1",
+  "acquired": "1999-01-01",
+  "cloud": 0,
+  "bytes": 1609521,
+  "size": [
+   7901,
+   7171
+  ],
+  "epsg": 32636,
+  "pixel_m": 30.0,
+  "pixel_is_area": true,
+  "corner_lon_range": [
+   28.933,
+   31.285
+  ],
+  "corner_lat_range": [
+   22.053,
+   24.035
+  ],
+  "usgs_footprint_lon": [
+   29.058,
+   31.222
+  ],
+  "usgs_footprint_lat": [
+   22.195,
+   24.041
+  ],
+  "centre_in_footprint": true,
+  "nonblank_share": 0.707
+ },
+ {
+  "displayId": "LT05_L1TP_176044_20020109_20200905_02_T1",
+  "acquired": "2002-01-09",
+  "cloud": 0,
+  "bytes": 1572623,
+  "size": [
+   7901,
+   7181
+  ],
+  "epsg": 32636,
+  "pixel_m": 30.0,
+  "pixel_is_area": true,
+  "corner_lon_range": [
+   28.904,
+   31.258
+  ],
+  "corner_lat_range": [
+   22.125,
+   24.111
+  ],
+  "usgs_footprint_lon": [
+   29.01,
+   31.174
+  ],
+  "usgs_footprint_lat": [
+   22.205,
+   24.051
+  ],
+  "centre_in_footprint": true,
+  "nonblank_share": 0.707
+ },
+ {
+  "displayId": "LT05_L1TP_176044_20110729_20200820_02_T1",
+  "acquired": "2011-07-29",
+  "cloud": 0,
+  "bytes": 1764907,
+  "size": [
+   8021,
+   7111
+  ],
+  "epsg": 32636,
+  "pixel_m": 30.0,
+  "pixel_is_area": true,
+  "corner_lon_range": [
+   28.925,
+   31.314
+  ],
+  "corner_lat_range": [
+   22.125,
+   24.092
+  ],
+  "usgs_footprint_lon": [
+   29.056,
+   31.22
+  ],
+  "usgs_footprint_lat": [
+   22.191,
+   24.037
+  ],
+  "centre_in_footprint": true,
+  "nonblank_share": 0.718
+ },
+ {
+  "displayId": "LT05_L1TP_177044_19840826_20200918_02_T1",
+  "acquired": "1984-08-26",
+  "cloud": 0,
+  "bytes": 1376397,
+  "size": [
+   7721,
+   6921
+  ],
+  "epsg": 32635,
+  "pixel_m": 30.0,
+  "pixel_is_area": true,
+  "corner_lon_range": [
+   27.28,
+   29.562
+  ],
+  "corner_lat_range": [
+   22.196,
+   24.091
+  ],
+  "usgs_footprint_lon": [
+   27.329,
+   29.494
+  ],
+  "usgs_footprint_lat": [
+   22.227,
+   24.073
+  ],
+  "centre_in_footprint": true,
+  "nonblank_share": 0.735
+ },
+ {
+  "displayId": "LT05_L1TP_177044_20000111_20200907_02_T1",
+  "acquired": "2000-01-11",
+  "cloud": 0,
+  "bytes": 1264977,
+  "size": [
+   7721,
+   7011
+  ],
+  "epsg": 32635,
+  "pixel_m": 30.0,
+  "pixel_is_area": true,
+  "corner_lon_range": [
+   27.315,
+   29.598
+  ],
+  "corner_lat_range": [
+   22.171,
+   24.091
+  ],
+  "usgs_footprint_lon": [
+   27.372,
+   29.536
+  ],
+  "usgs_footprint_lat": [
+   22.218,
+   24.065
+  ],
+  "centre_in_footprint": true,
+  "nonblank_share": 0.737
+ },
+ {
+  "displayId": "LT05_L1TP_177044_20100122_20200825_02_T1",
+  "acquired": "2010-01-22",
+  "cloud": 0,
+  "bytes": 1677867,
+  "size": [
+   7851,
+   6951
+  ],
+  "epsg": 32635,
+  "pixel_m": 30.0,
+  "pixel_is_area": true,
+  "corner_lon_range": [
+   27.429,
+   29.75
+  ],
+  "corner_lat_range": [
+   22.163,
+   24.069
+  ],
+  "usgs_footprint_lon": [
+   27.507,
+   29.671
+  ],
+  "usgs_footprint_lat": [
+   22.197,
+   24.043
+  ],
+  "centre_in_footprint": true,
+  "nonblank_share": 0.748
+ }
+]

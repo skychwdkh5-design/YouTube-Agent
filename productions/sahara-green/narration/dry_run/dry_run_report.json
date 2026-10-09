@@ -1,0 +1,513 @@
+{
+ "SIMULATED": true,
+ "window": {
+  "start_offset_s": 257.56666666666666,
+  "duration_s": 82.5
+ },
+ "simulated_pace_wpm": 145,
+ "full_narration_simulated_s": 735.7,
+ "shots": {
+  "pre": [
+   0,
+   6.0
+  ],
+  "east_oweinat": [
+   6.0,
+   22.9
+  ],
+  "mid": [
+   22.9,
+   57.86666666666667
+  ],
+  "toshka": [
+   57.86666666666667,
+   78.5
+  ],
+  "tail": [
+   78.5,
+   82.5
+  ]
+ },
+ "fit_east_oweinat": {
+  "schedule": [
+   {
+    "step": "1984 hold",
+    "start": 6.0,
+    "end": 13.486
+   },
+   {
+    "step": "dissolve to 2000",
+    "start": 13.486,
+    "end": 14.286
+   },
+   {
+    "step": "2000 hold",
+    "start": 14.286,
+    "end": 15.186
+   },
+   {
+    "step": "dissolve to 2010",
+    "start": 15.186,
+    "end": 15.986
+   },
+   {
+    "step": "2010 hold",
+    "start": 15.986,
+    "end": 16.886
+   },
+   {
+    "step": "dissolve to 2016",
+    "start": 16.886,
+    "end": 17.686
+   },
+   {
+    "step": "2016 hold",
+    "start": 17.686,
+    "end": 18.586
+   },
+   {
+    "step": "dissolve to 2024",
+    "start": 18.586,
+    "end": 19.386
+   },
+   {
+    "step": "zoom into circles",
+    "start": 19.386,
+    "end": 22.894
+   }
+  ],
+  "clip_end": 22.9
+ },
+ "fit_toshka": {
+  "schedule": [
+   {
+    "step": "hold before 2002",
+    "start": 57.86666666666667,
+    "end": 63.643
+   },
+   {
+    "step": "dissolve to 2002",
+    "start": 63.643,
+    "end": 64.443
+   },
+   {
+    "step": "hold before 2011",
+    "start": 64.443,
+    "end": 67.483
+   },
+   {
+    "step": "dissolve to 2011",
+    "start": 67.483,
+    "end": 68.283
+   },
+   {
+    "step": "hold before 2021",
+    "start": 68.283,
+    "end": 72.302
+   },
+   {
+    "step": "dissolve to 2021",
+    "start": 72.302,
+    "end": 73.102
+   },
+   {
+    "step": "2021 hold",
+    "start": 73.102,
+    "end": 78.505
+   }
+  ],
+  "clip_end": 78.5
+ },
+ "render_nocaptions": {
+  "duration": 82.5,
+  "expected_duration": 82.5,
+  "segments": 3,
+  "composition_resets": 4,
+  "warnings": [
+   "only 0 information events in the first 10 s (target >= 3)",
+   "only 2 distinct compositions in the first 10 s (target >= 3; new text or overlays on the same view do not count)",
+   "4 composition resets = 2.9/min (target >= 5/min)",
+   "one composition holds 35.0s without a reset (22.9-57.9s, target <= 8s)"
+  ]
+ },
+ "frame_accuracy": {
+  "checked_frames": 16,
+  "all_ok": true,
+  "boundaries_exact": true,
+  "method": "PSNR between the sequence video (scaled to 1080p) and the rendered frame at the expected index and at +-1; boundaries prove the offset",
+  "checks": [
+   {
+    "sequence": "seq_eo",
+    "frame": 0,
+    "psnr_same_frame_db": 45.37,
+    "psnr_prev_db": 6.19,
+    "psnr_next_db": 44.98,
+    "ok": true,
+    "first_frame_matches_and_previous_is_other_shot": true
+   },
+   {
+    "sequence": "seq_eo",
+    "frame": 1,
+    "psnr_same_frame_db": 45.35,
+    "psnr_prev_db": 44.8,
+    "psnr_next_db": 45.24,
+    "ok": true
+   },
+   {
+    "sequence": "seq_eo",
+    "frame": 2,
+    "psnr_same_frame_db": 45.32,
+    "psnr_prev_db": 45.28,
+    "psnr_next_db": 45.23,
+    "ok": true
+   },
+   {
+    "sequence": "seq_eo",
+    "frame": 169,
+    "psnr_same_frame_db": 45.24,
+    "psnr_prev_db": 45.18,
+    "psnr_next_db": 45.17,
+    "ok": true
+   },
+   {
+    "sequence": "seq_eo",
+    "frame": 253,
+    "psnr_same_frame_db": 42.92,
+    "psnr_prev_db": 42.92,
+    "psnr_next_db": 42.93,
+    "ok": true
+   },
+   {
+    "sequence": "seq_eo",
+    "frame": 504,
+    "psnr_same_frame_db": 38.27,
+    "psnr_prev_db": 28.14,
+    "psnr_next_db": 29.91,
+    "ok": true
+   },
+   {
+    "sequence": "seq_eo",
+    "frame": 505,
+    "psnr_same_frame_db": 38.88,
+    "psnr_prev_db": 29.93,
+    "psnr_next_db": 33.3,
+    "ok": true
+   },
+   {
+    "sequence": "seq_eo",
+    "frame": 506,
+    "psnr_same_frame_db": 38.49,
+    "psnr_prev_db": 33.43,
+    "psnr_next_db": 7.28,
+    "ok": true,
+    "last_frame_matches_and_next_is_other_shot": true
+   },
+   {
+    "sequence": "seq_toshka",
+    "frame": 0,
+    "psnr_same_frame_db": 43.56,
+    "psnr_prev_db": 7.35,
+    "psnr_next_db": 43.5,
+    "ok": true,
+    "first_frame_matches_and_previous_is_other_shot": true
+   },
+   {
+    "sequence": "seq_toshka",
+    "frame": 1,
+    "psnr_same_frame_db": 43.48,
+    "psnr_prev_db": 43.36,
+    "psnr_next_db": 43.46,
+    "ok": true
+   },
+   {
+    "sequence": "seq_toshka",
+    "frame": 2,
+    "psnr_same_frame_db": 43.5,
+    "psnr_prev_db": 43.49,
+    "psnr_next_db": 43.5,
+    "ok": true
+   },
+   {
+    "sequence": "seq_toshka",
+    "frame": 206,
+    "psnr_same_frame_db": 42.29,
+    "psnr_prev_db": 42.32,
+    "psnr_next_db": 42.34,
+    "ok": true
+   },
+   {
+    "sequence": "seq_toshka",
+    "frame": 309,
+    "psnr_same_frame_db": 41.45,
+    "psnr_prev_db": 39.16,
+    "psnr_next_db": 40.83,
+    "ok": true
+   },
+   {
+    "sequence": "seq_toshka",
+    "frame": 616,
+    "psnr_same_frame_db": 42.39,
+    "psnr_prev_db": 42.4,
+    "psnr_next_db": 42.4,
+    "ok": true
+   },
+   {
+    "sequence": "seq_toshka",
+    "frame": 617,
+    "psnr_same_frame_db": 42.39,
+    "psnr_prev_db": 42.39,
+    "psnr_next_db": 42.39,
+    "ok": true
+   },
+   {
+    "sequence": "seq_toshka",
+    "frame": 618,
+    "psnr_same_frame_db": 42.39,
+    "psnr_prev_db": 42.4,
+    "psnr_next_db": 8.32,
+    "ok": true,
+    "last_frame_matches_and_next_is_other_shot": true
+   }
+  ]
+ },
+ "render": {
+  "duration": 82.5,
+  "expected_duration": 82.5,
+  "segments": 3,
+  "composition_resets": 4,
+  "warnings": [
+   "only 0 information events in the first 10 s (target >= 3)",
+   "only 2 distinct compositions in the first 10 s (target >= 3; new text or overlays on the same view do not count)",
+   "4 composition resets = 2.9/min (target >= 5/min)",
+   "one composition holds 35.0s without a reset (22.9-57.9s, target <= 8s)"
+  ]
+ },
+ "caption_collisions": {
+  "count": 0,
+  "items": [],
+  "captions_in_sequence_shots": 11
+ },
+ "yt_qc": {
+  "result": "FAIL",
+  "file": "/tmp/claude-0/-home-user-YouTube-Agent/726a1102-cde7-58e4-becc-72fd703579dc/scratchpad/dryrun/dry_run_SIMULATED.mp4",
+  "summary": {
+   "bytes": 13419965,
+   "duration": 82.5,
+   "resolution": "1920x1080",
+   "fps": 30.0,
+   "video_codec": "h264",
+   "audio_codec": "aac",
+   "expected_duration": null,
+   "profile": "long"
+  },
+  "checks": [
+   {
+    "id": "file_exists",
+    "status": "pass",
+    "expected": "exists",
+    "actual": "exists"
+   },
+   {
+    "id": "container_readable",
+    "status": "pass",
+    "expected": "ffprobe reads the file",
+    "actual": "ok"
+   },
+   {
+    "id": "file_size",
+    "status": "pass",
+    "expected": "> 0 and <= 2000.0 MB",
+    "actual": 13419965
+   },
+   {
+    "id": "container",
+    "status": "pass",
+    "expected": "mp4",
+    "actual": "mov,mp4,m4a,3gp,3g2,mj2"
+   },
+   {
+    "id": "video_stream",
+    "status": "pass",
+    "expected": "1 video stream",
+    "actual": 1
+   },
+   {
+    "id": "audio_stream",
+    "status": "pass",
+    "expected": "1 audio stream",
+    "actual": 1
+   },
+   {
+    "id": "resolution",
+    "status": "pass",
+    "expected": "1920x1080",
+    "actual": "1920x1080"
+   },
+   {
+    "id": "frame_rate",
+    "status": "pass",
+    "expected": 30.0,
+    "actual": 30.0
+   },
+   {
+    "id": "video_codec",
+    "status": "pass",
+    "expected": "h264",
+    "actual": "h264"
+   },
+   {
+    "id": "pixel_format",
+    "status": "pass",
+    "expected": "yuv420p",
+    "actual": "yuv420p",
+    "detail": "other pixel formats play badly on some devices"
+   },
+   {
+    "id": "audio_codec",
+    "status": "pass",
+    "expected": "aac",
+    "actual": "aac"
+   },
+   {
+    "id": "duration_readable",
+    "status": "pass",
+    "expected": "> 0 s",
+    "actual": 82.5
+   },
+   {
+    "id": "duration_matches_timeline",
+    "status": "skip",
+    "expected": null,
+    "actual": null,
+    "detail": "no --timeline or --expected-duration given"
+   },
+   {
+    "id": "streams_aligned",
+    "status": "pass",
+    "expected": "video, audio and container end together",
+    "actual": {
+     "container": 82.5,
+     "video": 82.5,
+     "audio": 82.5
+    }
+   },
+   {
+    "id": "frame_count",
+    "status": "pass",
+    "expected": 2475,
+    "actual": 2475
+   },
+   {
+    "id": "full_decode",
+    "status": "pass",
+    "expected": "decodes with no errors",
+    "actual": "ok"
+   },
+   {
+    "id": "long_duration",
+    "status": "pass",
+    "expected": "60.0-900.0 s",
+    "actual": 82.5
+   },
+   {
+    "id": "long_target_window",
+    "status": "warn",
+    "expected": "480.0-720.0 s",
+    "actual": 82.5
+   },
+   {
+    "id": "black_frames",
+    "status": "pass",
+    "expected": "none",
+    "actual": 0
+   },
+   {
+    "id": "freezes",
+    "status": "fail",
+    "expected": "< 5.0 s static",
+    "actual": 5.43
+   },
+   {
+    "id": "loudness",
+    "status": "fail",
+    "expected": "-16.0 to -12.0 LUFS",
+    "actual": -70.0,
+    "detail": "no programme loudness - silent?"
+   },
+   {
+    "id": "audio_starts",
+    "status": "fail",
+    "expected": "<= 1.0 s",
+    "actual": 82.517
+   },
+   {
+    "id": "info_events_first_10s",
+    "status": "warn",
+    "expected": ">= 3",
+    "actual": 0
+   },
+   {
+    "id": "captions_in_safe_zone",
+    "status": "pass",
+    "expected": "every caption inside the 16:9 safe area",
+    "actual": "ok"
+   },
+   {
+    "id": "shot_credits",
+    "status": "pass",
+    "expected": "a source credit on every shot",
+    "actual": "ok"
+   },
+   {
+    "id": "manifest_matches",
+    "status": "pass",
+    "expected": 82.5,
+    "actual": 82.5
+   },
+   {
+    "id": "compositions_first_10s",
+    "status": "warn",
+    "expected": ">= 3 distinct compositions",
+    "actual": 2
+   },
+   {
+    "id": "composition_resets",
+    "status": "warn",
+    "expected": ">= 5.0 per minute",
+    "actual": 2.91,
+    "detail": [
+     "6.0s east_oweinat: video",
+     "22.9s mid: graphic",
+     "57.867s toshka: video",
+     "78.5s tail: graphic"
+    ]
+   },
+   {
+    "id": "composition_hold",
+    "status": "warn",
+    "expected": "<= 8.0 s on one composition",
+    "actual": 34.967,
+    "detail": "22.9-57.867 s"
+   },
+   {
+    "id": "visual_novelty",
+    "status": "skip",
+    "expected": null,
+    "actual": null,
+    "detail": "no visual_family tags in the storyboard/manifest"
+   },
+   {
+    "id": "segments_tile_video",
+    "status": "pass",
+    "expected": "2475 frames, contiguous",
+    "actual": 2475
+   },
+   {
+    "id": "segment_boundaries_keyframes",
+    "status": "pass",
+    "expected": "a keyframe at every segment start",
+    "actual": "ok"
+   }
+  ]
+ }
+}

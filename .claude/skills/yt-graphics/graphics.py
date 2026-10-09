@@ -24,6 +24,7 @@ SS = 2                                   # supersampling: draw at 2x, downsample
 SAFE = {"top": 0.07, "bottom": 0.13, "left": 0.05, "right": 0.05}   # same as yt-render profile "long"
 CAPTION_TOP = 0.74                       # burned-in captions of profile "long" sit below this line
 CREDIT_BAND = 44                         # yt-render draws the shot credit just inside the top safe edge
+MAX_STEPS = 20                           # build steps per graphic
 MIN_TEXT_PX = 24                         # smallest text at 1080p: ~10.5 pt on a phone in landscape fullscreen
 STYLES = {
     "documentary_dark": {"bg": (12, 18, 28), "panel": (26, 36, 52), "fg": (240, 244, 248), "muted": (150, 166, 186),
@@ -193,12 +194,31 @@ class Canvas:
     def obstacle(self, pts, width, owner=None):
         self.obstacles.append(([tuple(p) for p in pts], width / 2 + 2, owner))
 
-    def arrow(self, p0, p1, color, width=6, head=None, owner=None):
+    def dashed_line(self, p0, p1, color, width, dash=22, gap=14):
+        length = math.hypot(p1[0] - p0[0], p1[1] - p0[1])
+        if length < 1:
+            return
+        ux, uy = (p1[0] - p0[0]) / length, (p1[1] - p0[1]) / length
+        t = 0.0
+        while t < length:
+            e = min(t + dash, length)
+            self.line([(p0[0] + ux * t, p0[1] + uy * t), (p0[0] + ux * e, p0[1] + uy * e)], color, width)
+            t += dash + gap
+
+    def dashed_rect(self, box, color, width=5, dash=22, gap=14):
+        x0, y0, x1, y1 = box
+        for a, b in (((x0, y0), (x1, y0)), ((x1, y0), (x1, y1)), ((x1, y1), (x0, y1)), ((x0, y1), (x0, y0))):
+            self.dashed_line(a, b, color, width, dash, gap)
+
+    def arrow(self, p0, p1, color, width=6, head=None, owner=None, dashed=False):
         head = head or width * 3.2
         self.obstacle([p0, p1], max(width, head * 0.8), owner)
         ang = math.atan2(p1[1] - p0[1], p1[0] - p0[0])
         base = (p1[0] - head * 0.85 * math.cos(ang), p1[1] - head * 0.85 * math.sin(ang))
-        self.line([p0, base], color, width)
+        if dashed:
+            self.dashed_line(p0, base, color, width)
+        else:
+            self.line([p0, base], color, width)
         pts = [p1, (p1[0] - head * math.cos(ang - 0.42), p1[1] - head * math.sin(ang - 0.42)),
                (p1[0] - head * math.cos(ang + 0.42), p1[1] - head * math.sin(ang + 0.42))]
         self.polygon(pts, color)
@@ -355,12 +375,12 @@ def frame_parts(cv, g):
     if g.get("title"):
         cv.text(g["title"], x0, y0 + 30, 46, "Black", "fg", anchor="lm", max_w=x1 - x0, where="title")
         if g.get("subtitle"):
-            cv.text(g["subtitle"], x0, y0 + 78, 30, "SemiBold", "muted", anchor="lm", max_w=x1 - x0, where="subtitle")
+            cv.text(g["subtitle"], x0, y0 + 78, 30, "SemiBold", "fg" if g.get("backdrop") else "muted", anchor="lm", max_w=x1 - x0, where="subtitle")
             top = y0 + 108
         else:
             top = y0 + 68
     cv.text(("Source: " if not g["source"].lower().startswith(("source", "data")) else "") + g["source"],
-            x0, bottom - 16, 24, "SemiBold", "muted", anchor="lm", max_w=x1 - x0, where="source")
+            x0, bottom - 16, 24, "SemiBold", "fg" if g.get("backdrop") else "muted", anchor="lm", max_w=x1 - x0, where="source")
     return (x0, top + 10, x1, bottom - 44)
 
 
@@ -388,14 +408,26 @@ NODE_STYLES = {"default": ("panel", "fg"), "accent": ("accent", "bg"), "blue": (
 
 
 def v_diagram(g, where):
-    _keys(g, ("type", "id", "title", "subtitle", "source", "style", "caption_band", "nodes", "arrows", "notes"), where)
+    _keys(g, ("type", "id", "title", "subtitle", "source", "style", "caption_band", "nodes", "arrows", "notes", "lines"), where)
+    for i, ln in enumerate(g.get("lines") or []):
+        w = f"{where}.lines[{i}]"
+        _keys(ln, ("from", "to", "color", "width", "dashed", "step"), w)
+        for k in ("from", "to"):
+            v = ln.get(k)
+            if not (isinstance(v, list) and len(v) == 2):
+                raise E(f"{w}.{k} must be [x, y] (0-1)")
+            _num(v[0], f"{w}.{k}[0]", 0, 1); _num(v[1], f"{w}.{k}[1]", 0, 1)
+        if ln.get("color", "muted") not in STYLES["documentary_dark"]:
+            raise E(f"{w}.color must be a style colour name")
+        _num(ln.get("width", 6), f"{w}.width", 1, 30)
+        _step(ln, w)
     nodes = g.get("nodes") or []
     if not isinstance(nodes, list) or not nodes:
         raise E(f"{where}.nodes must be a non-empty list")
     ids = set()
     for i, n in enumerate(nodes):
         w = f"{where}.nodes[{i}]"
-        _keys(n, ("id", "text", "x", "y", "w", "h", "style", "step"), w)
+        _keys(n, ("id", "text", "x", "y", "w", "h", "style", "step", "hl", "dashed"), w)
         _text(n.get("id"), f"{w}.id", 40)
         if n["id"] in ids:
             raise E(f"{w}.id {n['id']!r} is used twice")
@@ -407,10 +439,10 @@ def v_diagram(g, where):
             _num(n.get(k, d), f"{w}.{k}", 0.04, 1)
         if n.get("style", "default") not in NODE_STYLES:
             raise E(f"{w}.style must be one of {sorted(NODE_STYLES)}")
-        _step(n, w)
+        _step(n, w); _hl(n, w)
     for i, a in enumerate(g.get("arrows") or []):
         w = f"{where}.arrows[{i}]"
-        _keys(a, ("from", "to", "label", "color", "step"), w)
+        _keys(a, ("from", "to", "label", "color", "step", "dashed"), w)
         for k in ("from", "to"):
             v = a.get(k)
             if isinstance(v, str):
@@ -426,18 +458,26 @@ def v_diagram(g, where):
         _step(a, w)
     for i, n in enumerate(g.get("notes") or []):
         w = f"{where}.notes[{i}]"
-        _keys(n, ("text", "x", "y", "step", "size"), w)
+        _keys(n, ("text", "x", "y", "step", "size", "hl"), w)
         _text(n.get("text"), f"{w}.text", 120)
         _num(n.get("x"), f"{w}.x", 0, 1); _num(n.get("y"), f"{w}.y", 0, 1)
         _num(n.get("size", 30), f"{w}.size", MIN_TEXT_PX, 60)
-        _step(n, w)
+        _step(n, w); _hl(n, w)
 
 
 def _step(e, where):
     if "step" in e:
         v = e["step"]
-        if isinstance(v, bool) or not isinstance(v, int) or not 1 <= v <= 12:
-            raise E(f"{where}.step must be an integer 1-12")
+        if isinstance(v, bool) or not isinstance(v, int) or not 1 <= v <= MAX_STEPS:
+            raise E(f"{where}.step must be an integer 1-{MAX_STEPS}")
+
+
+def _hl(e, where):
+    """`hl`: the build steps at which this node / note is emphasised (a ring around a node, brighter text for a note)"""
+    if "hl" in e:
+        v = e["hl"]
+        if not (isinstance(v, list) and v and all(isinstance(x, int) and not isinstance(x, bool) and 1 <= x <= MAX_STEPS for x in v)):
+            raise E(f"{where}.hl must be a list of build steps (1-{MAX_STEPS})")
 
 
 def d_diagram(cv, g, step):
@@ -461,12 +501,20 @@ def d_diagram(cv, g, step):
         return (geo[v][0], geo[v][1]) if isinstance(v, str) else (nx(box, v[0]), ny(box, v[1]))
 
     labels = []
+    for ln in g.get("lines") or []:                      # plain (optionally dashed) rules: axes, whiskers, schematic curves
+        if ln.get("step", 1) > step:
+            continue
+        p0 = (nx(box, ln["from"][0]), ny(box, ln["from"][1])); p1 = (nx(box, ln["to"][0]), ny(box, ln["to"][1]))
+        if ln.get("dashed"):
+            cv.dashed_line(p0, p1, ln.get("color", "muted"), ln.get("width", 6))
+        else:
+            cv.line([p0, p1], ln.get("color", "muted"), ln.get("width", 6))
     for a in g.get("arrows") or []:
         if a.get("step", 1) > step:
             continue
         c0, c1 = centre(a["from"]), centre(a["to"])
         p0, p1 = pt(a["from"], c1), pt(a["to"], c0)
-        cv.arrow(p0, p1, a.get("color", "accent"), 7)
+        cv.arrow(p0, p1, a.get("color", "accent"), 7, dashed=bool(a.get("dashed")))
         if a.get("label"):
             mx, my = (p0[0] + p1[0]) / 2, (p0[1] + p1[1]) / 2
             ang = math.atan2(p1[1] - p0[1], p1[0] - p0[0])
@@ -480,10 +528,17 @@ def d_diagram(cv, g, step):
             continue
         cx, cy, hw, hh = geo[n["id"]]
         fill, fg = NODE_STYLES[n.get("style", "default")]
-        if fill:
+        if n.get("dashed"):                              # a PROPOSED element: dashed outline, no fill, light text
+            if fill:                                    # a light wash of the element's colour keeps a proposed element visible, the dashed outline marks it as proposed
+                cv.rect((cx - hw, cy - hh, cx + hw, cy + hh), fill=tuple(cv.c(fill)) + (64,), radius=0)
+            cv.dashed_rect((cx - hw, cy - hh, cx + hw, cy + hh), fill or "muted", 5)
+            fg = "fg"
+        elif fill:
             cv.rect((cx - hw, cy - hh, cx + hw, cy + hh), fill=fill, radius=14)
         else:
             cv.rect((cx - hw, cy - hh, cx + hw, cy + hh), outline="muted", width=3, radius=14)
+        if step in (n.get("hl") or []):
+            cv.rect((cx - hw - 9, cy - hh - 9, cx + hw + 9, cy + hh + 9), outline="fg", width=7, radius=20)
         cv.text(n["text"], cx, cy, 34, "Bold", fg, max_w=hw * 2 - 24, max_lines=3, where=f"node {n['id']}")
     for text, (mx, my), (ox, oy), col in labels:        # labels last, so nodes never cover them
         n = math.hypot(ox, oy) or 1
@@ -492,7 +547,7 @@ def d_diagram(cv, g, step):
         cv.place(text, cands, 30, "Bold", col, g.get("_label_w", 360), stroke=3, where="arrow label")
     for n in g.get("notes") or []:
         if n.get("step", 1) <= step:
-            cv.text(n["text"], nx(box, n["x"]), ny(box, n["y"]), int(n.get("size", 30)), "SemiBold", "muted",
+            cv.text(n["text"], nx(box, n["x"]), ny(box, n["y"]), int(n.get("size", 30)), "SemiBold", "fg" if (step in (n.get("hl") or []) or g.get("backdrop")) else "muted",
                     max_w=(box[2] - box[0]) * 0.4, max_lines=3, where="note")
 
 
@@ -526,7 +581,12 @@ def flow_as_diagram(g):
 
 def v_circulation(g, where):
     _keys(g, ("type", "id", "title", "subtitle", "source", "style", "caption_band", "labels", "ground_labels",
-              "rising_cloud", "build"), where)
+              "rising_cloud", "build", "step_map", "cloud_step"), where)
+    sm = g.get("step_map")
+    if sm is not None and not (isinstance(sm, list) and len(sm) == 4 and all(isinstance(x, int) and not isinstance(x, bool) and 1 <= x <= MAX_STEPS for x in sm)):
+        raise E(f"{where}.step_map must list the build step of rising, aloft, sinking and surface (four integers)")
+    if "cloud_step" in g and (isinstance(g["cloud_step"], bool) or not isinstance(g["cloud_step"], int) or not 1 <= g["cloud_step"] <= MAX_STEPS):
+        raise E(f"{where}.cloud_step must be an integer 1-{MAX_STEPS}")
     labels = g.get("labels") or {}
     _keys(labels, ("rising", "aloft", "sinking", "surface"), f"{where}.labels")
     for k, v in labels.items():
@@ -563,10 +623,11 @@ def d_circulation(cv, g, step):
             ("aloft", (left + 30, top - 10), (right - 30, top - 10), "accent", ((left + right) / 2, top - 52), "mm"),
             ("sinking", (right, top), (right, bot), "blue", (right - 26, (top + bot) / 2), "rm"),
             ("surface", (right - 30, bot + 12), (left + 30, bot + 12), "blue", ((left + right) / 2, bot - 28), "mm")]
-    if g.get("rising_cloud") and (not build or step >= 1):
+    smap = g.get("step_map") or [1, 2, 3, 4]
+    if g.get("rising_cloud") and (not build or step >= g.get("cloud_step", 1)):
         _cloud(cv, left, top + 30, 42)
     for k, (name, p0, p1, col, lp, anc) in enumerate(segs):
-        if build and k + 1 > step:
+        if build and smap[k] > step:
             continue
         cv.arrow(p0, p1, col, 12, head=40)
         if L.get(name):
@@ -763,7 +824,7 @@ def d_line(cv, g, step):
 
 def v_callout(g, where):
     _keys(g, ("type", "id", "title", "subtitle", "source", "style", "caption_band", "value", "unit", "label",
-              "context", "decimals"), where)
+              "context", "decimals", "build"), where)
     _num(g.get("value"), f"{where}.value")
     _text(g.get("unit"), f"{where}.unit", 30)
     _text(g.get("label"), f"{where}.label", 80)
@@ -772,8 +833,16 @@ def v_callout(g, where):
         _num(g["decimals"], f"{where}.decimals", 0, 4)
 
 
+def _callout_first(g):
+    """build steps of a callout: [title alone,] number and unit, label, context (the title step exists only for a titled callout)"""
+    return 2 if (g.get("build") and g.get("title")) else 1
+
+
 def d_callout(cv, g, step):
     box = frame_parts(cv, g)
+    first = _callout_first(g)
+    if step < first:                       # build: the title (and source line) alone
+        return
     cx, cy = (box[0] + box[2]) / 2, (box[1] + box[3]) / 2 - 40
     dec = int(g["decimals"]) if "decimals" in g else None
     val = fmt_num(g["value"], dec)
@@ -783,9 +852,10 @@ def d_callout(cv, g, step):
     cv.text(val, cx - total / 2, cy, 190, "Black", "accent", anchor="lm", max_w=box[2] - box[0] - uw - 40, min_size=90,
             where="value")
     cv.text(g["unit"], cx - total / 2 + vw + 24, cy + 30, 90, "Black", "accent", anchor="lm", max_w=uw + 4, where="unit")
-    cv.text(g["label"], cx, cy + 150, 44, "Bold", "fg", max_w=box[2] - box[0] - 80, max_lines=2, where="label")
-    if g.get("context"):
-        cv.text(g["context"], cx, cy + 240, 30, "SemiBold", "muted", max_w=box[2] - box[0] - 200, max_lines=2,
+    if not g.get("build") or step >= first + 1:
+        cv.text(g["label"], cx, cy + 150, 44, "Bold", "fg", max_w=box[2] - box[0] - 80, max_lines=2, where="label")
+    if g.get("context") and (not g.get("build") or step >= first + 2):
+        cv.text(g["context"], cx, cy + 240, 30, "SemiBold", "fg" if g.get("backdrop") else "muted", max_w=box[2] - box[0] - 200, max_lines=2,
                 where="context")
 
 
@@ -1048,6 +1118,39 @@ VALIDATE = {"diagram": v_diagram, "flow": v_flow, "circulation": v_circulation, 
             "bar": v_bar, "line": v_line, "callout": v_callout}
 
 
+def v_backdrop(b, where, root):
+    """`backdrop`: a real image under a scrim, behind the whole graphic (numbers and diagrams over geography). Its credit is printed in the source line."""
+    _keys(b, ("src", "credit", "scrim", "view"), where)
+    _resolve(b.get("src"), root, f"{where}.src")
+    _text(b.get("credit"), f"{where}.credit", 80)
+    _num(b.get("scrim", 0.6), f"{where}.scrim", 0.0, 0.95)
+    v = b.get("view")
+    if v is not None:
+        _keys(v, ("center", "width"), f"{where}.view")
+        c = v.get("center")
+        if not (isinstance(c, list) and len(c) == 2):
+            raise E(f"{where}.view.center must be [x, y] as fractions of the image")
+        _num(c[0], f"{where}.view.center[0]", 0, 1); _num(c[1], f"{where}.view.center[1]", 0, 1)
+        _num(v.get("width"), f"{where}.view.width", 0.05, 1.0)
+
+
+def apply_backdrop(cv, b, root, where):
+    path = _resolve(b["src"], root, f"{where}.backdrop.src")
+    with Image.open(path) as im0:
+        im0 = im0.convert("RGB")
+        iw, ih = im0.size
+        v = b.get("view") or {"center": [0.5, 0.5], "width": 1.0}
+        bw = v["width"] * iw; bh = bw * H / W
+        if bh > ih + 1e-6:
+            bh = float(ih); bw = bh * W / H
+        cx = min(max(v["center"][0] * iw, bw / 2), iw - bw / 2); cy = min(max(v["center"][1] * ih, bh / 2), ih - bh / 2)
+        crop = im0.resize((W * SS, H * SS), Image.LANCZOS, box=(cx - bw / 2, cy - bh / 2, cx + bw / 2, cy + bh / 2))
+    bg = Image.new("RGB", crop.size, cv.s["bg"])
+    cv.im = Image.blend(crop, bg, float(b.get("scrim", 0.6)))
+    cv.d = ImageDraw.Draw(cv.im, "RGBA")
+    return {"path": os.path.relpath(path, root), "sha256": _sha256(path), "credit": b["credit"], "scrim": float(b.get("scrim", 0.6))}
+
+
 def validate_graphic(g, where, root):
     if not isinstance(g, dict) or g.get("type") not in TYPES:
         raise E(f"{where}.type must be one of {list(TYPES)}")
@@ -1059,6 +1162,9 @@ def validate_graphic(g, where, root):
     _text(g.get("subtitle"), f"{where}.subtitle", 120, required=False)
     if g.get("style", "documentary_dark") not in STYLES:
         raise E(f"{where}.style must be one of {sorted(STYLES)}")
+    if "backdrop" in g:
+        v_backdrop(g["backdrop"], f"{where}.backdrop", root)
+        g = {k: v for k, v in g.items() if k != "backdrop"}
     if g["type"] in ("geo", "compare"):
         (v_geo if g["type"] == "geo" else v_compare)(g, where, root)
     else:
@@ -1069,12 +1175,14 @@ def steps_of(g):
     if g["type"] == "flow":
         return len(g["steps"]) * 2 - 1 if g.get("build") else 1
     if g["type"] == "circulation":
-        return 4 if g.get("build") else 1
+        return max((g.get("step_map") or [1, 2, 3, 4]) + [g.get("cloud_step", 1)]) if g.get("build") else 1
     if g["type"] == "water_cycle":
         return 4 if g.get("build") else 1
+    if g["type"] == "callout":
+        return (_callout_first(g) + 1 + (1 if g.get("context") else 0)) if g.get("build") else 1
     if g["type"] in ("diagram", "geo"):
-        items = list(g.get("nodes") or []) + list(g.get("arrows") or []) + list(g.get("notes") or []) + list(g.get("callouts") or [])
-        return max([1] + [x.get("step", 1) for x in items])
+        items = list(g.get("nodes") or []) + list(g.get("arrows") or []) + list(g.get("notes") or []) + list(g.get("callouts") or []) + list(g.get("lines") or [])
+        return max([1] + [x.get("step", 1) for x in items] + [h for x in items for h in (x.get("hl") or [])])
     return 1
 
 
@@ -1084,6 +1192,9 @@ def draw(g, step, fonts, root, where):
         g = flow_as_diagram(g)
     cv = Canvas(g.get("style", "documentary_dark"), fonts)
     info = {}
+    if g.get("backdrop"):
+        info["backdrop"] = apply_backdrop(cv, g["backdrop"], root, where)
+        g = dict(g, source=f"{g['source']} · Imagery: {g['backdrop']['credit']}")
     if g["type"] == "diagram":
         d_diagram(cv, g, step)
     elif g["type"] == "circulation":

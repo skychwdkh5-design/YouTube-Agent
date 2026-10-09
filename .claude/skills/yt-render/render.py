@@ -18,8 +18,9 @@ crossfades or hard cuts between them. Optional, in the same timeline:
                (otherwise the soundtrack is silence)
   subtitles    an SRT from yt-captions, burned into the picture
   credit       an on-screen source credit (e.g. the USGS Landsat credit)
-Video clips, music, sound effects and generic overlays are still refused explicitly instead of
-being silently dropped. A timeline without the optional keys renders exactly as before.
+Video clips ("type": "video", frame-exact trim, same frame rate as the output) are supported; the
+clip's own audio is ignored. Music, sound effects and generic overlays are still refused explicitly
+instead of being silently dropped. A timeline without the optional keys renders exactly as before.
 
 "version": 3 is a different format - Shorts and 16:9 long-form from geographically aligned imagery - and is
 handled by compose.py (see SKILL.md). Versions 1 and 2 never load it.
@@ -37,6 +38,8 @@ ALLOWED_FPS = (24, 25, 30, 50, 60)
 PRESETS = ("ultrafast", "superfast", "veryfast", "faster", "fast", "medium", "slow")
 IMAGE_EXT = (".jpg", ".jpeg", ".png", ".webp", ".bmp", ".tif", ".tiff")
 IMAGE_CODECS = ("mjpeg", "png", "webp", "bmp", "tiff")
+VIDEO_EXT = (".mp4", ".m4v", ".mov", ".mkv", ".webm")
+VIDEO_CODECS_REFUSED = IMAGE_CODECS + ("gif",)   # stills and animations are not video clips
 PANS = ("center", "left_to_right", "right_to_left", "top_to_bottom", "bottom_to_top")
 FUTURE_TRACKS = ("voice", "music", "sfx", "subtitles", "overlays")
 AUDIO_EXT = (".wav", ".mp3", ".m4a", ".aac", ".flac")
@@ -150,25 +153,32 @@ def validate(tl, root, limits=LIMITS):
     if len(clips) > limits["max_clips"]:
         raise RenderError(f"{len(clips)} clips is over the limit of {limits['max_clips']}")
 
-    fps, plan = out["fps"], []
+    fps, plan, warn_video = out["fps"], [], []
     for i, c in enumerate(clips):
         where = f"clips[{i}]"
-        _keys(c, ("type", "src", "duration", "fit", "motion", "transition", "source", "credit", "note"), where)
+        _keys(c, ("type", "src", "duration", "fit", "motion", "transition", "source", "credit", "note", "trim"), where)
         kind = c.get("type")
+        if kind not in ("image", "landsat", "video"):
+            raise RenderError(f"{where}.type must be 'image', 'landsat' or 'video', got {kind!r}")
+        if "trim" in c and kind != "video":
+            raise RenderError(f"{where}.trim is for video clips only")
+        start_frame = 0
         if kind == "video":
-            raise RenderError(f"{where}: video clips are not supported in timeline version 1 yet",
-                              status="unsupported")
-        if kind not in ("image", "landsat"):
-            raise RenderError(f"{where}.type must be 'image' or 'landsat', got {kind!r}")
-        dur = _num(c.get("duration"), f"{where}.duration", 0.2, 600)
-        frames = max(1, round(dur * fps))
+            start_frame, frames, vinfo = parse_video_clip(c, root, where, out, limits)
+        else:
+            dur = _num(c.get("duration"), f"{where}.duration", 0.2, 600)
+            frames = max(1, round(dur * fps))
         fit = c.get("fit", "cover")
         if fit not in ("cover", "contain"):
             raise RenderError(f"{where}.fit must be 'cover' or 'contain'")
 
         m = c.get("motion") or {"type": "kenburns"}
         _keys(m, ("type", "zoom", "pan"), f"{where}.motion")
-        if m.get("type", "kenburns") == "static":
+        if kind == "video":
+            if c.get("motion") and m.get("type") != "static":
+                raise RenderError(f"{where}.motion: video clips play as they are (frame for frame); drop motion or use \"static\"")
+            zoom, pan = (1.0, 1.0), "center"
+        elif m.get("type", "kenburns") == "static":
             zoom, pan = (1.0, 1.0), "center"
         elif m.get("type", "kenburns") == "kenburns":
             z = m.get("zoom", [1.0, 1.1])
@@ -189,17 +199,26 @@ def validate(tl, root, limits=LIMITS):
             td = _num(t.get("duration", 0.5), f"{where}.transition.duration", 0.1, 5)
             t_frames = max(1, round(td * fps))
 
-        src = resolve_src(c.get("src"), root, where)
-        info = probe_image(src, where, limits)
+        if kind == "video":
+            src, info = vinfo["src"], vinfo
+        else:
+            src = resolve_src(c.get("src"), root, where)
+            info = probe_image(src, where, limits)
         if fit == "cover":
             skew = max(info["width"] / info["height"] / (out["width"] / out["height"]),
                        (out["width"] / out["height"]) / (info["width"] / info["height"]))
             if skew > MAX_ASPECT_SKEW:
                 raise RenderError(f"{where}: {info['width']}x{info['height']} is too far from "
                                   f"{out['width']}x{out['height']} to crop; set \"fit\": \"contain\"")
-        plan.append({"index": i, "type": kind, "src": src, "frames": frames, "fit": fit,
-                     "zoom": zoom, "pan": pan, "transition_frames": t_frames,
-                     "source_size": [info["width"], info["height"]], "bytes": info["bytes"]})
+        entry = {"index": i, "type": kind, "src": src, "frames": frames, "fit": fit,
+                 "zoom": zoom, "pan": pan, "transition_frames": t_frames,
+                 "source_size": [info["width"], info["height"]], "bytes": info["bytes"]}
+        if kind == "video":
+            entry.update({"start_frame": start_frame, "source_frames": info["frames"], "has_audio": info["has_audio"],
+                          "codec": info["codec"]})
+            if info["has_audio"]:
+                warn_video.append(f"{where}: the clip's own audio is ignored (the soundtrack is the narration track or silence)")
+        plan.append(entry)
 
     for a, b in zip(plan, plan[1:]):
         if a["transition_frames"] and a["transition_frames"] >= min(a["frames"], b["frames"]):
@@ -215,7 +234,7 @@ def validate(tl, root, limits=LIMITS):
     if subtitles and subtitles["last_end"] > duration + 1e-6:
         raise RenderError(f"subtitles run to {subtitles['last_end']:.3f}s, past the video's {duration:.3f}s")
     credit = parse_credit(tl.get("credit"), clips, out)
-    warnings = []
+    warnings = list(warn_video)
     if any(c["type"] == "landsat" for c in plan) and not credit:
         warnings.append("landsat clips are on screen without a source credit; add \"credit\": {}")
     if voice and not subtitles:
@@ -444,6 +463,84 @@ def probe_image(path, where, limits=LIMITS):
     return {"width": w, "height": h, "codec": vs[0]["codec_name"], "bytes": size}
 
 
+def probe_video(path, where, limits=LIMITS):
+    """A real video file: one video stream, constant frame rate, frame count known. Returns what the plan needs."""
+    if not path.lower().endswith(VIDEO_EXT):
+        raise RenderError(f"{where}: unsupported video type {os.path.basename(path)!r}; allowed: {', '.join(VIDEO_EXT)}")
+    size = os.path.getsize(path)
+    if size > limits["max_input_mb"] * 1048576:
+        raise RenderError(f"{where}: {size / 1048576:.1f} MB is over --max-input-mb {limits['max_input_mb']}")
+    d = ffprobe_json(path)
+    vs = [s for s in d.get("streams") or [] if s.get("codec_type") == "video"]
+    if len(vs) != 1 or vs[0].get("codec_name") in VIDEO_CODECS_REFUSED:
+        raise RenderError(f"{where}: {os.path.basename(path)!r} needs exactly one video stream (got "
+                          f"{[s.get('codec_name') for s in vs]})")
+    v = vs[0]
+    w, h = int(v.get("width") or 0), int(v.get("height") or 0)
+    if not w or not h:
+        raise RenderError(f"{where}: {os.path.basename(path)!r} has no readable dimensions")
+    if w < MIN_SIDE or h < MIN_SIDE:
+        raise RenderError(f"{where}: {w}x{h} is too small (min {MIN_SIDE}px a side)")
+    if w * h > MAX_PIXELS:
+        raise RenderError(f"{where}: {w}x{h} is over {MAX_PIXELS // 1_000_000} megapixels")
+    rate, avg = v.get("r_frame_rate") or "0/1", v.get("avg_frame_rate") or "0/1"
+    try:
+        rn, rd = (int(x) for x in rate.split("/")); an, ad = (int(x) for x in avg.split("/"))
+    except ValueError:
+        raise RenderError(f"{where}: unreadable frame rate {rate!r}")
+    if not rd or not ad or rn * ad != an * rd:
+        raise RenderError(f"{where}: variable frame rate (r_frame_rate {rate}, avg {avg}); frame-accurate timing needs a constant rate")
+    frames = int(v.get("nb_frames") or 0)
+    if not frames:
+        dur = float(v.get("duration") or (d.get("format") or {}).get("duration") or 0)
+        frames = int(round(dur * rn / rd))
+    if frames < 1:
+        raise RenderError(f"{where}: the video has no frames")
+    return {"width": w, "height": h, "fps": (rn, rd), "frames": frames, "codec": v.get("codec_name"), "bytes": size,
+            "has_audio": any(s.get("codec_type") == "audio" for s in d.get("streams") or [])}
+
+
+def parse_video_clip(c, root, where, out, limits):
+    """Frame-exact in/out: the source must run at the output frame rate, so frame k of the clip is frame
+    start + k of the file - no resampling, no drift. Returns (start_frame, frames, info + src)."""
+    src = resolve_src(c.get("src"), root, where)
+    info = probe_video(src, where, limits)
+    fps = out["fps"]
+    if info["fps"] != (fps, 1):
+        raise RenderError(f"{where}: the video runs at {info['fps'][0]}/{info['fps'][1]} fps but the timeline renders at {fps} fps; "
+                          f"re-render the clip at {fps} fps (frame-accurate timing needs identical rates)")
+    if "trim" in c and "duration" in c:
+        raise RenderError(f"{where}: give trim or duration, not both")
+    start = 0
+    if "trim" in c:
+        t = c["trim"]
+        if not (isinstance(t, list) and len(t) in (1, 2)):
+            raise RenderError(f"{where}.trim must be [start] or [start, end] in seconds")
+        a = _num(t[0], f"{where}.trim[0]", 0, 100000)
+        start = round(a * fps)
+        if len(t) == 2:
+            b = _num(t[1], f"{where}.trim[1]", 0, 100000)
+            if b <= a:
+                raise RenderError(f"{where}.trim end must be after its start")
+            frames = round(b * fps) - start
+        else:
+            frames = info["frames"] - start
+    elif "duration" in c:
+        frames = round(_num(c["duration"], f"{where}.duration", 0.0, 600) * fps)
+        if frames < 1:
+            raise RenderError(f"{where}.duration is under one frame")
+    else:
+        frames = info["frames"]
+    if frames < 1:
+        raise RenderError(f"{where}: the trimmed clip has no frames")
+    if start + frames > info["frames"]:
+        raise RenderError(f"{where}: needs frames {start}..{start + frames - 1} but the file has only {info['frames']} frames "
+                          f"({info['frames'] / fps:.3f}s); it would be short by {(start + frames - info['frames']) / fps:.3f}s")
+    if frames > limits["max_duration_s"] * fps:
+        raise RenderError(f"{where}: {frames / fps:.1f}s is over --max-duration")
+    return start, frames, dict(info, src=src)
+
+
 def build_command(plan, out_path, max_output_bytes, workdir=None):
     """The ffmpeg command. Narration, subtitles and credit reference files staged in workdir by
     relative name (ffmpeg runs there), so no user path ever needs filter-graph escaping."""
@@ -463,6 +560,17 @@ def build_command(plan, out_path, max_output_bytes, workdir=None):
 
     parts = []
     for i, c in enumerate(plan["clips"]):
+        if c.get("type") == "video":
+            n, a = c["frames"], c["start_frame"]
+            if c["fit"] == "cover":
+                fit = f"scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H}"
+            else:
+                fit = (f"scale={W}:{H}:force_original_aspect_ratio=decrease:flags=lanczos,"
+                       f"pad={W}:{H}:(ow-iw)/2:(oh-ih)/2:color=black")
+            # frame k of the clip is frame a + k of the file; the clock is rebuilt from the frame number, never from source timestamps
+            parts.append(f"[{i}:v]trim=start_frame={a}:end_frame={a + n},setpts=PTS-STARTPTS,settb=1/{fps},setpts=N,"
+                         f"{fit},setsar=1,format=yuv420p[c{i}]")
+            continue
         n, (zs, ze) = c["frames"], c["zoom"]
         step = f"{ze - zs:.6f}*on/{max(n - 1, 1)}"
         frac = f"on/{max(n - 1, 1)}"
@@ -657,7 +765,9 @@ def _public_plan(plan):
     out = {"expected_duration": plan["expected_duration"], "total_frames": plan["total_frames"],
            "output": plan["output"],
            "clips": [{k: c[k] for k in ("index", "type", "src", "frames", "fit", "zoom", "pan",
-                                        "transition_frames", "source_size")} for c in plan["clips"]]}
+                                        "transition_frames", "source_size")}
+                     | ({k: c[k] for k in ("start_frame", "source_frames") if k in c} if c.get("type") == "video" else {})
+                     for c in plan["clips"]]}
     out.update(_extras(plan))
     return out
 

@@ -1,0 +1,324 @@
+{
+ "version": 3,
+ "profile": "long",
+ "grid": "grid.json",
+ "assets": {
+  "r23a-sites_1": {
+   "src": "r23a-sites.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23a-sites"
+  },
+  "r23a-sites_2": {
+   "src": "r23a-sites.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23a-sites"
+  },
+  "r23a-sites_3": {
+   "src": "r23a-sites.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23a-sites"
+  },
+  "r23a-sites_4": {
+   "src": "r23a-sites.step4.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23a-sites"
+  },
+  "r23a-sites_5": {
+   "src": "r23a-sites.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23a-sites"
+  },
+  "r23b-mechanism_1": {
+   "src": "r23b-mechanism.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23b-mechanism"
+  },
+  "r23b-mechanism_2": {
+   "src": "r23b-mechanism.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23b-mechanism"
+  },
+  "r23b-mechanism_3": {
+   "src": "r23b-mechanism.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23b-mechanism"
+  },
+  "r23b-mechanism_4": {
+   "src": "r23b-mechanism.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23b-mechanism"
+  },
+  "r23c-carbon_1": {
+   "src": "r23c-carbon.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23c-carbon"
+  },
+  "r23c-carbon_2": {
+   "src": "r23c-carbon.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23c-carbon"
+  },
+  "r23c-carbon_3": {
+   "src": "r23c-carbon.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23c-carbon"
+  },
+  "r23c-carbon_4": {
+   "src": "r23c-carbon.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23c-carbon"
+  },
+  "r23d-estimate_1": {
+   "src": "r23d-estimate.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23d-estimate"
+  },
+  "r23d-estimate_2": {
+   "src": "r23d-estimate.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23d-estimate"
+  },
+  "r23d-estimate_3": {
+   "src": "r23d-estimate.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23d-estimate"
+  },
+  "r23d-estimate_4": {
+   "src": "r23d-estimate.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23d-estimate"
+  },
+  "r23e-century_1": {
+   "src": "r23e-century.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23e-century"
+  },
+  "r23e-century_2": {
+   "src": "r23e-century.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23e-century"
+  },
+  "r23e-century_3": {
+   "src": "r23e-century.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23e-century"
+  }
+ },
+ "shots": [
+  {
+   "id": "p1",
+   "beat": "scene 23a: where (Sahara; Outback not on map)",
+   "start": 0.0,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "r23a-sites_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "r23a-sites_2",
+     "t": [
+      2.933333333333333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23a-sites_3",
+     "t": [
+      4.533333333333333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23a-sites_4",
+     "t": [
+      6.433333333333334,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23a-sites_5",
+     "t": [
+      7.9,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p2",
+   "beat": "scene 23b: mechanism (conceptual)",
+   "start": 9.266666666666667,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "r23b-mechanism_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "r23b-mechanism_2",
+     "t": [
+      0.29999999999999893,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23b-mechanism_3",
+     "t": [
+      1.0,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23b-mechanism_4",
+     "t": [
+      1.966666666666665,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p3",
+   "beat": "scene 23c: the estimate (equivalence, no numbers)",
+   "start": 12.6,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "r23c-carbon_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "r23c-carbon_2",
+     "t": [
+      2.2666666666666675,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23c-carbon_3",
+     "t": [
+      2.966666666666667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23c-carbon_4",
+     "t": [
+      4.7666666666666675,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p4",
+   "beat": "scene 23d: what the estimate is / is not",
+   "start": 19.7,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "r23d-estimate_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "r23d-estimate_2",
+     "t": [
+      1.1666666666666679,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23d-estimate_3",
+     "t": [
+      2.666666666666668,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23d-estimate_4",
+     "t": [
+      5.266666666666666,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p5",
+   "beat": "scene 23e: stops gaining carbon (schematic)",
+   "start": 28.233333333333334,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "r23e-century_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "r23e-century_2",
+     "t": [
+      4.133333333333333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23e-century_3",
+     "t": [
+      7.166666666666664,
+      null
+     ]
+    }
+   ]
+  }
+ ],
+ "voice": {
+  "src": "narration_slice.wav",
+  "meta": "narration_slice.voice.json",
+  "normalize": false
+ },
+ "captions": {
+  "src": "captions/captions.srt",
+  "preset": "default"
+ },
+ "end": {
+  "seconds": 38.1667
+ },
+ "render": {
+  "segment_s": 60
+ },
+ "meta": {
+  "section": "proposal",
+  "master_start_s": 357.1666666666667,
+  "master_end_s": 395.3
+ }
+}

@@ -1,0 +1,108 @@
+{
+ "stable_desert_mask_px": 2158978,
+ "definition": "pixels with TOA red 0.30-0.55 in all 5 East Oweinat frames, eroded 15 px (unchanged bare sand)",
+ "variants": {
+  "A_pooled_per_stack (previous pass)": {
+   "stable_sand_median_rgb_8bit": {
+    "1984": [
+     248,
+     247,
+     238
+    ],
+    "2000": [
+     238,
+     240,
+     238
+    ],
+    "2010": [
+     241,
+     245,
+     238
+    ],
+    "2016": [
+     241,
+     235,
+     237
+    ],
+    "2024": [
+     238,
+     231,
+     237
+    ]
+   },
+   "max_channel_spread_across_frames": [
+    10,
+    16,
+    1
+   ]
+  },
+  "B_fixed_baseline (USED)": {
+   "stable_sand_median_rgb_8bit": {
+    "1984": [
+     218,
+     182,
+     146
+    ],
+    "2000": [
+     211,
+     178,
+     146
+    ],
+    "2010": [
+     213,
+     180,
+     145
+    ],
+    "2016": [
+     213,
+     176,
+     145
+    ],
+    "2024": [
+     212,
+     174,
+     145
+    ]
+   },
+   "max_channel_spread_across_frames": [
+    7,
+    8,
+    1
+   ]
+  },
+  "C_per_frame_auto (rejected)": {
+   "stable_sand_median_rgb_8bit": {
+    "1984": [
+     177,
+     174,
+     182
+    ],
+    "2000": [
+     190,
+     185,
+     185
+    ],
+    "2010": [
+     245,
+     244,
+     241
+    ],
+    "2016": [
+     244,
+     243,
+     238
+    ],
+    "2024": [
+     243,
+     242,
+     238
+    ]
+   },
+   "max_channel_spread_across_frames": [
+    68,
+    70,
+    59
+   ]
+  }
+ }
+}

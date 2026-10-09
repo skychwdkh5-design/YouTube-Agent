@@ -1,0 +1,131 @@
+{
+ "grid_union": {
+  "epsg": 32636,
+  "x0": 223095.0,
+  "y_top": 2607045.0,
+  "width": 4467,
+  "height": 3017,
+  "offset_E_px": [
+   1870,
+   32
+  ]
+ },
+ "years": {
+  "1999": {
+   "overlap_px": [
+    215,
+    2219
+   ],
+   "valid_both_fraction": 0.9504,
+   "shift_px_dx_dy": [
+    -0.01,
+    0.002
+   ],
+   "snr": 468.3,
+   "median_E_minus_W_reflectance_rgb": [
+    -0.0063,
+    -0.0022,
+    0.0066
+   ],
+   "median_E_over_W_ratio_rgb": [
+    0.9836,
+    0.9925,
+    1.0325
+   ],
+   "dates": {
+    "W": "1999-01-01",
+    "E": "1999-01-10"
+   }
+  },
+  "2002": {
+   "overlap_px": [
+    215,
+    2219
+   ],
+   "valid_both_fraction": 1.0,
+   "shift_px_dx_dy": [
+    0.004,
+    0.004
+   ],
+   "snr": 489.6,
+   "median_E_minus_W_reflectance_rgb": [
+    0.0002,
+    0.0029,
+    0.0082
+   ],
+   "median_E_over_W_ratio_rgb": [
+    1.0006,
+    1.0094,
+    1.0399
+   ],
+   "dates": {
+    "W": "2002-01-09",
+    "E": "2002-01-18"
+   }
+  },
+  "2011": {
+   "overlap_px": [
+    215,
+    2219
+   ],
+   "valid_both_fraction": 0.9999,
+   "shift_px_dx_dy": [
+    0.001,
+    -0.02
+   ],
+   "snr": 482.3,
+   "median_E_minus_W_reflectance_rgb": [
+    -0.0034,
+    0.0007,
+    0.0056
+   ],
+   "median_E_over_W_ratio_rgb": [
+    0.9904,
+    1.0022,
+    1.0244
+   ],
+   "dates": {
+    "W": "2011-01-02",
+    "E": "2011-01-11"
+   }
+  },
+  "2021": {
+   "overlap_px": [
+    215,
+    2219
+   ],
+   "valid_both_fraction": 0.9894,
+   "shift_px_dx_dy": [
+    0.001,
+    0.0
+   ],
+   "snr": 280.7,
+   "median_E_minus_W_reflectance_rgb": [
+    0.0098,
+    0.0071,
+    0.0061
+   ],
+   "median_E_over_W_ratio_rgb": [
+    1.0259,
+    1.0251,
+    1.0292
+   ],
+   "dates": {
+    "W": "2021-11-13",
+    "E": "2021-11-06"
+   }
+  }
+ },
+ "stretch_union": {
+  "lo": [
+   0.0431,
+   0.0714,
+   0.1
+  ],
+  "hi": [
+   0.4941,
+   0.3904,
+   0.2935
+  ]
+ }
+}

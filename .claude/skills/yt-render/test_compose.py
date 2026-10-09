@@ -496,6 +496,103 @@ class Graphics(Base):
         self.assertEqual(man["shots"][1]["layers"], ["graphic", "graphic"])
 
 
+class ExternalStill(Base):
+    """external_still: provenance is mandatory, the view stays inside the image, and the frame is the cropped still."""
+    def setUp(self):
+        super().setUp()
+        arr = np.zeros((1080, 1920, 3), np.uint8)
+        arr[:, :960] = (200, 40, 40); arr[:, 960:] = (40, 40, 200)
+        arr[::90, :] = 255
+        Image.fromarray(arr).save(os.path.join(self.dir, "still.png"))
+
+    PROV = {"credit": "NASA/Test", "source_url": "https://svs.example.gov/4362", "license": "Public domain (test)",
+            "retrieved": "2026-10-08", "image_date": "2004-07"}
+
+    def tl(self, view=None, **prov):
+        a = self.assets()
+        st = {"src": "still.png", "kind": "external_still", **self.PROV}
+        st.update(prov)
+        for k in [k for k, v in st.items() if v is None]:
+            st.pop(k)
+        a["st"] = st
+        layer = {"type": "still", "asset": "st"}
+        if view is not None:
+            layer["view"] = view
+        tl = {"version": 3, "profile": "long", "grid": "stack/grid.json", "assets": a, "end": {"seconds": 1.0},
+              "shots": [{"id": "e", "start": 0, "layers": [layer]}]}
+        p = os.path.join(self.dir, "t.json")
+        json.dump(tl, open(p, "w"))
+        return p
+
+    def test_provenance_is_mandatory(self):
+        for k in ("credit", "source_url", "license", "retrieved"):
+            self.assertIn("external still needs", run(["--timeline", self.tl(**{k: None})])[1]["error"])
+        self.assertIn("https URL", run(["--timeline", self.tl(source_url="http://x.org/a")])[1]["error"])
+        self.assertIn("YYYY-MM-DD", run(["--timeline", self.tl(retrieved="today")])[1]["error"])
+        self.assertEqual(run(["--timeline", self.tl()])[1]["status"], "confirm_required")
+
+    def test_view_limits(self):
+        v = lambda cx, cy, w: {"from": {"center": [cx, cy], "width": w}}
+        self.assertIn("leaves the image", run(["--timeline", self.tl(v(0.9, 0.5, 0.5))])[1]["error"])
+        self.assertIn("magnify", run(["--timeline", self.tl(v(0.5, 0.5, 0.2))])[1]["error"])     # 5x
+        self.assertEqual(run(["--timeline", self.tl(v(0.5, 0.5, 0.5))])[1]["status"], "confirm_required")   # 2x
+
+    @unittest.skipUnless(HAVE_FF, "ffmpeg not installed")
+    def test_render_crops_the_still_and_records_provenance(self):
+        out = os.path.join(self.dir, "e.mp4")
+        view = {"from": {"center": [0.25, 0.5], "width": 0.5}}      # the left (red) half, no motion
+        code, d = run(["--timeline", self.tl(view), "--output", out, "--confirm"])
+        self.assertEqual((code, d["status"]), (0, "ok"), d)
+        raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", "0.5", "-i", out, "-frames:v", "1", "-f", "rawvideo",
+                              "-pix_fmt", "rgb24", "-"], capture_output=True, check=True).stdout
+        f = np.frombuffer(raw, np.uint8).reshape(1080, 1920, 3).astype(float)
+        px = f[600:1000, 1200:1800].mean(axis=(0, 1))                 # clear of credit line and caption band
+        self.assertGreater(px[0], 150); self.assertLess(px[2], 90)    # red, not blue
+        man = json.load(open(out[:-4] + ".manifest.json"))
+        st = man["assets"]["st"]
+        self.assertEqual((st["source_url"], st["license"], st["retrieved"], st["image_date"]),
+                         (self.PROV["source_url"], self.PROV["license"], "2026-10-08", "2004-07"))
+        self.assertEqual(man["shots"][0]["credit"], "NASA/Test")
+        self.assertEqual(man["shots"][0]["layers"], ["still"])
+
+    @unittest.skipUnless(HAVE_FF, "ffmpeg not installed")
+    def test_scrim_darkens_the_top_for_labels_only(self):
+        def frame_mean(scrim):
+            tl = json.load(open(self.tl()))
+            tl["shots"][0]["layers"][0]["scrim"] = scrim
+            p = os.path.join(self.dir, "s.json"); json.dump(tl, open(p, "w")); out = os.path.join(self.dir, f"s{scrim}.mp4")
+            code, d = run(["--timeline", p, "--output", out, "--confirm"]); self.assertEqual((code, d["status"]), (0, "ok"), d)
+            raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", "0.5", "-i", out, "-frames:v", "1", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True, check=True).stdout
+            f = np.frombuffer(raw, np.uint8).reshape(1080, 1920, 3).astype(float)
+            return f[150:250, 600:1300].mean(), f[600:700, 600:1300].mean()
+        top0, low0 = frame_mean(0.0); top5, low5 = frame_mean(0.6)
+        self.assertLess(top5, top0 * 0.75)                 # the top is clearly darker
+        self.assertAlmostEqual(low5, low0, delta=3)        # the lower half (below the ramp) is untouched
+        bad = json.load(open(self.tl())); bad["shots"][0]["layers"][0]["scrim"] = 0.95
+        json.dump(bad, open(os.path.join(self.dir, "b.json"), "w"))
+        self.assertIn("scrim", run(["--timeline", os.path.join(self.dir, "b.json")])[1]["error"])
+
+
+class CreditPill(Base):
+    """the on-screen credit sits on a dark pill, so it stays legible on a light graphic"""
+    @unittest.skipUnless(HAVE_FF, "ffmpeg not installed")
+    def test_credit_is_legible_on_a_white_graphic(self):
+        Image.fromarray(np.full((1080, 1920, 3), 246, np.uint8)).save(os.path.join(self.dir, "white.png"))
+        a = self.assets(); a["w"] = {"src": "white.png", "kind": "graphic", "credit": "Original graphic · sources on the image", "group": "w"}
+        tl = {"version": 3, "profile": "long", "grid": "stack/grid.json", "assets": a, "end": {"seconds": 1.0},
+              "shots": [{"id": "g", "start": 0, "layers": [{"type": "graphic", "asset": "w"}]}]}
+        p = os.path.join(self.dir, "t.json"); json.dump(tl, open(p, "w")); out = os.path.join(self.dir, "w.mp4")
+        code, d = run(["--timeline", p, "--output", out, "--confirm"])
+        self.assertEqual((code, d["status"]), (0, "ok"), d)
+        raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", "0.5", "-i", out, "-frames:v", "1", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
+                             capture_output=True, check=True).stdout
+        f = np.frombuffer(raw, np.uint8).reshape(1080, 1920, 3).astype(float)
+        row = f[84:112, 100:400]                              # inside the pill, mostly its dark fill with the white text
+        self.assertLess(np.median(row), 110)                  # dark pill, not the 246 background
+        self.assertGreater(row.max(), 200)                    # the white text is on it
+        self.assertGreater(f[300:340, 100:400].mean(), 240)   # the rest of the page is untouched
+
+
 class BackwardCompat(unittest.TestCase):
     def test_v1_and_v2_never_load_compose_path(self):
         self.assertEqual(r.SUPPORTED_VERSIONS, (1, 2))

@@ -1,0 +1,105 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g24b-267",
+ "type": "callout",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Kemena et al., Climate Dynamics (manuscript 2017; journal version 2018)",
+ "credit": null,
+ "steps": [
+  "g24b-267.step1.png",
+  "g24b-267.step2.png",
+  "g24b-267.step3.png",
+  "g24b-267.png"
+ ],
+ "sha256": {
+  "g24b-267.step1.png": "756da4344d01e8cd1ec79db0a8e7987246a6c42b673e73f14fb7aaafad3e22d4",
+  "g24b-267.step2.png": "38a4f0bb4f43af1116e9bfcd90afa33aaaf69c8be5e89c6a15c55b6b76cf1a42",
+  "g24b-267.step3.png": "b4cff701410eeee71c3616d807474d487be803ab30095578b728e563ee66da20",
+  "g24b-267.png": "d2b1ac5fad4fc16a508943a8f4228abaa9767b02e45e7c264febe0c1ce20d518"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "A later simulation: a different model (CESM-WACCM)",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    1317.5,
+    177.2
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Kemena et al., Climate Dynamics (manuscript 2017; journal version 2018) · Imagery: NASA Blue Marble (SVS 3539)",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    1516.5,
+    797.6
+   ]
+  },
+  {
+   "where": "value",
+   "text": "267",
+   "size": 190,
+   "box": [
+    614.5,
+    322.4,
+    978.5,
+    550.4
+   ]
+  },
+  {
+   "where": "unit",
+   "text": "mm/yr",
+   "size": 90,
+   "box": [
+    1002.5,
+    412.4,
+    1305.5,
+    520.4
+   ]
+  },
+  {
+   "where": "label",
+   "text": "Whole-Sahara average increase in rain (about 10 in)",
+   "size": 44,
+   "box": [
+    406.5,
+    560.0,
+    1513.5,
+    612.8
+   ]
+  },
+  {
+   "where": "context",
+   "text": "Surface air about 6.3 °C cooler (about 11 °F). The authors call the rain increase weak",
+   "size": 30,
+   "box": [
+    353.5,
+    658.4,
+    1566.5,
+    694.4
+   ]
+  }
+ ],
+ "backdrop": {
+  "path": "backdrops/africa_backdrop.jpg",
+  "sha256": "e6e84a195ae0fc0bed22bf6f2fecf3e19e04ac56047ac850279196cc39173063",
+  "credit": "NASA Blue Marble (SVS 3539)",
+  "scrim": 0.62
+ }
+}

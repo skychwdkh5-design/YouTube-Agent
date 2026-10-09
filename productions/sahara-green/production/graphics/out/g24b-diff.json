@@ -1,0 +1,92 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g24b-diff",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Ornstein et al. 2009 (section 3.1); Kemena et al.",
+ "credit": null,
+ "steps": [
+  "g24b-diff.step1.png",
+  "g24b-diff.step2.png",
+  "g24b-diff.png"
+ ],
+ "sha256": {
+  "g24b-diff.step1.png": "9ae36d5b6c435d32cbab25e2a16f134f03bca9d38a18aa8f64a95c1e8f5f8571",
+  "g24b-diff.step2.png": "ff5c0300ced88a0be7d191bcc6048c0ca4bdd2ed402fc39bd263d8a5684e29f3",
+  "g24b-diff.png": "14e91faa6b5cf639ddfc264ff22e8a7a9281926d8591cc58aaa107c702b0c72b"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "Two numbers, two different things",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    891.0,
+    177.2
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Ornstein et al. 2009 (section 3.1); Kemena et al. · Imagery: NASA Blue Marble (SVS 3539)",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    1218.5,
+    797.6
+   ]
+  },
+  {
+   "where": "node a",
+   "text": "Rain over half the irrigated Sahara: over 1,000 mm/yr (2009)",
+   "size": 34,
+   "box": [
+    200.2,
+    369.0,
+    855.8,
+    449.9
+   ]
+  },
+  {
+   "where": "node b",
+   "text": "Whole-Sahara average: +267 mm/yr (later model)",
+   "size": 34,
+   "box": [
+    1090.2,
+    369.0,
+    1693.8,
+    449.9
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Not comparable: never on one axis",
+   "size": 36,
+   "box": [
+    658.2,
+    610.9,
+    1261.8,
+    654.1
+   ]
+  }
+ ],
+ "backdrop": {
+  "path": "backdrops/africa_backdrop.jpg",
+  "sha256": "e6e84a195ae0fc0bed22bf6f2fecf3e19e04ac56047ac850279196cc39173063",
+  "credit": "NASA Blue Marble (SVS 3539)",
+  "scrim": 0.62
+ }
+}

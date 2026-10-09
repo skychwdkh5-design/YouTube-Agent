@@ -1,0 +1,71 @@
+# Episode 001: missing-source inventory and lock assessment (2026-10-08; status updated for SCRIPT LOCK v1.0)
+
+## Status after round 8 (script v0.6)
+No PDF is outstanding for any claim in the narration. Every row below is either received and read, replaced by a verified statement, or removed:
+
+| Row | Publication | Outcome |
+|---|---|---|
+| 1, 2, 6 | Ornstein 2009; Kemena (manuscript 2017); Pausata 2017 | Received and read (rounds 6-7) |
+| 3 | Li et al. 2018 (G8) | **Removed** from the episode |
+| 4 | Lu, Pausata et al. 2021 (G10, G11) | **Removed** |
+| 5 | Rohatyn et al. 2022 (G20) | **Removed** |
+| 7 | Kröpelin et al. 2008 (P18) | **Replaced** by NASA EO 41425 (pollen, wooded grassland) |
+| 8 | deMenocal et al. 2000 (P17) | Only the existence of the debate is narrated (PLoS ONE e0170989) |
+| 9 | Drake & Bristow 2006 (P10) | **Replaced** by NASA EO 146011 / 147816 ("larger than all the Great Lakes combined") |
+| 10 | Nubian aquifer volume and recharge (G17, G18) | **Replaced** by NASA EO 152356 and 89820; no volume |
+| 11 | Area references (S1, S2, S3) | S1 and S3 replaced by NASA EO 153320; S2 removed |
+| 12 | Lamont release (P8) | **Replaced** by Larrasoaña 2013 reconstruction numbers |
+| 13 | UC Irvine page (P23) | **Replaced** by NASA EO 153475 |
+| 14 | Yu et al. 2015 (S4-S6) | Optional upgrade; NASA SVS pages already read |
+
+Open verification (not PDFs): the Kemena journal version was never compared with the manuscript (the reviewer accepted the manuscript as the source for G5, G6, G6b; see `story/SCRIPT_LOCK.md`). Landsat scene-by-scene checks of the final graphics belong to visual production. The detailed table below is kept as history.
+
+
+Titles and authors below come only from what was read in this project (the claim ledger, citation lists inside the PLOS ONE papers, and search results). A field marked "title not confirmed" must be filled from the DOI page by whoever obtains the PDF. Nothing here is invented.
+
+## 1. PDFs needed, grouped by publication
+
+| # | Publication | Claims | Script passage | Why it matters | Can the claim go? | PDF essential? |
+|---|---|---|---|---|---|---|
+| 1 | **RECEIVED AND READ (round 7).** Ornstein L., Aleinov I., Rind D. (2009), "Irrigated afforestation of the Sahara and Australian Outback to end global warming", Climatic Change 97:409-437, doi:10.1007/s10584-009-9626-y | G1, G1b, G2, G4 (the $2 trillion figure was removed) | ACT 5 (old wording): "In 2009, three scientists proposed ... forests of fast-growing trees ... watered with desalinated seawater through drip irrigation. They argued these forests could absorb as much carbon dioxide each year as fossil fuels emit. The estimated price: on the order of two trillion dollars a year." | It is the episode's central "big plan"; every later model result is framed against it. | G4 ($2 trillion) can be dropped or softened to "enormous" without losing the plot. G1 and G2 (the proposal exists; the authors' claim) cannot go. | **Yes** (G1, G2); G4 only if the number stays |
+| 2 | **RECEIVED AND READ (round 6; manuscript PDF).** Kemena T. P., Matthes K., Martin T., Wahl S., Oschlies A., Climate Dynamics 50(11-12):4561-4581, doi:10.1007/s00382-017-3890-8 (journal metadata unconfirmed) | G5, G6, G6b | ACT 5: "In 2018, another team tested an irrigated Sahara forest ... cooled by about 6 degrees Celsius ... rainfall rose by about 267 millimeters ... only about a quarter of the water ... fell back as rain." | It is the "would it rain?" answer, the episode's main numbers. | The figures can be replaced by "a climate model found more rain, but much of the water drifted south", which needs the paper anyway. | **Yes** (or cut the section) |
+| 3 | Li Y., Kalnay E., Motesharrei S., Rivas J., Kucharski F., Kirk-Davidoff D., Bach E., Zeng N. (2018), "Climate model shows large-scale wind and solar farms in the Sahara increase rain and vegetation", Science 361(6406):1019-1022, doi:10.1126/science.aar5629 | G8 | ACT 5: "A different simulation covered the Sahara with wind and solar farms ... Rainfall more than doubled, and the Sahel gained 200 to 500 millimeters a year." | A positive contrast; not needed for the thesis. | **Yes, removable**: delete the paragraph. | Only if kept |
+| 4 | Lu Z., Pausata F. et al. (2021), Geophysical Research Letters 48(2), doi:10.1029/2020GL090789 (title and full author list not confirmed) | G10, G11 | ACT 6: "a 2021 model found that solar panels over a fifth of the Sahara would warm the whole planet by about 0.16 degrees Celsius, and shift rain away from places like the Amazon." | The "far away" effect of panels. | **Removable**. | Only if kept |
+| 5 | Rohatyn S., Yakir D., Rotenberg E., Carmel Y. (2022), "Limited climate change mitigation potential through forestation of the vast dryland regions", Science 377:1436-1439 (DOI not confirmed) | G20 | ACT 6: "A 2022 study of forests planted in drylands found that this extra warming cancels out much of their carbon benefit." | Explains why trees are not a free fix. | **Removable**, or soften to "darker surfaces absorb more sunlight" (general physics; needs no paper). | Only if kept |
+| 6 | **RECEIVED AND READ (round 7).** Pausata F. S. R. et al. (2017), "Tropical cyclone activity enhanced by Sahara greening and reduced dust emissions during the African Humid Period", PNAS 114(24):6221-6226, doi:10.1073/pnas.1619111114 | P24 | ACT 6: "In a climate model of the last Green Sahara, adding plants and removing dust increased tropical cyclone activity ... Caribbean and the US East Coast. ... a model of the past, not a forecast." | The storm hook, the most dramatic "far away" effect and a strong US-audience element. | Removable, but it costs the best US-relevant beat. | **Yes** if the storm beat stays |
+| 7 | Kröpelin S., Verschuren D., Lézine A.-M., Eggermont H., Cocquyt C. et al. (2008), "Climate-driven ecosystem succession in the Sahara: the past 6000 years", Science 320:765-768 (PMID 18467583) | P18 | ACT 1: "The mud at the bottom of one of them, Lake Yoa, holds a layer-by-layer record of the Sahara drying out." | Colour for the Ounianga segment. | **Replace** with the verified NASA EO 41425 fact: pollen in the older lake's sediments shows a wooded-grassland savanna, and those vegetation zones are now found about 300 km farther south. | No |
+| 8 | deMenocal P. et al. (2000), Quaternary Science Reviews 19:347 (title not confirmed) | P17 | Already removed from the narration and storyboard (v0.3). Only the debate itself is narrated, sourced to e0170989. | none now | Gone | No |
+| 9 | Drake N., Bristow C. (2006), The Holocene 16:901 (title not confirmed) | P10 | ACT 1: "a lake called Mega-Chad covered at least 400,000 square kilometers ... more than 150,000 square miles." | The size of the lost lake. | **Replace** with NASA EO 146011/147816: "larger than all the Great Lakes combined" (verified qualitatively). | No |
+| 10 | Nubian Sandstone Aquifer System volume and recharge: the ledger cites an AGU Eos article ("Ancient Water Underlies Arid Egypt", eos.org/articles/ancient-water-underlies-arid-egypt) and names IAEA/UNESCO and USGS as the needed primary sources; no title or author is known | G17, G18 | ACT 4: "holds more than 150,000 cubic kilometers of mostly ancient groundwater ... barely being refilled." | Why the green circles cannot last. | **Replace** the number with verified NASA EO 152356 and 89820: fossil water, "10,000 to 1,000,000 years" old, "recharges slowly and is considered a non-renewable resource". | No |
+| 11 | Area and comparison references: Britannica, USGS or US Census Gazetteer (no specific document identified) | S1, S2 | Cold open: "about 9 million square kilometers ... bigger than the entire lower 48 United States." | Hook-supporting scale. | **Removable**; keep "the world's largest non-polar desert" (NASA EO 153320). | No (a human check of any encyclopedia suffices) |
+| 12 | Lamont-Doherty press release on Tierney's work (https://lamont.columbia.edu/news/green-saharas-ancient-rainfall-regime-revealed) | P8 | ACT 1: "Jessica Tierney put it simply: the Sahara was 'ten times as wet as today.'" | A quotable number. | **Replace** with Larrasoaña's reconstructed precipitation numbers (verified), or drop. | No |
+| 13 | UC Irvine page (https://ess.uci.edu/news/858), K. Johnson | P23 | CLOSE: "One scientist estimates the next orbital window is roughly 10,000 years away." | The "green again" twist. | **Removable** (the twist works without the number). | No |
+| 14 | Yu H. et al. (2015), "The fertilizing role of African dust in the Amazon rainforest: A first multiyear assessment based on data from Cloud-Aerosol Lidar and Infrared Pathfinder Satellite Observations", Geophysical Research Letters, doi:10.1002/2015GL063040 | S4-S6 (already VERIFIED through NASA SVS 4273 and 11775) | ACT 6 dust numbers | Optional upgrade from NASA's reporting to the paper itself. | n/a | No |
+
+Minimum PDF set to keep the full Act 5 and Act 6 storyline: none outstanding (publications 1, 2 and 6 were received in rounds 6 and 7). Adding 3, 4 and 5 would restore the optional contrasts (six PDFs in all). Publications 7 to 13 need none if their replacements are accepted.
+
+## 2. Script lock assessment
+
+**A. Essential claims that need primary-source verification (if kept):** none left in Act 5/6 core: G1, G1b, G2, G4, P24 were read in round 7.
+
+**B. Nonessential claims that can be removed or replaced by a verified fact:**
+- S1, S2 (area and the lower-48 comparison): keep "the world's largest non-polar desert" (NASA).
+- S3: replace with "in some areas just tens of millimeters, a few inches, a year" (NASA).
+- P8: replace with Larrasoaña's ~100 mm/yr (NE Sahara core) and ~450 mm/yr (~18°N), labelled as a reconstruction.
+- P10: replace the number with "larger than all the Great Lakes combined" (NASA).
+- P18: replace with the NASA Ounianga pollen statement.
+- P23: delete the number.
+- G8, G10, G11, G20: delete, or keep only as one softened sentence each if their PDFs arrive.
+- G17, G18: replace with NASA's "10,000 to 1,000,000 years old", "non-renewable".
+- S13, S14: reword (see `claims.md`).
+- P12: change "among" to "alongside".
+
+**C. Hypotheticals that may stay as hypotheses:** G14 (a greener Sahara and Amazon phosphorus: "a hypothesis, not modeled"); P5 (feedback between lakes, plants and rain is "one proposed amplifier"); G2 (the 2009 authors' claim, narrated as "they argued"); P24 (a model of the past, "not a forecast").
+
+## 3. Steps to a defensible lock
+1. Reviewer decides which of the replacements in section 2B to adopt (wording is in this file and in `claims.md`).
+2. Obtain PDFs 3, 4, 5 only if those paragraphs are kept (G8, G10, G11, G20).
+3. Apply approved replacements to `script.md`, `storyboard.md`, `claims.md`; recount spoken words; re-time the storyboard.
+4. Landsat: confirm the East Oweinat pivot diameter on original band data; build the Toshka wipe from paths 176044 and 175044 without area figures.
+5. Re-run the claim ledger: no ⚠ or ⛔ marks may remain in `script.md`.
+6. Final reviewer sign-off, then lock; only then voice-over.

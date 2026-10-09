@@ -1,0 +1,430 @@
+{
+ "schema": "yt-render-manifest/1",
+ "profile": "long",
+ "output": "PROPOSAL_REVISED_1080p30.mp4",
+ "width": 1920,
+ "height": 1080,
+ "fps": 30,
+ "duration": 38.167,
+ "safe": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "right": 0.05,
+  "left": 0.05
+ },
+ "first_word_start": 0.014,
+ "narration": {
+  "start": 0.0,
+  "duration": 38.133,
+  "end": 38.133311,
+  "gain_db": 0.0,
+  "voice_name": "Adam",
+  "voice_id": "pNInz6obpgDQGcFmaJgB"
+ },
+ "shots": [
+  {
+   "id": "p1",
+   "beat": "scene 23a: where (Sahara; Outback not on map)",
+   "start": 0.0,
+   "end": 9.267,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Original graphic · sources on the image"
+  },
+  {
+   "id": "p2",
+   "beat": "scene 23b: mechanism (conceptual)",
+   "start": 9.267,
+   "end": 12.6,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Original graphic · sources on the image"
+  },
+  {
+   "id": "p3",
+   "beat": "scene 23c: the estimate (equivalence, no numbers)",
+   "start": 12.6,
+   "end": 19.7,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Original graphic · sources on the image"
+  },
+  {
+   "id": "p4",
+   "beat": "scene 23d: what the estimate is / is not",
+   "start": 19.7,
+   "end": 28.233,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Original graphic · sources on the image"
+  },
+  {
+   "id": "p5",
+   "beat": "scene 23e: stops gaining carbon (schematic)",
+   "start": 28.233,
+   "end": 38.167,
+   "info": null,
+   "claims": [],
+   "layers": [
+    "graphic",
+    "graphic",
+    "graphic"
+   ],
+   "credit": "Original graphic · sources on the image"
+  }
+ ],
+ "info_events": [],
+ "compositions": {
+  "rule": "composition-reset/1",
+  "thresholds": {
+   "zoom_ratio": 1.5,
+   "shift": 0.35,
+   "merge_s": 0.75,
+   "timelapse_min": 3,
+   "timelapse_max_step": 1.0,
+   "sample_s": 0.1,
+   "first_10s_min": 3,
+   "resets_per_min": 5.0,
+   "max_hold_s": 8.0
+  },
+  "composition_resets": 4,
+  "distinct_first_10s": 2,
+  "longest_static_hold": {
+   "seconds": 9.934,
+   "start": 28.233,
+   "end": 38.167
+  },
+  "resets": [
+   {
+    "t": 9.267,
+    "shot": "p2",
+    "kind": "graphic",
+    "what": "graphic r23b-mechanism"
+   },
+   {
+    "t": 12.6,
+    "shot": "p3",
+    "kind": "graphic",
+    "what": "graphic r23c-carbon"
+   },
+   {
+    "t": 19.7,
+    "shot": "p4",
+    "kind": "graphic",
+    "what": "graphic r23d-estimate"
+   },
+   {
+    "t": 28.233,
+    "shot": "p5",
+    "kind": "graphic",
+    "what": "graphic r23e-century"
+   }
+  ],
+  "segments": [
+   {
+    "start": 0.0,
+    "end": 9.267,
+    "seconds": 9.267,
+    "static_hold": 9.267
+   },
+   {
+    "start": 9.267,
+    "end": 12.6,
+    "seconds": 3.333,
+    "static_hold": 3.333
+   },
+   {
+    "start": 12.6,
+    "end": 19.7,
+    "seconds": 7.1,
+    "static_hold": 7.1
+   },
+   {
+    "start": 19.7,
+    "end": 28.233,
+    "seconds": 8.533,
+    "static_hold": 8.533
+   },
+   {
+    "start": 28.233,
+    "end": 38.167,
+    "seconds": 9.934,
+    "static_hold": 9.934
+   }
+  ]
+ },
+ "caption_boxes": [
+  {
+   "cue": 1,
+   "band": 0.815,
+   "box": [
+    621,
+    830,
+    1299,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 2,
+   "band": 0.815,
+   "box": [
+    425,
+    830,
+    1495,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 3,
+   "band": 0.815,
+   "box": [
+    549,
+    857,
+    1371,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 4,
+   "band": 0.815,
+   "box": [
+    427,
+    830,
+    1493,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 5,
+   "band": 0.815,
+   "box": [
+    566,
+    857,
+    1354,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 6,
+   "band": 0.815,
+   "box": [
+    493,
+    830,
+    1427,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 7,
+   "band": 0.815,
+   "box": [
+    655,
+    830,
+    1265,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 8,
+   "band": 0.815,
+   "box": [
+    525,
+    857,
+    1395,
+    903
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 9,
+   "band": 0.815,
+   "box": [
+    532,
+    830,
+    1388,
+    930
+   ],
+   "font_size": 46
+  },
+  {
+   "cue": 10,
+   "band": 0.815,
+   "box": [
+    679,
+    830,
+    1241,
+    930
+   ],
+   "font_size": 46
+  }
+ ],
+ "assets": {
+  "r23a-sites_1": {
+   "label": "r23a-sites_1",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23a-sites_2": {
+   "label": "r23a-sites_2",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23a-sites_3": {
+   "label": "r23a-sites_3",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23a-sites_4": {
+   "label": "r23a-sites_4",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23a-sites_5": {
+   "label": "r23a-sites_5",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23b-mechanism_1": {
+   "label": "r23b-mechanism_1",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23b-mechanism_2": {
+   "label": "r23b-mechanism_2",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23b-mechanism_3": {
+   "label": "r23b-mechanism_3",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23b-mechanism_4": {
+   "label": "r23b-mechanism_4",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23c-carbon_1": {
+   "label": "r23c-carbon_1",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23c-carbon_2": {
+   "label": "r23c-carbon_2",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23c-carbon_3": {
+   "label": "r23c-carbon_3",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23c-carbon_4": {
+   "label": "r23c-carbon_4",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23d-estimate_1": {
+   "label": "r23d-estimate_1",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23d-estimate_2": {
+   "label": "r23d-estimate_2",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23d-estimate_3": {
+   "label": "r23d-estimate_3",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23d-estimate_4": {
+   "label": "r23d-estimate_4",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23e-century_1": {
+   "label": "r23e-century_1",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23e-century_2": {
+   "label": "r23e-century_2",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  },
+  "r23e-century_3": {
+   "label": "r23e-century_3",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  }
+ },
+ "warnings": [
+  "only 0 information events in the first 10 s (target >= 3)",
+  "only 2 distinct compositions in the first 10 s (target >= 3; new text or overlays on the same view do not count)",
+  "one composition holds 9.9s without a reset (28.2-38.2s, target <= 8s)",
+  "duration 38.167s outside 60.0-900.0 s"
+ ],
+ "segments": [
+  {
+   "index": 0,
+   "start_frame": 0,
+   "frames": 1145,
+   "start": 0.0,
+   "sha256": "60948717dd9a676d42c6c60e39700f7862173f9336468b9c65eb378e49ef08c7"
+  }
+ ]
+}

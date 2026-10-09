@@ -1,0 +1,105 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g24b-1000",
+ "type": "callout",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Ornstein et al. 2009, section 3.1 (p.418)",
+ "credit": null,
+ "steps": [
+  "g24b-1000.step1.png",
+  "g24b-1000.step2.png",
+  "g24b-1000.step3.png",
+  "g24b-1000.png"
+ ],
+ "sha256": {
+  "g24b-1000.step1.png": "bafeb44970d9ccb4236d884a54cc499e85062fc082518a6ac7b90e558418a36b",
+  "g24b-1000.step2.png": "55288bee355318f1c146fd73cad792ec53893386f9c8d9b5d9a53b9d3e0ae50e",
+  "g24b-1000.step3.png": "a18ab9348b6785cc8947d54fb44c8cb3e263a5514928391da03d8dcbdb6ac674",
+  "g24b-1000.png": "40dfc9cba01c88af4ce8857dfa577269e9b36d9e96fdb248383fdfbcaa4a0a6a"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "2009 simulation: one model (GISS ModelE)",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    1078.0,
+    177.2
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Ornstein et al. 2009, section 3.1 (p.418) · Imagery: NASA Blue Marble (SVS 3539)",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    1124.5,
+    797.6
+   ]
+  },
+  {
+   "where": "value",
+   "text": "1,000",
+   "size": 190,
+   "box": [
+    478.2,
+    322.4,
+    1034.2,
+    550.4
+   ]
+  },
+  {
+   "where": "unit",
+   "text": "mm/yr +",
+   "size": 90,
+   "box": [
+    1058.2,
+    412.4,
+    1441.8,
+    520.4
+   ]
+  },
+  {
+   "where": "label",
+   "text": "More than 1,000 mm of rain a year (about 40 in)",
+   "size": 44,
+   "box": [
+    451.5,
+    560.0,
+    1468.5,
+    612.8
+   ]
+  },
+  {
+   "where": "context",
+   "text": "Over roughly half of the irrigated Sahara; the authors asked other models to check it",
+   "size": 30,
+   "box": [
+    352.5,
+    658.4,
+    1567.5,
+    694.4
+   ]
+  }
+ ],
+ "backdrop": {
+  "path": "backdrops/africa_backdrop.jpg",
+  "sha256": "e6e84a195ae0fc0bed22bf6f2fecf3e19e04ac56047ac850279196cc39173063",
+  "credit": "NASA Blue Marble (SVS 3539)",
+  "scrim": 0.62
+ }
+}

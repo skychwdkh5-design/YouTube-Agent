@@ -1,0 +1,121 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "r23d-estimate",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+ "credit": null,
+ "steps": [
+  "r23d-estimate.step1.png",
+  "r23d-estimate.step2.png",
+  "r23d-estimate.step3.png",
+  "r23d-estimate.png"
+ ],
+ "sha256": {
+  "r23d-estimate.step1.png": "f7b932acac4f1e6ed0bf138a79b522c291f8d9faabba1d797a4d911689c8a306",
+  "r23d-estimate.step2.png": "8b5951a5faf6f7b064510f5ac42a88130940a91c86d423058c08842481db01f1",
+  "r23d-estimate.step3.png": "b525531c15400b002712138ac92da5eecdeffc353654799b9391e785e589f653",
+  "r23d-estimate.png": "7cfe0193973ff3d518ea591dea7c1895cbe958a4d478027d009427054abe1354"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "Where the estimate comes from",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    831.5,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "Plantation data and calculations; large error bars",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    799.5,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    887.5,
+    797.6
+   ]
+  },
+  {
+   "where": "node h1",
+   "text": "THE ESTIMATE CAME FROM",
+   "size": 34,
+   "box": [
+    294.2,
+    279.3,
+    761.8,
+    320.1
+   ]
+  },
+  {
+   "where": "node h2",
+   "text": "IT WAS NOT",
+   "size": 34,
+   "box": [
+    1291.0,
+    279.3,
+    1493.0,
+    320.1
+   ]
+  },
+  {
+   "where": "node p1",
+   "text": "PLANTATION DATA",
+   "size": 34,
+   "box": [
+    369.2,
+    424.2,
+    686.8,
+    465.0
+   ]
+  },
+  {
+   "where": "node p2",
+   "text": "CALCULATIONS WITH LARGE ERROR BARS",
+   "size": 34,
+   "box": [
+    223.0,
+    559.5,
+    833.0,
+    640.4
+   ]
+  },
+  {
+   "where": "node p3",
+   "text": "A CLIMATE-MODEL RESULT THAT SIMULATED THE CARBON",
+   "size": 34,
+   "box": [
+    1111.5,
+    481.8,
+    1672.5,
+    562.7
+   ]
+  }
+ ]
+}

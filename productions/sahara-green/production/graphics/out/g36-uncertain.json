@@ -1,0 +1,73 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g36-uncertain",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "NASA Earth Observatory 153475, \"Water for a Desert Lake in Algeria\"",
+ "credit": null,
+ "steps": [
+  "g36-uncertain.step1.png",
+  "g36-uncertain.png"
+ ],
+ "sha256": {
+  "g36-uncertain.step1.png": "ea500fcb08f003c3c1bf24bced2199d1741a2aee4490f0a095133bb491ec9f4d",
+  "g36-uncertain.png": "a097e52a808719fbaf09f753e804a05093a8a5a00e5c63d84a2bfe2e90267385"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "source",
+   "text": "Source: NASA Earth Observatory 153475, \"Water for a Desert Lake in Algeria\"",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    995.5,
+    797.6
+   ]
+  },
+  {
+   "where": "node u",
+   "text": "UNCLEAR WHETHER, AND HOW MUCH, THE SAHARA MIGHT GREEN AGAIN",
+   "size": 34,
+   "box": [
+    334.2,
+    302.5,
+    1585.8,
+    343.3
+   ]
+  },
+  {
+   "where": "node c",
+   "text": "OVER THE COMING CENTURIES AND MILLENNIA",
+   "size": 34,
+   "box": [
+    558.2,
+    487.8,
+    1361.8,
+    528.6
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Greenhouse gases are layered on top of the orbital cycles",
+   "size": 36,
+   "box": [
+    614.5,
+    625.9,
+    1305.5,
+    711.6
+   ]
+  }
+ ]
+}

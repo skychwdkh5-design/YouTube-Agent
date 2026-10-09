@@ -1,0 +1,280 @@
+{
+ "version": 3,
+ "profile": "long",
+ "grid": "grid.json",
+ "assets": {
+  "bluemarble": {
+   "src": "africa.0700.jpg",
+   "kind": "external_still",
+   "credit": "NASA Earth Observatory · Blue Marble",
+   "label": "Blue Marble: Africa",
+   "source_url": "https://svs.gsfc.nasa.gov/3539",
+   "license": "NASA media usage guidelines: public domain unless noted; credit NASA",
+   "retrieved": "2026-10-08",
+   "image_date": "2004 (monthly composites)",
+   "derived_from": "SVS 3539 africa.0700.jpg"
+  },
+  "bodele": {
+   "src": "bodele_toneB.png",
+   "kind": "external_still",
+   "credit": "Landsat 9 · USGS",
+   "label": "Bodélé",
+   "source_url": "https://earthexplorer.usgs.gov/ (USGS M2M, Landsat Collection 2 Level-1 band file)",
+   "license": "USGS Landsat: public domain, credit requested",
+   "retrieved": "2026-10-08",
+   "image_date": "2026-07-31",
+   "derived_from": "LC09_L1TP_183048_20260731_20260731_02_T1"
+  },
+  "seq_s6": {
+   "src": "seq_s6.mp4",
+   "kind": "video",
+   "credit": "Landsat 5, 9 · USGS (East Oweinat)"
+  },
+  "r02-230_1": {
+   "src": "r02-230.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r02-230"
+  },
+  "r02-230_2": {
+   "src": "r02-230.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r02-230"
+  },
+  "r02-230_3": {
+   "src": "r02-230.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r02-230"
+  },
+  "r05-rain_1": {
+   "src": "r05-rain.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r05-rain"
+  },
+  "r05-rain_2": {
+   "src": "r05-rain.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r05-rain"
+  },
+  "r05-rain_3": {
+   "src": "r05-rain.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r05-rain"
+  }
+ },
+ "shots": [
+  {
+   "id": "o01",
+   "beat": "scene 1 (hook: the planet)",
+   "start": 0.0,
+   "layers": [
+    {
+     "type": "still",
+     "asset": "bluemarble",
+     "view": {
+      "from": {
+       "center": [
+        0.5,
+        0.5
+       ],
+       "width": 0.99
+      },
+      "to": {
+       "center": [
+        0.42,
+        0.56
+       ],
+       "width": 0.74
+      },
+      "ease": "in_out"
+     }
+    }
+   ]
+  },
+  {
+   "id": "o02",
+   "beat": "scene 2 (230+ over the ground)",
+   "start": 2.066666666666667,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "r02-230_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "r02-230_2",
+     "t": [
+      192.73333333333335,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r02-230_3",
+     "t": [
+      2.5333333333333328,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "o03",
+   "beat": "scene 3",
+   "start": 8.233333333333333,
+   "layers": [
+    {
+     "type": "still",
+     "asset": "bodele",
+     "view": {
+      "from": {
+       "center": [
+        0.3,
+        0.28
+       ],
+       "width": 0.55
+      },
+      "to": {
+       "center": [
+        0.45,
+        0.3
+       ],
+       "width": 0.42
+      },
+      "ease": "in_out"
+     },
+     "scrim": 0.62
+    },
+    {
+     "type": "label",
+     "text": "THOUSANDS OF MILES AWAY",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      0.8666666666666671,
+      5.100000000000001
+     ]
+    },
+    {
+     "type": "label",
+     "text": "BODÉLÉ DEPRESSION, CHAD",
+     "style": "tag",
+     "slot": "middle",
+     "t": [
+      2.9333333333333336,
+      5.100000000000001
+     ],
+     "sub": "ONE OF THE WORLD'S BIGGEST DUST SOURCES"
+    }
+   ]
+  },
+  {
+   "id": "o04",
+   "beat": "scene 4",
+   "start": 13.333333333333334,
+   "layers": [
+    {
+     "type": "still",
+     "asset": "bluemarble",
+     "view": {
+      "from": {
+       "center": [
+        0.5,
+        0.5
+       ],
+       "width": 0.9
+      },
+      "to": {
+       "center": [
+        0.36,
+        0.62
+       ],
+       "width": 0.62
+      },
+      "ease": "in_out"
+     }
+    },
+    {
+     "type": "label",
+     "text": "WORLD'S LARGEST NON-POLAR DESERT",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      1.0666666666666664,
+      3.966666666666667
+     ]
+    }
+   ]
+  },
+  {
+   "id": "o05",
+   "beat": "scene 5 (rain over a real landscape)",
+   "start": 17.3,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "r05-rain_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "r05-rain_2",
+     "t": [
+      1.966666666666665,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r05-rain_3",
+     "t": [
+      3.7333333333333343,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "o06",
+   "beat": "scene 6",
+   "start": 22.766666666666666,
+   "layers": [
+    {
+     "type": "video",
+     "asset": "seq_s6",
+     "credit": false,
+     "captions": true,
+     "caption": {
+      "band": 0.76,
+      "center_x": 0.667,
+      "max_width": 1100
+     }
+    }
+   ]
+  }
+ ],
+ "voice": {
+  "src": "narration_slice.wav",
+  "meta": "narration_slice.voice.json",
+  "normalize": false
+ },
+ "captions": {
+  "src": "captions/captions.srt",
+  "preset": "default"
+ },
+ "end": {
+  "seconds": 30.0
+ },
+ "render": {
+  "segment_s": 60
+ },
+ "meta": {
+  "section": "opening",
+  "master_start_s": 0.0,
+  "master_end_s": 30.0
+ }
+}

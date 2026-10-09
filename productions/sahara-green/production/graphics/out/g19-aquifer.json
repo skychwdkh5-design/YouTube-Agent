@@ -1,0 +1,155 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g19-aquifer",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "NASA Earth Observatory 152356 and 89820",
+ "credit": null,
+ "steps": [
+  "g19-aquifer.step1.png",
+  "g19-aquifer.step2.png",
+  "g19-aquifer.step3.png",
+  "g19-aquifer.step4.png",
+  "g19-aquifer.step5.png",
+  "g19-aquifer.step6.png",
+  "g19-aquifer.step7.png",
+  "g19-aquifer.step8.png",
+  "g19-aquifer.step9.png",
+  "g19-aquifer.png"
+ ],
+ "sha256": {
+  "g19-aquifer.step1.png": "49dff8357fabb0e287daa8856876c9b4bb87f5937662c8d697ac779c93dee308",
+  "g19-aquifer.step2.png": "80f50845064549e77d1c8d8c7f2b1791e695cbd0b77ae5070934ff4fa502200f",
+  "g19-aquifer.step3.png": "4e688cc17a86a521770c06d27fe386b396cb25f70eb8d415f35a5e5afceec532",
+  "g19-aquifer.step4.png": "4c538738d2201293082a27ffb5487c7a106034a779018496e28022698b1f1cde",
+  "g19-aquifer.step5.png": "fdd7a7d1201bb69786146eb1114b27ea957da04cd6ae5645da0e005bf688a4cb",
+  "g19-aquifer.step6.png": "a7e846b5028725405d730bb045e9d9132a407f2aa0d46d55188963014f691ac4",
+  "g19-aquifer.step7.png": "b6734ae74fbab8f7bdd4c0ace5a393c9198de41e14a66dfc1fbd5fcd30fb947b",
+  "g19-aquifer.step8.png": "a7e846b5028725405d730bb045e9d9132a407f2aa0d46d55188963014f691ac4",
+  "g19-aquifer.step9.png": "b6734ae74fbab8f7bdd4c0ace5a393c9198de41e14a66dfc1fbd5fcd30fb947b",
+  "g19-aquifer.png": "22826a8f344b959051d324e8bf35b6bf0990eb31c66e790dd84a4f21222a5e26"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "Fossil water",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    374.5,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "Nubian Sandstone Aquifer",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    476.5,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: NASA Earth Observatory 152356 and 89820",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    703.5,
+    797.6
+   ]
+  },
+  {
+   "where": "node e",
+   "text": "Egypt",
+   "size": 34,
+   "box": [
+    393.4,
+    372.5,
+    489.9,
+    413.3
+   ]
+  },
+  {
+   "where": "node li",
+   "text": "Libya",
+   "size": 34,
+   "box": [
+    742.7,
+    372.5,
+    831.7,
+    413.3
+   ]
+  },
+  {
+   "where": "node su",
+   "text": "Sudan",
+   "size": 34,
+   "box": [
+    1079.8,
+    372.5,
+    1185.8,
+    413.3
+   ]
+  },
+  {
+   "where": "node ch",
+   "text": "Chad",
+   "size": 34,
+   "box": [
+    1434.7,
+    372.5,
+    1522.2,
+    413.3
+   ]
+  },
+  {
+   "where": "node f",
+   "text": "SOAKED IN 10,000 TO 1,000,000 YEARS AGO",
+   "size": 34,
+   "box": [
+    583.8,
+    517.4,
+    1336.2,
+    558.2
+   ]
+  },
+  {
+   "where": "note",
+   "text": "A vast store of fossil groundwater shared by four countries",
+   "size": 32,
+   "box": [
+    618.8,
+    261.6,
+    1301.2,
+    337.8
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Recharges slowly: considered non-renewable",
+   "size": 32,
+   "box": [
+    728.2,
+    644.7,
+    1191.8,
+    720.8
+   ]
+  }
+ ]
+}

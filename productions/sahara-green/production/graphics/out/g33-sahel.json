@@ -1,0 +1,143 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g33-sahel",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "NASA Earth Observatory, \"Defining Desertification\"; UNCCD 2020; Davies, UNCCD 2017",
+ "credit": null,
+ "steps": [
+  "g33-sahel.step1.png",
+  "g33-sahel.step2.png",
+  "g33-sahel.step3.png",
+  "g33-sahel.step4.png",
+  "g33-sahel.step5.png",
+  "g33-sahel.step6.png",
+  "g33-sahel.step7.png",
+  "g33-sahel.step8.png",
+  "g33-sahel.step9.png",
+  "g33-sahel.step10.png",
+  "g33-sahel.step11.png",
+  "g33-sahel.png"
+ ],
+ "sha256": {
+  "g33-sahel.step1.png": "482185876214fbcb99888d7031815fc090d19fb2d8354ea865f448449c1e1b85",
+  "g33-sahel.step2.png": "f6f363702cdc27f01946d624051943c5e96f634d9d2e665a086bb8d166d9904a",
+  "g33-sahel.step3.png": "7904299f8fd7bca5ac034ae78a1354877554b3a47ec6e49bfb71db483be6fdaa",
+  "g33-sahel.step4.png": "f6f363702cdc27f01946d624051943c5e96f634d9d2e665a086bb8d166d9904a",
+  "g33-sahel.step5.png": "7904299f8fd7bca5ac034ae78a1354877554b3a47ec6e49bfb71db483be6fdaa",
+  "g33-sahel.step6.png": "f6f363702cdc27f01946d624051943c5e96f634d9d2e665a086bb8d166d9904a",
+  "g33-sahel.step7.png": "1dc070ded715933390605cce5279466e1da456713b01592a7d9988820f61e31d",
+  "g33-sahel.step8.png": "150aa866bb4de8bc2404bd70b4c830793d082aabc17290e2f78c3ba09fbed4b3",
+  "g33-sahel.step9.png": "4430d7ded91c18802418ffc145f9dd5409975e27f08f4bfb85ce7accb4177fe5",
+  "g33-sahel.step10.png": "bd9ed742fa86ed65650b6c7355915883460b51fd496712cdd9ef937d92771874",
+  "g33-sahel.step11.png": "b1f45e65cede318a21c891e46d6564647eab96ade4555d706fdfc0c2b4f1821c",
+  "g33-sahel.png": "881b65f6285a815d500c2851eaa761dd47d64f983c422607322abeeabfbd3da7"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "The Sahel",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    324.0,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "Satellite records and reported figures",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    635.5,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: NASA Earth Observatory, \"Defining Desertification\"; UNCCD 2020; Davies, UNCCD 2017 · Imagery: NASA Blue Marble (SVS 3539)",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    1697.5,
+    797.6
+   ]
+  },
+  {
+   "where": "node v",
+   "text": "Vegetation followed the rains: down in the 1970s-80s, back in the 1990s-2000s",
+   "size": 34,
+   "box": [
+    197.0,
+    430.1,
+    893.5,
+    511.0
+   ]
+  },
+  {
+   "where": "node m",
+   "text": "More than 5 million ha restored: Maradi, Niger",
+   "size": 34,
+   "box": [
+    1045.2,
+    342.1,
+    1704.2,
+    423.0
+   ]
+  },
+  {
+   "where": "node n",
+   "text": "Over 7 million ha restored: Niger",
+   "size": 34,
+   "box": [
+    1108.2,
+    538.1,
+    1641.2,
+    578.9
+   ]
+  },
+  {
+   "where": "note",
+   "text": "UNCCD documents credit farmers who protect self-sprouting trees",
+   "size": 26,
+   "box": [
+    1082.2,
+    651.8,
+    1667.2,
+    713.7
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Reported figures; they differ by region and report",
+   "size": 26,
+   "box": [
+    237.0,
+    667.1,
+    853.5,
+    698.3
+   ]
+  }
+ ],
+ "backdrop": {
+  "path": "backdrops/sahel_backdrop.jpg",
+  "sha256": "fea4a8bf4627d78c1df22de8a46003fa1fc9da2c96e0e20a92d63203f24c5c09",
+  "credit": "NASA Blue Marble (SVS 3539)",
+  "scrim": 0.62
+ }
+}

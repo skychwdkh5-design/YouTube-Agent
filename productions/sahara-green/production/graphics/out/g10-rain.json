@@ -1,0 +1,119 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g10-rain",
+ "type": "diagram",
+ "style": "documentary_light",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Larrasoaña, Roberts & Rohling 2013 (rough estimates, no error bars)",
+ "credit": null,
+ "steps": [
+  "g10-rain.step1.png",
+  "g10-rain.step2.png",
+  "g10-rain.png"
+ ],
+ "sha256": {
+  "g10-rain.step1.png": "bcd31ed6d9a700d1ca520ed5cc92f758ea8b10458d4eeac17c14afe3b977ae2d",
+  "g10-rain.step2.png": "f48da1000eb40aa22fa700fa432e84800f5f7cbc867a0620a0337f77ffc19563",
+  "g10-rain.png": "731945b3b2c8026a21c4a8cca2571033745e52b5329519226228b1716b093c6e"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "How much wetter?",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    526.0,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "One reconstruction of the last green period, rainfall in millimeters a year",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    1133.0,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Larrasoaña, Roberts & Rohling 2013 (rough estimates, no error bars)",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    978.0,
+    797.6
+   ]
+  },
+  {
+   "where": "node a",
+   "text": "100 mm/yr",
+   "size": 34,
+   "box": [
+    199.0,
+    403.5,
+    377.0,
+    444.3
+   ]
+  },
+  {
+   "where": "node b",
+   "text": "450 mm/yr",
+   "size": 34,
+   "box": [
+    867.2,
+    641.6,
+    1052.8,
+    682.4
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Heart of the NE Sahara (23-29°N), about 4 inches",
+   "size": 28,
+   "box": [
+    141.9,
+    329.5,
+    810.4,
+    363.1
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Near 18°N, about 18 inches",
+   "size": 28,
+   "box": [
+    778.8,
+    567.6,
+    1141.2,
+    601.2
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Rough estimates, without error bars",
+   "size": 30,
+   "box": [
+    1080.7,
+    405.9,
+    1599.7,
+    441.9
+   ]
+  }
+ ]
+}

@@ -1,0 +1,172 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g34-gww",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "UNCCD, The Great Green Wall: Implementation Status and Way Ahead to 2030 (2020)",
+ "credit": null,
+ "steps": [
+  "g34-gww.step1.png",
+  "g34-gww.step2.png",
+  "g34-gww.step3.png",
+  "g34-gww.step4.png",
+  "g34-gww.step5.png",
+  "g34-gww.step6.png",
+  "g34-gww.step7.png",
+  "g34-gww.step8.png",
+  "g34-gww.step9.png",
+  "g34-gww.png"
+ ],
+ "sha256": {
+  "g34-gww.step1.png": "78b271cbc5643ac6fbaaf64beb8c8b5341d743668b36751dad17c1de805fdf9b",
+  "g34-gww.step2.png": "6b87852d117c1a5fd5facbbc95df50fb1aebf9ed6d09a3dd2fb9e92e13ec204e",
+  "g34-gww.step3.png": "cfa6e78f1f5c8e21e34be158a48f3aff7f70b06d55c313a8a9437f73d0858e1d",
+  "g34-gww.step4.png": "c36c79e06c34dce3de1e3b6b911cb719a9b8a651896bca10ac587c2b60a73cc9",
+  "g34-gww.step5.png": "85047ea8cc234890f197fd53f6dfeb61c3c4e2c710dd7adb45d2b584930ec6e4",
+  "g34-gww.step6.png": "022ae14151d9f38bc983dc9d9e0410e79033fb16850200acf6bbc25ebf6e5f13",
+  "g34-gww.step7.png": "4a431bea761ed85cbdd0c5f104c420e30f41073b64f1edb5a2fb5e8ac674464e",
+  "g34-gww.step8.png": "f12de81f0547f28621ce43a1beaa9a0940648fc7b89539f25f83414095180daf",
+  "g34-gww.step9.png": "f12de81f0547f28621ce43a1beaa9a0940648fc7b89539f25f83414095180daf",
+  "g34-gww.png": "839bb6d8694c8a0036d08d0d3ee5d029749e57c568877cefc51690b7855b0c54"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "Great Green Wall: two targets, one preliminary count",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    1304.0,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "Million hectares; the bars are never combined",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    758.0,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: UNCCD, The Great Green Wall: Implementation Status and Way Ahead to 2030 (2020) · Imagery: NASA Blue Marble (SVS 3539)",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    1664.5,
+    797.6
+   ]
+  },
+  {
+   "where": "node a",
+   "text": "100",
+   "size": 34,
+   "box": [
+    929.8,
+    320.7,
+    990.2,
+    361.5
+   ]
+  },
+  {
+   "where": "node b",
+   "text": "25",
+   "size": 34,
+   "box": [
+    290.5,
+    476.0,
+    333.5,
+    516.8
+   ]
+  },
+  {
+   "where": "node c",
+   "text": "4",
+   "size": 34,
+   "box": [
+    119.1,
+    631.3,
+    142.1,
+    672.1
+   ]
+  },
+  {
+   "where": "note",
+   "text": "COP21 pledge, by 2030",
+   "size": 28,
+   "box": [
+    801.2,
+    246.7,
+    1118.8,
+    280.3
+   ]
+  },
+  {
+   "where": "note",
+   "text": "PA-GGW target, by 2030",
+   "size": 28,
+   "box": [
+    308.9,
+    402.0,
+    643.4,
+    435.6
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Counted by 2020, as reported (preliminary)",
+   "size": 28,
+   "box": [
+    235.0,
+    557.2,
+    821.0,
+    590.8
+   ]
+  },
+  {
+   "where": "note",
+   "text": "A mosaic of land uses, not a literal wall of trees",
+   "size": 30,
+   "box": [
+    1035.5,
+    540.5,
+    1714.0,
+    576.5
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Regrown vegetation and water-holding measures",
+   "size": 28,
+   "box": [
+    1111.1,
+    479.6,
+    1776.6,
+    513.2
+   ]
+  }
+ ],
+ "backdrop": {
+  "path": "backdrops/sahel_backdrop.jpg",
+  "sha256": "fea4a8bf4627d78c1df22de8a46003fa1fc9da2c96e0e20a92d63203f24c5c09",
+  "credit": "NASA Blue Marble (SVS 3539)",
+  "scrim": 0.62
+ }
+}

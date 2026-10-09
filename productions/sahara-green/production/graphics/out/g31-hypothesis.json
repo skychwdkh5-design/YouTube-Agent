@@ -1,0 +1,81 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g31-hypothesis",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "No study found that models this for a planted Sahara",
+ "credit": null,
+ "steps": [
+  "g31-hypothesis.step1.png",
+  "g31-hypothesis.step2.png",
+  "g31-hypothesis.png"
+ ],
+ "sha256": {
+  "g31-hypothesis.step1.png": "800b736bc7c3ff5c5499ed923ebfbb46bc54087ff8f7cc6b6eaf52733a286a03",
+  "g31-hypothesis.step2.png": "a3d58b7f09094197f448a9e689183a689e8d474a668c980c41de9499f305e77b",
+  "g31-hypothesis.png": "22bbef0d009cdbea5e3385b4ebd590558e97039f221d1d01dd9ddf77a6f74201"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "source",
+   "text": "Source: No study found that models this for a planted Sahara · Imagery: NASA Blue Marble (SVS 3539)",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    1281.5,
+    797.6
+   ]
+  },
+  {
+   "where": "node a",
+   "text": "A greener Sahara blows less dust",
+   "size": 34,
+   "box": [
+    251.8,
+    364.2,
+    804.2,
+    405.0
+   ]
+  },
+  {
+   "where": "node b",
+   "text": "Less phosphorus for the Amazon?",
+   "size": 34,
+   "box": [
+    1190.5,
+    344.2,
+    1593.5,
+    425.1
+   ]
+  },
+  {
+   "where": "note",
+   "text": "HYPOTHESIS · NO STUDY FOUND",
+   "size": 44,
+   "box": [
+    685.5,
+    579.3,
+    1234.5,
+    684.0
+   ]
+  }
+ ],
+ "backdrop": {
+  "path": "backdrops/sahel_backdrop.jpg",
+  "sha256": "fea4a8bf4627d78c1df22de8a46003fa1fc9da2c96e0e20a92d63203f24c5c09",
+  "credit": "NASA Blue Marble (SVS 3539)",
+  "scrim": 0.62
+ }
+}

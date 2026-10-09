@@ -1,0 +1,425 @@
+{
+ "schema": "ep001-asset-audit/1",
+ "date": "2026-10-08",
+ "scenes": [
+  {
+   "scene": "1",
+   "start": 0.0,
+   "end": 2.06,
+   "duration": 2.06,
+   "kind": "landsat_loc",
+   "asset": "Tassili n'Ajjer plateau, LC09_L1TP_190042_20251220 (natural-colour browse, native 30 m crop)",
+   "status": "built_landsat_still",
+   "storyboard_visual": "Tassili n'Ajjer plateau (L6), slow push-in, 2024 OLI"
+  },
+  {
+   "scene": "2",
+   "start": 2.06,
+   "end": 8.24,
+   "duration": 6.19,
+   "kind": "graphic",
+   "asset": "callout 230+ (claims.md)",
+   "status": "built_graphic",
+   "storyboard_visual": "callout \"230+\" with the subtitle \"reconstructed green Sahara periods, last 8 million years\""
+  },
+  {
+   "scene": "3",
+   "start": 8.24,
+   "end": 13.33,
+   "duration": 5.08,
+   "kind": "landsat_loc",
+   "asset": "Bodele depression, LC09_L1TP_183048_20260731 (source bands B4/B3/B2, tone B)",
+   "status": "built_landsat_still",
+   "storyboard_visual": "Bodélé (L5) geo graphic, with a plain arrow pointing west labelled \"dust crosses the Atlantic\" (no claim that the Bodélé is the source of the Amazon's dust; see"
+  },
+  {
+   "scene": "4",
+   "start": 13.33,
+   "end": 17.3,
+   "duration": 3.97,
+   "kind": "nasa",
+   "asset": "NASA SVS 3539 Blue Marble Next Generation, africa.0700.jpg",
+   "status": "built_nasa_still",
+   "storyboard_visual": "Preferred: NASA Blue Marble Africa (B4). Fallback: text callout \"World's largest non-polar desert\". **No area number and no comparison with the United States** "
+  },
+  {
+   "scene": "5",
+   "start": 17.3,
+   "end": 22.77,
+   "duration": 5.47,
+   "kind": "graphic",
+   "asset": "callout 'a few inches of rain a year'",
+   "status": "built_graphic",
+   "storyboard_visual": "Callout \"a few inches (tens of millimeters) of rain a year, in some areas\". No \"<100 mm\" threshold, no \"most of the Sahara\"."
+  },
+  {
+   "scene": "6",
+   "start": 22.77,
+   "end": 36.26,
+   "duration": 13.49,
+   "kind": "seq",
+   "asset": "East Oweinat wipe 1984->2024 with 1984 push-in <=3 percent",
+   "status": "sequence_rendered",
+   "storyboard_visual": "East Oweinat (L1), wipe from the 1984 scene (LT05_L1TP_177044_19840826) to the 2024 scene (LC09_L1TP_177044_20240105)"
+  },
+  {
+   "scene": "7",
+   "start": 36.26,
+   "end": 57.92,
+   "duration": 21.66,
+   "kind": "graphic",
+   "asset": "timeline 15,000 y to today, band 11,000-6,000",
+   "status": "built_graphic",
+   "storyboard_visual": "A line/timeline graphic from 15,000 years ago to today with a shaded band from 11,000 to 6,000"
+  },
+  {
+   "scene": "8",
+   "start": 57.92,
+   "end": 73.29,
+   "duration": 15.37,
+   "kind": "landsat_loc",
+   "asset": "Bodele wide, 'floor of Lake Mega-Chad' callout",
+   "status": "built_landsat_still",
+   "storyboard_visual": "Bodélé (L5) wide view with the callout \"floor of Lake Mega-Chad\". The lake outline is not drawn (B5). Text card: \"LARGER THAN ALL THE GREAT LAKES COMBINED · ~7,"
+  },
+  {
+   "scene": "9",
+   "start": 73.29,
+   "end": 94.11,
+   "duration": 20.82,
+   "kind": "landsat_loc",
+   "asset": "g09 callout ~200 burials (Gobero, Niger) then Tassili canyons still",
+   "status": "built_landsat_still",
+   "storyboard_visual": "callout \"~200 burials\" (insert), then Tassili n'Ajjer canyons (L6)"
+  },
+  {
+   "scene": "10",
+   "start": 94.11,
+   "end": 117.4,
+   "duration": 23.29,
+   "kind": "graphic",
+   "asset": "rainfall card ~100 / ~450 mm per year",
+   "status": "built_graphic",
+   "storyboard_visual": "Card: \"~100 mm/yr at the core of the NE Sahara; ~450 mm/yr near 18°N\" with the subtitle \"one reconstruction, last green period; rough estimates, no error bars\"."
+  },
+  {
+   "scene": "11",
+   "start": 117.4,
+   "end": 148.48,
+   "duration": 31.08,
+   "kind": "landsat_loc",
+   "asset": "Ounianga lakes, LC09_L1TP_182047_20260622 (source bands, tone B), wide to close",
+   "status": "built_landsat_still",
+   "storyboard_visual": "Ounianga (L4): wide view of both groups at 60 km, push to Ounianga Serir at 15 km. Text card: \"POLLEN FROM THE ORIGINAL LAKE: WOODED GRASSLAND · SUCH PLANTS NOW"
+  },
+  {
+   "scene": "12",
+   "start": 148.48,
+   "end": 174.45,
+   "duration": 25.97,
+   "kind": "graphic",
+   "asset": "3-step orbital/monsoon diagram",
+   "status": "built_graphic",
+   "storyboard_visual": "Diagram with 3 build steps: sunnier northern summer → monsoon pushed north → rain in the Sahara"
+  },
+  {
+   "scene": "13",
+   "start": 174.45,
+   "end": 192.56,
+   "duration": 18.11,
+   "kind": "graphic",
+   "asset": "model-vs-geology flow",
+   "status": "built_graphic",
+   "storyboard_visual": "Flow with build steps: \"models struggle to fill all the lakes geologists infer\" → \"what are the models missing?\" → proposed feedback loop: more lakes and plants"
+  },
+  {
+   "scene": "14",
+   "start": 192.56,
+   "end": 214.31,
+   "duration": 21.75,
+   "kind": "graphic",
+   "asset": "schematic green episodes on a time axis",
+   "status": "built_graphic",
+   "storyboard_visual": "Graphic of discrete green episodes on a time axis. **Schematic only: real episode dates are not in hand**, so the graphic is labelled \"schematic\" or reduced to "
+  },
+  {
+   "scene": "15",
+   "start": 214.31,
+   "end": 236.91,
+   "duration": 22.6,
+   "kind": "landsat_loc",
+   "asset": "Ounianga + N->S arrow insert",
+   "status": "built_landsat_still",
+   "storyboard_visual": "Ounianga (L4) geo graphic. Insert: a simple N→S arrow, \"monsoon rains retreat southward over ~2-3 thousand years (one reconstruction)\". No site dates and no lat"
+  },
+  {
+   "scene": "16",
+   "start": 236.91,
+   "end": 265.96,
+   "duration": 29.05,
+   "kind": "graphic",
+   "asset": "circulation diagram (yt-graphics circulation)",
+   "status": "built_graphic",
+   "storyboard_visual": "yt-graphics `circulation`: rising air at the equator, flow aloft, sinking at ~30°N, surface return (build steps)"
+  },
+  {
+   "scene": "17",
+   "start": 265.96,
+   "end": 274.33,
+   "duration": 8.37,
+   "kind": "landsat_loc",
+   "asset": "Gilf Kebir slow pull-out, LC09_L1TP_179044_20251121 (natural-colour browse, native 30 m crop)",
+   "status": "built_landsat_still",
+   "storyboard_visual": "Gilf Kebir (L7) or a Tassili wide view, slow pull-out"
+  },
+  {
+   "scene": "18",
+   "start": 274.33,
+   "end": 291.04,
+   "duration": 16.71,
+   "kind": "seq",
+   "asset": "East Oweinat timelapse 1984/2000/2010/2016/2024",
+   "status": "sequence_rendered",
+   "storyboard_visual": "L1 timelapse flip, 1984 (Landsat 5, no fields visible) → 2000 → 2010 → 2016 → 2024 at 40-60 km (scene IDs in `landsat/scene_candidates.json`), then zoom to the "
+  },
+  {
+   "scene": "19",
+   "start": 291.04,
+   "end": 317.01,
+   "duration": 25.97,
+   "kind": "graphic",
+   "asset": "East Oweinat zoom ends 1.64 s into the scene (<=2.2 s approved); then g19 aquifer graphic (fossil water)",
+   "status": "built_graphic",
+   "storyboard_visual": "Text card \"FOSSIL WATER: SOAKED IN 10,000 TO 1,000,000 YEARS AGO\", then a geo graphic of East Oweinat with the label \"Nubian Sandstone Aquifer (Egypt, Libya, Su"
+  },
+  {
+   "scene": "20",
+   "start": 317.01,
+   "end": 328.48,
+   "duration": 11.47,
+   "kind": "landsat_loc",
+   "asset": "Kufra push-in, LC09_L1TP_181043_20260919 (natural-colour browse, native 30 m crop)",
+   "status": "built_landsat_still",
+   "storyboard_visual": "Kufra (L2): one date, push-in, with a pin on the field cluster"
+  },
+  {
+   "scene": "21",
+   "start": 328.48,
+   "end": 348.77,
+   "duration": 20.29,
+   "kind": "seq",
+   "asset": "Toshka wipe chain 1999/2002/2011-12/2021",
+   "status": "sequence_rendered",
+   "storyboard_visual": "Toshka (L3) wipe chain: before the lakes (Landsat 5, 1 Jan 1999; no lakes visible), 2002, ~2011-12, Nov 2021 (Landsat 8). Candidate scene IDs: `landsat/scene_ca"
+  },
+  {
+   "scene": "22",
+   "start": 348.77,
+   "end": 357.18,
+   "duration": 8.41,
+   "kind": "seq",
+   "asset": "East Oweinat close-up 2024",
+   "status": "sequence_rendered",
+   "storyboard_visual": "East Oweinat close-up, 2024"
+  },
+  {
+   "scene": "23",
+   "start": 357.18,
+   "end": 395.31,
+   "duration": 38.13,
+   "kind": "graphic",
+   "asset": "desalination-pipeline flow, footer PROPOSAL (2009)",
+   "status": "built_graphic",
+   "storyboard_visual": "Flow: seawater → desalination → pipeline → irrigation → forest (build steps). Footer: \"PROPOSAL (2009) · CARBON UPTAKE = ESTIMATE FROM PLANTATION DATA, LARGE ER"
+  },
+  {
+   "scene": "24",
+   "start": 395.31,
+   "end": 397.99,
+   "duration": 2.68,
+   "kind": "graphic",
+   "asset": "text card multi-trillion-dollar projects",
+   "status": "built_graphic",
+   "storyboard_visual": "Text card: \"multi-trillion-dollar projects\" with the subtitle \"the authors' own description, not a calculated annual cost\". No dollar figure per year anywhere o"
+  },
+  {
+   "scene": "24b",
+   "start": 397.99,
+   "end": 443.56,
+   "duration": 45.57,
+   "kind": "graphic",
+   "asset": "callout >1,000 mm/yr (2009 simulation)",
+   "status": "built_graphic",
+   "storyboard_visual": "Callout: \">1,000 mm/yr over roughly half of the irrigated Sahara\" (about 40 in), subtitle \"2009 simulation, one model (GISS ModelE); the authors asked other mod"
+  },
+  {
+   "scene": "25",
+   "start": 443.56,
+   "end": 492.27,
+   "duration": 48.72,
+   "kind": "graphic",
+   "asset": "water-budget stacked bar (MODEL)",
+   "status": "built_graphic",
+   "storyboard_visual": "**Water-budget graphic (MODEL; mm per year, Sahara average of a 30-year simulation).** One stacked bar: \"Water lost to evaporation + transpiration: 1,238\" = \"ra"
+  },
+  {
+   "scene": "25b",
+   "start": 492.27,
+   "end": 498.16,
+   "duration": 5.89,
+   "kind": "nasa",
+   "asset": "pull-out Sahara -> Africa/Atlantic: Blue Marble africa.0700.jpg as a still zoom",
+   "status": "built_nasa_still",
+   "storyboard_visual": "Slow pull-out from the Sahara to a wider view of Africa and the Atlantic (Landsat or NASA Blue Marble; no labels, no numbers)"
+  },
+  {
+   "scene": "29",
+   "start": 498.16,
+   "end": 525.04,
+   "duration": 26.88,
+   "kind": "nasa",
+   "asset": "NASA SVS 4362 Dust in the Wind (CALIPSO), webm 60 fps -> 30 fps",
+   "status": "built_nasa_video_30fps",
+   "storyboard_visual": "Preferred: a NASA SVS CALIPSO dust visual (B4, licence check per item). Fallback: a flow graphic Sahara → Atlantic → Amazon with the numbers."
+  },
+  {
+   "scene": "30",
+   "start": 525.04,
+   "end": 556.06,
+   "duration": 31.02,
+   "kind": "landsat_loc",
+   "asset": "Bodele 100-150 km, white diatomite flats",
+   "status": "built_landsat_still",
+   "storyboard_visual": "Bodélé (L5) at 100-150 km, push to the white diatomite flats"
+  },
+  {
+   "scene": "31",
+   "start": 556.06,
+   "end": 568.18,
+   "duration": 12.12,
+   "kind": "graphic",
+   "asset": "text card HYPOTHESIS - NO STUDY FOUND",
+   "status": "built_graphic",
+   "storyboard_visual": "Text card: \"HYPOTHESIS · NO STUDY FOUND\" (less Saharan dust → less phosphorus for the Amazon?)"
+  },
+  {
+   "scene": "32",
+   "start": 568.18,
+   "end": 616.13,
+   "duration": 47.95,
+   "kind": "graphic",
+   "asset": "simulation diagram ~6,000 y ago",
+   "status": "built_graphic",
+   "storyboard_visual": "Diagram of a simulation of the world ~6,000 years ago: Sahara = shrubs (not an artificial forest) + dust cut by up to 80% → stronger West African monsoon → wind"
+  },
+  {
+   "scene": "33",
+   "start": 616.13,
+   "end": 663.05,
+   "duration": 46.92,
+   "kind": "graphic",
+   "asset": "callouts only; optional Lake Chad wipe dropped",
+   "status": "built_graphic",
+   "storyboard_visual": "Optional: Lake Chad (reserve location), 1987 vs 2023 single wipe, **no area claim**. Callout 1: \"VEGETATION FOLLOWED THE RAINS: DOWN IN THE 1980s DROUGHTS, BACK"
+  },
+  {
+   "scene": "34",
+   "start": 663.05,
+   "end": 702.42,
+   "duration": 39.37,
+   "kind": "graphic",
+   "asset": "three separate labelled bars (COP21, PA-GGW...)",
+   "status": "built_graphic",
+   "storyboard_visual": "Three separately labelled bars, never combined into one percentage: \"COP21 pledge: 100 Mha by 2030\", \"PA-GGW target: 25 Mha\", \"Counted in core zones by 2020, as"
+  },
+  {
+   "scene": "35",
+   "start": 702.42,
+   "end": 720.78,
+   "duration": 18.37,
+   "kind": "seq",
+   "asset": "East Oweinat widest view wipe 1984->2024",
+   "status": "sequence_rendered",
+   "storyboard_visual": "East Oweinat widest view, wipe 1984 → 2024"
+  },
+  {
+   "scene": "36",
+   "start": 720.78,
+   "end": 740.04,
+   "duration": 19.26,
+   "kind": "graphic",
+   "asset": "closing text card (uncertainty statement)",
+   "status": "built_graphic",
+   "storyboard_visual": "Text card: \"UNCLEAR WHETHER, AND HOW MUCH, THE SAHARA MIGHT GREEN AGAIN OVER THE COMING CENTURIES AND MILLENNIA\" with \"greenhouse gases are layered on top of th"
+  },
+  {
+   "scene": "37",
+   "start": 740.04,
+   "end": 747.36,
+   "duration": 7.31,
+   "kind": "landsat_loc",
+   "asset": "Ounianga or Tassili slow pull-out",
+   "status": "built_landsat_still",
+   "storyboard_visual": "Ounianga or Tassili, slow pull-out, then the outro"
+  }
+ ],
+ "status_tally": {
+  "built_landsat_still": 10,
+  "built_graphic": 18,
+  "built_nasa_still": 2,
+  "sequence_rendered": 5,
+  "built_nasa_video_30fps": 1
+ },
+ "provenance": {
+  "svs3539": {
+   "title": "Blue Marble Next Generation images from Terra/MODIS",
+   "url": "https://svs.gsfc.nasa.gov/3539",
+   "file": "africa.0700.jpg",
+   "credit": "NASA Goddard Space Flight Center Scientific Visualization Studio; Blue Marble data: Reto Stockli, NASA Earth Observatory",
+   "data_date": "2004 monthly composites",
+   "released": "2008-08-29",
+   "licence": "NASA media usage guidelines: public domain unless noted; credit NASA",
+   "acquired": "2026-10-08"
+  },
+  "svs4362": {
+   "title": "Dust in the Wind (CALIPSO)",
+   "url": "https://svs.gsfc.nasa.gov/4362",
+   "file": "SaharanDust_1080p_60fps.webm",
+   "credit": "NASA Goddard Space Flight Center Scientific Visualization Studio; visualizer Kel Elkins (USRA); CALIPSO data",
+   "released": "2015-09-28",
+   "licence": "NASA media usage guidelines: public domain unless noted; credit NASA",
+   "acquired": "2026-10-08",
+   "note": "VP8 1920x1080, 60 fps, 104.25 s; must be decimated to 30 fps (every 2nd frame) before use"
+  },
+  "landsat_location_stills": {
+   "note": "see production/stills/*.json (scene, date, window, sha256)",
+   "bands_scenes": [
+    "LC09_L1TP_182047_20260622_20260622_02_T1 (Ounianga)",
+    "LC09_L1TP_183048_20260731_20260731_02_T1 (Bodele)"
+   ],
+   "browse_scenes": [
+    "LC09_L1TP_190042_20251220 (Tassili)",
+    "LC09_L1TP_179044_20251121 (Gilf Kebir)",
+    "LC09_L1TP_181043_20260919 (Kufra)"
+   ],
+   "credit": "U.S. Geological Survey / NASA Landsat",
+   "licence": "USGS Landsat data are public domain, credit requested",
+   "acquired": "2026-10-08",
+   "source_url": "https://earthexplorer.usgs.gov/"
+  },
+  "landsat_browse_superseded": {
+   "url": "https://m2m.cr.usgs.gov/ (USGS EarthExplorer browse images)",
+   "credit": "U.S. Geological Survey / NASA Landsat",
+   "licence": "USGS Landsat data are public domain; credit requested",
+   "acquired": "2026-10-08",
+   "scenes": [
+    "LC08_L1TP_183048_20251024",
+    "LC09_L1TP_179044_20251121",
+    "LC09_L1TP_180043_20251230",
+    "LC09_L1TP_181047_20251221",
+    "LC09_L1TP_190042_20251220"
+   ],
+   "note": "8-bit natural colour browse at 30 m; not tone-B comparable to the locked sequences, used for location shots only; framing unchecked"
+  }
+ }
+}

@@ -119,6 +119,29 @@ def _by_words(sent, limit):
     return out
 
 
+VOICE_SETTING_KEYS = {"stability": (0.0, 1.0), "similarity_boost": (0.0, 1.0), "style": (0.0, 1.0), "speed": (0.7, 1.2)}
+
+
+def parse_voice_settings(raw):
+    """--voice-settings JSON, e.g. '{"stability":0.55,"similarity_boost":0.75,"style":0,"speed":1.0,"use_speaker_boost":true}'"""
+    try:
+        d = json.loads(raw)
+    except ValueError:
+        raise VoiceError("--voice-settings must be a JSON object")
+    if not isinstance(d, dict) or not d:
+        raise VoiceError("--voice-settings must be a non-empty JSON object")
+    for k, val in d.items():
+        if k == "use_speaker_boost":
+            if not isinstance(val, bool): raise VoiceError("use_speaker_boost must be true or false")
+        elif k in VOICE_SETTING_KEYS:
+            lo, hi = VOICE_SETTING_KEYS[k]
+            if isinstance(val, bool) or not isinstance(val, (int, float)) or not lo <= val <= hi:
+                raise VoiceError(f"{k} must be a number from {lo} to {hi}")
+        else:
+            raise VoiceError(f"unknown voice setting {k!r}; allowed: {sorted(VOICE_SETTING_KEYS) + ['use_speaker_boost']}")
+    return d
+
+
 # --- providers ---------------------------------------------------------------------------------
 
 class Provider:
@@ -167,9 +190,13 @@ class ElevenLabs(Provider):
         return {"provider": self.name, "model_id": self.options.get("model") or self.default_model,
                 "output_format": self.default_format, "endpoint": self.api.split("{")[0] + "{voice_id}/with-timestamps"}
 
-    def synthesize(self, text, voice_id):
+    def synthesize(self, text, voice_id, context=None):
         key = os.environ.get(self.env_key, "").strip() if self.auth_mode() == "env" else ""
         body = {"text": text, "model_id": self.options.get("model") or self.default_model}
+        if self.options.get("voice_settings"):
+            body["voice_settings"] = self.options["voice_settings"]
+        if context:   # neighbouring text keeps prosody continuous across chunk joins (no extra characters are billed for it)
+            body.update({k: v for k, v in context.items() if k in ("previous_text", "next_text") and v})
         if self.options.get("language_code"):
             body["language_code"] = self.options["language_code"]
         url = self.api.format(voice=voice_id) + "?output_format=" + self.default_format
@@ -334,7 +361,11 @@ def generate(p, options, overwrite=False):
     try:
         parts, chunk_info, words, timing_ok, offset = [], [], [], True, 0.0
         for i, text in enumerate(p["chunks"]):
-            res = provider.synthesize(text, p["voice_id"])
+            if options.get("context"):
+                ctx = {"previous_text": (p["chunks"][i - 1][-400:] if i else None), "next_text": (p["chunks"][i + 1][:400] if i + 1 < len(p["chunks"]) else None)}
+                res = provider.synthesize(text, p["voice_id"], context=ctx)
+            else:
+                res = provider.synthesize(text, p["voice_id"])
             raw = os.path.join(work, f"chunk{i}.{res['format']}")
             with open(raw, "wb") as f:
                 f.write(res["audio"])
@@ -420,8 +451,8 @@ def main(argv=None):
     secrets = lambda: [os.environ.get(c.env_key, "") for c in PROVIDERS.values() if c.env_key]
     try:
         valued = {"--script", "--text", "--provider", "--voice-id", "--output", "--model", "--language",
-                  "--max-chars", "--max-chunk-chars", "--timeout", "--auth"}
-        flags = {"--confirm", "--overwrite", "--keep-markup"}
+                  "--max-chars", "--max-chunk-chars", "--timeout", "--auth", "--voice-settings"}
+        flags = {"--confirm", "--overwrite", "--keep-markup", "--context"}
         vals = {i + 1 for i, x in enumerate(a[:-1]) if x in valued}
         unknown = [x for i, x in enumerate(a) if x.startswith("--") and i not in vals and x not in valued | flags]
         if unknown: raise VoiceError(f"unknown option(s): {unknown}")
@@ -429,7 +460,10 @@ def main(argv=None):
                    "max_chunk_chars": _int(a, "--max-chunk-chars", DEFAULTS["max_chunk_chars"], 50),
                    "timeout_s": _int(a, "--timeout", DEFAULTS["timeout_s"], 1),
                    "model": _flag(a, "--model"), "language": _flag(a, "--language") or "en",
-                   "auth": _flag(a, "--auth")}
+                   "auth": _flag(a, "--auth"), "context": "--context" in a}
+        vs = _flag(a, "--voice-settings")
+        if vs:
+            options["voice_settings"] = parse_voice_settings(vs)
         if options["language"] != "en":
             options["language_code"] = options["language"]
         script, raw_text = _flag(a, "--script"), _flag(a, "--text")

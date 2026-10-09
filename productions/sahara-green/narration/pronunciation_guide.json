@@ -1,0 +1,10 @@
+{
+  "status": "to be checked by ear on the listening test; nothing is applied to the script text",
+  "rule": "The locked script stays verbatim. If a term is mispronounced, fix it with an ElevenLabs pronunciation dictionary (alias rules) attached to the request, never by editing the narration. Creating a dictionary needs its own API permission, which the current key may lack (see ELEVENLABS_READINESS).",
+  "terms": [
+    {"term": "Oweinat", "say": "oh-WAY-nat"}, {"term": "Toshka", "say": "TOSH-kah"}, {"term": "Tassili n'Ajjer", "say": "tah-SEE-lee nah-JAIR"},
+    {"term": "Gobero", "say": "go-BEH-roh"}, {"term": "Ounianga", "say": "oo-nee-AHN-gah"}, {"term": "Kufra", "say": "KOOF-rah"},
+    {"term": "Bodélé", "say": "boh-day-LAY"}, {"term": "El Djouf", "say": "el JOOF"}, {"term": "Maradi", "say": "mah-RAH-dee"}, {"term": "Sahel", "say": "sah-HEL"},
+    {"term": "Mega-Chad", "say": "MEG-ah CHAD"}, {"term": "UNCCD", "say": "U N C C D (letters)"}, {"term": "COP21", "say": "cop twenty-one"}, {"term": "Landsat", "say": "LAND-sat"},
+    {"term": "numbers such as 1,238 and 319", "say": "one thousand two hundred thirty-eight; three hundred nineteen"}]
+}

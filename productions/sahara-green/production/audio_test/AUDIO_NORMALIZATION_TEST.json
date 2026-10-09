@@ -1,0 +1,51 @@
+{
+ "schema": "ep001-audio-normalisation-test/1",
+ "source": "productions/sahara-green/narration/voice/narration.wav (locked, untouched)",
+ "source_sha256": "49e53528cd445a75a71c819c71d542b2f84d8c3898eff34c2a6c9fc7ee7245e2",
+ "source_sha256_after_test": "49e53528cd445a75a71c819c71d542b2f84d8c3898eff34c2a6c9fc7ee7245e2",
+ "target_lufs": -16.0,
+ "true_peak_ceiling_dbtp": -1.5,
+ "before": {
+  "integrated_lufs": -17.03,
+  "true_peak_dbtp": -0.66,
+  "lra_lu": 2.6,
+  "ebur128_integrated": -17.0,
+  "ebur128_lra": 2.6,
+  "ebur128_true_peak_dbfs": -0.7
+ },
+ "after": {
+  "integrated_lufs": -16.09,
+  "true_peak_dbtp": -1.65,
+  "lra_lu": 2.5,
+  "ebur128_integrated": -16.1,
+  "ebur128_lra": 2.6,
+  "ebur128_true_peak_dbfs": -1.7
+ },
+ "gain_applied_db": 1.03,
+ "limiter": {
+  "ceiling_dbfs": -1.8,
+  "samples_over_ceiling": 30322,
+  "share_of_samples_touched": 0.0562,
+  "seconds_touched": 42.0,
+  "max_gain_reduction_db": 2.13,
+  "window_ms": 6
+ },
+ "method_check": {
+  "samples_in": 32958464,
+  "samples_out": 32958464,
+  "sample_rate": 44100,
+  "duration_s_in": 747.357,
+  "duration_s_out": 747.357,
+  "max_abs_deviation_from_pure_gain_outside_limiter": 0.0,
+  "clipped_samples_out": 0,
+  "sample_peak_out_dbfs": -1.8
+ },
+ "current_master_for_comparison": {
+  "renderer_gain_db": -0.8,
+  "integrated_lufs": -17.8,
+  "true_peak_dbtp": -4.6,
+  "why": "the renderer applies min(target - measured, ceiling - true peak): the raw true peak is -0.7 dBTP, so it cannot raise the level and even lowers it by 0.8 dB"
+ },
+ "output": "/tmp/claude-0/-home-user-YouTube-Agent/726a1102-cde7-58e4-becc-72fd703579dc/scratchpad/audio_test/narration_norm16_test.wav",
+ "output_sha256": "114ba57615b091f80dfe7cef45d399a7c8b1df50b2e0d33e5bb26467efb67a32"
+}

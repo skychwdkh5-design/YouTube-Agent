@@ -1,0 +1,182 @@
+{
+ "date": "2026-10-08",
+ "budget": "1 GB for ONE East Oweinat test scene",
+ "note": "Bundles over 1 GB: East Oweinat 2024 (1,035 MB listed; 1,085,614,005 bytes on the API), Toshka 2021 OLI (1,086 and 1,132 MB). No TM scene exists for path 176044 between 2011-07-29 and the end of TM data; lake state in 2011 not previewed.",
+ "candidates": [
+  {
+   "label": "East Oweinat 1984",
+   "displayId": "LT05_L1TP_177044_19840826_20200918_02_T1",
+   "entityId": "LT51770441984239XXX04",
+   "acquired": "1984-08-26",
+   "cloudCoverPct": 0,
+   "dataset": "landsat_tm_c2_l1",
+   "collection": "Landsat Collection 2 Level-1, Tier 1 (L1TP)",
+   "covers": {
+    "EO_pivot_cluster": true,
+    "Toshka_W": false,
+    "Toshka_mid": false,
+    "Toshka_E": false
+   },
+   "size_MB": {
+    "level1_bundle": 122.9,
+    "natural_colour_browse_geotiff_listed": 14.0
+   }
+  },
+  {
+   "label": "East Oweinat 2010 (TEST, downloaded)",
+   "displayId": "LT05_L1TP_177044_20100122_20200825_02_T1",
+   "entityId": "LT51770442010022MTI00",
+   "acquired": "2010-01-22",
+   "cloudCoverPct": 0,
+   "dataset": "landsat_tm_c2_l1",
+   "collection": "Landsat Collection 2 Level-1, Tier 1 (L1TP)",
+   "covers": {
+    "EO_pivot_cluster": true,
+    "Toshka_W": false,
+    "Toshka_mid": false,
+    "Toshka_E": false
+   },
+   "size_MB": {
+    "level1_bundle": 145.4,
+    "natural_colour_browse_geotiff_listed": 14.0,
+    "downloaded_bytes": {
+     "bundle_tar": 152647680,
+     "browse_geotiff": 1677867
+    }
+   }
+  },
+  {
+   "label": "East Oweinat 2024",
+   "displayId": "LC09_L1TP_177044_20240105_20240105_02_T1",
+   "entityId": "LC91770442024005LGN00",
+   "acquired": "2024-01-05",
+   "cloudCoverPct": 0,
+   "dataset": "landsat_ot_c2_l1",
+   "collection": "Landsat Collection 2 Level-1, Tier 1 (L1TP)",
+   "covers": {
+    "EO_pivot_cluster": true,
+    "Toshka_W": false,
+    "Toshka_mid": false,
+    "Toshka_E": false
+   },
+   "size_MB": {
+    "level1_bundle": 1035.3,
+    "natural_colour_browse_geotiff_listed": 14.0
+   }
+  },
+  {
+   "label": "Toshka 2002 path 176044",
+   "displayId": "LT05_L1TP_176044_20020109_20200905_02_T1",
+   "entityId": "LT51760442002009RSA01",
+   "acquired": "2002-01-09",
+   "cloudCoverPct": 0,
+   "dataset": "landsat_tm_c2_l1",
+   "collection": "Landsat Collection 2 Level-1, Tier 1 (L1TP)",
+   "covers": {
+    "EO_pivot_cluster": false,
+    "Toshka_W": true,
+    "Toshka_mid": true,
+    "Toshka_E": false
+   },
+   "size_MB": {
+    "level1_bundle": 167.0,
+    "natural_colour_browse_geotiff_listed": 14.0
+   }
+  },
+  {
+   "label": "Toshka 2002 path 175044",
+   "displayId": "LT05_L1TP_175044_20020118_20200905_02_T1",
+   "entityId": "LT51750442002018MTI00",
+   "acquired": "2002-01-18",
+   "cloudCoverPct": 0,
+   "dataset": "landsat_tm_c2_l1",
+   "collection": "Landsat Collection 2 Level-1, Tier 1 (L1TP)",
+   "covers": {
+    "EO_pivot_cluster": false,
+    "Toshka_W": false,
+    "Toshka_mid": true,
+    "Toshka_E": true
+   },
+   "size_MB": {
+    "level1_bundle": 189.2,
+    "natural_colour_browse_geotiff_listed": 14.0
+   }
+  },
+  {
+   "label": "Toshka 2021 path 176044",
+   "displayId": "LC08_L1TP_176044_20211113_20211125_02_T1",
+   "entityId": "LC81760442021317LGN00",
+   "acquired": "2021-11-13",
+   "cloudCoverPct": 0,
+   "dataset": "landsat_ot_c2_l1",
+   "collection": "Landsat Collection 2 Level-1, Tier 1 (L1TP)",
+   "covers": {
+    "EO_pivot_cluster": false,
+    "Toshka_W": true,
+    "Toshka_mid": true,
+    "Toshka_E": false
+   },
+   "size_MB": {
+    "level1_bundle": 1086.1,
+    "natural_colour_browse_geotiff_listed": 14.0
+   }
+  },
+  {
+   "label": "Toshka 2021 path 175044",
+   "displayId": "LC08_L1TP_175044_20211106_20211117_02_T1",
+   "entityId": "LC81750442021310LGN00",
+   "acquired": "2021-11-06",
+   "cloudCoverPct": 0,
+   "dataset": "landsat_ot_c2_l1",
+   "collection": "Landsat Collection 2 Level-1, Tier 1 (L1TP)",
+   "covers": {
+    "EO_pivot_cluster": false,
+    "Toshka_W": false,
+    "Toshka_mid": true,
+    "Toshka_E": true
+   },
+   "size_MB": {
+    "level1_bundle": 1132.2,
+    "natural_colour_browse_geotiff_listed": 14.0
+   }
+  },
+  {
+   "label": "Toshka late-2011 TM path 176044 (latest TM there)",
+   "displayId": "LT05_L1TP_176044_20110729_20200820_02_T1",
+   "entityId": "LT51760442011210MTI00",
+   "acquired": "2011-07-29",
+   "cloudCoverPct": 0,
+   "dataset": "landsat_tm_c2_l1",
+   "collection": "Landsat Collection 2 Level-1, Tier 1 (L1TP)",
+   "covers": {
+    "EO_pivot_cluster": false,
+    "Toshka_W": true,
+    "Toshka_mid": true,
+    "Toshka_E": false
+   },
+   "size_MB": {
+    "level1_bundle": 157.0,
+    "natural_colour_browse_geotiff_listed": 14.0
+   }
+  },
+  {
+   "label": "Toshka late-2011 TM path 175044",
+   "displayId": "LT05_L1TP_175044_20111010_20200820_02_T1",
+   "entityId": "LT51750442011283MTI00",
+   "acquired": "2011-10-10",
+   "cloudCoverPct": 0,
+   "dataset": "landsat_tm_c2_l1",
+   "collection": "Landsat Collection 2 Level-1, Tier 1 (L1TP)",
+   "covers": {
+    "EO_pivot_cluster": false,
+    "Toshka_W": false,
+    "Toshka_mid": true,
+    "Toshka_E": true
+   },
+   "size_MB": {
+    "level1_bundle": 199.8,
+    "natural_colour_browse_geotiff_listed": 14.0
+   }
+  }
+ ]
+}

@@ -1,0 +1,132 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "r23b-mechanism",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+ "credit": null,
+ "steps": [
+  "r23b-mechanism.step1.png",
+  "r23b-mechanism.step2.png",
+  "r23b-mechanism.step3.png",
+  "r23b-mechanism.png"
+ ],
+ "sha256": {
+  "r23b-mechanism.step1.png": "58df884f4a7a099235e6b9fc12859f247626d9b6c435df2114704c7bbc7fffaf",
+  "r23b-mechanism.step2.png": "c02f1473495f84789c3fe760f9ea3f14a9891092e0d78a20403a5b63478b9477",
+  "r23b-mechanism.step3.png": "99851f7378268002cc94744b0ba127f65f0972318b3fb3ae7e34c5e8c33790fa",
+  "r23b-mechanism.png": "6968e86c85917f9c3c1db578175e594fef4394d06554f826c6a4b21a3e3f0ebd"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "How the proposal works",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    651.0,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "A conceptual schematic, not a route map: no site or route is shown",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    1058.5,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    887.5,
+    797.6
+   ]
+  },
+  {
+   "where": "node fo",
+   "text": "FOREST",
+   "size": 34,
+   "box": [
+    1515.1,
+    310.4,
+    1649.1,
+    351.2
+   ]
+  },
+  {
+   "where": "node ir",
+   "text": "IRRIGATION",
+   "size": 34,
+   "box": [
+    1069.9,
+    434.6,
+    1264.9,
+    475.4
+   ]
+  },
+  {
+   "where": "node de",
+   "text": "DESALINATION",
+   "size": 34,
+   "box": [
+    625.9,
+    558.8,
+    879.4,
+    599.6
+   ]
+  },
+  {
+   "where": "node se",
+   "text": "SEAWATER",
+   "size": 34,
+   "box": [
+    244.4,
+    672.7,
+    431.4,
+    713.5
+   ]
+  },
+  {
+   "where": "note",
+   "text": "DASHED = PROPOSED IN THE 2009 STUDY",
+   "size": 26,
+   "box": [
+    1034.6,
+    698.2,
+    1576.6,
+    729.4
+   ]
+  },
+  {
+   "where": "note",
+   "text": "WATERED WITH DESALINATED SEAWATER",
+   "size": 44,
+   "box": [
+    216.0,
+    309.5,
+    874.5,
+    414.2
+   ]
+  }
+ ]
+}

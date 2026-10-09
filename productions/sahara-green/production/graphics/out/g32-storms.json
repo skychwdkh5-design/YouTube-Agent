@@ -1,0 +1,160 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g32-storms",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Pausata et al. 2017, PNAS 114:6221",
+ "credit": null,
+ "steps": [
+  "g32-storms.step1.png",
+  "g32-storms.step2.png",
+  "g32-storms.step3.png",
+  "g32-storms.step4.png",
+  "g32-storms.step5.png",
+  "g32-storms.step6.png",
+  "g32-storms.step7.png",
+  "g32-storms.step8.png",
+  "g32-storms.step9.png",
+  "g32-storms.step10.png",
+  "g32-storms.step11.png",
+  "g32-storms.step12.png",
+  "g32-storms.step13.png",
+  "g32-storms.step14.png",
+  "g32-storms.png"
+ ],
+ "sha256": {
+  "g32-storms.step1.png": "de9be0629abde94c373f917d950caaa950752a367d960549743082ddd39f008c",
+  "g32-storms.step2.png": "9887701c6763d3cec6d3650eeb267f570295ac3f0be5d344e56bb6336eb6a0ff",
+  "g32-storms.step3.png": "de9be0629abde94c373f917d950caaa950752a367d960549743082ddd39f008c",
+  "g32-storms.step4.png": "de9be0629abde94c373f917d950caaa950752a367d960549743082ddd39f008c",
+  "g32-storms.step5.png": "9887701c6763d3cec6d3650eeb267f570295ac3f0be5d344e56bb6336eb6a0ff",
+  "g32-storms.step6.png": "de9be0629abde94c373f917d950caaa950752a367d960549743082ddd39f008c",
+  "g32-storms.step7.png": "d30478e35f78785e4a2c5e51e46d4f109a8db7fc7df4a82de9a8e00df2f5b972",
+  "g32-storms.step8.png": "422e654ad1b86e10bbad0d92f440277cb12c4cdd84a0963b56843b3f1b52618e",
+  "g32-storms.step9.png": "53cb7af1648867f102eca021dd6d2cfc4974a0f148c7d408d443d406d613745e",
+  "g32-storms.step10.png": "e5fbec144381925a3b64cdc5aa25291cc501d9697aa435f49383a5d8f3e3431e",
+  "g32-storms.step11.png": "a37f3c6a222141d85941423b6f68e694e01755c910dcd50ef1eec7faec734717",
+  "g32-storms.step12.png": "8870fb08381dfa2b1a60655dc51961b7df24dbdc5d69793eed968eb967fa3deb",
+  "g32-storms.step13.png": "00761b4b5e1c642dc9c95192dd4263d1dc463a5642a00e25a7a2d9de3bf381af",
+  "g32-storms.step14.png": "55553e279a9e4b501d56e398597b4b53c6eec5ea7fd2e4cd224330408f428cc1",
+  "g32-storms.png": "55553e279a9e4b501d56e398597b4b53c6eec5ea7fd2e4cd224330408f428cc1"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "A simulation of the past, not a forecast",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    984.0,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "The world about 6,000 years ago (one model, EC-Earth)",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    905.0,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Pausata et al. 2017, PNAS 114:6221 · Imagery: NASA Blue Marble (SVS 3539)",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    1071.0,
+    797.6
+   ]
+  },
+  {
+   "where": "node a",
+   "text": "Green Sahara: shrubs, dust cut by up to 80%",
+   "size": 34,
+   "box": [
+    152.4,
+    373.1,
+    523.4,
+    454.0
+   ]
+  },
+  {
+   "where": "node b",
+   "text": "Stronger West African monsoon",
+   "size": 34,
+   "box": [
+    696.0,
+    373.1,
+    982.0,
+    454.0
+   ]
+  },
+  {
+   "where": "node c",
+   "text": "Winds change across the tropics",
+   "size": 34,
+   "box": [
+    1156.6,
+    373.1,
+    1454.6,
+    454.0
+   ]
+  },
+  {
+   "where": "node d",
+   "text": "More tropical cyclone activity in both hemispheres",
+   "size": 34,
+   "box": [
+    1144.3,
+    611.2,
+    1674.3,
+    692.1
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Most around the Caribbean and the southeastern US; some ocean regions: fewer",
+   "size": 28,
+   "box": [
+    247.8,
+    577.0,
+    911.8,
+    643.6
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Too few paleostorm records to check it",
+   "size": 28,
+   "box": [
+    316.8,
+    697.0,
+    842.8,
+    730.6
+   ]
+  }
+ ],
+ "backdrop": {
+  "path": "backdrops/sahel_backdrop.jpg",
+  "sha256": "fea4a8bf4627d78c1df22de8a46003fa1fc9da2c96e0e20a92d63203f24c5c09",
+  "credit": "NASA Blue Marble (SVS 3539)",
+  "scrim": 0.62
+ }
+}

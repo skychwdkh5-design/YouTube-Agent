@@ -1,0 +1,92 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "r05-rain",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "NASA Earth Observatory, \"A Deluge for the Sahara\"",
+ "credit": null,
+ "steps": [
+  "r05-rain.step1.png",
+  "r05-rain.step2.png",
+  "r05-rain.png"
+ ],
+ "sha256": {
+  "r05-rain.step1.png": "6fc468e9be14972cb0243e59a86c9544ba8b802eb814f5a3bba8b78cf8b4d933",
+  "r05-rain.step2.png": "86a8fa7dfa457d42fdb91cc02c9973a24b43510cb8ea9a2cb01eb5a5c37e2992",
+  "r05-rain.png": "f646c42226be89e2f37c1c75f3dcacc3c0d1ad0ae4bfc41190e1fb0db2edd2ae"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "source",
+   "text": "Source: NASA Earth Observatory, \"A Deluge for the Sahara\" · Imagery: Landsat 9 · USGS, Gilf Kebir, Egypt (illustrative)",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    1461.5,
+    797.6
+   ]
+  },
+  {
+   "where": "node a",
+   "text": "A FEW INCHES OF RAIN A YEAR",
+   "size": 34,
+   "box": [
+    696.8,
+    339.5,
+    1223.2,
+    380.3
+   ]
+  },
+  {
+   "where": "node b",
+   "text": "= TENS OF MILLIMETERS",
+   "size": 34,
+   "box": [
+    752.8,
+    537.2,
+    1167.2,
+    578.0
+   ]
+  },
+  {
+   "where": "note",
+   "text": "IN SOME AREAS OF THE SAHARA",
+   "size": 40,
+   "box": [
+    636.2,
+    175.4,
+    1283.8,
+    223.4
+   ]
+  },
+  {
+   "where": "note",
+   "text": "1 inch = 25.4 millimeters",
+   "size": 30,
+   "box": [
+    784.5,
+    687.8,
+    1135.5,
+    723.8
+   ]
+  }
+ ],
+ "backdrop": {
+  "path": "backdrops/gilf_backdrop.jpg",
+  "sha256": "874df1c7c28250df433c3d4f73a521aa3585f0201c03b89ffaeddd3e8a828bb7",
+  "credit": "Landsat 9 · USGS, Gilf Kebir, Egypt (illustrative)",
+  "scrim": 0.5
+ }
+}

@@ -1,0 +1,149 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g07-timeline",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Larrasoaña, Roberts & Rohling 2013, PLoS ONE 8(10): e76514",
+ "credit": null,
+ "steps": [
+  "g07-timeline.step1.png",
+  "g07-timeline.step2.png",
+  "g07-timeline.step3.png",
+  "g07-timeline.step4.png",
+  "g07-timeline.step5.png",
+  "g07-timeline.step6.png",
+  "g07-timeline.png"
+ ],
+ "sha256": {
+  "g07-timeline.step1.png": "8559348222da6e3c66b5a719a6d382fc7277ab80eac6ae90f4cee5fb1a9bd24a",
+  "g07-timeline.step2.png": "cd33126892dbd0ce9959b152b7af455b7c1573979681591bc20df7e77404cf93",
+  "g07-timeline.step3.png": "3298ca942eb0827607a1beb1c99976eb6160b83732f70a6f174ca5aecbb87e46",
+  "g07-timeline.step4.png": "cd33126892dbd0ce9959b152b7af455b7c1573979681591bc20df7e77404cf93",
+  "g07-timeline.step5.png": "159909d10f5bac2052423d9c5ec8a646a97ca8ee78095b665ee843b2d3acab85",
+  "g07-timeline.step6.png": "1f1515d1d67fa5d560df641512522a56c201c10b1c3d26e35829203e683f4d6e",
+  "g07-timeline.png": "eb6b891bb65159b5166c641f8513aeb8431324cb0d5811cb8f0138d3fec87478"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "The last green Sahara",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    595.0,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "One reconstruction; other records place it a few thousand years earlier or later",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    1230.5,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Larrasoaña, Roberts & Rohling 2013, PLoS ONE 8(10): e76514",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    896.0,
+    797.6
+   ]
+  },
+  {
+   "where": "node t15",
+   "text": "15,000 years ago",
+   "size": 34,
+   "box": [
+    151.7,
+    538.1,
+    437.7,
+    578.9
+   ]
+  },
+  {
+   "where": "node t11",
+   "text": "11,000",
+   "size": 34,
+   "box": [
+    577.4,
+    538.1,
+    685.9,
+    578.9
+   ]
+  },
+  {
+   "where": "node t6",
+   "text": "6,000",
+   "size": 34,
+   "box": [
+    1048.2,
+    538.1,
+    1148.2,
+    578.9
+   ]
+  },
+  {
+   "where": "node tnow",
+   "text": "Today",
+   "size": 34,
+   "box": [
+    1600.2,
+    538.1,
+    1702.2,
+    578.9
+   ]
+  },
+  {
+   "where": "node band",
+   "text": "GREEN SAHARA: GRASSLAND, SAVANNA, LAKES",
+   "size": 34,
+   "box": [
+    659.7,
+    363.4,
+    1070.2,
+    484.5
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Other records place it a few thousand years earlier or later",
+   "size": 28,
+   "box": [
+    1136.9,
+    359.6,
+    1819.9,
+    426.2
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Not a jungle: savanna",
+   "size": 34,
+   "box": [
+    1301.7,
+    662.3,
+    1655.2,
+    703.1
+   ]
+  }
+ ]
+}

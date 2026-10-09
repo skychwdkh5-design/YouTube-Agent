@@ -1,0 +1,5 @@
+video/*.mp4
+delivery/**/*.mp4
+delivery/*.zip
+delivery/parts/*.part*
+delivery/exact/*.zip

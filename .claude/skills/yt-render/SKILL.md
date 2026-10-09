@@ -50,7 +50,8 @@ without them renders exactly as it always did, byte for byte.
 
 - `output` is optional; the defaults are 1920x1080, 30 fps, H.264 (CRF 20, `medium`), AAC 192k
   48 kHz stereo. Width/height must be even; fps is one of 24/25/30/50/60.
-- `type`: `image` or `landsat` (same rendering; `landsat` keeps the evidence role explicit). Keep
+- `type`: `image` or `landsat` (same rendering; `landsat` keeps the evidence role explicit) or `video`
+  (see "Video clips" below). Keep
   `source`/`credit` on each clip - later stages (description, licence manifest) read them.
 - `duration`: seconds, 0.2-600. It is rounded to whole frames; the plan shows the frame counts.
 - `fit`: `cover` (default - scale to fill, crop the overflow) or `contain` (whole image, black
@@ -60,6 +61,28 @@ without them renders exactly as it always did, byte for byte.
   `left_to_right`, `right_to_left`, `top_to_bottom`, `bottom_to_top`) or `static`.
 - `transition` sits on the clip it leaves: `crossfade` with a `duration`, or `none` (hard cut).
   A crossfade overlaps the two clips, so it shortens the total; it must be shorter than both.
+
+### Video clips - `"type": "video"`
+
+A pre-rendered clip (for example a Landsat sequence from another renderer) plays frame for frame:
+
+```json
+{"type": "video", "src": "seq/east_oweinat.mp4", "trim": [1.1, 21.7], "fit": "cover", "credit": "Landsat / USGS",
+ "transition": {"type": "crossfade", "duration": 0.5}}
+```
+
+- **Same frame rate as the output, exactly.** A 24 fps file in a 30 fps timeline is refused with the fix
+  ("re-render the clip at 30 fps"); variable frame rate is refused too. So frame k of the clip is frame
+  `start + k` of the file: no resampling, no drift, and shot changes stay on the frame grid.
+- `trim`: `[start, end]` or `[start]` in seconds of the file (rounded to frames; the first frame shown is
+  `round(start * fps)`); or `duration` (first frames only); or neither (the whole file). Not both `trim` and
+  `duration`. A trim past the end of the file is refused with the shortfall in seconds. Trimming does not
+  need a keyframe: the filter counts decoded frames.
+- `fit` (cover/contain) scales to the output size with Lanczos; `motion` is not allowed (the clip is not
+  panned or zoomed). `transition` crossfades work as for stills.
+- The clip's own audio is ignored (a warning says so); the soundtrack is `audio.voice` or silence.
+  The narration is never moved or re-timed by video clips (see the sync tests).
+- One video stream, at most 120 MP per frame, under `--max-input-mb`; `.mp4 .m4v .mov .mkv .webm`.
 
 ### Narration - `audio.voice`
 
@@ -87,7 +110,7 @@ white text, black outline, `font` (default Inter), `size` (default 15, libass un
 with `landsat` clips and no `credit` still renders, with a warning - the USGS credit belongs on
 screen wherever the imagery is.
 
-**Not supported yet:** `type: "video"`, `audio.music`, `audio.sfx`, `overlays`. They are refused
+**Not supported yet:** `audio.music`, `audio.sfx`, `overlays`. They are refused
 with `"status": "unsupported"` rather than silently dropped. There is no music source in the
 pipeline, so a render has narration or silence - never unlicensed music.
 
@@ -167,6 +190,24 @@ layers, wipes, flips, labels, arrows, pins, credits, composition and visual-fami
   10 s, >= 5 composition resets per minute, no composition static over 8 s; with `visual_family`
   tags >= 2 family transitions per minute and no family over 30 s unless it is transforming.
 - H.264 CRF 20 (Shorts keep CRF 18). Shorts are unchanged and still render in one pass.
+
+### Video assets in profile `long` and `short`
+
+`"assets": {"seq": {"src": "seq/east_oweinat.mp4", "kind": "video", "credit": "Landsat / USGS"}}` is a full-frame video at the
+profile's frame rate (30 fps) and aspect (16:9 or 9:16; it is scaled, never cropped or stretched). A shot can show it with a
+`video` layer, like a graphic: no camera, from its first frame.
+
+```json
+{"id": "east_oweinat", "start": 12.0, "layers": [{"type": "video", "asset": "seq", "trim": 0, "credit": false,
+  "captions": true, "caption": {"band": 0.76, "center_x": 0.667, "max_width": 1100}}]}
+```
+
+- Frame `k` of the layer is frame `trim * fps + k` of the file; the renderer checks that the file has a frame for every frame the
+  shot shows it (otherwise: refused, with the shortfall). Segment boundaries are safe: each segment seeks to its exact frame.
+- `credit: false` skips the on-screen credit (the clip carries its own); `captions: false` hides captions during the layer;
+  `caption` moves them (`band` = vertical position as a share of the height, `center_x`, `max_width` in px) so they stay clear of
+  text baked into the video. A video counts as a full-frame picture for the composition rules.
+- Timelines without video assets render byte for byte as before.
 
 ### Graphics from `/yt-graphics`
 

@@ -254,6 +254,31 @@ class Generation(Base):
         self.assertEqual(run(self.args("Hello.", "--confirm", "--overwrite"), eleven(0.5))[0], 0)
 
 
+class Settings(Base):
+    def test_voice_settings_and_context_are_sent(self):
+        reqs = []
+        with tempfile.TemporaryDirectory() as d:
+            code, out, _ = run(["--text", "A sentence of about forty characters ok.\n\nAnother sentence of forty characters ok.\n\nA third sentence of forty characters ok.", "--output", os.path.join(d, "n.wav"), "--confirm", "--max-chunk-chars", "50",
+                                "--voice-settings", '{"stability":0.55,"speed":1.0,"use_speaker_boost":true}', "--context"], eleven(requests=reqs))
+        self.assertEqual(code, 0, out)
+        self.assertGreater(len(reqs), 1)
+        self.assertEqual(reqs[0]["body"]["voice_settings"]["stability"], 0.55)
+        self.assertNotIn("previous_text", reqs[0]["body"]); self.assertIn("next_text", reqs[0]["body"])
+        self.assertIn("previous_text", reqs[-1]["body"]); self.assertNotIn("next_text", reqs[-1]["body"])
+
+    def test_default_request_has_no_settings_or_context(self):
+        reqs = []
+        with tempfile.TemporaryDirectory() as d:
+            code, out, _ = run(["--text", "One line.", "--output", os.path.join(d, "n.wav"), "--confirm"], eleven(requests=reqs))
+        self.assertEqual(code, 0, out)
+        self.assertNotIn("voice_settings", reqs[0]["body"]); self.assertNotIn("previous_text", reqs[0]["body"])
+
+    def test_bad_voice_settings_rejected_before_any_request(self):
+        for bad in ('{"stability":2}', '{"volume":1}', 'nope', '{"use_speaker_boost":"yes"}', '{}'):
+            code, out, _ = run(["--text", "Hi there.", "--output", "/tmp/x.wav", "--confirm", "--voice-settings", bad])
+            self.assertEqual(code, 2); self.assertTrue(out["error"])
+
+
 class Failures(Base):
     def test_malformed_responses(self):
         for body in (b"not json", json.dumps({"nope": 1}).encode(),

@@ -1,0 +1,284 @@
+{
+ "checks": [
+  {
+   "check": "registration of rendered East Oweinat (1 px = 30 m) frames <= 0.2 px",
+   "result": "PASS",
+   "detail": [
+    {
+     "pair": "1984->2000",
+     "dx_px": -0.034,
+     "dy_px": -0.126,
+     "snr": 309.4
+    },
+    {
+     "pair": "2000->2010",
+     "dx_px": 0.014,
+     "dy_px": 0.016,
+     "snr": 111.6
+    },
+    {
+     "pair": "2010->2016",
+     "dx_px": 0.029,
+     "dy_px": 0.041,
+     "snr": 551.4
+    },
+    {
+     "pair": "2016->2024",
+     "dx_px": -0.008,
+     "dy_px": -0.043,
+     "snr": 896.4
+    },
+    {
+     "pair": "1984->2024",
+     "dx_px": -0.023,
+     "dy_px": -0.056,
+     "snr": 42.5
+    }
+   ]
+  },
+  {
+   "check": "registration of rendered Toshka display crop (1 px = 30 m) frames <= 0.2 px",
+   "result": "PASS",
+   "detail": [
+    {
+     "pair": "1999->2002",
+     "dx_px": -0.009,
+     "dy_px": -0.027,
+     "snr": 1344.3
+    },
+    {
+     "pair": "2002->2011",
+     "dx_px": -0.009,
+     "dy_px": -0.005,
+     "snr": 1204.8
+    },
+    {
+     "pair": "2011->2021",
+     "dx_px": 0.029,
+     "dy_px": 0.034,
+     "snr": 933.9
+    },
+    {
+     "pair": "1999->2021",
+     "dx_px": 0.01,
+     "dy_px": 0.025,
+     "snr": 1225.5
+    }
+   ]
+  },
+  {
+   "check": "EO frames identical shape/grid",
+   "result": "PASS",
+   "detail": "(1757, 2075, 3)"
+  },
+  {
+   "check": "Toshka crops identical 3840x2160 box (union y0=60, x0=312)",
+   "result": "PASS",
+   "detail": "crop box fixed in build_frames.py"
+  },
+  {
+   "check": "no pure-black (invalid) pixels in any display frame",
+   "result": "PASS",
+   "detail": {
+    "EO1984": 0,
+    "EO2000": 0,
+    "EO2010": 0,
+    "EO2016": 0,
+    "EO2024": 0,
+    "TO1999": 0,
+    "TO2002": 0,
+    "TO2011": 0,
+    "TO2021": 0
+   }
+  },
+  {
+   "check": "Toshka crop + 12 px margin lies inside the footprint of all 4 years",
+   "result": "PASS",
+   "detail": "min valid fraction in padded crop = 1.0000"
+  },
+  {
+   "check": "East Oweinat labels match metadata dates (1984 = August 26, 1984)",
+   "result": "PASS",
+   "detail": {
+    "1984": [
+     "August 26, 1984",
+     "1984-08-26"
+    ],
+    "2000": [
+     "January 2000",
+     "2000-01-11"
+    ],
+    "2010": [
+     "January 2010",
+     "2010-01-22"
+    ],
+    "2016": [
+     "January 2016",
+     "2016-01-07"
+    ],
+    "2024": [
+     "January 2024",
+     "2024-01-05"
+    ]
+   }
+  },
+  {
+   "check": "Toshka labels match both path dates (2021 = November 2021)",
+   "result": "PASS",
+   "detail": {
+    "1999": [
+     "January 1999",
+     "1999-01-01",
+     "1999-01-10"
+    ],
+    "2002": [
+     "January 2002",
+     "2002-01-09",
+     "2002-01-18"
+    ],
+    "2011": [
+     "January 2011",
+     "2011-01-02",
+     "2011-01-11"
+    ],
+    "2021": [
+     "November 2021",
+     "2021-11-13",
+     "2021-11-06"
+    ]
+   }
+  },
+  {
+   "check": "EO timeline order strictly chronological, then zoom stays on 2024",
+   "result": "PASS",
+   "detail": [
+    "1984",
+    "2000",
+    "2010",
+    "2016",
+    "2024"
+   ]
+  },
+  {
+   "check": "Toshka timeline order strictly chronological",
+   "result": "PASS",
+   "detail": [
+    "1999",
+    "2002",
+    "2011",
+    "2021"
+   ]
+  },
+  {
+   "check": "stable-sand colour spread across 5 EO frames small under the baseline (<= 8 levels per channel)",
+   "result": "PASS",
+   "detail": {
+    "stable_sand_median_rgb_8bit": {
+     "1984": [
+      218,
+      182,
+      146
+     ],
+     "2000": [
+      211,
+      178,
+      146
+     ],
+     "2010": [
+      213,
+      180,
+      145
+     ],
+     "2016": [
+      213,
+      176,
+      145
+     ],
+     "2024": [
+      212,
+      174,
+      145
+     ]
+    },
+    "max_channel_spread_across_frames": [
+     7,
+     8,
+     1
+    ]
+   }
+  },
+  {
+   "check": "cached EO frames equal a fresh application of the fixed baseline (no hidden per-frame normalization)",
+   "result": "PASS",
+   "detail": {
+    "lo": 0.02,
+    "hi": 0.6,
+    "gamma": 1.8
+   }
+  },
+  {
+   "check": "cached Toshka frames equal a fresh application of the fixed baseline (float16 cache, tolerance 1 level)",
+   "result": "PASS",
+   "detail": {
+    "max_abs_diff_levels": 1,
+    "lo": 0.02,
+    "hi": 0.6,
+    "gamma": 1.8
+   }
+  },
+  {
+   "check": "upscale policy: max screen px per source px at 4K <= 4.0",
+   "result": "PASS",
+   "detail": {
+    "EO zoom end source window": [
+     960,
+     540
+    ],
+    "EO max scale at 4K": 4.0,
+    "Toshka scale at 4K": 1.0
+   }
+  },
+  {
+   "check": "eo_review.mp4 probe",
+   "result": "PASS",
+   "detail": {
+    "programs": [],
+    "streams": [
+     {
+      "codec_name": "h264",
+      "width": 1280,
+      "height": 720,
+      "pix_fmt": "yuv420p",
+      "r_frame_rate": "24/1",
+      "nb_frames": "540"
+     }
+    ],
+    "format": {
+     "duration": "22.500000",
+     "size": "1517382"
+    }
+   }
+  },
+  {
+   "check": "toshka_review.mp4 probe",
+   "result": "PASS",
+   "detail": {
+    "programs": [],
+    "streams": [
+     {
+      "codec_name": "h264",
+      "width": 1280,
+      "height": 720,
+      "pix_fmt": "yuv420p",
+      "r_frame_rate": "24/1",
+      "nb_frames": "408"
+     }
+    ],
+    "format": {
+     "duration": "17.000000",
+     "size": "760261"
+    }
+   }
+  }
+ ]
+}

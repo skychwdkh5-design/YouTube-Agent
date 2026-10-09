@@ -1,0 +1,157 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g23-proposal",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+ "credit": null,
+ "steps": [
+  "g23-proposal.step1.png",
+  "g23-proposal.step2.png",
+  "g23-proposal.step3.png",
+  "g23-proposal.step4.png",
+  "g23-proposal.step5.png",
+  "g23-proposal.step6.png",
+  "g23-proposal.step7.png",
+  "g23-proposal.step8.png",
+  "g23-proposal.step9.png",
+  "g23-proposal.step10.png",
+  "g23-proposal.png"
+ ],
+ "sha256": {
+  "g23-proposal.step1.png": "4a01d658313f5a7e21a43eb9d96e9a8f0ec74caa78d1742b262251d17c25d1b3",
+  "g23-proposal.step2.png": "4f0ece2c4c5265a11e17e041401e67468444c63daa4cff42cd8ffa2161644d90",
+  "g23-proposal.step3.png": "d0d8463227968bb71bbf9e7d76c7f0ba5179b66c1147ac44a97fb45a5c274c2a",
+  "g23-proposal.step4.png": "74882b2b65cce0550e2ff9ef06f3c9f017dde0ef81dab83e7cf84ae01c0f091b",
+  "g23-proposal.step5.png": "f489b93f89d8b4faa0c93bfdb735cf710a8aa97918d24aa70aa469aee26772de",
+  "g23-proposal.step6.png": "022e7619b7d7337dc72a259b28c117d679d04139737ac5d12131308fcd637034",
+  "g23-proposal.step7.png": "e348acbc38e8cefa1301dd102847de6451c49035438d7315bc5a96492f77ad83",
+  "g23-proposal.step8.png": "52798388f21aaa4a7cfce52e74e7e6adf01c8e903d92b648c90d8d6140679d73",
+  "g23-proposal.step9.png": "e348acbc38e8cefa1301dd102847de6451c49035438d7315bc5a96492f77ad83",
+  "g23-proposal.step10.png": "a281fb124211f8ccfe6e5b1945aedffc6bbcebe2d8d5b26a25953363999d0fbf",
+  "g23-proposal.png": "5a89994475e3bc4d66e67d70c605e805b5c89afe5f43d2b6d690a96de6dea917"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "PROPOSAL (2009)",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    521.5,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "Not a climate-model result",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    479.5,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    887.5,
+    797.6
+   ]
+  },
+  {
+   "where": "node n0",
+   "text": "Seawater",
+   "size": 34,
+   "box": [
+    190.1,
+    382.8,
+    347.6,
+    423.6
+   ]
+  },
+  {
+   "where": "node n1",
+   "text": "Desalination",
+   "size": 34,
+   "box": [
+    493.9,
+    382.8,
+    700.4,
+    423.6
+   ]
+  },
+  {
+   "where": "node n2",
+   "text": "Pipeline",
+   "size": 34,
+   "box": [
+    893.5,
+    382.8,
+    1026.5,
+    423.6
+   ]
+  },
+  {
+   "where": "node n3",
+   "text": "Irrigation",
+   "size": 34,
+   "box": [
+    1246.9,
+    382.8,
+    1398.9,
+    423.6
+   ]
+  },
+  {
+   "where": "node n4",
+   "text": "Forest",
+   "size": 34,
+   "box": [
+    1599.0,
+    382.8,
+    1703.5,
+    423.6
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Carbon uptake: the authors' estimate from plantation data, with large error bars",
+   "size": 28,
+   "box": [
+    293.1,
+    608.0,
+    866.6,
+    674.6
+   ]
+  },
+  {
+   "where": "note",
+   "text": "A forest stops gaining carbon after about a century",
+   "size": 28,
+   "box": [
+    1030.2,
+    624.5,
+    1719.2,
+    658.1
+   ]
+  }
+ ]
+}

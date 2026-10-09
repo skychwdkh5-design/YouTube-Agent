@@ -1,0 +1,20 @@
+{
+ "eo2010": {
+  "entityId": "LT51770442010022MTI00",
+  "displayId": "LT05_L1TP_177044_20100122_20200825_02_T1",
+  "acquired": "2010-01-22",
+  "license": {
+   "name": "Public domain (USGS Landsat)",
+   "commercial_use": true
+  },
+  "derived_png": "eo2010.png",
+  "processing": [
+   {
+    "op": "reproject_resample",
+    "method": "bilinear",
+    "grid_epsg": 32635,
+    "pixel_m": 30.0
+   }
+  ]
+ }
+}

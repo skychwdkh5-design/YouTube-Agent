@@ -1,0 +1,73 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "g05-rain",
+ "type": "diagram",
+ "style": "documentary_light",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "NASA Earth Observatory, \"A Deluge for the Sahara\"",
+ "credit": null,
+ "steps": [
+  "g05-rain.step1.png",
+  "g05-rain.png"
+ ],
+ "sha256": {
+  "g05-rain.step1.png": "bfa9ff7f256c16d4cfe4813619e9fd44d08a01c70925f5b134fa8037c814842e",
+  "g05-rain.png": "e11ae9f1935cd6a867db38ccdea1ba04cf068fa93bbf93ecb7c74298033efdf9"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "How dry is it?",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    406.5,
+    177.2
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: NASA Earth Observatory, \"A Deluge for the Sahara\"",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    788.5,
+    797.6
+   ]
+  },
+  {
+   "where": "node a",
+   "text": "IN SOME AREAS: JUST A FEW INCHES OF RAIN A YEAR",
+   "size": 34,
+   "box": [
+    504.2,
+    411.4,
+    1415.8,
+    452.2
+   ]
+  },
+  {
+   "where": "note",
+   "text": "Tens of millimeters a year, in some areas of the Sahara",
+   "size": 36,
+   "box": [
+    660.5,
+    600.8,
+    1259.5,
+    686.5
+   ]
+  }
+ ]
+}

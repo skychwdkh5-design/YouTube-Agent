@@ -1,0 +1,1335 @@
+{
+ "stacks": {
+  "eo": {
+   "grid": {
+    "epsg": 32635,
+    "x0": 628230.0,
+    "y_top": 2528130.0,
+    "pixel_m": 30.0,
+    "width": 2075,
+    "height": 1757,
+    "aoi": [
+     28.25,
+     22.38,
+     28.85,
+     22.85
+    ]
+   },
+   "scenes": [
+    {
+     "id": "d19840826",
+     "label": "1984-08-26 Landsat 5",
+     "epsg": 32635,
+     "pixel_m": [
+      30.0,
+      30.0
+     ],
+     "pixel_is_area": true,
+     "origin": [
+      528885.0,
+      2664315.0
+     ],
+     "size": [
+      7721,
+      6921
+     ],
+     "subpixel_phase_vs_stack_grid": [
+      0.5,
+      0.5
+     ],
+     "valid_fraction_scene": 0.735,
+     "valid_bbox_px": [
+      31,
+      15,
+      7664,
+      6911
+     ],
+     "valid_fraction_in_AOI_window": 1.0,
+     "stack_frame_nodata_fraction": 0.0,
+     "mean_rgb_valid": [
+      173.9,
+      171.7,
+      158.9
+     ],
+     "std_gray_valid": 1.7
+    },
+    {
+     "id": "d20000111",
+     "label": "2000-01-11 Landsat 5",
+     "epsg": 32635,
+     "pixel_m": [
+      30.0,
+      30.0
+     ],
+     "pixel_is_area": true,
+     "origin": [
+      532485.0,
+      2664315.0
+     ],
+     "size": [
+      7721,
+      7011
+     ],
+     "subpixel_phase_vs_stack_grid": [
+      0.5,
+      0.5
+     ],
+     "valid_fraction_scene": 0.737,
+     "valid_bbox_px": [
+      31,
+      0,
+      7664,
+      7008
+     ],
+     "valid_fraction_in_AOI_window": 1.0,
+     "stack_frame_nodata_fraction": 0.0,
+     "mean_rgb_valid": [
+      151.9,
+      135.1,
+      127.4
+     ],
+     "std_gray_valid": 2.6
+    },
+    {
+     "id": "d20100122",
+     "label": "2010-01-22 Landsat 5",
+     "epsg": 32635,
+     "pixel_m": [
+      30.0,
+      30.0
+     ],
+     "pixel_is_area": true,
+     "origin": [
+      544185.0,
+      2661915.0
+     ],
+     "size": [
+      7851,
+      6951
+     ],
+     "subpixel_phase_vs_stack_grid": [
+      0.5,
+      0.5
+     ],
+     "valid_fraction_scene": 0.748,
+     "valid_bbox_px": [
+      0,
+      15,
+      7850,
+      6944
+     ],
+     "valid_fraction_in_AOI_window": 1.0,
+     "stack_frame_nodata_fraction": 0.0,
+     "mean_rgb_valid": [
+      152.6,
+      141.9,
+      129.5
+     ],
+     "std_gray_valid": 12.2
+    },
+    {
+     "id": "d20160107",
+     "label": "2016-01-07 Landsat 8",
+     "epsg": 32635,
+     "pixel_m": [
+      30.0,
+      30.0
+     ],
+     "pixel_is_area": true,
+     "origin": [
+      551385.0,
+      2672115.0
+     ],
+     "size": [
+      7561,
+      7721
+     ],
+     "subpixel_phase_vs_stack_grid": [
+      0.5,
+      0.5
+     ],
+     "valid_fraction_scene": 0.714,
+     "valid_bbox_px": [
+      0,
+      0,
+      7552,
+      7712
+     ],
+     "valid_fraction_in_AOI_window": 1.0,
+     "stack_frame_nodata_fraction": 0.0,
+     "mean_rgb_valid": [
+      149.7,
+      143.9,
+      122.8
+     ],
+     "std_gray_valid": 17.6
+    },
+    {
+     "id": "d20240105",
+     "label": "2024-01-05 Landsat 9",
+     "epsg": 32635,
+     "pixel_m": [
+      30.0,
+      30.0
+     ],
+     "pixel_is_area": true,
+     "origin": [
+      549285.0,
+      2672115.0
+     ],
+     "size": [
+      7571,
+      7711
+     ],
+     "subpixel_phase_vs_stack_grid": [
+      0.5,
+      0.5
+     ],
+     "valid_fraction_scene": 0.714,
+     "valid_bbox_px": [
+      15,
+      0,
+      7568,
+      7710
+     ],
+     "valid_fraction_in_AOI_window": 1.0,
+     "stack_frame_nodata_fraction": 0.0,
+     "mean_rgb_valid": [
+      147.3,
+      142.4,
+      120.2
+     ],
+     "std_gray_valid": 18.1
+    }
+   ],
+   "registration": [
+    {
+     "moving": "d19840826",
+     "reference": "d20240105",
+     "shift_px_x": -4.98,
+     "shift_px_y": -17.12,
+     "peak_over_noise": 11.3,
+     "tiles_3x3_dx_dy_snr": [
+      [
+       -0.05,
+       -6.36,
+       12.5
+      ],
+      [
+       -39.86,
+       -37.01,
+       7.8
+      ],
+      null,
+      [
+       -44.06,
+       52.0,
+       8.4
+      ],
+      [
+       -79.97,
+       36.03,
+       8.8
+      ],
+      [
+       -7.02,
+       -0.93,
+       14.9
+      ],
+      [
+       -0.21,
+       0.03,
+       13.6
+      ],
+      null,
+      [
+       0.11,
+       -4.01,
+       13.5
+      ]
+     ]
+    },
+    {
+     "moving": "d20000111",
+     "reference": "d20240105",
+     "shift_px_x": 0.01,
+     "shift_px_y": 0.01,
+     "peak_over_noise": 44.5,
+     "tiles_3x3_dx_dy_snr": [
+      [
+       -0.0,
+       -4.11,
+       29.4
+      ],
+      [
+       17.18,
+       -35.09,
+       11.2
+      ],
+      null,
+      [
+       -16.04,
+       35.95,
+       8.4
+      ],
+      [
+       -158.0,
+       -67.99,
+       8.3
+      ],
+      [
+       0.03,
+       0.0,
+       63.8
+      ],
+      [
+       -0.16,
+       0.51,
+       12.6
+      ],
+      null,
+      [
+       -0.04,
+       -0.33,
+       20.1
+      ]
+     ]
+    },
+    {
+     "moving": "d20100122",
+     "reference": "d20240105",
+     "shift_px_x": -0.01,
+     "shift_px_y": -0.01,
+     "peak_over_noise": 138.5,
+     "tiles_3x3_dx_dy_snr": [
+      [
+       1.04,
+       -3.66,
+       30.2
+      ],
+      [
+       -0.96,
+       -28.04,
+       23.5
+      ],
+      null,
+      [
+       0.09,
+       -0.1,
+       23.2
+      ],
+      [
+       -0.06,
+       0.02,
+       68.6
+      ],
+      [
+       0.01,
+       0.04,
+       71.7
+      ],
+      [
+       -0.05,
+       -0.15,
+       11.5
+      ],
+      null,
+      [
+       0.02,
+       -0.12,
+       38.2
+      ]
+     ]
+    },
+    {
+     "moving": "d20160107",
+     "reference": "d20240105",
+     "shift_px_x": -0.08,
+     "shift_px_y": -0.03,
+     "peak_over_noise": 232.2,
+     "tiles_3x3_dx_dy_snr": [
+      [
+       0.09,
+       -1.78,
+       49.6
+      ],
+      [
+       -0.25,
+       -0.02,
+       59.4
+      ],
+      null,
+      [
+       -0.31,
+       0.05,
+       32.9
+      ],
+      [
+       -0.12,
+       -0.03,
+       98.3
+      ],
+      [
+       -0.04,
+       -0.05,
+       82.6
+      ],
+      [
+       0.22,
+       -0.14,
+       25.5
+      ],
+      null,
+      [
+       0.04,
+       -0.06,
+       53.8
+      ]
+     ]
+    },
+    {
+     "moving": "d19840826",
+     "reference": "d20000111",
+     "shift_px_x": -0.03,
+     "shift_px_y": -0.04,
+     "peak_over_noise": 97.2,
+     "tiles_3x3_dx_dy_snr": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "moving": "d20000111",
+     "reference": "d20100122",
+     "shift_px_x": -0.01,
+     "shift_px_y": -0.02,
+     "peak_over_noise": 76.8,
+     "tiles_3x3_dx_dy_snr": [
+      null,
+      null,
+      null,
+      [
+       -51.97,
+       -0.09,
+       7.6
+      ],
+      [
+       1.98,
+       -0.04,
+       11.6
+      ],
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "moving": "d20100122",
+     "reference": "d20160107",
+     "shift_px_x": 0.01,
+     "shift_px_y": 0.01,
+     "peak_over_noise": 207.3,
+     "tiles_3x3_dx_dy_snr": [
+      [
+       0.15,
+       -1.37,
+       41.7
+      ],
+      [
+       -0.0,
+       0.0,
+       49.8
+      ],
+      null,
+      [
+       0.02,
+       -0.06,
+       36.4
+      ],
+      [
+       0.01,
+       -0.02,
+       85.1
+      ],
+      [
+       0.01,
+       -0.01,
+       110.6
+      ],
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  },
+  "toshkaW": {
+   "grid": {
+    "epsg": 32636,
+    "x0": 223110.0,
+    "y_top": 2607030.0,
+    "pixel_m": 30.0,
+    "width": 2085,
+    "height": 2251,
+    "aoi": [
+     30.3,
+     22.95,
+     30.9,
+     23.55
+    ]
+   },
+   "scenes": [
+    {
+     "id": "d19990101",
+     "label": "1999-01-01 Landsat 5",
+     "epsg": 32636,
+     "pixel_m": [
+      30.0,
+      30.0
+     ],
+     "pixel_is_area": true,
+     "origin": [
+      86085.0,
+      2659215.0
+     ],
+     "size": [
+      7901,
+      7171
+     ],
+     "subpixel_phase_vs_stack_grid": [
+      0.5,
+      0.5
+     ],
+     "valid_fraction_scene": 0.707,
+     "valid_bbox_px": [
+      31,
+      0,
+      7840,
+      7167
+     ],
+     "valid_fraction_in_AOI_window": 1.0,
+     "stack_frame_nodata_fraction": 0.0,
+     "mean_rgb_valid": [
+      145.0,
+      129.4,
+      121.8
+     ],
+     "std_gray_valid": 5.7
+    },
+    {
+     "id": "d20020109",
+     "label": "2002-01-09 Landsat 5",
+     "epsg": 32636,
+     "pixel_m": [
+      30.0,
+      30.0
+     ],
+     "pixel_is_area": true,
+     "origin": [
+      83385.0,
+      2667615.0
+     ],
+     "size": [
+      7901,
+      7181
+     ],
+     "subpixel_phase_vs_stack_grid": [
+      0.5,
+      0.5
+     ],
+     "valid_fraction_scene": 0.707,
+     "valid_bbox_px": [
+      31,
+      0,
+      7856,
+      7167
+     ],
+     "valid_fraction_in_AOI_window": 1.0,
+     "stack_frame_nodata_fraction": 0.0,
+     "mean_rgb_valid": [
+      113.2,
+      106.1,
+      102.1
+     ],
+     "std_gray_valid": 42.4
+    },
+    {
+     "id": "d20110729",
+     "label": "2011-07-29 Landsat 5",
+     "epsg": 32636,
+     "pixel_m": [
+      30.0,
+      30.0
+     ],
+     "pixel_is_area": true,
+     "origin": [
+      85485.0,
+      2665515.0
+     ],
+     "size": [
+      8021,
+      7111
+     ],
+     "subpixel_phase_vs_stack_grid": [
+      0.5,
+      0.5
+     ],
+     "valid_fraction_scene": 0.718,
+     "valid_bbox_px": [
+      0,
+      0,
+      8020,
+      7104
+     ],
+     "valid_fraction_in_AOI_window": 1.0,
+     "stack_frame_nodata_fraction": 0.0,
+     "mean_rgb_valid": [
+      162.8,
+      149.7,
+      143.0
+     ],
+     "std_gray_valid": 23.8
+    },
+    {
+     "id": "d20211113",
+     "label": "2021-11-13 Landsat 8",
+     "epsg": 32636,
+     "pixel_m": [
+      30.0,
+      30.0
+     ],
+     "pixel_is_area": true,
+     "origin": [
+      92085.0,
+      2676615.0
+     ],
+     "size": [
+      7721,
+      7871
+     ],
+     "subpixel_phase_vs_stack_grid": [
+      0.5,
+      0.5
+     ],
+     "valid_fraction_scene": 0.687,
+     "valid_bbox_px": [
+      0,
+      0,
+      7712,
+      7870
+     ],
+     "valid_fraction_in_AOI_window": 1.0,
+     "stack_frame_nodata_fraction": 0.0,
+     "mean_rgb_valid": [
+      123.3,
+      115.2,
+      109.2
+     ],
+     "std_gray_valid": 47.0
+    }
+   ],
+   "registration": [
+    {
+     "moving": "d19990101",
+     "reference": "d20211113",
+     "shift_px_x": 0.05,
+     "shift_px_y": 0.03,
+     "peak_over_noise": 65.0,
+     "tiles_3x3_dx_dy_snr": [
+      [
+       1.02,
+       1.21,
+       14.7
+      ],
+      null,
+      [
+       0.02,
+       0.02,
+       51.9
+      ],
+      [
+       0.01,
+       0.02,
+       49.8
+      ],
+      [
+       0.06,
+       -0.03,
+       22.9
+      ],
+      [
+       -0.09,
+       -0.06,
+       103.0
+      ],
+      [
+       0.02,
+       0.02,
+       129.0
+      ],
+      [
+       -0.06,
+       -0.02,
+       153.9
+      ],
+      [
+       -0.02,
+       0.02,
+       122.6
+      ]
+     ]
+    },
+    {
+     "moving": "d20020109",
+     "reference": "d20211113",
+     "shift_px_x": 0.01,
+     "shift_px_y": 0.08,
+     "peak_over_noise": 41.1,
+     "tiles_3x3_dx_dy_snr": [
+      [
+       0.14,
+       0.65,
+       22.4
+      ],
+      null,
+      [
+       -0.22,
+       0.16,
+       93.9
+      ],
+      [
+       0.03,
+       0.05,
+       35.1
+      ],
+      [
+       -0.1,
+       -0.03,
+       29.0
+      ],
+      [
+       -0.18,
+       0.02,
+       73.8
+      ],
+      [
+       0.09,
+       0.09,
+       114.1
+      ],
+      [
+       -0.04,
+       0.02,
+       149.7
+      ],
+      [
+       0.01,
+       0.04,
+       98.3
+      ]
+     ]
+    },
+    {
+     "moving": "d20110729",
+     "reference": "d20211113",
+     "shift_px_x": 239.92,
+     "shift_px_y": 91.11,
+     "peak_over_noise": 9.9,
+     "tiles_3x3_dx_dy_snr": [
+      [
+       -8.89,
+       49.98,
+       7.2
+      ],
+      null,
+      [
+       -47.89,
+       37.02,
+       12.5
+      ],
+      [
+       0.01,
+       -0.22,
+       19.9
+      ],
+      [
+       -35.19,
+       -121.02,
+       8.1
+      ],
+      [
+       0.07,
+       0.03,
+       42.3
+      ],
+      [
+       0.03,
+       -0.34,
+       64.2
+      ],
+      [
+       0.03,
+       0.04,
+       54.1
+      ],
+      [
+       -0.05,
+       -0.12,
+       37.4
+      ]
+     ]
+    },
+    {
+     "moving": "d19990101",
+     "reference": "d20020109",
+     "shift_px_x": -0.01,
+     "shift_px_y": -0.05,
+     "peak_over_noise": 180.2,
+     "tiles_3x3_dx_dy_snr": [
+      [
+       0.12,
+       -0.01,
+       22.6
+      ],
+      [
+       -0.04,
+       -0.0,
+       34.8
+      ],
+      [
+       0.04,
+       0.0,
+       124.6
+      ],
+      [
+       -0.19,
+       -0.16,
+       127.8
+      ],
+      [
+       0.12,
+       -0.0,
+       45.2
+      ],
+      [
+       -0.04,
+       -0.03,
+       173.2
+      ],
+      [
+       -0.03,
+       -0.03,
+       177.0
+      ],
+      [
+       -0.03,
+       -0.04,
+       236.7
+      ],
+      [
+       -0.02,
+       -0.01,
+       238.3
+      ]
+     ]
+    },
+    {
+     "moving": "d20020109",
+     "reference": "d20110729",
+     "shift_px_x": -0.15,
+     "shift_px_y": 0.01,
+     "peak_over_noise": 73.6,
+     "tiles_3x3_dx_dy_snr": [
+      [
+       -0.03,
+       0.79,
+       14.1
+      ],
+      [
+       39.08,
+       -1.92,
+       14.2
+      ],
+      [
+       0.31,
+       0.12,
+       22.5
+      ],
+      null,
+      [
+       -0.19,
+       0.01,
+       30.3
+      ],
+      [
+       -0.06,
+       0.02,
+       74.2
+      ],
+      [
+       0.09,
+       0.45,
+       63.4
+      ],
+      [
+       -0.04,
+       -0.01,
+       61.8
+      ],
+      [
+       0.04,
+       0.08,
+       57.1
+      ]
+     ]
+    }
+   ]
+  },
+  "toshkaE": {
+   "grid": {
+    "epsg": 32636,
+    "x0": 279210.0,
+    "y_top": 2606070.0,
+    "pixel_m": 30.0,
+    "width": 2597,
+    "height": 2985,
+    "aoi": [
+     30.85,
+     22.75,
+     31.6,
+     23.55
+    ]
+   },
+   "scenes": [
+    {
+     "id": "d19990110",
+     "label": "1999-01-10 Landsat 5",
+     "epsg": 32636,
+     "pixel_m": [
+      30.0,
+      30.0
+     ],
+     "pixel_is_area": true,
+     "origin": [
+      248385.0,
+      2662215.0
+     ],
+     "size": [
+      7831,
+      7111
+     ],
+     "subpixel_phase_vs_stack_grid": [
+      0.5,
+      0.5
+     ],
+     "valid_fraction_scene": 0.717,
+     "valid_bbox_px": [
+      31,
+      0,
+      7776,
+      7104
+     ],
+     "valid_fraction_in_AOI_window": 1.0,
+     "stack_frame_nodata_fraction": 0.0,
+     "mean_rgb_valid": [
+      132.0,
+      118.8,
+      112.9
+     ],
+     "std_gray_valid": 26.2
+    },
+    {
+     "id": "d20020118",
+     "label": "2002-01-18 Landsat 5",
+     "epsg": 32636,
+     "pixel_m": [
+      30.0,
+      30.0
+     ],
+     "pixel_is_area": true,
+     "origin": [
+      239985.0,
+      2662815.0
+     ],
+     "size": [
+      7841,
+      7131
+     ],
+     "subpixel_phase_vs_stack_grid": [
+      0.5,
+      0.5
+     ],
+     "valid_fraction_scene": 0.717,
+     "valid_bbox_px": [
+      31,
+      0,
+      7792,
+      7120
+     ],
+     "valid_fraction_in_AOI_window": 1.0,
+     "stack_frame_nodata_fraction": 0.0,
+     "mean_rgb_valid": [
+      129.8,
+      118.3,
+      111.6
+     ],
+     "std_gray_valid": 29.7
+    },
+    {
+     "id": "d20111010",
+     "label": "2011-10-10 Landsat 5",
+     "epsg": 32636,
+     "pixel_m": [
+      30.0,
+      30.0
+     ],
+     "pixel_is_area": true,
+     "origin": [
+      247185.0,
+      2661315.0
+     ],
+     "size": [
+      7991,
+      7051
+     ],
+     "subpixel_phase_vs_stack_grid": [
+      0.5,
+      0.5
+     ],
+     "valid_fraction_scene": 0.728,
+     "valid_bbox_px": [
+      0,
+      15,
+      7990,
+      7040
+     ],
+     "valid_fraction_in_AOI_window": 1.0,
+     "stack_frame_nodata_fraction": 0.0,
+     "mean_rgb_valid": [
+      159.0,
+      143.7,
+      135.8
+     ],
+     "std_gray_valid": 15.1
+    },
+    {
+     "id": "d20211106",
+     "label": "2021-11-06 Landsat 8",
+     "epsg": 32636,
+     "pixel_m": [
+      30.0,
+      30.0
+     ],
+     "pixel_is_area": true,
+     "origin": [
+      250185.0,
+      2673315.0
+     ],
+     "size": [
+      7661,
+      7811
+     ],
+     "subpixel_phase_vs_stack_grid": [
+      0.5,
+      0.5
+     ],
+     "valid_fraction_scene": 0.696,
+     "valid_bbox_px": [
+      0,
+      0,
+      7660,
+      7808
+     ],
+     "valid_fraction_in_AOI_window": 1.0,
+     "stack_frame_nodata_fraction": 0.0,
+     "mean_rgb_valid": [
+      138.4,
+      127.3,
+      117.8
+     ],
+     "std_gray_valid": 40.1
+    }
+   ],
+   "registration": [
+    {
+     "moving": "d19990110",
+     "reference": "d20211106",
+     "shift_px_x": 0.02,
+     "shift_px_y": 0.07,
+     "peak_over_noise": 789.9,
+     "tiles_3x3_dx_dy_snr": [
+      [
+       -0.07,
+       0.01,
+       125.4
+      ],
+      [
+       -0.05,
+       0.0,
+       240.6
+      ],
+      [
+       -0.03,
+       0.02,
+       264.3
+      ],
+      [
+       0.0,
+       -0.0,
+       34.8
+      ],
+      [
+       0.02,
+       0.08,
+       403.7
+      ],
+      [
+       -0.14,
+       0.06,
+       114.8
+      ],
+      [
+       -0.01,
+       0.03,
+       36.8
+      ],
+      [
+       0.12,
+       0.2,
+       18.6
+      ],
+      [
+       0.06,
+       0.03,
+       52.5
+      ]
+     ]
+    },
+    {
+     "moving": "d20020118",
+     "reference": "d20211106",
+     "shift_px_x": 0.05,
+     "shift_px_y": 0.14,
+     "peak_over_noise": 299.5,
+     "tiles_3x3_dx_dy_snr": [
+      [
+       -0.02,
+       0.01,
+       129.7
+      ],
+      [
+       -0.03,
+       0.02,
+       243.5
+      ],
+      [
+       -0.03,
+       0.04,
+       262.2
+      ],
+      [
+       0.1,
+       0.14,
+       20.1
+      ],
+      [
+       0.03,
+       0.24,
+       197.2
+      ],
+      [
+       0.1,
+       0.15,
+       37.9
+      ],
+      [
+       -0.03,
+       0.04,
+       43.8
+      ],
+      [
+       0.17,
+       0.25,
+       19.2
+      ],
+      [
+       0.12,
+       0.1,
+       50.8
+      ]
+     ]
+    },
+    {
+     "moving": "d20111010",
+     "reference": "d20211106",
+     "shift_px_x": 0.03,
+     "shift_px_y": 0.08,
+     "peak_over_noise": 164.7,
+     "tiles_3x3_dx_dy_snr": [
+      [
+       0.02,
+       0.04,
+       107.0
+      ],
+      [
+       -0.02,
+       0.06,
+       208.7
+      ],
+      [
+       -0.03,
+       0.05,
+       248.3
+      ],
+      [
+       0.06,
+       0.08,
+       16.0
+      ],
+      [
+       0.07,
+       0.18,
+       43.5
+      ],
+      [
+       -0.01,
+       -0.03,
+       96.1
+      ],
+      [
+       -0.11,
+       0.05,
+       41.2
+      ],
+      [
+       -0.25,
+       0.53,
+       23.2
+      ],
+      [
+       -0.02,
+       -0.09,
+       199.1
+      ]
+     ]
+    },
+    {
+     "moving": "d19990110",
+     "reference": "d20020118",
+     "shift_px_x": -0.01,
+     "shift_px_y": -0.04,
+     "peak_over_noise": 587.3,
+     "tiles_3x3_dx_dy_snr": [
+      [
+       -0.02,
+       -0.02,
+       234.8
+      ],
+      [
+       -0.02,
+       -0.03,
+       362.5
+      ],
+      [
+       -0.01,
+       -0.02,
+       417.3
+      ],
+      [
+       0.0,
+       0.01,
+       102.0
+      ],
+      [
+       -0.02,
+       -0.09,
+       293.0
+      ],
+      [
+       -0.0,
+       -0.02,
+       109.3
+      ],
+      [
+       -0.02,
+       -0.0,
+       260.9
+      ],
+      [
+       0.01,
+       -0.03,
+       140.0
+      ],
+      [
+       0.01,
+       -0.0,
+       137.5
+      ]
+     ]
+    },
+    {
+     "moving": "d20020118",
+     "reference": "d20111010",
+     "shift_px_x": 0.01,
+     "shift_px_y": 0.01,
+     "peak_over_noise": 272.5,
+     "tiles_3x3_dx_dy_snr": [
+      [
+       -0.02,
+       -0.05,
+       129.0
+      ],
+      [
+       -0.02,
+       -0.05,
+       238.1
+      ],
+      [
+       0.0,
+       -0.01,
+       293.5
+      ],
+      [
+       -0.02,
+       -0.01,
+       62.2
+      ],
+      [
+       -0.01,
+       -0.02,
+       75.3
+      ],
+      [
+       0.11,
+       0.12,
+       64.7
+      ],
+      [
+       0.03,
+       0.0,
+       190.3
+      ],
+      [
+       0.04,
+       0.1,
+       91.3
+      ],
+      [
+       0.09,
+       0.09,
+       94.6
+      ]
+     ]
+    }
+   ]
+  }
+ }
+}

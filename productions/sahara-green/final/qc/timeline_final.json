@@ -1,0 +1,2789 @@
+{
+ "version": 3,
+ "profile": "long",
+ "grid": "grid.json",
+ "assets": {
+  "tassili": {
+   "src": "tassili_toneB.png",
+   "kind": "external_still",
+   "credit": "Landsat 9 · USGS",
+   "label": "Tassili n'Ajjer",
+   "source_url": "https://earthexplorer.usgs.gov/",
+   "license": "USGS Landsat: public domain, credit requested",
+   "retrieved": "2026-10-08",
+   "image_date": "2025-12-20",
+   "derived_from": "LC09_L1TP_190042_20251220_20251220_02_T1"
+  },
+  "bodele": {
+   "src": "bodele_toneB.png",
+   "kind": "external_still",
+   "credit": "Landsat 9 · USGS",
+   "label": "Bodélé",
+   "source_url": "https://earthexplorer.usgs.gov/",
+   "license": "USGS Landsat: public domain, credit requested",
+   "retrieved": "2026-10-08",
+   "image_date": "2026-07-31",
+   "derived_from": "LC09_L1TP_183048_20260731_20260731_02_T1"
+  },
+  "ounianga": {
+   "src": "ounianga_toneB.png",
+   "kind": "external_still",
+   "credit": "Landsat 9 · USGS",
+   "label": "Ounianga",
+   "source_url": "https://earthexplorer.usgs.gov/",
+   "license": "USGS Landsat: public domain, credit requested",
+   "retrieved": "2026-10-08",
+   "image_date": "2026-06-22",
+   "derived_from": "LC09_L1TP_182047_20260622_20260622_02_T1"
+  },
+  "gilf": {
+   "src": "gilf_toneB.png",
+   "kind": "external_still",
+   "credit": "Landsat 9 · USGS",
+   "label": "Gilf Kebir",
+   "source_url": "https://earthexplorer.usgs.gov/",
+   "license": "USGS Landsat: public domain, credit requested",
+   "retrieved": "2026-10-08",
+   "image_date": "2025-11-21",
+   "derived_from": "LC09_L1TP_179044_20251121_20251121_02_T1"
+  },
+  "kufra": {
+   "src": "kufra_toneB.png",
+   "kind": "external_still",
+   "credit": "Landsat 9 · USGS",
+   "label": "Kufra",
+   "source_url": "https://earthexplorer.usgs.gov/",
+   "license": "USGS Landsat: public domain, credit requested",
+   "retrieved": "2026-10-08",
+   "image_date": "2026-09-19",
+   "derived_from": "LC09_L1TP_181043_20260919_20260919_02_T1"
+  },
+  "bluemarble": {
+   "src": "africa.0700.jpg",
+   "kind": "external_still",
+   "credit": "NASA Earth Observatory · Blue Marble",
+   "label": "Blue Marble: Africa",
+   "source_url": "https://svs.gsfc.nasa.gov/3539",
+   "license": "NASA media usage guidelines: public domain unless noted; credit NASA",
+   "retrieved": "2026-10-08",
+   "image_date": "2004 (monthly composites)",
+   "derived_from": "SVS 3539 africa.0700.jpg"
+  },
+  "seq_eo": {
+   "src": "seq_eo.mp4",
+   "kind": "video",
+   "credit": "Landsat 5, 7, 8, 9 · USGS (East Oweinat sequence)"
+  },
+  "seq_toshka": {
+   "src": "seq_toshka.mp4",
+   "kind": "video",
+   "credit": "Landsat 5, 7, 8 · USGS (Toshka sequence)"
+  },
+  "seq_s6": {
+   "src": "seq_s6.mp4",
+   "kind": "video",
+   "credit": "Landsat 5, 9 · USGS (East Oweinat)"
+  },
+  "seq_s22": {
+   "src": "seq_s22.mp4",
+   "kind": "video",
+   "credit": "Landsat 9 · USGS (East Oweinat)"
+  },
+  "seq_s35": {
+   "src": "seq_s35.mp4",
+   "kind": "video",
+   "credit": "Landsat 5, 9 · USGS (East Oweinat)"
+  },
+  "calipso": {
+   "src": "calipso_dust_30fps.mp4",
+   "kind": "video",
+   "credit": "NASA Goddard SVS · CALIPSO dust (Dust in the Wind)"
+  },
+  "r02-230_1": {
+   "src": "r02-230.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r02-230"
+  },
+  "r02-230_2": {
+   "src": "r02-230.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r02-230"
+  },
+  "r02-230_3": {
+   "src": "r02-230.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r02-230"
+  },
+  "r05-rain_1": {
+   "src": "r05-rain.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r05-rain"
+  },
+  "r05-rain_2": {
+   "src": "r05-rain.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r05-rain"
+  },
+  "r05-rain_3": {
+   "src": "r05-rain.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r05-rain"
+  },
+  "g07-timeline_1": {
+   "src": "g07-timeline.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g07-timeline"
+  },
+  "g07-timeline_2": {
+   "src": "g07-timeline.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g07-timeline"
+  },
+  "g07-timeline_3": {
+   "src": "g07-timeline.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g07-timeline"
+  },
+  "g07-timeline_4": {
+   "src": "g07-timeline.step4.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g07-timeline"
+  },
+  "g07-timeline_5": {
+   "src": "g07-timeline.step5.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g07-timeline"
+  },
+  "g07-timeline_6": {
+   "src": "g07-timeline.step6.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g07-timeline"
+  },
+  "g07-timeline_7": {
+   "src": "g07-timeline.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g07-timeline"
+  },
+  "g09-burials_1": {
+   "src": "g09-burials.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g09-burials"
+  },
+  "g09-burials_2": {
+   "src": "g09-burials.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g09-burials"
+  },
+  "g09-burials_3": {
+   "src": "g09-burials.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g09-burials"
+  },
+  "g09-burials_4": {
+   "src": "g09-burials.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g09-burials"
+  },
+  "g10-rain_1": {
+   "src": "g10-rain.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g10-rain"
+  },
+  "g10-rain_2": {
+   "src": "g10-rain.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g10-rain"
+  },
+  "g10-rain_3": {
+   "src": "g10-rain.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g10-rain"
+  },
+  "g12-orbit_1": {
+   "src": "g12-orbit.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g12-orbit"
+  },
+  "g12-orbit_2": {
+   "src": "g12-orbit.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g12-orbit"
+  },
+  "g12-orbit_3": {
+   "src": "g12-orbit.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g12-orbit"
+  },
+  "g12-orbit_4": {
+   "src": "g12-orbit.step4.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g12-orbit"
+  },
+  "g12-orbit_5": {
+   "src": "g12-orbit.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g12-orbit"
+  },
+  "g13-models_1": {
+   "src": "g13-models.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g13-models"
+  },
+  "g13-models_2": {
+   "src": "g13-models.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g13-models"
+  },
+  "g13-models_3": {
+   "src": "g13-models.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g13-models"
+  },
+  "g13-models_4": {
+   "src": "g13-models.step4.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g13-models"
+  },
+  "g13-models_5": {
+   "src": "g13-models.step5.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g13-models"
+  },
+  "g13-models_6": {
+   "src": "g13-models.step6.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g13-models"
+  },
+  "g13-models_7": {
+   "src": "g13-models.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g13-models"
+  },
+  "g14-sapropel_1": {
+   "src": "g14-sapropel.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g14-sapropel"
+  },
+  "g14-sapropel_2": {
+   "src": "g14-sapropel.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g14-sapropel"
+  },
+  "g14-sapropel_3": {
+   "src": "g14-sapropel.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g14-sapropel"
+  },
+  "g14-sapropel_4": {
+   "src": "g14-sapropel.step4.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g14-sapropel"
+  },
+  "g14-sapropel_5": {
+   "src": "g14-sapropel.step5.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g14-sapropel"
+  },
+  "g14-sapropel_6": {
+   "src": "g14-sapropel.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g14-sapropel"
+  },
+  "g16-cell_1": {
+   "src": "g16-cell.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g16-cell"
+  },
+  "g16-cell_2": {
+   "src": "g16-cell.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g16-cell"
+  },
+  "g16-cell_3": {
+   "src": "g16-cell.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g16-cell"
+  },
+  "g16-cell_4": {
+   "src": "g16-cell.step4.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g16-cell"
+  },
+  "g16-cell_5": {
+   "src": "g16-cell.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g16-cell"
+  },
+  "g19-aquifer_1": {
+   "src": "g19-aquifer.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g19-aquifer"
+  },
+  "g19-aquifer_2": {
+   "src": "g19-aquifer.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g19-aquifer"
+  },
+  "g19-aquifer_3": {
+   "src": "g19-aquifer.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g19-aquifer"
+  },
+  "g19-aquifer_4": {
+   "src": "g19-aquifer.step4.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g19-aquifer"
+  },
+  "g19-aquifer_5": {
+   "src": "g19-aquifer.step5.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g19-aquifer"
+  },
+  "g19-aquifer_6": {
+   "src": "g19-aquifer.step6.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g19-aquifer"
+  },
+  "g19-aquifer_7": {
+   "src": "g19-aquifer.step7.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g19-aquifer"
+  },
+  "g19-aquifer_8": {
+   "src": "g19-aquifer.step8.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g19-aquifer"
+  },
+  "g19-aquifer_9": {
+   "src": "g19-aquifer.step9.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g19-aquifer"
+  },
+  "g19-aquifer_10": {
+   "src": "g19-aquifer.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g19-aquifer"
+  },
+  "r23a-sites_1": {
+   "src": "r23a-sites.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23a-sites"
+  },
+  "r23a-sites_2": {
+   "src": "r23a-sites.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23a-sites"
+  },
+  "r23a-sites_3": {
+   "src": "r23a-sites.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23a-sites"
+  },
+  "r23a-sites_4": {
+   "src": "r23a-sites.step4.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23a-sites"
+  },
+  "r23a-sites_5": {
+   "src": "r23a-sites.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23a-sites"
+  },
+  "r23b-mechanism_1": {
+   "src": "r23b-mechanism.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23b-mechanism"
+  },
+  "r23b-mechanism_2": {
+   "src": "r23b-mechanism.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23b-mechanism"
+  },
+  "r23b-mechanism_3": {
+   "src": "r23b-mechanism.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23b-mechanism"
+  },
+  "r23b-mechanism_4": {
+   "src": "r23b-mechanism.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23b-mechanism"
+  },
+  "r23c-carbon_1": {
+   "src": "r23c-carbon.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23c-carbon"
+  },
+  "r23c-carbon_2": {
+   "src": "r23c-carbon.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23c-carbon"
+  },
+  "r23c-carbon_3": {
+   "src": "r23c-carbon.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23c-carbon"
+  },
+  "r23c-carbon_4": {
+   "src": "r23c-carbon.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23c-carbon"
+  },
+  "r23d-estimate_1": {
+   "src": "r23d-estimate.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23d-estimate"
+  },
+  "r23d-estimate_2": {
+   "src": "r23d-estimate.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23d-estimate"
+  },
+  "r23d-estimate_3": {
+   "src": "r23d-estimate.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23d-estimate"
+  },
+  "r23d-estimate_4": {
+   "src": "r23d-estimate.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23d-estimate"
+  },
+  "r23e-century_1": {
+   "src": "r23e-century.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23e-century"
+  },
+  "r23e-century_2": {
+   "src": "r23e-century.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23e-century"
+  },
+  "r23e-century_3": {
+   "src": "r23e-century.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "r23e-century"
+  },
+  "g24-trillion_1": {
+   "src": "g24-trillion.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g24-trillion"
+  },
+  "g24b-1000_1": {
+   "src": "g24b-1000.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g24b-1000"
+  },
+  "g24b-1000_2": {
+   "src": "g24b-1000.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g24b-1000"
+  },
+  "g24b-1000_3": {
+   "src": "g24b-1000.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g24b-1000"
+  },
+  "g24b-1000_4": {
+   "src": "g24b-1000.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g24b-1000"
+  },
+  "g24b-267_1": {
+   "src": "g24b-267.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g24b-267"
+  },
+  "g24b-267_2": {
+   "src": "g24b-267.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g24b-267"
+  },
+  "g24b-267_3": {
+   "src": "g24b-267.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g24b-267"
+  },
+  "g24b-267_4": {
+   "src": "g24b-267.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g24b-267"
+  },
+  "g24b-diff_1": {
+   "src": "g24b-diff.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g24b-diff"
+  },
+  "g24b-diff_2": {
+   "src": "g24b-diff.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g24b-diff"
+  },
+  "g24b-diff_3": {
+   "src": "g24b-diff.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g24b-diff"
+  },
+  "g25-budget_1": {
+   "src": "g25-budget.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g25-budget"
+  },
+  "g25-budget_2": {
+   "src": "g25-budget.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g25-budget"
+  },
+  "g25-budget_3": {
+   "src": "g25-budget.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g25-budget"
+  },
+  "g25-budget_4": {
+   "src": "g25-budget.step4.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g25-budget"
+  },
+  "g25-budget_5": {
+   "src": "g25-budget.step5.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g25-budget"
+  },
+  "g25-budget_6": {
+   "src": "g25-budget.step6.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g25-budget"
+  },
+  "g25-budget_7": {
+   "src": "g25-budget.step7.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g25-budget"
+  },
+  "g25-budget_8": {
+   "src": "g25-budget.step8.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g25-budget"
+  },
+  "g25-budget_9": {
+   "src": "g25-budget.step9.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g25-budget"
+  },
+  "g25-budget_10": {
+   "src": "g25-budget.step10.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g25-budget"
+  },
+  "g25-budget_11": {
+   "src": "g25-budget.step11.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g25-budget"
+  },
+  "g25-budget_12": {
+   "src": "g25-budget.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g25-budget"
+  },
+  "g31-hypothesis_1": {
+   "src": "g31-hypothesis.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g31-hypothesis"
+  },
+  "g31-hypothesis_2": {
+   "src": "g31-hypothesis.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g31-hypothesis"
+  },
+  "g31-hypothesis_3": {
+   "src": "g31-hypothesis.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g31-hypothesis"
+  },
+  "g32-storms_1": {
+   "src": "g32-storms.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g32-storms"
+  },
+  "g32-storms_2": {
+   "src": "g32-storms.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g32-storms"
+  },
+  "g32-storms_3": {
+   "src": "g32-storms.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g32-storms"
+  },
+  "g32-storms_4": {
+   "src": "g32-storms.step4.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g32-storms"
+  },
+  "g32-storms_5": {
+   "src": "g32-storms.step5.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g32-storms"
+  },
+  "g32-storms_6": {
+   "src": "g32-storms.step6.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g32-storms"
+  },
+  "g32-storms_7": {
+   "src": "g32-storms.step7.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g32-storms"
+  },
+  "g32-storms_8": {
+   "src": "g32-storms.step8.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g32-storms"
+  },
+  "g32-storms_9": {
+   "src": "g32-storms.step9.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g32-storms"
+  },
+  "g32-storms_10": {
+   "src": "g32-storms.step10.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g32-storms"
+  },
+  "g32-storms_11": {
+   "src": "g32-storms.step11.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g32-storms"
+  },
+  "g32-storms_12": {
+   "src": "g32-storms.step12.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g32-storms"
+  },
+  "g32-storms_13": {
+   "src": "g32-storms.step13.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g32-storms"
+  },
+  "g32-storms_14": {
+   "src": "g32-storms.step14.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g32-storms"
+  },
+  "g32-storms_15": {
+   "src": "g32-storms.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g32-storms"
+  },
+  "g33-sahel_1": {
+   "src": "g33-sahel.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g33-sahel"
+  },
+  "g33-sahel_2": {
+   "src": "g33-sahel.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g33-sahel"
+  },
+  "g33-sahel_3": {
+   "src": "g33-sahel.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g33-sahel"
+  },
+  "g33-sahel_4": {
+   "src": "g33-sahel.step4.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g33-sahel"
+  },
+  "g33-sahel_5": {
+   "src": "g33-sahel.step5.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g33-sahel"
+  },
+  "g33-sahel_6": {
+   "src": "g33-sahel.step6.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g33-sahel"
+  },
+  "g33-sahel_7": {
+   "src": "g33-sahel.step7.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g33-sahel"
+  },
+  "g33-sahel_8": {
+   "src": "g33-sahel.step8.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g33-sahel"
+  },
+  "g33-sahel_9": {
+   "src": "g33-sahel.step9.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g33-sahel"
+  },
+  "g33-sahel_10": {
+   "src": "g33-sahel.step10.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g33-sahel"
+  },
+  "g33-sahel_11": {
+   "src": "g33-sahel.step11.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g33-sahel"
+  },
+  "g33-sahel_12": {
+   "src": "g33-sahel.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g33-sahel"
+  },
+  "g34-gww_1": {
+   "src": "g34-gww.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g34-gww"
+  },
+  "g34-gww_2": {
+   "src": "g34-gww.step2.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g34-gww"
+  },
+  "g34-gww_3": {
+   "src": "g34-gww.step3.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g34-gww"
+  },
+  "g34-gww_4": {
+   "src": "g34-gww.step4.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g34-gww"
+  },
+  "g34-gww_5": {
+   "src": "g34-gww.step5.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g34-gww"
+  },
+  "g34-gww_6": {
+   "src": "g34-gww.step6.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g34-gww"
+  },
+  "g34-gww_7": {
+   "src": "g34-gww.step7.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g34-gww"
+  },
+  "g34-gww_8": {
+   "src": "g34-gww.step8.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g34-gww"
+  },
+  "g34-gww_9": {
+   "src": "g34-gww.step9.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g34-gww"
+  },
+  "g34-gww_10": {
+   "src": "g34-gww.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g34-gww"
+  },
+  "g36-uncertain_1": {
+   "src": "g36-uncertain.step1.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g36-uncertain"
+  },
+  "g36-uncertain_2": {
+   "src": "g36-uncertain.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "g36-uncertain"
+  }
+ },
+ "shots": [
+  {
+   "id": "s01",
+   "beat": "scene 1 (hook: the planet)",
+   "start": 0.0,
+   "layers": [
+    {
+     "type": "still",
+     "asset": "bluemarble",
+     "view": {
+      "from": {
+       "center": [
+        0.5,
+        0.5
+       ],
+       "width": 0.99
+      },
+      "to": {
+       "center": [
+        0.42,
+        0.56
+       ],
+       "width": 0.74
+      },
+      "ease": "in_out"
+     }
+    }
+   ]
+  },
+  {
+   "id": "s02",
+   "beat": "scene 2",
+   "start": 2.066666666666667,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "r02-230_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "r02-230_2",
+     "t": [
+      192.7333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r02-230_3",
+     "t": [
+      2.5333,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s03",
+   "beat": "scene 3",
+   "start": 8.233333333333333,
+   "layers": [
+    {
+     "type": "still",
+     "asset": "bodele",
+     "view": {
+      "from": {
+       "center": [
+        0.3,
+        0.28
+       ],
+       "width": 0.55
+      },
+      "to": {
+       "center": [
+        0.45,
+        0.3
+       ],
+       "width": 0.42
+      },
+      "ease": "in_out"
+     },
+     "scrim": 0.62
+    },
+    {
+     "type": "label",
+     "text": "THOUSANDS OF MILES AWAY",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      0.8667,
+      5.1
+     ]
+    },
+    {
+     "type": "label",
+     "text": "BODÉLÉ DEPRESSION, CHAD",
+     "style": "tag",
+     "slot": "middle",
+     "t": [
+      2.9333,
+      5.1
+     ],
+     "sub": "ONE OF THE WORLD'S BIGGEST DUST SOURCES"
+    }
+   ]
+  },
+  {
+   "id": "s04",
+   "beat": "scene 4",
+   "start": 13.333333333333334,
+   "layers": [
+    {
+     "type": "still",
+     "asset": "bluemarble",
+     "view": {
+      "from": {
+       "center": [
+        0.5,
+        0.5
+       ],
+       "width": 0.9
+      },
+      "to": {
+       "center": [
+        0.36,
+        0.62
+       ],
+       "width": 0.62
+      },
+      "ease": "in_out"
+     }
+    },
+    {
+     "type": "label",
+     "text": "WORLD'S LARGEST NON-POLAR DESERT",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      1.0667,
+      3.9667
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s05",
+   "beat": "scene 5",
+   "start": 17.3,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "r05-rain_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "r05-rain_2",
+     "t": [
+      1.9667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r05-rain_3",
+     "t": [
+      3.7333,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s06",
+   "beat": "scene 6",
+   "start": 22.766666666666666,
+   "layers": [
+    {
+     "type": "video",
+     "asset": "seq_s6",
+     "credit": false,
+     "captions": true,
+     "caption": {
+      "band": 0.76,
+      "center_x": 0.667,
+      "max_width": 1100
+     }
+    }
+   ]
+  },
+  {
+   "id": "s07",
+   "beat": "scene 7",
+   "start": 36.266666666666666,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g07-timeline_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "g07-timeline_2",
+     "t": [
+      4.2667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g07-timeline_3",
+     "t": [
+      8.8667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g07-timeline_4",
+     "t": [
+      11.0333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g07-timeline_5",
+     "t": [
+      13.8333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g07-timeline_6",
+     "t": [
+      15.9,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g07-timeline_7",
+     "t": [
+      18.6,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s08",
+   "beat": "scene 8",
+   "start": 57.93333333333333,
+   "layers": [
+    {
+     "type": "still",
+     "asset": "bodele",
+     "view": {
+      "from": {
+       "center": [
+        0.5,
+        0.47518
+       ],
+       "width": 0.95
+      },
+      "to": {
+       "center": [
+        0.45,
+        0.58
+       ],
+       "width": 0.62
+      },
+      "ease": "in_out"
+     }
+    },
+    {
+     "type": "label",
+     "text": "FLOOR OF LAKE MEGA-CHAD",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      1.8,
+      5.7
+     ],
+     "sub": "ABOUT 7,000 YEARS AGO"
+    },
+    {
+     "type": "label",
+     "text": "LARGER THAN ALL THE GREAT LAKES",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      6.9333,
+      15.3667
+     ],
+     "sub": "COMBINED · NASA"
+    }
+   ]
+  },
+  {
+   "id": "s09a",
+   "beat": "scene 9",
+   "start": 73.3,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g09-burials_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "g09-burials_2",
+     "t": [
+      4.0667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g09-burials_3",
+     "t": [
+      5.5667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g09-burials_4",
+     "t": [
+      7.4,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s09b",
+   "beat": "scene 9",
+   "start": 85.23333333333333,
+   "layers": [
+    {
+     "type": "still",
+     "asset": "tassili",
+     "view": {
+      "from": {
+       "center": [
+        0.28,
+        0.4
+       ],
+       "width": 0.55
+      },
+      "to": {
+       "center": [
+        0.3,
+        0.45
+       ],
+       "width": 0.38
+      },
+      "ease": "in_out"
+     }
+    },
+    {
+     "type": "label",
+     "text": "TASSILI N'AJJER, ALGERIA",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      0.0,
+      4.7333
+     ]
+    },
+    {
+     "type": "label",
+     "text": "15,000+ ETCHINGS AND ILLUSTRATIONS",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      4.7333,
+      8.8667
+     ],
+     "sub": "PREHISTORIC · NASA"
+    }
+   ]
+  },
+  {
+   "id": "s10",
+   "beat": "scene 10",
+   "start": 94.1,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g10-rain_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "g10-rain_2",
+     "t": [
+      12.7,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g10-rain_3",
+     "t": [
+      19.7333,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s11",
+   "beat": "scene 11",
+   "start": 117.4,
+   "layers": [
+    {
+     "type": "still",
+     "asset": "ounianga",
+     "view": {
+      "from": {
+       "center": [
+        0.50505,
+        0.5
+       ],
+       "width": 0.98971
+      },
+      "to": {
+       "center": [
+        0.655,
+        0.525
+       ],
+       "width": 0.19
+      },
+      "ease": "in_out"
+     }
+    },
+    {
+     "type": "label",
+     "text": "LAKES OF OUNIANGA, CHAD",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      4.4333,
+      11.9333
+     ]
+    },
+    {
+     "type": "label",
+     "text": "POLLEN FROM THE ORIGINAL LAKE",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      11.9333,
+      22.1
+     ],
+     "sub": "WOODED GRASSLAND"
+    },
+    {
+     "type": "label",
+     "text": "SUCH PLANTS NOW GROW ~300 KM",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      22.1,
+      28.6333
+     ],
+     "sub": "(~190 MI) FARTHER SOUTH"
+    }
+   ]
+  },
+  {
+   "id": "s12",
+   "beat": "scene 12",
+   "start": 148.46666666666667,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g12-orbit_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "g12-orbit_2",
+     "t": [
+      14.8,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g12-orbit_3",
+     "t": [
+      16.6,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g12-orbit_4",
+     "t": [
+      19.7,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g12-orbit_5",
+     "t": [
+      21.7,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s13",
+   "beat": "scene 13",
+   "start": 174.46666666666667,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g13-models_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "g13-models_2",
+     "t": [
+      6.4,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g13-models_3",
+     "t": [
+      10.1,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g13-models_4",
+     "t": [
+      13.0,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g13-models_5",
+     "t": [
+      14.6,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g13-models_6",
+     "t": [
+      16.7667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g13-models_7",
+     "t": [
+      17.9667,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s14",
+   "beat": "scene 14",
+   "start": 192.56666666666666,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g14-sapropel_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "g14-sapropel_2",
+     "t": [
+      6.2667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g14-sapropel_3",
+     "t": [
+      6.6667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g14-sapropel_4",
+     "t": [
+      10.4667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g14-sapropel_5",
+     "t": [
+      10.9667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g14-sapropel_6",
+     "t": [
+      14.7333,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s15",
+   "beat": "scene 15",
+   "start": 214.3,
+   "layers": [
+    {
+     "type": "still",
+     "asset": "ounianga",
+     "view": {
+      "from": {
+       "center": [
+        0.655,
+        0.525
+       ],
+       "width": 0.3
+      },
+      "to": {
+       "center": [
+        0.5,
+        0.5
+       ],
+       "width": 0.98971
+      },
+      "ease": "in_out"
+     }
+    },
+    {
+     "type": "label",
+     "text": "ABRUPT OR GRADUAL IS DEBATED",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      1.9333,
+      5.8333
+     ]
+    },
+    {
+     "type": "label",
+     "text": "RAINS RETREAT SOUTH OVER ~2-3,000 YEARS",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      5.8333,
+      20.7
+     ],
+     "sub": "ONE RECONSTRUCTION · OTHER RECORDS: MORE ABRUPT"
+    },
+    {
+     "type": "label",
+     "text": "THE DESERT CREPT SOUTH",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      20.7,
+      22.6
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s16",
+   "beat": "scene 16",
+   "start": 236.9,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g16-cell_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "g16-cell_2",
+     "t": [
+      7.1333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g16-cell_3",
+     "t": [
+      9.5,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g16-cell_4",
+     "t": [
+      12.4,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g16-cell_5",
+     "t": [
+      25.5333,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s17",
+   "beat": "scene 17",
+   "start": 265.96666666666664,
+   "layers": [
+    {
+     "type": "still",
+     "asset": "gilf",
+     "view": {
+      "from": {
+       "center": [
+        0.62,
+        0.52
+       ],
+       "width": 0.5
+      },
+      "to": {
+       "center": [
+        0.5,
+        0.5
+       ],
+       "width": 0.99
+      },
+      "ease": "in_out"
+     }
+    }
+   ]
+  },
+  {
+   "id": "s18",
+   "beat": "scene 18",
+   "start": 274.3333333333333,
+   "layers": [
+    {
+     "type": "video",
+     "asset": "seq_eo",
+     "credit": false,
+     "captions": true,
+     "caption": {
+      "band": 0.76,
+      "center_x": 0.667,
+      "max_width": 1100
+     }
+    }
+   ]
+  },
+  {
+   "id": "s19",
+   "beat": "scene 19",
+   "start": 292.6666666666667,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g19-aquifer_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "g19-aquifer_2",
+     "t": [
+      6.3667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g19-aquifer_3",
+     "t": [
+      7.0,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g19-aquifer_4",
+     "t": [
+      7.6,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g19-aquifer_5",
+     "t": [
+      8.5667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g19-aquifer_6",
+     "t": [
+      9.7,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g19-aquifer_7",
+     "t": [
+      11.1333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g19-aquifer_8",
+     "t": [
+      14.5333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g19-aquifer_9",
+     "t": [
+      16.0333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g19-aquifer_10",
+     "t": [
+      19.1667,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s20",
+   "beat": "scene 20",
+   "start": 317.0,
+   "layers": [
+    {
+     "type": "still",
+     "asset": "kufra",
+     "view": {
+      "from": {
+       "center": [
+        0.5049,
+        0.5049
+       ],
+       "width": 0.99
+      },
+      "to": {
+       "center": [
+        0.689,
+        0.7
+       ],
+       "width": 0.42
+      },
+      "ease": "in_out"
+     }
+    },
+    {
+     "type": "label",
+     "text": "KUFRA, LIBYA",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      2.0667,
+      11.4667
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s21",
+   "beat": "scene 21",
+   "start": 328.46666666666664,
+   "layers": [
+    {
+     "type": "video",
+     "asset": "seq_toshka",
+     "credit": false,
+     "captions": true,
+     "caption": {
+      "band": 0.76
+     }
+    }
+   ]
+  },
+  {
+   "id": "s22",
+   "beat": "scene 22",
+   "start": 349.5,
+   "layers": [
+    {
+     "type": "video",
+     "asset": "seq_s22",
+     "credit": false,
+     "captions": true,
+     "caption": {
+      "band": 0.76,
+      "center_x": 0.667,
+      "max_width": 1100
+     }
+    }
+   ]
+  },
+  {
+   "id": "s23a",
+   "beat": "scene 23a",
+   "start": 357.1666666666667,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "r23a-sites_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "r23a-sites_2",
+     "t": [
+      2.9333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23a-sites_3",
+     "t": [
+      4.5333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23a-sites_4",
+     "t": [
+      6.4333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23a-sites_5",
+     "t": [
+      7.9,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s23b",
+   "beat": "scene 23b",
+   "start": 366.43333333333334,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "r23b-mechanism_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "r23b-mechanism_2",
+     "t": [
+      0.3,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23b-mechanism_3",
+     "t": [
+      1.0,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23b-mechanism_4",
+     "t": [
+      1.9667,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s23c",
+   "beat": "scene 23c",
+   "start": 369.76666666666665,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "r23c-carbon_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "r23c-carbon_2",
+     "t": [
+      2.2667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23c-carbon_3",
+     "t": [
+      2.9667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23c-carbon_4",
+     "t": [
+      4.7667,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s23d",
+   "beat": "scene 23d",
+   "start": 376.8666666666667,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "r23d-estimate_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "r23d-estimate_2",
+     "t": [
+      1.1667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23d-estimate_3",
+     "t": [
+      2.6667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23d-estimate_4",
+     "t": [
+      5.2667,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s23e",
+   "beat": "scene 23e",
+   "start": 385.4,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "r23e-century_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "r23e-century_2",
+     "t": [
+      4.1333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "r23e-century_3",
+     "t": [
+      7.1667,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s24",
+   "beat": "scene 24",
+   "start": 395.3,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g24-trillion_1"
+    }
+   ]
+  },
+  {
+   "id": "s24b1",
+   "beat": "scene 24b",
+   "start": 398.0,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g24b-1000_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "g24b-1000_2",
+     "t": [
+      5.2333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g24b-1000_3",
+     "t": [
+      6.5333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g24b-1000_4",
+     "t": [
+      10.7667,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s24b2",
+   "beat": "scene 24b",
+   "start": 414.4,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g24b-267_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "g24b-267_2",
+     "t": [
+      4.7667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g24b-267_3",
+     "t": [
+      7.1333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g24b-267_4",
+     "t": [
+      13.2667,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s24b3",
+   "beat": "scene 24b",
+   "start": 436.2,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g24b-diff_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "g24b-diff_2",
+     "t": [
+      4.4667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g24b-diff_3",
+     "t": [
+      5.9667,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s25",
+   "beat": "scene 25",
+   "start": 443.56666666666666,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g25-budget_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "g25-budget_2",
+     "t": [
+      3.8667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g25-budget_3",
+     "t": [
+      7.6,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g25-budget_4",
+     "t": [
+      10.0,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g25-budget_5",
+     "t": [
+      15.6,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g25-budget_6",
+     "t": [
+      20.4333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g25-budget_7",
+     "t": [
+      22.8333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g25-budget_8",
+     "t": [
+      26.3,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g25-budget_9",
+     "t": [
+      29.4667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g25-budget_10",
+     "t": [
+      33.8,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g25-budget_11",
+     "t": [
+      37.2667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g25-budget_12",
+     "t": [
+      40.1,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s25b",
+   "beat": "scene 25b",
+   "start": 492.26666666666665,
+   "layers": [
+    {
+     "type": "still",
+     "asset": "bluemarble",
+     "view": {
+      "from": {
+       "center": [
+        0.3,
+        0.62
+       ],
+       "width": 0.3
+      },
+      "to": {
+       "center": [
+        0.5,
+        0.5
+       ],
+       "width": 0.99
+      },
+      "ease": "in_out"
+     }
+    }
+   ]
+  },
+  {
+   "id": "s29",
+   "beat": "scene 29",
+   "start": 498.1666666666667,
+   "layers": [
+    {
+     "type": "video",
+     "asset": "calipso",
+     "credit": false,
+     "captions": true,
+     "caption": {
+      "band": 0.2
+     },
+     "trim": 75.96666666666667
+    },
+    {
+     "type": "label",
+     "text": "~182 MILLION TONS OF DUST A YEAR",
+     "style": "tag",
+     "slot": "middle",
+     "t": [
+      5.4333,
+      13.4
+     ],
+     "sub": "PAST THE SAHARA'S WESTERN EDGE · 2007-13 AVG"
+    },
+    {
+     "type": "label",
+     "text": "~28 MILLION TONS SETTLE ON THE AMAZON",
+     "style": "tag",
+     "slot": "middle",
+     "t": [
+      13.4,
+      17.6333
+     ],
+     "sub": "SATELLITE-DERIVED ESTIMATE"
+    },
+    {
+     "type": "label",
+     "text": "~22,000 TONS OF PHOSPHORUS A YEAR",
+     "style": "tag",
+     "slot": "middle",
+     "t": [
+      17.6333,
+      26.8667
+     ],
+     "sub": "ESTIMATE · DELIVERED TO THE AMAZON BASIN"
+    }
+   ]
+  },
+  {
+   "id": "s30",
+   "beat": "scene 30",
+   "start": 525.0333333333333,
+   "layers": [
+    {
+     "type": "still",
+     "asset": "bodele",
+     "view": {
+      "from": {
+       "center": [
+        0.5,
+        0.5
+       ],
+       "width": 0.92
+      },
+      "to": {
+       "center": [
+        0.46,
+        0.55
+       ],
+       "width": 0.36
+      },
+      "ease": "in_out"
+     }
+    },
+    {
+     "type": "label",
+     "text": "BODÉLÉ DEPRESSION, CHAD",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      1.6667,
+      15.9667
+     ],
+     "sub": "ANCIENT LAKEBED"
+    },
+    {
+     "type": "label",
+     "text": "SOURCE OF AMAZON DUST: DEBATED",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      15.9667,
+      31.0333
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s31",
+   "beat": "scene 31",
+   "start": 556.0666666666667,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g31-hypothesis_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "g31-hypothesis_2",
+     "t": [
+      4.5333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g31-hypothesis_3",
+     "t": [
+      10.5,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s32",
+   "beat": "scene 32",
+   "start": 568.1666666666666,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g32-storms_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "g32-storms_2",
+     "t": [
+      2.6,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g32-storms_3",
+     "t": [
+      5.9333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g32-storms_4",
+     "t": [
+      9.7333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g32-storms_5",
+     "t": [
+      13.2667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g32-storms_6",
+     "t": [
+      16.3,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g32-storms_7",
+     "t": [
+      19.6,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g32-storms_8",
+     "t": [
+      22.1,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g32-storms_9",
+     "t": [
+      23.6,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g32-storms_10",
+     "t": [
+      27.7,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g32-storms_11",
+     "t": [
+      31.1333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g32-storms_12",
+     "t": [
+      33.3,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g32-storms_13",
+     "t": [
+      36.7,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g32-storms_14",
+     "t": [
+      40.7333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g32-storms_15",
+     "t": [
+      42.9,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s33",
+   "beat": "scene 33",
+   "start": 616.1333333333333,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g33-sahel_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "g33-sahel_2",
+     "t": [
+      4.0333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g33-sahel_3",
+     "t": [
+      6.9333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g33-sahel_4",
+     "t": [
+      11.1,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g33-sahel_5",
+     "t": [
+      13.9667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g33-sahel_6",
+     "t": [
+      19.3667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g33-sahel_7",
+     "t": [
+      23.7,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g33-sahel_8",
+     "t": [
+      29.8,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g33-sahel_9",
+     "t": [
+      33.0,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g33-sahel_10",
+     "t": [
+      36.8,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g33-sahel_11",
+     "t": [
+      38.4333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g33-sahel_12",
+     "t": [
+      42.2667,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s34",
+   "beat": "scene 34",
+   "start": 663.0333333333333,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g34-gww_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "g34-gww_2",
+     "t": [
+      5.8667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g34-gww_3",
+     "t": [
+      9.8667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g34-gww_4",
+     "t": [
+      15.3333,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g34-gww_5",
+     "t": [
+      19.0,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g34-gww_6",
+     "t": [
+      23.6,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g34-gww_7",
+     "t": [
+      26.3667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g34-gww_8",
+     "t": [
+      30.2667,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g34-gww_9",
+     "t": [
+      33.7,
+      null
+     ]
+    },
+    {
+     "type": "graphic",
+     "asset": "g34-gww_10",
+     "t": [
+      35.8333,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s35",
+   "beat": "scene 35",
+   "start": 702.4,
+   "layers": [
+    {
+     "type": "video",
+     "asset": "seq_s35",
+     "credit": false,
+     "captions": true,
+     "caption": {
+      "band": 0.76,
+      "center_x": 0.667,
+      "max_width": 1100
+     }
+    }
+   ]
+  },
+  {
+   "id": "s36",
+   "beat": "scene 36",
+   "start": 720.7666666666667,
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g36-uncertain_1"
+    },
+    {
+     "type": "graphic",
+     "asset": "g36-uncertain_2",
+     "t": [
+      9.1667,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s37",
+   "beat": "scene 37",
+   "start": 740.0333333333333,
+   "layers": [
+    {
+     "type": "still",
+     "asset": "tassili",
+     "view": {
+      "from": {
+       "center": [
+        0.55,
+        0.6
+       ],
+       "width": 0.32
+      },
+      "to": {
+       "center": [
+        0.5,
+        0.5
+       ],
+       "width": 0.95
+      },
+      "ease": "in_out"
+     }
+    }
+   ]
+  }
+ ],
+ "voice": {
+  "src": "narration_norm16.wav",
+  "meta": "narration_norm16.voice.json",
+  "normalize": false
+ },
+ "captions": {
+  "src": "captions/captions.srt",
+  "preset": "default"
+ },
+ "end": {
+  "seconds": 747.3667
+ },
+ "render": {
+  "segment_s": 60
+ },
+ "meta": {
+  "episode": "EP001",
+  "title": "What If We Turned the Sahara Desert Green?",
+  "review_master": true
+ }
+}

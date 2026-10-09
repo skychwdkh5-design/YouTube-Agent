@@ -1,0 +1,119 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "r23e-century",
+ "type": "diagram",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+ "credit": null,
+ "steps": [
+  "r23e-century.step1.png",
+  "r23e-century.step2.png",
+  "r23e-century.png"
+ ],
+ "sha256": {
+  "r23e-century.step1.png": "c6440f794677116fa8f0881c51eb169bbd82c0b75c5634ef4e33438ef11db65c",
+  "r23e-century.step2.png": "06be0800a710ffa8ed41b94cff101d79c7e3c1ef03632f5645835172c08b4b3c",
+  "r23e-century.png": "182f818834548bb07a396d166c743cefb7e20d2d6f893d3a17b179e10ff22b6f"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "Not carbon removal forever",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    727.0,
+    177.2
+   ]
+  },
+  {
+   "where": "subtitle",
+   "text": "Schematic: the shape described by the authors, not data",
+   "size": 30,
+   "box": [
+    96.0,
+    179.6,
+    914.0,
+    215.6
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Ornstein, Aleinov & Rind 2009, Climatic Change 97:409-437",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    887.5,
+    797.6
+   ]
+  },
+  {
+   "where": "node au",
+   "text": "THE AUTHORS THEMSELVES DESCRIBED SUCH PROJECTS AS...",
+   "size": 34,
+   "box": [
+    1183.1,
+    508.3,
+    1670.1,
+    629.4
+   ]
+  },
+  {
+   "where": "note",
+   "text": "CARBON STORED IN THE FOREST (SCHEMATIC)",
+   "size": 26,
+   "box": [
+    381.0,
+    253.1,
+    986.0,
+    284.3
+   ]
+  },
+  {
+   "where": "note",
+   "text": "TIME",
+   "size": 26,
+   "box": [
+    1688.3,
+    724.1,
+    1752.3,
+    755.3
+   ]
+  },
+  {
+   "where": "note",
+   "text": "ABOUT A CENTURY",
+   "size": 28,
+   "box": [
+    998.0,
+    722.9,
+    1267.5,
+    756.5
+   ]
+  },
+  {
+   "where": "note",
+   "text": "THE FOREST STOPS GAINING CARBON",
+   "size": 28,
+   "box": [
+    1111.0,
+    298.4,
+    1638.5,
+    332.0
+   ]
+  }
+ ]
+}

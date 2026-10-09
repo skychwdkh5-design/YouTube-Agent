@@ -1,0 +1,135 @@
+{
+ "eo": {
+  "start": 274.3333333333333,
+  "end": 292.6666666666667
+ },
+ "toshka": {
+  "start": 328.46666666666664,
+  "end": 349.5
+ },
+ "s6": {
+  "start": 22.766666666666666,
+  "end": 36.266666666666666
+ },
+ "s22": {
+  "start": 349.5,
+  "end": 357.1666666666667
+ },
+ "s35": {
+  "start": 702.4,
+  "end": 720.7666666666667
+ },
+ "fit_eo": {
+  "schedule": [
+   {
+    "step": "1984 hold",
+    "start": 274.3333333333333,
+    "end": 283.429
+   },
+   {
+    "step": "dissolve to 2000",
+    "start": 283.429,
+    "end": 284.229
+   },
+   {
+    "step": "2000 hold",
+    "start": 284.229,
+    "end": 285.078
+   },
+   {
+    "step": "dissolve to 2010",
+    "start": 285.078,
+    "end": 285.878
+   },
+   {
+    "step": "2010 hold",
+    "start": 285.878,
+    "end": 286.727
+   },
+   {
+    "step": "dissolve to 2016",
+    "start": 286.727,
+    "end": 287.527
+   },
+   {
+    "step": "2016 hold",
+    "start": 287.527,
+    "end": 288.376
+   },
+   {
+    "step": "dissolve to 2024",
+    "start": 288.376,
+    "end": 289.176
+   },
+   {
+    "step": "zoom into circles",
+    "start": 289.176,
+    "end": 292.6666666666667
+   }
+  ],
+  "clip_end": 292.6666666666667
+ },
+ "fit_toshka": {
+  "schedule": [
+   {
+    "step": "hold before 2002",
+    "start": 328.46666666666664,
+    "end": 334.088
+   },
+   {
+    "step": "dissolve to 2002",
+    "start": 334.088,
+    "end": 334.888
+   },
+   {
+    "step": "hold before 2011",
+    "start": 334.888,
+    "end": 338.325
+   },
+   {
+    "step": "dissolve to 2011",
+    "start": 338.325,
+    "end": 339.125
+   },
+   {
+    "step": "hold before 2021",
+    "start": 339.125,
+    "end": 343.341
+   },
+   {
+    "step": "dissolve to 2021",
+    "start": 343.341,
+    "end": 344.141
+   },
+   {
+    "step": "2021 hold",
+    "start": 344.141,
+    "end": 349.5
+   }
+  ],
+  "clip_end": 349.5
+ },
+ "custom": {
+  "s6": {
+   "kind": "dissolve",
+   "dur": 13.5,
+   "t_d0": 2.6333,
+   "dissolve_s": 0.8,
+   "z_to": 0.5
+  },
+  "s22": {
+   "kind": "close",
+   "dur": 7.6667,
+   "z_from": 1.0,
+   "z_to": 0.88
+  },
+  "s35": {
+   "kind": "dissolve",
+   "dur": 18.3667,
+   "t_d0": 3.0,
+   "dissolve_s": 0.8,
+   "z_to": 0.3
+  }
+ },
+ "scene19_start_shift_s": 1.637
+}
