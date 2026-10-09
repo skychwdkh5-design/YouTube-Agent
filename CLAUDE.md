@@ -72,3 +72,11 @@ Rules in short:
 - Reference style and effect catalogue: `docs/references/` (read before storyboarding a geographic video). Real geography: `orbitalatlas.geo` + `tools/fetch_natural_earth.sh`; never invent coastlines or borders.
 - Shared motion engine: `orbitalatlas/` (README inside). Build scenes with it instead of writing a new renderer per episode; use `orbitalatlas.qa`
   before reporting TECHNICALLY_VALID. The Dubai-specific engine in `productions/dubai/motion/engine/` is kept for EP002 only.
+
+## Autonomous decision policy (permanent)
+
+- **Zero budget.** Free tools, open data and assets whose licences permit monetised documentary use only. No paid APIs, subscriptions, stock footage or purchased imagery. Check `docs/ASSET_SOURCE_REGISTRY.md` first; never repeat a verified investigation.
+- **Decide, do not ask.** Investigate, compare, choose and test libraries, data providers, rendering strategy and implementation details yourself. Ask the user only for credentials, permissions (network allowlist), payment, or a genuine creative decision; the user approves creative quality, not engineering steps.
+- **Persist what you learn.** Every validated finding goes into `docs/ASSET_SOURCE_REGISTRY.md` (sources/licences), `docs/RENDER_BENCHMARKS.md` (measurements), `docs/RENDER_ENGINE_DECISION_MATRIX.md` (tools), `docs/KNOWN_LIMITATIONS.md` (limits/failed approaches). Mark facts VERIFIED (with URL) vs ASSUMED.
+- **Quality bar.** Technical validity is not visual approval. Judge previews against the references with `docs/REFERENCE_VISUAL_QA_CHECKLIST.md`; do not lower the standard to fit a tool, and do not claim reference-level quality without evidence. Only the user grants USER_APPROVED.
+- **Efficiency.** Reuse cached assets and shared components, run short diagnostics, avoid repeated network checks and redundant renders; 12-15 s proofs before scaling. Never modify EP001.
