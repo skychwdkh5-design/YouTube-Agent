@@ -109,9 +109,9 @@ def dp(p, tol):
 
 def length(p): return float(np.hypot(*np.diff(p, axis=0).T).sum()) if len(p) > 1 else 0.0
 
-def trace(path, thresh=70.0, min_len=6.0, tol=0.6):
+def trace(path, thresh=70.0, min_len=6.0, tol=0.6, channel="max"):
     im = Image.open(path)
-    h = half(im); gmax = h.max(axis=2)
+    h = half(im); gmax = h.max(axis=2) if channel == "max" else h[:, :, {"r": 0, "g": 1, "b": 2}[channel]]
     # sea statistics from a left strip away from the top-left cloud corner
     H, W = gmax.shape
     strip = gmax[int(H*0.25):int(H*0.7), 0:int(W*0.08)]
