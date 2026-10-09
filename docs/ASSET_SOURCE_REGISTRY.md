@@ -30,3 +30,5 @@ Budget rule: zero. A source needing payment, a subscription or a credit-card key
 ## Network facts (2026-10-09)
 Reachable: cdn.jsdelivr.net, cesium.com, api.cesium.com (405), assets.ion.cesium.com (401, token), gibs.earthdata.nasa.gov, earthexplorer.usgs.gov, developers.google.com, cloud.google.com, www.earthdata.nasa.gov, www.nasa.gov.
 Blocked or failing then: registry.npmjs.org (DNS), tiles.maps.eox.at, services.arcgisonline.com, basemaps.cartocdn.com, www.usgs.gov (403), esri/airbus/planet/maxar pages, earth.google.com. Web fetch tool has no network; use `curl` in Bash (proxy trusted via /root/.ccr/ca-bundle.crt).
+
+Phase 2 host check (2026-10-09, all HTTP 403 from the proxy): overpass-api.de, tile.openstreetmap.org, overturemaps S3, AWS terrain-tiles and Copernicus DEM S3, planetarycomputer.microsoft.com, earth-search (element84), sentinel-cogs S3, download.blender.org, raw.githubusercontent.com, unpkg.com, cdnjs. Open buildings, open DEM and Blender are therefore unreachable until the user allowlists them.

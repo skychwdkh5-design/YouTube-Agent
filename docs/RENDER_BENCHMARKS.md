@@ -12,3 +12,5 @@ Environment: cloud container, 4 CPU, 15 GB RAM, no GPU (`/dev/dri` absent), Chro
 Findings (measured): CPU rasterisation dominates, not network; each frame was rendered ≥ 5 times (poll loop + pre-screenshot render); the three workers compete for 4 cores.
 Estimates (**assumption, not measured**): removing redundant renders and prewarming tiles could give 2–3× speed-up → 7 s at 24 fps in 3–5 min at 720p. 1080p costs about 2.25× the pixels.
 Rule: 12–15 s proofs only; log every benchmark here with date; do not repeat the WebGL capability test unless the environment changes.
+
+| Cesium static frame (Phase 2) | same harness, 1 browser, 1280x720, close-up Dubai, GIBS layers | config A 12.4 s, config B 22.7 s including start-up and tile fetch (cold cache) |
