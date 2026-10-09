@@ -1062,7 +1062,10 @@ class Painter:
         text = " / ".join(seen)
         font = self.fonts.get("SemiBold", self.lay["credit_font"])
         x, y = int(self.W * self.safe["left"]), int(self.H * self.safe["top"]) + 6
-        d.text((x, y), text, font=font, fill=(255, 255, 255, 215), stroke_width=3, stroke_fill=(0, 0, 0, 170))
+        # a dark translucent pill under the text keeps the credit legible on any picture, light graphics included (no stroke halo)
+        l, t, rr, bb = d.textbbox((x, y), text, font=font)
+        d.rounded_rectangle((l - 12, t - 7, rr + 12, bb + 7), radius=(bb - t) // 2 + 7, fill=(8, 12, 20, 168))
+        d.text((x, y), text, font=font, fill=(255, 255, 255, 245))
         self.last_credit = text
 
 

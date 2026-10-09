@@ -556,6 +556,26 @@ class ExternalStill(Base):
         self.assertEqual(man["shots"][0]["layers"], ["still"])
 
 
+class CreditPill(Base):
+    """the on-screen credit sits on a dark pill, so it stays legible on a light graphic"""
+    @unittest.skipUnless(HAVE_FF, "ffmpeg not installed")
+    def test_credit_is_legible_on_a_white_graphic(self):
+        Image.fromarray(np.full((1080, 1920, 3), 246, np.uint8)).save(os.path.join(self.dir, "white.png"))
+        a = self.assets(); a["w"] = {"src": "white.png", "kind": "graphic", "credit": "Original graphic · sources on the image", "group": "w"}
+        tl = {"version": 3, "profile": "long", "grid": "stack/grid.json", "assets": a, "end": {"seconds": 1.0},
+              "shots": [{"id": "g", "start": 0, "layers": [{"type": "graphic", "asset": "w"}]}]}
+        p = os.path.join(self.dir, "t.json"); json.dump(tl, open(p, "w")); out = os.path.join(self.dir, "w.mp4")
+        code, d = run(["--timeline", p, "--output", out, "--confirm"])
+        self.assertEqual((code, d["status"]), (0, "ok"), d)
+        raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", "0.5", "-i", out, "-frames:v", "1", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
+                             capture_output=True, check=True).stdout
+        f = np.frombuffer(raw, np.uint8).reshape(1080, 1920, 3).astype(float)
+        row = f[84:112, 100:400]                              # inside the pill, mostly its dark fill with the white text
+        self.assertLess(np.median(row), 110)                  # dark pill, not the 246 background
+        self.assertGreater(row.max(), 200)                    # the white text is on it
+        self.assertGreater(f[300:340, 100:400].mean(), 240)   # the rest of the page is untouched
+
+
 class BackwardCompat(unittest.TestCase):
     def test_v1_and_v2_never_load_compose_path(self):
         self.assertEqual(r.SUPPORTED_VERSIONS, (1, 2))

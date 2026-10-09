@@ -23,12 +23,12 @@ LOC = {
  "bodele": {"type": "band", "scene": "LC09_L1TP_183048_20260731_20260731_02_T1", "dir": SCR + "/src/LC09_L1TP_183048_20260731_20260731_02_T1",
             "centre_px": (4200, 5000), "w": 5000, "note": "Bodele Depression, Chad"},
 
- "tassili": {"type": "browse", "scene": "LC09_L1TP_190042_20251220_20251220_02_T1", "file": "LC09_L1TP_190042_20251220_20251220_02_T1_refl.tif",
+ "tassili": {"type": "band", "scene": "LC09_L1TP_190042_20251220_20251220_02_T1", "dir": SCR + "/src/LC09_L1TP_190042_20251220_20251220_02_T1",
              "centre_px": (2800, 3900), "w": 4200, "note": "Tassili n'Ajjer sandstone plateau and canyons, Algeria"},
- "gilf": {"type": "browse", "scene": "LC09_L1TP_179044_20251121_20251121_02_T1", "file": "LC09_L1TP_179044_20251121_20251121_02_T1_refl.tif",
+ "gilf": {"type": "band", "scene": "LC09_L1TP_179044_20251121_20251121_02_T1", "dir": SCR + "/src/LC09_L1TP_179044_20251121_20251121_02_T1",
           "centre": (23.3, 26.0), "w": 3600, "note": "Gilf Kebir plateau, Egypt"},
- "kufra": {"type": "browse", "scene": "LC09_L1TP_181043_20260919_20260919_02_T1", "file": None,
-           "centre_px": (5600, 5150), "w": 3600, "note": "Kufra oasis, Libya"},
+ "kufra": {"type": "band", "scene": "LC09_L1TP_181043_20260919_20260919_02_T1", "dir": SCR + "/src/LC09_L1TP_181043_20260919_20260919_02_T1",
+           "centre": (24.20, 23.50), "w": 3600, "note": "Kufra agricultural fields, Libya (placed by georeferenced coordinates; see kufra_alignment.json)"},
 }
 BROWSE_DIR = SCR.replace("/loc", "") + "/landsat_work/extra"
 def mtl(d, scene):
