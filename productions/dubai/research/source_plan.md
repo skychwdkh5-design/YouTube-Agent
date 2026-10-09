@@ -53,3 +53,35 @@ NASA images are published web images, usually not co-registered. For a matched w
 3. Official/contractor source for dredged sand volume and start/finish dates (none yet; do not quote numbers).
 4. Present-day status of The World and Deira Islands (post-2022).
 5. USGS/Landsat scene search for pre-2000 and current scenes.
+
+---
+# Pass 2 (evidence-based scope)
+
+Pages used: 6 of 6 (NASA WoC fetched; doi.org redirect; mdpi.com, agbi.com, gulfnews.com failed with DNS errors; one web search). Budget exhausted.
+
+## NASA World of Change date check
+Re-fetch confirms the same 12 caption dates as pass 1 (11 Nov 2000, 2 Feb 2002, 16 Oct 2002, 4 Nov 2003, 6 Nov 2004, 24 Oct 2005, 18 Sep 2006, 4 Mar 2007, 17 Nov 2008, 5 Feb 2009, 8 Feb 2010, 25 Apr 2011). The text still says the final image was acquired "in February 2011"; the last caption says 25 Apr 2011. Not resolvable from the page. Rule: cite the 2011 frame as "2011" only, or avoid it. No credit line was returned for this page (pass 1 reported ASTER/Terra from the page text). The 18 Sep 2006 date matches N3 independently.
+
+## Water quality
+Original paper not read. Claim stays PARTIAL; use at most as "a 2022 study using Landsat 7 and 8 reported changes in water quality around Palm Jumeirah (via NASA)", or leave out. No temperature figure and no environmental-damage claim.
+
+## The World: current status
+No dated source read. Only the Oct 2024 AGBI headline and Nakheel's position (snippets) are known. Do not state how many islands are developed beyond "as of 2022, NASA said only a handful". Categories completed / developed / undeveloped / planned: UNVERIFIED. Safe framing: the breakwater and island landforms exist; building on them is limited and slow.
+
+## Satellite images with verifiable dates
+- ASTER (Terra), dates above, 2000-2010 captions: usable. Palm Jumeirah series: 11 Nov 2000, 2 Feb 2002, 16 Oct 2002, 4 Nov 2003. Overview: 18 Sep 2006 (two NASA pages agree).
+- 2011 frame: month disputed, use year only.
+- ISS photo ISS067-E-3785, 6 Apr 2022: dated, but a handheld photograph; label it as such, never as satellite imagery.
+- Landsat scenes: none identified; IDs UNVERIFIED until /yt-satellite is run.
+
+## Final narrative scope (what the evidence supports)
+1. A shallow coast and 1990s plans (N2). Pre-2000 imagery: UNVERIFIED.
+2. Palm Jumeirah 2000-2003: empty sea to finished palm, shown by dated ASTER frames (N1). Method: dredged sand, rock breakwaters, GPS placement, vibroflot (N1, N2).
+3. 2004-2011: city fills in inland (N1).
+4. 2006 snapshot of four projects (N3) and the circular breakwaters.
+5. The World: a continents-shaped map, ~300 planned islands, recession pause, few developed as of 2022 (N2). No sinking, no abandonment.
+6. What was never finished or rescoped: Palm Jebel Ali mostly undeveloped (2022), Deira rescoped, The Universe on hold (N2).
+Excluded: sinking, abandonment, 7.5 °C, environmental damage, volume/cost figures.
+
+## Remaining gaps
+Pre-2000 Landsat; recent Landsat; open-access water-quality paper; dated World status; sand volumes and official project dates.
