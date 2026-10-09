@@ -1,0 +1,82 @@
+[
+ {
+  "file": "01_opening_0-30s.mp4",
+  "start_s": 0.0,
+  "end_s": 30.0,
+  "duration_s": 30.0,
+  "bytes": 3228195,
+  "what": "Opening 30 s: Tassili, 230+ callout, Bodele, Blue Marble, rain card, East Oweinat 1984 to 2024"
+ },
+ {
+  "file": "02_water_balance_443.567-492.267.mp4",
+  "start_s": 443.567,
+  "end_s": 492.267,
+  "duration_s": 48.7,
+  "bytes": 1374191,
+  "what": "Complete 48.7 s water-balance composition (scene 25) plus the first 0 s of the next shot"
+ },
+ {
+  "file": "03_satellite_east_oweinat_274.333-292.667.mp4",
+  "start_s": 274.333,
+  "end_s": 292.667,
+  "duration_s": 18.334,
+  "bytes": 1905933,
+  "what": "East Oweinat: 1984 hold with push-in, dissolves 2000/2010/2016/2024, zoom into the circles"
+ },
+ {
+  "file": "04_satellite_toshka_328.467-349.500.mp4",
+  "start_s": 328.467,
+  "end_s": 349.5,
+  "duration_s": 21.033,
+  "bytes": 1454878,
+  "what": "Toshka: 1999, 2002, 2011, 2021 dissolves"
+ },
+ {
+  "file": "05_satellite_east_oweinat_scene35_702.400-720.767.mp4",
+  "start_s": 702.4,
+  "end_s": 720.767,
+  "duration_s": 18.367,
+  "bytes": 2327652,
+  "what": "East Oweinat widest view, 1984 to 2024 (scene 35)"
+ },
+ {
+  "file": "06_satellite_nasa_calipso_498.167-525.033.mp4",
+  "start_s": 498.167,
+  "end_s": 525.033,
+  "duration_s": 26.866,
+  "bytes": 3298962,
+  "what": "NASA CALIPSO dust (30 fps) with narration-timed labels, then Bodele"
+ },
+ {
+  "file": "07_graphic_aquifer_292.667-317.000.mp4",
+  "start_s": 292.667,
+  "end_s": 317.0,
+  "duration_s": 24.333,
+  "bytes": 617831,
+  "what": "Animated graphic: Nubian aquifer (country rings, fossil-water banner)"
+ },
+ {
+  "file": "08_graphic_proposal_357.167-395.300.mp4",
+  "start_s": 357.167,
+  "end_s": 395.3,
+  "duration_s": 38.133,
+  "bytes": 967014,
+  "what": "Animated graphic: 2009 forest proposal build (11 steps)"
+ },
+ {
+  "file": "09_graphic_storms_568.167-600.000.mp4",
+  "start_s": 568.167,
+  "end_s": 600.0,
+  "duration_s": 31.833,
+  "bytes": 814576,
+  "what": "Animated graphic: tropical-storm simulation (first 32 s of 48 s)"
+ },
+ {
+  "file": "10_closing_727.367-747.367.mp4",
+  "start_s": 727.367,
+  "end_s": 747.367,
+  "duration_s": 20.0,
+  "bytes": 2096951,
+  "what": "Closing 20 s: uncertainty card, Tassili pull-out, outro"
+ }
+]

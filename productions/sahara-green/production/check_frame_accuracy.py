@@ -24,7 +24,7 @@ def psnr(a, b, rows):
     a, b = a[rows[0]:rows[1]].astype(np.float64), b[rows[0]:rows[1]].astype(np.float64); m = ((a - b) ** 2).mean()
     return 99.0 if m == 0 else 10 * np.log10(255 ** 2 / m)
 def main(ws):
-    tl = json.load(open(os.path.join(ws, 'timeline.json'))); master = os.path.join(ws, 'EP001_review_master_1080p30.mp4')
+    tl = json.load(open(os.path.join(ws, 'timeline.json'))); master = os.path.join(ws, sys.argv[2] if len(sys.argv) > 2 else 'EP001_review_master_1080p30.mp4')
     shots = tl['shots']; ends = [s['start'] for s in shots[1:]] + [tl['end']['seconds']]
     out = []
     for s, e in zip(shots, ends):
@@ -45,6 +45,6 @@ def main(ws):
         res['source_frames_readable'] = bool(a0 is not None and a1 is not None); res['first_not_previous'] = bool(f0 == 0 or psnr(a0, pre, rows) < 25); res['last_not_next'] = bool(post is None or psnr(a1, post, rows) < 25)
         res['ok'] = res['source_frames_readable'] and all(c['ok'] for c in res['checks']) and res['first_not_previous'] and res['last_not_next']
         out.append(res); print(res['shot'], res['asset'], 'OK' if res['ok'] else 'FAIL', [c['psnr0'] for c in res['checks']], flush=True)
-    json.dump({'shots': out, 'all_ok': all(r['ok'] for r in out)}, open(os.path.join(ws, 'frame_accuracy.json'), 'w'), indent=1)
+    json.dump({'shots': out, 'all_ok': all(r['ok'] for r in out)}, open(os.path.join(ws, 'frame_accuracy_prefinal.json' if len(sys.argv) > 2 else 'frame_accuracy.json'), 'w'), indent=1)
     print('ALL OK' if all(r['ok'] for r in out) else 'SOME FAILED')
 if __name__ == '__main__': main(sys.argv[1])
