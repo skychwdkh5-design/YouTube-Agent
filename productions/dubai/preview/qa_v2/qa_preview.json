@@ -1,0 +1,282 @@
+{
+ "probe": {
+  "codec_name": "h264",
+  "profile": "High",
+  "width": 960,
+  "height": 540,
+  "pix_fmt": "yuv420p",
+  "r_frame_rate": "24/1",
+  "avg_frame_rate": "24/1",
+  "duration": "538.000000",
+  "bit_rate": "961364",
+  "nb_frames": "12912",
+  "fps": 24.0,
+  "size": 64759466
+ },
+ "problems": [],
+ "decode_errors": "",
+ "black_segments": [],
+ "analysis": {
+  "frames": 12912,
+  "unique_frames": 12395,
+  "duplicate_ratio": 0.04,
+  "regular_duplication": false,
+  "median_hold_frames": 1.0,
+  "issues": []
+ },
+ "scenes": [
+  {
+   "scene": "H1",
+   "start": 0,
+   "dur": 10,
+   "mean_motion": 0.0007,
+   "max_change": 0.005,
+   "longest_still_s": 0.0,
+   "note": "LOW motion (< 0.002)"
+  },
+  {
+   "scene": "H2",
+   "start": 10,
+   "dur": 8,
+   "mean_motion": 0.0022,
+   "max_change": 0.01,
+   "longest_still_s": 0.0,
+   "note": "ok"
+  },
+  {
+   "scene": "H3",
+   "start": 18,
+   "dur": 11,
+   "mean_motion": 0.0174,
+   "max_change": 0.039,
+   "longest_still_s": 0.54,
+   "note": "ok"
+  },
+  {
+   "scene": "H4",
+   "start": 29,
+   "dur": 9,
+   "mean_motion": 0.0017,
+   "max_change": 0.011,
+   "longest_still_s": 0.0,
+   "note": "LOW motion (< 0.002)"
+  },
+  {
+   "scene": "A1",
+   "start": 38,
+   "dur": 20,
+   "mean_motion": 0.0142,
+   "max_change": 0.096,
+   "longest_still_s": 0.54,
+   "note": "ok"
+  },
+  {
+   "scene": "A2",
+   "start": 58,
+   "dur": 23,
+   "mean_motion": 0.0105,
+   "max_change": 0.025,
+   "longest_still_s": 0.54,
+   "note": "ok"
+  },
+  {
+   "scene": "A3",
+   "start": 81,
+   "dur": 27,
+   "mean_motion": 0.0004,
+   "max_change": 0.004,
+   "longest_still_s": 0.46,
+   "note": "LOW motion (< 0.002)"
+  },
+  {
+   "scene": "B1",
+   "start": 108,
+   "dur": 13,
+   "mean_motion": 0.0056,
+   "max_change": 0.019,
+   "longest_still_s": 0.88,
+   "note": "ok"
+  },
+  {
+   "scene": "B2",
+   "start": 121,
+   "dur": 15,
+   "mean_motion": 0.0051,
+   "max_change": 0.013,
+   "longest_still_s": 0.29,
+   "note": "ok"
+  },
+  {
+   "scene": "B3",
+   "start": 136,
+   "dur": 20,
+   "mean_motion": 0.0008,
+   "max_change": 0.044,
+   "longest_still_s": 0.0,
+   "note": "LOW motion (< 0.002)"
+  },
+  {
+   "scene": "B4",
+   "start": 156,
+   "dur": 17,
+   "mean_motion": 0.0012,
+   "max_change": 0.013,
+   "longest_still_s": 0.08,
+   "note": "LOW motion (< 0.002)"
+  },
+  {
+   "scene": "B5",
+   "start": 173,
+   "dur": 30,
+   "mean_motion": 0.0013,
+   "max_change": 0.01,
+   "longest_still_s": 0.0,
+   "note": "LOW motion (< 0.002)"
+  },
+  {
+   "scene": "B6",
+   "start": 203,
+   "dur": 15,
+   "mean_motion": 0.0101,
+   "max_change": 0.028,
+   "longest_still_s": 0.0,
+   "note": "ok"
+  },
+  {
+   "scene": "B7",
+   "start": 218,
+   "dur": 14,
+   "mean_motion": 0.0011,
+   "max_change": 0.007,
+   "longest_still_s": 0.0,
+   "note": "LOW motion (< 0.002)"
+  },
+  {
+   "scene": "C1",
+   "start": 232,
+   "dur": 20,
+   "mean_motion": 0.0176,
+   "max_change": 0.138,
+   "longest_still_s": 0.71,
+   "note": "ok"
+  },
+  {
+   "scene": "C2",
+   "start": 252,
+   "dur": 20,
+   "mean_motion": 0.0002,
+   "max_change": 0.004,
+   "longest_still_s": 0.54,
+   "note": "LOW motion (< 0.002)"
+  },
+  {
+   "scene": "C3",
+   "start": 272,
+   "dur": 18,
+   "mean_motion": 0.0009,
+   "max_change": 0.009,
+   "longest_still_s": 0.0,
+   "note": "LOW motion (< 0.002)"
+  },
+  {
+   "scene": "C4",
+   "start": 290,
+   "dur": 23,
+   "mean_motion": 0.0004,
+   "max_change": 0.004,
+   "longest_still_s": 0.04,
+   "note": "LOW motion (< 0.002)"
+  },
+  {
+   "scene": "C5",
+   "start": 313,
+   "dur": 21,
+   "mean_motion": 0.0014,
+   "max_change": 0.007,
+   "longest_still_s": 0.5,
+   "note": "LOW motion (< 0.002)"
+  },
+  {
+   "scene": "C6",
+   "start": 334,
+   "dur": 25,
+   "mean_motion": 0.0002,
+   "max_change": 0.004,
+   "longest_still_s": 0.54,
+   "note": "LOW motion (< 0.002)"
+  },
+  {
+   "scene": "D1",
+   "start": 359,
+   "dur": 17,
+   "mean_motion": 0.0013,
+   "max_change": 0.016,
+   "longest_still_s": 0.0,
+   "note": "LOW motion (< 0.002)"
+  },
+  {
+   "scene": "D2",
+   "start": 376,
+   "dur": 17,
+   "mean_motion": 0.0023,
+   "max_change": 0.099,
+   "longest_still_s": 0.0,
+   "note": "ok"
+  },
+  {
+   "scene": "D5",
+   "start": 393,
+   "dur": 30,
+   "mean_motion": 0.0002,
+   "max_change": 0.004,
+   "longest_still_s": 0.62,
+   "note": "LOW motion (< 0.002)"
+  },
+  {
+   "scene": "E1",
+   "start": 423,
+   "dur": 20,
+   "mean_motion": 0.0007,
+   "max_change": 0.006,
+   "longest_still_s": 0.54,
+   "note": "LOW motion (< 0.002)"
+  },
+  {
+   "scene": "E2",
+   "start": 443,
+   "dur": 32,
+   "mean_motion": 0.0011,
+   "max_change": 0.203,
+   "longest_still_s": 0.0,
+   "note": "LOW motion (< 0.002)"
+  },
+  {
+   "scene": "E4",
+   "start": 475,
+   "dur": 27,
+   "mean_motion": 0.0016,
+   "max_change": 0.055,
+   "longest_still_s": 0.12,
+   "note": "LOW motion (< 0.002)"
+  },
+  {
+   "scene": "E5",
+   "start": 502,
+   "dur": 27,
+   "mean_motion": 0.0094,
+   "max_change": 0.184,
+   "longest_still_s": 0.46,
+   "note": "ok"
+  },
+  {
+   "scene": "E6",
+   "start": 529,
+   "dur": 9,
+   "mean_motion": 0.0004,
+   "max_change": 0.007,
+   "longest_still_s": 0.38,
+   "note": "LOW motion (< 0.002)"
+  }
+ ],
+ "verdict": "TECHNICALLY_VALID"
+}

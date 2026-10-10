@@ -1,0 +1,173 @@
+{
+ "verdict": "PASS",
+ "scenes": [
+  {
+   "scene": "H1",
+   "rects_checked": 21,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "H2",
+   "rects_checked": 17,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "H3",
+   "rects_checked": 23,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "H4",
+   "rects_checked": 19,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "A1",
+   "rects_checked": 1,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "A2",
+   "rects_checked": 47,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "A3",
+   "rects_checked": 0,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "B1",
+   "rects_checked": 27,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "B2",
+   "rects_checked": 31,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "B3",
+   "rects_checked": 0,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "B4",
+   "rects_checked": 0,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "B5",
+   "rects_checked": 122,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "B6",
+   "rects_checked": 31,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "B7",
+   "rects_checked": 29,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "C1",
+   "rects_checked": 41,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "C2",
+   "rects_checked": 0,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "C3",
+   "rects_checked": 74,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "C4",
+   "rects_checked": 47,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "C5",
+   "rects_checked": 43,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "C6",
+   "rects_checked": 0,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "D1",
+   "rects_checked": 70,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "D2",
+   "rects_checked": 35,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "D5",
+   "rects_checked": 0,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "E1",
+   "rects_checked": 279,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "E2",
+   "rects_checked": 65,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "E4",
+   "rects_checked": 0,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "E5",
+   "rects_checked": 55,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  },
+  {
+   "scene": "E6",
+   "rects_checked": 0,
+   "out_of_bounds": 0,
+   "worst_nodata_fraction": 0.0
+  }
+ ]
+}

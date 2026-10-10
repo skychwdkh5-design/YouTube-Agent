@@ -15,3 +15,5 @@ Rule: 12–15 s proofs only; log every benchmark here with date; do not repeat t
 
 | Cesium static frame (Phase 2) | same harness, 1 browser, 1280x720, close-up Dubai, GIBS layers | config A 12.4 s, config B 22.7 s including start-up and tile fetch (cold cache) |
 | EP002 transition proof (Phase 3) | 56 Cesium frames 1280x720, 3 workers (cache warm for the Gulf region) | 187 s (first run; one worker timed out on page load and was re-run, +88 s); the earlier cfg-A render of the same path 267 s. Composite of 120 frames (GeoFocus, CPU) 58-62 s; H.264 encode 4 s |
+| EP002 A1 v2 Cesium capture (2026-10-10) | 372 frames 960x540, DSF 1.5, 3 workers, fast loop (`run_frames_fast.js`) | ~11 min wall after fixing two pitfalls; the same capture with a global-layer `minimumLevel` or the old force-render loop took 90 s+ per frame (measured over 3 frames, aborted) |
+| EP002 full preview build V2 | 28 scenes at 24 fps, 4 parallel scene processes, ffmpeg raw pipe | 383 s for all scenes (12,912 frames); single-scene rebuilds 150-300 s; `qa_preview.py` 52 s, `qa_rects.py` ~30 s, `landmarks.py` ~35 s |

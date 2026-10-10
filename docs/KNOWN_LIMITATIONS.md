@@ -28,3 +28,9 @@ The renderer is not the bottleneck; **free reachable data is**. Hosts tested and
 2. Blender (headless) + open DEM/imagery: needs a reachable download; not tested.
 3. Hybrid: real 3D globe/camera for Earth→region only, then `orbitalatlas` motion graphics over real Landsat evidence stills with honest class labels.
 Selection criteria: reference-level look (QA checklist), legal for monetised video, zero cost, renders in a few minutes on CPU, automatable.
+
+## Delivery and QA findings (2026-10-10)
+- A copy of our exports reported by the user as 910x512 at 30 fps matches a re-encode to 512 px height at 30 fps (`scale=-2:512,fps=30` reproduces exactly 910x512@30 from both the 1280x720 and the 960x540 files). Treat chat previews as lossy; verify the original with ffprobe + SHA-256 (the Artifact page recomputes the hash in the browser).
+- `orbitalatlas.qa.run_video` resamples to 30 fps and mislabels frame duplication as discontinuities; use `productions/dubai/preview/qa_preview.py` (native fps, duplicate-aware) for any non-30 fps render.
+- Never paint or fill missing satellite data (V1 A1 coloured the Landsat swath deep-sea blue and lifted blacks; removed). Audit crops with `qa_rects.py`.
+- Hand-placed callout coordinates were off by up to ~36 px (Palm site (350, 1637) vs fitted (364, 1669)); use `landmarks.py` outputs.

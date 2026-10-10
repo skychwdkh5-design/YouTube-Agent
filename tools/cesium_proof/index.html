@@ -35,6 +35,14 @@ window.setFrameA1=function(u){ // EP002 A1: globe over Africa/Arabia -> north-up
   v.camera.lookAt(Cesium.Cartesian3.fromDegrees(lon,lat,0),new Cesium.HeadingPitchRange(0,Cesium.Math.toRadians(Cesium.Math.lerp(-55,-90,p)),range));
   v.camera.frustum.near=Math.max(1,range*0.001);v.scene.render();
 };
+
+window.setFrameA1v2=function(u){ // EP002 A1 v2: globe -> Dubai-centred zoom (target reaches Dubai by u=.5), no empty-desert transit
+  const e=ease2(u), tl=ease2(Math.min(1,u/0.5)), p=ease2(Math.min(1,Math.max(0,(u-0.08)/0.92)));
+  const lon=Cesium.Math.lerp(42,55.351,tl), lat=Cesium.Math.lerp(22,25.162,tl);
+  const range=Math.exp(Cesium.Math.lerp(Math.log(1.5e7),Math.log(31800),e));
+  v.camera.lookAt(Cesium.Cartesian3.fromDegrees(lon,lat,0),new Cesium.HeadingPitchRange(0,Cesium.Math.toRadians(Cesium.Math.lerp(-55,-90,p)),range));
+  v.camera.frustum.near=Math.max(1,range*0.001);v.scene.render();
+};
 window.proj=function(){const out={};const occ=new Cesium.EllipsoidalOccluder(Cesium.Ellipsoid.WGS84,v.camera.positionWC);
  for(const [k,ll] of Object.entries({gulf:[51.5,26.6],uae:[54.3,23.9],dubai:[55.2708,25.2048]})){const c=Cesium.Cartesian3.fromDegrees(ll[0],ll[1],0);const w=Cesium.SceneTransforms.worldToWindowCoordinates(v.scene,c);out[k]=w?[w.x,w.y,occ.isPointVisible(c)?1:0]:[0,0,0];}
  return out;};

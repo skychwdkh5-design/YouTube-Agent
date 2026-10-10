@@ -1,11 +1,11 @@
 """EP002 preview kit: sizes, easing, source loading, drawing helpers. Preview = 960x540 @ 12 fps, silent, ESTIMATED timing."""
-import os, sys, math, zipfile, glob
+import os, sys, math, zipfile, glob, json
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
 from orbitalatlas import easing as E
 
-W, H, FPS = 960, 540, 12
+W, H, FPS = 960, 540, 24
 K = H / 1080.0
 INK, TEXT, AMBER, CYAN, MUTED = (11, 15, 20), (234, 240, 246), (255, 194, 71), (92, 225, 230), (138, 148, 163)
 FB = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'; FR = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
@@ -44,7 +44,11 @@ def lerp_rect(r0, r1, u):
     cx = r0[0] + r0[2] / 2; cy = r0[1] + r0[3] / 2; nx = r1[0] + r1[2] / 2; ny = r1[1] + r1[3] / 2
     cx, cy = cx + (nx - cx) * u, cy + (ny - cy) * u
     return (cx - w / 2, cy - h / 2, w, h)
+REC = None                             # when a list: every on-screen string is appended (audit_labels.py)
+USED = []                              # (key, rect) log for the rect/no-data audit (qa_rects.py)
+LOG = False
 def view(key, rect):
+    if LOG: USED.append((key, tuple(float(v) for v in rect)))
     im = src(key); x, y, w, h = rect
     return im.resize((W, H), Image.LANCZOS, box=(x, y, x + w, y + h))
 def to_screen(rect, pt): return ((pt[0] - rect[0]) / rect[2] * W, (pt[1] - rect[1]) / rect[3] * H)
@@ -55,26 +59,37 @@ def dim(im, k):
 # ------------------------------------------------------------------ canvas (RGBA overlay on a base frame)
 class Canvas:
     def __init__(self, base): self.base = base.convert('RGBA'); self.o = Image.new('RGBA', (W, H), (0, 0, 0, 0)); self.d = ImageDraw.Draw(self.o)
+    def _comp(self, draw_fn):
+        """draw on a transparent temporary layer and alpha-composite it (direct drawing on RGBA would overwrite pixels, e.g. erase earlier text under a fading line)"""
+        tmp = Image.new('RGBA', (W, H), (0, 0, 0, 0)); draw_fn(ImageDraw.Draw(tmp)); bb = tmp.getbbox()
+        if bb: self.o.alpha_composite(tmp.crop(bb), dest=(bb[0], bb[1])); self.d = ImageDraw.Draw(self.o)
     def text(self, xy, s, px, fill=TEXT, a=1.0, bold=True, anchor='la', spacing=0.0, shadow=True):
+        if a <= 0.003: return
+        if REC is not None: REC.append(s)
         ft = F(px, bold)
-        if shadow and a > 0.02 and fill != (11, 15, 20):
-            self.text((xy[0] + 1, xy[1] + 1), s, px, (0, 0, 0), a * 0.65, bold, anchor, spacing, shadow=False)
-        if spacing:
-            tw = sum(self.d.textlength(c, font=ft) + px * spacing for c in s) - px * spacing
-            x = xy[0] - (tw / 2 if anchor[0] == 'm' else tw if anchor[0] == 'r' else 0)
-            for c in s: self.d.text((x, xy[1]), c, font=ft, fill=fill + (int(255 * a),), anchor='l' + anchor[1]); x += self.d.textlength(c, font=ft) + px * spacing
-        else: self.d.text(xy, s, font=ft, fill=fill + (int(255 * a),), anchor=anchor)
+        def go(d, xy=xy, a=a, fill=fill):
+            if spacing:
+                tw = sum(d.textlength(c, font=ft) + px * spacing for c in s) - px * spacing
+                x = xy[0] - (tw / 2 if anchor[0] == 'm' else tw if anchor[0] == 'r' else 0)
+                for c in s: d.text((x, xy[1]), c, font=ft, fill=fill + (int(255 * a),), anchor='l' + anchor[1]); x += d.textlength(c, font=ft) + px * spacing
+            else: d.text(xy, s, font=ft, fill=fill + (int(255 * a),), anchor=anchor)
+        if shadow and fill != (11, 15, 20): self._comp(lambda d: go(d, (xy[0] + 1, xy[1] + 1), a * 0.65, (0, 0, 0)))
+        self._comp(go)
     def kinetic(self, xy, s, px, t0, t, fill=AMBER, a=1.0, spacing=0.2, per=0.035):
         """letters rise in one after another from t0"""
-        ft = F(px); x = xy[0]
-        tw = sum(self.d.textlength(c, font=ft) + px * spacing for c in s) - px * spacing
-        x = xy[0] - tw / 2 if spacing is not None and self._center else x
-        for i, c in enumerate(s):
-            k = seg(t, t0 + i * per, t0 + i * per + 0.35); self.d.text((x, xy[1] + (1 - oc(k)) * px * 0.35), c, font=ft, fill=fill + (int(255 * a * k),))
-            x += self.d.textlength(c, font=ft) + px * spacing
+        if REC is not None and a > 0.003 and t > t0: REC.append(s)
+        ft = F(px)
+        def go(d):
+            tw = sum(d.textlength(c, font=ft) + px * spacing for c in s) - px * spacing; x = xy[0] - tw / 2 if self._center else xy[0]
+            for i, c in enumerate(s):
+                k = seg(t, t0 + i * per, t0 + i * per + 0.35)
+                if k > 0.003: d.text((x, xy[1] + (1 - oc(k)) * px * 0.35), c, font=ft, fill=fill + (int(255 * a * k),))
+                x += d.textlength(c, font=ft) + px * spacing
+        if a > 0.003: self._comp(go)
     _center = False
     def pill(self, xy, s, px=15, a=1.0, accent=None, anchor='left'):
         if a <= 0.01: return
+        if REC is not None: REC.append(s)
         ft = F(px, True); w = self.d.textlength(s, font=ft) + px * 1.4; x = xy[0] - (w if anchor == 'right' else 0)
         self.d.rounded_rectangle([x, xy[1], x + w, xy[1] + px * 1.9], 5, fill=(8, 14, 22, int(205 * a)))
         if accent: self.d.rectangle([x, xy[1] + 3, x + 3, xy[1] + px * 1.9 - 3], fill=accent + (int(255 * a),))
@@ -135,3 +150,41 @@ def draw_caption(cv, track, t):
             return
 def badge(cv):
     cv.d.text((W - 14, H - 10), 'PREVIEW · SILENT · TIMING ESTIMATED', font=F(11, True), fill=MUTED + (200,), anchor='rd')
+
+# ------------------------------------------------------------------ deterministic landmarks (landmarks.json, built by landmarks.py)
+LMJ = json.load(open(os.path.join(HERE, 'landmarks.json')))
+def _med(vals): vals = sorted(vals); return vals[len(vals) // 2]
+_rings = [LMJ['woc'][k]['palm_jumeirah_ring'] for k in ('2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011')]
+SITE_C = (round(_med([r['center'][0] for r in _rings]), 1), round(_med([r['center'][1] for r in _rings]), 1)); SITE_R = round(_med([r['radius'] for r in _rings]), 1)
+def woc_ring(key):
+    d = LMJ['woc'].get(key, {}).get('palm_jumeirah_ring')
+    return (tuple(d['center']), d['radius']) if d else (SITE_C, SITE_R)
+def lm(group, name): d = LMJ[group][name]; return tuple(d['center']), d.get('radius')
+def rect_c(c, w, aspect=16 / 9, dx=0, dy=0, size=3000, size_y=None):
+    """rect of width w centred (with an offset) on c, clamped inside the image so no pixel outside the source is ever requested"""
+    size_y = size_y or size; h = w / aspect; x = min(max(c[0] + dx - w / 2, 0), size - w); y = min(max(c[1] + dy - h / 2, 0), size_y - h); return (x, y, w, h)
+def coast_x(key, y, thr=38, ref=(0, 1250, 280, 150)):
+    a = np.asarray(src(key), np.float32); x0, y0, w, h = ref; r = np.median(a[y0:y0 + h, x0:x0 + w].reshape(-1, 3), 0)
+    row = np.sqrt(((a[int(y)] - r) ** 2).sum(1)) >= thr; xs = np.nonzero(row[600:])[0]; return int(xs[0] + 600) if len(xs) else None
+
+# ------------------------------------------------------------------ supersampled vector drawing for diagrams
+class SS:
+    def __init__(self, s=3): self.s = s; self.im = Image.new('RGBA', (W * s, H * s), (0, 0, 0, 0)); self.d = ImageDraw.Draw(self.im)
+    def _p(self, pts): return [(x * self.s, y * self.s) for x, y in pts]
+    def line(self, pts, fill, width=2): self.d.line(self._p(pts), fill=fill, width=max(1, round(width * self.s)), joint='curve')
+    def poly(self, pts, fill=None, outline=None, width=1): self.d.polygon(self._p(pts), fill=fill, outline=outline)
+    def ellipse(self, c, rx, ry=None, fill=None, outline=None, width=1):
+        ry = ry if ry is not None else rx; self.d.ellipse([(c[0] - rx) * self.s, (c[1] - ry) * self.s, (c[0] + rx) * self.s, (c[1] + ry) * self.s], fill=fill, outline=outline, width=max(1, round(width * self.s)))
+    def rect(self, x0, y0, x1, y1, fill=None, outline=None, width=1, r=0):
+        b = [x0 * self.s, y0 * self.s, x1 * self.s, y1 * self.s]
+        (self.d.rounded_rectangle(b, r * self.s, fill=fill, outline=outline, width=max(1, round(width * self.s))) if r else self.d.rectangle(b, fill=fill, outline=outline, width=max(1, round(width * self.s))))
+    def arc(self, c, r, a0, a1, fill, width=2): self.d.arc([(c[0] - r) * self.s, (c[1] - r) * self.s, (c[0] + r) * self.s, (c[1] + r) * self.s], a0, a1, fill=fill, width=max(1, round(width * self.s)))
+    def dashed(self, pts, fill, width=1.5, dash=8, gap=6, offset=0.0):
+        pts = np.asarray(pts, float); seglen = np.hypot(*np.diff(pts, axis=0).T); cum = np.r_[0, np.cumsum(seglen)]; tot = cum[-1]; pos = -offset % (dash + gap) - (dash + gap)
+        while pos < tot:
+            a, b = max(pos, 0), min(pos + dash, tot)
+            if b > a: self.line([tuple(np.array([np.interp(a, cum, pts[:, 0]), np.interp(a, cum, pts[:, 1])])), tuple(np.array([np.interp(b, cum, pts[:, 0]), np.interp(b, cum, pts[:, 1])]))], fill, width)
+            pos += dash + gap
+    def finish(self): return self.im.resize((W, H), Image.LANCZOS)
+def layer(cv, ss):
+    cv.o = Image.alpha_composite(cv.o, ss.finish()); cv.d = ImageDraw.Draw(cv.o)

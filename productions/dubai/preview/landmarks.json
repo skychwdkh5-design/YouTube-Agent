@@ -1,0 +1,192 @@
+{
+ "_method": "Deterministic landmark coordinates for the EP002 stills (replaces by-eye callout positions).\nMethod (reproducible, no manual input beyond the search windows below):\n  1. sea mask = pixels within a colour distance of the median colour of a sea-only reference patch;\n  2. breakwater crescent / ring = non-sea pixels in an annulus around an approximate centre; the circle is fitted by least squares (Kasa) and\n     re-fitted with inliers only (|dist - r| <= tol), 8 iterations; reported with the fit RMS and inlier count;\n  3. small islands / patches = centroid of the largest non-sea connected component (4x down-sampled) inside a window.\nAll coordinates are ORIGINAL image pixels (x right, y down). No georeferencing is implied; frames of different dates are never registered to each other.",
+ "woc": {
+  "2002b": {
+   "palm_jumeirah_ring": {
+    "center": [
+     368.1,
+     1672.9
+    ],
+    "radius": 182.3,
+    "inliers": 10430,
+    "rms": 5.04
+   },
+   "fronds_centroid": {
+    "center": [
+     306.8,
+     1666.2
+    ],
+    "area_px": 15876
+   }
+  },
+  "2003": {
+   "palm_jumeirah_ring": {
+    "center": [
+     363.4,
+     1669.3
+    ],
+    "radius": 181.3,
+    "inliers": 12425,
+    "rms": 5.08
+   }
+  },
+  "2004": {
+   "palm_jumeirah_ring": {
+    "center": [
+     365.0,
+     1670.1
+    ],
+    "radius": 178.1,
+    "inliers": 11044,
+    "rms": 4.87
+   }
+  },
+  "2005": {
+   "palm_jumeirah_ring": {
+    "center": [
+     362.1,
+     1666.0
+    ],
+    "radius": 176.7,
+    "inliers": 12192,
+    "rms": 4.98
+   }
+  },
+  "2006": {
+   "palm_jumeirah_ring": {
+    "center": [
+     363.0,
+     1667.2
+    ],
+    "radius": 175.3,
+    "inliers": 10087,
+    "rms": 4.91
+   }
+  },
+  "2007": {
+   "palm_jumeirah_ring": {
+    "center": [
+     359.6,
+     1659.6
+    ],
+    "radius": 169.2,
+    "inliers": 9919,
+    "rms": 5.05
+   }
+  },
+  "2008": {
+   "palm_jumeirah_ring": {
+    "center": [
+     366.0,
+     1671.0
+    ],
+    "radius": 179.0,
+    "inliers": 12164,
+    "rms": 4.9
+   }
+  },
+  "2009": {
+   "palm_jumeirah_ring": {
+    "center": [
+     365.8,
+     1670.1
+    ],
+    "radius": 179.0,
+    "inliers": 12120,
+    "rms": 4.9
+   }
+  },
+  "2010": {
+   "palm_jumeirah_ring": {
+    "center": [
+     368.6,
+     1659.1
+    ],
+    "radius": 174.0,
+    "inliers": 15438,
+    "rms": 5.18
+   }
+  },
+  "2011": {
+   "palm_jumeirah_ring": {
+    "center": [
+     364.1,
+     1671.6
+    ],
+    "radius": 177.1,
+    "inliers": 11866,
+    "rms": 4.89
+   }
+  },
+  "2002a": {
+   "early_stage_patch": {
+    "center": [
+     252.0,
+     1534.4
+    ],
+    "area_px": 1444
+   }
+  }
+ },
+ "palm2": {
+  "palm_jumeirah_ring": {
+   "center": [
+    1395.8,
+    2191.1
+   ],
+   "radius": 154.0,
+   "inliers": 10693,
+   "rms": 5.1
+  },
+  "palm_jebel_ali_ring": {
+   "center": [
+    552.6,
+    3142.9
+   ],
+   "radius": 209.9,
+   "inliers": 21228,
+   "rms": 5.19
+  },
+  "the_world": {
+   "center": [
+    1589.4,
+    1373.4
+   ],
+   "area_px": 81680
+  },
+  "deira_reclaimed_land": {
+   "center": [
+    2292.1,
+    417.9
+   ],
+   "area_px": 11664
+  }
+ },
+ "iss": {
+  "palm_jumeirah_ring": {
+   "center": [
+    1890.1,
+    1286.4
+   ],
+   "radius": 183.7,
+   "inliers": 14314,
+   "rms": 5.15
+  },
+  "palm_jebel_ali_ring": {
+   "center": [
+    1631.0,
+    2783.4
+   ],
+   "radius": 298.6,
+   "inliers": 28090,
+   "rms": 5.2
+  },
+  "the_world": {
+   "center": [
+    1478.3,
+    335.4
+   ],
+   "area_px": 98512
+  }
+ }
+}
