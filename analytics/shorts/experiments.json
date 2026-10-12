@@ -1,0 +1,51 @@
+{
+ "experiments": [
+  {
+   "id": "EXP-001",
+   "status": "planned",
+   "factor": "first_3s",
+   "variants": [
+    "A",
+    "B"
+   ],
+   "variant_definitions": {
+    "A": "claim-first: the first frame is the strongest verified real image and the on-screen text states the claim or outcome in 6 words or fewer; spoken narration unchanged",
+    "B": "orientation-first (control, the form of SHORT1): the first frame carries place name and year, the claim follows after the first beat; spoken narration unchanged"
+   },
+   "hypotheses": [
+    "H-001"
+   ],
+   "randomisation": {
+    "method": "blocked, seeded",
+    "seed": 20261012,
+    "block_size": 2
+   },
+   "assignment": [
+    {
+     "video_id": "SHORT3",
+     "experiment_variant": "EXP-001:A"
+    },
+    {
+     "video_id": "SHORT4",
+     "experiment_variant": "EXP-001:B"
+    },
+    {
+     "video_id": "SHORT5",
+     "experiment_variant": "EXP-001:B"
+    },
+    {
+     "video_id": "SHORT6",
+     "experiment_variant": "EXP-001:A"
+    }
+   ],
+   "measurement_window_days": 7,
+   "primary_metric": "stayed_to_watch_percent",
+   "rules": [
+    "change only the declared factor between variants",
+    "measure each Short at the same age (measurement_window_days after publication) and record measurement_timestamp",
+    "publish in the assignment order; do not reassign after seeing numbers",
+    "do not stop early on a good-looking difference"
+   ]
+  }
+ ]
+}

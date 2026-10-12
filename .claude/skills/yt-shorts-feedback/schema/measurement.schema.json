@@ -1,0 +1,148 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "yt-shorts-feedback/measurement/1",
+ "title": "Shorts measurement",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "video_id",
+  "publication_date",
+  "duration_seconds",
+  "views",
+  "engaged_views",
+  "stayed_to_watch_percent",
+  "swiped_away_percent",
+  "average_view_duration",
+  "average_percentage_viewed",
+  "subscribers_gained",
+  "measurement_timestamp",
+  "experiment_variant",
+  "source",
+  "recorded_on"
+ ],
+ "properties": {
+  "video_id": {
+   "type": "string",
+   "description": "internal production id (the production file stem); stable across re-exports"
+  },
+  "youtube_video_id": {
+   "type": [
+    "string",
+    "null"
+   ],
+   "description": "the 11-character YouTube id once known"
+  },
+  "publication_date": {
+   "type": [
+    "string",
+    "null"
+   ],
+   "description": "YYYY-MM-DD (channel timezone as shown in Studio); null when not supplied",
+   "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+  },
+  "duration_seconds": {
+   "type": "number",
+   "description": "length of the published file in seconds",
+   "minimum": 1,
+   "maximum": 180
+  },
+  "views": {
+   "type": "integer",
+   "description": "YouTube `views`. NOT the same metric as engaged_views",
+   "minimum": 0
+  },
+  "engaged_views": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "description": "YouTube `engagedViews`: views past the first frame, or tap-to-play (https://developers.google.com/youtube/analytics/metrics). Never equal to views by definition",
+   "minimum": 0
+  },
+  "stayed_to_watch_percent": {
+   "type": [
+    "number",
+    "null"
+   ],
+   "description": "Studio 'viewed vs swiped away': share that stayed (percent)",
+   "minimum": 0,
+   "maximum": 100
+  },
+  "swiped_away_percent": {
+   "type": [
+    "number",
+    "null"
+   ],
+   "description": "Studio 'viewed vs swiped away': share that swiped away (percent)",
+   "minimum": 0,
+   "maximum": 100
+  },
+  "average_view_duration": {
+   "type": [
+    "number",
+    "null"
+   ],
+   "description": "seconds. Can exceed duration_seconds when playbacks repeat",
+   "minimum": 0
+  },
+  "average_percentage_viewed": {
+   "type": [
+    "number",
+    "null"
+   ],
+   "description": "percent; above 100 means repeated playback is included in this figure",
+   "minimum": 0
+  },
+  "subscribers_gained": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "description": "subscribers gained attributed to this video",
+   "minimum": 0
+  },
+  "measurement_timestamp": {
+   "type": [
+    "string",
+    "null"
+   ],
+   "description": "ISO 8601 time the numbers were read; null when unknown",
+   "pattern": "^\\d{4}-\\d{2}-\\d{2}[T ]\\d{2}:\\d{2}(:\\d{2})?(\\.\\d+)?(Z|[+-]\\d{2}:?\\d{2})?$"
+  },
+  "experiment_variant": {
+   "type": [
+    "string",
+    "null"
+   ],
+   "description": "`<experiment id>:<variant>` or `baseline_unplanned`; null only if never assigned"
+  },
+  "source": {
+   "type": "string",
+   "description": "provenance: manual_entry, studio_export_csv, analytics_api_json",
+   "enum": [
+    "manual_entry",
+    "studio_export_csv",
+    "analytics_api_json"
+   ]
+  },
+  "metric_source": {
+   "type": [
+    "string",
+    "null"
+   ],
+   "description": "which product produced the numbers: `studio` or `analytics_api`. The API excludes looping-clips traffic from averageViewDuration/averageViewPercentage since 2021-12-13, so the two must not be mixed in one comparison"
+  },
+  "recorded_on": {
+   "type": "string",
+   "description": "date the record was added to this store",
+   "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+  },
+  "notes": {
+   "type": [
+    "string",
+    "null"
+   ],
+   "description": "free text, e.g. what is unknown"
+  }
+ }
+}

@@ -183,6 +183,11 @@ yt-render reports `visual_novelty` in the plan, result and manifest and warns on
 `/yt-qc --profile short` recounts it from the manifest. Timelines without tags skip the rule, so earlier
 productions keep their manifests and QC results.
 
+## Shorts feedback loop
+
+Published results do not stay in Studio: `/yt-shorts-feedback` stores each reading in `analytics/shorts/` (append-only, unknown = `null`), keeps pre-registered hypotheses and experiment plans, and builds
+single-variable variants of the first seconds (`variants.py`) or a loop-closing ending (`variants.py loop-close`, `loopcheck.py`) without touching the renderer or TTS. Design and limits: `docs/shorts-performance-feedback.md`.
+
 ## Rules every stage keeps
 
 - JSON on stdout, structured errors, no tracebacks.

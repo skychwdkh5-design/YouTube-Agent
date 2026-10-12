@@ -30,6 +30,12 @@ reject one without reading the whole transcript.
 - **A loop point**: what the last line sets up so the first line answers it.
 - Vertical framing note - what gets cropped out of a 16:9 frame and whether that matters.
 
+## Use what the channel has learned
+
+Before writing, read `analytics/shorts/hypotheses.json` and the open experiment in `analytics/shorts/experiments.json` (`/yt-shorts-feedback`). If the Short is a slot in a
+running experiment, change only the declared variable. Record the loop point, the first-seconds form (claim, question or orientation) and the length bucket in the block you hand over so the result can be attributed.
+After publishing, the user logs the numbers with `/yt-shorts-feedback`. Results are leads, never promises.
+
 ## The gate
 
 Nothing here publishes. This skill writes and you publish. Every output ends in a block the user
