@@ -134,7 +134,9 @@ class Canvas:
         k = oc(seg(t, t0, t0 + 0.5)); 
         if out is not None: k *= 1 - sm(seg(t, out, out + 0.4))
         if k <= 0.01: return
-        c = pt; e = (pt[0] + dxy[0], pt[1] + dxy[1])
+        c = pt; e = (pt[0] + dxy[0], pt[1] + dxy[1]); tl_ = self.d.textlength(text, font=F(px))
+        e = (min(e[0], W - 28 - tl_), e[1]) if dxy[0] >= 0 else (max(e[0], 28 + tl_), e[1])             # keep the label text inside the frame (24 px margin)
+        e = (e[0], min(max(e[1], 96), H - 90))                                                           # ... and below the header/chip band, above the caption band
         if ring: self.ring(c, r * (0.6 + 0.4 * k), k, 2, col)
         q = (c[0] + (e[0] - c[0]) * k, c[1] + (e[1] - c[1]) * k); self.d.line([c, q], fill=col + (int(220 * k),), width=2)
         ft = F(px); w = self.d.textlength(text, font=ft)

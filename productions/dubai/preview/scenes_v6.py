@@ -131,7 +131,7 @@ def D5(t, d, X):
         cv.d.line([(xx, yl - 18), (xx, yl)], fill=CYAN + (int(180 * tb),), width=1)
     ka = sm(seg(t, 0.3, 1.0)) * (1 - sm(seg(t, 8.2, 8.9)))
     if ka > 0.01:                                                                          # anatomy of one caption: source, instrument, year (real ASTER 2006 crop)
-        bx_, by_, bw_, bh_ = key_rect(PJ2[0], 900 - 70 * min(max(t / 8.0, 0), 1), P2_SZ); card = src('palm2').resize((int(300 * SC), int(169 * SC)), Image.LANCZOS, box=(bx_, by_, bx_ + bw_, by_ + bw_ * 169 / 300)).convert('RGBA'); cx0, cy0 = W / 2 - 150, H * 0.30; put(cv, card, cx0, cy0, ka)
+        bx_, by_, bw_, bh_ = key_rect(PJ2[0], 900 - 70 * min(max(t / 8.0, 0), 1), P2_SZ); card = src('palm2').resize((int(300 * SC), int(169 * SC)), Image.LANCZOS, box=(bx_, by_, bx_ + bw_, by_ + bw_ * 169 / 300)).convert('RGBA'); cx0, cy0 = 150, H * 0.30; put(cv, card, cx0, cy0, ka)
         for j, (lab, a0_) in enumerate((('SOURCE · NASA', 4.4), ('INSTRUMENT · ASTER', 5.4), ('YEAR · 2006', 6.4))):
             kk_ = sm(seg(t, a0_, a0_ + 0.5)) * ka; y_ = cy0 + 20 + j * 52; xl = cx0 + 300 + 30; cv.d.line([(cx0 + 300, y_ + 14), (xl, y_ + 14)], fill=AMBER + (int(255 * kk_),), width=2); cv.text((xl + 8, y_), lab, 24, AMBER, kk_, anchor='la', spacing=0.08)
     for txt, a0, a1, px in (('EVERY IMAGE: SOURCE · INSTRUMENT · YEAR', 0.3, 7.6, 28), ('MOST: ASTER, AN INSTRUMENT ON A SATELLITE', 8.0, 12.8, 26), ('ONE: AN ASTRONAUT PHOTO · NIKON CAMERA', 13.2, 16.0, 26), ('SEPARATE DAYS · NEVER OVERLAID', 16.2, 26.0, 28), ('ONE IMAGE: YEAR ONLY', 27.0, 30.0, 30)):
