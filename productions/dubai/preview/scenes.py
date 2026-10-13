@@ -309,7 +309,7 @@ def B3(t, d, X):
     layer(cv, ss)
     cv.callout((40, 478), 'SEA FLOOR · SAND', t, 1.0, (0, 0), ring=False, px=15, col=(250, 232, 190))
     cv.callout((hx + 18, 330), 'DREDGED FROM THE GULF FLOOR', t, 4.5, (30, -30), ring=False, px=15, col=TEXT)
-    cv.callout((ex - 40, SURF - 50), 'PLACED WHERE THE ISLAND WILL BE', t, 10.5, (40, -64), ring=False, px=15, col=TEXT)
+    cv.callout((ex - 40, SURF - 50), 'PLACED WHERE THE ISLAND WILL BE', t, 10.5, (-40, -64), ring=False, px=15, col=TEXT)
     cv.callout((528, 396), 'ROCK BREAKWATER', t, 14.2, (-60, -40), ring=False, px=15, col=(210, 214, 222))
     cv.pill((W / 2 - 190, 486), 'THE MATERIAL WAS ALREADY THERE, UNDERWATER', 15, oc(seg(t, 16.8, 17.8)), accent=AMBER)
     cv.pill((22, 20), 'ILLUSTRATION · not to scale · method as described by NASA Earth Observatory', 14, 1.0, accent=CYAN); return cv
