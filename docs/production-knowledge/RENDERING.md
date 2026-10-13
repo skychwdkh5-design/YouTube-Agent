@@ -21,3 +21,7 @@ Rendering at 540p and upscaling (violates the no-upscale rule); ffmpeg `xfade` b
 - VERIFIED: the video length is the sum of segments (516.77 s); the "muxed" print shows the audio length (+1 s pad). Use the video duration as `--expected-duration` for yt-qc.
 - VERIFIED: iPad copy: 854x480, x264 slow, 380 kb/s + AAC 56 kb/s mono = 28.6 MB for 8:37 (<30 MB limit).
 - RULE: camera zoom on schematic scenes must keep panel titles below the top pill (zoom <= 1.2 there); check by looking at frames - qa_text_bounds does not see zoomed text.
+
+## Delivering a >100 MB master (2026-10-13)
+- VERIFIED: single-file delivery = Git LFS on the media branch (`git lfs track` the file, commit, push). Needs allowed hosts `github-cloud.s3.amazonaws.com` (object upload), `lfs.github.com` (verify) and `github.com` / `media.githubusercontent.com` (download check). Without them the push fails at upload (S3) or verify (lfs.github.com). Release creation is not permitted for this session type; Drive upload via the connector cannot carry a 272 MB file.
+- VERIFIED: anonymous download `https://github.com/<owner>/<repo>/raw/<branch>/<path>` redirects (302) to `media.githubusercontent.com/media/...` and returns the real file (size and SHA-256 checked), not the LFS pointer. Public repo = public file; LFS free quota (storage/bandwidth) applies.
