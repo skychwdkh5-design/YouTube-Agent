@@ -27,18 +27,57 @@ def zoom_ring(cv, rect, c, r, text, t, t0, dxy, px=18, out=None, pad=1.12):
     """ring around a landmark whose centre/radius come from landmarks.json; radius scales with the crop"""
     cv.callout(to_screen(rect, c), text, t, t0, dxy, r=max(14, r * W / rect[2] * pad), px=px, out=out)
 
-# ------------------------------------------------------------------ HOOK
-def H1(t, d, X):
-    r = lerp_rect(R_PALM, (170, 1470, 740, 416), t / d); cv = Canvas(view('2000', r)); stamp(cv, '2000', t); return cv
-def H2(t, d, X):
-    r = lerp_rect(R_PALM, (170, 1470, 740, 416), t / d); cv = Canvas(view('2003', r)); stamp(cv, '2003', t); return cv
-def H3(t, d, X):
-    u = smr(seg(t, 0.5, d - 0.5)); cv = Canvas(view('iss', lerp_rect(H3A, H3B, u))); stamp(cv, 'iss', t); return cv
-def H4(t, d, X):
-    r = lerp_rect((500, 1100, 2368, 1332), (580, 1140, 2200, 1238), t / d); base = view('palm2', r)
-    k = sm(seg(t, 2.2, 3.4)); cv = Canvas(dim(base, 1 - 0.55 * k)); cv.chip(chip_for('palm2')); cv._center = True
-    cv.kinetic((W / 2, H * 0.36), 'HOW DUBAI CHANGED', 40, 3.0, t, spacing=0.14, per=0.04, a=k); cv.kinetic((W / 2, H * 0.36 + 56), 'THE MAP OF THE EARTH', 40, 3.6, t, spacing=0.14, per=0.04, a=k)
-    cv.text((W / 2, H * 0.36 + 120), 'ORBITAL ATLAS · EP002', 16, MUTED, a=k * sm(seg(t, 5.0, 6.0)), anchor='ma', spacing=0.3); return cv
+# ------------------------------------------------------------------ HOOK (V3: result first, then the empty sea, then the three-year change, then orbit, then the plans that came next)
+# Timing: ESTIMATED (145 wpm inside each scene window, 0.5 s lead); every word cue below is tw(i, n, d) = 0.5 + i*(d-1.1)/n and must be re-derived from provider word timings once narration exists.
+def tw(i, n, d): return 0.5 + i * (d - 1.1) / n
+def path(t, d, keys, size):
+    """camera path through (time, rect) keys; Catmull-Rom on (cx, cy, log w), 16:9 preserved, eased in/out over the whole scene by the key times themselves"""
+    ts = [k[0] for k in keys]; P = [(k[1][0] + k[1][2] / 2, k[1][1] + k[1][3] / 2, math.log(k[1][2])) for k in keys]
+    t = min(max(t, ts[0]), ts[-1]); i = max(j for j in range(len(ts) - 1) if ts[j] <= t) if t < ts[-1] else len(ts) - 2
+    u = (t - ts[i]) / (ts[i + 1] - ts[i]); n = len(P); p0, p1, p2, p3 = P[max(i - 1, 0)], P[i], P[i + 1], P[min(i + 2, n - 1)]
+    def cr(a, b, c, e): return 0.5 * ((2 * b) + (-a + c) * u + (2 * a - 5 * b + 4 * c - e) * u * u + (-a + 3 * b - 3 * c + e) * u ** 3)
+    cx, cy, lw = (cr(p0[k], p1[k], p2[k], p3[k]) for k in range(3)); w = min(math.exp(lw), size[0], size[1] * 16 / 9); h = w * 9 / 16; return clampr((cx - w / 2, cy - h / 2, w, h), size)
+def clampr(r, size):
+    x, y, w, h = r; x = min(max(x, 0), size[0] - w); y = min(max(y, 0), size[1] - h); return (x, y, w, h)
+def key_rect(c, w, size): return clampr((c[0] - w / 2, c[1] - w * 9 / 32, w, w * 9 / 16), size)
+ISS_SZ, P2_SZ, WOC_SZ = (2768, 4928), (3072, 3797), (3000, 3000)
+SITE = woc_ring('2003')                                                     # Palm Jumeirah ring in the 2003 grid; 2000 and 2003 share the grid (coast agrees within 4 px at 2 rows, checked)
+def H0(t, d, X):                                                           # silent cold open: the result (ISS photograph, labelled), 3 s, no spoken words
+    cv = Canvas(view('iss', lerp_rect(key_rect(PJI[0], 1500, ISS_SZ), key_rect(PJI[0], 1060, ISS_SZ), smr(t / d)))); r = lerp_rect(key_rect(PJI[0], 1500, ISS_SZ), key_rect(PJI[0], 1060, ISS_SZ), smr(t / d))
+    cv.chip(ISSCHIP); yearlabel(cv, 'APRIL 2022', t, 0.2)
+    txt = 'THIS WAS OPEN SEA IN 2000'; px = 24; wtxt = cv.d.textlength(txt, font=F(px, True)) + px * 1.4; cv.pill((W / 2 - wtxt / 2, H * 0.80), txt, px, a=oc(seg(t, 0.5, 1.0)), accent=AMBER)
+    return cv
+def ring_dashed(cv, c, r, a, phase=0.0, col=AMBER):
+    ss = SS(); ss.dashed([(c[0] + r * math.cos(2 * math.pi * k / 90), c[1] + r * math.sin(2 * math.pi * k / 90)) for k in range(91)], col + (int(230 * a),), 1.8, 7, 6, offset=phase); layer(cv, ss)
+R1A, R1B = key_rect(SITE[0], 1900, WOC_SZ), key_rect(SITE[0], 820, WOC_SZ)
+def H1(t, d, X):                                                           # ASTER 2000: city on the coast, push to the empty site; the dashed ring is a UI marker (not data)
+    r = lerp_rect(R1A, R1B, smr(t / d)); cv = Canvas(view('2000', r)); stamp(cv, '2000', t)
+    s = sm(seg(t, tw(15, 20, d) - 0.2, tw(15, 20, d) + 0.5)); c = to_screen(r, SITE[0]); rr = SITE[1] * W / r[2]
+    ring_dashed(cv, c, rr, s, phase=t * 14); cv.text((c[0], c[1] - 8), 'NOTHING BUILT HERE', 15, AMBER, s, anchor='ma', spacing=0.12); return cv
+def H2(t, d, X):                                                           # same crop, dissolve 2000 -> 2003 on "A palm tree", pull back, 2000 / 2003 timeline
+    r = lerp_rect(R1B, key_rect(SITE[0], 1500, WOC_SZ), smr(t / d)); a, b = view('2000', r), view('2003', r)
+    k = sm(seg(t, tw(5, 16, d) - 0.4, tw(5, 16, d) + 0.9)); cv = Canvas(dissolve(a, b, k)); cv.chip(chip_for('2003') if k > 0.5 else chip_for('2000'))
+    cv.text((W - 24, 40), 'NOVEMBER 2000', 30, AMBER, 1 - k, anchor='ra', spacing=0.14); cv.text((W - 24, 40), 'NOVEMBER 2003', 30, AMBER, k, anchor='ra', spacing=0.14)
+    c = to_screen(r, SITE[0]); rr = SITE[1] * W / r[2]; ring_dashed(cv, c, rr, (1 - k) * 0.9, phase=t * 14)
+    tl = sm(seg(t, tw(10, 16, d), tw(10, 16, d) + 0.5)); x0, x1, y = W - 290, W - 60, 128; ss = SS(); ss.rect(x0 - 12, y - 28, x1 + 12, y + 30, fill=(8, 14, 22, int(190 * tl)), r=6)
+    ss.line([(x0, y), (x1, y)], (234, 240, 246, int(200 * tl)), 2); p = oc(seg(t, tw(10, 16, d) + 0.1, tw(14, 16, d) + 0.5))
+    ss.line([(x0, y), (x0 + (x1 - x0) * p, y)], AMBER + (int(255 * tl),), 4)
+    for xx in (x0, x1): ss.ellipse((xx, y), 5, fill=(234, 240, 246, int(255 * tl)))
+    layer(cv, ss); cv.text((x0, y + 10), '2000', 14, TEXT, tl, anchor='ma'); cv.text((x1, y + 10), '2003', 14, TEXT, tl, anchor='ma'); cv.text(((x0 + x1) / 2, y - 24), '3 YEARS', 15, AMBER, tl * sm(seg(t, tw(14, 16, d), tw(14, 16, d) + 0.4)), anchor='ma', spacing=0.12); return cv
+def H3(t, d, X):                                                           # ISS 2022: the same coast two decades later; glide Palm Jumeirah -> Palm Jebel Ali
+    keys = [(0, key_rect(PJI[0], 2300, ISS_SZ)), (3.6, key_rect(PJI[0], 1500, ISS_SZ)), (6.9, key_rect((PJAI[0][0] + 80, PJAI[0][1] - 260), 1700, ISS_SZ)), (d, key_rect((PJAI[0][0] + 80, PJAI[0][1] - 360), 2100, ISS_SZ))]
+    r = path(t, d, keys, ISS_SZ); cv = Canvas(view('iss', r)); cv.chip(ISSCHIP); yearlabel(cv, 'APRIL 2022', t, 0.3)
+    k = sm(seg(t, tw(15, 25, d) - 0.3, tw(15, 25, d) + 0.5)); cv.text((W - 24, 82), 'NOVEMBER 2000 → APRIL 2022', 13, MUTED, k, anchor='ra', spacing=0.1)
+    cv.callout(to_screen(r, PJI[0]), 'PALM JUMEIRAH', t, 1.0, (-120, -70), r=max(16, PJI[1] * W / r[2] * 1.1), px=17, out=4.2)
+    cv.callout(to_screen(r, PJAI[0]), 'PALM JEBEL ALI', t, tw(20, 25, d), (-140, -90), r=max(16, PJAI[1] * W / r[2] * 1.1), px=17, out=d - 0.3); return cv
+def H4(t, d, X):                                                           # ASTER 2006: south -> north along the four projects; the plans that came next; title
+    keys = [(0, key_rect(PJA2[0], 1150, P2_SZ)), (3.0, key_rect(PJ2[0], 1250, P2_SZ)), (6.0, key_rect(((WORLD2[0] + DEIRA2[0]) / 2, (WORLD2[1] + DEIRA2[1]) / 2 + 80), 2250, P2_SZ)), (d, key_rect(((WORLD2[0] + DEIRA2[0]) / 2, (WORLD2[1] + DEIRA2[1]) / 2 + 80), 2400, P2_SZ))]
+    r = path(t, d, keys, P2_SZ); base = view('palm2', r); k = sm(seg(t, 6.6, 7.8)); cv = Canvas(dim(base, 1 - 0.5 * k)); cv.chip(chip_for('palm2')); yearlabel(cv, 'SEPTEMBER 2006', t, 0.3) if False else yearlabel(cv, '2006', t, 0.3)
+    t0 = tw(12, 20, d)
+    cv.callout(to_screen(r, WORLD2), 'THE WORLD · UNDER CONSTRUCTION', t, t0 - 0.1, (90, 70), r=max(18, 160 * W / r[2]), px=15, out=6.5)
+    cv.callout(to_screen(r, DEIRA2), 'PALM DEIRA · EARLIEST STAGE', t, t0 + 0.5, (-100, 50), r=max(16, 110 * W / r[2]), px=15, out=6.5)
+    cv._center = True; cv.kinetic((W / 2, H * 0.36), 'HOW DUBAI CHANGED', 40, 6.9, t, spacing=0.14, per=0.04, a=k); cv.kinetic((W / 2, H * 0.36 + 56), 'THE MAP OF THE EARTH', 40, 7.3, t, spacing=0.14, per=0.04, a=k)
+    cv.text((W / 2, H * 0.36 + 120), 'ORBITAL ATLAS · EP002', 16, MUTED, a=k * sm(seg(t, 7.9, 8.5)), anchor='ma', spacing=0.3); return cv
 
 # ------------------------------------------------------------------ ACT 1
 A2_START = (550, 600, 2400, 1350)
@@ -380,7 +419,7 @@ EXTRA_YEARS = {'D5': ({'2006', '2011'}, 'example chips on the method card: 2006 
 INTRA_CUTS = {'D2': [8.0], 'E2': [15.5], 'E5': [8.0, 16.0]}      # declared hard cuts inside a scene (seconds from scene start), used by qa_preview.py
 STATIC_WINDOWS = {}                                                  # declared intentional holds (none: every text card keeps at least one animated element)
 # id, start s, duration s, VO line numbers (1-based among VO lines), function
-SCENES = [('H1', 0, 10, [1], H1), ('H2', 10, 8, [2], H2), ('H3', 18, 11, [3], H3), ('H4', 29, 9, [4], H4), ('A1', 38, 20, [5], A1), ('A2', 58, 23, [6, 7], A2), ('A3', 81, 27, [8, 9], A3),
-          ('B1', 108, 13, [10], B1), ('B2', 121, 15, [11], B2), ('B3', 136, 20, [12], B3), ('B4', 156, 17, [13], B4), ('B5', 173, 30, [14], B5), ('B6', 203, 15, [15], B6), ('B7', 218, 14, [16], B7),
-          ('C1', 232, 20, [17], C1), ('C2', 252, 20, [18], C2), ('C3', 272, 18, [19], C3), ('C4', 290, 23, [20], C4), ('C5', 313, 21, [21], C5), ('C6', 334, 25, [22], C6),
-          ('D1', 359, 17, [23], D1), ('D2', 376, 17, [24], D2), ('D5', 393, 30, [25], D5), ('E1', 423, 20, [26], E1), ('E2', 443, 32, [27], E2), ('E4', 475, 27, [28], E4), ('E5', 502, 27, [29], E5), ('E6', 529, 9, [30], E6)]
+SCENES = [('H0', 0, 3, [], H0), ('H1', 3, 10, [1], H1), ('H2', 13, 8, [2], H2), ('H3', 21, 11, [3], H3), ('H4', 32, 9, [4], H4), ('A1', 41, 20, [5], A1), ('A2', 61, 23, [6, 7], A2), ('A3', 84, 27, [8, 9], A3),
+          ('B1', 111, 13, [10], B1), ('B2', 124, 15, [11], B2), ('B3', 139, 20, [12], B3), ('B4', 159, 17, [13], B4), ('B5', 176, 30, [14], B5), ('B6', 206, 15, [15], B6), ('B7', 221, 14, [16], B7),
+          ('C1', 235, 20, [17], C1), ('C2', 255, 20, [18], C2), ('C3', 275, 18, [19], C3), ('C4', 293, 23, [20], C4), ('C5', 316, 21, [21], C5), ('C6', 337, 25, [22], C6),
+          ('D1', 362, 17, [23], D1), ('D2', 379, 17, [24], D2), ('D5', 396, 30, [25], D5), ('E1', 426, 20, [26], E1), ('E2', 446, 32, [27], E2), ('E4', 478, 27, [28], E4), ('E5', 505, 27, [29], E5), ('E6', 532, 9, [30], E6)]

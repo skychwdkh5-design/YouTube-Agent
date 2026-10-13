@@ -50,6 +50,9 @@ LOG = False
 def view(key, rect):
     if LOG: USED.append((key, tuple(float(v) for v in rect)))
     im = src(key); x, y, w, h = rect
+    if -2 < x < 0: x = 0.0                                   # float-rounding snap only (<2 px); anything larger still raises
+    if -2 < y < 0: y = 0.0
+    x = min(x, im.width - w) if 0 < x + w - im.width < 2 else x; y = min(y, im.height - h) if 0 < y + h - im.height < 2 else y
     return im.resize((W, H), Image.LANCZOS, box=(x, y, x + w, y + h))
 def to_screen(rect, pt): return ((pt[0] - rect[0]) / rect[2] * W, (pt[1] - rect[1]) / rect[3] * H)
 def dissolve(a, b, u): return Image.blend(a, b, E.clamp(u))
@@ -135,6 +138,7 @@ def chunks(vo, maxw=9):
         out += [' '.join(ws[i:i + step]) for i in range(0, len(ws), step)]
     return out
 def caption_track(vo_lines, dur, hold_in=0.5, hold_out=0.6):
+    if not vo_lines: return []
     ch = [c for l in vo_lines for c in chunks(l)]; wc = [len(c.split()) for c in ch]; tot = sum(wc)
     avail = max(dur - hold_in - hold_out, 1.0); t = hold_in; track = []
     for c, n in zip(ch, wc):
