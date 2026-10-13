@@ -97,7 +97,7 @@ class Canvas:
         self.d.rounded_rectangle([x, xy[1], x + w, xy[1] + px * 1.9], 5, fill=(8, 14, 22, int(205 * a)))
         if accent: self.d.rectangle([x, xy[1] + 3, x + 3, xy[1] + px * 1.9 - 3], fill=accent + (int(255 * a),))
         self.d.text((x + px * 0.7, xy[1] + px * 0.28), s, font=ft, fill=TEXT + (int(255 * a),))
-    def chip(self, s, a=1.0): self.pill((22, 20), s, 14, a, accent=AMBER)
+    def chip(self, s, a=1.0): self.pill((22, 20), s, 12, a * 0.85, accent=AMBER)
     def ring(self, c, r, a=1.0, wd=2, col=AMBER):
         if a > 0.01: self.d.ellipse([c[0] - r, c[1] - r, c[0] + r, c[1] + r], outline=col + (int(255 * a),), width=wd)
     def ping(self, c, t, t0, r=18, col=AMBER, n=2):
