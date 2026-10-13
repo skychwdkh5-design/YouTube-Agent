@@ -348,6 +348,27 @@ def meta_path(output):
     return os.path.splitext(output)[0] + ".voice.json"
 
 
+def _synth_cached(provider, options, text, voice_id, ctx):
+    """one paid request per distinct (text, voice, model, settings, context); the raw response is stored at once, so a later failure (second chunk, timing mismatch,
+    ffmpeg) never costs a second payment for a chunk that already succeeded. Cache files hold audio + alignment only, never a key."""
+    cd = options.get("cache_dir")
+    if not cd:
+        return provider.synthesize(text, voice_id, context=ctx) if ctx else provider.synthesize(text, voice_id)
+    key = hashlib.sha256(json.dumps([text, voice_id, options.get("model") or getattr(provider, "default_model", None), options.get("voice_settings"), options.get("language_code"), ctx],
+                                    sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:24]
+    path = os.path.join(cd, key + ".json")
+    if os.path.exists(path):
+        try:
+            with open(path, encoding="utf-8") as f: d = json.load(f)
+            return {"audio": base64.b64decode(d["audio_base64"]), "format": d["format"], "alignment": d.get("alignment"), "from_cache": True}
+        except (OSError, ValueError, KeyError):
+            pass                                                                            # unreadable cache entry: fall through (a new request is then the only way)
+    res = provider.synthesize(text, voice_id, context=ctx) if ctx else provider.synthesize(text, voice_id)
+    os.makedirs(cd, exist_ok=True); tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump({"audio_base64": base64.b64encode(res["audio"]).decode(), "format": res["format"], "alignment": res.get("alignment"), "characters": len(text), "voice_id": voice_id}, f)
+    os.replace(tmp, path); return res
+
 def generate(p, options, overwrite=False):
     out, provider = p["output"], p["provider"]
     meta = meta_path(out)
@@ -361,11 +382,10 @@ def generate(p, options, overwrite=False):
     try:
         parts, chunk_info, words, timing_ok, offset = [], [], [], True, 0.0
         for i, text in enumerate(p["chunks"]):
+            ctx = None
             if options.get("context"):
                 ctx = {"previous_text": (p["chunks"][i - 1][-400:] if i else None), "next_text": (p["chunks"][i + 1][:400] if i + 1 < len(p["chunks"]) else None)}
-                res = provider.synthesize(text, p["voice_id"], context=ctx)
-            else:
-                res = provider.synthesize(text, p["voice_id"])
+            res = _synth_cached(provider, options, text, p["voice_id"], ctx)
             raw = os.path.join(work, f"chunk{i}.{res['format']}")
             with open(raw, "wb") as f:
                 f.write(res["audio"])
@@ -451,7 +471,7 @@ def main(argv=None):
     secrets = lambda: [os.environ.get(c.env_key, "") for c in PROVIDERS.values() if c.env_key]
     try:
         valued = {"--script", "--text", "--provider", "--voice-id", "--output", "--model", "--language",
-                  "--max-chars", "--max-chunk-chars", "--timeout", "--auth", "--voice-settings"}
+                  "--max-chars", "--max-chunk-chars", "--timeout", "--auth", "--voice-settings", "--cache-dir"}
         flags = {"--confirm", "--overwrite", "--keep-markup", "--context"}
         vals = {i + 1 for i, x in enumerate(a[:-1]) if x in valued}
         unknown = [x for i, x in enumerate(a) if x.startswith("--") and i not in vals and x not in valued | flags]
@@ -460,7 +480,7 @@ def main(argv=None):
                    "max_chunk_chars": _int(a, "--max-chunk-chars", DEFAULTS["max_chunk_chars"], 50),
                    "timeout_s": _int(a, "--timeout", DEFAULTS["timeout_s"], 1),
                    "model": _flag(a, "--model"), "language": _flag(a, "--language") or "en",
-                   "auth": _flag(a, "--auth"), "context": "--context" in a}
+                   "auth": _flag(a, "--auth"), "context": "--context" in a, "cache_dir": _flag(a, "--cache-dir")}
         vs = _flag(a, "--voice-settings")
         if vs:
             options["voice_settings"] = parse_voice_settings(vs)

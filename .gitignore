@@ -27,3 +27,6 @@ productions/sahara-green/narration/voice/partial_test/
 
 # Natural Earth data (public domain; fetch with tools/fetch_natural_earth.sh)
 data/natural_earth/
+
+# EP002 paid TTS chunk cache (audio, regenerable only by paying again: keep in stable storage, not git)
+productions/dubai/narration/voice/cache/
