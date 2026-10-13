@@ -22,3 +22,9 @@ Changes: one main label at a time (28-46 px; source chips 12 px, 0.85 alpha); ma
 Checks: blackdetect/freezedetect (1.2 s) clean; 960x540, 24 fps, 984 frames. Timing still ESTIMATED.
 ## Monotony audit of the rest (`monotony_audit.py`, 12 samples per scene, mean frame-to-frame change on 96x54 grey, 0-255)
 LOW_MOTION (< 3): A3 0.95, C2 0.33, C4 1.10, C6 0.55, D5 0.74, E6 0.76. Marginal (3-5): B3 3.51, B4 4.73, B7 3.82, E1 3.65, E4 4.14. All others >= 6. Priority: A3, C2, C4, C6, D5, then B3/B4/E1/E4/B7. E6 = credits (low motion acceptable, add slow credit roll).
+
+## Full low-res preview V6 (2026-10-13)
+541 s (538 s locked structure + 3 s silent cold open), 29 scenes, 960x540, 24 fps, silent, ESTIMATED timing. Delivered file: `EP002_preview_V6_lowres.mp4` (crf 27 re-encode of the concat), SHA-256 317b177f9030d44d0bbe8a36f197054f88f6cc7ba1342adbb53165fb2667d38c, 30,977,029 bytes. Not in the repo (media).
+Scenes reworked: hook H0-H4, A3, C2, C4, C6, D5, E1, E4, B7 (+ B3/B4 slow push, card scenes enter by dissolve). Untouched V2 scenes: A1 (Cesium frames regenerated from `tools/cesium_proof`, 372 frames), A2, B1, B2, B5, B6, C1, C3, C5, D1, D2, E2, E5, E6.
+Automated checks on the raw concat: full decode OK; blackdetect: only the final 0.08 s fade; freezedetect (2 s): one 2.3 s static window at 398 s (D5 anatomy card, title only, to be filled when word timings exist); 27 frame-difference spikes > 30, all explained (19 scene boundaries, the 0.5 s H2->H3 slide, declared C1 move, the C6 panel split, declared hard cuts in E2 and E5).
+Not done: word-level sync, audio, 1080p, QC of a final MP4, visual review of every frame (contact sheets only).
