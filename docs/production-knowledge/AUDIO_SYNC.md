@@ -14,3 +14,14 @@ Code: `productions/dubai/preview/sync.py`, `build_final.py`. Timing source: `nar
 - Scene durations real/estimated: 0.69-1.08 for most scenes, E6 1.76 (slow credits reading) **[VERIFIED]**; narration 515.251 s -> film 522.8 s.
 ## Rules
 Never edit the spoken text to fit the picture (locked); never estimate word times (yt-voice keeps `timing: null` instead); verify the word->scene mapping count before rendering; re-run `sync.plan` after any change of scene durations.
+
+## Hook atmosphere (EP002 v2, 2026-10-13) **[VERIFIED]**
+Decision (director): replace the 3 s of absolute silence in the cold open by a local atmospheric low drone. Code: `productions/dubai/preview/atmosphere.py` (`build_final.py --mux --atmo`). No music, no stock, no API, no ElevenLabs request.
+- Sound: partials 41.2 / 61.7 / 82.4 / 123.5 / 164.8 Hz (+/-0.35 Hz left-right detune for width), noise bed low-passed at 160 Hz, 0.12 Hz breathing, fixed seed 2026 (deterministic).
+- Envelope: raised-cosine swell from silence, peak at 2.9 s (before the voice at 3.35 s), release `0.5(1+cos)^2.4` to silence by 6.2 s: about -6 dB one second into the speech, -26 dB two seconds later (so it never competes with "November 2000...").
+- Level: peak momentary loudness of the atmosphere alone -28 LUFS (gain -10.9 dB on a half-scale synth); added AFTER the narration was normalised. Per-second RMS (dBFS): atmosphere -52, -39, -32, -28, -37, -61 for seconds 0-5; narration from second 3 about -22.
+- The narration is not touched: the mix is an integer sum, `mix - atmosphere == narration` sample for sample (checked), identical to the normalised narration file after 5.85 s. Result: integrated -16.1 LUFS, LRA 2.9, sample/true peak -4.5 dBFS, 0 clipped samples.
+- What it is not: it does not make the narration start earlier (first word 3.35 s; first RMS onset 3.475 s).
+## yt-qc `audio_starts` after this change
+The rule measures the first audio above -40 dB (`silencedetect`), not the first word. With the drone it reads 0.77 s and passes. That pass reflects the atmosphere, not speech: the narration still starts at 3.35 s. Record it as such; do not present it as "speech starts within 1 s". If the silent cold open had been kept, the 3.48 s fail would have been the honest exception.
+

@@ -12,5 +12,10 @@ Tags: **[VERIFIED]** observed here · **[HYPOTHESIS]** not proven · **[PROCESS]
 - **[VERIFIED]** Render at native scale by drawing text/vectors at physical resolution through a logical-coordinate proxy (`kit.SDraw`, `SC`), validated by comparing SC=1 and SC=2 frames downsampled (all 84 sampled frames within 3 mean grey levels). Do not upscale a 540p render.
 - **[VERIFIED]** Text-card scenes are the monotony source; a dated filmstrip, thumbnails on a timeline and traced outlines carry the same facts with motion.
 - **[HYPOTHESIS]** Retention benefit of the V6 hook is unproven (no analytics yet); measure with `/yt-retention` after publication.
+- **[VERIFIED]** An automated glyph-bounds audit found 6 text defects that 3 contact-sheet reviews and the black/freeze/spike scans missed; add it to every release gate, not only the preview.
+- **[VERIFIED]** A QC rule can be satisfied without fixing the problem it stands for (`audio_starts` passes with a bed although the voice starts at 3.35 s): report the measurement and the reason, never claim the underlying goal.
+- **[PROCESS]** When only the audio changes, remux with `-c:v copy`; keep the previous master (v1 silent) in storage and name the new one v2.
+- **[HYPOTHESIS]** The drone helps first-seconds retention; unmeasured until analytics exist.
+
 ## Shorts feedback (parallel track, PR #16, not merged)
 Views are not independent observations; Studio and Analytics API metrics differ (engagedViews, looping clips); an exploratory 2-vs-2 design can never reach significance (minimum two-sided p = 0.33): classify as exploratory. Work is on `feature/shorts-performance-feedback`; Shorts are excluded from the current production plan.

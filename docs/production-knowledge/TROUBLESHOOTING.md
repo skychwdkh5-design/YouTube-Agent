@@ -23,4 +23,7 @@ All entries **[VERIFIED]** in this repo unless tagged.
 | yt-qc `black_frames` after the first fix attempt | a dark navy card with a few elements is still >= 98 % dark | lift the card background (mean Y about 31), content in frame 0 |
 | paid TTS lost after a mid-run failure | no per-chunk persistence | `--cache-dir` (see TTS_ELEVENLABS.md) |
 | final MP4 > 100 MB cannot be pushed | host file limit | split in 90 MB parts on `media/<episode>-final` with SHA256SUMS |
+| callout/label glyphs cut at the frame edge or over a header | long label anchored near an edge or a landmark outside the frame | `kit.Canvas.callout` clamps (24 px margin, y 96..H-90), skips off-frame landmarks, dark stroke; verify with `qa_text_bounds.py` |
+| mixing a bed under narration changes the narration by 1 LSB | float round trip (x/32768 then x*32767) | add integer samples to the original int16 array and assert `mix - bed == narration` |
+| atmosphere synth clips or loudness parse fails | un-normalised sum of partials; `ebur128` log not on stderr | normalise to half scale first; read `ametadata=print:key=lavfi.r128.M` from stdout |
 

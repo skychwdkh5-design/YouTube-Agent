@@ -15,3 +15,5 @@ Code: `productions/dubai/preview/{kit,scenes,scenes_v6,sync,build_final}.py`. Ru
 
 Outline pitfalls **[VERIFIED]**: coast and clouds leak into masks (restrict by radius around the landmark; use the "new land" difference mask for a palm; rows above 1090 of the 2000 frame are unreliable because of the creek and clouds); thin fronds vanish with a 5 px structuring element (use MaxFilter(3) on the edge only); outlines drawn from a 3x3-px mask edge need 3-5 px lines to read.
 Hypothesis **[HYPOTHESIS]**: per-sentence cue anchoring is enough for sync of graphics; confirm on the next episode with a frame-accurate check.
+- Labels **[VERIFIED]**: `Canvas.callout` keeps text inside a 24 px margin and the 96..H-90 band, hides labels whose landmark is outside the frame, and strokes text dark (2 px) so amber stays readable on sand; scrolling elements (filmstrip) must fade labels before the edge.
+
