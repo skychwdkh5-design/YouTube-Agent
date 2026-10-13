@@ -64,8 +64,8 @@ def A3(t, d, X):
         big(cv, txt, H * 0.21 if t > 10 else H * 0.13, sm(seg(t, a0, a0 + 0.4)) * (1 - sm(seg(t, a1 - 0.3, a1))), 28)
     if 12.6 < t < 19.6:                                                                     # schematic panel: one dot = one planned island, NOT a location
         k = sm(seg(t, 12.6, 13.4)) * (1 - sm(seg(t, 18.8, 19.6))); ss = SS(); rx0, ry0, rx1, ry1 = 560, 190, 900, 410; ss.rect(rx0, ry0, rx1, ry1, fill=(8, 14, 22, int(215 * k)), outline=CYAN + (int(160 * k),), width=1.2, r=6)
-        S.dots_field(ss, (rx0 + 14, ry0 + 14, rx1 - 14, ry1 - 14), 300, oc(seg(t, 14.0, 17.5)), CYAN + (int(220 * k),), r=2.6); layer(cv, ss)
-        cv.text((rx1 - 16, ry1 - 46), f'{int(300 * oc(seg(t, 14.0, 17.5)))}', 34, AMBER, k, anchor='ra'); cv.text((rx0 + 14, ry0 + 8), 'SCHEMATIC · one dot = one planned island, not a position', 12, MUTED, k)
+        S.dots_field(ss, (rx0 + 14, ry0 + 44, rx1 - 14, ry1 - 14), 300, oc(seg(t, 14.0, 17.5)), CYAN + (int(220 * k),), r=2.6); layer(cv, ss)
+        cv.text((rx1 - 16, ry1 - 46), f'{int(300 * oc(seg(t, 14.0, 17.5)))}', 34, AMBER, k, anchor='ra'); cv.text((rx0 + 14, ry0 + 8), 'SCHEMATIC · one dot = one planned island', 12, MUTED, k); cv.text((rx0 + 14, ry0 + 24), 'dot positions are not island positions', 12, MUTED, k)
     sea_tint(cv, r, sm(seg(t, 24.2, 25.2))); c = to_screen(r, SITE[0]); ring_dashed(cv, c, SITE[1] * W / r[2], sm(seg(t, 24.6, 25.2)), phase=t * 14, frac=oc(seg(t, 24.6, 26.0))); return cv
 
 # ---------------------------------------------------------------- C2 (20 s): the three designs on the real 2006 frame, outlines traced

@@ -150,7 +150,7 @@ def H2(t, d, X):                                                           # the
     overlay_new_land(cv, r, oc(seg(t, 2.4, 4.0)), 1.0, fill_a=0.34 * (1 - 0.65 * sm(seg(t, 5.0, 5.8))), edge_a=0.85 + 0.15 * sm(seg(t, 2.4, 3.0)))
     big(cv, 'NEW LAND', H * 0.17, sm(seg(t, tw(5, 16, d), tw(5, 16, d) + 0.4)) * (1 - sm(seg(t, 4.6, 5.0))))
     tl = sm(seg(t, tw(10, 16, d), tw(10, 16, d) + 0.4)); p = oc(seg(t, tw(10, 16, d) + 0.1, tw(14, 16, d) + 0.4)); n = min(3, 1 + int(p * 3))
-    ss = SS(); x0, x1, y = W * 0.3, W * 0.7, H * 0.14 + 52; ss.rect(x0 - 24, y - 12, x1 + 24, y + 34, fill=(8, 14, 22, int(175 * tl)), r=6); ss.line([(x0, y), (x1, y)], (234, 240, 246, int(170 * tl)), 2); ss.line([(x0, y), (x0 + (x1 - x0) * p, y)], AMBER + (int(255 * tl),), 4)
+    ss = SS(); x0, x1, y = W * 0.2, W * 0.56, H * 0.14 + 52; ss.rect(x0 - 24, y - 12, x1 + 24, y + 34, fill=(8, 14, 22, int(175 * tl)), r=6); ss.line([(x0, y), (x1, y)], (234, 240, 246, int(170 * tl)), 2); ss.line([(x0, y), (x0 + (x1 - x0) * p, y)], AMBER + (int(255 * tl),), 4)
     for xx in (x0, x1): ss.ellipse((xx, y), 5, fill=(234, 240, 246, int(255 * tl)))
     layer(cv, ss); cv.text((x0, y + 10), '2000', 15, TEXT, tl, anchor='ma'); cv.text((x1, y + 10), '2003', 15, TEXT, tl, anchor='ma'); big(cv, f'{n} YEAR' + ('S' if n > 1 else ''), H * 0.14 - 18, tl, 34); return cv
 def H3(t, d, X):                                                           # two panels (2000 | 2022), one arrow, one counter; the ISS panel opens to full frame; glide to Palm Jebel Ali
