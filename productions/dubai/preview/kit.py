@@ -35,7 +35,12 @@ class SDraw:
     def textlength(self, s, font=None, **kw): return self.d.textlength(s, font=font, **kw) / SC
 def mkdraw(img): return SDraw(ImageDraw.Draw(img))
 sm, smr, oc = E.smooth, E.smoother, E.out_cubic
-def seg(t, a, b): return E.clamp((t - a) / max(b - a, 1e-6))
+CLK = None            # per-scene smooth clock (word-level estimated time -> smooth estimated time), set by build_final; None in previews
+def tm(t): return CLK(t) if CLK else t
+def seg(t, a, b):
+    """progress of window [a, b]; windows >= 3 s are camera/ease moves and follow the SMOOTH clock, shorter ones are events and follow the word-level clock"""
+    if CLK is not None and (b - a) >= 3.0: t = CLK(t)
+    return E.clamp((t - a) / max(b - a, 1e-6))
 
 # ------------------------------------------------------------------ sources
 HERE = os.path.dirname(os.path.abspath(__file__)); VIS = os.path.join(HERE, '../visuals')

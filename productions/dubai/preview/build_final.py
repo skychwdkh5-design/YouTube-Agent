@@ -17,9 +17,9 @@ def render_scene(args):
     X = {'a1_frames': sorted(glob.glob(os.path.join(A.a1, 'f*.png')))} if A.a1 else {}; track = [] if A.nocaps else [tuple(c) for c in sync.cues(win['words'])]; n = int(round(win['dur'] * FPS)); tmp = path + '.part.mp4'
     p = subprocess.Popen(['ffmpeg', '-loglevel', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{PW}x{PH}', '-r', str(FPS), '-i', '-', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', str(A.crf), '-preset', 'medium', '-g', str(FPS * 2), tmp], stdin=subprocess.PIPE)
     for i in range(n):
-        t = i / FPS; te = win['warp'](t); fr = fn(te, d_est, X).finish(); amt = S.PUSH.get(sid, 0.0)
+        t = i / FPS; te = win['clock'](t); kit.CLK = win['tm']; fr = fn(te, d_est, X).finish(); amt = S.PUSH.get(sid, 0.0)
         if amt:                                                   # slow push on text/graphic scenes; captions are drawn after, so they stay put
-            s = 1 + amt * kit.smr(te / d_est); fr = fr.transform((PW, PH), Image.AFFINE, (1 / s, 0, PW / 2 - PW / 2 / s, 0, 1 / s, PH / 2 - PH / 2 / s), resample=Image.BICUBIC)
+            s = 1 + amt * kit.smr(kit.tm(te) / d_est); fr = fr.transform((PW, PH), Image.AFFINE, (1 / s, 0, PW / 2 - PW / 2 / s, 0, 1 / s, PH / 2 - PH / 2 / s), resample=Image.BICUBIC)
         cv = Canvas(fr); draw_caption(cv, track, t); p.stdin.write(cv.finish().tobytes())
     p.stdin.close(); p.wait(); os.replace(tmp, path); return sid, n
 def main():

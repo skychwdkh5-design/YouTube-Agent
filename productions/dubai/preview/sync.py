@@ -38,7 +38,7 @@ def plan(scenes, extra=None):
     out, shift = {}, 0.0
     for sid, s0, e0, d_est, a, b in rows:
         ex = extra.get(sid, 0.0)
-        if a is None: out[sid] = dict(start=s0 + shift, end=e0 + shift, dur=e0 - s0, warp=lambda t: t, words=[], audio=None, anchors=[]); shift += ex; continue
+        if a is None: out[sid] = dict(start=s0 + shift, end=e0 + shift, dur=e0 - s0, warp=lambda t: t, clock=lambda t: t, tm=lambda x: x, words=[], audio=None, anchors=[]); shift += ex; continue
         n = b - a; tw = lambda k: 0.5 + k * (d_est - 1.1) / n; ax, ay = [0.0], [0.0]
         for k in range(n):                                                                    # sentence starts only (smooth warp)
             prev = words[a + k - 1]['text'] if k else ''
@@ -49,7 +49,12 @@ def plan(scenes, extra=None):
         if sp > ax[-1] + 0.2 and d_est > ay[-1] + 0.05: ax.append(sp); ay.append(d_est)
         else: ax[-1], ay[-1] = sp, d_est
         a0 = s0 - offset; delay = max(0.0, -a0); a0 = max(a0, 0.0)
-        out[sid] = dict(start=s0 + shift, end=e0 + shift + ex, dur=sp + ex, speech_dur=sp, warp=pchip(ax, ay) if len(ax) > 1 else (lambda t, k=d_est / sp: t * k), anchors=list(zip(ax, ay)),
+        WARP = pchip(ax, ay) if len(ax) > 1 else (lambda t, k=d_est / sp: t * k); warp_ = WARP
+        rx = np.array([0.0] + [w_['start'] + offset - s0 for w_ in words[a:b]] + [sp]); ey = np.array([0.0] + [tw(k) for k in range(n)] + [d_est]); rx = np.maximum.accumulate(rx + np.arange(len(rx)) * 1e-6)
+        wf = lambda t, rx=rx, ey=ey: float(np.interp(t, rx, ey))                                 # word-level clock: exact at every word start
+        grid = np.linspace(0, sp, 2000); wv = np.array([wf(t) for t in grid]); sv = np.array([float(warp_(t)) for t in grid])
+        tmf = lambda x, wv=wv, sv=sv: float(np.interp(x, wv, sv))                              # word-level est time -> smooth est time (camera clock)
+        out[sid] = dict(start=s0 + shift, end=e0 + shift + ex, dur=sp + ex, speech_dur=sp, clock=wf, tm=tmf, warp=WARP, anchors=list(zip(ax, ay)),
                         words=[dict(text=w['text'], start=w['start'] + offset - s0, end=w['end'] + offset - s0) for w in words[a:b]], audio=(a0, e0 - offset, delay)); shift += ex
     return out, offset
 def assemble_audio(win, out_wav, narration=None, rate=44100):

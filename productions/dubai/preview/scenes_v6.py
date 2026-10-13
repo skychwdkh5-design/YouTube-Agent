@@ -95,7 +95,7 @@ def fit(c, w, scr, size):
     if w > size[0] * 0.98: w = size[0] * 0.98; h = w * scr[3] / scr[2]
     x = min(max(c[0] - w / 2, 0), size[0] - w); y = min(max(c[1] - h / 2, 0), size[1] - h); return (x, y, w, h)
 def C6(t, d, X):
-    sp = smr(seg(t, 7.0, 8.4)); lw = W - (W / 2) * sp; scrL = (0, 0, lw, H); scrR = (lw, 0, W - lw, H); z = 1 - 0.06 * t / d; img = Image.new('RGB', (PW, PH), INK); LW = int(round(lw * SC))
+    sp = smr(seg(t, 7.0, 8.4)); lw = W - (W / 2) * sp; scrL = (0, 0, lw, H); scrR = (lw, 0, W - lw, H); z = 1 - 0.06 * tm(t) / d; img = Image.new('RGB', (PW, PH), INK); LW = int(round(lw * SC))
     cs = SITE[0]; wL = 760 * z if sp > 0.5 else 1100 * z; boxL = fit((cs[0] + 40, cs[1]), wL, scrL, WOC_SZ) if lw > 1 else None; k = sm(seg(t, 10.7, 12.0))
     if lw > 2:
         a = src('2003').resize((LW, PH), Image.LANCZOS, box=(boxL[0], boxL[1], boxL[0] + boxL[2], boxL[1] + boxL[3])); b = src('2011').resize((LW, PH), Image.LANCZOS, box=(boxL[0], boxL[1], boxL[0] + boxL[2], boxL[1] + boxL[3])); img.paste(Image.blend(a, b, k), (0, 0))

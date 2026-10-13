@@ -33,7 +33,7 @@ def zoom_ring(cv, rect, c, r, text, t, t0, dxy, px=18, out=None, pad=1.12):
 def tw(i, n, d): return 0.5 + i * (d - 1.1) / n
 def path(t, d, keys, size):
     """camera path through (time, rect) keys; Catmull-Rom on (cx, cy, log w), 16:9 preserved"""
-    ts = [k[0] for k in keys]; P = [(k[1][0] + k[1][2] / 2, k[1][1] + k[1][3] / 2, math.log(k[1][2])) for k in keys]
+    t = tm(t); ts = [k[0] for k in keys]; P = [(k[1][0] + k[1][2] / 2, k[1][1] + k[1][3] / 2, math.log(k[1][2])) for k in keys]
     t = min(max(t, ts[0]), ts[-1]); i = max(j for j in range(len(ts) - 1) if ts[j] <= t) if t < ts[-1] else len(ts) - 2
     u = (t - ts[i]) / (ts[i + 1] - ts[i]); n = len(P); p0, p1, p2, p3 = P[max(i - 1, 0)], P[i], P[i + 1], P[min(i + 2, n - 1)]
     def cr(a, b, c, e): return 0.5 * ((2 * b) + (-a + c) * u + (2 * a - 5 * b + 4 * c - e) * u * u + (-a + 3 * b - 3 * c + e) * u ** 3)
@@ -194,7 +194,7 @@ def tone_match(img, ref):
     a = np.asarray(img, np.float32); r = np.asarray(ref, np.float32).reshape(-1, 3); m, s = a.reshape(-1, 3).mean(0), a.reshape(-1, 3).std(0) + 1e-3
     return (a - m) / s * r.std(0) + r.mean(0)
 def A1(t, d, X):
-    fr = X['a1_frames']; n = len(fr); i = min(int(t * 24), n - 1)                      # Cesium frames are 24 per estimated second whatever the output fps
+    fr = X['a1_frames']; n = len(fr); i = min(int(tm(t) * 24), n - 1)                      # Cesium frames are 24 per estimated second whatever the output fps
     ces = Image.open(fr[i]).convert('RGB').resize((PW, PH), Image.LANCZOS).filter(ImageFilter.UnsharpMask(1.2 * SC, 60, 2)); pj = json.load(open(pjson(fr[i])))
     u = seg(t, 15.8, 19.0)
     if u > 0:                                                  # soft Palm/Dubai-centred dissolve into the ASTER-2000 start crop; the Cesium render is tone-matched (UI treatment), ASTER untouched
@@ -259,7 +259,7 @@ def B1(t, d, X):
     pc = lm('woc', '2002a')[0] if False else tuple(LMJ['woc']['2002a']['early_stage_patch']['center'])
     cv.callout(to_screen(r, pc), 'FIRST EARLY STAGE', t, 6.0, (120, 90), r=30); return cv
 def B2(t, d, X):
-    c, rad = woc_ring('2002b'); r = lerp_rect(rect_c(c, 1050, dx=210), rect_c(c, 640, dx=60), smr(t / d)); cv = Canvas(view('2002b', r)); stamp(cv, '2002b', t)
+    c, rad = woc_ring('2002b'); r = lerp_rect(rect_c(c, 1050, dx=210), rect_c(c, 640, dx=60), smr(tm(t) / d)); cv = Canvas(view('2002b', r)); stamp(cv, '2002b', t)
     cv.callout(to_screen(r, (c[0] - rad, c[1])), 'CIRCULAR BREAKWATER', t, 3.0, (60, -120), r=14); cv.callout(to_screen(r, FRONDS_2002B), 'SANDY FRONDS', t, 7.5, (200, 100), r=14); return cv
 
 def sea_gradient():
@@ -354,7 +354,7 @@ def B4(t, d, X):
     cv.pill((22, 20), 'ILLUSTRATION · schematic, not to scale · method as described by NASA Earth Observatory', 14, 1.0, accent=CYAN); return cv
 
 def B5(t, d, X):
-    c, _ = woc_ring('2003'); r = lerp_rect(rect_c(c, 900, dx=150), rect_c(c, 760, dx=110), t / d)
+    c, _ = woc_ring('2003'); r = lerp_rect(rect_c(c, 900, dx=150), rect_c(c, 760, dx=110), tm(t) / d)
     a, b = view('2002b', r), view('2003', r); u = sm(seg(t, 11.5, 14.5)); cv = Canvas(dissolve(a, b, u)); key = '2002b' if u < 0.5 else '2003'; stamp(cv, key, t if u < 0.5 else t - 11.5, 0.3)
     c2, r2 = woc_ring('2002b'); c3, r3 = woc_ring('2003')
     cv.callout(to_screen(r, (c2[0] - r2, c2[1])), 'RING ALREADY IN PLACE', t, 4.5, (60, -120), r=14, out=11.2); cv.callout(to_screen(r, FRONDS_2002B), 'FRONDS STILL SAND', t, 7.5, (200, 90), r=14, out=11.2)
@@ -369,7 +369,7 @@ def B6(t, d, X):
     if lt > L - 0.5 and i < n - 1: nk, nr0, _ = spec[i + 1]; im = dissolve(im, view(nk, nr0), (lt - (L - 0.5)) / 0.5)
     cv = Canvas(im); cv.chip(chip_for(key)); yearlabel(cv, YEAR[key], lt, 0.1, px=44); return cv
 def B7(t, d, X):
-    c, rad = PJ2; r = lerp_rect(C1B, (965, 1930, 860, 484), t / d); cv = Canvas(view('palm2', r)); cv.chip(chip_for('palm2'))
+    c, rad = PJ2; r = lerp_rect(C1B, (965, 1930, 860, 484), tm(t) / d); cv = Canvas(view('palm2', r)); cv.chip(chip_for('palm2'))
     zoom_ring(cv, r, c, rad, 'PALM JUMEIRAH', t, 1.5, (-190, -150), px=20)
     cv.text((24, 66), 'THE FIRST OF SEVERAL', 22, TEXT, oc(seg(t, 5.5, 6.5)), anchor='la', spacing=0.12); return cv
 
@@ -406,13 +406,13 @@ def C2(t, d, X):
     cv.text((W * 0.73, H * 0.82), 'about 300 small islands planned', 14, MUTED, oc(seg(t, 16.5, 17.5)), anchor='ma', bold=False)
     cv.text((W / 2, 66), 'THREE PROJECTS · TWO DESIGNS · ONE COAST', 15, MUTED, 1.0, anchor='ma', spacing=0.25); layer(cv, ss); return cv
 def C3(t, d, X):
-    u = sm(seg(t, 8.0, 10.5)); im = dissolve(view('palm2', lerp_rect(C1D, (1760, 190, 1180, 664), t / d)), view('palm2', lerp_rect(C1C, (940, 1040, 1180, 664), seg(t, 6.0, d))), u); k = sm(seg(t, 2.0, 3.0))
+    u = sm(seg(t, 8.0, 10.5)); im = dissolve(view('palm2', lerp_rect(C1D, (1760, 190, 1180, 664), tm(t) / d)), view('palm2', lerp_rect(C1C, (940, 1040, 1180, 664), seg(t, 6.0, d))), u); k = sm(seg(t, 2.0, 3.0))
     cv = Canvas(dim(im, 1 - 0.5 * k)); cv.chip(chip_for('palm2'))
     cv.text((60, 150), '2007 – 2008', 44, AMBER, oc(seg(t, 3.0, 4.0)), anchor='la'); cv.text((60, 212), 'THE GLOBAL RECESSION', 28, TEXT, oc(seg(t, 4.0, 5.0)), anchor='la')
     cv.text((60, 258), 'NASA: it delayed these projects', 20, MUTED, oc(seg(t, 5.0, 6.0)), anchor='la', bold=False)
     cv.text((60, 330), 'In the 2006 image: Palm Deira barely begun,', 17, TEXT, oc(seg(t, 12.0, 13.0)), anchor='la', bold=False); cv.text((60, 356), 'The World still under construction.', 17, TEXT, oc(seg(t, 12.6, 13.6)), anchor='la', bold=False); return cv
 def C4(t, d, X):
-    r = lerp_rect(C1C, (940, 1040, 1180, 664), t / d); cv = Canvas(dim(view('palm2', r), 0.32)); cv.chip('Background: NASA ASTER · 2006 · colours as published (not 2022)')
+    r = lerp_rect(C1C, (940, 1040, 1180, 664), tm(t) / d); cv = Canvas(dim(view('palm2', r), 0.32)); cv.chip('Background: NASA ASTER · 2006 · colours as published (not 2022)')
     cv.text((60, 120), '2022', 90, AMBER, oc(seg(t, 0.8, 1.8)), anchor='la')
     cv.text((60, 236), "Only a handful of The World's roughly 300 islands", 26, TEXT, oc(seg(t, 3.0, 4.0)), anchor='la'); cv.text((60, 272), 'had seen development.', 26, TEXT, oc(seg(t, 3.6, 4.6)), anchor='la')
     cv.text((60, 330), "NASA's caption for the astronaut's photograph", 17, MUTED, oc(seg(t, 6.0, 7.0)), anchor='la', bold=False)
@@ -437,7 +437,7 @@ def C6(t, d, X):
 
 # ------------------------------------------------------------------ ACT 4
 def D1(t, d, X):
-    u = sm(seg(t, 8.0, 10.0)); r1 = lerp_rect(C1A, (100, 2810, 1180, 664), t / d); r2 = lerp_rect(C1B, (950, 1930, 880, 495), t / d)
+    u = sm(seg(t, 8.0, 10.0)); r1 = lerp_rect(C1A, (100, 2810, 1180, 664), tm(t) / d); r2 = lerp_rect(C1B, (950, 1930, 880, 495), tm(t) / d)
     cv = Canvas(dissolve(view('palm2', r1), view('palm2', r2), u)); cv.chip(chip_for('palm2'))
     if u < 0.5: zoom_ring(cv, r1, PJA2[0], PJA2[1], 'CIRCULAR STORM BARRIER', t, 1.5, (-30, -200), px=17, out=8.0)
     else: zoom_ring(cv, r2, PJ2[0], PJ2[1], 'PALM JUMEIRAH · THE SAME DESIGN', t, 10.3, (-190, -170), px=17)
@@ -491,7 +491,7 @@ def E4(t, d, X):
     """split screen (both dated stills fully visible, no overlay or wipe): 2000 | 2003, then synthesis text on a lower strip"""
     c0, _ = woc_ring('2000'); c3, _ = woc_ring('2003'); pw, ph = W // 2, H; sl = oc(seg(t, 0.4, 2.0))
     def panel(key, c):
-        w = 760 + 40 * (t / d); h = w * ph / pw; x = min(max(c[0] + 120 - w / 2, 0), 3000 - w); y = min(max(c[1] - h / 2, 0), 3000 - h)
+        w = 760 + 40 * (tm(t) / d); h = w * ph / pw; x = min(max(c[0] + 120 - w / 2, 0), 3000 - w); y = min(max(c[1] - h / 2, 0), 3000 - h)
         return view_panel(key, (x, y, w, h))
     a, b = panel('2000', c0), panel('2003', c3); base = Image.new('RGB', (W, H), INK); base.paste(a, (-int((1 - sl) * pw * 0.2), 0)); base.paste(b, (pw + int((1 - sl) * pw * 0.2), 0))
     cv = Canvas(dim(base, 1 - 0.0)); cv.d.rectangle([pw - 2, 0, pw + 2, H], fill=INK + (255,))
