@@ -1,0 +1,183 @@
+{
+ "schema": "yt-shorts-feedback/hypotheses/1",
+ "rules": [
+  "a hypothesis is written before its data exists and its test block is not edited afterwards",
+  "evaluate never promotes a hypothesis on a single Short per arm",
+  "a result is a lead for the next test, not a guarantee"
+ ],
+ "hypotheses": [
+  {
+   "id": "H-001",
+   "status": "proposed",
+   "title": "Claim-first opening keeps more viewers than an orientation label",
+   "statement": "A Short whose first 3 seconds state the claim or outcome (what the viewer will learn or see) has a higher stayed_to_watch_percent than one whose first 3 seconds only orient (place name, year, instrument).",
+   "evidence_now": [
+    {
+     "video_id": "SHORT2_Can_Humans_Turn_The_Sahara_Green",
+     "observation": "first cue 'YOU COULD TURN THE SAHARA GREEN' (0.1 s); stayed_to_watch 54.0 %, 95 % interval 51.1-56.7 (n = 1,212 views)"
+    },
+    {
+     "video_id": "SHORT1_The_Sahara_Is_Turning_Green",
+     "observation": "first cues 'THIS IS EAST OWEINAT' / 'IN SOUTHERN EGYPT' (0.2-3.6 s); first payoff 'TODAY IT'S COVERED IN GREEN CIRCLES' at 9.5 s; stayed_to_watch 37.2 %, 95 % interval 32.4-42.2 (n = 374 views)"
+    }
+   ],
+   "evidence_strength": "observational, one Short per form",
+   "confounds": [
+    "different topic and story",
+    "different first frame and thumbnail (not reviewed)",
+    "traffic source and publish time unknown",
+    "measurement window unknown",
+    "small samples"
+   ],
+   "prediction": "the claim-first arm shows the higher stayed_to_watch_percent",
+   "test": {
+    "experiment": "EXP-001",
+    "primary_metric": "stayed_to_watch_percent",
+    "arms": {
+     "A": {
+      "variants": [
+       "EXP-001:A"
+      ]
+     },
+     "B": {
+      "variants": [
+       "EXP-001:B"
+      ]
+     }
+    },
+    "direction": "A>B",
+    "alpha": 0.05,
+    "min_views_per_arm": 1000,
+    "min_videos_per_arm": 2,
+    "require_fixed_window": true
+   },
+   "decision": null
+  },
+  {
+   "id": "H-002",
+   "status": "proposed",
+   "title": "A designed loop raises repeated playback",
+   "statement": "An ending whose last seconds return to the opening view and whose last words set up the first line raises average_view_duration relative to video length (replay_ratio) compared with a plain ending.",
+   "evidence_now": [
+    {
+     "video_id": "SHORT2_Can_Humans_Turn_The_Sahara_Green",
+     "observation": "average_view_duration 75 s on a 53.38 s video (replay_ratio 1.41, average_percentage_viewed 139.8 %): playbacks repeat. No loop was designed, and the caption seam shares no content word, so this does NOT show that the ending caused the repeats"
+    },
+    {
+     "video_id": "SHORT1_The_Sahara_Is_Turning_Green",
+     "observation": "average_view_duration 17 s of 51.04 s (replay_ratio 0.33)"
+    }
+   ],
+   "evidence_strength": "observational; the mechanical text-seam check does not explain the observed repeats",
+   "confounds": [
+    "Studio figures include repeated playback while the Analytics API excludes looping-clips traffic from the same two metrics (https://developers.google.com/youtube/analytics/metrics): never mix sources",
+    "topic",
+    "length"
+   ],
+   "prediction": "the loop-closed arm shows the higher replay_ratio (average_view_duration / duration_seconds)",
+   "test": {
+    "experiment": "EXP-002",
+    "primary_metric": "average_percentage_viewed",
+    "arms": {
+     "A": {
+      "variants": [
+       "EXP-002:A"
+      ]
+     },
+     "B": {
+      "variants": [
+       "EXP-002:B"
+      ]
+     }
+    },
+    "direction": "A>B",
+    "alpha": 0.05,
+    "min_views_per_arm": 1000,
+    "min_videos_per_arm": 3,
+    "require_fixed_window": true
+   },
+   "decision": null
+  },
+  {
+   "id": "H-003",
+   "status": "proposed",
+   "title": "Length changes who stays",
+   "statement": "A 30-45 s Short and a 45-60 s Short differ in stayed_to_watch_percent and in average_view_duration at equal quality. No direction is predicted: a shorter Short is easier to finish but carries less story.",
+   "evidence_now": [
+    {
+     "video_id": "both",
+     "observation": "both published Shorts are 51-53 s, so the data contain no duration contrast at all"
+    }
+   ],
+   "evidence_strength": "none yet",
+   "confounds": [
+    "average_percentage_viewed is mechanically easier to raise on a shorter video: compare absolute average_view_duration and stayed_to_watch_percent, not percent viewed, across duration arms",
+    "story content must be matched"
+   ],
+   "prediction": "the two arms differ (two-sided)",
+   "test": {
+    "experiment": "EXP-003",
+    "primary_metric": "stayed_to_watch_percent",
+    "arms": {
+     "A": {
+      "variants": [
+       "EXP-003:A"
+      ]
+     },
+     "B": {
+      "variants": [
+       "EXP-003:B"
+      ]
+     }
+    },
+    "direction": "different",
+    "alpha": 0.05,
+    "min_views_per_arm": 1000,
+    "min_videos_per_arm": 2,
+    "require_fixed_window": true
+   },
+   "decision": null
+  },
+  {
+   "id": "H-004",
+   "status": "proposed",
+   "title": "A quiet series identity lifts subscribers per 1,000 views",
+   "statement": "Shorts that carry the same small, repeated series cue (end tag, pinned comment naming the next Short, consistent channel line in the description) gain more subscribers per 1,000 views than Shorts without it.",
+   "evidence_now": [
+    {
+     "video_id": "both",
+     "observation": "0 subscribers from 1,586 views in total: the true rate is below about 1.9 per 1,000 views (95 % upper bound, 3 / n); 0 says nothing about which cue would help"
+    }
+   ],
+   "evidence_strength": "baseline only",
+   "confounds": [
+    "subscriber events are rare: thousands of views per arm are needed",
+    "viewers who arrive through the Shorts feed rarely visit the channel",
+    "any cue also changes the tone of the Short"
+   ],
+   "prediction": "the series-cue arm shows more subscribers per 1,000 views",
+   "test": {
+    "experiment": "EXP-004",
+    "primary_metric": "subscribers_per_1000_views",
+    "arms": {
+     "A": {
+      "variants": [
+       "EXP-004:A"
+      ]
+     },
+     "B": {
+      "variants": [
+       "EXP-004:B"
+      ]
+     }
+    },
+    "direction": "A>B",
+    "alpha": 0.05,
+    "min_views_per_arm": 5000,
+    "min_videos_per_arm": 3,
+    "require_fixed_window": true
+   },
+   "decision": null
+  }
+ ]
+}

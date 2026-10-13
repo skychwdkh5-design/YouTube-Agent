@@ -1,0 +1,100 @@
+{
+ "schema": "yt-shorts-feedback/videos/1",
+ "note": "static facts about each published Short. publication_date and youtube_video_id are null because they were not supplied; fill them from Studio, never from memory.",
+ "videos": [
+  {
+   "video_id": "SHORT1_The_Sahara_Is_Turning_Green",
+   "title": "The Sahara Is Turning Green?",
+   "youtube_video_id": null,
+   "publication_date": null,
+   "duration_seconds": 51.041,
+   "production": {
+    "file": "SHORT1_The_Sahara_Is_Turning_Green.mp4",
+    "sha256": "d75cbcaf792cc83d88b9d79cd1e5dacee945936577fb048fe2a22f4bc2749a6b",
+    "captions_source": "origin/production/ep001-sahara-green:productions/sahara-green/final/shorts/SHORT1_The_Sahara_Is_Turning_Green.json"
+   },
+   "structure_from_captions": {
+    "caption_cues": 40,
+    "caption_words": 116,
+    "caption_words_per_second": 2.3,
+    "first_cue": {
+     "start": 0.16,
+     "text": "THIS IS EAST OWEINAT"
+    },
+    "second_cue": {
+     "start": 2.2,
+     "text": "IN SOUTHERN EGYPT"
+    },
+    "last_cue": {
+     "end": 50.5,
+     "text": "REPLACED"
+    },
+    "seam_reads_as": "... WITH WATER STORED LONG AGO AND ONLY SLOWLY REPLACED | THIS IS EAST OWEINAT IN SOUTHERN EGYPT ...",
+    "seam_flags": [
+     {
+      "name": "no_shared_content_word",
+      "detail": "the closing and opening seconds share no content word; a loop has to be carried by the idea or the picture (weak mechanical signal only)"
+     }
+    ],
+    "seam_shared_content_words": []
+   },
+   "experiment_variant": "baseline_unplanned",
+   "annotations": {
+    "annotated_by": "assistant, from caption text only (the videos were not viewed)",
+    "hook_form": "location_label",
+    "first_payoff_start_s": 9.5,
+    "first_payoff_text": "TODAY IT'S COVERED IN GREEN CIRCLES",
+    "ending_form": "conclusion",
+    "declared_loop_strategy": "none"
+   }
+  },
+  {
+   "video_id": "SHORT2_Can_Humans_Turn_The_Sahara_Green",
+   "title": "Can Humans Turn the Sahara Green?",
+   "youtube_video_id": null,
+   "publication_date": null,
+   "duration_seconds": 53.38,
+   "production": {
+    "file": "SHORT2_Can_Humans_Turn_The_Sahara_Green.mp4",
+    "sha256": "6f116e54294ef13aed16708e3fb6f2806c31014f5cac3a65d345340a032adf87",
+    "captions_source": "origin/production/ep001-sahara-green:productions/sahara-green/final/shorts/SHORT2_Can_Humans_Turn_The_Sahara_Green.json"
+   },
+   "structure_from_captions": {
+    "caption_cues": 37,
+    "caption_words": 115,
+    "caption_words_per_second": 2.18,
+    "first_cue": {
+     "start": 0.08,
+     "text": "YOU COULD TURN THE"
+    },
+    "second_cue": {
+     "start": 0.77,
+     "text": "SAHARA GREEN"
+    },
+    "last_cue": {
+     "end": 52.84,
+     "text": "A WEAK INCREASE"
+    },
+    "seam_reads_as": "... AROUND 11 DEGREES FAHRENHEIT THE AUTHORS CALLED THAT A WEAK INCREASE | YOU COULD TURN THE SAHARA GREEN IN 2009 ...",
+    "seam_flags": [
+     {
+      "name": "no_shared_content_word",
+      "detail": "the closing and opening seconds share no content word; a loop has to be carried by the idea or the picture (weak mechanical signal only)"
+     }
+    ],
+    "seam_shared_content_words": []
+   },
+   "experiment_variant": "baseline_unplanned",
+   "annotations": {
+    "annotated_by": "assistant, from caption text only (the videos were not viewed)",
+    "hook_form": "direct_claim_to_viewer",
+    "first_payoff_start_s": 0.1,
+    "first_payoff_text": "YOU COULD TURN THE SAHARA GREEN",
+    "open_question_start_s": 14.9,
+    "open_question_text": "WOULD IT RAIN?",
+    "ending_form": "hedged_conclusion",
+    "declared_loop_strategy": "none"
+   }
+  }
+ ]
+}

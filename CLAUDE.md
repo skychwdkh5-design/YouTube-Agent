@@ -54,3 +54,9 @@ Decision rules:
 `/yt-satellite` works worldwide - Landsat covers the whole globe. Stories in Sweden, Norway, Denmark
 or anywhere else may use it when satellite evidence materially improves the story. The no-
 fabrication rules in that skill apply everywhere: no scene, no satellite claim.
+
+## Shorts performance feedback
+
+- Published Shorts results live in `analytics/shorts/`; record them with `/yt-shorts-feedback`. Unknown values stay `null`; never invent statistics or say that automatic collection works (no YouTube Analytics API is connected).
+- `views` and `engaged_views` are different metrics; Studio and Analytics API numbers are never mixed in one comparison.
+- A Short in a running experiment changes only the declared variable. No performance guarantees: results are leads with their sample size. A different spoken line is a new TTS take and needs the user's explicit approval.
