@@ -31,7 +31,9 @@ class SDraw:
     def rounded_rectangle(self, xy, radius=0, fill=None, outline=None, width=1): self.d.rounded_rectangle(self._c(xy), radius * SC, fill=fill, outline=outline, width=self._w(width))
     def polygon(self, xy, fill=None, outline=None, width=1): self.d.polygon(self._c(xy), fill=fill, outline=outline)
     def arc(self, xy, start, end, fill=None, width=1): self.d.arc(self._c(xy), start, end, fill=fill, width=self._w(width))
-    def text(self, xy, s, font=None, fill=None, anchor=None, **kw): self.d.text((xy[0] * SC, xy[1] * SC), s, font=font, fill=fill, anchor=anchor, **kw)
+    def text(self, xy, s, font=None, fill=None, anchor=None, **kw):
+        if kw.get('stroke_width'): kw['stroke_width'] = max(1, int(round(kw['stroke_width'] * SC)))
+        self.d.text((xy[0] * SC, xy[1] * SC), s, font=font, fill=fill, anchor=anchor, **kw)
     def textlength(self, s, font=None, **kw): return self.d.textlength(s, font=font, **kw) / SC
 def mkdraw(img): return SDraw(ImageDraw.Draw(img))
 sm, smr, oc = E.smooth, E.smoother, E.out_cubic
@@ -131,6 +133,7 @@ class Canvas:
             if 0 < ph < 1: self.ring(c, r + 36 * ph, (1 - ph) * 0.8, 2, col)
     def callout(self, pt, text, t, t0, dxy=(-110, -70), r=16, col=AMBER, ring=True, px=17, out=None):
         """ring on pt + leader + label"""
+        if not (-30 <= pt[0] <= W + 30 and -30 <= pt[1] <= H + 30): return                              # a label for a landmark outside the frame is meaningless
         k = oc(seg(t, t0, t0 + 0.5)); 
         if out is not None: k *= 1 - sm(seg(t, out, out + 0.4))
         if k <= 0.01: return
@@ -141,7 +144,7 @@ class Canvas:
         q = (c[0] + (e[0] - c[0]) * k, c[1] + (e[1] - c[1]) * k); self.d.line([c, q], fill=col + (int(220 * k),), width=2)
         ft = F(px); w = self.d.textlength(text, font=ft)
         ax = 'l' if dxy[0] >= 0 else 'r'
-        self.d.text((e[0] + (4 if dxy[0] >= 0 else -4), e[1] - px * 0.5), text, font=ft, fill=col + (int(255 * k),), anchor=ax + 'm')
+        self.d.text((e[0] + (4 if dxy[0] >= 0 else -4), e[1] - px * 0.5), text, font=ft, fill=col + (int(255 * k),), anchor=ax + 'm', stroke_width=2, stroke_fill=(6, 10, 16, int(200 * k)))
     def finish(self): return Image.alpha_composite(self.base, self.o).convert('RGB')
 
 def text_card_bg(t=0.0, tint=(14, 22, 32)):
