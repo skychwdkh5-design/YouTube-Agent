@@ -527,6 +527,40 @@ EXTRA_YEARS = {'D5': ({'2006', '2011'}, 'example chips on the method card: 2006 
 INTRA_CUTS = {'D2': [8.0], 'E2': [15.5], 'E5': [8.0, 16.0]}      # declared hard cuts inside a scene (seconds from scene start), used by qa_preview.py
 STATIC_WINDOWS = {}                                                  # declared intentional holds (none: every text card keeps at least one animated element)
 # id, start s, duration s, VO line numbers (1-based among VO lines), function
+
+# ---- V4 hook: the voice starts at 0 s; opening = real NASA GIBS globe descent (frames 60..end, compressed to ~4.5 s) on "A satellite looks down at a patch of the Persian Gulf", dissolve into ASTER 2000
+def HV1(t, d, X):
+    fr = X['a1_frames']; n = len(fr); T1 = tw(12, 20, d) + 0.25; u = min(tm(t) / T1, 1.0); i = min(int(60 + (n - 1 - 60) * (1 - (1 - u) ** 1.6)), n - 1)
+    ces = Image.open(fr[i]).convert('RGB').resize((PW, PH), Image.LANCZOS).filter(ImageFilter.UnsharpMask(1.2 * SC, 60, 2)); pj = json.load(open(pjson(fr[i])))
+    r2 = path(t, d, [(0, key_rect((1500, 1500), 3000, WOC_SZ)), (4.5, key_rect((1500, 1500), 3000, WOC_SZ)), (5.7, key_rect((SITE[0][0] + 450, SITE[0][1] - 100), 1500, WOC_SZ)), (6.9, key_rect(SITE[0], 900, WOC_SZ)), (7.5, key_rect(SITE[0], 860, WOC_SZ)), (d, key_rect(SITE[0], 800, WOC_SZ))], WOC_SZ)
+    ref = view('2000', r2); ku = seg(t, tw(10, 20, d), tw(12, 20, d) + 0.8)
+    if ku > 0:
+        last = json.load(open(pjson(fr[-1]))); k = sm(ku) * 0.8; ces = Image.fromarray((np.asarray(ces, np.float32) * (1 - k) + tone_match(ces, ref) * k).clip(0, 255).astype(np.uint8))
+        c = last['dubai'][:2]; yy, xx = np.mgrid[0:PH, 0:PW].astype(np.float32) / SC; D = np.hypot(xx - c[0], yy - c[1]); far = float(np.hypot(max(c[0], W - c[0]), max(c[1], H - c[1])))
+        e = smr(ku); Rr = (0.02 * H) * (1 - e) + (far + 0.36 * H) * e; v = np.clip((Rr - D) / (0.30 * H), 0, 1); m = (v * v * (3 - 2 * v))[..., None]
+        base = Image.fromarray((np.asarray(ces, np.float32) * (1 - m) + np.asarray(ref, np.float32) * m).clip(0, 255).astype(np.uint8))
+    else: base = ces
+    ca = 1 - sm(seg(t, tw(12, 20, d) + 0.2, tw(12, 20, d) + 0.9))
+    if ca > 0.01:                                                                  # soft top scrim so the spoken date reads on bright desert
+        g = (np.clip(1 - np.linspace(0, 1, PH) / 0.42, 0, 1) ** 1.5 * 0.62 * ca)[:, None, None]; base = Image.fromarray((np.asarray(base, np.float32) * (1 - g)).astype(np.uint8))
+    cv = Canvas(base)
+    if ca > 0.01: cv.chip('NASA GIBS · Blue Marble + Landsat · 3D globe (CesiumJS) · orientation only', ca)
+    if ku > 0.5: cv.chip(chip_for('2000'), sm(seg(t, tw(12, 20, d) + 0.5, tw(12, 20, d) + 1.1)))
+    cv._center = True; cv.kinetic((W / 2, H * 0.16), 'NOVEMBER 2000', 54, 0.02, t, spacing=0.14, per=0.035, a=ca * (1 - sm(seg(t, 2.0, 2.6))))
+    def lab(key, s, t0, t1, px=22):
+        x, y, vis = pj[key]; a = oc(seg(t, t0, t0 + 0.5)) * (1 - sm(seg(t, t1, t1 + 0.5))) * vis * ca
+        if a > 0.01 and 20 < x < W - 20 and 40 < y < H - 90: cv.text((x, y - 26), s, px, AMBER, a, anchor='ms', spacing=0.2)
+    lab('gulf', 'PERSIAN GULF', tw(11, 20, d) - 0.2, 4.4)
+    x, y, vis = pj['dubai']; a = oc(seg(t, 1.9, 2.5)) * vis * ca * (1 - sm(seg(t, 4.4, 4.9)))
+    if a > 0.01 and 20 < x < W - 20 and 40 < y < H - 90: cv.ring((x, y), 7, a, 2); cv.text((x + 12, y - 4), 'DUBAI', 20, AMBER, a, anchor='lm', spacing=0.2)
+    if ku > 0.55: yearlabel(cv, 'NOVEMBER 2000', t, tw(12, 20, d) + 0.6)
+    pa = oc(seg(t, tw(12, 20, d) + 0.5, tw(12, 20, d) + 1.6)); pf = 1 - sm(seg(t, 5.9, 6.6))
+    if pa > 0.01 and pf > 0.01: draw_coast(cv, r2, pa, pf)
+    c = to_screen(r2, SITE[0]); rr = SITE[1] * W / r2[2]; ring_dashed(cv, c, rr, sm(seg(t, 5.6, 6.0)) * (1 - sm(seg(t, 7.3, 7.8))), phase=t * 14, frac=oc(seg(t, 5.6, 6.8)))
+    big(cv, 'NO ISLAND HERE', H * 0.17, sm(seg(t, tw(13, 20, d) - 0.1, tw(13, 20, d) + 0.4)) * (1 - sm(seg(t, 7.0, 7.4))))
+    sea_tint(cv, r2, sm(seg(t, tw(18, 20, d) - 0.2, tw(18, 20, d) + 0.5)))
+    overlay_new_land(cv, r2, 0.0, oc(seg(t, 7.2, 7.9)), fill_a=0.0, edge_a=0.85); return cv
+
 H1E = with_entry(H1, H0, 3.0, 'iris', 0.6, center=lambda: to_screen(path(3.0, 3.0, H0_KEYS(), ISS_SZ), PJI[0])); H3E = with_entry(H3, H2, 8.0, 'slide', 0.5); H4E = with_entry(H4, H3, 11.0, 'dissolve', 0.6); A1E = with_entry(A1, H4, 9.0, 'dissolve', 0.7)
 SCENES = [('H0', 0, 3, [], H0), ('H1', 3, 10, [1], H1E), ('H2', 13, 8, [2], H2), ('H3', 21, 11, [3], H3E), ('H4', 32, 9, [4], H4E), ('A1', 41, 20, [5], A1E), ('A2', 61, 23, [6, 7], A2), ('A3', 84, 27, [8, 9], A3),
           ('B1', 111, 13, [10], B1), ('B2', 124, 15, [11], B2), ('B3', 139, 20, [12], B3), ('B4', 159, 17, [13], B4), ('B5', 176, 30, [14], B5), ('B6', 206, 15, [15], B6), ('B7', 221, 14, [16], B7),
@@ -535,3 +569,4 @@ SCENES = [('H0', 0, 3, [], H0), ('H1', 3, 10, [1], H1E), ('H2', 13, 8, [2], H2),
 
 import scenes_v6 as _v6                       # V6 visual standard for A3, C2, C4, C6, D5, E1, E4, B7 (must stay the last statement: replaces entries of SCENES)
 _v6.install(sys.modules[__name__])
+SCENES_V4 = [('H1', 0, 8, [1], HV1), ('H2', 8, 8, [2], H2), ('H3', 16, 11, [3], H3E), ('H4', 27, 9, [4], H4E)]

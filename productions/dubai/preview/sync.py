@@ -5,6 +5,8 @@ import os, json, re, numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..'))
 VOICE = os.path.join(ROOT, 'narration', 'voice', 'narration.voice.json'); SCRIPT = os.path.join(ROOT, 'script_draft_v1_2.md')
 LEAD, TAIL, PREROLL = 0.35, 2.4, 3.0
+V4 = bool(os.environ.get('EP002_V4'))                                                 # V4 hook: no pre-roll, the first narration word is placed at t=0 (audio onset = the file's own 0.13 s)
+if V4: PREROLL, TAIL = 0.0, 1.6
 EXTRA = {'H4': 1.8}                                                                    # seconds of held final frame (silence inserted in the audio) so the title is readable
 def vo_lines(): return [l[4:].strip() for l in open(SCRIPT, encoding='utf-8') if l.startswith('VO: ')]
 def load():
@@ -29,10 +31,10 @@ def plan(scenes, extra=None):
     """scenes: [(id, est_start, est_dur, [vo line numbers])] -> ({id: window}, offset). window: start/end/dur on the FINAL timeline (extras included), warp(t_real_local) -> est local time,
     words (local, spoken times), audio = (a0, a1, delay) narration slice [a0, a1) (seconds of the original file) played at final time start (+ delay)."""
     extra = EXTRA if extra is None else extra
-    m, words, lw = load(); offset = PREROLL + LEAD - words[0]['start']; rows = []
+    m, words, lw = load(); offset = (0.0 if V4 else PREROLL + LEAD) - words[0]['start']; rows = []
     for sid, st, d_est, vos in scenes:
         if not vos: rows.append([sid, 0.0, PREROLL, d_est, None, None]); continue
-        a, b = lw[vos[0] - 1][0], lw[vos[-1] - 1][1]; rows.append([sid, words[a]['start'] + offset - LEAD, None, d_est, a, b])
+        a, b = lw[vos[0] - 1][0], lw[vos[-1] - 1][1]; rows.append([sid, max(0.0, words[a]['start'] + offset - LEAD) if V4 else words[a]['start'] + offset - LEAD, None, d_est, a, b])
     for i, r in enumerate(rows):
         if r[2] is None: r[2] = rows[i + 1][1] if i + 1 < len(rows) else words[r[5] - 1]['end'] + offset + TAIL
     out, shift = {}, 0.0
