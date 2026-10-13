@@ -144,7 +144,7 @@ class Canvas:
 
 def text_card_bg(t=0.0, tint=(14, 22, 32)):
     y = np.linspace(0, 1, H)[:, None, None]; x = np.linspace(0, 1, W)[None, :, None]
-    a = np.array(INK, np.float32) * (1 - y * 0.4) + np.array(tint, np.float32) * y * 0.6
+    a = np.array((22, 31, 44), np.float32) * (1 - y * 0.35) + np.array(tint, np.float32) * y * 0.9              # lifted navy: a mostly empty card must not read as black (yt-qc blackdetect)
     a = np.broadcast_to(a, (H, W, 3)).copy(); a -= 10 * ((x - 0.5) ** 2) * 4
     im = Image.fromarray(a.clip(0, 255).astype(np.uint8)); return im if SC == 1 else im.resize((PW, PH), Image.LANCZOS)
 def wrap(d, s, ft, maxw):

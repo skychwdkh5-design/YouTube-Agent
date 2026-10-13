@@ -514,7 +514,7 @@ def E5(t, d, X):
     if key == 'iss': zoom_ring(cv, r, PJI[0], PJI[1], 'PALM JUMEIRAH · RING', lt, 2.0, (-170, -170), px=18); zoom_ring(cv, r, PJAI[0], PJAI[1], 'PALM JEBEL ALI · RING', lt, 9.0, (-170, -150), px=18)
     return cv
 def E6(t, d, X):
-    cv = Canvas(text_card_bg()); k = oc(seg(t, 0.4, 1.4)) * (1 - sm(seg(t, d - 1.5, d)))
+    cv = Canvas(text_card_bg()); k = oc(seg(t, 0.4, 1.4))                      # credits stay to the last frame (no fade to black)
     cv.text((W / 2, 150), 'IMAGERY', 14, AMBER, k, anchor='ma', spacing=0.3); cv.text((W / 2, 190), 'NASA Earth Observatory', 30, TEXT, k, anchor='ma')
     cv.text((W / 2, 250), 'ASTER on the Terra satellite', 24, TEXT, k, anchor='ma', bold=False); cv.text((W / 2, 300), 'Astronaut photograph ISS067-E-3785', 24, TEXT, k, anchor='ma', bold=False)
     cv.text((W / 2, 336), 'ISS Crew Earth Observations', 20, MUTED, k, anchor='ma', bold=False)

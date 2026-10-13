@@ -129,7 +129,7 @@ def D5(t, d, X):
     if tb > 0:
         iss = src('iss').resize((int(130 * SC), int(130 * SC)), Image.LANCZOS, box=(PJI[0][0] - 700, PJI[0][1] - 700, PJI[0][0] + 700, PJI[0][1] + 700)).convert('RGBA'); xx = X_(2022); put(cv, iss, xx - 65, yl - 20 - 130 + (1 - tb) * 10, tb)
         cv.d.line([(xx, yl - 18), (xx, yl)], fill=CYAN + (int(180 * tb),), width=1)
-    ka = sm(seg(t, 0.3, 1.0)) * (1 - sm(seg(t, 7.4, 8.0)))
+    ka = sm(seg(t, 0.3, 1.0)) * (1 - sm(seg(t, 8.2, 8.9)))
     if ka > 0.01:                                                                          # anatomy of one caption: source, instrument, year (real ASTER 2006 crop)
         bx_, by_, bw_, bh_ = key_rect(PJ2[0], 900, P2_SZ); card = src('palm2').resize((int(300 * SC), int(169 * SC)), Image.LANCZOS, box=(bx_, by_, bx_ + bw_, by_ + bw_ * 169 / 300)).convert('RGBA'); cx0, cy0 = W / 2 - 150, H * 0.30; put(cv, card, cx0, cy0, ka)
         for j, (lab, a0_) in enumerate((('SOURCE · NASA', 4.4), ('INSTRUMENT · ASTER', 5.4), ('YEAR · 2006', 6.4))):
