@@ -16,7 +16,7 @@ WHAT THIS IS NOT. Nothing here collects statistics from YouTube: there is no con
 guesses. `views` and `engaged_views` are different YouTube metrics and are never merged or substituted for each other. Statistical output is
 descriptive: with one Short per variant and different topics, a difference is a lead for the next test, never a result.
 """
-import argparse, csv, datetime, hashlib, io, json, math, os, random, re, sys, tempfile
+import argparse, csv, datetime, hashlib, io, itertools, json, math, os, random, re, sys, tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -89,6 +89,8 @@ def validate_record(rec):
     if a is not None and p is not None:
         implied = 100.0 * a / d; tol = max(1.5, 100.0 * 0.5 / d + 0.5)       # durations are shown rounded to whole seconds
         if abs(implied - p) > tol: warns.append(f"average_percentage_viewed {p} disagrees with average_view_duration / duration_seconds = {implied:.1f}")
+    if rec["measurement_timestamp"] and rec["publication_date"] and rec["measurement_timestamp"][:10] < rec["publication_date"]: errs.append("measurement_timestamp is before publication_date")
+    if errs: return errs, warns
     if rec["measurement_timestamp"] is None: warns.append("measurement_timestamp unknown: the measurement window is unknown, so this record is not comparable with a fixed-window test")
     if rec["publication_date"] is None: warns.append("publication_date unknown")
     if rec["source"] == "analytics_api_json" and rec.get("metric_source") not in ("analytics_api", None): warns.append("source is analytics_api_json but metric_source says otherwise")
@@ -183,8 +185,8 @@ def derived(m):
     s = m.get("stayed_to_watch_percent")
     if s is not None and m["views"]:
         k = round(m["views"] * s / 100.0); ci = wilson(k, m["views"])
-        d["stayed_to_watch_percent"] = s; d["stayed_to_watch_ci95_percent"] = [round(ci[0] * 100, 1), round(ci[1] * 100, 1)]
-        caveats.append("stayed_to_watch interval assumes the percentage is taken over `views` and viewers are independent (an assumption: YouTube does not document the denominator in the exported figure)")
+        d["stayed_to_watch_percent"] = s; d["stayed_to_watch_naive_ci95_percent"] = [round(ci[0] * 100, 1), round(ci[1] * 100, 1)]
+        caveats.append("the naive interval treats every view as an independent observation over `views` (ASSUMPTION: YouTube does not document the exported denominator; repeat viewers, autoplay loops and shared audiences make views dependent), so it understates the real uncertainty and must not be used to compare Shorts")
     a = m.get("average_view_duration")
     if a is not None:
         d["average_view_duration"] = a; d["replay_ratio"] = round(a / m["duration_seconds"], 3)
@@ -271,60 +273,90 @@ def import_api_json(doc, video, measured_at, variant=None):
     return rec, unknown
 
 # ---------------------------------------------------------------- hypotheses
-def evaluate_hypothesis(h, ms):
+# Unit of analysis: the VIDEO. Views inside one Short are not independent observations (repeat viewers, autoplay loops, shared audiences) and topic effects belong to the
+# Short, so every comparison uses one value per Short and an exact permutation test. A design whose smallest attainable p-value exceeds alpha can never confirm anything
+# and is classified exploratory automatically (2 Shorts vs 2 Shorts: smallest two-sided p = 2/6 = 0.33).
+def design_min_p(na, nb):
+    """smallest two-sided p an exact permutation test can ever return for arms of na and nb videos (data independent)"""
+    return (2 if na == nb else 1) / math.comb(na + nb, na)
+def permutation_test(a, b):
+    """exact two-sided permutation test on the difference of arm means (one value per video); returns (mean_a - mean_b, p)"""
+    pooled = list(a) + list(b); n, na = len(pooled), len(a)
+    if n > 22: raise FbError("too many videos for exact enumeration (more than 22)")
+    tot = sum(pooled); obs = abs(sum(a) / len(a) - sum(b) / len(b)); ge = total = 0
+    for idx in itertools.combinations(range(n), na):
+        sa = sum(pooled[i] for i in idx); d = abs(sa / na - (tot - sa) / (n - na)); total += 1; ge += d >= obs - 1e-9
+    return sum(a) / len(a) - sum(b) / len(b), ge / total
+def metric_value(m, metric):
+    if metric == "subscribers_per_1000_views":
+        return None if m.get("subscribers_gained") is None or not m.get("views") else 1000.0 * m["subscribers_gained"] / m["views"]
+    return m.get(metric)
+def _days(ts, pub): return (datetime.date.fromisoformat(ts[:10]) - datetime.date.fromisoformat(pub[:10])).days
+def evaluate_hypothesis(h, ms, experiments=()):
     t = h.get("test")
     if not t: return {"id": h["id"], "verdict": "not_testable_yet", "reason": "no pre-registered test block"}
+    exp = next((e for e in experiments if e["id"] == t.get("experiment")), None)
+    cls = t.get("class") or (exp or {}).get("class") or "exploratory"; window = (exp or {}).get("measurement_window_days")
     latest = latest_per_video(ms); arms = {}
     for name, sel in t["arms"].items():
-        vids = [m for m in latest.values() if m.get("experiment_variant") in sel.get("variants", []) or m["video_id"] in sel.get("videos", [])]
-        arms[name] = vids
-    metric = t["primary_metric"]; out = {"id": h["id"], "primary_metric": metric, "arms": {}}
-    need = t.get("min_views_per_arm", 1000); min_videos = t.get("min_videos_per_arm", 1)
+        arms[name] = [m for m in latest.values() if m.get("experiment_variant") in sel.get("variants", []) or m["video_id"] in sel.get("videos", [])]
+    metric = t["primary_metric"]; out = {"id": h["id"], "class": cls, "primary_metric": metric, "unit_of_analysis": "video", "arms": {}}
+    need = t.get("min_views_per_arm", 1000); min_videos = t.get("min_videos_per_arm", 2)
     for name, vids in arms.items(): out["arms"][name] = {"videos": [v["video_id"] for v in vids], "views": sum(v["views"] for v in vids)}
+    def stop(reason): out.update(verdict="insufficient_data", reason=reason); return out
     if any(len(a["videos"]) < min_videos or a["views"] < need for a in out["arms"].values()):
-        out.update(verdict="insufficient_data", reason=f"each arm needs >= {min_videos} video(s) and >= {need} views; have " + ", ".join(f"{k}: {len(a['videos'])} video(s), {a['views']} views" for k, a in out["arms"].items())); return out
+        return stop(f"each arm needs >= {min_videos} video(s) and >= {need} views; have " + ", ".join(f"{k}: {len(a['videos'])} video(s), {a['views']} views" for k, a in out["arms"].items()))
     names = list(arms)
     if len(names) != 2: out.update(verdict="not_testable_yet", reason="exactly two arms are required"); return out
-    if any(any(v.get("measurement_timestamp") is None for v in arms[n]) for n in names) and t.get("require_fixed_window", True):
-        out.update(verdict="insufficient_data", reason="a measurement has no measurement_timestamp, so the fixed measurement window cannot be verified"); return out
-    if len({v.get("metric_source") for n in names for v in arms[n]}) > 1: out.update(verdict="insufficient_data", reason="arms mix metric sources (studio vs analytics_api)"); return out
-    a, b = (arms[n] for n in names)
-    field = {"subscribers_per_1000_views": "subscribers_gained"}.get(metric, metric)
-    def val(v): return v.get(field)
-    if any(val(v) is None for v in a + b): out.update(verdict="insufficient_data", reason=f"{metric} is missing for some video"); return out
-    alpha, direction = t.get("alpha", 0.05), t.get("direction", "A>B")
-    def verdict(sig, first_larger):
-        if not sig: return "inconclusive"
-        if direction == "different": return "supported"
-        return "supported" if first_larger == (direction.replace(" ", "") == f"{names[0]}>{names[1]}") else "contradicted"
-    if metric == "stayed_to_watch_percent":
-        k1 = sum(v["views"] * v[metric] / 100 for v in a); n1 = sum(v["views"] for v in a); k2 = sum(v["views"] * v[metric] / 100 for v in b); n2 = sum(v["views"] for v in b)
-        diff, z, p = two_proportion(k1, n1, k2, n2); out["difference_pp"] = round(100 * diff, 2); out["p_value"] = round(p, 4)
-        out["note"] = "pooled over videos with views as weights; topics differ between videos, so this is confounded by content"
-        out["verdict"] = verdict(p < alpha, diff > 0)
-    elif metric == "subscribers_per_1000_views":
-        s1 = sum(v["subscribers_gained"] for v in a); n1 = sum(v["views"] for v in a); s2 = sum(v["subscribers_gained"] for v in b); n2 = sum(v["views"] for v in b)
-        p = binom_two_sided(s1, s1 + s2, n1 / (n1 + n2)) if s1 + s2 else 1.0; out.update(p_value=round(p, 4), events=[s1, s2]); rate1, rate2 = s1 / n1, s2 / n2
-        out["verdict"] = verdict(p < alpha, rate1 > rate2)
-    else:
-        m1, m2 = sum(val(v) for v in a) / len(a), sum(val(v) for v in b) / len(b); out.update(means=[round(m1, 2), round(m2, 2)], verdict="descriptive_only", note="no per-video variance is available from aggregate exports; with fewer than 5 videos per arm this is a lead, not a test")
+    allv = arms[names[0]] + arms[names[1]]
+    if any(v.get("measurement_timestamp") is None for v in allv): return stop("a measurement has no measurement_timestamp, so the fixed measurement window cannot be verified")
+    if any(v.get("metric_source") is None for v in allv): return stop("a measurement has no metric_source (studio or analytics_api)")
+    if len({v.get("metric_source") for v in allv}) > 1: return stop("arms mix metric sources (studio vs analytics_api)")
+    if window:
+        for v in allv:
+            if not v.get("publication_date"): return stop(f"{v['video_id']}: publication_date unknown, so the age at measurement cannot be checked against the {window}-day window")
+            age = _days(v["measurement_timestamp"], v["publication_date"])
+            if not window <= age <= window + 1: return stop(f"{v['video_id']} was measured at age {age} days; the plan requires {window}-{window + 1} days")
+    vals = {n: [metric_value(v, metric) for v in arms[n]] for n in names}
+    if any(x is None for n in names for x in vals[n]): return stop(f"{metric} is missing for some video")
+    a, b = vals[names[0]], vals[names[1]]; alpha = t.get("alpha", 0.05); direction = t.get("direction", "A>B")
+    diff, p = permutation_test(a, b); pmin = design_min_p(len(a), len(b))
+    out.update(per_video={n: {v["video_id"]: round(x, 2) for v, x in zip(arms[n], vals[n])} for n in names}, mean={names[0]: round(sum(a) / len(a), 2), names[1]: round(sum(b) / len(b), 2)}, difference=round(diff, 2),
+               permutation_p=round(p, 4), design_min_p=round(pmin, 4), alpha=alpha)
+    pred_first = direction.replace(" ", "") == f"{names[0]}>{names[1]}"; matches = None if direction == "different" else ((diff > 0) == pred_first)
+    if cls == "exploratory" or pmin > alpha:
+        thr = t.get("lead_threshold"); out["why_exploratory"] = ("declared exploratory" if cls == "exploratory" else f"design cannot reach alpha: smallest attainable p = {pmin:.3f} > {alpha}")
+        if thr is None: out["verdict"] = "exploratory_descriptive"
+        elif abs(diff) < thr: out["verdict"] = "exploratory_no_lead"
+        else: out["verdict"] = f"exploratory_lead_{names[0] if diff > 0 else names[1]}"
+        out["matches_prediction"] = matches; out["lead_threshold"] = thr
+        out["note"] = "exploratory: this can only suggest the next test. No winner is declared, no significance is claimed, and the permutation p-value above is not a decision criterion for this design."
+        return out
+    sig = p < alpha
+    out["verdict"] = "inconclusive" if not sig else ("supported" if direction == "different" or matches else "contradicted")
+    out["note"] = "video-level exact permutation test. Shorts are scheduled, not randomised by YouTube; one channel, one period: read this as evidence about this channel's Shorts, not a general law."
     return out
 
 # ---------------------------------------------------------------- experiment planning (reproducible, committed before publishing)
-def plan_experiment(exp_id, factor, variants, videos, seed, window_days=7, primary="stayed_to_watch_percent", hypotheses=(), definitions=None):
+def plan_experiment(exp_id, factor, variants, videos, seed, window_days=7, primary="stayed_to_watch_percent", hypotheses=(), definitions=None, exp_class=None, lead_threshold=None):
     if len(variants) < 2: raise FbError("at least two variants are needed")
     if len(set(variants)) != len(variants) or len(set(videos)) != len(videos): raise FbError("variants and videos must be unique")
     if len(videos) < 2 * len(variants): raise FbError(f"{len(videos)} video(s) is too few for {len(variants)} variants: need at least 2 per variant, otherwise the variant cannot be separated from the topic")
-    rng = random.Random(seed); order = []
-    blocks = [videos[i:i + len(variants)] for i in range(0, len(videos), len(variants))]
-    for blk in blocks:
-        vs = list(variants); rng.shuffle(vs); order += list(zip(blk, vs))                      # blocked randomisation: every block of len(variants) videos holds each variant once (last block may be partial)
+    if len(videos) % len(variants): raise FbError(f"{len(videos)} videos cannot be split evenly over {len(variants)} variants (blocked randomisation needs complete blocks)")
     missing = [v for v in (definitions or {}) if v not in variants]
     if missing: raise FbError(f"definitions for unknown variants: {missing}")
-    return {"id": exp_id, "status": "planned", "factor": factor, "variants": variants, "variant_definitions": definitions or {}, "hypotheses": list(hypotheses), "randomisation": {"method": "blocked, seeded", "seed": seed, "block_size": len(variants)},
+    per_arm = len(videos) // len(variants); pmin = design_min_p(per_arm, per_arm) if len(variants) == 2 else None
+    cls = exp_class or ("confirmatory" if (pmin is not None and pmin <= 0.05) else "exploratory")
+    if cls == "confirmatory" and (pmin is None or pmin > 0.05): raise FbError(f"a confirmatory experiment needs a design that can reach p <= 0.05; {per_arm} video(s) per arm gives a smallest p of {pmin if pmin is None else round(pmin, 3)}")
+    rng = random.Random(seed); order = []
+    for i in range(0, len(videos), len(variants)):
+        vs = list(variants); rng.shuffle(vs); order += list(zip(videos[i:i + len(variants)], vs))                  # blocked randomisation: each block holds every variant once
+    return {"id": exp_id, "status": "planned", "class": cls, "design_min_p": None if pmin is None else round(pmin, 4), "lead_threshold": lead_threshold, "factor": factor, "variants": variants,
+            "variant_definitions": definitions or {}, "hypotheses": list(hypotheses), "randomisation": {"method": "blocked, seeded", "seed": seed, "block_size": len(variants)},
             "assignment": [{"video_id": v, "experiment_variant": f"{exp_id}:{x}"} for v, x in order], "measurement_window_days": window_days, "primary_metric": primary,
-            "rules": ["change only the declared factor between variants", "measure each Short at the same age (measurement_window_days after publication) and record measurement_timestamp",
-                      "publish in the assignment order; do not reassign after seeing numbers", "do not stop early on a good-looking difference"]}
+            "rules": ["change only the declared factor between variants", "measure each Short at the same age (measurement_window_days after publication, +1 day) and record measurement_timestamp",
+                      "publish in the assignment order; do not reassign after seeing numbers", "do not stop early on a good-looking difference",
+                      "an exploratory experiment never declares a winner"]}
 
 # ---------------------------------------------------------------- schema generation
 def build_schema():
@@ -342,6 +374,59 @@ def build_schema():
 
 # ---------------------------------------------------------------- CLI
 def _out(obj): print(json.dumps(obj, indent=1, ensure_ascii=False)); return 0
+
+def _videos_doc(): return _read_json("videos.json", {"schema": "yt-shorts-feedback/videos/1", "videos": []})
+def register_video(doc, v, slot=None, experiments=()):
+    """append one Short to the registry; refuses duplicates; `slot` binds it to a pre-registered experiment assignment"""
+    if not isinstance(v.get("video_id"), str) or not v["video_id"].strip(): raise FbError("video_id is required")
+    if any(x["video_id"] == v["video_id"] for x in doc["videos"]): raise FbError(f"{v['video_id']} is already registered", status="duplicate")
+    if not isinstance(v.get("duration_seconds"), (int, float)) or v["duration_seconds"] <= 0: raise FbError("duration_seconds must be a positive number")
+    if v.get("publication_date") and not DATE.match(v["publication_date"]): raise FbError("publication_date must be YYYY-MM-DD")
+    rec = dict(v); rec.setdefault("youtube_video_id", None); rec.setdefault("publication_date", None); rec.setdefault("experiment_variant", "baseline_unplanned")
+    if slot:
+        hit = [(e, x) for e in experiments for x in e.get("assignment", []) if x["video_id"] == slot]
+        if not hit: raise FbError(f"no pre-registered assignment slot '{slot}'")
+        e, x = hit[0]
+        if any(y.get("slot") == slot for y in doc["videos"]): raise FbError(f"slot {slot} is already used", status="duplicate")
+        rec["slot"] = slot; rec["experiment_variant"] = x["experiment_variant"]
+    doc["videos"].append(rec); return rec
+def brief(today=None):
+    """everything an agent needs before writing or after publishing a Short, in one JSON object"""
+    today = today or datetime.date.today().isoformat(); doc = _videos_doc(); ms = load_measurements(); latest = latest_per_video(ms)
+    exps = _read_json("experiments.json", {"experiments": []})["experiments"]; hy = _read_json("hypotheses.json", {"hypotheses": []})["hypotheses"]
+    used = {v.get("slot") for v in doc["videos"] if v.get("slot")}; nxt = None
+    for e in exps:
+        if e.get("status") not in ("planned", "running"): continue
+        for x in e["assignment"]:
+            if x["video_id"] not in used:
+                var = x["experiment_variant"].split(":", 1)[1]
+                nxt = {"experiment_id": e["id"], "class": e.get("class", "exploratory"), "factor": e["factor"], "slot": x["video_id"], "experiment_variant": x["experiment_variant"],
+                       "variant_definition": e.get("variant_definitions", {}).get(var), "rules": e.get("rules", []),
+                       "how": "build with variants.py (single variable), register with `feedback.py register-video ... --slot " + x["video_id"] + "`"}
+                break
+        if nxt: break
+    window = {e["id"]: e.get("measurement_window_days", 7) for e in exps}; due = []
+    for v in doc["videos"]:
+        w = window.get((v.get("experiment_variant") or "").split(":")[0], 7); m = latest.get(v["video_id"])
+        if not v.get("publication_date"): due.append({"video_id": v["video_id"], "action": "publication_date unknown: fill it from Studio before a windowed measurement is possible"}); continue
+        age = _days(today, v["publication_date"])
+        if m is None or (m.get("measurement_timestamp") and not (w <= _days(m["measurement_timestamp"], v["publication_date"]) <= w + 1)):
+            if age < w: due.append({"video_id": v["video_id"], "action": f"measure on {(datetime.date.fromisoformat(v['publication_date']) + datetime.timedelta(days=w)).isoformat()} (age {w} days)"})
+            elif age <= w + 1: due.append({"video_id": v["video_id"], "action": f"measure now (age {age} days, window {w}-{w + 1})"})
+            else: due.append({"video_id": v["video_id"], "action": f"window missed (age {age} days): record the reading anyway with its true timestamp; it will be excluded from windowed tests"})
+    res = [{"id": h["id"], "title": h.get("title"), "status": h.get("status"), "verdict": evaluate_hypothesis(h, ms, exps)["verdict"]} for h in hy]
+    return {"status": "ok", "today": today, "registered_videos": len(doc["videos"]), "next_slot": nxt, "due_measurements": due, "hypotheses": res,
+            "constraints": ["a Short in a running experiment changes only the declared variable", "a different spoken line is a new TTS take: paid, needs the user's explicit approval",
+                            "unknown stays null; never estimate a publication date or timestamp", "Studio and Analytics API numbers are never mixed in one comparison",
+                            "exploratory experiments declare no winner"]}
+def cmd_register(a):
+    doc = _videos_doc(); exps = _read_json("experiments.json", {"experiments": []})["experiments"]
+    v = {"video_id": a.video_id, "title": a.title, "youtube_video_id": a.youtube_video_id, "publication_date": a.publication_date, "duration_seconds": a.duration_seconds}
+    if a.production_sha256: v["production"] = {"file": a.production_file, "sha256": a.production_sha256}
+    rec = register_video(doc, {k: x for k, x in v.items() if x is not None}, a.slot, exps)
+    _atomic_write(_path("videos.json"), json.dumps(doc, indent=1, ensure_ascii=False) + "\n"); return _out({"status": "registered", "video": rec})
+def cmd_brief(a): return _out(brief(a.today))
+
 def cmd_validate(a):
     ms = load_measurements(); problems, warnings = [], []
     for i, m in enumerate(ms, 1):
@@ -362,10 +447,11 @@ def cmd_report(a):
     rep["comparability"] = "records from different metric_source or different measurement windows are not comparable"
     return _out(rep)
 def cmd_add(a):
+    reg = _registry().get(a.video_id, {}); a.publication_date = a.publication_date or reg.get("publication_date"); a.youtube_video_id = a.youtube_video_id or reg.get("youtube_video_id")
     rec = {"video_id": a.video_id, "youtube_video_id": a.youtube_video_id, "publication_date": a.publication_date, "duration_seconds": a.duration_seconds, "views": a.views, "engaged_views": a.engaged_views,
            "stayed_to_watch_percent": a.stayed_to_watch_percent, "swiped_away_percent": a.swiped_away_percent, "average_view_duration": a.average_view_duration,
            "average_percentage_viewed": a.average_percentage_viewed, "subscribers_gained": a.subscribers_gained, "measurement_timestamp": a.measurement_timestamp,
-           "experiment_variant": a.experiment_variant, "source": "manual_entry", "metric_source": a.metric_source, "recorded_on": datetime.date.today().isoformat(), "notes": a.notes}
+           "experiment_variant": a.experiment_variant or (_registry().get(a.video_id, {}).get("experiment_variant")) or "baseline_unplanned", "source": "manual_entry", "metric_source": a.metric_source, "recorded_on": datetime.date.today().isoformat(), "notes": a.notes}
     warns = append_measurement(rec); return _out({"status": "added", "warnings": warns})
 def _registry(): return {v["video_id"]: v for v in _read_json("videos.json", {"videos": []}).get("videos", [])}
 def cmd_import_csv(a):
@@ -388,16 +474,24 @@ def cmd_evaluate(a):
     hy = _read_json("hypotheses.json", {"hypotheses": []})["hypotheses"]; ms = load_measurements()
     sel = [h for h in hy if not a.hypothesis or h["id"] == a.hypothesis]
     if a.hypothesis and not sel: raise FbError(f"unknown hypothesis '{a.hypothesis}'")
-    return _out({"status": "ok", "results": [evaluate_hypothesis(h, ms) for h in sel]})
+    exps = _read_json("experiments.json", {"experiments": []})["experiments"]
+    return _out({"status": "ok", "results": [evaluate_hypothesis(h, ms, exps) for h in sel]})
+def videos_per_arm(d, alpha=0.05, power=0.8):
+    """Shorts per arm for a standardised difference d (difference / between-Short standard deviation); normal approximation plus 1 for the exact permutation test"""
+    return math.ceil(2 * ((_zinv(1 - alpha / 2) + _zinv(power)) / d) ** 2) + 1
 def cmd_power(a):
+    if a.effect_size:
+        return _out({"status": "ok", "effect_size_d": a.effect_size, "videos_per_arm": videos_per_arm(a.effect_size, a.alpha, a.power), "alpha": a.alpha, "power": a.power,
+                     "note": "unit = one Short. d = expected difference / between-Short standard deviation, which is unknown until several Shorts exist; two Shorts per arm can never reach p <= 0.05 (design_min_p)",
+                     "design_min_p_by_videos_per_arm": {str(k): round(design_min_p(k, k), 4) for k in range(2, 9)}})
     if a.n:
         d = detectable_delta(a.baseline / 100.0, a.n, a.alpha, a.power)
         return _out({"status": "ok", "views_per_arm": a.n, "baseline_percent": a.baseline, "detectable_difference_pp": None if d is None else round(100 * d, 2), "alpha": a.alpha, "power": a.power,
-                     "note": "two-sided pooled z test on a proportion; assumes independent viewers"})
+                     "note": "NAIVE: two-sided pooled z test on a proportion that assumes independent views. Views of one Short are not independent and topic effects belong to the Short, so use `--effect-size` (Shorts per arm) for planning"})
     return _out({"status": "ok", "baseline_percent": a.baseline, "difference_pp": a.delta, "views_per_arm": n_per_arm(a.baseline / 100.0, a.delta / 100.0, a.alpha, a.power), "alpha": a.alpha, "power": a.power,
-                 "note": "two-sided pooled z test on a proportion; assumes independent viewers. Videos, not views, are the unit that carries topic effects: see plan-experiment"})
+                 "note": "NAIVE: assumes independent views; see --effect-size for the Short-level planning figure"})
 def cmd_plan(a):
-    exp = plan_experiment(a.id, a.factor, a.variants.split(","), a.videos.split(","), a.seed, a.window_days, a.primary, a.hypotheses.split(",") if a.hypotheses else [], dict(x.split("=", 1) for x in (a.define or [])))
+    exp = plan_experiment(a.id, a.factor, a.variants.split(","), a.videos.split(","), a.seed, a.window_days, a.primary, a.hypotheses.split(",") if a.hypotheses else [], dict(x.split("=", 1) for x in (a.define or [])), a.exp_class, a.lead_threshold)
     if a.write:
         doc = _read_json("experiments.json", {"experiments": []})
         if any(e["id"] == a.id for e in doc["experiments"]): raise FbError(f"experiment {a.id} already exists; pre-registered plans are never rewritten", status="duplicate")
@@ -416,18 +510,21 @@ def main(argv=None):
     p = S("add"); p.add_argument("--video-id", required=True); p.add_argument("--youtube-video-id"); p.add_argument("--publication-date"); p.add_argument("--duration-seconds", type=float, required=True)
     p.add_argument("--views", type=int, required=True); p.add_argument("--engaged-views", type=int); p.add_argument("--stayed-to-watch-percent", type=float); p.add_argument("--swiped-away-percent", type=float)
     p.add_argument("--average-view-duration", type=float); p.add_argument("--average-percentage-viewed", type=float); p.add_argument("--subscribers-gained", type=int)
-    p.add_argument("--measurement-timestamp"); p.add_argument("--experiment-variant", default="baseline_unplanned"); p.add_argument("--metric-source", choices=("studio", "analytics_api")); p.add_argument("--notes"); p.set_defaults(f=cmd_add)
+    p.add_argument("--measurement-timestamp"); p.add_argument("--experiment-variant"); p.add_argument("--metric-source", choices=("studio", "analytics_api")); p.add_argument("--notes"); p.set_defaults(f=cmd_add)
     p = S("import-csv"); p.add_argument("file"); p.add_argument("--map", action="append"); p.add_argument("--measured-at"); p.add_argument("--variant"); p.add_argument("--write", action="store_true"); p.set_defaults(f=cmd_import_csv)
     p = S("import-api-json"); p.add_argument("file"); p.add_argument("--video-id", required=True); p.add_argument("--measured-at"); p.add_argument("--variant"); p.add_argument("--write", action="store_true"); p.set_defaults(f=cmd_import_api)
+    p = S("register-video"); p.add_argument("--video-id", required=True); p.add_argument("--title"); p.add_argument("--duration-seconds", type=float, required=True); p.add_argument("--publication-date"); p.add_argument("--youtube-video-id")
+    p.add_argument("--slot", help="pre-registered experiment slot, e.g. SHORT3"); p.add_argument("--production-file"); p.add_argument("--production-sha256"); p.set_defaults(f=cmd_register)
+    p = S("brief"); p.add_argument("--today", help="YYYY-MM-DD (tests)"); p.set_defaults(f=cmd_brief)
     p = S("evaluate"); p.add_argument("--hypothesis"); p.set_defaults(f=cmd_evaluate)
-    p = S("power"); p.add_argument("--baseline", type=float, required=True); p.add_argument("--delta", type=float); p.add_argument("--n", type=int); p.add_argument("--alpha", type=float, default=0.05); p.add_argument("--power", type=float, default=0.8); p.set_defaults(f=cmd_power)
+    p = S("power"); p.add_argument("--baseline", type=float); p.add_argument("--effect-size", type=float); p.add_argument("--delta", type=float); p.add_argument("--n", type=int); p.add_argument("--alpha", type=float, default=0.05); p.add_argument("--power", type=float, default=0.8); p.set_defaults(f=cmd_power)
     p = S("plan-experiment"); p.add_argument("--id", required=True); p.add_argument("--factor", required=True); p.add_argument("--variants", required=True); p.add_argument("--videos", required=True); p.add_argument("--seed", type=int, required=True)
-    p.add_argument("--window-days", type=int, default=7); p.add_argument("--primary", default="stayed_to_watch_percent"); p.add_argument("--hypotheses"); p.add_argument("--define", action="append", help="VARIANT=description (repeatable)"); p.add_argument("--write", action="store_true"); p.set_defaults(f=cmd_plan)
+    p.add_argument("--window-days", type=int, default=7); p.add_argument("--primary", default="stayed_to_watch_percent"); p.add_argument("--hypotheses"); p.add_argument("--define", action="append", help="VARIANT=description (repeatable)"); p.add_argument("--class", dest="exp_class", choices=("exploratory", "confirmatory")); p.add_argument("--lead-threshold", type=float, help="smallest difference in the metric's own unit worth following up (exploratory)"); p.add_argument("--write", action="store_true"); p.set_defaults(f=cmd_plan)
     p = S("schema"); p.add_argument("--write", action="store_true"); p.set_defaults(f=cmd_schema)
     try:
         a = ap.parse_args(argv)
         if not getattr(a, "f", None): print(__doc__); return 0
-        if a.cmd == "power" and not (a.delta or a.n): raise FbError("power needs --delta (percentage points) or --n (views per arm)")
+        if a.cmd == "power" and not a.effect_size and not (a.baseline and (a.delta or a.n)): raise FbError("power needs --effect-size (Shorts per arm) or --baseline with --delta (percentage points) or --n (views per arm; naive, independent-views assumption)")
         return a.f(a) or 0
     except FbError as e:
         print(json.dumps({"status": e.status, "error": str(e), **e.extra}, indent=1)); return 2
