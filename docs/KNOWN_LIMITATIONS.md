@@ -34,3 +34,10 @@ Selection criteria: reference-level look (QA checklist), legal for monetised vid
 - `orbitalatlas.qa.run_video` resamples to 30 fps and mislabels frame duplication as discontinuities; use `productions/dubai/preview/qa_preview.py` (native fps, duplicate-aware) for any non-30 fps render.
 - Never paint or fill missing satellite data (V1 A1 coloured the Landsat swath deep-sea blue and lifted blacks; removed). Audit crops with `qa_rects.py`.
 - Hand-placed callout coordinates were off by up to ~36 px (Palm site (350, 1637) vs fitted (364, 1669)); use `landmarks.py` outputs.
+
+## EP002 V6 (2026-10-13)
+- Delivered proof files are re-encoded by the chat/file viewer (user saw 910x512, 30 fps, other SHA-256 for an original 960x540, 24 fps file; original SHA-256 15fd288e... for the V6 hook proof). Byte identity of a viewed copy cannot be claimed; compare against the SHA-256 in the message. VERIFIED locally (ffprobe of the original).
+- Outlines in V6 scenes are thresholded sea/land masks of the frame they sit on (colour distance from a sea-only patch; thresholds 38 for ASTER 2000-2011, 110 for ASTER 2006). They follow image pixels, not surveyed coastlines; cloud/shallow-water pixels can leak (checked by eye). Shorelines are traced only where rows >= 1090 in the 2000 frame (creek and clouds above). Fills/tints/arrows are UI explanations and labelled.
+- No scale bars, distances or coordinates: ASTER/ISS frames have no verified georeference (claim 32).
+- Registration of ASTER 2000 vs 2003 measured by phase correlation (<= 1 px at 6 land patches); 2011 and 2002 frames are assumed to share the grid (same product) but were not measured.
+- All cue times in scenes are ESTIMATED (145 wpm); replace with provider word timings after TTS.
