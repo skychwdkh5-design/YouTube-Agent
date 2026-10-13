@@ -154,7 +154,7 @@ def E1(t, d, X):
         near = (1 - min(abs(tt[i] - te) / 0.9, 1)) * (1 - m); sc = 1 + 0.38 * near * near; w_ = int(round((tw_ * sc + (cw - tw_ * sc) * m) / 4) * 4); h_ = int(round((th_ * sc + (chh - th_ * sc) * m) / 4) * 4)
         yy = yc + (H * 0.58 - yc) * m; tile = thumb(kk, w_, h_, 760); a = min(1, oc(seg(t, tt[i] - 2.8, tt[i] - 2.0)) * 0.55 + 0.45 * near + m)
         put(cv, tile, xc - w_ / 2, yy - h_ / 2, a); cv.d.rectangle([xc - w_ / 2, yy - h_ / 2, xc + w_ / 2, yy + h_ / 2], outline=AMBER + (int(255 * max(near, 0.5 * m)),), width=2)
-        lab = date_for(kk) if m < 0.5 else date_for(kk)[-4:]; cv.text((xc, yy + h_ / 2 + 8), lab, int(22 if near > 0.5 else 15 - 3 * m), AMBER if near > 0.5 or m > 0.5 else MUTED, 0.5 + 0.5 * max(near, m), anchor='ma', spacing=0.08)
+        lab = date_for(kk) if m < 0.5 else date_for(kk)[-4:]; edge = sm(min(max((min(xc, W - xc) - 60) / 90.0, 0), 1)); cv.text((xc, yy + h_ / 2 + 8), lab, int(22 if near > 0.5 else 15 - 3 * m), AMBER if near > 0.5 or m > 0.5 else MUTED, (0.5 + 0.5 * max(near, m)) * edge, anchor='ma', spacing=0.08)    # labels fade before they reach the frame edge (no cut-off text)
     ss = SS(); ss.line([(W / 2, yc - 112), (W / 2, yc - 92)], AMBER + (int(255 * (1 - m)),), 2.4); ss.poly([(W / 2, yc - 88), (W / 2 - 8, yc - 100), (W / 2 + 8, yc - 100)], fill=AMBER + (int(255 * (1 - m)),)); layer(cv, ss)
     x0, x1, yb = 120, W - 120, H - 52; cv.d.line([(x0, yb), (x1, yb)], fill=MUTED + (int(150 * (1 - m)),), width=2); cv.d.line([(x0, yb), (x0 + (x1 - x0) * oc(seg(t, 1.4, 14.7)), yb)], fill=AMBER + (int(255 * (1 - m)),), width=4)
     cv.text((x0, yb + 8), '2000', 13, MUTED, 1 - m, anchor='ma'); cv.text((x1, yb + 8), '2011', 13, MUTED, 1 - m, anchor='ma')
