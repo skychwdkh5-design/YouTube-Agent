@@ -19,3 +19,9 @@ Hypothesis **[HYPOTHESIS]**: per-sentence cue anchoring is enough for sync of gr
 - Legibility rules **[VERIFIED, EP002 v3]**: any text on imagery sits on a dark pill (`Canvas.pill`, `Canvas.callout` backing, `scenes.big`); amber/white text straight on sand, ice or cloud measured 1.1-2.9:1. Muted grey is for chips on dark pills only. Disclosure chips (instrument, "not satellite imagery", "schematic") are >= 12 px at 540p. Captions inside a schematic panel are wrapped to the panel width (two lines). A timeline backing must end before the date label starts.
 - Minimal motion for static card moments **[VERIFIED]**: a scan line over the image being described plus a stronger slow zoom (D5), slow pan + 14 % drift on both panels (C6). Proposed, not applied (below the 2 s threshold): B3 floating particles + surface shimmer + pulse along the dredge pipe; B4 cell-by-cell fill progress on the placement grid + pulsing GPS rings.
 
+
+## V4 additions (2026-10-13)
+- VERIFIED: hook opener = real NASA GIBS globe descent (Cesium frames 60..end, compressed to ~4.5 s) dissolving into ASTER 2000 on "a patch of the Persian Gulf"; top scrim keeps the spoken date readable on bright desert. Chip states "orientation only" (modern imagery, not the 2000 scene).
+- VERIFIED: schematic scenes (B3, B4) get a keyed zoom/pan camera (`camk` + `cam_apply` in scenes.py) applied to the finished illustration; fixed pills are drawn after it. Zoom <=1.3-1.5 and focus clamped; callouts need `out=` before the camera leaves them (half-cut text during pans otherwise).
+- VERIFIED: B5 multi-key satellite camera (`lerp_keys`), C3 recession timeline (2006-2009 axis, 2007-2008 shaded), E6 credits over a drifting dimmed ASTER 2006 frame, A1 starts over the Gulf (frame 140) so the globe is not shown twice.
+- HYPOTHESIS: text-bounds QA does not see zoomed text in camera scenes; check frames of B3/B4 by eye.

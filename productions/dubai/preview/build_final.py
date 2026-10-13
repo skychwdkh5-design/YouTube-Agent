@@ -4,9 +4,9 @@ Writes OUT_DIR/seg/<ID>.mp4 (video only, resumable: existing segments are kept u
 normalises it to -16 LUFS (two-pass loudnorm) and writes OUT_DIR/ep002_final.mp4 + captions (SRT/VTT). Never calls an API."""
 import os, sys, glob, json, subprocess, argparse
 ap = argparse.ArgumentParser(); ap.add_argument('out'); ap.add_argument('--scale', type=float, default=2.0); ap.add_argument('--fps', type=int, default=30); ap.add_argument('--a1'); ap.add_argument('--only')
-ap.add_argument('--jobs', type=int, default=4); ap.add_argument('--crf', type=int, default=19); ap.add_argument('--mux', action='store_true'); ap.add_argument('--force', action='store_true'); ap.add_argument('--hook', action='store_true', help='V4 hook-only build (scenes.SCENES_V4, voice from t=0)'); ap.add_argument('--nocaps', action='store_true'); ap.add_argument('--atmo', action='store_true', help='mix the locally synthesised hook atmosphere (atmosphere.py) under the cold open after loudness normalisation')
+ap.add_argument('--jobs', type=int, default=4); ap.add_argument('--crf', type=int, default=19); ap.add_argument('--mux', action='store_true'); ap.add_argument('--force', action='store_true'); ap.add_argument('--hook', action='store_true', help='V4 hook-only build (scenes.SCENES_V4, voice from t=0)'); ap.add_argument('--full4', action='store_true', help='V4 full build (SCENES_FULL, voice from t=0)'); ap.add_argument('--nocaps', action='store_true'); ap.add_argument('--atmo', action='store_true', help='mix the locally synthesised hook atmosphere (atmosphere.py) under the cold open after loudness normalisation')
 A = ap.parse_args()
-if A.hook: os.environ['EP002_V4'] = '1'
+if A.hook or A.full4: os.environ['EP002_V4'] = '1'
 os.environ['EP002_SCALE'] = str(A.scale); os.environ['EP002_FPS'] = str(A.fps)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import kit
@@ -14,6 +14,7 @@ from kit import W, H, FPS, PW, PH, Canvas, draw_caption
 from PIL import Image
 import scenes as S, sync
 if A.hook: S.SCENES = S.SCENES_V4
+if A.full4: S.SCENES = S.SCENES_FULL
 SC = [(s[0], s[1], s[2], s[3]) for s in S.SCENES]; PLAN, OFFSET = sync.plan(SC)
 def render_scene(args):
     sid, = args; sc = next(s for s in S.SCENES if s[0] == sid); _, _, d_est, vos, fn = sc; win = PLAN[sid]; path = os.path.join(A.out, 'seg', f'{sid}.mp4'); os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -41,7 +42,7 @@ def mux():
     lst = os.path.join(A.out, 'concat.txt'); open(lst, 'w').write(''.join(f"file 'seg/{s[0]}.mp4'\n" for s in S.SCENES))
     vid = os.path.join(A.out, 'video_only.mp4'); subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', lst, '-c', 'copy', vid], check=True)
     raw = os.path.join(A.out, 'audio_raw.wav'); dur = sync.assemble_audio(PLAN, raw); norm = os.path.join(A.out, 'audio_norm.wav'); j = loudnorm(raw, norm); json.dump(j, open(os.path.join(A.out, 'loudnorm_measure.json'), 'w'), indent=1)
-    final = os.path.join(A.out, 'ep002_final_v2.mp4' if A.atmo else ('ep002_hook_v4.mp4' if A.hook else 'ep002_final.mp4'))
+    final = os.path.join(A.out, 'ep002_final_v2.mp4' if A.atmo else ('ep002_hook_v4.mp4' if A.hook else ('ep002_final_v4.mp4' if A.full4 else 'ep002_final.mp4')))
     if A.atmo:
         import atmosphere; mixed = os.path.join(A.out, 'audio_v2.wav'); atmosphere.main([norm, mixed]); norm = mixed
     subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', vid, '-i', norm, '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-movflags', '+faststart', '-shortest', final], check=True)

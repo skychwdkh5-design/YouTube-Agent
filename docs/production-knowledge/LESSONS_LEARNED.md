@@ -23,3 +23,8 @@ Tags: **[VERIFIED]** observed here · **[HYPOTHESIS]** not proven · **[PROCESS]
 
 ## Shorts feedback (parallel track, PR #16, not merged)
 Views are not independent observations; Studio and Analytics API metrics differ (engagedViews, looping clips); an exploratory 2-vs-2 design can never reach significance (minimum two-sided p = 0.33): classify as exploratory. Work is on `feature/shorts-performance-feedback`; Shorts are excluded from the current production plan.
+
+## V4 rebuild (2026-10-13)
+- VERIFIED: the voice started at 3.35 s in v1-v3 because `sync.PREROLL=3.0 + LEAD=0.35` plus a silent 3 s "result-first" scene (H0); a drone bed hid it and yt-qc `audio_starts` (first audio > -40 dB) cannot tell speech from atmosphere. RULE: measure VOICE_START on the narration track (RMS onset) and from provider word times; never accept a bed as the fix.
+- VERIFIED: the narration.mp3 itself has 0.129 s of leading silence, so the best possible onset is ~0.13 s. `EP002_V4=1` / `build_final.py --hook|--full4` places word 0 at t=0 (no pre-roll, first scene window clamped to 0, tail 1.6 s).
+- VERIFIED: windows between scenes depend only on word-time differences, so unchanged scenes' segments can be reused after an offset change; only changed scenes were re-rendered (6 scenes + hook ~12 min on 4 jobs).

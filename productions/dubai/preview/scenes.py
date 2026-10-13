@@ -194,7 +194,7 @@ def tone_match(img, ref):
     a = np.asarray(img, np.float32); r = np.asarray(ref, np.float32).reshape(-1, 3); m, s = a.reshape(-1, 3).mean(0), a.reshape(-1, 3).std(0) + 1e-3
     return (a - m) / s * r.std(0) + r.mean(0)
 def A1(t, d, X):
-    fr = X['a1_frames']; n = len(fr); i = min(int(tm(t) * 24), n - 1)                      # Cesium frames are 24 per estimated second whatever the output fps
+    fr = X['a1_frames']; n = len(fr); i = min(int(140 + (n - 1 - 140) * (lambda u_: 0.6 * u_ + 0.4 * smr(u_))(min(tm(t) / 15.8, 1.0))), n - 1)               # V4: starts over the Gulf (frame 140), the hook already used the globe descent                      # Cesium frames are 24 per estimated second whatever the output fps
     ces = Image.open(fr[i]).convert('RGB').resize((PW, PH), Image.LANCZOS).filter(ImageFilter.UnsharpMask(1.2 * SC, 60, 2)); pj = json.load(open(pjson(fr[i])))
     u = seg(t, 15.8, 19.0)
     if u > 0:                                                  # soft Palm/Dubai-centred dissolve into the ASTER-2000 start crop; the Cesium render is tone-matched (UI treatment), ASTER untouched
@@ -209,7 +209,7 @@ def A1(t, d, X):
     else: cv.chip(chip_for('2000'), sm(seg(t, 18.2, 19.0)))
     def lab(key, s, t0, t1, px=17):
         x, y, vis = pj[key]; a = oc(seg(t, t0, t0 + 0.6)) * (1 - sm(seg(t, t1, t1 + 0.6))) * vis * ca
-        if a > 0.01 and 20 < x < W - 20 and 40 < y < H - 90: cv.text((x, y - 26), s, px, AMBER, a, anchor='ms', spacing=0.2)
+        if a > 0.01 and 110 < x < W - 110 and 40 < y < H - 90: cv.text((x, y - 26), s, px, AMBER, a, anchor='ms', spacing=0.2)
     lab('gulf', 'PERSIAN GULF', 2.8, 9.0); lab('uae', 'UNITED ARAB EMIRATES', 4.2, 10.0)
     x, y, vis = pj['dubai']; a = oc(seg(t, 7.0, 7.8)) * vis * ca
     if a > 0.01 and 20 < x < W - 20 and 40 < y < H - 90: cv.ring((x, y), 7, a, 2); cv.text((x + 12, y - 4), 'DUBAI', 18, AMBER, a, anchor='lm', spacing=0.2)
@@ -275,6 +275,23 @@ def dredger(ss, x, y, col=(52, 64, 80)):
     ss.poly([(x - 92, y - 6), (x + 92, y - 6), (x + 74, y + 16), (x - 80, y + 16)], fill=col + (255,), outline=CYAN + (255,))
     ss.rect(x - 78, y - 36, x - 34, y - 6, fill=(214, 222, 232, 255)); ss.rect(x - 70, y - 50, x - 46, y - 36, fill=(214, 222, 232, 255)); ss.rect(x - 62, y - 62, x - 54, y - 50, fill=AMBER + (255,))
     ss.rect(x - 24, y - 20, x + 62, y - 6, fill=(36, 44, 56, 255)); ss.line([(x + 70, y - 8), (x + 100, y - 26)], (214, 222, 232, 255), 2.4)
+
+# ---- V4 camera for schematic scenes: zoom/pan keys (t, zoom, focus x, focus y) with smoothstep between keys; applied to the finished illustration (text and graphics zoom together, fixed pills are drawn after)
+def camk(t, keys):
+    if t <= keys[0][0]: return keys[0][1:]
+    for a, b in zip(keys, keys[1:]):
+        if t <= b[0]: u = smr((t - a[0]) / (b[0] - a[0])); return tuple(a[j] + (b[j] - a[j]) * u for j in (1, 2, 3))
+    return keys[-1][1:]
+def cam_apply(cv, z, fx, fy):
+    if z <= 1.001 and abs(fx - W / 2) < 1 and abs(fy - H / 2) < 1: return cv
+    fx = min(max(fx, W / (2 * z)), W - W / (2 * z)); fy = min(max(fy, H / (2 * z)), H - H / (2 * z)); fr = cv.finish()
+    out = fr.transform((PW, PH), Image.AFFINE, (1 / z, 0, fx * SC - PW / (2 * z), 0, 1 / z, fy * SC - PH / (2 * z)), resample=Image.BICUBIC); return Canvas(out)
+def lerp_keys(t, keys):                                                  # keys: [(t, rect)] piecewise smooth rect interpolation
+    if t <= keys[0][0]: return keys[0][1]
+    for a, b in zip(keys, keys[1:]):
+        if t <= b[0]: return lerp_rect(a[1], b[1], smr((t - a[0]) / (b[0] - a[0])))
+    return keys[-1][1]
+B3_CAM = [(0, 1.0, 480, 270), (2.2, 1.15, 300, 300), (3.2, 1.3, 250, 300), (8.0, 1.3, 260, 300), (9.2, 1.2, 440, 250), (12.0, 1.2, 520, 250), (13.0, 1.3, 690, 330), (16.2, 1.3, 690, 330), (18.0, 1.0, 480, 270), (20, 1.0, 480, 270)]
 def B3(t, d, X):
     """cross-section: sand is dredged from the Gulf floor, sprayed to the island site and protected by rock breakwaters (method as described by NASA Earth Observatory; no volumes)"""
     cv = Canvas(water_bg(t)); ss = SS(); sx = 250 + 6 * math.sin(t * 0.9); sb = seabed_pts()
@@ -307,13 +324,15 @@ def B3(t, d, X):
     kp = seg(t, 16.5, 19.5)
     if kp > 0: ss.rect(0, 452, W, H, outline=None, fill=(255, 214, 120, int(45 * math.sin(math.pi * kp))))
     layer(cv, ss)
-    cv.callout((40, 478), 'SEA FLOOR · SAND', t, 1.0, (0, 0), ring=False, px=15, col=(250, 232, 190))
-    cv.callout((hx + 18, 330), 'DREDGED FROM THE GULF FLOOR', t, 4.5, (30, -30), ring=False, px=15, col=TEXT)
-    cv.callout((ex - 40, SURF - 50), 'PLACED WHERE THE ISLAND WILL BE', t, 10.5, (-40, -64), ring=False, px=15, col=TEXT)
+    cv.callout((40, 478), 'SEA FLOOR · SAND', t, 1.0, (0, 0), ring=False, px=15, col=(250, 232, 190), out=9.5)
+    cv.callout((hx + 18, 330), 'DREDGED FROM THE GULF FLOOR', t, 4.5, (30, -30), ring=False, px=15, col=TEXT, out=11.0)
+    cv.callout((ex - 40, SURF - 50), 'PLACED WHERE THE ISLAND WILL BE', t, 10.5, (-40, -64), ring=False, px=15, col=TEXT, out=12.4)
     cv.callout((528, 396), 'ROCK BREAKWATER', t, 14.2, (-60, -40), ring=False, px=15, col=(210, 214, 222))
+    cv = cam_apply(cv, *camk(t, B3_CAM))
     cv.pill((W / 2 - 190, 486), 'THE MATERIAL WAS ALREADY THERE, UNDERWATER', 15, oc(seg(t, 16.8, 17.8)), accent=AMBER)
     cv.pill((22, 20), 'ILLUSTRATION · not to scale · method as described by NASA Earth Observatory', 14, 1.0, accent=CYAN); return cv
 
+B4_CAM = [(0, 1.0, 480, 270), (0.8, 1.45, 331, 272), (7.6, 1.5, 331, 272), (8.6, 1.5, 629, 272), (15.6, 1.5, 629, 272), (16.6, 1.0, 480, 270), (17, 1.0, 480, 270)]
 def B4(t, d, X):
     """two-step schematic: (1) GPS-guided placement (plan view), (2) vibroflot compaction with stone (cross-section)"""
     cv = Canvas(text_card_bg((10, 26, 40))); ss = SS(); pw = 430; xa, xb = 30, W - 30 - pw; ya, yb = 84, 470
@@ -351,10 +370,11 @@ def B4(t, d, X):
         for q in range(int(10 * stone)): ss.ellipse((cx + (-13 + 26 * ((q * 37) % 10) / 9.0), sy1 - 12 - q * (sy1 - sy0 - 20) / 10), 6.5, fill=(112, 116, 124, 255), outline=(40, 46, 56, 255))
     layer(cv, ss)
     cv.text((xb + 44, sy0 - 28), 'VIBROFLOT', 13, TEXT, oc(seg(t, 9.8, 10.6)), spacing=0.12); cv.text((cx, sy1 + 12), 'STONE COLUMN · SOLIDIFIED LAND', 14, CYAN, oc(seg(t, 14.0, 15.0)), anchor='ma', spacing=0.1)
+    cv = cam_apply(cv, *camk(t, B4_CAM))
     cv.pill((22, 20), 'ILLUSTRATION · schematic, not to scale · method as described by NASA Earth Observatory', 14, 1.0, accent=CYAN); return cv
 
 def B5(t, d, X):
-    c, _ = woc_ring('2003'); r = lerp_rect(rect_c(c, 900, dx=150), rect_c(c, 760, dx=110), tm(t) / d)
+    c, _ = woc_ring('2003'); r = lerp_keys(tm(t), [(0, rect_c(c, 1150, dx=200)), (3.5, rect_c(c, 700, dx=-120, dy=-40)), (7.0, rect_c(c, 620, dx=60, dy=90)), (11.0, rect_c(c, 900, dx=120)), (16.0, rect_c(c, 560, dx=20, dy=-20)), (23.0, rect_c(c, 1000, dx=100)), (d, rect_c(c, 760, dx=110))])
     a, b = view('2002b', r), view('2003', r); u = sm(seg(t, 11.5, 14.5)); cv = Canvas(dissolve(a, b, u)); key = '2002b' if u < 0.5 else '2003'; stamp(cv, key, t if u < 0.5 else t - 11.5, 0.3)
     c2, r2 = woc_ring('2002b'); c3, r3 = woc_ring('2003')
     cv.callout(to_screen(r, (c2[0] - r2, c2[1])), 'RING ALREADY IN PLACE', t, 4.5, (60, -120), r=14, out=11.2); cv.callout(to_screen(r, FRONDS_2002B), 'FRONDS STILL SAND', t, 7.5, (200, 90), r=14, out=11.2)
@@ -406,11 +426,15 @@ def C2(t, d, X):
     cv.text((W * 0.73, H * 0.82), 'about 300 small islands planned', 14, MUTED, oc(seg(t, 16.5, 17.5)), anchor='ma', bold=False)
     cv.text((W / 2, 66), 'THREE PROJECTS · TWO DESIGNS · ONE COAST', 15, MUTED, 1.0, anchor='ma', spacing=0.25); layer(cv, ss); return cv
 def C3(t, d, X):
-    u = sm(seg(t, 8.0, 10.5)); im = dissolve(view('palm2', lerp_rect(C1D, (1760, 190, 1180, 664), tm(t) / d)), view('palm2', lerp_rect(C1C, (940, 1040, 1180, 664), seg(t, 6.0, d))), u); k = sm(seg(t, 2.0, 3.0))
+    u = sm(seg(t, 8.0, 10.5)); im = dissolve(view('palm2', lerp_keys(tm(t), [(0, C1D), (4.0, lerp_rect(C1D, (1760, 190, 1180, 664), 0.35)), (9.0, (1760, 190, 1180, 664))])), view('palm2', lerp_rect(C1C, (940, 1040, 1180, 664), seg(t, 6.0, d))), u); k = sm(seg(t, 2.0, 3.0))
     cv = Canvas(dim(im, 1 - 0.5 * k)); cv.chip(chip_for('palm2'))
     cv.text((60, 150), '2007 – 2008', 44, AMBER, oc(seg(t, 3.0, 4.0)), anchor='la'); cv.text((60, 212), 'THE GLOBAL RECESSION', 28, TEXT, oc(seg(t, 4.0, 5.0)), anchor='la')
     cv.text((60, 258), 'NASA: it delayed these projects', 20, MUTED, oc(seg(t, 5.0, 6.0)), anchor='la', bold=False)
-    cv.text((60, 330), 'In the 2006 image: Palm Deira barely begun,', 17, TEXT, oc(seg(t, 12.0, 13.0)), anchor='la', bold=False); cv.text((60, 356), 'The World still under construction.', 17, TEXT, oc(seg(t, 12.6, 13.6)), anchor='la', bold=False); return cv
+    cv.text((60, 330), 'In the 2006 image: Palm Deira barely begun,', 17, TEXT, oc(seg(t, 12.0, 13.0)), anchor='la', bold=False); cv.text((60, 356), 'The World still under construction.', 17, TEXT, oc(seg(t, 12.6, 13.6)), anchor='la', bold=False)
+    ss = SS(); x0, x1, y = 520, 900, 430; k = sm(seg(t, 3.4, 4.2)); p = oc(seg(t, 4.0, 7.0)); ss.line([(x0, y), (x1, y)], (234, 240, 246, int(170 * k)), 2)           # timeline: the recession years shaded, a marker sweeps across
+    ss.rect(x0 + (x1 - x0) / 3, y - 10, x0 + (x1 - x0) * (1 / 3 + 2 / 3 * p), y + 10, fill=AMBER + (int(230 * k),)); ss.ellipse((x0 + (x1 - x0) * p, y), 6, fill=(234, 240, 246, int(255 * k)))
+    for xx, lab in ((x0, '2006'), (x1, '2009')): ss.ellipse((xx, y), 4, fill=(234, 240, 246, int(255 * k)))
+    layer(cv, ss); cv.text((x0, y + 16), '2006', 14, TEXT, k, anchor='ma'); cv.text((x1, y + 16), '2009', 14, TEXT, k, anchor='ma'); cv.text((x0 + (x1 - x0) * 2 / 3, y - 34), '2007–2008', 16, AMBER, k * p, anchor='ma', spacing=0.12); return cv
 def C4(t, d, X):
     r = lerp_rect(C1C, (940, 1040, 1180, 664), tm(t) / d); cv = Canvas(dim(view('palm2', r), 0.32)); cv.chip('Background: NASA ASTER · 2006 · colours as published (not 2022)')
     cv.text((60, 120), '2022', 90, AMBER, oc(seg(t, 0.8, 1.8)), anchor='la')
@@ -514,7 +538,7 @@ def E5(t, d, X):
     if key == 'iss': zoom_ring(cv, r, PJI[0], PJI[1], 'PALM JUMEIRAH · RING', lt, 2.0, (170, 130), px=18); zoom_ring(cv, r, PJAI[0], PJAI[1], 'PALM JEBEL ALI · RING', lt, 9.0, (-170, -150), px=18)
     return cv
 def E6(t, d, X):
-    cv = Canvas(text_card_bg()); k = oc(seg(t, 0.4, 1.4))                      # credits stay to the last frame (no fade to black)
+    cv = Canvas(dim(view('palm2', lerp_rect(C1A, C1C, smr(tm(t) / d))), 0.26)); k = oc(seg(t, 0.4, 1.4))   # credits over a dimmed, slowly drifting ASTER 2006 frame; they stay to the last frame (no fade to black)
     cv.text((W / 2, 150), 'IMAGERY', 14, AMBER, k, anchor='ma', spacing=0.3); cv.text((W / 2, 190), 'NASA Earth Observatory', 30, TEXT, k, anchor='ma')
     cv.text((W / 2, 250), 'ASTER on the Terra satellite', 24, TEXT, k, anchor='ma', bold=False); cv.text((W / 2, 300), 'Astronaut photograph ISS067-E-3785', 24, TEXT, k, anchor='ma', bold=False)
     cv.text((W / 2, 336), 'ISS Crew Earth Observations', 20, MUTED, k, anchor='ma', bold=False)
@@ -570,3 +594,4 @@ SCENES = [('H0', 0, 3, [], H0), ('H1', 3, 10, [1], H1E), ('H2', 13, 8, [2], H2),
 import scenes_v6 as _v6                       # V6 visual standard for A3, C2, C4, C6, D5, E1, E4, B7 (must stay the last statement: replaces entries of SCENES)
 _v6.install(sys.modules[__name__])
 SCENES_V4 = [('H1', 0, 8, [1], HV1), ('H2', 8, 8, [2], H2), ('H3', 16, 11, [3], H3E), ('H4', 27, 9, [4], H4E)]
+SCENES_FULL = SCENES_V4 + [s_ for s_ in SCENES if s_[0] not in ('H0', 'H1', 'H2', 'H3', 'H4')]
