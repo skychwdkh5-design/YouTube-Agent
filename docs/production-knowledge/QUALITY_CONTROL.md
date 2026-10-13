@@ -32,3 +32,8 @@ See `productions/dubai/final/QA_REPORT.md`.
 - `qa_contrast.py [--v4]`: WCAG ratio of every Canvas.text/kinetic run against the TEXT-FREE render of the same frame (75th/25th luminance percentile); skips entry-transition windows (they re-render the previous scene). `qa_legibility.py --v4 --need 4.5` kept for the old median method (per-letter kinetic text gives false flags). Hook V4.1 + A1: 0 runs below 4.5 (A1 t<1 s flags are transition blends).
 - VERIFIED: audio continuity check = compare `audio_raw.wav` with `narration.mp3` at lag 0/-1 sample: zero difference in all scene windows (no repeated or missing speech); splices are silent.
 - VERIFIED: build flags `--hook`, `--preview` (hook + A1 = 52 s), `--full4` in `build_final.py`; unchanged segments can be reused.
+
+## Release package (2026-10-13)
+- VERIFIED: pre-upload checklist used for EP002: concatenate media-branch parts and compare SHA-256 with the master; full decode (`ffmpeg -i f -f null -`); chapters validated (starts 0:00, >= 3, each >= 10 s) and aligned to scene starts (rounded, speech begins ~0.35 s later); description facts checked line by line against the locked script; thumbnail = two real NASA frames from the same pixel box + dated labels; copyright table in `productions/dubai/release/COPYRIGHT_CHECK.md`.
+- RULE: no YouTube connector in the session -> deliver the package and Studio steps, never claim an upload.
+- OPEN: ElevenLabs plan/commercial-use status is unknown to the agent; the owner confirms it before publishing.
