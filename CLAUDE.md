@@ -80,3 +80,10 @@ Rules in short:
 - **Persist what you learn.** Every validated finding goes into `docs/ASSET_SOURCE_REGISTRY.md` (sources/licences), `docs/RENDER_BENCHMARKS.md` (measurements), `docs/RENDER_ENGINE_DECISION_MATRIX.md` (tools), `docs/KNOWN_LIMITATIONS.md` (limits/failed approaches). Mark facts VERIFIED (with URL) vs ASSUMED.
 - **Quality bar.** Technical validity is not visual approval. Judge previews against the references with `docs/REFERENCE_VISUAL_QA_CHECKLIST.md`; do not lower the standard to fit a tool, and do not claim reference-level quality without evidence. Only the user grants USER_APPROVED.
 - **Efficiency.** Reuse cached assets and shared components, run short diagnostics, avoid repeated network checks and redundant renders; 12-15 s proofs before scaling. Never modify EP001.
+
+## Production knowledge base (read before every new release)
+
+- Index: `docs/production-knowledge/README.md` (about 30 lines). Read the index first, then only the one or two documents your task needs; do not load the whole folder.
+- Reuse existing components (`orbitalatlas/`, `productions/dubai/preview/`, `.claude/skills/yt-*`, `tools/cesium_proof/`) and check `docs/production-knowledge/TROUBLESHOOTING.md` before debugging; do not repeat fixed mistakes or build a duplicate tool.
+- Paid TTS: follow `docs/production-knowledge/TTS_ELEVENLABS.md` (preflight, character count, `--cache-dir`, one pass, never regenerate cached audio, no retry after an error before checking credits and the cache).
+- After a release, append only verified findings to the matching document, tagged VERIFIED / HYPOTHESIS / EPISODE-SPECIFIC with the date; keep rules (here) separate from episode facts. Never write keys or secrets; media goes to `media/*` branches with a SHA-256 list, not to main.
