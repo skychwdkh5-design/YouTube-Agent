@@ -144,6 +144,7 @@ class Canvas:
         q = (c[0] + (e[0] - c[0]) * k, c[1] + (e[1] - c[1]) * k); self.d.line([c, q], fill=col + (int(220 * k),), width=2)
         ft = F(px); w = self.d.textlength(text, font=ft)
         ax = 'l' if dxy[0] >= 0 else 'r'
+        bx0 = e[0] + 4 - 7 if dxy[0] >= 0 else e[0] - 4 - w - 7; self.d.rounded_rectangle([bx0, e[1] - px * 0.5 - px * 0.72, bx0 + w + 14, e[1] - px * 0.5 + px * 0.72], 5, fill=(6, 10, 16, int(170 * k)))   # backing pill: contrast on sand/ice imagery
         self.d.text((e[0] + (4 if dxy[0] >= 0 else -4), e[1] - px * 0.5), text, font=ft, fill=col + (int(255 * k),), anchor=ax + 'm', stroke_width=2, stroke_fill=(6, 10, 16, int(200 * k)))
     def finish(self): return Image.alpha_composite(self.base, self.o).convert('RGB')
 

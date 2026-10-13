@@ -150,7 +150,7 @@ def H2(t, d, X):                                                           # the
     overlay_new_land(cv, r, oc(seg(t, 2.4, 4.0)), 1.0, fill_a=0.34 * (1 - 0.65 * sm(seg(t, 5.0, 5.8))), edge_a=0.85 + 0.15 * sm(seg(t, 2.4, 3.0)))
     big(cv, 'NEW LAND', H * 0.17, sm(seg(t, tw(5, 16, d), tw(5, 16, d) + 0.4)) * (1 - sm(seg(t, 4.6, 5.0))))
     tl = sm(seg(t, tw(10, 16, d), tw(10, 16, d) + 0.4)); p = oc(seg(t, tw(10, 16, d) + 0.1, tw(14, 16, d) + 0.4)); n = min(3, 1 + int(p * 3))
-    ss = SS(); x0, x1, y = W * 0.3, W * 0.7, H * 0.14 + 52; ss.line([(x0, y), (x1, y)], (234, 240, 246, int(170 * tl)), 2); ss.line([(x0, y), (x0 + (x1 - x0) * p, y)], AMBER + (int(255 * tl),), 4)
+    ss = SS(); x0, x1, y = W * 0.3, W * 0.7, H * 0.14 + 52; ss.rect(x0 - 24, y - 12, x1 + 24, y + 34, fill=(8, 14, 22, int(175 * tl)), r=6); ss.line([(x0, y), (x1, y)], (234, 240, 246, int(170 * tl)), 2); ss.line([(x0, y), (x0 + (x1 - x0) * p, y)], AMBER + (int(255 * tl),), 4)
     for xx in (x0, x1): ss.ellipse((xx, y), 5, fill=(234, 240, 246, int(255 * tl)))
     layer(cv, ss); cv.text((x0, y + 10), '2000', 15, TEXT, tl, anchor='ma'); cv.text((x1, y + 10), '2003', 15, TEXT, tl, anchor='ma'); big(cv, f'{n} YEAR' + ('S' if n > 1 else ''), H * 0.14 - 18, tl, 34); return cv
 def H3(t, d, X):                                                           # two panels (2000 | 2022), one arrow, one counter; the ISS panel opens to full frame; glide to Palm Jebel Ali
@@ -452,8 +452,8 @@ def D2(t, d, X):
     rect = (600, 1000, 1600, 900); cut = 8.0; key = '2000' if t < cut else '2011'; lt = t if t < cut else t - cut
     r = lerp_rect(rect, (700, 1060, 1400, 788), lt / (cut if t < cut else d - cut)); cv = Canvas(view(key, r)); stamp(cv, key, lt, 0.2, 54)
     cv.pill((24, 128), 'LABELLED CUT · separate days · not registered', 13, 1.0 if abs(t - cut) < 1.5 else 0.0, accent=CYAN)
-    if t < cut: cv.text((W - 30, 100), 'MOSTLY EMPTY DESERT', 20, TEXT, oc(seg(t, 2, 3)), anchor='ra')
-    else: cv.text((W - 30, 100), 'ROADS, BUILDINGS, IRRIGATED LAND', 20, TEXT, oc(seg(t, cut + 2, cut + 3)), anchor='ra'); cv.text((W - 30, 128), 'cover almost all of this area (NASA)', 15, MUTED, oc(seg(t, cut + 3, cut + 4)), anchor='ra', bold=False)
+    if t < cut: cv.pill((W - 30, 92), 'MOSTLY EMPTY DESERT', 20, oc(seg(t, 2, 3)), accent=AMBER, anchor='right')
+    else: cv.pill((W - 30, 92), 'ROADS, BUILDINGS, IRRIGATED LAND', 20, oc(seg(t, cut + 2, cut + 3)), accent=AMBER, anchor='right'); cv.pill((W - 30, 138), 'cover almost all of this area (NASA)', 15, oc(seg(t, cut + 3, cut + 4)), anchor='right')
     return cv
 def sat_icon(ss, x, y, col): ss.rect(x - 9, y - 5, x + 9, y + 5, fill=col); ss.rect(x - 26, y - 2, x - 11, y + 2, fill=MUTED + (255,)); ss.rect(x + 11, y - 2, x + 26, y + 2, fill=MUTED + (255,))
 def cam_icon(ss, x, y, col): ss.rect(x - 22, y - 11, x + 22, y + 13, fill=col, r=3); ss.rect(x - 8, y - 17, x + 8, y - 11, fill=col); ss.ellipse((x, y + 1), 8, fill=(11, 15, 20, 255), outline=(234, 240, 246, 255), width=1.5)

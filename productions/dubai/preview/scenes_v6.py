@@ -95,12 +95,12 @@ def fit(c, w, scr, size):
     if w > size[0] * 0.98: w = size[0] * 0.98; h = w * scr[3] / scr[2]
     x = min(max(c[0] - w / 2, 0), size[0] - w); y = min(max(c[1] - h / 2, 0), size[1] - h); return (x, y, w, h)
 def C6(t, d, X):
-    sp = smr(seg(t, 7.0, 8.4)); lw = W - (W / 2) * sp; scrL = (0, 0, lw, H); scrR = (lw, 0, W - lw, H); z = 1 - 0.06 * tm(t) / d; img = Image.new('RGB', (PW, PH), INK); LW = int(round(lw * SC))
-    cs = SITE[0]; wL = 760 * z if sp > 0.5 else 1100 * z; boxL = fit((cs[0] + 40, cs[1]), wL, scrL, WOC_SZ) if lw > 1 else None; k = sm(seg(t, 10.7, 12.0))
+    sp = smr(seg(t, 7.0, 8.4)); lw = W - (W / 2) * sp; scrL = (0, 0, lw, H); scrR = (lw, 0, W - lw, H); z = 1 - 0.14 * tm(t) / d; pan = 70 * tm(t) / d; img = Image.new('RGB', (PW, PH), INK); LW = int(round(lw * SC))
+    cs = SITE[0]; wL = 760 * z if sp > 0.5 else 1100 * z; boxL = fit((cs[0] + 40 + pan * 0.6, cs[1] - pan * 0.5), wL, scrL, WOC_SZ) if lw > 1 else None; k = sm(seg(t, 10.7, 12.0))
     if lw > 2:
         a = src('2003').resize((LW, PH), Image.LANCZOS, box=(boxL[0], boxL[1], boxL[0] + boxL[2], boxL[1] + boxL[3])); b = src('2011').resize((LW, PH), Image.LANCZOS, box=(boxL[0], boxL[1], boxL[0] + boxL[2], boxL[1] + boxL[3])); img.paste(Image.blend(a, b, k), (0, 0))
     if W - lw > 2:
-        boxR = fit(WORLD2, 1050 * z, scrR, P2_SZ); img.paste(src('palm2').resize((PW - LW, PH), Image.LANCZOS, box=(boxR[0], boxR[1], boxR[0] + boxR[2], boxR[1] + boxR[3])), (LW, 0))
+        boxR = fit((WORLD2[0] - pan * 0.5, WORLD2[1] + pan * 0.7), 1050 * z, scrR, P2_SZ); img.paste(src('palm2').resize((PW - LW, PH), Image.LANCZOS, box=(boxR[0], boxR[1], boxR[0] + boxR[2], boxR[1] + boxR[3])), (LW, 0))
     cv = Canvas(img)
     if lw > 2: overlay(cv, S.new_land(), boxL, scrL, edge_p=oc(seg(t, 1.0, 3.5)), col=AMBER, edge_a=0.9)
     if W - lw > 2: overlay(cv, trace('palm2', WORLD2, 330, 110, 1.0), boxR, scrR, edge_p=oc(seg(t, 9.0, 11.0)), col=CYAN, edge_a=0.9)
@@ -109,8 +109,9 @@ def C6(t, d, X):
     big(cv, 'DREDGED SAND · PROTECTED BY ROCK', H * 0.15, sm(seg(t, 3.6, 4.0)) * (1 - sm(seg(t, 6.6, 7.0))), 28)
     big(cv, '2011', H * 0.68, sm(seg(t, 10.8, 11.3)) * (1 - sm(seg(t, 17.0, 17.4))), 44) if False else None
     if sp > 0.9: cv.pill((14, 44), 'PALM JUMEIRAH', 13, a=sm(seg(t, 8.4, 9.0)), accent=AMBER); cv.pill((W / 2 + 14, 44), 'THE WORLD', 13, a=sm(seg(t, 8.6, 9.2)), accent=CYAN)
-    cv.text((W * 0.25, H * 0.68), '2011', 44, AMBER, sm(seg(t, 10.8, 11.3)), anchor='ma'); cv.text((W * 0.75, H * 0.68), '2022', 44, CYAN, sm(seg(t, 17.0, 17.5)), anchor='ma')
-    cv.text((W * 0.25, H * 0.68 + 54), 'green fronds · buildings on the trunk', 16, TEXT, sm(seg(t, 13.0, 13.8)), anchor='ma', bold=False); cv.text((W * 0.75, H * 0.68 + 54), 'only a handful of islands developed', 16, TEXT, sm(seg(t, 18.5, 19.3)), anchor='ma', bold=False)
+    for cx_, lab_, ac_, a_ in ((W * 0.25, '2011', AMBER, sm(seg(t, 10.8, 11.3))), (W * 0.75, '2022', CYAN, sm(seg(t, 17.0, 17.5)))):
+        wt_ = cv.d.textlength(lab_, font=F(44, True)) + 44 * 1.4; cv.pill((cx_ - wt_ / 2, H * 0.68 - 6), lab_, 44, a=a_, accent=ac_)
+    cv.text((W * 0.25, H * 0.68 + 92), 'green fronds · buildings on the trunk', 16, TEXT, sm(seg(t, 13.0, 13.8)), anchor='ma', bold=False); cv.text((W * 0.75, H * 0.68 + 92), 'only a handful of islands developed', 16, TEXT, sm(seg(t, 18.5, 19.3)), anchor='ma', bold=False)
     big(cv, 'SIMILAR METHOD · VERY DIFFERENT OUTCOMES', H * 0.14, sm(seg(t, 22.0, 22.5)), 28); return cv
 
 # ---------------------------------------------------------------- D5 (30 s): sources as a dated timeline of real thumbnails
@@ -119,8 +120,8 @@ def D5(t, d, X):
     x0, x1, yl = 60, W - 60, H * 0.70; X_ = lambda y: x0 + (x1 - x0 - 150) * (y - 2000) / 11.5 if y < 2020 else x1 - 40
     cv.d.line([(x0, yl), (x1, yl)], fill=MUTED + (170,), width=2)
     for y in (2000, 2003, 2006, 2009, 2011):
-        cv.d.line([(X_(y), yl - 5), (X_(y), yl + 5)], fill=MUTED + (200,), width=1); cv.text((X_(y), yl + 12), str(y), 13, MUTED, anchor='ma')
-    cv.d.line([(x1 - 110, yl - 6), (x1 - 100, yl + 6)], fill=MUTED + (200,), width=2); cv.d.line([(x1 - 100, yl - 6), (x1 - 90, yl + 6)], fill=MUTED + (200,), width=2); cv.text((x1 - 40, yl + 12), '2022', 13, MUTED, anchor='ma')
+        cv.d.line([(X_(y), yl - 5), (X_(y), yl + 5)], fill=MUTED + (200,), width=1); cv.text((X_(y), yl + 12), str(y), 13, TEXT, anchor='ma')
+    cv.d.line([(x1 - 110, yl - 6), (x1 - 100, yl + 6)], fill=MUTED + (200,), width=2); cv.d.line([(x1 - 100, yl - 6), (x1 - 90, yl + 6)], fill=MUTED + (200,), width=2); cv.text((x1 - 40, yl + 12), '2022', 13, TEXT, anchor='ma')
     tb = sm(seg(t, 13.4, 14.2)); tw_, th_ = 92, 92
     for i, (kk, yy) in enumerate(zip(keys, yrs)):
         k = oc(seg(t, 8.0 + i * 0.22, 8.6 + i * 0.22)); tile = thumb(kk, tw_, th_); xx = X_(yy); ov = i % 2
@@ -132,6 +133,7 @@ def D5(t, d, X):
     ka = sm(seg(t, 0.3, 1.0)) * (1 - sm(seg(t, 8.2, 8.9)))
     if ka > 0.01:                                                                          # anatomy of one caption: source, instrument, year (real ASTER 2006 crop)
         bx_, by_, bw_, bh_ = key_rect(PJ2[0], 900 - 70 * min(max(t / 8.0, 0), 1), P2_SZ); card = src('palm2').resize((int(300 * SC), int(169 * SC)), Image.LANCZOS, box=(bx_, by_, bx_ + bw_, by_ + bw_ * 169 / 300)).convert('RGBA'); cx0, cy0 = 150, H * 0.30; put(cv, card, cx0, cy0, ka)
+        sx_ = cx0 + 300 * ((t % 2.6) / 2.6); ss_ = SS(); ss_.line([(sx_, cy0), (sx_, cy0 + 169)], AMBER + (int(170 * ka),), 2); ss_.line([(sx_ - 7, cy0), (sx_ - 7, cy0 + 169)], AMBER + (int(60 * ka),), 6); layer(cv, ss_)   # inspection scan line: the card keeps moving while the words are said
         for j, (lab, a0_) in enumerate((('SOURCE · NASA', 4.4), ('INSTRUMENT · ASTER', 5.4), ('YEAR · 2006', 6.4))):
             kk_ = sm(seg(t, a0_, a0_ + 0.5)) * ka; y_ = cy0 + 20 + j * 52; xl = cx0 + 300 + 30; cv.d.line([(cx0 + 300, y_ + 14), (xl, y_ + 14)], fill=AMBER + (int(255 * kk_),), width=2); cv.text((xl + 8, y_), lab, 24, AMBER, kk_, anchor='la', spacing=0.08)
     for txt, a0, a1, px in (('EVERY IMAGE: SOURCE · INSTRUMENT · YEAR', 0.3, 7.6, 28), ('MOST: ASTER, AN INSTRUMENT ON A SATELLITE', 8.0, 12.8, 26), ('ONE: AN ASTRONAUT PHOTO · NIKON CAMERA', 13.2, 16.0, 26), ('SEPARATE DAYS · NEVER OVERLAID', 16.2, 26.0, 28), ('ONE IMAGE: YEAR ONLY', 27.0, 30.0, 30)):
@@ -157,7 +159,7 @@ def E1(t, d, X):
         lab = date_for(kk) if m < 0.5 else date_for(kk)[-4:]; edge = sm(min(max((min(xc, W - xc) - 60) / 90.0, 0), 1)); cv.text((xc, yy + h_ / 2 + 8), lab, int(22 if near > 0.5 else 15 - 3 * m), AMBER if near > 0.5 or m > 0.5 else MUTED, (0.5 + 0.5 * max(near, m)) * edge, anchor='ma', spacing=0.08)    # labels fade before they reach the frame edge (no cut-off text)
     ss = SS(); ss.line([(W / 2, yc - 112), (W / 2, yc - 92)], AMBER + (int(255 * (1 - m)),), 2.4); ss.poly([(W / 2, yc - 88), (W / 2 - 8, yc - 100), (W / 2 + 8, yc - 100)], fill=AMBER + (int(255 * (1 - m)),)); layer(cv, ss)
     x0, x1, yb = 120, W - 120, H - 52; cv.d.line([(x0, yb), (x1, yb)], fill=MUTED + (int(150 * (1 - m)),), width=2); cv.d.line([(x0, yb), (x0 + (x1 - x0) * oc(seg(t, 1.4, 14.7)), yb)], fill=AMBER + (int(255 * (1 - m)),), width=4)
-    cv.text((x0, yb + 8), '2000', 13, MUTED, 1 - m, anchor='ma'); cv.text((x1, yb + 8), '2011', 13, MUTED, 1 - m, anchor='ma')
+    cv.text((x0, yb + 8), '2000', 13, TEXT, 1 - m, anchor='ma'); cv.text((x1, yb + 8), '2011', 13, TEXT, 1 - m, anchor='ma')
     for txt, a0, a1 in (('12 ASTER IMAGES · 2000–2011', 0.2, 5.2), ('EMPTY SEA → FIRST STAGE → FRONDS → A FINISHED PALM', 5.4, 11.6), ('YEARS OF BUILDINGS AND VEGETATION', 11.8, 15.0), ('EACH ONE A DATED FACT', 15.2, 17.4), ('A TIMELINE YOU CAN CHECK', 17.6, 20.0)):
         big(cv, txt, H * 0.13, sm(seg(t, a0, a0 + 0.4)) * (1 - sm(seg(t, a1 - 0.3, a1))), 26)
     tiny(cv, 'NASA ASTER · 12 images, 2000–2011 · colours as published · crop centred on the palm site'); return cv
