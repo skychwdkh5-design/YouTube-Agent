@@ -26,4 +26,8 @@ All entries **[VERIFIED]** in this repo unless tagged.
 | callout/label glyphs cut at the frame edge or over a header | long label anchored near an edge or a landmark outside the frame | `kit.Canvas.callout` clamps (24 px margin, y 96..H-90), skips off-frame landmarks, dark stroke; verify with `qa_text_bounds.py` |
 | mixing a bed under narration changes the narration by 1 LSB | float round trip (x/32768 then x*32767) | add integer samples to the original int16 array and assert `mix - bed == narration` |
 | atmosphere synth clips or loudness parse fails | un-normalised sum of partials; `ebur128` log not on stderr | normalise to half scale first; read `ametadata=print:key=lavfi.r128.M` from stdout |
+| amber text unreadable on sand/ice/cloud (contrast 1.1-2.9:1) | no backing behind the text | dark pill/backing; verify with `qa_legibility.py` |
+| schematic caption wider than its panel (A3) | longer disclosure text after raising 11 -> 12 px | two short lines inside the panel; check at 540p |
+| timeline backing covers the date label (H2) | wide backing rectangle on the same row | keep the backing right edge left of the date start |
+| `qa_text_bounds` clean but a label still collides | it only tests the frame edge, not overlap between layers | look at changed scenes at 540p; keep one main label per beat |
 

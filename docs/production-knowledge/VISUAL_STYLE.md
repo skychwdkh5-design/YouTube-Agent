@@ -22,3 +22,7 @@ EVIDENCE (unmodified image) / TRACED (outline computed from that image) / UI (ti
 
 ## What the user rejected (do not repeat)
 Triple split-screen (V4); line-by-line text cards; pan/zoom called a "flyover"; wipes between sources (SCRIPT_LOCK says no wipes: use cross-dissolve); technical text at equal weight with the main label; static empty-sea holds.
+
+## Labels on imagery (EP002 v3) **[VERIFIED]**
+Dark pill behind every label placed on a photo/satellite image; main label >= 26 px, callout >= 17 px, disclosure chip >= 12 px (540p); at most one main label plus one secondary line per beat; secondary lines are pills too (D2 stacked text was the failure case).
+

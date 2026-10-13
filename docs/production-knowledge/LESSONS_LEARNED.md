@@ -17,5 +17,9 @@ Tags: **[VERIFIED]** observed here · **[HYPOTHESIS]** not proven · **[PROCESS]
 - **[PROCESS]** When only the audio changes, remux with `-c:v copy`; keep the previous master (v1 silent) in storage and name the new one v2.
 - **[HYPOTHESIS]** The drone helps first-seconds retention; unmeasured until analytics exist.
 
+- **[VERIFIED]** A master that passed yt-qc and three reviews still contained 8 confirmed legibility/overlap defects and 4 static holds >= 2 s; the release gate must include a contrast audit and a static-run scan, not only technical QC.
+- **[PROCESS]** Each fix round costs about 25 min (re-render, mux, QC); batch the audits first, fix once, re-render only the changed scenes (diff sampled frames before/after to find them), keep the previous master as backup.
+- **[VERIFIED]** The agent has no real way to check pronunciation here (no ASR, PyPI/HF blocked); report plausibility only and leave listening to the director.
+
 ## Shorts feedback (parallel track, PR #16, not merged)
 Views are not independent observations; Studio and Analytics API metrics differ (engagedViews, looping clips); an exploratory 2-vs-2 design can never reach significance (minimum two-sided p = 0.33): classify as exploratory. Work is on `feature/shorts-performance-feedback`; Shorts are excluded from the current production plan.
