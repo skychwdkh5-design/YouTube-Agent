@@ -26,16 +26,20 @@ def overlay(cv, tr, box, scr, fill_p=0.0, edge_p=0.0, col=AMBER, fill_a=0.3, edg
     f = tr['fill'] & (tr['dist'] <= fill_p * 1.02) if fill_p > 0 else np.zeros_like(tr['fill']); e = tr['edge'] & (tr['ang'] <= edge_p) if edge_p > 0 else np.zeros_like(tr['edge'])
     if not (f.any() or e.any()): return
     rgba[f, :3] = c; rgba[f, 3] = int(255 * fill_a); rgba[e, :3] = c; rgba[e, 3] = int(255 * edge_a)
-    k = scr[2] / box[2]; sw = max(int(Sz * k), 1)
+    k = scr[2] * SC / box[2]; sw = max(int(Sz * k), 1)
     if sw < 4: return
-    im = Image.fromarray(rgba, 'RGBA').resize((sw, sw), Image.LANCZOS); pan = Image.new('RGBA', (int(scr[2]), int(scr[3])), (0, 0, 0, 0)); pan.paste(im, (int(round((tr['x0'] - box[0]) * k)), int(round((tr['y0'] - box[1]) * k))))
-    lay = Image.new('RGBA', (W, H), (0, 0, 0, 0)); lay.paste(pan, (int(scr[0]), int(scr[1]))); cv.o = Image.alpha_composite(cv.o, lay); cv.d = ImageDraw.Draw(cv.o)
+    im = Image.fromarray(rgba, 'RGBA').resize((sw, sw), Image.LANCZOS); pan = Image.new('RGBA', (int(round(scr[2] * SC)), int(round(scr[3] * SC))), (0, 0, 0, 0)); pan.paste(im, (int(round((tr['x0'] - box[0]) * k)), int(round((tr['y0'] - box[1]) * k))))
+    lay = Image.new('RGBA', (PW, PH), (0, 0, 0, 0)); lay.paste(pan, (int(round(scr[0] * SC)), int(round(scr[1] * SC)))); cv.o = Image.alpha_composite(cv.o, lay); cv.d = mkdraw(cv.o)
 FULL = (0, 0, W, H)
 _TH = {}
 def thumb(kk, w, h, wide=700):
     k = (kk, w, h, wide)
-    if k not in _TH: c, _ = woc_ring(kk); _TH[k] = view(kk, rect_c(c, wide, dx=130 if wide == 700 else 150)).resize((w, h), Image.LANCZOS).convert('RGBA')
+    if k not in _TH:
+        c, _ = woc_ring(kk); x, y, bw, bh = rect_c(c, wide, aspect=w / h, dx=130 if wide == 700 else 150); _TH[k] = src(kk).resize((int(round(w * SC)), int(round(h * SC))), Image.LANCZOS, box=(x, y, x + bw, y + bh)).convert('RGBA')
     return _TH[k]
+def put(cv, tile, x, y, a=1.0):
+    """paste a physical-size tile at LOGICAL (x, y) with opacity a"""
+    cv.o.paste(tile, (int(round(x * SC)), int(round(y * SC))), Image.new('L', tile.size, int(255 * min(1, max(0, a)))))
 def tiny(cv, s, a=1.0, y=20): cv.pill((22, y), s, 12, a * 0.85, accent=AMBER)
 def strip(cv, t, labels, pos, a=1.0, y=58):
     """thin timeline strip with labelled ticks and a moving marker (pos 0..1)"""
@@ -91,12 +95,12 @@ def fit(c, w, scr, size):
     if w > size[0] * 0.98: w = size[0] * 0.98; h = w * scr[3] / scr[2]
     x = min(max(c[0] - w / 2, 0), size[0] - w); y = min(max(c[1] - h / 2, 0), size[1] - h); return (x, y, w, h)
 def C6(t, d, X):
-    sp = smr(seg(t, 7.0, 8.4)); lw = W - (W / 2) * sp; scrL = (0, 0, lw, H); scrR = (lw, 0, W - lw, H); z = 1 - 0.06 * t / d; img = Image.new('RGB', (W, H), INK)
+    sp = smr(seg(t, 7.0, 8.4)); lw = W - (W / 2) * sp; scrL = (0, 0, lw, H); scrR = (lw, 0, W - lw, H); z = 1 - 0.06 * t / d; img = Image.new('RGB', (PW, PH), INK); LW = int(round(lw * SC))
     cs = SITE[0]; wL = 760 * z if sp > 0.5 else 1100 * z; boxL = fit((cs[0] + 40, cs[1]), wL, scrL, WOC_SZ) if lw > 1 else None; k = sm(seg(t, 10.7, 12.0))
     if lw > 2:
-        a = src('2003').resize((int(lw), H), Image.LANCZOS, box=(boxL[0], boxL[1], boxL[0] + boxL[2], boxL[1] + boxL[3])); b = src('2011').resize((int(lw), H), Image.LANCZOS, box=(boxL[0], boxL[1], boxL[0] + boxL[2], boxL[1] + boxL[3])); img.paste(Image.blend(a, b, k), (0, 0))
+        a = src('2003').resize((LW, PH), Image.LANCZOS, box=(boxL[0], boxL[1], boxL[0] + boxL[2], boxL[1] + boxL[3])); b = src('2011').resize((LW, PH), Image.LANCZOS, box=(boxL[0], boxL[1], boxL[0] + boxL[2], boxL[1] + boxL[3])); img.paste(Image.blend(a, b, k), (0, 0))
     if W - lw > 2:
-        boxR = fit(WORLD2, 1050 * z, scrR, P2_SZ); img.paste(src('palm2').resize((int(W - lw), H), Image.LANCZOS, box=(boxR[0], boxR[1], boxR[0] + boxR[2], boxR[1] + boxR[3])), (int(lw), 0))
+        boxR = fit(WORLD2, 1050 * z, scrR, P2_SZ); img.paste(src('palm2').resize((PW - LW, PH), Image.LANCZOS, box=(boxR[0], boxR[1], boxR[0] + boxR[2], boxR[1] + boxR[3])), (LW, 0))
     cv = Canvas(img)
     if lw > 2: overlay(cv, S.new_land(), boxL, scrL, edge_p=oc(seg(t, 1.0, 3.5)), col=AMBER, edge_a=0.9)
     if W - lw > 2: overlay(cv, trace('palm2', WORLD2, 330, 110, 1.0), boxR, scrR, edge_p=oc(seg(t, 9.0, 11.0)), col=CYAN, edge_a=0.9)
@@ -120,14 +124,14 @@ def D5(t, d, X):
     tb = sm(seg(t, 13.4, 14.2)); tw_, th_ = 92, 92
     for i, (kk, yy) in enumerate(zip(keys, yrs)):
         k = oc(seg(t, 8.0 + i * 0.22, 8.6 + i * 0.22)); tile = thumb(kk, tw_, th_); xx = X_(yy); ov = i % 2
-        cv.o.paste(tile, (int(xx - tw_ / 2), int(yl - 20 - th_ - ov * (th_ + 14) + (1 - k) * 10)), Image.new('L', (tw_, th_), int(255 * k)))
+        put(cv, tile, xx - tw_ / 2, yl - 20 - th_ - ov * (th_ + 14) + (1 - k) * 10, k)
         cv.d.line([(xx, yl - 18 - ov * (th_ + 14)), (xx, yl)], fill=AMBER + (int(150 * k),), width=1)
     if tb > 0:
-        iss = src('iss').resize((130, 130), Image.LANCZOS, box=(PJI[0][0] - 700, PJI[0][1] - 700, PJI[0][0] + 700, PJI[0][1] + 700)); xx = X_(2022); cv.o.paste(iss.convert('RGBA'), (int(xx - 65), int(yl - 20 - 130 + (1 - tb) * 10)), Image.new('L', (130, 130), int(255 * tb)))
+        iss = src('iss').resize((int(130 * SC), int(130 * SC)), Image.LANCZOS, box=(PJI[0][0] - 700, PJI[0][1] - 700, PJI[0][0] + 700, PJI[0][1] + 700)).convert('RGBA'); xx = X_(2022); put(cv, iss, xx - 65, yl - 20 - 130 + (1 - tb) * 10, tb)
         cv.d.line([(xx, yl - 18), (xx, yl)], fill=CYAN + (int(180 * tb),), width=1)
     ka = sm(seg(t, 0.3, 1.0)) * (1 - sm(seg(t, 7.4, 8.0)))
     if ka > 0.01:                                                                          # anatomy of one caption: source, instrument, year (real ASTER 2006 crop)
-        card = view('palm2', key_rect(PJ2[0], 900, P2_SZ)).resize((300, 169), Image.LANCZOS).convert('RGBA'); cx0, cy0 = W / 2 - 150, H * 0.30; cv.o.paste(card, (int(cx0), int(cy0)), Image.new('L', (300, 169), int(255 * ka)))
+        bx_, by_, bw_, bh_ = key_rect(PJ2[0], 900, P2_SZ); card = src('palm2').resize((int(300 * SC), int(169 * SC)), Image.LANCZOS, box=(bx_, by_, bx_ + bw_, by_ + bw_ * 169 / 300)).convert('RGBA'); cx0, cy0 = W / 2 - 150, H * 0.30; put(cv, card, cx0, cy0, ka)
         for j, (lab, a0_) in enumerate((('SOURCE · NASA', 4.4), ('INSTRUMENT · ASTER', 5.4), ('YEAR · 2006', 6.4))):
             kk_ = sm(seg(t, a0_, a0_ + 0.5)) * ka; y_ = cy0 + 20 + j * 52; xl = cx0 + 300 + 30; cv.d.line([(cx0 + 300, y_ + 14), (xl, y_ + 14)], fill=AMBER + (int(255 * kk_),), width=2); cv.text((xl + 8, y_), lab, 24, AMBER, kk_, anchor='la', spacing=0.08)
     for txt, a0, a1, px in (('EVERY IMAGE: SOURCE · INSTRUMENT · YEAR', 0.3, 7.6, 28), ('MOST: ASTER, AN INSTRUMENT ON A SATELLITE', 8.0, 12.8, 26), ('ONE: AN ASTRONAUT PHOTO · NIKON CAMERA', 13.2, 16.0, 26), ('SEPARATE DAYS · NEVER OVERLAID', 16.2, 26.0, 28), ('ONE IMAGE: YEAR ONLY', 27.0, 30.0, 30)):
@@ -149,7 +153,7 @@ def E1(t, d, X):
         if xc < -tw_ or xc > W + tw_: continue
         near = (1 - min(abs(tt[i] - te) / 0.9, 1)) * (1 - m); sc = 1 + 0.38 * near * near; w_ = int(round((tw_ * sc + (cw - tw_ * sc) * m) / 4) * 4); h_ = int(round((th_ * sc + (chh - th_ * sc) * m) / 4) * 4)
         yy = yc + (H * 0.58 - yc) * m; tile = thumb(kk, w_, h_, 760); a = min(1, oc(seg(t, tt[i] - 2.8, tt[i] - 2.0)) * 0.55 + 0.45 * near + m)
-        cv.o.paste(tile, (int(xc - w_ / 2), int(yy - h_ / 2)), Image.new('L', (w_, h_), int(255 * a))); cv.d.rectangle([xc - w_ / 2, yy - h_ / 2, xc + w_ / 2, yy + h_ / 2], outline=AMBER + (int(255 * max(near, 0.5 * m)),), width=2)
+        put(cv, tile, xc - w_ / 2, yy - h_ / 2, a); cv.d.rectangle([xc - w_ / 2, yy - h_ / 2, xc + w_ / 2, yy + h_ / 2], outline=AMBER + (int(255 * max(near, 0.5 * m)),), width=2)
         lab = date_for(kk) if m < 0.5 else date_for(kk)[-4:]; cv.text((xc, yy + h_ / 2 + 8), lab, int(22 if near > 0.5 else 15 - 3 * m), AMBER if near > 0.5 or m > 0.5 else MUTED, 0.5 + 0.5 * max(near, m), anchor='ma', spacing=0.08)
     ss = SS(); ss.line([(W / 2, yc - 112), (W / 2, yc - 92)], AMBER + (int(255 * (1 - m)),), 2.4); ss.poly([(W / 2, yc - 88), (W / 2 - 8, yc - 100), (W / 2 + 8, yc - 100)], fill=AMBER + (int(255 * (1 - m)),)); layer(cv, ss)
     x0, x1, yb = 120, W - 120, H - 52; cv.d.line([(x0, yb), (x1, yb)], fill=MUTED + (int(150 * (1 - m)),), width=2); cv.d.line([(x0, yb), (x0 + (x1 - x0) * oc(seg(t, 1.4, 14.7)), yb)], fill=AMBER + (int(255 * (1 - m)),), width=4)

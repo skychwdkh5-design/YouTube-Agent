@@ -5,15 +5,35 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
 from orbitalatlas import easing as E
 
-W, H, FPS = 960, 540, 24
+W, H = 960, 540                                      # LOGICAL canvas: every coordinate, font size and line width in the scene code is in these units
+FPS = int(os.environ.get('EP002_FPS', '24'))
+SC = float(os.environ.get('EP002_SCALE', '1'))        # physical scale: 1 = 960x540 preview, 2 = native 1920x1080 (text/vectors are drawn at physical resolution, not upscaled)
+PW, PH = int(round(W * SC)), int(round(H * SC))
 K = H / 1080.0
 INK, TEXT, AMBER, CYAN, MUTED = (11, 15, 20), (234, 240, 246), (255, 194, 71), (92, 225, 230), (138, 148, 163)
 FB = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'; FR = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
 _fc = {}
 def F(px, bold=True):
-    k = (round(px), bold)
-    if k not in _fc: _fc[k] = ImageFont.truetype(FB if bold else FR, max(8, round(px)))
+    k = (round(px * SC * 8), bold)
+    if k not in _fc: _fc[k] = ImageFont.truetype(FB if bold else FR, max(8, round(px * SC)))
     return _fc[k]
+class SDraw:
+    """ImageDraw proxy taking LOGICAL coordinates (960x540 space) and drawing at physical resolution (SC); textlength returns logical units"""
+    def __init__(self, d): self.d = d
+    @staticmethod
+    def _c(xy):
+        if xy and isinstance(xy[0], (tuple, list)): return [(float(p[0]) * SC, float(p[1]) * SC) for p in xy]
+        return [float(v) * SC for v in xy]
+    def _w(self, w): return max(1, int(round(w * SC))) if w else w
+    def line(self, xy, fill=None, width=1, joint=None): self.d.line(self._c(xy), fill=fill, width=self._w(width), joint=joint)
+    def ellipse(self, xy, fill=None, outline=None, width=1): self.d.ellipse(self._c(xy), fill=fill, outline=outline, width=self._w(width))
+    def rectangle(self, xy, fill=None, outline=None, width=1): self.d.rectangle(self._c(xy), fill=fill, outline=outline, width=self._w(width))
+    def rounded_rectangle(self, xy, radius=0, fill=None, outline=None, width=1): self.d.rounded_rectangle(self._c(xy), radius * SC, fill=fill, outline=outline, width=self._w(width))
+    def polygon(self, xy, fill=None, outline=None, width=1): self.d.polygon(self._c(xy), fill=fill, outline=outline)
+    def arc(self, xy, start, end, fill=None, width=1): self.d.arc(self._c(xy), start, end, fill=fill, width=self._w(width))
+    def text(self, xy, s, font=None, fill=None, anchor=None, **kw): self.d.text((xy[0] * SC, xy[1] * SC), s, font=font, fill=fill, anchor=anchor, **kw)
+    def textlength(self, s, font=None, **kw): return self.d.textlength(s, font=font, **kw) / SC
+def mkdraw(img): return SDraw(ImageDraw.Draw(img))
 sm, smr, oc = E.smooth, E.smoother, E.out_cubic
 def seg(t, a, b): return E.clamp((t - a) / max(b - a, 1e-6))
 
@@ -53,7 +73,7 @@ def view(key, rect):
     if -2 < x < 0: x = 0.0                                   # float-rounding snap only (<2 px); anything larger still raises
     if -2 < y < 0: y = 0.0
     x = min(x, im.width - w) if 0 < x + w - im.width < 2 else x; y = min(y, im.height - h) if 0 < y + h - im.height < 2 else y
-    return im.resize((W, H), Image.LANCZOS, box=(x, y, x + w, y + h))
+    return im.resize((PW, PH), Image.LANCZOS, box=(x, y, x + w, y + h))
 def to_screen(rect, pt): return ((pt[0] - rect[0]) / rect[2] * W, (pt[1] - rect[1]) / rect[3] * H)
 def dissolve(a, b, u): return Image.blend(a, b, E.clamp(u))
 def dim(im, k):
@@ -61,11 +81,11 @@ def dim(im, k):
 
 # ------------------------------------------------------------------ canvas (RGBA overlay on a base frame)
 class Canvas:
-    def __init__(self, base): self.base = base.convert('RGBA'); self.o = Image.new('RGBA', (W, H), (0, 0, 0, 0)); self.d = ImageDraw.Draw(self.o)
+    def __init__(self, base): self.base = base.convert('RGBA') if base.size == (PW, PH) else base.resize((PW, PH), Image.LANCZOS).convert('RGBA'); self.o = Image.new('RGBA', (PW, PH), (0, 0, 0, 0)); self.d = mkdraw(self.o)
     def _comp(self, draw_fn):
         """draw on a transparent temporary layer and alpha-composite it (direct drawing on RGBA would overwrite pixels, e.g. erase earlier text under a fading line)"""
-        tmp = Image.new('RGBA', (W, H), (0, 0, 0, 0)); draw_fn(ImageDraw.Draw(tmp)); bb = tmp.getbbox()
-        if bb: self.o.alpha_composite(tmp.crop(bb), dest=(bb[0], bb[1])); self.d = ImageDraw.Draw(self.o)
+        tmp = Image.new('RGBA', (PW, PH), (0, 0, 0, 0)); draw_fn(mkdraw(tmp)); bb = tmp.getbbox()
+        if bb: self.o.alpha_composite(tmp.crop(bb), dest=(bb[0], bb[1])); self.d = mkdraw(self.o)
     def text(self, xy, s, px, fill=TEXT, a=1.0, bold=True, anchor='la', spacing=0.0, shadow=True):
         if a <= 0.003: return
         if REC is not None: REC.append(s)
@@ -121,7 +141,7 @@ def text_card_bg(t=0.0, tint=(14, 22, 32)):
     y = np.linspace(0, 1, H)[:, None, None]; x = np.linspace(0, 1, W)[None, :, None]
     a = np.array(INK, np.float32) * (1 - y * 0.4) + np.array(tint, np.float32) * y * 0.6
     a = np.broadcast_to(a, (H, W, 3)).copy(); a -= 10 * ((x - 0.5) ** 2) * 4
-    return Image.fromarray(a.clip(0, 255).astype(np.uint8))
+    im = Image.fromarray(a.clip(0, 255).astype(np.uint8)); return im if SC == 1 else im.resize((PW, PH), Image.LANCZOS)
 def wrap(d, s, ft, maxw):
     out, cur = [], ''
     for w in s.split():
@@ -173,22 +193,22 @@ def coast_x(key, y, thr=38, ref=(0, 1250, 280, 150)):
 
 # ------------------------------------------------------------------ supersampled vector drawing for diagrams
 class SS:
-    def __init__(self, s=3): self.s = s; self.im = Image.new('RGBA', (W * s, H * s), (0, 0, 0, 0)); self.d = ImageDraw.Draw(self.im)
-    def _p(self, pts): return [(x * self.s, y * self.s) for x, y in pts]
-    def line(self, pts, fill, width=2): self.d.line(self._p(pts), fill=fill, width=max(1, round(width * self.s)), joint='curve')
+    def __init__(self, s=3): self.s = s; self.k = s * SC; self.im = Image.new('RGBA', (int(W * self.k), int(H * self.k)), (0, 0, 0, 0)); self.d = ImageDraw.Draw(self.im)
+    def _p(self, pts): return [(x * self.k, y * self.k) for x, y in pts]
+    def line(self, pts, fill, width=2): self.d.line(self._p(pts), fill=fill, width=max(1, round(width * self.k)), joint='curve')
     def poly(self, pts, fill=None, outline=None, width=1): self.d.polygon(self._p(pts), fill=fill, outline=outline)
     def ellipse(self, c, rx, ry=None, fill=None, outline=None, width=1):
-        ry = ry if ry is not None else rx; self.d.ellipse([(c[0] - rx) * self.s, (c[1] - ry) * self.s, (c[0] + rx) * self.s, (c[1] + ry) * self.s], fill=fill, outline=outline, width=max(1, round(width * self.s)))
+        ry = ry if ry is not None else rx; self.d.ellipse([(c[0] - rx) * self.k, (c[1] - ry) * self.k, (c[0] + rx) * self.k, (c[1] + ry) * self.k], fill=fill, outline=outline, width=max(1, round(width * self.k)))
     def rect(self, x0, y0, x1, y1, fill=None, outline=None, width=1, r=0):
-        b = [x0 * self.s, y0 * self.s, x1 * self.s, y1 * self.s]
-        (self.d.rounded_rectangle(b, r * self.s, fill=fill, outline=outline, width=max(1, round(width * self.s))) if r else self.d.rectangle(b, fill=fill, outline=outline, width=max(1, round(width * self.s))))
-    def arc(self, c, r, a0, a1, fill, width=2): self.d.arc([(c[0] - r) * self.s, (c[1] - r) * self.s, (c[0] + r) * self.s, (c[1] + r) * self.s], a0, a1, fill=fill, width=max(1, round(width * self.s)))
+        b = [x0 * self.k, y0 * self.k, x1 * self.k, y1 * self.k]
+        (self.d.rounded_rectangle(b, r * self.k, fill=fill, outline=outline, width=max(1, round(width * self.k))) if r else self.d.rectangle(b, fill=fill, outline=outline, width=max(1, round(width * self.k))))
+    def arc(self, c, r, a0, a1, fill, width=2): self.d.arc([(c[0] - r) * self.k, (c[1] - r) * self.k, (c[0] + r) * self.k, (c[1] + r) * self.k], a0, a1, fill=fill, width=max(1, round(width * self.k)))
     def dashed(self, pts, fill, width=1.5, dash=8, gap=6, offset=0.0):
         pts = np.asarray(pts, float); seglen = np.hypot(*np.diff(pts, axis=0).T); cum = np.r_[0, np.cumsum(seglen)]; tot = cum[-1]; pos = -offset % (dash + gap) - (dash + gap)
         while pos < tot:
             a, b = max(pos, 0), min(pos + dash, tot)
             if b > a: self.line([tuple(np.array([np.interp(a, cum, pts[:, 0]), np.interp(a, cum, pts[:, 1])])), tuple(np.array([np.interp(b, cum, pts[:, 0]), np.interp(b, cum, pts[:, 1])]))], fill, width)
             pos += dash + gap
-    def finish(self): return self.im.resize((W, H), Image.LANCZOS)
+    def finish(self): return self.im.resize((PW, PH), Image.LANCZOS)
 def layer(cv, ss):
-    cv.o = Image.alpha_composite(cv.o, ss.finish()); cv.d = ImageDraw.Draw(cv.o)
+    cv.o = Image.alpha_composite(cv.o, ss.finish()); cv.d = mkdraw(cv.o)

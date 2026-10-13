@@ -46,7 +46,7 @@ SITE = woc_ring('2003')                                                     # Pa
 # registration of the two ASTER frames, measured (phase correlation, 512 px land patches, 6 places): shift <= 1 px; see HOOK_V3.md
 def spot(img, c, r, k):
     if k <= 0.003: return img
-    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32); m = np.clip((np.hypot(xx - c[0], yy - c[1]) - r) / (r * 0.6), 0, 1); m = m * m * (3 - 2 * m)
+    yy, xx = np.mgrid[0:PH, 0:PW].astype(np.float32) / SC; m = np.clip((np.hypot(xx - c[0], yy - c[1]) - r) / (r * 0.6), 0, 1); m = m * m * (3 - 2 * m)
     return Image.fromarray((np.asarray(img, np.float32) * (1 - k * m[..., None])).clip(0, 255).astype(np.uint8))
 # --- traced layers (TRACED class: computed from the pixels of the frame they are drawn on)
 _NL, _CL = {}, {}
@@ -65,10 +65,10 @@ def overlay_new_land(cv, r, fill_p, edge_p, fill_a=0.40, edge_a=1.0):
     N = new_land(); S = N['S']; rgba = np.zeros((S, S, 4), np.uint8); col = np.array(AMBER, np.uint8)
     f = N['fill'] & (N['dist'] <= fill_p * 1.02); rgba[f, :3] = col; rgba[f, 3] = int(255 * fill_a)
     e = N['edge'] & (N['ang'] <= edge_p); rgba[e, :3] = col; rgba[e, 3] = int(255 * edge_a)
-    k = W / r[2]; sw = max(int(S * k), 1)
+    k = PW / r[2]; sw = max(int(S * k), 1)
     if sw < 4 or not (f.any() or e.any()): return
-    im = Image.fromarray(rgba, 'RGBA').resize((sw, sw), Image.LANCZOS); lay = Image.new('RGBA', (W, H), (0, 0, 0, 0)); lay.paste(im, (int(round((N['x0'] - r[0]) * k)), int(round((N['y0'] - r[1]) * k))))
-    cv.o = Image.alpha_composite(cv.o, lay); cv.d = ImageDraw.Draw(cv.o)
+    im = Image.fromarray(rgba, 'RGBA').resize((sw, sw), Image.LANCZOS); lay = Image.new('RGBA', (PW, PH), (0, 0, 0, 0)); lay.paste(im, (int(round((N['x0'] - r[0]) * k)), int(round((N['y0'] - r[1]) * k))))
+    cv.o = Image.alpha_composite(cv.o, lay); cv.d = mkdraw(cv.o)
 def coast_line():
     """2000 shoreline: first non-sea pixel (40 px persistence, so clouds over water are ignored) per row, median-smoothed"""
     if _CL: return _CL['p']
@@ -101,12 +101,12 @@ def ring_dashed(cv, c, r, a, phase=0.0, frac=1.0, col=AMBER):
 _MINI = {}
 def minimap(cv, r, a):
     if a <= 0.01: return
-    if 'im' not in _MINI: _MINI['im'] = src('2000').resize((176, 176), Image.LANCZOS)
-    x0, y0 = 22, 58; cv.base.paste(Image.blend(cv.base.crop((x0, y0, x0 + 176, y0 + 176)), _MINI['im'].convert('RGBA'), a), (x0, y0)); s = 176 / 3000; ss = SS()
+    if 'im' not in _MINI: _MINI['im'] = src('2000').resize((int(176 * SC), int(176 * SC)), Image.LANCZOS)
+    x0, y0 = 22, 58; X0, Y0, Z = int(x0 * SC), int(y0 * SC), int(176 * SC); cv.base.paste(Image.blend(cv.base.crop((X0, Y0, X0 + Z, Y0 + Z)), _MINI['im'].convert('RGBA'), a), (X0, Y0)); s = 176 / 3000; ss = SS()
     ss.rect(x0 - 1, y0 - 1, x0 + 177, y0 + 177, outline=(234, 240, 246, int(200 * a)), width=1); ss.rect(x0 + r[0] * s, y0 + r[1] * s, x0 + (r[0] + r[2]) * s, y0 + (r[1] + r[3]) * s, outline=AMBER + (int(255 * a),), width=1.6); layer(cv, ss)
     cv.text((x0, y0 + 182), 'WHOLE ASTER FRAME · 2000', 11, MUTED, a)
 def paste_view(img, key, box, scr):
-    sx, sy, sw, sh = (int(round(v)) for v in scr)
+    sx, sy, sw, sh = (int(round(v * SC)) for v in scr)
     if sw < 2 or sh < 2: return
     bx, by, bw, bh = box; bx = min(max(bx, 0), src(key).width - bw); by = min(max(by, 0), src(key).height - bh); img.paste(src(key).resize((sw, sh), Image.LANCZOS, box=(bx, by, bx + bw, by + bh)), (sx, sy))
 
@@ -123,9 +123,9 @@ def with_entry(fn, prev, prev_d, kind, tr, center=None):
         a = prev(prev_d - 1 / FPS, prev_d, X).finish(); b = cv.finish(); u = sm(t / tr)
         if kind == 'dissolve': out = Image.blend(a, b, u)
         elif kind == 'slide':
-            out = Image.new('RGB', (W, H)); off = int(W * oc(t / tr)); out.paste(a, (-off, 0)); out.paste(b, (W - off, 0))
+            out = Image.new('RGB', (PW, PH)); off = int(PW * oc(t / tr)); out.paste(a, (-off, 0)); out.paste(b, (PW - off, 0))
         else:                                                  # iris: the new scene opens as a circle around a point shared by both shots
-            c = center() if callable(center) else center; yy, xx = np.mgrid[0:H, 0:W].astype(np.float32); R = oc(t / tr) * float(np.hypot(max(c[0], W - c[0]), max(c[1], H - c[1]))) * 1.05
+            c = center() if callable(center) else center; yy, xx = np.mgrid[0:PH, 0:PW].astype(np.float32) / SC; R = oc(t / tr) * float(np.hypot(max(c[0], W - c[0]), max(c[1], H - c[1]))) * 1.05
             m = np.clip((R - np.hypot(xx - c[0], yy - c[1])) / 40.0, 0, 1)[..., None]; out = Image.fromarray((np.asarray(a, np.float32) * (1 - m) + np.asarray(b, np.float32) * m).clip(0, 255).astype(np.uint8))
         return Canvas(out)
     return f
@@ -157,7 +157,7 @@ def H3(t, d, X):                                                           # two
     pw = W / 2; E0, E1 = 3.8, 4.9; e = smr(seg(t, E0, E1)); cx, cy = SITE[0]; z = 1 - 0.07 * min(t / E0, 1)
     box_o = (cx - 350 * z, cy - 394 * z, 700 * z, 788 * z); box_i = (PJI[0][0] - 500 * z, PJI[0][1] - 563 * z, 1000 * z, 1126 * z); big_r = key_rect(PJI[0], 1650, ISS_SZ)
     if e < 1:
-        img = Image.new('RGB', (W, H), (8, 12, 18)); k1 = oc(seg(t, 0.0, 0.5)); k2 = oc(seg(t, 0.6, 1.3))
+        img = Image.new('RGB', (PW, PH), (8, 12, 18)); k1 = oc(seg(t, 0.0, 0.5)); k2 = oc(seg(t, 0.6, 1.3))
         paste_view(img, '2000', box_o, (-pw * e, 0, pw, H))
         scr = (pw * (1 - e) + (1 - k2) * pw, 0, pw + pw * e, H); bx = tuple(box_i[j] + (big_r[j] - box_i[j]) * e for j in range(4))
         if abs(bx[2] / bx[3] - scr[2] / scr[3]) > 0.02: bx = (bx[0], bx[1], bx[2], bx[2] * scr[3] / scr[2])
@@ -194,13 +194,13 @@ def tone_match(img, ref):
     a = np.asarray(img, np.float32); r = np.asarray(ref, np.float32).reshape(-1, 3); m, s = a.reshape(-1, 3).mean(0), a.reshape(-1, 3).std(0) + 1e-3
     return (a - m) / s * r.std(0) + r.mean(0)
 def A1(t, d, X):
-    fr = X['a1_frames']; n = len(fr); i = min(int(t * FPS), n - 1)
-    ces = Image.open(fr[i]).convert('RGB').resize((W, H), Image.LANCZOS).filter(ImageFilter.UnsharpMask(1.2, 60, 2)); pj = json.load(open(pjson(fr[i])))
+    fr = X['a1_frames']; n = len(fr); i = min(int(t * 24), n - 1)                      # Cesium frames are 24 per estimated second whatever the output fps
+    ces = Image.open(fr[i]).convert('RGB').resize((PW, PH), Image.LANCZOS).filter(ImageFilter.UnsharpMask(1.2 * SC, 60, 2)); pj = json.load(open(pjson(fr[i])))
     u = seg(t, 15.8, 19.0)
     if u > 0:                                                  # soft Palm/Dubai-centred dissolve into the ASTER-2000 start crop; the Cesium render is tone-matched (UI treatment), ASTER untouched
         last = json.load(open(pjson(fr[-1]))); ref = view('2000', A2_START)
         k = sm(seg(t, 13.0, 17.0)) * 0.7; ces = Image.fromarray((np.asarray(ces, np.float32) * (1 - k) + tone_match(ces, ref) * k).clip(0, 255).astype(np.uint8))
-        c = last['dubai'][:2]; yy, xx = np.mgrid[0:H, 0:W].astype(np.float32); D = np.hypot(xx - c[0], yy - c[1]); far = float(np.hypot(max(c[0], W - c[0]), max(c[1], H - c[1])))
+        c = last['dubai'][:2]; yy, xx = np.mgrid[0:PH, 0:PW].astype(np.float32) / SC; D = np.hypot(xx - c[0], yy - c[1]); far = float(np.hypot(max(c[0], W - c[0]), max(c[1], H - c[1])))
         e = smr(u); Rr = (0.02 * H) * (1 - e) + (far + 0.36 * H) * e; v = np.clip((Rr - D) / (0.30 * H), 0, 1); m = (v * v * (3 - 2 * v))[..., None]
         base = Image.fromarray((np.asarray(ces, np.float32) * (1 - m) + np.asarray(ref, np.float32) * m).clip(0, 255).astype(np.uint8))
     else: base = ces
