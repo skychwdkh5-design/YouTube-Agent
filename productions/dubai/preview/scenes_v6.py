@@ -45,7 +45,7 @@ def strip(cv, t, labels, pos, a=1.0, y=58):
     """thin timeline strip with labelled ticks and a moving marker (pos 0..1)"""
     x0, x1 = 90, W - 90; cv.d.line([(x0, y), (x1, y)], fill=MUTED + (int(150 * a),), width=2)
     for i, lab in enumerate(labels):
-        x = x0 + (x1 - x0) * i / (len(labels) - 1); cv.d.ellipse([x - 4, y - 4, x + 4, y + 4], fill=MUTED + (int(220 * a),)); cv.text((x, y + 10), lab, 13, MUTED, a, anchor='ma', spacing=0.12)
+        x = x0 + (x1 - x0) * i / (len(labels) - 1); cv.d.ellipse([x - 4, y - 4, x + 4, y + 4], fill=MUTED + (int(220 * a),)); lw_ = F(13, True).getlength(lab) + 13 * 0.12 * len(lab); cv.d.rounded_rectangle([x - lw_ / 2 - 8, y + 6, x + lw_ / 2 + 8, y + 32], 4, fill=(8, 14, 22, int(200 * a))); cv.text((x, y + 10), lab, 13, TEXT, a, anchor='ma', spacing=0.12)
     px = x0 + (x1 - x0) * pos; cv.d.polygon([(px, y - 5), (px - 7, y - 17), (px + 7, y - 17)], fill=AMBER + (int(255 * a),))
 
 # ---------------------------------------------------------------- A3 (27 s): real 2000 coast; arrows outward; The World plan as a schematic counter; the blank page
@@ -111,7 +111,9 @@ def C6(t, d, X):
     if sp > 0.9: cv.pill((14, 44), 'PALM JUMEIRAH', 13, a=sm(seg(t, 8.4, 9.0)), accent=AMBER); cv.pill((W / 2 + 14, 44), 'THE WORLD', 13, a=sm(seg(t, 8.6, 9.2)), accent=CYAN)
     for cx_, lab_, ac_, a_ in ((W * 0.25, '2011', AMBER, sm(seg(t, 10.8, 11.3))), (W * 0.75, '2022', CYAN, sm(seg(t, 17.0, 17.5)))):
         wt_ = cv.d.textlength(lab_, font=F(44, True)) + 44 * 1.4; cv.pill((cx_ - wt_ / 2, H * 0.68 - 6), lab_, 44, a=a_, accent=ac_)
-    cv.text((W * 0.25, H * 0.68 + 92), 'green fronds · buildings on the trunk', 16, TEXT, sm(seg(t, 13.0, 13.8)), anchor='ma', bold=False); cv.text((W * 0.75, H * 0.68 + 92), 'only a handful of islands developed', 16, TEXT, sm(seg(t, 18.5, 19.3)), anchor='ma', bold=False)
+    for xc, lab_, a_ in ((W * 0.25, 'green fronds · buildings on the trunk', sm(seg(t, 13.0, 13.8))), (W * 0.75, 'only a handful of islands developed', sm(seg(t, 18.5, 19.3)))):
+        if a_ > 0.01: lw_ = F(16, False).getlength(lab_); cv.d.rounded_rectangle([xc - lw_ / 2 - 10, H * 0.68 + 86, xc + lw_ / 2 + 10, H * 0.68 + 116], 5, fill=(8, 14, 22, int(205 * a_)))
+        cv.text((xc, H * 0.68 + 92), lab_, 16, TEXT, a_, anchor='ma', bold=False)
     big(cv, 'SIMILAR METHOD · VERY DIFFERENT OUTCOMES', H * 0.14, sm(seg(t, 22.0, 22.5)), 28); return cv
 
 # ---------------------------------------------------------------- D5 (30 s): sources as a dated timeline of real thumbnails
@@ -177,7 +179,7 @@ def E4(t, d, X):
         tr = S.new_land(); overlay(cv, tr, r, FULL, fill_p=oc(seg(t, 8.0, 10.0)) * (1 - u), edge_p=oc(seg(t, 8.0, 9.5)) * (1 - u), col=AMBER, fill_a=0.30, edge_a=0.9)
     else: overlay(cv, trace('palm2', WORLD2, 330, 110, 1.0), r2, FULL, edge_p=oc(seg(t, 24.5, 26.5)), col=CYAN, edge_a=0.9)
     tiny(cv, 'NASA ASTER · 2000 → 2003 · same grid · the line is the 2000 shoreline traced from the 2000 image' if u < 0.5 else chip_for('palm2'))
-    cv.text((W - 24, 40), 'NOVEMBER 2000', 30, AMBER, (1 - sm(seg(t, 6.4, 7.2))) * (1 - u), anchor='ra', spacing=0.14); cv.text((W - 24, 40), 'NOVEMBER 2003', 30, AMBER, sm(seg(t, 7.4, 8.0)) * (1 - u), anchor='ra', spacing=0.14)
+    cv.d.rounded_rectangle([W - 24 - 262 - 14, 30, W - 10, 85], 6, fill=(8, 14, 22, int(215 * (1 - u)))); cv.text((W - 24, 40), 'NOVEMBER 2000', 30, AMBER, (1 - sm(seg(t, 6.4, 7.2))) * (1 - u), anchor='ra', spacing=0.14); cv.text((W - 24, 40), 'NOVEMBER 2003', 30, AMBER, sm(seg(t, 7.4, 8.0)) * (1 - u), anchor='ra', spacing=0.14)
     for txt, a0, a1 in (('A MAP DRAWN IN 2000: OPEN WATER HERE', 3.8, 6.8), ('BY 2003, THAT MAP IS WRONG', 7.8, 12.2), ('SAND FROM THE SEA FLOOR', 12.6, 15.2), ('A RING OF ROCK', 15.4, 17.4), ('A COASTLINE IS NOT A FIXED LINE', 17.6, 20.2), ('IT GAVE DUBAI A PALM', 20.4, 22.6), ('AND A PLAN FOR A MAP OF EARTH', 22.8, 27.0)):
         big(cv, txt, H * 0.16, sm(seg(t, a0, a0 + 0.4)) * (1 - sm(seg(t, a1 - 0.3, a1))), 28)
     c = to_screen(r, SITE[0]); ring_dashed(cv, c, SITE[1] * W / r[2], sm(seg(t, 15.4, 15.9)) * (1 - sm(seg(t, 17.2, 17.6))) * (1 - u), phase=t * 14); return cv

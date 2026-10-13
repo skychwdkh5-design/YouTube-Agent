@@ -15,3 +15,9 @@ Benchmarks also in `docs/RENDER_BENCHMARKS.md`. All numbers **[VERIFIED]** on th
 - Keep `narration.voice.json`, captions (SRT/VTT), QA reports and checksums in the episode folder on the work branch.
 ## Do not repeat
 Rendering at 540p and upscaling (violates the no-upscale rule); ffmpeg `xfade` between segments (shortens the timeline, breaks the sync map); parallel batches that write final names directly (truncated files after an abort).
+
+## Final master v4.1 (2026-10-13)
+- VERIFIED: `build_final.py OUT --full4 --scale 2 --fps 30 --a1 /tmp/h/a1_hd --jobs 4 --mux` builds the whole film from `scenes.SCENES_FULL` (hook H1-H4 + A1..E6, voice from 0 s). Delete only the changed `seg/*.mp4` and rerun; windows depend on word-time differences, so unchanged segments stay valid. Full render of 8 changed scenes ~25 min with 4 jobs; mux ~3 min.
+- VERIFIED: the video length is the sum of segments (516.77 s); the "muxed" print shows the audio length (+1 s pad). Use the video duration as `--expected-duration` for yt-qc.
+- VERIFIED: iPad copy: 854x480, x264 slow, 380 kb/s + AAC 56 kb/s mono = 28.6 MB for 8:37 (<30 MB limit).
+- RULE: camera zoom on schematic scenes must keep panel titles below the top pill (zoom <= 1.2 there); check by looking at frames - qa_text_bounds does not see zoomed text.

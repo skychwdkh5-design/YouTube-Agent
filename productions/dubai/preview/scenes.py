@@ -346,7 +346,7 @@ def B3(t, d, X):
     cv.pill((W / 2 - 190, 486), 'THE MATERIAL WAS ALREADY THERE, UNDERWATER', 15, oc(seg(t, 16.8, 17.8)), accent=AMBER)
     cv.pill((22, 20), 'ILLUSTRATION · not to scale · method as described by NASA Earth Observatory', 14, 1.0, accent=CYAN); return cv
 
-B4_CAM = [(0, 1.0, 480, 270), (0.8, 1.45, 331, 272), (7.6, 1.5, 331, 272), (8.6, 1.5, 629, 272), (15.6, 1.5, 629, 272), (16.6, 1.0, 480, 270), (17, 1.0, 480, 270)]
+B4_CAM = [(0, 1.0, 480, 270), (0.8, 1.15, 331, 270), (7.6, 1.18, 331, 270), (8.6, 1.18, 629, 270), (15.6, 1.18, 629, 270), (16.6, 1.0, 480, 270), (17, 1.0, 480, 270)]
 def B4(t, d, X):
     """two-step schematic: (1) GPS-guided placement (plan view), (2) vibroflot compaction with stone (cross-section)"""
     cv = Canvas(text_card_bg((10, 26, 40))); ss = SS(); pw = 430; xa, xb = 30, W - 30 - pw; ya, yb = 84, 470
@@ -415,7 +415,7 @@ def C1(t, d, X):
     else: r = lerp_rect(stops[i][0], tuple(v * f for v, f in zip(stops[i][0], (1, 1, 0.94, 0.94))), (lt - 1.6) / (L - 1.6)) if lt >= 1.6 else stops[i][0]
     cv = Canvas(view('palm2', r)); cv.chip(chip_for('palm2')); c, rad = stops[i][2]
     zoom_ring(cv, r, c, rad, stops[i][1], lt, 1.0 if i else 0.4, (-60, -190) if i != 1 else (-190, -150), px=19, out=L - 0.5)
-    cv.text((W - 24, 40), f'{i + 1} / 4 · SOUTH TO NORTH', 13, MUTED, anchor='ra', spacing=0.2); return cv
+    cv.pill((W - 24, 26), f'{i + 1} / 4 · SOUTH TO NORTH', 12, a=0.9, accent=AMBER, anchor='right'); return cv
 
 def palm_glyph(ss, cx, cy, s, col, p=1.0, lw=2.6):
     """stylised palm (crescent barrier + trunk + 17 fronds), drawn on progressively; an ILLUSTRATION, not a traced plan"""
@@ -448,7 +448,7 @@ def C3(t, d, X):
     ss = SS(); x0, x1, y = 520, 900, 430; k = sm(seg(t, 3.4, 4.2)); p = oc(seg(t, 4.0, 7.0)); ss.line([(x0, y), (x1, y)], (234, 240, 246, int(170 * k)), 2)           # timeline: the recession years shaded, a marker sweeps across
     ss.rect(x0 + (x1 - x0) / 3, y - 10, x0 + (x1 - x0) * (1 / 3 + 2 / 3 * p), y + 10, fill=AMBER + (int(230 * k),)); ss.ellipse((x0 + (x1 - x0) * p, y), 6, fill=(234, 240, 246, int(255 * k)))
     for xx, lab in ((x0, '2006'), (x1, '2009')): ss.ellipse((xx, y), 4, fill=(234, 240, 246, int(255 * k)))
-    layer(cv, ss); cv.text((x0, y + 16), '2006', 14, TEXT, k, anchor='ma'); cv.text((x1, y + 16), '2009', 14, TEXT, k, anchor='ma'); cv.text((x0 + (x1 - x0) * 2 / 3, y - 34), '2007–2008', 16, AMBER, k * p, anchor='ma', spacing=0.12); return cv
+    layer(cv, ss); cv.d.rounded_rectangle([x0 + (x1 - x0) * 2 / 3 - 52, y - 42, x0 + (x1 - x0) * 2 / 3 + 52, y - 16], 5, fill=(8, 14, 22, int(205 * k * p))); cv.text((x0, y + 16), '2006', 14, TEXT, k, anchor='ma'); cv.text((x1, y + 16), '2009', 14, TEXT, k, anchor='ma'); cv.text((x0 + (x1 - x0) * 2 / 3, y - 34), '2007–2008', 16, AMBER, k * p, anchor='ma', spacing=0.12); return cv
 def C4(t, d, X):
     r = lerp_rect(C1C, (940, 1040, 1180, 664), tm(t) / d); cv = Canvas(dim(view('palm2', r), 0.32)); cv.chip('Background: NASA ASTER · 2006 · colours as published (not 2022)')
     cv.text((60, 120), '2022', 90, AMBER, oc(seg(t, 0.8, 1.8)), anchor='la')
@@ -461,7 +461,7 @@ def C5(t, d, X):
     def row(y, a, t0, col=TEXT, px=22, bold=True): cv.text((W - 40, y), a, px, col, oc(seg(t, t0, t0 + 0.8)), anchor='ra', bold=bold)
     row(150, 'PALM DEIRA', 3.0, AMBER, 30); row(190, 'scaled back and renamed', 4.0, TEXT, 20, False); row(222, 'THE DEIRA ISLANDS', 5.0, TEXT, 24)
     row(290, 'THE UNIVERSE', 9.5, AMBER, 30); row(330, 'another planned archipelago: put on hold', 10.5, TEXT, 20, False)
-    row(400, 'DELAYED · SCALED BACK · ON HOLD', 15.0, CYAN, 22); row(430, 'words about plans, not the condition of the land', 16.0, MUTED, 17, False); return cv
+    row(400, 'DELAYED · SCALED BACK · ON HOLD', 15.0, CYAN, 22); row(430, 'words about plans, not the condition of the land', 16.0, TEXT, 17, False); return cv
 def C6(t, d, X):
     cv = Canvas(text_card_bg((10, 22, 36))); ss = SS(); cv.pill((22, 20), 'ILLUSTRATION · stylised; facts per NASA Earth Observatory', 14, 1.0, accent=CYAN)
     cv.text((W / 2, 70), 'SAME METHOD: DREDGED SAND, PROTECTED BY ROCK', 15, MUTED, oc(seg(t, 0.5, 1.5)), anchor='ma', spacing=0.2)
@@ -524,7 +524,7 @@ def E2(t, d, X):
     if t < cut: r = lerp_rect((1475, 1002, 960, 540), (1500, 1020, 900, 506), t / cut); lab = 'PALM JUMEIRAH'; note = 'NASA CAPTION: ringed by a circular storm barrier'; c, rad = PJI
     else: r = lerp_rect((1066, 2461, 1120, 630), (1090, 2480, 1060, 596), (t - cut) / (d - cut)); lab = 'PALM JEBEL ALI'; note = 'NASA CAPTION: mostly undeveloped in 2022'; c, rad = PJAI
     cv = Canvas(view('iss', r)); cv.chip(ISSCHIP); lt = t if t < cut else t - cut
-    zoom_ring(cv, r, c, rad, lab, lt, 1.5, (-170, -170), px=19); cv.text((24, 66), note, 14, MUTED, oc(seg(lt, 6, 7)), anchor='la', bold=False); cv.text((W - 24, 40), 'APRIL 2022', 18, AMBER, anchor='ra', spacing=0.2); return cv
+    zoom_ring(cv, r, c, rad, lab, lt, 1.5, (-170, -170), px=19); cv.pill((24, 60), note, 14, a=oc(seg(lt, 6, 7)), accent=CYAN); cv.pill((W - 24, 30), 'APRIL 2022', 18, accent=AMBER, anchor='right'); return cv
 def E4(t, d, X):
     """split screen (both dated stills fully visible, no overlay or wipe): 2000 | 2003, then synthesis text on a lower strip"""
     c0, _ = woc_ring('2000'); c3, _ = woc_ring('2003'); pw, ph = W // 2, H; sl = oc(seg(t, 0.4, 2.0))
@@ -547,17 +547,17 @@ def E5(t, d, X):
     elif t < 16.0: key, r = '2003', lerp_rect(rect_c(woc_ring('2003')[0], 1400, dx=300), rect_c(woc_ring('2003')[0], 1250, dx=250), (t - 8) / 8.0)
     else: key, r = 'iss', lerp_rect(H3A, H3B, smr(seg(t, 16.5, 26.5)))
     lab = {'2000': 'NOVEMBER 2000: OPEN SEA', '2003': 'NOVEMBER 2003: A PALM INSIDE ITS RING', 'iss': 'APRIL 2022: THE PALM ISLANDS FROM ORBIT'}[key]
-    cv = Canvas(view(key, r)); cv.chip(chip_for(key)); lt = t if t < 8 else (t - 8 if t < 16 else t - 16); cv.text((24, 62 if key != 'iss' else H - 112), lab, 20, AMBER, oc(seg(lt, 0.3, 1.2)), anchor='la', spacing=0.1)   # on the ISS frame the Jumeirah ring sits top-left: header moves above the captions
+    cv = Canvas(view(key, r)); cv.chip(chip_for(key)); lt = t if t < 8 else (t - 8 if t < 16 else t - 16); cv.pill((24, 54 if key != 'iss' else H - 128), lab, 18, a=oc(seg(lt, 0.3, 1.2)), accent=AMBER)   # on the ISS frame the Jumeirah ring sits top-left: header moves above the captions
     if key == '2003': c, rad = woc_ring('2003'); cv.callout(to_screen(r, (c[0] - rad, c[1])), 'THE RING', lt, 2.5, (80, 110), r=14)
     if key == 'iss': zoom_ring(cv, r, PJI[0], PJI[1], 'PALM JUMEIRAH · RING', lt, 2.0, (170, 130), px=18); zoom_ring(cv, r, PJAI[0], PJAI[1], 'PALM JEBEL ALI · RING', lt, 9.0, (-170, -150), px=18)
     return cv
 def E6(t, d, X):
-    cv = Canvas(dim(view('palm2', lerp_rect(C1A, C1C, smr(tm(t) / d))), 0.26)); k = oc(seg(t, 0.4, 1.4))   # credits over a dimmed, slowly drifting ASTER 2006 frame; they stay to the last frame (no fade to black)
+    cv = Canvas(dim(view('palm2', lerp_rect(C1A, C1C, smr(tm(t) / d))), 0.2)); k = oc(seg(t, 0.4, 1.4))   # credits over a dimmed, slowly drifting ASTER 2006 frame; they stay to the last frame (no fade to black)
     cv.text((W / 2, 150), 'IMAGERY', 14, AMBER, k, anchor='ma', spacing=0.3); cv.text((W / 2, 190), 'NASA Earth Observatory', 30, TEXT, k, anchor='ma')
     cv.text((W / 2, 250), 'ASTER on the Terra satellite', 24, TEXT, k, anchor='ma', bold=False); cv.text((W / 2, 300), 'Astronaut photograph ISS067-E-3785', 24, TEXT, k, anchor='ma', bold=False)
-    cv.text((W / 2, 336), 'ISS Crew Earth Observations', 20, MUTED, k, anchor='ma', bold=False)
-    cv.text((W / 2, 392), 'Globe sequence: NASA GIBS (Blue Marble, Landsat) rendered with CesiumJS', 13, MUTED, k, anchor='ma', bold=False)
-    cv.text((W / 2, 440), 'Orbital Atlas · EP002', 15, MUTED, k, anchor='ma', spacing=0.3); return cv
+    cv.text((W / 2, 336), 'ISS Crew Earth Observations', 20, TEXT, k, anchor='ma', bold=False)
+    cv.text((W / 2, 392), 'Globe sequence: NASA GIBS (Blue Marble, Landsat) rendered with CesiumJS', 14, TEXT, k, anchor='ma', bold=False)
+    cv.text((W / 2, 440), 'Orbital Atlas · EP002', 16, TEXT, k, anchor='ma', spacing=0.3); return cv
 
 PUSH = {'A3': 0.035, 'B4': 0.03, 'C2': 0.04, 'C4': 0.03, 'C6': 0.04, 'D5': 0.035, 'E1': 0.03, 'E6': 0.03}      # whole-frame slow push (fraction), text/graphic scenes only
 MOVE_WINDOWS = {'C1': [(5.0, 6.8), (10.0, 11.8), (15.0, 16.8)]}   # declared fast camera moves (stop to stop), excluded from jump detection
