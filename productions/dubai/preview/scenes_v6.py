@@ -125,7 +125,12 @@ def D5(t, d, X):
     if tb > 0:
         iss = src('iss').resize((130, 130), Image.LANCZOS, box=(PJI[0][0] - 700, PJI[0][1] - 700, PJI[0][0] + 700, PJI[0][1] + 700)); xx = X_(2022); cv.o.paste(iss.convert('RGBA'), (int(xx - 65), int(yl - 20 - 130 + (1 - tb) * 10)), Image.new('L', (130, 130), int(255 * tb)))
         cv.d.line([(xx, yl - 18), (xx, yl)], fill=CYAN + (int(180 * tb),), width=1)
-    for txt, a0, a1, px in (('EVERY IMAGE: SOURCE · INSTRUMENT · YEAR', 2.4, 7.6, 28), ('MOST: ASTER, AN INSTRUMENT ON A SATELLITE', 8.0, 12.8, 26), ('ONE: AN ASTRONAUT PHOTO · NIKON CAMERA', 13.2, 16.0, 26), ('SEPARATE DAYS · NEVER OVERLAID', 16.2, 26.0, 28), ('ONE IMAGE: YEAR ONLY', 27.0, 30.0, 30)):
+    ka = sm(seg(t, 0.3, 1.0)) * (1 - sm(seg(t, 7.4, 8.0)))
+    if ka > 0.01:                                                                          # anatomy of one caption: source, instrument, year (real ASTER 2006 crop)
+        card = view('palm2', key_rect(PJ2[0], 900, P2_SZ)).resize((300, 169), Image.LANCZOS).convert('RGBA'); cx0, cy0 = W / 2 - 150, H * 0.30; cv.o.paste(card, (int(cx0), int(cy0)), Image.new('L', (300, 169), int(255 * ka)))
+        for j, (lab, a0_) in enumerate((('SOURCE · NASA', 4.4), ('INSTRUMENT · ASTER', 5.4), ('YEAR · 2006', 6.4))):
+            kk_ = sm(seg(t, a0_, a0_ + 0.5)) * ka; y_ = cy0 + 20 + j * 52; xl = cx0 + 300 + 30; cv.d.line([(cx0 + 300, y_ + 14), (xl, y_ + 14)], fill=AMBER + (int(255 * kk_),), width=2); cv.text((xl + 8, y_), lab, 24, AMBER, kk_, anchor='la', spacing=0.08)
+    for txt, a0, a1, px in (('EVERY IMAGE: SOURCE · INSTRUMENT · YEAR', 0.3, 7.6, 28), ('MOST: ASTER, AN INSTRUMENT ON A SATELLITE', 8.0, 12.8, 26), ('ONE: AN ASTRONAUT PHOTO · NIKON CAMERA', 13.2, 16.0, 26), ('SEPARATE DAYS · NEVER OVERLAID', 16.2, 26.0, 28), ('ONE IMAGE: YEAR ONLY', 27.0, 30.0, 30)):
         big(cv, txt, H * 0.15, sm(seg(t, a0, a0 + 0.4)) * (1 - sm(seg(t, a1 - 0.3, a1))), px)
     if t > 20.0:                                                                           # "never overlay one on another": two frames with a crossed overlay mark
         k = sm(seg(t, 20.2, 21.0)) * (1 - sm(seg(t, 25.0, 26.0))); ss = SS(); cx, cy = W / 2, H * 0.40
@@ -137,7 +142,7 @@ def D5(t, d, X):
 
 # ---------------------------------------------------------------- E1 (20 s): the record as a scrolling filmstrip with a dated playhead
 def E1(t, d, X):
-    cv = Canvas(text_card_bg()); keys = ['2000', '2002a', '2002b', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011']; tt = [2.4 + i * 1.3 for i in range(12)]; speed = 215; tw_, th_ = 250, 140; yc = H * 0.47
+    cv = Canvas(text_card_bg()); keys = ['2000', '2002a', '2002b', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011']; tt = [1.4 + i * 1.3 for i in range(12)]; speed = 215; tw_, th_ = 250, 140; yc = H * 0.47
     te = min(t, tt[-1] + 0.2); m = sm(seg(t, 16.2, 17.4)); cw, chh = 72, 40
     for i, kk in enumerate(keys):
         xs = W / 2 + (tt[i] - te) * speed; xcmp = 60 + cw / 2 + i * (W - 120 - cw) / 11; xc = xs + (xcmp - xs) * m
@@ -147,9 +152,9 @@ def E1(t, d, X):
         cv.o.paste(tile, (int(xc - w_ / 2), int(yy - h_ / 2)), Image.new('L', (w_, h_), int(255 * a))); cv.d.rectangle([xc - w_ / 2, yy - h_ / 2, xc + w_ / 2, yy + h_ / 2], outline=AMBER + (int(255 * max(near, 0.5 * m)),), width=2)
         lab = date_for(kk) if m < 0.5 else date_for(kk)[-4:]; cv.text((xc, yy + h_ / 2 + 8), lab, int(22 if near > 0.5 else 15 - 3 * m), AMBER if near > 0.5 or m > 0.5 else MUTED, 0.5 + 0.5 * max(near, m), anchor='ma', spacing=0.08)
     ss = SS(); ss.line([(W / 2, yc - 112), (W / 2, yc - 92)], AMBER + (int(255 * (1 - m)),), 2.4); ss.poly([(W / 2, yc - 88), (W / 2 - 8, yc - 100), (W / 2 + 8, yc - 100)], fill=AMBER + (int(255 * (1 - m)),)); layer(cv, ss)
-    x0, x1, yb = 120, W - 120, H - 52; cv.d.line([(x0, yb), (x1, yb)], fill=MUTED + (int(150 * (1 - m)),), width=2); cv.d.line([(x0, yb), (x0 + (x1 - x0) * oc(seg(t, 2.4, 15.7)), yb)], fill=AMBER + (int(255 * (1 - m)),), width=4)
+    x0, x1, yb = 120, W - 120, H - 52; cv.d.line([(x0, yb), (x1, yb)], fill=MUTED + (int(150 * (1 - m)),), width=2); cv.d.line([(x0, yb), (x0 + (x1 - x0) * oc(seg(t, 1.4, 14.7)), yb)], fill=AMBER + (int(255 * (1 - m)),), width=4)
     cv.text((x0, yb + 8), '2000', 13, MUTED, 1 - m, anchor='ma'); cv.text((x1, yb + 8), '2011', 13, MUTED, 1 - m, anchor='ma')
-    for txt, a0, a1 in (('12 ASTER IMAGES · 2000–2011', 1.0, 5.2), ('EMPTY SEA → FIRST STAGE → FRONDS → A FINISHED PALM', 5.4, 11.6), ('YEARS OF BUILDINGS AND VEGETATION', 11.8, 15.0), ('EACH ONE A DATED FACT', 15.2, 17.4), ('A TIMELINE YOU CAN CHECK', 17.6, 20.0)):
+    for txt, a0, a1 in (('12 ASTER IMAGES · 2000–2011', 0.2, 5.2), ('EMPTY SEA → FIRST STAGE → FRONDS → A FINISHED PALM', 5.4, 11.6), ('YEARS OF BUILDINGS AND VEGETATION', 11.8, 15.0), ('EACH ONE A DATED FACT', 15.2, 17.4), ('A TIMELINE YOU CAN CHECK', 17.6, 20.0)):
         big(cv, txt, H * 0.13, sm(seg(t, a0, a0 + 0.4)) * (1 - sm(seg(t, a1 - 0.3, a1))), 26)
     tiny(cv, 'NASA ASTER · 12 images, 2000–2011 · colours as published · crop centred on the palm site'); return cv
 
@@ -182,6 +187,11 @@ def B7(t, d, X):
     return cv
 
 def install(mod):
-    fns = {'A3': A3, 'C2': C2, 'C4': C4, 'C6': C6, 'D5': D5, 'E1': E1, 'E4': E4, 'B7': B7}
-    mod.SCENES = [(sid, st, d, vos, fns.get(sid, fn)) for sid, st, d, vos, fn in mod.SCENES]
-    mod.PUSH = {k: v for k, v in mod.PUSH.items() if k not in fns}; mod.PUSH.update({'B3': 0.05, 'B4': 0.055})
+    fns = {'A3': A3, 'C2': C2, 'C4': C4, 'C6': C6, 'D5': D5, 'E1': E1, 'E4': E4, 'B7': B7}; ent = {'D5': 'D2', 'E1': 'D5', 'B4': 'B3', 'E6': 'E5'}   # card scenes enter by a 0.6 s dissolve from the previous scene (no blank start)
+    cur = {sid: fns.get(sid, fn) for sid, st, d, vos, fn in mod.SCENES}; dur = {sid: d for sid, st, d, vos, fn in mod.SCENES}
+    out = []
+    for sid, st, d, vos, fn in mod.SCENES:
+        f = fns.get(sid, fn)
+        if sid in ent: f = mod.with_entry(f, cur[ent[sid]], dur[ent[sid]], 'dissolve', 0.6)
+        out.append((sid, st, d, vos, f))
+    mod.SCENES = out; mod.PUSH = {k: v for k, v in mod.PUSH.items() if k not in fns}; mod.PUSH.update({'B3': 0.05, 'B4': 0.055, 'D5': 0.03})
