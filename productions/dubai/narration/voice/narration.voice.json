@@ -1,0 +1,6175 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "narration.mp3",
+ "audio_format": "mp3",
+ "audio_sha256": "6b16a7adc491966568c6710153cefb317a1eb480abae1854af0c2306184d77fb",
+ "duration": 515.251,
+ "characters": 6998,
+ "text": "November 2000. A satellite looks down at a patch of the Persian Gulf. There is no island here. Just sea. November 2003. The same place. A palm tree, fully formed. Between these two pictures: three years. More than two decades after that first image, an astronaut aboard the International Space Station photographs this coast. The palm-shaped islands stand out from orbit. So how do you build land where there was only sea? And what happened to the plans that came next? This is Dubai, in the United Arab Emirates, on the shore of the Persian Gulf. A coastline seems like the one thing on a map that nobody gets to choose. Dubai put that idea to the test. To see how, we go back to the year 2000. Here is that year, seen by an instrument called ASTER, on NASA's Terra satellite. The city hugs the shore. Inland, there is mostly empty desert. Offshore, where the palm will appear, nothing has been built at all. NASA's record includes twelve images of this area between 2000 and 2011. This is our baseline. Dubai's ambitions went far beyond one island. NASA describes the city building hundreds of artificial islands along its coast, to expand its beachfront for tourism. Plans from the 1990s for one project, called The World, included about three hundred small islands. And as recently as the early 2000s, NASA notes, little had been built here beyond shallow Gulf water. That was the blank page. February 2002. About fifteen months after the empty-sea picture, the first early stage of an archipelago appears. This is Palm Jumeirah, the first of Dubai's palm islands to be built. By October 2002, sandy fronds are visible, with a circular breakwater around them. That ring is a clue. This is land with its own defense against open water. NASA calls these circular storm barriers. So where does the land come from? From the sea floor itself. Sand was dredged from the bottom of the Gulf and placed where the island would be, with rock breakwaters to protect it from erosion. The material for the island was already there, underwater. But loose sand is not ground you can build on. NASA's description of the method includes two details. Ships guided by GPS placed the sand. And a machine called a vibroflot compacted it with stone, solidifying the land. Compare October 2002 with November 2003. First, sandy fronds inside their ring. Then, a complete palm. Just over a year apart. The pictures can't show us how the work went day by day, only where it stood on each date.\n\nBut they do show the ring already in place in October 2002, while the fronds are still sand. The buildings and vegetation come later, in the images from 2004 to 2008. After 2003, the images change in a different way. From 2004 through 2008, ASTER shows buildings and vegetation appearing on the palm. The land was no longer just a shape. It was becoming a place. Palm Jumeirah was only the first. By September 2006, NASA was describing the palm islands as the largest artificial islands in the world, and every one of them was still under construction. That 2006 image shows four projects in a row, from south to north: Palm Jebel Ali, Palm Jumeirah, The World, and Palm Deira. Jebel Ali and Jumeirah already look largely complete as landforms. The World is still under construction. Palm Deira is in its earliest stages. Palm Jumeirah and Palm Jebel Ali were shaped into palm trees. The third project is not a palm. The World is laid out as a map of Earth's continents. The plans called for about three hundred small islands, arranged to draw the planet in the sea. Then came 2007 and 2008, and the global recession. According to NASA, it delayed these projects. In the 2006 image, you can see how much was still ahead: Palm Deira had barely begun, and The World was still under construction. Now jump ahead to 2022. NASA's caption for the astronaut's photograph says only a handful of The World's roughly three hundred islands had seen development. That is a statement about 2022, and we will stay inside it. We have no reliable, dated source for what has happened since, so we will not guess. Two more projects followed the same pattern. Palm Deira, in its earliest stages in 2006, was scaled back and renamed the Deira Islands. And The Universe, another planned archipelago, was put on hold. Delayed, scaled back, on hold: those words describe plans, not the condition of the land. NASA describes one basic method for Dubai's islands: dredged sand, protected by rock. One design is a palm. The other is a map of Earth. By 2011, vegetation covered most of Palm Jumeirah's fronds, and many buildings stood on its trunk. In 2022, only a handful of The World's islands had seen development. Similar method. Very different outcomes. What keeps new land from washing away? In NASA's account, rock breakwaters protect the islands from erosion. Around Palm Jumeirah and Palm Jebel Ali, they form a circular storm barrier: stone on the outside, sand on the inside. Now widen the view.\n\nIn 2000, the land inland was mostly empty desert. By 2011, NASA reports, roads, buildings and irrigated land covered almost all of this area. The coast was changing, and so was everything behind it. A note on method. Every image here carries its source, its instrument and its year. Most come from ASTER, an instrument on a satellite. One is a photograph taken by an astronaut with a Nikon camera. They are separate pictures from separate days, not moving footage, and we never overlay one on another. For one image, NASA's text and caption disagree on the month, so we give only the year. Lay out the whole record. Twelve ASTER images, from November 2000 to 2011. Empty sea. The first early stage. Sandy fronds inside a ring. A finished palm. Years of buildings and vegetation. Each one is a dated fact. Together, they are a timeline you can check. NASA says both palm-shaped islands stand out in the 2022 astronaut photograph. Both are ringed by circular storm barriers. But according to NASA's caption, Palm Jebel Ali remains mostly undeveloped, though it already looked largely complete as a landform in 2006. A finished shape is not a finished city. So this is not a story of simple success or failure. It is a record of what was built, what was delayed, and what was only planned. A map of this coast drawn in 2000 would show open water here. By November 2003, that map would be wrong. The method NASA describes is simple to state: take sand from the sea floor, ring it with rock, and a coastline stops being a fixed line. It gave Dubai a palm. It also gave a plan for a map of Earth. November 2000: open sea. November 2003: a palm, inside its ring. In 2022, an astronaut photographs the palm islands from orbit. And NASA's caption notes that other projects were delayed, scaled back, or put on hold. A coastline is not only where the land ends. Sometimes, it is a decision. And from orbit, you can check the dates. Imagery: NASA Earth Observatory. ASTER on the Terra satellite. Astronaut photograph ISS067-E-3785, ISS Crew Earth Observations.",
+ "text_sha256": "ecb8a0e4b660c5f7a3a2070def6e86adb10e20b181930372b5c3bb4d8f21243c",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 2470,
+   "offset": 0.0,
+   "duration": 182.37,
+   "timing": true
+  },
+  {
+   "index": 1,
+   "characters": 2479,
+   "offset": 182.37,
+   "duration": 174.707,
+   "timing": true
+  },
+  {
+   "index": 2,
+   "characters": 2049,
+   "offset": 357.076,
+   "duration": 158.174,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "November",
+   "start": 0.0,
+   "end": 0.58
+  },
+  {
+   "text": "2000.",
+   "start": 0.65,
+   "end": 1.556
+  },
+  {
+   "text": "A",
+   "start": 1.8,
+   "end": 1.881
+  },
+  {
+   "text": "satellite",
+   "start": 1.974,
+   "end": 2.485
+  },
+  {
+   "text": "looks",
+   "start": 2.508,
+   "end": 2.717
+  },
+  {
+   "text": "down",
+   "start": 2.775,
+   "end": 3.019
+  },
+  {
+   "text": "at",
+   "start": 3.077,
+   "end": 3.146
+  },
+  {
+   "text": "a",
+   "start": 3.181,
+   "end": 3.216
+  },
+  {
+   "text": "patch",
+   "start": 3.274,
+   "end": 3.541
+  },
+  {
+   "text": "of",
+   "start": 3.576,
+   "end": 3.622
+  },
+  {
+   "text": "the",
+   "start": 3.669,
+   "end": 3.738
+  },
+  {
+   "text": "Persian",
+   "start": 3.785,
+   "end": 4.133
+  },
+  {
+   "text": "Gulf.",
+   "start": 4.203,
+   "end": 4.725
+  },
+  {
+   "text": "There",
+   "start": 5.05,
+   "end": 5.248
+  },
+  {
+   "text": "is",
+   "start": 5.283,
+   "end": 5.364
+  },
+  {
+   "text": "no",
+   "start": 5.422,
+   "end": 5.538
+  },
+  {
+   "text": "island",
+   "start": 5.631,
+   "end": 6.072
+  },
+  {
+   "text": "here.",
+   "start": 6.153,
+   "end": 6.618
+  },
+  {
+   "text": "Just",
+   "start": 6.943,
+   "end": 7.175
+  },
+  {
+   "text": "sea.",
+   "start": 7.245,
+   "end": 7.825
+  },
+  {
+   "text": "November",
+   "start": 8.208,
+   "end": 8.638
+  },
+  {
+   "text": "2003.",
+   "start": 8.707,
+   "end": 9.892
+  },
+  {
+   "text": "The",
+   "start": 10.17,
+   "end": 10.286
+  },
+  {
+   "text": "same",
+   "start": 10.344,
+   "end": 10.577
+  },
+  {
+   "text": "place.",
+   "start": 10.623,
+   "end": 11.273
+  },
+  {
+   "text": "A",
+   "start": 11.447,
+   "end": 11.54
+  },
+  {
+   "text": "palm",
+   "start": 11.622,
+   "end": 11.935
+  },
+  {
+   "text": "tree,",
+   "start": 12.005,
+   "end": 12.457
+  },
+  {
+   "text": "fully",
+   "start": 12.527,
+   "end": 12.841
+  },
+  {
+   "text": "formed.",
+   "start": 12.91,
+   "end": 13.653
+  },
+  {
+   "text": "Between",
+   "start": 14.095,
+   "end": 14.431
+  },
+  {
+   "text": "these",
+   "start": 14.466,
+   "end": 14.629
+  },
+  {
+   "text": "two",
+   "start": 14.663,
+   "end": 14.803
+  },
+  {
+   "text": "pictures:",
+   "start": 14.872,
+   "end": 15.511
+  },
+  {
+   "text": "three",
+   "start": 15.627,
+   "end": 15.929
+  },
+  {
+   "text": "years.",
+   "start": 15.975,
+   "end": 16.579
+  },
+  {
+   "text": "More",
+   "start": 16.858,
+   "end": 17.02
+  },
+  {
+   "text": "than",
+   "start": 17.055,
+   "end": 17.183
+  },
+  {
+   "text": "two",
+   "start": 17.229,
+   "end": 17.392
+  },
+  {
+   "text": "decades",
+   "start": 17.461,
+   "end": 17.961
+  },
+  {
+   "text": "after",
+   "start": 18.007,
+   "end": 18.228
+  },
+  {
+   "text": "that",
+   "start": 18.274,
+   "end": 18.414
+  },
+  {
+   "text": "first",
+   "start": 18.472,
+   "end": 18.739
+  },
+  {
+   "text": "image,",
+   "start": 18.797,
+   "end": 19.308
+  },
+  {
+   "text": "an",
+   "start": 19.551,
+   "end": 19.691
+  },
+  {
+   "text": "astronaut",
+   "start": 19.772,
+   "end": 20.352
+  },
+  {
+   "text": "aboard",
+   "start": 20.399,
+   "end": 20.689
+  },
+  {
+   "text": "the",
+   "start": 20.724,
+   "end": 20.794
+  },
+  {
+   "text": "International",
+   "start": 20.852,
+   "end": 21.49
+  },
+  {
+   "text": "Space",
+   "start": 21.537,
+   "end": 21.815
+  },
+  {
+   "text": "Station",
+   "start": 21.839,
+   "end": 22.291
+  },
+  {
+   "text": "photographs",
+   "start": 22.616,
+   "end": 23.418
+  },
+  {
+   "text": "this",
+   "start": 23.499,
+   "end": 23.673
+  },
+  {
+   "text": "coast.",
+   "start": 23.754,
+   "end": 24.381
+  },
+  {
+   "text": "The",
+   "start": 24.822,
+   "end": 24.938
+  },
+  {
+   "text": "palm-shaped",
+   "start": 24.985,
+   "end": 25.647
+  },
+  {
+   "text": "islands",
+   "start": 25.716,
+   "end": 26.216
+  },
+  {
+   "text": "stand",
+   "start": 26.332,
+   "end": 26.692
+  },
+  {
+   "text": "out",
+   "start": 26.75,
+   "end": 26.901
+  },
+  {
+   "text": "from",
+   "start": 26.947,
+   "end": 27.098
+  },
+  {
+   "text": "orbit.",
+   "start": 27.179,
+   "end": 27.736
+  },
+  {
+   "text": "So",
+   "start": 28.34,
+   "end": 28.503
+  },
+  {
+   "text": "how",
+   "start": 28.572,
+   "end": 28.7
+  },
+  {
+   "text": "do",
+   "start": 28.735,
+   "end": 28.793
+  },
+  {
+   "text": "you",
+   "start": 28.863,
+   "end": 28.944
+  },
+  {
+   "text": "build",
+   "start": 29.025,
+   "end": 29.315
+  },
+  {
+   "text": "land",
+   "start": 29.397,
+   "end": 29.687
+  },
+  {
+   "text": "where",
+   "start": 29.733,
+   "end": 29.884
+  },
+  {
+   "text": "there",
+   "start": 29.919,
+   "end": 30.082
+  },
+  {
+   "text": "was",
+   "start": 30.116,
+   "end": 30.221
+  },
+  {
+   "text": "only",
+   "start": 30.291,
+   "end": 30.534
+  },
+  {
+   "text": "sea?",
+   "start": 30.616,
+   "end": 31.185
+  },
+  {
+   "text": "And",
+   "start": 31.463,
+   "end": 31.603
+  },
+  {
+   "text": "what",
+   "start": 31.649,
+   "end": 31.788
+  },
+  {
+   "text": "happened",
+   "start": 31.846,
+   "end": 32.171
+  },
+  {
+   "text": "to",
+   "start": 32.206,
+   "end": 32.253
+  },
+  {
+   "text": "the",
+   "start": 32.311,
+   "end": 32.38
+  },
+  {
+   "text": "plans",
+   "start": 32.415,
+   "end": 32.81
+  },
+  {
+   "text": "that",
+   "start": 32.857,
+   "end": 32.973
+  },
+  {
+   "text": "came",
+   "start": 33.031,
+   "end": 33.275
+  },
+  {
+   "text": "next?",
+   "start": 33.321,
+   "end": 33.948
+  },
+  {
+   "text": "This",
+   "start": 34.552,
+   "end": 34.749
+  },
+  {
+   "text": "is",
+   "start": 34.819,
+   "end": 34.923
+  },
+  {
+   "text": "Dubai,",
+   "start": 34.993,
+   "end": 35.864
+  },
+  {
+   "text": "in",
+   "start": 36.073,
+   "end": 36.201
+  },
+  {
+   "text": "the",
+   "start": 36.235,
+   "end": 36.305
+  },
+  {
+   "text": "United",
+   "start": 36.386,
+   "end": 36.769
+  },
+  {
+   "text": "Arab",
+   "start": 36.827,
+   "end": 37.083
+  },
+  {
+   "text": "Emirates,",
+   "start": 37.164,
+   "end": 37.745
+  },
+  {
+   "text": "on",
+   "start": 37.954,
+   "end": 38.093
+  },
+  {
+   "text": "the",
+   "start": 38.128,
+   "end": 38.197
+  },
+  {
+   "text": "shore",
+   "start": 38.244,
+   "end": 38.511
+  },
+  {
+   "text": "of",
+   "start": 38.546,
+   "end": 38.604
+  },
+  {
+   "text": "the",
+   "start": 38.65,
+   "end": 38.72
+  },
+  {
+   "text": "Persian",
+   "start": 38.778,
+   "end": 39.161
+  },
+  {
+   "text": "Gulf.",
+   "start": 39.242,
+   "end": 39.846
+  },
+  {
+   "text": "A",
+   "start": 40.357,
+   "end": 40.438
+  },
+  {
+   "text": "coastline",
+   "start": 40.531,
+   "end": 41.135
+  },
+  {
+   "text": "seems",
+   "start": 41.17,
+   "end": 41.413
+  },
+  {
+   "text": "like",
+   "start": 41.46,
+   "end": 41.634
+  },
+  {
+   "text": "the",
+   "start": 41.669,
+   "end": 41.739
+  },
+  {
+   "text": "one",
+   "start": 41.808,
+   "end": 41.994
+  },
+  {
+   "text": "thing",
+   "start": 42.04,
+   "end": 42.284
+  },
+  {
+   "text": "on",
+   "start": 42.354,
+   "end": 42.447
+  },
+  {
+   "text": "a",
+   "start": 42.493,
+   "end": 42.516
+  },
+  {
+   "text": "map",
+   "start": 42.574,
+   "end": 42.818
+  },
+  {
+   "text": "that",
+   "start": 42.876,
+   "end": 43.016
+  },
+  {
+   "text": "nobody",
+   "start": 43.074,
+   "end": 43.399
+  },
+  {
+   "text": "gets",
+   "start": 43.457,
+   "end": 43.677
+  },
+  {
+   "text": "to",
+   "start": 43.735,
+   "end": 43.817
+  },
+  {
+   "text": "choose.",
+   "start": 43.898,
+   "end": 44.595
+  },
+  {
+   "text": "Dubai",
+   "start": 44.978,
+   "end": 45.396
+  },
+  {
+   "text": "put",
+   "start": 45.454,
+   "end": 45.639
+  },
+  {
+   "text": "that",
+   "start": 45.686,
+   "end": 45.872
+  },
+  {
+   "text": "idea",
+   "start": 45.941,
+   "end": 46.29
+  },
+  {
+   "text": "to",
+   "start": 46.348,
+   "end": 46.406
+  },
+  {
+   "text": "the",
+   "start": 46.475,
+   "end": 46.545
+  },
+  {
+   "text": "test.",
+   "start": 46.591,
+   "end": 47.126
+  },
+  {
+   "text": "To",
+   "start": 47.509,
+   "end": 47.613
+  },
+  {
+   "text": "see",
+   "start": 47.683,
+   "end": 47.857
+  },
+  {
+   "text": "how,",
+   "start": 47.915,
+   "end": 48.391
+  },
+  {
+   "text": "we",
+   "start": 48.461,
+   "end": 48.6
+  },
+  {
+   "text": "go",
+   "start": 48.658,
+   "end": 48.763
+  },
+  {
+   "text": "back",
+   "start": 48.832,
+   "end": 48.995
+  },
+  {
+   "text": "to",
+   "start": 49.041,
+   "end": 49.099
+  },
+  {
+   "text": "the",
+   "start": 49.157,
+   "end": 49.227
+  },
+  {
+   "text": "year",
+   "start": 49.285,
+   "end": 49.47
+  },
+  {
+   "text": "2000.",
+   "start": 49.552,
+   "end": 50.457
+  },
+  {
+   "text": "Here",
+   "start": 50.968,
+   "end": 51.212
+  },
+  {
+   "text": "is",
+   "start": 51.258,
+   "end": 51.363
+  },
+  {
+   "text": "that",
+   "start": 51.432,
+   "end": 51.618
+  },
+  {
+   "text": "year,",
+   "start": 51.688,
+   "end": 52.129
+  },
+  {
+   "text": "seen",
+   "start": 52.303,
+   "end": 52.535
+  },
+  {
+   "text": "by",
+   "start": 52.593,
+   "end": 52.71
+  },
+  {
+   "text": "an",
+   "start": 52.779,
+   "end": 52.837
+  },
+  {
+   "text": "instrument",
+   "start": 52.884,
+   "end": 53.29
+  },
+  {
+   "text": "called",
+   "start": 53.336,
+   "end": 53.592
+  },
+  {
+   "text": "ASTER,",
+   "start": 53.662,
+   "end": 54.312
+  },
+  {
+   "text": "on",
+   "start": 54.521,
+   "end": 54.718
+  },
+  {
+   "text": "NASA's",
+   "start": 54.776,
+   "end": 55.241
+  },
+  {
+   "text": "Terra",
+   "start": 55.322,
+   "end": 55.67
+  },
+  {
+   "text": "satellite.",
+   "start": 55.763,
+   "end": 56.552
+  },
+  {
+   "text": "The",
+   "start": 56.936,
+   "end": 57.052
+  },
+  {
+   "text": "city",
+   "start": 57.11,
+   "end": 57.365
+  },
+  {
+   "text": "hugs",
+   "start": 57.423,
+   "end": 57.737
+  },
+  {
+   "text": "the",
+   "start": 57.806,
+   "end": 57.888
+  },
+  {
+   "text": "shore.",
+   "start": 57.946,
+   "end": 58.526
+  },
+  {
+   "text": "Inland,",
+   "start": 58.851,
+   "end": 59.536
+  },
+  {
+   "text": "there",
+   "start": 59.652,
+   "end": 59.861
+  },
+  {
+   "text": "is",
+   "start": 59.896,
+   "end": 59.989
+  },
+  {
+   "text": "mostly",
+   "start": 60.07,
+   "end": 60.535
+  },
+  {
+   "text": "empty",
+   "start": 60.628,
+   "end": 60.953
+  },
+  {
+   "text": "desert.",
+   "start": 61.034,
+   "end": 61.614
+  },
+  {
+   "text": "Offshore,",
+   "start": 62.125,
+   "end": 62.787
+  },
+  {
+   "text": "where",
+   "start": 62.81,
+   "end": 62.984
+  },
+  {
+   "text": "the",
+   "start": 63.019,
+   "end": 63.089
+  },
+  {
+   "text": "palm",
+   "start": 63.147,
+   "end": 63.484
+  },
+  {
+   "text": "will",
+   "start": 63.53,
+   "end": 63.693
+  },
+  {
+   "text": "appear,",
+   "start": 63.727,
+   "end": 64.261
+  },
+  {
+   "text": "nothing",
+   "start": 64.436,
+   "end": 64.749
+  },
+  {
+   "text": "has",
+   "start": 64.796,
+   "end": 64.888
+  },
+  {
+   "text": "been",
+   "start": 64.946,
+   "end": 65.097
+  },
+  {
+   "text": "built",
+   "start": 65.155,
+   "end": 65.376
+  },
+  {
+   "text": "at",
+   "start": 65.422,
+   "end": 65.48
+  },
+  {
+   "text": "all.",
+   "start": 65.539,
+   "end": 66.049
+  },
+  {
+   "text": "NASA's",
+   "start": 66.432,
+   "end": 66.885
+  },
+  {
+   "text": "record",
+   "start": 66.966,
+   "end": 67.268
+  },
+  {
+   "text": "includes",
+   "start": 67.314,
+   "end": 67.814
+  },
+  {
+   "text": "twelve",
+   "start": 67.872,
+   "end": 68.29
+  },
+  {
+   "text": "images",
+   "start": 68.348,
+   "end": 68.766
+  },
+  {
+   "text": "of",
+   "start": 68.824,
+   "end": 68.882
+  },
+  {
+   "text": "this",
+   "start": 68.928,
+   "end": 69.079
+  },
+  {
+   "text": "area",
+   "start": 69.149,
+   "end": 69.462
+  },
+  {
+   "text": "between",
+   "start": 69.532,
+   "end": 69.857
+  },
+  {
+   "text": "2000",
+   "start": 69.915,
+   "end": 70.623
+  },
+  {
+   "text": "and",
+   "start": 70.681,
+   "end": 70.774
+  },
+  {
+   "text": "2011.",
+   "start": 70.832,
+   "end": 71.97
+  },
+  {
+   "text": "This",
+   "start": 72.214,
+   "end": 72.516
+  },
+  {
+   "text": "is",
+   "start": 72.667,
+   "end": 72.841
+  },
+  {
+   "text": "our",
+   "start": 72.91,
+   "end": 73.108
+  },
+  {
+   "text": "baseline.",
+   "start": 73.224,
+   "end": 74.164
+  },
+  {
+   "text": "Dubai's",
+   "start": 74.675,
+   "end": 75.14
+  },
+  {
+   "text": "ambitions",
+   "start": 75.209,
+   "end": 75.732
+  },
+  {
+   "text": "went",
+   "start": 75.79,
+   "end": 75.987
+  },
+  {
+   "text": "far",
+   "start": 76.057,
+   "end": 76.301
+  },
+  {
+   "text": "beyond",
+   "start": 76.37,
+   "end": 76.777
+  },
+  {
+   "text": "one",
+   "start": 76.893,
+   "end": 77.113
+  },
+  {
+   "text": "island.",
+   "start": 77.171,
+   "end": 77.798
+  },
+  {
+   "text": "NASA",
+   "start": 78.239,
+   "end": 78.692
+  },
+  {
+   "text": "describes",
+   "start": 78.75,
+   "end": 79.296
+  },
+  {
+   "text": "the",
+   "start": 79.366,
+   "end": 79.447
+  },
+  {
+   "text": "city",
+   "start": 79.517,
+   "end": 79.784
+  },
+  {
+   "text": "building",
+   "start": 79.842,
+   "end": 80.167
+  },
+  {
+   "text": "hundreds",
+   "start": 80.236,
+   "end": 80.678
+  },
+  {
+   "text": "of",
+   "start": 80.724,
+   "end": 80.782
+  },
+  {
+   "text": "artificial",
+   "start": 80.852,
+   "end": 81.397
+  },
+  {
+   "text": "islands",
+   "start": 81.467,
+   "end": 81.862
+  },
+  {
+   "text": "along",
+   "start": 81.908,
+   "end": 82.175
+  },
+  {
+   "text": "its",
+   "start": 82.222,
+   "end": 82.349
+  },
+  {
+   "text": "coast,",
+   "start": 82.419,
+   "end": 82.953
+  },
+  {
+   "text": "to",
+   "start": 83.046,
+   "end": 83.15
+  },
+  {
+   "text": "expand",
+   "start": 83.243,
+   "end": 83.696
+  },
+  {
+   "text": "its",
+   "start": 83.754,
+   "end": 83.882
+  },
+  {
+   "text": "beachfront",
+   "start": 83.952,
+   "end": 84.497
+  },
+  {
+   "text": "for",
+   "start": 84.555,
+   "end": 84.683
+  },
+  {
+   "text": "tourism.",
+   "start": 84.753,
+   "end": 85.507
+  },
+  {
+   "text": "Plans",
+   "start": 85.832,
+   "end": 86.239
+  },
+  {
+   "text": "from",
+   "start": 86.285,
+   "end": 86.424
+  },
+  {
+   "text": "the",
+   "start": 86.459,
+   "end": 86.529
+  },
+  {
+   "text": "1990s",
+   "start": 86.587,
+   "end": 87.493
+  },
+  {
+   "text": "for",
+   "start": 87.539,
+   "end": 87.655
+  },
+  {
+   "text": "one",
+   "start": 87.736,
+   "end": 87.922
+  },
+  {
+   "text": "project,",
+   "start": 87.969,
+   "end": 88.7
+  },
+  {
+   "text": "called",
+   "start": 88.816,
+   "end": 89.164
+  },
+  {
+   "text": "The",
+   "start": 89.257,
+   "end": 89.397
+  },
+  {
+   "text": "World,",
+   "start": 89.489,
+   "end": 90.267
+  },
+  {
+   "text": "included",
+   "start": 90.442,
+   "end": 90.941
+  },
+  {
+   "text": "about",
+   "start": 90.976,
+   "end": 91.219
+  },
+  {
+   "text": "three",
+   "start": 91.277,
+   "end": 91.544
+  },
+  {
+   "text": "hundred",
+   "start": 91.603,
+   "end": 91.951
+  },
+  {
+   "text": "small",
+   "start": 92.009,
+   "end": 92.357
+  },
+  {
+   "text": "islands.",
+   "start": 92.427,
+   "end": 93.158
+  },
+  {
+   "text": "And",
+   "start": 93.483,
+   "end": 93.634
+  },
+  {
+   "text": "as",
+   "start": 93.692,
+   "end": 93.774
+  },
+  {
+   "text": "recently",
+   "start": 93.855,
+   "end": 94.331
+  },
+  {
+   "text": "as",
+   "start": 94.389,
+   "end": 94.47
+  },
+  {
+   "text": "the",
+   "start": 94.528,
+   "end": 94.598
+  },
+  {
+   "text": "early",
+   "start": 94.679,
+   "end": 94.935
+  },
+  {
+   "text": "2000s,",
+   "start": 94.993,
+   "end": 95.736
+  },
+  {
+   "text": "NASA",
+   "start": 95.77,
+   "end": 96.142
+  },
+  {
+   "text": "notes,",
+   "start": 96.2,
+   "end": 96.734
+  },
+  {
+   "text": "little",
+   "start": 97.013,
+   "end": 97.326
+  },
+  {
+   "text": "had",
+   "start": 97.361,
+   "end": 97.466
+  },
+  {
+   "text": "been",
+   "start": 97.512,
+   "end": 97.675
+  },
+  {
+   "text": "built",
+   "start": 97.721,
+   "end": 97.965
+  },
+  {
+   "text": "here",
+   "start": 98.023,
+   "end": 98.232
+  },
+  {
+   "text": "beyond",
+   "start": 98.29,
+   "end": 98.696
+  },
+  {
+   "text": "shallow",
+   "start": 98.766,
+   "end": 99.126
+  },
+  {
+   "text": "Gulf",
+   "start": 99.195,
+   "end": 99.451
+  },
+  {
+   "text": "water.",
+   "start": 99.521,
+   "end": 100.101
+  },
+  {
+   "text": "That",
+   "start": 100.426,
+   "end": 100.612
+  },
+  {
+   "text": "was",
+   "start": 100.658,
+   "end": 100.763
+  },
+  {
+   "text": "the",
+   "start": 100.821,
+   "end": 100.891
+  },
+  {
+   "text": "blank",
+   "start": 100.937,
+   "end": 101.216
+  },
+  {
+   "text": "page.",
+   "start": 101.285,
+   "end": 101.785
+  },
+  {
+   "text": "February",
+   "start": 101.993,
+   "end": 102.574
+  },
+  {
+   "text": "2002.",
+   "start": 102.644,
+   "end": 103.747
+  },
+  {
+   "text": "About",
+   "start": 104.699,
+   "end": 104.966
+  },
+  {
+   "text": "fifteen",
+   "start": 105.0,
+   "end": 105.372
+  },
+  {
+   "text": "months",
+   "start": 105.442,
+   "end": 105.72
+  },
+  {
+   "text": "after",
+   "start": 105.767,
+   "end": 105.999
+  },
+  {
+   "text": "the",
+   "start": 106.045,
+   "end": 106.115
+  },
+  {
+   "text": "empty-sea",
+   "start": 106.185,
+   "end": 106.765
+  },
+  {
+   "text": "picture,",
+   "start": 106.835,
+   "end": 107.241
+  },
+  {
+   "text": "the",
+   "start": 107.264,
+   "end": 107.346
+  },
+  {
+   "text": "first",
+   "start": 107.404,
+   "end": 107.659
+  },
+  {
+   "text": "early",
+   "start": 107.74,
+   "end": 108.042
+  },
+  {
+   "text": "stage",
+   "start": 108.112,
+   "end": 108.495
+  },
+  {
+   "text": "of",
+   "start": 108.53,
+   "end": 108.576
+  },
+  {
+   "text": "an",
+   "start": 108.634,
+   "end": 108.692
+  },
+  {
+   "text": "archipelago",
+   "start": 108.739,
+   "end": 109.47
+  },
+  {
+   "text": "appears.",
+   "start": 109.528,
+   "end": 110.225
+  },
+  {
+   "text": "This",
+   "start": 110.504,
+   "end": 110.713
+  },
+  {
+   "text": "is",
+   "start": 110.782,
+   "end": 110.91
+  },
+  {
+   "text": "Palm",
+   "start": 110.98,
+   "end": 111.398
+  },
+  {
+   "text": "Jumeirah,",
+   "start": 111.479,
+   "end": 112.152
+  },
+  {
+   "text": "the",
+   "start": 112.28,
+   "end": 112.384
+  },
+  {
+   "text": "first",
+   "start": 112.442,
+   "end": 112.721
+  },
+  {
+   "text": "of",
+   "start": 112.779,
+   "end": 112.837
+  },
+  {
+   "text": "Dubai's",
+   "start": 112.895,
+   "end": 113.348
+  },
+  {
+   "text": "palm",
+   "start": 113.406,
+   "end": 113.708
+  },
+  {
+   "text": "islands",
+   "start": 113.778,
+   "end": 114.138
+  },
+  {
+   "text": "to",
+   "start": 114.184,
+   "end": 114.254
+  },
+  {
+   "text": "be",
+   "start": 114.323,
+   "end": 114.416
+  },
+  {
+   "text": "built.",
+   "start": 114.474,
+   "end": 114.927
+  },
+  {
+   "text": "By",
+   "start": 115.438,
+   "end": 115.6
+  },
+  {
+   "text": "October",
+   "start": 115.682,
+   "end": 116.123
+  },
+  {
+   "text": "2002,",
+   "start": 116.181,
+   "end": 117.202
+  },
+  {
+   "text": "sandy",
+   "start": 117.284,
+   "end": 117.667
+  },
+  {
+   "text": "fronds",
+   "start": 117.737,
+   "end": 118.201
+  },
+  {
+   "text": "are",
+   "start": 118.259,
+   "end": 118.387
+  },
+  {
+   "text": "visible,",
+   "start": 118.421,
+   "end": 118.979
+  },
+  {
+   "text": "with",
+   "start": 119.095,
+   "end": 119.257
+  },
+  {
+   "text": "a",
+   "start": 119.304,
+   "end": 119.339
+  },
+  {
+   "text": "circular",
+   "start": 119.385,
+   "end": 119.803
+  },
+  {
+   "text": "breakwater",
+   "start": 119.85,
+   "end": 120.442
+  },
+  {
+   "text": "around",
+   "start": 120.5,
+   "end": 120.836
+  },
+  {
+   "text": "them.",
+   "start": 120.883,
+   "end": 121.278
+  },
+  {
+   "text": "That",
+   "start": 121.719,
+   "end": 121.963
+  },
+  {
+   "text": "ring",
+   "start": 122.079,
+   "end": 122.462
+  },
+  {
+   "text": "is",
+   "start": 122.578,
+   "end": 122.717
+  },
+  {
+   "text": "a",
+   "start": 122.764,
+   "end": 122.798
+  },
+  {
+   "text": "clue.",
+   "start": 122.868,
+   "end": 123.472
+  },
+  {
+   "text": "This",
+   "start": 123.855,
+   "end": 124.064
+  },
+  {
+   "text": "is",
+   "start": 124.122,
+   "end": 124.215
+  },
+  {
+   "text": "land",
+   "start": 124.308,
+   "end": 124.644
+  },
+  {
+   "text": "with",
+   "start": 124.714,
+   "end": 124.865
+  },
+  {
+   "text": "its",
+   "start": 124.9,
+   "end": 125.016
+  },
+  {
+   "text": "own",
+   "start": 125.062,
+   "end": 125.213
+  },
+  {
+   "text": "defense",
+   "start": 125.271,
+   "end": 125.724
+  },
+  {
+   "text": "against",
+   "start": 125.771,
+   "end": 126.107
+  },
+  {
+   "text": "open",
+   "start": 126.189,
+   "end": 126.479
+  },
+  {
+   "text": "water.",
+   "start": 126.548,
+   "end": 127.141
+  },
+  {
+   "text": "NASA",
+   "start": 127.582,
+   "end": 128.058
+  },
+  {
+   "text": "calls",
+   "start": 128.127,
+   "end": 128.58
+  },
+  {
+   "text": "these",
+   "start": 128.638,
+   "end": 128.824
+  },
+  {
+   "text": "circular",
+   "start": 128.882,
+   "end": 129.346
+  },
+  {
+   "text": "storm",
+   "start": 129.416,
+   "end": 129.811
+  },
+  {
+   "text": "barriers.",
+   "start": 129.881,
+   "end": 130.693
+  },
+  {
+   "text": "So",
+   "start": 130.902,
+   "end": 131.042
+  },
+  {
+   "text": "where",
+   "start": 131.088,
+   "end": 131.227
+  },
+  {
+   "text": "does",
+   "start": 131.251,
+   "end": 131.367
+  },
+  {
+   "text": "the",
+   "start": 131.39,
+   "end": 131.459
+  },
+  {
+   "text": "land",
+   "start": 131.518,
+   "end": 131.761
+  },
+  {
+   "text": "come",
+   "start": 131.831,
+   "end": 132.028
+  },
+  {
+   "text": "from?",
+   "start": 132.074,
+   "end": 132.539
+  },
+  {
+   "text": "From",
+   "start": 133.05,
+   "end": 133.224
+  },
+  {
+   "text": "the",
+   "start": 133.282,
+   "end": 133.352
+  },
+  {
+   "text": "sea",
+   "start": 133.398,
+   "end": 133.595
+  },
+  {
+   "text": "floor",
+   "start": 133.653,
+   "end": 133.99
+  },
+  {
+   "text": "itself.",
+   "start": 134.071,
+   "end": 134.756
+  },
+  {
+   "text": "Sand",
+   "start": 135.36,
+   "end": 135.697
+  },
+  {
+   "text": "was",
+   "start": 135.766,
+   "end": 135.883
+  },
+  {
+   "text": "dredged",
+   "start": 135.964,
+   "end": 136.347
+  },
+  {
+   "text": "from",
+   "start": 136.393,
+   "end": 136.533
+  },
+  {
+   "text": "the",
+   "start": 136.579,
+   "end": 136.649
+  },
+  {
+   "text": "bottom",
+   "start": 136.695,
+   "end": 136.974
+  },
+  {
+   "text": "of",
+   "start": 137.02,
+   "end": 137.078
+  },
+  {
+   "text": "the",
+   "start": 137.125,
+   "end": 137.194
+  },
+  {
+   "text": "Gulf",
+   "start": 137.241,
+   "end": 137.601
+  },
+  {
+   "text": "and",
+   "start": 137.845,
+   "end": 138.054
+  },
+  {
+   "text": "placed",
+   "start": 138.123,
+   "end": 138.541
+  },
+  {
+   "text": "where",
+   "start": 138.588,
+   "end": 138.762
+  },
+  {
+   "text": "the",
+   "start": 138.797,
+   "end": 138.866
+  },
+  {
+   "text": "island",
+   "start": 138.982,
+   "end": 139.377
+  },
+  {
+   "text": "would",
+   "start": 139.447,
+   "end": 139.633
+  },
+  {
+   "text": "be,",
+   "start": 139.679,
+   "end": 140.085
+  },
+  {
+   "text": "with",
+   "start": 140.294,
+   "end": 140.48
+  },
+  {
+   "text": "rock",
+   "start": 140.55,
+   "end": 140.782
+  },
+  {
+   "text": "breakwaters",
+   "start": 140.84,
+   "end": 141.606
+  },
+  {
+   "text": "to",
+   "start": 141.757,
+   "end": 141.862
+  },
+  {
+   "text": "protect",
+   "start": 141.931,
+   "end": 142.326
+  },
+  {
+   "text": "it",
+   "start": 142.372,
+   "end": 142.442
+  },
+  {
+   "text": "from",
+   "start": 142.489,
+   "end": 142.651
+  },
+  {
+   "text": "erosion.",
+   "start": 142.721,
+   "end": 143.464
+  },
+  {
+   "text": "The",
+   "start": 143.789,
+   "end": 143.905
+  },
+  {
+   "text": "material",
+   "start": 143.951,
+   "end": 144.474
+  },
+  {
+   "text": "for",
+   "start": 144.532,
+   "end": 144.636
+  },
+  {
+   "text": "the",
+   "start": 144.683,
+   "end": 144.753
+  },
+  {
+   "text": "island",
+   "start": 144.845,
+   "end": 145.17
+  },
+  {
+   "text": "was",
+   "start": 145.24,
+   "end": 145.356
+  },
+  {
+   "text": "already",
+   "start": 145.426,
+   "end": 145.786
+  },
+  {
+   "text": "there,",
+   "start": 145.832,
+   "end": 146.285
+  },
+  {
+   "text": "underwater.",
+   "start": 146.459,
+   "end": 147.307
+  },
+  {
+   "text": "But",
+   "start": 147.748,
+   "end": 147.933
+  },
+  {
+   "text": "loose",
+   "start": 147.991,
+   "end": 148.259
+  },
+  {
+   "text": "sand",
+   "start": 148.293,
+   "end": 148.653
+  },
+  {
+   "text": "is",
+   "start": 148.711,
+   "end": 148.804
+  },
+  {
+   "text": "not",
+   "start": 148.874,
+   "end": 149.048
+  },
+  {
+   "text": "ground",
+   "start": 149.118,
+   "end": 149.617
+  },
+  {
+   "text": "you",
+   "start": 149.71,
+   "end": 149.814
+  },
+  {
+   "text": "can",
+   "start": 149.884,
+   "end": 150.012
+  },
+  {
+   "text": "build",
+   "start": 150.07,
+   "end": 150.325
+  },
+  {
+   "text": "on.",
+   "start": 150.406,
+   "end": 150.824
+  },
+  {
+   "text": "NASA's",
+   "start": 151.335,
+   "end": 151.742
+  },
+  {
+   "text": "description",
+   "start": 151.8,
+   "end": 152.276
+  },
+  {
+   "text": "of",
+   "start": 152.322,
+   "end": 152.368
+  },
+  {
+   "text": "the",
+   "start": 152.403,
+   "end": 152.473
+  },
+  {
+   "text": "method",
+   "start": 152.519,
+   "end": 152.81
+  },
+  {
+   "text": "includes",
+   "start": 152.868,
+   "end": 153.355
+  },
+  {
+   "text": "two",
+   "start": 153.437,
+   "end": 153.715
+  },
+  {
+   "text": "details.",
+   "start": 153.808,
+   "end": 154.644
+  },
+  {
+   "text": "Ships",
+   "start": 154.853,
+   "end": 155.19
+  },
+  {
+   "text": "guided",
+   "start": 155.248,
+   "end": 155.573
+  },
+  {
+   "text": "by",
+   "start": 155.619,
+   "end": 155.759
+  },
+  {
+   "text": "GPS",
+   "start": 155.851,
+   "end": 156.502
+  },
+  {
+   "text": "placed",
+   "start": 156.618,
+   "end": 156.966
+  },
+  {
+   "text": "the",
+   "start": 157.012,
+   "end": 157.105
+  },
+  {
+   "text": "sand.",
+   "start": 157.163,
+   "end": 157.802
+  },
+  {
+   "text": "And",
+   "start": 158.127,
+   "end": 158.278
+  },
+  {
+   "text": "a",
+   "start": 158.336,
+   "end": 158.359
+  },
+  {
+   "text": "machine",
+   "start": 158.406,
+   "end": 158.858
+  },
+  {
+   "text": "called",
+   "start": 158.905,
+   "end": 159.184
+  },
+  {
+   "text": "a",
+   "start": 159.23,
+   "end": 159.265
+  },
+  {
+   "text": "vibroflot",
+   "start": 159.381,
+   "end": 160.286
+  },
+  {
+   "text": "compacted",
+   "start": 160.344,
+   "end": 160.937
+  },
+  {
+   "text": "it",
+   "start": 160.983,
+   "end": 161.064
+  },
+  {
+   "text": "with",
+   "start": 161.122,
+   "end": 161.297
+  },
+  {
+   "text": "stone,",
+   "start": 161.366,
+   "end": 162.005
+  },
+  {
+   "text": "solidifying",
+   "start": 162.179,
+   "end": 162.957
+  },
+  {
+   "text": "the",
+   "start": 163.015,
+   "end": 163.084
+  },
+  {
+   "text": "land.",
+   "start": 163.154,
+   "end": 163.758
+  },
+  {
+   "text": "Compare",
+   "start": 164.362,
+   "end": 164.721
+  },
+  {
+   "text": "October",
+   "start": 164.767,
+   "end": 165.162
+  },
+  {
+   "text": "2002",
+   "start": 165.232,
+   "end": 166.091
+  },
+  {
+   "text": "with",
+   "start": 166.242,
+   "end": 166.416
+  },
+  {
+   "text": "November",
+   "start": 166.497,
+   "end": 166.973
+  },
+  {
+   "text": "2003.",
+   "start": 167.066,
+   "end": 168.355
+  },
+  {
+   "text": "First,",
+   "start": 168.68,
+   "end": 169.133
+  },
+  {
+   "text": "sandy",
+   "start": 169.214,
+   "end": 169.597
+  },
+  {
+   "text": "fronds",
+   "start": 169.667,
+   "end": 170.12
+  },
+  {
+   "text": "inside",
+   "start": 170.166,
+   "end": 170.619
+  },
+  {
+   "text": "their",
+   "start": 170.654,
+   "end": 170.816
+  },
+  {
+   "text": "ring.",
+   "start": 170.886,
+   "end": 171.42
+  },
+  {
+   "text": "Then,",
+   "start": 171.803,
+   "end": 172.407
+  },
+  {
+   "text": "a",
+   "start": 172.616,
+   "end": 172.685
+  },
+  {
+   "text": "complete",
+   "start": 172.767,
+   "end": 173.254
+  },
+  {
+   "text": "palm.",
+   "start": 173.312,
+   "end": 173.997
+  },
+  {
+   "text": "Just",
+   "start": 174.38,
+   "end": 174.613
+  },
+  {
+   "text": "over",
+   "start": 174.659,
+   "end": 174.868
+  },
+  {
+   "text": "a",
+   "start": 174.926,
+   "end": 174.961
+  },
+  {
+   "text": "year",
+   "start": 175.031,
+   "end": 175.228
+  },
+  {
+   "text": "apart.",
+   "start": 175.286,
+   "end": 175.959
+  },
+  {
+   "text": "The",
+   "start": 176.285,
+   "end": 176.401
+  },
+  {
+   "text": "pictures",
+   "start": 176.459,
+   "end": 176.853
+  },
+  {
+   "text": "can't",
+   "start": 176.911,
+   "end": 177.167
+  },
+  {
+   "text": "show",
+   "start": 177.213,
+   "end": 177.434
+  },
+  {
+   "text": "us",
+   "start": 177.527,
+   "end": 177.631
+  },
+  {
+   "text": "how",
+   "start": 177.689,
+   "end": 177.805
+  },
+  {
+   "text": "the",
+   "start": 177.863,
+   "end": 177.933
+  },
+  {
+   "text": "work",
+   "start": 177.991,
+   "end": 178.235
+  },
+  {
+   "text": "went",
+   "start": 178.293,
+   "end": 178.572
+  },
+  {
+   "text": "day",
+   "start": 178.63,
+   "end": 178.804
+  },
+  {
+   "text": "by",
+   "start": 178.862,
+   "end": 179.001
+  },
+  {
+   "text": "day,",
+   "start": 179.083,
+   "end": 179.559
+  },
+  {
+   "text": "only",
+   "start": 179.733,
+   "end": 180.081
+  },
+  {
+   "text": "where",
+   "start": 180.139,
+   "end": 180.36
+  },
+  {
+   "text": "it",
+   "start": 180.406,
+   "end": 180.487
+  },
+  {
+   "text": "stood",
+   "start": 180.534,
+   "end": 180.87
+  },
+  {
+   "text": "on",
+   "start": 180.94,
+   "end": 181.033
+  },
+  {
+   "text": "each",
+   "start": 181.079,
+   "end": 181.254
+  },
+  {
+   "text": "date.",
+   "start": 181.323,
+   "end": 182.368
+  },
+  {
+   "text": "But",
+   "start": 182.37,
+   "end": 182.567
+  },
+  {
+   "text": "they",
+   "start": 182.602,
+   "end": 182.718
+  },
+  {
+   "text": "do",
+   "start": 182.788,
+   "end": 182.939
+  },
+  {
+   "text": "show",
+   "start": 183.02,
+   "end": 183.206
+  },
+  {
+   "text": "the",
+   "start": 183.264,
+   "end": 183.334
+  },
+  {
+   "text": "ring",
+   "start": 183.403,
+   "end": 183.624
+  },
+  {
+   "text": "already",
+   "start": 183.705,
+   "end": 184.158
+  },
+  {
+   "text": "in",
+   "start": 184.204,
+   "end": 184.274
+  },
+  {
+   "text": "place",
+   "start": 184.344,
+   "end": 184.657
+  },
+  {
+   "text": "in",
+   "start": 184.704,
+   "end": 184.762
+  },
+  {
+   "text": "October",
+   "start": 184.831,
+   "end": 185.249
+  },
+  {
+   "text": "2002,",
+   "start": 185.319,
+   "end": 186.48
+  },
+  {
+   "text": "while",
+   "start": 186.677,
+   "end": 186.91
+  },
+  {
+   "text": "the",
+   "start": 186.933,
+   "end": 186.991
+  },
+  {
+   "text": "fronds",
+   "start": 187.049,
+   "end": 187.536
+  },
+  {
+   "text": "are",
+   "start": 187.583,
+   "end": 187.699
+  },
+  {
+   "text": "still",
+   "start": 187.745,
+   "end": 188.012
+  },
+  {
+   "text": "sand.",
+   "start": 188.117,
+   "end": 188.814
+  },
+  {
+   "text": "The",
+   "start": 189.185,
+   "end": 189.29
+  },
+  {
+   "text": "buildings",
+   "start": 189.348,
+   "end": 189.777
+  },
+  {
+   "text": "and",
+   "start": 189.824,
+   "end": 189.905
+  },
+  {
+   "text": "vegetation",
+   "start": 189.975,
+   "end": 190.601
+  },
+  {
+   "text": "come",
+   "start": 190.671,
+   "end": 190.869
+  },
+  {
+   "text": "later,",
+   "start": 190.915,
+   "end": 191.333
+  },
+  {
+   "text": "in",
+   "start": 191.484,
+   "end": 191.6
+  },
+  {
+   "text": "the",
+   "start": 191.635,
+   "end": 191.704
+  },
+  {
+   "text": "images",
+   "start": 191.774,
+   "end": 192.169
+  },
+  {
+   "text": "from",
+   "start": 192.227,
+   "end": 192.378
+  },
+  {
+   "text": "2004",
+   "start": 192.436,
+   "end": 193.469
+  },
+  {
+   "text": "to",
+   "start": 193.562,
+   "end": 193.632
+  },
+  {
+   "text": "2008.",
+   "start": 193.713,
+   "end": 194.769
+  },
+  {
+   "text": "After",
+   "start": 195.199,
+   "end": 195.489
+  },
+  {
+   "text": "2003,",
+   "start": 195.547,
+   "end": 196.685
+  },
+  {
+   "text": "the",
+   "start": 196.824,
+   "end": 196.952
+  },
+  {
+   "text": "images",
+   "start": 197.033,
+   "end": 197.393
+  },
+  {
+   "text": "change",
+   "start": 197.451,
+   "end": 197.881
+  },
+  {
+   "text": "in",
+   "start": 197.916,
+   "end": 197.974
+  },
+  {
+   "text": "a",
+   "start": 198.02,
+   "end": 198.043
+  },
+  {
+   "text": "different",
+   "start": 198.101,
+   "end": 198.415
+  },
+  {
+   "text": "way.",
+   "start": 198.461,
+   "end": 198.995
+  },
+  {
+   "text": "From",
+   "start": 199.437,
+   "end": 199.611
+  },
+  {
+   "text": "2004",
+   "start": 199.68,
+   "end": 200.47
+  },
+  {
+   "text": "through",
+   "start": 200.528,
+   "end": 200.748
+  },
+  {
+   "text": "2008,",
+   "start": 200.795,
+   "end": 201.7
+  },
+  {
+   "text": "ASTER",
+   "start": 201.979,
+   "end": 202.409
+  },
+  {
+   "text": "shows",
+   "start": 202.478,
+   "end": 202.78
+  },
+  {
+   "text": "buildings",
+   "start": 202.85,
+   "end": 203.291
+  },
+  {
+   "text": "and",
+   "start": 203.337,
+   "end": 203.43
+  },
+  {
+   "text": "vegetation",
+   "start": 203.488,
+   "end": 204.092
+  },
+  {
+   "text": "appearing",
+   "start": 204.15,
+   "end": 204.568
+  },
+  {
+   "text": "on",
+   "start": 204.626,
+   "end": 204.719
+  },
+  {
+   "text": "the",
+   "start": 204.766,
+   "end": 204.835
+  },
+  {
+   "text": "palm.",
+   "start": 204.882,
+   "end": 205.485
+  },
+  {
+   "text": "The",
+   "start": 205.868,
+   "end": 205.985
+  },
+  {
+   "text": "land",
+   "start": 206.054,
+   "end": 206.31
+  },
+  {
+   "text": "was",
+   "start": 206.379,
+   "end": 206.507
+  },
+  {
+   "text": "no",
+   "start": 206.588,
+   "end": 206.681
+  },
+  {
+   "text": "longer",
+   "start": 206.774,
+   "end": 207.076
+  },
+  {
+   "text": "just",
+   "start": 207.157,
+   "end": 207.389
+  },
+  {
+   "text": "a",
+   "start": 207.447,
+   "end": 207.482
+  },
+  {
+   "text": "shape.",
+   "start": 207.54,
+   "end": 208.051
+  },
+  {
+   "text": "It",
+   "start": 208.33,
+   "end": 208.469
+  },
+  {
+   "text": "was",
+   "start": 208.516,
+   "end": 208.632
+  },
+  {
+   "text": "becoming",
+   "start": 208.69,
+   "end": 209.084
+  },
+  {
+   "text": "a",
+   "start": 209.142,
+   "end": 209.166
+  },
+  {
+   "text": "place.",
+   "start": 209.224,
+   "end": 209.816
+  },
+  {
+   "text": "Palm",
+   "start": 210.42,
+   "end": 210.745
+  },
+  {
+   "text": "Jumeirah",
+   "start": 210.826,
+   "end": 211.372
+  },
+  {
+   "text": "was",
+   "start": 211.418,
+   "end": 211.569
+  },
+  {
+   "text": "only",
+   "start": 211.65,
+   "end": 211.964
+  },
+  {
+   "text": "the",
+   "start": 212.022,
+   "end": 212.091
+  },
+  {
+   "text": "first.",
+   "start": 212.149,
+   "end": 212.753
+  },
+  {
+   "text": "By",
+   "start": 213.194,
+   "end": 213.345
+  },
+  {
+   "text": "September",
+   "start": 213.403,
+   "end": 213.868
+  },
+  {
+   "text": "2006,",
+   "start": 213.926,
+   "end": 214.983
+  },
+  {
+   "text": "NASA",
+   "start": 215.11,
+   "end": 215.528
+  },
+  {
+   "text": "was",
+   "start": 215.575,
+   "end": 215.691
+  },
+  {
+   "text": "describing",
+   "start": 215.749,
+   "end": 216.271
+  },
+  {
+   "text": "the",
+   "start": 216.33,
+   "end": 216.399
+  },
+  {
+   "text": "palm",
+   "start": 216.434,
+   "end": 216.747
+  },
+  {
+   "text": "islands",
+   "start": 216.817,
+   "end": 217.177
+  },
+  {
+   "text": "as",
+   "start": 217.224,
+   "end": 217.316
+  },
+  {
+   "text": "the",
+   "start": 217.374,
+   "end": 217.444
+  },
+  {
+   "text": "largest",
+   "start": 217.491,
+   "end": 217.862
+  },
+  {
+   "text": "artificial",
+   "start": 217.92,
+   "end": 218.431
+  },
+  {
+   "text": "islands",
+   "start": 218.512,
+   "end": 218.849
+  },
+  {
+   "text": "in",
+   "start": 218.884,
+   "end": 218.953
+  },
+  {
+   "text": "the",
+   "start": 218.988,
+   "end": 219.058
+  },
+  {
+   "text": "world,",
+   "start": 219.104,
+   "end": 219.627
+  },
+  {
+   "text": "and",
+   "start": 219.836,
+   "end": 219.998
+  },
+  {
+   "text": "every",
+   "start": 220.08,
+   "end": 220.289
+  },
+  {
+   "text": "one",
+   "start": 220.347,
+   "end": 220.498
+  },
+  {
+   "text": "of",
+   "start": 220.521,
+   "end": 220.579
+  },
+  {
+   "text": "them",
+   "start": 220.625,
+   "end": 220.776
+  },
+  {
+   "text": "was",
+   "start": 220.846,
+   "end": 220.985
+  },
+  {
+   "text": "still",
+   "start": 221.032,
+   "end": 221.264
+  },
+  {
+   "text": "under",
+   "start": 221.333,
+   "end": 221.508
+  },
+  {
+   "text": "construction.",
+   "start": 221.566,
+   "end": 222.367
+  },
+  {
+   "text": "That",
+   "start": 222.97,
+   "end": 223.168
+  },
+  {
+   "text": "2006",
+   "start": 223.214,
+   "end": 224.097
+  },
+  {
+   "text": "image",
+   "start": 224.189,
+   "end": 224.584
+  },
+  {
+   "text": "shows",
+   "start": 224.631,
+   "end": 224.944
+  },
+  {
+   "text": "four",
+   "start": 225.002,
+   "end": 225.223
+  },
+  {
+   "text": "projects",
+   "start": 225.281,
+   "end": 225.792
+  },
+  {
+   "text": "in",
+   "start": 225.826,
+   "end": 225.896
+  },
+  {
+   "text": "a",
+   "start": 225.943,
+   "end": 225.966
+  },
+  {
+   "text": "row,",
+   "start": 226.035,
+   "end": 226.5
+  },
+  {
+   "text": "from",
+   "start": 226.535,
+   "end": 226.732
+  },
+  {
+   "text": "south",
+   "start": 226.813,
+   "end": 227.162
+  },
+  {
+   "text": "to",
+   "start": 227.22,
+   "end": 227.324
+  },
+  {
+   "text": "north:",
+   "start": 227.417,
+   "end": 227.94
+  },
+  {
+   "text": "Palm",
+   "start": 228.323,
+   "end": 228.694
+  },
+  {
+   "text": "Jebel",
+   "start": 228.764,
+   "end": 229.077
+  },
+  {
+   "text": "Ali,",
+   "start": 229.17,
+   "end": 229.774
+  },
+  {
+   "text": "Palm",
+   "start": 229.89,
+   "end": 230.192
+  },
+  {
+   "text": "Jumeirah,",
+   "start": 230.262,
+   "end": 230.807
+  },
+  {
+   "text": "The",
+   "start": 230.854,
+   "end": 230.958
+  },
+  {
+   "text": "World,",
+   "start": 231.016,
+   "end": 231.632
+  },
+  {
+   "text": "and",
+   "start": 231.806,
+   "end": 231.98
+  },
+  {
+   "text": "Palm",
+   "start": 232.049,
+   "end": 232.328
+  },
+  {
+   "text": "Deira.",
+   "start": 232.398,
+   "end": 232.955
+  },
+  {
+   "text": "Jebel",
+   "start": 233.559,
+   "end": 233.895
+  },
+  {
+   "text": "Ali",
+   "start": 233.988,
+   "end": 234.267
+  },
+  {
+   "text": "and",
+   "start": 234.325,
+   "end": 234.406
+  },
+  {
+   "text": "Jumeirah",
+   "start": 234.453,
+   "end": 234.964
+  },
+  {
+   "text": "already",
+   "start": 235.01,
+   "end": 235.463
+  },
+  {
+   "text": "look",
+   "start": 235.509,
+   "end": 235.672
+  },
+  {
+   "text": "largely",
+   "start": 235.753,
+   "end": 236.217
+  },
+  {
+   "text": "complete",
+   "start": 236.264,
+   "end": 236.705
+  },
+  {
+   "text": "as",
+   "start": 236.752,
+   "end": 236.856
+  },
+  {
+   "text": "landforms.",
+   "start": 236.937,
+   "end": 237.889
+  },
+  {
+   "text": "The",
+   "start": 238.272,
+   "end": 238.377
+  },
+  {
+   "text": "World",
+   "start": 238.435,
+   "end": 238.737
+  },
+  {
+   "text": "is",
+   "start": 238.795,
+   "end": 238.865
+  },
+  {
+   "text": "still",
+   "start": 238.911,
+   "end": 239.143
+  },
+  {
+   "text": "under",
+   "start": 239.213,
+   "end": 239.387
+  },
+  {
+   "text": "construction.",
+   "start": 239.445,
+   "end": 240.281
+  },
+  {
+   "text": "Palm",
+   "start": 240.49,
+   "end": 240.78
+  },
+  {
+   "text": "Deira",
+   "start": 240.85,
+   "end": 241.221
+  },
+  {
+   "text": "is",
+   "start": 241.291,
+   "end": 241.396
+  },
+  {
+   "text": "in",
+   "start": 241.454,
+   "end": 241.512
+  },
+  {
+   "text": "its",
+   "start": 241.558,
+   "end": 241.686
+  },
+  {
+   "text": "earliest",
+   "start": 241.744,
+   "end": 242.185
+  },
+  {
+   "text": "stages.",
+   "start": 242.278,
+   "end": 243.114
+  },
+  {
+   "text": "Palm",
+   "start": 243.439,
+   "end": 243.729
+  },
+  {
+   "text": "Jumeirah",
+   "start": 243.799,
+   "end": 244.333
+  },
+  {
+   "text": "and",
+   "start": 244.368,
+   "end": 244.53
+  },
+  {
+   "text": "Palm",
+   "start": 244.6,
+   "end": 244.89
+  },
+  {
+   "text": "Jebel",
+   "start": 244.96,
+   "end": 245.238
+  },
+  {
+   "text": "Ali",
+   "start": 245.32,
+   "end": 245.668
+  },
+  {
+   "text": "were",
+   "start": 245.761,
+   "end": 245.935
+  },
+  {
+   "text": "shaped",
+   "start": 245.97,
+   "end": 246.272
+  },
+  {
+   "text": "into",
+   "start": 246.306,
+   "end": 246.457
+  },
+  {
+   "text": "palm",
+   "start": 246.527,
+   "end": 246.817
+  },
+  {
+   "text": "trees.",
+   "start": 246.875,
+   "end": 247.479
+  },
+  {
+   "text": "The",
+   "start": 247.804,
+   "end": 247.932
+  },
+  {
+   "text": "third",
+   "start": 248.001,
+   "end": 248.245
+  },
+  {
+   "text": "project",
+   "start": 248.303,
+   "end": 248.768
+  },
+  {
+   "text": "is",
+   "start": 248.826,
+   "end": 248.907
+  },
+  {
+   "text": "not",
+   "start": 248.965,
+   "end": 249.116
+  },
+  {
+   "text": "a",
+   "start": 249.151,
+   "end": 249.174
+  },
+  {
+   "text": "palm.",
+   "start": 249.232,
+   "end": 249.766
+  },
+  {
+   "text": "The",
+   "start": 249.94,
+   "end": 250.068
+  },
+  {
+   "text": "World",
+   "start": 250.138,
+   "end": 250.509
+  },
+  {
+   "text": "is",
+   "start": 250.567,
+   "end": 250.648
+  },
+  {
+   "text": "laid",
+   "start": 250.718,
+   "end": 250.916
+  },
+  {
+   "text": "out",
+   "start": 250.962,
+   "end": 251.09
+  },
+  {
+   "text": "as",
+   "start": 251.136,
+   "end": 251.217
+  },
+  {
+   "text": "a",
+   "start": 251.264,
+   "end": 251.299
+  },
+  {
+   "text": "map",
+   "start": 251.368,
+   "end": 251.612
+  },
+  {
+   "text": "of",
+   "start": 251.67,
+   "end": 251.728
+  },
+  {
+   "text": "Earth's",
+   "start": 251.821,
+   "end": 252.146
+  },
+  {
+   "text": "continents.",
+   "start": 252.193,
+   "end": 253.005
+  },
+  {
+   "text": "The",
+   "start": 253.284,
+   "end": 253.4
+  },
+  {
+   "text": "plans",
+   "start": 253.458,
+   "end": 253.806
+  },
+  {
+   "text": "called",
+   "start": 253.864,
+   "end": 254.178
+  },
+  {
+   "text": "for",
+   "start": 254.224,
+   "end": 254.364
+  },
+  {
+   "text": "about",
+   "start": 254.41,
+   "end": 254.654
+  },
+  {
+   "text": "three",
+   "start": 254.689,
+   "end": 254.909
+  },
+  {
+   "text": "hundred",
+   "start": 254.967,
+   "end": 255.258
+  },
+  {
+   "text": "small",
+   "start": 255.316,
+   "end": 255.664
+  },
+  {
+   "text": "islands,",
+   "start": 255.745,
+   "end": 256.198
+  },
+  {
+   "text": "arranged",
+   "start": 256.233,
+   "end": 256.686
+  },
+  {
+   "text": "to",
+   "start": 256.72,
+   "end": 256.779
+  },
+  {
+   "text": "draw",
+   "start": 256.825,
+   "end": 257.046
+  },
+  {
+   "text": "the",
+   "start": 257.104,
+   "end": 257.173
+  },
+  {
+   "text": "planet",
+   "start": 257.22,
+   "end": 257.58
+  },
+  {
+   "text": "in",
+   "start": 257.626,
+   "end": 257.707
+  },
+  {
+   "text": "the",
+   "start": 257.754,
+   "end": 257.823
+  },
+  {
+   "text": "sea.",
+   "start": 257.881,
+   "end": 258.392
+  },
+  {
+   "text": "Then",
+   "start": 258.775,
+   "end": 258.996
+  },
+  {
+   "text": "came",
+   "start": 259.077,
+   "end": 259.321
+  },
+  {
+   "text": "2007",
+   "start": 259.368,
+   "end": 260.308
+  },
+  {
+   "text": "and",
+   "start": 260.389,
+   "end": 260.47
+  },
+  {
+   "text": "2008,",
+   "start": 260.517,
+   "end": 261.527
+  },
+  {
+   "text": "and",
+   "start": 261.608,
+   "end": 261.759
+  },
+  {
+   "text": "the",
+   "start": 261.806,
+   "end": 261.875
+  },
+  {
+   "text": "global",
+   "start": 261.91,
+   "end": 262.247
+  },
+  {
+   "text": "recession.",
+   "start": 262.316,
+   "end": 263.025
+  },
+  {
+   "text": "According",
+   "start": 263.408,
+   "end": 263.791
+  },
+  {
+   "text": "to",
+   "start": 263.837,
+   "end": 263.884
+  },
+  {
+   "text": "NASA,",
+   "start": 263.942,
+   "end": 264.371
+  },
+  {
+   "text": "it",
+   "start": 264.418,
+   "end": 264.534
+  },
+  {
+   "text": "delayed",
+   "start": 264.58,
+   "end": 264.987
+  },
+  {
+   "text": "these",
+   "start": 265.033,
+   "end": 265.231
+  },
+  {
+   "text": "projects.",
+   "start": 265.277,
+   "end": 266.008
+  },
+  {
+   "text": "In",
+   "start": 266.287,
+   "end": 266.426
+  },
+  {
+   "text": "the",
+   "start": 266.461,
+   "end": 266.531
+  },
+  {
+   "text": "2006",
+   "start": 266.589,
+   "end": 267.402
+  },
+  {
+   "text": "image,",
+   "start": 267.494,
+   "end": 267.959
+  },
+  {
+   "text": "you",
+   "start": 268.168,
+   "end": 268.249
+  },
+  {
+   "text": "can",
+   "start": 268.296,
+   "end": 268.412
+  },
+  {
+   "text": "see",
+   "start": 268.47,
+   "end": 268.644
+  },
+  {
+   "text": "how",
+   "start": 268.702,
+   "end": 268.841
+  },
+  {
+   "text": "much",
+   "start": 268.911,
+   "end": 269.12
+  },
+  {
+   "text": "was",
+   "start": 269.178,
+   "end": 269.282
+  },
+  {
+   "text": "still",
+   "start": 269.329,
+   "end": 269.573
+  },
+  {
+   "text": "ahead:",
+   "start": 269.631,
+   "end": 270.223
+  },
+  {
+   "text": "Palm",
+   "start": 270.501,
+   "end": 270.838
+  },
+  {
+   "text": "Deira",
+   "start": 270.908,
+   "end": 271.221
+  },
+  {
+   "text": "had",
+   "start": 271.279,
+   "end": 271.384
+  },
+  {
+   "text": "barely",
+   "start": 271.43,
+   "end": 271.755
+  },
+  {
+   "text": "begun,",
+   "start": 271.813,
+   "end": 272.394
+  },
+  {
+   "text": "and",
+   "start": 272.545,
+   "end": 272.696
+  },
+  {
+   "text": "The",
+   "start": 272.742,
+   "end": 272.812
+  },
+  {
+   "text": "World",
+   "start": 272.87,
+   "end": 273.195
+  },
+  {
+   "text": "was",
+   "start": 273.265,
+   "end": 273.381
+  },
+  {
+   "text": "still",
+   "start": 273.427,
+   "end": 273.694
+  },
+  {
+   "text": "under",
+   "start": 273.764,
+   "end": 273.95
+  },
+  {
+   "text": "construction.",
+   "start": 273.996,
+   "end": 274.832
+  },
+  {
+   "text": "Now",
+   "start": 275.157,
+   "end": 275.366
+  },
+  {
+   "text": "jump",
+   "start": 275.482,
+   "end": 275.703
+  },
+  {
+   "text": "ahead",
+   "start": 275.761,
+   "end": 276.063
+  },
+  {
+   "text": "to",
+   "start": 276.132,
+   "end": 276.202
+  },
+  {
+   "text": "2022.",
+   "start": 276.271,
+   "end": 277.409
+  },
+  {
+   "text": "NASA's",
+   "start": 277.734,
+   "end": 278.164
+  },
+  {
+   "text": "caption",
+   "start": 278.21,
+   "end": 278.593
+  },
+  {
+   "text": "for",
+   "start": 278.652,
+   "end": 278.756
+  },
+  {
+   "text": "the",
+   "start": 278.802,
+   "end": 278.872
+  },
+  {
+   "text": "astronaut's",
+   "start": 278.953,
+   "end": 279.499
+  },
+  {
+   "text": "photograph",
+   "start": 279.534,
+   "end": 280.08
+  },
+  {
+   "text": "says",
+   "start": 280.114,
+   "end": 280.3
+  },
+  {
+   "text": "only",
+   "start": 280.358,
+   "end": 280.59
+  },
+  {
+   "text": "a",
+   "start": 280.648,
+   "end": 280.683
+  },
+  {
+   "text": "handful",
+   "start": 280.765,
+   "end": 281.252
+  },
+  {
+   "text": "of",
+   "start": 281.299,
+   "end": 281.357
+  },
+  {
+   "text": "The",
+   "start": 281.403,
+   "end": 281.473
+  },
+  {
+   "text": "World's",
+   "start": 281.531,
+   "end": 281.891
+  },
+  {
+   "text": "roughly",
+   "start": 281.937,
+   "end": 282.262
+  },
+  {
+   "text": "three",
+   "start": 282.344,
+   "end": 282.622
+  },
+  {
+   "text": "hundred",
+   "start": 282.68,
+   "end": 283.017
+  },
+  {
+   "text": "islands",
+   "start": 283.087,
+   "end": 283.539
+  },
+  {
+   "text": "had",
+   "start": 283.586,
+   "end": 283.702
+  },
+  {
+   "text": "seen",
+   "start": 283.76,
+   "end": 283.992
+  },
+  {
+   "text": "development.",
+   "start": 284.05,
+   "end": 284.735
+  },
+  {
+   "text": "That",
+   "start": 285.014,
+   "end": 285.211
+  },
+  {
+   "text": "is",
+   "start": 285.269,
+   "end": 285.339
+  },
+  {
+   "text": "a",
+   "start": 285.397,
+   "end": 285.42
+  },
+  {
+   "text": "statement",
+   "start": 285.478,
+   "end": 285.885
+  },
+  {
+   "text": "about",
+   "start": 285.919,
+   "end": 286.14
+  },
+  {
+   "text": "2022,",
+   "start": 286.186,
+   "end": 287.231
+  },
+  {
+   "text": "and",
+   "start": 287.313,
+   "end": 287.464
+  },
+  {
+   "text": "we",
+   "start": 287.522,
+   "end": 287.603
+  },
+  {
+   "text": "will",
+   "start": 287.649,
+   "end": 287.8
+  },
+  {
+   "text": "stay",
+   "start": 287.847,
+   "end": 288.056
+  },
+  {
+   "text": "inside",
+   "start": 288.102,
+   "end": 288.52
+  },
+  {
+   "text": "it.",
+   "start": 288.555,
+   "end": 288.822
+  },
+  {
+   "text": "We",
+   "start": 289.147,
+   "end": 289.275
+  },
+  {
+   "text": "have",
+   "start": 289.321,
+   "end": 289.46
+  },
+  {
+   "text": "no",
+   "start": 289.507,
+   "end": 289.611
+  },
+  {
+   "text": "reliable,",
+   "start": 289.693,
+   "end": 290.273
+  },
+  {
+   "text": "dated",
+   "start": 290.308,
+   "end": 290.656
+  },
+  {
+   "text": "source",
+   "start": 290.714,
+   "end": 291.004
+  },
+  {
+   "text": "for",
+   "start": 291.039,
+   "end": 291.143
+  },
+  {
+   "text": "what",
+   "start": 291.19,
+   "end": 291.306
+  },
+  {
+   "text": "has",
+   "start": 291.341,
+   "end": 291.422
+  },
+  {
+   "text": "happened",
+   "start": 291.469,
+   "end": 291.794
+  },
+  {
+   "text": "since,",
+   "start": 291.84,
+   "end": 292.13
+  },
+  {
+   "text": "so",
+   "start": 292.154,
+   "end": 292.304
+  },
+  {
+   "text": "we",
+   "start": 292.374,
+   "end": 292.455
+  },
+  {
+   "text": "will",
+   "start": 292.502,
+   "end": 292.641
+  },
+  {
+   "text": "not",
+   "start": 292.699,
+   "end": 292.827
+  },
+  {
+   "text": "guess.",
+   "start": 292.885,
+   "end": 293.407
+  },
+  {
+   "text": "Two",
+   "start": 294.522,
+   "end": 294.708
+  },
+  {
+   "text": "more",
+   "start": 294.777,
+   "end": 294.986
+  },
+  {
+   "text": "projects",
+   "start": 295.044,
+   "end": 295.555
+  },
+  {
+   "text": "followed",
+   "start": 295.602,
+   "end": 295.927
+  },
+  {
+   "text": "the",
+   "start": 295.95,
+   "end": 296.02
+  },
+  {
+   "text": "same",
+   "start": 296.054,
+   "end": 296.298
+  },
+  {
+   "text": "pattern.",
+   "start": 296.345,
+   "end": 296.948
+  },
+  {
+   "text": "Palm",
+   "start": 297.332,
+   "end": 297.622
+  },
+  {
+   "text": "Deira,",
+   "start": 297.703,
+   "end": 298.191
+  },
+  {
+   "text": "in",
+   "start": 298.365,
+   "end": 298.481
+  },
+  {
+   "text": "its",
+   "start": 298.527,
+   "end": 298.632
+  },
+  {
+   "text": "earliest",
+   "start": 298.69,
+   "end": 299.096
+  },
+  {
+   "text": "stages",
+   "start": 299.189,
+   "end": 299.642
+  },
+  {
+   "text": "in",
+   "start": 299.688,
+   "end": 299.758
+  },
+  {
+   "text": "2006,",
+   "start": 299.828,
+   "end": 300.722
+  },
+  {
+   "text": "was",
+   "start": 300.745,
+   "end": 300.861
+  },
+  {
+   "text": "scaled",
+   "start": 300.919,
+   "end": 301.337
+  },
+  {
+   "text": "back",
+   "start": 301.383,
+   "end": 301.639
+  },
+  {
+   "text": "and",
+   "start": 301.709,
+   "end": 301.79
+  },
+  {
+   "text": "renamed",
+   "start": 301.871,
+   "end": 302.37
+  },
+  {
+   "text": "the",
+   "start": 302.417,
+   "end": 302.486
+  },
+  {
+   "text": "Deira",
+   "start": 302.544,
+   "end": 302.846
+  },
+  {
+   "text": "Islands.",
+   "start": 302.939,
+   "end": 303.589
+  },
+  {
+   "text": "And",
+   "start": 303.798,
+   "end": 303.972
+  },
+  {
+   "text": "The",
+   "start": 304.031,
+   "end": 304.112
+  },
+  {
+   "text": "Universe,",
+   "start": 304.228,
+   "end": 304.855
+  },
+  {
+   "text": "another",
+   "start": 305.029,
+   "end": 305.366
+  },
+  {
+   "text": "planned",
+   "start": 305.412,
+   "end": 305.795
+  },
+  {
+   "text": "archipelago,",
+   "start": 305.83,
+   "end": 306.492
+  },
+  {
+   "text": "was",
+   "start": 306.515,
+   "end": 306.631
+  },
+  {
+   "text": "put",
+   "start": 306.689,
+   "end": 306.84
+  },
+  {
+   "text": "on",
+   "start": 306.898,
+   "end": 307.014
+  },
+  {
+   "text": "hold.",
+   "start": 307.084,
+   "end": 307.548
+  },
+  {
+   "text": "Delayed,",
+   "start": 307.873,
+   "end": 308.489
+  },
+  {
+   "text": "scaled",
+   "start": 308.605,
+   "end": 309.023
+  },
+  {
+   "text": "back,",
+   "start": 309.069,
+   "end": 309.406
+  },
+  {
+   "text": "on",
+   "start": 309.429,
+   "end": 309.661
+  },
+  {
+   "text": "hold:",
+   "start": 309.742,
+   "end": 310.288
+  },
+  {
+   "text": "those",
+   "start": 310.613,
+   "end": 310.903
+  },
+  {
+   "text": "words",
+   "start": 310.95,
+   "end": 311.31
+  },
+  {
+   "text": "describe",
+   "start": 311.368,
+   "end": 311.855
+  },
+  {
+   "text": "plans,",
+   "start": 311.89,
+   "end": 312.459
+  },
+  {
+   "text": "not",
+   "start": 312.494,
+   "end": 312.691
+  },
+  {
+   "text": "the",
+   "start": 312.738,
+   "end": 312.807
+  },
+  {
+   "text": "condition",
+   "start": 312.854,
+   "end": 313.283
+  },
+  {
+   "text": "of",
+   "start": 313.33,
+   "end": 313.388
+  },
+  {
+   "text": "the",
+   "start": 313.434,
+   "end": 313.504
+  },
+  {
+   "text": "land.",
+   "start": 313.562,
+   "end": 314.108
+  },
+  {
+   "text": "NASA",
+   "start": 314.386,
+   "end": 314.77
+  },
+  {
+   "text": "describes",
+   "start": 314.816,
+   "end": 315.385
+  },
+  {
+   "text": "one",
+   "start": 315.466,
+   "end": 315.722
+  },
+  {
+   "text": "basic",
+   "start": 315.78,
+   "end": 316.174
+  },
+  {
+   "text": "method",
+   "start": 316.244,
+   "end": 316.546
+  },
+  {
+   "text": "for",
+   "start": 316.604,
+   "end": 316.708
+  },
+  {
+   "text": "Dubai's",
+   "start": 316.766,
+   "end": 317.219
+  },
+  {
+   "text": "islands:",
+   "start": 317.289,
+   "end": 317.893
+  },
+  {
+   "text": "dredged",
+   "start": 318.102,
+   "end": 318.554
+  },
+  {
+   "text": "sand,",
+   "start": 318.671,
+   "end": 319.251
+  },
+  {
+   "text": "protected",
+   "start": 319.321,
+   "end": 319.82
+  },
+  {
+   "text": "by",
+   "start": 319.878,
+   "end": 320.017
+  },
+  {
+   "text": "rock.",
+   "start": 320.11,
+   "end": 320.609
+  },
+  {
+   "text": "One",
+   "start": 320.934,
+   "end": 321.167
+  },
+  {
+   "text": "design",
+   "start": 321.201,
+   "end": 321.643
+  },
+  {
+   "text": "is",
+   "start": 321.689,
+   "end": 321.77
+  },
+  {
+   "text": "a",
+   "start": 321.817,
+   "end": 321.84
+  },
+  {
+   "text": "palm.",
+   "start": 321.91,
+   "end": 322.409
+  },
+  {
+   "text": "The",
+   "start": 322.432,
+   "end": 322.537
+  },
+  {
+   "text": "other",
+   "start": 322.606,
+   "end": 322.804
+  },
+  {
+   "text": "is",
+   "start": 322.862,
+   "end": 322.931
+  },
+  {
+   "text": "a",
+   "start": 322.978,
+   "end": 323.001
+  },
+  {
+   "text": "map",
+   "start": 323.059,
+   "end": 323.245
+  },
+  {
+   "text": "of",
+   "start": 323.303,
+   "end": 323.361
+  },
+  {
+   "text": "Earth.",
+   "start": 323.442,
+   "end": 323.941
+  },
+  {
+   "text": "By",
+   "start": 324.185,
+   "end": 324.336
+  },
+  {
+   "text": "2011,",
+   "start": 324.406,
+   "end": 325.056
+  },
+  {
+   "text": "vegetation",
+   "start": 325.102,
+   "end": 325.706
+  },
+  {
+   "text": "covered",
+   "start": 325.776,
+   "end": 326.066
+  },
+  {
+   "text": "most",
+   "start": 326.112,
+   "end": 326.321
+  },
+  {
+   "text": "of",
+   "start": 326.368,
+   "end": 326.426
+  },
+  {
+   "text": "Palm",
+   "start": 326.496,
+   "end": 326.786
+  },
+  {
+   "text": "Jumeirah's",
+   "start": 326.844,
+   "end": 327.297
+  },
+  {
+   "text": "fronds,",
+   "start": 327.355,
+   "end": 327.993
+  },
+  {
+   "text": "and",
+   "start": 328.074,
+   "end": 328.237
+  },
+  {
+   "text": "many",
+   "start": 328.307,
+   "end": 328.504
+  },
+  {
+   "text": "buildings",
+   "start": 328.562,
+   "end": 328.957
+  },
+  {
+   "text": "stood",
+   "start": 328.992,
+   "end": 329.224
+  },
+  {
+   "text": "on",
+   "start": 329.282,
+   "end": 329.352
+  },
+  {
+   "text": "its",
+   "start": 329.398,
+   "end": 329.514
+  },
+  {
+   "text": "trunk.",
+   "start": 329.561,
+   "end": 330.071
+  },
+  {
+   "text": "In",
+   "start": 330.513,
+   "end": 330.664
+  },
+  {
+   "text": "2022,",
+   "start": 330.733,
+   "end": 331.685
+  },
+  {
+   "text": "only",
+   "start": 331.766,
+   "end": 332.022
+  },
+  {
+   "text": "a",
+   "start": 332.08,
+   "end": 332.115
+  },
+  {
+   "text": "handful",
+   "start": 332.208,
+   "end": 332.684
+  },
+  {
+   "text": "of",
+   "start": 332.753,
+   "end": 332.811
+  },
+  {
+   "text": "The",
+   "start": 332.858,
+   "end": 332.927
+  },
+  {
+   "text": "World's",
+   "start": 332.974,
+   "end": 333.299
+  },
+  {
+   "text": "islands",
+   "start": 333.369,
+   "end": 333.775
+  },
+  {
+   "text": "had",
+   "start": 333.821,
+   "end": 333.938
+  },
+  {
+   "text": "seen",
+   "start": 333.984,
+   "end": 334.205
+  },
+  {
+   "text": "development.",
+   "start": 334.274,
+   "end": 334.994
+  },
+  {
+   "text": "Similar",
+   "start": 335.598,
+   "end": 336.004
+  },
+  {
+   "text": "method.",
+   "start": 336.062,
+   "end": 336.631
+  },
+  {
+   "text": "Very",
+   "start": 337.014,
+   "end": 337.258
+  },
+  {
+   "text": "different",
+   "start": 337.304,
+   "end": 337.594
+  },
+  {
+   "text": "outcomes.",
+   "start": 337.629,
+   "end": 338.349
+  },
+  {
+   "text": "What",
+   "start": 338.86,
+   "end": 339.045
+  },
+  {
+   "text": "keeps",
+   "start": 339.104,
+   "end": 339.359
+  },
+  {
+   "text": "new",
+   "start": 339.44,
+   "end": 339.603
+  },
+  {
+   "text": "land",
+   "start": 339.672,
+   "end": 339.974
+  },
+  {
+   "text": "from",
+   "start": 340.044,
+   "end": 340.183
+  },
+  {
+   "text": "washing",
+   "start": 340.253,
+   "end": 340.59
+  },
+  {
+   "text": "away?",
+   "start": 340.648,
+   "end": 341.205
+  },
+  {
+   "text": "In",
+   "start": 341.646,
+   "end": 341.785
+  },
+  {
+   "text": "NASA's",
+   "start": 341.832,
+   "end": 342.203
+  },
+  {
+   "text": "account,",
+   "start": 342.238,
+   "end": 342.807
+  },
+  {
+   "text": "rock",
+   "start": 343.016,
+   "end": 343.237
+  },
+  {
+   "text": "breakwaters",
+   "start": 343.295,
+   "end": 343.922
+  },
+  {
+   "text": "protect",
+   "start": 343.98,
+   "end": 344.328
+  },
+  {
+   "text": "the",
+   "start": 344.363,
+   "end": 344.432
+  },
+  {
+   "text": "islands",
+   "start": 344.525,
+   "end": 344.885
+  },
+  {
+   "text": "from",
+   "start": 344.92,
+   "end": 345.059
+  },
+  {
+   "text": "erosion.",
+   "start": 345.117,
+   "end": 345.849
+  },
+  {
+   "text": "Around",
+   "start": 346.232,
+   "end": 346.557
+  },
+  {
+   "text": "Palm",
+   "start": 346.604,
+   "end": 346.905
+  },
+  {
+   "text": "Jumeirah",
+   "start": 346.975,
+   "end": 347.521
+  },
+  {
+   "text": "and",
+   "start": 347.567,
+   "end": 347.718
+  },
+  {
+   "text": "Palm",
+   "start": 347.799,
+   "end": 348.09
+  },
+  {
+   "text": "Jebel",
+   "start": 348.171,
+   "end": 348.554
+  },
+  {
+   "text": "Ali,",
+   "start": 348.647,
+   "end": 349.239
+  },
+  {
+   "text": "they",
+   "start": 349.367,
+   "end": 349.506
+  },
+  {
+   "text": "form",
+   "start": 349.552,
+   "end": 349.796
+  },
+  {
+   "text": "a",
+   "start": 349.843,
+   "end": 349.866
+  },
+  {
+   "text": "circular",
+   "start": 349.936,
+   "end": 350.354
+  },
+  {
+   "text": "storm",
+   "start": 350.412,
+   "end": 350.748
+  },
+  {
+   "text": "barrier:",
+   "start": 350.818,
+   "end": 351.445
+  },
+  {
+   "text": "stone",
+   "start": 351.724,
+   "end": 352.188
+  },
+  {
+   "text": "on",
+   "start": 352.234,
+   "end": 352.339
+  },
+  {
+   "text": "the",
+   "start": 352.374,
+   "end": 352.443
+  },
+  {
+   "text": "outside,",
+   "start": 352.513,
+   "end": 353.256
+  },
+  {
+   "text": "sand",
+   "start": 353.372,
+   "end": 353.825
+  },
+  {
+   "text": "on",
+   "start": 353.918,
+   "end": 354.022
+  },
+  {
+   "text": "the",
+   "start": 354.057,
+   "end": 354.127
+  },
+  {
+   "text": "inside.",
+   "start": 354.197,
+   "end": 354.998
+  },
+  {
+   "text": "Now",
+   "start": 355.439,
+   "end": 355.613
+  },
+  {
+   "text": "widen",
+   "start": 355.683,
+   "end": 356.031
+  },
+  {
+   "text": "the",
+   "start": 356.077,
+   "end": 356.147
+  },
+  {
+   "text": "view.",
+   "start": 356.194,
+   "end": 357.076
+  },
+  {
+   "text": "In",
+   "start": 357.076,
+   "end": 357.25
+  },
+  {
+   "text": "2000,",
+   "start": 357.32,
+   "end": 358.086
+  },
+  {
+   "text": "the",
+   "start": 358.225,
+   "end": 358.33
+  },
+  {
+   "text": "land",
+   "start": 358.411,
+   "end": 358.69
+  },
+  {
+   "text": "inland",
+   "start": 358.771,
+   "end": 359.212
+  },
+  {
+   "text": "was",
+   "start": 359.27,
+   "end": 359.433
+  },
+  {
+   "text": "mostly",
+   "start": 359.514,
+   "end": 360.048
+  },
+  {
+   "text": "empty",
+   "start": 360.211,
+   "end": 360.594
+  },
+  {
+   "text": "desert.",
+   "start": 360.675,
+   "end": 361.244
+  },
+  {
+   "text": "By",
+   "start": 361.557,
+   "end": 361.708
+  },
+  {
+   "text": "2011,",
+   "start": 361.766,
+   "end": 362.823
+  },
+  {
+   "text": "NASA",
+   "start": 363.09,
+   "end": 363.473
+  },
+  {
+   "text": "reports,",
+   "start": 363.52,
+   "end": 364.205
+  },
+  {
+   "text": "roads,",
+   "start": 364.379,
+   "end": 364.971
+  },
+  {
+   "text": "buildings",
+   "start": 365.052,
+   "end": 365.609
+  },
+  {
+   "text": "and",
+   "start": 365.667,
+   "end": 365.818
+  },
+  {
+   "text": "irrigated",
+   "start": 365.934,
+   "end": 366.48
+  },
+  {
+   "text": "land",
+   "start": 366.538,
+   "end": 366.968
+  },
+  {
+   "text": "covered",
+   "start": 367.165,
+   "end": 367.502
+  },
+  {
+   "text": "almost",
+   "start": 367.548,
+   "end": 367.862
+  },
+  {
+   "text": "all",
+   "start": 367.943,
+   "end": 368.222
+  },
+  {
+   "text": "of",
+   "start": 368.28,
+   "end": 368.326
+  },
+  {
+   "text": "this",
+   "start": 368.384,
+   "end": 368.523
+  },
+  {
+   "text": "area.",
+   "start": 368.593,
+   "end": 369.197
+  },
+  {
+   "text": "The",
+   "start": 369.568,
+   "end": 369.684
+  },
+  {
+   "text": "coast",
+   "start": 369.731,
+   "end": 369.998
+  },
+  {
+   "text": "was",
+   "start": 370.044,
+   "end": 370.149
+  },
+  {
+   "text": "changing,",
+   "start": 370.218,
+   "end": 370.857
+  },
+  {
+   "text": "and",
+   "start": 371.008,
+   "end": 371.147
+  },
+  {
+   "text": "so",
+   "start": 371.217,
+   "end": 371.379
+  },
+  {
+   "text": "was",
+   "start": 371.426,
+   "end": 371.565
+  },
+  {
+   "text": "everything",
+   "start": 371.635,
+   "end": 372.041
+  },
+  {
+   "text": "behind",
+   "start": 372.111,
+   "end": 372.471
+  },
+  {
+   "text": "it.",
+   "start": 372.54,
+   "end": 372.831
+  },
+  {
+   "text": "A",
+   "start": 373.26,
+   "end": 373.342
+  },
+  {
+   "text": "note",
+   "start": 373.446,
+   "end": 373.725
+  },
+  {
+   "text": "on",
+   "start": 373.783,
+   "end": 373.957
+  },
+  {
+   "text": "method.",
+   "start": 374.015,
+   "end": 374.572
+  },
+  {
+   "text": "Every",
+   "start": 374.944,
+   "end": 375.234
+  },
+  {
+   "text": "image",
+   "start": 375.304,
+   "end": 375.594
+  },
+  {
+   "text": "here",
+   "start": 375.629,
+   "end": 375.826
+  },
+  {
+   "text": "carries",
+   "start": 375.884,
+   "end": 376.314
+  },
+  {
+   "text": "its",
+   "start": 376.383,
+   "end": 376.523
+  },
+  {
+   "text": "source,",
+   "start": 376.569,
+   "end": 377.034
+  },
+  {
+   "text": "its",
+   "start": 377.103,
+   "end": 377.312
+  },
+  {
+   "text": "instrument",
+   "start": 377.393,
+   "end": 378.078
+  },
+  {
+   "text": "and",
+   "start": 378.171,
+   "end": 378.403
+  },
+  {
+   "text": "its",
+   "start": 378.485,
+   "end": 378.636
+  },
+  {
+   "text": "year.",
+   "start": 378.694,
+   "end": 379.297
+  },
+  {
+   "text": "Most",
+   "start": 379.808,
+   "end": 380.087
+  },
+  {
+   "text": "come",
+   "start": 380.145,
+   "end": 380.377
+  },
+  {
+   "text": "from",
+   "start": 380.412,
+   "end": 380.575
+  },
+  {
+   "text": "ASTER,",
+   "start": 380.656,
+   "end": 381.352
+  },
+  {
+   "text": "an",
+   "start": 381.527,
+   "end": 381.666
+  },
+  {
+   "text": "instrument",
+   "start": 381.736,
+   "end": 382.223
+  },
+  {
+   "text": "on",
+   "start": 382.281,
+   "end": 382.374
+  },
+  {
+   "text": "a",
+   "start": 382.421,
+   "end": 382.444
+  },
+  {
+   "text": "satellite.",
+   "start": 382.502,
+   "end": 383.28
+  },
+  {
+   "text": "One",
+   "start": 383.721,
+   "end": 383.93
+  },
+  {
+   "text": "is",
+   "start": 383.965,
+   "end": 384.046
+  },
+  {
+   "text": "a",
+   "start": 384.092,
+   "end": 384.127
+  },
+  {
+   "text": "photograph",
+   "start": 384.174,
+   "end": 384.754
+  },
+  {
+   "text": "taken",
+   "start": 384.801,
+   "end": 385.091
+  },
+  {
+   "text": "by",
+   "start": 385.149,
+   "end": 385.288
+  },
+  {
+   "text": "an",
+   "start": 385.346,
+   "end": 385.404
+  },
+  {
+   "text": "astronaut",
+   "start": 385.462,
+   "end": 386.054
+  },
+  {
+   "text": "with",
+   "start": 386.101,
+   "end": 386.229
+  },
+  {
+   "text": "a",
+   "start": 386.263,
+   "end": 386.287
+  },
+  {
+   "text": "Nikon",
+   "start": 386.356,
+   "end": 386.832
+  },
+  {
+   "text": "camera.",
+   "start": 386.914,
+   "end": 387.552
+  },
+  {
+   "text": "They",
+   "start": 387.935,
+   "end": 388.098
+  },
+  {
+   "text": "are",
+   "start": 388.144,
+   "end": 388.272
+  },
+  {
+   "text": "separate",
+   "start": 388.33,
+   "end": 388.736
+  },
+  {
+   "text": "pictures",
+   "start": 388.783,
+   "end": 389.212
+  },
+  {
+   "text": "from",
+   "start": 389.27,
+   "end": 389.433
+  },
+  {
+   "text": "separate",
+   "start": 389.526,
+   "end": 389.955
+  },
+  {
+   "text": "days,",
+   "start": 390.002,
+   "end": 390.687
+  },
+  {
+   "text": "not",
+   "start": 390.931,
+   "end": 391.116
+  },
+  {
+   "text": "moving",
+   "start": 391.175,
+   "end": 391.43
+  },
+  {
+   "text": "footage,",
+   "start": 391.476,
+   "end": 392.022
+  },
+  {
+   "text": "and",
+   "start": 392.196,
+   "end": 392.347
+  },
+  {
+   "text": "we",
+   "start": 392.417,
+   "end": 392.521
+  },
+  {
+   "text": "never",
+   "start": 392.603,
+   "end": 392.823
+  },
+  {
+   "text": "overlay",
+   "start": 392.904,
+   "end": 393.427
+  },
+  {
+   "text": "one",
+   "start": 393.543,
+   "end": 393.903
+  },
+  {
+   "text": "on",
+   "start": 393.973,
+   "end": 394.17
+  },
+  {
+   "text": "another.",
+   "start": 394.216,
+   "end": 394.843
+  },
+  {
+   "text": "For",
+   "start": 395.528,
+   "end": 395.679
+  },
+  {
+   "text": "one",
+   "start": 395.749,
+   "end": 395.9
+  },
+  {
+   "text": "image,",
+   "start": 395.946,
+   "end": 396.434
+  },
+  {
+   "text": "NASA's",
+   "start": 396.643,
+   "end": 397.084
+  },
+  {
+   "text": "text",
+   "start": 397.142,
+   "end": 397.479
+  },
+  {
+   "text": "and",
+   "start": 397.514,
+   "end": 397.595
+  },
+  {
+   "text": "caption",
+   "start": 397.653,
+   "end": 398.071
+  },
+  {
+   "text": "disagree",
+   "start": 398.141,
+   "end": 398.617
+  },
+  {
+   "text": "on",
+   "start": 398.663,
+   "end": 398.744
+  },
+  {
+   "text": "the",
+   "start": 398.791,
+   "end": 398.86
+  },
+  {
+   "text": "month,",
+   "start": 398.918,
+   "end": 399.418
+  },
+  {
+   "text": "so",
+   "start": 399.65,
+   "end": 399.778
+  },
+  {
+   "text": "we",
+   "start": 399.836,
+   "end": 399.928
+  },
+  {
+   "text": "give",
+   "start": 399.998,
+   "end": 400.195
+  },
+  {
+   "text": "only",
+   "start": 400.242,
+   "end": 400.451
+  },
+  {
+   "text": "the",
+   "start": 400.509,
+   "end": 400.59
+  },
+  {
+   "text": "year.",
+   "start": 400.66,
+   "end": 401.217
+  },
+  {
+   "text": "Lay",
+   "start": 401.531,
+   "end": 401.74
+  },
+  {
+   "text": "out",
+   "start": 401.798,
+   "end": 401.937
+  },
+  {
+   "text": "the",
+   "start": 401.983,
+   "end": 402.053
+  },
+  {
+   "text": "whole",
+   "start": 402.1,
+   "end": 402.297
+  },
+  {
+   "text": "record.",
+   "start": 402.343,
+   "end": 402.866
+  },
+  {
+   "text": "Twelve",
+   "start": 403.133,
+   "end": 403.678
+  },
+  {
+   "text": "ASTER",
+   "start": 403.748,
+   "end": 404.213
+  },
+  {
+   "text": "images,",
+   "start": 404.282,
+   "end": 405.048
+  },
+  {
+   "text": "from",
+   "start": 405.199,
+   "end": 405.385
+  },
+  {
+   "text": "November",
+   "start": 405.443,
+   "end": 405.884
+  },
+  {
+   "text": "2000",
+   "start": 405.965,
+   "end": 406.743
+  },
+  {
+   "text": "to",
+   "start": 406.894,
+   "end": 407.022
+  },
+  {
+   "text": "2011.",
+   "start": 407.115,
+   "end": 408.322
+  },
+  {
+   "text": "Empty",
+   "start": 408.554,
+   "end": 408.914
+  },
+  {
+   "text": "sea.",
+   "start": 408.996,
+   "end": 409.437
+  },
+  {
+   "text": "The",
+   "start": 409.576,
+   "end": 409.692
+  },
+  {
+   "text": "first",
+   "start": 409.75,
+   "end": 410.006
+  },
+  {
+   "text": "early",
+   "start": 410.052,
+   "end": 410.284
+  },
+  {
+   "text": "stage.",
+   "start": 410.342,
+   "end": 410.981
+  },
+  {
+   "text": "Sandy",
+   "start": 411.178,
+   "end": 411.55
+  },
+  {
+   "text": "fronds",
+   "start": 411.631,
+   "end": 412.107
+  },
+  {
+   "text": "inside",
+   "start": 412.177,
+   "end": 412.757
+  },
+  {
+   "text": "a",
+   "start": 412.78,
+   "end": 412.815
+  },
+  {
+   "text": "ring.",
+   "start": 412.896,
+   "end": 413.396
+  },
+  {
+   "text": "A",
+   "start": 413.57,
+   "end": 413.651
+  },
+  {
+   "text": "finished",
+   "start": 413.744,
+   "end": 414.104
+  },
+  {
+   "text": "palm.",
+   "start": 414.174,
+   "end": 414.847
+  },
+  {
+   "text": "Years",
+   "start": 415.079,
+   "end": 415.451
+  },
+  {
+   "text": "of",
+   "start": 415.509,
+   "end": 415.567
+  },
+  {
+   "text": "buildings",
+   "start": 415.66,
+   "end": 416.136
+  },
+  {
+   "text": "and",
+   "start": 416.182,
+   "end": 416.263
+  },
+  {
+   "text": "vegetation.",
+   "start": 416.333,
+   "end": 417.204
+  },
+  {
+   "text": "Each",
+   "start": 417.448,
+   "end": 417.68
+  },
+  {
+   "text": "one",
+   "start": 417.738,
+   "end": 417.958
+  },
+  {
+   "text": "is",
+   "start": 418.005,
+   "end": 418.098
+  },
+  {
+   "text": "a",
+   "start": 418.144,
+   "end": 418.167
+  },
+  {
+   "text": "dated",
+   "start": 418.237,
+   "end": 418.574
+  },
+  {
+   "text": "fact.",
+   "start": 418.643,
+   "end": 419.166
+  },
+  {
+   "text": "Together,",
+   "start": 419.398,
+   "end": 420.025
+  },
+  {
+   "text": "they",
+   "start": 420.071,
+   "end": 420.222
+  },
+  {
+   "text": "are",
+   "start": 420.269,
+   "end": 420.385
+  },
+  {
+   "text": "a",
+   "start": 420.42,
+   "end": 420.455
+  },
+  {
+   "text": "timeline",
+   "start": 420.513,
+   "end": 421.082
+  },
+  {
+   "text": "you",
+   "start": 421.116,
+   "end": 421.198
+  },
+  {
+   "text": "can",
+   "start": 421.256,
+   "end": 421.36
+  },
+  {
+   "text": "check.",
+   "start": 421.418,
+   "end": 421.883
+  },
+  {
+   "text": "NASA",
+   "start": 422.37,
+   "end": 422.765
+  },
+  {
+   "text": "says",
+   "start": 422.788,
+   "end": 423.02
+  },
+  {
+   "text": "both",
+   "start": 423.102,
+   "end": 423.334
+  },
+  {
+   "text": "palm-shaped",
+   "start": 423.415,
+   "end": 424.088
+  },
+  {
+   "text": "islands",
+   "start": 424.147,
+   "end": 424.646
+  },
+  {
+   "text": "stand",
+   "start": 424.82,
+   "end": 425.215
+  },
+  {
+   "text": "out",
+   "start": 425.284,
+   "end": 425.482
+  },
+  {
+   "text": "in",
+   "start": 425.551,
+   "end": 425.644
+  },
+  {
+   "text": "the",
+   "start": 425.691,
+   "end": 425.76
+  },
+  {
+   "text": "2022",
+   "start": 425.83,
+   "end": 426.689
+  },
+  {
+   "text": "astronaut",
+   "start": 426.759,
+   "end": 427.27
+  },
+  {
+   "text": "photograph.",
+   "start": 427.316,
+   "end": 428.164
+  },
+  {
+   "text": "Both",
+   "start": 428.431,
+   "end": 428.744
+  },
+  {
+   "text": "are",
+   "start": 428.802,
+   "end": 429.011
+  },
+  {
+   "text": "ringed",
+   "start": 429.069,
+   "end": 429.452
+  },
+  {
+   "text": "by",
+   "start": 429.522,
+   "end": 429.684
+  },
+  {
+   "text": "circular",
+   "start": 429.801,
+   "end": 430.265
+  },
+  {
+   "text": "storm",
+   "start": 430.335,
+   "end": 430.671
+  },
+  {
+   "text": "barriers.",
+   "start": 430.729,
+   "end": 431.484
+  },
+  {
+   "text": "But",
+   "start": 431.867,
+   "end": 432.006
+  },
+  {
+   "text": "according",
+   "start": 432.03,
+   "end": 432.39
+  },
+  {
+   "text": "to",
+   "start": 432.448,
+   "end": 432.506
+  },
+  {
+   "text": "NASA's",
+   "start": 432.575,
+   "end": 432.958
+  },
+  {
+   "text": "caption,",
+   "start": 433.017,
+   "end": 433.678
+  },
+  {
+   "text": "Palm",
+   "start": 433.876,
+   "end": 434.189
+  },
+  {
+   "text": "Jebel",
+   "start": 434.282,
+   "end": 434.595
+  },
+  {
+   "text": "Ali",
+   "start": 434.688,
+   "end": 435.199
+  },
+  {
+   "text": "remains",
+   "start": 435.315,
+   "end": 435.675
+  },
+  {
+   "text": "mostly",
+   "start": 435.756,
+   "end": 436.198
+  },
+  {
+   "text": "undeveloped,",
+   "start": 436.291,
+   "end": 437.196
+  },
+  {
+   "text": "though",
+   "start": 437.393,
+   "end": 437.614
+  },
+  {
+   "text": "it",
+   "start": 437.649,
+   "end": 437.719
+  },
+  {
+   "text": "already",
+   "start": 437.765,
+   "end": 438.102
+  },
+  {
+   "text": "looked",
+   "start": 438.16,
+   "end": 438.38
+  },
+  {
+   "text": "largely",
+   "start": 438.438,
+   "end": 438.914
+  },
+  {
+   "text": "complete",
+   "start": 438.972,
+   "end": 439.541
+  },
+  {
+   "text": "as",
+   "start": 439.588,
+   "end": 439.762
+  },
+  {
+   "text": "a",
+   "start": 439.82,
+   "end": 439.855
+  },
+  {
+   "text": "landform",
+   "start": 439.925,
+   "end": 440.575
+  },
+  {
+   "text": "in",
+   "start": 440.656,
+   "end": 440.772
+  },
+  {
+   "text": "2006.",
+   "start": 440.842,
+   "end": 442.165
+  },
+  {
+   "text": "A",
+   "start": 442.595,
+   "end": 442.676
+  },
+  {
+   "text": "finished",
+   "start": 442.792,
+   "end": 443.199
+  },
+  {
+   "text": "shape",
+   "start": 443.291,
+   "end": 443.686
+  },
+  {
+   "text": "is",
+   "start": 443.733,
+   "end": 443.826
+  },
+  {
+   "text": "not",
+   "start": 443.895,
+   "end": 444.035
+  },
+  {
+   "text": "a",
+   "start": 444.069,
+   "end": 444.093
+  },
+  {
+   "text": "finished",
+   "start": 444.139,
+   "end": 444.511
+  },
+  {
+   "text": "city.",
+   "start": 444.627,
+   "end": 445.196
+  },
+  {
+   "text": "So",
+   "start": 445.509,
+   "end": 445.706
+  },
+  {
+   "text": "this",
+   "start": 445.764,
+   "end": 445.927
+  },
+  {
+   "text": "is",
+   "start": 445.997,
+   "end": 446.113
+  },
+  {
+   "text": "not",
+   "start": 446.194,
+   "end": 446.403
+  },
+  {
+   "text": "a",
+   "start": 446.461,
+   "end": 446.484
+  },
+  {
+   "text": "story",
+   "start": 446.554,
+   "end": 446.972
+  },
+  {
+   "text": "of",
+   "start": 447.053,
+   "end": 447.158
+  },
+  {
+   "text": "simple",
+   "start": 447.227,
+   "end": 447.576
+  },
+  {
+   "text": "success",
+   "start": 447.622,
+   "end": 448.168
+  },
+  {
+   "text": "or",
+   "start": 448.237,
+   "end": 448.388
+  },
+  {
+   "text": "failure.",
+   "start": 448.47,
+   "end": 449.108
+  },
+  {
+   "text": "It",
+   "start": 449.375,
+   "end": 449.514
+  },
+  {
+   "text": "is",
+   "start": 449.561,
+   "end": 449.642
+  },
+  {
+   "text": "a",
+   "start": 449.689,
+   "end": 449.723
+  },
+  {
+   "text": "record",
+   "start": 449.84,
+   "end": 450.165
+  },
+  {
+   "text": "of",
+   "start": 450.223,
+   "end": 450.292
+  },
+  {
+   "text": "what",
+   "start": 450.35,
+   "end": 450.49
+  },
+  {
+   "text": "was",
+   "start": 450.548,
+   "end": 450.675
+  },
+  {
+   "text": "built,",
+   "start": 450.745,
+   "end": 451.244
+  },
+  {
+   "text": "what",
+   "start": 451.442,
+   "end": 451.627
+  },
+  {
+   "text": "was",
+   "start": 451.685,
+   "end": 451.813
+  },
+  {
+   "text": "delayed,",
+   "start": 451.883,
+   "end": 452.556
+  },
+  {
+   "text": "and",
+   "start": 452.73,
+   "end": 452.905
+  },
+  {
+   "text": "what",
+   "start": 452.986,
+   "end": 453.148
+  },
+  {
+   "text": "was",
+   "start": 453.195,
+   "end": 453.334
+  },
+  {
+   "text": "only",
+   "start": 453.404,
+   "end": 453.682
+  },
+  {
+   "text": "planned.",
+   "start": 453.752,
+   "end": 454.483
+  },
+  {
+   "text": "A",
+   "start": 454.901,
+   "end": 454.983
+  },
+  {
+   "text": "map",
+   "start": 455.064,
+   "end": 455.285
+  },
+  {
+   "text": "of",
+   "start": 455.343,
+   "end": 455.412
+  },
+  {
+   "text": "this",
+   "start": 455.47,
+   "end": 455.621
+  },
+  {
+   "text": "coast",
+   "start": 455.691,
+   "end": 456.086
+  },
+  {
+   "text": "drawn",
+   "start": 456.179,
+   "end": 456.573
+  },
+  {
+   "text": "in",
+   "start": 456.631,
+   "end": 456.701
+  },
+  {
+   "text": "2000",
+   "start": 456.782,
+   "end": 457.49
+  },
+  {
+   "text": "would",
+   "start": 457.571,
+   "end": 457.769
+  },
+  {
+   "text": "show",
+   "start": 457.815,
+   "end": 458.047
+  },
+  {
+   "text": "open",
+   "start": 458.163,
+   "end": 458.5
+  },
+  {
+   "text": "water",
+   "start": 458.593,
+   "end": 458.953
+  },
+  {
+   "text": "here.",
+   "start": 459.034,
+   "end": 459.592
+  },
+  {
+   "text": "By",
+   "start": 460.021,
+   "end": 460.184
+  },
+  {
+   "text": "November",
+   "start": 460.265,
+   "end": 460.59
+  },
+  {
+   "text": "2003,",
+   "start": 460.648,
+   "end": 461.507
+  },
+  {
+   "text": "that",
+   "start": 461.542,
+   "end": 461.716
+  },
+  {
+   "text": "map",
+   "start": 461.809,
+   "end": 462.03
+  },
+  {
+   "text": "would",
+   "start": 462.088,
+   "end": 462.227
+  },
+  {
+   "text": "be",
+   "start": 462.262,
+   "end": 462.355
+  },
+  {
+   "text": "wrong.",
+   "start": 462.39,
+   "end": 463.074
+  },
+  {
+   "text": "The",
+   "start": 463.655,
+   "end": 463.759
+  },
+  {
+   "text": "method",
+   "start": 463.829,
+   "end": 464.096
+  },
+  {
+   "text": "NASA",
+   "start": 464.154,
+   "end": 464.503
+  },
+  {
+   "text": "describes",
+   "start": 464.537,
+   "end": 465.083
+  },
+  {
+   "text": "is",
+   "start": 465.129,
+   "end": 465.222
+  },
+  {
+   "text": "simple",
+   "start": 465.269,
+   "end": 465.547
+  },
+  {
+   "text": "to",
+   "start": 465.582,
+   "end": 465.64
+  },
+  {
+   "text": "state:",
+   "start": 465.698,
+   "end": 466.209
+  },
+  {
+   "text": "take",
+   "start": 466.441,
+   "end": 466.685
+  },
+  {
+   "text": "sand",
+   "start": 466.743,
+   "end": 467.057
+  },
+  {
+   "text": "from",
+   "start": 467.126,
+   "end": 467.254
+  },
+  {
+   "text": "the",
+   "start": 467.301,
+   "end": 467.37
+  },
+  {
+   "text": "sea",
+   "start": 467.405,
+   "end": 467.591
+  },
+  {
+   "text": "floor,",
+   "start": 467.649,
+   "end": 468.229
+  },
+  {
+   "text": "ring",
+   "start": 468.438,
+   "end": 468.612
+  },
+  {
+   "text": "it",
+   "start": 468.647,
+   "end": 468.717
+  },
+  {
+   "text": "with",
+   "start": 468.763,
+   "end": 468.891
+  },
+  {
+   "text": "rock,",
+   "start": 468.961,
+   "end": 469.414
+  },
+  {
+   "text": "and",
+   "start": 469.53,
+   "end": 469.681
+  },
+  {
+   "text": "a",
+   "start": 469.727,
+   "end": 469.75
+  },
+  {
+   "text": "coastline",
+   "start": 469.808,
+   "end": 470.4
+  },
+  {
+   "text": "stops",
+   "start": 470.447,
+   "end": 470.784
+  },
+  {
+   "text": "being",
+   "start": 470.842,
+   "end": 471.051
+  },
+  {
+   "text": "a",
+   "start": 471.097,
+   "end": 471.12
+  },
+  {
+   "text": "fixed",
+   "start": 471.178,
+   "end": 471.457
+  },
+  {
+   "text": "line.",
+   "start": 471.538,
+   "end": 472.107
+  },
+  {
+   "text": "It",
+   "start": 472.525,
+   "end": 472.653
+  },
+  {
+   "text": "gave",
+   "start": 472.711,
+   "end": 472.92
+  },
+  {
+   "text": "Dubai",
+   "start": 472.966,
+   "end": 473.396
+  },
+  {
+   "text": "a",
+   "start": 473.454,
+   "end": 473.5
+  },
+  {
+   "text": "palm.",
+   "start": 473.581,
+   "end": 474.255
+  },
+  {
+   "text": "It",
+   "start": 474.522,
+   "end": 474.649
+  },
+  {
+   "text": "also",
+   "start": 474.696,
+   "end": 474.963
+  },
+  {
+   "text": "gave",
+   "start": 475.033,
+   "end": 475.23
+  },
+  {
+   "text": "a",
+   "start": 475.265,
+   "end": 475.288
+  },
+  {
+   "text": "plan",
+   "start": 475.346,
+   "end": 475.671
+  },
+  {
+   "text": "for",
+   "start": 475.741,
+   "end": 475.88
+  },
+  {
+   "text": "a",
+   "start": 475.926,
+   "end": 475.95
+  },
+  {
+   "text": "map",
+   "start": 476.031,
+   "end": 476.228
+  },
+  {
+   "text": "of",
+   "start": 476.286,
+   "end": 476.356
+  },
+  {
+   "text": "Earth.",
+   "start": 476.472,
+   "end": 476.913
+  },
+  {
+   "text": "November",
+   "start": 477.146,
+   "end": 477.552
+  },
+  {
+   "text": "2000:",
+   "start": 477.622,
+   "end": 478.434
+  },
+  {
+   "text": "open",
+   "start": 478.632,
+   "end": 478.968
+  },
+  {
+   "text": "sea.",
+   "start": 479.084,
+   "end": 479.642
+  },
+  {
+   "text": "November",
+   "start": 480.42,
+   "end": 480.826
+  },
+  {
+   "text": "2003:",
+   "start": 480.896,
+   "end": 482.103
+  },
+  {
+   "text": "a",
+   "start": 482.416,
+   "end": 482.475
+  },
+  {
+   "text": "palm,",
+   "start": 482.591,
+   "end": 483.136
+  },
+  {
+   "text": "inside",
+   "start": 483.252,
+   "end": 483.74
+  },
+  {
+   "text": "its",
+   "start": 483.775,
+   "end": 483.903
+  },
+  {
+   "text": "ring.",
+   "start": 483.949,
+   "end": 484.448
+  },
+  {
+   "text": "In",
+   "start": 484.866,
+   "end": 485.005
+  },
+  {
+   "text": "2022,",
+   "start": 485.064,
+   "end": 485.888
+  },
+  {
+   "text": "an",
+   "start": 485.911,
+   "end": 485.992
+  },
+  {
+   "text": "astronaut",
+   "start": 486.039,
+   "end": 486.538
+  },
+  {
+   "text": "photographs",
+   "start": 486.596,
+   "end": 487.142
+  },
+  {
+   "text": "the",
+   "start": 487.188,
+   "end": 487.246
+  },
+  {
+   "text": "palm",
+   "start": 487.293,
+   "end": 487.595
+  },
+  {
+   "text": "islands",
+   "start": 487.687,
+   "end": 488.071
+  },
+  {
+   "text": "from",
+   "start": 488.094,
+   "end": 488.256
+  },
+  {
+   "text": "orbit.",
+   "start": 488.349,
+   "end": 488.79
+  },
+  {
+   "text": "And",
+   "start": 488.941,
+   "end": 489.104
+  },
+  {
+   "text": "NASA's",
+   "start": 489.173,
+   "end": 489.58
+  },
+  {
+   "text": "caption",
+   "start": 489.626,
+   "end": 490.067
+  },
+  {
+   "text": "notes",
+   "start": 490.149,
+   "end": 490.369
+  },
+  {
+   "text": "that",
+   "start": 490.416,
+   "end": 490.555
+  },
+  {
+   "text": "other",
+   "start": 490.613,
+   "end": 490.81
+  },
+  {
+   "text": "projects",
+   "start": 490.869,
+   "end": 491.379
+  },
+  {
+   "text": "were",
+   "start": 491.414,
+   "end": 491.577
+  },
+  {
+   "text": "delayed,",
+   "start": 491.623,
+   "end": 492.239
+  },
+  {
+   "text": "scaled",
+   "start": 492.355,
+   "end": 492.796
+  },
+  {
+   "text": "back,",
+   "start": 492.854,
+   "end": 493.283
+  },
+  {
+   "text": "or",
+   "start": 493.365,
+   "end": 493.504
+  },
+  {
+   "text": "put",
+   "start": 493.562,
+   "end": 493.725
+  },
+  {
+   "text": "on",
+   "start": 493.771,
+   "end": 493.899
+  },
+  {
+   "text": "hold.",
+   "start": 493.98,
+   "end": 494.503
+  },
+  {
+   "text": "A",
+   "start": 494.851,
+   "end": 494.921
+  },
+  {
+   "text": "coastline",
+   "start": 495.002,
+   "end": 495.478
+  },
+  {
+   "text": "is",
+   "start": 495.513,
+   "end": 495.582
+  },
+  {
+   "text": "not",
+   "start": 495.652,
+   "end": 495.791
+  },
+  {
+   "text": "only",
+   "start": 495.838,
+   "end": 496.023
+  },
+  {
+   "text": "where",
+   "start": 496.07,
+   "end": 496.232
+  },
+  {
+   "text": "the",
+   "start": 496.267,
+   "end": 496.337
+  },
+  {
+   "text": "land",
+   "start": 496.395,
+   "end": 496.697
+  },
+  {
+   "text": "ends.",
+   "start": 496.766,
+   "end": 497.37
+  },
+  {
+   "text": "Sometimes,",
+   "start": 497.626,
+   "end": 498.287
+  },
+  {
+   "text": "it",
+   "start": 498.345,
+   "end": 498.462
+  },
+  {
+   "text": "is",
+   "start": 498.52,
+   "end": 498.601
+  },
+  {
+   "text": "a",
+   "start": 498.647,
+   "end": 498.682
+  },
+  {
+   "text": "decision.",
+   "start": 498.729,
+   "end": 499.367
+  },
+  {
+   "text": "And",
+   "start": 499.657,
+   "end": 499.797
+  },
+  {
+   "text": "from",
+   "start": 499.855,
+   "end": 499.982
+  },
+  {
+   "text": "orbit,",
+   "start": 500.052,
+   "end": 500.424
+  },
+  {
+   "text": "you",
+   "start": 500.458,
+   "end": 500.563
+  },
+  {
+   "text": "can",
+   "start": 500.609,
+   "end": 500.714
+  },
+  {
+   "text": "check",
+   "start": 500.76,
+   "end": 500.958
+  },
+  {
+   "text": "the",
+   "start": 501.016,
+   "end": 501.085
+  },
+  {
+   "text": "dates.",
+   "start": 501.132,
+   "end": 501.654
+  },
+  {
+   "text": "Imagery:",
+   "start": 502.13,
+   "end": 502.815
+  },
+  {
+   "text": "NASA",
+   "start": 503.117,
+   "end": 503.558
+  },
+  {
+   "text": "Earth",
+   "start": 503.628,
+   "end": 503.86
+  },
+  {
+   "text": "Observatory.",
+   "start": 503.895,
+   "end": 504.719
+  },
+  {
+   "text": "ASTER",
+   "start": 504.882,
+   "end": 505.335
+  },
+  {
+   "text": "on",
+   "start": 505.416,
+   "end": 505.509
+  },
+  {
+   "text": "the",
+   "start": 505.544,
+   "end": 505.602
+  },
+  {
+   "text": "Terra",
+   "start": 505.648,
+   "end": 505.904
+  },
+  {
+   "text": "satellite.",
+   "start": 505.962,
+   "end": 506.623
+  },
+  {
+   "text": "Astronaut",
+   "start": 507.018,
+   "end": 507.599
+  },
+  {
+   "text": "photograph",
+   "start": 507.645,
+   "end": 508.237
+  },
+  {
+   "text": "ISS067-E-3785,",
+   "start": 508.539,
+   "end": 512.463
+  },
+  {
+   "text": "ISS",
+   "start": 512.661,
+   "end": 513.392
+  },
+  {
+   "text": "Crew",
+   "start": 513.473,
+   "end": 513.787
+  },
+  {
+   "text": "Earth",
+   "start": 513.926,
+   "end": 514.158
+  },
+  {
+   "text": "Observations.",
+   "start": 514.228,
+   "end": 515.25
+  }
+ ],
+ "created": "2026-10-13T08:33:38Z",
+ "warnings": []
+}

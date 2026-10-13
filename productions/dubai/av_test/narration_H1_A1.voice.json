@@ -1,0 +1,676 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "narration_H1_A1.wav",
+ "audio_format": "wav",
+ "audio_sha256": "81b133cbb80b4fef0cb473b453920a2a637d81c9cba5d445249489537653d240",
+ "duration": 47.74,
+ "characters": 695,
+ "text": "November 2000. A satellite looks down at a patch of the Persian Gulf. There is no island here. Just sea. November 2003. The same place. A palm tree, fully formed. Between these two pictures: three years. More than two decades after that first image, an astronaut aboard the International Space Station photographs this coast. The palm-shaped islands stand out from orbit. So how do you build land where there was only sea? And what happened to the plans that came next? This is Dubai, in the United Arab Emirates, on the shore of the Persian Gulf. A coastline seems like the one thing on a map that nobody gets to choose. Dubai put that idea to the test. To see how, we go back to the year 2000.",
+ "text_sha256": "a3df47ad8717ffffc6639c5122786032cd7e84ae94197c6b328674b511bc44b9",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 695,
+   "offset": 0.0,
+   "duration": 47.74,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "November",
+   "start": 0.0,
+   "end": 0.534
+  },
+  {
+   "text": "2000.",
+   "start": 0.592,
+   "end": 1.358
+  },
+  {
+   "text": "A",
+   "start": 1.533,
+   "end": 1.614
+  },
+  {
+   "text": "satellite",
+   "start": 1.683,
+   "end": 2.206
+  },
+  {
+   "text": "looks",
+   "start": 2.241,
+   "end": 2.438
+  },
+  {
+   "text": "down",
+   "start": 2.496,
+   "end": 2.775
+  },
+  {
+   "text": "at",
+   "start": 2.821,
+   "end": 2.879
+  },
+  {
+   "text": "a",
+   "start": 2.926,
+   "end": 2.961
+  },
+  {
+   "text": "patch",
+   "start": 3.007,
+   "end": 3.262
+  },
+  {
+   "text": "of",
+   "start": 3.297,
+   "end": 3.344
+  },
+  {
+   "text": "the",
+   "start": 3.379,
+   "end": 3.448
+  },
+  {
+   "text": "Persian",
+   "start": 3.483,
+   "end": 3.808
+  },
+  {
+   "text": "Gulf.",
+   "start": 3.878,
+   "end": 4.458
+  },
+  {
+   "text": "There",
+   "start": 4.702,
+   "end": 4.876
+  },
+  {
+   "text": "is",
+   "start": 4.911,
+   "end": 4.969
+  },
+  {
+   "text": "no",
+   "start": 5.016,
+   "end": 5.108
+  },
+  {
+   "text": "island",
+   "start": 5.19,
+   "end": 5.515
+  },
+  {
+   "text": "here.",
+   "start": 5.584,
+   "end": 6.049
+  },
+  {
+   "text": "Just",
+   "start": 6.374,
+   "end": 6.641
+  },
+  {
+   "text": "sea.",
+   "start": 6.757,
+   "end": 7.303
+  },
+  {
+   "text": "November",
+   "start": 8.255,
+   "end": 8.626
+  },
+  {
+   "text": "2003.",
+   "start": 8.673,
+   "end": 9.88
+  },
+  {
+   "text": "The",
+   "start": 10.263,
+   "end": 10.379
+  },
+  {
+   "text": "same",
+   "start": 10.426,
+   "end": 10.646
+  },
+  {
+   "text": "place.",
+   "start": 10.681,
+   "end": 11.285
+  },
+  {
+   "text": "A",
+   "start": 11.726,
+   "end": 11.807
+  },
+  {
+   "text": "palm",
+   "start": 11.889,
+   "end": 12.19
+  },
+  {
+   "text": "tree,",
+   "start": 12.249,
+   "end": 12.608
+  },
+  {
+   "text": "fully",
+   "start": 12.666,
+   "end": 12.934
+  },
+  {
+   "text": "formed.",
+   "start": 13.003,
+   "end": 13.618
+  },
+  {
+   "text": "Between",
+   "start": 13.944,
+   "end": 14.303
+  },
+  {
+   "text": "these",
+   "start": 14.338,
+   "end": 14.501
+  },
+  {
+   "text": "two",
+   "start": 14.536,
+   "end": 14.663
+  },
+  {
+   "text": "pictures:",
+   "start": 14.733,
+   "end": 15.279
+  },
+  {
+   "text": "three",
+   "start": 15.488,
+   "end": 15.801
+  },
+  {
+   "text": "years.",
+   "start": 15.859,
+   "end": 16.486
+  },
+  {
+   "text": "More",
+   "start": 16.869,
+   "end": 17.02
+  },
+  {
+   "text": "than",
+   "start": 17.055,
+   "end": 17.183
+  },
+  {
+   "text": "two",
+   "start": 17.229,
+   "end": 17.38
+  },
+  {
+   "text": "decades",
+   "start": 17.461,
+   "end": 17.915
+  },
+  {
+   "text": "after",
+   "start": 17.961,
+   "end": 18.17
+  },
+  {
+   "text": "that",
+   "start": 18.217,
+   "end": 18.356
+  },
+  {
+   "text": "first",
+   "start": 18.414,
+   "end": 18.658
+  },
+  {
+   "text": "image,",
+   "start": 18.716,
+   "end": 19.145
+  },
+  {
+   "text": "an",
+   "start": 19.227,
+   "end": 19.366
+  },
+  {
+   "text": "astronaut",
+   "start": 19.436,
+   "end": 19.97
+  },
+  {
+   "text": "aboard",
+   "start": 20.016,
+   "end": 20.306
+  },
+  {
+   "text": "the",
+   "start": 20.341,
+   "end": 20.411
+  },
+  {
+   "text": "International",
+   "start": 20.469,
+   "end": 21.049
+  },
+  {
+   "text": "Space",
+   "start": 21.107,
+   "end": 21.421
+  },
+  {
+   "text": "Station",
+   "start": 21.444,
+   "end": 21.827
+  },
+  {
+   "text": "photographs",
+   "start": 21.897,
+   "end": 22.454
+  },
+  {
+   "text": "this",
+   "start": 22.489,
+   "end": 22.64
+  },
+  {
+   "text": "coast.",
+   "start": 22.71,
+   "end": 23.232
+  },
+  {
+   "text": "The",
+   "start": 23.557,
+   "end": 23.673
+  },
+  {
+   "text": "palm-shaped",
+   "start": 23.72,
+   "end": 24.347
+  },
+  {
+   "text": "islands",
+   "start": 24.416,
+   "end": 24.799
+  },
+  {
+   "text": "stand",
+   "start": 24.823,
+   "end": 25.148
+  },
+  {
+   "text": "out",
+   "start": 25.206,
+   "end": 25.345
+  },
+  {
+   "text": "from",
+   "start": 25.391,
+   "end": 25.531
+  },
+  {
+   "text": "orbit.",
+   "start": 25.6,
+   "end": 26.042
+  },
+  {
+   "text": "So",
+   "start": 26.367,
+   "end": 26.506
+  },
+  {
+   "text": "how",
+   "start": 26.576,
+   "end": 26.669
+  },
+  {
+   "text": "do",
+   "start": 26.703,
+   "end": 26.761
+  },
+  {
+   "text": "you",
+   "start": 26.82,
+   "end": 26.889
+  },
+  {
+   "text": "build",
+   "start": 26.947,
+   "end": 27.191
+  },
+  {
+   "text": "land",
+   "start": 27.272,
+   "end": 27.563
+  },
+  {
+   "text": "where",
+   "start": 27.609,
+   "end": 27.725
+  },
+  {
+   "text": "there",
+   "start": 27.748,
+   "end": 27.876
+  },
+  {
+   "text": "was",
+   "start": 27.899,
+   "end": 27.992
+  },
+  {
+   "text": "only",
+   "start": 28.062,
+   "end": 28.282
+  },
+  {
+   "text": "sea?",
+   "start": 28.364,
+   "end": 28.863
+  },
+  {
+   "text": "And",
+   "start": 29.072,
+   "end": 29.2
+  },
+  {
+   "text": "what",
+   "start": 29.246,
+   "end": 29.374
+  },
+  {
+   "text": "happened",
+   "start": 29.42,
+   "end": 29.78
+  },
+  {
+   "text": "to",
+   "start": 29.815,
+   "end": 29.873
+  },
+  {
+   "text": "the",
+   "start": 29.943,
+   "end": 30.012
+  },
+  {
+   "text": "plans",
+   "start": 30.059,
+   "end": 30.383
+  },
+  {
+   "text": "that",
+   "start": 30.418,
+   "end": 30.534
+  },
+  {
+   "text": "came",
+   "start": 30.581,
+   "end": 30.813
+  },
+  {
+   "text": "next?",
+   "start": 30.859,
+   "end": 31.394
+  },
+  {
+   "text": "This",
+   "start": 31.777,
+   "end": 31.974
+  },
+  {
+   "text": "is",
+   "start": 32.032,
+   "end": 32.113
+  },
+  {
+   "text": "Dubai,",
+   "start": 32.171,
+   "end": 32.868
+  },
+  {
+   "text": "in",
+   "start": 32.984,
+   "end": 33.1
+  },
+  {
+   "text": "the",
+   "start": 33.135,
+   "end": 33.205
+  },
+  {
+   "text": "United",
+   "start": 33.274,
+   "end": 33.623
+  },
+  {
+   "text": "Arab",
+   "start": 33.681,
+   "end": 33.924
+  },
+  {
+   "text": "Emirates,",
+   "start": 34.006,
+   "end": 34.586
+  },
+  {
+   "text": "on",
+   "start": 34.76,
+   "end": 34.9
+  },
+  {
+   "text": "the",
+   "start": 34.935,
+   "end": 35.004
+  },
+  {
+   "text": "shore",
+   "start": 35.062,
+   "end": 35.318
+  },
+  {
+   "text": "of",
+   "start": 35.353,
+   "end": 35.399
+  },
+  {
+   "text": "the",
+   "start": 35.445,
+   "end": 35.515
+  },
+  {
+   "text": "Persian",
+   "start": 35.573,
+   "end": 35.933
+  },
+  {
+   "text": "Gulf.",
+   "start": 35.991,
+   "end": 36.537
+  },
+  {
+   "text": "A",
+   "start": 37.048,
+   "end": 37.129
+  },
+  {
+   "text": "coastline",
+   "start": 37.222,
+   "end": 37.825
+  },
+  {
+   "text": "seems",
+   "start": 37.86,
+   "end": 38.116
+  },
+  {
+   "text": "like",
+   "start": 38.151,
+   "end": 38.313
+  },
+  {
+   "text": "the",
+   "start": 38.336,
+   "end": 38.406
+  },
+  {
+   "text": "one",
+   "start": 38.487,
+   "end": 38.696
+  },
+  {
+   "text": "thing",
+   "start": 38.743,
+   "end": 38.952
+  },
+  {
+   "text": "on",
+   "start": 39.01,
+   "end": 39.091
+  },
+  {
+   "text": "a",
+   "start": 39.149,
+   "end": 39.172
+  },
+  {
+   "text": "map",
+   "start": 39.253,
+   "end": 39.567
+  },
+  {
+   "text": "that",
+   "start": 39.811,
+   "end": 39.996
+  },
+  {
+   "text": "nobody",
+   "start": 40.055,
+   "end": 40.356
+  },
+  {
+   "text": "gets",
+   "start": 40.403,
+   "end": 40.589
+  },
+  {
+   "text": "to",
+   "start": 40.635,
+   "end": 40.705
+  },
+  {
+   "text": "choose.",
+   "start": 40.774,
+   "end": 41.448
+  },
+  {
+   "text": "Dubai",
+   "start": 41.959,
+   "end": 42.295
+  },
+  {
+   "text": "put",
+   "start": 42.365,
+   "end": 42.516
+  },
+  {
+   "text": "that",
+   "start": 42.551,
+   "end": 42.69
+  },
+  {
+   "text": "idea",
+   "start": 42.748,
+   "end": 43.015
+  },
+  {
+   "text": "to",
+   "start": 43.062,
+   "end": 43.131
+  },
+  {
+   "text": "the",
+   "start": 43.201,
+   "end": 43.271
+  },
+  {
+   "text": "test.",
+   "start": 43.317,
+   "end": 43.863
+  },
+  {
+   "text": "To",
+   "start": 44.246,
+   "end": 44.362
+  },
+  {
+   "text": "see",
+   "start": 44.432,
+   "end": 44.606
+  },
+  {
+   "text": "how,",
+   "start": 44.664,
+   "end": 45.291
+  },
+  {
+   "text": "we",
+   "start": 45.569,
+   "end": 45.685
+  },
+  {
+   "text": "go",
+   "start": 45.755,
+   "end": 45.86
+  },
+  {
+   "text": "back",
+   "start": 45.929,
+   "end": 46.092
+  },
+  {
+   "text": "to",
+   "start": 46.138,
+   "end": 46.196
+  },
+  {
+   "text": "the",
+   "start": 46.254,
+   "end": 46.324
+  },
+  {
+   "text": "year",
+   "start": 46.382,
+   "end": 46.591
+  },
+  {
+   "text": "2000.",
+   "start": 46.707,
+   "end": 47.74
+  }
+ ],
+ "created": "2026-10-09T12:07:13Z",
+ "warnings": []
+}

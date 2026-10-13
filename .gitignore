@@ -12,6 +12,8 @@ productions/*
 # exception: Episode 001 preproduction text (scripts, ledgers, storyboards only;
 # media stays ignored by the *.mp4 / *.wav / *.mp3 rules above)
 !productions/sahara-green/
+# Episode 002 preproduction text (research files only; media stays ignored)
+!productions/dubai/
 
 # Landsat working data for Episode 001: never commit scene bundles or GeoTIFFs
 productions/sahara-green/landsat/work/
@@ -22,3 +24,9 @@ productions/sahara-green/landsat/raw/
 
 # local-only test artefacts of the narration pipeline
 productions/sahara-green/narration/voice/partial_test/
+
+# Natural Earth data (public domain; fetch with tools/fetch_natural_earth.sh)
+data/natural_earth/
+
+# EP002 paid TTS chunk cache (audio, regenerable only by paying again: keep in stable storage, not git)
+productions/dubai/narration/voice/cache/

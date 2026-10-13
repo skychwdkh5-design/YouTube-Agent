@@ -279,6 +279,27 @@ class Settings(Base):
             self.assertEqual(code, 2); self.assertTrue(out["error"])
 
 
+class ChunkCache(Base):
+    def test_cache_saves_paid_chunk_after_failure_and_rerun_pays_only_missing(self):
+        if not HAVE_FF: self.skipTest("ffmpeg not installed")
+        cache = os.path.join(self.dir, "cache"); text = "First paragraph is right here.\n\nSecond paragraph is right here."
+        ok, calls = eleven(0.5), []
+        def flaky(req, timeout=None):
+            calls.append(1)
+            if len(calls) == 2: raise urllib.error.URLError("dropped")
+            return ok(req, timeout)
+        argv = ["--text", text, "--voice-id", VOICE, "--output", self.out, "--confirm", "--max-chunk-chars", "50", "--cache-dir", cache]
+        code, d, _ = run(argv, flaky); self.assertEqual((code, d["status"], len(calls)), (2, "network_error", 2))
+        self.assertEqual(len(os.listdir(cache)), 1)                                            # the paid first chunk survived the failure
+        for f in os.listdir(cache): self.assertNotIn(FAKE_KEY, open(os.path.join(cache, f)).read())
+        calls2 = []
+        def counting(req, timeout=None):
+            calls2.append(1); return ok(req, timeout)
+        code, d, _ = run(argv, counting); self.assertEqual((code, d["status"], len(calls2)), (0, "ok", 1), d)   # only the missing chunk is requested
+        calls3 = []
+        def none(req, timeout=None): calls3.append(1); return ok(req, timeout)
+        code, d, _ = run(argv + ["--overwrite"], none); self.assertEqual((code, len(calls3)), (0, 0), d)        # a complete cache costs nothing
+
 class Failures(Base):
     def test_malformed_responses(self):
         for body in (b"not json", json.dumps({"nope": 1}).encode(),

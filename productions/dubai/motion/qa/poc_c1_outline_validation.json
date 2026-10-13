@@ -1,0 +1,65 @@
+{
+ "JA": {
+  "valid": true,
+  "anchor": [
+   554.9,
+   3140.3
+  ],
+  "candidates": 6,
+  "cand_len": 6077.066354774879,
+  "kept": 5,
+  "kept_len": 5965.293346947011,
+  "vertex_pass": 0.855,
+  "kept_fraction_len": 0.982
+ },
+ "JU": {
+  "valid": true,
+  "anchor": [
+   1399.4,
+   2199.3
+  ],
+  "candidates": 6,
+  "cand_len": 5440.507852765628,
+  "kept": 5,
+  "kept_len": 5114.094946327476,
+  "vertex_pass": 0.862,
+  "kept_fraction_len": 0.94
+ },
+ "W": {
+  "valid": true,
+  "anchor": [
+   1482.2,
+   1385.0
+  ],
+  "candidates": 44,
+  "cand_len": 6459.339255886395,
+  "kept": 39,
+  "kept_len": 5831.342311650368,
+  "vertex_pass": 0.819,
+  "kept_fraction_len": 0.903
+ },
+ "DE": {
+  "valid": true,
+  "anchor": [
+   2382.3,
+   527.2
+  ],
+  "candidates": 3,
+  "cand_len": 1986.0286915952297,
+  "kept": 1,
+  "kept_len": 1841.0788305678861,
+  "vertex_pass": 0.739,
+  "kept_fraction_len": 0.927
+ },
+ "_trace": {
+  "T": 70.0,
+  "sea_hi": 17.0,
+  "half_size": [
+   1536,
+   1898
+  ],
+  "n_raw": 414,
+  "n_kept": 182,
+  "polylines": 157
+ }
+}

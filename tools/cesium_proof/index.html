@@ -1,0 +1,51 @@
+<!doctype html><html><head><meta charset=utf-8><link rel=stylesheet href=/cesium/Build/Cesium/Widgets/widgets.css>
+<style>html,body,#c{margin:0;width:100vw;height:100vh;overflow:hidden;background:#000}</style></head><body><div id=c></div>
+<script>window.CESIUM_BASE_URL='/cesium/Build/Cesium/';</script><script src=/cesium/Build/Cesium/Cesium.js></script>
+<script>
+Cesium.Ion.defaultAccessToken='';
+const v=new Cesium.Viewer('c',{baseLayer:false,baseLayerPicker:false,geocoder:false,animation:false,timeline:false,homeButton:false,sceneModePicker:false,navigationHelpButton:false,fullscreenButton:false,infoBox:false,selectionIndicator:false,creditContainer:document.createElement('div'),requestRenderMode:true,maximumRenderTimeChange:Infinity,contextOptions:{webgl:{preserveDrawingBuffer:true}}});
+v.resolutionScale=1;v.scene.globe.enableLighting=false;v.scene.globe.showGroundAtmosphere=true;v.scene.skyAtmosphere.show=true;v.scene.highDynamicRange=false;
+v.scene.globe.maximumScreenSpaceError=2;
+const g=(l,d,lv,ext)=>new Cesium.UrlTemplateImageryProvider({url:`/gibs/wmts/epsg3857/best/${l}/default/${d}/GoogleMapsCompatible_Level${lv}/{z}/{y}/{x}.${ext}`,maximumLevel:lv,tilingScheme:new Cesium.WebMercatorTilingScheme(),credit:'NASA GIBS'});
+const cfg=new URLSearchParams(location.search).get('cfg')||'E';
+const L={bm:()=>g('BlueMarble_NextGeneration','2004-08-01',8,'jpeg'),
+ weld:()=>g('Landsat_WELD_CorrectedReflectance_TrueColor_Global_Annual','2000-12-01',12,'jpeg'),
+ viirs:()=>g('VIIRS_SNPP_CorrectedReflectance_TrueColor','2026-10-07',9,'jpeg'),
+ hls:()=>g('HLS_S30_Nadir_BRDF_Adjusted_Reflectance','2026-10-07',12,'png')};
+const plan={E:['bm','weld'],A:['bm','weld'],B:['bm','viirs','hls'],C:['bm','viirs'],D:['bm']}[cfg];
+plan.forEach(k=>{const ly=v.imageryLayers.addImageryProvider(L[k]());if(cfg==='E'&&k==='weld'){ly.colorToAlpha=new Cesium.Color(0.12,0.22,0.29,1);ly.colorToAlphaThreshold=0.25;}});
+window.setView=function(lon,lat,range,head,pitch){
+  v.camera.lookAt(Cesium.Cartesian3.fromDegrees(lon,lat,0),new Cesium.HeadingPitchRange(Cesium.Math.toRadians(head),Cesium.Math.toRadians(pitch),range));
+  v.camera.frustum.near=Math.max(1,range*0.001);v.scene.render();};
+const ease=x=>x*x*x*(x*(6*x-15)+10);
+window.setFrame=function(u){ // EP002 handoff descent: Arabian Gulf region -> Palm Jumeirah area, ends nadir at 41 km
+  const e=ease(u), p=ease(Math.min(1,Math.max(0,(u-0.15)/0.85)));
+  const lon=Cesium.Math.lerp(52,55.2108,e), lat=Cesium.Math.lerp(24,25.1518,e);
+  const range=Math.exp(Cesium.Math.lerp(Math.log(9e6),Math.log(41000),e));
+  const pitch=Cesium.Math.toRadians(Cesium.Math.lerp(-58,-90,p)), head=Cesium.Math.toRadians(Cesium.Math.lerp(6,16.5,p));
+  v.camera.lookAt(Cesium.Cartesian3.fromDegrees(lon,lat,0),new Cesium.HeadingPitchRange(head,pitch,range));
+  v.camera.frustum.near=Math.max(1,range*0.001);v.scene.render();
+};
+
+const ease2=x=>x*x*x*(x*(6*x-15)+10);
+window.setFrameA1=function(u){ // EP002 A1: globe over Africa/Arabia -> north-up nadir view matching the ASTER-2000 A2 start crop
+  const e=ease2(u), p=ease2(Math.min(1,Math.max(0,(u-0.08)/0.92)));
+  const lon=Cesium.Math.lerp(42,55.351,e), lat=Cesium.Math.lerp(22,25.162,e);
+  const range=Math.exp(Cesium.Math.lerp(Math.log(1.5e7),Math.log(31800),e));
+  v.camera.lookAt(Cesium.Cartesian3.fromDegrees(lon,lat,0),new Cesium.HeadingPitchRange(0,Cesium.Math.toRadians(Cesium.Math.lerp(-55,-90,p)),range));
+  v.camera.frustum.near=Math.max(1,range*0.001);v.scene.render();
+};
+
+window.setFrameA1v2=function(u){ // EP002 A1 v2: globe -> Dubai-centred zoom (target reaches Dubai by u=.5), no empty-desert transit
+  const e=ease2(u), tl=ease2(Math.min(1,u/0.5)), p=ease2(Math.min(1,Math.max(0,(u-0.08)/0.92)));
+  const lon=Cesium.Math.lerp(42,55.351,tl), lat=Cesium.Math.lerp(22,25.162,tl);
+  const range=Math.exp(Cesium.Math.lerp(Math.log(1.5e7),Math.log(31800),e));
+  v.camera.lookAt(Cesium.Cartesian3.fromDegrees(lon,lat,0),new Cesium.HeadingPitchRange(0,Cesium.Math.toRadians(Cesium.Math.lerp(-55,-90,p)),range));
+  v.camera.frustum.near=Math.max(1,range*0.001);v.scene.render();
+};
+window.proj=function(){const out={};const occ=new Cesium.EllipsoidalOccluder(Cesium.Ellipsoid.WGS84,v.camera.positionWC);
+ for(const [k,ll] of Object.entries({gulf:[51.5,26.6],uae:[54.3,23.9],dubai:[55.2708,25.2048]})){const c=Cesium.Cartesian3.fromDegrees(ll[0],ll[1],0);const w=Cesium.SceneTransforms.worldToWindowCoordinates(v.scene,c);out[k]=w?[w.x,w.y,occ.isPointVisible(c)?1:0]:[0,0,0];}
+ return out;};
+window.settled=()=>v.scene.globe.tilesLoaded;
+window.ready=true;
+</script></body></html>

@@ -1,0 +1,67 @@
+{
+ "JA": {
+  "valid": true,
+  "anchor_rot": [
+   656.7,
+   554.9
+  ],
+  "candidates": 6,
+  "cand_len": 6077.066354774879,
+  "kept": 5,
+  "kept_len": 5965.293346947011,
+  "vertex_pass": 0.855,
+  "kept_fraction_len": 0.982
+ },
+ "JU": {
+  "valid": true,
+  "anchor_rot": [
+   1597.7,
+   1399.4
+  ],
+  "candidates": 6,
+  "cand_len": 5440.507852765628,
+  "kept": 5,
+  "kept_len": 5114.094946327476,
+  "vertex_pass": 0.862,
+  "kept_fraction_len": 0.94
+ },
+ "W": {
+  "valid": true,
+  "anchor_rot": [
+   2412.0,
+   1482.2
+  ],
+  "candidates": 44,
+  "cand_len": 6459.339255886395,
+  "kept": 39,
+  "kept_len": 5831.342311650368,
+  "vertex_pass": 0.819,
+  "kept_fraction_len": 0.903,
+  "selective": {
+   "thin_outlines": 4,
+   "bracket_groups": 3
+  }
+ },
+ "DE": {
+  "point_orig": [
+   2300.0,
+   430.0
+  ],
+  "point_rot": [
+   3367.0,
+   2300.0
+  ],
+  "method": "read on the white reclaimed land, checked by eye on a 1:1 overlay; no outline drawn"
+ },
+ "_trace": {
+  "T": 70.0,
+  "sea_hi": 17.0,
+  "half_size": [
+   1536,
+   1898
+  ],
+  "n_raw": 414,
+  "n_kept": 182,
+  "polylines": 157
+ }
+}

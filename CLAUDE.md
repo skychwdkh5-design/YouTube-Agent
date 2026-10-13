@@ -54,3 +54,36 @@ Decision rules:
 `/yt-satellite` works worldwide - Landsat covers the whole globe. Stories in Sweden, Norway, Denmark
 or anywhere else may use it when satellite evidence materially improves the story. The no-
 fabrication rules in that skill apply everywhere: no scene, no satellite claim.
+
+## Visual production standards (mandatory for every video)
+
+Before storyboarding or rendering any video, read `docs/ORBITALATLAS_VISUAL_MASTER.md` and load
+`/yt-motion-design`, `/yt-cinematic-edit` and, for any map or satellite overlay, `/yt-geographic-animation`.
+Rules in short:
+- Motion storyboard per scene (fields in `docs/MOTION_DESIGN_STANDARDS.md`); filename + zoom is not a storyboard.
+- Check every planned effect against the "Built?" table in the Visual Master; list unsupported ones as limitations
+  before rendering. Never substitute a pan/zoom for a missing effect without saying so.
+- Image-space zoom is not a 3D flyover; never fake spatial continuity between unregistered images.
+- Render a 12-15 s proof of the hardest sequence first; scale only after user approval.
+- Use locked narration and provider word timings only; no TTS, paid API, merge to main or large media commits
+  without explicit user approval.
+- Report status as TECHNICALLY_VALID, VISUALLY_REVIEWED or USER_APPROVED. Only the user grants USER_APPROVED;
+  do not call unapproved work cinematic or premium.
+- Reference style and effect catalogue: `docs/references/` (read before storyboarding a geographic video). Real geography: `orbitalatlas.geo` + `tools/fetch_natural_earth.sh`; never invent coastlines or borders.
+- Shared motion engine: `orbitalatlas/` (README inside). Build scenes with it instead of writing a new renderer per episode; use `orbitalatlas.qa`
+  before reporting TECHNICALLY_VALID. The Dubai-specific engine in `productions/dubai/motion/engine/` is kept for EP002 only.
+
+## Autonomous decision policy (permanent)
+
+- **Zero budget.** Free tools, open data and assets whose licences permit monetised documentary use only. No paid APIs, subscriptions, stock footage or purchased imagery. Check `docs/ASSET_SOURCE_REGISTRY.md` first; never repeat a verified investigation.
+- **Decide, do not ask.** Investigate, compare, choose and test libraries, data providers, rendering strategy and implementation details yourself. Ask the user only for credentials, permissions (network allowlist), payment, or a genuine creative decision; the user approves creative quality, not engineering steps.
+- **Persist what you learn.** Every validated finding goes into `docs/ASSET_SOURCE_REGISTRY.md` (sources/licences), `docs/RENDER_BENCHMARKS.md` (measurements), `docs/RENDER_ENGINE_DECISION_MATRIX.md` (tools), `docs/KNOWN_LIMITATIONS.md` (limits/failed approaches). Mark facts VERIFIED (with URL) vs ASSUMED.
+- **Quality bar.** Technical validity is not visual approval. Judge previews against the references with `docs/REFERENCE_VISUAL_QA_CHECKLIST.md`; do not lower the standard to fit a tool, and do not claim reference-level quality without evidence. Only the user grants USER_APPROVED.
+- **Efficiency.** Reuse cached assets and shared components, run short diagnostics, avoid repeated network checks and redundant renders; 12-15 s proofs before scaling. Never modify EP001.
+
+## Production knowledge base (read before every new release)
+
+- Index: `docs/production-knowledge/README.md` (about 30 lines). Read the index first, then only the one or two documents your task needs; do not load the whole folder.
+- Reuse existing components (`orbitalatlas/`, `productions/dubai/preview/`, `.claude/skills/yt-*`, `tools/cesium_proof/`) and check `docs/production-knowledge/TROUBLESHOOTING.md` before debugging; do not repeat fixed mistakes or build a duplicate tool.
+- Paid TTS: follow `docs/production-knowledge/TTS_ELEVENLABS.md` (preflight, character count, `--cache-dir`, one pass, never regenerate cached audio, no retry after an error before checking credits and the cache).
+- After a release, append only verified findings to the matching document, tagged VERIFIED / HYPOTHESIS / EPISODE-SPECIFIC with the date; keep rules (here) separate from episode facts. Never write keys or secrets; media goes to `media/*` branches with a SHA-256 list, not to main.
