@@ -5,9 +5,9 @@ import os, json, re, numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..'))
 VOICE = os.path.join(ROOT, 'narration', 'voice', 'narration.voice.json'); SCRIPT = os.path.join(ROOT, 'script_draft_v1_2.md')
 LEAD, TAIL, PREROLL = 0.35, 2.4, 3.0
-V4 = bool(os.environ.get('EP002_V4'))                                                 # V4 hook: no pre-roll, the first narration word is placed at t=0 (audio onset = the file's own 0.13 s)
-if V4: PREROLL, TAIL = 0.0, 1.6
 EXTRA = {'H4': 1.8}                                                                    # seconds of held final frame (silence inserted in the audio) so the title is readable
+V4 = bool(os.environ.get('EP002_V4'))                                                 # V4 hook: no pre-roll, the first narration word is placed at t=0 (audio onset = the file's own 0.13 s)
+if V4: PREROLL, TAIL, EXTRA = 0.0, 1.6, {}                                           # no held title frame: H4 hands over to the film through a camera transition
 def vo_lines(): return [l[4:].strip() for l in open(SCRIPT, encoding='utf-8') if l.startswith('VO: ')]
 def load():
     m = json.load(open(VOICE, encoding='utf-8')); words = m['words']; lines = vo_lines(); counts = [len(l.split()) for l in lines]

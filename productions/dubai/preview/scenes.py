@@ -13,7 +13,11 @@ DATE = {'2000': 'NOVEMBER 2000', '2002a': 'FEBRUARY 2002', '2002b': 'OCTOBER 200
 def chip_for(key): return ISSCHIP if key == 'iss' else f'NASA ASTER · {YEAR[key]} · colours as published'
 ISSCHIP = 'NASA ISS astronaut photograph · 2022 · not satellite imagery'
 def date_for(key): return DATE.get(key, YEAR.get(key, ''))
-def yearlabel(cv, s, t, t0=0.4, px=30): cv.text((W - 24, 40), s, px, AMBER, oc(seg(t, t0, t0 + 0.7)), anchor='ra', spacing=0.14)
+def yearlabel(cv, s, t, t0=0.4, px=30):
+    a = oc(seg(t, t0, t0 + 0.7))
+    if a > 0.01:                                                                    # dark backing keeps the amber date >= 4.5:1 over bright land (V4.1)
+        ft = F(px, True); w = sum(ft.getlength(c) + px * 0.14 for c in s) - px * 0.14; cv.d.rounded_rectangle([W - 24 - w - 14, 30, W - 10, 40 + px * 1.15 + 10], 6, fill=(8, 14, 22, int(215 * a)))
+    cv.text((W - 24, 40), s, px, AMBER, a, anchor='ra', spacing=0.14)
 def stamp(cv, key, t, t0=0.3, px=30):
     cv.chip(chip_for(key)); yearlabel(cv, date_for(key), t, t0, px)
 
@@ -122,6 +126,13 @@ def with_entry(fn, prev, prev_d, kind, tr, center=None):
         if t >= tr: return cv
         a = prev(prev_d - 1 / FPS, prev_d, X).finish(); b = cv.finish(); u = sm(t / tr)
         if kind == 'dissolve': out = Image.blend(a, b, u)
+        elif kind == 'pullback':                                  # the camera keeps pulling back: the incoming (wider) shot starts zoomed in and settles while the old shot dissolves away
+            z = 1 + 0.45 * (1 - oc(t / tr)); bz = b.transform((PW, PH), Image.AFFINE, (1 / z, 0, PW / 2 - PW / 2 / z, 0, 1 / z, PH / 2 - PH / 2 / z), resample=Image.BICUBIC); out = Image.blend(a, bz, sm(t / tr))
+        elif kind == 'locator':                                   # the finished shot shrinks into its place on the regional map (a locator, not a registration claim) and fades as the map takes over
+            c = center(X) if callable(center) else center; e = oc(t / tr); z = 1 - 0.86 * e; pw_, ph_ = max(8, int(PW * z)), max(8, int(PH * z))
+            cx_, cy_ = (W / 2 + (c[0] - W / 2) * e) * SC, (H / 2 + (c[1] - H / 2) * e) * SC; pan = a.resize((pw_, ph_), Image.LANCZOS); ImageDraw.Draw(pan).rectangle([0, 0, pw_ - 1, ph_ - 1], outline=(255, 190, 60), width=max(2, int(2 * SC)))
+            x0, y0 = int(cx_ - pw_ / 2), int(cy_ - ph_ / 2); pa = 1.0 - sm(max(0.0, (t / tr - 0.62) / 0.38)); bd = Image.eval(b, lambda v: int(v * (0.55 + 0.45 * e))); out = bd.copy()
+            reg = bd.crop((x0, y0, x0 + pw_, y0 + ph_)); out.paste(Image.blend(reg, pan, pa), (x0, y0))
         elif kind == 'slide':
             out = Image.new('RGB', (PW, PH)); off = int(PW * oc(t / tr)); out.paste(a, (-off, 0)); out.paste(b, (PW - off, 0))
         else:                                                  # iris: the new scene opens as a circle around a point shared by both shots
@@ -146,7 +157,7 @@ def H1(t, d, X):                                                           # sam
 def H2(t, d, X):                                                           # the event: cross-dissolve 2000 -> 2003 on the shared grid, the changed shoreline and new land light up, pull back, "3 YEARS"
     keys = [(0, key_rect(SITE[0], 800, WOC_SZ)), (2.4, key_rect(SITE[0], 930, WOC_SZ)), (5.0, key_rect((SITE[0][0] + 60, SITE[0][1]), 1650, WOC_SZ)), (d, key_rect((SITE[0][0] + 130, SITE[0][1]), 2150, WOC_SZ))]
     r = path(t, d, keys, WOC_SZ); k = sm(seg(t, 0.9, 2.4)); cv = Canvas(dissolve(view('2000', r), view('2003', r), k)); cv.chip('NASA ASTER · 2000 → 2003 · same grid')
-    cv.text((W - 24, 40), 'NOVEMBER 2000', 30, AMBER, 1 - sm(seg(t, 0.9, 1.6)), anchor='ra', spacing=0.14); cv.text((W - 24, 40), 'NOVEMBER 2003', 30, AMBER, sm(seg(t, 1.8, 2.4)), anchor='ra', spacing=0.14)
+    cv.d.rounded_rectangle([W - 24 - 262 - 14, 30, W - 10, 40 + 35 + 10], 6, fill=(8, 14, 22, 215)); cv.text((W - 24, 40), 'NOVEMBER 2000', 30, AMBER, 1 - sm(seg(t, 0.9, 1.6)), anchor='ra', spacing=0.14); cv.text((W - 24, 40), 'NOVEMBER 2003', 30, AMBER, sm(seg(t, 1.8, 2.4)), anchor='ra', spacing=0.14)
     overlay_new_land(cv, r, oc(seg(t, 2.4, 4.0)), 1.0, fill_a=0.34 * (1 - 0.65 * sm(seg(t, 5.0, 5.8))), edge_a=0.85 + 0.15 * sm(seg(t, 2.4, 3.0)))
     big(cv, 'NEW LAND', H * 0.17, sm(seg(t, tw(5, 16, d), tw(5, 16, d) + 0.4)) * (1 - sm(seg(t, 4.6, 5.0))))
     tl = sm(seg(t, tw(10, 16, d), tw(10, 16, d) + 0.4)); p = oc(seg(t, tw(10, 16, d) + 0.1, tw(14, 16, d) + 0.4)); n = min(3, 1 + int(p * 3))
@@ -179,7 +190,10 @@ def H4(t, d, X):                                                           # AST
     r = path(t, d, keys, P2_SZ); k = sm(seg(t, 6.6, 7.6)); t0 = tw(12, 20, d); base = view('palm2', r)
     sw = sm(seg(t, t0 - 0.2, t0 + 0.4)) * (1 - sm(seg(t, t0 + 1.0, t0 + 1.5))); sd = sm(seg(t, t0 + 1.0, t0 + 1.5)) * (1 - sm(seg(t, 6.3, 6.8)))
     base = spot(base, to_screen(r, WORLD2), max(60, 190 * W / r[2]), 0.62 * sw); base = spot(base, to_screen(r, DEIRA2), max(55, 150 * W / r[2]), 0.62 * sd)
-    cv = Canvas(dim(base, 1 - 0.55 * k)); cv.chip(chip_for('palm2')); yearlabel(cv, '2006', t, 0.3)
+    base = dim(base, 1 - 0.55 * k)
+    if k > 0.01:                                                                    # dark band behind the title so the amber text keeps >= 4.5:1 over bright land
+        g = (np.exp(-(((np.linspace(0, 1, PH) - 0.43) / 0.2) ** 2)) * 0.82 * k)[:, None, None]; base = Image.fromarray((np.asarray(base, np.float32) * (1 - g)).astype(np.uint8))
+    cv = Canvas(base); cv.chip(chip_for('palm2')); yearlabel(cv, '2006', t, 0.3)
     cv.ping(to_screen(r, PJA2[0]), t, 0.5, r=max(18, 160 * W / r[2]), n=1); cv.ping(to_screen(r, PJ2[0]), t, 2.7, r=max(18, 160 * W / r[2]), n=1)
     cv.callout(to_screen(r, WORLD2), 'THE WORLD', t, t0 - 0.1, (90, -80), r=max(18, 160 * W / r[2]), px=26, out=t0 + 1.2)
     cv.callout(to_screen(r, DEIRA2), 'PALM DEIRA', t, t0 + 1.0, (-100, 60), r=max(16, 110 * W / r[2]), px=26, out=6.4)
@@ -212,7 +226,7 @@ def A1(t, d, X):
         if a > 0.01 and 110 < x < W - 110 and 40 < y < H - 90: cv.text((x, y - 26), s, px, AMBER, a, anchor='ms', spacing=0.2)
     lab('gulf', 'PERSIAN GULF', 2.8, 9.0); lab('uae', 'UNITED ARAB EMIRATES', 4.2, 10.0)
     x, y, vis = pj['dubai']; a = oc(seg(t, 7.0, 7.8)) * vis * ca
-    if a > 0.01 and 20 < x < W - 20 and 40 < y < H - 90: cv.ring((x, y), 7, a, 2); cv.text((x + 12, y - 4), 'DUBAI', 18, AMBER, a, anchor='lm', spacing=0.2)
+    if a > 0.01 and 20 < x < W - 100 and 40 < y < H - 90: cv.ring((x, y), 7, a, 2); cv.pill((x + 14, y - 16), 'DUBAI', 16, a=a, accent=AMBER)
     return cv
 CITY_PT = (coast_x('2000', 1250) + 140, 1250); DESERT_PT = (coast_x('2000', 1500) + 1000 if coast_x('2000', 1500) else 1900, 1500)
 def A2(t, d, X):
@@ -568,24 +582,27 @@ def HV1(t, d, X):
     if ca > 0.01:                                                                  # soft top scrim so the spoken date reads on bright desert
         g = (np.clip(1 - np.linspace(0, 1, PH) / 0.42, 0, 1) ** 1.5 * 0.62 * ca)[:, None, None]; base = Image.fromarray((np.asarray(base, np.float32) * (1 - g)).astype(np.uint8))
     cv = Canvas(base)
-    if ca > 0.01: cv.chip('NASA GIBS · Blue Marble + Landsat · 3D globe (CesiumJS) · orientation only', ca)
+    if ca > 0.01: cv.chip('MODERN IMAGERY · NASA GIBS Blue Marble + Landsat · CesiumJS · orientation only', ca)
     if ku > 0.5: cv.chip(chip_for('2000'), sm(seg(t, tw(12, 20, d) + 0.5, tw(12, 20, d) + 1.1)))
-    cv._center = True; cv.kinetic((W / 2, H * 0.16), 'NOVEMBER 2000', 54, 0.02, t, spacing=0.14, per=0.035, a=ca * (1 - sm(seg(t, 2.0, 2.6))))
+    ta = ca * (1 - sm(seg(t, 2.7, 3.3)))
+    if ta > 0.01: cv.d.rounded_rectangle([W / 2 - 290, H * 0.13 - 14, W / 2 + 290, H * 0.13 + 96], 8, fill=(8, 14, 22, int(205 * ta)))
+    cv._center = True; cv.kinetic((W / 2, H * 0.13), 'BACK TO NOVEMBER 2000', 44, 0.02, t, spacing=0.12, per=0.03, a=ta)      # the date is the narrated destination, not the date of this globe
+    cv.text((W / 2, H * 0.13 + 62), "TODAY'S GLOBE VIEW · NASA GIBS", 18, TEXT, oc(seg(t, 0.5, 1.1)) * ta, anchor='ma', spacing=0.2)
     def lab(key, s, t0, t1, px=22):
         x, y, vis = pj[key]; a = oc(seg(t, t0, t0 + 0.5)) * (1 - sm(seg(t, t1, t1 + 0.5))) * vis * ca
         if a > 0.01 and 20 < x < W - 20 and 40 < y < H - 90: cv.text((x, y - 26), s, px, AMBER, a, anchor='ms', spacing=0.2)
     lab('gulf', 'PERSIAN GULF', tw(11, 20, d) - 0.2, 4.4)
     x, y, vis = pj['dubai']; a = oc(seg(t, 1.9, 2.5)) * vis * ca * (1 - sm(seg(t, 4.4, 4.9)))
-    if a > 0.01 and 20 < x < W - 20 and 40 < y < H - 90: cv.ring((x, y), 7, a, 2); cv.text((x + 12, y - 4), 'DUBAI', 20, AMBER, a, anchor='lm', spacing=0.2)
+    if a > 0.01 and 20 < x < W - 100 and 40 < y < H - 90: cv.ring((x, y), 7, a, 2); cv.pill((x + 14, y - 16), 'DUBAI', 16, a=a, accent=AMBER)
     if ku > 0.55: yearlabel(cv, 'NOVEMBER 2000', t, tw(12, 20, d) + 0.6)
     pa = oc(seg(t, tw(12, 20, d) + 0.5, tw(12, 20, d) + 1.6)); pf = 1 - sm(seg(t, 5.9, 6.6))
     if pa > 0.01 and pf > 0.01: draw_coast(cv, r2, pa, pf)
     c = to_screen(r2, SITE[0]); rr = SITE[1] * W / r2[2]; ring_dashed(cv, c, rr, sm(seg(t, 5.6, 6.0)) * (1 - sm(seg(t, 7.3, 7.8))), phase=t * 14, frac=oc(seg(t, 5.6, 6.8)))
     big(cv, 'NO ISLAND HERE', H * 0.17, sm(seg(t, tw(13, 20, d) - 0.1, tw(13, 20, d) + 0.4)) * (1 - sm(seg(t, 7.0, 7.4))))
-    sea_tint(cv, r2, sm(seg(t, tw(18, 20, d) - 0.2, tw(18, 20, d) + 0.5)))
+    sea_tint(cv, r2, sm(seg(t, tw(18, 20, d) - 0.2, tw(18, 20, d) + 0.5)) * (1 - sm(seg(t, d - 1.2, d - 0.1))))        # tint eases out so the cut into H2 has no colour pop
     overlay_new_land(cv, r2, 0.0, oc(seg(t, 7.2, 7.9)), fill_a=0.0, edge_a=0.85); return cv
 
-H1E = with_entry(H1, H0, 3.0, 'iris', 0.6, center=lambda: to_screen(path(3.0, 3.0, H0_KEYS(), ISS_SZ), PJI[0])); H3E = with_entry(H3, H2, 8.0, 'slide', 0.5); H4E = with_entry(H4, H3, 11.0, 'dissolve', 0.6); A1E = with_entry(A1, H4, 9.0, 'dissolve', 0.7)
+H1E = with_entry(H1, H0, 3.0, 'iris', 0.6, center=lambda: to_screen(path(3.0, 3.0, H0_KEYS(), ISS_SZ), PJI[0])); H3E = with_entry(H3, H2, 8.0, 'slide', 0.5); H4E = with_entry(H4, H3, 11.0, 'dissolve', 0.6); A1E = with_entry(A1, H4, 9.0, 'locator', 1.3, center=lambda X: json.load(open(pjson(X['a1_frames'][140])))['dubai'][:2])
 SCENES = [('H0', 0, 3, [], H0), ('H1', 3, 10, [1], H1E), ('H2', 13, 8, [2], H2), ('H3', 21, 11, [3], H3E), ('H4', 32, 9, [4], H4E), ('A1', 41, 20, [5], A1E), ('A2', 61, 23, [6, 7], A2), ('A3', 84, 27, [8, 9], A3),
           ('B1', 111, 13, [10], B1), ('B2', 124, 15, [11], B2), ('B3', 139, 20, [12], B3), ('B4', 159, 17, [13], B4), ('B5', 176, 30, [14], B5), ('B6', 206, 15, [15], B6), ('B7', 221, 14, [16], B7),
           ('C1', 235, 20, [17], C1), ('C2', 255, 20, [18], C2), ('C3', 275, 18, [19], C3), ('C4', 293, 23, [20], C4), ('C5', 316, 21, [21], C5), ('C6', 337, 25, [22], C6),
@@ -595,3 +612,4 @@ import scenes_v6 as _v6                       # V6 visual standard for A3, C2, C
 _v6.install(sys.modules[__name__])
 SCENES_V4 = [('H1', 0, 8, [1], HV1), ('H2', 8, 8, [2], H2), ('H3', 16, 11, [3], H3E), ('H4', 27, 9, [4], H4E)]
 SCENES_FULL = SCENES_V4 + [s_ for s_ in SCENES if s_[0] not in ('H0', 'H1', 'H2', 'H3', 'H4')]
+SCENES_PREVIEW = SCENES_V4 + [s_ for s_ in SCENES if s_[0] == 'A1']                      # hook v4.1 + the first scene of the film (preview for the director)

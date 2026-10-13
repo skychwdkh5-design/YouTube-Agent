@@ -26,3 +26,9 @@ Triple split-screen (V4); line-by-line text cards; pan/zoom called a "flyover"; 
 ## Labels on imagery (EP002 v3) **[VERIFIED]**
 Dark pill behind every label placed on a photo/satellite image; main label >= 26 px, callout >= 17 px, disclosure chip >= 12 px (540p); at most one main label plus one secondary line per beat; secondary lines are pills too (D2 stacked text was the failure case).
 
+
+## Hook V4.1 decisions (2026-10-13)
+- VERIFIED: modern GIBS globe must not carry the narrated date. Opening shows "BACK TO NOVEMBER 2000" + "TODAY'S GLOBE VIEW · NASA GIBS" on a dark band and a "MODERN IMAGERY" chip; the dated label `NOVEMBER 2000` appears only on the ASTER 2000 frame (`ku > 0.55`).
+- VERIFIED: `yearlabel` and the H2 date now sit on a dark rounded backing (alpha 215/255), amber on it >= 4.5:1; H4 title sits on a gaussian dark band. Place labels on bright land use `cv.pill` (own dark backing).
+- VERIFIED: no held title. `sync.EXTRA` is cleared in V4 mode (declare it AFTER the default `EXTRA = {...}` line - an earlier ordering bug kept a 1.8 s hold). H4 hands over to the film with `with_entry(..., 'locator', 1.3)`: the finished title shot shrinks into its place on the Cesium regional map (Dubai point from the frame's json), then fades. Locator = illustration, not a registration claim.
+- VERIFIED: a colour change at a hard cut shows up as a frame-difference spike (sea tint H1 -> H2: 26 -> 5.6 after easing the tint out in the last 1.2 s).

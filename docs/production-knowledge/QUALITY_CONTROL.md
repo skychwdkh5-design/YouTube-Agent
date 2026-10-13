@@ -27,3 +27,8 @@ See `productions/dubai/final/QA_REPORT.md`.
 
 ## Known QC friction
 `audio_starts <= 1.0 s` measures the first audio above -40 dB, not speech: a silent cold open fails it (EP002 v1: 3.48 s), an atmosphere bed passes it (v2: 0.77 s) without changing when the voice starts; record which of the two you rely on. `loudness` warns for the Shorts range only.
+
+## V4.1 tools (2026-10-13)
+- `qa_contrast.py [--v4]`: WCAG ratio of every Canvas.text/kinetic run against the TEXT-FREE render of the same frame (75th/25th luminance percentile); skips entry-transition windows (they re-render the previous scene). `qa_legibility.py --v4 --need 4.5` kept for the old median method (per-letter kinetic text gives false flags). Hook V4.1 + A1: 0 runs below 4.5 (A1 t<1 s flags are transition blends).
+- VERIFIED: audio continuity check = compare `audio_raw.wav` with `narration.mp3` at lag 0/-1 sample: zero difference in all scene windows (no repeated or missing speech); splices are silent.
+- VERIFIED: build flags `--hook`, `--preview` (hook + A1 = 52 s), `--full4` in `build_final.py`; unchanged segments can be reused.
