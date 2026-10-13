@@ -104,7 +104,7 @@ def minimap(cv, r, a):
     if 'im' not in _MINI: _MINI['im'] = src('2000').resize((int(176 * SC), int(176 * SC)), Image.LANCZOS)
     x0, y0 = 22, 58; X0, Y0, Z = int(x0 * SC), int(y0 * SC), int(176 * SC); cv.base.paste(Image.blend(cv.base.crop((X0, Y0, X0 + Z, Y0 + Z)), _MINI['im'].convert('RGBA'), a), (X0, Y0)); s = 176 / 3000; ss = SS()
     ss.rect(x0 - 1, y0 - 1, x0 + 177, y0 + 177, outline=(234, 240, 246, int(200 * a)), width=1); ss.rect(x0 + r[0] * s, y0 + r[1] * s, x0 + (r[0] + r[2]) * s, y0 + (r[1] + r[3]) * s, outline=AMBER + (int(255 * a),), width=1.6); layer(cv, ss)
-    cv.text((x0, y0 + 182), 'WHOLE ASTER FRAME · 2000', 11, MUTED, a)
+    cv.text((x0, y0 + 182), 'WHOLE ASTER FRAME · 2000', 12, MUTED, a)
 def paste_view(img, key, box, scr):
     sx, sy, sw, sh = (int(round(v * SC)) for v in scr)
     if sw < 2 or sh < 2: return
@@ -163,7 +163,7 @@ def H3(t, d, X):                                                           # two
         if abs(bx[2] / bx[3] - scr[2] / scr[3]) > 0.02: bx = (bx[0], bx[1], bx[2], bx[2] * scr[3] / scr[2])
         paste_view(img, 'iss', bx, scr); cv = Canvas(img); fade = 1 - sm(seg(t, E0, E0 + 0.5))
         ss = SS(); ss.line([(pw, 0), (pw, H)], AMBER + (int(210 * fade),), 1.6); layer(cv, ss)
-        cv.pill((10, 12), 'ASTER · NOV 2000', 11, a=0.8 * fade, accent=AMBER); cv.pill((pw + 10, 12), 'ISS PHOTO · APR 2022 · not satellite imagery', 11, a=0.8 * fade * k2, accent=AMBER)
+        cv.pill((10, 12), 'ASTER · NOV 2000', 12, a=0.8 * fade, accent=AMBER); cv.pill((pw + 10, 12), 'ISS PHOTO · APR 2022 · not satellite imagery', 12, a=0.8 * fade * k2, accent=AMBER)
         cv.text((pw / 2, H * 0.68), '2000', 46, AMBER, sm(seg(t, 0.3, 0.8)) * fade, anchor='ma', spacing=0.12); cv.text((pw * 1.5, H * 0.68), '2022', 46, AMBER, sm(seg(t, 1.6, 2.1)) * fade, anchor='ma', spacing=0.12)
         ap = oc(seg(t, 0.6, 3.0)); arrow(cv, (W * 0.22, H * 0.52), (W * 0.78, H * 0.52), ap * (1 if fade > 0.5 else 0), wd=3.2, head=15)
         if ap > 0.05: big(cv, f'{max(1, int(21 * ap))}+ YEARS', H * 0.52 - 64, sm(seg(t, 0.6, 1.0)) * fade, 36)
@@ -446,7 +446,7 @@ def D1(t, d, X):
         x0, y0, w, h = 700, 330, 230, 100; cv.d.rounded_rectangle([x0 - 8, y0 - 24, x0 + w + 8, y0 + h + 24], 6, fill=(8, 14, 22, int(215 * k)))
         cv.d.rectangle([x0, y0, x0 + w, y0 + h], fill=(30, 80, 120, int(255 * k))); cv.d.rectangle([x0 + 90, y0 + 20, x0 + w, y0 + h], fill=(190, 160, 110, int(255 * k)))
         for i in range(4): cv.d.rectangle([x0 + 62 + (i % 2) * 14, y0 + 28 + i * 18, x0 + 90 + (i % 2) * 6, y0 + 44 + i * 18], fill=(110, 112, 118, int(255 * k)))
-        cv.text((x0 + 46, y0 - 16), 'ROCK', 12, TEXT, k, anchor='ma'); cv.text((x0 + 160, y0 - 16), 'SAND', 12, TEXT, k, anchor='ma'); cv.text((x0, y0 + h + 6), 'ILLUSTRATION · cross-section', 11, MUTED, k)
+        cv.text((x0 + 46, y0 - 16), 'ROCK', 12, TEXT, k, anchor='ma'); cv.text((x0 + 160, y0 - 16), 'SAND', 12, TEXT, k, anchor='ma'); cv.text((x0, y0 + h + 6), 'ILLUSTRATION · cross-section', 12, MUTED, k)
     return cv
 def D2(t, d, X):
     rect = (600, 1000, 1600, 900); cut = 8.0; key = '2000' if t < cut else '2011'; lt = t if t < cut else t - cut

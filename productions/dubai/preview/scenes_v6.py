@@ -65,7 +65,7 @@ def A3(t, d, X):
     if 12.6 < t < 19.6:                                                                     # schematic panel: one dot = one planned island, NOT a location
         k = sm(seg(t, 12.6, 13.4)) * (1 - sm(seg(t, 18.8, 19.6))); ss = SS(); rx0, ry0, rx1, ry1 = 560, 190, 900, 410; ss.rect(rx0, ry0, rx1, ry1, fill=(8, 14, 22, int(215 * k)), outline=CYAN + (int(160 * k),), width=1.2, r=6)
         S.dots_field(ss, (rx0 + 14, ry0 + 14, rx1 - 14, ry1 - 14), 300, oc(seg(t, 14.0, 17.5)), CYAN + (int(220 * k),), r=2.6); layer(cv, ss)
-        cv.text((rx1 - 16, ry1 - 46), f'{int(300 * oc(seg(t, 14.0, 17.5)))}', 34, AMBER, k, anchor='ra'); cv.text((rx0 + 14, ry0 + 8), 'SCHEMATIC · one dot = one planned island, not a position', 11, MUTED, k)
+        cv.text((rx1 - 16, ry1 - 46), f'{int(300 * oc(seg(t, 14.0, 17.5)))}', 34, AMBER, k, anchor='ra'); cv.text((rx0 + 14, ry0 + 8), 'SCHEMATIC · one dot = one planned island, not a position', 12, MUTED, k)
     sea_tint(cv, r, sm(seg(t, 24.2, 25.2))); c = to_screen(r, SITE[0]); ring_dashed(cv, c, SITE[1] * W / r[2], sm(seg(t, 24.6, 25.2)), phase=t * 14, frac=oc(seg(t, 24.6, 26.0))); return cv
 
 # ---------------------------------------------------------------- C2 (20 s): the three designs on the real 2006 frame, outlines traced
@@ -132,7 +132,7 @@ def D5(t, d, X):
         cv.d.line([(xx, yl - 18), (xx, yl)], fill=CYAN + (int(180 * tb),), width=1)
     ka = sm(seg(t, 0.3, 1.0)) * (1 - sm(seg(t, 8.2, 8.9)))
     if ka > 0.01:                                                                          # anatomy of one caption: source, instrument, year (real ASTER 2006 crop)
-        bx_, by_, bw_, bh_ = key_rect(PJ2[0], 900 - 70 * min(max(t / 8.0, 0), 1), P2_SZ); card = src('palm2').resize((int(300 * SC), int(169 * SC)), Image.LANCZOS, box=(bx_, by_, bx_ + bw_, by_ + bw_ * 169 / 300)).convert('RGBA'); cx0, cy0 = 150, H * 0.30; put(cv, card, cx0, cy0, ka)
+        bx_, by_, bw_, bh_ = key_rect(PJ2[0], 900 - 240 * min(max(t / 8.0, 0), 1), P2_SZ); card = src('palm2').resize((int(300 * SC), int(169 * SC)), Image.LANCZOS, box=(bx_, by_, bx_ + bw_, by_ + bw_ * 169 / 300)).convert('RGBA'); cx0, cy0 = 150, H * 0.30; put(cv, card, cx0, cy0, ka)
         sx_ = cx0 + 300 * ((t % 2.6) / 2.6); ss_ = SS(); ss_.line([(sx_, cy0), (sx_, cy0 + 169)], AMBER + (int(170 * ka),), 2); ss_.line([(sx_ - 7, cy0), (sx_ - 7, cy0 + 169)], AMBER + (int(60 * ka),), 6); layer(cv, ss_)   # inspection scan line: the card keeps moving while the words are said
         for j, (lab, a0_) in enumerate((('SOURCE · NASA', 4.4), ('INSTRUMENT · ASTER', 5.4), ('YEAR · 2006', 6.4))):
             kk_ = sm(seg(t, a0_, a0_ + 0.5)) * ka; y_ = cy0 + 20 + j * 52; xl = cx0 + 300 + 30; cv.d.line([(cx0 + 300, y_ + 14), (xl, y_ + 14)], fill=AMBER + (int(255 * kk_),), width=2); cv.text((xl + 8, y_), lab, 24, AMBER, kk_, anchor='la', spacing=0.08)
