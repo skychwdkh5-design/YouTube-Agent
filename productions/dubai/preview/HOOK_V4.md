@@ -1,0 +1,14 @@
+# EP002 hook V4 — checkpoint 2026-10-13 (VISUALLY_REVIEWED on contact sheets, not USER_APPROVED)
+Proof H0-H4: 41.0 s, 960x540, 24 fps, silent, timing ESTIMATED (145 wpm per scene window, `tw()` in scenes.py). Narration text unchanged (SCRIPT_LOCK hash). Re-derive all cues from provider word timings after TTS.
+| scene | window | composition / camera | graphics (class) |
+|---|---|---|---|
+| H0 silent | 0-3 | ISS 2022: fast pull-out from the fronds to the whole palm in its coast | pill "THIS WAS OPEN SEA IN 2000", one ring ping (UI) |
+| H1 | 3-13 | (a) pan along the 2000 shoreline, (b) push to the empty site, (c) pull-back with locator inset | shoreline TRACED from the image (rows >= 1090 only; the upper coast is unreliable: creek, clouds), dashed footprint draws on (UI), inset = whole 2000 frame + view rectangle (UI) |
+| H2 | 13-21 | the event: vertical wipe 2000 -> 2003 on the shared grid, then new land filled + outlined, pull-back, 2000-2003 "3 YEARS" timeline | new land TRACED: pixels non-sea in 2003 and sea in 2000 inside 1.3 x ring radius, median-filtered; fill is UI, labelled |
+| H3 | 21-32 | triptych 2000 / 2003 / ISS 2022 (three sources, labelled, not registered to each other); ISS panel opens to full frame; glide Jumeirah -> Jebel Ali | callouts only when the landmark is on screen |
+| H4 | 32-41 | ASTER 2006 south -> north across the four projects; spotlight (UI dim) on The World, then Deira; title + underline | callouts from landmarks.json |
+Registration check (VERIFIED, local, reproducible): phase correlation of 512 px land patches ASTER 2000 vs 2003 at 6 places, shift <= 1 px (peaks 0.07-0.29); coast agrees within 4 px. This is why the 2000 -> 2003 wipe is used. NOTE: SCRIPT_LOCK says "no wipes" (claim 32); the director asked for a registered comparison, so the wipe is a flagged decision for the user (switch back to a dissolve = one line in H2). 2000/2003 vs ISS are never registered or overlaid.
+Export discrepancy (910x512, 30 fps reported by the user): the delivered file here is H.264 960x540, 24 fps, 984 frames (ffprobe, build_preview.py `-r 24`, no scale filter). 910x512 @ 30 is not producible by this code; it is the preview transcode of the chat/file viewer (a different, smaller, 30 fps re-encode). Compare the SHA-256 of the original (given in the chat message) with the downloaded file. Final delivery will be 1920x1080 30 fps via yt-render.
+QA: blackdetect clean after fix (a 0.25 s near-black frame at H3 start was found and removed); frame-difference peaks only at labelled source cuts (3.0, 13.0, 21.0, 32.0 s) and the fast H0 pull-out; no frozen segments (freezedetect 1.2 s).
+Limits: camera class A only (no 3D flyover); 540p proof; no audio; callout label positions are tuned by eye for the 960x540 frame.
+Next: monotony audit 00:30-08:58, motion graphics pass, final act, then (after TTS approval) word-timed sync, 1080p render, QC.

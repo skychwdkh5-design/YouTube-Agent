@@ -27,11 +27,12 @@ def zoom_ring(cv, rect, c, r, text, t, t0, dxy, px=18, out=None, pad=1.12):
     """ring around a landmark whose centre/radius come from landmarks.json; radius scales with the crop"""
     cv.callout(to_screen(rect, c), text, t, t0, dxy, r=max(14, r * W / rect[2] * pad), px=px, out=out)
 
-# ------------------------------------------------------------------ HOOK (V3: result first, then the empty sea, then the three-year change, then orbit, then the plans that came next)
-# Timing: ESTIMATED (145 wpm inside each scene window, 0.5 s lead); every word cue below is tw(i, n, d) = 0.5 + i*(d-1.1)/n and must be re-derived from provider word timings once narration exists.
+# ------------------------------------------------------------------ HOOK
+# ------------------------------------------------------------------ HOOK V4 (cold open pull-out, coastline trace, wipe + new-land trace as the main event, triptych, spotlighted plans, title)
+# Timing: ESTIMATED (145 wpm inside each scene window, 0.5 s lead); tw(i, n, d) = word i of n. Re-derive from provider word timings once narration exists.
 def tw(i, n, d): return 0.5 + i * (d - 1.1) / n
 def path(t, d, keys, size):
-    """camera path through (time, rect) keys; Catmull-Rom on (cx, cy, log w), 16:9 preserved, eased in/out over the whole scene by the key times themselves"""
+    """camera path through (time, rect) keys; Catmull-Rom on (cx, cy, log w), 16:9 preserved"""
     ts = [k[0] for k in keys]; P = [(k[1][0] + k[1][2] / 2, k[1][1] + k[1][3] / 2, math.log(k[1][2])) for k in keys]
     t = min(max(t, ts[0]), ts[-1]); i = max(j for j in range(len(ts) - 1) if ts[j] <= t) if t < ts[-1] else len(ts) - 2
     u = (t - ts[i]) / (ts[i + 1] - ts[i]); n = len(P); p0, p1, p2, p3 = P[max(i - 1, 0)], P[i], P[i + 1], P[min(i + 2, n - 1)]
@@ -41,43 +42,132 @@ def clampr(r, size):
     x, y, w, h = r; x = min(max(x, 0), size[0] - w); y = min(max(y, 0), size[1] - h); return (x, y, w, h)
 def key_rect(c, w, size): return clampr((c[0] - w / 2, c[1] - w * 9 / 32, w, w * 9 / 16), size)
 ISS_SZ, P2_SZ, WOC_SZ = (2768, 4928), (3072, 3797), (3000, 3000)
-SITE = woc_ring('2003')                                                     # Palm Jumeirah ring in the 2003 grid; 2000 and 2003 share the grid (coast agrees within 4 px at 2 rows, checked)
-def H0(t, d, X):                                                           # silent cold open: the result (ISS photograph, labelled), 3 s, no spoken words
-    cv = Canvas(view('iss', lerp_rect(key_rect(PJI[0], 1500, ISS_SZ), key_rect(PJI[0], 1060, ISS_SZ), smr(t / d)))); r = lerp_rect(key_rect(PJI[0], 1500, ISS_SZ), key_rect(PJI[0], 1060, ISS_SZ), smr(t / d))
-    cv.chip(ISSCHIP); yearlabel(cv, 'APRIL 2022', t, 0.2)
-    txt = 'THIS WAS OPEN SEA IN 2000'; px = 24; wtxt = cv.d.textlength(txt, font=F(px, True)) + px * 1.4; cv.pill((W / 2 - wtxt / 2, H * 0.80), txt, px, a=oc(seg(t, 0.5, 1.0)), accent=AMBER)
-    return cv
-def ring_dashed(cv, c, r, a, phase=0.0, col=AMBER):
-    ss = SS(); ss.dashed([(c[0] + r * math.cos(2 * math.pi * k / 90), c[1] + r * math.sin(2 * math.pi * k / 90)) for k in range(91)], col + (int(230 * a),), 1.8, 7, 6, offset=phase); layer(cv, ss)
-R1A, R1B = key_rect(SITE[0], 1900, WOC_SZ), key_rect(SITE[0], 820, WOC_SZ)
-def H1(t, d, X):                                                           # ASTER 2000: city on the coast, push to the empty site; the dashed ring is a UI marker (not data)
-    r = lerp_rect(R1A, R1B, smr(t / d)); cv = Canvas(view('2000', r)); stamp(cv, '2000', t)
-    s = sm(seg(t, tw(15, 20, d) - 0.2, tw(15, 20, d) + 0.5)); c = to_screen(r, SITE[0]); rr = SITE[1] * W / r[2]
-    ring_dashed(cv, c, rr, s, phase=t * 14); cv.text((c[0], c[1] - 8), 'NOTHING BUILT HERE', 15, AMBER, s, anchor='ma', spacing=0.12); return cv
-def H2(t, d, X):                                                           # same crop, dissolve 2000 -> 2003 on "A palm tree", pull back, 2000 / 2003 timeline
-    r = lerp_rect(R1B, key_rect(SITE[0], 1500, WOC_SZ), smr(t / d)); a, b = view('2000', r), view('2003', r)
-    k = sm(seg(t, tw(5, 16, d) - 0.4, tw(5, 16, d) + 0.9)); cv = Canvas(dissolve(a, b, k)); cv.chip(chip_for('2003') if k > 0.5 else chip_for('2000'))
-    cv.text((W - 24, 40), 'NOVEMBER 2000', 30, AMBER, 1 - k, anchor='ra', spacing=0.14); cv.text((W - 24, 40), 'NOVEMBER 2003', 30, AMBER, k, anchor='ra', spacing=0.14)
-    c = to_screen(r, SITE[0]); rr = SITE[1] * W / r[2]; ring_dashed(cv, c, rr, (1 - k) * 0.9, phase=t * 14)
-    tl = sm(seg(t, tw(10, 16, d), tw(10, 16, d) + 0.5)); x0, x1, y = W - 290, W - 60, 128; ss = SS(); ss.rect(x0 - 12, y - 28, x1 + 12, y + 30, fill=(8, 14, 22, int(190 * tl)), r=6)
-    ss.line([(x0, y), (x1, y)], (234, 240, 246, int(200 * tl)), 2); p = oc(seg(t, tw(10, 16, d) + 0.1, tw(14, 16, d) + 0.5))
-    ss.line([(x0, y), (x0 + (x1 - x0) * p, y)], AMBER + (int(255 * tl),), 4)
+SITE = woc_ring('2003')                                                     # Palm Jumeirah ring in the 2003 grid
+# registration of the two ASTER frames, measured (phase correlation, 512 px land patches, 6 places): shift <= 1 px; see HOOK_V3.md
+def spot(img, c, r, k):
+    if k <= 0.003: return img
+    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32); m = np.clip((np.hypot(xx - c[0], yy - c[1]) - r) / (r * 0.6), 0, 1); m = m * m * (3 - 2 * m)
+    return Image.fromarray((np.asarray(img, np.float32) * (1 - k * m[..., None])).clip(0, 255).astype(np.uint8))
+# --- traced layers (TRACED class: computed from the pixels of the frame they are drawn on)
+_NL, _CL = {}, {}
+def sea_dist(key, x0, y0, w, h):
+    a = np.asarray(src(key), np.float32); ref = np.median(a[1250:1400, 0:280].reshape(-1, 3), 0); return np.sqrt(((a[y0:y0 + h, x0:x0 + w] - ref) ** 2).sum(2))
+def new_land():
+    """land present in 2003 and sea in 2000 inside the palm's site (same grid, registration <= 1 px): fill + outline masks in source pixels"""
+    if _NL: return _NL
+    cx, cy = SITE[0]; R = SITE[1]; S = 700; x0, y0 = int(cx - S / 2), int(cy - S / 2); new = (sea_dist('2003', x0, y0, S, S) >= 38) & (sea_dist('2000', x0, y0, S, S) < 38)
+    yy, xx = np.mgrid[0:S, 0:S]; dist = np.hypot(xx - (cx - x0), yy - (cy - y0)); new &= dist <= R * 1.3
+    m = Image.fromarray((new * 255).astype(np.uint8)).filter(ImageFilter.MedianFilter(5)); fill = np.asarray(m) > 127
+    edge = fill & ~(np.asarray(m.filter(ImageFilter.MinFilter(5))) > 127); edge = np.asarray(Image.fromarray((edge * 255).astype(np.uint8)).filter(ImageFilter.MaxFilter(3))) > 127
+    ang = (np.arctan2(yy - (cy - y0), xx - (cx - x0)) / (2 * math.pi)) % 1.0
+    _NL.update(x0=x0, y0=y0, S=S, fill=fill, edge=edge, dist=dist / (R * 1.3), ang=ang); return _NL
+def overlay_new_land(cv, r, fill_p, edge_p, fill_a=0.40):
+    N = new_land(); S = N['S']; rgba = np.zeros((S, S, 4), np.uint8); col = np.array(AMBER, np.uint8)
+    f = N['fill'] & (N['dist'] <= fill_p * 1.02); rgba[f, :3] = col; rgba[f, 3] = int(255 * fill_a)
+    e = N['edge'] & (N['ang'] <= edge_p); rgba[e, :3] = col; rgba[e, 3] = 255
+    k = W / r[2]; sw = max(int(S * k), 1)
+    if sw < 4 or not (f.any() or e.any()): return
+    im = Image.fromarray(rgba, 'RGBA').resize((sw, sw), Image.LANCZOS); lay = Image.new('RGBA', (W, H), (0, 0, 0, 0)); lay.paste(im, (int(round((N['x0'] - r[0]) * k)), int(round((N['y0'] - r[1]) * k))))
+    cv.o = Image.alpha_composite(cv.o, lay); cv.d = ImageDraw.Draw(cv.o)
+def coast_line():
+    """2000 shoreline: first non-sea pixel (40 px persistence, so clouds over water are ignored) per row, median-smoothed"""
+    if _CL: return _CL['p']
+    a = np.asarray(src('2000'), np.float32); ref = np.median(a[1250:1400, 0:280].reshape(-1, 3), 0); pts = []
+    for y in range(1090, 2300, 8):
+        row = (np.sqrt(((a[y] - ref) ** 2).sum(1)) >= 38).astype(np.int32); c = np.convolve(row, np.ones(40, np.int32), 'valid'); idx = np.nonzero(c == 40)[0]
+        if len(idx): pts.append([int(idx[0]), y])
+    xs = np.array([p[0] for p in pts], float); sm_ = np.array([np.median(xs[max(0, i - 3):i + 4]) for i in range(len(xs))]); _CL['p'] = [(float(x), p[1]) for x, p in zip(sm_, pts)]; return _CL['p']
+def draw_coast(cv, r, p, a=1.0):
+    pts = coast_line(); n = max(2, int(len(pts) * p)); ss = SS(); ss.line([to_screen(r, q) for q in pts[:n]], AMBER + (int(235 * a),), 2.2); layer(cv, ss)
+def ring_dashed(cv, c, r, a, phase=0.0, frac=1.0, col=AMBER):
+    n = max(2, int(90 * frac)); ss = SS(); ss.dashed([(c[0] + r * math.cos(2 * math.pi * k / 90 - math.pi / 2), c[1] + r * math.sin(2 * math.pi * k / 90 - math.pi / 2)) for k in range(n + 1)], col + (int(230 * a),), 1.8, 7, 6, offset=phase); layer(cv, ss)
+_MINI = {}
+def minimap(cv, r, a):
+    if a <= 0.01: return
+    if 'im' not in _MINI: _MINI['im'] = src('2000').resize((176, 176), Image.LANCZOS)
+    x0, y0 = 22, 58; cv.base.paste(Image.blend(cv.base.crop((x0, y0, x0 + 176, y0 + 176)), _MINI['im'].convert('RGBA'), a), (x0, y0)); s = 176 / 3000; ss = SS()
+    ss.rect(x0 - 1, y0 - 1, x0 + 177, y0 + 177, outline=(234, 240, 246, int(200 * a)), width=1); ss.rect(x0 + r[0] * s, y0 + r[1] * s, x0 + (r[0] + r[2]) * s, y0 + (r[1] + r[3]) * s, outline=AMBER + (int(255 * a),), width=1.6); layer(cv, ss)
+    cv.text((x0, y0 + 182), 'WHOLE ASTER FRAME · 2000', 11, MUTED, a)
+def paste_view(img, key, box, scr):
+    sx, sy, sw, sh = (int(round(v)) for v in scr)
+    if sw < 2 or sh < 2: return
+    bx, by, bw, bh = box; bx = min(max(bx, 0), src(key).width - bw); by = min(max(by, 0), src(key).height - bh); img.paste(src(key).resize((sw, sh), Image.LANCZOS, box=(bx, by, bx + bw, by + bh)), (sx, sy))
+
+# ---- H0 (3 s, silent): pull-out from the fronds to the whole palm in its coast
+def H0(t, d, X):
+    keys = [(0, key_rect(PJI[0], 560, ISS_SZ)), (1.5, key_rect(PJI[0], 1650, ISS_SZ)), (d, key_rect(PJI[0], 2150, ISS_SZ))]
+    r = path(t, d, keys, ISS_SZ); cv = Canvas(view('iss', r)); cv.chip(ISSCHIP); yearlabel(cv, 'APRIL 2022', t, 0.2)
+    cv.ping(to_screen(r, PJI[0]), t, 1.45, r=max(18, PJI[1] * W / r[2] * 0.95), n=1)
+    txt = 'THIS WAS OPEN SEA IN 2000'; px = 24; wt = cv.d.textlength(txt, font=F(px, True)) + px * 1.4; cv.pill((W / 2 - wt / 2, H * 0.80), txt, px, a=oc(seg(t, 1.1, 1.6)), accent=AMBER); return cv
+# ---- H1 (10 s): (a) pan along the traced 2000 shoreline, (b) push to the site, dashed footprint draws on, (c) pull back with the locator inset
+def H1(t, d, X):
+    keys = [(0, key_rect((1500, 1050), 2300, WOC_SZ)), (3.2, key_rect((900, 1500), 1700, WOC_SZ)), (6.3, key_rect(SITE[0], 880, WOC_SZ)), (d, key_rect((SITE[0][0] + 220, SITE[0][1] - 40), 1320, WOC_SZ))]
+    r = path(t, d, keys, WOC_SZ); cv = Canvas(view('2000', r)); stamp(cv, '2000', t)
+    pa = oc(seg(t, 0.4, 3.4)); pf = 1 - sm(seg(t, 4.6, 5.4))
+    if pf > 0.01:
+        draw_coast(cv, r, pa, pf); cv.pill((22, 58), 'SHORELINE · TRACED FROM THIS IMAGE', 13, a=sm(seg(t, 0.6, 1.1)) * pf, accent=AMBER)
+    c = to_screen(r, SITE[0]); rr = SITE[1] * W / r[2]; fr = oc(seg(t, 3.9, 5.4)); s = sm(seg(t, 3.9, 4.4))
+    ring_dashed(cv, c, rr, s, phase=t * 14, frac=fr); cv.text((c[0], c[1] - 8), 'NOTHING BUILT HERE', 15, AMBER, sm(seg(t, tw(15, 20, d) - 0.2, tw(15, 20, d) + 0.5)), anchor='ma', spacing=0.12)
+    minimap(cv, r, sm(seg(t, 6.6, 7.2))); return cv
+# ---- H2 (8 s): the event - wipe 2000 -> 2003 on the shared grid, then the new land is filled and outlined
+def H2(t, d, X):
+    r = lerp_rect(key_rect(SITE[0], 900, WOC_SZ), key_rect((SITE[0][0] + 80, SITE[0][1]), 1500, WOC_SZ), smr(t / d)); a, b = view('2000', r), view('2003', r)
+    w0, w1 = 1.0, 2.7; u = oc(seg(t, w0, w1)); xs = int(W * u); base = a.copy()
+    if xs > 0: base.paste(b.crop((0, 0, xs, H)), (0, 0))
+    cv = Canvas(base)
+    if 0 < u < 1:
+        ss = SS(); ss.line([(xs, 0), (xs, H)], (234, 240, 246, 235), 2); ss.ellipse((xs, H / 2), 9, fill=(11, 15, 20, 230), outline=(234, 240, 246, 255), width=2); layer(cv, ss)
+    cv.chip('NASA ASTER · 2000 | 2003 · same grid, registration checked (≤ 1 px)')
+    cv.text((W - 24, 40), 'NOVEMBER 2000', 30, AMBER, 1 - sm(seg(t, w1 - 0.6, w1 - 0.2)), anchor='ra', spacing=0.14); cv.text((W - 24, 40), 'NOVEMBER 2003', 30, AMBER, sm(seg(t, w1 - 0.1, w1 + 0.3)), anchor='ra', spacing=0.14)
+    if u < 1: cv.text((24, 72), '2003', 20, TEXT, sm(seg(t, w0 + 0.1, w0 + 0.5)) * (1 - sm(seg(t, w1, w1 + 0.3))), spacing=0.14)
+    c = to_screen(r, SITE[0]); rr = SITE[1] * W / r[2]; ring_dashed(cv, c, rr, 1 - sm(seg(t, w0, w0 + 0.5)), phase=t * 14)
+    fp = oc(seg(t, 2.7, 3.9)); ep = oc(seg(t, 2.8, 4.4)); overlay_new_land(cv, r, fp, ep, fill_a=0.30 * (1 - 0.6 * sm(seg(t, 6.0, 6.8))))
+    cv.pill((22, 58), 'NEW LAND · THIS WAS SEA IN 2000 · TRACED', 13, a=sm(seg(t, tw(7, 16, d), tw(7, 16, d) + 0.4)) * (1 - sm(seg(t, 6.0, 6.5))), accent=AMBER)
+    tl = sm(seg(t, tw(10, 16, d), tw(10, 16, d) + 0.5)); x0, x1, y = W - 290, W - 60, 128; ss = SS(); ss.rect(x0 - 14, y - 34, x1 + 14, y + 30, fill=(8, 14, 22, int(190 * tl)), r=6); ss.line([(x0, y), (x1, y)], (234, 240, 246, int(200 * tl)), 2)
+    p = oc(seg(t, tw(10, 16, d) + 0.1, tw(14, 16, d) + 0.5)); ss.line([(x0, y), (x0 + (x1 - x0) * p, y)], AMBER + (int(255 * tl),), 4)
     for xx in (x0, x1): ss.ellipse((xx, y), 5, fill=(234, 240, 246, int(255 * tl)))
     layer(cv, ss); cv.text((x0, y + 10), '2000', 14, TEXT, tl, anchor='ma'); cv.text((x1, y + 10), '2003', 14, TEXT, tl, anchor='ma'); cv.text(((x0 + x1) / 2, y - 24), '3 YEARS', 15, AMBER, tl * sm(seg(t, tw(14, 16, d), tw(14, 16, d) + 0.4)), anchor='ma', spacing=0.12); return cv
-def H3(t, d, X):                                                           # ISS 2022: the same coast two decades later; glide Palm Jumeirah -> Palm Jebel Ali
-    keys = [(0, key_rect(PJI[0], 2300, ISS_SZ)), (3.6, key_rect(PJI[0], 1500, ISS_SZ)), (6.9, key_rect((PJAI[0][0] + 80, PJAI[0][1] - 260), 1700, ISS_SZ)), (d, key_rect((PJAI[0][0] + 80, PJAI[0][1] - 360), 2100, ISS_SZ))]
-    r = path(t, d, keys, ISS_SZ); cv = Canvas(view('iss', r)); cv.chip(ISSCHIP); yearlabel(cv, 'APRIL 2022', t, 0.3)
-    k = sm(seg(t, tw(15, 25, d) - 0.3, tw(15, 25, d) + 0.5)); cv.text((W - 24, 82), 'NOVEMBER 2000 → APRIL 2022', 13, MUTED, k, anchor='ra', spacing=0.1)
-    cv.callout(to_screen(r, PJI[0]), 'PALM JUMEIRAH', t, 1.0, (-120, -70), r=max(16, PJI[1] * W / r[2] * 1.1), px=17, out=4.2)
-    cv.callout(to_screen(r, PJAI[0]), 'PALM JEBEL ALI', t, tw(20, 25, d), (-140, -90), r=max(16, PJAI[1] * W / r[2] * 1.1), px=17, out=d - 0.3); return cv
-def H4(t, d, X):                                                           # ASTER 2006: south -> north along the four projects; the plans that came next; title
-    keys = [(0, key_rect(PJA2[0], 1150, P2_SZ)), (3.0, key_rect(PJ2[0], 1250, P2_SZ)), (6.0, key_rect(((WORLD2[0] + DEIRA2[0]) / 2, (WORLD2[1] + DEIRA2[1]) / 2 + 80), 2250, P2_SZ)), (d, key_rect(((WORLD2[0] + DEIRA2[0]) / 2, (WORLD2[1] + DEIRA2[1]) / 2 + 80), 2400, P2_SZ))]
-    r = path(t, d, keys, P2_SZ); base = view('palm2', r); k = sm(seg(t, 6.6, 7.8)); cv = Canvas(dim(base, 1 - 0.5 * k)); cv.chip(chip_for('palm2')); yearlabel(cv, 'SEPTEMBER 2006', t, 0.3) if False else yearlabel(cv, '2006', t, 0.3)
-    t0 = tw(12, 20, d)
-    cv.callout(to_screen(r, WORLD2), 'THE WORLD · UNDER CONSTRUCTION', t, t0 - 0.1, (90, 70), r=max(18, 160 * W / r[2]), px=15, out=6.5)
-    cv.callout(to_screen(r, DEIRA2), 'PALM DEIRA · EARLIEST STAGE', t, t0 + 0.5, (-100, 50), r=max(16, 110 * W / r[2]), px=15, out=6.5)
+# ---- H3 (11 s): triptych 2000 | 2003 | 2022 (three sources, labelled, NOT registered to each other), the ISS panel opens to full frame, glide to Palm Jebel Ali
+def H3(t, d, X):
+    pw = W / 3; E0, E1 = 3.8, 4.9; e = smr(seg(t, E0, E1)); img = Image.new('RGB', (W, H), (8, 12, 18)); cx, cy = SITE[0]
+    box_o = (cx - 260, cy - 438, 520, 877); box_i = (PJI[0][0] - 450, PJI[0][1] - 760, 900, 1519); big = key_rect(PJI[0], 1650, ISS_SZ)
+    for i, (key, box, lab, t0) in enumerate((('2000', box_o, 'ASTER · NOV 2000', -1.0), ('2003', box_o, 'ASTER · NOV 2003', 0.6), ('iss', box_i, 'ISS PHOTO · APR 2022', 1.5))):
+        k = oc(seg(t, t0, t0 + 0.7)); yoff = (1 - k) * -H
+        if key == 'iss' and e > 0:
+            scr = (pw * 2 * (1 - e), 0, pw + (W - pw) * e, H); bx = tuple(box[j] + (big[j] - box[j]) * e for j in range(4))
+            if abs(bx[2] / bx[3] - scr[2] / scr[3]) > 0.02: bx = (bx[0], bx[1], bx[2], bx[2] * scr[3] / scr[2])
+            paste_view(img, key, bx, scr)
+        else: paste_view(img, key, box, (pw * i, yoff, pw, H))
+    cv = Canvas(img); ss = SS()
+    for i in (1, 2): ss.line([(pw * i, 0), (pw * i, H)], AMBER + (int(200 * (1 - e)),), 1.5)
+    layer(cv, ss)
+    for i, lab in enumerate(('ASTER · NOV 2000', 'ASTER · NOV 2003', 'ISS PHOTO · APR 2022')):
+        k = sm(seg(t, 0.1 + 0.8 * i, 0.5 + 0.8 * i)) * (1 - sm(seg(t, E0, E0 + 0.4)) if i < 2 else 1 - sm(seg(t, E0 + 0.2, E1)))
+        cv.pill((pw * i + 8, 14), lab, 12, a=k, accent=AMBER)
+    cv.text((pw * 2 + 8, 56), 'not satellite imagery', 11, MUTED, sm(seg(t, 3.0, 3.5)) * (1 - sm(seg(t, E0 + 0.2, E1)))); cv.text((pw / 2, 70), 'EMPTY SEA', 15, AMBER, sm(seg(t, 0.8, 1.3)) * (1 - sm(seg(t, E0, E0 + 0.4))), anchor='ma', spacing=0.14)
+    cv.text((pw * 1.5, 70), 'THREE YEARS LATER', 15, AMBER, sm(seg(t, 1.8, 2.3)) * (1 - sm(seg(t, E0, E0 + 0.4))), anchor='ma', spacing=0.1); cv.text((pw * 2.5, 76), '2022', 15, AMBER, sm(seg(t, 2.7, 3.2)) * (1 - sm(seg(t, E0, E0 + 0.4))), anchor='ma', spacing=0.14)
+    if e >= 1:
+        keys = [(E1, big), (8.0, key_rect((PJAI[0][0] + 80, PJAI[0][1] - 260), 1700, ISS_SZ)), (d, key_rect((PJAI[0][0] + 80, PJAI[0][1] - 360), 2100, ISS_SZ))]
+        r = path(t, d, keys, ISS_SZ); cv = Canvas(view('iss', r)); cv.chip(ISSCHIP); yearlabel(cv, 'APRIL 2022', t, E1 + 0.1)
+        cv.text((W - 24, 82), 'NOVEMBER 2000 → APRIL 2022', 13, MUTED, sm(seg(t, E1 + 0.3, E1 + 0.8)), anchor='ra', spacing=0.1)
+        if 60 < to_screen(r, PJI[0])[1] < H - 90: cv.callout(to_screen(r, PJI[0]), 'PALM JUMEIRAH', t, E1 + 0.2, (-120, -70), r=max(16, PJI[1] * W / r[2] * 1.1), px=17, out=6.2)
+        cv.callout(to_screen(r, PJAI[0]), 'PALM JEBEL ALI', t, tw(20, 25, d), (-140, -90), r=max(16, PJAI[1] * W / r[2] * 1.1), px=17, out=d - 0.3)
+    elif e > 0:
+        cv.chip(ISSCHIP, sm(seg(t, E0 + 0.5, E1)))
+    return cv
+# ---- H4 (9 s): ASTER 2006 south -> north across the four projects, spotlight on the plans that came next, title with underline
+def H4(t, d, X):
+    mid = ((WORLD2[0] + DEIRA2[0]) / 2, (WORLD2[1] + DEIRA2[1]) / 2 + 80)
+    keys = [(0, key_rect(PJA2[0], 1150, P2_SZ)), (3.0, key_rect(PJ2[0], 1250, P2_SZ)), (6.0, key_rect(mid, 2250, P2_SZ)), (d, key_rect(mid, 2400, P2_SZ))]
+    r = path(t, d, keys, P2_SZ); k = sm(seg(t, 6.6, 7.8)); t0 = tw(12, 20, d); base = view('palm2', r)
+    sw = sm(seg(t, t0 - 0.2, t0 + 0.4)) * (1 - sm(seg(t, t0 + 1.0, t0 + 1.5))); sd = sm(seg(t, t0 + 1.0, t0 + 1.5)) * (1 - sm(seg(t, 6.3, 6.8)))
+    base = spot(base, to_screen(r, WORLD2), max(60, 190 * W / r[2]), 0.62 * sw); base = spot(base, to_screen(r, DEIRA2), max(55, 150 * W / r[2]), 0.62 * sd)
+    cv = Canvas(dim(base, 1 - 0.5 * k)); cv.chip(chip_for('palm2')); yearlabel(cv, '2006', t, 0.3)
+    cv.callout(to_screen(r, WORLD2), 'THE WORLD · UNDER CONSTRUCTION', t, t0 - 0.1, (90, -80), r=max(18, 160 * W / r[2]), px=15, out=t0 + 1.2)
+    cv.callout(to_screen(r, DEIRA2), 'PALM DEIRA · EARLIEST STAGE', t, t0 + 1.0, (-100, 50), r=max(16, 110 * W / r[2]), px=15, out=6.5)
     cv._center = True; cv.kinetic((W / 2, H * 0.36), 'HOW DUBAI CHANGED', 40, 6.9, t, spacing=0.14, per=0.04, a=k); cv.kinetic((W / 2, H * 0.36 + 56), 'THE MAP OF THE EARTH', 40, 7.3, t, spacing=0.14, per=0.04, a=k)
-    cv.text((W / 2, H * 0.36 + 120), 'ORBITAL ATLAS · EP002', 16, MUTED, a=k * sm(seg(t, 7.9, 8.5)), anchor='ma', spacing=0.3); return cv
+    u = oc(seg(t, 7.7, 8.5)); ss = SS(); ss.line([(W / 2 - 190 * u, H * 0.36 + 108), (W / 2 + 190 * u, H * 0.36 + 108)], AMBER + (230,), 2); layer(cv, ss)
+    cv.text((W / 2, H * 0.36 + 120), 'ORBITAL ATLAS · EP002', 16, MUTED, a=k * sm(seg(t, 8.0, 8.6)), anchor='ma', spacing=0.3); return cv
 
 # ------------------------------------------------------------------ ACT 1
 A2_START = (550, 600, 2400, 1350)
