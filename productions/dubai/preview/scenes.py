@@ -509,7 +509,7 @@ def E5(t, d, X):
     elif t < 16.0: key, r = '2003', lerp_rect(rect_c(woc_ring('2003')[0], 1400, dx=300), rect_c(woc_ring('2003')[0], 1250, dx=250), (t - 8) / 8.0)
     else: key, r = 'iss', lerp_rect(H3A, H3B, smr(seg(t, 16.5, 26.5)))
     lab = {'2000': 'NOVEMBER 2000: OPEN SEA', '2003': 'NOVEMBER 2003: A PALM INSIDE ITS RING', 'iss': 'APRIL 2022: THE PALM ISLANDS FROM ORBIT'}[key]
-    cv = Canvas(view(key, r)); cv.chip(chip_for(key)); lt = t if t < 8 else (t - 8 if t < 16 else t - 16); cv.text((24, 62), lab, 20, AMBER, oc(seg(lt, 0.3, 1.2)), anchor='la', spacing=0.1)
+    cv = Canvas(view(key, r)); cv.chip(chip_for(key)); lt = t if t < 8 else (t - 8 if t < 16 else t - 16); cv.text((24, 62 if key != 'iss' else H - 112), lab, 20, AMBER, oc(seg(lt, 0.3, 1.2)), anchor='la', spacing=0.1)   # on the ISS frame the Jumeirah ring sits top-left: header moves above the captions
     if key == '2003': c, rad = woc_ring('2003'); cv.callout(to_screen(r, (c[0] - rad, c[1])), 'THE RING', lt, 2.5, (80, 110), r=14)
     if key == 'iss': zoom_ring(cv, r, PJI[0], PJI[1], 'PALM JUMEIRAH · RING', lt, 2.0, (170, 130), px=18); zoom_ring(cv, r, PJAI[0], PJAI[1], 'PALM JEBEL ALI · RING', lt, 9.0, (-170, -150), px=18)
     return cv
