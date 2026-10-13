@@ -18,3 +18,9 @@ All entries **[VERIFIED]** in this repo unless tagged.
 | `--max-chars` over limit although text is right | blank-line paragraphs add characters | single newlines (EP002: 6,998 vs 7,025) |
 | outlines include coast arcs / cloud specks | threshold mask includes all land near the landmark | restrict radius; use the difference mask (`new_land`); raise threshold (ASTER 2006: 110) |
 | hook labels overlap captions | big label placed in the bottom 70 px | main labels at y = 0.13-0.21 H or 0.40 H; captions own the bottom |
+| a diagram label is cut at the right frame edge | left-anchored callout near the edge (B3 "PLACED WHERE THE ISLAND WILL BE") | flip the callout offset so the text is right-anchored; run a label-bbox check on the final frames, not only on previews |
+| yt-qc `audio_starts` fails (> 1.0 s) | deliberate silent cold open | record the decision; or add an original (synthetic) swell with approval; never stock music |
+| yt-qc `black_frames` after the first fix attempt | a dark navy card with a few elements is still >= 98 % dark | lift the card background (mean Y about 31), content in frame 0 |
+| paid TTS lost after a mid-run failure | no per-chunk persistence | `--cache-dir` (see TTS_ELEVENLABS.md) |
+| final MP4 > 100 MB cannot be pushed | host file limit | split in 90 MB parts on `media/<episode>-final` with SHA256SUMS |
+
