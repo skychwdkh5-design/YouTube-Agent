@@ -262,6 +262,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** EP002 v4.1: only 8 changed scenes re-rendered (~25 min with 4 jobs).
 - **Regression test:** none - Atomic rename pattern is also tested generically in yt-render's output tests; build_final.py itself has no unit test.
 
+### segment-splice-instead-of-full-rerender - Fix one card without a 48-minute re-render: render the shot, splice the frames
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** After the EP003 V2 render one number card still read '39 % SINCE'; a full director re-render costs about 48 minutes.
+- **Root cause:** The fix touched one overlay inside one shot; the rest of the video is byte-for-byte the same decision set.
+- **Fix:** director render SLUG seg.mp4 --start A --end B renders the whole shot(s) overlapping [A,B] from the shot start (report t_offset). Compare seg frames with the master outside the changed window (mean abs diff ~0.5 = identical content; the first ~0.6 s differ because no transition leads into the segment). Encode three parts separately with identical x264 settings (master 0..N1, seg window, master from N2 via -ss + trim), join with the concat demuxer (-c copy) and mux the master audio unchanged. Never split one input twice in a filtergraph: ffmpeg buffered the second branch and was OOM-killed.
+- **Reuse when:** A late fix that changes only a few seconds of a long render.
+- **References:** `orbitalatlas/director.py`; `docs/production-knowledge/RENDERING.md`
+- **Verification:** EP003 V2: 1.6 min segment render + ~10 min encode instead of 48 min; boundary frames checked against the master.
+- **Regression test:** none - procedure measured on EP003
+
 ### snap-zoom-blur-smear - Full camera motion blur on a fast snap zoom smears the whole frame
 *VERIFIED · general · 2026-10-14*
 

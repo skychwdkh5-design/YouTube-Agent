@@ -2321,6 +2321,35 @@
     "review"
    ],
    "no_test_reason": "measurement / environment fact, not code"
+  },
+  {
+   "id": "segment-splice-instead-of-full-rerender",
+   "title": "Fix one card without a 48-minute re-render: render the shot, splice the frames",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "render",
+   "date": "2026-10-15",
+   "problem": "After the EP003 V2 render one number card still read '39 % SINCE'; a full director re-render costs about 48 minutes.",
+   "root_cause": "The fix touched one overlay inside one shot; the rest of the video is byte-for-byte the same decision set.",
+   "fix": "director render SLUG seg.mp4 --start A --end B renders the whole shot(s) overlapping [A,B] from the shot start (report t_offset). Compare seg frames with the master outside the changed window (mean abs diff ~0.5 = identical content; the first ~0.6 s differ because no transition leads into the segment). Encode three parts separately with identical x264 settings (master 0..N1, seg window, master from N2 via -ss + trim), join with the concat demuxer (-c copy) and mux the master audio unchanged. Never split one input twice in a filtergraph: ffmpeg buffered the second branch and was OOM-killed.",
+   "reuse_when": "A late fix that changes only a few seconds of a long render.",
+   "refs": {
+    "code": [
+     "orbitalatlas/director.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/RENDERING.md"
+    ]
+   },
+   "verification": "EP003 V2: 1.6 min segment render + ~10 min encode instead of 48 min; boundary frames checked against the master.",
+   "no_test_reason": "procedure measured on EP003",
+   "symptoms": [
+    "one card wrong after render",
+    "ffmpeg Killed concat"
+   ],
+   "stages": [
+    "render"
+   ]
   }
  ]
 }
