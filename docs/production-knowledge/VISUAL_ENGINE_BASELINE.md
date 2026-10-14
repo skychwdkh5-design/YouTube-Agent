@@ -23,6 +23,8 @@ demo videos for effect development without a new task from the owner. Improvemen
 | punch-in | `interact.Punch` | emphasis words in energetic sentences, >= 2.5 s apart |
 | light transitions | `transitions.LightWipe`, `FlashDip`, `fx.LightSweep` | image date change -> light wipe; shot opening on revelation -> flash dip; scale jump -> push; energetic cut -> sweep |
 | sound design | `sfx` (synthesised CC0) | cues from the report; >= 0.25 s apart; ducked, >= 12 dB under voice; -16 LUFS |
+| traced shoreline / exposed-bed overlays | timeline v3 `fill`/`outline` layers -> `fx.RegionTint(thin=True)` + dated `CalloutPanel`; masks from `tools/autopilot/shoreline_masks.py` | placed by the storyboard author on the words that speak about the change (EP003) |
+| grammatical on-screen phrases | `orbitalatlas.phrases` (clause_suffix, label, lint) | every kicker/label; report['texts'] lists them with lint problems |
 | semantic storyboard | `semantic.plan`, `semantic.intensity` | priorities revelation 6, number 5, route 5, comparison 5, year 4, place 3; <= 6 events / 10 s |
 | quality control | `qa`, `verify_sync`, director `report['pacing']` | pacing limits 3 / 4 / 6 s (energetic / normal / calm) |
 
@@ -35,6 +37,10 @@ sound-design-synthesised-ducked, opening-tilt-then-move and the v2/v2b entries) 
 ## References
 VISUAL_REF_001 (cinematic geography Short) and VISUAL_REF_002 (kinetic typography reel): `docs/references/library/` (analyses, 28 effect records,
 `UNIFIED_STYLE_GUIDE.md`, `REFERENCE_COMPARISON.md` with the remaining gaps). The reference video files are not in the repository (copyright).
+
+## EP003 quality pass (2026-10-15)
+EP003 V2 used the baseline plus the two rows above; findings in `knowledge/solutions.json` (onscreen-phrase-grammar, shoreline-masks-seeded,
+director-shoreline-layers, callout-anchor-off-screen, pronunciation-check-unavailable). Check fixes with `director stills` (about 1 min) before a full render (about 45 min).
 
 ## Known limits (not fixed)
 Director renders geo shots from one stack per shot (no globe Earth -> country); 2.5D only; synthesised SFX, no music bed; count-up shows

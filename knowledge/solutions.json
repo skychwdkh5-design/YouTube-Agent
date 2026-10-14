@@ -2169,6 +2169,158 @@
     "storyboard",
     "qc"
    ]
+  },
+  {
+   "id": "onscreen-phrase-grammar",
+   "title": "Number-card kickers and event-year labels must be whole clauses of the narration",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "visual",
+   "date": "2026-10-15",
+   "problem": "EP003: kickers like 'BY NASA FOUND THAT THE LAKE'S VOLUME HAS SHRUNK' and labels like 'AT' (1986) or 'COMPLETED ACROSS MIDDLE LAKE'; a 9-word kicker ran off the frame.",
+   "root_cause": "Kickers were 'the last 9 words before the number'; labels dropped stop words from the middle of the clause; nothing checked width or grammar.",
+   "fix": "orbitalatlas/phrases.py: clause_suffix (clause-initial, no dangling first word, max 9 words / 44 chars), label (contiguous clause, strips leading/trailing function words, falls back to the words after the year), lint (contiguous narration words, no dangling start/end). The director uses them and lists every dynamic text with its lint result in report['texts']; event years with < 1.2 s on screen are skipped.",
+   "reuse_when": "Every director render; check report['texts'] for problems before rendering.",
+   "refs": {
+    "code": [
+     "orbitalatlas/phrases.py",
+     "orbitalatlas/director.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/VISUAL_ENGINE_BASELINE.md"
+    ]
+   },
+   "verification": "EP003 build: 15 kickers and 8 labels, 0 lint problems, 0 overlay issues (was 1 card outside the frame).",
+   "symptoms": [
+    "BY NASA FOUND",
+    "dangling label",
+    "kicker cut",
+    "card outside frame"
+   ],
+   "stages": [
+    "storyboard",
+    "render"
+   ],
+   "regression_test": "orbitalatlas/tests/test_ep003_quality.py::test_lint_flags_the_ep003_defects"
+  },
+  {
+   "id": "shoreline-masks-seeded",
+   "title": "Traced shoreline masks on a calibrated stack: seeded growth, not the brightness threshold",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "geo",
+   "date": "2026-10-15",
+   "problem": "yt-geo watermask.py (dark & non-red threshold) classified forested mountains as water and missed the pink 2022 north arm on the calibrated EP003 stack.",
+   "root_cause": "The calibrated tone curve lifts lake brightness above the fixed threshold; brine colour is reddish.",
+   "fix": "tools/autopilot/shoreline_masks.py: regions.seeded_region from manifest pins (+ extra lon/lat seeds) inside a lon/lat box at 1/4 resolution; --reject-reddish YEAR removes red-brown land only for years whose lake is blue/green (1985, 1986), never for pink-brine years (2022). Writes masks + JSON + a check JPEG; look at the check JPEG before use. Masks are display aids, not surveys.",
+   "reuse_when": "Any 'shoreline then/now' or 'exposed lake bed' visual.",
+   "refs": {
+    "code": [
+     "tools/autopilot/shoreline_masks.py",
+     "orbitalatlas/regions.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/SATELLITE_DATA.md"
+    ]
+   },
+   "verification": "EP003 1985/1986/2022 masks checked on overlays (islands cut out, Bear River and Farmington bays inside 1986, west desert excluded).",
+   "symptoms": [
+    "water mask wrong",
+    "land classed as water"
+   ],
+   "stages": [
+    "storyboard"
+   ],
+   "no_test_reason": "measurement / environment fact, not code"
+  },
+  {
+   "id": "director-shoreline-layers",
+   "title": "Director renders v3 'fill' and 'outline' mask layers with a dated legend",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "visual",
+   "date": "2026-10-15",
+   "problem": "Timeline v3 fill/outline layers were ignored by the director, so long passages on one image (EP003 4:44-5:46) had nothing evidence-based to show.",
+   "root_cause": "The director only knew image/wipe/flip/pin layers.",
+   "fix": "director: layer fill {mask, minus} = water in mask and not in minus (opened 1 px) as a soft RegionTint without outline; outline {mask} = thin RegionTint line (thin=True, no glint); optional CalloutPanel legend with the mask date; each listed in report['dates'] as kind 'overlay'. Masks are timeline assets kind 'mask' with 'scale'.",
+   "reuse_when": "Episodes with co-registered stacks and a change story.",
+   "refs": {
+    "code": [
+     "orbitalatlas/director.py",
+     "orbitalatlas/fx.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/VISUAL_ENGINE_BASELINE.md"
+    ]
+   },
+   "verification": "EP003 stills at 275-365 s: exposed-bed fill, 1986 and 2022 shorelines, legends inside the frame.",
+   "symptoms": [
+    "same image too long",
+    "no evidence on screen"
+   ],
+   "stages": [
+    "storyboard",
+    "render"
+   ],
+   "regression_test": "orbitalatlas/tests/test_ep003_quality.py::test_fill_and_outline_layers_are_drawn_dated_and_reported"
+  },
+  {
+   "id": "callout-anchor-off-screen",
+   "title": "A callout whose anchor is off screen drew a cut panel at the frame edge",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "visual",
+   "date": "2026-10-15",
+   "problem": "EP003 352 s: the 'SHORELINE · AUG 1986' legend was cut at the top edge.",
+   "root_cause": "The anchor sat at the top of the view and the offset pushed the panel above it; CalloutPanel drew even when its anchor was outside the frame.",
+   "fix": "CalloutPanel draws nothing when the anchor is outside the frame (2-98 % x, 4-96 % y); place legends below anchors near the top.",
+   "reuse_when": "Every callout/legend.",
+   "refs": {
+    "code": [
+     "orbitalatlas/fx.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/VISUAL_ENGINE_BASELINE.md"
+    ]
+   },
+   "verification": "EP003 still at 352.5 s: legend fully visible.",
+   "symptoms": [
+    "label cut at edge"
+   ],
+   "stages": [
+    "render"
+   ],
+   "regression_test": "orbitalatlas/tests/test_ep003_quality.py::test_callout_with_an_off_screen_anchor_draws_nothing"
+  },
+  {
+   "id": "pronunciation-check-unavailable",
+   "title": "Pronunciation cannot be verified in the cloud container (no ASR)",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "tts",
+   "date": "2026-10-15",
+   "problem": "Owner asked to verify Gunnison, Gilbert, Farmington, Saltair, Newfoundland, GRACE, methyl mercury.",
+   "root_cause": "No local ASR model; pypi.org and huggingface.co are denied by the egress policy (2026-10-15), so whisper/vosk cannot be installed.",
+   "fix": "List exact timecodes for the owner to listen; use word durations from the provider alignment as indirect evidence only (spelled acronyms take > 1 s; GRACE 0.30 s = spoken as a word). Never report pronunciation as verified.",
+   "reuse_when": "Any narration with names or acronyms.",
+   "refs": {
+    "code": [
+     "productions/ep003-great-salt-lake/voice/narration.voice.json"
+    ],
+    "docs": [
+     "docs/production-knowledge/TTS_ELEVENLABS.md"
+    ]
+   },
+   "verification": "pip download faster-whisper / vosk: no distribution; curl huggingface.co: connect_rejected.",
+   "symptoms": [
+    "pronunciation",
+    "ASR"
+   ],
+   "stages": [
+    "tts",
+    "review"
+   ],
+   "no_test_reason": "measurement / environment fact, not code"
   }
  ]
 }
