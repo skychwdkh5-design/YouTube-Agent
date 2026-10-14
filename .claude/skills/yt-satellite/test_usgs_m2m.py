@@ -194,6 +194,39 @@ class T(unittest.TestCase):
             d = json.loads(out)
             self.assertEqual((code, d["status"], calls), (2, "error", []), argv)
 
+    def test_download_bands_builds_entity_ids_reads_the_product_id_and_resumes(self):
+        import tempfile
+        did = "LC08_L1TP_038031_20160820_20200906_02_T1"
+        opts = [{"id": "p1", "productName": "Landsat Collection 2 Level-1 Band File", "available": True, "filesize": 0, "entityId": "E1",
+                 "secondaryDownloads": [{"id": "SECOND", "displayId": did, "available": True, "filesize": 0}]}]
+        sent = []
+        calls = {"download-options": opts}
+        def call(self, endpoint, payload=None, auth=True):
+            if endpoint == "login-token": return FAKE_KEY
+            if endpoint == "download-options": return opts
+            if endpoint == "download-request":
+                sent.append(payload)
+                return {"availableDownloads": [{"entityId": d["entityId"], "url": "https://example/" + d["entityId"]} for d in payload["downloads"]]}
+            return None
+        def fetch(self, url, out_dir, entity_id, max_mb):
+            path = os.path.join(out_dir, "tmp-" + entity_id)
+            with open(path, "wb") as f: f.write(b"x" * 10)
+            return {"path": path, "bytes": 10}
+        with tempfile.TemporaryDirectory() as d, mock.patch.dict(os.environ, {"USGS_M2M_USERNAME": FAKE_USER, "USGS_M2M_TOKEN": FAKE_TOKEN}), \
+                mock.patch.object(u.M2M, "call", call), mock.patch.object(u.M2M, "_fetch", fetch):
+            with u.M2M() as m:
+                r = m.download_bands("E1", did, ["B4", "B3", "B2"], d)
+                self.assertEqual(r["status"], "ok"); self.assertEqual(len(r["files"]), 4)             # three bands + MTL
+                self.assertEqual([x["entityId"] for x in sent[0]["downloads"]], [f"L1_{did}_B4_TIF", f"L1_{did}_B3_TIF", f"L1_{did}_B2_TIF", f"L1_{did}_MTL_TXT"])
+                self.assertTrue(all(x["productId"] == "SECOND" for x in sent[0]["downloads"]))        # product id comes from the scene's options
+                self.assertTrue(os.path.exists(os.path.join(d, f"{did}_B4.TIF"))); self.assertTrue(os.path.exists(os.path.join(d, f"{did}_MTL.txt")))
+                r2 = m.download_bands("E1", did, ["B4", "B3", "B2"], d)                                 # resume: nothing is requested again
+                self.assertEqual(len(sent), 1); self.assertTrue(all(x.get("skipped_existing") for x in r2["files"]))
+
+    def test_download_bands_needs_confirm_and_valid_bands(self):
+        code, out, _ = run(["download-bands", "--entity", "E1", "--display-id", "D", "--bands", "B4"], {})
+        self.assertEqual(code, 2); self.assertIn("--confirm", out)
+
     def test_options_empty_is_no_options(self):
         code, out, _ = run(["options", "--entity", "E1"], {"download-options": []})
         self.assertEqual((code, json.loads(out)["status"]), (0, "no_options"))

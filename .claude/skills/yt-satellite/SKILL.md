@@ -64,6 +64,18 @@ pass that on to the user; do not ask them to type the token into the conversatio
    A failed cleanup is not a failed download: if `"status": "ok"` and the file is there, the
    image is good.
 
+## Calibrated colour instead of the browse image (download-bands)
+
+The browse GeoTIFF/JPEG is stretched per scene: tones differ between scenes and dates, and tiles of one mosaic show seams. For before/after
+comparisons or mosaics, fetch the Level-1 band files and build colour with ONE fixed curve (EP001 "tone B": TOA reflectance =
+(DN*2e-5 - 0.1)/sin(sun elevation) for OLI, then clip((r-0.02)/0.58,0,1)**(1/1.8)); `tools/autopilot/landsat_color.py` does this and mosaics tiles:
+
+```bash
+python3 usgs_m2m.py download-bands --dataset landsat_ot_c2_l1 --entity <entityId> --display-id <displayId> \
+    --bands B4,B3,B2 --out ./bands --confirm        # TM (landsat_tm_c2_l1): --bands B3,B2,B1
+```
+Sizes: OLI bands ~80 MB each, TM ~20 MB; the MTL metadata file comes with them; a rerun skips files already there.
+
 ## Statuses and edge cases
 
 - `"status": "no_options"` (from `options` or `download`) means USGS lists no download options
@@ -97,3 +109,10 @@ the description draft (`/yt-seo`) and on screen where the image appears.
 
 Nothing here publishes. This skill finds evidence and you decide what goes in the video. The last
 line of every run is the question: **use it, or search again?**
+
+
+## Many tiles: use `fetch_bands.py`, not a hand-made loop
+`python3 .claude/skills/yt-satellite/fetch_bands.py SPEC.json --confirm` downloads every tile of a spec
+(`{"out_dir", "tiles":[{"dataset","bands","entity","display_id"}]}`) with a time limit per attempt, up to 4 attempts with back-off, retries only
+transient errors (HTTP 504/502/503, time-outs), skips finished tiles and prints `[i/n]` progress. A USGS 504 is normal; a rerun fixes it. To wait for a
+background job never use `pgrep -f NAME` (it finds its own shell and never ends): `python3 tools/autopilot/procs.py wait NAME --timeout 600`.

@@ -97,6 +97,33 @@ def claims(d):
     return _res(p, notes)
 
 
+def claim_numbers(script_path, claims_path, parse_script):
+    """Every number the narration says must appear in a VERIFIED claim named by that beat's [VIS: claims=...] hint (or be listed in derived="..." with
+    the claim it is computed from). Words are not checked here - a person reads the claim map - but no figure can enter the film unsourced."""
+    problems, rows = [], []
+    with open(script_path, encoding="utf-8") as f: blocks = parse_script(f.read())
+    data = _json(claims_path)
+    by = {c["id"]: c for c in data.get("claims", [])}
+    num = re.compile(r"\d[\d,]*(?:\.\d+)?")
+    norm = lambda x: x.replace(",", "").rstrip(".")
+    for i, b in enumerate(blocks, 1):
+        nums = [norm(x) for x in num.findall(b["text"])]
+        ids = [c.strip() for c in b["hints"].get("claims", "").split(",") if c.strip()]
+        derived = [norm(x) for x in re.split(r"[|,]", b["hints"].get("derived", "")) if x.strip()]
+        rows.append({"beat": i, "text": b["text"][:70], "claims": ids, "numbers": nums})
+        if not nums: continue
+        if not ids:
+            problems.append(f"beat {i} says numbers {nums} but names no claims (add [VIS: claims=C1,...])"); continue
+        bad = [c for c in ids if c not in by or by[c].get("status") != "VERIFIED" or not by[c].get("used", True)]
+        if bad: problems.append(f"beat {i} cites claims that are missing or not VERIFIED: {bad}")
+        pool = " ".join(norm(by[c]["text"]) for c in ids if c in by)
+        pool_nums = {norm(x) for x in num.findall(by.get(ids[0], {}).get("text", "") + " " + " ".join(by[c]["text"] for c in ids if c in by))}
+        for n in nums:
+            if n in pool_nums or n in derived: continue
+            problems.append(f"beat {i}: the number {n} is not in any cited claim ({', '.join(ids)}); cite the claim or declare derived=\"{n}\" with its source claim")
+    return {"ok": not problems, "problems": problems, "map": rows}
+
+
 def script_lock(d, spoken_text_fn):
     p = []
     lock = os.path.join(d, "story", "SCRIPT_LOCK.json")
@@ -107,6 +134,11 @@ def script_lock(d, spoken_text_fn):
         return _res([f"cannot verify lock: {x}"])
     if L.get("spoken_sha256") != sha256_text(text):
         p.append("script.md spoken text no longer matches SCRIPT_LOCK.json (re-lock only with the owner's OK; a changed text is a new paid TTS)")
+    cl = os.path.join(d, "story", "claims.json")
+    if os.path.exists(cl):
+        import storyboard
+        r = claim_numbers(script, cl, storyboard.parse_script)
+        p += r["problems"]
     return _res(p, [f"{len(text)} spoken characters"])
 
 
