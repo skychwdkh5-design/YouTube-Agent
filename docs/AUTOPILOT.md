@@ -48,6 +48,7 @@ There is no publish stage and the guard hook blocks upload commands. The owner u
 * **Geo scenes:** `storyboard.py` generates yt-geo camera/wipe/flip/pin/label shots from `[VIS: geo=... wipe=... flip=... pins=...]` hints and the `stacks` block of `assets/manifest.json`.
 * **Claim numbers:** the `script_lock` gate requires every number in a beat to appear in a cited VERIFIED claim or be declared `derived=`.
 * **Background jobs:** never wait with `pgrep -f NAME`; use `tools/autopilot/procs.py wait NAME --timeout S` or a result marker with a deadline (registry: `pgrep-f-matches-itself`, `usgs-504-bounded-retry`).
+* **Visual engine v2** (`orbitalatlas/`): narration -> event plan (`semantic`), word-synced captions A-E (`captions`), kinetic type (`kinetic`), overlays (`fx`), grade with evidence guard (`grade`), camera presets, flash/light-wipe transitions; reference library `docs/references/library` (VISUAL_REF_001/002) consulted with `python3 -m orbitalatlas.refs consult SCENE`. The storyboard generator does not call it yet (next step: map plan events onto timeline v3 layers).
 
 ## What still needs Claude (not automatable today)
 Choosing and verifying topics against real sources, writing the script, the motion storyboard, looking at the frames, packaging

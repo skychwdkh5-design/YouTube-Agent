@@ -69,6 +69,7 @@ Rules in short:
   without explicit user approval.
 - Report status as TECHNICALLY_VALID, VISUALLY_REVIEWED or USER_APPROVED. Only the user grants USER_APPROVED;
   do not call unapproved work cinematic or premium.
+- Reference library (VISUAL_REF_001 cinematic geography, VISUAL_REF_002 kinetic typography): `docs/references/library/UNIFIED_STYLE_GUIDE.md`; before storyboarding run `python3 -m orbitalatlas.refs consult "<scene type>"`. Narration -> events: `orbitalatlas.semantic.plan`; captions A-E: `orbitalatlas.captions`; satellite pixels get `neutral`/`evidence_safe` grade only (`orbitalatlas.grade`).
 - Reference style and effect catalogue: `docs/references/` (read before storyboarding a geographic video). Real geography: `orbitalatlas.geo` + `tools/fetch_natural_earth.sh`; never invent coastlines or borders.
 - Shared motion engine: `orbitalatlas/` (README inside). Build scenes with it instead of writing a new renderer per episode; use `orbitalatlas.qa`
   before reporting TECHNICALLY_VALID. The Dubai-specific engine in `productions/dubai/motion/engine/` is kept for EP002 only.
