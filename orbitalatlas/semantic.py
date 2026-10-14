@@ -18,7 +18,7 @@ Nothing here invents facts: events carry the word that triggered them and the ru
 import re
 from . import captions as C
 
-PRIORITY = {"revelation": 6, "route": 5, "comparison": 5, "place": 4, "year": 4, "number": 3, "emphasis": 2, "simplify": 1}
+PRIORITY = {"revelation": 6, "number": 5, "route": 5, "comparison": 5, "year": 4, "place": 3, "emphasis": 2, "simplify": 1}
 EXTREMES = {"largest", "biggest", "smallest", "lowest", "highest", "deepest", "longest", "shortest", "record", "first", "last", "only", "never", "worst", "best",
             "most", "least", "entire", "completely", "massive", "enormous", "tiny", "unprecedented", "fastest", "driest", "wettest", "hottest", "coldest", "almost", "nearly"}
 CHANGE = {"fallen", "shrunk", "shrinking", "drying", "dried", "vanished", "disappeared", "dropped", "collapsed", "split", "splits", "pulled", "retreated", "worsens", "dust"}
@@ -78,9 +78,17 @@ def plan(words, places=None, mode="long", source="provider", complex_words=24, m
             add("route", pl[0], to=tw[pl[1]]["place"], frm=tw[pl[0]]["place"], rule="two places with a motion word")
         for i in range(a, b):
             n = toks[i - a]
+            if n == "than" and (i + 1 < b and re.match(r"^\d", C.clean(tw[i + 1]["text"]) or "x")): continue      # 'more than 20 feet' is a quantity, not a comparison
             if n in COMPARE or (n == "then" and "now" in toks[i - a:]): add("comparison", i, rule=f"'{n}'"); break
         for i in range(a, b):
             if tw[i].get("emph"): add("emphasis", i, rule="extreme / change word")
+    # places that take part in a route or a comparison share that event's priority (both ends of a comparison are shown or neither)
+    for a, b in sentences(tw):
+        rel = [e for e in ev if e["kind"] in ("route", "comparison") and a <= e["word"] < b]
+        if rel:
+            top = max(e["priority"] for e in rel)
+            for e in ev:
+                if e["kind"] == "place" and a <= e["word"] < b: e["priority"] = max(e["priority"], top); e["bundle"] = rel[0]["kind"]
     ev.sort(key=lambda e: (e["t"], -e["priority"], e["word"]))
     kept = []
     for e in ev:                                         # density limit + per-kind minimum gap, highest priority wins inside a window

@@ -1115,6 +1115,178 @@
     "orbitalatlas/demo/visual_v2.py"
    ],
    "params": {}
+  },
+  {
+   "id": "oa_typeset_word_presets",
+   "kind": "text",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Word tiles with presets rise (mask), depth_in/out, slide, outline_fill, type-on, pop, glint; push_lines line transition; KineticLine.",
+   "use_for": [
+    "title",
+    "emphasis",
+    "narration_sync"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "outline",
+    "depth",
+    "mask rise",
+    "type on",
+    "glint",
+    "line transition"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/typeset.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2b.py"
+    ]
+   },
+   "limits": "2.5D only; English",
+   "used_in": [
+    "productions/ep900-visual-demo"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_impact_number_cards",
+   "kind": "card",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "ImpactCard (full-frame colour card for a revelation), NumberCard (kicker + count-up value + unit + tail, HUD panel, optional leader), YearTag, Dim.",
+   "use_for": [
+    "revelation",
+    "number_context"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "impact card",
+    "colour card",
+    "number card",
+    "year tag",
+    "focus"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/typeset.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2b.py"
+    ]
+   },
+   "limits": "one focus at a time via the director",
+   "used_in": [
+    "productions/ep900-visual-demo"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_plane_tilt",
+   "kind": "camera",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "PlaneTilt: the map lands from a tilted plane on a neon floor grid; identity at 0 deg.",
+   "use_for": [
+    "opening",
+    "establish_place"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "plane",
+    "perspective",
+    "tilt",
+    "floor grid"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/plane.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2b.py"
+    ]
+   },
+   "limits": "one flat picture on a plane; not terrain",
+   "used_in": [
+    "productions/ep900-visual-demo"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_callout_compare",
+   "kind": "overlay",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "CalloutPanel (leader + panel with narration rows) and CompareLink (dashed connector + comparative word).",
+   "use_for": [
+    "locate",
+    "comparison"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "callout",
+    "hud panel",
+    "compare",
+    "connector"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/fx.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2b.py"
+    ]
+   },
+   "limits": "needs verified pins",
+   "used_in": [
+    "productions/ep900-visual-demo"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_director",
+   "kind": "planner",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Director: timeline v3 + motion plan -> programme with focus manager, transitions by purpose, pacing, decision report.",
+   "use_for": [
+    "automatic_editing"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "director",
+    "automatic",
+    "storyboard render"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/director.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2b.py"
+    ]
+   },
+   "limits": "geo shots only; no globe; no sound design",
+   "used_in": [
+    "productions/ep900-visual-demo"
+   ],
+   "params": {}
   }
  ]
 }

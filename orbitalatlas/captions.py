@@ -3,7 +3,7 @@
   A  clean documentary   restrained: the phrase fades in whole, high readability (long-form default)
   B  dynamic kinetic     words appear on their own timestamps; important words enlarge and take the accent colour
   C  high impact         bold caps, scale pop with a colour-offset duplicate, short phrase; rare (rate-limited by the planner)
-  D  data emphasis       numbers (count-up), years (underline sweep), percentages and place names get a highlight plate
+  D  data emphasis       numbers, years (underline sweep), percentages and place names get a highlight (never a count-up: subtitles show the spoken words)
   E  cinematic minimal   small, low, letter-spaced, fade only - for visually busy shots
 
 Timing comes ONLY from the words passed in. `Cues`-style provider timestamps give frame-accurate sync; estimated ones are flagged by the caller
@@ -118,11 +118,12 @@ class WordCaptions(Overlay):
     """caption overlay. `cards` from make_cards, `styles` from plan_styles (or a single letter). Draws on the UI layer (never camera-blurred)."""
     layer = "ui"; cls = "TEXT"
 
-    def __init__(self, cards, styles="A", position=None, scale=1.0, hold=0.30, lead=0.05, accent=ACCENT, data=DATA, source="provider"):
+    def __init__(self, cards, styles="A", position=None, scale=1.0, hold=0.30, lead=0.05, accent=ACCENT, data=DATA, source="provider", hidden=()):
         self.cards = cards; self.hold, self.lead, self.accent, self.data = hold, lead, accent, data
         self.styles = [styles] * len(cards) if isinstance(styles, str) else list(styles)
         assert len(self.styles) == len(cards) and all(s in STYLES for s in self.styles)
         self.position, self.scale, self.source = position, scale, source
+        self.hidden = set(hidden)            # cards whose content is carried by a focus graphic (number card, impact card): not drawn, no duplicate
         # a card ends when the next starts (no overlap) or after `hold`
         self.ends = [min(c["t1"] + hold, cards[i + 1]["t0"] - lead - 0.01 if i + 1 < len(cards) else 1e9) for i, c in enumerate(cards)]
         self.ends = [min(max(e, c["t1"] + 0.05), cards[i + 1]["t0"] - lead - 0.005 if i + 1 < len(cards) else 1e9) for i, (e, c) in enumerate(zip(self.ends, cards))]   # never overlaps the next card
@@ -133,11 +134,11 @@ class WordCaptions(Overlay):
         return None
 
     def describe(self):
-        d = super().describe(); d.update(cards=len(self.cards), styles="".join(self.styles), timing=self.source); return d
+        d = super().describe(); d.update(cards=len(self.cards), styles="".join(self.styles), timing=self.source, hidden=sorted(self.hidden)); return d
 
     def draw(self, ctx):
         i = self.active(ctx.t)
-        if i is None: return
+        if i is None or i in self.hidden: return
         c, s = self.cards[i], self.styles[i]; W, H = ctx.size; vertical = H > W
         base = H * (0.034 if vertical else 0.052) * self.scale
         cy = self.position[1] * H if self.position else (H * 0.70 if vertical else H * 0.845)
@@ -190,8 +191,7 @@ class WordCaptions(Overlay):
             special = is_year(txt) or is_number(txt) or w.get("kind") in ("year", "number", "place")
             if not special:
                 K.draw_text(layer, (x, y), txt, px, INK, "bold", E.out_cubic(u) * out, shadow=0.07, stroke=max(1, int(px * 0.035)), stroke_color=(0, 0, 0)); continue
-            if is_number(txt):                            # count-up over 0.55 s, then the exact string
-                k = E.out_cubic(E.seg(t, w["start"], w["start"] + 0.4)); txt = _count_up(txt, k)
+            # no count-up in captions: a subtitle shows the spoken words exactly (count-up lives in typeset.NumberCard)
             plate = K.draw_text(layer, (x, y), txt, px * 1.12, self.data if w.get("kind") != "place" else self.accent, "black", E.out_cubic(u) * out, shadow=0.07, stroke=max(1, int(px * 0.04)), stroke_color=(0, 0, 0))
             if is_year(w["text"]) and plate:             # underline sweep
                 sw = E.out_expo(E.seg(t, w["start"] + 0.05, w["start"] + 0.4)); d = _draw(layer)

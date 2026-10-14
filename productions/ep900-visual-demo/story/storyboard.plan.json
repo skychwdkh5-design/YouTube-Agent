@@ -1,0 +1,166 @@
+{
+ "timing": "provider",
+ "alignment": {
+  "method": "token-count",
+  "exact": true
+ },
+ "scenes": [
+  {
+   "scene": "sc01",
+   "start": 0.0,
+   "end": 4.366666666666666,
+   "kinds": [
+    "geo"
+   ],
+   "text": "From orbit, the Great Salt Lake hides a secret: two lakes.",
+   "chosen": {
+    "template": "geo_camera_move",
+    "asset": "geo_2022",
+    "family": "geo_2022"
+   },
+   "score": null,
+   "notes": [
+    "geographic scene authored by hint (views, pins and dates come from the stack manifest)"
+   ],
+   "alternatives": []
+  },
+  {
+   "scene": "sc02",
+   "start": 4.366666666666666,
+   "end": 8.733333333333333,
+   "kinds": [
+    "geo"
+   ],
+   "text": "In 1959, a railroad causeway split it in half.",
+   "chosen": {
+    "template": "geo_camera_move",
+    "asset": "geo_2022",
+    "family": "geo_2022"
+   },
+   "score": null,
+   "notes": [
+    "geographic scene authored by hint (views, pins and dates come from the stack manifest)"
+   ],
+   "alternatives": []
+  },
+  {
+   "scene": "sc03",
+   "start": 8.733333333333333,
+   "end": 13.433333333333334,
+   "kinds": [
+    "geo"
+   ],
+   "text": "Gunnison Bay to the north is always saltier than Gilbert Bay to the south.",
+   "chosen": {
+    "template": "geo_camera_move",
+    "asset": "geo_2022",
+    "family": "geo_2022"
+   },
+   "score": null,
+   "notes": [
+    "geographic scene authored by hint (views, pins and dates come from the stack manifest)"
+   ],
+   "alternatives": []
+  },
+  {
+   "scene": "sc04",
+   "start": 13.433333333333334,
+   "end": 18.3232,
+   "kinds": [
+    "geo"
+   ],
+   "text": "And since its 1986 high, the lake has fallen more than 20 feet.",
+   "chosen": {
+    "template": "geo_wipe",
+    "asset": "geo_wipe_1986_2022",
+    "family": "geo_wipe_1986_2022"
+   },
+   "score": null,
+   "notes": [
+    "geographic scene authored by hint (views, pins and dates come from the stack manifest)"
+   ],
+   "alternatives": []
+  }
+ ],
+ "gaps": [],
+ "warnings": [],
+ "timing_source": "alignment",
+ "needs": [],
+ "renderer_plan": {
+  "status": "confirm_required",
+  "warnings": [
+   "only 2 distinct compositions in the first 10 s (target >= 3; new text or overlays on the same view do not count)",
+   "only 1 visual families in the first 10 s (target >= 3; a new view of the same visual idea is not new)",
+   "duration 19.333s outside 60.0-900.0 s"
+  ],
+  "compositions": {
+   "rule": "composition-reset/1",
+   "thresholds": {
+    "zoom_ratio": 1.5,
+    "shift": 0.35,
+    "merge_s": 0.75,
+    "timelapse_min": 3,
+    "timelapse_max_step": 1.0,
+    "sample_s": 0.1,
+    "first_10s_min": 3,
+    "resets_per_min": 5.0,
+    "max_hold_s": 8.0
+   },
+   "composition_resets": 3,
+   "distinct_first_10s": 2,
+   "longest_static_hold": {
+    "seconds": 4.367,
+    "start": 0.0,
+    "end": 5.767
+   },
+   "resets": [
+    {
+     "t": 5.767,
+     "shot": "sc02",
+     "kind": "camera_move",
+     "what": "zoom in x1.5"
+    },
+    {
+     "t": 10.633,
+     "shot": "sc03",
+     "kind": "camera_move",
+     "what": "zoom out x1.5"
+    },
+    {
+     "t": 16.4,
+     "shot": "sc04",
+     "kind": "wipe",
+     "what": "wipe y1986 -> y2022"
+    }
+   ],
+   "segments": [
+    {
+     "start": 0.0,
+     "end": 5.767,
+     "seconds": 5.767,
+     "static_hold": 4.367
+    },
+    {
+     "start": 5.767,
+     "end": 10.633,
+     "seconds": 4.866,
+     "static_hold": 0.0
+    },
+    {
+     "start": 10.633,
+     "end": 16.4,
+     "seconds": 5.767,
+     "static_hold": 2.967
+    },
+    {
+     "start": 16.4,
+     "end": 19.333,
+     "seconds": 2.933,
+     "static_hold": 1.333
+    }
+   ]
+  },
+  "expected_duration": 19.333
+ },
+ "repairs": []
+}

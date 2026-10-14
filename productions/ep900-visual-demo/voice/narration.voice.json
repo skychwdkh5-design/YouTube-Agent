@@ -1,0 +1,245 @@
+{
+ "schema": "yt-voice/1",
+ "timing_source": "alignment",
+ "voice": "flite:slt tempo 1.45 (test voice, not the channel voice)",
+ "audio": "voice/narration_test.wav",
+ "duration": 18.683,
+ "note": "FREE TEST VOICE (ffmpeg flite), word times measured on this audio; not the channel voice, not for release",
+ "words": [
+  {
+   "text": "From",
+   "start": 0.25,
+   "end": 0.4561
+  },
+  {
+   "text": "orbit,",
+   "start": 0.4961,
+   "end": 0.739
+  },
+  {
+   "text": "the",
+   "start": 0.999,
+   "end": 1.08
+  },
+  {
+   "text": "Great",
+   "start": 1.12,
+   "end": 1.3724
+  },
+  {
+   "text": "Salt",
+   "start": 1.4124,
+   "end": 1.8495
+  },
+  {
+   "text": "Lake",
+   "start": 1.8895,
+   "end": 2.1266
+  },
+  {
+   "text": "hides",
+   "start": 2.1666,
+   "end": 2.5348
+  },
+  {
+   "text": "a",
+   "start": 2.5748,
+   "end": 2.6898
+  },
+  {
+   "text": "secret:",
+   "start": 2.7298,
+   "end": 2.9908
+  },
+  {
+   "text": "two",
+   "start": 3.3308,
+   "end": 3.5313
+  },
+  {
+   "text": "lakes.",
+   "start": 3.5713,
+   "end": 3.9218
+  },
+  {
+   "text": "In",
+   "start": 4.3818,
+   "end": 4.5959
+  },
+  {
+   "text": "1959,",
+   "start": 4.6359,
+   "end": 5.7453
+  },
+  {
+   "text": "a",
+   "start": 6.0053,
+   "end": 6.1203
+  },
+  {
+   "text": "railroad",
+   "start": 6.1603,
+   "end": 6.6549
+  },
+  {
+   "text": "causeway",
+   "start": 6.6949,
+   "end": 7.1622
+  },
+  {
+   "text": "split",
+   "start": 7.2022,
+   "end": 7.4716
+  },
+  {
+   "text": "it",
+   "start": 7.5116,
+   "end": 7.6855
+  },
+  {
+   "text": "in",
+   "start": 7.7255,
+   "end": 7.9396
+  },
+  {
+   "text": "half.",
+   "start": 7.9796,
+   "end": 8.2752
+  },
+  {
+   "text": "Gunnison",
+   "start": 8.7352,
+   "end": 9.2315
+  },
+  {
+   "text": "Bay",
+   "start": 9.2715,
+   "end": 9.4491
+  },
+  {
+   "text": "to",
+   "start": 9.4891,
+   "end": 9.577
+  },
+  {
+   "text": "the",
+   "start": 9.617,
+   "end": 9.698
+  },
+  {
+   "text": "north",
+   "start": 9.738,
+   "end": 10.1132
+  },
+  {
+   "text": "is",
+   "start": 10.1532,
+   "end": 10.3963
+  },
+  {
+   "text": "always",
+   "start": 10.4363,
+   "end": 10.8839
+  },
+  {
+   "text": "saltier",
+   "start": 10.9239,
+   "end": 11.4529
+  },
+  {
+   "text": "than",
+   "start": 11.4929,
+   "end": 11.6689
+  },
+  {
+   "text": "Gilbert",
+   "start": 11.7089,
+   "end": 12.1118
+  },
+  {
+   "text": "Bay",
+   "start": 12.1518,
+   "end": 12.3294
+  },
+  {
+   "text": "to",
+   "start": 12.3694,
+   "end": 12.4573
+  },
+  {
+   "text": "the",
+   "start": 12.4973,
+   "end": 12.5783
+  },
+  {
+   "text": "south.",
+   "start": 12.6183,
+   "end": 12.9649
+  },
+  {
+   "text": "And",
+   "start": 13.4249,
+   "end": 13.6732
+  },
+  {
+   "text": "since",
+   "start": 13.7132,
+   "end": 14.0215
+  },
+  {
+   "text": "its",
+   "start": 14.0615,
+   "end": 14.3378
+  },
+  {
+   "text": "1986",
+   "start": 14.3778,
+   "end": 15.2055
+  },
+  {
+   "text": "high,",
+   "start": 15.2455,
+   "end": 15.3853
+  },
+  {
+   "text": "the",
+   "start": 15.6453,
+   "end": 15.7263
+  },
+  {
+   "text": "lake",
+   "start": 15.7663,
+   "end": 16.0034
+  },
+  {
+   "text": "has",
+   "start": 16.0434,
+   "end": 16.3523
+  },
+  {
+   "text": "fallen",
+   "start": 16.3923,
+   "end": 16.6967
+  },
+  {
+   "text": "more",
+   "start": 16.7367,
+   "end": 17.0879
+  },
+  {
+   "text": "than",
+   "start": 17.1279,
+   "end": 17.3039
+  },
+  {
+   "text": "20",
+   "start": 17.3439,
+   "end": 17.6685
+  },
+  {
+   "text": "feet.",
+   "start": 17.7085,
+   "end": 17.8232
+  }
+ ]
+}

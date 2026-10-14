@@ -22,7 +22,8 @@
    "implementation": [
     "camera_presets.scale_change",
     "camera_presets.snap_zoom",
-    "layers.Scene"
+    "layers.Scene",
+    "director.camera_keys"
    ],
    "status": "IMPLEMENTED",
    "preset": "scale_change(t0, c0, h0, c1, h1, dur=1.4, pullback=1.12) / snap_zoom(dur=0.32)",
@@ -36,7 +37,7 @@
     "anchor inside the safe frame at arrival",
     "speed peak not on text"
    ],
-   "uncertainty": "ratios and exact easing are visual estimates from 2-12 fps strips; the reference uses a 3D globe/terrain basemap, here only image-space zooms exist (class A)"
+   "uncertainty": "ratios and easing are estimates; class A only. v2b: the director picks snap / scale change / smooth move from the storyboard views"
   },
   {
    "id": "VR1-02",
@@ -112,13 +113,12 @@
     "named anchor in the picture"
    ],
    "implementation": [
-    "fx.MarkerPin(label=...)",
-    "layers.AnchoredText",
-    "layers.PulseMarker",
-    "text.plate"
+    "fx.CalloutPanel",
+    "fx.MarkerPin",
+    "typeset.YearTag"
    ],
-   "status": "PARTIAL",
-   "preset": "MarkerPin(p, t0, label)",
+   "status": "IMPLEMENTED",
+   "preset": "CalloutPanel(p, t0, t1, title, rows)  # rows = narration words only",
    "scene_types": [
     "place name"
    ],
@@ -126,7 +126,7 @@
     "label box registered in text.Registry (collision, outside-frame)",
     "never cover the subject"
    ],
-   "uncertainty": "boxed label with leader exists in PulseMarker/Dubai code; a unified boxed-label overlay with blur-in is not built"
+   "uncertainty": "box + leader + typed rows; the reference's blur-in is replaced by a draw-on (v2b)"
   },
   {
    "id": "VR1-05",
