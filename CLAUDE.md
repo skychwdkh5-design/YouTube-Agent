@@ -84,6 +84,14 @@ Rules in short:
 ## Production knowledge base (read before every new release)
 
 - Index: `docs/production-knowledge/README.md` (about 30 lines). Read the index first, then only the one or two documents your task needs; do not load the whole folder.
-- Reuse existing components (`orbitalatlas/`, `productions/dubai/preview/`, `.claude/skills/yt-*`, `tools/cesium_proof/`) and check `docs/production-knowledge/TROUBLESHOOTING.md` before debugging; do not repeat fixed mistakes or build a duplicate tool.
+- Reuse existing components (`orbitalatlas/`, `productions/dubai/preview/`, `.claude/skills/yt-*`, `tools/cesium_proof/`) and run `python3 tools/memory/kb.py search WORDS` / `kb.py diagnose LOG` before debugging; do not repeat fixed mistakes or build a duplicate tool.
 - Paid TTS: follow `docs/production-knowledge/TTS_ELEVENLABS.md` (preflight, character count, `--cache-dir`, one pass, never regenerate cached audio, no retry after an error before checking credits and the cache).
-- After a release, append only verified findings to the matching document, tagged VERIFIED / HYPOTHESIS / EPISODE-SPECIFIC with the date; keep rules (here) separate from episode facts. Never write keys or secrets; media goes to `media/*` branches with a SHA-256 list, not to main.
+- After a verified fix add ONE entry to `knowledge/solutions.json` (`kb.py add`, then `kb.py render`; fields and tests: `.claude/skills/yt-autopilot`), tagged VERIFIED / HYPOTHESIS; keep rules (here) separate from episode facts; never document the same fix twice. Never write keys or secrets; media goes to `media/*` branches with a SHA-256 list, not to main.
+
+## Autopilot and memory (mandatory)
+
+- Start of a session: `git fetch origin '+refs/heads/*:refs/remotes/origin/*'` (EP001/EP002 history is on side branches; `docs/AUDIT_PHASE1.md` says what is where), then `/yt-autopilot`: `python3 tools/autopilot/orbital.py preflight` and `status SLUG`.
+- One pipeline for every episode: `tools/autopilot/pipeline.json`, described in `docs/AUTOPILOT.md`. Do the next stage it names; do not invent a parallel process.
+- Durable memory lives only in the repository: `knowledge/solutions.json` (verified fixes, generated view `docs/production-knowledge/SOLUTIONS.md`), CLAUDE.md (rules), `docs/production-knowledge/` (topic procedures). Container-local auto memory does not survive.
+- Spending and publishing: paid TTS only through `orbital.py` after the owner's recorded approval (`approve ... --quote`); never upload to YouTube; never commit or push to main; never touch the finished EP001/EP002 files. The hook in `.claude/settings.json` enforces these as a safety net.
+- Status words: TECHNICALLY_VALID (automatic gates), VISUALLY_REVIEWED (frames actually looked at, with what was not verified), USER_APPROVED (owner only).

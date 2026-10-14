@@ -1,0 +1,10 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {"hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/tools/memory/kb.py\" brief"}]}
+    ],
+    "PreToolUse": [
+      {"matcher": "Bash|Edit|Write|MultiEdit", "hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/tools/autopilot/guard.py\""}]}
+    ]
+  }
+}

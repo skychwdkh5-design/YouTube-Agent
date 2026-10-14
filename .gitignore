@@ -30,3 +30,11 @@ data/natural_earth/
 
 # EP002 paid TTS chunk cache (audio, regenerable only by paying again: keep in stable storage, not git)
 productions/dubai/narration/voice/cache/
+
+# New episodes (ep003-...): text, state and release package are committed; heavy or regenerable data is not
+!productions/ep[0-9][0-9][0-9]-*/
+productions/ep[0-9][0-9][0-9]-*/raw/
+productions/ep[0-9][0-9][0-9]-*/work/
+productions/ep[0-9][0-9][0-9]-*/seg/
+productions/ep[0-9][0-9][0-9]-*/voice/cache/
+productions/ep[0-9][0-9][0-9]-*/assets/
