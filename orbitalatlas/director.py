@@ -40,7 +40,7 @@ Image.MAX_IMAGE_PIXELS = None
 UNITS = {"feet": "FEET", "foot": "FEET", "miles": "MILES", "mile": "MILES", "km": "KM", "kilometers": "KM", "kilometres": "KM", "meters": "M", "metres": "M",
          "percent": "%", "acres": "ACRES", "people": "PEOPLE", "million": "MILLION", "billion": "BILLION"}
 STOP = {"a", "an", "the", "its", "his", "her", "their", "this", "that", "of"}
-TAIL_STOP = {"and", "or", "but", "so", "it", "is", "was", "than", "in", "on", "at", "to", "from", "by", "for", "with", "more", "less", "says", "said", "usgs", "nasa"}   # a number card unit stops before these
+TAIL_STOP = {"and", "or", "but", "so", "it", "is", "was", "than", "in", "on", "at", "to", "from", "by", "for", "with", "more", "less", "says", "said", "usgs", "nasa", "since", "over", "about", "during", "after", "before", "into", "toward", "towards", "until", "through", "across", "per", "each", "every"}   # a number card unit stops before these
 
 
 def _norm(w): return re.sub(r"[^\w%$.,']", "", w)
@@ -370,6 +370,8 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
     toks = [w["text"] for w in words]; texts = []                     # every dynamic phrase on screen, linted against the narration
     for f in focus:
         if f["kind"] == "number" and f["kicker"]: texts.append(dict(t=round(f["t0"], 2), kind="number_kicker", text=f["kicker"], problems=PH.lint(f["kicker"], toks, standalone=False)))
+        if f["kind"] == "number" and f["unit"]:
+            last = PH.bare(f["unit"].split()[-1]); texts.append(dict(t=round(f["t0"], 2), kind="number_unit", text=f["unit"], problems=[f"ends with '{last}'"] if last in PH.END_BAD or last in TAIL_STOP else []))
     for d_ in report["decisions"]:
         if d_["kind"] == "event_year" and d_.get("words"): texts.append(dict(t=round(d_["t"], 2), kind="event_label", text=d_["words"], problems=PH.lint(d_["words"], toks)))
     report["texts"] = texts

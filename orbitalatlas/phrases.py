@@ -11,7 +11,7 @@ CONNECT = {"that", "and", "but", "so", "which", "because", "when", "while", "whe
 START_BAD = {"by", "of", "to", "with", "than", "that", "which", "and", "or", "but", "so", "as", "from", "for"}
 START_STRIP = {"a", "an", "the", "at", "in", "on", "by", "of", "its", "their", "his", "her", "to", "and", "but", "so", "then", "or"}
 END_BAD = {"the", "a", "an", "of", "to", "in", "on", "at", "by", "for", "with", "and", "or", "but", "that", "its", "their", "his", "her",
-           "than", "from", "as", "is", "was", "were", "are", "be", "been", "has", "have", "had", "about", "almost", "nearly", "more", "less"}
+           "than", "from", "as", "is", "was", "were", "are", "be", "been", "has", "have", "had", "about", "almost", "nearly", "more", "less", "since", "over", "during", "after", "before", "into", "until", "through"}
 
 
 def bare(t):
