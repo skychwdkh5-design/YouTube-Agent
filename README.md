@@ -61,3 +61,15 @@ composition-reset rule (new information is not a new composition: at least 3 dis
 in the first 10 s, about 7-10 resets, no composition held over 6 s). Storyboards can also tag each shot's
 `visual_family`, so a new view of the same visual idea is not mistaken for something new (warnings only). See
 [`docs/production-pipeline.md`](docs/production-pipeline.md).
+
+### Autopilot and memory
+
+`tools/autopilot/orbital.py` runs one pipeline (research -> claims -> script -> TTS -> captions -> storyboard -> render -> QC -> review -> package)
+with state, gates, bounded retries and a hard wall in front of paid or irreversible steps; `knowledge/solutions.json` is the persistent memory of
+verified fixes. See [`docs/AUTOPILOT.md`](docs/AUTOPILOT.md), [`docs/AUDIT_PHASE1.md`](docs/AUDIT_PHASE1.md) and `.claude/skills/yt-autopilot`.
+
+```bash
+python3 tools/autopilot/orbital.py preflight
+python3 tools/memory/kb.py search tts chunk
+python3 tools/autopilot/test_autopilot.py && python3 tools/memory/test_kb.py
+```
