@@ -123,7 +123,7 @@
    "used": true,
    "evidence_type": "USGS description",
    "source_name": "USGS Utah Water Science Center, deep brine layer; Great Salt Lake page",
-   "source_url": "http://www.usgs.gov/centers/utah-water-science-center/science/deep-brine-layer",
+   "source_url": "https://www.usgs.gov/centers/utah-water-science-center/science/deep-brine-layer",
    "retrieved": "2026-10-14",
    "caveat": "the USGS pages give no salinity percentages and no colour explanation: none is stated"
   },
@@ -259,7 +259,7 @@
    "used": true,
    "evidence_type": "USGS research description",
    "source_name": "USGS Utah Water Science Center, deep brine layer",
-   "source_url": "http://www.usgs.gov/centers/utah-water-science-center/science/deep-brine-layer",
+   "source_url": "https://www.usgs.gov/centers/utah-water-science-center/science/deep-brine-layer",
    "retrieved": "2026-10-14"
   }
  ]

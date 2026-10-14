@@ -11,11 +11,12 @@
    "inputs_sha": "628ff02036a2a501b358de9815fa38b6b4db43aa2fca71d7089172c662d9d1f8"
   },
   "script": {
-   "completed": "2026-10-14T03:32:07Z",
-   "inputs_sha": "e6c14e0cf232ea0900b15f51b11105077741a70a8f015f31e4ef77b5902006aa"
+   "completed": "2026-10-14T07:11:23Z",
+   "inputs_sha": "d9a0ca65fb275a30a3df9346105d56080a59573896cedb30263d5b5ecc05c2dd"
   },
   "tts_plan": {
    "pitfalls_consulted": [
+    "paid-tts-gate-in-the-calling-function",
     "script-lock-sha256",
     "tts-blank-lines-are-billable",
     "tts-gateway-502-chunk-size",
@@ -23,8 +24,8 @@
     "tts-no-blind-retry",
     "tts-persistent-chunk-cache"
    ],
-   "completed": "2026-10-14T03:32:07Z",
-   "inputs_sha": "b3527dbf5146d08ff257169b5fd14d7b9b6e47c7cc369eb0ba8576d485d8ab68"
+   "completed": "2026-10-14T07:27:07Z",
+   "inputs_sha": "5981582e7736ec22c5c4a7902418fbcf1f546c15f4ab8567e98e1b6614a3fcff"
   }
  }
 }

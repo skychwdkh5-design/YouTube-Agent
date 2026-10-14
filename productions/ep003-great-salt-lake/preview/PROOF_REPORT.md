@@ -1,24 +1,29 @@
-# EP003 visual proof #1 (0-20 s, silent)
+# EP003 full silent preview (0-300.167 s)
 
-Status: **TECHNICALLY_VALID for a proof; VISUALLY_REVIEWED by the agent on frames only; not USER_APPROVED.**
+Status: **TECHNICALLY_VALID (renders, decodes, frame count) and VISUALLY_REVIEWED by the agent (all 40 shots and 14 label/pin moments looked at as frames); NOT USER_APPROVED.**
+No audio exists, no TTS was run, nothing was published. Cost: 0 USD.
 
-- File: `proof.mp4` (1920x1080, 30 fps, 20.0 s, 15,352,043 bytes), SHA-256 `d6fa48f63cdc28c10a8893790bc1ee37aa48daf936857c75b7de5b7b4b94e125`. Not committed (media rule); regenerate with
-  `python3 tools/autopilot/storyboard.py plan ep003-great-salt-lake && python3 tools/autopilot/storyboard.py preview ep003-great-salt-lake --start 0 --end 20 --confirm`.
-  Rendering is deterministic, so the same inputs give the same hash (inputs: `assets/manifest.json` records each asset's sha256 and source URL).
-- Made with the free local stages only: no TTS, no paid request, no upload. Timing is ESTIMATED (2.38 words/s), not provider timing.
-- Renderer plan: 7 shots, 6 composition resets, 4 distinct compositions and 5 information events in the first 10 s (targets: >= 3 and >= 3).
-- yt-qc `--profile long`: FAIL, and expected: `long_duration` (20 s < 60 s), `loudness` and `audio_starts` (silent). Warn: static 3.07 s (the number card).
+- File `preview/proof.mp4` (1920x1080, 30 fps, 300.167 s, 222,740,118 bytes), SHA-256 `da8fc6a6ae1f04cb621d016dfd652c761c581b5fcd2c090d9727a7930f8f8a74` (not committed; media rule). Regenerate:
+  `python3 tools/autopilot/storyboard.py plan ep003-great-salt-lake && python3 tools/autopilot/storyboard.py preview ep003-great-salt-lake --start 0 --end 301 --confirm` (about 9.5 min).
+- Timing is **ESTIMATED** (2.38 words/s), not provider timing. Labels and pins are word-anchored to estimated times and will move with the real narration; re-run `plan` after the voice exists.
+- Images: five calibrated Landsat mosaics (1985, 1986, 1999, 2021, 2022), every pixel from real USGS Level-1 bands, no frame substituted, no unregistered image mixed in (`assets/landsat/stack_cal/provenance.json`, `spec_cal.json`).
+- Renderer plan: 40 shots, 41 composition resets, 4 distinct compositions in the first 10 s.
 
-## What I looked at
-Nine frames (contact sheet `contact_sheet.jpg`, frames 20, 100, 170, 230, 300, 380, 450, 520, 590): hook stills with the NASA credit pill, the
-4,209.7 ft number card with its source line, a 2023 still, the 4,211.6 FEET stat label over the 1985 still, the NASA time-lapse (1988, 1984, 1991 visible).
+## Checks
+- Dates: `DATE_ACQUIRED` of all 20 tiles equals the date in the file name; labels say JUNE 1985, AUGUST 1986, AUGUST 1999, JULY 2021, JULY 2022. Each mosaic joins path 39 and path 38 scenes acquired 7 (1985, 1986, 1999, 2021) or 17 (2022) days apart; the credit pill and the narration say "mosaic of several scenes".
+- Geography: pins overlaid on the 2022 mosaic: Salt Lake City and Saltair on their sites; the railroad causeway appears as a straight edge at 41.226 N in both the 2021 and 2022 mosaics (different tile sets), i.e. a real feature, not a tile seam; Gunnison Bay and Gilbert Bay pins sit in the water of the two arms.
+- yt-qc `--profile long` (qc/qc_silent_preview.json): FAIL only on `loudness` and `audio_starts` (silent, expected). Warnings: `long_target_window` (300 s vs 480-720 s: the script is 4,795 characters), `composition_hold` 8.4 s (limit 8), `visual_families_first_10s` 2 (limit 3), `visual_family_dominance` geo_2022 52 s (227-279 s, one image year while the narration covers causes and dust).
 
-## Defects found by looking, and fixed
-1. The number card label was cut mid-number ("...stood at 4,2") - invisible to every automatic check. Fixed (`callout_label`), regression test added, registry entry `graphic-label-cut-mid-number`.
-2. Earlier planner versions showed a picture of the wrong year for a named year, and unrelated pictures for scenes without an asset. Fixed; the remaining mismatches are listed in `story/storyboard.plan.json` -> `needs`.
+## Defects found by looking and fixed
+1. First storyboard held one view for 38.8 s and one beat for 22 s: beats split by sentence, wide/tight views alternated (registry `geo-beats-need-sentence-splits-and-camera-resets`).
+2. yt-qc freeze check failed (5.6, 5.2 and 7.6 s of static picture in the hook, after the timelapse and in "a big lake"): those beats now move; check passes.
+3. "GUNNISON BAY" pin collided with the year label; pin moved into the bay. "SALT LAKE CITY" pin appeared while the camera was in the north; the beat now starts wide. A "DROPPED ALMOST 6 FEET" label sat on a beat that does not contain the number; moved.
+4. Wide view cut the lake's north tip; `whole` is now 228 km wide centred 41.2 N.
+5. Preview subset dropped the images of wipe/flip layers; fixed with a regression test.
 
 ## Known weaknesses (not hidden)
-- "July 2022" is shown with the 2023 frame (1 year off) and "1986" with the 1985 still: exact-year Landsat scenes are not acquired yet.
-- Scenes 3 and 4 (callout then still) are the only graphics in 20 s; the opening relies on four stills of one subject - visually repetitive without more pictures.
-- The time-lapse carries NASA's baked-in year labels; they run while the narration names other years (e.g. 1986): acceptable for a proof, to be re-timed to the real narration.
-- Not verified: audio (none), pacing against real speech, readability on a phone, NASA licence for monetised reuse (the pages cite only the Reproduction Guidelines).
+- Mosaic seams: 1985 and 1986 show a diagonal tone edge in the lake where the two paths meet (different days, different water colour); 1999 and 2021 show the causeway as a hard edge (real). Not blended on purpose.
+- Wipe labels render in mixed case (renderer style) while year labels are upper case.
+- The 2022 image carries 2016-2023 topics (causeway channel opened 2016, snow of winter 2022-23) because no later calibrated image was acquired; the label always states the image's own date. A 2025 mosaic (scenes downloaded) could end the film on the present day.
+- One stat label ("4,190.2 FEET", beat 3) is on screen about 1 s with estimated timing.
+- Not verified: audio, pacing against real speech, readability on a phone, NASA/USGS credit wording for monetised use (Landsat is generally public domain, ASSUMED), pronunciation.

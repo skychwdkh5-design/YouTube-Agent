@@ -192,6 +192,19 @@ class GeoScenes(Base):
         self.assertEqual([L["type"] for L in self.tl["shots"][1]["layers"]], ["flip"])
         self.assertTrue(all(a["kind"] == "image" and a["credit"] for k, a in self.tl["assets"].items() if k.startswith("y")))
 
+    def test_flip_step_hint_sets_a_timelapse_rhythm_and_preview_keeps_wipe_and_flip_assets(self):
+        self.make_stack()
+        self.script('[VIS: geo=whole flip=1985,2022,2025 flip_step=0.9]', "Put the pictures in order and the lake pulls back from its shore across the years of the record.",
+                    '[VIS: geo=whole wipe=1985>2022 at="then"]', "Then the same place is shown with a wipe between the two dates, one real picture on each side.")
+        self.assertTrue(self.plan()["ok"])
+        self.assertEqual(self.tl["shots"][0]["layers"][0]["step"], 0.9)
+        r = sb.preview_cmd(self.prod, 0.0, 6.0, confirm=False)          # the subset timeline must still contain the wipe's from/to and the flip's assets
+        sub = json.load(open(os.path.join(self.prod, "timeline_preview.json")))
+        for sh in sub["shots"]:
+            for L in sh["layers"]:
+                for k in [L.get("from"), L.get("to"), *(L.get("assets") or [])]:
+                    if k: self.assertIn(k, sub["assets"])
+
     def test_pins_come_from_the_manifest_never_from_a_guess(self):
         self.make_stack()
         self.script('[VIS: geo=whole pins="Atlantis"]', "A sentence that names a place which the stack does not define anywhere at all.")

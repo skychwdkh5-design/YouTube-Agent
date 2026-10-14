@@ -282,7 +282,7 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Root cause:** long_duration (60-900 s), loudness and audio_starts cannot pass without narration and full length.
 - **Fix:** Treat those three as expected for proofs, list them, and look at the remaining checks (black frames, freezes, decode); a proof is judged by its frames, not by the QC verdict.
 - **Reuse when:** Every 12-20 s proof render.
-- **References:** `.claude/skills/yt-qc/qc.py`; `productions/ep003-great-salt-lake/preview/PROOF_REPORT.md`
+- **References:** `.claude/skills/yt-qc/qc.py`; `docs/AUTOPILOT.md`
 - **Verification:** EP003 proof: fails were long_duration, loudness (silent), audio_starts; freezes warn 3.07 s (a number card).
 - **Regression test:** none - Interpretation of an existing tool's output.
 
@@ -331,6 +331,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Regression test:** none - Procedure only.
 
 ## visual
+
+### geo-beats-need-sentence-splits-and-camera-resets - Single-image geographic beats hold too long: split by sentence, alternate zoom, set a timelapse step
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** The first storyboard of EP003 had a composition held 38.8 s and one beat of 22 s; a flip timelapse at 1.7 s per picture did not count as a timelapse.
+- **Root cause:** One [VIS] beat = one camera move; the pacing rule counts a reset only when the view changes by >=1.5x zoom or >=0.35 shift. A flip needs <=1 s per picture.
+- **Fix:** Split long narration at sentence boundaries into separate [VIS] beats (about 20 words max), alternate wide and tight views with a ratio >=1.5, use flip_step=0.9 on timelapse beats, keep the wide view tall enough for the whole subject (whole = 228 km wide centred 41.2 N for the Great Salt Lake). Re-run storyboard plan and read renderer_warnings.
+- **Reuse when:** Writing [VIS: geo=...] hints for any map or satellite episode.
+- **References:** `tools/autopilot/storyboard.py`; `docs/AUTOPILOT.md`
+- **Verification:** EP003: longest static hold fell from 38.8 s to 10 s and composition resets rose from 19 to 34 for the same script.
+- **Regression test:** `tools/autopilot/test_storyboard.py::test_flip_step_hint_sets_a_timelapse_rhythm_and_preview_keeps_wipe_and_flip_assets`
 
 ### graphic-label-cut-mid-number - Callout graphic label was truncated in the middle of a number
 *VERIFIED · general · 2026-10-14*
@@ -389,6 +400,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 
 ## geo
 
+### landsat-two-paths-calibrated-mosaic - Lake-sized Landsat stills need two paths and calibrated bands, not the USGS browse image
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Browse GeoTIFFs of the Great Salt Lake gave a bright diagonal seam, different tones per tile and date, and one path (38) did not cover the lake's west half.
+- **Root cause:** Browse images are stretched per scene; neighbouring Landsat paths (38 and 39) are acquired on different days (here 7 days apart) and each scene has a black no-data collar.
+- **Fix:** Download Level-1 bands (fetch_bands.py), build with tools/autopilot/landsat_color.py: TOA reflectance from the MTL, one fixed tone curve for every date/sensor, first-tile-wins in the order path 39 rows then path 38 rows, collar eroded by 3 px, no blending. A remaining hard edge between two days is real and is disclosed ('mosaic of scenes'), not hidden. Check geography by overlay: the causeway edge fell at 41.226 N in both 2021 and 2022 mosaics (different tile sets), Saltair and Salt Lake City pins landed on their sites.
+- **Reuse when:** Any episode with a before/after Landsat sequence over an area wider than one scene (~185 km) or spanning several sensors.
+- **References:** `tools/autopilot/landsat_color.py`; `.claude/skills/yt-geo/geostack.py`; `docs/production-knowledge/README.md`
+- **Verification:** EP003: 5 mosaics (1985, 1986, 1999, 2021, 2022) of 4 tiles each, 3971x3122 px at 60 m, DATE_ACQUIRED of all 20 tiles equals the date in the file name; frames inspected.
+- **Regression test:** `tools/autopilot/test_landsat_color.py::test_two_tiles_give_one_seamless_picture_with_no_collar_line`
+
 ### natural-earth-real-coastlines-only - Never invent coastlines or borders
 *VERIFIED · EP002 · 2026-10-09*
 
@@ -423,6 +445,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Regression test:** `.claude/skills/yt-geo/test_geo.py::test_dates_align_on_one_grid`
 
 ## storage
+
+### ep001-chain-link1-reproduced-final-unproven - EP001 rebuild: source bands and reflectance stacks reproduce exactly; the final video is not proven
+*VERIFIED · EP001 · 2026-10-14*
+
+- **Problem:** After the container loss only text and code of EP001 remained; the render chain depended on 78 Landsat band files and on scripts with hard-coded scratch paths.
+- **Root cause:** Source bands, scratch caches and intermediate videos live outside Git; process.py, build_frames.py and vis_common.py point at a fixed old scratch directory.
+- **Fix:** Restore bands with restore_source_bands.py (rerun after a 504), then run tools/autopilot/recover_ep001_stacks.py: it patches the three path lines of a scratch copy of process.py, rebuilds the grids from the stored reports and compares the new reports with the stored ones. Never edit the EP001 files in the repo. Claim byte-identity of the final video only after the later links (frames, sequences, CALIPSO clip, stills, graphics, normalized narration, render) are rebuilt and hashes compared.
+- **Reuse when:** Anyone asks whether EP001 can be re-rendered or reproduced; before building a similar restore tool.
+- **References:** `tools/autopilot/recover_ep001_stacks.py`; `tools/autopilot/recover_narration.py`; `docs/production-knowledge/SATELLITE_DATA.md`
+- **Verification:** 78/78 files SHA-512 verified; EO, TW and TE reports rebuilt in 51 s, ~2 min, ~2 min and equal the stored reports (valid fractions, medians, registration, stretch).
+- **Regression test:** `tools/autopilot/test_recover_ep001_stacks.py::test_paths_are_patched_and_nothing_else`
 
 ### ipad-review-copy - Make a small review copy for the iPad
 *VERIFIED · EP002 · 2026-10-13*
@@ -491,6 +524,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `docs/production-knowledge/LESSONS_LEARNED.md`; commit `8d0058e`
 - **Verification:** v4.1: hook segments copied byte for byte, 8 other scenes re-rendered.
 - **Regression test:** none - Process rule.
+
+### pgrep-f-matches-itself - `until ! pgrep -f NAME` waits forever because it finds its own shell
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** A background wait loop `until ! pgrep -f fetch_bands; do sleep 20; done` ran for 30+ minutes after all downloads had finished; it looked like a hung download.
+- **Root cause:** pgrep -f matches the full command line of every process, including the bash -c process that is running the loop (its command line contains the pattern). The check can never come back empty.
+- **Fix:** Do not wait on a process by substring. Use tools/autopilot/procs.py: `procs.py wait NAME --timeout S` (matches an interpreter running script NAME, excludes shells and the caller's ancestors, bounded, prints progress), or wait on a result marker (log line / output file) with a timeout. Diagnose a 'stuck' job by looking at the log mtime, file sizes and /proc/PID/cmdline before killing anything.
+- **Reuse when:** Before writing any wait/poll loop for a background job; whenever a 'running' process has no CPU and no new output.
+- **References:** `tools/autopilot/procs.py`; `docs/AUTOPILOT.md`
+- **Verification:** EP003: the pattern reproduced the endless loop; pids 10089/11757 were the waiting shells, not downloads. procs.py tests check shell lines are not matches, a real script process is found, the caller is excluded and wait is bounded.
+- **Regression test:** `tools/autopilot/test_procs.py::test_shell_command_line_mentioning_the_name_is_not_a_match`
 
 ### proof-first-then-scale - Render a 12-15 s proof of the hardest sequence, get review, then scale
 *VERIFIED · general · 2026-10-13*
@@ -613,7 +657,7 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Root cause:** Network allowlist.
 - **Fix:** Use svs.gsfc.nasa.gov (HEAD 200, movies up to 5760x3240 and stills), extract frames locally with ffmpeg (record frame index and sha256), or fetch Landsat with the USGS M2M credentials. Credit NASA's Goddard Space Flight Center; the pages state no explicit licence, only the Reproduction Guidelines - confirm before release.
 - **Reuse when:** Planning imagery for any NASA-sourced episode.
-- **References:** `docs/ASSET_SOURCE_REGISTRY.md`; `productions/ep003-great-salt-lake/assets/manifest.json`
+- **References:** `docs/ASSET_SOURCE_REGISTRY.md`
 - **Verification:** EP003: SVS 15020 1080p movie (30 fps, 13 s, 16,204,354 bytes) downloaded and frames extracted; assets.science.nasa.gov HEAD failed.
 - **Regression test:** none - Depends on the live network and the host allowlist.
 
@@ -646,9 +690,20 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Root cause:** No decision rule.
 - **Fix:** topics.py: gates (sources, zero_cost), weighted score, auto-decision at margin >= 0.25, otherwise the tie-break order audience_evidence, us, zero_cost, originality, reach; the research gate recomputes the winner from candidates.json and rejects a mismatching decision.
 - **Reuse when:** Every episode's research stage.
-- **References:** `tools/autopilot/topics.py`; `tools/autopilot/gates.py`; `productions/ep003-great-salt-lake/research/topic_decision.json`
+- **References:** `tools/autopilot/topics.py`; `tools/autopilot/gates.py`; `docs/AUTOPILOT.md`
 - **Verification:** EP003: St. Helens led the weighted sum (4.16 vs 4.08) but under the margin, so the tie-break chose the Great Salt Lake; documented in the decision file.
 - **Regression test:** `tools/autopilot/test_autopilot.py::test_near_tie_is_decided_by_a_fixed_rule_never_left_to_the_owner`
+
+### usgs-504-bounded-retry - USGS band downloads fail with HTTP 504: bounded retry, never a single try or an endless wait
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** 5 of 24 Landsat tile downloads (EP003) ended with 'HTTP Error 504: Gateway Time-out; removed partial file'; the one-shot script just logged the error and moved on, leaving gaps in the mosaic inputs.
+- **Root cause:** Transient gateway time-outs of the USGS download server. Re-requesting the same tile succeeded on the first retry (14-71 s) for all five.
+- **Fix:** Use .claude/skills/yt-satellite/fetch_bands.py SPEC.json --confirm: skips tiles whose bands + MTL exist, hard wall-clock limit per attempt (child killed), 4 attempts with back-off 30/60/120/240 s, retries only transient errors (504/502/503/429/timeouts/not ready), stops at once on permanent ones (no download option, --max-mb, auth), prints [i/n] progress, exit 0 only when every tile is complete. usgs_m2m download-bands itself resumes (existing files are skipped).
+- **Reuse when:** Any episode that downloads Landsat Level-1 bands or other USGS M2M files, and whenever a download log shows 504 / Gateway Time-out.
+- **References:** `.claude/skills/yt-satellite/fetch_bands.py`; `.claude/skills/yt-satellite/usgs_m2m.py`; `.claude/skills/yt-satellite/SKILL.md`
+- **Verification:** EP003: the five failed tiles (1985 038032, 1999 039031/039032, 2021 038031/038032) downloaded on attempt 1 with the same logic; 24/24 tiles, 72 bands + 24 MTL present, TIFF headers readable. Offline tests cover 504, timeout, back-off cap, permanent errors, resume and skipping.
+- **Regression test:** `.claude/skills/yt-satellite/test_fetch_bands.py::test_http_504_is_retried_with_exponential_backoff_then_succeeds`
 
 ### youtube-metrics-unavailable-no-invented-numbers - YouTube audience metrics cannot be read here: score from documented signals and cap the rest
 *VERIFIED · general · 2026-10-14*
@@ -657,6 +712,6 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Root cause:** Network allowlist; no API key.
 - **Fix:** audience_evidence above 3 requires a measured signal (metric, value, https URL, date) - e.g. press/festival attention; otherwise the score is capped at 3 and the note says so. Never write a view count that was not read.
 - **Reuse when:** Every research stage until a YouTube connector or the owner's Studio exports exist (/yt-retention reads those).
-- **References:** `tools/autopilot/topics.py`; `productions/ep003-great-salt-lake/research/topic_decision.json`
+- **References:** `tools/autopilot/topics.py`; `docs/AUTOPILOT.md`
 - **Verification:** EP003 research: 7 candidates, Great Salt Lake got a measured signal (Sundance 2026 film, sold-out screenings), all others capped.
 - **Regression test:** `tools/autopilot/test_autopilot.py::test_audience_evidence_is_capped_without_a_measured_signal`

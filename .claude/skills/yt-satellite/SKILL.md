@@ -109,3 +109,10 @@ the description draft (`/yt-seo`) and on screen where the image appears.
 
 Nothing here publishes. This skill finds evidence and you decide what goes in the video. The last
 line of every run is the question: **use it, or search again?**
+
+
+## Many tiles: use `fetch_bands.py`, not a hand-made loop
+`python3 .claude/skills/yt-satellite/fetch_bands.py SPEC.json --confirm` downloads every tile of a spec
+(`{"out_dir", "tiles":[{"dataset","bands","entity","display_id"}]}`) with a time limit per attempt, up to 4 attempts with back-off, retries only
+transient errors (HTTP 504/502/503, time-outs), skips finished tiles and prints `[i/n]` progress. A USGS 504 is normal; a rerun fixes it. To wait for a
+background job never use `pgrep -f NAME` (it finds its own shell and never ends): `python3 tools/autopilot/procs.py wait NAME --timeout 600`.

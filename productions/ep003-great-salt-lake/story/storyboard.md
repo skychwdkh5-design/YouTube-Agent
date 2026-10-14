@@ -2,38 +2,128 @@
 
 Timing: **estimated**  ·  ESTIMATED, a proof only
 
-- **sc01** 0.0s · still_push_in · asset `gsl_1985` · family `gsl_1985` · score 6.2 · establish_place
-  - “This is the Great Salt Lake in Utah,”
-- **sc02** 2.3s · still_pull_out · asset `gsl_1999` · family `gsl_1999` · score 3.24 · establish_place
-  - “the largest saline lake in the Western Hemisphere.”
-- **sc03** 5.5s · graphic_full · asset `None` · family `graphic_number` · score 2.4 · number
+- **sc01** 0.0s · geo_camera_move · asset `geo_1985` · family `geo_1985` · score None · geo
+  - “This is the Great Salt Lake in Utah, the largest saline lake in the Western Hemisphere.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc02** 5.5s · geo_camera_move · asset `geo_1985` · family `geo_1985` · score None · geo
   - “In June 1985, its surface measured 4,209.7 feet.”
-- **sc04** 8.6s · still_push_in · asset `gsl_2023` · family `gsl_2023` · score 2.6 · number
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc03** 8.6s · geo_wipe · asset `geo_wipe_1985_2022` · family `geo_wipe_1985_2022` · score None · geo
   - “In July 2022, it measured 4,190.2 feet.”
-  - picture is 1 yr from the year narrated (-0.9)
-  - returns to imagery (+0.8)
-  - continuation: same subject as the previous shot, new view
-- **sc05** 11.2s · video_sequence · asset `gsl_timelapse` · family `gsl_timelapse` · score 1.7 · establish_place
-  - “The lake's record high had come in 1986,”
-  - continuation: same subject as the previous shot, new view
-- **sc06** 13.6s · still_push_in · asset `gsl_1985` · family `gsl_1985` · score 2.7 · number
-  - “at 4,211.6 feet. Now it sat more than 20 feet lower.”
-  - continuation: same subject as the previous shot, new view
-- **sc07** 17.2s · video_sequence · asset `gsl_timelapse` · family `gsl_timelapse` · score 9.8 · change_over_time
-  - “NASA's Landsat satellites were watching the whole time. Put the pictures in order, from 1984 to 2023, and the lake pulls back from its shore”
-  - author hint (+6)
-  - asset used <45 s ago (-3)
-- **sc08** 26.1s · still_push_in · asset `gsl_1999` · family `gsl_1999` · score 2.7 · establish_place
-  - “Why? NASA's account points to people and to climate. For about a century, water has been diverted upstream for homes and farms.”
-  - continuation: same subject as the previous shot, new view
-- **sc09** 34.4s · graphic_full · asset `None` · family `graphic_number` · score 2.4 · change_over_time, number
-  - “Utah State University researchers estimate that inflows have fallen 39 percent since 1850.”
-- **sc10** 39.9s · video_sequence · asset `gsl_timelapse` · family `gsl_timelapse` · score 0.84 · change_over_time, number
-  - “And the region kept growing. The Salt Lake City metro area went from 700,000 people in 1982 to 1.2 million in 2022.”
-  - picture is 2 yr from the year narrated (-1.8)
-  - asset used <45 s ago (-3)
-  - returns to imagery (+0.8)
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc04** 11.2s · geo_camera_move · asset `geo_1986` · family `geo_1986` · score None · geo
+  - “The lake's record high had come in 1986, at 4,211.6 feet. Now it sat more than 20 feet lower.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc05** 17.2s · geo_flip_timelapse · asset `geo_timelapse` · family `geo_timelapse` · score None · geo
+  - “The Landsat satellites were watching the whole time. Put the pictures in order, from 1985 to 2022, and the lake pulls back from its shore.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc06** 26.0s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “These are real Landsat scenes from the U.S. Geological Survey.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc07** 30.1s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “Each picture is a mosaic of several scenes, shown with one color curve, so the colors can be compared from year to year.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc08** 37.7s · geo_camera_move · asset `geo_1999` · family `geo_1999` · score None · geo
+  - “It is a big lake: about 70 miles long, 30 miles wide, and about 40 feet deep, and up to 8 times as salty as seawater.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc09** 45.3s · geo_wipe · asset `geo_wipe_1986_2022` · family `geo_wipe_1986_2022` · score None · geo
+  - “At about 4,200 feet, it covers roughly 1,700 square miles. At its 1986 high, it covered about 2,300.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc10** 51.7s · geo_camera_move · asset `geo_1999` · family `geo_1999` · score None · geo
+  - “It is a terminal lake: there is no outlet to the sea.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc11** 55.3s · geo_camera_move · asset `geo_1999` · family `geo_1999` · score None · geo
+  - “And it matters to the economy. USGS says the lake generates nearly $200 million a year from recreation and the brine shrimp harvest, citing ”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc12** 64.9s · geo_camera_move · asset `geo_2021` · family `geo_2021` · score None · geo
+  - “In July 2021, the gauge at Saltair read 4,191.3 feet, the lowest mark since measurements began in 1875.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc13** 71.3s · geo_camera_move · asset `geo_2021` · family `geo_2021` · score None · geo
+  - “NASA reports that at that level the lake covered about 950 square miles, 44 percent less surface than at 4,200 feet.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc14** 78.5s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “A year later, it fell lower still. NASA lists a new record low on July 3, 2022.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc15** 83.9s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “Why did it fall? NASA's account points to people, and to climate.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc16** 88.3s · geo_wipe · asset `geo_wipe_1986_2022` · family `geo_wipe_1986_2022` · score None · geo
+  - “For about a century, water has been diverted upstream for homes and farms. Utah State University researchers estimate that inflows have fall”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc17** 98.6s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “A 2016 white paper cited by NASA found that the lake's volume has shrunk 48 percent, and that its level has fallen 11 feet since 1847.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc18** 106.9s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “Meanwhile, the Salt Lake City metro area grew from 700,000 people in 1982 to 1.2 million in 2022.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc19** 112.9s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “And the climate is changing. More precipitation falls as rain than snow, and the snowpack releases its water more slowly.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc20** 120.7s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “In 1959, a solid-fill railroad causeway was completed across the middle of the lake.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc21** 125.9s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “The causeway took 50 million cubic yards of rock, sand and gravel.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc22** 130.2s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “It replaced a 12-mile trestle of 28,000 wooden pilings, and it had only two 15-foot culverts for water to pass through.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc23** 137.5s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “It divides the lake into Gunnison Bay in the north, and Gilbert Bay in the south.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc24** 142.7s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “Almost all of the fresh water flows in on the south side, so the north is always saltier.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc25** 148.3s · geo_camera_move · asset `geo_1985` · family `geo_1985` · score None · geo
+  - “In July 1984, the south side stood 3.7 feet higher than the north, the largest difference ever recorded.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc26** 154.9s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “That August, a 300-foot section of the causeway was replaced by a low bridge. A new channel opened in December 2016.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc27** 162.3s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “The divide had a strange side effect. Dense brine from Gunnison Bay sank into a deep layer near the bottom of Gilbert Bay.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc28** 170.1s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “USGS says that layer had low pH and no dissolved oxygen, and conditions that favored turning inorganic mercury into methyl mercury, which bu”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc29** 184.4s · geo_camera_move · asset `geo_1986` · family `geo_1986` · score None · geo
+  - “The lake has not always been too low. After rainy weather beginning in 1982, it peaked in June 1986, and again in March and April of 1987.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc30** 193.3s · geo_wipe · asset `geo_wipe_1986_1999` · family `geo_wipe_1986_1999` · score None · geo
+  - “Then came a pumping project, the Newfoundland Evaporation Basin. The project built almost 25 miles of dikes, and about 1.5 million acre-feet”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc31** 204.0s · geo_camera_move · asset `geo_1999` · family `geo_1999` · score None · geo
+  - “The pumps ran from April 1987 to June 1989, and the lake dropped almost 6 feet. USGS says the pumping caused about 2 feet of that.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc32** 212.3s · geo_wipe · asset `geo_wipe_1986_2022` · family `geo_wipe_1986_2022` · score None · geo
+  - “When the water pulls back, it leaves lake bed. NASA scientist Dorothy Hall says exposed lake beds often harbor toxic minerals from agricultu”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc33** 227.2s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “USGS collected dust at 17 sites in northern Utah, near the lake bed, especially at Farmington and Bear River Bays, and measured pollutants i”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc34** 238.1s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “Its conclusion is careful. The dust may contribute to potential health risks for children, but USGS says no formal evaluation of its impact ”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc35** 250.4s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “Then came the winter of 2022 to 2023, with record snowfall across the region. NASA's Earth Observatory shows more snow than usual around the”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc36** 260.4s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “Did that fix the problem? NASA's GRACE satellites measure underground water across the Great Basin, a region of the western United States.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc37** 269.1s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “They show it fell by 16.5 cubic miles over about two decades. Scientist Dorothy Hall expected the record snow to help, but she said, overall”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc38** 279.4s · geo_wipe · asset `geo_wipe_1986_2022` · family `geo_wipe_1986_2022` · score None · geo
+  - “What do these pictures show? Where the shoreline was on particular days. They do not forecast what comes next.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc39** 286.7s · geo_camera_move · asset `geo_2022` · family `geo_2022` · score None · geo
+  - “But the measurements are plain: in July 2022, the Great Salt Lake measured 4,190.2 feet, more than 20 feet below its 1986 high.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
+- **sc40** 294.6s · geo_flip_timelapse · asset `geo_timelapse` · family `geo_timelapse` · score None · geo
+  - “And nearly four decades of Landsat show where that water used to be.”
+  - geographic scene authored by hint (views, pins and dates come from the stack manifest)
 
 ## Renderer warnings
-- one composition holds 8.9s without a reset (17.2-26.1s, target <= 8s)
-- duration 48.433s outside 60.0-900.0 s
+- only 2 visual families in the first 10 s (target >= 3; a new view of the same visual idea is not new)
+- visual family 'geo_2022' holds 52.2s (227.2-279.4s, target <= 30s unless it is transforming)
+- one composition holds 8.4s without a reset (17.2-33.6s, target <= 8s)

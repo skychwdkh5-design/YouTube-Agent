@@ -227,7 +227,7 @@ def geo_shot(sc, words, stack, tl_assets, history):
     at = q(trigger_time(words, sc, h["at"])) - t0 if h.get("at") else dur * 0.35
     if h.get("flip"):
         ys = _years(h["flip"], stack)
-        step = round(min(5.0, max(0.2, (dur - 0.3) / len(ys))), 3)
+        step = float(h["flip_step"]) if h.get("flip_step") else round(min(5.0, max(0.2, (dur - 0.3) / len(ys))), 3)   # flip_step=0.9: a real timelapse rhythm (<= 1 s)
         layers.append({"type": "flip", "assets": [asset_for(y) for y in ys], "step": step})
         fam = "geo_timelapse"
     elif h.get("wipe"):
@@ -724,7 +724,10 @@ def preview_cmd(prod, start=0.0, end=15.0, confirm=False):
                 if "t" in L: L["t"] = [max(0.0, round(L["t"][0] - shift, 4)), None if L["t"][1] is None else max(0.0, round(L["t"][1] - shift, 4))]
         shots.append(n)
     shots[0]["start"] = 0
-    used = {L["asset"] for s in shots for L in s["layers"] if "asset" in L}
+    used = set()                                   # layers name assets as asset / from / to (wipe) / assets (flip)
+    for s in shots:
+        for L in s["layers"]:
+            used.update(x for x in (L.get("asset"), L.get("from"), L.get("to")) if isinstance(x, str)); used.update(L.get("assets") or [])
     sub["assets"] = {k: v for k, v in tl["assets"].items() if k in used}
     sub["shots"] = shots
     dur = min(end, tl["end"]["seconds"]) - start
