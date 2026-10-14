@@ -42,3 +42,9 @@ See `productions/dubai/final/QA_REPORT.md`.
 - Monotony: `python3 tools/autopilot/visual_runs.py VIDEO --timeline productions/SLUG/timeline.json` - runs > 10 s and a base picture above ~40 % of screen time need a narrative reason. **[VERIFIED]**
 - Phone check: downscale review frames to 390x219 (portrait inline) and 699x393 (landscape) and read every date, legend and label; text under ~7 pt there fails. **[VERIFIED as a method]**; the size fix is **HYPOTHESIS** until a full render (`mobile-legibility-hud-text`).
 - Pronunciation cannot be machine-checked in the cloud container (no ASR model or package source); list timecodes for the owner.
+
+## MOBILE_READABILITY_QA (permanent, EP003 V3, 2026-10-15) **[VERIFIED]**
+- Runs automatically in `orbital.py run SLUG --stage qc` for director episodes: `qc/mobile_qa.json` (gated) and `qc/visual_runs.json` (listed for review).
+- Manual: `python3 -m orbitalatlas.mobile_qa SLUG [--start S --end E] --out FILE` (about 1 s per sampled second at 1080p; use ranges while fixing).
+- Rules: text >= 30 px at 1080p, captions >= 48 px, title-safe 3.5 % / 4 %, no text over captions, no overlapping overlay texts, contrast >= 3:1, traced outline >= 4.5 px.
+- Human checks stay open in every report: real phone viewing, taste, pronunciation.

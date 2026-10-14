@@ -352,6 +352,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** EP002 v4.1: 0 runs below 4.5:1 in hook + A1 after the fix; EP001 added a dark credit pill and a top scrim for labels.
 - **Regression test:** `.claude/skills/yt-render/test_compose.py::test_scrim_darkens_the_top_for_labels_only`
 
+### mobile-readability-qa - MOBILE_READABILITY_QA: automatic phone-readability check for every director render
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** Text sizes, outline widths and contrast were judged on desktop frames; on a 6.1-inch phone dates and legends were 3-6 pt and outlines vanished (EP003 V2).
+- **Root cause:** No measurement of real font sizes or of what the viewer's phone shows.
+- **Fix:** orbitalatlas/textrec.py records every string drawn by kinetic.draw_text, text.plate, typeset.put (settled filled words) and tilt/pop tiles (final screen box) with font px, box, colour and the overlay class. orbitalatlas/mobile_qa.py renders 1 frame/s of the director programme and checks: text >= 30 px at 1080p (6.1 pt portrait inline / 10.9 pt landscape), captions >= 48 px, title-safe frame (3.5 % x, 4 % y), no text box over a caption, no two overlays' texts overlapping, WCAG contrast >= 3:1 of the text colour against the median non-text pixels of the box grown by 6 px (skipped when the text is not visible in the final frame), thin outline width >= 4.5 px measured on a synthetic edge. human_checks lists what needs a person. orbital.py qc runs it (qc/mobile_qa.json) and the qc gate fails on it.
+- **Reuse when:** Every director episode (automatic in the qc stage).
+- **References:** `orbitalatlas/mobile_qa.py`; `orbitalatlas/textrec.py`; `tools/autopilot/orbital.py`; `tools/autopilot/gates.py`; `docs/production-knowledge/QUALITY_CONTROL.md`
+- **Verification:** EP003 V3 build: sampled ranges clean after the fixes; the first contrast method (non-text = far from the text colour) skipped exactly the low-contrast case and was caught by its own unit test.
+- **Regression test:** `orbitalatlas/tests/test_mobile_qa.py::test_contrast_low_on_bright_ground_and_skipped_when_covered`
+
 ### overlap-between-layers-needs-eye - Frame-bounds audit cannot see layer-on-layer overlap
 *VERIFIED · EP002 · 2026-10-13*
 
@@ -453,6 +464,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** EP003 still at 352.5 s: legend fully visible.
 - **Regression test:** `orbitalatlas/tests/test_ep003_quality.py::test_callout_with_an_off_screen_anchor_draws_nothing`
 
+### caption-scrim-contrast - White captions over bright salt flats need a soft dark band
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** White captions with a 2 px stroke measured 2-3:1 contrast over the bright EP003 playa; big style C headlines 1.2-2.3:1.
+- **Root cause:** Stroke and shadow alone are too thin at phone scale on near-white ground.
+- **Fix:** WordCaptions.scrim (default 0.55): a blurred rounded dark band behind the caption lines (styles A/B/D) and behind the style C headline; fades with the card. KeywordLift landed labels get a 0.14 px stroke and a stronger shadow.
+- **Reuse when:** All captions.
+- **References:** `orbitalatlas/captions.py`; `orbitalatlas/interact.py`; `docs/references/library/UNIFIED_STYLE_GUIDE.md`
+- **Verification:** EP003 ranges 40-70, 120-140, 200-245, 320-372 s: 0 contrast issues after the band.
+- **Regression test:** none - judged on rendered frames
+
 ### director-renders-the-automatic-storyboard - Render the automatic storyboard with motion graphics: storyboard -> motion_plan.json -> orbitalatlas.director
 *VERIFIED · general · 2026-10-14*
 
@@ -530,6 +552,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** Found only by LOOKING at a contact sheet of the proof frames; after the fix the frame reads 'GREAT SALT LAKE · JUNE 1985'.
 - **Regression test:** `tools/autopilot/test_storyboard.py::test_callout_labels_are_whole_words_and_never_cut_a_number`
 
+### hud-layout-phone - Phone-safe HUD layout: source chip top-left, image stamp below it, legends between 20 % and 78 % of the height
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** At phone size the 30 px source chip at the bottom collided with two-line captions and left the title-safe area; the image stamp repeated the chip for 3 s.
+- **Root cause:** Bottom-left was shared with the caption band; the chip and the stamp carry the same facts.
+- **Fix:** SourceChip at (0.035, 0.045) H with px 0.028 H; ImageStamp 30 px at (0.035, 0.115); the chip waits until the stamp has gone (wipes: stamp of the new picture then its chip; flips: one stamp per picture, chip on the last); CalloutPanel 0.032 H, clamped with its real width inside the title-safe frame and between 0.20 H and 0.78 H; EventYear label >= 30 px, clamped to the right edge; RouteLabel clamped to the title-safe frame.
+- **Reuse when:** Every director render.
+- **References:** `orbitalatlas/director.py`; `orbitalatlas/fx.py`; `orbitalatlas/interact.py`; `docs/production-knowledge/VISUAL_ENGINE_BASELINE.md`
+- **Verification:** MOBILE_READABILITY_QA on EP003 ranges: 0 safe-area / overlap issues.
+- **Regression test:** none - judged on rendered frames
+
 ### keyword-lift-caption-to-map - Keywords leave the subtitle line and land on the map; the caption keeps them dimmed
 *VERIFIED · general · 2026-10-14*
 
@@ -564,15 +597,15 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Regression test:** none - Visual judgement; per-place QA JSON exists but needs the 1.9 GB source bands.
 
 ### mobile-legibility-hud-text - Image dates, source chip, legends and event labels are illegible on a phone
-*HYPOTHESIS · general · 2026-10-15*
+*VERIFIED · general · 2026-10-15*
 
 - **Problem:** EP003 V2 final audit: on a 6.1-inch phone in portrait (video 390x219 pt) the IMAGE stamp (19 px at 1080p) renders at ~3.9 pt, the source chip (0.017 H) ~3.7 pt, callout legends (0.026 H x 1.15) ~6.5 pt, event-year labels (~25 px) ~5 pt; in landscape (699x393 pt) the stamp is ~6.9 pt. Thin shoreline outlines (~2 px at 1080p) almost vanish (0.7 px portrait).
 - **Root cause:** Sizes were judged on 1080p frames at desktop size; no phone-scale check.
-- **Fix:** Proposed (proof stills only): ImageStamp 19 -> 30 px, SourceChip px_frac 0.017 -> 0.024, CalloutPanel px 0.026 -> 0.032, EventYear label x1.3, thin outline ~2x wider (blur 2.0 px, band 1.9) with a dark under-stroke; CalloutPanel must clamp with its real width (it estimates px*12 and a larger legend ran off the right edge). Always add a phone simulation (390x219 and 699x393 pt) to the visual review.
+- **Fix:** Applied in EP003 V3: see hud-layout-phone (sizes, positions), caption-scrim-contrast and director-shoreline-layers (outline 5 px with a dark under-stroke); checked automatically by mobile-readability-qa.
 - **Reuse when:** Every render reviewed for YouTube (mobile is the main screen).
 - **References:** `orbitalatlas/interact.py`; `orbitalatlas/layers.py`; `orbitalatlas/fx.py`; `docs/production-knowledge/QUALITY_CONTROL.md`
-- **Verification:** Proof stills of 0:12.5 and 5:53.5 with the proposed sizes are legible at phone scale; brightness unchanged (124.6 vs 123.6 mean luma); one legend clipped at the right edge -> clamp fix needed.
-- **Regression test:** none - measured on rendered frames; fix proposed, not yet applied to a full render
+- **Verification:** Proof stills of 0:12.5 and 5:53.5 with the proposed sizes are legible at phone scale; brightness unchanged (124.6 vs 123.6 mean luma); one legend clipped at the right edge -> clamp fix needed. V3 (2026-10-15): outline width measured 5.0 px at 1080p; HUD text >= 30 px; MOBILE_READABILITY_QA clean on sampled ranges.
+- **Regression test:** `orbitalatlas/tests/test_mobile_qa.py::test_outline_is_wide_enough_for_a_phone`
 
 ### monotony-text-cards-and-graphic-runs - Long graphic-only runs and text cards drive the retention risk
 *HYPOTHESIS · general · 2026-10-13*
@@ -606,6 +639,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `orbitalatlas/phrases.py`; `orbitalatlas/director.py`; `docs/production-knowledge/VISUAL_ENGINE_BASELINE.md`
 - **Verification:** EP003 build: 15 kickers and 8 labels, 0 lint problems, 0 overlay issues (was 1 card outside the frame).
 - **Regression test:** `orbitalatlas/tests/test_ep003_quality.py::test_lint_flags_the_ep003_defects`
+
+### route-label-spoken-only - A route arrow must not show a distance the narrator does not say
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** EP003: 'Dense brine from Gunnison Bay sank into ... Gilbert Bay' drew the arrow with '60 KM' (computed pin distance) - a number on screen with no source in the narration.
+- **Root cause:** The director labelled every route with the great-circle distance between the pins.
+- **Fix:** Route label = the distance spoken in the same sentence (number + km/miles, the narrator's words); otherwise the arrow has no label. The computed distance stays in the arrow's validation text only.
+- **Reuse when:** Every route event.
+- **References:** `orbitalatlas/director.py`; `docs/production-knowledge/VISUAL_ENGINE_BASELINE.md`
+- **Verification:** EP003 3:27 arrow without a number.
+- **Regression test:** `orbitalatlas/tests/test_ep003_quality.py::test_no_distance_label_unless_the_narrator_says_one`
 
 ### single-focus-no-number-duplication - One focus at a time: a number/impact card hides the caption that says the same thing; pacing limits cards
 *VERIFIED · general · 2026-10-14*

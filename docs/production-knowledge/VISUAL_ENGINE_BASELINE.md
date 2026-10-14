@@ -24,6 +24,7 @@ demo videos for effect development without a new task from the owner. Improvemen
 | light transitions | `transitions.LightWipe`, `FlashDip`, `fx.LightSweep` | image date change -> light wipe; shot opening on revelation -> flash dip; scale jump -> push; energetic cut -> sweep |
 | sound design | `sfx` (synthesised CC0) | cues from the report; >= 0.25 s apart; ducked, >= 12 dB under voice; -16 LUFS |
 | traced shoreline / exposed-bed overlays | timeline v3 `fill`/`outline` layers -> `fx.RegionTint(thin=True)` + dated `CalloutPanel`; masks from `tools/autopilot/shoreline_masks.py` | placed by the storyboard author on the words that speak about the change (EP003) |
+| phone readability | `orbitalatlas.mobile_qa` + `textrec` (qc stage, gated); HUD sizes and layout in `hud-layout-phone`; caption scrim | every render |
 | grammatical on-screen phrases | `orbitalatlas.phrases` (clause_suffix, label, lint) | every kicker/label; report['texts'] lists them with lint problems |
 | semantic storyboard | `semantic.plan`, `semantic.intensity` | priorities revelation 6, number 5, route 5, comparison 5, year 4, place 3; <= 6 events / 10 s |
 | quality control | `qa`, `verify_sync`, director `report['pacing']` | pacing limits 3 / 4 / 6 s (energetic / normal / calm) |

@@ -84,6 +84,7 @@ Rules in short:
 
 ## Production knowledge base (read before every new release)
 
+- QC for every director episode includes MOBILE_READABILITY_QA (`orbitalatlas.mobile_qa`, gated) and the monotony report (`tools/autopilot/visual_runs.py`); both run in `orbital.py ... --stage qc`.
 - VISUAL_ENGINE_STATUS: PRODUCTION_BASELINE_V2C (`docs/production-knowledge/VISUAL_ENGINE_BASELINE.md`): use it for episodes; no v3 or effect demos without a new task (`FUTURE_VISUAL_ROADMAP.md`).
 
 - Index: `docs/production-knowledge/README.md` (about 30 lines). Read the index first, then only the one or two documents your task needs; do not load the whole folder.

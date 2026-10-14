@@ -34,6 +34,7 @@ Narration decides what the viewer must understand. Three layers, never more than
 - Change stories: show change with traced masks from the same co-registered stack (`tools/autopilot/shoreline_masks.py`): a thin amber outline for a past shoreline, a thin cyan one for the date on screen, a soft amber fill (no outline) for 'exposed lake bed'. Each overlay carries a dated legend; never outline a date the narration is not about.
 - Every dynamic phrase (number-card kicker, event-year label) is a contiguous clause of the narration (`orbitalatlas.phrases`), at most 9 words / 44 characters, linted in `report['texts']`.
 - Legends and callouts never point at something off screen.
+- Phone first: every informational text >= 30 px at 1080p; source chip top-left, image stamp under it; legends between 20 % and 78 % of the height; captions on a soft dark band; outlines about 5 px with a dark under-stroke. A route arrow shows a distance only if the narrator says it.
 
 ## Not to do
 Constant flashing; neon everywhere; text on every shot; flags/cloth (not built); noise glitch; recolouring Landsat; unlabeled arrows; claiming a 3D flyover (class A only).

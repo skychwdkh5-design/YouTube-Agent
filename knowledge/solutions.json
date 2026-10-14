@@ -2354,13 +2354,13 @@
   {
    "id": "mobile-legibility-hud-text",
    "title": "Image dates, source chip, legends and event labels are illegible on a phone",
-   "status": "HYPOTHESIS",
+   "status": "VERIFIED",
    "scope": "general",
    "area": "visual",
    "date": "2026-10-15",
    "problem": "EP003 V2 final audit: on a 6.1-inch phone in portrait (video 390x219 pt) the IMAGE stamp (19 px at 1080p) renders at ~3.9 pt, the source chip (0.017 H) ~3.7 pt, callout legends (0.026 H x 1.15) ~6.5 pt, event-year labels (~25 px) ~5 pt; in landscape (699x393 pt) the stamp is ~6.9 pt. Thin shoreline outlines (~2 px at 1080p) almost vanish (0.7 px portrait).",
    "root_cause": "Sizes were judged on 1080p frames at desktop size; no phone-scale check.",
-   "fix": "Proposed (proof stills only): ImageStamp 19 -> 30 px, SourceChip px_frac 0.017 -> 0.024, CalloutPanel px 0.026 -> 0.032, EventYear label x1.3, thin outline ~2x wider (blur 2.0 px, band 1.9) with a dark under-stroke; CalloutPanel must clamp with its real width (it estimates px*12 and a larger legend ran off the right edge). Always add a phone simulation (390x219 and 699x393 pt) to the visual review.",
+   "fix": "Applied in EP003 V3: see hud-layout-phone (sizes, positions), caption-scrim-contrast and director-shoreline-layers (outline 5 px with a dark under-stroke); checked automatically by mobile-readability-qa.",
    "reuse_when": "Every render reviewed for YouTube (mobile is the main screen).",
    "refs": {
     "code": [
@@ -2372,7 +2372,7 @@
      "docs/production-knowledge/QUALITY_CONTROL.md"
     ]
    },
-   "verification": "Proof stills of 0:12.5 and 5:53.5 with the proposed sizes are legible at phone scale; brightness unchanged (124.6 vs 123.6 mean luma); one legend clipped at the right edge -> clamp fix needed.",
+   "verification": "Proof stills of 0:12.5 and 5:53.5 with the proposed sizes are legible at phone scale; brightness unchanged (124.6 vs 123.6 mean luma); one legend clipped at the right edge -> clamp fix needed. V3 (2026-10-15): outline width measured 5.0 px at 1080p; HUD text >= 30 px; MOBILE_READABILITY_QA clean on sampled ranges.",
    "symptoms": [
     "unreadable on phone",
     "small text",
@@ -2382,7 +2382,7 @@
     "review",
     "render"
    ],
-   "no_test_reason": "measured on rendered frames; fix proposed, not yet applied to a full render"
+   "regression_test": "orbitalatlas/tests/test_mobile_qa.py::test_outline_is_wide_enough_for_a_phone"
   },
   {
    "id": "visual-runs-monotony-check",
@@ -2414,6 +2414,131 @@
     "review"
    ],
    "no_test_reason": "measured on rendered frames; fix proposed, not yet applied to a full render"
+  },
+  {
+   "id": "mobile-readability-qa",
+   "title": "MOBILE_READABILITY_QA: automatic phone-readability check for every director render",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "qc",
+   "date": "2026-10-15",
+   "problem": "Text sizes, outline widths and contrast were judged on desktop frames; on a 6.1-inch phone dates and legends were 3-6 pt and outlines vanished (EP003 V2).",
+   "root_cause": "No measurement of real font sizes or of what the viewer's phone shows.",
+   "fix": "orbitalatlas/textrec.py records every string drawn by kinetic.draw_text, text.plate, typeset.put (settled filled words) and tilt/pop tiles (final screen box) with font px, box, colour and the overlay class. orbitalatlas/mobile_qa.py renders 1 frame/s of the director programme and checks: text >= 30 px at 1080p (6.1 pt portrait inline / 10.9 pt landscape), captions >= 48 px, title-safe frame (3.5 % x, 4 % y), no text box over a caption, no two overlays' texts overlapping, WCAG contrast >= 3:1 of the text colour against the median non-text pixels of the box grown by 6 px (skipped when the text is not visible in the final frame), thin outline width >= 4.5 px measured on a synthetic edge. human_checks lists what needs a person. orbital.py qc runs it (qc/mobile_qa.json) and the qc gate fails on it.",
+   "reuse_when": "Every director episode (automatic in the qc stage).",
+   "refs": {
+    "code": [
+     "orbitalatlas/mobile_qa.py",
+     "orbitalatlas/textrec.py",
+     "tools/autopilot/orbital.py",
+     "tools/autopilot/gates.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/QUALITY_CONTROL.md"
+    ]
+   },
+   "verification": "EP003 V3 build: sampled ranges clean after the fixes; the first contrast method (non-text = far from the text colour) skipped exactly the low-contrast case and was caught by its own unit test.",
+   "symptoms": [
+    "unreadable on phone",
+    "small text",
+    "low contrast"
+   ],
+   "stages": [
+    "qc",
+    "review"
+   ],
+   "regression_test": "orbitalatlas/tests/test_mobile_qa.py::test_contrast_low_on_bright_ground_and_skipped_when_covered"
+  },
+  {
+   "id": "caption-scrim-contrast",
+   "title": "White captions over bright salt flats need a soft dark band",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "visual",
+   "date": "2026-10-15",
+   "problem": "White captions with a 2 px stroke measured 2-3:1 contrast over the bright EP003 playa; big style C headlines 1.2-2.3:1.",
+   "root_cause": "Stroke and shadow alone are too thin at phone scale on near-white ground.",
+   "fix": "WordCaptions.scrim (default 0.55): a blurred rounded dark band behind the caption lines (styles A/B/D) and behind the style C headline; fades with the card. KeywordLift landed labels get a 0.14 px stroke and a stronger shadow.",
+   "reuse_when": "All captions.",
+   "refs": {
+    "code": [
+     "orbitalatlas/captions.py",
+     "orbitalatlas/interact.py"
+    ],
+    "docs": [
+     "docs/references/library/UNIFIED_STYLE_GUIDE.md"
+    ]
+   },
+   "verification": "EP003 ranges 40-70, 120-140, 200-245, 320-372 s: 0 contrast issues after the band.",
+   "symptoms": [
+    "caption hard to read",
+    "white on white"
+   ],
+   "stages": [
+    "render"
+   ],
+   "no_test_reason": "judged on rendered frames"
+  },
+  {
+   "id": "route-label-spoken-only",
+   "title": "A route arrow must not show a distance the narrator does not say",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "visual",
+   "date": "2026-10-15",
+   "problem": "EP003: 'Dense brine from Gunnison Bay sank into ... Gilbert Bay' drew the arrow with '60 KM' (computed pin distance) - a number on screen with no source in the narration.",
+   "root_cause": "The director labelled every route with the great-circle distance between the pins.",
+   "fix": "Route label = the distance spoken in the same sentence (number + km/miles, the narrator's words); otherwise the arrow has no label. The computed distance stays in the arrow's validation text only.",
+   "reuse_when": "Every route event.",
+   "refs": {
+    "code": [
+     "orbitalatlas/director.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/VISUAL_ENGINE_BASELINE.md"
+    ]
+   },
+   "verification": "EP003 3:27 arrow without a number.",
+   "symptoms": [
+    "number not in narration",
+    "60 KM"
+   ],
+   "stages": [
+    "storyboard",
+    "render"
+   ],
+   "regression_test": "orbitalatlas/tests/test_ep003_quality.py::test_no_distance_label_unless_the_narrator_says_one"
+  },
+  {
+   "id": "hud-layout-phone",
+   "title": "Phone-safe HUD layout: source chip top-left, image stamp below it, legends between 20 % and 78 % of the height",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "visual",
+   "date": "2026-10-15",
+   "problem": "At phone size the 30 px source chip at the bottom collided with two-line captions and left the title-safe area; the image stamp repeated the chip for 3 s.",
+   "root_cause": "Bottom-left was shared with the caption band; the chip and the stamp carry the same facts.",
+   "fix": "SourceChip at (0.035, 0.045) H with px 0.028 H; ImageStamp 30 px at (0.035, 0.115); the chip waits until the stamp has gone (wipes: stamp of the new picture then its chip; flips: one stamp per picture, chip on the last); CalloutPanel 0.032 H, clamped with its real width inside the title-safe frame and between 0.20 H and 0.78 H; EventYear label >= 30 px, clamped to the right edge; RouteLabel clamped to the title-safe frame.",
+   "reuse_when": "Every director render.",
+   "refs": {
+    "code": [
+     "orbitalatlas/director.py",
+     "orbitalatlas/fx.py",
+     "orbitalatlas/interact.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/VISUAL_ENGINE_BASELINE.md"
+    ]
+   },
+   "verification": "MOBILE_READABILITY_QA on EP003 ranges: 0 safe-area / overlap issues.",
+   "symptoms": [
+    "chip over captions",
+    "legend off frame"
+   ],
+   "stages": [
+    "render"
+   ],
+   "no_test_reason": "judged on rendered frames"
   }
  ]
 }
