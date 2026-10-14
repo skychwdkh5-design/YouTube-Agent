@@ -78,7 +78,7 @@
     "portrait": 6.9,
     "landscape": 12.4
    },
-   "draws": 17
+   "draws": 14
   },
   "NumberCard": {
    "min_px": 34.6,
@@ -105,25 +105,12 @@
    "draws": 1131
   }
  },
- "issues": {
-  "contrast": [
-   {
-    "tag": "KeywordLift",
-    "text": "SALT LAKE CITY",
-    "first_t": 134.5,
-    "last_t": 134.5,
-    "count": 1,
-    "why": "2.65:1"
-   }
-  ]
- },
+ "issues": {},
  "human_checks": [
   "watch on a real 6.1-inch phone in portrait and in landscape (sizes here are computed, not seen)",
   "taste: is any overlay distracting, is the hierarchy clear",
   "pronunciation of names and acronyms (no ASR here)"
  ],
- "ok": false,
- "summary": {
-  "contrast": 1
- }
+ "ok": true,
+ "summary": {}
 }

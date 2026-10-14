@@ -11,7 +11,7 @@
  "made_for_kids": false,
  "altered_or_synthetic_content": "voice is AI-generated (ElevenLabs); imagery is real Landsat - disclose 'altered or synthetic content: voice' in YouTube Studio if the policy requires it for synthetic voices",
  "published": false,
- "status": "TECHNICALLY_VALID / VISUALLY_REVIEWED - not USER_APPROVED (EP003 V2)",
- "master": "media/ep003-gsl-final-v2",
+ "status": "RELEASE_CANDIDATE - TECHNICALLY_VALID / VISUALLY_REVIEWED, not USER_APPROVED (EP003 V3)",
+ "master": "media/ep003-gsl-final-v3",
  "captions": "captions/captions.srt"
 }
