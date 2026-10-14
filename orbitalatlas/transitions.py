@@ -12,6 +12,8 @@ frames are registered to each other (see docs/TRANSITION_DESIGN_SYSTEM.md). Posi
   GeoFocus        spotlight closes on a point of A, then B opens from that point
   ScaleMatch      A is scaled and moved so its subject lands on the subject of B at the same size, then cross-fades
   DateTransition  timeline sweep with rolling date digits (or dissolve) for a change of date/source
+  FlashDip        additive flash at the cut (revelation / change of footage type)
+  LightWipe       diagonal glowing-edge wipe (before -> after within one visual family)
 """
 import math
 import numpy as np
@@ -206,7 +208,32 @@ class DateTransition(Transition):
         out = base.convert("RGBA"); out.alpha_composite(lay); return out.convert("RGB")
 
 
-REGISTRY = {c.name: c for c in (Dissolve, Push, WhipPan, CinematicPush, MaskReveal, GeoFocus, ScaleMatch, DateTransition)}
+class FlashDip(Transition):
+    """brief additive white (or tinted) flash at the cut: A -> flash -> B. Hard cut hidden under the peak (VE-10). Use for a change of footage TYPE or a
+    revelation, not for every cut; `peak` is the flash strength 0..1."""
+    name = "flash_dip"; story = "revelation / change of footage type"; limits = "a cut under a flash; contents of A and B are not spatially continuous; at most a few per minute"
+    def __init__(self, duration=0.35, color=(255, 255, 255), peak=0.85, ease="linear"):
+        super().__init__(duration, ease); self.color, self.peak = color, peak
+    def core(self, a, b, e):
+        w = self.peak * (1 - abs(2 * e - 1) ** 1.6)                      # triangle-ish bump, 0 at both ends
+        base = _arr(a if e < 0.5 else b); fl = np.array(self.color, np.float32)
+        return _img(base * (1 - w) + fl * w)
+
+
+class LightWipe(Transition):
+    """B is revealed behind a diagonal glowing edge sweeping across (light sweep used as a wipe); edge glow is additive, the picture itself is not blurred."""
+    name = "light_wipe"; story = "change of subject within one visual family (before -> after)"; limits = "screen-space wipe; no claim that A and B are registered"
+    def __init__(self, duration=0.7, angle=20.0, glow=(255, 214, 140), width=0.05, ease="in_out_cubic"):
+        super().__init__(duration, ease); self.angle, self.glow, self.width = angle, glow, width
+    def core(self, a, b, e):
+        W, H = a.size; th = math.radians(self.angle); yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+        d = (xx - W * (-0.15 + 1.3 * e)) * math.cos(th) + (yy - H / 2) * math.sin(th); sig = self.width * W
+        m = np.clip(0.5 - d / (sig * 0.8), 0, 1)[..., None]; g = np.exp(-(d / sig) ** 2)[..., None] * 0.75 * np.sin(math.pi * min(1.0, max(0.0, e))) ** 0.5
+        out = _arr(a) * (1 - m) + _arr(b) * m
+        return _img(out * (1 - g) + np.array(self.glow, np.float32) * g)
+
+
+REGISTRY = {c.name: c for c in (Dissolve, Push, WhipPan, CinematicPush, MaskReveal, GeoFocus, ScaleMatch, DateTransition, FlashDip, LightWipe)}
 
 
 def from_spec(d):

@@ -3,6 +3,9 @@ import os
 import subprocess
 from multiprocessing import Pool
 
+from . import layers as L
+from . import text as T
+
 
 class Shot:
     def __init__(self, scene, duration, name=None):
@@ -57,6 +60,38 @@ class Sequence:
         for i in range(n - 1, -1, -1):
             if t >= self.starts[i]: return self.shots[i].scene.render(self._local(i, t))
         return self.shots[0].scene.render(self._local(0, t))
+
+
+class Program:
+    """a Sequence plus GLOBAL overlays drawn on top of the whole timeline (captions, titles, credits): they use programme time, not shot time, so a caption
+    survives a cut or a transition. Same interface as Sequence for render_video / qa (shots, duration, render, schedule)."""
+    def __init__(self, seq, overlays=(), theme=T.THEME):
+        self.seq, self.overlays, self.theme = seq, list(overlays), theme
+        self.shots, self.duration, self.problems = seq.shots, seq.duration, seq.problems
+        self.size = seq.shots[0].scene.size; self.reg = T.Registry()
+
+    def schedule(self):
+        d = self.seq.schedule(); d["overlays"] = [o.describe() for o in self.overlays]; return d
+
+    def check_overlays(self, step=0.1, margin=0.0):
+        """sample the GLOBAL overlays (no picture needed): text boxes that collide with each other or leave the frame. Returns a list of issue dicts (same shape as qa.check_overlays)."""
+        import numpy as np
+        issues = []
+        for t in np.arange(0.0, self.duration, step):
+            ctx = L.Ctx(self.size, None, float(t), self.theme, T.Registry())
+            for o in self.overlays:
+                if o.layer == "ui": o.draw(ctx)
+            for g in ctx.reg.collisions(): issues.append(dict(check="overlay_collision", t0=round(float(t), 2), t1=round(float(t), 2), detail=" x ".join(map(str, g)), scene="global"))
+            for g in ctx.reg.outside(self.size, margin): issues.append(dict(check="overlay_outside_frame", t0=round(float(t), 2), t1=round(float(t), 2), detail=str(g), scene="global"))
+        return issues
+
+    def render(self, t):
+        frame = self.seq.render(t); self.reg.reset(); ctx = L.Ctx(self.size, None, t, self.theme, self.reg)
+        for o in self.overlays:
+            if o.layer == "ui": o.draw(ctx)
+        base = frame.convert("RGBA"); base.alpha_composite(ctx.fills)
+        for s in ctx.strokes(): base.alpha_composite(s)
+        base.alpha_composite(ctx.ui); return base.convert("RGB")
 
 
 _SEQ = None

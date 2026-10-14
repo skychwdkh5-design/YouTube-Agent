@@ -41,3 +41,7 @@ Selection criteria: reference-level look (QA checklist), legal for monetised vid
 - No scale bars, distances or coordinates: ASTER/ISS frames have no verified georeference (claim 32).
 - Registration of ASTER 2000 vs 2003 measured by phase correlation (<= 1 px at 6 land patches); 2011 and 2002 frames are assumed to share the grid (same product) but were not measured.
 - All cue times in scenes are ESTIMATED (145 wpm); replace with provider word timings after TTS.
+
+
+## Visual engine v2 (2026-10-14)
+See `docs/references/library/IMPLEMENTATION_STATUS.md`: class-A camera only; no flag/cloth, outline type, colour cards, noise glitch; storyboard generator not yet wired to `semantic.plan`; test voice is not the channel voice; Shorts layout not reviewed.

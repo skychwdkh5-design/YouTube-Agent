@@ -5,6 +5,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 
 ## tts
 
+### free-test-voice-measured-timing - Free test narration with measured word timestamps (ffmpeg flite)
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Synchronisation, captions and motion must be tested without spending TTS credits; estimated timing proves nothing about sync.
+- **Root cause:** A single flite pass has no word timestamps and 'estimated' timing is not frame accurate.
+- **Fix:** orbitalatlas.testvoice.synth speaks each word separately (ffmpeg -f lavfi flite, atempo 1.45), concatenates with small gaps and records the measured start/end (source 'alignment'); numbers use a 'say' spelling. The voice is robotic and is NOT the channel voice. testvoice.envelope gives real loudness for Waveform.
+- **Reuse when:** Any sync/caption/motion proof before the paid narration exists.
+- **References:** `orbitalatlas/testvoice.py`; `docs/references/library/UNIFIED_STYLE_GUIDE.md`
+- **Verification:** test: gaps between words are quiet and words are loud in the audio that was made; cache makes reruns identical; 41 words = 18.5 s.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2.py::test_word_times_match_the_audio_that_was_made`
+
 ### paid-tts-gate-in-the-calling-function - The paid-request wall must live in the code that makes the request
 *VERIFIED · general · 2026-10-14*
 
@@ -83,6 +94,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Regression test:** `.claude/skills/yt-voice/test_voice.py::test_cache_saves_paid_chunk_after_failure_and_rerun_pays_only_missing`
 
 ## sync
+
+### caption-cards-overlapped-by-lead - Word captions: the next card's lead time overlapped the previous card's tail
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Two caption cards were active for a few frames at once when words were close together.
+- **Root cause:** The card end was clamped to next.t0 - 0.02 while the next card appears lead (0.05 s) early, and a minimum display time pushed the end past the next start.
+- **Fix:** ends = min(max(end, t1 + 0.05), next.t0 - lead - 0.005); a unit test samples every 0.05 s and asserts at most one active card.
+- **Reuse when:** Any overlay that shows items with a lead-in and a minimum duration.
+- **References:** `orbitalatlas/captions.py`; `docs/references/library/UNIFIED_STYLE_GUIDE.md`
+- **Verification:** found by test_no_two_captions_at_once, fixed, test passes; demo captions never stack.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2.py::test_no_two_captions_at_once`
 
 ### captions-from-provider-word-times - Captions must come from provider word timings, never from estimates
 *VERIFIED · general · 2026-10-07*
@@ -332,6 +354,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 
 ## visual
 
+### evidence-pixels-never-recoloured - Satellite pixels get only neutral or evidence_safe grading; highlights are annotations
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Reference 1 recolours the ocean to bright cyan and fills countries with flags; doing that to real imagery would present altered data as observation.
+- **Root cause:** A map basemap (presentation) and a satellite picture (evidence) look alike on screen.
+- **Fix:** grade.Graded(scene, preset, evidence=True) refuses presets other than neutral/evidence_safe and writes evidence_pixels_unmodified into the manifest; highlights are RegionTint/RouteArrow overlays with source + validation, alpha <= 0.2 over evidence; localised recolour only on presentation layers.
+- **Reuse when:** Any scene mixing Landsat/NASA imagery with graphics or a stylised look.
+- **References:** `orbitalatlas/grade.py`; `orbitalatlas/fx.py`; `docs/references/library/UNIFIED_STYLE_GUIDE.md`
+- **Verification:** tests: guard raises on documentary_map with evidence=True; manifest flags enhanced pixels; localised grade leaves the rest identical.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2.py::test_evidence_guard_refuses_strong_presets`
+
 ### geo-beats-need-sentence-splits-and-camera-resets - Single-image geographic beats hold too long: split by sentence, alternate zoom, set a timelapse step
 *VERIFIED · general · 2026-10-14*
 
@@ -397,6 +430,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `tools/autopilot/storyboard.py`
 - **Verification:** Found by reading the plan and looking at rendered frames of the EP003 proof; 18 storyboard tests incl. 'no unrelated picture', 'gap not a fake', 'nearest year wins'.
 - **Regression test:** `tools/autopilot/test_storyboard.py::test_no_unrelated_picture_is_ever_shown`
+
+### visual-engine-v2-reuse-map - Visual engine v2: which module to use for captions, kinetic type, graphics, grading, camera and narration-driven events
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** A new episode needs word-synced captions, kinetic titles, arrows, region highlights, grading and narration-driven timing; the old engine only had per-glyph text, markers and transitions.
+- **Root cause:** Caption code lived in Dubai episode scripts; no shared planner from narration to visual events; no evidence/presentation grade separation.
+- **Fix:** Use orbitalatlas.semantic.plan(words, places) for events and caption styles, captions.WordCaptions for A-E, kinetic.* for type, fx.* for overlays (RegionTint, RouteArrow, MarkerPin, HudFrame, NeonGrid, LightSweep, Waveform), grade.Graded (evidence_safe only on satellite pixels), camera_presets.*, transitions.FlashDip/LightWipe, sequence.Program for global overlays, demo/visual_v2.py as the worked integration. Consult python3 -m orbitalatlas.refs consult SCENE_TYPE first.
+- **Reuse when:** Before storyboarding any map/satellite episode or writing a new caption/typography/overlay effect.
+- **References:** `orbitalatlas/semantic.py`; `orbitalatlas/captions.py`; `orbitalatlas/kinetic.py`; `orbitalatlas/fx.py`; `orbitalatlas/grade.py`; `orbitalatlas/demo/visual_v2.py`; `docs/references/library/UNIFIED_STYLE_GUIDE.md`
+- **Verification:** 44 offline tests; 18.7 s demo on real EP003 Landsat mosaics rendered at 1920x1080 and inspected frame by frame.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2.py::test_every_style_draws_inside_the_frame_and_registers_boxes`
 
 ## geo
 
