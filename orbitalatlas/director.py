@@ -121,7 +121,9 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
     masks = {}
     def mask_img(aid):                                                   # bool array + its scale (source pixels per mask pixel)
         if aid not in masks:
-            a = tl["assets"][aid]; masks[aid] = (np.asarray(Image.open(os.path.join(prod, a["src"])).convert("L")) > 127, float(a.get("scale", 1)))
+            a = tl["assets"][aid]; arr = np.asarray(Image.open(os.path.join(prod, a["src"])).convert("L")) > 127
+            if arr.shape[1] > grid["width"] / 3: arr = arr[::4, ::4]           # full-grid masks are drawn from a 1/4 copy (speed; masks are traced at 1/4)
+            masks[aid] = (arr, float(a.get("scale") or grid["width"] / arr.shape[1]))       # scale inferred from the stack grid (yt-qc schema has no 'scale')
         return masks[aid]
     shots = tl["shots"]; end = tl["end"]["seconds"]
     starts = [s["start"] for s in shots] + [end]
@@ -218,16 +220,17 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
             if fill and l.get("minus") in tl["assets"]:
                 b, _ = mask_img(l["minus"]); mm = m & ~_grow(b, 1)
                 mm = _grow(~_grow(~mm, 1), 1)                             # opening: drop one-pixel slivers along the shared shoreline
-            col = {"amber": fx.AMBER, "cyan": fx.CYAN, "violet": fx.PURPLE}.get(l.get("color", "amber"), fx.AMBER)
+            c_ = l.get("color", "amber"); col = tuple(int(c_[k:k + 2], 16) for k in (1, 3, 5)) if c_.startswith("#") else {"amber": fx.AMBER, "cyan": fx.CYAN, "violet": fx.PURPLE}.get(c_, fx.AMBER)
             overlays.append(fx.RegionTint(regions.to_mask_image(mm, 1), a0, color=col, settle_alpha=0.17 if fill else 0.0, flash_peak=0.30 if fill else 0.0,
                                           dur=1.0 if fill else 1.6, out_t=a1, mask_scale=1.0 / sc_, outline=not fill, thin=True, glint=False,
                                           source=f"traced water mask {l['mask']}" + (f" minus {l['minus']}" if fill else ""), validation="display aid traced from Landsat; not a survey"))
-            if l.get("label"):
+            legend = l.get("legend") or l.get("label")                     # 'legend' in timeline v3 (yt-render ignores it); 'label' kept for old timelines
+            if legend:
                 anc = geo.px(l["at"]) if l.get("at") else None
                 if anc is not None:
-                    overlays.append(fx.CalloutPanel(anc, a0 + 0.5, a1, l["label"], [l["sub"]] if l.get("sub") else [], offset=tuple(l.get("offset", (0.08, -0.14))), accent=col))
-            note(l["type"], t=t_s + a0, mask=l["mask"], minus=l.get("minus"), label=l.get("label"))
-            dates.append(dict(kind="overlay", t=round(t_s + a0, 2), text=(l.get("label") or "") + (" · " + l["sub"] if l.get("sub") else ""), mask=l["mask"], minus=l.get("minus")))
+                    overlays.append(fx.CalloutPanel(anc, a0 + 0.5, a1, legend, [l["sub"]] if l.get("sub") else [], offset=tuple(l.get("offset", (0.08, -0.14))), accent=col))
+            note(l["type"], t=t_s + a0, mask=l["mask"], minus=l.get("minus"), label=legend)
+            dates.append(dict(kind="overlay", t=round(t_s + a0, 2), text=(legend or "") + (" · " + l["sub"] if l.get("sub") else ""), mask=l["mask"], minus=l.get("minus")))
         # semantic events that fall inside this shot
         for e in plan["events"]:
             if not (t_s <= e["t"] < t_e): continue

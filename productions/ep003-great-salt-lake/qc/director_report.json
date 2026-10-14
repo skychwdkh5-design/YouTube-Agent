@@ -54,6 +54,13 @@
    ]
   },
   {
+   "kind": "outline",
+   "t": 12.133333333333333,
+   "mask": "water1985",
+   "minus": null,
+   "label": "SHORELINE \u00b7 JUN 1985"
+  },
+  {
    "kind": "image_stamp",
    "t": 11.233333333333334,
    "text": "LANDSAT 8, 9 \u00b7 USGS \u00b7 JULY 2022",
@@ -699,6 +706,13 @@
    ]
   },
   {
+   "kind": "fill",
+   "t": 269.53333333333336,
+   "mask": "water1986",
+   "minus": "water2022",
+   "label": "LAKE BED EXPOSED SINCE 1986"
+  },
+  {
    "kind": "image_stamp",
    "t": 265.68333333333334,
    "text": "LANDSAT 5 \u00b7 USGS \u00b7 AUGUST 1986",
@@ -728,6 +742,13 @@
    ]
   },
   {
+   "kind": "fill",
+   "t": 284.06666666666666,
+   "mask": "water1986",
+   "minus": "water2022",
+   "label": null
+  },
+  {
    "kind": "transition",
    "t": 283.6666666666667,
    "why": "cut"
@@ -741,6 +762,13 @@
    "decisions": [
     "camera: scale change out x2.5"
    ]
+  },
+  {
+   "kind": "fill",
+   "t": 297.79999999999995,
+   "mask": "water1986",
+   "minus": "water2022",
+   "label": null
   },
   {
    "kind": "transition",
@@ -783,6 +811,13 @@
    ]
   },
   {
+   "kind": "outline",
+   "t": 323.96666666666664,
+   "mask": "water1986",
+   "minus": null,
+   "label": "SHORELINE \u00b7 AUG 1986"
+  },
+  {
    "kind": "transition",
    "t": 323.56666666666666,
    "why": "cut"
@@ -798,6 +833,20 @@
    ]
   },
   {
+   "kind": "outline",
+   "t": 333.1333333333333,
+   "mask": "water1986",
+   "minus": null,
+   "label": null
+  },
+  {
+   "kind": "fill",
+   "t": 344.2133333333333,
+   "mask": "water1986",
+   "minus": "water2022",
+   "label": null
+  },
+  {
    "kind": "transition",
    "t": 332.8333333333333,
    "why": "cut"
@@ -811,6 +860,20 @@
    "decisions": [
     "camera: scale change out x3.3"
    ]
+  },
+  {
+   "kind": "outline",
+   "t": 348.08,
+   "mask": "water1986",
+   "minus": null,
+   "label": "SHORELINE \u00b7 AUG 1986"
+  },
+  {
+   "kind": "outline",
+   "t": 350.3,
+   "mask": "water2022",
+   "minus": null,
+   "label": "SHORELINE \u00b7 JUL 2022"
   },
   {
    "kind": "image_stamp",
@@ -840,6 +903,20 @@
     "camera: creep (same view)",
     "wipe y1986->y2022 at 3.27s"
    ]
+  },
+  {
+   "kind": "outline",
+   "t": 354.3,
+   "mask": "water1986",
+   "minus": null,
+   "label": null
+  },
+  {
+   "kind": "fill",
+   "t": 364.1,
+   "mask": "water1986",
+   "minus": "water2022",
+   "label": null
   },
   {
    "kind": "transition",
@@ -911,19 +988,19 @@
    "kind": "event_year",
    "t": 59.56,
    "year": "1986",
-   "words": "At"
+   "words": "high"
   },
   {
    "kind": "event_year",
    "t": 103.608,
    "year": "2022",
-   "words": "lists new record low"
+   "words": "new record low"
   },
   {
    "kind": "event_year",
    "t": 150.837,
    "year": "1959",
-   "words": "completed across middle lake"
+   "words": "solid-fill railroad causeway"
   },
   {
    "kind": "image_stamp",
@@ -977,7 +1054,7 @@
    "kind": "event_year",
    "t": 238.924,
    "year": "1987",
-   "words": "again in March April"
+   "words": "March and April"
   },
   {
    "kind": "image_stamp",
@@ -3566,6 +3643,146 @@
   }
  ],
  "opening_tilt": true,
+ "texts": [
+  {
+   "t": 7.38,
+   "kind": "number_kicker",
+   "text": "In June 1985, its surface measured",
+   "problems": []
+  },
+  {
+   "t": 17.32,
+   "kind": "number_kicker",
+   "text": "The lake's record high had come in 1986, at",
+   "problems": []
+  },
+  {
+   "t": 46.08,
+   "kind": "number_kicker",
+   "text": "It is a big lake: about",
+   "problems": []
+  },
+  {
+   "t": 54.84,
+   "kind": "number_kicker",
+   "text": "At about",
+   "problems": []
+  },
+  {
+   "t": 71.36,
+   "kind": "number_kicker",
+   "text": "USGS says the lake generates nearly",
+   "problems": []
+  },
+  {
+   "t": 81.19,
+   "kind": "number_kicker",
+   "text": "In July 2021, the gauge at Saltair read",
+   "problems": []
+  },
+  {
+   "t": 119.89,
+   "kind": "number_kicker",
+   "text": "inflows have fallen",
+   "problems": []
+  },
+  {
+   "t": 127.5,
+   "kind": "number_kicker",
+   "text": "the lake's volume has shrunk",
+   "problems": []
+  },
+  {
+   "t": 135.97,
+   "kind": "number_kicker",
+   "text": "the Salt Lake City metro area grew from",
+   "problems": []
+  },
+  {
+   "t": 157.71,
+   "kind": "number_kicker",
+   "text": "The causeway took",
+   "problems": []
+  },
+  {
+   "t": 186.62,
+   "kind": "number_kicker",
+   "text": "In July 1984, the south side stood",
+   "problems": []
+  },
+  {
+   "t": 260.18,
+   "kind": "number_kicker",
+   "text": "the lake dropped almost",
+   "problems": []
+  },
+  {
+   "t": 285.29,
+   "kind": "number_kicker",
+   "text": "USGS collected dust at",
+   "problems": []
+  },
+  {
+   "t": 333.8,
+   "kind": "number_kicker",
+   "text": "They show it fell by",
+   "problems": []
+  },
+  {
+   "t": 359.16,
+   "kind": "number_kicker",
+   "text": "in July 2022, the Great Salt Lake measured",
+   "problems": []
+  },
+  {
+   "t": 59.56,
+   "kind": "event_label",
+   "text": "high",
+   "problems": []
+  },
+  {
+   "t": 103.61,
+   "kind": "event_label",
+   "text": "new record low",
+   "problems": []
+  },
+  {
+   "t": 150.84,
+   "kind": "event_label",
+   "text": "solid-fill railroad causeway",
+   "problems": []
+  },
+  {
+   "t": 199.65,
+   "kind": "event_label",
+   "text": "new channel opened",
+   "problems": []
+  },
+  {
+   "t": 224.74,
+   "kind": "event_label",
+   "text": "It dissipated",
+   "problems": []
+  },
+  {
+   "t": 232.98,
+   "kind": "event_label",
+   "text": "After rainy weather beginning",
+   "problems": []
+  },
+  {
+   "t": 235.19,
+   "kind": "event_label",
+   "text": "it peaked",
+   "problems": []
+  },
+  {
+   "t": 238.92,
+   "kind": "event_label",
+   "text": "March and April",
+   "problems": []
+  }
+ ],
  "dates": [
   {
    "kind": "image",
@@ -3573,6 +3790,13 @@
    "text": "LANDSAT 5 \u00b7 USGS \u00b7 JUNE 1985",
    "asset_label": "June 1985",
    "prov": "1985-06-12 (path 38) and 1985-06-19 (path 39)"
+  },
+  {
+   "kind": "overlay",
+   "t": 12.13,
+   "text": "SHORELINE \u00b7 JUN 1985",
+   "mask": "water1985",
+   "minus": null
   },
   {
    "kind": "image",
@@ -3708,6 +3932,13 @@
    "prov": "1999-08-22 (path 38) and 1999-08-29 (path 39)"
   },
   {
+   "kind": "overlay",
+   "t": 269.53,
+   "text": "LAKE BED EXPOSED SINCE 1986 \u00b7 WATER IN AUG 1986 \u00b7 DRY IN JUL 2022 \u00b7 TRACED FROM LANDSAT",
+   "mask": "water1986",
+   "minus": "water2022"
+  },
+  {
    "kind": "image",
    "t": 265.68,
    "text": "LANDSAT 5 \u00b7 USGS \u00b7 AUGUST 1986",
@@ -3722,6 +3953,55 @@
    "prov": "2022-07-11 (path 39, Landsat 8) and 2022-07-28 (path 38, Landsat 9)"
   },
   {
+   "kind": "overlay",
+   "t": 284.07,
+   "text": "",
+   "mask": "water1986",
+   "minus": "water2022"
+  },
+  {
+   "kind": "overlay",
+   "t": 297.8,
+   "text": "",
+   "mask": "water1986",
+   "minus": "water2022"
+  },
+  {
+   "kind": "overlay",
+   "t": 323.97,
+   "text": "SHORELINE \u00b7 AUG 1986",
+   "mask": "water1986",
+   "minus": null
+  },
+  {
+   "kind": "overlay",
+   "t": 333.13,
+   "text": "",
+   "mask": "water1986",
+   "minus": null
+  },
+  {
+   "kind": "overlay",
+   "t": 344.21,
+   "text": "",
+   "mask": "water1986",
+   "minus": "water2022"
+  },
+  {
+   "kind": "overlay",
+   "t": 348.08,
+   "text": "SHORELINE \u00b7 AUG 1986",
+   "mask": "water1986",
+   "minus": null
+  },
+  {
+   "kind": "overlay",
+   "t": 350.3,
+   "text": "SHORELINE \u00b7 JUL 2022",
+   "mask": "water2022",
+   "minus": null
+  },
+  {
    "kind": "image",
    "t": 346.35,
    "text": "LANDSAT 5 \u00b7 USGS \u00b7 AUGUST 1986",
@@ -3734,6 +4014,20 @@
    "text": "LANDSAT 8, 9 \u00b7 USGS \u00b7 JULY 2022",
    "asset_label": "July 2022",
    "prov": "2022-07-11 (path 39, Landsat 8) and 2022-07-28 (path 38, Landsat 9)"
+  },
+  {
+   "kind": "overlay",
+   "t": 354.3,
+   "text": "",
+   "mask": "water1986",
+   "minus": null
+  },
+  {
+   "kind": "overlay",
+   "t": 364.1,
+   "text": "",
+   "mask": "water1986",
+   "minus": "water2022"
   },
   {
    "kind": "image",
@@ -3774,7 +4068,7 @@
    "kind": "event",
    "t": 59.56,
    "year": "1986",
-   "words": "At",
+   "words": "high",
    "image_on_screen": "August 1986",
    "differs": false
   },
@@ -3782,7 +4076,7 @@
    "kind": "event",
    "t": 103.61,
    "year": "2022",
-   "words": "lists new record low",
+   "words": "new record low",
    "image_on_screen": "July 2022",
    "differs": false
   },
@@ -3790,7 +4084,7 @@
    "kind": "event",
    "t": 150.84,
    "year": "1959",
-   "words": "completed across middle lake",
+   "words": "solid-fill railroad causeway",
    "image_on_screen": "July 2022",
    "differs": true
   },
@@ -3830,7 +4124,7 @@
    "kind": "event",
    "t": 238.92,
    "year": "1987",
-   "words": "again in March April",
+   "words": "March and April",
    "image_on_screen": "August 1986",
    "differs": true
   }
@@ -3858,8 +4152,8 @@
    "t0": 10.031,
    "t1": 14.269,
    "label": "energetic",
-   "visual_events": 3,
-   "max_gap": 2.75,
+   "visual_events": 4,
+   "max_gap": 2.14,
    "limit": 3.0,
    "ok": true
   },
@@ -4263,8 +4557,8 @@
    "t0": 269.026,
    "t1": 283.143,
    "label": "calm",
-   "visual_events": 6,
-   "max_gap": 3.12,
+   "visual_events": 7,
+   "max_gap": 3.04,
    "limit": 6.0,
    "ok": true
   },
@@ -4272,7 +4566,7 @@
    "t0": 283.654,
    "t1": 296.809,
    "label": "calm",
-   "visual_events": 9,
+   "visual_events": 10,
    "max_gap": 2.45,
    "limit": 6.0,
    "ok": true
@@ -4281,8 +4575,8 @@
    "t0": 297.412,
    "t1": 299.142,
    "label": "normal",
-   "visual_events": 0,
-   "max_gap": 1.73,
+   "visual_events": 1,
+   "max_gap": 1.34,
    "limit": 4.0,
    "ok": true
   },
@@ -4317,8 +4611,8 @@
    "t0": 323.558,
    "t1": 325.172,
    "label": "normal",
-   "visual_events": 2,
-   "max_gap": 1.6,
+   "visual_events": 3,
+   "max_gap": 1.2,
    "limit": 4.0,
    "ok": true
   },
@@ -4335,7 +4629,7 @@
    "t0": 332.846,
    "t1": 337.677,
    "label": "normal",
-   "visual_events": 5,
+   "visual_events": 6,
    "max_gap": 2.88,
    "limit": 4.0,
    "ok": true
@@ -4344,8 +4638,8 @@
    "t0": 338.118,
    "t1": 345.699,
    "label": "normal",
-   "visual_events": 4,
-   "max_gap": 2.53,
+   "visual_events": 5,
+   "max_gap": 2.39,
    "limit": 4.0,
    "ok": true
   },
@@ -4362,7 +4656,7 @@
    "t0": 348.079,
    "t1": 350.715,
    "label": "normal",
-   "visual_events": 3,
+   "visual_events": 4,
    "max_gap": 1.23,
    "limit": 4.0,
    "ok": true
@@ -4380,7 +4674,7 @@
    "t0": 354.011,
    "t1": 366.179,
    "label": "normal",
-   "visual_events": 7,
+   "visual_events": 9,
    "max_gap": 3.62,
    "limit": 4.0,
    "ok": true

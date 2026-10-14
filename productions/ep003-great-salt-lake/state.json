@@ -72,19 +72,20 @@
     "sound-design-synthesised-ducked",
     "subtitle-vs-graphic-overlap-check",
     "text-clipped-at-frame-edge",
+    "timeline-v3-gate-keys",
     "video-frame-accuracy-check",
     "viewer-reencodes-files"
    ],
-   "completed": "2026-10-14T12:05:33Z",
-   "inputs_sha": "47fbb5f3671562386a36c68c8cb7b4e0c486117bfbab345ab5ffaa6f141f1d9d"
+   "completed": "2026-10-14T14:47:58Z",
+   "inputs_sha": "ac50fbdcae8cd64df9d96a408b7300fdac39778a21a34cd0b5a65be489698f1a"
   },
   "review": {
-   "completed": "2026-10-14T12:05:56Z",
-   "inputs_sha": "c2c5f282828b7e146c1cee7fa10370f1b0fc3b3d05262645a6f0c89a467fc5be"
+   "completed": "2026-10-14T14:51:46Z",
+   "inputs_sha": "de4bd1a7f13ecadc21f8c0c40d2251fa6d6b62f782103ba5a001ca8e3ff6aefb"
   },
   "package": {
-   "completed": "2026-10-14T12:05:56Z",
-   "inputs_sha": "0de37bc6fd310c3d8d92df3aabbb73e9bd27d310b9a722e40e3844ae99eefbac"
+   "completed": "2026-10-14T14:51:57Z",
+   "inputs_sha": "e08ccf510ae7b1f527ca6a7a12215ff9cf70dbd3e5e73793dd0304ff9b904f71"
   }
  }
 }

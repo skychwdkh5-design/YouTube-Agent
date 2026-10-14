@@ -7,7 +7,7 @@
 Seeded region growing (orbitalatlas.regions.seeded_region) from named stack pins inside a lon/lat box, on a 1/factor copy of each
 calibrated stack image. --reject-reddish YEAR excludes red-brown land (R > B + 6 and R >= G) before growing - use it for a year whose
 lake is blue/green; never for a year with pink brine (Gunnison Bay 2022). Writes assets/geo/water_yYEAR.png (255 = water, 1/factor
-resolution) + .json (method, params, missed seeds, water fraction). A display aid traced from real imagery, not a survey: an area
+grid, traced at 1/factor) + .json (method, params, missed seeds, water fraction). A display aid traced from real imagery, not a survey: an area
 spoken about it needs its own source. Look at the overlay before using a mask (the tool also writes a check JPEG). Prints JSON.
 """
 # effect-reuse-checked: reuses regions.seeded_region and the director Geo grid; yt-geo watermask.py thresholds failed on the calibrated EP003 stack (land classed as water)
@@ -38,7 +38,8 @@ def build(prod, years, seed_names, box, extra=(), reject=(), factor=4, max_luma=
             a = sm.astype(int); sm[(a[..., 0] > a[..., 2] + 6) & (a[..., 0] >= a[..., 1])] = 255
         seeds = [(g.px(p)[0] / f, g.px(p)[1] / f) for p in pts]
         m = regions.seeded_region(sm, seeds, max_luma=max_luma, max_std=max_std, box=(bx0 / f, by0 / f, bx1 / f, by1 / f), close=2, max_hole_px=300)
-        path = os.path.join(prod, "assets", "geo", f"water_y{y}.png"); Image.fromarray((m * 255).astype(np.uint8)).save(path)
+        path = os.path.join(prod, "assets", "geo", f"water_y{y}.png")      # saved on the full stack grid (yt-qc checks the size); nearest = same content
+        Image.fromarray((m * 255).astype(np.uint8)).resize((im.width, im.height), Image.NEAREST).save(path, optimize=True)
         info = dict(schema="orbitalatlas-shoreline/1", source=tl["assets"][aid]["src"], mask=os.path.relpath(path, prod), factor=f,
                     method="seeded region growing from stack pins inside a lon/lat box" + (" after excluding red-brown land" if str(y) in reject else ""),
                     params=dict(max_luma=max_luma, max_std=max_std, box=box, seeds=seed_names, extra_seeds=list(extra)),

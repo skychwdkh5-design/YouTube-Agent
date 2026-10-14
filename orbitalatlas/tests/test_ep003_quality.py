@@ -59,8 +59,8 @@ class TestDirectorShorelineLayers(unittest.TestCase):
         a = np.zeros((H // 4, W // 4), np.uint8); a[30:120, 30:120] = 255; b = np.zeros_like(a); b[50:100, 50:100] = 255
         Image.fromarray(a).save(f"{d}/assets/stack/w86.png"); Image.fromarray(b).save(f"{d}/assets/stack/w22.png")
         with open(f"{d}/timeline.json") as fh: tl = json.load(fh)
-        tl["assets"]["w86"] = dict(src="assets/stack/w86.png", kind="mask", scale=4); tl["assets"]["w22"] = dict(src="assets/stack/w22.png", kind="mask", scale=4)
-        tl["shots"][1]["layers"] += [dict(type="fill", mask="w86", minus="w22", t=[0.3, None]), dict(type="outline", mask="w86", t=[0.5, None], label="SHORELINE · JUL 1986", at=[-112.5, 41.0])]
+        tl["assets"]["w86"] = dict(src="assets/stack/w86.png", kind="mask"); tl["assets"]["w22"] = dict(src="assets/stack/w22.png", kind="mask")
+        tl["shots"][1]["layers"] += [dict(type="fill", mask="w86", minus="w22", t=[0.3, None]), dict(type="outline", mask="w86", t=[0.5, None], legend="SHORELINE · JUL 1986", at=[-112.5, 41.0])]
         with open(f"{d}/timeline.json", "w") as fh: json.dump(tl, fh)
         prog, rep = director.build(d, SIZE, log=lambda m: None, opening_tilt=False)
         kinds = [x["kind"] for x in rep["decisions"]]; self.assertIn("fill", kinds); self.assertIn("outline", kinds)

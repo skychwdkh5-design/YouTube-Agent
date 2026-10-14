@@ -366,7 +366,7 @@ def _layer(L, assets, grid, where, fps=30):
         raise E(f"{where}.type must be one of {LAYER_TYPES}")
     t = L["type"]
     allowed = {"image": ("asset",), "flip": ("assets", "step"), "wipe": ("from", "to"),
-               "fill": ("mask", "minus", "color", "opacity"), "outline": ("mask", "color", "width"),
+               "fill": ("mask", "minus", "color", "opacity", "legend", "sub", "at", "offset"), "outline": ("mask", "color", "width", "legend", "sub", "at", "offset"),
                "label": ("text", "sub", "slot", "style", "color"), "arrow": ("from", "to", "color", "width"),
                "pin": ("at", "text", "color"), "graphic": ("asset",), "video": ("asset", "trim", "credit", "captions", "caption"), "still": ("asset", "view", "credit", "captions", "caption", "scrim")}[t]
     r._keys(L, ("type", "t", "info") + allowed + (("visual_family",) if t in ("image", "flip", "wipe", "graphic", "video", "still") else ()), where)

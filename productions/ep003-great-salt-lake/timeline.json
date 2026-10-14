@@ -41,21 +41,18 @@
   "water1986": {
    "src": "assets/geo/water_y1986.png",
    "kind": "mask",
-   "scale": 4,
    "label": "Aug 1986 water (traced)",
    "derived_from": "y1986"
   },
   "water2022": {
    "src": "assets/geo/water_y2022.png",
    "kind": "mask",
-   "scale": 4,
    "label": "Jul 2022 water (traced)",
    "derived_from": "y2022"
   },
   "water1985": {
    "src": "assets/geo/water_y1985.png",
    "kind": "mask",
-   "scale": 4,
    "label": "Jun 1985 water (traced)",
    "derived_from": "y1985"
   }
@@ -192,12 +189,11 @@
     {
      "type": "outline",
      "mask": "water1985",
-     "color": "amber",
+     "color": "#FFC247",
      "t": [
       2.1,
       null
      ],
-     "label": "SHORELINE \u00b7 JUN 1985",
      "at": [
       -112.98,
       41.3
@@ -205,7 +201,8 @@
      "offset": [
       -0.24,
       0.05
-     ]
+     ],
+     "legend": "SHORELINE \u00b7 JUN 1985"
     }
    ],
    "visual_family": "geo_wipe_1985_2022"
@@ -1383,12 +1380,11 @@
      "type": "fill",
      "mask": "water1986",
      "minus": "water2022",
-     "color": "amber",
+     "color": "#FFC247",
      "t": [
       4.0,
       null
      ],
-     "label": "LAKE BED EXPOSED SINCE 1986",
      "sub": "WATER IN AUG 1986 \u00b7 DRY IN JUL 2022 \u00b7 TRACED FROM LANDSAT",
      "at": [
       -112.2,
@@ -1397,7 +1393,8 @@
      "offset": [
       0.08,
       -0.2
-     ]
+     ],
+     "legend": "LAKE BED EXPOSED SINCE 1986"
     }
    ],
    "visual_family": "geo_wipe_1986_2022"
@@ -1453,7 +1450,7 @@
      "type": "fill",
      "mask": "water1986",
      "minus": "water2022",
-     "color": "amber",
+     "color": "#FFC247",
      "t": [
       0.4,
       null
@@ -1513,7 +1510,7 @@
      "type": "fill",
      "mask": "water1986",
      "minus": "water2022",
-     "color": "amber",
+     "color": "#FFC247",
      "t": [
       0.4,
       null
@@ -1596,12 +1593,11 @@
     {
      "type": "outline",
      "mask": "water1986",
-     "color": "amber",
+     "color": "#FFC247",
      "t": [
       0.4,
       null
      ],
-     "label": "SHORELINE \u00b7 AUG 1986",
      "at": [
       -112.98,
       41.3
@@ -1609,7 +1605,8 @@
      "offset": [
       -0.24,
       0.05
-     ]
+     ],
+     "legend": "SHORELINE \u00b7 AUG 1986"
     }
    ],
    "visual_family": "geo_2022"
@@ -1651,7 +1648,7 @@
     {
      "type": "outline",
      "mask": "water1986",
-     "color": "amber",
+     "color": "#FFC247",
      "t": [
       0.3,
       null
@@ -1661,7 +1658,7 @@
      "type": "fill",
      "mask": "water1986",
      "minus": "water2022",
-     "color": "amber",
+     "color": "#FFC247",
      "t": [
       11.38,
       null
@@ -1705,12 +1702,11 @@
     {
      "type": "outline",
      "mask": "water1986",
-     "color": "amber",
+     "color": "#FFC247",
      "t": [
       1.88,
       null
      ],
-     "label": "SHORELINE \u00b7 AUG 1986",
      "at": [
       -112.98,
       41.3
@@ -1718,17 +1714,17 @@
      "offset": [
       -0.24,
       0.05
-     ]
+     ],
+     "legend": "SHORELINE \u00b7 AUG 1986"
     },
     {
      "type": "outline",
      "mask": "water2022",
-     "color": "cyan",
+     "color": "#5CE1E6",
      "t": [
       4.1,
       null
      ],
-     "label": "SHORELINE \u00b7 JUL 2022",
      "at": [
       -112.15,
       40.78
@@ -1736,7 +1732,8 @@
      "offset": [
       0.06,
       0.12
-     ]
+     ],
+     "legend": "SHORELINE \u00b7 JUL 2022"
     }
    ],
    "visual_family": "geo_wipe_1986_2022"
@@ -1789,7 +1786,7 @@
     {
      "type": "outline",
      "mask": "water1986",
-     "color": "amber",
+     "color": "#FFC247",
      "t": [
       0.3,
       null
@@ -1799,7 +1796,7 @@
      "type": "fill",
      "mask": "water1986",
      "minus": "water2022",
-     "color": "amber",
+     "color": "#FFC247",
      "t": [
       10.1,
       null
