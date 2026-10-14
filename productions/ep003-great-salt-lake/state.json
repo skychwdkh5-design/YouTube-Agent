@@ -27,6 +27,38 @@
    ],
    "completed": "2026-10-14T10:12:09Z",
    "inputs_sha": "f782c2bf9ea870ca6c5073a561cfda0f523ed3ad63584717a7c3a3d1c2a77d37"
+  },
+  "tts": {
+   "pitfalls_consulted": [
+    "captions-from-provider-word-times",
+    "paid-tts-gate-in-the-calling-function",
+    "rebuild-paid-narration-from-saved-responses",
+    "script-lock-sha256",
+    "tts-blank-lines-are-billable",
+    "tts-gateway-502-chunk-size",
+    "tts-key-injected-by-egress-proxy",
+    "tts-no-blind-retry",
+    "tts-persistent-chunk-cache",
+    "two-clocks-for-sync",
+    "voice-onset-measured-on-narration"
+   ],
+   "completed": "2026-10-14T10:16:47Z",
+   "inputs_sha": "5ae6d13cf15bc26cec991144150d4f6df192d1fcfb133b55a309041bdee3e4e7"
+  },
+  "captions": {
+   "pitfalls_consulted": [
+    "caption-count-up-showed-wrong-numbers",
+    "captions-from-provider-word-times",
+    "free-test-voice-measured-timing",
+    "two-clocks-for-sync",
+    "voice-onset-measured-on-narration"
+   ],
+   "completed": "2026-10-14T10:17:40Z",
+   "inputs_sha": "5218b0a9c792106631ff8e17b2a308fb30af35d0ff87f1d48423a87274ed7417"
+  },
+  "storyboard": {
+   "completed": "2026-10-14T10:18:05Z",
+   "inputs_sha": "5b43efe31e58eadbd83e00d179c05d1f0e5115d3bf6887f986bc67c5373cdc70"
   }
  }
 }

@@ -1,0 +1,7836 @@
+{
+ "schema": "orbitalatlas-plan/1",
+ "intensity": [
+  {
+   "w0": 0,
+   "w1": 16,
+   "t0": 0.0,
+   "t1": 4.574,
+   "score": 0.7,
+   "label": "energetic"
+  },
+  {
+   "w0": 16,
+   "w1": 24,
+   "t0": 4.841,
+   "t1": 9.718,
+   "score": 0.65,
+   "label": "energetic"
+  },
+  {
+   "w0": 24,
+   "w1": 31,
+   "t0": 10.031,
+   "t1": 14.269,
+   "score": 0.65,
+   "label": "energetic"
+  },
+  {
+   "w0": 31,
+   "w1": 42,
+   "t0": 14.582,
+   "t1": 19.737,
+   "score": 0.8,
+   "label": "energetic"
+  },
+  {
+   "w0": 42,
+   "w1": 50,
+   "t0": 20.051,
+   "t1": 21.955,
+   "score": 0.65,
+   "label": "energetic"
+  },
+  {
+   "w0": 50,
+   "w1": 58,
+   "t0": 22.164,
+   "t1": 24.869,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 58,
+   "w1": 75,
+   "t0": 25.148,
+   "t1": 31.231,
+   "score": 0.65,
+   "label": "energetic"
+  },
+  {
+   "w0": 75,
+   "w1": 83,
+   "t0": 31.556,
+   "t1": 34.54,
+   "score": 0.45,
+   "label": "normal"
+  },
+  {
+   "w0": 83,
+   "w1": 85,
+   "t0": 34.575,
+   "t1": 36.177,
+   "score": 0.45,
+   "label": "normal"
+  },
+  {
+   "w0": 85,
+   "w1": 108,
+   "t0": 36.56,
+   "t1": 44.06,
+   "score": 0.1,
+   "label": "calm"
+  },
+  {
+   "w0": 108,
+   "w1": 134,
+   "t0": 44.432,
+   "t1": 53.929,
+   "score": 0.45,
+   "label": "normal"
+  },
+  {
+   "w0": 134,
+   "w1": 144,
+   "t0": 54.51,
+   "t1": 58.875,
+   "score": 0.65,
+   "label": "energetic"
+  },
+  {
+   "w0": 144,
+   "w1": 152,
+   "t0": 59.177,
+   "t1": 62.892,
+   "score": 0.65,
+   "label": "energetic"
+  },
+  {
+   "w0": 152,
+   "w1": 164,
+   "t0": 63.147,
+   "t1": 66.456,
+   "score": 0.8,
+   "label": "energetic"
+  },
+  {
+   "w0": 164,
+   "w1": 170,
+   "t0": 66.758,
+   "t1": 68.43,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 170,
+   "w1": 191,
+   "t0": 69.185,
+   "t1": 77.637,
+   "score": 0.35,
+   "label": "calm"
+  },
+  {
+   "w0": 191,
+   "w1": 209,
+   "t0": 78.113,
+   "t1": 87.946,
+   "score": 0.45,
+   "label": "normal"
+  },
+  {
+   "w0": 209,
+   "w1": 230,
+   "t0": 88.504,
+   "t1": 97.327,
+   "score": 0.2,
+   "label": "calm"
+  },
+  {
+   "w0": 230,
+   "w1": 237,
+   "t0": 97.687,
+   "t1": 100.172,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 237,
+   "w1": 247,
+   "t0": 100.485,
+   "t1": 104.676,
+   "score": 0.8,
+   "label": "energetic"
+  },
+  {
+   "w0": 247,
+   "w1": 251,
+   "t0": 105.036,
+   "t1": 106.197,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 251,
+   "w1": 259,
+   "t0": 106.394,
+   "t1": 109.517,
+   "score": 0.45,
+   "label": "normal"
+  },
+  {
+   "w0": 259,
+   "w1": 272,
+   "t0": 110.33,
+   "t1": 115.229,
+   "score": 0.45,
+   "label": "normal"
+  },
+  {
+   "w0": 272,
+   "w1": 285,
+   "t0": 115.926,
+   "t1": 123.391,
+   "score": 0.8,
+   "label": "energetic"
+  },
+  {
+   "w0": 285,
+   "w1": 311,
+   "t0": 123.391,
+   "t1": 132.691,
+   "score": 0.5,
+   "label": "normal"
+  },
+  {
+   "w0": 311,
+   "w1": 329,
+   "t0": 133.109,
+   "t1": 141.665,
+   "score": 0.3,
+   "label": "calm"
+  },
+  {
+   "w0": 329,
+   "w1": 334,
+   "t0": 142.362,
+   "t1": 143.953,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 334,
+   "w1": 349,
+   "t0": 144.231,
+   "t1": 150.222,
+   "score": 0.45,
+   "label": "normal"
+  },
+  {
+   "w0": 349,
+   "w1": 363,
+   "t0": 150.663,
+   "t1": 156.596,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 363,
+   "w1": 375,
+   "t0": 156.921,
+   "t1": 161.774,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 375,
+   "w1": 396,
+   "t0": 162.053,
+   "t1": 170.923,
+   "score": 0.25,
+   "label": "calm"
+  },
+  {
+   "w0": 396,
+   "w1": 412,
+   "t0": 171.434,
+   "t1": 176.786,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 412,
+   "w1": 430,
+   "t0": 177.297,
+   "t1": 182.928,
+   "score": 0.7,
+   "label": "energetic"
+  },
+  {
+   "w0": 430,
+   "w1": 448,
+   "t0": 183.369,
+   "t1": 191.764,
+   "score": 0.8,
+   "label": "energetic"
+  },
+  {
+   "w0": 448,
+   "w1": 462,
+   "t0": 192.46,
+   "t1": 197.836,
+   "score": 0.45,
+   "label": "normal"
+  },
+  {
+   "w0": 462,
+   "w1": 469,
+   "t0": 198.161,
+   "t1": 201.829,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 469,
+   "w1": 476,
+   "t0": 202.155,
+   "t1": 204.709,
+   "score": 0.45,
+   "label": "normal"
+  },
+  {
+   "w0": 476,
+   "w1": 492,
+   "t0": 205.092,
+   "t1": 210.549,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 492,
+   "w1": 520,
+   "t0": 210.874,
+   "t1": 223.285,
+   "score": 0.0,
+   "label": "calm"
+  },
+  {
+   "w0": 520,
+   "w1": 532,
+   "t0": 223.668,
+   "t1": 228.428,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 532,
+   "w1": 540,
+   "t0": 229.009,
+   "t1": 231.029,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 540,
+   "w1": 559,
+   "t0": 231.447,
+   "t1": 240.212,
+   "score": 0.2,
+   "label": "calm"
+  },
+  {
+   "w0": 559,
+   "w1": 568,
+   "t0": 240.584,
+   "t1": 244.903,
+   "score": 0.7,
+   "label": "energetic"
+  },
+  {
+   "w0": 568,
+   "w1": 587,
+   "t0": 245.599,
+   "t1": 254.028,
+   "score": 0.85,
+   "label": "energetic"
+  },
+  {
+   "w0": 587,
+   "w1": 603,
+   "t0": 254.026,
+   "t1": 261.108,
+   "score": 0.6,
+   "label": "normal"
+  },
+  {
+   "w0": 603,
+   "w1": 613,
+   "t0": 261.491,
+   "t1": 265.241,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 613,
+   "w1": 622,
+   "t0": 265.52,
+   "t1": 268.585,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 622,
+   "w1": 652,
+   "t0": 269.026,
+   "t1": 283.143,
+   "score": 0.3,
+   "label": "calm"
+  },
+  {
+   "w0": 652,
+   "w1": 680,
+   "t0": 283.654,
+   "t1": 296.809,
+   "score": 0.25,
+   "label": "calm"
+  },
+  {
+   "w0": 680,
+   "w1": 684,
+   "t0": 297.412,
+   "t1": 299.142,
+   "score": 0.45,
+   "label": "normal"
+  },
+  {
+   "w0": 684,
+   "w1": 713,
+   "t0": 299.526,
+   "t1": 310.532,
+   "score": 0.15,
+   "label": "calm"
+  },
+  {
+   "w0": 713,
+   "w1": 727,
+   "t0": 311.043,
+   "t1": 317.336,
+   "score": 1.0,
+   "label": "energetic"
+  },
+  {
+   "w0": 727,
+   "w1": 740,
+   "t0": 317.777,
+   "t1": 322.746,
+   "score": 0.45,
+   "label": "normal"
+  },
+  {
+   "w0": 740,
+   "w1": 745,
+   "t0": 323.558,
+   "t1": 325.172,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 745,
+   "w1": 762,
+   "t0": 325.869,
+   "t1": 332.521,
+   "score": 0.45,
+   "label": "normal"
+  },
+  {
+   "w0": 762,
+   "w1": 774,
+   "t0": 332.846,
+   "t1": 337.677,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 774,
+   "w1": 790,
+   "t0": 338.118,
+   "t1": 345.699,
+   "score": 0.6,
+   "label": "normal"
+  },
+  {
+   "w0": 790,
+   "w1": 795,
+   "t0": 346.21,
+   "t1": 347.754,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 795,
+   "w1": 802,
+   "t0": 348.079,
+   "t1": 350.715,
+   "score": 0.45,
+   "label": "normal"
+  },
+  {
+   "w0": 802,
+   "w1": 809,
+   "t0": 350.958,
+   "t1": 353.628,
+   "score": 0.45,
+   "label": "normal"
+  },
+  {
+   "w0": 809,
+   "w1": 832,
+   "t0": 354.011,
+   "t1": 366.179,
+   "score": 0.45,
+   "label": "normal"
+  },
+  {
+   "w0": 832,
+   "w1": 845,
+   "t0": 366.62,
+   "t1": 371.055,
+   "score": 0.7,
+   "label": "energetic"
+  }
+ ],
+ "mode": "long",
+ "timing_source": "provider",
+ "frame_accurate": true,
+ "words": [
+  {
+   "text": "This",
+   "start": 0.0,
+   "end": 0.221,
+   "emph": false
+  },
+  {
+   "text": "is",
+   "start": 0.279,
+   "end": 0.383,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 0.441,
+   "end": 0.499,
+   "emph": false
+  },
+  {
+   "text": "Great",
+   "start": 0.546,
+   "end": 0.72,
+   "emph": false
+  },
+  {
+   "text": "Salt",
+   "start": 0.778,
+   "end": 0.975,
+   "emph": false
+  },
+  {
+   "text": "Lake",
+   "start": 1.033,
+   "end": 1.277,
+   "emph": false
+  },
+  {
+   "text": "in",
+   "start": 1.335,
+   "end": 1.474,
+   "emph": false
+  },
+  {
+   "text": "Utah,",
+   "start": 1.567,
+   "end": 2.09,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 2.252,
+   "end": 2.345,
+   "emph": false
+  },
+  {
+   "text": "largest",
+   "start": 2.403,
+   "end": 2.775,
+   "emph": true
+  },
+  {
+   "text": "saline",
+   "start": 2.868,
+   "end": 3.297,
+   "emph": false
+  },
+  {
+   "text": "lake",
+   "start": 3.344,
+   "end": 3.518,
+   "emph": false
+  },
+  {
+   "text": "in",
+   "start": 3.541,
+   "end": 3.599,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 3.622,
+   "end": 3.68,
+   "emph": false
+  },
+  {
+   "text": "Western",
+   "start": 3.715,
+   "end": 3.971,
+   "emph": false
+  },
+  {
+   "text": "Hemisphere.",
+   "start": 4.005,
+   "end": 4.574,
+   "emph": false
+  },
+  {
+   "text": "In",
+   "start": 4.841,
+   "end": 4.981,
+   "emph": false
+  },
+  {
+   "text": "June",
+   "start": 5.05,
+   "end": 5.341,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "1985,",
+   "start": 5.375,
+   "end": 6.409,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "its",
+   "start": 6.583,
+   "end": 6.734,
+   "emph": false
+  },
+  {
+   "text": "surface",
+   "start": 6.769,
+   "end": 7.117,
+   "emph": false
+  },
+  {
+   "text": "measured",
+   "start": 7.163,
+   "end": 7.465,
+   "emph": false
+  },
+  {
+   "text": "4,209.7",
+   "start": 7.535,
+   "end": 9.276,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "feet.",
+   "start": 9.346,
+   "end": 9.718,
+   "emph": false
+  },
+  {
+   "text": "In",
+   "start": 10.031,
+   "end": 10.136,
+   "emph": false
+  },
+  {
+   "text": "July",
+   "start": 10.182,
+   "end": 10.519,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "2022,",
+   "start": 10.612,
+   "end": 11.378,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "it",
+   "start": 11.517,
+   "end": 11.633,
+   "emph": false
+  },
+  {
+   "text": "measured",
+   "start": 11.691,
+   "end": 11.981,
+   "emph": false
+  },
+  {
+   "text": "4,190.2",
+   "start": 12.04,
+   "end": 13.851,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "feet.",
+   "start": 13.92,
+   "end": 14.269,
+   "emph": false
+  },
+  {
+   "text": "The",
+   "start": 14.582,
+   "end": 14.675,
+   "emph": false
+  },
+  {
+   "text": "lake's",
+   "start": 14.721,
+   "end": 14.93,
+   "emph": false
+  },
+  {
+   "text": "record",
+   "start": 14.977,
+   "end": 15.232,
+   "emph": true
+  },
+  {
+   "text": "high",
+   "start": 15.29,
+   "end": 15.546,
+   "emph": false
+  },
+  {
+   "text": "had",
+   "start": 15.581,
+   "end": 15.673,
+   "emph": false
+  },
+  {
+   "text": "come",
+   "start": 15.72,
+   "end": 15.882,
+   "emph": false
+  },
+  {
+   "text": "in",
+   "start": 15.917,
+   "end": 15.964,
+   "emph": false
+  },
+  {
+   "text": "1986,",
+   "start": 16.01,
+   "end": 17.09,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "at",
+   "start": 17.264,
+   "end": 17.392,
+   "emph": false
+  },
+  {
+   "text": "4,211.6",
+   "start": 17.473,
+   "end": 19.285,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "feet.",
+   "start": 19.389,
+   "end": 19.737,
+   "emph": false
+  },
+  {
+   "text": "Now",
+   "start": 20.051,
+   "end": 20.248,
+   "emph": false
+  },
+  {
+   "text": "it",
+   "start": 20.306,
+   "end": 20.376,
+   "emph": false
+  },
+  {
+   "text": "sat",
+   "start": 20.422,
+   "end": 20.596,
+   "emph": false
+  },
+  {
+   "text": "more",
+   "start": 20.643,
+   "end": 20.759,
+   "emph": false
+  },
+  {
+   "text": "than",
+   "start": 20.794,
+   "end": 20.898,
+   "emph": false
+  },
+  {
+   "text": "20",
+   "start": 20.956,
+   "end": 21.2,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "feet",
+   "start": 21.247,
+   "end": 21.409,
+   "emph": false
+  },
+  {
+   "text": "lower.",
+   "start": 21.467,
+   "end": 21.955,
+   "emph": false
+  },
+  {
+   "text": "The",
+   "start": 22.164,
+   "end": 22.28,
+   "emph": false
+  },
+  {
+   "text": "Landsat",
+   "start": 22.35,
+   "end": 22.837,
+   "emph": false
+  },
+  {
+   "text": "satellites",
+   "start": 22.907,
+   "end": 23.394,
+   "emph": false
+  },
+  {
+   "text": "were",
+   "start": 23.429,
+   "end": 23.569,
+   "emph": false
+  },
+  {
+   "text": "watching",
+   "start": 23.603,
+   "end": 23.894,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 23.94,
+   "end": 24.01,
+   "emph": false
+  },
+  {
+   "text": "whole",
+   "start": 24.056,
+   "end": 24.3,
+   "emph": false
+  },
+  {
+   "text": "time.",
+   "start": 24.335,
+   "end": 24.869,
+   "emph": false
+  },
+  {
+   "text": "Put",
+   "start": 25.148,
+   "end": 25.333,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 25.368,
+   "end": 25.438,
+   "emph": false
+  },
+  {
+   "text": "pictures",
+   "start": 25.484,
+   "end": 25.833,
+   "emph": false
+  },
+  {
+   "text": "in",
+   "start": 25.879,
+   "end": 25.949,
+   "emph": false
+  },
+  {
+   "text": "order,",
+   "start": 26.03,
+   "end": 26.401,
+   "emph": false
+  },
+  {
+   "text": "from",
+   "start": 26.46,
+   "end": 26.634,
+   "emph": false
+  },
+  {
+   "text": "1985",
+   "start": 26.692,
+   "end": 27.597,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "to",
+   "start": 27.667,
+   "end": 27.725,
+   "emph": false
+  },
+  {
+   "text": "2022,",
+   "start": 27.806,
+   "end": 28.921,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 29.13,
+   "end": 29.281,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 29.339,
+   "end": 29.408,
+   "emph": false
+  },
+  {
+   "text": "lake",
+   "start": 29.455,
+   "end": 29.675,
+   "emph": false
+  },
+  {
+   "text": "pulls",
+   "start": 29.722,
+   "end": 30.024,
+   "emph": false
+  },
+  {
+   "text": "back",
+   "start": 30.093,
+   "end": 30.302,
+   "emph": false
+  },
+  {
+   "text": "from",
+   "start": 30.349,
+   "end": 30.488,
+   "emph": false
+  },
+  {
+   "text": "its",
+   "start": 30.535,
+   "end": 30.651,
+   "emph": false
+  },
+  {
+   "text": "shore.",
+   "start": 30.686,
+   "end": 31.231,
+   "emph": false
+  },
+  {
+   "text": "These",
+   "start": 31.556,
+   "end": 31.788,
+   "emph": false
+  },
+  {
+   "text": "are",
+   "start": 31.823,
+   "end": 31.951,
+   "emph": false
+  },
+  {
+   "text": "real",
+   "start": 32.009,
+   "end": 32.404,
+   "emph": false
+  },
+  {
+   "text": "Landsat",
+   "start": 32.613,
+   "end": 33.263,
+   "emph": false
+  },
+  {
+   "text": "scenes",
+   "start": 33.344,
+   "end": 33.716,
+   "emph": false
+  },
+  {
+   "text": "from",
+   "start": 33.762,
+   "end": 33.913,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 33.96,
+   "end": 34.029,
+   "emph": false
+  },
+  {
+   "text": "U.S.",
+   "start": 34.099,
+   "end": 34.54,
+   "emph": false
+  },
+  {
+   "text": "Geological",
+   "start": 34.575,
+   "end": 35.388,
+   "emph": false
+  },
+  {
+   "text": "Survey.",
+   "start": 35.48,
+   "end": 36.177,
+   "emph": false
+  },
+  {
+   "text": "Each",
+   "start": 36.56,
+   "end": 36.781,
+   "emph": false
+  },
+  {
+   "text": "picture",
+   "start": 36.839,
+   "end": 37.176,
+   "emph": false
+  },
+  {
+   "text": "is",
+   "start": 37.222,
+   "end": 37.315,
+   "emph": false
+  },
+  {
+   "text": "a",
+   "start": 37.361,
+   "end": 37.384,
+   "emph": false
+  },
+  {
+   "text": "mosaic",
+   "start": 37.443,
+   "end": 38.0,
+   "emph": false
+  },
+  {
+   "text": "of",
+   "start": 38.058,
+   "end": 38.116,
+   "emph": false
+  },
+  {
+   "text": "several",
+   "start": 38.186,
+   "end": 38.499,
+   "emph": false
+  },
+  {
+   "text": "scenes,",
+   "start": 38.569,
+   "end": 39.219,
+   "emph": false
+  },
+  {
+   "text": "shown",
+   "start": 39.381,
+   "end": 39.66,
+   "emph": false
+  },
+  {
+   "text": "with",
+   "start": 39.706,
+   "end": 39.834,
+   "emph": false
+  },
+  {
+   "text": "one",
+   "start": 39.892,
+   "end": 40.101,
+   "emph": false
+  },
+  {
+   "text": "color",
+   "start": 40.136,
+   "end": 40.403,
+   "emph": false
+  },
+  {
+   "text": "curve,",
+   "start": 40.473,
+   "end": 41.146,
+   "emph": false
+  },
+  {
+   "text": "so",
+   "start": 41.297,
+   "end": 41.425,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 41.471,
+   "end": 41.541,
+   "emph": false
+  },
+  {
+   "text": "colors",
+   "start": 41.599,
+   "end": 41.889,
+   "emph": false
+  },
+  {
+   "text": "can",
+   "start": 41.936,
+   "end": 42.063,
+   "emph": false
+  },
+  {
+   "text": "be",
+   "start": 42.121,
+   "end": 42.214,
+   "emph": false
+  },
+  {
+   "text": "compared",
+   "start": 42.261,
+   "end": 42.818,
+   "emph": false
+  },
+  {
+   "text": "from",
+   "start": 42.864,
+   "end": 43.027,
+   "emph": false
+  },
+  {
+   "text": "year",
+   "start": 43.108,
+   "end": 43.329,
+   "emph": false
+  },
+  {
+   "text": "to",
+   "start": 43.387,
+   "end": 43.457,
+   "emph": false
+  },
+  {
+   "text": "year.",
+   "start": 43.538,
+   "end": 44.06,
+   "emph": false
+  },
+  {
+   "text": "It",
+   "start": 44.432,
+   "end": 44.559,
+   "emph": false
+  },
+  {
+   "text": "is",
+   "start": 44.606,
+   "end": 44.699,
+   "emph": false
+  },
+  {
+   "text": "a",
+   "start": 44.745,
+   "end": 44.768,
+   "emph": false
+  },
+  {
+   "text": "big",
+   "start": 44.861,
+   "end": 45.082,
+   "emph": false
+  },
+  {
+   "text": "lake:",
+   "start": 45.175,
+   "end": 45.674,
+   "emph": false
+  },
+  {
+   "text": "about",
+   "start": 45.837,
+   "end": 46.15,
+   "emph": false
+  },
+  {
+   "text": "70",
+   "start": 46.231,
+   "end": 46.591,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "miles",
+   "start": 46.661,
+   "end": 47.021,
+   "emph": false
+  },
+  {
+   "text": "long,",
+   "start": 47.102,
+   "end": 47.543,
+   "emph": false
+  },
+  {
+   "text": "30",
+   "start": 47.694,
+   "end": 47.95,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "miles",
+   "start": 48.008,
+   "end": 48.344,
+   "emph": false
+  },
+  {
+   "text": "wide,",
+   "start": 48.402,
+   "end": 48.994,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 49.169,
+   "end": 49.331,
+   "emph": false
+  },
+  {
+   "text": "about",
+   "start": 49.389,
+   "end": 49.621,
+   "emph": false
+  },
+  {
+   "text": "40",
+   "start": 49.691,
+   "end": 49.97,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "feet",
+   "start": 50.028,
+   "end": 50.225,
+   "emph": false
+  },
+  {
+   "text": "deep,",
+   "start": 50.295,
+   "end": 50.782,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 51.015,
+   "end": 51.2,
+   "emph": false
+  },
+  {
+   "text": "up",
+   "start": 51.27,
+   "end": 51.375,
+   "emph": false
+  },
+  {
+   "text": "to",
+   "start": 51.444,
+   "end": 51.549,
+   "emph": false
+  },
+  {
+   "text": "8",
+   "start": 51.665,
+   "end": 51.897,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "times",
+   "start": 51.967,
+   "end": 52.408,
+   "emph": false
+  },
+  {
+   "text": "as",
+   "start": 52.478,
+   "end": 52.559,
+   "emph": false
+  },
+  {
+   "text": "salty",
+   "start": 52.617,
+   "end": 53.012,
+   "emph": false
+  },
+  {
+   "text": "as",
+   "start": 53.07,
+   "end": 53.14,
+   "emph": false
+  },
+  {
+   "text": "seawater.",
+   "start": 53.186,
+   "end": 53.929,
+   "emph": false
+  },
+  {
+   "text": "At",
+   "start": 54.51,
+   "end": 54.672,
+   "emph": false
+  },
+  {
+   "text": "about",
+   "start": 54.719,
+   "end": 54.928,
+   "emph": false
+  },
+  {
+   "text": "4,200",
+   "start": 54.986,
+   "end": 55.775,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "feet,",
+   "start": 55.833,
+   "end": 56.089,
+   "emph": false
+  },
+  {
+   "text": "it",
+   "start": 56.123,
+   "end": 56.216,
+   "emph": false
+  },
+  {
+   "text": "covers",
+   "start": 56.274,
+   "end": 56.565,
+   "emph": false
+  },
+  {
+   "text": "roughly",
+   "start": 56.623,
+   "end": 56.948,
+   "emph": false
+  },
+  {
+   "text": "1,700",
+   "start": 57.041,
+   "end": 57.888,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "square",
+   "start": 57.934,
+   "end": 58.225,
+   "emph": false
+  },
+  {
+   "text": "miles.",
+   "start": 58.26,
+   "end": 58.875,
+   "emph": false
+  },
+  {
+   "text": "At",
+   "start": 59.177,
+   "end": 59.339,
+   "emph": false
+  },
+  {
+   "text": "its",
+   "start": 59.386,
+   "end": 59.502,
+   "emph": false
+  },
+  {
+   "text": "1986",
+   "start": 59.56,
+   "end": 60.547,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "high,",
+   "start": 60.616,
+   "end": 60.976,
+   "emph": false
+  },
+  {
+   "text": "it",
+   "start": 61.023,
+   "end": 61.162,
+   "emph": false
+  },
+  {
+   "text": "covered",
+   "start": 61.209,
+   "end": 61.51,
+   "emph": false
+  },
+  {
+   "text": "about",
+   "start": 61.522,
+   "end": 61.766,
+   "emph": false
+  },
+  {
+   "text": "2,300.",
+   "start": 61.847,
+   "end": 62.892,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "It",
+   "start": 63.147,
+   "end": 63.287,
+   "emph": false
+  },
+  {
+   "text": "is",
+   "start": 63.322,
+   "end": 63.414,
+   "emph": false
+  },
+  {
+   "text": "a",
+   "start": 63.449,
+   "end": 63.484,
+   "emph": false
+  },
+  {
+   "text": "terminal",
+   "start": 63.542,
+   "end": 63.96,
+   "emph": false
+  },
+  {
+   "text": "lake:",
+   "start": 64.03,
+   "end": 64.471,
+   "emph": false
+  },
+  {
+   "text": "there",
+   "start": 64.773,
+   "end": 64.959,
+   "emph": false
+  },
+  {
+   "text": "is",
+   "start": 64.993,
+   "end": 65.063,
+   "emph": false
+  },
+  {
+   "text": "no",
+   "start": 65.133,
+   "end": 65.249,
+   "emph": false
+  },
+  {
+   "text": "outlet",
+   "start": 65.365,
+   "end": 65.748,
+   "emph": false
+  },
+  {
+   "text": "to",
+   "start": 65.794,
+   "end": 65.852,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 65.922,
+   "end": 65.98,
+   "emph": false
+  },
+  {
+   "text": "sea.",
+   "start": 66.038,
+   "end": 66.456,
+   "emph": false
+  },
+  {
+   "text": "And",
+   "start": 66.758,
+   "end": 66.909,
+   "emph": false
+  },
+  {
+   "text": "it",
+   "start": 66.967,
+   "end": 67.025,
+   "emph": false
+  },
+  {
+   "text": "matters",
+   "start": 67.095,
+   "end": 67.443,
+   "emph": false
+  },
+  {
+   "text": "to",
+   "start": 67.489,
+   "end": 67.559,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 67.606,
+   "end": 67.687,
+   "emph": false
+  },
+  {
+   "text": "economy.",
+   "start": 67.733,
+   "end": 68.43,
+   "emph": false
+  },
+  {
+   "text": "USGS",
+   "start": 69.185,
+   "end": 69.928,
+   "emph": false
+  },
+  {
+   "text": "says",
+   "start": 69.986,
+   "end": 70.253,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 70.322,
+   "end": 70.404,
+   "emph": false
+  },
+  {
+   "text": "lake",
+   "start": 70.462,
+   "end": 70.682,
+   "emph": false
+  },
+  {
+   "text": "generates",
+   "start": 70.717,
+   "end": 71.17,
+   "emph": false
+  },
+  {
+   "text": "nearly",
+   "start": 71.216,
+   "end": 71.448,
+   "emph": true
+  },
+  {
+   "text": "$200",
+   "start": 71.507,
+   "end": 71.971,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "million",
+   "start": 72.041,
+   "end": 72.644,
+   "emph": false
+  },
+  {
+   "text": "a",
+   "start": 72.702,
+   "end": 72.749,
+   "emph": false
+  },
+  {
+   "text": "year",
+   "start": 72.818,
+   "end": 73.004,
+   "emph": false
+  },
+  {
+   "text": "from",
+   "start": 73.074,
+   "end": 73.202,
+   "emph": false
+  },
+  {
+   "text": "recreation",
+   "start": 73.26,
+   "end": 73.887,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 74.119,
+   "end": 74.305,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 74.328,
+   "end": 74.397,
+   "emph": false
+  },
+  {
+   "text": "brine",
+   "start": 74.432,
+   "end": 74.711,
+   "emph": false
+  },
+  {
+   "text": "shrimp",
+   "start": 74.734,
+   "end": 74.978,
+   "emph": false
+  },
+  {
+   "text": "harvest,",
+   "start": 75.036,
+   "end": 75.57,
+   "emph": false
+  },
+  {
+   "text": "citing",
+   "start": 75.709,
+   "end": 76.058,
+   "emph": false
+  },
+  {
+   "text": "a",
+   "start": 76.127,
+   "end": 76.151,
+   "emph": false
+  },
+  {
+   "text": "2012",
+   "start": 76.232,
+   "end": 77.056,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "study.",
+   "start": 77.103,
+   "end": 77.637,
+   "emph": false
+  },
+  {
+   "text": "In",
+   "start": 78.113,
+   "end": 78.24,
+   "emph": false
+  },
+  {
+   "text": "July",
+   "start": 78.287,
+   "end": 78.623,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "2021,",
+   "start": 78.716,
+   "end": 79.657,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 79.796,
+   "end": 79.889,
+   "emph": false
+  },
+  {
+   "text": "gauge",
+   "start": 79.947,
+   "end": 80.226,
+   "emph": false
+  },
+  {
+   "text": "at",
+   "start": 80.26,
+   "end": 80.319,
+   "emph": false
+  },
+  {
+   "text": "Saltair",
+   "start": 80.388,
+   "end": 80.911,
+   "emph": false
+  },
+  {
+   "text": "read",
+   "start": 81.027,
+   "end": 81.224,
+   "emph": false
+  },
+  {
+   "text": "4,191.3",
+   "start": 81.34,
+   "end": 83.697,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "feet,",
+   "start": 83.79,
+   "end": 84.231,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 84.452,
+   "end": 84.556,
+   "emph": false
+  },
+  {
+   "text": "lowest",
+   "start": 84.614,
+   "end": 84.928,
+   "emph": true
+  },
+  {
+   "text": "mark",
+   "start": 84.997,
+   "end": 85.23,
+   "emph": false
+  },
+  {
+   "text": "since",
+   "start": 85.299,
+   "end": 85.52,
+   "emph": false
+  },
+  {
+   "text": "measurements",
+   "start": 85.566,
+   "end": 85.984,
+   "emph": false
+  },
+  {
+   "text": "began",
+   "start": 86.031,
+   "end": 86.379,
+   "emph": false
+  },
+  {
+   "text": "in",
+   "start": 86.437,
+   "end": 86.483,
+   "emph": false
+  },
+  {
+   "text": "1875.",
+   "start": 86.541,
+   "end": 87.946,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "NASA",
+   "start": 88.504,
+   "end": 88.898,
+   "emph": false
+  },
+  {
+   "text": "reports",
+   "start": 88.945,
+   "end": 89.537,
+   "emph": false
+  },
+  {
+   "text": "that",
+   "start": 89.734,
+   "end": 89.932,
+   "emph": false
+  },
+  {
+   "text": "at",
+   "start": 89.978,
+   "end": 90.059,
+   "emph": false
+  },
+  {
+   "text": "that",
+   "start": 90.117,
+   "end": 90.291,
+   "emph": false
+  },
+  {
+   "text": "level",
+   "start": 90.361,
+   "end": 90.617,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 90.675,
+   "end": 90.744,
+   "emph": false
+  },
+  {
+   "text": "lake",
+   "start": 90.791,
+   "end": 91.0,
+   "emph": false
+  },
+  {
+   "text": "covered",
+   "start": 91.023,
+   "end": 91.336,
+   "emph": false
+  },
+  {
+   "text": "about",
+   "start": 91.371,
+   "end": 91.592,
+   "emph": false
+  },
+  {
+   "text": "950",
+   "start": 91.661,
+   "end": 92.555,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "square",
+   "start": 92.602,
+   "end": 92.904,
+   "emph": false
+  },
+  {
+   "text": "miles,",
+   "start": 92.962,
+   "end": 93.519,
+   "emph": false
+  },
+  {
+   "text": "44",
+   "start": 93.716,
+   "end": 94.274,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "percent",
+   "start": 94.332,
+   "end": 94.657,
+   "emph": false
+  },
+  {
+   "text": "less",
+   "start": 94.726,
+   "end": 94.924,
+   "emph": false
+  },
+  {
+   "text": "surface",
+   "start": 94.959,
+   "end": 95.411,
+   "emph": false
+  },
+  {
+   "text": "than",
+   "start": 95.446,
+   "end": 95.597,
+   "emph": false
+  },
+  {
+   "text": "at",
+   "start": 95.644,
+   "end": 95.725,
+   "emph": false
+  },
+  {
+   "text": "4,200",
+   "start": 95.783,
+   "end": 96.816,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "feet.",
+   "start": 96.874,
+   "end": 97.327,
+   "emph": false
+  },
+  {
+   "text": "A",
+   "start": 97.687,
+   "end": 97.768,
+   "emph": false
+  },
+  {
+   "text": "year",
+   "start": 97.873,
+   "end": 98.059,
+   "emph": false
+  },
+  {
+   "text": "later,",
+   "start": 98.14,
+   "end": 98.581,
+   "emph": false
+  },
+  {
+   "text": "it",
+   "start": 98.674,
+   "end": 98.813,
+   "emph": false
+  },
+  {
+   "text": "fell",
+   "start": 98.894,
+   "end": 99.138,
+   "emph": false
+  },
+  {
+   "text": "lower",
+   "start": 99.22,
+   "end": 99.521,
+   "emph": false
+  },
+  {
+   "text": "still.",
+   "start": 99.591,
+   "end": 100.172,
+   "emph": false
+  },
+  {
+   "text": "NASA",
+   "start": 100.485,
+   "end": 100.903,
+   "emph": false
+  },
+  {
+   "text": "lists",
+   "start": 100.949,
+   "end": 101.344,
+   "emph": false
+  },
+  {
+   "text": "a",
+   "start": 101.402,
+   "end": 101.472,
+   "emph": false
+  },
+  {
+   "text": "new",
+   "start": 101.576,
+   "end": 101.739,
+   "emph": false
+  },
+  {
+   "text": "record",
+   "start": 101.82,
+   "end": 102.157,
+   "emph": true
+  },
+  {
+   "text": "low",
+   "start": 102.238,
+   "end": 102.494,
+   "emph": false
+  },
+  {
+   "text": "on",
+   "start": 102.575,
+   "end": 102.714,
+   "emph": false
+  },
+  {
+   "text": "July",
+   "start": 102.761,
+   "end": 103.097,
+   "emph": false
+  },
+  {
+   "text": "3,",
+   "start": 103.202,
+   "end": 103.538,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "2022.",
+   "start": 103.608,
+   "end": 104.676,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "Why",
+   "start": 105.036,
+   "end": 105.315,
+   "emph": false
+  },
+  {
+   "text": "did",
+   "start": 105.384,
+   "end": 105.512,
+   "emph": false
+  },
+  {
+   "text": "it",
+   "start": 105.559,
+   "end": 105.628,
+   "emph": false
+  },
+  {
+   "text": "fall?",
+   "start": 105.686,
+   "end": 106.197,
+   "emph": false
+  },
+  {
+   "text": "NASA's",
+   "start": 106.394,
+   "end": 106.859,
+   "emph": false
+  },
+  {
+   "text": "account",
+   "start": 106.894,
+   "end": 107.265,
+   "emph": false
+  },
+  {
+   "text": "points",
+   "start": 107.335,
+   "end": 107.706,
+   "emph": false
+  },
+  {
+   "text": "to",
+   "start": 107.753,
+   "end": 107.857,
+   "emph": false
+  },
+  {
+   "text": "people,",
+   "start": 107.927,
+   "end": 108.438,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 108.554,
+   "end": 108.763,
+   "emph": false
+  },
+  {
+   "text": "to",
+   "start": 108.809,
+   "end": 108.867,
+   "emph": false
+  },
+  {
+   "text": "climate.",
+   "start": 108.914,
+   "end": 109.517,
+   "emph": false
+  },
+  {
+   "text": "For",
+   "start": 110.33,
+   "end": 110.493,
+   "emph": false
+  },
+  {
+   "text": "about",
+   "start": 110.551,
+   "end": 110.783,
+   "emph": false
+  },
+  {
+   "text": "a",
+   "start": 110.818,
+   "end": 110.841,
+   "emph": false
+  },
+  {
+   "text": "century,",
+   "start": 110.922,
+   "end": 111.607,
+   "emph": false
+  },
+  {
+   "text": "water",
+   "start": 111.816,
+   "end": 112.153,
+   "emph": false
+  },
+  {
+   "text": "has",
+   "start": 112.211,
+   "end": 112.327,
+   "emph": false
+  },
+  {
+   "text": "been",
+   "start": 112.385,
+   "end": 112.548,
+   "emph": false
+  },
+  {
+   "text": "diverted",
+   "start": 112.594,
+   "end": 112.989,
+   "emph": false
+  },
+  {
+   "text": "upstream",
+   "start": 113.035,
+   "end": 113.558,
+   "emph": false
+  },
+  {
+   "text": "for",
+   "start": 113.627,
+   "end": 113.778,
+   "emph": false
+  },
+  {
+   "text": "homes",
+   "start": 113.848,
+   "end": 114.208,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 114.266,
+   "end": 114.382,
+   "emph": false
+  },
+  {
+   "text": "farms.",
+   "start": 114.498,
+   "end": 115.229,
+   "emph": false
+  },
+  {
+   "text": "Utah",
+   "start": 115.926,
+   "end": 116.356,
+   "emph": false
+  },
+  {
+   "text": "State",
+   "start": 116.414,
+   "end": 116.716,
+   "emph": false
+  },
+  {
+   "text": "University",
+   "start": 116.785,
+   "end": 117.377,
+   "emph": false
+  },
+  {
+   "text": "researchers",
+   "start": 117.447,
+   "end": 118.039,
+   "emph": false
+  },
+  {
+   "text": "estimate",
+   "start": 118.12,
+   "end": 118.654,
+   "emph": false
+  },
+  {
+   "text": "that",
+   "start": 118.689,
+   "end": 118.829,
+   "emph": false
+  },
+  {
+   "text": "inflows",
+   "start": 118.898,
+   "end": 119.386,
+   "emph": false
+  },
+  {
+   "text": "have",
+   "start": 119.432,
+   "end": 119.572,
+   "emph": false
+  },
+  {
+   "text": "fallen",
+   "start": 119.618,
+   "end": 119.966,
+   "emph": true
+  },
+  {
+   "text": "39",
+   "start": 120.036,
+   "end": 120.593,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "percent",
+   "start": 120.663,
+   "end": 121.162,
+   "emph": false
+  },
+  {
+   "text": "since",
+   "start": 121.406,
+   "end": 121.685,
+   "emph": false
+  },
+  {
+   "text": "1850.",
+   "start": 121.719,
+   "end": 123.391,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "A",
+   "start": 123.391,
+   "end": 123.495,
+   "emph": false
+  },
+  {
+   "text": "2016",
+   "start": 123.588,
+   "end": 124.262,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "white",
+   "start": 124.32,
+   "end": 124.54,
+   "emph": false
+  },
+  {
+   "text": "paper",
+   "start": 124.575,
+   "end": 124.9,
+   "emph": false
+  },
+  {
+   "text": "cited",
+   "start": 124.993,
+   "end": 125.318,
+   "emph": false
+  },
+  {
+   "text": "by",
+   "start": 125.376,
+   "end": 125.481,
+   "emph": false
+  },
+  {
+   "text": "NASA",
+   "start": 125.562,
+   "end": 125.91,
+   "emph": false
+  },
+  {
+   "text": "found",
+   "start": 125.968,
+   "end": 126.166,
+   "emph": false
+  },
+  {
+   "text": "that",
+   "start": 126.201,
+   "end": 126.305,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 126.34,
+   "end": 126.41,
+   "emph": false
+  },
+  {
+   "text": "lake's",
+   "start": 126.456,
+   "end": 126.688,
+   "emph": false
+  },
+  {
+   "text": "volume",
+   "start": 126.735,
+   "end": 127.129,
+   "emph": false
+  },
+  {
+   "text": "has",
+   "start": 127.164,
+   "end": 127.257,
+   "emph": false
+  },
+  {
+   "text": "shrunk",
+   "start": 127.304,
+   "end": 127.582,
+   "emph": true
+  },
+  {
+   "text": "48",
+   "start": 127.652,
+   "end": 128.128,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "percent,",
+   "start": 128.174,
+   "end": 128.708,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 128.871,
+   "end": 128.987,
+   "emph": false
+  },
+  {
+   "text": "that",
+   "start": 129.033,
+   "end": 129.161,
+   "emph": false
+  },
+  {
+   "text": "its",
+   "start": 129.208,
+   "end": 129.312,
+   "emph": false
+  },
+  {
+   "text": "level",
+   "start": 129.382,
+   "end": 129.695,
+   "emph": false
+  },
+  {
+   "text": "has",
+   "start": 129.765,
+   "end": 129.893,
+   "emph": false
+  },
+  {
+   "text": "fallen",
+   "start": 129.962,
+   "end": 130.287,
+   "emph": true
+  },
+  {
+   "text": "11",
+   "start": 130.369,
+   "end": 130.775,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "feet",
+   "start": 130.845,
+   "end": 131.123,
+   "emph": false
+  },
+  {
+   "text": "since",
+   "start": 131.205,
+   "end": 131.448,
+   "emph": false
+  },
+  {
+   "text": "1847.",
+   "start": 131.472,
+   "end": 132.691,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "Meanwhile,",
+   "start": 133.109,
+   "end": 133.794,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 133.898,
+   "end": 133.991,
+   "emph": false
+  },
+  {
+   "text": "Salt",
+   "start": 134.049,
+   "end": 134.27,
+   "kind": "place",
+   "place": "Salt Lake City"
+  },
+  {
+   "text": "Lake",
+   "start": 134.304,
+   "end": 134.479,
+   "kind": "place",
+   "place": "Salt Lake City"
+  },
+  {
+   "text": "City",
+   "start": 134.513,
+   "end": 134.711,
+   "kind": "place",
+   "place": "Salt Lake City"
+  },
+  {
+   "text": "metro",
+   "start": 134.769,
+   "end": 135.082,
+   "emph": false
+  },
+  {
+   "text": "area",
+   "start": 135.175,
+   "end": 135.512,
+   "emph": false
+  },
+  {
+   "text": "grew",
+   "start": 135.581,
+   "end": 135.802,
+   "emph": false
+  },
+  {
+   "text": "from",
+   "start": 135.872,
+   "end": 136.023,
+   "emph": false
+  },
+  {
+   "text": "700,000",
+   "start": 136.116,
+   "end": 136.975,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "people",
+   "start": 137.045,
+   "end": 137.405,
+   "emph": false
+  },
+  {
+   "text": "in",
+   "start": 137.463,
+   "end": 137.567,
+   "emph": false
+  },
+  {
+   "text": "1982",
+   "start": 137.625,
+   "end": 138.566,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "to",
+   "start": 138.879,
+   "end": 139.007,
+   "emph": false
+  },
+  {
+   "text": "1.2",
+   "start": 139.088,
+   "end": 139.773,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "million",
+   "start": 139.854,
+   "end": 140.261,
+   "emph": false
+  },
+  {
+   "text": "in",
+   "start": 140.342,
+   "end": 140.446,
+   "emph": false
+  },
+  {
+   "text": "2022.",
+   "start": 140.528,
+   "end": 141.665,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "And",
+   "start": 142.362,
+   "end": 142.501,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 142.548,
+   "end": 142.617,
+   "emph": false
+  },
+  {
+   "text": "climate",
+   "start": 142.664,
+   "end": 143.117,
+   "emph": false
+  },
+  {
+   "text": "is",
+   "start": 143.163,
+   "end": 143.256,
+   "emph": false
+  },
+  {
+   "text": "changing.",
+   "start": 143.326,
+   "end": 143.953,
+   "emph": false
+  },
+  {
+   "text": "More",
+   "start": 144.231,
+   "end": 144.429,
+   "emph": false
+  },
+  {
+   "text": "precipitation",
+   "start": 144.475,
+   "end": 145.241,
+   "emph": false
+  },
+  {
+   "text": "falls",
+   "start": 145.311,
+   "end": 145.636,
+   "emph": false
+  },
+  {
+   "text": "as",
+   "start": 145.682,
+   "end": 145.764,
+   "emph": false
+  },
+  {
+   "text": "rain",
+   "start": 145.88,
+   "end": 146.193,
+   "emph": false
+  },
+  {
+   "text": "than",
+   "start": 146.263,
+   "end": 146.437,
+   "emph": false
+  },
+  {
+   "text": "snow,",
+   "start": 146.553,
+   "end": 147.192,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 147.366,
+   "end": 147.505,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 147.552,
+   "end": 147.621,
+   "emph": false
+  },
+  {
+   "text": "snowpack",
+   "start": 147.656,
+   "end": 148.132,
+   "emph": false
+  },
+  {
+   "text": "releases",
+   "start": 148.202,
+   "end": 148.678,
+   "emph": false
+  },
+  {
+   "text": "its",
+   "start": 148.736,
+   "end": 148.864,
+   "emph": false
+  },
+  {
+   "text": "water",
+   "start": 148.922,
+   "end": 149.212,
+   "emph": false
+  },
+  {
+   "text": "more",
+   "start": 149.27,
+   "end": 149.479,
+   "emph": false
+  },
+  {
+   "text": "slowly.",
+   "start": 149.525,
+   "end": 150.222,
+   "emph": false
+  },
+  {
+   "text": "In",
+   "start": 150.663,
+   "end": 150.791,
+   "emph": false
+  },
+  {
+   "text": "1959,",
+   "start": 150.837,
+   "end": 152.045,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "a",
+   "start": 152.161,
+   "end": 152.231,
+   "emph": false
+  },
+  {
+   "text": "solid-fill",
+   "start": 152.347,
+   "end": 153.008,
+   "emph": false
+  },
+  {
+   "text": "railroad",
+   "start": 153.101,
+   "end": 153.612,
+   "emph": false
+  },
+  {
+   "text": "causeway",
+   "start": 153.67,
+   "end": 154.251,
+   "kind": "place",
+   "place": "Causeway"
+  },
+  {
+   "text": "was",
+   "start": 154.32,
+   "end": 154.448,
+   "emph": false
+  },
+  {
+   "text": "completed",
+   "start": 154.506,
+   "end": 155.029,
+   "emph": false
+  },
+  {
+   "text": "across",
+   "start": 155.075,
+   "end": 155.424,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 155.47,
+   "end": 155.54,
+   "emph": false
+  },
+  {
+   "text": "middle",
+   "start": 155.586,
+   "end": 155.83,
+   "emph": false
+  },
+  {
+   "text": "of",
+   "start": 155.865,
+   "end": 155.923,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 155.969,
+   "end": 156.039,
+   "emph": false
+  },
+  {
+   "text": "lake.",
+   "start": 156.097,
+   "end": 156.596,
+   "emph": false
+  },
+  {
+   "text": "The",
+   "start": 156.921,
+   "end": 157.026,
+   "emph": false
+  },
+  {
+   "text": "causeway",
+   "start": 157.072,
+   "end": 157.548,
+   "kind": "place",
+   "place": "Causeway"
+  },
+  {
+   "text": "took",
+   "start": 157.606,
+   "end": 157.792,
+   "emph": false
+  },
+  {
+   "text": "50",
+   "start": 157.862,
+   "end": 158.164,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "million",
+   "start": 158.245,
+   "end": 158.651,
+   "emph": false
+  },
+  {
+   "text": "cubic",
+   "start": 158.767,
+   "end": 159.15,
+   "emph": false
+  },
+  {
+   "text": "yards",
+   "start": 159.232,
+   "end": 159.719,
+   "emph": false
+  },
+  {
+   "text": "of",
+   "start": 159.777,
+   "end": 159.847,
+   "emph": false
+  },
+  {
+   "text": "rock,",
+   "start": 159.94,
+   "end": 160.346,
+   "emph": false
+  },
+  {
+   "text": "sand",
+   "start": 160.462,
+   "end": 160.915,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 160.973,
+   "end": 161.066,
+   "emph": false
+  },
+  {
+   "text": "gravel.",
+   "start": 161.136,
+   "end": 161.774,
+   "emph": false
+  },
+  {
+   "text": "It",
+   "start": 162.053,
+   "end": 162.181,
+   "emph": false
+  },
+  {
+   "text": "replaced",
+   "start": 162.239,
+   "end": 162.633,
+   "emph": false
+  },
+  {
+   "text": "a",
+   "start": 162.68,
+   "end": 162.703,
+   "emph": false
+  },
+  {
+   "text": "12-mile",
+   "start": 162.761,
+   "end": 163.504,
+   "emph": false
+  },
+  {
+   "text": "trestle",
+   "start": 163.539,
+   "end": 163.957,
+   "emph": false
+  },
+  {
+   "text": "of",
+   "start": 163.992,
+   "end": 164.05,
+   "emph": false
+  },
+  {
+   "text": "28,000",
+   "start": 164.119,
+   "end": 165.037,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "wooden",
+   "start": 165.106,
+   "end": 165.397,
+   "emph": false
+  },
+  {
+   "text": "pilings,",
+   "start": 165.478,
+   "end": 166.407,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 166.65,
+   "end": 166.813,
+   "emph": false
+  },
+  {
+   "text": "it",
+   "start": 166.883,
+   "end": 166.941,
+   "emph": false
+  },
+  {
+   "text": "had",
+   "start": 166.999,
+   "end": 167.138,
+   "emph": false
+  },
+  {
+   "text": "only",
+   "start": 167.196,
+   "end": 167.463,
+   "emph": true
+  },
+  {
+   "text": "two",
+   "start": 167.521,
+   "end": 167.73,
+   "emph": false
+  },
+  {
+   "text": "15-foot",
+   "start": 167.811,
+   "end": 168.647,
+   "emph": false
+  },
+  {
+   "text": "culverts",
+   "start": 168.717,
+   "end": 169.286,
+   "emph": false
+  },
+  {
+   "text": "for",
+   "start": 169.344,
+   "end": 169.472,
+   "emph": false
+  },
+  {
+   "text": "water",
+   "start": 169.541,
+   "end": 169.832,
+   "emph": false
+  },
+  {
+   "text": "to",
+   "start": 169.89,
+   "end": 169.948,
+   "emph": false
+  },
+  {
+   "text": "pass",
+   "start": 170.017,
+   "end": 170.308,
+   "emph": false
+  },
+  {
+   "text": "through.",
+   "start": 170.354,
+   "end": 170.923,
+   "emph": false
+  },
+  {
+   "text": "It",
+   "start": 171.434,
+   "end": 171.573,
+   "emph": false
+  },
+  {
+   "text": "divides",
+   "start": 171.619,
+   "end": 172.096,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 172.142,
+   "end": 172.212,
+   "emph": false
+  },
+  {
+   "text": "lake",
+   "start": 172.27,
+   "end": 172.514,
+   "emph": false
+  },
+  {
+   "text": "into",
+   "start": 172.549,
+   "end": 172.723,
+   "emph": false
+  },
+  {
+   "text": "Gunnison",
+   "start": 172.792,
+   "end": 173.222,
+   "kind": "place",
+   "place": "Gunnison Bay"
+  },
+  {
+   "text": "Bay",
+   "start": 173.303,
+   "end": 173.57,
+   "kind": "place",
+   "place": "Gunnison Bay"
+  },
+  {
+   "text": "in",
+   "start": 173.617,
+   "end": 173.686,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 173.733,
+   "end": 173.802,
+   "emph": false
+  },
+  {
+   "text": "north,",
+   "start": 173.872,
+   "end": 174.383,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 174.592,
+   "end": 174.766,
+   "emph": false
+  },
+  {
+   "text": "Gilbert",
+   "start": 174.859,
+   "end": 175.3,
+   "kind": "place",
+   "place": "Gilbert Bay"
+  },
+  {
+   "text": "Bay",
+   "start": 175.37,
+   "end": 175.73,
+   "kind": "place",
+   "place": "Gilbert Bay"
+  },
+  {
+   "text": "in",
+   "start": 175.823,
+   "end": 175.95,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 176.008,
+   "end": 176.078,
+   "emph": false
+  },
+  {
+   "text": "south.",
+   "start": 176.136,
+   "end": 176.786,
+   "emph": false
+  },
+  {
+   "text": "Almost",
+   "start": 177.297,
+   "end": 177.715,
+   "emph": true
+  },
+  {
+   "text": "all",
+   "start": 177.761,
+   "end": 177.982,
+   "emph": false
+  },
+  {
+   "text": "of",
+   "start": 178.04,
+   "end": 178.087,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 178.133,
+   "end": 178.203,
+   "emph": false
+  },
+  {
+   "text": "fresh",
+   "start": 178.249,
+   "end": 178.493,
+   "emph": false
+  },
+  {
+   "text": "water",
+   "start": 178.551,
+   "end": 178.841,
+   "emph": false
+  },
+  {
+   "text": "flows",
+   "start": 178.899,
+   "end": 179.224,
+   "emph": false
+  },
+  {
+   "text": "in",
+   "start": 179.282,
+   "end": 179.375,
+   "emph": false
+  },
+  {
+   "text": "on",
+   "start": 179.445,
+   "end": 179.526,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 179.573,
+   "end": 179.642,
+   "emph": false
+  },
+  {
+   "text": "south",
+   "start": 179.7,
+   "end": 180.025,
+   "emph": false
+  },
+  {
+   "text": "side,",
+   "start": 180.072,
+   "end": 180.629,
+   "emph": false
+  },
+  {
+   "text": "so",
+   "start": 180.71,
+   "end": 180.85,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 180.919,
+   "end": 180.989,
+   "emph": false
+  },
+  {
+   "text": "north",
+   "start": 181.059,
+   "end": 181.349,
+   "emph": false
+  },
+  {
+   "text": "is",
+   "start": 181.407,
+   "end": 181.512,
+   "emph": false
+  },
+  {
+   "text": "always",
+   "start": 181.581,
+   "end": 182.057,
+   "emph": false
+  },
+  {
+   "text": "saltier.",
+   "start": 182.127,
+   "end": 182.928,
+   "emph": false
+  },
+  {
+   "text": "In",
+   "start": 183.369,
+   "end": 183.52,
+   "emph": false
+  },
+  {
+   "text": "July",
+   "start": 183.578,
+   "end": 183.996,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "1984,",
+   "start": 184.077,
+   "end": 185.273,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 185.424,
+   "end": 185.529,
+   "emph": false
+  },
+  {
+   "text": "south",
+   "start": 185.598,
+   "end": 185.9,
+   "emph": false
+  },
+  {
+   "text": "side",
+   "start": 185.947,
+   "end": 186.33,
+   "emph": false
+  },
+  {
+   "text": "stood",
+   "start": 186.376,
+   "end": 186.655,
+   "emph": false
+  },
+  {
+   "text": "3.7",
+   "start": 186.771,
+   "end": 187.746,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "feet",
+   "start": 187.827,
+   "end": 188.06,
+   "emph": false
+  },
+  {
+   "text": "higher",
+   "start": 188.118,
+   "end": 188.454,
+   "emph": false
+  },
+  {
+   "text": "than",
+   "start": 188.512,
+   "end": 188.652,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 188.698,
+   "end": 188.768,
+   "emph": false
+  },
+  {
+   "text": "north,",
+   "start": 188.837,
+   "end": 189.314,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 189.488,
+   "end": 189.593,
+   "emph": false
+  },
+  {
+   "text": "largest",
+   "start": 189.662,
+   "end": 190.103,
+   "emph": true
+  },
+  {
+   "text": "difference",
+   "start": 190.15,
+   "end": 190.614,
+   "emph": false
+  },
+  {
+   "text": "ever",
+   "start": 190.661,
+   "end": 190.916,
+   "emph": false
+  },
+  {
+   "text": "recorded.",
+   "start": 190.986,
+   "end": 191.764,
+   "emph": false
+  },
+  {
+   "text": "That",
+   "start": 192.46,
+   "end": 192.692,
+   "emph": false
+  },
+  {
+   "text": "August,",
+   "start": 192.75,
+   "end": 193.25,
+   "emph": false
+  },
+  {
+   "text": "a",
+   "start": 193.284,
+   "end": 193.343,
+   "emph": false
+  },
+  {
+   "text": "300-foot",
+   "start": 193.459,
+   "end": 194.225,
+   "emph": false
+  },
+  {
+   "text": "section",
+   "start": 194.295,
+   "end": 194.724,
+   "emph": false
+  },
+  {
+   "text": "of",
+   "start": 194.794,
+   "end": 194.863,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 194.91,
+   "end": 194.98,
+   "emph": false
+  },
+  {
+   "text": "causeway",
+   "start": 195.026,
+   "end": 195.665,
+   "kind": "place",
+   "place": "Causeway"
+  },
+  {
+   "text": "was",
+   "start": 195.908,
+   "end": 196.082,
+   "emph": false
+  },
+  {
+   "text": "replaced",
+   "start": 196.152,
+   "end": 196.582,
+   "emph": false
+  },
+  {
+   "text": "by",
+   "start": 196.628,
+   "end": 196.756,
+   "emph": false
+  },
+  {
+   "text": "a",
+   "start": 196.814,
+   "end": 196.837,
+   "emph": false
+  },
+  {
+   "text": "low",
+   "start": 196.907,
+   "end": 197.069,
+   "emph": false
+  },
+  {
+   "text": "bridge.",
+   "start": 197.139,
+   "end": 197.836,
+   "emph": false
+  },
+  {
+   "text": "A",
+   "start": 198.161,
+   "end": 198.254,
+   "emph": false
+  },
+  {
+   "text": "new",
+   "start": 198.346,
+   "end": 198.521,
+   "emph": false
+  },
+  {
+   "text": "channel",
+   "start": 198.59,
+   "end": 198.985,
+   "emph": false
+  },
+  {
+   "text": "opened",
+   "start": 199.055,
+   "end": 199.426,
+   "emph": false
+  },
+  {
+   "text": "in",
+   "start": 199.496,
+   "end": 199.589,
+   "emph": false
+  },
+  {
+   "text": "December",
+   "start": 199.647,
+   "end": 200.216,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "2016.",
+   "start": 200.332,
+   "end": 201.829,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "The",
+   "start": 202.155,
+   "end": 202.282,
+   "emph": false
+  },
+  {
+   "text": "divide",
+   "start": 202.34,
+   "end": 202.793,
+   "emph": false
+  },
+  {
+   "text": "had",
+   "start": 202.828,
+   "end": 202.979,
+   "emph": false
+  },
+  {
+   "text": "a",
+   "start": 203.014,
+   "end": 203.037,
+   "emph": false
+  },
+  {
+   "text": "strange",
+   "start": 203.095,
+   "end": 203.687,
+   "emph": false
+  },
+  {
+   "text": "side",
+   "start": 203.757,
+   "end": 204.07,
+   "emph": false
+  },
+  {
+   "text": "effect.",
+   "start": 204.093,
+   "end": 204.709,
+   "emph": false
+  },
+  {
+   "text": "Dense",
+   "start": 205.092,
+   "end": 205.417,
+   "emph": false
+  },
+  {
+   "text": "brine",
+   "start": 205.475,
+   "end": 205.939,
+   "emph": false
+  },
+  {
+   "text": "from",
+   "start": 205.974,
+   "end": 206.125,
+   "emph": false
+  },
+  {
+   "text": "Gunnison",
+   "start": 206.195,
+   "end": 206.624,
+   "kind": "place",
+   "place": "Gunnison Bay"
+  },
+  {
+   "text": "Bay",
+   "start": 206.694,
+   "end": 207.066,
+   "kind": "place",
+   "place": "Gunnison Bay"
+  },
+  {
+   "text": "sank",
+   "start": 207.309,
+   "end": 207.646,
+   "emph": false
+  },
+  {
+   "text": "into",
+   "start": 207.716,
+   "end": 207.89,
+   "emph": false
+  },
+  {
+   "text": "a",
+   "start": 207.983,
+   "end": 208.006,
+   "emph": false
+  },
+  {
+   "text": "deep",
+   "start": 208.076,
+   "end": 208.308,
+   "emph": false
+  },
+  {
+   "text": "layer",
+   "start": 208.389,
+   "end": 208.715,
+   "emph": false
+  },
+  {
+   "text": "near",
+   "start": 208.773,
+   "end": 208.924,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 208.97,
+   "end": 209.04,
+   "emph": false
+  },
+  {
+   "text": "bottom",
+   "start": 209.098,
+   "end": 209.434,
+   "emph": false
+  },
+  {
+   "text": "of",
+   "start": 209.492,
+   "end": 209.55,
+   "emph": false
+  },
+  {
+   "text": "Gilbert",
+   "start": 209.62,
+   "end": 209.957,
+   "kind": "place",
+   "place": "Gilbert Bay"
+  },
+  {
+   "text": "Bay.",
+   "start": 210.015,
+   "end": 210.549,
+   "kind": "place",
+   "place": "Gilbert Bay"
+  },
+  {
+   "text": "USGS",
+   "start": 210.874,
+   "end": 211.652,
+   "emph": false
+  },
+  {
+   "text": "says",
+   "start": 211.722,
+   "end": 212.0,
+   "emph": false
+  },
+  {
+   "text": "that",
+   "start": 212.07,
+   "end": 212.232,
+   "emph": false
+  },
+  {
+   "text": "layer",
+   "start": 212.314,
+   "end": 212.627,
+   "emph": false
+  },
+  {
+   "text": "had",
+   "start": 212.697,
+   "end": 212.859,
+   "emph": false
+  },
+  {
+   "text": "low",
+   "start": 212.941,
+   "end": 213.115,
+   "emph": false
+  },
+  {
+   "text": "pH",
+   "start": 213.196,
+   "end": 213.765,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 214.009,
+   "end": 214.218,
+   "emph": false
+  },
+  {
+   "text": "no",
+   "start": 214.299,
+   "end": 214.473,
+   "emph": false
+  },
+  {
+   "text": "dissolved",
+   "start": 214.543,
+   "end": 215.03,
+   "emph": false
+  },
+  {
+   "text": "oxygen,",
+   "start": 215.1,
+   "end": 215.82,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 216.029,
+   "end": 216.203,
+   "emph": false
+  },
+  {
+   "text": "conditions",
+   "start": 216.273,
+   "end": 216.9,
+   "emph": false
+  },
+  {
+   "text": "that",
+   "start": 216.958,
+   "end": 217.109,
+   "emph": false
+  },
+  {
+   "text": "favored",
+   "start": 217.178,
+   "end": 217.55,
+   "emph": false
+  },
+  {
+   "text": "turning",
+   "start": 217.585,
+   "end": 217.944,
+   "emph": false
+  },
+  {
+   "text": "inorganic",
+   "start": 218.061,
+   "end": 218.815,
+   "emph": false
+  },
+  {
+   "text": "mercury",
+   "start": 218.908,
+   "end": 219.465,
+   "emph": false
+  },
+  {
+   "text": "into",
+   "start": 219.558,
+   "end": 219.79,
+   "emph": false
+  },
+  {
+   "text": "methyl",
+   "start": 219.907,
+   "end": 220.266,
+   "emph": false
+  },
+  {
+   "text": "mercury,",
+   "start": 220.359,
+   "end": 221.091,
+   "emph": false
+  },
+  {
+   "text": "which",
+   "start": 221.265,
+   "end": 221.486,
+   "emph": false
+  },
+  {
+   "text": "builds",
+   "start": 221.544,
+   "end": 221.903,
+   "emph": false
+  },
+  {
+   "text": "up",
+   "start": 221.973,
+   "end": 222.112,
+   "emph": false
+  },
+  {
+   "text": "in",
+   "start": 222.171,
+   "end": 222.24,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 222.287,
+   "end": 222.356,
+   "emph": false
+  },
+  {
+   "text": "food",
+   "start": 222.403,
+   "end": 222.647,
+   "emph": false
+  },
+  {
+   "text": "chain.",
+   "start": 222.693,
+   "end": 223.285,
+   "emph": false
+  },
+  {
+   "text": "It",
+   "start": 223.668,
+   "end": 223.819,
+   "emph": false
+  },
+  {
+   "text": "dissipated",
+   "start": 223.877,
+   "end": 224.458,
+   "emph": false
+  },
+  {
+   "text": "by",
+   "start": 224.516,
+   "end": 224.655,
+   "emph": false
+  },
+  {
+   "text": "June",
+   "start": 224.736,
+   "end": 225.05,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "2014,",
+   "start": 225.108,
+   "end": 226.118,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "after",
+   "start": 226.362,
+   "end": 226.675,
+   "emph": false
+  },
+  {
+   "text": "its",
+   "start": 226.745,
+   "end": 226.872,
+   "emph": false
+  },
+  {
+   "text": "source",
+   "start": 226.907,
+   "end": 227.198,
+   "emph": false
+  },
+  {
+   "text": "water",
+   "start": 227.244,
+   "end": 227.499,
+   "emph": false
+  },
+  {
+   "text": "was",
+   "start": 227.546,
+   "end": 227.65,
+   "emph": false
+  },
+  {
+   "text": "cut",
+   "start": 227.708,
+   "end": 227.917,
+   "emph": false
+  },
+  {
+   "text": "off.",
+   "start": 227.975,
+   "end": 228.428,
+   "emph": false
+  },
+  {
+   "text": "The",
+   "start": 229.009,
+   "end": 229.125,
+   "emph": false
+  },
+  {
+   "text": "lake",
+   "start": 229.171,
+   "end": 229.38,
+   "emph": false
+  },
+  {
+   "text": "has",
+   "start": 229.403,
+   "end": 229.496,
+   "emph": false
+  },
+  {
+   "text": "not",
+   "start": 229.554,
+   "end": 229.694,
+   "emph": false
+  },
+  {
+   "text": "always",
+   "start": 229.74,
+   "end": 230.042,
+   "emph": false
+  },
+  {
+   "text": "been",
+   "start": 230.1,
+   "end": 230.274,
+   "emph": false
+  },
+  {
+   "text": "too",
+   "start": 230.332,
+   "end": 230.483,
+   "emph": false
+  },
+  {
+   "text": "low.",
+   "start": 230.564,
+   "end": 231.029,
+   "emph": false
+  },
+  {
+   "text": "After",
+   "start": 231.447,
+   "end": 231.714,
+   "emph": false
+  },
+  {
+   "text": "rainy",
+   "start": 231.772,
+   "end": 232.039,
+   "emph": false
+  },
+  {
+   "text": "weather",
+   "start": 232.085,
+   "end": 232.387,
+   "emph": false
+  },
+  {
+   "text": "beginning",
+   "start": 232.468,
+   "end": 232.828,
+   "emph": false
+  },
+  {
+   "text": "in",
+   "start": 232.875,
+   "end": 232.933,
+   "emph": false
+  },
+  {
+   "text": "1982,",
+   "start": 232.979,
+   "end": 234.129,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "it",
+   "start": 234.396,
+   "end": 234.523,
+   "emph": false
+  },
+  {
+   "text": "peaked",
+   "start": 234.581,
+   "end": 234.93,
+   "emph": false
+  },
+  {
+   "text": "in",
+   "start": 234.999,
+   "end": 235.092,
+   "emph": false
+  },
+  {
+   "text": "June",
+   "start": 235.185,
+   "end": 235.499,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "1986,",
+   "start": 235.534,
+   "end": 236.811,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 237.043,
+   "end": 237.194,
+   "emph": false
+  },
+  {
+   "text": "again",
+   "start": 237.252,
+   "end": 237.53,
+   "emph": false
+  },
+  {
+   "text": "in",
+   "start": 237.6,
+   "end": 237.67,
+   "emph": false
+  },
+  {
+   "text": "March",
+   "start": 237.751,
+   "end": 238.088,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 238.146,
+   "end": 238.262,
+   "emph": false
+  },
+  {
+   "text": "April",
+   "start": 238.355,
+   "end": 238.749,
+   "emph": false
+  },
+  {
+   "text": "of",
+   "start": 238.808,
+   "end": 238.866,
+   "emph": false
+  },
+  {
+   "text": "1987.",
+   "start": 238.924,
+   "end": 240.212,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "Then",
+   "start": 240.584,
+   "end": 240.793,
+   "emph": false
+  },
+  {
+   "text": "came",
+   "start": 240.862,
+   "end": 241.083,
+   "emph": false
+  },
+  {
+   "text": "a",
+   "start": 241.106,
+   "end": 241.141,
+   "emph": false
+  },
+  {
+   "text": "pumping",
+   "start": 241.211,
+   "end": 241.582,
+   "emph": false
+  },
+  {
+   "text": "project,",
+   "start": 241.652,
+   "end": 242.36,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 242.511,
+   "end": 242.604,
+   "emph": false
+  },
+  {
+   "text": "Newfoundland",
+   "start": 242.674,
+   "end": 243.324,
+   "emph": false
+  },
+  {
+   "text": "Evaporation",
+   "start": 243.405,
+   "end": 244.229,
+   "emph": false
+  },
+  {
+   "text": "Basin.",
+   "start": 244.322,
+   "end": 244.903,
+   "emph": false
+  },
+  {
+   "text": "The",
+   "start": 245.599,
+   "end": 245.715,
+   "emph": false
+  },
+  {
+   "text": "project",
+   "start": 245.762,
+   "end": 246.226,
+   "emph": false
+  },
+  {
+   "text": "built",
+   "start": 246.273,
+   "end": 246.516,
+   "emph": false
+  },
+  {
+   "text": "almost",
+   "start": 246.586,
+   "end": 247.039,
+   "emph": true
+  },
+  {
+   "text": "25",
+   "start": 247.167,
+   "end": 247.794,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "miles",
+   "start": 247.875,
+   "end": 248.27,
+   "emph": false
+  },
+  {
+   "text": "of",
+   "start": 248.328,
+   "end": 248.397,
+   "emph": false
+  },
+  {
+   "text": "dikes,",
+   "start": 248.479,
+   "end": 249.001,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 249.117,
+   "end": 249.28,
+   "emph": false
+  },
+  {
+   "text": "about",
+   "start": 249.326,
+   "end": 249.57,
+   "emph": false
+  },
+  {
+   "text": "1.5",
+   "start": 249.628,
+   "end": 250.464,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "million",
+   "start": 250.58,
+   "end": 250.94,
+   "emph": false
+  },
+  {
+   "text": "acre-feet",
+   "start": 251.01,
+   "end": 251.567,
+   "emph": false
+  },
+  {
+   "text": "were",
+   "start": 251.625,
+   "end": 251.787,
+   "emph": false
+  },
+  {
+   "text": "pumped",
+   "start": 251.845,
+   "end": 252.182,
+   "emph": false
+  },
+  {
+   "text": "in",
+   "start": 252.217,
+   "end": 252.275,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 252.31,
+   "end": 252.38,
+   "emph": false
+  },
+  {
+   "text": "first",
+   "start": 252.426,
+   "end": 252.693,
+   "emph": true
+  },
+  {
+   "text": "year.",
+   "start": 252.751,
+   "end": 254.028,
+   "emph": false
+  },
+  {
+   "text": "The",
+   "start": 254.026,
+   "end": 254.177,
+   "emph": false
+  },
+  {
+   "text": "pumps",
+   "start": 254.235,
+   "end": 254.525,
+   "emph": false
+  },
+  {
+   "text": "ran",
+   "start": 254.595,
+   "end": 254.92,
+   "emph": false
+  },
+  {
+   "text": "from",
+   "start": 255.013,
+   "end": 255.187,
+   "emph": false
+  },
+  {
+   "text": "April",
+   "start": 255.268,
+   "end": 255.605,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "1987",
+   "start": 255.651,
+   "end": 256.65,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "to",
+   "start": 256.72,
+   "end": 256.801,
+   "emph": false
+  },
+  {
+   "text": "June",
+   "start": 256.894,
+   "end": 257.219,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "1989,",
+   "start": 257.265,
+   "end": 258.496,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 258.67,
+   "end": 258.821,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 258.879,
+   "end": 258.949,
+   "emph": false
+  },
+  {
+   "text": "lake",
+   "start": 259.03,
+   "end": 259.285,
+   "emph": false
+  },
+  {
+   "text": "dropped",
+   "start": 259.332,
+   "end": 259.703,
+   "emph": true
+  },
+  {
+   "text": "almost",
+   "start": 259.75,
+   "end": 260.179,
+   "emph": true
+  },
+  {
+   "text": "6",
+   "start": 260.33,
+   "end": 260.574,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "feet.",
+   "start": 260.667,
+   "end": 261.108,
+   "emph": false
+  },
+  {
+   "text": "USGS",
+   "start": 261.491,
+   "end": 262.432,
+   "emph": false
+  },
+  {
+   "text": "says",
+   "start": 262.525,
+   "end": 262.803,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 262.873,
+   "end": 262.942,
+   "emph": false
+  },
+  {
+   "text": "pumping",
+   "start": 263.001,
+   "end": 263.36,
+   "emph": false
+  },
+  {
+   "text": "caused",
+   "start": 263.43,
+   "end": 263.813,
+   "emph": false
+  },
+  {
+   "text": "about",
+   "start": 263.86,
+   "end": 264.115,
+   "emph": false
+  },
+  {
+   "text": "2",
+   "start": 264.185,
+   "end": 264.359,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "feet",
+   "start": 264.44,
+   "end": 264.649,
+   "emph": false
+  },
+  {
+   "text": "of",
+   "start": 264.684,
+   "end": 264.742,
+   "emph": false
+  },
+  {
+   "text": "that.",
+   "start": 264.8,
+   "end": 265.241,
+   "emph": false
+  },
+  {
+   "text": "When",
+   "start": 265.52,
+   "end": 265.694,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 265.729,
+   "end": 265.799,
+   "emph": false
+  },
+  {
+   "text": "water",
+   "start": 265.845,
+   "end": 266.135,
+   "emph": false
+  },
+  {
+   "text": "pulls",
+   "start": 266.193,
+   "end": 266.472,
+   "emph": false
+  },
+  {
+   "text": "back,",
+   "start": 266.53,
+   "end": 266.948,
+   "emph": false
+  },
+  {
+   "text": "it",
+   "start": 267.122,
+   "end": 267.261,
+   "emph": false
+  },
+  {
+   "text": "leaves",
+   "start": 267.331,
+   "end": 267.679,
+   "emph": false
+  },
+  {
+   "text": "lake",
+   "start": 267.795,
+   "end": 268.039,
+   "emph": false
+  },
+  {
+   "text": "bed.",
+   "start": 268.086,
+   "end": 268.585,
+   "emph": false
+  },
+  {
+   "text": "NASA",
+   "start": 269.026,
+   "end": 269.455,
+   "emph": false
+  },
+  {
+   "text": "scientist",
+   "start": 269.502,
+   "end": 270.117,
+   "emph": false
+  },
+  {
+   "text": "Dorothy",
+   "start": 270.175,
+   "end": 270.581,
+   "emph": false
+  },
+  {
+   "text": "Hall",
+   "start": 270.663,
+   "end": 270.988,
+   "emph": false
+  },
+  {
+   "text": "says",
+   "start": 271.069,
+   "end": 271.301,
+   "emph": false
+  },
+  {
+   "text": "exposed",
+   "start": 271.371,
+   "end": 272.056,
+   "emph": false
+  },
+  {
+   "text": "lake",
+   "start": 272.149,
+   "end": 272.427,
+   "emph": false
+  },
+  {
+   "text": "beds",
+   "start": 272.485,
+   "end": 272.892,
+   "emph": false
+  },
+  {
+   "text": "often",
+   "start": 273.17,
+   "end": 273.588,
+   "emph": false
+  },
+  {
+   "text": "harbor",
+   "start": 273.681,
+   "end": 274.064,
+   "emph": false
+  },
+  {
+   "text": "toxic",
+   "start": 274.146,
+   "end": 274.622,
+   "emph": false
+  },
+  {
+   "text": "minerals",
+   "start": 274.715,
+   "end": 275.144,
+   "emph": false
+  },
+  {
+   "text": "from",
+   "start": 275.191,
+   "end": 275.33,
+   "emph": false
+  },
+  {
+   "text": "agricultural",
+   "start": 275.423,
+   "end": 276.201,
+   "emph": false
+  },
+  {
+   "text": "runoff,",
+   "start": 276.282,
+   "end": 276.955,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 277.129,
+   "end": 277.292,
+   "emph": false
+  },
+  {
+   "text": "NASA",
+   "start": 277.362,
+   "end": 277.722,
+   "emph": false
+  },
+  {
+   "text": "reports",
+   "start": 277.78,
+   "end": 278.209,
+   "emph": false
+  },
+  {
+   "text": "that",
+   "start": 278.256,
+   "end": 278.407,
+   "emph": false
+  },
+  {
+   "text": "dust",
+   "start": 278.499,
+   "end": 278.825,
+   "emph": true
+  },
+  {
+   "text": "from",
+   "start": 278.883,
+   "end": 279.045,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 279.092,
+   "end": 279.161,
+   "emph": false
+  },
+  {
+   "text": "drying",
+   "start": 279.208,
+   "end": 279.649,
+   "emph": true
+  },
+  {
+   "text": "Great",
+   "start": 279.73,
+   "end": 279.962,
+   "emph": false
+  },
+  {
+   "text": "Salt",
+   "start": 280.032,
+   "end": 280.334,
+   "emph": false
+  },
+  {
+   "text": "Lake",
+   "start": 280.403,
+   "end": 280.798,
+   "emph": false
+  },
+  {
+   "text": "worsens",
+   "start": 280.949,
+   "end": 281.506,
+   "emph": true
+  },
+  {
+   "text": "regional",
+   "start": 281.599,
+   "end": 282.099,
+   "emph": false
+  },
+  {
+   "text": "air",
+   "start": 282.168,
+   "end": 282.354,
+   "emph": false
+  },
+  {
+   "text": "pollution.",
+   "start": 282.412,
+   "end": 283.143,
+   "emph": false
+  },
+  {
+   "text": "USGS",
+   "start": 283.654,
+   "end": 284.397,
+   "emph": false
+  },
+  {
+   "text": "collected",
+   "start": 284.467,
+   "end": 284.908,
+   "emph": false
+  },
+  {
+   "text": "dust",
+   "start": 284.955,
+   "end": 285.245,
+   "emph": true
+  },
+  {
+   "text": "at",
+   "start": 285.303,
+   "end": 285.384,
+   "emph": false
+  },
+  {
+   "text": "17",
+   "start": 285.442,
+   "end": 286.034,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "sites",
+   "start": 286.116,
+   "end": 286.499,
+   "emph": false
+  },
+  {
+   "text": "in",
+   "start": 286.557,
+   "end": 286.638,
+   "emph": false
+  },
+  {
+   "text": "northern",
+   "start": 286.72,
+   "end": 287.08,
+   "emph": false
+  },
+  {
+   "text": "Utah,",
+   "start": 287.161,
+   "end": 287.823,
+   "emph": false
+  },
+  {
+   "text": "near",
+   "start": 287.997,
+   "end": 288.183,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 288.229,
+   "end": 288.299,
+   "emph": false
+  },
+  {
+   "text": "lake",
+   "start": 288.357,
+   "end": 288.589,
+   "emph": false
+  },
+  {
+   "text": "bed,",
+   "start": 288.635,
+   "end": 289.123,
+   "emph": false
+  },
+  {
+   "text": "especially",
+   "start": 289.367,
+   "end": 289.912,
+   "emph": false
+  },
+  {
+   "text": "at",
+   "start": 289.971,
+   "end": 290.052,
+   "emph": false
+  },
+  {
+   "text": "Farmington",
+   "start": 290.11,
+   "end": 290.772,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 290.841,
+   "end": 290.946,
+   "emph": false
+  },
+  {
+   "text": "Bear",
+   "start": 291.027,
+   "end": 291.248,
+   "emph": false
+  },
+  {
+   "text": "River",
+   "start": 291.317,
+   "end": 291.549,
+   "emph": false
+  },
+  {
+   "text": "Bays,",
+   "start": 291.608,
+   "end": 292.258,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 292.467,
+   "end": 292.629,
+   "emph": false
+  },
+  {
+   "text": "measured",
+   "start": 292.699,
+   "end": 293.059,
+   "emph": false
+  },
+  {
+   "text": "pollutants",
+   "start": 293.128,
+   "end": 293.721,
+   "emph": false
+  },
+  {
+   "text": "including",
+   "start": 293.79,
+   "end": 294.278,
+   "emph": false
+  },
+  {
+   "text": "arsenic,",
+   "start": 294.359,
+   "end": 295.079,
+   "emph": false
+  },
+  {
+   "text": "lead",
+   "start": 295.253,
+   "end": 295.601,
+   "emph": false
+  },
+  {
+   "text": "and",
+   "start": 295.717,
+   "end": 295.915,
+   "emph": false
+  },
+  {
+   "text": "cadmium.",
+   "start": 295.984,
+   "end": 296.809,
+   "emph": false
+  },
+  {
+   "text": "Its",
+   "start": 297.412,
+   "end": 297.598,
+   "emph": false
+  },
+  {
+   "text": "conclusion",
+   "start": 297.656,
+   "end": 298.283,
+   "emph": false
+  },
+  {
+   "text": "is",
+   "start": 298.353,
+   "end": 298.446,
+   "emph": false
+  },
+  {
+   "text": "careful.",
+   "start": 298.504,
+   "end": 299.142,
+   "emph": false
+  },
+  {
+   "text": "The",
+   "start": 299.526,
+   "end": 299.642,
+   "emph": false
+  },
+  {
+   "text": "dust",
+   "start": 299.7,
+   "end": 299.978,
+   "emph": true
+  },
+  {
+   "text": "may",
+   "start": 300.048,
+   "end": 300.187,
+   "emph": false
+  },
+  {
+   "text": "contribute",
+   "start": 300.245,
+   "end": 300.768,
+   "emph": false
+  },
+  {
+   "text": "to",
+   "start": 300.803,
+   "end": 300.861,
+   "emph": false
+  },
+  {
+   "text": "potential",
+   "start": 300.919,
+   "end": 301.371,
+   "emph": false
+  },
+  {
+   "text": "health",
+   "start": 301.43,
+   "end": 301.65,
+   "emph": false
+  },
+  {
+   "text": "risks",
+   "start": 301.72,
+   "end": 302.022,
+   "emph": false
+  },
+  {
+   "text": "for",
+   "start": 302.08,
+   "end": 302.208,
+   "emph": false
+  },
+  {
+   "text": "children,",
+   "start": 302.266,
+   "end": 302.928,
+   "emph": false
+  },
+  {
+   "text": "but",
+   "start": 303.171,
+   "end": 303.334,
+   "emph": false
+  },
+  {
+   "text": "USGS",
+   "start": 303.415,
+   "end": 304.263,
+   "emph": false
+  },
+  {
+   "text": "says",
+   "start": 304.344,
+   "end": 304.565,
+   "emph": false
+  },
+  {
+   "text": "no",
+   "start": 304.646,
+   "end": 304.808,
+   "emph": false
+  },
+  {
+   "text": "formal",
+   "start": 304.925,
+   "end": 305.284,
+   "emph": false
+  },
+  {
+   "text": "evaluation",
+   "start": 305.343,
+   "end": 306.086,
+   "emph": false
+  },
+  {
+   "text": "of",
+   "start": 306.144,
+   "end": 306.202,
+   "emph": false
+  },
+  {
+   "text": "its",
+   "start": 306.248,
+   "end": 306.364,
+   "emph": false
+  },
+  {
+   "text": "impact",
+   "start": 306.422,
+   "end": 306.945,
+   "emph": false
+  },
+  {
+   "text": "on",
+   "start": 307.003,
+   "end": 307.096,
+   "emph": false
+  },
+  {
+   "text": "human",
+   "start": 307.154,
+   "end": 307.421,
+   "emph": false
+  },
+  {
+   "text": "health",
+   "start": 307.479,
+   "end": 307.699,
+   "emph": false
+  },
+  {
+   "text": "has",
+   "start": 307.746,
+   "end": 307.839,
+   "emph": false
+  },
+  {
+   "text": "been",
+   "start": 307.897,
+   "end": 308.059,
+   "emph": false
+  },
+  {
+   "text": "conducted,",
+   "start": 308.106,
+   "end": 308.895,
+   "emph": false
+  },
+  {
+   "text": "because",
+   "start": 309.139,
+   "end": 309.464,
+   "emph": false
+  },
+  {
+   "text": "of",
+   "start": 309.499,
+   "end": 309.545,
+   "emph": false
+  },
+  {
+   "text": "data",
+   "start": 309.615,
+   "end": 309.882,
+   "emph": false
+  },
+  {
+   "text": "gaps.",
+   "start": 309.94,
+   "end": 310.532,
+   "emph": false
+  },
+  {
+   "text": "Then",
+   "start": 311.043,
+   "end": 311.252,
+   "emph": false
+  },
+  {
+   "text": "came",
+   "start": 311.333,
+   "end": 311.565,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 311.6,
+   "end": 311.67,
+   "emph": false
+  },
+  {
+   "text": "winter",
+   "start": 311.728,
+   "end": 312.007,
+   "emph": false
+  },
+  {
+   "text": "of",
+   "start": 312.065,
+   "end": 312.123,
+   "emph": false
+  },
+  {
+   "text": "2022",
+   "start": 312.192,
+   "end": 313.272,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "to",
+   "start": 313.388,
+   "end": 313.47,
+   "emph": false
+  },
+  {
+   "text": "2023,",
+   "start": 313.551,
+   "end": 314.735,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "with",
+   "start": 314.886,
+   "end": 315.06,
+   "emph": false
+  },
+  {
+   "text": "record",
+   "start": 315.141,
+   "end": 315.455,
+   "emph": true
+  },
+  {
+   "text": "snowfall",
+   "start": 315.513,
+   "end": 316.093,
+   "emph": false
+  },
+  {
+   "text": "across",
+   "start": 316.151,
+   "end": 316.511,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 316.558,
+   "end": 316.627,
+   "emph": false
+  },
+  {
+   "text": "region.",
+   "start": 316.697,
+   "end": 317.336,
+   "emph": false
+  },
+  {
+   "text": "NASA's",
+   "start": 317.777,
+   "end": 318.23,
+   "emph": false
+  },
+  {
+   "text": "Earth",
+   "start": 318.299,
+   "end": 318.508,
+   "emph": false
+  },
+  {
+   "text": "Observatory",
+   "start": 318.555,
+   "end": 319.263,
+   "emph": false
+  },
+  {
+   "text": "shows",
+   "start": 319.344,
+   "end": 319.623,
+   "emph": false
+  },
+  {
+   "text": "more",
+   "start": 319.704,
+   "end": 319.901,
+   "emph": false
+  },
+  {
+   "text": "snow",
+   "start": 319.959,
+   "end": 320.238,
+   "emph": false
+  },
+  {
+   "text": "than",
+   "start": 320.308,
+   "end": 320.447,
+   "emph": false
+  },
+  {
+   "text": "usual",
+   "start": 320.528,
+   "end": 320.935,
+   "emph": false
+  },
+  {
+   "text": "around",
+   "start": 321.004,
+   "end": 321.271,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 321.318,
+   "end": 321.387,
+   "emph": false
+  },
+  {
+   "text": "lake",
+   "start": 321.445,
+   "end": 321.666,
+   "emph": false
+  },
+  {
+   "text": "that",
+   "start": 321.701,
+   "end": 321.852,
+   "emph": false
+  },
+  {
+   "text": "February.",
+   "start": 321.91,
+   "end": 322.746,
+   "emph": false
+  },
+  {
+   "text": "Did",
+   "start": 323.558,
+   "end": 323.767,
+   "emph": false
+  },
+  {
+   "text": "that",
+   "start": 323.814,
+   "end": 324.034,
+   "emph": false
+  },
+  {
+   "text": "fix",
+   "start": 324.127,
+   "end": 324.406,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 324.487,
+   "end": 324.557,
+   "emph": false
+  },
+  {
+   "text": "problem?",
+   "start": 324.603,
+   "end": 325.172,
+   "emph": false
+  },
+  {
+   "text": "NASA's",
+   "start": 325.869,
+   "end": 326.31,
+   "emph": false
+  },
+  {
+   "text": "GRACE",
+   "start": 326.368,
+   "end": 326.67,
+   "emph": false
+  },
+  {
+   "text": "satellites",
+   "start": 326.705,
+   "end": 327.308,
+   "emph": false
+  },
+  {
+   "text": "measure",
+   "start": 327.39,
+   "end": 327.726,
+   "emph": false
+  },
+  {
+   "text": "underground",
+   "start": 327.796,
+   "end": 328.33,
+   "emph": false
+  },
+  {
+   "text": "water",
+   "start": 328.411,
+   "end": 328.713,
+   "emph": false
+  },
+  {
+   "text": "across",
+   "start": 328.771,
+   "end": 329.131,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 329.178,
+   "end": 329.247,
+   "emph": false
+  },
+  {
+   "text": "Great",
+   "start": 329.294,
+   "end": 329.514,
+   "emph": false
+  },
+  {
+   "text": "Basin,",
+   "start": 329.596,
+   "end": 330.176,
+   "emph": false
+  },
+  {
+   "text": "a",
+   "start": 330.385,
+   "end": 330.455,
+   "emph": false
+  },
+  {
+   "text": "region",
+   "start": 330.548,
+   "end": 330.849,
+   "emph": false
+  },
+  {
+   "text": "of",
+   "start": 330.896,
+   "end": 330.942,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 330.989,
+   "end": 331.058,
+   "emph": false
+  },
+  {
+   "text": "western",
+   "start": 331.105,
+   "end": 331.453,
+   "emph": false
+  },
+  {
+   "text": "United",
+   "start": 331.511,
+   "end": 331.871,
+   "emph": false
+  },
+  {
+   "text": "States.",
+   "start": 331.918,
+   "end": 332.521,
+   "emph": false
+  },
+  {
+   "text": "They",
+   "start": 332.846,
+   "end": 333.009,
+   "emph": false
+  },
+  {
+   "text": "show",
+   "start": 333.055,
+   "end": 333.23,
+   "emph": false
+  },
+  {
+   "text": "it",
+   "start": 333.288,
+   "end": 333.357,
+   "emph": false
+  },
+  {
+   "text": "fell",
+   "start": 333.427,
+   "end": 333.659,
+   "emph": false
+  },
+  {
+   "text": "by",
+   "start": 333.74,
+   "end": 333.88,
+   "emph": false
+  },
+  {
+   "text": "16.5",
+   "start": 333.949,
+   "end": 335.134,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "cubic",
+   "start": 335.215,
+   "end": 335.575,
+   "emph": false
+  },
+  {
+   "text": "miles",
+   "start": 335.656,
+   "end": 336.063,
+   "emph": false
+  },
+  {
+   "text": "over",
+   "start": 336.121,
+   "end": 336.318,
+   "emph": false
+  },
+  {
+   "text": "about",
+   "start": 336.376,
+   "end": 336.632,
+   "emph": false
+  },
+  {
+   "text": "two",
+   "start": 336.678,
+   "end": 336.841,
+   "emph": false
+  },
+  {
+   "text": "decades.",
+   "start": 336.91,
+   "end": 337.677,
+   "emph": false
+  },
+  {
+   "text": "Scientist",
+   "start": 338.118,
+   "end": 338.826,
+   "emph": false
+  },
+  {
+   "text": "Dorothy",
+   "start": 338.942,
+   "end": 339.337,
+   "emph": false
+  },
+  {
+   "text": "Hall",
+   "start": 339.407,
+   "end": 339.708,
+   "emph": false
+  },
+  {
+   "text": "expected",
+   "start": 339.778,
+   "end": 340.335,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 340.37,
+   "end": 340.44,
+   "emph": false
+  },
+  {
+   "text": "record",
+   "start": 340.509,
+   "end": 340.835,
+   "emph": true
+  },
+  {
+   "text": "snow",
+   "start": 340.881,
+   "end": 341.102,
+   "emph": false
+  },
+  {
+   "text": "to",
+   "start": 341.148,
+   "end": 341.194,
+   "emph": false
+  },
+  {
+   "text": "help,",
+   "start": 341.276,
+   "end": 341.728,
+   "emph": false
+  },
+  {
+   "text": "but",
+   "start": 341.937,
+   "end": 342.1,
+   "emph": false
+  },
+  {
+   "text": "she",
+   "start": 342.146,
+   "end": 342.286,
+   "emph": false
+  },
+  {
+   "text": "said,",
+   "start": 342.379,
+   "end": 342.924,
+   "emph": false
+  },
+  {
+   "text": "overall,",
+   "start": 343.168,
+   "end": 344.039,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 344.213,
+   "end": 344.318,
+   "emph": false
+  },
+  {
+   "text": "decline",
+   "start": 344.376,
+   "end": 344.84,
+   "emph": false
+  },
+  {
+   "text": "continued.",
+   "start": 344.886,
+   "end": 345.699,
+   "emph": false
+  },
+  {
+   "text": "What",
+   "start": 346.21,
+   "end": 346.396,
+   "emph": false
+  },
+  {
+   "text": "do",
+   "start": 346.431,
+   "end": 346.489,
+   "emph": false
+  },
+  {
+   "text": "these",
+   "start": 346.547,
+   "end": 346.732,
+   "emph": false
+  },
+  {
+   "text": "pictures",
+   "start": 346.779,
+   "end": 347.174,
+   "emph": false
+  },
+  {
+   "text": "show?",
+   "start": 347.232,
+   "end": 347.754,
+   "emph": false
+  },
+  {
+   "text": "Where",
+   "start": 348.079,
+   "end": 348.323,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 348.358,
+   "end": 348.427,
+   "emph": false
+  },
+  {
+   "text": "shoreline",
+   "start": 348.485,
+   "end": 349.031,
+   "emph": false
+  },
+  {
+   "text": "was",
+   "start": 349.066,
+   "end": 349.229,
+   "emph": false
+  },
+  {
+   "text": "on",
+   "start": 349.31,
+   "end": 349.438,
+   "emph": false
+  },
+  {
+   "text": "particular",
+   "start": 349.507,
+   "end": 350.03,
+   "emph": false
+  },
+  {
+   "text": "days.",
+   "start": 350.099,
+   "end": 350.715,
+   "emph": false
+  },
+  {
+   "text": "They",
+   "start": 350.958,
+   "end": 351.144,
+   "emph": false
+  },
+  {
+   "text": "do",
+   "start": 351.191,
+   "end": 351.272,
+   "emph": false
+  },
+  {
+   "text": "not",
+   "start": 351.353,
+   "end": 351.516,
+   "emph": false
+  },
+  {
+   "text": "forecast",
+   "start": 351.574,
+   "end": 352.27,
+   "emph": false
+  },
+  {
+   "text": "what",
+   "start": 352.421,
+   "end": 352.641,
+   "emph": false
+  },
+  {
+   "text": "comes",
+   "start": 352.711,
+   "end": 352.967,
+   "emph": false
+  },
+  {
+   "text": "next.",
+   "start": 353.036,
+   "end": 353.628,
+   "emph": false
+  },
+  {
+   "text": "But",
+   "start": 354.011,
+   "end": 354.174,
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 354.209,
+   "end": 354.278,
+   "emph": false
+  },
+  {
+   "text": "measurements",
+   "start": 354.336,
+   "end": 354.836,
+   "emph": false
+  },
+  {
+   "text": "are",
+   "start": 354.882,
+   "end": 354.987,
+   "emph": false
+  },
+  {
+   "text": "plain:",
+   "start": 355.021,
+   "end": 355.614,
+   "emph": false
+  },
+  {
+   "text": "in",
+   "start": 355.788,
+   "end": 355.927,
+   "emph": false
+  },
+  {
+   "text": "July",
+   "start": 355.985,
+   "end": 356.38,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "2022,",
+   "start": 356.496,
+   "end": 357.634,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "the",
+   "start": 357.785,
+   "end": 357.889,
+   "emph": false
+  },
+  {
+   "text": "Great",
+   "start": 357.947,
+   "end": 358.179,
+   "emph": false
+  },
+  {
+   "text": "Salt",
+   "start": 358.249,
+   "end": 358.504,
+   "emph": false
+  },
+  {
+   "text": "Lake",
+   "start": 358.563,
+   "end": 358.783,
+   "emph": false
+  },
+  {
+   "text": "measured",
+   "start": 358.83,
+   "end": 359.189,
+   "emph": false
+  },
+  {
+   "text": "4,190.2",
+   "start": 359.306,
+   "end": 362.15,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "feet,",
+   "start": 362.266,
+   "end": 362.719,
+   "emph": false
+  },
+  {
+   "text": "more",
+   "start": 362.928,
+   "end": 363.125,
+   "emph": false
+  },
+  {
+   "text": "than",
+   "start": 363.16,
+   "end": 363.311,
+   "emph": false
+  },
+  {
+   "text": "20",
+   "start": 363.404,
+   "end": 363.729,
+   "kind": "number",
+   "emph": false
+  },
+  {
+   "text": "feet",
+   "start": 363.799,
+   "end": 364.031,
+   "emph": false
+  },
+  {
+   "text": "below",
+   "start": 364.1,
+   "end": 364.402,
+   "emph": false
+  },
+  {
+   "text": "its",
+   "start": 364.472,
+   "end": 364.6,
+   "emph": false
+  },
+  {
+   "text": "1986",
+   "start": 364.658,
+   "end": 365.621,
+   "kind": "year",
+   "emph": false
+  },
+  {
+   "text": "high.",
+   "start": 365.679,
+   "end": 366.179,
+   "emph": false
+  },
+  {
+   "text": "And",
+   "start": 366.62,
+   "end": 366.794,
+   "emph": false
+  },
+  {
+   "text": "nearly",
+   "start": 366.852,
+   "end": 367.177,
+   "emph": true
+  },
+  {
+   "text": "four",
+   "start": 367.247,
+   "end": 367.479,
+   "emph": false
+  },
+  {
+   "text": "decades",
+   "start": 367.549,
+   "end": 368.013,
+   "emph": false
+  },
+  {
+   "text": "of",
+   "start": 368.059,
+   "end": 368.129,
+   "emph": false
+  },
+  {
+   "text": "Landsat",
+   "start": 368.21,
+   "end": 368.849,
+   "emph": false
+  },
+  {
+   "text": "show",
+   "start": 369.058,
+   "end": 369.302,
+   "emph": false
+  },
+  {
+   "text": "where",
+   "start": 369.371,
+   "end": 369.569,
+   "emph": false
+  },
+  {
+   "text": "that",
+   "start": 369.604,
+   "end": 369.755,
+   "emph": false
+  },
+  {
+   "text": "water",
+   "start": 369.824,
+   "end": 370.126,
+   "emph": false
+  },
+  {
+   "text": "used",
+   "start": 370.207,
+   "end": 370.416,
+   "emph": false
+  },
+  {
+   "text": "to",
+   "start": 370.451,
+   "end": 370.509,
+   "emph": false
+  },
+  {
+   "text": "be.",
+   "start": 370.567,
+   "end": 371.055,
+   "emph": false
+  }
+ ],
+ "events": [
+  {
+   "kind": "emphasis",
+   "t": 2.403,
+   "word": 9,
+   "text": "largest",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "year",
+   "t": 5.05,
+   "word": 17,
+   "text": "June",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "number",
+   "t": 7.535,
+   "word": 22,
+   "text": "4,209.7",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "year",
+   "t": 10.182,
+   "word": 25,
+   "text": "July",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "number",
+   "t": 12.04,
+   "word": 29,
+   "text": "4,190.2",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "emphasis",
+   "t": 14.977,
+   "word": 33,
+   "text": "record",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "year",
+   "t": 16.01,
+   "word": 38,
+   "text": "1986,",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "number",
+   "t": 17.473,
+   "word": 40,
+   "text": "4,211.6",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "number",
+   "t": 20.956,
+   "word": 47,
+   "text": "20",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "year",
+   "t": 26.692,
+   "word": 64,
+   "text": "1985",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "year",
+   "t": 27.806,
+   "word": 66,
+   "text": "2022,",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "simplify",
+   "t": 36.56,
+   "word": 85,
+   "text": "Each",
+   "priority": 1,
+   "rule": "23 words, 0 data items"
+  },
+  {
+   "kind": "comparison",
+   "t": 42.261,
+   "word": 103,
+   "text": "compared",
+   "priority": 5,
+   "rule": "'compared'"
+  },
+  {
+   "kind": "revelation",
+   "t": 44.432,
+   "word": 108,
+   "text": "It",
+   "priority": 6,
+   "rule": "sentence opens with a turn"
+  },
+  {
+   "kind": "simplify",
+   "t": 44.432,
+   "word": 108,
+   "text": "It",
+   "priority": 1,
+   "rule": "26 words, 4 data items"
+  },
+  {
+   "kind": "number",
+   "t": 46.231,
+   "word": 114,
+   "text": "70",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "number",
+   "t": 47.694,
+   "word": 117,
+   "text": "30",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "number",
+   "t": 49.691,
+   "word": 122,
+   "text": "40",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "number",
+   "t": 51.665,
+   "word": 128,
+   "text": "8",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "number",
+   "t": 54.986,
+   "word": 136,
+   "text": "4,200",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "number",
+   "t": 57.041,
+   "word": 141,
+   "text": "1,700",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "year",
+   "t": 59.56,
+   "word": 146,
+   "text": "1986",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "number",
+   "t": 61.847,
+   "word": 151,
+   "text": "2,300.",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "revelation",
+   "t": 63.147,
+   "word": 152,
+   "text": "It",
+   "priority": 6,
+   "rule": "sentence opens with a turn"
+  },
+  {
+   "kind": "simplify",
+   "t": 69.185,
+   "word": 170,
+   "text": "USGS",
+   "priority": 1,
+   "rule": "21 words, 2 data items"
+  },
+  {
+   "kind": "emphasis",
+   "t": 71.216,
+   "word": 175,
+   "text": "nearly",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "number",
+   "t": 71.507,
+   "word": 176,
+   "text": "$200",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "year",
+   "t": 76.232,
+   "word": 189,
+   "text": "2012",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "simplify",
+   "t": 78.113,
+   "word": 191,
+   "text": "In",
+   "priority": 1,
+   "rule": "18 words, 3 data items"
+  },
+  {
+   "kind": "year",
+   "t": 78.287,
+   "word": 192,
+   "text": "July",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "number",
+   "t": 81.34,
+   "word": 199,
+   "text": "4,191.3",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "emphasis",
+   "t": 84.614,
+   "word": 202,
+   "text": "lowest",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "year",
+   "t": 86.541,
+   "word": 208,
+   "text": "1875.",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "simplify",
+   "t": 88.504,
+   "word": 209,
+   "text": "NASA",
+   "priority": 1,
+   "rule": "21 words, 3 data items"
+  },
+  {
+   "kind": "number",
+   "t": 91.661,
+   "word": 219,
+   "text": "950",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "number",
+   "t": 93.716,
+   "word": 222,
+   "text": "44",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "comparison",
+   "t": 95.446,
+   "word": 226,
+   "text": "than",
+   "priority": 5,
+   "rule": "'than'"
+  },
+  {
+   "kind": "number",
+   "t": 95.783,
+   "word": 228,
+   "text": "4,200",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "comparison",
+   "t": 98.14,
+   "word": 232,
+   "text": "later,",
+   "priority": 5,
+   "rule": "'later'"
+  },
+  {
+   "kind": "emphasis",
+   "t": 101.82,
+   "word": 241,
+   "text": "record",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "number",
+   "t": 103.202,
+   "word": 245,
+   "text": "3,",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "year",
+   "t": 103.608,
+   "word": 246,
+   "text": "2022.",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "emphasis",
+   "t": 119.618,
+   "word": 280,
+   "text": "fallen",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "number",
+   "t": 120.036,
+   "word": 281,
+   "text": "39",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "year",
+   "t": 121.719,
+   "word": 284,
+   "text": "1850.",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "simplify",
+   "t": 123.391,
+   "word": 285,
+   "text": "A",
+   "priority": 1,
+   "rule": "26 words, 4 data items"
+  },
+  {
+   "kind": "year",
+   "t": 123.588,
+   "word": 286,
+   "text": "2016",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "emphasis",
+   "t": 127.304,
+   "word": 298,
+   "text": "shrunk",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "number",
+   "t": 127.652,
+   "word": 299,
+   "text": "48",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "emphasis",
+   "t": 129.962,
+   "word": 306,
+   "text": "fallen",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "number",
+   "t": 130.369,
+   "word": 307,
+   "text": "11",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "year",
+   "t": 131.472,
+   "word": 310,
+   "text": "1847.",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "simplify",
+   "t": 133.109,
+   "word": 311,
+   "text": "Meanwhile,",
+   "priority": 1,
+   "rule": "18 words, 4 data items"
+  },
+  {
+   "kind": "place",
+   "t": 134.049,
+   "word": 313,
+   "text": "Salt",
+   "priority": 3,
+   "place": "Salt Lake City",
+   "rule": "gazetteer"
+  },
+  {
+   "kind": "number",
+   "t": 136.116,
+   "word": 320,
+   "text": "700,000",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "year",
+   "t": 137.625,
+   "word": 323,
+   "text": "1982",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "number",
+   "t": 139.088,
+   "word": 325,
+   "text": "1.2",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "year",
+   "t": 140.528,
+   "word": 328,
+   "text": "2022.",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "comparison",
+   "t": 146.263,
+   "word": 339,
+   "text": "than",
+   "priority": 5,
+   "rule": "'than'"
+  },
+  {
+   "kind": "year",
+   "t": 150.837,
+   "word": 350,
+   "text": "1959,",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "place",
+   "t": 153.67,
+   "word": 354,
+   "text": "causeway",
+   "priority": 3,
+   "place": "Causeway",
+   "rule": "gazetteer"
+  },
+  {
+   "kind": "place",
+   "t": 157.072,
+   "word": 364,
+   "text": "causeway",
+   "priority": 3,
+   "place": "Causeway",
+   "rule": "gazetteer"
+  },
+  {
+   "kind": "number",
+   "t": 157.862,
+   "word": 366,
+   "text": "50",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "simplify",
+   "t": 162.053,
+   "word": 375,
+   "text": "It",
+   "priority": 1,
+   "rule": "21 words, 1 data items"
+  },
+  {
+   "kind": "number",
+   "t": 164.119,
+   "word": 381,
+   "text": "28,000",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "emphasis",
+   "t": 167.196,
+   "word": 387,
+   "text": "only",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "place",
+   "t": 172.792,
+   "word": 401,
+   "text": "Gunnison",
+   "priority": 3,
+   "place": "Gunnison Bay",
+   "rule": "gazetteer"
+  },
+  {
+   "kind": "place",
+   "t": 174.859,
+   "word": 407,
+   "text": "Gilbert",
+   "priority": 3,
+   "place": "Gilbert Bay",
+   "rule": "gazetteer"
+  },
+  {
+   "kind": "emphasis",
+   "t": 177.297,
+   "word": 412,
+   "text": "Almost",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "year",
+   "t": 183.578,
+   "word": 431,
+   "text": "July",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "number",
+   "t": 186.771,
+   "word": 437,
+   "text": "3.7",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "comparison",
+   "t": 188.512,
+   "word": 440,
+   "text": "than",
+   "priority": 5,
+   "rule": "'than'"
+  },
+  {
+   "kind": "emphasis",
+   "t": 189.662,
+   "word": 444,
+   "text": "largest",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "place",
+   "t": 195.026,
+   "word": 455,
+   "text": "causeway",
+   "priority": 3,
+   "place": "Causeway",
+   "rule": "gazetteer"
+  },
+  {
+   "kind": "year",
+   "t": 199.647,
+   "word": 467,
+   "text": "December",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "place",
+   "t": 206.195,
+   "word": 479,
+   "text": "Gunnison",
+   "priority": 5,
+   "place": "Gunnison Bay",
+   "rule": "gazetteer",
+   "bundle": "route"
+  },
+  {
+   "kind": "route",
+   "t": 206.195,
+   "word": 479,
+   "text": "Gunnison",
+   "priority": 5,
+   "to": "Gilbert Bay",
+   "frm": "Gunnison Bay",
+   "rule": "two places with a motion word"
+  },
+  {
+   "kind": "place",
+   "t": 209.62,
+   "word": 490,
+   "text": "Gilbert",
+   "priority": 5,
+   "place": "Gilbert Bay",
+   "rule": "gazetteer",
+   "bundle": "route"
+  },
+  {
+   "kind": "simplify",
+   "t": 210.874,
+   "word": 492,
+   "text": "USGS",
+   "priority": 1,
+   "rule": "28 words, 0 data items"
+  },
+  {
+   "kind": "year",
+   "t": 224.736,
+   "word": 523,
+   "text": "June",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "comparison",
+   "t": 226.362,
+   "word": 525,
+   "text": "after",
+   "priority": 5,
+   "rule": "'after'"
+  },
+  {
+   "kind": "comparison",
+   "t": 231.447,
+   "word": 540,
+   "text": "After",
+   "priority": 5,
+   "rule": "'after'"
+  },
+  {
+   "kind": "simplify",
+   "t": 231.447,
+   "word": 540,
+   "text": "After",
+   "priority": 1,
+   "rule": "19 words, 3 data items"
+  },
+  {
+   "kind": "year",
+   "t": 232.979,
+   "word": 545,
+   "text": "1982,",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "year",
+   "t": 235.185,
+   "word": 549,
+   "text": "June",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "year",
+   "t": 238.924,
+   "word": 558,
+   "text": "1987.",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "revelation",
+   "t": 240.584,
+   "word": 559,
+   "text": "Then",
+   "priority": 6,
+   "rule": "sentence opens with a turn"
+  },
+  {
+   "kind": "emphasis",
+   "t": 246.586,
+   "word": 571,
+   "text": "almost",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "number",
+   "t": 247.167,
+   "word": 572,
+   "text": "25",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "number",
+   "t": 249.628,
+   "word": 578,
+   "text": "1.5",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "emphasis",
+   "t": 252.426,
+   "word": 585,
+   "text": "first",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "simplify",
+   "t": 254.026,
+   "word": 587,
+   "text": "The",
+   "priority": 1,
+   "rule": "16 words, 3 data items"
+  },
+  {
+   "kind": "year",
+   "t": 255.268,
+   "word": 591,
+   "text": "April",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "year",
+   "t": 256.894,
+   "word": 594,
+   "text": "June",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "emphasis",
+   "t": 259.332,
+   "word": 599,
+   "text": "dropped",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "emphasis",
+   "t": 259.75,
+   "word": 600,
+   "text": "almost",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "number",
+   "t": 260.33,
+   "word": 601,
+   "text": "6",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "number",
+   "t": 264.185,
+   "word": 609,
+   "text": "2",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "simplify",
+   "t": 269.026,
+   "word": 622,
+   "text": "NASA",
+   "priority": 1,
+   "rule": "30 words, 0 data items"
+  },
+  {
+   "kind": "emphasis",
+   "t": 278.499,
+   "word": 641,
+   "text": "dust",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "emphasis",
+   "t": 279.208,
+   "word": 644,
+   "text": "drying",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "emphasis",
+   "t": 280.949,
+   "word": 648,
+   "text": "worsens",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "simplify",
+   "t": 283.654,
+   "word": 652,
+   "text": "USGS",
+   "priority": 1,
+   "rule": "28 words, 1 data items"
+  },
+  {
+   "kind": "emphasis",
+   "t": 284.955,
+   "word": 654,
+   "text": "dust",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "number",
+   "t": 285.442,
+   "word": 656,
+   "text": "17",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "simplify",
+   "t": 299.526,
+   "word": 684,
+   "text": "The",
+   "priority": 1,
+   "rule": "29 words, 0 data items"
+  },
+  {
+   "kind": "emphasis",
+   "t": 299.7,
+   "word": 685,
+   "text": "dust",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "revelation",
+   "t": 311.043,
+   "word": 713,
+   "text": "Then",
+   "priority": 6,
+   "rule": "sentence opens with a turn"
+  },
+  {
+   "kind": "year",
+   "t": 312.192,
+   "word": 718,
+   "text": "2022",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "year",
+   "t": 313.551,
+   "word": 720,
+   "text": "2023,",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "emphasis",
+   "t": 315.141,
+   "word": 722,
+   "text": "record",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "comparison",
+   "t": 320.308,
+   "word": 733,
+   "text": "than",
+   "priority": 5,
+   "rule": "'than'"
+  },
+  {
+   "kind": "number",
+   "t": 333.949,
+   "word": 767,
+   "text": "16.5",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "emphasis",
+   "t": 340.509,
+   "word": 779,
+   "text": "record",
+   "priority": 2,
+   "rule": "extreme / change word"
+  },
+  {
+   "kind": "revelation",
+   "t": 354.011,
+   "word": 809,
+   "text": "But",
+   "priority": 6,
+   "rule": "sentence opens with a turn"
+  },
+  {
+   "kind": "simplify",
+   "t": 354.011,
+   "word": 809,
+   "text": "But",
+   "priority": 1,
+   "rule": "23 words, 4 data items"
+  },
+  {
+   "kind": "year",
+   "t": 355.985,
+   "word": 815,
+   "text": "July",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "number",
+   "t": 359.306,
+   "word": 822,
+   "text": "4,190.2",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "number",
+   "t": 363.404,
+   "word": 826,
+   "text": "20",
+   "priority": 5,
+   "rule": "number"
+  },
+  {
+   "kind": "year",
+   "t": 364.658,
+   "word": 830,
+   "text": "1986",
+   "priority": 4,
+   "rule": "year"
+  },
+  {
+   "kind": "emphasis",
+   "t": 366.852,
+   "word": 833,
+   "text": "nearly",
+   "priority": 2,
+   "rule": "extreme / change word"
+  }
+ ],
+ "dropped": [],
+ "cards": [
+  {
+   "t0": 0.0,
+   "t1": 1.277,
+   "text": "This is the Great Salt Lake",
+   "style": "A"
+  },
+  {
+   "t0": 1.335,
+   "t1": 3.518,
+   "text": "in Utah, the largest saline lake",
+   "style": "A"
+  },
+  {
+   "t0": 3.541,
+   "t1": 4.574,
+   "text": "in the Western Hemisphere.",
+   "style": "A"
+  },
+  {
+   "t0": 4.841,
+   "t1": 6.409,
+   "text": "In June 1985,",
+   "style": "D"
+  },
+  {
+   "t0": 6.583,
+   "t1": 9.718,
+   "text": "its surface measured 4,209.7 feet.",
+   "style": "D"
+  },
+  {
+   "t0": 10.031,
+   "t1": 11.378,
+   "text": "In July 2022,",
+   "style": "D"
+  },
+  {
+   "t0": 11.517,
+   "t1": 14.269,
+   "text": "it measured 4,190.2 feet.",
+   "style": "D"
+  },
+  {
+   "t0": 14.582,
+   "t1": 15.882,
+   "text": "The lake's record high had come",
+   "style": "A"
+  },
+  {
+   "t0": 15.917,
+   "t1": 19.737,
+   "text": "in 1986, at 4,211.6 feet.",
+   "style": "D"
+  },
+  {
+   "t0": 20.051,
+   "t1": 20.248,
+   "text": "Now",
+   "style": "A"
+  },
+  {
+   "t0": 20.306,
+   "t1": 21.409,
+   "text": "it sat more than 20 feet",
+   "style": "D"
+  },
+  {
+   "t0": 21.467,
+   "t1": 21.955,
+   "text": "lower.",
+   "style": "A"
+  },
+  {
+   "t0": 22.164,
+   "t1": 24.01,
+   "text": "The Landsat satellites were watching the",
+   "style": "A"
+  },
+  {
+   "t0": 24.056,
+   "t1": 24.869,
+   "text": "whole time.",
+   "style": "A"
+  },
+  {
+   "t0": 25.148,
+   "t1": 26.401,
+   "text": "Put the pictures in order,",
+   "style": "A"
+  },
+  {
+   "t0": 26.46,
+   "t1": 28.921,
+   "text": "from 1985 to 2022,",
+   "style": "D"
+  },
+  {
+   "t0": 29.13,
+   "t1": 30.302,
+   "text": "and the lake pulls back",
+   "style": "A"
+  },
+  {
+   "t0": 30.349,
+   "t1": 31.231,
+   "text": "from its shore.",
+   "style": "A"
+  },
+  {
+   "t0": 31.556,
+   "t1": 33.716,
+   "text": "These are real Landsat scenes",
+   "style": "A"
+  },
+  {
+   "t0": 33.762,
+   "t1": 34.54,
+   "text": "from the U.S.",
+   "style": "A"
+  },
+  {
+   "t0": 34.575,
+   "t1": 36.177,
+   "text": "Geological Survey.",
+   "style": "A"
+  },
+  {
+   "t0": 36.56,
+   "t1": 38.0,
+   "text": "Each picture is a mosaic",
+   "style": "A"
+  },
+  {
+   "t0": 38.058,
+   "t1": 39.219,
+   "text": "of several scenes,",
+   "style": "A"
+  },
+  {
+   "t0": 39.381,
+   "t1": 41.146,
+   "text": "shown with one color curve,",
+   "style": "A"
+  },
+  {
+   "t0": 41.297,
+   "t1": 42.818,
+   "text": "so the colors can be compared",
+   "style": "A"
+  },
+  {
+   "t0": 42.864,
+   "t1": 44.06,
+   "text": "from year to year.",
+   "style": "A"
+  },
+  {
+   "t0": 44.432,
+   "t1": 45.674,
+   "text": "It is a big lake:",
+   "style": "C"
+  },
+  {
+   "t0": 45.837,
+   "t1": 47.543,
+   "text": "about 70 miles long,",
+   "style": "D"
+  },
+  {
+   "t0": 47.694,
+   "t1": 48.994,
+   "text": "30 miles wide,",
+   "style": "D"
+  },
+  {
+   "t0": 49.169,
+   "t1": 50.782,
+   "text": "and about 40 feet deep,",
+   "style": "D"
+  },
+  {
+   "t0": 51.015,
+   "t1": 51.375,
+   "text": "and up",
+   "style": "A"
+  },
+  {
+   "t0": 51.444,
+   "t1": 53.14,
+   "text": "to 8 times as salty as",
+   "style": "D"
+  },
+  {
+   "t0": 53.186,
+   "t1": 53.929,
+   "text": "seawater.",
+   "style": "A"
+  },
+  {
+   "t0": 54.51,
+   "t1": 56.089,
+   "text": "At about 4,200 feet,",
+   "style": "D"
+  },
+  {
+   "t0": 56.123,
+   "t1": 58.875,
+   "text": "it covers roughly 1,700 square miles.",
+   "style": "D"
+  },
+  {
+   "t0": 59.177,
+   "t1": 60.976,
+   "text": "At its 1986 high,",
+   "style": "D"
+  },
+  {
+   "t0": 61.023,
+   "t1": 62.892,
+   "text": "it covered about 2,300.",
+   "style": "D"
+  },
+  {
+   "t0": 63.147,
+   "t1": 64.471,
+   "text": "It is a terminal lake:",
+   "style": "C"
+  },
+  {
+   "t0": 64.773,
+   "t1": 65.748,
+   "text": "there is no outlet",
+   "style": "A"
+  },
+  {
+   "t0": 65.794,
+   "t1": 66.456,
+   "text": "to the sea.",
+   "style": "A"
+  },
+  {
+   "t0": 66.758,
+   "t1": 68.43,
+   "text": "And it matters to the economy.",
+   "style": "A"
+  },
+  {
+   "t0": 69.185,
+   "t1": 71.448,
+   "text": "USGS says the lake generates nearly",
+   "style": "A"
+  },
+  {
+   "t0": 71.507,
+   "t1": 73.887,
+   "text": "$200 million a year from recreation",
+   "style": "D"
+  },
+  {
+   "t0": 74.119,
+   "t1": 75.57,
+   "text": "and the brine shrimp harvest,",
+   "style": "A"
+  },
+  {
+   "t0": 75.709,
+   "t1": 77.637,
+   "text": "citing a 2012 study.",
+   "style": "D"
+  },
+  {
+   "t0": 78.113,
+   "t1": 80.226,
+   "text": "In July 2021, the gauge",
+   "style": "D"
+  },
+  {
+   "t0": 80.26,
+   "t1": 84.231,
+   "text": "at Saltair read 4,191.3 feet,",
+   "style": "D"
+  },
+  {
+   "t0": 84.452,
+   "t1": 86.379,
+   "text": "the lowest mark since measurements began",
+   "style": "A"
+  },
+  {
+   "t0": 86.437,
+   "t1": 87.946,
+   "text": "in 1875.",
+   "style": "D"
+  },
+  {
+   "t0": 88.504,
+   "t1": 90.059,
+   "text": "NASA reports that at",
+   "style": "A"
+  },
+  {
+   "t0": 90.117,
+   "t1": 91.592,
+   "text": "that level the lake covered about",
+   "style": "A"
+  },
+  {
+   "t0": 91.661,
+   "t1": 93.519,
+   "text": "950 square miles,",
+   "style": "D"
+  },
+  {
+   "t0": 93.716,
+   "t1": 95.597,
+   "text": "44 percent less surface than",
+   "style": "D"
+  },
+  {
+   "t0": 95.644,
+   "t1": 97.327,
+   "text": "at 4,200 feet.",
+   "style": "D"
+  },
+  {
+   "t0": 97.687,
+   "t1": 98.581,
+   "text": "A year later,",
+   "style": "A"
+  },
+  {
+   "t0": 98.674,
+   "t1": 100.172,
+   "text": "it fell lower still.",
+   "style": "A"
+  },
+  {
+   "t0": 100.485,
+   "t1": 102.494,
+   "text": "NASA lists a new record low",
+   "style": "A"
+  },
+  {
+   "t0": 102.575,
+   "t1": 104.676,
+   "text": "on July 3, 2022.",
+   "style": "D"
+  },
+  {
+   "t0": 105.036,
+   "t1": 106.197,
+   "text": "Why did it fall?",
+   "style": "A"
+  },
+  {
+   "t0": 106.394,
+   "t1": 108.438,
+   "text": "NASA's account points to people,",
+   "style": "A"
+  },
+  {
+   "t0": 108.554,
+   "t1": 109.517,
+   "text": "and to climate.",
+   "style": "A"
+  },
+  {
+   "t0": 110.33,
+   "t1": 111.607,
+   "text": "For about a century,",
+   "style": "A"
+  },
+  {
+   "t0": 111.816,
+   "t1": 113.558,
+   "text": "water has been diverted upstream",
+   "style": "A"
+  },
+  {
+   "t0": 113.627,
+   "t1": 115.229,
+   "text": "for homes and farms.",
+   "style": "A"
+  },
+  {
+   "t0": 115.926,
+   "t1": 118.039,
+   "text": "Utah State University researchers",
+   "style": "A"
+  },
+  {
+   "t0": 118.12,
+   "t1": 118.654,
+   "text": "estimate",
+   "style": "A"
+  },
+  {
+   "t0": 118.689,
+   "t1": 121.162,
+   "text": "that inflows have fallen 39 percent",
+   "style": "D"
+  },
+  {
+   "t0": 121.406,
+   "t1": 123.391,
+   "text": "since 1850.",
+   "style": "D"
+  },
+  {
+   "t0": 123.391,
+   "t1": 125.318,
+   "text": "A 2016 white paper cited",
+   "style": "D"
+  },
+  {
+   "t0": 125.376,
+   "t1": 126.166,
+   "text": "by NASA found",
+   "style": "A"
+  },
+  {
+   "t0": 126.201,
+   "t1": 127.582,
+   "text": "that the lake's volume has shrunk",
+   "style": "A"
+  },
+  {
+   "t0": 127.652,
+   "t1": 128.987,
+   "text": "48 percent, and",
+   "style": "D"
+  },
+  {
+   "t0": 129.033,
+   "t1": 130.287,
+   "text": "that its level has fallen",
+   "style": "A"
+  },
+  {
+   "t0": 130.369,
+   "t1": 132.691,
+   "text": "11 feet since 1847.",
+   "style": "D"
+  },
+  {
+   "t0": 133.109,
+   "t1": 133.794,
+   "text": "Meanwhile,",
+   "style": "A"
+  },
+  {
+   "t0": 133.898,
+   "t1": 135.512,
+   "text": "the Salt Lake City metro area",
+   "style": "D"
+  },
+  {
+   "t0": 135.581,
+   "t1": 138.566,
+   "text": "grew from 700,000 people in 1982",
+   "style": "D"
+  },
+  {
+   "t0": 138.879,
+   "t1": 141.665,
+   "text": "to 1.2 million in 2022.",
+   "style": "D"
+  },
+  {
+   "t0": 142.362,
+   "t1": 143.953,
+   "text": "And the climate is changing.",
+   "style": "A"
+  },
+  {
+   "t0": 144.231,
+   "t1": 146.437,
+   "text": "More precipitation falls as rain than",
+   "style": "A"
+  },
+  {
+   "t0": 146.553,
+   "t1": 147.192,
+   "text": "snow,",
+   "style": "A"
+  },
+  {
+   "t0": 147.366,
+   "t1": 149.212,
+   "text": "and the snowpack releases its water",
+   "style": "A"
+  },
+  {
+   "t0": 149.27,
+   "t1": 150.222,
+   "text": "more slowly.",
+   "style": "A"
+  },
+  {
+   "t0": 150.663,
+   "t1": 152.045,
+   "text": "In 1959,",
+   "style": "D"
+  },
+  {
+   "t0": 152.161,
+   "t1": 154.448,
+   "text": "a solid-fill railroad causeway was",
+   "style": "D"
+  },
+  {
+   "t0": 154.506,
+   "t1": 155.83,
+   "text": "completed across the middle",
+   "style": "A"
+  },
+  {
+   "t0": 155.865,
+   "t1": 156.596,
+   "text": "of the lake.",
+   "style": "A"
+  },
+  {
+   "t0": 156.921,
+   "t1": 159.15,
+   "text": "The causeway took 50 million cubic",
+   "style": "D"
+  },
+  {
+   "t0": 159.232,
+   "t1": 160.346,
+   "text": "yards of rock,",
+   "style": "A"
+  },
+  {
+   "t0": 160.462,
+   "t1": 161.774,
+   "text": "sand and gravel.",
+   "style": "A"
+  },
+  {
+   "t0": 162.053,
+   "t1": 163.957,
+   "text": "It replaced a 12-mile trestle",
+   "style": "A"
+  },
+  {
+   "t0": 163.992,
+   "t1": 166.813,
+   "text": "of 28,000 wooden pilings, and",
+   "style": "D"
+  },
+  {
+   "t0": 166.883,
+   "t1": 169.286,
+   "text": "it had only two 15-foot culverts",
+   "style": "A"
+  },
+  {
+   "t0": 169.344,
+   "t1": 170.923,
+   "text": "for water to pass through.",
+   "style": "A"
+  },
+  {
+   "t0": 171.434,
+   "t1": 172.723,
+   "text": "It divides the lake into",
+   "style": "A"
+  },
+  {
+   "t0": 172.792,
+   "t1": 174.383,
+   "text": "Gunnison Bay in the north,",
+   "style": "D"
+  },
+  {
+   "t0": 174.592,
+   "t1": 176.786,
+   "text": "and Gilbert Bay in the south.",
+   "style": "D"
+  },
+  {
+   "t0": 177.297,
+   "t1": 177.982,
+   "text": "Almost all",
+   "style": "A"
+  },
+  {
+   "t0": 178.04,
+   "t1": 179.375,
+   "text": "of the fresh water flows in",
+   "style": "A"
+  },
+  {
+   "t0": 179.445,
+   "t1": 180.629,
+   "text": "on the south side,",
+   "style": "A"
+  },
+  {
+   "t0": 180.71,
+   "t1": 182.928,
+   "text": "so the north is always saltier.",
+   "style": "A"
+  },
+  {
+   "t0": 183.369,
+   "t1": 185.273,
+   "text": "In July 1984,",
+   "style": "D"
+  },
+  {
+   "t0": 185.424,
+   "t1": 188.06,
+   "text": "the south side stood 3.7 feet",
+   "style": "D"
+  },
+  {
+   "t0": 188.118,
+   "t1": 189.314,
+   "text": "higher than the north,",
+   "style": "A"
+  },
+  {
+   "t0": 189.488,
+   "t1": 191.764,
+   "text": "the largest difference ever recorded.",
+   "style": "A"
+  },
+  {
+   "t0": 192.46,
+   "t1": 194.724,
+   "text": "That August, a 300-foot section",
+   "style": "A"
+  },
+  {
+   "t0": 194.794,
+   "t1": 196.756,
+   "text": "of the causeway was replaced by",
+   "style": "D"
+  },
+  {
+   "t0": 196.814,
+   "t1": 197.836,
+   "text": "a low bridge.",
+   "style": "A"
+  },
+  {
+   "t0": 198.161,
+   "t1": 199.426,
+   "text": "A new channel opened",
+   "style": "A"
+  },
+  {
+   "t0": 199.496,
+   "t1": 201.829,
+   "text": "in December 2016.",
+   "style": "D"
+  },
+  {
+   "t0": 202.155,
+   "t1": 202.979,
+   "text": "The divide had",
+   "style": "A"
+  },
+  {
+   "t0": 203.014,
+   "t1": 204.709,
+   "text": "a strange side effect.",
+   "style": "A"
+  },
+  {
+   "t0": 205.092,
+   "t1": 205.939,
+   "text": "Dense brine",
+   "style": "A"
+  },
+  {
+   "t0": 205.974,
+   "t1": 207.89,
+   "text": "from Gunnison Bay sank into",
+   "style": "D"
+  },
+  {
+   "t0": 207.983,
+   "t1": 209.434,
+   "text": "a deep layer near the bottom",
+   "style": "A"
+  },
+  {
+   "t0": 209.492,
+   "t1": 210.549,
+   "text": "of Gilbert Bay.",
+   "style": "D"
+  },
+  {
+   "t0": 210.874,
+   "t1": 212.0,
+   "text": "USGS says",
+   "style": "A"
+  },
+  {
+   "t0": 212.07,
+   "t1": 213.765,
+   "text": "that layer had low pH",
+   "style": "A"
+  },
+  {
+   "t0": 214.009,
+   "t1": 216.9,
+   "text": "and no dissolved oxygen, and conditions",
+   "style": "A"
+  },
+  {
+   "t0": 216.958,
+   "t1": 219.465,
+   "text": "that favored turning inorganic mercury",
+   "style": "A"
+  },
+  {
+   "t0": 219.558,
+   "t1": 221.091,
+   "text": "into methyl mercury,",
+   "style": "A"
+  },
+  {
+   "t0": 221.265,
+   "t1": 222.112,
+   "text": "which builds up",
+   "style": "A"
+  },
+  {
+   "t0": 222.171,
+   "t1": 223.285,
+   "text": "in the food chain.",
+   "style": "A"
+  },
+  {
+   "t0": 223.668,
+   "t1": 226.118,
+   "text": "It dissipated by June 2014,",
+   "style": "D"
+  },
+  {
+   "t0": 226.362,
+   "t1": 227.917,
+   "text": "after its source water was cut",
+   "style": "A"
+  },
+  {
+   "t0": 227.975,
+   "t1": 228.428,
+   "text": "off.",
+   "style": "A"
+  },
+  {
+   "t0": 229.009,
+   "t1": 230.274,
+   "text": "The lake has not always been",
+   "style": "A"
+  },
+  {
+   "t0": 230.332,
+   "t1": 231.029,
+   "text": "too low.",
+   "style": "A"
+  },
+  {
+   "t0": 231.447,
+   "t1": 234.129,
+   "text": "After rainy weather beginning in 1982,",
+   "style": "D"
+  },
+  {
+   "t0": 234.396,
+   "t1": 236.811,
+   "text": "it peaked in June 1986,",
+   "style": "D"
+  },
+  {
+   "t0": 237.043,
+   "t1": 238.749,
+   "text": "and again in March and April",
+   "style": "A"
+  },
+  {
+   "t0": 238.808,
+   "t1": 240.212,
+   "text": "of 1987.",
+   "style": "D"
+  },
+  {
+   "t0": 240.584,
+   "t1": 242.36,
+   "text": "Then came a pumping project,",
+   "style": "C"
+  },
+  {
+   "t0": 242.511,
+   "t1": 244.903,
+   "text": "the Newfoundland Evaporation Basin.",
+   "style": "A"
+  },
+  {
+   "t0": 245.599,
+   "t1": 248.27,
+   "text": "The project built almost 25 miles",
+   "style": "D"
+  },
+  {
+   "t0": 248.328,
+   "t1": 249.001,
+   "text": "of dikes,",
+   "style": "A"
+  },
+  {
+   "t0": 249.117,
+   "t1": 251.787,
+   "text": "and about 1.5 million acre-feet were",
+   "style": "D"
+  },
+  {
+   "t0": 251.845,
+   "t1": 254.028,
+   "text": "pumped in the first year.",
+   "style": "A"
+  },
+  {
+   "t0": 254.026,
+   "t1": 256.65,
+   "text": "The pumps ran from April 1987",
+   "style": "D"
+  },
+  {
+   "t0": 256.72,
+   "t1": 258.496,
+   "text": "to June 1989,",
+   "style": "D"
+  },
+  {
+   "t0": 258.67,
+   "t1": 260.179,
+   "text": "and the lake dropped almost",
+   "style": "A"
+  },
+  {
+   "t0": 260.33,
+   "t1": 261.108,
+   "text": "6 feet.",
+   "style": "D"
+  },
+  {
+   "t0": 261.491,
+   "t1": 264.115,
+   "text": "USGS says the pumping caused about",
+   "style": "A"
+  },
+  {
+   "t0": 264.185,
+   "t1": 265.241,
+   "text": "2 feet of that.",
+   "style": "D"
+  },
+  {
+   "t0": 265.52,
+   "t1": 266.948,
+   "text": "When the water pulls back,",
+   "style": "A"
+  },
+  {
+   "t0": 267.122,
+   "t1": 268.585,
+   "text": "it leaves lake bed.",
+   "style": "A"
+  },
+  {
+   "t0": 269.026,
+   "t1": 272.056,
+   "text": "NASA scientist Dorothy Hall says exposed",
+   "style": "A"
+  },
+  {
+   "t0": 272.149,
+   "t1": 275.144,
+   "text": "lake beds often harbor toxic minerals",
+   "style": "A"
+  },
+  {
+   "t0": 275.191,
+   "t1": 276.955,
+   "text": "from agricultural runoff,",
+   "style": "A"
+  },
+  {
+   "t0": 277.129,
+   "t1": 278.825,
+   "text": "and NASA reports that dust",
+   "style": "A"
+  },
+  {
+   "t0": 278.883,
+   "t1": 280.798,
+   "text": "from the drying Great Salt Lake",
+   "style": "A"
+  },
+  {
+   "t0": 280.949,
+   "t1": 283.143,
+   "text": "worsens regional air pollution.",
+   "style": "A"
+  },
+  {
+   "t0": 283.654,
+   "t1": 286.499,
+   "text": "USGS collected dust at 17 sites",
+   "style": "D"
+  },
+  {
+   "t0": 286.557,
+   "t1": 287.823,
+   "text": "in northern Utah,",
+   "style": "A"
+  },
+  {
+   "t0": 287.997,
+   "t1": 289.123,
+   "text": "near the lake bed,",
+   "style": "A"
+  },
+  {
+   "t0": 289.367,
+   "t1": 290.772,
+   "text": "especially at Farmington",
+   "style": "A"
+  },
+  {
+   "t0": 290.841,
+   "t1": 292.258,
+   "text": "and Bear River Bays,",
+   "style": "A"
+  },
+  {
+   "t0": 292.467,
+   "t1": 294.278,
+   "text": "and measured pollutants including",
+   "style": "A"
+  },
+  {
+   "t0": 294.359,
+   "t1": 296.809,
+   "text": "arsenic, lead and cadmium.",
+   "style": "A"
+  },
+  {
+   "t0": 297.412,
+   "t1": 299.142,
+   "text": "Its conclusion is careful.",
+   "style": "A"
+  },
+  {
+   "t0": 299.526,
+   "t1": 300.768,
+   "text": "The dust may contribute",
+   "style": "A"
+  },
+  {
+   "t0": 300.803,
+   "t1": 302.928,
+   "text": "to potential health risks for children,",
+   "style": "A"
+  },
+  {
+   "t0": 303.171,
+   "t1": 306.086,
+   "text": "but USGS says no formal evaluation",
+   "style": "A"
+  },
+  {
+   "t0": 306.144,
+   "t1": 306.945,
+   "text": "of its impact",
+   "style": "A"
+  },
+  {
+   "t0": 307.003,
+   "t1": 308.895,
+   "text": "on human health has been conducted,",
+   "style": "A"
+  },
+  {
+   "t0": 309.139,
+   "t1": 310.532,
+   "text": "because of data gaps.",
+   "style": "A"
+  },
+  {
+   "t0": 311.043,
+   "t1": 313.272,
+   "text": "Then came the winter of 2022",
+   "style": "C"
+  },
+  {
+   "t0": 313.388,
+   "t1": 314.735,
+   "text": "to 2023,",
+   "style": "D"
+  },
+  {
+   "t0": 314.886,
+   "t1": 317.336,
+   "text": "with record snowfall across the region.",
+   "style": "A"
+  },
+  {
+   "t0": 317.777,
+   "t1": 320.238,
+   "text": "NASA's Earth Observatory shows more snow",
+   "style": "A"
+  },
+  {
+   "t0": 320.308,
+   "t1": 321.666,
+   "text": "than usual around the lake",
+   "style": "A"
+  },
+  {
+   "t0": 321.701,
+   "t1": 322.746,
+   "text": "that February.",
+   "style": "A"
+  },
+  {
+   "t0": 323.558,
+   "t1": 325.172,
+   "text": "Did that fix the problem?",
+   "style": "A"
+  },
+  {
+   "t0": 325.869,
+   "t1": 327.726,
+   "text": "NASA's GRACE satellites measure",
+   "style": "A"
+  },
+  {
+   "t0": 327.796,
+   "t1": 329.514,
+   "text": "underground water across the Great",
+   "style": "A"
+  },
+  {
+   "t0": 329.596,
+   "t1": 330.849,
+   "text": "Basin, a region",
+   "style": "A"
+  },
+  {
+   "t0": 330.896,
+   "t1": 332.521,
+   "text": "of the western United States.",
+   "style": "A"
+  },
+  {
+   "t0": 332.846,
+   "t1": 333.659,
+   "text": "They show it fell",
+   "style": "A"
+  },
+  {
+   "t0": 333.74,
+   "t1": 336.632,
+   "text": "by 16.5 cubic miles over about",
+   "style": "D"
+  },
+  {
+   "t0": 336.678,
+   "t1": 337.677,
+   "text": "two decades.",
+   "style": "A"
+  },
+  {
+   "t0": 338.118,
+   "t1": 340.44,
+   "text": "Scientist Dorothy Hall expected the",
+   "style": "A"
+  },
+  {
+   "t0": 340.509,
+   "t1": 341.728,
+   "text": "record snow to help,",
+   "style": "A"
+  },
+  {
+   "t0": 341.937,
+   "t1": 342.924,
+   "text": "but she said,",
+   "style": "A"
+  },
+  {
+   "t0": 343.168,
+   "t1": 345.699,
+   "text": "overall, the decline continued.",
+   "style": "A"
+  },
+  {
+   "t0": 346.21,
+   "t1": 347.754,
+   "text": "What do these pictures show?",
+   "style": "A"
+  },
+  {
+   "t0": 348.079,
+   "t1": 349.229,
+   "text": "Where the shoreline was",
+   "style": "A"
+  },
+  {
+   "t0": 349.31,
+   "t1": 350.715,
+   "text": "on particular days.",
+   "style": "A"
+  },
+  {
+   "t0": 350.958,
+   "t1": 352.967,
+   "text": "They do not forecast what comes",
+   "style": "A"
+  },
+  {
+   "t0": 353.036,
+   "t1": 353.628,
+   "text": "next.",
+   "style": "A"
+  },
+  {
+   "t0": 354.011,
+   "t1": 355.614,
+   "text": "But the measurements are plain:",
+   "style": "C"
+  },
+  {
+   "t0": 355.788,
+   "t1": 357.634,
+   "text": "in July 2022,",
+   "style": "D"
+  },
+  {
+   "t0": 357.785,
+   "t1": 359.189,
+   "text": "the Great Salt Lake measured",
+   "style": "A"
+  },
+  {
+   "t0": 359.306,
+   "t1": 362.719,
+   "text": "4,190.2 feet,",
+   "style": "D"
+  },
+  {
+   "t0": 362.928,
+   "t1": 364.6,
+   "text": "more than 20 feet below its",
+   "style": "D"
+  },
+  {
+   "t0": 364.658,
+   "t1": 366.179,
+   "text": "1986 high.",
+   "style": "D"
+  },
+  {
+   "t0": 366.62,
+   "t1": 368.013,
+   "text": "And nearly four decades",
+   "style": "A"
+  },
+  {
+   "t0": 368.059,
+   "t1": 369.569,
+   "text": "of Landsat show where",
+   "style": "A"
+  },
+  {
+   "t0": 369.604,
+   "t1": 371.055,
+   "text": "that water used to be.",
+   "style": "A"
+  }
+ ],
+ "styles": "AAADDDDADADAAAADAAAAAAAAAACDDDADADDDDCAAAADADDDADAADDDAAADAAAAAAAADDDAADADADDDAAAAADDAADAAADAAADDAAAADDAAADAADAAADADAAAAAAADAAAADDADCADADADDADADAAAAAAAADAAAAAAAAAAAAACDAAAAAAAAAADAAAAAAAAAACDADDDAAA",
+ "n_cards": 198
+}

@@ -7,35 +7,35 @@
    "src": "assets/landsat/stack_cal/y1985.png",
    "kind": "image",
    "label": "June 1985",
-   "credit": "Landsat 5 · USGS",
+   "credit": "Landsat 5 \u00b7 USGS",
    "prov": "1985-06-12 (path 38) and 1985-06-19 (path 39)"
   },
   "y2022": {
    "src": "assets/landsat/stack_cal/y2022.png",
    "kind": "image",
    "label": "July 2022",
-   "credit": "Landsat 8, 9 · USGS",
+   "credit": "Landsat 8, 9 \u00b7 USGS",
    "prov": "2022-07-11 (path 39, Landsat 8) and 2022-07-28 (path 38, Landsat 9)"
   },
   "y1986": {
    "src": "assets/landsat/stack_cal/y1986.png",
    "kind": "image",
    "label": "August 1986",
-   "credit": "Landsat 5 · USGS",
+   "credit": "Landsat 5 \u00b7 USGS",
    "prov": "1986-08-02 (path 38) and 1986-08-09 (path 39)"
   },
   "y1999": {
    "src": "assets/landsat/stack_cal/y1999.png",
    "kind": "image",
    "label": "August 1999",
-   "credit": "Landsat 5 · USGS",
+   "credit": "Landsat 5 \u00b7 USGS",
    "prov": "1999-08-22 (path 38) and 1999-08-29 (path 39)"
   },
   "y2021": {
    "src": "assets/landsat/stack_cal/y2021.png",
    "kind": "image",
    "label": "July 2021",
-   "credit": "Landsat 8 · USGS",
+   "credit": "Landsat 8 \u00b7 USGS",
    "prov": "2021-07-17 (path 38) and 2021-07-24 (path 39)"
   }
  },
@@ -80,7 +80,7 @@
   {
    "id": "sc02",
    "beat": "In June 1985, its surface measured",
-   "start": 5.533333333333333,
+   "start": 4.833333333333333,
    "info": "In June 1985, its surface measured 4,209.7 feet.",
    "camera": {
     "from": {
@@ -117,8 +117,8 @@
      "style": "stat",
      "slot": "upper",
      "t": [
-      0.5,
-      3.3
+      0.533,
+      3.333
      ],
      "info": "4,209.7 FEET"
     }
@@ -128,7 +128,7 @@
   {
    "id": "sc03",
    "beat": "In July 2022, it measured 4,190.2",
-   "start": 8.6,
+   "start": 10.033333333333333,
    "info": "In July 2022, it measured 4,190.2 feet.",
    "camera": {
     "from": {
@@ -163,8 +163,8 @@
      "style": "stat",
      "slot": "upper",
      "t": [
-      1.633,
-      4.433
+      2.0,
+      4.8
      ],
      "info": "4,190.2 FEET"
     }
@@ -174,7 +174,7 @@
   {
    "id": "sc04",
    "beat": "The lake's record high had come",
-   "start": 11.166666666666666,
+   "start": 14.566666666666666,
    "info": "The lake's record high had come in 1986, at 4,211.6 feet.",
    "camera": {
     "from": {
@@ -211,8 +211,8 @@
      "style": "stat",
      "slot": "upper",
      "t": [
-      2.633,
-      5.433
+      2.9,
+      5.7
      ],
      "info": "4,211.6 FEET"
     }
@@ -222,7 +222,7 @@
   {
    "id": "sc05",
    "beat": "The Landsat satellites were watching the",
-   "start": 17.166666666666668,
+   "start": 22.166666666666668,
    "info": "The Landsat satellites were watching the whole time.",
    "camera": {
     "from": {
@@ -259,7 +259,7 @@
   {
    "id": "sc06",
    "beat": "These are real Landsat scenes from",
-   "start": 26.0,
+   "start": 31.566666666666666,
    "info": "These are real Landsat scenes from the U.S.",
    "camera": {
     "from": {
@@ -296,7 +296,7 @@
   {
    "id": "sc07",
    "beat": "Each picture is a mosaic of",
-   "start": 30.1,
+   "start": 36.56666666666667,
    "info": "Each picture is a mosaic of several scenes, shown with one c",
    "camera": {
     "from": {
@@ -333,7 +333,7 @@
   {
    "id": "sc08",
    "beat": "It is a big lake: about",
-   "start": 37.7,
+   "start": 44.43333333333333,
    "info": "It is a big lake: about 70 miles long, 30 miles wide, and ab",
    "camera": {
     "from": {
@@ -370,7 +370,7 @@
   {
    "id": "sc09",
    "beat": "At about 4,200 feet, it covers",
-   "start": 45.333333333333336,
+   "start": 54.5,
    "info": "At about 4,200 feet, it covers roughly 1,700 square miles.",
    "camera": {
     "from": {
@@ -395,8 +395,8 @@
      "from": "y1986",
      "to": "y2022",
      "t": [
-      4.1,
-      5.7
+      5.067,
+      6.667
      ]
     },
     {
@@ -405,8 +405,8 @@
      "style": "stat",
      "slot": "upper",
      "t": [
-      4.1,
-      6.9
+      5.067,
+      7.867
      ],
      "info": "2,300 SQ MI IN 1986"
     }
@@ -416,7 +416,7 @@
   {
    "id": "sc10",
    "beat": "It is a terminal lake: there",
-   "start": 51.733333333333334,
+   "start": 63.13333333333333,
    "info": "It is a terminal lake: there is no outlet to the sea.",
    "camera": {
     "from": {
@@ -453,7 +453,7 @@
   {
    "id": "sc11",
    "beat": "And it matters to the economy.",
-   "start": 55.3,
+   "start": 66.76666666666667,
    "info": "And it matters to the economy.",
    "camera": {
     "from": {
@@ -490,7 +490,7 @@
   {
    "id": "sc12",
    "beat": "In July 2021, the gauge at",
-   "start": 64.9,
+   "start": 78.1,
    "info": "In July 2021, the gauge at Saltair read 4,191.3 feet, the lo",
    "camera": {
     "from": {
@@ -527,8 +527,8 @@
      "style": "stat",
      "slot": "upper",
      "t": [
-      2.467,
-      5.267
+      3.233,
+      6.033
      ],
      "info": "4,191.3 FEET"
     }
@@ -538,7 +538,7 @@
   {
    "id": "sc13",
    "beat": "NASA reports that at that level",
-   "start": 71.33333333333333,
+   "start": 88.5,
    "info": "NASA reports that at that level the lake covered about 950 s",
    "camera": {
     "from": {
@@ -575,7 +575,7 @@
   {
    "id": "sc14",
    "beat": "A year later, it fell lower",
-   "start": 78.53333333333333,
+   "start": 97.7,
    "info": "A year later, it fell lower still.",
    "camera": {
     "from": {
@@ -612,7 +612,7 @@
   {
    "id": "sc15",
    "beat": "Why did it fall? NASA's account",
-   "start": 83.93333333333334,
+   "start": 105.03333333333333,
    "info": "Why did it fall?",
    "camera": {
     "from": {
@@ -649,7 +649,7 @@
   {
    "id": "sc16",
    "beat": "For about a century, water has",
-   "start": 88.3,
+   "start": 110.33333333333333,
    "info": "For about a century, water has been diverted upstream for ho",
    "camera": {
     "from": {
@@ -674,8 +674,8 @@
      "from": "y1986",
      "to": "y2022",
      "t": [
-      7.533,
-      9.133
+      8.567,
+      10.167
      ]
     },
     {
@@ -684,8 +684,8 @@
      "style": "stat",
      "slot": "upper",
      "t": [
-      8.733,
-      11.533
+      9.7,
+      12.5
      ],
      "info": "39% LESS INFLOW (ESTIMATE)"
     }
@@ -695,7 +695,7 @@
   {
    "id": "sc17",
    "beat": "A 2016 white paper cited by",
-   "start": 98.6,
+   "start": 123.4,
    "info": "A 2016 white paper cited by NASA found that the lake's volum",
    "camera": {
     "from": {
@@ -732,7 +732,7 @@
   {
    "id": "sc18",
    "beat": "Meanwhile, the Salt Lake City metro",
-   "start": 106.93333333333334,
+   "start": 133.1,
    "info": "Meanwhile, the Salt Lake City metro area grew from 700,000 p",
    "camera": {
     "from": {
@@ -782,7 +782,7 @@
   {
    "id": "sc19",
    "beat": "And the climate is changing. More",
-   "start": 112.93333333333334,
+   "start": 142.36666666666667,
    "info": "And the climate is changing.",
    "camera": {
     "from": {
@@ -819,7 +819,7 @@
   {
    "id": "sc20",
    "beat": "In 1959, a solid-fill railroad causeway",
-   "start": 120.66666666666667,
+   "start": 150.66666666666666,
    "info": "In 1959, a solid-fill railroad causeway was completed across",
    "camera": {
     "from": {
@@ -858,7 +858,7 @@
      ],
      "text": "CAUSEWAY",
      "t": [
-      1.833,
+      3.0,
       null
      ],
      "info": "Causeway"
@@ -869,7 +869,7 @@
   {
    "id": "sc21",
    "beat": "The causeway took 50 million cubic",
-   "start": 125.93333333333334,
+   "start": 156.93333333333334,
    "info": "The causeway took 50 million cubic yards of rock, sand and g",
    "camera": {
     "from": {
@@ -906,7 +906,7 @@
   {
    "id": "sc22",
    "beat": "It replaced a 12-mile trestle of",
-   "start": 130.2,
+   "start": 162.06666666666666,
    "info": "It replaced a 12-mile trestle of 28,000 wooden pilings, and ",
    "camera": {
     "from": {
@@ -943,7 +943,7 @@
   {
    "id": "sc23",
    "beat": "It divides the lake into Gunnison",
-   "start": 137.46666666666667,
+   "start": 171.43333333333334,
    "info": "It divides the lake into Gunnison Bay in the north, and Gilb",
    "camera": {
     "from": {
@@ -982,7 +982,7 @@
      ],
      "text": "GUNNISON BAY",
      "t": [
-      1.467,
+      1.367,
       null
      ],
      "info": "Gunnison Bay"
@@ -995,7 +995,7 @@
      ],
      "text": "GILBERT BAY",
      "t": [
-      3.4,
+      3.433,
       null
      ],
      "info": "Gilbert Bay"
@@ -1006,7 +1006,7 @@
   {
    "id": "sc24",
    "beat": "Almost all of the fresh water",
-   "start": 142.66666666666666,
+   "start": 177.3,
    "info": "Almost all of the fresh water flows in on the south side, so",
    "camera": {
     "from": {
@@ -1043,7 +1043,7 @@
   {
    "id": "sc25",
    "beat": "In July 1984, the south side",
-   "start": 148.33333333333334,
+   "start": 183.36666666666667,
    "info": "In July 1984, the south side stood 3.7 feet higher than the ",
    "camera": {
     "from": {
@@ -1080,7 +1080,7 @@
   {
    "id": "sc26",
    "beat": "That August, a 300-foot section of",
-   "start": 154.86666666666667,
+   "start": 192.46666666666667,
    "info": "That August, a 300-foot section of the causeway was replaced",
    "camera": {
     "from": {
@@ -1117,7 +1117,7 @@
   {
    "id": "sc27",
    "beat": "The divide had a strange side",
-   "start": 162.3,
+   "start": 202.16666666666666,
    "info": "The divide had a strange side effect.",
    "camera": {
     "from": {
@@ -1154,7 +1154,7 @@
   {
    "id": "sc28",
    "beat": "USGS says that layer had low",
-   "start": 170.06666666666666,
+   "start": 210.86666666666667,
    "info": "USGS says that layer had low pH and no dissolved oxygen, and",
    "camera": {
     "from": {
@@ -1191,7 +1191,7 @@
   {
    "id": "sc29",
    "beat": "The lake has not always been",
-   "start": 184.43333333333334,
+   "start": 229.0,
    "info": "The lake has not always been too low.",
    "camera": {
     "from": {
@@ -1228,7 +1228,7 @@
   {
    "id": "sc30",
    "beat": "Then came a pumping project, the",
-   "start": 193.33333333333334,
+   "start": 240.6,
    "info": "Then came a pumping project, the Newfoundland Evaporation Ba",
    "camera": {
     "from": {
@@ -1253,8 +1253,8 @@
      "from": "y1986",
      "to": "y1999",
      "t": [
-      3.433,
-      5.033
+      4.467,
+      6.067
      ]
     }
    ],
@@ -1263,7 +1263,7 @@
   {
    "id": "sc31",
    "beat": "The pumps ran from April 1987",
-   "start": 203.96666666666667,
+   "start": 254.03333333333333,
    "info": "The pumps ran from April 1987 to June 1989, and the lake dro",
    "camera": {
     "from": {
@@ -1300,8 +1300,8 @@
      "style": "stat",
      "slot": "upper",
      "t": [
-      4.367,
-      7.167
+      6.3,
+      9.1
      ],
      "info": "DROPPED ALMOST 6 FEET"
     }
@@ -1311,7 +1311,7 @@
   {
    "id": "sc32",
    "beat": "When the water pulls back, it",
-   "start": 212.33333333333334,
+   "start": 265.53333333333336,
    "info": "When the water pulls back, it leaves lake bed.",
    "camera": {
     "from": {
@@ -1346,7 +1346,7 @@
   {
    "id": "sc33",
    "beat": "USGS collected dust at 17 sites",
-   "start": 227.23333333333332,
+   "start": 283.6666666666667,
    "info": "USGS collected dust at 17 sites in northern Utah, near the l",
    "camera": {
     "from": {
@@ -1385,7 +1385,7 @@
      ],
      "text": "FARMINGTON BAY",
      "t": [
-      5.067,
+      6.433,
       null
      ],
      "info": "Farmington Bay"
@@ -1396,7 +1396,7 @@
   {
    "id": "sc34",
    "beat": "Its conclusion is careful. The dust",
-   "start": 238.1,
+   "start": 297.4,
    "info": "Its conclusion is careful.",
    "camera": {
     "from": {
@@ -1433,7 +1433,7 @@
   {
    "id": "sc35",
    "beat": "Then came the winter of 2022",
-   "start": 250.4,
+   "start": 311.03333333333336,
    "info": "Then came the winter of 2022 to 2023, with record snowfall a",
    "camera": {
     "from": {
@@ -1470,7 +1470,7 @@
   {
    "id": "sc36",
    "beat": "Did that fix the problem? NASA's",
-   "start": 260.4,
+   "start": 323.56666666666666,
    "info": "Did that fix the problem?",
    "camera": {
     "from": {
@@ -1507,7 +1507,7 @@
   {
    "id": "sc37",
    "beat": "They show it fell by 16.5",
-   "start": 269.06666666666666,
+   "start": 332.8333333333333,
    "info": "They show it fell by 16.5 cubic miles over about two decades",
    "camera": {
     "from": {
@@ -1544,7 +1544,7 @@
   {
    "id": "sc38",
    "beat": "What do these pictures show? Where",
-   "start": 279.4,
+   "start": 346.2,
    "info": "What do these pictures show?",
    "camera": {
     "from": {
@@ -1569,8 +1569,8 @@
      "from": "y1986",
      "to": "y2022",
      "t": [
-      2.333,
-      3.933
+      2.467,
+      4.067
      ]
     }
    ],
@@ -1579,7 +1579,7 @@
   {
    "id": "sc39",
    "beat": "But the measurements are plain: in",
-   "start": 286.6666666666667,
+   "start": 354.0,
    "info": "But the measurements are plain: in July 2022, the Great Salt",
    "camera": {
     "from": {
@@ -1616,8 +1616,8 @@
      "style": "stat",
      "slot": "upper",
      "t": [
-      4.6,
-      7.4
+      5.3,
+      8.1
      ],
      "info": "4,190.2 FEET"
     }
@@ -1627,7 +1627,7 @@
   {
    "id": "sc40",
    "beat": "And nearly four decades of Landsat",
-   "start": 294.6,
+   "start": 366.6333333333333,
    "info": "And nearly four decades of Landsat show where that water use",
    "camera": {
     "from": {
@@ -1663,14 +1663,30 @@
   }
  ],
  "end": {
-  "seconds": 300.1666666666667
+  "seconds": 372.56666666666666
  },
  "render": {
   "segment_s": 60
  },
  "meta": {
   "generator": "tools/autopilot/storyboard.py",
-  "timing": "estimated",
-  "timing_note": "ESTIMATED timing (2.38 words/s): a proof only, not frame-accurate; rebuild after the paid narration exists"
+  "timing": "provider",
+  "timing_source": "provider",
+  "timing_note": "provider word times",
+  "motion_plan": "story/motion_plan.json"
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "voice/narration.wav",
+    "start": 0.0,
+    "meta": "voice/narration.voice.json"
+   }
+  ]
+ },
+ "subtitles": {
+  "src": "captions/captions.srt",
+  "burn_in": false,
+  "note": "animated captions are drawn by orbitalatlas.director; the SRT ships as the YouTube caption file"
  }
 }
