@@ -1,0 +1,272 @@
+{
+ "schema": "orbitalatlas-archive/1",
+ "slug": "ep003-great-salt-lake",
+ "created": "2026-10-14T12:06:15Z",
+ "part_bytes": 94371840,
+ "files": [
+  {
+   "path": "ledger.json",
+   "role": "paid",
+   "bytes": 143,
+   "sha256": "ac16c0ada636781740a34fa1e657b8cbc90d7f44d0c1e65d868518ee1324049f"
+  },
+  {
+   "path": "voice/cache/28ec2d4530c0a6e2b43d6600.json",
+   "role": "paid",
+   "bytes": 2666812,
+   "sha256": "66143585811ec908965e6f31f948532a1b6e2ac438b6b16254638157a3a5caca"
+  },
+  {
+   "path": "voice/cache/42d985459f153780bd1bce6c.json",
+   "role": "paid",
+   "bytes": 2529925,
+   "sha256": "5ad05bebb374262c3c0bbd06e8056e501ff635bfd57bb888cd11d96b81838cec"
+  },
+  {
+   "path": "voice/cache/f26b36b82837c70ebd04e500.json",
+   "role": "paid",
+   "bytes": 2824086,
+   "sha256": "136ae316396bae6b2c82546e258eb8f6cb9bc236cf7ef30f48a420a55c79d216"
+  },
+  {
+   "path": "voice/narration.voice.json",
+   "role": "paid",
+   "bytes": 62385,
+   "sha256": "e17bdc5a56b50801adc72dd221ec7c3d8d9166b9767b5ad1d96f06487e8b02aa"
+  },
+  {
+   "path": "voice/narration.wav",
+   "role": "paid",
+   "bytes": 32727084,
+   "sha256": "6344886105eae6307d22bb6626be41679c8aa791cac55ca5e85432b227f6855c"
+  },
+  {
+   "path": "voice/tts_plan.json",
+   "role": "paid",
+   "bytes": 366,
+   "sha256": "d58ff7370b0b3beb208324e7511d5e4c87c597964ff861cda94c3542950adbea"
+  },
+  {
+   "path": "final.mp4",
+   "role": "master",
+   "bytes": 889847621,
+   "sha256": "4bae84c0c7b2ebadf9a4f601817715d25e423887e7f67814d3f42db50a32afff",
+   "parts": [
+    {
+     "path": "final.mp4.part00",
+     "bytes": 94371840,
+     "sha256": "0bf8d925a23f374ddebbb4d3bdb1b932d396dd38354d4aad517710d2e8bd9bd3"
+    },
+    {
+     "path": "final.mp4.part01",
+     "bytes": 94371840,
+     "sha256": "87a26a5d7bc45cf7a0d3b67e28dc803763d0b3fa04aa1108eef85fbb48dd9d5c"
+    },
+    {
+     "path": "final.mp4.part02",
+     "bytes": 94371840,
+     "sha256": "a1cae052087c63d7d29f804809205a5bf0d87632d8d69fb152af4d2da37dbf64"
+    },
+    {
+     "path": "final.mp4.part03",
+     "bytes": 94371840,
+     "sha256": "c05b68f6e335473750cc47bb6a49b303047655bbdcc2e94a1a1157577f8c99bb"
+    },
+    {
+     "path": "final.mp4.part04",
+     "bytes": 94371840,
+     "sha256": "c6f42d4e17c26f697bfe76969e76dd61c25e98a77fc5503dba3942b9bd77c155"
+    },
+    {
+     "path": "final.mp4.part05",
+     "bytes": 94371840,
+     "sha256": "ae35c579ea0e953d34bf71b990861f1a61dd449dc202f5b492ba15a4e214dccd"
+    },
+    {
+     "path": "final.mp4.part06",
+     "bytes": 94371840,
+     "sha256": "fce0ed889bc2539f1815ac52523552193c9dfbd7b45a5348c220992ba6a08246"
+    },
+    {
+     "path": "final.mp4.part07",
+     "bytes": 94371840,
+     "sha256": "803ba559fe6e5b6a3b0bde14546824e64205846a811851cb5fb7ac3bff9d5d0b"
+    },
+    {
+     "path": "final.mp4.part08",
+     "bytes": 94371840,
+     "sha256": "729a89882e2cdc27d44c5679794118cb735cdebc2095fa25cb0055cc2df89939"
+    },
+    {
+     "path": "final.mp4.part09",
+     "bytes": 40501061,
+     "sha256": "1df348cd6d1f7108b060f08e339b35c0b33cf3f586724ad3c1158824143b1d71"
+    }
+   ]
+  },
+  {
+   "path": "captions/captions.json",
+   "role": "release",
+   "bytes": 12309,
+   "sha256": "638545bf34edc986b77b18f3276c8da9590e97ab4f0c20350c78eaf999e80c49"
+  },
+  {
+   "path": "captions/captions.srt",
+   "role": "release",
+   "bytes": 7879,
+   "sha256": "73094774ea90562761c4a1e4a43965d062a3a95565b7bf023aab7e8c28cc811f"
+  },
+  {
+   "path": "captions/captions.vtt",
+   "role": "release",
+   "bytes": 7620,
+   "sha256": "eb2061e78f29105e01407b97f19491dfdfffb6f2d3f2d86d3cb7cb02a4b7495d"
+  },
+  {
+   "path": "release/COPYRIGHT_CHECK.md",
+   "role": "release",
+   "bytes": 1134,
+   "sha256": "35a6fe43cd4e7d5ccaadeca2c5b009266e4c9e7697efe48f0334c0be20e9599e"
+  },
+  {
+   "path": "release/chapters.txt",
+   "role": "release",
+   "bytes": 282,
+   "sha256": "f633970e59fa9a1d49fa8471443c1e22bb7806436422795614ad5b6c35856514"
+  },
+  {
+   "path": "release/description.txt",
+   "role": "release",
+   "bytes": 2592,
+   "sha256": "2749571da92dcda5ef77140ead79ecb3900f96c27851dff17660ef7d3ba5edaf"
+  },
+  {
+   "path": "release/metadata.json",
+   "role": "release",
+   "bytes": 839,
+   "sha256": "c7255a90385d045a71f9a58cb806d2e8a943dd5bf6db4c6efdab013342d29ee7"
+  },
+  {
+   "path": "release/tags.txt",
+   "role": "release",
+   "bytes": 268,
+   "sha256": "b359806e723cf7ee423f640ff5e84aacdbf5a19d5fabca977199f460c163f9e4"
+  },
+  {
+   "path": "approvals.json",
+   "role": "build",
+   "bytes": 630,
+   "sha256": "781436fd4192b9657916bad0cc5a12ca6bb25531c168a26f146ec085fecb40b2"
+  },
+  {
+   "path": "assets/manifest.json",
+   "role": "build",
+   "bytes": 6752,
+   "sha256": "9c1c86bf9cee523de5aa97e5261f6cfc54544956324b61dfb51689b7728d623d"
+  },
+  {
+   "path": "graphics/sc03-callout.json",
+   "role": "build",
+   "bytes": 1257,
+   "sha256": "e30bec20ba0ddfb015a7510d0b9a1b61e79d0299b2a11149ac402dae451cf169"
+  },
+  {
+   "path": "graphics/sc03-callout.png",
+   "role": "build",
+   "bytes": 116524,
+   "sha256": "670501a465f39c31e253f2a4dc5f48aa19131d6fb6ca86f7eb8f1ea2b84e8f96"
+  },
+  {
+   "path": "graphics/sc09-callout.json",
+   "role": "build",
+   "bytes": 1290,
+   "sha256": "a65c6ddd7f08b3192ea0be7f16ba498cad1f05f32256fded19d69fe33b8cba83"
+  },
+  {
+   "path": "graphics/sc09-callout.png",
+   "role": "build",
+   "bytes": 112716,
+   "sha256": "d564144464ff238b06b69498d936e44804569a532a0b7f7b48ddc242f8834026"
+  },
+  {
+   "path": "graphics/spec.json",
+   "role": "build",
+   "bytes": 682,
+   "sha256": "5482fd26627d0fd4964d76e01dcda2629e37fd10a67b1921de08ad49590ba84e"
+  },
+  {
+   "path": "grid.json",
+   "role": "build",
+   "bytes": 116,
+   "sha256": "4e8fc1a9b1d2d836cac160616efcb9400495686d8babc7a0299b0c58fd2d018d"
+  },
+  {
+   "path": "qc/director_report.json",
+   "role": "build",
+   "bytes": 75527,
+   "sha256": "9fab45715b4b2a879f7a52e0aa76b25dfa8e4b4250f2ff9eead0fd990bb591f9"
+  },
+  {
+   "path": "qc/qc.json",
+   "role": "build",
+   "bytes": 3649,
+   "sha256": "943a4aadd50e16c2efb0a02807e5f9b50c57a5831d9e940d6ca80e837815b60b"
+  },
+  {
+   "path": "qc/qc_silent_preview.json",
+   "role": "build",
+   "bytes": 6334,
+   "sha256": "e47ce35dc65cc111b3f0e7049cdd00c48b7a6adcfb03eca5cc9fe23ff244fba4"
+  },
+  {
+   "path": "qc/review.json",
+   "role": "build",
+   "bytes": 2658,
+   "sha256": "61cfecb79f1e92cb8d93b930045e92bb11d512d41a25e98c9bb611abeec7af30"
+  },
+  {
+   "path": "state.json",
+   "role": "build",
+   "bytes": 2971,
+   "sha256": "b4041002f21406635073a3c86cf970fcc225c38998b2705af8ee8b129f7a043a"
+  },
+  {
+   "path": "story/SCRIPT_LOCK.json",
+   "role": "build",
+   "bytes": 232,
+   "sha256": "c0558731d7a1722701618b8bfcc67e302e17145e5c1f858776bb6dfa103d9599"
+  },
+  {
+   "path": "story/claims.json",
+   "role": "build",
+   "bytes": 16214,
+   "sha256": "c30cccc35244a8381df95c4ad1c412fef935b9afb192acd5924da23f4d411ff3"
+  },
+  {
+   "path": "story/motion_plan.json",
+   "role": "build",
+   "bytes": 115751,
+   "sha256": "a18b82cb66928a86dc49b463c8dfca4301cb1e01e6a3a880e32172a3904cd72f"
+  },
+  {
+   "path": "story/storyboard.md",
+   "role": "build",
+   "bytes": 13005,
+   "sha256": "3017475b1f128e0adbe078da016e4cafe1a195ee3de6835445e4f323b4f5cc5a"
+  },
+  {
+   "path": "story/storyboard.plan.json",
+   "role": "build",
+   "bytes": 30267,
+   "sha256": "8f81bffcf114a24c949ce41e7816644fec44afbfcaa78bd0fc3bc637b366a299"
+  },
+  {
+   "path": "timeline.json",
+   "role": "build",
+   "bytes": 28848,
+   "sha256": "d19de1a1e7bdbba90456d02c93a29beae9902f89cf67f183db769c88062d38d7"
+  }
+ ],
+ "restore": "python3 tools/autopilot/archive.py restore <this dir> --to <new dir>   (joins parts, verifies SHA-256, never overwrites)",
+ "join_by_hand": "cat FILE.part* > FILE   then   sha256sum FILE   and compare with ARCHIVE_MANIFEST.json"
+}

@@ -1,0 +1,295 @@
+{
+ "result": "FAIL",
+ "file": "/home/user/YouTube-Agent/productions/ep003-great-salt-lake/preview/proof.mp4",
+ "summary": {
+  "bytes": 222740118,
+  "duration": 300.166667,
+  "resolution": "1920x1080",
+  "fps": 30.0,
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "expected_duration": 300.167,
+  "profile": "long"
+ },
+ "checks": [
+  {
+   "id": "file_exists",
+   "status": "pass",
+   "expected": "exists",
+   "actual": "exists"
+  },
+  {
+   "id": "container_readable",
+   "status": "pass",
+   "expected": "ffprobe reads the file",
+   "actual": "ok"
+  },
+  {
+   "id": "file_size",
+   "status": "pass",
+   "expected": "> 0 and <= 2000.0 MB",
+   "actual": 222740118
+  },
+  {
+   "id": "container",
+   "status": "pass",
+   "expected": "mp4",
+   "actual": "mov,mp4,m4a,3gp,3g2,mj2"
+  },
+  {
+   "id": "video_stream",
+   "status": "pass",
+   "expected": "1 video stream",
+   "actual": 1
+  },
+  {
+   "id": "audio_stream",
+   "status": "pass",
+   "expected": "1 audio stream",
+   "actual": 1
+  },
+  {
+   "id": "resolution",
+   "status": "pass",
+   "expected": "1920x1080",
+   "actual": "1920x1080"
+  },
+  {
+   "id": "frame_rate",
+   "status": "pass",
+   "expected": 30.0,
+   "actual": 30.0
+  },
+  {
+   "id": "video_codec",
+   "status": "pass",
+   "expected": "h264",
+   "actual": "h264"
+  },
+  {
+   "id": "pixel_format",
+   "status": "pass",
+   "expected": "yuv420p",
+   "actual": "yuv420p",
+   "detail": "other pixel formats play badly on some devices"
+  },
+  {
+   "id": "audio_codec",
+   "status": "pass",
+   "expected": "aac",
+   "actual": "aac"
+  },
+  {
+   "id": "duration_readable",
+   "status": "pass",
+   "expected": "> 0 s",
+   "actual": 300.166667
+  },
+  {
+   "id": "duration_matches_timeline",
+   "status": "pass",
+   "expected": "300.167 s \u00b1 0.25",
+   "actual": 300.167
+  },
+  {
+   "id": "streams_aligned",
+   "status": "pass",
+   "expected": "video, audio and container end together",
+   "actual": {
+    "container": 300.166667,
+    "video": 300.166667,
+    "audio": 300.166
+   }
+  },
+  {
+   "id": "frame_count",
+   "status": "pass",
+   "expected": 9005,
+   "actual": 9005
+  },
+  {
+   "id": "full_decode",
+   "status": "pass",
+   "expected": "decodes with no errors",
+   "actual": "ok"
+  },
+  {
+   "id": "long_duration",
+   "status": "pass",
+   "expected": "60.0-900.0 s",
+   "actual": 300.167
+  },
+  {
+   "id": "long_target_window",
+   "status": "warn",
+   "expected": "480.0-720.0 s",
+   "actual": 300.167
+  },
+  {
+   "id": "black_frames",
+   "status": "pass",
+   "expected": "none",
+   "actual": 0
+  },
+  {
+   "id": "freezes",
+   "status": "pass",
+   "expected": "< 2.5 s static",
+   "actual": 0
+  },
+  {
+   "id": "loudness",
+   "status": "fail",
+   "expected": "-16.0 to -12.0 LUFS",
+   "actual": -70.0,
+   "detail": "no programme loudness - silent?"
+  },
+  {
+   "id": "audio_starts",
+   "status": "fail",
+   "expected": "<= 1.0 s",
+   "actual": 300.181
+  },
+  {
+   "id": "info_events_first_10s",
+   "status": "pass",
+   "expected": ">= 3",
+   "actual": 6
+  },
+  {
+   "id": "captions_in_safe_zone",
+   "status": "pass",
+   "expected": "every caption inside the 16:9 safe area",
+   "actual": "ok"
+  },
+  {
+   "id": "shot_credits",
+   "status": "pass",
+   "expected": "a source credit on every shot",
+   "actual": "ok"
+  },
+  {
+   "id": "manifest_matches",
+   "status": "pass",
+   "expected": 300.167,
+   "actual": 300.167
+  },
+  {
+   "id": "compositions_first_10s",
+   "status": "pass",
+   "expected": ">= 3 distinct compositions",
+   "actual": 4
+  },
+  {
+   "id": "composition_resets",
+   "status": "pass",
+   "expected": ">= 5.0 per minute",
+   "actual": 8.2,
+   "detail": [
+    "6.633s sc02: camera_move",
+    "8.8s sc03: wipe",
+    "9.9s sc03: camera_move",
+    "13.867s sc04: camera_move",
+    "17.167s sc05: timelapse",
+    "33.6s sc07: camera_move",
+    "37.7s sc08: cut",
+    "47.933s sc09: camera_move",
+    "49.433s sc09: wipe",
+    "53.233s sc10: camera_move",
+    "59.3s sc11: camera_move",
+    "74.133s sc13: camera_move",
+    "85.333s sc15: camera_move",
+    "92.6s sc16: camera_move",
+    "95.833s sc16: wipe",
+    "101.9s sc17: camera_move",
+    "106.933s sc18: cut",
+    "109.433s sc18: camera_move",
+    "116.533s sc19: camera_move",
+    "122.767s sc20: camera_move",
+    "127.533s sc21: camera_move",
+    "132.8s sc22: camera_move",
+    "139.367s sc23: camera_move",
+    "145.167s sc24: camera_move",
+    "152.033s sc25: camera_move",
+    "157.567s sc26: camera_move",
+    "165.6s sc27: camera_move",
+    "176.167s sc28: camera_move",
+    "188.033s sc29: camera_move",
+    "196.766s sc30: wipe",
+    "197.533s sc30: camera_move",
+    "214.6s sc32: wipe",
+    "217.133s sc32: camera_move",
+    "232.233s sc33: camera_move",
+    "243.8s sc34: camera_move",
+    "254.5s sc35: camera_move",
+    "263.1s sc36: camera_move",
+    "273.167s sc37: camera_move",
+    "281.733s sc38: wipe",
+    "289.867s sc39: camera_move",
+    "294.6s sc40: timelapse"
+   ]
+  },
+  {
+   "id": "composition_hold",
+   "status": "warn",
+   "expected": "<= 8.0 s on one composition",
+   "actual": 8.433,
+   "detail": "17.167-33.6 s"
+  },
+  {
+   "id": "visual_families_first_10s",
+   "status": "warn",
+   "expected": ">= 3",
+   "actual": 2
+  },
+  {
+   "id": "visual_family_transitions",
+   "status": "pass",
+   "expected": ">= 2.0 per minute",
+   "actual": 4.2,
+   "detail": [
+    "0.0s geo_1985",
+    "8.6s geo_wipe_1985_2022",
+    "11.167s geo_1986",
+    "17.167s geo_timelapse",
+    "26.0s geo_2022",
+    "37.7s geo_1999",
+    "45.333s geo_wipe_1986_2022",
+    "51.733s geo_1999",
+    "64.9s geo_2021",
+    "78.533s geo_2022",
+    "88.3s geo_wipe_1986_2022",
+    "98.6s geo_2022",
+    "148.333s geo_1985",
+    "154.867s geo_2022",
+    "184.433s geo_1986",
+    "193.333s geo_wipe_1986_1999",
+    "203.967s geo_1999",
+    "212.333s geo_wipe_1986_2022",
+    "227.233s geo_2022",
+    "279.4s geo_wipe_1986_2022",
+    "286.667s geo_2022",
+    "294.6s geo_timelapse"
+   ]
+  },
+  {
+   "id": "visual_family_dominance",
+   "status": "warn",
+   "expected": "<= 30.0 s of one family unless it is transforming",
+   "actual": 52.167,
+   "detail": "geo_2022 227.233-279.4 s"
+  },
+  {
+   "id": "segments_tile_video",
+   "status": "pass",
+   "expected": "9005 frames, contiguous",
+   "actual": 9005
+  },
+  {
+   "id": "segment_boundaries_keyframes",
+   "status": "pass",
+   "expected": "a keyframe at every segment start",
+   "actual": "ok"
+  }
+ ]
+}

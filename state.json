@@ -1,0 +1,90 @@
+{
+ "slug": "ep003-great-salt-lake",
+ "created": "2026-10-14T03:31:03Z",
+ "stages": {
+  "research": {
+   "completed": "2026-10-14T03:32:07Z",
+   "inputs_sha": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "claims": {
+   "completed": "2026-10-14T03:32:07Z",
+   "inputs_sha": "628ff02036a2a501b358de9815fa38b6b4db43aa2fca71d7089172c662d9d1f8"
+  },
+  "script": {
+   "completed": "2026-10-14T07:11:23Z",
+   "inputs_sha": "d9a0ca65fb275a30a3df9346105d56080a59573896cedb30263d5b5ecc05c2dd"
+  },
+  "tts_plan": {
+   "pitfalls_consulted": [
+    "free-test-voice-measured-timing",
+    "paid-tts-gate-in-the-calling-function",
+    "script-lock-sha256",
+    "tts-blank-lines-are-billable",
+    "tts-gateway-502-chunk-size",
+    "tts-key-injected-by-egress-proxy",
+    "tts-no-blind-retry",
+    "tts-persistent-chunk-cache"
+   ],
+   "completed": "2026-10-14T10:12:09Z",
+   "inputs_sha": "f782c2bf9ea870ca6c5073a561cfda0f523ed3ad63584717a7c3a3d1c2a77d37"
+  },
+  "tts": {
+   "pitfalls_consulted": [
+    "captions-from-provider-word-times",
+    "paid-tts-gate-in-the-calling-function",
+    "rebuild-paid-narration-from-saved-responses",
+    "script-lock-sha256",
+    "tts-blank-lines-are-billable",
+    "tts-gateway-502-chunk-size",
+    "tts-key-injected-by-egress-proxy",
+    "tts-no-blind-retry",
+    "tts-persistent-chunk-cache",
+    "two-clocks-for-sync",
+    "voice-onset-measured-on-narration"
+   ],
+   "completed": "2026-10-14T10:16:47Z",
+   "inputs_sha": "5ae6d13cf15bc26cec991144150d4f6df192d1fcfb133b55a309041bdee3e4e7"
+  },
+  "captions": {
+   "pitfalls_consulted": [
+    "caption-count-up-showed-wrong-numbers",
+    "captions-from-provider-word-times",
+    "free-test-voice-measured-timing",
+    "two-clocks-for-sync",
+    "voice-onset-measured-on-narration"
+   ],
+   "completed": "2026-10-14T10:17:40Z",
+   "inputs_sha": "5218b0a9c792106631ff8e17b2a308fb30af35d0ff87f1d48423a87274ed7417"
+  },
+  "storyboard": {
+   "completed": "2026-10-14T10:18:05Z",
+   "inputs_sha": "5b43efe31e58eadbd83e00d179c05d1f0e5115d3bf6887f986bc67c5373cdc70"
+  },
+  "qc": {
+   "pitfalls_consulted": [
+    "black-frame-near-empty-card",
+    "caption-cards-overlapped-by-lead",
+    "freeze-on-static-card",
+    "low-contrast-text-on-bright-imagery",
+    "overlap-between-layers-needs-eye",
+    "qc-expected-duration-from-video",
+    "silent-proof-fails-yt-qc-by-design",
+    "sound-design-synthesised-ducked",
+    "subtitle-vs-graphic-overlap-check",
+    "text-clipped-at-frame-edge",
+    "video-frame-accuracy-check",
+    "viewer-reencodes-files"
+   ],
+   "completed": "2026-10-14T12:05:33Z",
+   "inputs_sha": "47fbb5f3671562386a36c68c8cb7b4e0c486117bfbab345ab5ffaa6f141f1d9d"
+  },
+  "review": {
+   "completed": "2026-10-14T12:05:56Z",
+   "inputs_sha": "c2c5f282828b7e146c1cee7fa10370f1b0fc3b3d05262645a6f0c89a467fc5be"
+  },
+  "package": {
+   "completed": "2026-10-14T12:05:56Z",
+   "inputs_sha": "0de37bc6fd310c3d8d92df3aabbb73e9bd27d310b9a722e40e3844ae99eefbac"
+  }
+ }
+}
