@@ -1,0 +1,48 @@
+{
+ "schema": "orbitalatlas-shoreline/1",
+ "source": "assets/landsat/stack_cal/y1986.png",
+ "mask": "assets/geo/water_y1986.png",
+ "factor": 4,
+ "method": "seeded region growing from stack pins inside a lon/lat box after excluding red-brown land",
+ "params": {
+  "max_luma": 135,
+  "max_std": 9.0,
+  "box": [
+   -113.15,
+   41.8,
+   -111.85,
+   40.62
+  ],
+  "seeds": [
+   "Gunnison Bay",
+   "Gilbert Bay",
+   "Farmington Bay"
+  ],
+  "extra_seeds": [
+   [
+    -112.25,
+    41.35
+   ],
+   [
+    -112.6,
+    41.55
+   ],
+   [
+    -112.45,
+    41.05
+   ]
+  ]
+ },
+ "missed_seeds": [
+  [
+   399,
+   297
+  ],
+  [
+   471,
+   197
+  ]
+ ],
+ "water_fraction": 0.12161,
+ "note": "display aid traced from imagery; not a survey measurement"
+}

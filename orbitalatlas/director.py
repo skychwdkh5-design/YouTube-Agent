@@ -27,7 +27,7 @@ import sys
 import numpy as np
 from PIL import Image
 
-from . import camera_presets as CP, captions as C, fx, grade, interact as IX, regions, semantic, transitions as TR, typeset as TS
+from . import camera_presets as CP, captions as C, fx, grade, interact as IX, phrases as PH, regions, semantic, transitions as TR, typeset as TS
 from .layers import Scene, SourceChip
 from .plane import PlaneTilt
 from .sequence import Program, Sequence, Shot, render_video
@@ -99,6 +99,14 @@ def _direction(words, i):
 def _words_between(words, t0, t1): return [w for w in words if t0 - 1e-3 <= w["start"] < t1]
 
 
+def _grow(m, r):
+    """binary dilation by r pixels (4-neighbourhood), numpy only"""
+    m = m.copy()
+    for _ in range(r):
+        g = m.copy(); g[1:] |= m[:-1]; g[:-1] |= m[1:]; g[:, 1:] |= m[:, :-1]; g[:, :-1] |= m[:, 1:]; m = g
+    return m
+
+
 def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, min_focus_gap=5.0, max_focus_per_min=4):
     tl = _load(os.path.join(prod, "timeline.json")); mp_path = os.path.join(prod, (tl.get("meta") or {}).get("motion_plan", "story/motion_plan.json"))
     plan = _load(mp_path); words = plan["words"]; report = dict(decisions=[], skipped=[], focus=[], intended_changes=[])
@@ -110,6 +118,11 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
     def image(aid):
         if aid not in imgs: imgs[aid] = Image.open(os.path.join(prod, tl["assets"][aid]["src"])).convert("RGB")
         return imgs[aid]
+    masks = {}
+    def mask_img(aid):                                                   # bool array + its scale (source pixels per mask pixel)
+        if aid not in masks:
+            a = tl["assets"][aid]; masks[aid] = (np.asarray(Image.open(os.path.join(prod, a["src"])).convert("L")) > 127, float(a.get("scale", 1)))
+        return masks[aid]
     shots = tl["shots"]; end = tl["end"]["seconds"]
     starts = [s["start"] for s in shots] + [end]
     # ---- focus manager: impact (revelation) and number cards, from the plan
@@ -129,9 +142,7 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
             card = next(c for c in cards if any(w is words[i] or (w["start"] == words[i]["start"] and w["text"] == words[i]["text"]) for w in c["words"]))
             s0 = max((k + 1 for k in range(0, i) if re.search(r"[.!?]$", words[k]["text"])), default=0)      # the number's own sentence, up to the number
             pre = [w["text"] for w in words[s0:i]]
-            if pre and pre[0].lower() in ("and", "but", "so", "then"): pre = pre[1:]
-            colon = max((k + 1 for k, x in enumerate(pre) if x.endswith(":")), default=0); pre = pre[colon:]      # 'the measurements are plain: IN JULY 2022, ...'
-            kicker = " ".join(pre[-9:]).strip().rstrip(",") or "measured"
+            kicker = " ".join(PH.clause_suffix(pre, 9, max_chars=44)).strip().rstrip(",:;")                  # a whole clause that leads into the number (phrases.py)
             tail = []                                                                         # content words after the unit inside the clause ('HIGHER', 'CUBIC YARDS')
             ends = re.search(r"[.!?,;:]$", words[i + 1]["text"] if unit else words[i]["text"])   # the unit (or number) closes the clause: no tail
             for w in ([] if ends else words[i + (2 if unit else 1):i + 5]):
@@ -199,6 +210,24 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
         for name, e in lift_here.items():
             lifted.add(name); overlays.append(IX.KeywordLift(caps, e["t"], words[e["word"]]["text"], geo.px(pins[name]), t_s, t_e + 0.5, label=name))
             note("lift", t=e["t"], place=name)
+        # traced water masks from the timeline (v3 'fill' = water in mask, not in minus; 'outline' = a shoreline), with a dated legend
+        for l in sh["layers"]:
+            if l["type"] not in ("fill", "outline") or l.get("mask") not in tl["assets"]: continue
+            fill, a0 = l["type"] == "fill", float((l.get("t") or [0.4])[0]); a1 = (l.get("t") or [None, None])[1]; a1 = dur - 0.2 if a1 is None else float(a1)
+            m, sc_ = mask_img(l["mask"]); mm = m
+            if fill and l.get("minus") in tl["assets"]:
+                b, _ = mask_img(l["minus"]); mm = m & ~_grow(b, 1)
+                mm = _grow(~_grow(~mm, 1), 1)                             # opening: drop one-pixel slivers along the shared shoreline
+            col = {"amber": fx.AMBER, "cyan": fx.CYAN, "violet": fx.PURPLE}.get(l.get("color", "amber"), fx.AMBER)
+            overlays.append(fx.RegionTint(regions.to_mask_image(mm, 1), a0, color=col, settle_alpha=0.17 if fill else 0.0, flash_peak=0.30 if fill else 0.0,
+                                          dur=1.0 if fill else 1.6, out_t=a1, mask_scale=1.0 / sc_, outline=not fill, thin=True, glint=False,
+                                          source=f"traced water mask {l['mask']}" + (f" minus {l['minus']}" if fill else ""), validation="display aid traced from Landsat; not a survey"))
+            if l.get("label"):
+                anc = geo.px(l["at"]) if l.get("at") else None
+                if anc is not None:
+                    overlays.append(fx.CalloutPanel(anc, a0 + 0.5, a1, l["label"], [l["sub"]] if l.get("sub") else [], offset=tuple(l.get("offset", (0.08, -0.14))), accent=col))
+            note(l["type"], t=t_s + a0, mask=l["mask"], minus=l.get("minus"), label=l.get("label"))
+            dates.append(dict(kind="overlay", t=round(t_s + a0, 2), text=(l.get("label") or "") + (" · " + l["sub"] if l.get("sub") else ""), mask=l["mask"], minus=l.get("minus")))
         # semantic events that fall inside this shot
         for e in plan["events"]:
             if not (t_s <= e["t"] < t_e): continue
@@ -320,14 +349,12 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
             j = i - 1 if i > 0 and bare(i - 1) in semantic.MONTHS else i
             if j > s0 + 1 and re.fullmatch(r"\d{1,2}", bare(j - 1)) and bare(j - 2) in semantic.MONTHS: j -= 2        # 'on July 3, 2022'
             prep = j - 1 if j > s0 and bare(j - 1) in ("in", "by", "since", "until", "after", "before", "on") else j
-            raw = words[s0:prep]
-            cut = max((k + 1 for k, w in enumerate(raw) if re.search(r"[,;:]$", w["text"]) and k < len(raw) - 1), default=0); raw = raw[cut:]   # last clause only
-            clause = [re.sub(r"[^\w']", "", w["text"]) for w in raw] or [re.sub(r"[^\w']", "", w["text"]) for w in words[yi + 1:s1 + 1]]
-            keep = [x for x in clause if x and not re.search(r"\d", x) and x.lower() not in STOP and x.lower() not in ("and", "but", "so", "then")]
-            lab = " ".join(keep[-4:])
+            lab = PH.label([w["text"] for w in words[s0:prep]], [w["text"] for w in words[yi + 1:s1 + 1]])     # contiguous narration words (phrases.py)
             yr = re.sub(r"[^\d]", "", words[i + 1]["text"]) if re.sub(r"[^\w]", "", words[i]["text"]).lower() in semantic.MONTHS else re.sub(r"[^\d]", "", words[i]["text"])
             t1 = min([e["t"] + 1.8] + [f["t0"] - 0.05 for f in focus if f["t0"] > e["t"]])
-            if yr and t1 - e["t"] > 0.6:
+            if yr and t1 - e["t"] < 1.2:
+                report["skipped"].append(dict(kind="event_year", t=e["t"], why="less than 1.2 s on screen before the next focus card")); continue
+            if yr:
                 over.append(IX.EventYear(yr, lab, e["t"], t1)); note("event_year", t=e["t"], year=yr, words=lab)
                 img = next((d_ for d_ in reversed(dates) if d_["kind"] == "image" and d_["t"] <= e["t"]), None); img_label = img["asset_label"] if img else None
                 if img and yr not in img_label:                       # an event year never stands alone over a picture of another date
@@ -340,6 +367,12 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
     for f in focus:                                              # card entrances/exits are deliberate hard changes
         report["intended_changes"] += [round(f["t0"] + k / 30, 3) for k in range(-1, 10)] + [round(f["t1"] + k / 30, 3) for k in range(-1, 12)]
     report["intended_changes"] = sorted(set(report["intended_changes"]))
+    toks = [w["text"] for w in words]; texts = []                     # every dynamic phrase on screen, linted against the narration
+    for f in focus:
+        if f["kind"] == "number" and f["kicker"]: texts.append(dict(t=round(f["t0"], 2), kind="number_kicker", text=f["kicker"], problems=PH.lint(f["kicker"], toks, standalone=False)))
+    for d_ in report["decisions"]:
+        if d_["kind"] == "event_year" and d_.get("words"): texts.append(dict(t=round(d_["t"], 2), kind="event_label", text=d_["words"], problems=PH.lint(d_["words"], toks)))
+    report["texts"] = texts
     report["dates"] = dates
     ev_t = sorted({round(d["t"], 2) for d in report["decisions"] if d.get("t") is not None and d["kind"] != "captions"} | {round(f["t0"], 2) for f in focus} |
                   {round(f["t1"], 2) for f in focus} | {round(c["t0"], 2) for c in cards})
