@@ -1,0 +1,553 @@
+{
+ "timing": "estimated",
+ "alignment": {
+  "method": "token-count",
+  "exact": true
+ },
+ "scenes": [
+  {
+   "scene": "sc01",
+   "start": 0.0,
+   "end": 2.3,
+   "kinds": [
+    "establish_place"
+   ],
+   "text": "This is the Great Salt Lake in Utah,",
+   "chosen": {
+    "template": "still_push_in",
+    "asset": "gsl_1985",
+    "family": "gsl_1985",
+    "gtype": null
+   },
+   "score": 6.2,
+   "notes": [],
+   "alternatives": [
+    {
+     "template": "still_push_in",
+     "asset": "gsl_1999",
+     "score": 6.2
+    },
+    {
+     "template": "still_push_in",
+     "asset": "gsl_2015",
+     "score": 6.2
+    },
+    {
+     "template": "still_push_in",
+     "asset": "gsl_2023",
+     "score": 6.2
+    }
+   ]
+  },
+  {
+   "scene": "sc02",
+   "start": 2.3,
+   "end": 5.533333333333333,
+   "kinds": [
+    "establish_place"
+   ],
+   "text": "the largest saline lake in the Western Hemisphere.",
+   "chosen": {
+    "template": "still_pull_out",
+    "asset": "gsl_1999",
+    "family": "gsl_1999",
+    "gtype": null
+   },
+   "score": 3.24,
+   "notes": [],
+   "alternatives": [
+    {
+     "template": "still_pull_out",
+     "asset": "gsl_2015",
+     "score": 3.24
+    },
+    {
+     "template": "still_pull_out",
+     "asset": "gsl_2023",
+     "score": 3.24
+    },
+    {
+     "template": "still_pan",
+     "asset": "gsl_1999",
+     "score": 3.04
+    }
+   ]
+  },
+  {
+   "scene": "sc03",
+   "start": 5.533333333333333,
+   "end": 8.6,
+   "kinds": [
+    "number"
+   ],
+   "text": "In June 1985, its surface measured 4,209.7 feet.",
+   "chosen": {
+    "template": "graphic_full",
+    "asset": null,
+    "family": "graphic_number",
+    "gtype": "callout"
+   },
+   "score": 2.4,
+   "notes": [],
+   "alternatives": [
+    {
+     "template": "still_push_in",
+     "asset": "gsl_1985",
+     "score": 2.22
+    },
+    {
+     "template": "video_sequence",
+     "asset": "gsl_timelapse",
+     "score": 1.7
+    },
+    {
+     "template": "still_pan",
+     "asset": "gsl_1985",
+     "score": 1.02
+    }
+   ],
+   "graphic_claim": "C1"
+  },
+  {
+   "scene": "sc04",
+   "start": 8.6,
+   "end": 11.166666666666666,
+   "kinds": [
+    "number"
+   ],
+   "text": "In July 2022, it measured 4,190.2 feet.",
+   "chosen": {
+    "template": "still_push_in",
+    "asset": "gsl_2023",
+    "family": "gsl_2023",
+    "gtype": null
+   },
+   "score": 2.6,
+   "notes": [
+    "picture is 1 yr from the year narrated (-0.9)",
+    "returns to imagery (+0.8)",
+    "continuation: same subject as the previous shot, new view"
+   ],
+   "alternatives": [
+    {
+     "template": "video_sequence",
+     "asset": "gsl_timelapse",
+     "score": 2.5
+    },
+    {
+     "template": "still_pull_out",
+     "asset": "gsl_2023",
+     "score": 1.6
+    },
+    {
+     "template": "still_pan",
+     "asset": "gsl_2023",
+     "score": 1.4
+    }
+   ]
+  },
+  {
+   "scene": "sc05",
+   "start": 11.166666666666666,
+   "end": 13.633333333333333,
+   "kinds": [
+    "establish_place"
+   ],
+   "text": "The lake's record high had come in 1986,",
+   "chosen": {
+    "template": "video_sequence",
+    "asset": "gsl_timelapse",
+    "family": "gsl_timelapse",
+    "gtype": null
+   },
+   "score": 1.7,
+   "notes": [
+    "continuation: same subject as the previous shot, new view"
+   ],
+   "alternatives": [
+    {
+     "template": "still_pull_out",
+     "asset": "gsl_1985",
+     "score": -0.66
+    },
+    {
+     "template": "still_push_in",
+     "asset": "gsl_1985",
+     "score": -0.86
+    },
+    {
+     "template": "still_pan",
+     "asset": "gsl_1985",
+     "score": -0.86
+    }
+   ]
+  },
+  {
+   "scene": "sc06",
+   "start": 13.633333333333333,
+   "end": 17.166666666666668,
+   "kinds": [
+    "number"
+   ],
+   "text": "at 4,211.6 feet. Now it sat more than 20 feet lower.",
+   "chosen": {
+    "template": "still_push_in",
+    "asset": "gsl_1985",
+    "family": "gsl_1985",
+    "gtype": null
+   },
+   "score": 2.7,
+   "notes": [
+    "continuation: same subject as the previous shot, new view"
+   ],
+   "alternatives": [
+    {
+     "template": "still_push_in",
+     "asset": "gsl_2015",
+     "score": 2.7
+    },
+    {
+     "template": "graphic_full",
+     "asset": null,
+     "score": 2.4
+    },
+    {
+     "template": "still_pull_out",
+     "asset": "gsl_1985",
+     "score": 1.7
+    }
+   ]
+  },
+  {
+   "scene": "sc07",
+   "start": 17.166666666666668,
+   "end": 26.1,
+   "kinds": [
+    "change_over_time"
+   ],
+   "text": "NASA's Landsat satellites were watching the whole time. Put the pictures in order, from 1984 to 2023, and the lake pulls back from its shore.",
+   "chosen": {
+    "template": "video_sequence",
+    "asset": "gsl_timelapse",
+    "family": "gsl_timelapse",
+    "gtype": null
+   },
+   "score": 9.8,
+   "notes": [
+    "author hint (+6)",
+    "asset used <45 s ago (-3)"
+   ],
+   "alternatives": [
+    {
+     "template": "still_pull_out",
+     "asset": "gsl_1999",
+     "score": -4.96
+    },
+    {
+     "template": "still_pull_out",
+     "asset": "gsl_2015",
+     "score": -4.96
+    },
+    {
+     "template": "still_pan",
+     "asset": "gsl_1999",
+     "score": -5.26
+    }
+   ]
+  },
+  {
+   "scene": "sc08",
+   "start": 26.1,
+   "end": 34.4,
+   "kinds": [
+    "establish_place"
+   ],
+   "text": "Why? NASA's account points to people and to climate. For about a century, water has been diverted upstream for homes and farms.",
+   "chosen": {
+    "template": "still_push_in",
+    "asset": "gsl_1999",
+    "family": "gsl_1999",
+    "gtype": null
+   },
+   "score": 2.7,
+   "notes": [
+    "continuation: same subject as the previous shot, new view"
+   ],
+   "alternatives": [
+    {
+     "template": "still_push_in",
+     "asset": "gsl_2015",
+     "score": 2.7
+    },
+    {
+     "template": "still_pull_out",
+     "asset": "gsl_1999",
+     "score": 1.7
+    },
+    {
+     "template": "still_pull_out",
+     "asset": "gsl_2015",
+     "score": 1.7
+    }
+   ]
+  },
+  {
+   "scene": "sc09",
+   "start": 34.4,
+   "end": 39.93333333333333,
+   "kinds": [
+    "change_over_time",
+    "number"
+   ],
+   "text": "Utah State University researchers estimate that inflows have fallen 39 percent since 1850.",
+   "chosen": {
+    "template": "graphic_full",
+    "asset": null,
+    "family": "graphic_number",
+    "gtype": "callout"
+   },
+   "score": 2.4,
+   "notes": [],
+   "alternatives": [
+    {
+     "template": "still_pull_out",
+     "asset": "gsl_2015",
+     "score": -6.5
+    },
+    {
+     "template": "still_pull_out",
+     "asset": "gsl_2023",
+     "score": -6.5
+    },
+    {
+     "template": "still_pan",
+     "asset": "gsl_2015",
+     "score": -6.8
+    }
+   ],
+   "graphic_claim": "C3"
+  },
+  {
+   "scene": "sc10",
+   "start": 39.93333333333333,
+   "end": 48.43333333333333,
+   "kinds": [
+    "change_over_time",
+    "number"
+   ],
+   "text": "And the region kept growing. The Salt Lake City metro area went from 700,000 people in 1982 to 1.2 million in 2022.",
+   "chosen": {
+    "template": "video_sequence",
+    "asset": "gsl_timelapse",
+    "family": "gsl_timelapse",
+    "gtype": null
+   },
+   "score": 0.84,
+   "notes": [
+    "picture is 2 yr from the year narrated (-1.8)",
+    "asset used <45 s ago (-3)",
+    "returns to imagery (+0.8)"
+   ],
+   "alternatives": [
+    {
+     "template": "still_push_in",
+     "asset": "gsl_2015",
+     "score": -2.0
+    },
+    {
+     "template": "still_push_in",
+     "asset": "gsl_2023",
+     "score": -2.0
+    },
+    {
+     "template": "still_pull_out",
+     "asset": "gsl_2015",
+     "score": -2.2
+    }
+   ]
+  }
+ ],
+ "gaps": [],
+ "warnings": [],
+ "needs": [
+  {
+   "asset": "gsl_timelapse",
+   "from": 17.17,
+   "to": 26.1,
+   "seconds": 8.9,
+   "need": "9 s on one picture: add a second picture of the same subject (other date or angle), a verified-number graphic or a video sequence"
+  },
+  {
+   "asset": "gsl_1999",
+   "from": 26.1,
+   "to": 34.4,
+   "seconds": 8.3,
+   "need": "8 s on one picture: add a second picture of the same subject (other date or angle), a verified-number graphic or a video sequence"
+  },
+  {
+   "asset": "gsl_timelapse",
+   "from": 39.93,
+   "to": 48.43,
+   "seconds": 8.5,
+   "need": "8 s on one picture: add a second picture of the same subject (other date or angle), a verified-number graphic or a video sequence"
+  },
+  {
+   "scene": "sc04",
+   "asset": "gsl_2023",
+   "need": "a picture dated within the narrated year (the best available is 1 yr away): acquire one with /yt-satellite or choose a script wording that does not name the year"
+  },
+  {
+   "scene": "sc10",
+   "asset": "gsl_timelapse",
+   "need": "a picture dated within the narrated year (the best available is 2 yr away): acquire one with /yt-satellite or choose a script wording that does not name the year"
+  }
+ ],
+ "renderer_plan": {
+  "status": "confirm_required",
+  "warnings": [
+   "one composition holds 8.9s without a reset (17.2-26.1s, target <= 8s)",
+   "duration 48.433s outside 60.0-900.0 s"
+  ],
+  "compositions": {
+   "rule": "composition-reset/1",
+   "thresholds": {
+    "zoom_ratio": 1.5,
+    "shift": 0.35,
+    "merge_s": 0.75,
+    "timelapse_min": 3,
+    "timelapse_max_step": 1.0,
+    "sample_s": 0.1,
+    "first_10s_min": 3,
+    "resets_per_min": 5.0,
+    "max_hold_s": 8.0
+   },
+   "composition_resets": 9,
+   "distinct_first_10s": 4,
+   "longest_static_hold": {
+    "seconds": 8.933,
+    "start": 17.167,
+    "end": 26.1
+   },
+   "resets": [
+    {
+     "t": 2.3,
+     "shot": "sc02",
+     "kind": "still",
+     "what": "still gsl_1999"
+    },
+    {
+     "t": 5.533,
+     "shot": "sc03",
+     "kind": "graphic",
+     "what": "graphic sc03-callout"
+    },
+    {
+     "t": 8.6,
+     "shot": "sc04",
+     "kind": "still",
+     "what": "still gsl_2023"
+    },
+    {
+     "t": 11.167,
+     "shot": "sc05",
+     "kind": "video",
+     "what": "video gsl_timelapse"
+    },
+    {
+     "t": 13.633,
+     "shot": "sc06",
+     "kind": "still",
+     "what": "still gsl_1985"
+    },
+    {
+     "t": 17.167,
+     "shot": "sc07",
+     "kind": "video",
+     "what": "video gsl_timelapse"
+    },
+    {
+     "t": 26.1,
+     "shot": "sc08",
+     "kind": "still",
+     "what": "still gsl_1999"
+    },
+    {
+     "t": 34.4,
+     "shot": "sc09",
+     "kind": "graphic",
+     "what": "graphic sc09-callout"
+    },
+    {
+     "t": 39.933,
+     "shot": "sc10",
+     "kind": "video",
+     "what": "video gsl_timelapse"
+    }
+   ],
+   "segments": [
+    {
+     "start": 0.0,
+     "end": 2.3,
+     "seconds": 2.3,
+     "static_hold": 2.3
+    },
+    {
+     "start": 2.3,
+     "end": 5.533,
+     "seconds": 3.233,
+     "static_hold": 3.233
+    },
+    {
+     "start": 5.533,
+     "end": 8.6,
+     "seconds": 3.067,
+     "static_hold": 3.067
+    },
+    {
+     "start": 8.6,
+     "end": 11.167,
+     "seconds": 2.567,
+     "static_hold": 2.567
+    },
+    {
+     "start": 11.167,
+     "end": 13.633,
+     "seconds": 2.466,
+     "static_hold": 2.466
+    },
+    {
+     "start": 13.633,
+     "end": 17.167,
+     "seconds": 3.534,
+     "static_hold": 3.534
+    },
+    {
+     "start": 17.167,
+     "end": 26.1,
+     "seconds": 8.933,
+     "static_hold": 8.933
+    },
+    {
+     "start": 26.1,
+     "end": 34.4,
+     "seconds": 8.3,
+     "static_hold": 8.3
+    },
+    {
+     "start": 34.4,
+     "end": 39.933,
+     "seconds": 5.533,
+     "static_hold": 5.533
+    },
+    {
+     "start": 39.933,
+     "end": 48.433,
+     "seconds": 8.5,
+     "static_hold": 8.5
+    }
+   ]
+  },
+  "expected_duration": 48.433
+ },
+ "repairs": []
+}

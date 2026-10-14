@@ -1,0 +1,6 @@
+{
+ "spoken_sha256": "e7f2941a4e5d6f44d6559480a355b6c659d5343b9c2be8ef4bbeca8a5dbbfa38",
+ "characters": 751,
+ "locked_at": "2026-10-14T03:33:06Z",
+ "rule": "changing the spoken text invalidates narration and costs a new paid TTS"
+}

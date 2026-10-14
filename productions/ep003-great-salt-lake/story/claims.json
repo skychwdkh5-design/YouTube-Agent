@@ -1,0 +1,25 @@
+{
+ "episode": "EP003 Great Salt Lake",
+ "status_note": "Every claim below was read on 2026-10-14 in the cited NASA page (WebFetch). Anything not listed is NOT in the script. Draft: not locked.",
+ "claims": [
+  {"id": "C1", "text": "In June 1985 the surface of the Great Salt Lake stood at 4,209.7 feet; in July 2022 it was 4,190.2 feet at the USGS gauge at Saltair Boat Harbor, when the lake neared record lows.",
+   "status": "VERIFIED", "used": true, "evidence_type": "observation (USGS gauge) shown with Landsat composites", "source_name": "NASA Earth Observatory, The Great Shrinking Lake (2022)",
+   "source_url": "https://science.nasa.gov/earth/earth-observatory/the-great-shrinking-lake-150187", "retrieved": "2026-10-14",
+   "caveat": "the page lists 1,252.5 m for July 2022, inconsistent with its own 4,190.2 ft (= about 1,277 m): use feet only, never the metre figure"},
+  {"id": "C2", "text": "The lake's record high was 4,211.6 feet in 1986; by July 2022 the surface was 4,190.2 feet, more than 20 feet lower.",
+   "status": "VERIFIED", "used": true, "evidence_type": "observation (USGS gauge); 'more than 20 feet' is our subtraction of two quoted levels (21.4 ft)", "source_name": "NASA Earth Observatory, The Great Shrinking Lake (2022)",
+   "source_url": "https://science.nasa.gov/earth/earth-observatory/the-great-shrinking-lake-150187", "retrieved": "2026-10-14", "caveat": "the page itself says 'about 22 feet' for the drop to the July 3 2022 record low; we state only what the two quoted levels prove"},
+  {"id": "C3", "text": "NASA's account names upstream water diversion for housing and agriculture, and a shifting climate in which more precipitation falls as rain than snow and snowpack releases water more slowly.",
+   "status": "VERIFIED", "used": true, "evidence_type": "expert attribution (Westminster College biologist Bonnie Baxter quoted by NASA)", "source_name": "NASA Earth Observatory, The Great Shrinking Lake (2022)",
+   "source_url": "https://science.nasa.gov/earth/earth-observatory/the-great-shrinking-lake-150187", "retrieved": "2026-10-14"},
+  {"id": "C4", "text": "Utah State University researchers estimate that inflows to the lake have declined by 39 percent since 1850 because of human water use.",
+   "status": "VERIFIED", "used": true, "evidence_type": "model estimate (attributed)", "source_name": "NASA Earth Observatory, The Great Shrinking Lake (2022)",
+   "source_url": "https://science.nasa.gov/earth/earth-observatory/the-great-shrinking-lake-150187", "retrieved": "2026-10-14"},
+  {"id": "C5", "text": "The Salt Lake City metropolitan area grew from 700,000 people in 1982 to 1.2 million in 2022.",
+   "status": "VERIFIED", "used": true, "evidence_type": "statistic quoted by NASA (census data not independently read)", "source_name": "NASA Earth Observatory, The Great Shrinking Lake (2022)",
+   "source_url": "https://science.nasa.gov/earth/earth-observatory/the-great-shrinking-lake-150187", "retrieved": "2026-10-14"},
+  {"id": "C6", "text": "NASA's Scientific Visualization Studio calls it the largest saline lake in the Western Hemisphere and shows Landsat natural-colour imagery from 1984 to 2023, from historic highs in the 1980s to record lows in the 2020s.",
+   "status": "VERIFIED", "used": true, "evidence_type": "satellite imagery (Landsat) and NASA description", "source_name": "NASA SVS 15020, The Shrinking Great Salt Lake (2026)",
+   "source_url": "https://svs.gsfc.nasa.gov/15020", "retrieved": "2026-10-14", "caveat": "the SVS page gives no water-level numbers; levels come only from C1/C2"}
+ ]
+}

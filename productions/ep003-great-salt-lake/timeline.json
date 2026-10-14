@@ -1,0 +1,324 @@
+{
+ "version": 3,
+ "profile": "long",
+ "grid": "grid.json",
+ "assets": {
+  "gsl_1985": {
+   "src": "assets/gsl_1985.png",
+   "kind": "external_still",
+   "credit": "NASA's Goddard Space Flight Center · Landsat / USGS",
+   "label": "Great Salt Lake",
+   "source_url": "https://svs.gsfc.nasa.gov/15020",
+   "license": "NASA media - NASA Reproduction Guidelines https://www.nasa.gov/multimedia/guidelines (page states no explicit licence; credit NASA's Goddard Space Flight Center; confirm before release)",
+   "retrieved": "2026-10-14",
+   "image_date": "1985"
+  },
+  "gsl_1999": {
+   "src": "assets/gsl_1999.png",
+   "kind": "external_still",
+   "credit": "NASA's Goddard Space Flight Center · Landsat / USGS",
+   "label": "Great Salt Lake",
+   "source_url": "https://svs.gsfc.nasa.gov/15020",
+   "license": "NASA media - NASA Reproduction Guidelines https://www.nasa.gov/multimedia/guidelines (page states no explicit licence; credit NASA's Goddard Space Flight Center; confirm before release)",
+   "retrieved": "2026-10-14",
+   "image_date": "1999"
+  },
+  "gsl_2023": {
+   "src": "assets/gsl_2023.png",
+   "kind": "external_still",
+   "credit": "NASA's Goddard Space Flight Center · Landsat / USGS",
+   "label": "Great Salt Lake",
+   "source_url": "https://svs.gsfc.nasa.gov/15020",
+   "license": "NASA media - NASA Reproduction Guidelines https://www.nasa.gov/multimedia/guidelines (page states no explicit licence; credit NASA's Goddard Space Flight Center; confirm before release)",
+   "retrieved": "2026-10-14",
+   "image_date": "2023"
+  },
+  "gsl_timelapse": {
+   "src": "assets/svs15020_web.mp4",
+   "kind": "video",
+   "credit": "NASA's Goddard Space Flight Center · Landsat / USGS"
+  },
+  "sc03-callout_1": {
+   "src": "graphics/sc03-callout.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "sc03-callout"
+  },
+  "sc09-callout_1": {
+   "src": "graphics/sc09-callout.png",
+   "kind": "graphic",
+   "credit": "Original graphic · sources on the image",
+   "group": "sc09-callout"
+  }
+ },
+ "shots": [
+  {
+   "id": "sc01",
+   "beat": "This is the Great Salt Lake",
+   "start": 0.0,
+   "info": "This is the Great Salt Lake in Utah,",
+   "layers": [
+    {
+     "type": "still",
+     "asset": "gsl_1985",
+     "view": {
+      "from": {
+       "center": [
+        0.4601,
+        0.4601
+       ],
+       "width": 0.92
+      },
+      "to": {
+       "center": [
+        0.33,
+        0.45
+       ],
+       "width": 0.62
+      },
+      "ease": "in_out"
+     },
+     "scrim": 0.4
+    },
+    {
+     "type": "label",
+     "text": "GREAT SALT LAKE, UTAH",
+     "style": "tag",
+     "slot": "upper",
+     "info": "GREAT SALT LAKE, UTAH",
+     "t": [
+      0.733,
+      3.333
+     ]
+    }
+   ],
+   "visual_family": "gsl_1985"
+  },
+  {
+   "id": "sc02",
+   "beat": "the largest saline lake in the",
+   "start": 2.3,
+   "info": "the largest saline lake in the Western Hemisphere.",
+   "layers": [
+    {
+     "type": "still",
+     "asset": "gsl_1999",
+     "view": {
+      "from": {
+       "center": [
+        0.33,
+        0.45
+       ],
+       "width": 0.58
+      },
+      "to": {
+       "center": [
+        0.4501,
+        0.4501
+       ],
+       "width": 0.9
+      },
+      "ease": "in_out"
+     }
+    }
+   ],
+   "visual_family": "gsl_1999"
+  },
+  {
+   "id": "sc03",
+   "beat": "In June 1985, its surface measured",
+   "start": 5.533333333333333,
+   "info": "In June 1985, its surface measured 4,209.7 feet.",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "sc03-callout_1"
+    }
+   ],
+   "visual_family": "graphic_number"
+  },
+  {
+   "id": "sc04",
+   "beat": "In July 2022, it measured 4,190.2",
+   "start": 8.6,
+   "info": "In July 2022, it measured 4,190.2 feet.",
+   "layers": [
+    {
+     "type": "still",
+     "asset": "gsl_2023",
+     "view": {
+      "from": {
+       "center": [
+        0.4601,
+        0.4601
+       ],
+       "width": 0.92
+      },
+      "to": {
+       "center": [
+        0.33,
+        0.45
+       ],
+       "width": 0.62
+      },
+      "ease": "in_out"
+     },
+     "scrim": 0.4
+    },
+    {
+     "type": "label",
+     "text": "4,190.2 FEET",
+     "style": "stat",
+     "slot": "upper",
+     "info": "4,190.2 FEET",
+     "t": [
+      1.633,
+      4.233
+     ]
+    }
+   ],
+   "visual_family": "gsl_2023"
+  },
+  {
+   "id": "sc05",
+   "beat": "The lake's record high had come",
+   "start": 11.166666666666666,
+   "info": "The lake's record high had come in 1986,",
+   "layers": [
+    {
+     "type": "video",
+     "asset": "gsl_timelapse",
+     "credit": false,
+     "captions": true
+    }
+   ],
+   "visual_family": "gsl_timelapse"
+  },
+  {
+   "id": "sc06",
+   "beat": "at 4,211.6 feet. Now it sat",
+   "start": 13.633333333333333,
+   "info": "at 4,211.6 feet.",
+   "layers": [
+    {
+     "type": "still",
+     "asset": "gsl_1985",
+     "view": {
+      "from": {
+       "center": [
+        0.4601,
+        0.4601
+       ],
+       "width": 0.92
+      },
+      "to": {
+       "center": [
+        0.33,
+        0.45
+       ],
+       "width": 0.62
+      },
+      "ease": "in_out"
+     },
+     "scrim": 0.4
+    },
+    {
+     "type": "label",
+     "text": "4,211.6 FEET",
+     "style": "stat",
+     "slot": "upper",
+     "info": "4,211.6 FEET",
+     "t": [
+      0.3,
+      2.9
+     ]
+    }
+   ],
+   "visual_family": "gsl_1985"
+  },
+  {
+   "id": "sc07",
+   "beat": "NASA's Landsat satellites were watching the",
+   "start": 17.166666666666668,
+   "info": "NASA's Landsat satellites were watching the whole time.",
+   "layers": [
+    {
+     "type": "video",
+     "asset": "gsl_timelapse",
+     "credit": false,
+     "captions": true
+    }
+   ],
+   "visual_family": "gsl_timelapse"
+  },
+  {
+   "id": "sc08",
+   "beat": "Why? NASA's account points to people",
+   "start": 26.1,
+   "info": "Why?",
+   "layers": [
+    {
+     "type": "still",
+     "asset": "gsl_1999",
+     "view": {
+      "from": {
+       "center": [
+        0.4601,
+        0.4601
+       ],
+       "width": 0.92
+      },
+      "to": {
+       "center": [
+        0.33,
+        0.45
+       ],
+       "width": 0.62
+      },
+      "ease": "in_out"
+     }
+    }
+   ],
+   "visual_family": "gsl_1999"
+  },
+  {
+   "id": "sc09",
+   "beat": "Utah State University researchers estimate that",
+   "start": 34.4,
+   "info": "Utah State University researchers estimate that inflows have",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "sc09-callout_1"
+    }
+   ],
+   "visual_family": "graphic_number"
+  },
+  {
+   "id": "sc10",
+   "beat": "And the region kept growing. The",
+   "start": 39.93333333333333,
+   "info": "And the region kept growing.",
+   "layers": [
+    {
+     "type": "video",
+     "asset": "gsl_timelapse",
+     "credit": false,
+     "captions": true
+    }
+   ],
+   "visual_family": "gsl_timelapse"
+  }
+ ],
+ "end": {
+  "seconds": 48.43333333333333
+ },
+ "render": {
+  "segment_s": 60
+ },
+ "meta": {
+  "generator": "tools/autopilot/storyboard.py",
+  "timing": "estimated",
+  "timing_note": "ESTIMATED timing (2.38 words/s): a proof only, not frame-accurate; rebuild after the paid narration exists"
+ }
+}

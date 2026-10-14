@@ -1,0 +1,421 @@
+{
+ "schema": "yt-render-manifest/1",
+ "profile": "long",
+ "output": "proof.mp4",
+ "width": 1920,
+ "height": 1080,
+ "fps": 30,
+ "duration": 20.0,
+ "safe": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "right": 0.05,
+  "left": 0.05
+ },
+ "first_word_start": null,
+ "narration": null,
+ "shots": [
+  {
+   "id": "sc01",
+   "beat": "This is the Great Salt Lake",
+   "start": 0.0,
+   "end": 2.3,
+   "info": "This is the Great Salt Lake in Utah,",
+   "claims": [],
+   "layers": [
+    "still",
+    "label"
+   ],
+   "credit": "NASA's Goddard Space Flight Center · Landsat / USGS",
+   "visual_family": "gsl_1985"
+  },
+  {
+   "id": "sc02",
+   "beat": "the largest saline lake in the",
+   "start": 2.3,
+   "end": 5.533,
+   "info": "the largest saline lake in the Western Hemisphere.",
+   "claims": [],
+   "layers": [
+    "still"
+   ],
+   "credit": "NASA's Goddard Space Flight Center · Landsat / USGS",
+   "visual_family": "gsl_1999"
+  },
+  {
+   "id": "sc03",
+   "beat": "In June 1985, its surface measured",
+   "start": 5.533,
+   "end": 8.6,
+   "info": "In June 1985, its surface measured 4,209.7 feet.",
+   "claims": [],
+   "layers": [
+    "graphic"
+   ],
+   "credit": "Original graphic · sources on the image",
+   "visual_family": "graphic_number"
+  },
+  {
+   "id": "sc04",
+   "beat": "In July 2022, it measured 4,190.2",
+   "start": 8.6,
+   "end": 11.167,
+   "info": "In July 2022, it measured 4,190.2 feet.",
+   "claims": [],
+   "layers": [
+    "still",
+    "label"
+   ],
+   "credit": "NASA's Goddard Space Flight Center · Landsat / USGS",
+   "visual_family": "gsl_2023"
+  },
+  {
+   "id": "sc05",
+   "beat": "The lake's record high had come",
+   "start": 11.167,
+   "end": 13.633,
+   "info": "The lake's record high had come in 1986,",
+   "claims": [],
+   "layers": [
+    "video"
+   ],
+   "credit": "NASA's Goddard Space Flight Center · Landsat / USGS",
+   "visual_family": "gsl_timelapse"
+  },
+  {
+   "id": "sc06",
+   "beat": "at 4,211.6 feet. Now it sat",
+   "start": 13.633,
+   "end": 17.167,
+   "info": "at 4,211.6 feet.",
+   "claims": [],
+   "layers": [
+    "still",
+    "label"
+   ],
+   "credit": "NASA's Goddard Space Flight Center · Landsat / USGS",
+   "visual_family": "gsl_1985"
+  },
+  {
+   "id": "sc07",
+   "beat": "NASA's Landsat satellites were watching the",
+   "start": 17.167,
+   "end": 20.0,
+   "info": "NASA's Landsat satellites were watching the whole time.",
+   "claims": [],
+   "layers": [
+    "video"
+   ],
+   "credit": "NASA's Goddard Space Flight Center · Landsat / USGS",
+   "visual_family": "gsl_timelapse"
+  }
+ ],
+ "info_events": [
+  {
+   "t": 0.0,
+   "shot": "sc01",
+   "what": "This is the Great Salt Lake in Utah,"
+  },
+  {
+   "t": 0.733,
+   "shot": "sc01",
+   "what": "GREAT SALT LAKE, UTAH"
+  },
+  {
+   "t": 2.3,
+   "shot": "sc02",
+   "what": "the largest saline lake in the Western Hemisphere."
+  },
+  {
+   "t": 5.533,
+   "shot": "sc03",
+   "what": "In June 1985, its surface measured 4,209.7 feet."
+  },
+  {
+   "t": 8.6,
+   "shot": "sc04",
+   "what": "In July 2022, it measured 4,190.2 feet."
+  },
+  {
+   "t": 10.233,
+   "shot": "sc04",
+   "what": "4,190.2 FEET"
+  },
+  {
+   "t": 11.167,
+   "shot": "sc05",
+   "what": "The lake's record high had come in 1986,"
+  },
+  {
+   "t": 13.633,
+   "shot": "sc06",
+   "what": "at 4,211.6 feet."
+  },
+  {
+   "t": 13.933,
+   "shot": "sc06",
+   "what": "4,211.6 FEET"
+  },
+  {
+   "t": 17.167,
+   "shot": "sc07",
+   "what": "NASA's Landsat satellites were watching the whole time."
+  }
+ ],
+ "compositions": {
+  "rule": "composition-reset/1",
+  "thresholds": {
+   "zoom_ratio": 1.5,
+   "shift": 0.35,
+   "merge_s": 0.75,
+   "timelapse_min": 3,
+   "timelapse_max_step": 1.0,
+   "sample_s": 0.1,
+   "first_10s_min": 3,
+   "resets_per_min": 5.0,
+   "max_hold_s": 8.0
+  },
+  "composition_resets": 6,
+  "distinct_first_10s": 4,
+  "longest_static_hold": {
+   "seconds": 3.534,
+   "start": 13.633,
+   "end": 17.167
+  },
+  "resets": [
+   {
+    "t": 2.3,
+    "shot": "sc02",
+    "kind": "still",
+    "what": "still gsl_1999"
+   },
+   {
+    "t": 5.533,
+    "shot": "sc03",
+    "kind": "graphic",
+    "what": "graphic sc03-callout"
+   },
+   {
+    "t": 8.6,
+    "shot": "sc04",
+    "kind": "still",
+    "what": "still gsl_2023"
+   },
+   {
+    "t": 11.167,
+    "shot": "sc05",
+    "kind": "video",
+    "what": "video gsl_timelapse"
+   },
+   {
+    "t": 13.633,
+    "shot": "sc06",
+    "kind": "still",
+    "what": "still gsl_1985"
+   },
+   {
+    "t": 17.167,
+    "shot": "sc07",
+    "kind": "video",
+    "what": "video gsl_timelapse"
+   }
+  ],
+  "segments": [
+   {
+    "start": 0.0,
+    "end": 2.3,
+    "seconds": 2.3,
+    "static_hold": 2.3
+   },
+   {
+    "start": 2.3,
+    "end": 5.533,
+    "seconds": 3.233,
+    "static_hold": 3.233
+   },
+   {
+    "start": 5.533,
+    "end": 8.6,
+    "seconds": 3.067,
+    "static_hold": 3.067
+   },
+   {
+    "start": 8.6,
+    "end": 11.167,
+    "seconds": 2.567,
+    "static_hold": 2.567
+   },
+   {
+    "start": 11.167,
+    "end": 13.633,
+    "seconds": 2.466,
+    "static_hold": 2.466
+   },
+   {
+    "start": 13.633,
+    "end": 17.167,
+    "seconds": 3.534,
+    "static_hold": 3.534
+   },
+   {
+    "start": 17.167,
+    "end": 20.0,
+    "seconds": 2.833,
+    "static_hold": 2.833
+   }
+  ]
+ },
+ "visual_novelty": {
+  "rule": "visual-novelty/1",
+  "thresholds": {
+   "first_10s_min": 3,
+   "transitions_per_min": 2.0,
+   "max_family_s": 30.0
+  },
+  "transitions": 6,
+  "families": [
+   "graphic_number",
+   "gsl_1985",
+   "gsl_1999",
+   "gsl_2023",
+   "gsl_timelapse"
+  ],
+  "families_first_10s": 4,
+  "longest_family_run": {
+   "family": "gsl_1985",
+   "start": 13.633,
+   "end": 17.167,
+   "untransformed": 3.533
+  },
+  "runs": [
+   {
+    "family": "gsl_1985",
+    "start": 0.0,
+    "end": 2.3,
+    "seconds": 2.3,
+    "untransformed": 2.3,
+    "shot": "sc01"
+   },
+   {
+    "family": "gsl_1999",
+    "start": 2.3,
+    "end": 5.533,
+    "seconds": 3.233,
+    "untransformed": 3.233,
+    "shot": "sc02"
+   },
+   {
+    "family": "graphic_number",
+    "start": 5.533,
+    "end": 8.6,
+    "seconds": 3.067,
+    "untransformed": 3.067,
+    "shot": "sc03"
+   },
+   {
+    "family": "gsl_2023",
+    "start": 8.6,
+    "end": 11.167,
+    "seconds": 2.567,
+    "untransformed": 2.567,
+    "shot": "sc04"
+   },
+   {
+    "family": "gsl_timelapse",
+    "start": 11.167,
+    "end": 13.633,
+    "seconds": 2.467,
+    "untransformed": 2.467,
+    "shot": "sc05"
+   },
+   {
+    "family": "gsl_1985",
+    "start": 13.633,
+    "end": 17.167,
+    "seconds": 3.533,
+    "untransformed": 3.533,
+    "shot": "sc06"
+   },
+   {
+    "family": "gsl_timelapse",
+    "start": 17.167,
+    "end": 20.0,
+    "seconds": 2.833,
+    "untransformed": 2.833,
+    "shot": "sc07"
+   }
+  ]
+ },
+ "caption_boxes": [],
+ "assets": {
+  "gsl_1985": {
+   "label": "Great Salt Lake",
+   "credit": "NASA's Goddard Space Flight Center · Landsat / USGS",
+   "prov": null,
+   "kind": "external_still",
+   "source_url": "https://svs.gsfc.nasa.gov/15020",
+   "license": "NASA media - NASA Reproduction Guidelines https://www.nasa.gov/multimedia/guidelines (page states no explicit licence; credit NASA's Goddard Space Flight Center; confirm before release)",
+   "retrieved": "2026-10-14",
+   "image_date": "1985",
+   "derived_from": null,
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "gsl_1999": {
+   "label": "Great Salt Lake",
+   "credit": "NASA's Goddard Space Flight Center · Landsat / USGS",
+   "prov": null,
+   "kind": "external_still",
+   "source_url": "https://svs.gsfc.nasa.gov/15020",
+   "license": "NASA media - NASA Reproduction Guidelines https://www.nasa.gov/multimedia/guidelines (page states no explicit licence; credit NASA's Goddard Space Flight Center; confirm before release)",
+   "retrieved": "2026-10-14",
+   "image_date": "1999",
+   "derived_from": null,
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "gsl_2023": {
+   "label": "Great Salt Lake",
+   "credit": "NASA's Goddard Space Flight Center · Landsat / USGS",
+   "prov": null,
+   "kind": "external_still",
+   "source_url": "https://svs.gsfc.nasa.gov/15020",
+   "license": "NASA media - NASA Reproduction Guidelines https://www.nasa.gov/multimedia/guidelines (page states no explicit licence; credit NASA's Goddard Space Flight Center; confirm before release)",
+   "retrieved": "2026-10-14",
+   "image_date": "2023",
+   "derived_from": null,
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  "gsl_timelapse": {
+   "label": "gsl_timelapse",
+   "credit": "NASA's Goddard Space Flight Center · Landsat / USGS",
+   "prov": null,
+   "kind": "video"
+  },
+  "sc03-callout_1": {
+   "label": "sc03-callout_1",
+   "credit": "Original graphic · sources on the image",
+   "prov": null,
+   "kind": "graphic"
+  }
+ },
+ "warnings": [
+  "duration 20.0s outside 60.0-900.0 s"
+ ],
+ "segments": [
+  {
+   "index": 0,
+   "start_frame": 0,
+   "frames": 600,
+   "start": 0.0,
+   "sha256": "4bd1a638d377f16054be9acf43521e252c71e5cb5c820d76882be780408f64c7"
+  }
+ ]
+}

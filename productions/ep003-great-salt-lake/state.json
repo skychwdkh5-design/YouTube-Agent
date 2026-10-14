@@ -1,0 +1,30 @@
+{
+ "slug": "ep003-great-salt-lake",
+ "created": "2026-10-14T03:31:03Z",
+ "stages": {
+  "research": {
+   "completed": "2026-10-14T03:32:07Z",
+   "inputs_sha": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "claims": {
+   "completed": "2026-10-14T03:32:07Z",
+   "inputs_sha": "628ff02036a2a501b358de9815fa38b6b4db43aa2fca71d7089172c662d9d1f8"
+  },
+  "script": {
+   "completed": "2026-10-14T03:32:07Z",
+   "inputs_sha": "e6c14e0cf232ea0900b15f51b11105077741a70a8f015f31e4ef77b5902006aa"
+  },
+  "tts_plan": {
+   "pitfalls_consulted": [
+    "script-lock-sha256",
+    "tts-blank-lines-are-billable",
+    "tts-gateway-502-chunk-size",
+    "tts-key-injected-by-egress-proxy",
+    "tts-no-blind-retry",
+    "tts-persistent-chunk-cache"
+   ],
+   "completed": "2026-10-14T03:32:07Z",
+   "inputs_sha": "b3527dbf5146d08ff257169b5fd14d7b9b6e47c7cc369eb0ba8576d485d8ab68"
+  }
+ }
+}

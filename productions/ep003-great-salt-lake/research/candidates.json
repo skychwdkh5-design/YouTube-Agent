@@ -1,0 +1,310 @@
+{
+ "candidates": [
+  {
+   "id": "mount-st-helens-recovery",
+   "title": "Mount St. Helens: what grew back first (1975-2025 from orbit)",
+   "scores": {
+    "us": 4,
+    "sweden": 3,
+    "norway": 3,
+    "denmark": 3,
+    "international": 4,
+    "visual": 5,
+    "curiosity": 4,
+    "sources": 5,
+    "monetization": 4,
+    "audience_evidence": 3,
+    "originality": 4,
+    "zero_cost": 4,
+    "fit": 5
+   },
+   "rationale": {
+    "us": "US landmark (Washington state, 1980) known to most Americans; no current news hook this month - hence 4, not 5",
+    "audience_evidence": "NASA released a new 1975-2025 Landsat visualization on 2026-04-28 (agency interest) but no audience metric was reachable: capped at 3",
+    "sources": "NASA SVS 15005 and Earth Observatory World of Change read in full (230 sq mi, 14 mi North Fork Toutle burial, first plant on Pumice Plain: prairie lupine)",
+    "visual": "50-year false-colour Landsat series: grey ash vs bright-red vegetation, a blast zone that visibly re-greens; strongest before/after material of all candidates",
+    "originality": "judgement, not measured: orbital long-term recovery angle (the nitrogen-fixing lupine, recovery quadrant by quadrant) is rarely the story; most coverage is eruption day",
+    "zero_cost": "SVS 1080p/4K movie + stills reachable (HEAD 200, verified 2026-10-14); annual World-of-Change JPEGs sit on assets.science.nasa.gov which is BLOCKED here; USGS Landsat via the M2M credentials is free",
+    "fit": "pure orbital story with real Landsat evidence",
+    "curiosity": "'what grew back first, and why a purple flower beat the trees' is a clean hook",
+    "monetization": "NASA media; reproduction guidelines to be cited, no ad-hostile content",
+    "international": "volcano/recovery travels",
+    "sweden": "no Nordic angle (not forced)",
+    "norway": "no Nordic angle (not forced)",
+    "denmark": "no Nordic angle (not forced)"
+   },
+   "evidence_urls": [
+    "https://svs.gsfc.nasa.gov/15005",
+    "https://science.nasa.gov/earth/earth-observatory/world-of-change/mt-st-helens"
+   ],
+   "us_hook": "In 1980 a US volcano erased 230 square miles of forest in minutes. NASA's satellites have watched what came back for 45 years.",
+   "audience_signals": [],
+   "assets": {
+    "free_imagery": [
+     "svs.gsfc.nasa.gov 15005 movie 1920x1080 (30 MB) and 5760x3240 (450 MB)",
+     "USGS Landsat via yt-satellite (credentials present)"
+    ],
+    "checked": "2026-10-14"
+   }
+  },
+  {
+   "id": "great-salt-lake-shrinking",
+   "title": "The Great Salt Lake is disappearing (Landsat 1984-2023)",
+   "scores": {
+    "us": 5,
+    "sweden": 2,
+    "norway": 2,
+    "denmark": 2,
+    "international": 3,
+    "visual": 4,
+    "curiosity": 4,
+    "sources": 5,
+    "monetization": 4,
+    "audience_evidence": 4,
+    "originality": 2,
+    "zero_cost": 4,
+    "fit": 5
+   },
+   "rationale": {
+    "us": "major current US story: water crisis, dust, Utah governor involvement, national press",
+    "audience_evidence": "measured public signals: a 2026 Sundance feature about the lake won the social-impact award and a free screening sold out; broad press coverage (urls)",
+    "sources": "NASA Earth Observatory 150187 read in full: 4,209.7 ft (June 1985) vs 4,190.2 ft (July 2022), record high 4,211.6 ft in 1986, inflow down 39% since 1850; USGS gauge",
+    "visual": "two-tone lake, exposed lakebed, strong 1985 vs 2022 pair",
+    "originality": "heavily covered by news, a Sundance film and TV; an orbital angle adds little that is new",
+    "zero_cost": "SVS 15020 reachable; EO images on assets.science.nasa.gov BLOCKED; USGS Landsat free via credentials",
+    "fit": "pure orbital/Landsat story",
+    "curiosity": "strong",
+    "monetization": "fine",
+    "international": "water-crisis themes travel moderately",
+    "sweden": "no Nordic angle (not forced)",
+    "norway": "no Nordic angle (not forced)",
+    "denmark": "no Nordic angle (not forced)"
+   },
+   "evidence_urls": [
+    "https://science.nasa.gov/earth/earth-observatory/the-great-shrinking-lake-150187",
+    "https://svs.gsfc.nasa.gov/15020"
+   ],
+   "us_hook": "The largest lake in the western US is losing water faster than anyone planned for. Landsat has the 40-year record.",
+   "audience_signals": [
+    {
+     "metric": "2026 Sundance feature 'The Lake' about the Great Salt Lake: social-impact award",
+     "value": "award + press coverage",
+     "url": "https://www.deseret.com/entertainment/2026/01/26/the-lake-sundance-film-festival/",
+     "retrieved": "2026-10-14"
+    },
+    {
+     "metric": "free screening of 'The Lake' sold out, more showings added",
+     "value": "sold out (June 2026)",
+     "url": "https://www.kpcw.org/state-regional/2026-06-10/free-screening-of-the-lake-sells-out-more-showings-planned",
+     "retrieved": "2026-10-14"
+    }
+   ],
+   "assets": {
+    "free_imagery": [
+     "svs.gsfc.nasa.gov 15020",
+     "USGS Landsat via yt-satellite"
+    ],
+    "checked": "2026-10-14"
+   }
+  },
+  {
+   "id": "louisiana-wetland-loss",
+   "title": "Louisiana is sinking: 40 years of wetland loss from Landsat",
+   "scores": {
+    "us": 4,
+    "sweden": 2,
+    "norway": 2,
+    "denmark": 3,
+    "international": 3,
+    "visual": 3,
+    "curiosity": 3,
+    "sources": 5,
+    "monetization": 4,
+    "audience_evidence": 3,
+    "originality": 3,
+    "zero_cost": 4,
+    "fit": 4
+   },
+   "rationale": {
+    "sources": "NASA/JPL 2022 feature: ~21 sq mi/yr lost since early 1980s, Terrebonne/Barataria >180 sq mi, Atchafalaya +33.6 sq mi; Roy et al. 2020 (Remote Sensing of Environment)",
+    "visual": "muddy, low-contrast at 30 m; change is real but visually subtle",
+    "audience_evidence": "no measured signal reachable: capped",
+    "originality": "moderate (documentaries exist, orbital angle less)",
+    "us": "US Gulf Coast, hurricane-linked interest",
+    "zero_cost": "Landsat free via credentials; NASA pages reachable",
+    "fit": "good",
+    "curiosity": "solid ('a football field of land' style stat not verified, not used)",
+    "monetization": "ok",
+    "international": "delta loss is global",
+    "sweden": "weak",
+    "norway": "weak",
+    "denmark": "coastal-land theme, modest"
+   },
+   "evidence_urls": [
+    "https://www.jpl.nasa.gov/news/satellites-help-scientists-track-dramatic-wetlands-loss-in-louisiana/",
+    "https://www.usgs.gov/publications/constraining-rates-and-trends-historical-wetland-loss-mississippi-river-delta-plain"
+   ],
+   "us_hook": "Louisiana has been losing land at about 21 square miles a year; satellites show exactly where.",
+   "audience_signals": [],
+   "assets": {}
+  },
+  {
+   "id": "hunga-tonga-island-rise-and-fall",
+   "title": "Hunga Tonga: an island born in 2015, erased in 2022",
+   "scores": {
+    "us": 3,
+    "sweden": 3,
+    "norway": 3,
+    "denmark": 3,
+    "international": 4,
+    "visual": 5,
+    "curiosity": 5,
+    "sources": 3,
+    "monetization": 4,
+    "audience_evidence": 3,
+    "originality": 3,
+    "zero_cost": 3,
+    "fit": 5
+   },
+   "rationale": {
+    "sources": "2014-15 island verified (NASA EO 85806, Landsat 8: ~120 m above sea level); the 2022 destruction imagery from NASA EO was NOT confirmed in this research (GOES/Himawari video and commercial Maxar imagery exist but are not shown to be free to reuse)",
+    "zero_cost": "Landsat/GOES are free; high-resolution 2022 before/after is commercial (Maxar) - licence unverified",
+    "visual": "spectacular if imagery is licensable",
+    "audience_evidence": "no measured signal: capped",
+    "us": "no US hook beyond general science interest",
+    "originality": "widely covered in 2022",
+    "fit": "perfect orbital story",
+    "curiosity": "very high",
+    "monetization": "ok",
+    "international": "global event",
+    "sweden": "none (not forced)",
+    "norway": "none (not forced)",
+    "denmark": "none (not forced)"
+   },
+   "evidence_urls": [
+    "https://earthobservatory.nasa.gov/images/85806/connecting-islands-in-the-pacific"
+   ],
+   "us_hook": "In 2015 a volcano built an island. In 2022 it blew itself apart.",
+   "audience_signals": [],
+   "assets": {}
+  },
+  {
+   "id": "aral-sea",
+   "title": "The Aral Sea: the sea that was taken",
+   "scores": {
+    "us": 3,
+    "sweden": 2,
+    "norway": 2,
+    "denmark": 2,
+    "international": 4,
+    "visual": 4,
+    "curiosity": 4,
+    "sources": 5,
+    "monetization": 4,
+    "audience_evidence": 3,
+    "originality": 1,
+    "zero_cost": 4,
+    "fit": 5
+   },
+   "rationale": {
+    "sources": "NASA World of Change: annual MODIS images 2000-2018; eastern basin dried completely in August 2014; river diversion in the 1960s",
+    "originality": "the most-covered satellite story on YouTube by reputation (unmeasured judgement) - nothing new to add",
+    "audience_evidence": "no measured signal reachable: capped",
+    "us": "no US hook",
+    "visual": "strong",
+    "zero_cost": "NASA pages reachable; MODIS stills free",
+    "fit": "perfect",
+    "curiosity": "high",
+    "monetization": "ok",
+    "international": "high",
+    "sweden": "weak",
+    "norway": "weak",
+    "denmark": "weak"
+   },
+   "evidence_urls": [
+    "https://earthobservatory.nasa.gov/world-of-change/AralSea/show-all"
+   ],
+   "us_hook": "Once the fourth largest lake on Earth.",
+   "audience_signals": [],
+   "assets": {}
+  },
+  {
+   "id": "surtsey-island-iceland",
+   "title": "Surtsey: the Nordic island born in 1963",
+   "scores": {
+    "us": 2,
+    "sweden": 3,
+    "norway": 4,
+    "denmark": 3,
+    "international": 3,
+    "visual": 2,
+    "curiosity": 4,
+    "sources": 4,
+    "monetization": 4,
+    "audience_evidence": 3,
+    "originality": 4,
+    "zero_cost": 2,
+    "fit": 4
+   },
+   "rationale": {
+    "visual": "2.7 km2 island is ~3,000 Landsat pixels: weak visuals at 30 m",
+    "zero_cost": "the good satellite image on NASA EO is IKONOS (commercial, Space Imaging): reuse not cleared; free alternatives are too coarse",
+    "us": "low US pull",
+    "sources": "NASA EO 4499 (2.7 km2, eruption 1963-1967) and USGS remote-sensing study",
+    "originality": "good Nordic angle but not forced",
+    "audience_evidence": "no measured signal: capped",
+    "fit": "fine",
+    "curiosity": "good",
+    "monetization": "ok",
+    "international": "ok",
+    "sweden": "some",
+    "norway": "Nordic neighbour interest",
+    "denmark": "some"
+   },
+   "evidence_urls": [
+    "https://earthobservatory.nasa.gov/images/4499/the-infant-island-of-surtsey-iceland"
+   ],
+   "us_hook": "A volcano built an island in one day.",
+   "audience_signals": [],
+   "assets": {}
+  },
+  {
+   "id": "lake-urmia-or-dead-sea",
+   "title": "Dead Sea sinkholes and the falling shoreline",
+   "scores": {
+    "us": 2,
+    "sweden": 2,
+    "norway": 2,
+    "denmark": 2,
+    "international": 3,
+    "visual": 4,
+    "curiosity": 4,
+    "sources": 2,
+    "monetization": 4,
+    "audience_evidence": 3,
+    "originality": 3,
+    "zero_cost": 3,
+    "fit": 4
+   },
+   "rationale": {
+    "sources": "not researched to primary-source level in this pass: no source was read, so sources is scored 2 and gated out - listed so the choice among candidates is visible",
+    "us": "low",
+    "zero_cost": "unverified",
+    "audience_evidence": "no measured signal",
+    "visual": "good",
+    "originality": "moderate",
+    "fit": "good",
+    "curiosity": "good",
+    "monetization": "ok",
+    "international": "ok",
+    "sweden": "none",
+    "norway": "none",
+    "denmark": "none"
+   },
+   "evidence_urls": [],
+   "us_hook": "The Dead Sea falls about a metre a year (unverified, not used).",
+   "audience_signals": [],
+   "assets": {}
+  }
+ ]
+}
