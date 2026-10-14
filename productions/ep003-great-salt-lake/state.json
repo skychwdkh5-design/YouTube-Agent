@@ -66,6 +66,7 @@
     "caption-cards-overlapped-by-lead",
     "freeze-on-static-card",
     "low-contrast-text-on-bright-imagery",
+    "mobile-readability-qa",
     "overlap-between-layers-needs-eye",
     "qc-expected-duration-from-video",
     "silent-proof-fails-yt-qc-by-design",
@@ -74,10 +75,19 @@
     "text-clipped-at-frame-edge",
     "timeline-v3-gate-keys",
     "video-frame-accuracy-check",
-    "viewer-reencodes-files"
+    "viewer-reencodes-files",
+    "visual-runs-monotony-check"
    ],
    "completed": "2026-10-14T14:47:58Z",
-   "inputs_sha": "ac50fbdcae8cd64df9d96a408b7300fdac39778a21a34cd0b5a65be489698f1a"
+   "inputs_sha": "ac50fbdcae8cd64df9d96a408b7300fdac39778a21a34cd0b5a65be489698f1a",
+   "last_failure": {
+    "at": "2026-10-14T19:42:03Z",
+    "attempts": 1,
+    "diagnosis": [],
+    "gate_problems": [
+     "MOBILE_READABILITY_QA failed: {'contrast': 1} line=True"
+    ]
+   }
   },
   "review": {
    "completed": "2026-10-14T14:51:46Z",

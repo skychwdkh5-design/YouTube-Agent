@@ -1,0 +1,131 @@
+{
+ "runs": 138,
+ "median_s": 1.75,
+ "longest": [
+  {
+   "start": "0:37.0",
+   "end": "0:44.5",
+   "seconds": 7.5
+  },
+  {
+   "start": "0:48.0",
+   "end": "0:54.5",
+   "seconds": 6.5
+  },
+  {
+   "start": "1:29.5",
+   "end": "1:38.0",
+   "seconds": 8.5
+  },
+  {
+   "start": "2:23.5",
+   "end": "2:31.0",
+   "seconds": 7.5
+  },
+  {
+   "start": "2:42.5",
+   "end": "2:51.5",
+   "seconds": 9.0
+  },
+  {
+   "start": "3:13.5",
+   "end": "3:22.5",
+   "seconds": 9.0
+  },
+  {
+   "start": "3:23.0",
+   "end": "3:31.5",
+   "seconds": 8.5
+  },
+  {
+   "start": "3:32.0",
+   "end": "3:45.0",
+   "seconds": 13.0
+  },
+  {
+   "start": "3:49.5",
+   "end": "4:00.5",
+   "seconds": 11.0
+  },
+  {
+   "start": "4:28.5",
+   "end": "4:41.5",
+   "seconds": 13.0
+  },
+  {
+   "start": "4:47.5",
+   "end": "4:58.0",
+   "seconds": 10.5
+  },
+  {
+   "start": "4:58.0",
+   "end": "5:11.0",
+   "seconds": 13.0
+  },
+  {
+   "start": "5:24.0",
+   "end": "5:33.0",
+   "seconds": 9.0
+  },
+  {
+   "start": "5:37.0",
+   "end": "5:46.5",
+   "seconds": 9.5
+  }
+ ],
+ "changes_per_minute": {
+  "0": 28,
+  "1": 25,
+  "2": 24,
+  "3": 15,
+  "4": 23,
+  "5": 17,
+  "6": 6
+ },
+ "screen_time": {
+  "y2022": {
+   "seconds": 249.3,
+   "share": 0.669
+  },
+  "y1999": {
+   "seconds": 50.0,
+   "share": 0.134
+  },
+  "y2021": {
+   "seconds": 19.6,
+   "share": 0.053
+  },
+  "y1986": {
+   "seconds": 19.2,
+   "share": 0.052
+  },
+  "y1985": {
+   "seconds": 19.1,
+   "share": 0.051
+  },
+  "flip": {
+   "seconds": 15.3,
+   "share": 0.041
+  }
+ },
+ "repeated_views": [
+  {
+   "base": "y2022",
+   "from_km": 190,
+   "to_km": 75,
+   "shots": 4
+  },
+  {
+   "base": "y2022",
+   "from_km": 228,
+   "to_km": 70,
+   "shots": 3
+  },
+  {
+   "base": "y2022",
+   "from_km": 55,
+   "to_km": 228,
+   "shots": 3
+  }
+ ]
+}
