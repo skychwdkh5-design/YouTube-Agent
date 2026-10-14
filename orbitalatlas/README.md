@@ -32,6 +32,8 @@ Run from the repo root: `python3 -m unittest discover -s orbitalatlas/tests -t .
 | `typeset` | word tiles + presets (rise mask, depth, slide, outline_fill, type, pop, glint), `KineticLine`, `ImpactCard`, `NumberCard`, `YearTag`, `Dim`, `push_lines` | tested |
 | `plane` | `PlaneTilt`: the map shown on a tilted plane over a floor grid, landing flat (identity at 0 deg) | tested |
 | `director` | automatic storyboard (timeline v3) + `story/motion_plan.json` -> programme: cameras, transitions by purpose, focus manager, pacing, report; `python3 -m orbitalatlas.director render SLUG OUT.mp4` | tested; geo shots only |
+| `interact` | keyword lift caption -> map, floating labels and dust in parallax, punch-in, ImageStamp (picture date) vs EventYear (narration year) | tested (v2c) |
+| `sfx` | synthesised CC0 whoosh/sweep/impact/rise/blip/tick, cue plan from the director report, ducking mixer (>= 12 dB under the voice, -16 LUFS) | tested (v2c) |
 | `synthetic` | procedural test images with exact geometry | test data only |
 | `demo` | seven-shot demo from specs; `python3 -m orbitalatlas.demo.render_demo OUT.mp4 --qa` | |
 

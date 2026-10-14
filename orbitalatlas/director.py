@@ -27,7 +27,7 @@ import sys
 import numpy as np
 from PIL import Image
 
-from . import camera_presets as CP, captions as C, fx, grade, regions, semantic, transitions as TR, typeset as TS
+from . import camera_presets as CP, captions as C, fx, grade, interact as IX, regions, semantic, transitions as TR, typeset as TS
 from .layers import Scene, SourceChip
 from .plane import PlaneTilt
 from .sequence import Program, Sequence, Shot, render_video
@@ -89,6 +89,12 @@ def camera_keys(geo, cam, dur, log):
     return CP.join(CP.smooth_zoom(0.0, md, c0, h0, c1, h1), CP.creep(md, max(0.4, dur - md), c1, h1, 0.04))
 
 
+def _direction(words, i):
+    nxt = [re.sub(r"[^\w]", "", w["text"]).lower() for w in words[i:i + 7]]
+    d = [x for x in ("north", "south", "east", "west") if x in nxt]
+    return d[0] if d and "to" in nxt else None
+
+
 def _words_between(words, t0, t1): return [w for w in words if t0 - 1e-3 <= w["start"] < t1]
 
 
@@ -145,6 +151,21 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
         kept.append(f)
     focus = kept; report["focus"] = [dict(kind=f["kind"], t0=round(f["t0"], 2), t1=round(f["t1"], 2)) for f in focus]
     hidden = {ci for ci, c in enumerate(cards) for f in focus if min(c["t1"], f["t1"]) - max(c["t0"], f["t0"]) > 0.25 * (c["t1"] - c["t0"])}
+    styles = list(plan["cards"][i]["style"] if i < len(plan["cards"]) else "A" for i in range(len(cards)))
+    for ci, c in enumerate(cards):                                  # an impact card carries that revelation: its caption must not be a second style C
+        if styles[ci] == "C" and any(f["kind"] == "impact" and c["t0"] <= f["t1"] and c["t1"] >= f["t0"] - 3.0 for f in focus):
+            styles[ci] = "B"; note("captions", t=c["t0"], why="style C handed to the impact card")
+    inten = plan.get("intensity") or semantic.intensity(words, plan["events"])
+    def level(t):
+        for it in inten:
+            if it["t0"] - 0.3 <= t <= it["t1"] + 0.3: return it["label"]
+        return "normal"
+    for ci, c in enumerate(cards):                                  # calm explanations: restrained captions (A), no kinetic word pops
+        if level(c["t0"]) == "calm" and styles[ci] in ("B", "C"): styles[ci] = "A"
+    caps = C.WordCaptions(cards, styles, source=plan.get("timing_source", "provider"), hidden=hidden)
+    in_focus = lambda t: any(f["t0"] - 0.05 <= t <= f["t1"] for f in focus)
+    lifted, last_punch, dates = set(), -9.0, []
+    report["intensity"] = inten; report["opening_tilt"] = bool(opening_tilt)
     # ---- shots
     seq_shots, trans = [], []; prev_img = None; region_cache = {}
     for si, sh in enumerate(shots):
@@ -154,13 +175,25 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
         base = (L.get("image") or {}).get("asset") or (L.get("wipe") or {}).get("from") or ((L.get("flip") or {}).get("assets") or [None])[0]
         if not base or "camera" not in sh: report["skipped"].append(dict(kind="shot", id=sh["id"], why="not a geo shot (stills/video are not rendered by the director yet)")); continue
         keys = camera_keys(geo, sh["camera"], dur + 0.8, decisions.append)
-        if decisions and decisions[-1].startswith(("camera: snap", "camera: scale change")):        # deliberate fast moves: declared to QA
-            report["intended_changes"] += [round(t_s + k / 30, 3) for k in range(0, 45)]
-        overlays = []
+        if si == 0 and opening_tilt and len(keys) > 1:                 # the plane lands first, THEN the camera moves (no smear inside the tilted plane)
+            keys = [dict(keys[0], t=0.0)] + [dict(k, t=k["t"] + 1.6) for k in keys]; keys = CP.join(keys); decisions.append("camera move held until the plane has landed")
+        if any(d_.startswith(("camera: snap", "camera: scale change")) for d_ in decisions):        # deliberate fast moves: declared to QA
+            sh_ = 1.6 if any(d_.startswith("camera move held") for d_ in decisions) else 0.0
+            report["intended_changes"] += [round(t_s + sh_ + k / 30, 3) for k in range(0, 45)]
+        overlays = [IX.ParallaxDust((0, 0, grid["width"], grid["height"]), 0.0, dur + 1.0, alpha=0.22, seed=si + 3)]
+        lift_here = {}                                                # place -> event: the caption word flies to the pin (energetic/normal, first mention, no focus card)
+        for e in plan["events"]:
+            if e["kind"] == "place" and t_s <= e["t"] < t_e and e.get("place") in pins and e["place"] not in lifted and not in_focus(e["t"]):
+                if any(l["type"] == "pin" and (l.get("info") or "").lower() == e["place"].lower() for l in sh["layers"]): lift_here[e["place"]] = e
         for l in sh["layers"]:
             if l["type"] == "pin":
                 name = l.get("info") or l["text"].title(); p = geo.px(l["at"])
-                overlays.append(fx.MarkerPin(p, l["t"][0], label=name, source=f"stack pin {l['at']}", group=f"pin_{name}"))
+                overlays.append(fx.MarkerPin(p, l["t"][0], label=None, source=f"stack pin {l['at']}", group=f"pin_{name}"))
+                has_callout = any(e["kind"] == "place" and e.get("place") == name and t_s <= e["t"] < t_e and _direction(words, e["word"]) for e in plan["events"])
+                if name not in lift_here and not has_callout: overlays.append(IX.FloatingLabel(p, name, l["t"][0] + 0.2, dur + 1.0, depth=0.06))   # one name label per place
+        for name, e in lift_here.items():
+            lifted.add(name); overlays.append(IX.KeywordLift(caps, e["t"], words[e["word"]]["text"], geo.px(pins[name]), t_s, t_e + 0.5, label=name))
+            note("lift", t=e["t"], place=name)
         # semantic events that fall inside this shot
         for e in plan["events"]:
             if not (t_s <= e["t"] < t_e): continue
@@ -180,7 +213,9 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
                 nxt = [re.sub(r"[^\w]", "", w["text"]).lower() for w in words[e["word"]:e["word"] + 7]]
                 dirs = [d for d in ("north", "south", "east", "west") if d in nxt]
                 if dirs and "to" in nxt:
-                    overlays.append(fx.CalloutPanel(geo.px(pins[e["place"]]), lt + 0.1, min(dur - 0.15, lt + 2.4), e["place"], [f"TO THE {dirs[0].upper()}"],
+                    lifted_now = e["place"] in lift_here
+                    overlays.append(fx.CalloutPanel(geo.px(pins[e["place"]]), lt + (0.8 if lifted_now else 0.1), min(dur - 0.15, lt + 2.6),
+                                                    f"TO THE {dirs[0].upper()}" if lifted_now else e["place"], [] if lifted_now else [f"TO THE {dirs[0].upper()}"],
                                                     offset=(0.09, -0.2) if dirs[0] == "north" else (0.09, 0.05)))
                     note("callout", t=e["t"], place=e["place"], row=dirs[0])
             if e["kind"] == "route" and e.get("frm") in pins and e.get("to") in pins:
@@ -203,8 +238,9 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
         # image change -> HUD date stamp once
         img_now = base
         if img_now != prev_img and not any(f["kind"] == "impact" and f["t0"] <= t_s + 0.3 <= f["t1"] for f in focus):
-            a = tl["assets"][img_now]; y = re.search(r"(1[5-9]\d\d|20\d\d)", a.get("label", ""))
-            if y: overlays.append(_LocalYearTag(y.group(1), a.get("label", ""), a.get("credit", ""), 0.15, min(dur, 2.4)))
+            a = tl["assets"][img_now]; txt = f"{a.get('credit', '')} · {a.get('label', '')}"
+            overlays.append(IX.ImageStamp(txt, 0.15, min(dur, 3.0))); note("image_stamp", t=t_s + 0.15, text=txt.upper(), asset=img_now)
+            dates.append(dict(kind="image", t=round(t_s, 2), text=txt.upper(), asset_label=a.get("label", ""), prov=a.get("prov") or a.get("date")))
         prev_img = (L.get("wipe") or {}).get("to") or ((L.get("flip") or {}).get("assets") or [img_now])[-1]
         cred = tl["assets"][img_now].get("credit", "")
         overlays.append(SourceChip((0.03, 0.935), f"{cred.upper()} · {tl['assets'][img_now].get('label', '').upper()} · DISPLAY GRADE", 0.1))
@@ -220,6 +256,11 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
                 s0 = k * stp; s1 = (k + 1) * stp if k < len(fl["assets"]) - 1 else dur
                 parts.append((grade.Graded(Scene(image(aid), keys, size, overlays=overlays, name=f"{sh['id']}_{aid}", clamp=False, max_blur_samples=6, blur_threshold=10.0), "evidence_safe", evidence=True), s0, s1))
             decisions.append(f"flip {len(fl['assets'])} images, step {stp}s")
+        hits = []
+        for e in plan["events"]:
+            if e["kind"] == "emphasis" and t_s + 0.4 <= e["t"] < t_e - 0.3 and level(e["t"]) == "energetic" and not in_focus(e["t"]) and e["t"] - last_punch > 2.5:
+                hits.append((e["t"] - t_s, 0.045)); last_punch = e["t"]; note("punch", t=e["t"], word=e["text"])
+        if hits: parts = [(IX.Punch(scn, hits), a0, a1) for scn, a0, a1 in parts]
         for k, (scn, a0, a1) in enumerate(parts):
             tr = None
             if k == 0 and seq_shots:                       # transition INTO this storyboard shot, chosen by purpose
@@ -235,7 +276,9 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
                     pd = seq_shots[-1].duration; tr.duration = min(tr.duration, pd * 0.45, (a1 - a0) * 0.45)
                     seq_shots[-1] = Shot(seq_shots[-1].scene, pd + tr.duration, seq_shots[-1].name)   # the outgoing shot plays on under the transition
                 note("transition", t=t_s, why=why)
-                if tr is None: report["intended_changes"].append(round(t_s, 3))
+                if tr is None:
+                    report["intended_changes"].append(round(t_s, 3))
+                    if level(t_s) == "energetic": report.setdefault("_accents", []).append(t_s); note("accent", t=t_s, why="light sweep on an energetic cut")
             elif k > 0:
                 tr = TR.LightWipe(0.6) if L.get("wipe") else None     # parts of a wipe overlap by 0.6 s already (window times); flips cut
             if seq_shots: trans.append(tr)
@@ -247,10 +290,6 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
     if not seq_shots: raise ValueError("no renderable geo shots in the requested range")
     seq = Sequence(seq_shots, trans)
     # ---- global overlays
-    styles = list(plan["cards"][i]["style"] if i < len(plan["cards"]) else "A" for i in range(len(cards)))
-    for ci, c in enumerate(cards):                                  # an impact card carries that revelation: its caption must not be a second style C
-        if styles[ci] == "C" and any(f["kind"] == "impact" and c["t0"] <= f["t1"] and c["t1"] >= f["t0"] - 3.0 for f in focus):
-            styles[ci] = "B"; note("captions", t=c["t0"], why="style C handed to the impact card")
     over = []
     for f in focus:
         if f["kind"] == "number":
@@ -259,17 +298,39 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
             over.append(TS.ImpactCard([dict(text=w["text"], start=w["start"]) for w in f["words"]], f["t0"], f["t1"], kicker=f["kicker"]))
     for e in plan["events"]:
         if e["kind"] == "year" and not any(f["t0"] - 0.3 <= e["t"] <= f["t1"] for f in focus):
-            i = e["word"]; nxt = [re.sub(r"[^\w]", "", w["text"]) for w in words[i + 1:i + 5] if not re.search(r"[.!?]$", words[i]["text"])]
-            lab = " ".join(x for x in nxt if x.lower() not in STOP)[:28] or "narration"
+            i = e["word"]; s0 = max((k + 1 for k in range(0, i) if re.search(r"[.!?]$", words[k]["text"])), default=0)
+            s1 = next((k for k in range(i, len(words)) if re.search(r"[.!?]$", words[k]["text"])), len(words) - 1)
+            if any(f["kind"] == "number" and s0 <= f.get("word", -1) <= s1 for f in focus):
+                report["skipped"].append(dict(kind="event_year", t=e["t"], why="the number card of this sentence carries the date")); continue
+            j = i - 1 if i > 0 and re.sub(r"[^\w]", "", words[i - 1]["text"]).lower() in semantic.MONTHS else i
+            prep = j - 1 if j > s0 and re.sub(r"[^\w]", "", words[j - 1]["text"]).lower() in ("in", "by", "since", "until", "after", "before") else j
+            clause = [re.sub(r"[^\w']", "", w["text"]) for w in words[s0:prep]]
+            if not clause: clause = [re.sub(r"[^\w']", "", w["text"]) for w in words[i + 1:s1 + 1]]
+            lab = " ".join(x for x in clause if x.lower() not in STOP and x.lower() not in ("and", "but", "so"))[-30:].strip() or "narration"
             yr = re.sub(r"[^\d]", "", words[i + 1]["text"]) if re.sub(r"[^\w]", "", words[i]["text"]).lower() in semantic.MONTHS else re.sub(r"[^\d]", "", words[i]["text"])
             t1 = min([e["t"] + 1.8] + [f["t0"] - 0.05 for f in focus if f["t0"] > e["t"]])
-            if yr and t1 - e["t"] > 0.6: over.append(TS.YearTag(yr, lab, e["t"], t1, xy=(0.72, 0.07))); note("year", t=e["t"], year=yr)
-    over.append(C.WordCaptions(cards, styles, source=plan.get("timing_source", "provider"), hidden=hidden))
+            if yr and t1 - e["t"] > 0.6:
+                over.append(IX.EventYear(yr, lab, e["t"], t1)); note("event_year", t=e["t"], year=yr, words=lab)
+                img = next((d_ for d_ in reversed(dates) if d_["kind"] == "image" and d_["t"] <= e["t"]), None); img_label = img["asset_label"] if img else None
+                if img and yr not in img_label:                       # an event year never stands alone over a picture of another date
+                    over.append(IX.ImageStamp(img["text"], e["t"], t1, group="image_stamp_ctx")); note("image_stamp", t=e["t"], text=img["text"], why="shown with an event year of another date")
+                dates.append(dict(kind="event", t=round(e["t"], 2), year=yr, words=lab, image_on_screen=img_label, differs=bool(img_label and yr not in img_label)))
+    for ta in report.pop("_accents", []): over.append(fx.LightSweep(ta - 0.05, 0.45, strength=0.16))
+    over.append(caps)
     t_off = min(starts[i] for i, sh in enumerate(shots) if not (t_range and (starts[i + 1] <= t_range[0] or starts[i] >= t_range[1])) and "camera" in sh) if t_range else 0.0
     prog = Program(seq, over, t_offset=t_off)
     for f in focus:                                              # card entrances/exits are deliberate hard changes
         report["intended_changes"] += [round(f["t0"] + k / 30, 3) for k in range(-1, 10)] + [round(f["t1"] + k / 30, 3) for k in range(-1, 12)]
     report["intended_changes"] = sorted(set(report["intended_changes"]))
+    report["dates"] = dates
+    ev_t = sorted({round(d["t"], 2) for d in report["decisions"] if d.get("t") is not None and d["kind"] != "captions"} | {round(f["t0"], 2) for f in focus} |
+                  {round(f["t1"], 2) for f in focus} | {round(c["t0"], 2) for c in cards})
+    pacing = []
+    for it in inten:
+        pts = [it["t0"]] + [x for x in ev_t if it["t0"] < x < it["t1"]] + [it["t1"]]; gap = max(b_ - a_ for a_, b_ in zip(pts, pts[1:]))
+        limit = {"energetic": 3.0, "normal": 4.0, "calm": 6.0}[it["label"]]
+        pacing.append(dict(t0=it["t0"], t1=it["t1"], label=it["label"], visual_events=len(pts) - 2, max_gap=round(gap, 2), limit=limit, ok=gap <= limit))
+    report["pacing"] = pacing
     report.update(t_offset=t_off, timing_source=plan.get("timing_source"), hidden_cards=sorted(hidden), shots=len(seq_shots), duration=round(seq.duration, 3))
     return prog, report
 
@@ -282,7 +343,7 @@ class _LocalYearTag(TS.YearTag):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0]); ap.add_argument("cmd", choices=("render", "stills")); ap.add_argument("slug"); ap.add_argument("out")
     ap.add_argument("--start", type=float, default=None); ap.add_argument("--end", type=float, default=None); ap.add_argument("--size", default="1920x1080")
-    ap.add_argument("--workers", type=int, default=4); ap.add_argument("--audio", default=None); ap.add_argument("--times", default=""); ap.add_argument("--report", action="store_true")
+    ap.add_argument("--workers", type=int, default=4); ap.add_argument("--audio", default=None); ap.add_argument("--sfx", action="store_true", help="add the synthesised sound design, ducked under --audio"); ap.add_argument("--times", default=""); ap.add_argument("--report", action="store_true")
     a = ap.parse_args(argv); size = tuple(int(x) for x in a.size.split("x"))
     prod = a.slug if os.path.isdir(a.slug) else os.path.join(ROOT, "productions", a.slug)
     rng = (a.start or 0.0, a.end or 1e9) if (a.start is not None or a.end is not None) else None
@@ -292,7 +353,14 @@ def main(argv=None):
         for ts in a.times.split(","):
             prog.render(float(ts)).save(f"{a.out}_{float(ts):06.2f}.png")
         return 0
-    n = render_video(prog, a.out, 30, a.workers, audio=a.audio)
+    audio = a.audio
+    if a.sfx:
+        from . import sfx as SFX
+        if not a.audio: raise SystemExit("--sfx needs --audio (the narration the effects are ducked under)")
+        cues = SFX.plan_cues(rep); mix_path = os.path.splitext(a.out)[0] + ".mix.wav"
+        mrep = SFX.mix(a.audio, cues, prog.duration + 0.05, mix_path); rep["sfx"] = mrep; audio = mix_path
+        print(f"sound design: {len(mrep['cues'])} cues, effects at least {mrep['margin_db_p5']} dB under the voice (5th percentile, while speaking)")
+    n = render_video(prog, a.out, 30, a.workers, audio=audio)
     json.dump(rep, open(os.path.splitext(a.out)[0] + ".director.json", "w"), indent=1, default=str)
     print(f"{n} frames -> {a.out} ({prog.duration:.2f}s, timing {rep['timing_source']})"); return 0
 

@@ -8,12 +8,12 @@ Rules (each is a deterministic function of the words; same input -> same plan):
   year          'In 1985' -> year label at the word                                      (kind year)
   number        large numbers, percentages, money, measures -> number typography         (kind number)
   place         a gazetteer name -> highlight + camera move toward it                    (kind place)
-  route         'from X to Y' / 'across' with two places -> animated arrow               (kind route)
+  route         'from X ... to Y' with two places -> animated arrow                      (kind route)
   comparison    'than', 'versus', 'compared with', 'before/after', 'then ... now' -> comparison visual   (kind comparison)
   emphasis      superlatives / extremes / negations ('largest', 'record', 'never', 'only') -> word emphasis in captions   (kind emphasis)
   revelation    a sentence opening with 'But/Yet/Then came/Until' or a colon -> stronger emphasis (impact caption, camera push)   (kind revelation)
   complex       a sentence with more than `complex_words` words or 3+ data items -> reduce clutter (kind simplify)
-Density limit: at most `max_events_per_10s` non-caption events per sliding 10 s; lower-priority events are dropped and listed under `dropped`.
+Density limit: at most `max_events_per_10s` (6) non-caption events per sliding 10 s (focus cards are paced separately by the director); lower-priority events are dropped and listed under `dropped`.
 Nothing here invents facts: events carry the word that triggered them and the rule name."""
 import re
 from . import captions as C
@@ -61,7 +61,7 @@ def sentences(words):
     return out
 
 
-def plan(words, places=None, mode="long", source="provider", complex_words=24, max_events_per_10s=4, complexity=None, min_gap=0.8):
+def plan(words, places=None, mode="long", source="provider", complex_words=20, max_events_per_10s=6, complexity=None, min_gap=0.8):
     """build the plan. `source` must say where the timestamps come from ('provider' | 'alignment' | 'estimated' | 'simulated'); only the first two are frame-accurate."""
     tw = tag_words(words, places); ev = []; dropped = []
     def add(kind, i, **kw): ev.append(dict(kind=kind, t=round(tw[i]["start"], 3), word=i, text=tw[i]["text"], priority=PRIORITY[kind], **kw))
@@ -74,7 +74,10 @@ def plan(words, places=None, mode="long", source="provider", complex_words=24, m
         if b - a > complex_words or len(data) >= 3: add("simplify", a, rule=f"{b - a} words, {len(data)} data items")
         for i in data: add(tw[i]["kind"], i, rule=tw[i]["kind"])
         for i in pl: add("place", i, place=tw[i]["place"], rule="gazetteer")
-        if len(pl) >= 2 and any(t in MOTION for t in toks):
+        i_from = next((k for k in range(a, pl[0]) if _norm(tw[k]["text"]) == "from"), None) if len(pl) >= 2 else None
+        i_to = next((k for k in range(pl[0] + 1, pl[1]) if _norm(tw[k]["text"]) in ("to", "toward", "towards", "into")), None) if len(pl) >= 2 else None
+        dist = i_from is not None and any(tw[k].get("kind") == "number" and k + 1 < b and _norm(tw[k + 1]["text"]) in ("km", "kilometers", "kilometres", "miles", "mile") for k in range(a, i_from))
+        if len(pl) >= 2 and i_from is not None and (i_to is not None or dist):     # 'from X ... to Y', or a distance 'N km from X, Y' (a motion word alone is not a direction)
             add("route", pl[0], to=tw[pl[1]]["place"], frm=tw[pl[0]]["place"], rule="two places with a motion word")
         for i in range(a, b):
             n = toks[i - a]
@@ -106,6 +109,21 @@ def plan(words, places=None, mode="long", source="provider", complex_words=24, m
     cards = C.make_cards(tw)
     impact = {ci for ci, c in enumerate(cards) if any(e["kind"] == "revelation" and c["words"][0]["start"] - 2e-3 <= e["t"] <= c["t1"] for e in kept)}
     styles = C.plan_styles(cards, mode, complexity, impact)
-    return dict(schema="orbitalatlas-plan/1", mode=mode, timing_source=source, frame_accurate=source in ("provider", "alignment"),
+    inten = intensity(tw, kept)
+    return dict(schema="orbitalatlas-plan/1", intensity=inten, mode=mode, timing_source=source, frame_accurate=source in ("provider", "alignment"),
                 words=tw, events=kept, dropped=dropped, cards=[dict(t0=c["t0"], t1=c["t1"], text=" ".join(w["text"] for w in c["words"]), style=s) for c, s in zip(cards, styles)],
                 styles="".join(styles), n_cards=len(cards))
+
+
+def intensity(words, events):
+    """adaptive animation intensity per sentence (0..1 and calm / normal / energetic): revelations, emphasis, data and fast speech raise it; long
+    explanations (the 'simplify' rule, > 18 words) lower it so the viewer gets reading time. The director scales micro-events by it."""
+    out = []
+    for a, b in sentences(words):
+        ev = [e for e in events if a <= e["word"] < b]; n = b - a; dur = max(0.3, words[b - 1]["end"] - words[a]["start"])
+        sc = 0.45 + min(0.3, 0.15 * sum(1 for e in ev if e["kind"] == "emphasis")) + (0.25 if any(e["kind"] == "revelation" for e in ev) else 0.0)
+        sc += min(0.2, 0.1 * sum(1 for e in ev if e["kind"] in ("number", "year"))) + (0.1 if n / dur > 2.8 else 0.0)
+        sc -= (0.35 if any(e["kind"] == "simplify" for e in ev) else 0.0) + (0.1 if n > 18 else 0.0)
+        sc = round(max(0.0, min(1.0, sc)), 2)
+        out.append(dict(w0=a, w1=b, t0=round(words[a]["start"], 3), t1=round(words[b - 1]["end"], 3), score=sc, label="calm" if sc < 0.4 else "energetic" if sc >= 0.65 else "normal"))
+    return out

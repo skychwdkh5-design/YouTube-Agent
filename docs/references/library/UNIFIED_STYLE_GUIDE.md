@@ -24,5 +24,11 @@ Narration decides what the viewer must understand. Three layers, never more than
 - Focus cards at least 5 s apart and at most 4 per minute in long-form; other numbers stay in style D captions. Captions never count up.
 - Opening: the map lands from a tilted plane (PlaneTilt). Image date shown once per image change (HUD stamp), not on every shot.
 
+## Interaction, intensity, dates and sound (v2c, enforced by `orbitalatlas.director`)
+- Keywords: the first mention of a pinned place lifts out of the caption and lands as its map label (one label per place: no pin label or callout title twice). The caption copy stays, dimmed to 40 %.
+- Intensity per sentence (`semantic.intensity`): calm = captions A, no punches; normal; energetic = punch-ins on stressed words (>= 2.5 s apart) and light accents on cuts. Pacing target: a visual change every 1-3 s in dense passages, up to 6 s in calm explanations (`report['pacing']`).
+- Dates: the satellite picture's date is always `IMAGE · sensor · month year` (cyan, top-left). A historical year from the narration is amber (top-right) with its clause; when it differs from the picture date the image stamp is shown at the same time. Never one style for both.
+- Sound: `director render ... --sfx`. Original synthesised effects only (CC0); cues follow the director's decisions (impact card: rise + impact; wipe: sweep; push/snap: whoosh; callouts/stamps: UI blip; years: tick), >= 0.25 s apart, ducked while words are spoken and >= 12 dB under the voice, loudnorm -16 LUFS. No music without a recorded licence.
+
 ## Not to do
 Constant flashing; neon everywhere; text on every shot; flags/cloth (not built); noise glitch; recolouring Landsat; unlabeled arrows; claiming a 3D flyover (class A only).

@@ -187,6 +187,14 @@ class RegionTint(Overlay):
             ring = Image.new("RGBA", ctx.size, tuple(self.color) + (0,)); ring.putalpha(ed)
             glow = ring.filter(ImageFilter.GaussianBlur(max(3, 5 * k))); ga = glow.getchannel("A").point(lambda v: int(min(255, v * 2.4))); glow.putalpha(ga)
             ctx.fills.alpha_composite(glow); ctx.fills.alpha_composite(ring)
+            if getattr(self, "glint", True) and reveal >= 1.0:          # a light travels around the contour (angle about the region's centre)
+                ys, xs_ = np.nonzero(edge > 0.2)
+                if len(xs_):
+                    cx, cy = xs_.mean(), ys.mean(); ph = ((t - self.t0 - self.dur) * 0.9) % 1.0 * 2 * math.pi - math.pi
+                    yy, xx = np.mgrid[0:edge.shape[0], 0:edge.shape[1]]; ang = np.arctan2(yy - cy, xx - cx); dd = np.angle(np.exp(1j * (ang - ph)))
+                    gl = edge * np.exp(-(dd / 0.28) ** 2) * o
+                    spot = Image.new("RGBA", ctx.size, (255, 255, 255, 0)); spot.putalpha(Image.fromarray((np.clip(gl * 255 * 1.4, 0, 255)).astype(np.uint8)))
+                    ctx.fills.alpha_composite(spot.filter(ImageFilter.GaussianBlur(max(2, 4 * k)))); ctx.fills.alpha_composite(spot)
     def describe(self): return dict(super().describe(), effect="region_tint", annotation_only=True)
 
 
@@ -208,6 +216,13 @@ class RouteArrow(Overlay):
             tv = sp[-1] - sp[max(0, len(sp) - 4)]; n = np.hypot(*tv) or 1.0; tv = tv / n; nv = np.array([-tv[1], tv[0]]); L = 34 * k; Wd = 24 * k; h = sp[-1]
             tri = [tuple(h + tv * L * 0.6), tuple(h - tv * L * 0.4 + nv * Wd * 0.6), tuple(h - tv * L * 0.4 - nv * Wd * 0.6)]
             ImageDraw.Draw(ctx.fills, "RGBA").polygon(tri, fill=self.head_color + (int(255 * o),))
+        if f >= 1.0:                                                     # flow: bright dashes keep travelling along the finished arrow
+            ph = ((t - self.t0 - self.dur) * 0.8) % 1.0; full = ctx.view.pt(self.pts); cum = np.concatenate([[0], np.cumsum(np.hypot(*np.diff(full, axis=0).T))])
+            L_ = cum[-1]; st = ctx.stroke(self.head_color, 0.9)
+            for kdash in range(4):
+                c0 = ((ph + kdash / 4) % 1.0) * L_; c1 = min(L_, c0 + 0.06 * L_)
+                seg_ = [full[i] for i in range(len(full)) if c0 <= cum[i] <= c1]
+                if len(seg_) >= 2: st.line(np.array(seg_), self.width * 0.55 * k, 0.9 * o)
     def label_pos(self, ctx):
         return ctx.view.pt(self.pts[len(self.pts) // 2])
     def describe(self): return dict(super().describe(), effect="route_arrow", label=self.label, presentation_curve=True)

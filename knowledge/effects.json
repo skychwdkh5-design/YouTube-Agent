@@ -1287,6 +1287,168 @@
     "productions/ep900-visual-demo"
    ],
    "params": {}
+  },
+  {
+   "id": "oa_keyword_lift",
+   "kind": "text",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Caption keyword flies to its map pin and lands as the label (caption word dimmed).",
+   "use_for": [
+    "locate",
+    "narration_sync"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "keyword lift",
+    "text to map",
+    "caption to map"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/interact.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2c.py"
+    ]
+   },
+   "limits": "needs a stack pin and a caption style A/B/D",
+   "used_in": [
+    "productions/ep901-visual-demo-c"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_parallax_layers",
+   "kind": "overlay",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "FloatingLabel and ParallaxDust: layers on a depth above the map that move more on camera moves.",
+   "use_for": [
+    "depth"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "parallax",
+    "floating label",
+    "depth"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/interact.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2c.py"
+    ]
+   },
+   "limits": "2.5D depth cue, not 3D",
+   "used_in": [
+    "productions/ep901-visual-demo-c"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_date_components",
+   "kind": "text",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "ImageStamp (picture date) vs EventYear (narration year), never the same style or place.",
+   "use_for": [
+    "dates"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "image date",
+    "event year",
+    "date stamp"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/interact.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2c.py"
+    ]
+   },
+   "limits": "image text comes from asset metadata",
+   "used_in": [
+    "productions/ep901-visual-demo-c"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_punch_in",
+   "kind": "camera",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Punch: short digital punch-in on emphasis words (energetic sentences).",
+   "use_for": [
+    "emphasis"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "punch in",
+    "emphasis zoom"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/interact.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2c.py"
+    ]
+   },
+   "limits": "frame-space zoom of up to ~5 %",
+   "used_in": [
+    "productions/ep901-visual-demo-c"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_sound_design",
+   "kind": "audio",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Synthesised whoosh/sweep/impact/rise/ui_blip/tick, cue planner and ducking mixer.",
+   "use_for": [
+    "transitions",
+    "impact"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "sound design",
+    "whoosh",
+    "impact",
+    "sfx"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/sfx.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2c.py"
+    ]
+   },
+   "limits": "original CC0 sounds; no music",
+   "used_in": [
+    "productions/ep901-visual-demo-c"
+   ],
+   "params": {}
   }
  ]
 }
