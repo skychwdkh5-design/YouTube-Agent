@@ -35,7 +35,7 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Fix:** List exact timecodes for the owner to listen; use word durations from the provider alignment as indirect evidence only (spelled acronyms take > 1 s; GRACE 0.30 s = spoken as a word). Never report pronunciation as verified.
 - **Reuse when:** Any narration with names or acronyms.
 - **References:** `productions/ep003-great-salt-lake/voice/narration.voice.json`; `docs/production-knowledge/TTS_ELEVENLABS.md`
-- **Verification:** pip download faster-whisper / vosk: no distribution; curl huggingface.co: connect_rejected.
+- **Verification:** pip download faster-whisper / vosk: no distribution; curl huggingface.co: connect_rejected. Re-checked 2026-10-15: ffmpeg has the 'asr' (pocketsphinx) filter and libpocketsphinx is installed, but no acoustic model; apt (archive.ubuntu.com not resolvable), pypi and huggingface are unavailable.
 - **Regression test:** none - measurement / environment fact, not code
 
 ### rebuild-paid-narration-from-saved-responses - Paid narration can be rebuilt for free from the saved provider responses
@@ -426,8 +426,19 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Fix:** Compare SHA-256 of the original; never claim identity of a viewed copy.
 - **Reuse when:** Whenever a file is reviewed through a viewer.
 - **References:** commit `89559f0`; `production/ep001-sahara-green:productions/sahara-green/final/SHA256.txt`
-- **Verification:** SHA-256 recorded for every EP001/EP002 master.
+- **Verification:** SHA-256 recorded for every EP001/EP002 master. EP003 V2 (2026-10-15): a 1280x720 / 27,163,742-byte file (sha256 bb1d5d6b...) was reported by the owner as 910x512 / 228 MB; no such file exists in the container or on media/* branches - the viewer copy is a re-encode. Point the owner to the media branch file and its SHA-256.
 - **Regression test:** none - Procedure only.
+
+### visual-runs-monotony-check - Measure monotony: longest near-identical picture runs and screen time per base image
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** EP003 V2 looked repetitive although pacing reports (events per sentence) were fine.
+- **Root cause:** Pacing counts overlay events; it does not see that the base picture (July 2022, 67 % of screen time) and the camera views (whole <-> whole_in) repeat.
+- **Fix:** tools/autopilot/visual_runs.py VIDEO --timeline TL: runs of frames within a mean-abs-diff threshold of the run start (64x36, caption band ignored), changes per minute, screen time per base picture, repeated view pairs. Review runs > 10 s against the narration; a base picture above ~40 % of screen time needs a reason.
+- **Reuse when:** Before calling any long-form render VISUALLY_REVIEWED.
+- **References:** `tools/autopilot/visual_runs.py`; `docs/production-knowledge/QUALITY_CONTROL.md`
+- **Verification:** EP003 V2: longest runs 3:32-3:49.5 (17.5 s), 4:28.5-4:43.5 (15 s), 4:58-5:11 (13 s); y2022 249 s (67 %).
+- **Regression test:** none - measured on rendered frames; fix proposed, not yet applied to a full render
 
 ## visual
 
@@ -551,6 +562,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** commit `ca2b355`; commit `3c05f27`; `production/ep001-sahara-green:productions/sahara-green/production/landsat_locations.py`; `production/ep001-sahara-green:productions/sahara-green/production/stills/tassili_toneB.json`
 - **Verification:** EP001 pre-final: all five location stills and both sequences use tone B; QA JSON per place on the EP001 branch.
 - **Regression test:** none - Visual judgement; per-place QA JSON exists but needs the 1.9 GB source bands.
+
+### mobile-legibility-hud-text - Image dates, source chip, legends and event labels are illegible on a phone
+*HYPOTHESIS · general · 2026-10-15*
+
+- **Problem:** EP003 V2 final audit: on a 6.1-inch phone in portrait (video 390x219 pt) the IMAGE stamp (19 px at 1080p) renders at ~3.9 pt, the source chip (0.017 H) ~3.7 pt, callout legends (0.026 H x 1.15) ~6.5 pt, event-year labels (~25 px) ~5 pt; in landscape (699x393 pt) the stamp is ~6.9 pt. Thin shoreline outlines (~2 px at 1080p) almost vanish (0.7 px portrait).
+- **Root cause:** Sizes were judged on 1080p frames at desktop size; no phone-scale check.
+- **Fix:** Proposed (proof stills only): ImageStamp 19 -> 30 px, SourceChip px_frac 0.017 -> 0.024, CalloutPanel px 0.026 -> 0.032, EventYear label x1.3, thin outline ~2x wider (blur 2.0 px, band 1.9) with a dark under-stroke; CalloutPanel must clamp with its real width (it estimates px*12 and a larger legend ran off the right edge). Always add a phone simulation (390x219 and 699x393 pt) to the visual review.
+- **Reuse when:** Every render reviewed for YouTube (mobile is the main screen).
+- **References:** `orbitalatlas/interact.py`; `orbitalatlas/layers.py`; `orbitalatlas/fx.py`; `docs/production-knowledge/QUALITY_CONTROL.md`
+- **Verification:** Proof stills of 0:12.5 and 5:53.5 with the proposed sizes are legible at phone scale; brightness unchanged (124.6 vs 123.6 mean luma); one legend clipped at the right edge -> clamp fix needed.
+- **Regression test:** none - measured on rendered frames; fix proposed, not yet applied to a full render
 
 ### monotony-text-cards-and-graphic-runs - Long graphic-only runs and text cards drive the retention risk
 *HYPOTHESIS · general · 2026-10-13*
