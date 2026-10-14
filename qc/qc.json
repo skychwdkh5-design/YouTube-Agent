@@ -1,0 +1,182 @@
+{
+ "result": "PASS",
+ "file": "/home/user/YouTube-Agent/productions/ep003-great-salt-lake/final.mp4",
+ "summary": {
+  "bytes": 1089413803,
+  "duration": 372.566667,
+  "resolution": "1920x1080",
+  "fps": 30.0,
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "expected_duration": 372.567,
+  "profile": "long"
+ },
+ "checks": [
+  {
+   "id": "file_exists",
+   "status": "pass",
+   "expected": "exists",
+   "actual": "exists"
+  },
+  {
+   "id": "container_readable",
+   "status": "pass",
+   "expected": "ffprobe reads the file",
+   "actual": "ok"
+  },
+  {
+   "id": "file_size",
+   "status": "pass",
+   "expected": "> 0 and <= 2000.0 MB",
+   "actual": 1089413803
+  },
+  {
+   "id": "container",
+   "status": "pass",
+   "expected": "mp4",
+   "actual": "mov,mp4,m4a,3gp,3g2,mj2"
+  },
+  {
+   "id": "video_stream",
+   "status": "pass",
+   "expected": "1 video stream",
+   "actual": 1
+  },
+  {
+   "id": "audio_stream",
+   "status": "pass",
+   "expected": "1 audio stream",
+   "actual": 1
+  },
+  {
+   "id": "resolution",
+   "status": "pass",
+   "expected": "1920x1080",
+   "actual": "1920x1080"
+  },
+  {
+   "id": "frame_rate",
+   "status": "pass",
+   "expected": 30.0,
+   "actual": 30.0
+  },
+  {
+   "id": "video_codec",
+   "status": "pass",
+   "expected": "h264",
+   "actual": "h264"
+  },
+  {
+   "id": "pixel_format",
+   "status": "pass",
+   "expected": "yuv420p",
+   "actual": "yuv420p",
+   "detail": "other pixel formats play badly on some devices"
+  },
+  {
+   "id": "audio_codec",
+   "status": "pass",
+   "expected": "aac",
+   "actual": "aac"
+  },
+  {
+   "id": "duration_readable",
+   "status": "pass",
+   "expected": "> 0 s",
+   "actual": 372.566667
+  },
+  {
+   "id": "duration_matches_timeline",
+   "status": "pass",
+   "expected": "372.567 s \u00b1 0.25",
+   "actual": 372.567
+  },
+  {
+   "id": "streams_aligned",
+   "status": "pass",
+   "expected": "video, audio and container end together",
+   "actual": {
+    "container": 372.566667,
+    "video": 372.566667,
+    "audio": 372.565
+   }
+  },
+  {
+   "id": "frame_count",
+   "status": "pass",
+   "expected": 11177,
+   "actual": 11177
+  },
+  {
+   "id": "full_decode",
+   "status": "pass",
+   "expected": "decodes with no errors",
+   "actual": "ok"
+  },
+  {
+   "id": "long_duration",
+   "status": "pass",
+   "expected": "60.0-900.0 s",
+   "actual": 372.567
+  },
+  {
+   "id": "long_target_window",
+   "status": "warn",
+   "expected": "480.0-720.0 s",
+   "actual": 372.567
+  },
+  {
+   "id": "black_frames",
+   "status": "pass",
+   "expected": "none",
+   "actual": 0
+  },
+  {
+   "id": "freezes",
+   "status": "pass",
+   "expected": "< 2.5 s static",
+   "actual": 0
+  },
+  {
+   "id": "loudness",
+   "status": "pass",
+   "expected": "-16.0 to -12.0 LUFS",
+   "actual": -15.9,
+   "detail": "levelling to the Shorts target needs a timing-safe limiter (not built yet)"
+  },
+  {
+   "id": "audio_starts",
+   "status": "pass",
+   "expected": "<= 1.0 s",
+   "actual": 0.0
+  },
+  {
+   "id": "manifest",
+   "status": "skip",
+   "expected": null,
+   "actual": null,
+   "detail": "no render manifest (pass --manifest or keep <video>.manifest.json)"
+  },
+  {
+   "id": "composition_resets",
+   "status": "skip",
+   "expected": null,
+   "actual": null,
+   "detail": "the render manifest has no 'compositions' block (rendered before the composition rule; render.py's plan reports it from the timeline)"
+  },
+  {
+   "id": "visual_novelty",
+   "status": "skip",
+   "expected": null,
+   "actual": null,
+   "detail": "no visual_family tags in the storyboard/manifest"
+  },
+  {
+   "id": "segments",
+   "status": "skip",
+   "expected": null,
+   "actual": null,
+   "detail": "no segments in the manifest (rendered in one pass)"
+  }
+ ]
+}

@@ -1,0 +1,82 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "sc03-callout",
+ "type": "callout",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "NASA Earth Observatory, The Great Shrinking Lake (2022)",
+ "credit": null,
+ "steps": [
+  "sc03-callout.png"
+ ],
+ "sha256": {
+  "sc03-callout.png": "670501a465f39c31e253f2a4dc5f48aa19131d6fb6ca86f7eb8f1ea2b84e8f96"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "source",
+   "text": "Source: NASA Earth Observatory, The Great Shrinking Lake (2022)",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    868.0,
+    797.6
+   ]
+  },
+  {
+   "where": "value",
+   "text": "4,209.7",
+   "size": 190,
+   "box": [
+    479.5,
+    292.4,
+    1234.5,
+    520.4
+   ]
+  },
+  {
+   "where": "unit",
+   "text": "feet",
+   "size": 90,
+   "box": [
+    1258.5,
+    382.4,
+    1440.5,
+    490.4
+   ]
+  },
+  {
+   "where": "label",
+   "text": "GREAT SALT LAKE · JUNE 1985",
+   "size": 44,
+   "box": [
+    628.2,
+    530.0,
+    1291.8,
+    582.8
+   ]
+  },
+  {
+   "where": "context",
+   "text": "In June 1985, its surface measured 4,209.7 feet.",
+   "size": 30,
+   "box": [
+    611.0,
+    628.4,
+    1309.0,
+    664.4
+   ]
+  }
+ ]
+}

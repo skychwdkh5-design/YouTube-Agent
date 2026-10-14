@@ -1,0 +1,266 @@
+{
+ "episode": "EP003 Great Salt Lake",
+ "status_note": "Every claim was read on 2026-10-14 in the cited NASA or USGS page (WebFetch). Utah state, university and journal sites were unreachable from this environment (DNS/proxy), so no claim rests on them; where only a news summary of a primary source was seen, the claim is NOT used. Anything not listed is not in the script.",
+ "claims": [
+  {
+   "id": "C1",
+   "text": "In June 1985 the surface of the Great Salt Lake stood at 4,209.7 feet; in July 2022 it was 4,190.2 feet at the USGS gauge at Saltair Boat Harbor, when the lake neared record lows.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "observation (USGS gauge) shown with Landsat composites",
+   "source_name": "NASA Earth Observatory, The Great Shrinking Lake (2022)",
+   "source_url": "https://science.nasa.gov/earth/earth-observatory/the-great-shrinking-lake-150187",
+   "retrieved": "2026-10-14",
+   "caveat": "the page lists 1,252.5 m for July 2022, inconsistent with its own 4,190.2 ft (about 1,277 m): use feet only, never the metre figure"
+  },
+  {
+   "id": "C2",
+   "text": "The lake's record high was 4,211.6 feet in 1986; by July 2022 the surface was 4,190.2 feet, more than 20 feet lower.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "observation (USGS gauge); 'more than 20 feet' is our subtraction of two quoted levels (21.4 ft)",
+   "source_name": "NASA Earth Observatory, The Great Shrinking Lake (2022)",
+   "source_url": "https://science.nasa.gov/earth/earth-observatory/the-great-shrinking-lake-150187",
+   "retrieved": "2026-10-14",
+   "caveat": "the page itself says 'about 22 feet' for the drop to the July 3 2022 record low; we state only what the two quoted levels prove"
+  },
+  {
+   "id": "C3",
+   "text": "NASA's account names upstream water diversion for housing and agriculture (the region has been diverting water for about a century, says Westminster College biologist Bonnie Baxter), and a shifting climate in which more precipitation falls as rain than snow and snowpack releases water more slowly.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "expert attribution (Westminster College biologist Bonnie Baxter quoted by NASA)",
+   "source_name": "NASA Earth Observatory, The Great Shrinking Lake (2022)",
+   "source_url": "https://science.nasa.gov/earth/earth-observatory/the-great-shrinking-lake-150187",
+   "retrieved": "2026-10-14"
+  },
+  {
+   "id": "C4",
+   "text": "Utah State University researchers estimate that inflows to the lake have declined by 39 percent since 1850 because of human water use; USGS cites a Utah State University-led report that consumptive water use reduced net river inflow by 39 percent over the past 150 years.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "model estimate (attributed), two NASA/USGS pages agree",
+   "source_name": "NASA Earth Observatory 150187; USGS Great Salt Lake, fifty years of change through satellite images",
+   "source_url": "https://www.usgs.gov/centers/utah-water-science-center/science/great-salt-lake-fifty-years-change-through-satellite",
+   "retrieved": "2026-10-14"
+  },
+  {
+   "id": "C5",
+   "text": "The Salt Lake City metropolitan area grew from 700,000 people in 1982 to 1.2 million in 2022.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "statistic quoted by NASA (census data not independently read)",
+   "source_name": "NASA Earth Observatory, The Great Shrinking Lake (2022)",
+   "source_url": "https://science.nasa.gov/earth/earth-observatory/the-great-shrinking-lake-150187",
+   "retrieved": "2026-10-14"
+  },
+  {
+   "id": "C6",
+   "text": "NASA's Scientific Visualization Studio calls it the largest saline lake in the Western Hemisphere and shows Landsat natural-colour imagery from 1984 to 2023, from historic highs in the 1980s to record lows in the 2020s.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "satellite imagery (Landsat) and NASA description",
+   "source_name": "NASA SVS 15020, The Shrinking Great Salt Lake (2026)",
+   "source_url": "https://svs.gsfc.nasa.gov/15020",
+   "retrieved": "2026-10-14",
+   "caveat": "the SVS page gives no water-level numbers; levels come only from C1/C2/C12"
+  },
+  {
+   "id": "C7",
+   "text": "USGS says record high levels peaked in June 1986 and again in March and April 1987, after rainy weather that began in 1982.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "observation (USGS gauge record)",
+   "source_name": "USGS Utah Water Science Center, Great Salt Lake: fifty years of change through satellite images",
+   "source_url": "https://www.usgs.gov/centers/utah-water-science-center/science/great-salt-lake-fifty-years-change-through-satellite",
+   "retrieved": "2026-10-14"
+  },
+  {
+   "id": "C8",
+   "text": "USGS describes the lake as about 70 miles long, 30 miles wide and about 40 feet deep, and up to 8 times as salty as seawater.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "USGS description (approximate dimensions)",
+   "source_name": "USGS Utah Water Science Center, fifty years of change",
+   "source_url": "https://www.usgs.gov/centers/utah-water-science-center/science/great-salt-lake-fifty-years-change-through-satellite",
+   "retrieved": "2026-10-14"
+  },
+  {
+   "id": "C9",
+   "text": "At about 4,200 feet the lake covers about 1,700 square miles; at its 1986 high it covered roughly 2,300 square miles. NASA reports about 950 square miles at the 2021 record low, a 44 percent loss of surface area from the 4,200-foot level.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "USGS and NASA figures (areas at stated levels)",
+   "source_name": "USGS Great Salt Lake page; NASA Earth Observatory, Record Low for Great Salt Lake (2021)",
+   "source_url": "https://science.nasa.gov/earth/earth-observatory/record-low-for-great-salt-lake-148700/",
+   "retrieved": "2026-10-14",
+   "caveat": "two pages: 1,700 and 2,300 sq mi from USGS (usgs.gov/centers/utah-water-science-center/science/great-salt-lake), 950 sq mi and 44 percent from NASA"
+  },
+  {
+   "id": "C10",
+   "text": "On July 23, 2021 the USGS gauge at Saltair boat harbor read 4,191.3 feet, the lowest mark since measurements began in 1875; the previous record low was in 1963.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "observation (USGS gauge)",
+   "source_name": "NASA Earth Observatory, Record Low for Great Salt Lake (2021)",
+   "source_url": "https://science.nasa.gov/earth/earth-observatory/record-low-for-great-salt-lake-148700/",
+   "retrieved": "2026-10-14"
+  },
+  {
+   "id": "C11",
+   "text": "A 2016 white paper cited by NASA found that inflow from the Bear, Jordan and Weber rivers has dropped 39 percent since the mid-1800s; the lake's volume has shrunk 48 percent and its level has fallen 3.4 meters (11 feet) since 1847.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "estimate from a cited white paper (attributed)",
+   "source_name": "NASA Earth Observatory, Record Low for Great Salt Lake (2021)",
+   "source_url": "https://science.nasa.gov/earth/earth-observatory/record-low-for-great-salt-lake-148700/",
+   "retrieved": "2026-10-14"
+  },
+  {
+   "id": "C12",
+   "text": "A solid-fill railroad causeway completed in 1959 divides the lake into Gunnison Bay in the north and Gilbert Bay in the south; Gilbert Bay receives almost all of the freshwater inflow, and the salinity of Gunnison Bay is always greater than that of Gilbert Bay.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "USGS description",
+   "source_name": "USGS Utah Water Science Center, deep brine layer; Great Salt Lake page",
+   "source_url": "https://www.usgs.gov/centers/utah-water-science-center/science/deep-brine-layer",
+   "retrieved": "2026-10-14",
+   "caveat": "the USGS pages give no salinity percentages and no colour explanation: none is stated"
+  },
+  {
+   "id": "C13",
+   "text": "The causeway replaced a trestle and had only two 15-foot culverts; on July 1, 1984 the south part of the lake was 3.7 feet higher than the north, the largest difference ever recorded. On August 3, 1984 a 300-foot section was replaced by a low bridge; the culverts were removed in December 2013 and a new channel opened on December 1, 2016.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "USGS gauge record and engineering history",
+   "source_name": "USGS Utah Water Science Center, fifty years of change",
+   "source_url": "https://www.usgs.gov/centers/utah-water-science-center/science/great-salt-lake-fifty-years-change-through-satellite",
+   "retrieved": "2026-10-14"
+  },
+  {
+   "id": "C14",
+   "text": "After the record highs, a pumping project (the Newfoundland Evaporation Basin) ran from April 1987 to June 1989; the lake dropped almost 6 feet in that period, and USGS says pumping caused about 2 feet of the drop.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "USGS historical account",
+   "source_name": "USGS Utah Water Science Center, fifty years of change",
+   "source_url": "https://www.usgs.gov/centers/utah-water-science-center/science/great-salt-lake-fifty-years-change-through-satellite",
+   "retrieved": "2026-10-14"
+  },
+  {
+   "id": "C15",
+   "text": "USGS collected dust at 17 sites across northern Utah, near the lakebed especially at Farmington and Bear River Bays, and measured pollutants including arsenic, lead and cadmium. It says dust from the lakebed may contribute to potential health risks for children in communities of northern Utah, that the health science is still developing, and that no formal evaluation of its impact on human health has been conducted due to data gaps.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "field sampling with hedged USGS conclusions (no concentrations given on the page)",
+   "source_name": "USGS Environmental Health Program, Dust from the Great Salt Lake dry lakebed: a possible health risk",
+   "source_url": "https://www.usgs.gov/programs/environmental-health-program/science/dust-great-salt-lake-dry-lakebed-a-possible-health",
+   "retrieved": "2026-10-14",
+   "caveat": "state the hedging; never say the dust 'causes' illness"
+  },
+  {
+   "id": "C16",
+   "text": "NASA scientist Dorothy Hall says exposed lakebeds often harbor toxic minerals from agricultural runoff, and NASA reports that dust from the drying Great Salt Lake worsens regional air pollution.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "expert statement quoted by NASA",
+   "source_name": "NASA, Satellites find snow didn't offset Southwest US groundwater loss (2024)",
+   "source_url": "https://www.nasa.gov/science-research/earth-science/nasa-satellites-find-snow-didnt-offset-southwest-us-groundwater-loss/",
+   "retrieved": "2026-10-14"
+  },
+  {
+   "id": "C17",
+   "text": "NASA's GRACE satellites show the Great Basin's underground water fell by 16.5 cubic miles over roughly two decades (April 2002 to September 2023); of the record snowfall of winter 2022-23 Dorothy Hall said she expected it to help replenish groundwater, but 'overall, the decline continued'.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "satellite gravimetry (GRACE) and expert statement",
+   "source_name": "NASA, Satellites find snow didn't offset Southwest US groundwater loss (2024)",
+   "source_url": "https://www.nasa.gov/science-research/earth-science/nasa-satellites-find-snow-didnt-offset-southwest-us-groundwater-loss/",
+   "retrieved": "2026-10-14",
+   "caveat": "this is the Great Basin region, not the lake alone; say so"
+  },
+  {
+   "id": "C18",
+   "text": "NASA's Earth Observatory notes that more snow than usual lay around the lake in February 2023 (SNOTEL and NSIDC data), a photo that month shows Farmington Bay, once part of the lake, under snow.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "satellite and station observation; the page gives no lake level figures",
+   "source_name": "NASA Earth Observatory, Snow and Haze in Utah (2023)",
+   "source_url": "https://science.nasa.gov/earth/earth-observatory/snow-and-haze-in-utah-150975",
+   "retrieved": "2026-10-14",
+   "caveat": "no lake-level number for 2023 is stated anywhere in the script: no primary page with one was reachable"
+  },
+  {
+   "id": "C19",
+   "text": "The Landsat natural-colour scenes used in this film are real USGS Landsat acquisitions: Landsat 5 on 1985-06-12, 1986-08-02 and 1999-08-22, Landsat 8 on 2016-08-20, Landsat 9 on 2022-07-28 and 2025-08-05 (path 38, rows 31 and 32).",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "satellite imagery with scene IDs (assets/landsat/provenance.json)",
+   "source_name": "USGS EROS M2M, Full-Resolution Browse (Natural Color) GeoTIFF",
+   "source_url": "https://m2m.cr.usgs.gov/",
+   "retrieved": "2026-10-14",
+   "caveat": "browse products are display composites, not calibrated reflectance: the film must not measure from them"
+  },
+  {
+   "id": "C20",
+   "text": "NASA's Earth Observatory says the lake reached a new record low on July 3, 2022, a drop of about 22 feet since the 1986 high.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "observation (USGS gauge), NASA statement",
+   "source_name": "NASA Earth Observatory, The Great Shrinking Lake (2022)",
+   "source_url": "https://science.nasa.gov/earth/earth-observatory/the-great-shrinking-lake-150187",
+   "retrieved": "2026-10-14",
+   "caveat": "the narration says only 'a new record low on July 3, 2022'; the page's '22 feet' is not repeated (it conflicts with the 21.4 feet arithmetic of its own two levels)"
+  },
+  {
+   "id": "C21",
+   "text": "USGS describes the Great Salt Lake as a terminal lake with no outlet to the sea; all freshwater inflows enter the southern part of the lake.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "USGS description",
+   "source_name": "USGS Utah Water Science Center, Great Salt Lake",
+   "source_url": "https://www.usgs.gov/centers/utah-water-science-center/science/great-salt-lake",
+   "retrieved": "2026-10-14"
+  },
+  {
+   "id": "C22",
+   "text": "The causeway used 50 million cubic yards of rock, sand and gravel. It replaced a 12-mile trestle made of 28,000 wooden pilings and had only two 15-foot culverts.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "USGS engineering history",
+   "source_name": "USGS Utah Water Science Center, fifty years of change",
+   "source_url": "https://www.usgs.gov/centers/utah-water-science-center/science/great-salt-lake-fifty-years-change-through-satellite",
+   "retrieved": "2026-10-14"
+  },
+  {
+   "id": "C23",
+   "text": "The Newfoundland Evaporation Basin project included almost 25 miles of dikes; about 1.5 million acre-feet were pumped in the first year.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "USGS historical account",
+   "source_name": "USGS Utah Water Science Center, fifty years of change",
+   "source_url": "https://www.usgs.gov/centers/utah-water-science-center/science/great-salt-lake-fifty-years-change-through-satellite",
+   "retrieved": "2026-10-14"
+  },
+  {
+   "id": "C24",
+   "text": "USGS says the lake generates nearly $200 million per year from recreation and the brine shrimp harvest, citing a 2012 source.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "USGS statement citing a 2012 economic study",
+   "source_name": "USGS Utah Water Science Center, Great Salt Lake",
+   "source_url": "https://www.usgs.gov/centers/utah-water-science-center/science/great-salt-lake",
+   "retrieved": "2026-10-14"
+  },
+  {
+   "id": "C25",
+   "text": "A deep brine layer formed near the bottom of Gilbert Bay from Gunnison Bay water; it had low pH and no dissolved oxygen, and its conditions favored the conversion of inorganic mercury to methyl mercury, which biomagnifies. USGS says it dissipated by June 2014 after its source water was cut off.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "USGS research description",
+   "source_name": "USGS Utah Water Science Center, deep brine layer",
+   "source_url": "https://www.usgs.gov/centers/utah-water-science-center/science/deep-brine-layer",
+   "retrieved": "2026-10-14"
+  }
+ ]
+}
