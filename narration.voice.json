@@ -1,0 +1,4275 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "narration.wav",
+ "audio_format": "wav",
+ "audio_sha256": "6344886105eae6307d22bb6626be41679c8aa791cac55ca5e85432b227f6855c",
+ "duration": 371.055,
+ "characters": 4795,
+ "text": "This is the Great Salt Lake in Utah, the largest saline lake in the Western Hemisphere.\n\nIn June 1985, its surface measured 4,209.7 feet.\n\nIn July 2022, it measured 4,190.2 feet.\n\nThe lake's record high had come in 1986, at 4,211.6 feet. Now it sat more than 20 feet lower.\n\nThe Landsat satellites were watching the whole time. Put the pictures in order, from 1985 to 2022, and the lake pulls back from its shore.\n\nThese are real Landsat scenes from the U.S. Geological Survey.\n\nEach picture is a mosaic of several scenes, shown with one color curve, so the colors can be compared from year to year.\n\nIt is a big lake: about 70 miles long, 30 miles wide, and about 40 feet deep, and up to 8 times as salty as seawater.\n\nAt about 4,200 feet, it covers roughly 1,700 square miles. At its 1986 high, it covered about 2,300.\n\nIt is a terminal lake: there is no outlet to the sea.\n\nAnd it matters to the economy. USGS says the lake generates nearly $200 million a year from recreation and the brine shrimp harvest, citing a 2012 study.\n\nIn July 2021, the gauge at Saltair read 4,191.3 feet, the lowest mark since measurements began in 1875.\n\nNASA reports that at that level the lake covered about 950 square miles, 44 percent less surface than at 4,200 feet.\n\nA year later, it fell lower still. NASA lists a new record low on July 3, 2022.\n\nWhy did it fall? NASA's account points to people, and to climate.\n\nFor about a century, water has been diverted upstream for homes and farms. Utah State University researchers estimate that inflows have fallen 39 percent since 1850.\n\nA 2016 white paper cited by NASA found that the lake's volume has shrunk 48 percent, and that its level has fallen 11 feet since 1847.\n\nMeanwhile, the Salt Lake City metro area grew from 700,000 people in 1982 to 1.2 million in 2022.\n\nAnd the climate is changing. More precipitation falls as rain than snow, and the snowpack releases its water more slowly.\n\nIn 1959, a solid-fill railroad causeway was completed across the middle of the lake.\n\nThe causeway took 50 million cubic yards of rock, sand and gravel.\n\nIt replaced a 12-mile trestle of 28,000 wooden pilings, and it had only two 15-foot culverts for water to pass through.\n\nIt divides the lake into Gunnison Bay in the north, and Gilbert Bay in the south.\n\nAlmost all of the fresh water flows in on the south side, so the north is always saltier.\n\nIn July 1984, the south side stood 3.7 feet higher than the north, the largest difference ever recorded.\n\nThat August, a 300-foot section of the causeway was replaced by a low bridge. A new channel opened in December 2016.\n\nThe divide had a strange side effect. Dense brine from Gunnison Bay sank into a deep layer near the bottom of Gilbert Bay.\n\nUSGS says that layer had low pH and no dissolved oxygen, and conditions that favored turning inorganic mercury into methyl mercury, which builds up in the food chain. It dissipated by June 2014, after its source water was cut off.\n\nThe lake has not always been too low. After rainy weather beginning in 1982, it peaked in June 1986, and again in March and April of 1987.\n\nThen came a pumping project, the Newfoundland Evaporation Basin. The project built almost 25 miles of dikes, and about 1.5 million acre-feet were pumped in the first year.\n\nThe pumps ran from April 1987 to June 1989, and the lake dropped almost 6 feet. USGS says the pumping caused about 2 feet of that.\n\nWhen the water pulls back, it leaves lake bed. NASA scientist Dorothy Hall says exposed lake beds often harbor toxic minerals from agricultural runoff, and NASA reports that dust from the drying Great Salt Lake worsens regional air pollution.\n\nUSGS collected dust at 17 sites in northern Utah, near the lake bed, especially at Farmington and Bear River Bays, and measured pollutants including arsenic, lead and cadmium.\n\nIts conclusion is careful. The dust may contribute to potential health risks for children, but USGS says no formal evaluation of its impact on human health has been conducted, because of data gaps.\n\nThen came the winter of 2022 to 2023, with record snowfall across the region. NASA's Earth Observatory shows more snow than usual around the lake that February.\n\nDid that fix the problem? NASA's GRACE satellites measure underground water across the Great Basin, a region of the western United States.\n\nThey show it fell by 16.5 cubic miles over about two decades. Scientist Dorothy Hall expected the record snow to help, but she said, overall, the decline continued.\n\nWhat do these pictures show? Where the shoreline was on particular days. They do not forecast what comes next.\n\nBut the measurements are plain: in July 2022, the Great Salt Lake measured 4,190.2 feet, more than 20 feet below its 1986 high.\n\nAnd nearly four decades of Landsat show where that water used to be.",
+ "text_sha256": "e6c63c2e050304664e6c7dfd7c7961ca684d3865b695f8549481c96ecf58c8c9",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 1568,
+   "offset": 0.0,
+   "duration": 123.391,
+   "timing": true
+  },
+  {
+   "index": 1,
+   "characters": 1698,
+   "offset": 123.391,
+   "duration": 130.635,
+   "timing": true
+  },
+  {
+   "index": 2,
+   "characters": 1529,
+   "offset": 254.026,
+   "duration": 117.029,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "This",
+   "start": 0.0,
+   "end": 0.221
+  },
+  {
+   "text": "is",
+   "start": 0.279,
+   "end": 0.383
+  },
+  {
+   "text": "the",
+   "start": 0.441,
+   "end": 0.499
+  },
+  {
+   "text": "Great",
+   "start": 0.546,
+   "end": 0.72
+  },
+  {
+   "text": "Salt",
+   "start": 0.778,
+   "end": 0.975
+  },
+  {
+   "text": "Lake",
+   "start": 1.033,
+   "end": 1.277
+  },
+  {
+   "text": "in",
+   "start": 1.335,
+   "end": 1.474
+  },
+  {
+   "text": "Utah,",
+   "start": 1.567,
+   "end": 2.09
+  },
+  {
+   "text": "the",
+   "start": 2.252,
+   "end": 2.345
+  },
+  {
+   "text": "largest",
+   "start": 2.403,
+   "end": 2.775
+  },
+  {
+   "text": "saline",
+   "start": 2.868,
+   "end": 3.297
+  },
+  {
+   "text": "lake",
+   "start": 3.344,
+   "end": 3.518
+  },
+  {
+   "text": "in",
+   "start": 3.541,
+   "end": 3.599
+  },
+  {
+   "text": "the",
+   "start": 3.622,
+   "end": 3.68
+  },
+  {
+   "text": "Western",
+   "start": 3.715,
+   "end": 3.971
+  },
+  {
+   "text": "Hemisphere.",
+   "start": 4.005,
+   "end": 4.574
+  },
+  {
+   "text": "In",
+   "start": 4.841,
+   "end": 4.981
+  },
+  {
+   "text": "June",
+   "start": 5.05,
+   "end": 5.341
+  },
+  {
+   "text": "1985,",
+   "start": 5.375,
+   "end": 6.409
+  },
+  {
+   "text": "its",
+   "start": 6.583,
+   "end": 6.734
+  },
+  {
+   "text": "surface",
+   "start": 6.769,
+   "end": 7.117
+  },
+  {
+   "text": "measured",
+   "start": 7.163,
+   "end": 7.465
+  },
+  {
+   "text": "4,209.7",
+   "start": 7.535,
+   "end": 9.276
+  },
+  {
+   "text": "feet.",
+   "start": 9.346,
+   "end": 9.718
+  },
+  {
+   "text": "In",
+   "start": 10.031,
+   "end": 10.136
+  },
+  {
+   "text": "July",
+   "start": 10.182,
+   "end": 10.519
+  },
+  {
+   "text": "2022,",
+   "start": 10.612,
+   "end": 11.378
+  },
+  {
+   "text": "it",
+   "start": 11.517,
+   "end": 11.633
+  },
+  {
+   "text": "measured",
+   "start": 11.691,
+   "end": 11.981
+  },
+  {
+   "text": "4,190.2",
+   "start": 12.04,
+   "end": 13.851
+  },
+  {
+   "text": "feet.",
+   "start": 13.92,
+   "end": 14.269
+  },
+  {
+   "text": "The",
+   "start": 14.582,
+   "end": 14.675
+  },
+  {
+   "text": "lake's",
+   "start": 14.721,
+   "end": 14.93
+  },
+  {
+   "text": "record",
+   "start": 14.977,
+   "end": 15.232
+  },
+  {
+   "text": "high",
+   "start": 15.29,
+   "end": 15.546
+  },
+  {
+   "text": "had",
+   "start": 15.581,
+   "end": 15.673
+  },
+  {
+   "text": "come",
+   "start": 15.72,
+   "end": 15.882
+  },
+  {
+   "text": "in",
+   "start": 15.917,
+   "end": 15.964
+  },
+  {
+   "text": "1986,",
+   "start": 16.01,
+   "end": 17.09
+  },
+  {
+   "text": "at",
+   "start": 17.264,
+   "end": 17.392
+  },
+  {
+   "text": "4,211.6",
+   "start": 17.473,
+   "end": 19.285
+  },
+  {
+   "text": "feet.",
+   "start": 19.389,
+   "end": 19.737
+  },
+  {
+   "text": "Now",
+   "start": 20.051,
+   "end": 20.248
+  },
+  {
+   "text": "it",
+   "start": 20.306,
+   "end": 20.376
+  },
+  {
+   "text": "sat",
+   "start": 20.422,
+   "end": 20.596
+  },
+  {
+   "text": "more",
+   "start": 20.643,
+   "end": 20.759
+  },
+  {
+   "text": "than",
+   "start": 20.794,
+   "end": 20.898
+  },
+  {
+   "text": "20",
+   "start": 20.956,
+   "end": 21.2
+  },
+  {
+   "text": "feet",
+   "start": 21.247,
+   "end": 21.409
+  },
+  {
+   "text": "lower.",
+   "start": 21.467,
+   "end": 21.955
+  },
+  {
+   "text": "The",
+   "start": 22.164,
+   "end": 22.28
+  },
+  {
+   "text": "Landsat",
+   "start": 22.35,
+   "end": 22.837
+  },
+  {
+   "text": "satellites",
+   "start": 22.907,
+   "end": 23.394
+  },
+  {
+   "text": "were",
+   "start": 23.429,
+   "end": 23.569
+  },
+  {
+   "text": "watching",
+   "start": 23.603,
+   "end": 23.894
+  },
+  {
+   "text": "the",
+   "start": 23.94,
+   "end": 24.01
+  },
+  {
+   "text": "whole",
+   "start": 24.056,
+   "end": 24.3
+  },
+  {
+   "text": "time.",
+   "start": 24.335,
+   "end": 24.869
+  },
+  {
+   "text": "Put",
+   "start": 25.148,
+   "end": 25.333
+  },
+  {
+   "text": "the",
+   "start": 25.368,
+   "end": 25.438
+  },
+  {
+   "text": "pictures",
+   "start": 25.484,
+   "end": 25.833
+  },
+  {
+   "text": "in",
+   "start": 25.879,
+   "end": 25.949
+  },
+  {
+   "text": "order,",
+   "start": 26.03,
+   "end": 26.401
+  },
+  {
+   "text": "from",
+   "start": 26.46,
+   "end": 26.634
+  },
+  {
+   "text": "1985",
+   "start": 26.692,
+   "end": 27.597
+  },
+  {
+   "text": "to",
+   "start": 27.667,
+   "end": 27.725
+  },
+  {
+   "text": "2022,",
+   "start": 27.806,
+   "end": 28.921
+  },
+  {
+   "text": "and",
+   "start": 29.13,
+   "end": 29.281
+  },
+  {
+   "text": "the",
+   "start": 29.339,
+   "end": 29.408
+  },
+  {
+   "text": "lake",
+   "start": 29.455,
+   "end": 29.675
+  },
+  {
+   "text": "pulls",
+   "start": 29.722,
+   "end": 30.024
+  },
+  {
+   "text": "back",
+   "start": 30.093,
+   "end": 30.302
+  },
+  {
+   "text": "from",
+   "start": 30.349,
+   "end": 30.488
+  },
+  {
+   "text": "its",
+   "start": 30.535,
+   "end": 30.651
+  },
+  {
+   "text": "shore.",
+   "start": 30.686,
+   "end": 31.231
+  },
+  {
+   "text": "These",
+   "start": 31.556,
+   "end": 31.788
+  },
+  {
+   "text": "are",
+   "start": 31.823,
+   "end": 31.951
+  },
+  {
+   "text": "real",
+   "start": 32.009,
+   "end": 32.404
+  },
+  {
+   "text": "Landsat",
+   "start": 32.613,
+   "end": 33.263
+  },
+  {
+   "text": "scenes",
+   "start": 33.344,
+   "end": 33.716
+  },
+  {
+   "text": "from",
+   "start": 33.762,
+   "end": 33.913
+  },
+  {
+   "text": "the",
+   "start": 33.96,
+   "end": 34.029
+  },
+  {
+   "text": "U.S.",
+   "start": 34.099,
+   "end": 34.54
+  },
+  {
+   "text": "Geological",
+   "start": 34.575,
+   "end": 35.388
+  },
+  {
+   "text": "Survey.",
+   "start": 35.48,
+   "end": 36.177
+  },
+  {
+   "text": "Each",
+   "start": 36.56,
+   "end": 36.781
+  },
+  {
+   "text": "picture",
+   "start": 36.839,
+   "end": 37.176
+  },
+  {
+   "text": "is",
+   "start": 37.222,
+   "end": 37.315
+  },
+  {
+   "text": "a",
+   "start": 37.361,
+   "end": 37.384
+  },
+  {
+   "text": "mosaic",
+   "start": 37.443,
+   "end": 38.0
+  },
+  {
+   "text": "of",
+   "start": 38.058,
+   "end": 38.116
+  },
+  {
+   "text": "several",
+   "start": 38.186,
+   "end": 38.499
+  },
+  {
+   "text": "scenes,",
+   "start": 38.569,
+   "end": 39.219
+  },
+  {
+   "text": "shown",
+   "start": 39.381,
+   "end": 39.66
+  },
+  {
+   "text": "with",
+   "start": 39.706,
+   "end": 39.834
+  },
+  {
+   "text": "one",
+   "start": 39.892,
+   "end": 40.101
+  },
+  {
+   "text": "color",
+   "start": 40.136,
+   "end": 40.403
+  },
+  {
+   "text": "curve,",
+   "start": 40.473,
+   "end": 41.146
+  },
+  {
+   "text": "so",
+   "start": 41.297,
+   "end": 41.425
+  },
+  {
+   "text": "the",
+   "start": 41.471,
+   "end": 41.541
+  },
+  {
+   "text": "colors",
+   "start": 41.599,
+   "end": 41.889
+  },
+  {
+   "text": "can",
+   "start": 41.936,
+   "end": 42.063
+  },
+  {
+   "text": "be",
+   "start": 42.121,
+   "end": 42.214
+  },
+  {
+   "text": "compared",
+   "start": 42.261,
+   "end": 42.818
+  },
+  {
+   "text": "from",
+   "start": 42.864,
+   "end": 43.027
+  },
+  {
+   "text": "year",
+   "start": 43.108,
+   "end": 43.329
+  },
+  {
+   "text": "to",
+   "start": 43.387,
+   "end": 43.457
+  },
+  {
+   "text": "year.",
+   "start": 43.538,
+   "end": 44.06
+  },
+  {
+   "text": "It",
+   "start": 44.432,
+   "end": 44.559
+  },
+  {
+   "text": "is",
+   "start": 44.606,
+   "end": 44.699
+  },
+  {
+   "text": "a",
+   "start": 44.745,
+   "end": 44.768
+  },
+  {
+   "text": "big",
+   "start": 44.861,
+   "end": 45.082
+  },
+  {
+   "text": "lake:",
+   "start": 45.175,
+   "end": 45.674
+  },
+  {
+   "text": "about",
+   "start": 45.837,
+   "end": 46.15
+  },
+  {
+   "text": "70",
+   "start": 46.231,
+   "end": 46.591
+  },
+  {
+   "text": "miles",
+   "start": 46.661,
+   "end": 47.021
+  },
+  {
+   "text": "long,",
+   "start": 47.102,
+   "end": 47.543
+  },
+  {
+   "text": "30",
+   "start": 47.694,
+   "end": 47.95
+  },
+  {
+   "text": "miles",
+   "start": 48.008,
+   "end": 48.344
+  },
+  {
+   "text": "wide,",
+   "start": 48.402,
+   "end": 48.994
+  },
+  {
+   "text": "and",
+   "start": 49.169,
+   "end": 49.331
+  },
+  {
+   "text": "about",
+   "start": 49.389,
+   "end": 49.621
+  },
+  {
+   "text": "40",
+   "start": 49.691,
+   "end": 49.97
+  },
+  {
+   "text": "feet",
+   "start": 50.028,
+   "end": 50.225
+  },
+  {
+   "text": "deep,",
+   "start": 50.295,
+   "end": 50.782
+  },
+  {
+   "text": "and",
+   "start": 51.015,
+   "end": 51.2
+  },
+  {
+   "text": "up",
+   "start": 51.27,
+   "end": 51.375
+  },
+  {
+   "text": "to",
+   "start": 51.444,
+   "end": 51.549
+  },
+  {
+   "text": "8",
+   "start": 51.665,
+   "end": 51.897
+  },
+  {
+   "text": "times",
+   "start": 51.967,
+   "end": 52.408
+  },
+  {
+   "text": "as",
+   "start": 52.478,
+   "end": 52.559
+  },
+  {
+   "text": "salty",
+   "start": 52.617,
+   "end": 53.012
+  },
+  {
+   "text": "as",
+   "start": 53.07,
+   "end": 53.14
+  },
+  {
+   "text": "seawater.",
+   "start": 53.186,
+   "end": 53.929
+  },
+  {
+   "text": "At",
+   "start": 54.51,
+   "end": 54.672
+  },
+  {
+   "text": "about",
+   "start": 54.719,
+   "end": 54.928
+  },
+  {
+   "text": "4,200",
+   "start": 54.986,
+   "end": 55.775
+  },
+  {
+   "text": "feet,",
+   "start": 55.833,
+   "end": 56.089
+  },
+  {
+   "text": "it",
+   "start": 56.123,
+   "end": 56.216
+  },
+  {
+   "text": "covers",
+   "start": 56.274,
+   "end": 56.565
+  },
+  {
+   "text": "roughly",
+   "start": 56.623,
+   "end": 56.948
+  },
+  {
+   "text": "1,700",
+   "start": 57.041,
+   "end": 57.888
+  },
+  {
+   "text": "square",
+   "start": 57.934,
+   "end": 58.225
+  },
+  {
+   "text": "miles.",
+   "start": 58.26,
+   "end": 58.875
+  },
+  {
+   "text": "At",
+   "start": 59.177,
+   "end": 59.339
+  },
+  {
+   "text": "its",
+   "start": 59.386,
+   "end": 59.502
+  },
+  {
+   "text": "1986",
+   "start": 59.56,
+   "end": 60.547
+  },
+  {
+   "text": "high,",
+   "start": 60.616,
+   "end": 60.976
+  },
+  {
+   "text": "it",
+   "start": 61.023,
+   "end": 61.162
+  },
+  {
+   "text": "covered",
+   "start": 61.209,
+   "end": 61.51
+  },
+  {
+   "text": "about",
+   "start": 61.522,
+   "end": 61.766
+  },
+  {
+   "text": "2,300.",
+   "start": 61.847,
+   "end": 62.892
+  },
+  {
+   "text": "It",
+   "start": 63.147,
+   "end": 63.287
+  },
+  {
+   "text": "is",
+   "start": 63.322,
+   "end": 63.414
+  },
+  {
+   "text": "a",
+   "start": 63.449,
+   "end": 63.484
+  },
+  {
+   "text": "terminal",
+   "start": 63.542,
+   "end": 63.96
+  },
+  {
+   "text": "lake:",
+   "start": 64.03,
+   "end": 64.471
+  },
+  {
+   "text": "there",
+   "start": 64.773,
+   "end": 64.959
+  },
+  {
+   "text": "is",
+   "start": 64.993,
+   "end": 65.063
+  },
+  {
+   "text": "no",
+   "start": 65.133,
+   "end": 65.249
+  },
+  {
+   "text": "outlet",
+   "start": 65.365,
+   "end": 65.748
+  },
+  {
+   "text": "to",
+   "start": 65.794,
+   "end": 65.852
+  },
+  {
+   "text": "the",
+   "start": 65.922,
+   "end": 65.98
+  },
+  {
+   "text": "sea.",
+   "start": 66.038,
+   "end": 66.456
+  },
+  {
+   "text": "And",
+   "start": 66.758,
+   "end": 66.909
+  },
+  {
+   "text": "it",
+   "start": 66.967,
+   "end": 67.025
+  },
+  {
+   "text": "matters",
+   "start": 67.095,
+   "end": 67.443
+  },
+  {
+   "text": "to",
+   "start": 67.489,
+   "end": 67.559
+  },
+  {
+   "text": "the",
+   "start": 67.606,
+   "end": 67.687
+  },
+  {
+   "text": "economy.",
+   "start": 67.733,
+   "end": 68.43
+  },
+  {
+   "text": "USGS",
+   "start": 69.185,
+   "end": 69.928
+  },
+  {
+   "text": "says",
+   "start": 69.986,
+   "end": 70.253
+  },
+  {
+   "text": "the",
+   "start": 70.322,
+   "end": 70.404
+  },
+  {
+   "text": "lake",
+   "start": 70.462,
+   "end": 70.682
+  },
+  {
+   "text": "generates",
+   "start": 70.717,
+   "end": 71.17
+  },
+  {
+   "text": "nearly",
+   "start": 71.216,
+   "end": 71.448
+  },
+  {
+   "text": "$200",
+   "start": 71.507,
+   "end": 71.971
+  },
+  {
+   "text": "million",
+   "start": 72.041,
+   "end": 72.644
+  },
+  {
+   "text": "a",
+   "start": 72.702,
+   "end": 72.749
+  },
+  {
+   "text": "year",
+   "start": 72.818,
+   "end": 73.004
+  },
+  {
+   "text": "from",
+   "start": 73.074,
+   "end": 73.202
+  },
+  {
+   "text": "recreation",
+   "start": 73.26,
+   "end": 73.887
+  },
+  {
+   "text": "and",
+   "start": 74.119,
+   "end": 74.305
+  },
+  {
+   "text": "the",
+   "start": 74.328,
+   "end": 74.397
+  },
+  {
+   "text": "brine",
+   "start": 74.432,
+   "end": 74.711
+  },
+  {
+   "text": "shrimp",
+   "start": 74.734,
+   "end": 74.978
+  },
+  {
+   "text": "harvest,",
+   "start": 75.036,
+   "end": 75.57
+  },
+  {
+   "text": "citing",
+   "start": 75.709,
+   "end": 76.058
+  },
+  {
+   "text": "a",
+   "start": 76.127,
+   "end": 76.151
+  },
+  {
+   "text": "2012",
+   "start": 76.232,
+   "end": 77.056
+  },
+  {
+   "text": "study.",
+   "start": 77.103,
+   "end": 77.637
+  },
+  {
+   "text": "In",
+   "start": 78.113,
+   "end": 78.24
+  },
+  {
+   "text": "July",
+   "start": 78.287,
+   "end": 78.623
+  },
+  {
+   "text": "2021,",
+   "start": 78.716,
+   "end": 79.657
+  },
+  {
+   "text": "the",
+   "start": 79.796,
+   "end": 79.889
+  },
+  {
+   "text": "gauge",
+   "start": 79.947,
+   "end": 80.226
+  },
+  {
+   "text": "at",
+   "start": 80.26,
+   "end": 80.319
+  },
+  {
+   "text": "Saltair",
+   "start": 80.388,
+   "end": 80.911
+  },
+  {
+   "text": "read",
+   "start": 81.027,
+   "end": 81.224
+  },
+  {
+   "text": "4,191.3",
+   "start": 81.34,
+   "end": 83.697
+  },
+  {
+   "text": "feet,",
+   "start": 83.79,
+   "end": 84.231
+  },
+  {
+   "text": "the",
+   "start": 84.452,
+   "end": 84.556
+  },
+  {
+   "text": "lowest",
+   "start": 84.614,
+   "end": 84.928
+  },
+  {
+   "text": "mark",
+   "start": 84.997,
+   "end": 85.23
+  },
+  {
+   "text": "since",
+   "start": 85.299,
+   "end": 85.52
+  },
+  {
+   "text": "measurements",
+   "start": 85.566,
+   "end": 85.984
+  },
+  {
+   "text": "began",
+   "start": 86.031,
+   "end": 86.379
+  },
+  {
+   "text": "in",
+   "start": 86.437,
+   "end": 86.483
+  },
+  {
+   "text": "1875.",
+   "start": 86.541,
+   "end": 87.946
+  },
+  {
+   "text": "NASA",
+   "start": 88.504,
+   "end": 88.898
+  },
+  {
+   "text": "reports",
+   "start": 88.945,
+   "end": 89.537
+  },
+  {
+   "text": "that",
+   "start": 89.734,
+   "end": 89.932
+  },
+  {
+   "text": "at",
+   "start": 89.978,
+   "end": 90.059
+  },
+  {
+   "text": "that",
+   "start": 90.117,
+   "end": 90.291
+  },
+  {
+   "text": "level",
+   "start": 90.361,
+   "end": 90.617
+  },
+  {
+   "text": "the",
+   "start": 90.675,
+   "end": 90.744
+  },
+  {
+   "text": "lake",
+   "start": 90.791,
+   "end": 91.0
+  },
+  {
+   "text": "covered",
+   "start": 91.023,
+   "end": 91.336
+  },
+  {
+   "text": "about",
+   "start": 91.371,
+   "end": 91.592
+  },
+  {
+   "text": "950",
+   "start": 91.661,
+   "end": 92.555
+  },
+  {
+   "text": "square",
+   "start": 92.602,
+   "end": 92.904
+  },
+  {
+   "text": "miles,",
+   "start": 92.962,
+   "end": 93.519
+  },
+  {
+   "text": "44",
+   "start": 93.716,
+   "end": 94.274
+  },
+  {
+   "text": "percent",
+   "start": 94.332,
+   "end": 94.657
+  },
+  {
+   "text": "less",
+   "start": 94.726,
+   "end": 94.924
+  },
+  {
+   "text": "surface",
+   "start": 94.959,
+   "end": 95.411
+  },
+  {
+   "text": "than",
+   "start": 95.446,
+   "end": 95.597
+  },
+  {
+   "text": "at",
+   "start": 95.644,
+   "end": 95.725
+  },
+  {
+   "text": "4,200",
+   "start": 95.783,
+   "end": 96.816
+  },
+  {
+   "text": "feet.",
+   "start": 96.874,
+   "end": 97.327
+  },
+  {
+   "text": "A",
+   "start": 97.687,
+   "end": 97.768
+  },
+  {
+   "text": "year",
+   "start": 97.873,
+   "end": 98.059
+  },
+  {
+   "text": "later,",
+   "start": 98.14,
+   "end": 98.581
+  },
+  {
+   "text": "it",
+   "start": 98.674,
+   "end": 98.813
+  },
+  {
+   "text": "fell",
+   "start": 98.894,
+   "end": 99.138
+  },
+  {
+   "text": "lower",
+   "start": 99.22,
+   "end": 99.521
+  },
+  {
+   "text": "still.",
+   "start": 99.591,
+   "end": 100.172
+  },
+  {
+   "text": "NASA",
+   "start": 100.485,
+   "end": 100.903
+  },
+  {
+   "text": "lists",
+   "start": 100.949,
+   "end": 101.344
+  },
+  {
+   "text": "a",
+   "start": 101.402,
+   "end": 101.472
+  },
+  {
+   "text": "new",
+   "start": 101.576,
+   "end": 101.739
+  },
+  {
+   "text": "record",
+   "start": 101.82,
+   "end": 102.157
+  },
+  {
+   "text": "low",
+   "start": 102.238,
+   "end": 102.494
+  },
+  {
+   "text": "on",
+   "start": 102.575,
+   "end": 102.714
+  },
+  {
+   "text": "July",
+   "start": 102.761,
+   "end": 103.097
+  },
+  {
+   "text": "3,",
+   "start": 103.202,
+   "end": 103.538
+  },
+  {
+   "text": "2022.",
+   "start": 103.608,
+   "end": 104.676
+  },
+  {
+   "text": "Why",
+   "start": 105.036,
+   "end": 105.315
+  },
+  {
+   "text": "did",
+   "start": 105.384,
+   "end": 105.512
+  },
+  {
+   "text": "it",
+   "start": 105.559,
+   "end": 105.628
+  },
+  {
+   "text": "fall?",
+   "start": 105.686,
+   "end": 106.197
+  },
+  {
+   "text": "NASA's",
+   "start": 106.394,
+   "end": 106.859
+  },
+  {
+   "text": "account",
+   "start": 106.894,
+   "end": 107.265
+  },
+  {
+   "text": "points",
+   "start": 107.335,
+   "end": 107.706
+  },
+  {
+   "text": "to",
+   "start": 107.753,
+   "end": 107.857
+  },
+  {
+   "text": "people,",
+   "start": 107.927,
+   "end": 108.438
+  },
+  {
+   "text": "and",
+   "start": 108.554,
+   "end": 108.763
+  },
+  {
+   "text": "to",
+   "start": 108.809,
+   "end": 108.867
+  },
+  {
+   "text": "climate.",
+   "start": 108.914,
+   "end": 109.517
+  },
+  {
+   "text": "For",
+   "start": 110.33,
+   "end": 110.493
+  },
+  {
+   "text": "about",
+   "start": 110.551,
+   "end": 110.783
+  },
+  {
+   "text": "a",
+   "start": 110.818,
+   "end": 110.841
+  },
+  {
+   "text": "century,",
+   "start": 110.922,
+   "end": 111.607
+  },
+  {
+   "text": "water",
+   "start": 111.816,
+   "end": 112.153
+  },
+  {
+   "text": "has",
+   "start": 112.211,
+   "end": 112.327
+  },
+  {
+   "text": "been",
+   "start": 112.385,
+   "end": 112.548
+  },
+  {
+   "text": "diverted",
+   "start": 112.594,
+   "end": 112.989
+  },
+  {
+   "text": "upstream",
+   "start": 113.035,
+   "end": 113.558
+  },
+  {
+   "text": "for",
+   "start": 113.627,
+   "end": 113.778
+  },
+  {
+   "text": "homes",
+   "start": 113.848,
+   "end": 114.208
+  },
+  {
+   "text": "and",
+   "start": 114.266,
+   "end": 114.382
+  },
+  {
+   "text": "farms.",
+   "start": 114.498,
+   "end": 115.229
+  },
+  {
+   "text": "Utah",
+   "start": 115.926,
+   "end": 116.356
+  },
+  {
+   "text": "State",
+   "start": 116.414,
+   "end": 116.716
+  },
+  {
+   "text": "University",
+   "start": 116.785,
+   "end": 117.377
+  },
+  {
+   "text": "researchers",
+   "start": 117.447,
+   "end": 118.039
+  },
+  {
+   "text": "estimate",
+   "start": 118.12,
+   "end": 118.654
+  },
+  {
+   "text": "that",
+   "start": 118.689,
+   "end": 118.829
+  },
+  {
+   "text": "inflows",
+   "start": 118.898,
+   "end": 119.386
+  },
+  {
+   "text": "have",
+   "start": 119.432,
+   "end": 119.572
+  },
+  {
+   "text": "fallen",
+   "start": 119.618,
+   "end": 119.966
+  },
+  {
+   "text": "39",
+   "start": 120.036,
+   "end": 120.593
+  },
+  {
+   "text": "percent",
+   "start": 120.663,
+   "end": 121.162
+  },
+  {
+   "text": "since",
+   "start": 121.406,
+   "end": 121.685
+  },
+  {
+   "text": "1850.",
+   "start": 121.719,
+   "end": 123.391
+  },
+  {
+   "text": "A",
+   "start": 123.391,
+   "end": 123.495
+  },
+  {
+   "text": "2016",
+   "start": 123.588,
+   "end": 124.262
+  },
+  {
+   "text": "white",
+   "start": 124.32,
+   "end": 124.54
+  },
+  {
+   "text": "paper",
+   "start": 124.575,
+   "end": 124.9
+  },
+  {
+   "text": "cited",
+   "start": 124.993,
+   "end": 125.318
+  },
+  {
+   "text": "by",
+   "start": 125.376,
+   "end": 125.481
+  },
+  {
+   "text": "NASA",
+   "start": 125.562,
+   "end": 125.91
+  },
+  {
+   "text": "found",
+   "start": 125.968,
+   "end": 126.166
+  },
+  {
+   "text": "that",
+   "start": 126.201,
+   "end": 126.305
+  },
+  {
+   "text": "the",
+   "start": 126.34,
+   "end": 126.41
+  },
+  {
+   "text": "lake's",
+   "start": 126.456,
+   "end": 126.688
+  },
+  {
+   "text": "volume",
+   "start": 126.735,
+   "end": 127.129
+  },
+  {
+   "text": "has",
+   "start": 127.164,
+   "end": 127.257
+  },
+  {
+   "text": "shrunk",
+   "start": 127.304,
+   "end": 127.582
+  },
+  {
+   "text": "48",
+   "start": 127.652,
+   "end": 128.128
+  },
+  {
+   "text": "percent,",
+   "start": 128.174,
+   "end": 128.708
+  },
+  {
+   "text": "and",
+   "start": 128.871,
+   "end": 128.987
+  },
+  {
+   "text": "that",
+   "start": 129.033,
+   "end": 129.161
+  },
+  {
+   "text": "its",
+   "start": 129.208,
+   "end": 129.312
+  },
+  {
+   "text": "level",
+   "start": 129.382,
+   "end": 129.695
+  },
+  {
+   "text": "has",
+   "start": 129.765,
+   "end": 129.893
+  },
+  {
+   "text": "fallen",
+   "start": 129.962,
+   "end": 130.287
+  },
+  {
+   "text": "11",
+   "start": 130.369,
+   "end": 130.775
+  },
+  {
+   "text": "feet",
+   "start": 130.845,
+   "end": 131.123
+  },
+  {
+   "text": "since",
+   "start": 131.205,
+   "end": 131.448
+  },
+  {
+   "text": "1847.",
+   "start": 131.472,
+   "end": 132.691
+  },
+  {
+   "text": "Meanwhile,",
+   "start": 133.109,
+   "end": 133.794
+  },
+  {
+   "text": "the",
+   "start": 133.898,
+   "end": 133.991
+  },
+  {
+   "text": "Salt",
+   "start": 134.049,
+   "end": 134.27
+  },
+  {
+   "text": "Lake",
+   "start": 134.304,
+   "end": 134.479
+  },
+  {
+   "text": "City",
+   "start": 134.513,
+   "end": 134.711
+  },
+  {
+   "text": "metro",
+   "start": 134.769,
+   "end": 135.082
+  },
+  {
+   "text": "area",
+   "start": 135.175,
+   "end": 135.512
+  },
+  {
+   "text": "grew",
+   "start": 135.581,
+   "end": 135.802
+  },
+  {
+   "text": "from",
+   "start": 135.872,
+   "end": 136.023
+  },
+  {
+   "text": "700,000",
+   "start": 136.116,
+   "end": 136.975
+  },
+  {
+   "text": "people",
+   "start": 137.045,
+   "end": 137.405
+  },
+  {
+   "text": "in",
+   "start": 137.463,
+   "end": 137.567
+  },
+  {
+   "text": "1982",
+   "start": 137.625,
+   "end": 138.566
+  },
+  {
+   "text": "to",
+   "start": 138.879,
+   "end": 139.007
+  },
+  {
+   "text": "1.2",
+   "start": 139.088,
+   "end": 139.773
+  },
+  {
+   "text": "million",
+   "start": 139.854,
+   "end": 140.261
+  },
+  {
+   "text": "in",
+   "start": 140.342,
+   "end": 140.446
+  },
+  {
+   "text": "2022.",
+   "start": 140.528,
+   "end": 141.665
+  },
+  {
+   "text": "And",
+   "start": 142.362,
+   "end": 142.501
+  },
+  {
+   "text": "the",
+   "start": 142.548,
+   "end": 142.617
+  },
+  {
+   "text": "climate",
+   "start": 142.664,
+   "end": 143.117
+  },
+  {
+   "text": "is",
+   "start": 143.163,
+   "end": 143.256
+  },
+  {
+   "text": "changing.",
+   "start": 143.326,
+   "end": 143.953
+  },
+  {
+   "text": "More",
+   "start": 144.231,
+   "end": 144.429
+  },
+  {
+   "text": "precipitation",
+   "start": 144.475,
+   "end": 145.241
+  },
+  {
+   "text": "falls",
+   "start": 145.311,
+   "end": 145.636
+  },
+  {
+   "text": "as",
+   "start": 145.682,
+   "end": 145.764
+  },
+  {
+   "text": "rain",
+   "start": 145.88,
+   "end": 146.193
+  },
+  {
+   "text": "than",
+   "start": 146.263,
+   "end": 146.437
+  },
+  {
+   "text": "snow,",
+   "start": 146.553,
+   "end": 147.192
+  },
+  {
+   "text": "and",
+   "start": 147.366,
+   "end": 147.505
+  },
+  {
+   "text": "the",
+   "start": 147.552,
+   "end": 147.621
+  },
+  {
+   "text": "snowpack",
+   "start": 147.656,
+   "end": 148.132
+  },
+  {
+   "text": "releases",
+   "start": 148.202,
+   "end": 148.678
+  },
+  {
+   "text": "its",
+   "start": 148.736,
+   "end": 148.864
+  },
+  {
+   "text": "water",
+   "start": 148.922,
+   "end": 149.212
+  },
+  {
+   "text": "more",
+   "start": 149.27,
+   "end": 149.479
+  },
+  {
+   "text": "slowly.",
+   "start": 149.525,
+   "end": 150.222
+  },
+  {
+   "text": "In",
+   "start": 150.663,
+   "end": 150.791
+  },
+  {
+   "text": "1959,",
+   "start": 150.837,
+   "end": 152.045
+  },
+  {
+   "text": "a",
+   "start": 152.161,
+   "end": 152.231
+  },
+  {
+   "text": "solid-fill",
+   "start": 152.347,
+   "end": 153.008
+  },
+  {
+   "text": "railroad",
+   "start": 153.101,
+   "end": 153.612
+  },
+  {
+   "text": "causeway",
+   "start": 153.67,
+   "end": 154.251
+  },
+  {
+   "text": "was",
+   "start": 154.32,
+   "end": 154.448
+  },
+  {
+   "text": "completed",
+   "start": 154.506,
+   "end": 155.029
+  },
+  {
+   "text": "across",
+   "start": 155.075,
+   "end": 155.424
+  },
+  {
+   "text": "the",
+   "start": 155.47,
+   "end": 155.54
+  },
+  {
+   "text": "middle",
+   "start": 155.586,
+   "end": 155.83
+  },
+  {
+   "text": "of",
+   "start": 155.865,
+   "end": 155.923
+  },
+  {
+   "text": "the",
+   "start": 155.969,
+   "end": 156.039
+  },
+  {
+   "text": "lake.",
+   "start": 156.097,
+   "end": 156.596
+  },
+  {
+   "text": "The",
+   "start": 156.921,
+   "end": 157.026
+  },
+  {
+   "text": "causeway",
+   "start": 157.072,
+   "end": 157.548
+  },
+  {
+   "text": "took",
+   "start": 157.606,
+   "end": 157.792
+  },
+  {
+   "text": "50",
+   "start": 157.862,
+   "end": 158.164
+  },
+  {
+   "text": "million",
+   "start": 158.245,
+   "end": 158.651
+  },
+  {
+   "text": "cubic",
+   "start": 158.767,
+   "end": 159.15
+  },
+  {
+   "text": "yards",
+   "start": 159.232,
+   "end": 159.719
+  },
+  {
+   "text": "of",
+   "start": 159.777,
+   "end": 159.847
+  },
+  {
+   "text": "rock,",
+   "start": 159.94,
+   "end": 160.346
+  },
+  {
+   "text": "sand",
+   "start": 160.462,
+   "end": 160.915
+  },
+  {
+   "text": "and",
+   "start": 160.973,
+   "end": 161.066
+  },
+  {
+   "text": "gravel.",
+   "start": 161.136,
+   "end": 161.774
+  },
+  {
+   "text": "It",
+   "start": 162.053,
+   "end": 162.181
+  },
+  {
+   "text": "replaced",
+   "start": 162.239,
+   "end": 162.633
+  },
+  {
+   "text": "a",
+   "start": 162.68,
+   "end": 162.703
+  },
+  {
+   "text": "12-mile",
+   "start": 162.761,
+   "end": 163.504
+  },
+  {
+   "text": "trestle",
+   "start": 163.539,
+   "end": 163.957
+  },
+  {
+   "text": "of",
+   "start": 163.992,
+   "end": 164.05
+  },
+  {
+   "text": "28,000",
+   "start": 164.119,
+   "end": 165.037
+  },
+  {
+   "text": "wooden",
+   "start": 165.106,
+   "end": 165.397
+  },
+  {
+   "text": "pilings,",
+   "start": 165.478,
+   "end": 166.407
+  },
+  {
+   "text": "and",
+   "start": 166.65,
+   "end": 166.813
+  },
+  {
+   "text": "it",
+   "start": 166.883,
+   "end": 166.941
+  },
+  {
+   "text": "had",
+   "start": 166.999,
+   "end": 167.138
+  },
+  {
+   "text": "only",
+   "start": 167.196,
+   "end": 167.463
+  },
+  {
+   "text": "two",
+   "start": 167.521,
+   "end": 167.73
+  },
+  {
+   "text": "15-foot",
+   "start": 167.811,
+   "end": 168.647
+  },
+  {
+   "text": "culverts",
+   "start": 168.717,
+   "end": 169.286
+  },
+  {
+   "text": "for",
+   "start": 169.344,
+   "end": 169.472
+  },
+  {
+   "text": "water",
+   "start": 169.541,
+   "end": 169.832
+  },
+  {
+   "text": "to",
+   "start": 169.89,
+   "end": 169.948
+  },
+  {
+   "text": "pass",
+   "start": 170.017,
+   "end": 170.308
+  },
+  {
+   "text": "through.",
+   "start": 170.354,
+   "end": 170.923
+  },
+  {
+   "text": "It",
+   "start": 171.434,
+   "end": 171.573
+  },
+  {
+   "text": "divides",
+   "start": 171.619,
+   "end": 172.096
+  },
+  {
+   "text": "the",
+   "start": 172.142,
+   "end": 172.212
+  },
+  {
+   "text": "lake",
+   "start": 172.27,
+   "end": 172.514
+  },
+  {
+   "text": "into",
+   "start": 172.549,
+   "end": 172.723
+  },
+  {
+   "text": "Gunnison",
+   "start": 172.792,
+   "end": 173.222
+  },
+  {
+   "text": "Bay",
+   "start": 173.303,
+   "end": 173.57
+  },
+  {
+   "text": "in",
+   "start": 173.617,
+   "end": 173.686
+  },
+  {
+   "text": "the",
+   "start": 173.733,
+   "end": 173.802
+  },
+  {
+   "text": "north,",
+   "start": 173.872,
+   "end": 174.383
+  },
+  {
+   "text": "and",
+   "start": 174.592,
+   "end": 174.766
+  },
+  {
+   "text": "Gilbert",
+   "start": 174.859,
+   "end": 175.3
+  },
+  {
+   "text": "Bay",
+   "start": 175.37,
+   "end": 175.73
+  },
+  {
+   "text": "in",
+   "start": 175.823,
+   "end": 175.95
+  },
+  {
+   "text": "the",
+   "start": 176.008,
+   "end": 176.078
+  },
+  {
+   "text": "south.",
+   "start": 176.136,
+   "end": 176.786
+  },
+  {
+   "text": "Almost",
+   "start": 177.297,
+   "end": 177.715
+  },
+  {
+   "text": "all",
+   "start": 177.761,
+   "end": 177.982
+  },
+  {
+   "text": "of",
+   "start": 178.04,
+   "end": 178.087
+  },
+  {
+   "text": "the",
+   "start": 178.133,
+   "end": 178.203
+  },
+  {
+   "text": "fresh",
+   "start": 178.249,
+   "end": 178.493
+  },
+  {
+   "text": "water",
+   "start": 178.551,
+   "end": 178.841
+  },
+  {
+   "text": "flows",
+   "start": 178.899,
+   "end": 179.224
+  },
+  {
+   "text": "in",
+   "start": 179.282,
+   "end": 179.375
+  },
+  {
+   "text": "on",
+   "start": 179.445,
+   "end": 179.526
+  },
+  {
+   "text": "the",
+   "start": 179.573,
+   "end": 179.642
+  },
+  {
+   "text": "south",
+   "start": 179.7,
+   "end": 180.025
+  },
+  {
+   "text": "side,",
+   "start": 180.072,
+   "end": 180.629
+  },
+  {
+   "text": "so",
+   "start": 180.71,
+   "end": 180.85
+  },
+  {
+   "text": "the",
+   "start": 180.919,
+   "end": 180.989
+  },
+  {
+   "text": "north",
+   "start": 181.059,
+   "end": 181.349
+  },
+  {
+   "text": "is",
+   "start": 181.407,
+   "end": 181.512
+  },
+  {
+   "text": "always",
+   "start": 181.581,
+   "end": 182.057
+  },
+  {
+   "text": "saltier.",
+   "start": 182.127,
+   "end": 182.928
+  },
+  {
+   "text": "In",
+   "start": 183.369,
+   "end": 183.52
+  },
+  {
+   "text": "July",
+   "start": 183.578,
+   "end": 183.996
+  },
+  {
+   "text": "1984,",
+   "start": 184.077,
+   "end": 185.273
+  },
+  {
+   "text": "the",
+   "start": 185.424,
+   "end": 185.529
+  },
+  {
+   "text": "south",
+   "start": 185.598,
+   "end": 185.9
+  },
+  {
+   "text": "side",
+   "start": 185.947,
+   "end": 186.33
+  },
+  {
+   "text": "stood",
+   "start": 186.376,
+   "end": 186.655
+  },
+  {
+   "text": "3.7",
+   "start": 186.771,
+   "end": 187.746
+  },
+  {
+   "text": "feet",
+   "start": 187.827,
+   "end": 188.06
+  },
+  {
+   "text": "higher",
+   "start": 188.118,
+   "end": 188.454
+  },
+  {
+   "text": "than",
+   "start": 188.512,
+   "end": 188.652
+  },
+  {
+   "text": "the",
+   "start": 188.698,
+   "end": 188.768
+  },
+  {
+   "text": "north,",
+   "start": 188.837,
+   "end": 189.314
+  },
+  {
+   "text": "the",
+   "start": 189.488,
+   "end": 189.593
+  },
+  {
+   "text": "largest",
+   "start": 189.662,
+   "end": 190.103
+  },
+  {
+   "text": "difference",
+   "start": 190.15,
+   "end": 190.614
+  },
+  {
+   "text": "ever",
+   "start": 190.661,
+   "end": 190.916
+  },
+  {
+   "text": "recorded.",
+   "start": 190.986,
+   "end": 191.764
+  },
+  {
+   "text": "That",
+   "start": 192.46,
+   "end": 192.692
+  },
+  {
+   "text": "August,",
+   "start": 192.75,
+   "end": 193.25
+  },
+  {
+   "text": "a",
+   "start": 193.284,
+   "end": 193.343
+  },
+  {
+   "text": "300-foot",
+   "start": 193.459,
+   "end": 194.225
+  },
+  {
+   "text": "section",
+   "start": 194.295,
+   "end": 194.724
+  },
+  {
+   "text": "of",
+   "start": 194.794,
+   "end": 194.863
+  },
+  {
+   "text": "the",
+   "start": 194.91,
+   "end": 194.98
+  },
+  {
+   "text": "causeway",
+   "start": 195.026,
+   "end": 195.665
+  },
+  {
+   "text": "was",
+   "start": 195.908,
+   "end": 196.082
+  },
+  {
+   "text": "replaced",
+   "start": 196.152,
+   "end": 196.582
+  },
+  {
+   "text": "by",
+   "start": 196.628,
+   "end": 196.756
+  },
+  {
+   "text": "a",
+   "start": 196.814,
+   "end": 196.837
+  },
+  {
+   "text": "low",
+   "start": 196.907,
+   "end": 197.069
+  },
+  {
+   "text": "bridge.",
+   "start": 197.139,
+   "end": 197.836
+  },
+  {
+   "text": "A",
+   "start": 198.161,
+   "end": 198.254
+  },
+  {
+   "text": "new",
+   "start": 198.346,
+   "end": 198.521
+  },
+  {
+   "text": "channel",
+   "start": 198.59,
+   "end": 198.985
+  },
+  {
+   "text": "opened",
+   "start": 199.055,
+   "end": 199.426
+  },
+  {
+   "text": "in",
+   "start": 199.496,
+   "end": 199.589
+  },
+  {
+   "text": "December",
+   "start": 199.647,
+   "end": 200.216
+  },
+  {
+   "text": "2016.",
+   "start": 200.332,
+   "end": 201.829
+  },
+  {
+   "text": "The",
+   "start": 202.155,
+   "end": 202.282
+  },
+  {
+   "text": "divide",
+   "start": 202.34,
+   "end": 202.793
+  },
+  {
+   "text": "had",
+   "start": 202.828,
+   "end": 202.979
+  },
+  {
+   "text": "a",
+   "start": 203.014,
+   "end": 203.037
+  },
+  {
+   "text": "strange",
+   "start": 203.095,
+   "end": 203.687
+  },
+  {
+   "text": "side",
+   "start": 203.757,
+   "end": 204.07
+  },
+  {
+   "text": "effect.",
+   "start": 204.093,
+   "end": 204.709
+  },
+  {
+   "text": "Dense",
+   "start": 205.092,
+   "end": 205.417
+  },
+  {
+   "text": "brine",
+   "start": 205.475,
+   "end": 205.939
+  },
+  {
+   "text": "from",
+   "start": 205.974,
+   "end": 206.125
+  },
+  {
+   "text": "Gunnison",
+   "start": 206.195,
+   "end": 206.624
+  },
+  {
+   "text": "Bay",
+   "start": 206.694,
+   "end": 207.066
+  },
+  {
+   "text": "sank",
+   "start": 207.309,
+   "end": 207.646
+  },
+  {
+   "text": "into",
+   "start": 207.716,
+   "end": 207.89
+  },
+  {
+   "text": "a",
+   "start": 207.983,
+   "end": 208.006
+  },
+  {
+   "text": "deep",
+   "start": 208.076,
+   "end": 208.308
+  },
+  {
+   "text": "layer",
+   "start": 208.389,
+   "end": 208.715
+  },
+  {
+   "text": "near",
+   "start": 208.773,
+   "end": 208.924
+  },
+  {
+   "text": "the",
+   "start": 208.97,
+   "end": 209.04
+  },
+  {
+   "text": "bottom",
+   "start": 209.098,
+   "end": 209.434
+  },
+  {
+   "text": "of",
+   "start": 209.492,
+   "end": 209.55
+  },
+  {
+   "text": "Gilbert",
+   "start": 209.62,
+   "end": 209.957
+  },
+  {
+   "text": "Bay.",
+   "start": 210.015,
+   "end": 210.549
+  },
+  {
+   "text": "USGS",
+   "start": 210.874,
+   "end": 211.652
+  },
+  {
+   "text": "says",
+   "start": 211.722,
+   "end": 212.0
+  },
+  {
+   "text": "that",
+   "start": 212.07,
+   "end": 212.232
+  },
+  {
+   "text": "layer",
+   "start": 212.314,
+   "end": 212.627
+  },
+  {
+   "text": "had",
+   "start": 212.697,
+   "end": 212.859
+  },
+  {
+   "text": "low",
+   "start": 212.941,
+   "end": 213.115
+  },
+  {
+   "text": "pH",
+   "start": 213.196,
+   "end": 213.765
+  },
+  {
+   "text": "and",
+   "start": 214.009,
+   "end": 214.218
+  },
+  {
+   "text": "no",
+   "start": 214.299,
+   "end": 214.473
+  },
+  {
+   "text": "dissolved",
+   "start": 214.543,
+   "end": 215.03
+  },
+  {
+   "text": "oxygen,",
+   "start": 215.1,
+   "end": 215.82
+  },
+  {
+   "text": "and",
+   "start": 216.029,
+   "end": 216.203
+  },
+  {
+   "text": "conditions",
+   "start": 216.273,
+   "end": 216.9
+  },
+  {
+   "text": "that",
+   "start": 216.958,
+   "end": 217.109
+  },
+  {
+   "text": "favored",
+   "start": 217.178,
+   "end": 217.55
+  },
+  {
+   "text": "turning",
+   "start": 217.585,
+   "end": 217.944
+  },
+  {
+   "text": "inorganic",
+   "start": 218.061,
+   "end": 218.815
+  },
+  {
+   "text": "mercury",
+   "start": 218.908,
+   "end": 219.465
+  },
+  {
+   "text": "into",
+   "start": 219.558,
+   "end": 219.79
+  },
+  {
+   "text": "methyl",
+   "start": 219.907,
+   "end": 220.266
+  },
+  {
+   "text": "mercury,",
+   "start": 220.359,
+   "end": 221.091
+  },
+  {
+   "text": "which",
+   "start": 221.265,
+   "end": 221.486
+  },
+  {
+   "text": "builds",
+   "start": 221.544,
+   "end": 221.903
+  },
+  {
+   "text": "up",
+   "start": 221.973,
+   "end": 222.112
+  },
+  {
+   "text": "in",
+   "start": 222.171,
+   "end": 222.24
+  },
+  {
+   "text": "the",
+   "start": 222.287,
+   "end": 222.356
+  },
+  {
+   "text": "food",
+   "start": 222.403,
+   "end": 222.647
+  },
+  {
+   "text": "chain.",
+   "start": 222.693,
+   "end": 223.285
+  },
+  {
+   "text": "It",
+   "start": 223.668,
+   "end": 223.819
+  },
+  {
+   "text": "dissipated",
+   "start": 223.877,
+   "end": 224.458
+  },
+  {
+   "text": "by",
+   "start": 224.516,
+   "end": 224.655
+  },
+  {
+   "text": "June",
+   "start": 224.736,
+   "end": 225.05
+  },
+  {
+   "text": "2014,",
+   "start": 225.108,
+   "end": 226.118
+  },
+  {
+   "text": "after",
+   "start": 226.362,
+   "end": 226.675
+  },
+  {
+   "text": "its",
+   "start": 226.745,
+   "end": 226.872
+  },
+  {
+   "text": "source",
+   "start": 226.907,
+   "end": 227.198
+  },
+  {
+   "text": "water",
+   "start": 227.244,
+   "end": 227.499
+  },
+  {
+   "text": "was",
+   "start": 227.546,
+   "end": 227.65
+  },
+  {
+   "text": "cut",
+   "start": 227.708,
+   "end": 227.917
+  },
+  {
+   "text": "off.",
+   "start": 227.975,
+   "end": 228.428
+  },
+  {
+   "text": "The",
+   "start": 229.009,
+   "end": 229.125
+  },
+  {
+   "text": "lake",
+   "start": 229.171,
+   "end": 229.38
+  },
+  {
+   "text": "has",
+   "start": 229.403,
+   "end": 229.496
+  },
+  {
+   "text": "not",
+   "start": 229.554,
+   "end": 229.694
+  },
+  {
+   "text": "always",
+   "start": 229.74,
+   "end": 230.042
+  },
+  {
+   "text": "been",
+   "start": 230.1,
+   "end": 230.274
+  },
+  {
+   "text": "too",
+   "start": 230.332,
+   "end": 230.483
+  },
+  {
+   "text": "low.",
+   "start": 230.564,
+   "end": 231.029
+  },
+  {
+   "text": "After",
+   "start": 231.447,
+   "end": 231.714
+  },
+  {
+   "text": "rainy",
+   "start": 231.772,
+   "end": 232.039
+  },
+  {
+   "text": "weather",
+   "start": 232.085,
+   "end": 232.387
+  },
+  {
+   "text": "beginning",
+   "start": 232.468,
+   "end": 232.828
+  },
+  {
+   "text": "in",
+   "start": 232.875,
+   "end": 232.933
+  },
+  {
+   "text": "1982,",
+   "start": 232.979,
+   "end": 234.129
+  },
+  {
+   "text": "it",
+   "start": 234.396,
+   "end": 234.523
+  },
+  {
+   "text": "peaked",
+   "start": 234.581,
+   "end": 234.93
+  },
+  {
+   "text": "in",
+   "start": 234.999,
+   "end": 235.092
+  },
+  {
+   "text": "June",
+   "start": 235.185,
+   "end": 235.499
+  },
+  {
+   "text": "1986,",
+   "start": 235.534,
+   "end": 236.811
+  },
+  {
+   "text": "and",
+   "start": 237.043,
+   "end": 237.194
+  },
+  {
+   "text": "again",
+   "start": 237.252,
+   "end": 237.53
+  },
+  {
+   "text": "in",
+   "start": 237.6,
+   "end": 237.67
+  },
+  {
+   "text": "March",
+   "start": 237.751,
+   "end": 238.088
+  },
+  {
+   "text": "and",
+   "start": 238.146,
+   "end": 238.262
+  },
+  {
+   "text": "April",
+   "start": 238.355,
+   "end": 238.749
+  },
+  {
+   "text": "of",
+   "start": 238.808,
+   "end": 238.866
+  },
+  {
+   "text": "1987.",
+   "start": 238.924,
+   "end": 240.212
+  },
+  {
+   "text": "Then",
+   "start": 240.584,
+   "end": 240.793
+  },
+  {
+   "text": "came",
+   "start": 240.862,
+   "end": 241.083
+  },
+  {
+   "text": "a",
+   "start": 241.106,
+   "end": 241.141
+  },
+  {
+   "text": "pumping",
+   "start": 241.211,
+   "end": 241.582
+  },
+  {
+   "text": "project,",
+   "start": 241.652,
+   "end": 242.36
+  },
+  {
+   "text": "the",
+   "start": 242.511,
+   "end": 242.604
+  },
+  {
+   "text": "Newfoundland",
+   "start": 242.674,
+   "end": 243.324
+  },
+  {
+   "text": "Evaporation",
+   "start": 243.405,
+   "end": 244.229
+  },
+  {
+   "text": "Basin.",
+   "start": 244.322,
+   "end": 244.903
+  },
+  {
+   "text": "The",
+   "start": 245.599,
+   "end": 245.715
+  },
+  {
+   "text": "project",
+   "start": 245.762,
+   "end": 246.226
+  },
+  {
+   "text": "built",
+   "start": 246.273,
+   "end": 246.516
+  },
+  {
+   "text": "almost",
+   "start": 246.586,
+   "end": 247.039
+  },
+  {
+   "text": "25",
+   "start": 247.167,
+   "end": 247.794
+  },
+  {
+   "text": "miles",
+   "start": 247.875,
+   "end": 248.27
+  },
+  {
+   "text": "of",
+   "start": 248.328,
+   "end": 248.397
+  },
+  {
+   "text": "dikes,",
+   "start": 248.479,
+   "end": 249.001
+  },
+  {
+   "text": "and",
+   "start": 249.117,
+   "end": 249.28
+  },
+  {
+   "text": "about",
+   "start": 249.326,
+   "end": 249.57
+  },
+  {
+   "text": "1.5",
+   "start": 249.628,
+   "end": 250.464
+  },
+  {
+   "text": "million",
+   "start": 250.58,
+   "end": 250.94
+  },
+  {
+   "text": "acre-feet",
+   "start": 251.01,
+   "end": 251.567
+  },
+  {
+   "text": "were",
+   "start": 251.625,
+   "end": 251.787
+  },
+  {
+   "text": "pumped",
+   "start": 251.845,
+   "end": 252.182
+  },
+  {
+   "text": "in",
+   "start": 252.217,
+   "end": 252.275
+  },
+  {
+   "text": "the",
+   "start": 252.31,
+   "end": 252.38
+  },
+  {
+   "text": "first",
+   "start": 252.426,
+   "end": 252.693
+  },
+  {
+   "text": "year.",
+   "start": 252.751,
+   "end": 254.028
+  },
+  {
+   "text": "The",
+   "start": 254.026,
+   "end": 254.177
+  },
+  {
+   "text": "pumps",
+   "start": 254.235,
+   "end": 254.525
+  },
+  {
+   "text": "ran",
+   "start": 254.595,
+   "end": 254.92
+  },
+  {
+   "text": "from",
+   "start": 255.013,
+   "end": 255.187
+  },
+  {
+   "text": "April",
+   "start": 255.268,
+   "end": 255.605
+  },
+  {
+   "text": "1987",
+   "start": 255.651,
+   "end": 256.65
+  },
+  {
+   "text": "to",
+   "start": 256.72,
+   "end": 256.801
+  },
+  {
+   "text": "June",
+   "start": 256.894,
+   "end": 257.219
+  },
+  {
+   "text": "1989,",
+   "start": 257.265,
+   "end": 258.496
+  },
+  {
+   "text": "and",
+   "start": 258.67,
+   "end": 258.821
+  },
+  {
+   "text": "the",
+   "start": 258.879,
+   "end": 258.949
+  },
+  {
+   "text": "lake",
+   "start": 259.03,
+   "end": 259.285
+  },
+  {
+   "text": "dropped",
+   "start": 259.332,
+   "end": 259.703
+  },
+  {
+   "text": "almost",
+   "start": 259.75,
+   "end": 260.179
+  },
+  {
+   "text": "6",
+   "start": 260.33,
+   "end": 260.574
+  },
+  {
+   "text": "feet.",
+   "start": 260.667,
+   "end": 261.108
+  },
+  {
+   "text": "USGS",
+   "start": 261.491,
+   "end": 262.432
+  },
+  {
+   "text": "says",
+   "start": 262.525,
+   "end": 262.803
+  },
+  {
+   "text": "the",
+   "start": 262.873,
+   "end": 262.942
+  },
+  {
+   "text": "pumping",
+   "start": 263.001,
+   "end": 263.36
+  },
+  {
+   "text": "caused",
+   "start": 263.43,
+   "end": 263.813
+  },
+  {
+   "text": "about",
+   "start": 263.86,
+   "end": 264.115
+  },
+  {
+   "text": "2",
+   "start": 264.185,
+   "end": 264.359
+  },
+  {
+   "text": "feet",
+   "start": 264.44,
+   "end": 264.649
+  },
+  {
+   "text": "of",
+   "start": 264.684,
+   "end": 264.742
+  },
+  {
+   "text": "that.",
+   "start": 264.8,
+   "end": 265.241
+  },
+  {
+   "text": "When",
+   "start": 265.52,
+   "end": 265.694
+  },
+  {
+   "text": "the",
+   "start": 265.729,
+   "end": 265.799
+  },
+  {
+   "text": "water",
+   "start": 265.845,
+   "end": 266.135
+  },
+  {
+   "text": "pulls",
+   "start": 266.193,
+   "end": 266.472
+  },
+  {
+   "text": "back,",
+   "start": 266.53,
+   "end": 266.948
+  },
+  {
+   "text": "it",
+   "start": 267.122,
+   "end": 267.261
+  },
+  {
+   "text": "leaves",
+   "start": 267.331,
+   "end": 267.679
+  },
+  {
+   "text": "lake",
+   "start": 267.795,
+   "end": 268.039
+  },
+  {
+   "text": "bed.",
+   "start": 268.086,
+   "end": 268.585
+  },
+  {
+   "text": "NASA",
+   "start": 269.026,
+   "end": 269.455
+  },
+  {
+   "text": "scientist",
+   "start": 269.502,
+   "end": 270.117
+  },
+  {
+   "text": "Dorothy",
+   "start": 270.175,
+   "end": 270.581
+  },
+  {
+   "text": "Hall",
+   "start": 270.663,
+   "end": 270.988
+  },
+  {
+   "text": "says",
+   "start": 271.069,
+   "end": 271.301
+  },
+  {
+   "text": "exposed",
+   "start": 271.371,
+   "end": 272.056
+  },
+  {
+   "text": "lake",
+   "start": 272.149,
+   "end": 272.427
+  },
+  {
+   "text": "beds",
+   "start": 272.485,
+   "end": 272.892
+  },
+  {
+   "text": "often",
+   "start": 273.17,
+   "end": 273.588
+  },
+  {
+   "text": "harbor",
+   "start": 273.681,
+   "end": 274.064
+  },
+  {
+   "text": "toxic",
+   "start": 274.146,
+   "end": 274.622
+  },
+  {
+   "text": "minerals",
+   "start": 274.715,
+   "end": 275.144
+  },
+  {
+   "text": "from",
+   "start": 275.191,
+   "end": 275.33
+  },
+  {
+   "text": "agricultural",
+   "start": 275.423,
+   "end": 276.201
+  },
+  {
+   "text": "runoff,",
+   "start": 276.282,
+   "end": 276.955
+  },
+  {
+   "text": "and",
+   "start": 277.129,
+   "end": 277.292
+  },
+  {
+   "text": "NASA",
+   "start": 277.362,
+   "end": 277.722
+  },
+  {
+   "text": "reports",
+   "start": 277.78,
+   "end": 278.209
+  },
+  {
+   "text": "that",
+   "start": 278.256,
+   "end": 278.407
+  },
+  {
+   "text": "dust",
+   "start": 278.499,
+   "end": 278.825
+  },
+  {
+   "text": "from",
+   "start": 278.883,
+   "end": 279.045
+  },
+  {
+   "text": "the",
+   "start": 279.092,
+   "end": 279.161
+  },
+  {
+   "text": "drying",
+   "start": 279.208,
+   "end": 279.649
+  },
+  {
+   "text": "Great",
+   "start": 279.73,
+   "end": 279.962
+  },
+  {
+   "text": "Salt",
+   "start": 280.032,
+   "end": 280.334
+  },
+  {
+   "text": "Lake",
+   "start": 280.403,
+   "end": 280.798
+  },
+  {
+   "text": "worsens",
+   "start": 280.949,
+   "end": 281.506
+  },
+  {
+   "text": "regional",
+   "start": 281.599,
+   "end": 282.099
+  },
+  {
+   "text": "air",
+   "start": 282.168,
+   "end": 282.354
+  },
+  {
+   "text": "pollution.",
+   "start": 282.412,
+   "end": 283.143
+  },
+  {
+   "text": "USGS",
+   "start": 283.654,
+   "end": 284.397
+  },
+  {
+   "text": "collected",
+   "start": 284.467,
+   "end": 284.908
+  },
+  {
+   "text": "dust",
+   "start": 284.955,
+   "end": 285.245
+  },
+  {
+   "text": "at",
+   "start": 285.303,
+   "end": 285.384
+  },
+  {
+   "text": "17",
+   "start": 285.442,
+   "end": 286.034
+  },
+  {
+   "text": "sites",
+   "start": 286.116,
+   "end": 286.499
+  },
+  {
+   "text": "in",
+   "start": 286.557,
+   "end": 286.638
+  },
+  {
+   "text": "northern",
+   "start": 286.72,
+   "end": 287.08
+  },
+  {
+   "text": "Utah,",
+   "start": 287.161,
+   "end": 287.823
+  },
+  {
+   "text": "near",
+   "start": 287.997,
+   "end": 288.183
+  },
+  {
+   "text": "the",
+   "start": 288.229,
+   "end": 288.299
+  },
+  {
+   "text": "lake",
+   "start": 288.357,
+   "end": 288.589
+  },
+  {
+   "text": "bed,",
+   "start": 288.635,
+   "end": 289.123
+  },
+  {
+   "text": "especially",
+   "start": 289.367,
+   "end": 289.912
+  },
+  {
+   "text": "at",
+   "start": 289.971,
+   "end": 290.052
+  },
+  {
+   "text": "Farmington",
+   "start": 290.11,
+   "end": 290.772
+  },
+  {
+   "text": "and",
+   "start": 290.841,
+   "end": 290.946
+  },
+  {
+   "text": "Bear",
+   "start": 291.027,
+   "end": 291.248
+  },
+  {
+   "text": "River",
+   "start": 291.317,
+   "end": 291.549
+  },
+  {
+   "text": "Bays,",
+   "start": 291.608,
+   "end": 292.258
+  },
+  {
+   "text": "and",
+   "start": 292.467,
+   "end": 292.629
+  },
+  {
+   "text": "measured",
+   "start": 292.699,
+   "end": 293.059
+  },
+  {
+   "text": "pollutants",
+   "start": 293.128,
+   "end": 293.721
+  },
+  {
+   "text": "including",
+   "start": 293.79,
+   "end": 294.278
+  },
+  {
+   "text": "arsenic,",
+   "start": 294.359,
+   "end": 295.079
+  },
+  {
+   "text": "lead",
+   "start": 295.253,
+   "end": 295.601
+  },
+  {
+   "text": "and",
+   "start": 295.717,
+   "end": 295.915
+  },
+  {
+   "text": "cadmium.",
+   "start": 295.984,
+   "end": 296.809
+  },
+  {
+   "text": "Its",
+   "start": 297.412,
+   "end": 297.598
+  },
+  {
+   "text": "conclusion",
+   "start": 297.656,
+   "end": 298.283
+  },
+  {
+   "text": "is",
+   "start": 298.353,
+   "end": 298.446
+  },
+  {
+   "text": "careful.",
+   "start": 298.504,
+   "end": 299.142
+  },
+  {
+   "text": "The",
+   "start": 299.526,
+   "end": 299.642
+  },
+  {
+   "text": "dust",
+   "start": 299.7,
+   "end": 299.978
+  },
+  {
+   "text": "may",
+   "start": 300.048,
+   "end": 300.187
+  },
+  {
+   "text": "contribute",
+   "start": 300.245,
+   "end": 300.768
+  },
+  {
+   "text": "to",
+   "start": 300.803,
+   "end": 300.861
+  },
+  {
+   "text": "potential",
+   "start": 300.919,
+   "end": 301.371
+  },
+  {
+   "text": "health",
+   "start": 301.43,
+   "end": 301.65
+  },
+  {
+   "text": "risks",
+   "start": 301.72,
+   "end": 302.022
+  },
+  {
+   "text": "for",
+   "start": 302.08,
+   "end": 302.208
+  },
+  {
+   "text": "children,",
+   "start": 302.266,
+   "end": 302.928
+  },
+  {
+   "text": "but",
+   "start": 303.171,
+   "end": 303.334
+  },
+  {
+   "text": "USGS",
+   "start": 303.415,
+   "end": 304.263
+  },
+  {
+   "text": "says",
+   "start": 304.344,
+   "end": 304.565
+  },
+  {
+   "text": "no",
+   "start": 304.646,
+   "end": 304.808
+  },
+  {
+   "text": "formal",
+   "start": 304.925,
+   "end": 305.284
+  },
+  {
+   "text": "evaluation",
+   "start": 305.343,
+   "end": 306.086
+  },
+  {
+   "text": "of",
+   "start": 306.144,
+   "end": 306.202
+  },
+  {
+   "text": "its",
+   "start": 306.248,
+   "end": 306.364
+  },
+  {
+   "text": "impact",
+   "start": 306.422,
+   "end": 306.945
+  },
+  {
+   "text": "on",
+   "start": 307.003,
+   "end": 307.096
+  },
+  {
+   "text": "human",
+   "start": 307.154,
+   "end": 307.421
+  },
+  {
+   "text": "health",
+   "start": 307.479,
+   "end": 307.699
+  },
+  {
+   "text": "has",
+   "start": 307.746,
+   "end": 307.839
+  },
+  {
+   "text": "been",
+   "start": 307.897,
+   "end": 308.059
+  },
+  {
+   "text": "conducted,",
+   "start": 308.106,
+   "end": 308.895
+  },
+  {
+   "text": "because",
+   "start": 309.139,
+   "end": 309.464
+  },
+  {
+   "text": "of",
+   "start": 309.499,
+   "end": 309.545
+  },
+  {
+   "text": "data",
+   "start": 309.615,
+   "end": 309.882
+  },
+  {
+   "text": "gaps.",
+   "start": 309.94,
+   "end": 310.532
+  },
+  {
+   "text": "Then",
+   "start": 311.043,
+   "end": 311.252
+  },
+  {
+   "text": "came",
+   "start": 311.333,
+   "end": 311.565
+  },
+  {
+   "text": "the",
+   "start": 311.6,
+   "end": 311.67
+  },
+  {
+   "text": "winter",
+   "start": 311.728,
+   "end": 312.007
+  },
+  {
+   "text": "of",
+   "start": 312.065,
+   "end": 312.123
+  },
+  {
+   "text": "2022",
+   "start": 312.192,
+   "end": 313.272
+  },
+  {
+   "text": "to",
+   "start": 313.388,
+   "end": 313.47
+  },
+  {
+   "text": "2023,",
+   "start": 313.551,
+   "end": 314.735
+  },
+  {
+   "text": "with",
+   "start": 314.886,
+   "end": 315.06
+  },
+  {
+   "text": "record",
+   "start": 315.141,
+   "end": 315.455
+  },
+  {
+   "text": "snowfall",
+   "start": 315.513,
+   "end": 316.093
+  },
+  {
+   "text": "across",
+   "start": 316.151,
+   "end": 316.511
+  },
+  {
+   "text": "the",
+   "start": 316.558,
+   "end": 316.627
+  },
+  {
+   "text": "region.",
+   "start": 316.697,
+   "end": 317.336
+  },
+  {
+   "text": "NASA's",
+   "start": 317.777,
+   "end": 318.23
+  },
+  {
+   "text": "Earth",
+   "start": 318.299,
+   "end": 318.508
+  },
+  {
+   "text": "Observatory",
+   "start": 318.555,
+   "end": 319.263
+  },
+  {
+   "text": "shows",
+   "start": 319.344,
+   "end": 319.623
+  },
+  {
+   "text": "more",
+   "start": 319.704,
+   "end": 319.901
+  },
+  {
+   "text": "snow",
+   "start": 319.959,
+   "end": 320.238
+  },
+  {
+   "text": "than",
+   "start": 320.308,
+   "end": 320.447
+  },
+  {
+   "text": "usual",
+   "start": 320.528,
+   "end": 320.935
+  },
+  {
+   "text": "around",
+   "start": 321.004,
+   "end": 321.271
+  },
+  {
+   "text": "the",
+   "start": 321.318,
+   "end": 321.387
+  },
+  {
+   "text": "lake",
+   "start": 321.445,
+   "end": 321.666
+  },
+  {
+   "text": "that",
+   "start": 321.701,
+   "end": 321.852
+  },
+  {
+   "text": "February.",
+   "start": 321.91,
+   "end": 322.746
+  },
+  {
+   "text": "Did",
+   "start": 323.558,
+   "end": 323.767
+  },
+  {
+   "text": "that",
+   "start": 323.814,
+   "end": 324.034
+  },
+  {
+   "text": "fix",
+   "start": 324.127,
+   "end": 324.406
+  },
+  {
+   "text": "the",
+   "start": 324.487,
+   "end": 324.557
+  },
+  {
+   "text": "problem?",
+   "start": 324.603,
+   "end": 325.172
+  },
+  {
+   "text": "NASA's",
+   "start": 325.869,
+   "end": 326.31
+  },
+  {
+   "text": "GRACE",
+   "start": 326.368,
+   "end": 326.67
+  },
+  {
+   "text": "satellites",
+   "start": 326.705,
+   "end": 327.308
+  },
+  {
+   "text": "measure",
+   "start": 327.39,
+   "end": 327.726
+  },
+  {
+   "text": "underground",
+   "start": 327.796,
+   "end": 328.33
+  },
+  {
+   "text": "water",
+   "start": 328.411,
+   "end": 328.713
+  },
+  {
+   "text": "across",
+   "start": 328.771,
+   "end": 329.131
+  },
+  {
+   "text": "the",
+   "start": 329.178,
+   "end": 329.247
+  },
+  {
+   "text": "Great",
+   "start": 329.294,
+   "end": 329.514
+  },
+  {
+   "text": "Basin,",
+   "start": 329.596,
+   "end": 330.176
+  },
+  {
+   "text": "a",
+   "start": 330.385,
+   "end": 330.455
+  },
+  {
+   "text": "region",
+   "start": 330.548,
+   "end": 330.849
+  },
+  {
+   "text": "of",
+   "start": 330.896,
+   "end": 330.942
+  },
+  {
+   "text": "the",
+   "start": 330.989,
+   "end": 331.058
+  },
+  {
+   "text": "western",
+   "start": 331.105,
+   "end": 331.453
+  },
+  {
+   "text": "United",
+   "start": 331.511,
+   "end": 331.871
+  },
+  {
+   "text": "States.",
+   "start": 331.918,
+   "end": 332.521
+  },
+  {
+   "text": "They",
+   "start": 332.846,
+   "end": 333.009
+  },
+  {
+   "text": "show",
+   "start": 333.055,
+   "end": 333.23
+  },
+  {
+   "text": "it",
+   "start": 333.288,
+   "end": 333.357
+  },
+  {
+   "text": "fell",
+   "start": 333.427,
+   "end": 333.659
+  },
+  {
+   "text": "by",
+   "start": 333.74,
+   "end": 333.88
+  },
+  {
+   "text": "16.5",
+   "start": 333.949,
+   "end": 335.134
+  },
+  {
+   "text": "cubic",
+   "start": 335.215,
+   "end": 335.575
+  },
+  {
+   "text": "miles",
+   "start": 335.656,
+   "end": 336.063
+  },
+  {
+   "text": "over",
+   "start": 336.121,
+   "end": 336.318
+  },
+  {
+   "text": "about",
+   "start": 336.376,
+   "end": 336.632
+  },
+  {
+   "text": "two",
+   "start": 336.678,
+   "end": 336.841
+  },
+  {
+   "text": "decades.",
+   "start": 336.91,
+   "end": 337.677
+  },
+  {
+   "text": "Scientist",
+   "start": 338.118,
+   "end": 338.826
+  },
+  {
+   "text": "Dorothy",
+   "start": 338.942,
+   "end": 339.337
+  },
+  {
+   "text": "Hall",
+   "start": 339.407,
+   "end": 339.708
+  },
+  {
+   "text": "expected",
+   "start": 339.778,
+   "end": 340.335
+  },
+  {
+   "text": "the",
+   "start": 340.37,
+   "end": 340.44
+  },
+  {
+   "text": "record",
+   "start": 340.509,
+   "end": 340.835
+  },
+  {
+   "text": "snow",
+   "start": 340.881,
+   "end": 341.102
+  },
+  {
+   "text": "to",
+   "start": 341.148,
+   "end": 341.194
+  },
+  {
+   "text": "help,",
+   "start": 341.276,
+   "end": 341.728
+  },
+  {
+   "text": "but",
+   "start": 341.937,
+   "end": 342.1
+  },
+  {
+   "text": "she",
+   "start": 342.146,
+   "end": 342.286
+  },
+  {
+   "text": "said,",
+   "start": 342.379,
+   "end": 342.924
+  },
+  {
+   "text": "overall,",
+   "start": 343.168,
+   "end": 344.039
+  },
+  {
+   "text": "the",
+   "start": 344.213,
+   "end": 344.318
+  },
+  {
+   "text": "decline",
+   "start": 344.376,
+   "end": 344.84
+  },
+  {
+   "text": "continued.",
+   "start": 344.886,
+   "end": 345.699
+  },
+  {
+   "text": "What",
+   "start": 346.21,
+   "end": 346.396
+  },
+  {
+   "text": "do",
+   "start": 346.431,
+   "end": 346.489
+  },
+  {
+   "text": "these",
+   "start": 346.547,
+   "end": 346.732
+  },
+  {
+   "text": "pictures",
+   "start": 346.779,
+   "end": 347.174
+  },
+  {
+   "text": "show?",
+   "start": 347.232,
+   "end": 347.754
+  },
+  {
+   "text": "Where",
+   "start": 348.079,
+   "end": 348.323
+  },
+  {
+   "text": "the",
+   "start": 348.358,
+   "end": 348.427
+  },
+  {
+   "text": "shoreline",
+   "start": 348.485,
+   "end": 349.031
+  },
+  {
+   "text": "was",
+   "start": 349.066,
+   "end": 349.229
+  },
+  {
+   "text": "on",
+   "start": 349.31,
+   "end": 349.438
+  },
+  {
+   "text": "particular",
+   "start": 349.507,
+   "end": 350.03
+  },
+  {
+   "text": "days.",
+   "start": 350.099,
+   "end": 350.715
+  },
+  {
+   "text": "They",
+   "start": 350.958,
+   "end": 351.144
+  },
+  {
+   "text": "do",
+   "start": 351.191,
+   "end": 351.272
+  },
+  {
+   "text": "not",
+   "start": 351.353,
+   "end": 351.516
+  },
+  {
+   "text": "forecast",
+   "start": 351.574,
+   "end": 352.27
+  },
+  {
+   "text": "what",
+   "start": 352.421,
+   "end": 352.641
+  },
+  {
+   "text": "comes",
+   "start": 352.711,
+   "end": 352.967
+  },
+  {
+   "text": "next.",
+   "start": 353.036,
+   "end": 353.628
+  },
+  {
+   "text": "But",
+   "start": 354.011,
+   "end": 354.174
+  },
+  {
+   "text": "the",
+   "start": 354.209,
+   "end": 354.278
+  },
+  {
+   "text": "measurements",
+   "start": 354.336,
+   "end": 354.836
+  },
+  {
+   "text": "are",
+   "start": 354.882,
+   "end": 354.987
+  },
+  {
+   "text": "plain:",
+   "start": 355.021,
+   "end": 355.614
+  },
+  {
+   "text": "in",
+   "start": 355.788,
+   "end": 355.927
+  },
+  {
+   "text": "July",
+   "start": 355.985,
+   "end": 356.38
+  },
+  {
+   "text": "2022,",
+   "start": 356.496,
+   "end": 357.634
+  },
+  {
+   "text": "the",
+   "start": 357.785,
+   "end": 357.889
+  },
+  {
+   "text": "Great",
+   "start": 357.947,
+   "end": 358.179
+  },
+  {
+   "text": "Salt",
+   "start": 358.249,
+   "end": 358.504
+  },
+  {
+   "text": "Lake",
+   "start": 358.563,
+   "end": 358.783
+  },
+  {
+   "text": "measured",
+   "start": 358.83,
+   "end": 359.189
+  },
+  {
+   "text": "4,190.2",
+   "start": 359.306,
+   "end": 362.15
+  },
+  {
+   "text": "feet,",
+   "start": 362.266,
+   "end": 362.719
+  },
+  {
+   "text": "more",
+   "start": 362.928,
+   "end": 363.125
+  },
+  {
+   "text": "than",
+   "start": 363.16,
+   "end": 363.311
+  },
+  {
+   "text": "20",
+   "start": 363.404,
+   "end": 363.729
+  },
+  {
+   "text": "feet",
+   "start": 363.799,
+   "end": 364.031
+  },
+  {
+   "text": "below",
+   "start": 364.1,
+   "end": 364.402
+  },
+  {
+   "text": "its",
+   "start": 364.472,
+   "end": 364.6
+  },
+  {
+   "text": "1986",
+   "start": 364.658,
+   "end": 365.621
+  },
+  {
+   "text": "high.",
+   "start": 365.679,
+   "end": 366.179
+  },
+  {
+   "text": "And",
+   "start": 366.62,
+   "end": 366.794
+  },
+  {
+   "text": "nearly",
+   "start": 366.852,
+   "end": 367.177
+  },
+  {
+   "text": "four",
+   "start": 367.247,
+   "end": 367.479
+  },
+  {
+   "text": "decades",
+   "start": 367.549,
+   "end": 368.013
+  },
+  {
+   "text": "of",
+   "start": 368.059,
+   "end": 368.129
+  },
+  {
+   "text": "Landsat",
+   "start": 368.21,
+   "end": 368.849
+  },
+  {
+   "text": "show",
+   "start": 369.058,
+   "end": 369.302
+  },
+  {
+   "text": "where",
+   "start": 369.371,
+   "end": 369.569
+  },
+  {
+   "text": "that",
+   "start": 369.604,
+   "end": 369.755
+  },
+  {
+   "text": "water",
+   "start": 369.824,
+   "end": 370.126
+  },
+  {
+   "text": "used",
+   "start": 370.207,
+   "end": 370.416
+  },
+  {
+   "text": "to",
+   "start": 370.451,
+   "end": 370.509
+  },
+  {
+   "text": "be.",
+   "start": 370.567,
+   "end": 371.055
+  }
+ ],
+ "created": "2026-10-14T10:16:46Z",
+ "warnings": []
+}
