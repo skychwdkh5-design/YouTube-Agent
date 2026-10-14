@@ -30,5 +30,10 @@ Narration decides what the viewer must understand. Three layers, never more than
 - Dates: the satellite picture's date is always `IMAGE · sensor · month year` (cyan, top-left). A historical year from the narration is amber (top-right) with its clause; when it differs from the picture date the image stamp is shown at the same time. Never one style for both.
 - Sound: `director render ... --sfx`. Original synthesised effects only (CC0); cues follow the director's decisions (impact card: rise + impact; wipe: sweep; push/snap: whoosh; callouts/stamps: UI blip; years: tick), >= 0.25 s apart, ducked while words are spoken and >= 12 dB under the voice, loudnorm -16 LUFS. No music without a recorded licence.
 
+## Evidence overlays and on-screen phrases (EP003 quality pass)
+- Change stories: show change with traced masks from the same co-registered stack (`tools/autopilot/shoreline_masks.py`): a thin amber outline for a past shoreline, a thin cyan one for the date on screen, a soft amber fill (no outline) for 'exposed lake bed'. Each overlay carries a dated legend; never outline a date the narration is not about.
+- Every dynamic phrase (number-card kicker, event-year label) is a contiguous clause of the narration (`orbitalatlas.phrases`), at most 9 words / 44 characters, linted in `report['texts']`.
+- Legends and callouts never point at something off screen.
+
 ## Not to do
 Constant flashing; neon everywhere; text on every shot; flags/cloth (not built); noise glitch; recolouring Landsat; unlabeled arrows; claiming a 3D flyover (class A only).

@@ -19,3 +19,4 @@ Rule: 12–15 s proofs only; log every benchmark here with date; do not repeat t
 | EP002 full preview build V2 | 28 scenes at 24 fps, 4 parallel scene processes, ffmpeg raw pipe | 383 s for all scenes (12,912 frames); single-scene rebuilds 150-300 s; `qa_preview.py` 52 s, `qa_rects.py` ~30 s, `landmarks.py` ~35 s |
 | EP002 final 1080p30 (2026-10-13) | 29 scenes, 15,682 frames, x264 crf 19 medium, 4 processes, native-scale kit (EP002_SCALE=2) | about 45 min wall; mux + two-pass loudnorm about 1 min; yt-qc full decode about 3-5 min; A1 Cesium HD capture (372 frames, DSF 2, 3 workers) 10.7 min |
 
+| EP003 director render 1080p30 (2026-10-14/15) | 372.6 s, 11,177 frames, orbitalatlas.director, 4 workers, --sfx | 41.6-44.5 min wall (~7 s per video second); output ~890 MB (19 Mbit/s); review copy x264 crf 24 maxrate 1.7M = 85 MB in ~6 min; 720p 480k = 27 MB; stills (12 frames at 960x540) ~55 s - use stills, not full renders, to check fixes |

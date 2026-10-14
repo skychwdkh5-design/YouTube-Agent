@@ -110,7 +110,7 @@ class TestDirectorEp003Fixes(unittest.TestCase):
         import json
         from orbitalatlas.tests import test_visual_v2b as V2B
         base = V2B.TestDirector(); base.setUp(); self.d = d = base.d
-        ws = words("Its surface measured 4,209.7 feet. In July 2022 the lake was lower. Put the pictures in order, from 1986 to 2022, and it pulls back.", 0.4)
+        ws = words("Its surface measured 4,209.7 feet. Inflows have fallen 39 percent since 1847. Put the pictures in order, from 1986 to 2022, and it pulls back.", 0.4)
         json.dump(semantic.plan(ws, {}, source="alignment", max_events_per_10s=12), open(f"{d}/story/motion_plan.json", "w"))
         tl = json.load(open(f"{d}/timeline.json")); tl["shots"] = [tl["shots"][0], dict(tl["shots"][2], start=ws[13]["start"])]; tl["end"] = dict(seconds=ws[-1]["end"] + 1.0)
         json.dump(tl, open(f"{d}/timeline.json", "w"))
@@ -119,6 +119,8 @@ class TestDirectorEp003Fixes(unittest.TestCase):
         from orbitalatlas import director
         prog, rep = director.build(self.d, SIZE, log=lambda m: None, opening_tilt=False)
         nc = [o for o in prog.overlays if type(o).__name__ == "NumberCard"]; self.assertTrue(nc); self.assertEqual(nc[0].unit, "FEET")
+        self.assertTrue(all(not t_["problems"] for t_ in rep["texts"]), rep["texts"])
+        self.assertTrue(all(not o.unit.endswith("SINCE") for o in nc))
 
     def test_year_range_is_not_an_event_year_and_a_wipe_dates_both_pictures(self):
         from orbitalatlas import director

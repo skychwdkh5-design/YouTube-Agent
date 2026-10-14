@@ -37,6 +37,24 @@
    "label": "July 2021",
    "credit": "Landsat 8 \u00b7 USGS",
    "prov": "2021-07-17 (path 38) and 2021-07-24 (path 39)"
+  },
+  "water1986": {
+   "src": "assets/geo/water_y1986.png",
+   "kind": "mask",
+   "label": "Aug 1986 water (traced)",
+   "derived_from": "y1986"
+  },
+  "water2022": {
+   "src": "assets/geo/water_y2022.png",
+   "kind": "mask",
+   "label": "Jul 2022 water (traced)",
+   "derived_from": "y2022"
+  },
+  "water1985": {
+   "src": "assets/geo/water_y1985.png",
+   "kind": "mask",
+   "label": "Jun 1985 water (traced)",
+   "derived_from": "y1985"
   }
  },
  "shots": [
@@ -167,6 +185,24 @@
       4.8
      ],
      "info": "4,190.2 FEET"
+    },
+    {
+     "type": "outline",
+     "mask": "water1985",
+     "color": "#FFC247",
+     "t": [
+      2.1,
+      null
+     ],
+     "at": [
+      -112.98,
+      41.3
+     ],
+     "offset": [
+      -0.24,
+      0.05
+     ],
+     "legend": "SHORELINE \u00b7 JUN 1985"
     }
    ],
    "visual_family": "geo_wipe_1985_2022"
@@ -1339,6 +1375,26 @@
       2.267,
       3.867
      ]
+    },
+    {
+     "type": "fill",
+     "mask": "water1986",
+     "minus": "water2022",
+     "color": "#FFC247",
+     "t": [
+      4.0,
+      null
+     ],
+     "sub": "WATER IN AUG 1986 \u00b7 DRY IN JUL 2022 \u00b7 TRACED FROM LANDSAT",
+     "at": [
+      -112.2,
+      41.02
+     ],
+     "offset": [
+      0.08,
+      -0.2
+     ],
+     "legend": "LAKE BED EXPOSED SINCE 1986"
     }
    ],
    "visual_family": "geo_wipe_1986_2022"
@@ -1389,6 +1445,16 @@
       null
      ],
      "info": "Farmington Bay"
+    },
+    {
+     "type": "fill",
+     "mask": "water1986",
+     "minus": "water2022",
+     "color": "#FFC247",
+     "t": [
+      0.4,
+      null
+     ]
     }
    ],
    "visual_family": "geo_2022"
@@ -1426,6 +1492,29 @@
      "style": "year",
      "slot": "top",
      "info": "July 2022"
+    },
+    {
+     "type": "pin",
+     "at": [
+      -111.89,
+      40.76
+     ],
+     "text": "SALT LAKE CITY",
+     "t": [
+      0.6,
+      null
+     ],
+     "info": "Salt Lake City"
+    },
+    {
+     "type": "fill",
+     "mask": "water1986",
+     "minus": "water2022",
+     "color": "#FFC247",
+     "t": [
+      0.4,
+      null
+     ]
     }
    ],
    "visual_family": "geo_2022"
@@ -1500,6 +1589,24 @@
      "style": "year",
      "slot": "top",
      "info": "July 2022"
+    },
+    {
+     "type": "outline",
+     "mask": "water1986",
+     "color": "#FFC247",
+     "t": [
+      0.4,
+      null
+     ],
+     "at": [
+      -112.98,
+      41.3
+     ],
+     "offset": [
+      -0.24,
+      0.05
+     ],
+     "legend": "SHORELINE \u00b7 AUG 1986"
     }
    ],
    "visual_family": "geo_2022"
@@ -1537,6 +1644,25 @@
      "style": "year",
      "slot": "top",
      "info": "July 2022"
+    },
+    {
+     "type": "outline",
+     "mask": "water1986",
+     "color": "#FFC247",
+     "t": [
+      0.3,
+      null
+     ]
+    },
+    {
+     "type": "fill",
+     "mask": "water1986",
+     "minus": "water2022",
+     "color": "#FFC247",
+     "t": [
+      11.38,
+      null
+     ]
     }
    ],
    "visual_family": "geo_2022"
@@ -1572,6 +1698,42 @@
       2.467,
       4.067
      ]
+    },
+    {
+     "type": "outline",
+     "mask": "water1986",
+     "color": "#FFC247",
+     "t": [
+      1.88,
+      null
+     ],
+     "at": [
+      -112.98,
+      41.3
+     ],
+     "offset": [
+      -0.24,
+      0.05
+     ],
+     "legend": "SHORELINE \u00b7 AUG 1986"
+    },
+    {
+     "type": "outline",
+     "mask": "water2022",
+     "color": "#5CE1E6",
+     "t": [
+      4.1,
+      null
+     ],
+     "at": [
+      -112.15,
+      40.78
+     ],
+     "offset": [
+      0.06,
+      0.12
+     ],
+     "legend": "SHORELINE \u00b7 JUL 2022"
     }
    ],
    "visual_family": "geo_wipe_1986_2022"
@@ -1620,6 +1782,25 @@
       8.1
      ],
      "info": "4,190.2 FEET"
+    },
+    {
+     "type": "outline",
+     "mask": "water1986",
+     "color": "#FFC247",
+     "t": [
+      0.3,
+      null
+     ]
+    },
+    {
+     "type": "fill",
+     "mask": "water1986",
+     "minus": "water2022",
+     "color": "#FFC247",
+     "t": [
+      10.1,
+      null
+     ]
     }
    ],
    "visual_family": "geo_2022"

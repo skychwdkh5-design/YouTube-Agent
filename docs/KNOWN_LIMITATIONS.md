@@ -45,3 +45,9 @@ Selection criteria: reference-level look (QA checklist), legal for monetised vid
 
 ## Visual engine v2 (2026-10-14)
 See `docs/references/library/IMPLEMENTATION_STATUS.md`: class-A camera only; no flag/cloth, outline type, colour cards, noise glitch; storyboard generator not yet wired to `semantic.plan`; test voice is not the channel voice; Shorts layout not reviewed.
+
+## EP003 quality pass (2026-10-15)
+- Pronunciation cannot be checked in the cloud container: no ASR model, pypi.org and huggingface.co are denied by the egress policy. Only word durations from the provider alignment are available as indirect evidence.
+- Traced shoreline masks are display aids (seeded growth on a 1/4-resolution stack), not surveys; mosaic seams can leave straight edges in a mask (EP003 1985, Bear River Bay).
+- The director still renders geo shots only (no video/still shots, no NASA SVS time-lapse); snow imagery for winter 2022-2023 was not available on the stack, so that passage shows the July 2022 image with the shoreline overlays.
+- A ~1 s pause can occur at a TTS chunk join (EP003 253.1-254.1 s); it is kept when it falls on a sentence boundary, because trimming would shift every later word timing.
