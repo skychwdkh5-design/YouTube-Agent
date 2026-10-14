@@ -1,0 +1,25 @@
+{
+ "schema": "yt-graphics/1",
+ "graphics": [
+  {
+   "type": "callout",
+   "id": "sc03-callout",
+   "value": 4209.7,
+   "unit": "feet",
+   "label": "GREAT SALT LAKE \u00b7 JUNE 1985",
+   "context": "In June 1985, its surface measured 4,209.7 feet.",
+   "source": "NASA Earth Observatory, The Great Shrinking Lake (2022)",
+   "decimals": 1
+  },
+  {
+   "type": "callout",
+   "id": "sc09-callout",
+   "value": 39.0,
+   "unit": "percent",
+   "label": "GREAT SALT LAKE \u00b7 1850",
+   "context": "Utah State University researchers estimate that inflows have fallen 39 percent since 1850.",
+   "source": "NASA Earth Observatory, The Great Shrinking Lake (2022)",
+   "decimals": 0
+  }
+ ]
+}

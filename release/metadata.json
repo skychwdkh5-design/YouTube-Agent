@@ -1,0 +1,17 @@
+{
+ "title": "The Great Salt Lake Is Disappearing: 40 Years From Orbit",
+ "title_alternatives": [
+  "Why the Great Salt Lake Lost 20 Feet (Landsat 1985-2022)",
+  "Watch the Great Salt Lake Shrink From Space"
+ ],
+ "thumbnail_text": "20 FEET LOWER",
+ "thumbnail_idea": "Split 1986 / 2022 Landsat of the lake with the exposed shoreline outlined in amber; text '20 FEET LOWER'; no fake imagery",
+ "language": "en",
+ "category": "Education",
+ "made_for_kids": false,
+ "altered_or_synthetic_content": "voice is AI-generated (ElevenLabs); imagery is real Landsat - disclose 'altered or synthetic content: voice' in YouTube Studio if the policy requires it for synthetic voices",
+ "published": false,
+ "status": "RELEASE_CANDIDATE - TECHNICALLY_VALID / VISUALLY_REVIEWED, not USER_APPROVED (EP003 V3)",
+ "master": "media/ep003-gsl-final-v3",
+ "captions": "captions/captions.srt"
+}

@@ -1,0 +1,116 @@
+{
+ "schema": "orbitalatlas-mobile-qa/1",
+ "device": "6.1-inch phone",
+ "rules": {
+  "min_text_px": 30.0,
+  "min_caption_px": 48.0,
+  "min_line_px": 4.5,
+  "min_contrast": 3.0,
+  "safe_area": [
+   0.035,
+   0.04
+  ]
+ },
+ "frames_checked": 373,
+ "fps": 1.0,
+ "line": {
+  "width_px_1080": 5.0,
+  "phone_pt": {
+   "portrait": 1.0,
+   "landscape": 1.8
+  },
+  "min_px": 4.5,
+  "outlines_in_programme": 17,
+  "ok": true
+ },
+ "styles": {
+  "?": {
+   "min_px": 30.0,
+   "phone_pt": {
+    "portrait": 6.1,
+    "landscape": 10.9
+   },
+   "draws": 5
+  },
+  "CalloutPanel": {
+   "min_px": 34.6,
+   "phone_pt": {
+    "portrait": 7.0,
+    "landscape": 12.6
+   },
+   "draws": 82
+  },
+  "EventYear": {
+   "min_px": 33.0,
+   "phone_pt": {
+    "portrait": 6.7,
+    "landscape": 12.0
+   },
+   "draws": 31
+  },
+  "FloatingLabel": {
+   "min_px": 32.0,
+   "phone_pt": {
+    "portrait": 6.5,
+    "landscape": 11.6
+   },
+   "draws": 20
+  },
+  "ImageStamp": {
+   "min_px": 30.0,
+   "phone_pt": {
+    "portrait": 6.1,
+    "landscape": 10.9
+   },
+   "draws": 74
+  },
+  "ImpactCard": {
+   "min_px": 143.0,
+   "phone_pt": {
+    "portrait": 29.0,
+    "landscape": 52.0
+   },
+   "draws": 12
+  },
+  "KeywordLift": {
+   "min_px": 34.0,
+   "phone_pt": {
+    "portrait": 6.9,
+    "landscape": 12.4
+   },
+   "draws": 14
+  },
+  "NumberCard": {
+   "min_px": 34.6,
+   "phone_pt": {
+    "portrait": 7.0,
+    "landscape": 12.6
+   },
+   "draws": 117
+  },
+  "SourceChip": {
+   "min_px": 30.2,
+   "phone_pt": {
+    "portrait": 6.1,
+    "landscape": 11.0
+   },
+   "draws": 299
+  },
+  "WordCaptions": {
+   "min_px": 56.2,
+   "phone_pt": {
+    "portrait": 11.4,
+    "landscape": 20.4
+   },
+   "draws": 1131
+  }
+ },
+ "issues": {},
+ "human_checks": [
+  "watch on a real 6.1-inch phone in portrait and in landscape (sizes here are computed, not seen)",
+  "taste: is any overlay distracting, is the hierarchy clear",
+  "pronunciation of names and acronyms (no ASR here)"
+ ],
+ "ok": true,
+ "summary": {}
+}

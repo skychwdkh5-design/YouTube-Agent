@@ -1,0 +1,245 @@
+{
+ "assets": [
+  {
+   "id": "gsl_1985",
+   "kind": "still",
+   "src": "assets/gsl_1985.png",
+   "credit": "NASA's Goddard Space Flight Center \u00b7 Landsat / USGS",
+   "source_url": "https://svs.gsfc.nasa.gov/15020",
+   "license": "NASA media - NASA Reproduction Guidelines https://www.nasa.gov/multimedia/guidelines (page states no explicit licence; credit NASA's Goddard Space Flight Center; confirm before release)",
+   "retrieved": "2026-10-14",
+   "image_date": "1985",
+   "derived_from": "frame 14 of Salt_Lake_-_Web.mp4 (SVS 15020, Landsat natural colour 1984-2023, year label and scale bar baked in by NASA)",
+   "place": "Great Salt Lake",
+   "tags": [
+    "great salt lake",
+    "salt lake",
+    "the lake",
+    "lake level",
+    "saline lake",
+    "1985"
+   ],
+   "years": [
+    1985
+   ],
+   "focus": [
+    0.33,
+    0.45
+   ],
+   "sha256": "7ff86a6561373c8aa96bf0bdbb966da32f1ed39255f32099aa8edaf02018aa08"
+  },
+  {
+   "id": "gsl_1999",
+   "kind": "still",
+   "src": "assets/gsl_1999.png",
+   "credit": "NASA's Goddard Space Flight Center \u00b7 Landsat / USGS",
+   "source_url": "https://svs.gsfc.nasa.gov/15020",
+   "license": "NASA media - NASA Reproduction Guidelines https://www.nasa.gov/multimedia/guidelines (page states no explicit licence; credit NASA's Goddard Space Flight Center; confirm before release)",
+   "retrieved": "2026-10-14",
+   "image_date": "1999",
+   "derived_from": "frame 150 of Salt_Lake_-_Web.mp4 (SVS 15020, Landsat natural colour 1984-2023, year label and scale bar baked in by NASA)",
+   "place": "Great Salt Lake",
+   "tags": [
+    "great salt lake",
+    "salt lake",
+    "the lake",
+    "lake level",
+    "saline lake",
+    "1999"
+   ],
+   "years": [
+    1999
+   ],
+   "focus": [
+    0.33,
+    0.45
+   ],
+   "sha256": "2eb45a676de50b686253cc4d539c6d361a3c39f64063eaf155e46064a9269404"
+  },
+  {
+   "id": "gsl_2015",
+   "kind": "still",
+   "src": "assets/gsl_2015.png",
+   "credit": "NASA's Goddard Space Flight Center \u00b7 Landsat / USGS",
+   "source_url": "https://svs.gsfc.nasa.gov/15020",
+   "license": "NASA media - NASA Reproduction Guidelines https://www.nasa.gov/multimedia/guidelines (page states no explicit licence; credit NASA's Goddard Space Flight Center; confirm before release)",
+   "retrieved": "2026-10-14",
+   "image_date": "2015",
+   "derived_from": "frame 300 of Salt_Lake_-_Web.mp4 (SVS 15020, Landsat natural colour 1984-2023, year label and scale bar baked in by NASA)",
+   "place": "Great Salt Lake",
+   "tags": [
+    "great salt lake",
+    "salt lake",
+    "the lake",
+    "lake level",
+    "saline lake",
+    "2015"
+   ],
+   "years": [
+    2015
+   ],
+   "focus": [
+    0.33,
+    0.45
+   ],
+   "sha256": "3488c87a7014e90038895fcacebb49197c53524805ca59a6dc807780d053b895"
+  },
+  {
+   "id": "gsl_2023",
+   "kind": "still",
+   "src": "assets/gsl_2023.png",
+   "credit": "NASA's Goddard Space Flight Center \u00b7 Landsat / USGS",
+   "source_url": "https://svs.gsfc.nasa.gov/15020",
+   "license": "NASA media - NASA Reproduction Guidelines https://www.nasa.gov/multimedia/guidelines (page states no explicit licence; credit NASA's Goddard Space Flight Center; confirm before release)",
+   "retrieved": "2026-10-14",
+   "image_date": "2023",
+   "derived_from": "frame 385 of Salt_Lake_-_Web.mp4 (SVS 15020, Landsat natural colour 1984-2023, year label and scale bar baked in by NASA)",
+   "place": "Great Salt Lake",
+   "tags": [
+    "great salt lake",
+    "salt lake",
+    "the lake",
+    "lake level",
+    "saline lake",
+    "2023"
+   ],
+   "years": [
+    2023
+   ],
+   "focus": [
+    0.33,
+    0.45
+   ],
+   "sha256": "1bb9174936957c305d0c77886f145cdefd8bfc6000c08b31e29ade15ea6c8fa6"
+  },
+  {
+   "id": "gsl_timelapse",
+   "kind": "video",
+   "src": "assets/svs15020_web.mp4",
+   "credit": "NASA's Goddard Space Flight Center \u00b7 Landsat / USGS",
+   "source_url": "https://svs.gsfc.nasa.gov/15020",
+   "license": "NASA media - NASA Reproduction Guidelines https://www.nasa.gov/multimedia/guidelines (page states no explicit licence; credit NASA's Goddard Space Flight Center; confirm before release)",
+   "retrieved": "2026-10-14",
+   "image_date": "1984-2023",
+   "place": "Great Salt Lake",
+   "tags": [
+    "great salt lake",
+    "landsat",
+    "forty years",
+    "time series",
+    "years"
+   ],
+   "years": [
+    1984,
+    2023
+   ],
+   "sha256": "b809c8c35caef52828ddb34b63e5d6c1bbf663dc2c60499574bf6aacacc40c9e",
+   "restore": "curl -O https://svs.gsfc.nasa.gov/vis/a010000/a015000/a015020/Salt_Lake_-_Web.mp4  (1920x1080, 30 fps, 13.0 s, 16,204,354 bytes)"
+  }
+ ],
+ "stacks": [
+  {
+   "id": "gsl_calibrated",
+   "grid": "assets/landsat/stack_cal/grid.json",
+   "images": {
+    "1985": {
+     "src": "assets/landsat/stack_cal/y1985.png",
+     "label": "June 1985",
+     "credit": "Landsat 5 \u00b7 USGS",
+     "date": "1985-06-12 (path 38) and 1985-06-19 (path 39)"
+    },
+    "1986": {
+     "src": "assets/landsat/stack_cal/y1986.png",
+     "label": "August 1986",
+     "credit": "Landsat 5 \u00b7 USGS",
+     "date": "1986-08-02 (path 38) and 1986-08-09 (path 39)"
+    },
+    "1999": {
+     "src": "assets/landsat/stack_cal/y1999.png",
+     "label": "August 1999",
+     "credit": "Landsat 5 \u00b7 USGS",
+     "date": "1999-08-22 (path 38) and 1999-08-29 (path 39)"
+    },
+    "2021": {
+     "src": "assets/landsat/stack_cal/y2021.png",
+     "label": "July 2021",
+     "credit": "Landsat 8 \u00b7 USGS",
+     "date": "2021-07-17 (path 38) and 2021-07-24 (path 39)"
+    },
+    "2022": {
+     "src": "assets/landsat/stack_cal/y2022.png",
+     "label": "July 2022",
+     "credit": "Landsat 8, 9 \u00b7 USGS",
+     "date": "2022-07-11 (path 39, Landsat 8) and 2022-07-28 (path 38, Landsat 9)"
+    }
+   },
+   "views": {
+    "whole": {
+     "center": [
+      -112.5,
+      41.2
+     ],
+     "width_km": 228
+    },
+    "whole_in": {
+     "center": [
+      -112.45,
+      41.15
+     ],
+     "width_km": 190
+    },
+    "north": {
+     "center": [
+      -112.8,
+      41.42
+     ],
+     "width_km": 70
+    },
+    "south": {
+     "center": [
+      -112.3,
+      40.88
+     ],
+     "width_km": 80
+    },
+    "causeway": {
+     "center": [
+      -112.65,
+      41.226
+     ],
+     "width_km": 55
+    },
+    "east": {
+     "center": [
+      -112.1,
+      40.88
+     ],
+     "width_km": 75
+    }
+   },
+   "pins": {
+    "Gunnison Bay": [
+     -112.8,
+     41.33
+    ],
+    "Gilbert Bay": [
+     -112.35,
+     40.9
+    ],
+    "Causeway": [
+     -112.65,
+     41.226
+    ],
+    "Salt Lake City": [
+     -111.89,
+     40.76
+    ],
+    "Farmington Bay": [
+     -112.1,
+     40.97
+    ]
+   },
+   "verified": "pin coordinates and the causeway latitude checked on the 2022 mosaic (overlay), tile dates checked against MTL DATE_ACQUIRED; see assets/landsat/stack_cal/provenance.json"
+  }
+ ]
+}

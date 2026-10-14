@@ -1,0 +1,579 @@
+{
+ "schema": "yt-captions/1",
+ "language": "en",
+ "source": "narration.voice.json",
+ "settings": {
+  "max_chars": 84,
+  "max_lines": 2,
+  "max_duration": 6.0,
+  "min_duration": 0.8,
+  "pause": 0.6
+ },
+ "cue_count": 92,
+ "duration": 371.055,
+ "validation": {
+  "wording_preserved": true,
+  "no_overlaps": true,
+  "timestamps_valid": true,
+  "problems": [],
+  "warnings": []
+ },
+ "cues": [
+  {
+   "index": 1,
+   "start": 0.0,
+   "end": 2.09,
+   "text": "This is the Great Salt Lake in Utah,"
+  },
+  {
+   "index": 2,
+   "start": 2.252,
+   "end": 4.574,
+   "text": "the largest saline lake in the Western Hemisphere."
+  },
+  {
+   "index": 3,
+   "start": 4.841,
+   "end": 9.718,
+   "text": "In June 1985, its surface measured 4,209.7 feet."
+  },
+  {
+   "index": 4,
+   "start": 10.031,
+   "end": 14.269,
+   "text": "In July 2022, it measured 4,190.2 feet."
+  },
+  {
+   "index": 5,
+   "start": 14.582,
+   "end": 19.737,
+   "text": "The lake's record high had come in 1986, at 4,211.6 feet."
+  },
+  {
+   "index": 6,
+   "start": 20.051,
+   "end": 21.955,
+   "text": "Now it sat more than 20 feet lower."
+  },
+  {
+   "index": 7,
+   "start": 22.164,
+   "end": 24.869,
+   "text": "The Landsat satellites were watching the whole time."
+  },
+  {
+   "index": 8,
+   "start": 25.148,
+   "end": 28.921,
+   "text": "Put the pictures in order, from 1985 to 2022,"
+  },
+  {
+   "index": 9,
+   "start": 29.13,
+   "end": 31.231,
+   "text": "and the lake pulls back from its shore."
+  },
+  {
+   "index": 10,
+   "start": 31.556,
+   "end": 34.54,
+   "text": "These are real Landsat scenes from the U.S."
+  },
+  {
+   "index": 11,
+   "start": 34.575,
+   "end": 36.177,
+   "text": "Geological Survey."
+  },
+  {
+   "index": 12,
+   "start": 36.56,
+   "end": 41.146,
+   "text": "Each picture is a mosaic of several scenes, shown with one color curve,"
+  },
+  {
+   "index": 13,
+   "start": 41.297,
+   "end": 44.06,
+   "text": "so the colors can be compared from year to year."
+  },
+  {
+   "index": 14,
+   "start": 44.432,
+   "end": 48.994,
+   "text": "It is a big lake: about 70 miles long, 30 miles wide,"
+  },
+  {
+   "index": 15,
+   "start": 49.169,
+   "end": 53.929,
+   "text": "and about 40 feet deep, and up to 8 times as salty as seawater."
+  },
+  {
+   "index": 16,
+   "start": 54.51,
+   "end": 58.875,
+   "text": "At about 4,200 feet, it covers roughly 1,700 square miles."
+  },
+  {
+   "index": 17,
+   "start": 59.177,
+   "end": 62.892,
+   "text": "At its 1986 high, it covered about 2,300."
+  },
+  {
+   "index": 18,
+   "start": 63.147,
+   "end": 66.456,
+   "text": "It is a terminal lake: there is no outlet to the sea."
+  },
+  {
+   "index": 19,
+   "start": 66.758,
+   "end": 68.43,
+   "text": "And it matters to the economy."
+  },
+  {
+   "index": 20,
+   "start": 69.185,
+   "end": 73.887,
+   "text": "USGS says the lake generates nearly $200 million a year from recreation"
+  },
+  {
+   "index": 21,
+   "start": 74.119,
+   "end": 77.637,
+   "text": "and the brine shrimp harvest, citing a 2012 study."
+  },
+  {
+   "index": 22,
+   "start": 78.113,
+   "end": 83.697,
+   "text": "In July 2021, the gauge at Saltair read 4,191.3"
+  },
+  {
+   "index": 23,
+   "start": 83.79,
+   "end": 87.946,
+   "text": "feet, the lowest mark since measurements began in 1875."
+  },
+  {
+   "index": 24,
+   "start": 88.504,
+   "end": 93.519,
+   "text": "NASA reports that at that level the lake covered about 950 square miles,"
+  },
+  {
+   "index": 25,
+   "start": 93.716,
+   "end": 97.327,
+   "text": "44 percent less surface than at 4,200 feet."
+  },
+  {
+   "index": 26,
+   "start": 97.687,
+   "end": 100.172,
+   "text": "A year later, it fell lower still."
+  },
+  {
+   "index": 27,
+   "start": 100.485,
+   "end": 104.676,
+   "text": "NASA lists a new record low on July 3, 2022."
+  },
+  {
+   "index": 28,
+   "start": 105.036,
+   "end": 106.197,
+   "text": "Why did it fall?"
+  },
+  {
+   "index": 29,
+   "start": 106.394,
+   "end": 109.517,
+   "text": "NASA's account points to people, and to climate."
+  },
+  {
+   "index": 30,
+   "start": 110.33,
+   "end": 115.229,
+   "text": "For about a century, water has been diverted upstream for homes and farms."
+  },
+  {
+   "index": 31,
+   "start": 115.926,
+   "end": 119.386,
+   "text": "Utah State University researchers estimate that inflows"
+  },
+  {
+   "index": 32,
+   "start": 119.432,
+   "end": 123.391,
+   "text": "have fallen 39 percent since 1850."
+  },
+  {
+   "index": 33,
+   "start": 123.391,
+   "end": 128.708,
+   "text": "A 2016 white paper cited by NASA found that the lake's volume has shrunk 48 percent,"
+  },
+  {
+   "index": 34,
+   "start": 128.871,
+   "end": 132.691,
+   "text": "and that its level has fallen 11 feet since 1847."
+  },
+  {
+   "index": 35,
+   "start": 133.109,
+   "end": 137.405,
+   "text": "Meanwhile, the Salt Lake City metro area grew from 700,000 people"
+  },
+  {
+   "index": 36,
+   "start": 137.463,
+   "end": 141.665,
+   "text": "in 1982 to 1.2 million in 2022."
+  },
+  {
+   "index": 37,
+   "start": 142.362,
+   "end": 143.953,
+   "text": "And the climate is changing."
+  },
+  {
+   "index": 38,
+   "start": 144.231,
+   "end": 147.192,
+   "text": "More precipitation falls as rain than snow,"
+  },
+  {
+   "index": 39,
+   "start": 147.366,
+   "end": 150.222,
+   "text": "and the snowpack releases its water more slowly."
+  },
+  {
+   "index": 40,
+   "start": 150.663,
+   "end": 156.596,
+   "text": "In 1959, a solid-fill railroad causeway was completed across the middle of the lake."
+  },
+  {
+   "index": 41,
+   "start": 156.921,
+   "end": 161.774,
+   "text": "The causeway took 50 million cubic yards of rock, sand and gravel."
+  },
+  {
+   "index": 42,
+   "start": 162.053,
+   "end": 166.407,
+   "text": "It replaced a 12-mile trestle of 28,000 wooden pilings,"
+  },
+  {
+   "index": 43,
+   "start": 166.65,
+   "end": 170.923,
+   "text": "and it had only two 15-foot culverts for water to pass through."
+  },
+  {
+   "index": 44,
+   "start": 171.434,
+   "end": 176.786,
+   "text": "It divides the lake into Gunnison Bay in the north, and Gilbert Bay in the south."
+  },
+  {
+   "index": 45,
+   "start": 177.297,
+   "end": 180.629,
+   "text": "Almost all of the fresh water flows in on the south side,"
+  },
+  {
+   "index": 46,
+   "start": 180.71,
+   "end": 182.928,
+   "text": "so the north is always saltier."
+  },
+  {
+   "index": 47,
+   "start": 183.369,
+   "end": 189.314,
+   "text": "In July 1984, the south side stood 3.7 feet higher than the north,"
+  },
+  {
+   "index": 48,
+   "start": 189.488,
+   "end": 191.764,
+   "text": "the largest difference ever recorded."
+  },
+  {
+   "index": 49,
+   "start": 192.46,
+   "end": 197.836,
+   "text": "That August, a 300-foot section of the causeway was replaced by a low bridge."
+  },
+  {
+   "index": 50,
+   "start": 198.161,
+   "end": 201.829,
+   "text": "A new channel opened in December 2016."
+  },
+  {
+   "index": 51,
+   "start": 202.155,
+   "end": 204.709,
+   "text": "The divide had a strange side effect."
+  },
+  {
+   "index": 52,
+   "start": 205.092,
+   "end": 210.549,
+   "text": "Dense brine from Gunnison Bay sank into a deep layer near the bottom of Gilbert Bay."
+  },
+  {
+   "index": 53,
+   "start": 210.874,
+   "end": 215.82,
+   "text": "USGS says that layer had low pH and no dissolved oxygen,"
+  },
+  {
+   "index": 54,
+   "start": 216.029,
+   "end": 221.091,
+   "text": "and conditions that favored turning inorganic mercury into methyl mercury,"
+  },
+  {
+   "index": 55,
+   "start": 221.265,
+   "end": 223.285,
+   "text": "which builds up in the food chain."
+  },
+  {
+   "index": 56,
+   "start": 223.668,
+   "end": 228.428,
+   "text": "It dissipated by June 2014, after its source water was cut off."
+  },
+  {
+   "index": 57,
+   "start": 229.009,
+   "end": 231.029,
+   "text": "The lake has not always been too low."
+  },
+  {
+   "index": 58,
+   "start": 231.447,
+   "end": 236.811,
+   "text": "After rainy weather beginning in 1982, it peaked in June 1986,"
+  },
+  {
+   "index": 59,
+   "start": 237.043,
+   "end": 240.212,
+   "text": "and again in March and April of 1987."
+  },
+  {
+   "index": 60,
+   "start": 240.584,
+   "end": 244.903,
+   "text": "Then came a pumping project, the Newfoundland Evaporation Basin."
+  },
+  {
+   "index": 61,
+   "start": 245.599,
+   "end": 249.001,
+   "text": "The project built almost 25 miles of dikes,"
+  },
+  {
+   "index": 62,
+   "start": 249.117,
+   "end": 254.026,
+   "text": "and about 1.5 million acre-feet were pumped in the first year."
+  },
+  {
+   "index": 63,
+   "start": 254.026,
+   "end": 258.496,
+   "text": "The pumps ran from April 1987 to June 1989,"
+  },
+  {
+   "index": 64,
+   "start": 258.67,
+   "end": 261.108,
+   "text": "and the lake dropped almost 6 feet."
+  },
+  {
+   "index": 65,
+   "start": 261.491,
+   "end": 265.241,
+   "text": "USGS says the pumping caused about 2 feet of that."
+  },
+  {
+   "index": 66,
+   "start": 265.52,
+   "end": 268.585,
+   "text": "When the water pulls back, it leaves lake bed."
+  },
+  {
+   "index": 67,
+   "start": 269.026,
+   "end": 274.622,
+   "text": "NASA scientist Dorothy Hall says exposed lake beds often harbor toxic"
+  },
+  {
+   "index": 68,
+   "start": 274.715,
+   "end": 278.825,
+   "text": "minerals from agricultural runoff, and NASA reports that dust"
+  },
+  {
+   "index": 69,
+   "start": 278.883,
+   "end": 283.143,
+   "text": "from the drying Great Salt Lake worsens regional air pollution."
+  },
+  {
+   "index": 70,
+   "start": 283.654,
+   "end": 289.123,
+   "text": "USGS collected dust at 17 sites in northern Utah, near the lake bed,"
+  },
+  {
+   "index": 71,
+   "start": 289.367,
+   "end": 292.258,
+   "text": "especially at Farmington and Bear River Bays,"
+  },
+  {
+   "index": 72,
+   "start": 292.467,
+   "end": 296.809,
+   "text": "and measured pollutants including arsenic, lead and cadmium."
+  },
+  {
+   "index": 73,
+   "start": 297.412,
+   "end": 299.142,
+   "text": "Its conclusion is careful."
+  },
+  {
+   "index": 74,
+   "start": 299.526,
+   "end": 302.928,
+   "text": "The dust may contribute to potential health risks for children,"
+  },
+  {
+   "index": 75,
+   "start": 303.171,
+   "end": 308.895,
+   "text": "but USGS says no formal evaluation of its impact on human health has been conducted,"
+  },
+  {
+   "index": 76,
+   "start": 309.139,
+   "end": 310.532,
+   "text": "because of data gaps."
+  },
+  {
+   "index": 77,
+   "start": 311.043,
+   "end": 314.735,
+   "text": "Then came the winter of 2022 to 2023,"
+  },
+  {
+   "index": 78,
+   "start": 314.886,
+   "end": 317.336,
+   "text": "with record snowfall across the region."
+  },
+  {
+   "index": 79,
+   "start": 317.777,
+   "end": 322.746,
+   "text": "NASA's Earth Observatory shows more snow than usual around the lake that February."
+  },
+  {
+   "index": 80,
+   "start": 323.558,
+   "end": 325.172,
+   "text": "Did that fix the problem?"
+  },
+  {
+   "index": 81,
+   "start": 325.869,
+   "end": 330.176,
+   "text": "NASA's GRACE satellites measure underground water across the Great Basin,"
+  },
+  {
+   "index": 82,
+   "start": 330.385,
+   "end": 332.521,
+   "text": "a region of the western United States."
+  },
+  {
+   "index": 83,
+   "start": 332.846,
+   "end": 337.677,
+   "text": "They show it fell by 16.5 cubic miles over about two decades."
+  },
+  {
+   "index": 84,
+   "start": 338.118,
+   "end": 344.039,
+   "text": "Scientist Dorothy Hall expected the record snow to help, but she said, overall,"
+  },
+  {
+   "index": 85,
+   "start": 344.213,
+   "end": 345.699,
+   "text": "the decline continued."
+  },
+  {
+   "index": 86,
+   "start": 346.21,
+   "end": 347.754,
+   "text": "What do these pictures show?"
+  },
+  {
+   "index": 87,
+   "start": 348.079,
+   "end": 350.715,
+   "text": "Where the shoreline was on particular days."
+  },
+  {
+   "index": 88,
+   "start": 350.958,
+   "end": 353.628,
+   "text": "They do not forecast what comes next."
+  },
+  {
+   "index": 89,
+   "start": 354.011,
+   "end": 357.634,
+   "text": "But the measurements are plain: in July 2022,"
+  },
+  {
+   "index": 90,
+   "start": 357.785,
+   "end": 362.719,
+   "text": "the Great Salt Lake measured 4,190.2 feet,"
+  },
+  {
+   "index": 91,
+   "start": 362.928,
+   "end": 366.179,
+   "text": "more than 20 feet below its 1986 high."
+  },
+  {
+   "index": 92,
+   "start": 366.62,
+   "end": 371.055,
+   "text": "And nearly four decades of Landsat show where that water used to be."
+  }
+ ],
+ "files": {
+  "srt": "captions.srt",
+  "vtt": "captions.vtt"
+ }
+}
