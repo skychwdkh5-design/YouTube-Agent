@@ -341,6 +341,12 @@ def preflight():
     add("not on main", br not in ("main", "master"), f"branch {br}")
     v = kb.validate()
     add("solutions registry valid", v["ok"], f"{v['entries']} entries, {len(v['problems'])} problems")
+    try:
+        import protected
+        pv = protected.verify()
+        add("finished EP001/EP002 files untouched", pv["ok"], f"{pv['checked_files']} files compared, refs not fetched: {pv['refs_not_in_this_clone'] or 'none'}")
+    except Exception as x:
+        add("finished EP001/EP002 files untouched", False, f"{type(x).__name__}: {x}")
     st = os.path.join(ROOT, ".claude", "settings.json")
     add("guard hook configured", os.path.exists(st) and "guard.py" in _read(st), ".claude/settings.json")
     return {"ok": all(c["ok"] for c in checks if c["check"] not in ("USGS credentials (only for new Landsat)",)), "checks": checks}

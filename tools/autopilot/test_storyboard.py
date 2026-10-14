@@ -154,6 +154,34 @@ class Generation(Base):
         self.assertEqual(a, b)
 
 
+class Labels(unittest.TestCase):
+    def test_callout_labels_are_whole_words_and_never_cut_a_number(self):
+        claim = {"text": "In June 1985 the surface of the Great Salt Lake stood at 4,209.7 feet; later 4,190.2 feet"}
+        lab = sb.callout_label({"hints": {}, "text": "x"}, claim, {}, set())
+        self.assertLessEqual(len(lab), 49); self.assertTrue(lab.endswith("\u2026"))
+        self.assertNotRegex(lab[:-1], r"\d,\d{0,2}$")
+        by = {"a": {"place": "Great Salt Lake"}}
+        self.assertEqual(sb.callout_label({"hints": {}, "text": "In June 1985, its surface measured 4,209.7 feet."}, claim, by, {"a"}), "GREAT SALT LAKE \u00b7 JUNE 1985")
+        self.assertEqual(sb.callout_label({"hints": {"label": "LAKE LEVEL"}, "text": "x"}, claim, by, {"a"}), "LAKE LEVEL")
+
+
+class Dates(unittest.TestCase):
+    A = [{"id": "y85", "kind": "still", "years": [1985], "tags": []}, {"id": "y23", "kind": "still", "years": [2023], "tags": []},
+         {"id": "tl", "kind": "video", "years": [1984, 2023], "tags": []}]
+
+    def test_the_picture_nearest_the_named_year_is_preferred_and_a_gap_is_reported(self):
+        sc = {"text": "The record high came in 1986.", "hints": {}}
+        gaps = {a["id"]: sb.year_gap(sc, a) for a in self.A}
+        self.assertEqual(gaps, {"y85": 1, "y23": 37, "tl": 0})
+        self.assertIsNone(sb.year_gap({"text": "No year here.", "hints": {}}, self.A[0]))
+
+    def test_a_far_picture_loses_to_a_repeated_near_one(self):
+        near = {"template": "still_pull_out", "asset": "y85", "family": "a", "fit": 2.0, "rel": 1.0, "year_gap": 1}
+        far = {"template": "still_pull_out", "asset": "y23", "family": "b", "fit": 2.0, "rel": 1.0, "year_gap": 37}
+        hist = [{"template": "still_push_in", "asset": "y85", "family": "a", "t0": 0.0}]
+        self.assertGreater(sb.score(near, hist, 5.0)[0], sb.score(far, hist, 5.0)[0])
+
+
 class Repair(unittest.TestCase):
     def test_known_renderer_errors_are_repaired(self):
         tl = {"shots": [{"id": "a", "start": 0, "layers": [{"type": "still", "asset": "x", "view": {"from": {"center": [0.1, 0.1], "width": 0.1}, "to": {"center": [0.1, 0.1], "width": 0.1}}}]},

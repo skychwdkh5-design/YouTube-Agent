@@ -132,10 +132,10 @@ def cut_points(words, w0, w1, fine):
     return [i + 1 for i in range(w0, w1 - 1) if words[i]["text"][-1:] in ends or (fine and words[i]["text"].endswith("\u2014"))]
 
 
-def split_scene(sc, words, max_s, min_part_s, fine):
+def split_scene(sc, words, max_s, min_part_s, fine, video_ids=()):
     """Recursively cut a scene at the boundary nearest its middle until every part is <= max_s (parts stay >= min_part_s)."""
     t0, t1 = words[sc["w0"]]["start"], words[sc["w1"] - 1]["end"]
-    if t1 - t0 <= max_s or sc["hints"].get("steps"): return [sc]
+    if t1 - t0 <= max_s or sc["hints"].get("steps") or sc["hints"].get("asset") in video_ids: return [sc]
     best = None
     for i in cut_points(words, sc["w0"], sc["w1"], fine):
         a_, b_ = words[i - 1]["end"] - t0, t1 - words[i]["start"]
@@ -147,11 +147,11 @@ def split_scene(sc, words, max_s, min_part_s, fine):
     toks = sc["text"].split()
     k = i - sc["w0"]
     left = dict(sc, text=" ".join(toks[:k]), w1=i)
-    right = dict(sc, text=" ".join(toks[k:]), w0=i, hints={x: y for x, y in sc["hints"].items() if x in ("family",)})
-    return split_scene(left, words, max_s, min_part_s, fine) + split_scene(right, words, max_s, min_part_s, fine)
+    right = dict(sc, text=" ".join(toks[k:]), w0=i, hints={x: y for x, y in sc["hints"].items() if x in ("family", "asset", "claims")})
+    return split_scene(left, words, max_s, min_part_s, fine, video_ids) + split_scene(right, words, max_s, min_part_s, fine, video_ids)
 
 
-def build_scenes(blocks, words):
+def build_scenes(blocks, words, video_ids=()):
     """Paragraphs -> scenes. Short paragraphs merge forward; scenes over 8 s are cut at sentence ends; the hook (first 10 s) is cut at clause ends into ~3.4 s beats."""
     scenes, cur = [], None
     for b in blocks:
@@ -164,9 +164,9 @@ def build_scenes(blocks, words):
     out = []
     for sc in scenes:
         if words[sc["w0"]]["start"] < 10.0:
-            out += split_scene(sc, words, HOOK_BEAT_S, 1.6, True)
+            out += split_scene(sc, words, HOOK_BEAT_S, 1.6, True, video_ids)
         else:
-            out += split_scene(sc, words, MAX_SCENE_S, 3.0, False)
+            out += split_scene(sc, words, MAX_SCENE_S, 3.0, False, video_ids)
     for i, s in enumerate(out, 1):
         s["id"] = f"sc{i:02d}"
         s["start"] = q(words[s["w0"]]["start"]) if i > 1 else 0.0
@@ -221,6 +221,18 @@ def relevance(scene, asset):
     return n
 
 
+def year_gap(scene, asset):
+    """Years the narration names vs the years the picture shows: -> (smallest distance in years over the named years, or None).
+    A video that spans 1984-2023 covers every year inside that range; a still covers its own year."""
+    named = [int(y) for y in YEAR_RE.findall(scene["text"])]
+    ay = [int(y) for y in asset.get("years", []) if str(y).isdigit()]
+    if not named or not ay: return None
+    lo, hi = min(ay), max(ay)
+    if asset.get("kind", "still") == "video" and len(ay) >= 2:
+        return max(0, max(lo - y if y < lo else y - hi if y > hi else 0 for y in named))
+    return max(min(abs(y - a) for a in ay) for y in named)
+
+
 def fit_view(asset, cx, cy, wf):
     """A 16:9 window of width fraction wf at (cx, cy), moved inside the image and kept under the upscale limit."""
     iw, ih = asset["size"]
@@ -248,15 +260,17 @@ def candidates(scene, kinds, assets, claims, allow_graphics):
     for a in assets:
         if not a["exists"]: continue
         rel = relevance(scene, a)
+        gap = year_gap(scene, a)
+        hinted = scene["hints"].get("asset") == a["id"]
         if a.get("kind", "still") == "still":
             for recipe in ("still_push_in", "still_pull_out", "still_pan"):
                 fit = {"still_push_in": 2.0 if "establish_place" in kinds or "number" in kinds else 1.2,
                        "still_pull_out": 1.8 if "change_over_time" in kinds or "locate" in kinds else 1.0,
                        "still_pan": 1.5 if "change_over_time" in kinds else 0.8}[recipe]
-                c.append({"template": recipe, "asset": a["id"], "family": a.get("family") or a["id"], "fit": fit, "rel": rel})
+                c.append({"template": recipe, "asset": a["id"], "family": a.get("family") or a["id"], "fit": fit, "rel": rel, "year_gap": gap, "hinted": hinted})
         elif a.get("kind") == "video":
             c.append({"template": "video_sequence", "asset": a["id"], "family": a.get("family") or a["id"],
-                      "fit": 2.6 if "change_over_time" in kinds else 1.0, "rel": rel})
+                      "fit": 2.6 if "change_over_time" in kinds else 1.0, "rel": rel, "year_gap": gap, "hinted": hinted})
     if allow_graphics:
         m = CALLOUT_RE.search(scene["text"])
         claim = match_claim(scene, claims)
@@ -265,6 +279,23 @@ def candidates(scene, kinds, assets, claims, allow_graphics):
         if scene["hints"].get("steps"):
             c.append({"template": "graphic_build_steps", "gtype": "flow", "asset": None, "family": "graphic_flow", "fit": 3.0, "rel": 0.0})
     return c
+
+
+MONTH_RE = re.compile(r"\b((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+)?(1[89]\d\d|20\d\d)\b")
+
+
+def callout_label(scene, claim, by_id, subject):
+    """A short, whole-word label for a number graphic: the hint, else '<PLACE> · <DATE>' from the manifest and the sentence, else the
+    claim cut at a word boundary (never mid-number)."""
+    if scene["hints"].get("label"): return scene["hints"]["label"][:48]
+    place = next((by_id[a].get("place") for a in sorted(subject) if a in by_id and by_id[a].get("place")), None)
+    m = MONTH_RE.search(scene["text"])
+    if place and m: return f"{place} \u00b7 {m.group(0)}".upper()[:48]
+    if place: return place.upper()[:48]
+    text = claim["text"]
+    if len(text) <= 48: return text
+    cut = text[:48].rsplit(" ", 1)[0].rstrip(",;:-")
+    return cut + "\u2026"
 
 
 def match_claim(scene, claims):
@@ -282,6 +313,10 @@ def match_claim(scene, claims):
 def score(c, history, t0, continuation=False):
     s = c["fit"] + 1.4 * min(c["rel"], 3.0)
     notes = []
+    if c.get("hinted"): s += 6.0; notes.append("author hint (+6)")
+    if c.get("year_gap") is not None:
+        pen = 9.0 * min(c["year_gap"], 10) / 10          # a picture that shows another year must lose to one that shows the named year, even a repeated one
+        if pen: s -= pen; notes.append(f"picture is {c['year_gap']} yr from the year narrated (-{pen:.1f})")
     last = history[-1] if history else None
     if last and last["template"] == c["template"] and c.get("asset") == last.get("asset"): s -= 4; notes.append("same template+asset as previous (-4)")
     elif last and last["template"] == c["template"]: s -= 1.2; notes.append("same template as previous (-1.2)")
@@ -293,6 +328,7 @@ def score(c, history, t0, continuation=False):
         if h["template"].startswith("graphic"): g_run += 1
         else: break
     if c["template"].startswith("graphic") and g_run >= 2: s -= 5; notes.append("third graphic in a row (-5, retention risk)")
+    if c["template"].startswith("graphic") and g_run == 1: s -= 3.5; notes.append("graphic right after a graphic (-3.5)")
     if not c["template"].startswith("graphic") and g_run >= 1: s += 0.8; notes.append("returns to imagery (+0.8)")
     return s, notes
 
@@ -344,8 +380,8 @@ def build(prod, allow_graphics=True, timings=None):
     else:
         words = estimate_words(blocks)
     al = align(blocks, words)
-    scenes = build_scenes(blocks, words)
     assets = load_manifest(prod)
+    scenes = build_scenes(blocks, words, {a["id"] for a in assets if a.get("kind") == "video"})
     claims = (_json(os.path.join(prod, "story", "claims.json"), {}) or {}).get("claims", [])
     duration = q(words[-1]["end"] + 1.5)
     plan = {"timing": timing, "alignment": al, "scenes": [], "gaps": [], "warnings": []}
@@ -363,9 +399,13 @@ def build(prod, allow_graphics=True, timings=None):
                                   "source_url": a["source_url"], "license": a["license"], "retrieved": a["retrieved"],
                                   **({"image_date": a["image_date"]} if a.get("image_date") else {})}
     by_id = {a["id"]: a for a in assets}
+    cands_by_scene = {}
     for sc in scenes:
         kinds = classify(sc)
         cands = candidates(sc, kinds, assets, claims, allow_graphics)
+        cands_by_scene[sc["id"]] = cands
+        for c in cands:                                      # same subject as the last scene that named one: eligible, flagged as continuation
+            if c["rel"] == 0 and c.get("asset") in subject: c["rel"] = 0.5; c["continuation"] = True
         relevant = [c for c in cands if c["rel"] > 0 or c["template"].startswith("graphic")]
         continuation = False
         if relevant:
@@ -384,7 +424,7 @@ def build(prod, allow_graphics=True, timings=None):
             scored.append((s, c["template"] + ":" + str(c.get("asset")), c, notes))
         scored.sort(key=lambda x: (-x[0], x[1]))
         best_s, _, best, notes = scored[0]
-        if continuation: notes = notes + ["continuation: same subject as the previous shot, new view"]
+        if continuation or best.get("continuation"): notes = notes + ["continuation: same subject as the previous shot, new view"]
         shot = {"id": sc["id"], "beat": " ".join(sc["text"].split()[:6]), "start": sc["start"], "info": first_sentence(sc["text"])[:60], "layers": []}
         dec = {"scene": sc["id"], "start": sc["start"], "end": sc["end"] if "end" in sc else duration, "kinds": kinds, "text": sc["text"],
                "chosen": {k: best.get(k) for k in ("template", "asset", "family", "gtype")}, "score": round(best_s, 2), "notes": notes,
@@ -405,7 +445,7 @@ def build(prod, allow_graphics=True, timings=None):
             cl = match_claim(sc, claims); m = CALLOUT_RE.search(sc["text"])
             gid = f"{sc['id']}-callout"
             val = float(m.group(1).replace(",", ""))
-            specs.append({"type": "callout", "id": gid, "value": val, "unit": m.group(2), "label": (sc["hints"].get("label") or cl["text"])[:60],
+            specs.append({"type": "callout", "id": gid, "value": val, "unit": m.group(2), "label": callout_label(sc, cl, by_id, subject),
                           "context": sc["sents"][0][:90], "source": cl.get("source_name") or cl["source_url"], "decimals": 0 if val == int(val) else 1})
             shot["layers"].append({"type": "graphic", "asset": gid}); dec["graphic_claim"] = cl["id"]
         elif best["template"] == "graphic_build_steps":
@@ -419,6 +459,10 @@ def build(prod, allow_graphics=True, timings=None):
         shots.append(shot); plan["scenes"].append(dec)
     if not shots: raise ValueError("nothing could be planned: assets/manifest.json has no usable asset")
     plan["needs"] = asset_needs(shots, tl_assets, scenes, words, duration)
+    for d_ in plan["scenes"]:
+        gap_ = next((c.get("year_gap") for c in [x for x in cands_by_scene.get(d_["scene"], []) if x.get("asset") == d_["chosen"].get("asset")][:1]), None)
+        if gap_:
+            plan["needs"].append({"scene": d_["scene"], "asset": d_["chosen"].get("asset"), "need": f"a picture dated within the narrated year (the best available is {gap_} yr away): acquire one with /yt-satellite or choose a script wording that does not name the year"})
     tl = {"version": 3, "profile": "long", "grid": "grid.json", "assets": tl_assets, "shots": shots, "end": {"seconds": duration},
           "render": {"segment_s": 60},
           "meta": {"generator": "tools/autopilot/storyboard.py", "timing": timing,
@@ -555,7 +599,7 @@ def plan_cmd(prod, allow_graphics=True, timings=None):
     # word-anchored build steps
     raw = open(os.path.join(prod, "script.md"), encoding="utf-8").read()
     blocks = parse_script(raw); align(blocks, words)
-    scenes_by_id = {s["id"]: s for s in build_scenes(blocks, words)}
+    scenes_by_id = {s["id"]: s for s in build_scenes(blocks, words, {a["id"] for a in load_manifest(prod) if a.get("kind") == "video"})}
     anchor_steps(tl, scenes_by_id, words)
     for shot in tl["shots"]:
         for L in shot["layers"]:
