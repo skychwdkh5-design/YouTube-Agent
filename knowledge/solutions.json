@@ -2139,6 +2139,36 @@
     "review"
    ],
    "no_test_reason": "needs a full camera path over a real stack; verified on EP003 frames"
+  },
+  {
+   "id": "timeline-v3-gate-keys",
+   "title": "Storyboard gate and yt-qc disagreed on timeline v3 keys",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "process",
+   "date": "2026-10-14",
+   "problem": "The storyboard gate demanded audio.voice + subtitles; yt-qc rejects those keys in a version 3 timeline (allowed: voice, captions) and returned ERROR.",
+   "root_cause": "gates.timeline was written for v1/v2 timelines.",
+   "fix": "gates.timeline accepts v3 voice.src / captions (or v1/v2 audio.voice / subtitles). A v3 timeline carries voice={src,meta} and captions={src}.",
+   "reuse_when": "Any version 3 timeline through orbital.py.",
+   "refs": {
+    "code": [
+     "tools/autopilot/gates.py"
+    ],
+    "docs": [
+     "docs/AUTOPILOT.md"
+    ]
+   },
+   "verification": "EP003: storyboard gate ok and yt-qc PASS on the same timeline.",
+   "no_test_reason": "covered by the EP003 run; the existing autopilot tests pass",
+   "symptoms": [
+    "unknown key(s) ['audio', 'subtitles']",
+    "yt-qc ERROR"
+   ],
+   "stages": [
+    "storyboard",
+    "qc"
+   ]
   }
  ]
 }

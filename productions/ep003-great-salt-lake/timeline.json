@@ -1675,18 +1675,11 @@
   "timing_note": "provider word times",
   "motion_plan": "story/motion_plan.json"
  },
- "audio": {
-  "voice": [
-   {
-    "src": "voice/narration.wav",
-    "start": 0.0,
-    "meta": "voice/narration.voice.json"
-   }
-  ]
+ "voice": {
+  "src": "voice/narration.wav",
+  "meta": "voice/narration.voice.json"
  },
- "subtitles": {
-  "src": "captions/captions.srt",
-  "burn_in": false,
-  "note": "animated captions are drawn by orbitalatlas.director; the SRT ships as the YouTube caption file"
+ "captions": {
+  "src": "captions/captions.srt"
  }
 }

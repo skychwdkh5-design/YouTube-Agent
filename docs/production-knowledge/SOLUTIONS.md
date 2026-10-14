@@ -767,6 +767,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** EP002 SCRIPT_LOCK; autopilot test blocks the paid call after a post-plan edit.
 - **Regression test:** `tools/autopilot/test_autopilot.py::test_script_change_after_plan_blocks_the_paid_call`
 
+### timeline-v3-gate-keys - Storyboard gate and yt-qc disagreed on timeline v3 keys
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** The storyboard gate demanded audio.voice + subtitles; yt-qc rejects those keys in a version 3 timeline (allowed: voice, captions) and returned ERROR.
+- **Root cause:** gates.timeline was written for v1/v2 timelines.
+- **Fix:** gates.timeline accepts v3 voice.src / captions (or v1/v2 audio.voice / subtitles). A v3 timeline carries voice={src,meta} and captions={src}.
+- **Reuse when:** Any version 3 timeline through orbital.py.
+- **References:** `tools/autopilot/gates.py`; `docs/AUTOPILOT.md`
+- **Verification:** EP003: storyboard gate ok and yt-qc PASS on the same timeline.
+- **Regression test:** none - covered by the EP003 run; the existing autopilot tests pass
+
 ## env
 
 ### git-stop-hook-untracked-files - Session stop hook complains about untracked or uncommitted files

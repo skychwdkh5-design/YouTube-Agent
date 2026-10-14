@@ -59,6 +59,32 @@
   "storyboard": {
    "completed": "2026-10-14T10:18:05Z",
    "inputs_sha": "5b43efe31e58eadbd83e00d179c05d1f0e5115d3bf6887f986bc67c5373cdc70"
+  },
+  "qc": {
+   "pitfalls_consulted": [
+    "black-frame-near-empty-card",
+    "caption-cards-overlapped-by-lead",
+    "freeze-on-static-card",
+    "low-contrast-text-on-bright-imagery",
+    "overlap-between-layers-needs-eye",
+    "qc-expected-duration-from-video",
+    "silent-proof-fails-yt-qc-by-design",
+    "sound-design-synthesised-ducked",
+    "subtitle-vs-graphic-overlap-check",
+    "text-clipped-at-frame-edge",
+    "video-frame-accuracy-check",
+    "viewer-reencodes-files"
+   ],
+   "completed": "2026-10-14T12:05:33Z",
+   "inputs_sha": "47fbb5f3671562386a36c68c8cb7b4e0c486117bfbab345ab5ffaa6f141f1d9d"
+  },
+  "review": {
+   "completed": "2026-10-14T12:05:56Z",
+   "inputs_sha": "c2c5f282828b7e146c1cee7fa10370f1b0fc3b3d05262645a6f0c89a467fc5be"
+  },
+  "package": {
+   "completed": "2026-10-14T12:05:56Z",
+   "inputs_sha": "0de37bc6fd310c3d8d92df3aabbb73e9bd27d310b9a722e40e3844ae99eefbac"
   }
  }
 }

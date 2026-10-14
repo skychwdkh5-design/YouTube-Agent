@@ -193,8 +193,8 @@ def timeline(d):
     try: t = _json(os.path.join(d, "timeline.json"))
     except (OSError, ValueError) as x: return _res([f"cannot read timeline.json: {x}"])
     if t.get("version") != 3 or t.get("profile") != "long": p.append("timeline must be version 3, profile 'long' (1920x1080)")
-    if not (t.get("audio") or {}).get("voice"): p.append("timeline has no audio.voice narration")
-    if not t.get("subtitles"): p.append("timeline has no subtitles block")
+    if not ((t.get("audio") or {}).get("voice") or (t.get("voice") or {}).get("src")): p.append("timeline has no narration (v3: voice.src; v1/v2: audio.voice)")
+    if not (t.get("subtitles") or t.get("captions")): p.append("timeline has no captions block (v3: captions; v1/v2: subtitles)")
     if not os.path.exists(os.path.join(d, "story", "storyboard.md")): p.append("story/storyboard.md missing (a filename + zoom is not a storyboard)")
     return _res(p)
 
