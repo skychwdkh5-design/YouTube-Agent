@@ -794,6 +794,661 @@
    "limits": "do not simulate with a pan/zoom; list it as a limitation instead",
    "used_in": [],
    "params": {}
+  },
+  {
+   "id": "oa_kinetic_typography",
+   "kind": "text",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Word-timed reveals, word replacement, slide with tracking, scale pop with glow, colour-offset duplicate, mask reveal, 2.5D tilt, motion streak, text trail; KineticTitle and StatPop overlays.",
+   "use_for": [
+    "title",
+    "number_context",
+    "emphasis"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "kinetic",
+    "typography",
+    "title",
+    "count up",
+    "pop",
+    "tilt",
+    "2.5d"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/kinetic.py"
+    ],
+    "docs": [
+     "docs/references/library/UNIFIED_STYLE_GUIDE.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2.py"
+    ]
+   },
+   "limits": "raster text (Inter, OFL); 2.5D = perspective transform of a flat raster, no depth/lighting; English only",
+   "used_in": [
+    "orbitalatlas/demo/visual_v2.py"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_word_captions_styles",
+   "kind": "caption",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Word-synchronised captions in five styles (A clean, B kinetic, C impact, D data, E minimal) with a rule-based per-card style planner and card segmentation that never splits a place, date or number+unit.",
+   "use_for": [
+    "narration_sync",
+    "readability"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "captions",
+    "subtitles",
+    "word timing",
+    "style planner"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/captions.py"
+    ],
+    "docs": [
+     "docs/references/library/UNIFIED_STYLE_GUIDE.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2.py"
+    ]
+   },
+   "limits": "timing is only as good as the word timestamps passed in (provider/alignment = accurate); not a burn-in for yt-render timelines yet",
+   "used_in": [
+    "orbitalatlas/demo/visual_v2.py"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_narration_plan",
+   "kind": "planner",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Narration (words with timestamps) -> reproducible plan of timed visual events: years, numbers, places, routes, comparisons, emphasis, revelations, clutter reduction; density limit; caption styles.",
+   "use_for": [
+    "automatic_editing",
+    "sync"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "semantic",
+    "plan",
+    "events",
+    "narration to visual",
+    "gazetteer"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/semantic.py"
+    ],
+    "docs": [
+     "docs/references/library/UNIFIED_STYLE_GUIDE.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2.py"
+    ]
+   },
+   "limits": "rule-based English only; places come from a gazetteer the episode supplies; no geocoding; needs director code to map events to overlays",
+   "used_in": [
+    "orbitalatlas/demo/visual_v2.py"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_motion_graphics_fx",
+   "kind": "overlay",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "NeonGrid, LightSweep, seeded Particles, HudFrame, Waveform (measured or labelled decorative), MarkerPin with drop, CometTrail.",
+   "use_for": [
+    "decor",
+    "data_view",
+    "title"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "neon",
+    "grid",
+    "light sweep",
+    "particles",
+    "hud",
+    "waveform",
+    "pin",
+    "comet"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/fx.py"
+    ],
+    "docs": [
+     "docs/references/library/UNIFIED_STYLE_GUIDE.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2.py"
+    ]
+   },
+   "limits": "DECOR layers: low alpha, sparingly; the reference's purple is a design example",
+   "used_in": [
+    "orbitalatlas/demo/visual_v2.py"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_region_tint_route_arrow",
+   "kind": "overlay",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "RegionTint (mask highlight with flash, glow outline and draw-on, annotation only), RouteArrow with arrow head and RouteLabel (2.5D distance label), regions.seeded_region water mask.",
+   "use_for": [
+    "locate",
+    "relative_location",
+    "distance"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "highlight",
+    "territory",
+    "arrow",
+    "route",
+    "distance",
+    "mask"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/fx.py",
+     "orbitalatlas/regions.py"
+    ],
+    "docs": [
+     "docs/references/library/UNIFIED_STYLE_GUIDE.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2.py"
+    ]
+   },
+   "limits": "annotation only: carries source+validation; arrow is a presentation curve; mask is a display shape, not a measurement; class A camera only",
+   "used_in": [
+    "orbitalatlas/demo/visual_v2.py"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_documentary_grade",
+   "kind": "grade",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Colour grade presets with an EVIDENCE guard: evidence pixels get neutral or evidence_safe only; manifest records whether pixels were modified; localised grading by mask for presentation layers.",
+   "use_for": [
+    "look",
+    "evidence_separation"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "grade",
+    "color grading",
+    "saturation",
+    "contrast"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/grade.py"
+    ],
+    "docs": [
+     "docs/references/library/UNIFIED_STYLE_GUIDE.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2.py"
+    ]
+   },
+   "limits": "display-referred 8-bit grade; not a scientific colour transform",
+   "used_in": [
+    "orbitalatlas/demo/visual_v2.py"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_camera_presets",
+   "kind": "camera",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Named camera key generators: smooth_zoom, snap_zoom, punch_zoom, whip_to, pan, creep, scale_change.",
+   "use_for": [
+    "scale_change",
+    "emphasis",
+    "avoid_static"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "snap zoom",
+    "punch zoom",
+    "whip",
+    "creep",
+    "scale change"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/camera_presets.py"
+    ],
+    "docs": [
+     "docs/references/library/UNIFIED_STYLE_GUIDE.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2.py"
+    ]
+   },
+   "limits": "image-space (class A) only; not a 3D flyover",
+   "used_in": [
+    "orbitalatlas/demo/visual_v2.py"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_flash_dip_light_wipe",
+   "kind": "transition",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "FlashDip (white flash at the cut) and LightWipe (diagonal glowing-edge wipe).",
+   "use_for": [
+    "revelation",
+    "before_after"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "flash",
+    "light wipe",
+    "transition"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/transitions.py"
+    ],
+    "docs": [
+     "docs/references/library/UNIFIED_STYLE_GUIDE.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2.py"
+    ]
+   },
+   "limits": "screen-space; no claim that A and B are registered; flash at most 2 per minute",
+   "used_in": [
+    "orbitalatlas/demo/visual_v2.py"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_test_voice",
+   "kind": "audio",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Free flite test narration with measured word timings (source 'alignment') and a loudness envelope for Waveform.",
+   "use_for": [
+    "sync_test",
+    "free_preview"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "test voice",
+    "flite",
+    "word timing",
+    "free audio"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/testvoice.py"
+    ],
+    "docs": [
+     "docs/references/library/UNIFIED_STYLE_GUIDE.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2.py"
+    ]
+   },
+   "limits": "robotic voice, NOT the channel voice; never a substitute for provider timestamps in a release",
+   "used_in": [
+    "orbitalatlas/demo/visual_v2.py"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_typeset_word_presets",
+   "kind": "text",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Word tiles with presets rise (mask), depth_in/out, slide, outline_fill, type-on, pop, glint; push_lines line transition; KineticLine.",
+   "use_for": [
+    "title",
+    "emphasis",
+    "narration_sync"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "outline",
+    "depth",
+    "mask rise",
+    "type on",
+    "glint",
+    "line transition"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/typeset.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2b.py"
+    ]
+   },
+   "limits": "2.5D only; English",
+   "used_in": [
+    "productions/ep900-visual-demo"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_impact_number_cards",
+   "kind": "card",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "ImpactCard (full-frame colour card for a revelation), NumberCard (kicker + count-up value + unit + tail, HUD panel, optional leader), YearTag, Dim.",
+   "use_for": [
+    "revelation",
+    "number_context"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "impact card",
+    "colour card",
+    "number card",
+    "year tag",
+    "focus"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/typeset.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2b.py"
+    ]
+   },
+   "limits": "one focus at a time via the director",
+   "used_in": [
+    "productions/ep900-visual-demo"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_plane_tilt",
+   "kind": "camera",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "PlaneTilt: the map lands from a tilted plane on a neon floor grid; identity at 0 deg.",
+   "use_for": [
+    "opening",
+    "establish_place"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "plane",
+    "perspective",
+    "tilt",
+    "floor grid"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/plane.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2b.py"
+    ]
+   },
+   "limits": "one flat picture on a plane; not terrain",
+   "used_in": [
+    "productions/ep900-visual-demo"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_callout_compare",
+   "kind": "overlay",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "CalloutPanel (leader + panel with narration rows) and CompareLink (dashed connector + comparative word).",
+   "use_for": [
+    "locate",
+    "comparison"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "callout",
+    "hud panel",
+    "compare",
+    "connector"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/fx.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2b.py"
+    ]
+   },
+   "limits": "needs verified pins",
+   "used_in": [
+    "productions/ep900-visual-demo"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_director",
+   "kind": "planner",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Director: timeline v3 + motion plan -> programme with focus manager, transitions by purpose, pacing, decision report.",
+   "use_for": [
+    "automatic_editing"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "director",
+    "automatic",
+    "storyboard render"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/director.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2b.py"
+    ]
+   },
+   "limits": "geo shots only; no globe; no sound design",
+   "used_in": [
+    "productions/ep900-visual-demo"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_keyword_lift",
+   "kind": "text",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Caption keyword flies to its map pin and lands as the label (caption word dimmed).",
+   "use_for": [
+    "locate",
+    "narration_sync"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "keyword lift",
+    "text to map",
+    "caption to map"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/interact.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2c.py"
+    ]
+   },
+   "limits": "needs a stack pin and a caption style A/B/D",
+   "used_in": [
+    "productions/ep901-visual-demo-c"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_parallax_layers",
+   "kind": "overlay",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "FloatingLabel and ParallaxDust: layers on a depth above the map that move more on camera moves.",
+   "use_for": [
+    "depth"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "parallax",
+    "floating label",
+    "depth"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/interact.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2c.py"
+    ]
+   },
+   "limits": "2.5D depth cue, not 3D",
+   "used_in": [
+    "productions/ep901-visual-demo-c"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_date_components",
+   "kind": "text",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "ImageStamp (picture date) vs EventYear (narration year), never the same style or place.",
+   "use_for": [
+    "dates"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "image date",
+    "event year",
+    "date stamp"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/interact.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2c.py"
+    ]
+   },
+   "limits": "image text comes from asset metadata",
+   "used_in": [
+    "productions/ep901-visual-demo-c"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_punch_in",
+   "kind": "camera",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Punch: short digital punch-in on emphasis words (energetic sentences).",
+   "use_for": [
+    "emphasis"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "punch in",
+    "emphasis zoom"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/interact.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2c.py"
+    ]
+   },
+   "limits": "frame-space zoom of up to ~5 %",
+   "used_in": [
+    "productions/ep901-visual-demo-c"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_sound_design",
+   "kind": "audio",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Synthesised whoosh/sweep/impact/rise/ui_blip/tick, cue planner and ducking mixer.",
+   "use_for": [
+    "transitions",
+    "impact"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "sound design",
+    "whoosh",
+    "impact",
+    "sfx"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/sfx.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_visual_v2c.py"
+    ]
+   },
+   "limits": "original CC0 sounds; no music",
+   "used_in": [
+    "productions/ep901-visual-demo-c"
+   ],
+   "params": {}
   }
  ]
 }

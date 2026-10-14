@@ -1,0 +1,198 @@
+{
+ "timing": "provider",
+ "alignment": {
+  "method": "token-count",
+  "exact": true
+ },
+ "scenes": [
+  {
+   "scene": "sc01",
+   "start": 0.0,
+   "end": 4.366666666666666,
+   "kinds": [
+    "geo"
+   ],
+   "text": "From orbit, one straight line cuts across the Great Salt Lake.",
+   "chosen": {
+    "template": "geo_camera_move",
+    "asset": "geo_2022",
+    "family": "geo_2022"
+   },
+   "score": null,
+   "notes": [
+    "geographic scene authored by hint (views, pins and dates come from the stack manifest)"
+   ],
+   "alternatives": []
+  },
+  {
+   "scene": "sc02",
+   "start": 4.366666666666666,
+   "end": 7.766666666666667,
+   "kinds": [
+    "geo"
+   ],
+   "text": "It is not a shoreline: it is a railroad.",
+   "chosen": {
+    "template": "geo_image",
+    "asset": "geo_2022",
+    "family": "geo_2022"
+   },
+   "score": null,
+   "notes": [
+    "geographic scene authored by hint (views, pins and dates come from the stack manifest)"
+   ],
+   "alternatives": []
+  },
+  {
+   "scene": "sc03",
+   "start": 7.766666666666667,
+   "end": 12.633333333333333,
+   "kinds": [
+    "geo"
+   ],
+   "text": "The causeway was finished in 1959, and it splits the lake in two.",
+   "chosen": {
+    "template": "geo_camera_move",
+    "asset": "geo_2022",
+    "family": "geo_2022"
+   },
+   "score": null,
+   "notes": [
+    "geographic scene authored by hint (views, pins and dates come from the stack manifest)"
+   ],
+   "alternatives": []
+  },
+  {
+   "scene": "sc04",
+   "start": 12.633333333333333,
+   "end": 20.633333333333333,
+   "kinds": [
+    "geo"
+   ],
+   "text": "Almost all of the fresh water flows into Gilbert Bay, to the south, so Gunnison Bay, to the north, is always saltier.",
+   "chosen": {
+    "template": "geo_image",
+    "asset": "geo_2022",
+    "family": "geo_2022"
+   },
+   "score": null,
+   "notes": [
+    "geographic scene authored by hint (views, pins and dates come from the stack manifest)"
+   ],
+   "alternatives": []
+  },
+  {
+   "scene": "sc05",
+   "start": 20.633333333333333,
+   "end": 25.7617,
+   "kinds": [
+    "geo"
+   ],
+   "text": "By July 2022, the lake had fallen to 4,190.2 feet.",
+   "chosen": {
+    "template": "geo_camera_move",
+    "asset": "geo_2022",
+    "family": "geo_2022"
+   },
+   "score": null,
+   "notes": [
+    "geographic scene authored by hint (views, pins and dates come from the stack manifest)"
+   ],
+   "alternatives": []
+  }
+ ],
+ "gaps": [],
+ "warnings": [],
+ "timing_source": "alignment",
+ "needs": [],
+ "renderer_plan": {
+  "status": "confirm_required",
+  "warnings": [
+   "only 1 visual families in the first 10 s (target >= 3; a new view of the same visual idea is not new)",
+   "0 visual-family transitions = 0.0/min (target >= 2/min)",
+   "one composition holds 14.1s without a reset (10.0-26.8s, target <= 8s)",
+   "duration 26.767s outside 60.0-900.0 s"
+  ],
+  "compositions": {
+   "rule": "composition-reset/1",
+   "thresholds": {
+    "zoom_ratio": 1.5,
+    "shift": 0.35,
+    "merge_s": 0.75,
+    "timelapse_min": 3,
+    "timelapse_max_step": 1.0,
+    "sample_s": 0.1,
+    "first_10s_min": 3,
+    "resets_per_min": 5.0,
+    "max_hold_s": 8.0
+   },
+   "composition_resets": 4,
+   "distinct_first_10s": 5,
+   "longest_static_hold": {
+    "seconds": 14.134,
+    "start": 9.967,
+    "end": 26.767
+   },
+   "resets": [
+    {
+     "t": 1.8,
+     "shot": "sc01",
+     "kind": "camera_move",
+     "what": "zoom in x1.5"
+    },
+    {
+     "t": 4.367,
+     "shot": "sc02",
+     "kind": "cut",
+     "what": "zoom in x1.6"
+    },
+    {
+     "t": 7.767,
+     "shot": "sc03",
+     "kind": "cut",
+     "what": "zoom out x1.6"
+    },
+    {
+     "t": 9.967,
+     "shot": "sc03",
+     "kind": "camera_move",
+     "what": "zoom out x1.5"
+    }
+   ],
+   "segments": [
+    {
+     "start": 0.0,
+     "end": 1.8,
+     "seconds": 1.8,
+     "static_hold": 0.0
+    },
+    {
+     "start": 1.8,
+     "end": 4.367,
+     "seconds": 2.567,
+     "static_hold": 0.0
+    },
+    {
+     "start": 4.367,
+     "end": 7.767,
+     "seconds": 3.4,
+     "static_hold": 3.4
+    },
+    {
+     "start": 7.767,
+     "end": 9.967,
+     "seconds": 2.2,
+     "static_hold": 0.0
+    },
+    {
+     "start": 9.967,
+     "end": 26.767,
+     "seconds": 16.8,
+     "static_hold": 14.134
+    }
+   ]
+  },
+  "expected_duration": 26.767
+ },
+ "repairs": []
+}

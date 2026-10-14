@@ -1,0 +1,410 @@
+{
+ "schema": "orbitalatlas-reference-effects/1",
+ "ref": "VISUAL_REF_002",
+ "effects": [
+  {
+   "id": "VR2-01",
+   "ref": "VISUAL_REF_002",
+   "timestamp": "4.0-5.8",
+   "description": "Thin outlined headline typed letter by letter with a glowing cursor dot, a second line in heavy type below",
+   "visual_purpose": "opening statement with personality",
+   "animation_behavior": "per-letter reveal; neon glow around the line; heavy second line slides under it",
+   "timing": "0.04-0.06 s per letter",
+   "parameters": {
+    "font": "thin outline + extra-bold sans",
+    "glow": "violet halo"
+   },
+   "dependencies": [
+    "glyph rasteriser"
+   ],
+   "implementation": [
+    "typeset.tile",
+    "typeset.animate_word",
+    "typeset.KineticLine",
+    "text.kinetic"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "KineticLine(words, preset='outline_fill'|'type'|'rise')",
+   "scene_types": [
+    "opening title",
+    "hook"
+   ],
+   "qa_rules": [
+    "no text outside frame",
+    "contrast >= 4.5:1 for body text"
+   ],
+   "uncertainty": "outline weight and glow are estimates (v2b adds outline-only type and type-on with cursor)"
+  },
+  {
+   "id": "VR2-02",
+   "ref": "VISUAL_REF_002",
+   "timestamp": "most of 2-100",
+   "description": "Perspective/flat neon grid behind everything",
+   "visual_purpose": "identity of the reel; depth",
+   "animation_behavior": "thin glowing lines; floor grid scrolls toward the camera; fades in/out with scenes",
+   "timing": "continuous; fades 0.5 s",
+   "parameters": {
+    "line": "1 px, violet, alpha about 0.5",
+    "spacing": "about 7% of frame height"
+   },
+   "dependencies": [
+    "none"
+   ],
+   "implementation": [
+    "fx.NeonGrid"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "NeonGrid(t0, t1, flat=False, alpha=0.3)",
+   "scene_types": [
+    "titles",
+    "data cards"
+   ],
+   "qa_rules": [
+    "DECOR: low alpha; never over evidence for long; palette from OrbitalAtlas tokens"
+   ],
+   "uncertainty": "the purple palette is a design example, not a brand colour"
+  },
+  {
+   "id": "VR2-03",
+   "ref": "VISUAL_REF_002",
+   "timestamp": "6.0-7.6",
+   "description": "Horizontal light line with a glowing head draws across under a line of text",
+   "visual_purpose": "reveals a line of text with a light cue",
+   "animation_behavior": "line grows with a bright head; text unmasks behind it",
+   "timing": "about 1 s",
+   "parameters": {},
+   "dependencies": [
+    "none"
+   ],
+   "implementation": [
+    "kinetic.mask_reveal",
+    "fx.LightSweep",
+    "fx.CometTrail"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "mask_reveal(direction='right', edge_glow=...)",
+   "scene_types": [
+    "subtitle",
+    "lower thirds"
+   ],
+   "qa_rules": [
+    "edge glow must not hide text"
+   ],
+   "uncertainty": "-"
+  },
+  {
+   "id": "VR2-04",
+   "ref": "VISUAL_REF_002",
+   "timestamp": "8.0-9.0; 46.0-49.0; 100.5-102.5",
+   "description": "Full-frame colour card with huge black headline (flash of lilac/pink)",
+   "visual_purpose": "punchline / chapter hit",
+   "animation_behavior": "frame flashes to a flat colour with type, cut back",
+   "timing": "0.3-1 s",
+   "parameters": {
+    "fill": "lilac/pink flat"
+   },
+   "dependencies": [
+    "flash transition"
+   ],
+   "implementation": [
+    "typeset.ImpactCard",
+    "transitions.FlashDip"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "ImpactCard(words, t0, t1, bg=AMBER)  # revelation; captions hidden under it",
+   "scene_types": [
+    "revelation"
+   ],
+   "qa_rules": [
+    "use at most 2 per minute",
+    "legibility on the card"
+   ],
+   "uncertainty": "colour is the OrbitalAtlas amber, not the reference lilac; at most ~2 per minute (focus manager)"
+  },
+  {
+   "id": "VR2-05",
+   "ref": "VISUAL_REF_002",
+   "timestamp": "11.5-13.5",
+   "description": "Crosshair axes with tick marks, then a tiny word at the origin",
+   "visual_purpose": "scientific/instrument feel",
+   "animation_behavior": "two lines draw from a point; ticks along one axis",
+   "timing": "about 1 s",
+   "parameters": {},
+   "dependencies": [
+    "lines"
+   ],
+   "implementation": [
+    "fx.HudFrame (corners)",
+    "layers.Brackets"
+   ],
+   "status": "PARTIAL",
+   "preset": "HudFrame(box, t0, label)",
+   "scene_types": [
+    "data views"
+   ],
+   "qa_rules": [
+    "sparingly"
+   ],
+   "uncertainty": "axis+tick preset is not built"
+  },
+  {
+   "id": "VR2-06",
+   "ref": "VISUAL_REF_002",
+   "timestamp": "14.0-19.0; 62.0-80.0",
+   "description": "HUD panels: boxes with small mono labels, bars, connecting lines, drawn on",
+   "visual_purpose": "data/process explanation",
+   "animation_behavior": "boxes and lines draw on, small texts type in",
+   "timing": "0.5-1 s per element",
+   "parameters": {},
+   "dependencies": [
+    "layout"
+   ],
+   "implementation": [
+    "typeset.NumberCard",
+    "fx.CalloutPanel",
+    "fx.HudFrame"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "NumberCard(value, unit, kicker, t0, t1); CalloutPanel(...)",
+   "scene_types": [
+    "process diagrams (use yt-graphics for the diagram itself)"
+   ],
+   "qa_rules": [
+    "text >= 16 px at 1080p",
+    "no more than 3 panels"
+   ],
+   "uncertainty": "panel layout is ours; reference panels are denser"
+  },
+  {
+   "id": "VR2-07",
+   "ref": "VISUAL_REF_002",
+   "timestamp": "20.0-21.5",
+   "description": "Heavy two-line headline ('CLAUDE / OPUS') in white with a violet duplicate/glow",
+   "visual_purpose": "title impact",
+   "animation_behavior": "slides in with blur, colour offset duplicate behind",
+   "timing": "0.3 s",
+   "parameters": {
+    "offset": "about 5% of the font size (estimated)"
+   },
+   "dependencies": [
+    "none"
+   ],
+   "implementation": [
+    "kinetic.duplicate_offset",
+    "kinetic.KineticTitle",
+    "typeset.ImpactCard"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "KineticTitle(head, sub, t0, t1)",
+   "scene_types": [
+    "titles"
+   ],
+   "qa_rules": [
+    "max 24 characters per line",
+    "safe margins"
+   ],
+   "uncertainty": "Cyrillic in the reference; OrbitalAtlas text is English. v2b: outline echo behind the card text"
+  },
+  {
+   "id": "VR2-08",
+   "ref": "VISUAL_REF_002",
+   "timestamp": "22.0-24.0; 100.0-101.5",
+   "description": "Animated Bezier curve with an easing graph and a travelling dot / arc between two boxes",
+   "visual_purpose": "explain easing/transition between two states",
+   "animation_behavior": "curve draws on, dot follows, boxes at the ends",
+   "timing": "1-2 s",
+   "parameters": {},
+   "dependencies": [
+    "polyline"
+   ],
+   "implementation": [
+    "layers.DrawOnPolyline",
+    "fx.CometTrail"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "DrawOnPolyline(points...)",
+   "scene_types": [
+    "explanation of change"
+   ],
+   "qa_rules": [
+    "-"
+   ],
+   "uncertainty": "-"
+  },
+  {
+   "id": "VR2-09",
+   "ref": "VISUAL_REF_002",
+   "timestamp": "29.0-35.0",
+   "description": "Audio waveform strip inside a frame while the voice line is shown",
+   "visual_purpose": "'this is a voice' / audio-reactive accent",
+   "animation_behavior": "bars follow loudness, glow",
+   "timing": "continuous",
+   "parameters": {
+    "bars": "64",
+    "glow": "violet"
+   },
+   "dependencies": [
+    "measured loudness (testvoice.envelope or provider audio)"
+   ],
+   "implementation": [
+    "fx.Waveform"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "Waveform(box, t0, t1, samples=envelope)",
+   "scene_types": [
+    "narration accent",
+    "audio topics"
+   ],
+   "qa_rules": [
+    "manifest says 'measured' or 'decorative envelope'"
+   ],
+   "uncertainty": "the reference may use a decorative waveform"
+  },
+  {
+   "id": "VR2-10",
+   "ref": "VISUAL_REF_002",
+   "timestamp": "7.0-9.0; 33.0-34.5",
+   "description": "Small mono timecode / REC counter near the content",
+   "visual_purpose": "technical feel",
+   "animation_behavior": "digits increment",
+   "timing": "continuous",
+   "parameters": {},
+   "dependencies": [
+    "timecode"
+   ],
+   "implementation": [],
+   "status": "NOT_IMPLEMENTED",
+   "preset": "-",
+   "scene_types": [
+    "technical scenes"
+   ],
+   "qa_rules": [
+    "-"
+   ],
+   "uncertainty": "not built; low value for documentary use"
+  },
+  {
+   "id": "VR2-11",
+   "ref": "VISUAL_REF_002",
+   "timestamp": "7.3-9.0",
+   "description": "Line of text appears with a big first letter, key words recoloured violet, then slides",
+   "visual_purpose": "word emphasis inside a sentence",
+   "animation_behavior": "the active word is recoloured/enlarged",
+   "timing": "per word",
+   "parameters": {},
+   "dependencies": [
+    "word timings"
+   ],
+   "implementation": [
+    "captions.WordCaptions",
+    "typeset.KineticLine"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "WordCaptions(cards, 'B')",
+   "scene_types": [
+    "all"
+   ],
+   "qa_rules": [
+    "emphasis on at most 1-2 words per phrase"
+   ],
+   "uncertainty": "-"
+  },
+  {
+   "id": "VR2-12",
+   "ref": "VISUAL_REF_002",
+   "timestamp": "88.0-91.0",
+   "description": "Block of random white pixels/characters (digital noise) over a text area",
+   "visual_purpose": "glitch / 'AI' texture",
+   "animation_behavior": "pseudo-random noise field",
+   "timing": "about 2 s",
+   "parameters": {},
+   "dependencies": [],
+   "implementation": [],
+   "status": "NOT_IMPLEMENTED",
+   "preset": "-",
+   "scene_types": [
+    "tech themes"
+   ],
+   "qa_rules": [
+    "avoid in documentary: distracts"
+   ],
+   "uncertainty": "deliberately not built"
+  },
+  {
+   "id": "VR2-13",
+   "ref": "VISUAL_REF_002",
+   "timestamp": "36.0-44.0",
+   "description": "Floor grid in strong perspective with text boxes laid on it",
+   "visual_purpose": "depth / 3D-looking layout",
+   "animation_behavior": "perspective grid, text on the plane",
+   "timing": "several seconds",
+   "parameters": {},
+   "dependencies": [
+    "perspective"
+   ],
+   "implementation": [
+    "plane.PlaneTilt",
+    "fx.NeonGrid"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "PlaneTilt(scene, [(0, 42), (1.7, 0)])  # the map lands from a tilted plane on a floor grid",
+   "scene_types": [
+    "intro cards"
+   ],
+   "qa_rules": [
+    "-"
+   ],
+   "uncertainty": "one flat picture shown on a plane; not terrain"
+  },
+  {
+   "id": "VR2-14",
+   "ref": "VISUAL_REF_002",
+   "timestamp": "66.0-86.0",
+   "description": "White dot/square pulses and ring loader in HUD panels",
+   "visual_purpose": "feedback / light pulse",
+   "animation_behavior": "pulse ring and glow",
+   "timing": "about 1 s loops",
+   "parameters": {},
+   "dependencies": [],
+   "implementation": [
+    "fx.MarkerPin (ring)",
+    "layers.PulseMarker"
+   ],
+   "status": "PARTIAL",
+   "preset": "PulseMarker",
+   "scene_types": [
+    "feedback accents"
+   ],
+   "qa_rules": [
+    "sparingly"
+   ],
+   "uncertainty": "ring loader not built"
+  },
+  {
+   "id": "VR2-15",
+   "ref": "VISUAL_REF_002",
+   "timestamp": "whole video",
+   "description": "Colour language: near-black background, white type, one violet/magenta accent",
+   "visual_purpose": "coherence",
+   "animation_behavior": "-",
+   "timing": "-",
+   "parameters": {
+    "accent": "violet (design example)"
+   },
+   "dependencies": [],
+   "implementation": [
+    "captions.ACCENT",
+    "fx.PURPLE (decor only)"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "OrbitalAtlas tokens: amber (emphasis), cyan (data)",
+   "scene_types": [
+    "all"
+   ],
+   "qa_rules": [
+    "palette tokens only"
+   ],
+   "uncertainty": "purple is NOT the OrbitalAtlas palette"
+  }
+ ]
+}

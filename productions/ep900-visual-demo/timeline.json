@@ -1,0 +1,221 @@
+{
+ "version": 3,
+ "profile": "long",
+ "grid": "assets/landsat/stack_cal/grid.json",
+ "assets": {
+  "y2022": {
+   "src": "assets/landsat/stack_cal/y2022.png",
+   "kind": "image",
+   "label": "July 2022",
+   "credit": "Landsat 8, 9 · USGS",
+   "prov": "2022-07-11/28"
+  },
+  "y1986": {
+   "src": "assets/landsat/stack_cal/y1986.png",
+   "kind": "image",
+   "label": "August 1986",
+   "credit": "Landsat 5 · USGS",
+   "prov": "1986-08-02/09"
+  }
+ },
+ "shots": [
+  {
+   "id": "sc01",
+   "beat": "From orbit, the Great Salt Lake",
+   "start": 0.0,
+   "info": "From orbit, the Great Salt Lake hides a secret: two lakes.",
+   "camera": {
+    "from": {
+     "center": [
+      -112.5,
+      41.2
+     ],
+     "width_km": 228.0
+    },
+    "to": {
+     "center": [
+      -112.45,
+      41.15
+     ],
+     "width_km": 190.0
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2022"
+    },
+    {
+     "type": "label",
+     "text": "JULY 2022",
+     "style": "year",
+     "slot": "top",
+     "info": "July 2022"
+    }
+   ],
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc02",
+   "beat": "In 1959, a railroad causeway split",
+   "start": 4.366666666666666,
+   "info": "In 1959, a railroad causeway split it in half.",
+   "camera": {
+    "from": {
+     "center": [
+      -112.45,
+      41.15
+     ],
+     "width_km": 190.0
+    },
+    "to": {
+     "center": [
+      -112.65,
+      41.226
+     ],
+     "width_km": 70.0
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2022"
+    },
+    {
+     "type": "label",
+     "text": "JULY 2022",
+     "style": "year",
+     "slot": "top",
+     "info": "July 2022"
+    },
+    {
+     "type": "pin",
+     "at": [
+      -112.65,
+      41.226
+     ],
+     "text": "CAUSEWAY",
+     "t": [
+      2.333,
+      null
+     ],
+     "info": "Causeway"
+    }
+   ],
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc03",
+   "beat": "Gunnison Bay to the north is",
+   "start": 8.733333333333333,
+   "info": "Gunnison Bay to the north is always saltier than Gilbert Bay",
+   "camera": {
+    "from": {
+     "center": [
+      -112.65,
+      41.226
+     ],
+     "width_km": 70.0
+    },
+    "to": {
+     "center": [
+      -112.5,
+      41.2
+     ],
+     "width_km": 228.0
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2022"
+    },
+    {
+     "type": "label",
+     "text": "JULY 2022",
+     "style": "year",
+     "slot": "top",
+     "info": "July 2022"
+    },
+    {
+     "type": "pin",
+     "at": [
+      -112.8,
+      41.33
+     ],
+     "text": "GUNNISON BAY",
+     "t": [
+      0.3,
+      null
+     ],
+     "info": "Gunnison Bay"
+    },
+    {
+     "type": "pin",
+     "at": [
+      -112.35,
+      40.9
+     ],
+     "text": "GILBERT BAY",
+     "t": [
+      2.967,
+      null
+     ],
+     "info": "Gilbert Bay"
+    }
+   ],
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc04",
+   "beat": "And since its 1986 high, the",
+   "start": 13.433333333333334,
+   "info": "And since its 1986 high, the lake has fallen more than 20 fe",
+   "camera": {
+    "from": {
+     "center": [
+      -112.5,
+      41.2
+     ],
+     "width_km": 228.0
+    },
+    "to": {
+     "center": [
+      -112.5,
+      41.2
+     ],
+     "width_km": 228.0
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "wipe",
+     "from": "y1986",
+     "to": "y2022",
+     "t": [
+      2.967,
+      4.567
+     ]
+    }
+   ],
+   "visual_family": "geo_wipe_1986_2022"
+  }
+ ],
+ "end": {
+  "seconds": 19.333333333333332
+ },
+ "render": {
+  "segment_s": 60
+ },
+ "meta": {
+  "generator": "tools/autopilot/storyboard.py",
+  "timing": "provider",
+  "timing_source": "alignment",
+  "timing_note": "provider word times",
+  "motion_plan": "story/motion_plan.json"
+ }
+}

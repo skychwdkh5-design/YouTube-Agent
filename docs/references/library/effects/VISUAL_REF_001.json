@@ -1,0 +1,399 @@
+{
+ "schema": "orbitalatlas-reference-effects/1",
+ "ref": "VISUAL_REF_001",
+ "effects": [
+  {
+   "id": "VR1-01",
+   "ref": "VISUAL_REF_001",
+   "timestamp": "0.0-1.5; 3.4-4.0; 11.8-12.4; 23.5-24.5",
+   "description": "Scale change between geographic levels: country close-up -> whole world (or ocean-scale) in one fast move, with motion blur at the peak",
+   "visual_purpose": "tell the viewer where the next subject is relative to the last; reset attention",
+   "animation_behavior": "zoom out/in about the subject with exponential-in-out easing; peak speed in the middle; streak blur while fast",
+   "timing": "0.3-0.5 s per move (4-6 frames at 12 fps in the 3.4-4.0 strip), hold 0.5-1.2 s on arrival",
+   "parameters": {
+    "duration_s": "0.3-0.5 (frame-viewed)",
+    "height_ratio": "about 4-10x between levels (estimated)",
+    "ease": "in_out_expo"
+   },
+   "dependencies": [
+    "georeferenced or image-space camera (class A)",
+    "camera motion blur (Scene does it above its speed threshold)"
+   ],
+   "implementation": [
+    "camera_presets.scale_change",
+    "camera_presets.snap_zoom",
+    "layers.Scene",
+    "director.camera_keys"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "scale_change(t0, c0, h0, c1, h1, dur=1.4, pullback=1.12) / snap_zoom(dur=0.32)",
+   "scene_types": [
+    "world->region",
+    "region->world",
+    "sequence of countries"
+   ],
+   "qa_rules": [
+    "camera.check: no window outside the image",
+    "anchor inside the safe frame at arrival",
+    "speed peak not on text"
+   ],
+   "uncertainty": "ratios and easing are estimates; class A only. v2b: the director picks snap / scale change / smooth move from the storyboard views"
+  },
+  {
+   "id": "VR1-02",
+   "ref": "VISUAL_REF_001",
+   "timestamp": "0.4-1.5; 15.5-18.5; 24.4-26.5; 28.5",
+   "description": "Region flash: the subject territory is filled with a saturated colour (red, magenta) before anything else",
+   "visual_purpose": "instant 'this is the place' recognition; colour = attention, not data",
+   "animation_behavior": "fill appears at full strength for ~0.2 s then either stays flat or is replaced by a textured fill",
+   "timing": "fill on at the word, flat for 0.5-1.5 s",
+   "parameters": "{'flash_alpha':'0.55 vs settle 0.10-0.30 (our choice)','flash_s':0.22}",
+   "dependencies": [
+    "a region MASK or polygon in the picture's pixel space (never guessed)"
+   ],
+   "implementation": [
+    "fx.RegionTint",
+    "regions.seeded_region"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "RegionTint(mask, t0, color, flash=(255,64,48), settle_alpha=0.12)",
+   "scene_types": [
+    "named place",
+    "country",
+    "lake",
+    "coast"
+   ],
+   "qa_rules": [
+    "mask must come from data or a documented trace (source + validation text)",
+    "tint must not hide the evidence: settle alpha <= 0.2 on satellite pixels"
+   ],
+   "uncertainty": "reference fills are fully opaque; OrbitalAtlas keeps satellite evidence visible, so alpha is lower by design"
+  },
+  {
+   "id": "VR1-03",
+   "ref": "VISUAL_REF_001",
+   "timestamp": "2.5-4.0; 5.0-7.0; 9.5-11.0; 27.0-29.0",
+   "description": "Territory with a glowing outline (yellow/orange) and a waving flag texture inside",
+   "visual_purpose": "decorative identification of a country",
+   "animation_behavior": "outline glows continuously; flag cloth ripples (animated shading)",
+   "timing": "continuous while the country is the subject",
+   "parameters": {
+    "outline_color": "yellow-orange",
+    "outline_width_px": "about 2-3 at 512 px (estimated)"
+   },
+   "dependencies": [
+    "flag artwork (needs licence check)",
+    "cloth/displacement shader"
+   ],
+   "implementation": [
+    "fx.RegionTint (outline + glow only)"
+   ],
+   "status": "PARTIAL",
+   "preset": "RegionTint(outline=True)",
+   "scene_types": [
+    "country identification"
+   ],
+   "qa_rules": [
+    "flag/cloth NOT built; do not claim it"
+   ],
+   "uncertainty": "cloth animation and flag texture are NOT implemented; flags need original or public-domain artwork per ASSET_SOURCE_REGISTRY"
+  },
+  {
+   "id": "VR1-04",
+   "ref": "VISUAL_REF_001",
+   "timestamp": "2.0-3.0; 5.0-5.8; 10.0-10.8; 13.0-14.0; 18.0-18.6; 22.0-23.0",
+   "description": "Name label in a thin white-bordered box with a vertical leader line to the subject, appearing with a short blur-in",
+   "visual_purpose": "named geography; anchors text to the place",
+   "animation_behavior": "box fades/blurs in over ~0.25 s, holds, leaves with the subject",
+   "timing": "0.25 s in, hold 1-2 s",
+   "parameters": {
+    "box": "1-2 px white border, dark translucent fill (estimated)"
+   },
+   "dependencies": [
+    "named anchor in the picture"
+   ],
+   "implementation": [
+    "fx.CalloutPanel",
+    "fx.MarkerPin",
+    "typeset.YearTag"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "CalloutPanel(p, t0, t1, title, rows)  # rows = narration words only",
+   "scene_types": [
+    "place name"
+   ],
+   "qa_rules": [
+    "label box registered in text.Registry (collision, outside-frame)",
+    "never cover the subject"
+   ],
+   "uncertainty": "box + leader + typed rows; the reference's blur-in is replaced by a draw-on (v2b)"
+  },
+  {
+   "id": "VR1-05",
+   "ref": "VISUAL_REF_001",
+   "timestamp": "4.0-9.5; 11.8-13.0; 18.8-19.6",
+   "description": "Curved route arrow between two places with a white shaft, an arrow head and a distance label that travels with it",
+   "visual_purpose": "show where one place is relative to another and how far",
+   "animation_behavior": "shaft draws on along a curve; head leads; label pops/tilts near the start then rides the path",
+   "timing": "1-1.5 s draw",
+   "parameters": {
+    "shaft": "white, 6-9 px at 1080p",
+    "head": "triangle, accent colour (reference: violet; OrbitalAtlas: amber)",
+    "bend": "0.2-0.3 x length"
+   },
+   "dependencies": [
+    "two anchors with verified coordinates",
+    "distance computed from them (haversine) or sourced"
+   ],
+   "implementation": [
+    "fx.RouteArrow",
+    "fx.RouteLabel",
+    "kinetic.tilt_25d"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "RouteArrow(p0, p1, t0, dur, bend, label)",
+   "scene_types": [
+    "relative location",
+    "distance",
+    "comparison of places"
+   ],
+   "qa_rules": [
+    "the label number must be derived from the anchors or a VERIFIED claim",
+    "validation text: presentation curve, not a measured route"
+   ],
+   "uncertainty": "reference distances are not checked here; our arrow carries a validation string and is not a flight or shipping track"
+  },
+  {
+   "id": "VR1-06",
+   "ref": "VISUAL_REF_001",
+   "timestamp": "5.9-6.6",
+   "description": "Large distance numeral ('2600 km') rotated and perspective-skewed, motion-blurred, flying past before settling smaller on the arrow",
+   "visual_purpose": "impact for a number",
+   "animation_behavior": "text starts tilted about the vertical axis with perspective and heavy blur, settles flat",
+   "timing": "0.4-0.7 s",
+   "parameters": {
+    "start_angle_deg": "-55 (estimated from the strip)",
+    "blur": "strong, directional"
+   },
+   "dependencies": [
+    "perspective transform"
+   ],
+   "implementation": [
+    "kinetic.tilt_25d",
+    "kinetic.motion_streak"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "tilt_25d(angle=-55, dur=0.7, blur=0.03)",
+   "scene_types": [
+    "number emphasis"
+   ],
+   "qa_rules": [
+    "text must settle fully legible",
+    "box inside the frame at rest"
+   ],
+   "uncertainty": "2.5D by perspective transform of a flat raster; no depth sorting or lighting"
+  },
+  {
+   "id": "VR1-07",
+   "ref": "VISUAL_REF_001",
+   "timestamp": "15.3-15.8",
+   "description": "Several curved white/green lines radiate from one point across the map",
+   "visual_purpose": "show spread/reach from a location",
+   "animation_behavior": "lines draw on outward from the marker",
+   "timing": "about 0.5 s",
+   "parameters": {},
+   "dependencies": [
+    "polyline overlays"
+   ],
+   "implementation": [
+    "layers.DrawOnPolyline",
+    "fx.CometTrail"
+   ],
+   "status": "PARTIAL",
+   "preset": "compose DrawOnPolyline x N",
+   "scene_types": [
+    "reach",
+    "influence"
+   ],
+   "qa_rules": [
+    "lines must follow real geography if they claim routes"
+   ],
+   "uncertainty": "no dedicated radial-burst preset; composition of existing overlays"
+  },
+  {
+   "id": "VR1-08",
+   "ref": "VISUAL_REF_001",
+   "timestamp": "14.2-15.0",
+   "description": "Red map pin that drops onto the location and settles",
+   "visual_purpose": "exact point marker",
+   "animation_behavior": "drop with overshoot, small settle",
+   "timing": "0.4-0.5 s",
+   "parameters": {
+    "colour": "red with white centre"
+   },
+   "dependencies": [
+    "a coordinate"
+   ],
+   "implementation": [
+    "fx.MarkerPin"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "MarkerPin(p, t0, color=(235,64,52), label)",
+   "scene_types": [
+    "point location"
+   ],
+   "qa_rules": [
+    "pin tip lands on the verified anchor (overlay-checked on the mosaic)"
+   ],
+   "uncertainty": "pin art is our own simple shape"
+  },
+  {
+   "id": "VR1-09",
+   "ref": "VISUAL_REF_001",
+   "timestamp": "18.5-19.7",
+   "description": "Violet comet line travelling across the ocean with a fading tail",
+   "visual_purpose": "movement / connection between places",
+   "animation_behavior": "bright head with a tapering tail, eased",
+   "timing": "about 1 s",
+   "parameters": {
+    "tail": "0.35 of the path"
+   },
+   "dependencies": [
+    "polyline"
+   ],
+   "implementation": [
+    "fx.CometTrail"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "CometTrail(pts, t0, dur, tail)",
+   "scene_types": [
+    "movement",
+    "connection"
+   ],
+   "qa_rules": [
+    "decor unless it encodes a real route"
+   ],
+   "uncertainty": "colour is a design example only; OrbitalAtlas uses its own accents"
+  },
+  {
+   "id": "VR1-10",
+   "ref": "VISUAL_REF_001",
+   "timestamp": "19.8-23.5",
+   "description": "Localised colour transformation: the ocean region becomes a bright cyan block with a label that scales in ('Atlantic Ocean', 'Gulf of Guinea')",
+   "visual_purpose": "highlight a water body as a region",
+   "animation_behavior": "region recolour with a soft edge; label scales in from large to rest",
+   "timing": "0.4-0.6 s",
+   "parameters": {
+    "hue": "cyan, saturation very high"
+   },
+   "dependencies": [
+    "region mask",
+    "localised grading"
+   ],
+   "implementation": [
+    "grade.apply(mask=...)",
+    "fx.RegionTint",
+    "kinetic.scale_pop"
+   ],
+   "status": "PARTIAL",
+   "preset": "RegionTint(color=CYAN) for annotation; grade.apply(preset, mask) for a PRESENTATION basemap only",
+   "scene_types": [
+    "named water body",
+    "ocean/sea"
+   ],
+   "qa_rules": [
+    "never recolour EVIDENCE pixels: use the tint overlay (annotation) and say so",
+    "grade.Graded refuses strong presets on evidence"
+   ],
+   "uncertainty": "the reference recolours a basemap (presentation); a recolour of real imagery would break the evidence rule"
+  },
+  {
+   "id": "VR1-11",
+   "ref": "VISUAL_REF_001",
+   "timestamp": "whole video",
+   "description": "Word-by-word bottom captions: white words, the currently spoken word in green, italic bold, black outline",
+   "visual_purpose": "readable narration with sync cue",
+   "animation_behavior": "active word colour changes at its timestamp; previous words stay",
+   "timing": "word-level",
+   "parameters": {
+    "position": "lower third",
+    "size": "about 4.5% of frame height (estimated)"
+   },
+   "dependencies": [
+    "word timestamps (provider or alignment)"
+   ],
+   "implementation": [
+    "captions.WordCaptions style B"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "WordCaptions(cards, 'B')",
+   "scene_types": [
+    "all"
+   ],
+   "qa_rules": [
+    "captions inside safe frame",
+    "never two cards at once",
+    "timing source recorded in the manifest"
+   ],
+   "uncertainty": "reference uses green on the active word; our accent is amber/cyan"
+  },
+  {
+   "id": "VR1-12",
+   "ref": "VISUAL_REF_001",
+   "timestamp": "whole video",
+   "description": "Saturated cinematic satellite basemap: deep blue oceans, ochre/orange deserts, dark green forest, strong contrast",
+   "visual_purpose": "premium look for a map Short",
+   "animation_behavior": "global grade on a basemap",
+   "timing": "constant",
+   "parameters": {
+    "saturation": "about 1.3-1.4x vs neutral (estimated)",
+    "contrast": "about 1.15x"
+   },
+   "dependencies": [
+    "a presentation basemap (not evidence)"
+   ],
+   "implementation": [
+    "grade.apply('documentary_map'|'deep_ocean')",
+    "grade.Graded"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "Graded(scene, 'documentary_map')  # PRESENTATION only; evidence uses 'evidence_safe'",
+   "scene_types": [
+    "map Shorts",
+    "locators"
+   ],
+   "qa_rules": [
+    "EVIDENCE class limited to neutral/evidence_safe; manifest records evidence_pixels_unmodified"
+   ],
+   "uncertainty": "estimates of saturation/contrast from compressed frames"
+  },
+  {
+   "id": "VR1-13",
+   "ref": "VISUAL_REF_001",
+   "timestamp": "0.4-1.0; 2.0-2.5",
+   "description": "Short horizontal blur-in of labels and titles on entry",
+   "visual_purpose": "softens pop-in",
+   "animation_behavior": "text arrives with blur resolving to sharp",
+   "timing": "0.2-0.3 s",
+   "parameters": {},
+   "dependencies": [
+    "none"
+   ],
+   "implementation": [
+    "kinetic.duplicate_offset(blur_in)",
+    "kinetic.motion_streak",
+    "kinetic.slide_in"
+   ],
+   "status": "IMPLEMENTED",
+   "preset": "motion_streak(dur=0.25)",
+   "scene_types": [
+    "labels",
+    "titles"
+   ],
+   "qa_rules": [
+    "final frame sharp"
+   ],
+   "uncertainty": "-"
+  }
+ ]
+}

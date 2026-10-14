@@ -5,6 +5,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 
 ## tts
 
+### free-test-voice-measured-timing - Free test narration with measured word timestamps (ffmpeg flite)
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Synchronisation, captions and motion must be tested without spending TTS credits; estimated timing proves nothing about sync.
+- **Root cause:** A single flite pass has no word timestamps and 'estimated' timing is not frame accurate.
+- **Fix:** orbitalatlas.testvoice.synth speaks each word separately (ffmpeg -f lavfi flite, atempo 1.45), concatenates with small gaps and records the measured start/end (source 'alignment'); numbers use a 'say' spelling. The voice is robotic and is NOT the channel voice. testvoice.envelope gives real loudness for Waveform.
+- **Reuse when:** Any sync/caption/motion proof before the paid narration exists.
+- **References:** `orbitalatlas/testvoice.py`; `docs/references/library/UNIFIED_STYLE_GUIDE.md`
+- **Verification:** test: gaps between words are quiet and words are loud in the audio that was made; cache makes reruns identical; 41 words = 18.5 s.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2.py::test_word_times_match_the_audio_that_was_made`
+
 ### paid-tts-gate-in-the-calling-function - The paid-request wall must live in the code that makes the request
 *VERIFIED · general · 2026-10-14*
 
@@ -83,6 +94,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Regression test:** `.claude/skills/yt-voice/test_voice.py::test_cache_saves_paid_chunk_after_failure_and_rerun_pays_only_missing`
 
 ## sync
+
+### caption-cards-overlapped-by-lead - Word captions: the next card's lead time overlapped the previous card's tail
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Two caption cards were active for a few frames at once when words were close together.
+- **Root cause:** The card end was clamped to next.t0 - 0.02 while the next card appears lead (0.05 s) early, and a minimum display time pushed the end past the next start.
+- **Fix:** ends = min(max(end, t1 + 0.05), next.t0 - lead - 0.005); a unit test samples every 0.05 s and asserts at most one active card.
+- **Reuse when:** Any overlay that shows items with a lead-in and a minimum duration.
+- **References:** `orbitalatlas/captions.py`; `docs/references/library/UNIFIED_STYLE_GUIDE.md`
+- **Verification:** found by test_no_two_captions_at_once, fixed, test passes; demo captions never stack.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2.py::test_no_two_captions_at_once`
 
 ### captions-from-provider-word-times - Captions must come from provider word timings, never from estimates
 *VERIFIED · general · 2026-10-07*
@@ -185,6 +207,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** EP001 final report states 4K NOT produced.
 - **Regression test:** none - Policy decision, nothing to test.
 
+### opening-tilt-then-move - Plane tilt and a fast camera move at the same time smear the opening
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** The opening plane tilt ran together with a snap zoom: the tilted map was a motion-blur smear.
+- **Root cause:** Two moves overlapped in the first 1.7 s.
+- **Fix:** Director holds the first shot's camera until the plane has landed (keys shifted by 1.6 s) and shifts the declared fast-move window and its whoosh accordingly.
+- **Reuse when:** Any opening that combines PlaneTilt with a camera move.
+- **References:** `orbitalatlas/director.py`; `docs/references/library/REFERENCE_COMPARISON.md`
+- **Verification:** frames at 0.5 and 1.2 s are sharp in the re-render.
+- **Regression test:** none - judged on rendered frames
+
 ### pil-float-width - Float width in ImageDraw raises TypeError
 *VERIFIED · EP002 · 2026-10-13*
 
@@ -206,6 +239,28 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `productions/dubai/preview/build_final.py`; `tools/autopilot/orbital.py`; `docs/production-knowledge/RENDERING.md`
 - **Verification:** EP002 v4.1: only 8 changed scenes re-rendered (~25 min with 4 jobs).
 - **Regression test:** none - Atomic rename pattern is also tested generically in yt-render's output tests; build_final.py itself has no unit test.
+
+### snap-zoom-blur-smear - Full camera motion blur on a fast snap zoom smears the whole frame
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** A x2.4 snap zoom in 0.55 s rendered as an unreadable smear (EP003 automatic run, 6.0 s).
+- **Root cause:** Scene motion blur samples scale with apparent speed (up to 16 sub-frames).
+- **Fix:** Director scenes use max_blur_samples=6 and blur_threshold=10 and snap zooms of 0.7 s; QA receives the deliberate fast-move frames as declared changes (report.intended_changes).
+- **Reuse when:** Fast camera presets on large images.
+- **References:** `orbitalatlas/director.py`; `orbitalatlas/layers.py`; `docs/references/library/REFERENCE_COMPARISON.md`
+- **Verification:** re-rendered frames at 5.8/6.2 s are readable; QA passes with the declared changes.
+- **Regression test:** none - needs rendered video / repository state, checked on frames
+
+### sound-design-synthesised-ducked - Sound design: original synthesised effects, cue plan from the director, ducked under the narration
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** The demos had no sound design; free libraries need licence checks and some hosts are blocked here.
+- **Root cause:** No audio layer besides narration.
+- **Fix:** orbitalatlas.sfx synthesises whoosh, sweep, impact, rise, ui_blip, tick (original, CC0 with the code, no attribution); plan_cues maps director decisions to effects with a 0.25 s minimum gap and priorities; mix ducks effects 8 dB while words are spoken and caps them 12 dB under the local voice level, then loudnorm to -16 LUFS; director --sfx writes OUT.mix.wav and reports the measured margin.
+- **Reuse when:** Any render that needs transitions/impacts to be heard.
+- **References:** `orbitalatlas/sfx.py`; `orbitalatlas/director.py`; `docs/ASSET_SOURCE_REGISTRY.md`
+- **Verification:** ep901: 11 cues, effects >= 14.4 dB under the voice (5th percentile while speaking), -15.7 LUFS, voice offset in the mix 0.0 s.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2c.py::test_mix_keeps_effects_well_under_the_voice`
 
 ### xfade-shortens-timeline - ffmpeg xfade between segments shortens the timeline and breaks sync
 *VERIFIED · EP002 · 2026-10-13*
@@ -230,6 +285,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `.claude/skills/yt-qc/qc.py`; commit `dab03c0`; commit `e5f168d`
 - **Verification:** yt-qc black-frame test; EP002 final black_frames PASS; EP001 commit dab03c0 re-timed g19/g23/g32/g34.
 - **Regression test:** `.claude/skills/yt-qc/test_qc.py::test_black_frames_and_manifest_failures`
+
+### caption-count-up-showed-wrong-numbers - Count-up inside subtitles showed numbers that were never spoken
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Style D captions counted 0 -> 4,190.2, so a frame read 'it measured 4,062.3'.
+- **Root cause:** An animation meant for a graphic was applied to a subtitle, which must match the narration.
+- **Fix:** No count-up in captions; count-up only in NumberCard, which settles on the exact string and is the focus element.
+- **Reuse when:** Any animated number inside subtitles.
+- **References:** `orbitalatlas/captions.py`; `orbitalatlas/typeset.py`; `docs/references/library/UNIFIED_STYLE_GUIDE.md`
+- **Verification:** found on a frame of the EP003 automatic render, fixed, regression test.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2b.py::test_style_d_never_shows_an_intermediate_number`
 
 ### freeze-on-static-card - Static cards trip freezedetect
 *VERIFIED · EP002 · 2026-10-13*
@@ -332,6 +398,39 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 
 ## visual
 
+### director-renders-the-automatic-storyboard - Render the automatic storyboard with motion graphics: storyboard -> motion_plan.json -> orbitalatlas.director
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Graphics were hand-placed per demo; the storyboard generator produced only yt-render layers (labels, pins, wipes) with no kinetic type, cards or captions.
+- **Root cause:** No link between the narration plan (semantic) and the timeline.
+- **Fix:** storyboard.py plan now writes story/motion_plan.json (semantic.plan with the stack's pins/regions as gazetteer, timing source from the voice file) and timeline.meta.motion_plan; python3 -m orbitalatlas.director render SLUG OUT.mp4 builds cameras (snap / scale change / smooth), wipes/flips, pins, region tints, routes, comparisons, callouts, year tags, number and impact cards and captions from it, and writes OUT.director.json with every decision.
+- **Reuse when:** Any episode with a geo stack: after storyboard plan, before reviewing motion.
+- **References:** `orbitalatlas/director.py`; `tools/autopilot/storyboard.py`; `docs/references/library/REFERENCE_COMPARISON.md`
+- **Verification:** ep900-visual-demo (19.3 s, alignment timing) and EP003 (300 s, 40 shots, estimated timing) built automatically; 30 s of EP003 and the full demo rendered and inspected.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2b.py::test_focus_hides_duplicate_captions_and_decisions_are_reported`
+
+### event-year-vs-image-date - A historical year must never read as the date of the satellite picture
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** v2b showed '1959' (causeway finished) and '2022' (image) in the same YearTag style; a viewer could take 1959 for the image date.
+- **Root cause:** One component was used for two meanings.
+- **Fix:** interact.ImageStamp ('IMAGE · <sensor> · <month year>', cyan, top-left, from asset metadata) vs interact.EventYear (amber outline-to-fill year + the narration's clause, top-right). When an event year differs from the image date, the director shows the ImageStamp at the same time; an event year in a sentence whose number card carries the date is skipped. report['dates'] lists every displayed date with its role.
+- **Reuse when:** Any narration year over imagery of another date.
+- **References:** `orbitalatlas/interact.py`; `orbitalatlas/director.py`; `docs/references/library/UNIFIED_STYLE_GUIDE.md`
+- **Verification:** ep901: 1959 shown with 'IMAGE · LANDSAT 8, 9 · USGS · JULY 2022' beside it; July 2022 date carried by the number card.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2c.py::test_image_stamp_says_image_and_event_year_never_does`
+
+### evidence-pixels-never-recoloured - Satellite pixels get only neutral or evidence_safe grading; highlights are annotations
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Reference 1 recolours the ocean to bright cyan and fills countries with flags; doing that to real imagery would present altered data as observation.
+- **Root cause:** A map basemap (presentation) and a satellite picture (evidence) look alike on screen.
+- **Fix:** grade.Graded(scene, preset, evidence=True) refuses presets other than neutral/evidence_safe and writes evidence_pixels_unmodified into the manifest; highlights are RegionTint/RouteArrow overlays with source + validation, alpha <= 0.2 over evidence; localised recolour only on presentation layers.
+- **Reuse when:** Any scene mixing Landsat/NASA imagery with graphics or a stylised look.
+- **References:** `orbitalatlas/grade.py`; `orbitalatlas/fx.py`; `docs/references/library/UNIFIED_STYLE_GUIDE.md`
+- **Verification:** tests: guard raises on documentary_map with evidence=True; manifest flags enhanced pixels; localised grade leaves the rest identical.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2.py::test_evidence_guard_refuses_strong_presets`
+
 ### geo-beats-need-sentence-splits-and-camera-resets - Single-image geographic beats hold too long: split by sentence, alternate zoom, set a timelapse step
 *VERIFIED · general · 2026-10-14*
 
@@ -353,6 +452,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `tools/autopilot/storyboard.py`
 - **Verification:** Found only by LOOKING at a contact sheet of the proof frames; after the fix the frame reads 'GREAT SALT LAKE · JUNE 1985'.
 - **Regression test:** `tools/autopilot/test_storyboard.py::test_callout_labels_are_whole_words_and_never_cut_a_number`
+
+### keyword-lift-caption-to-map - Keywords leave the subtitle line and land on the map; the caption keeps them dimmed
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Captions and map labels were separate layers, so names appeared twice and text never interacted with the map.
+- **Root cause:** No shared word positions between captions and scene overlays.
+- **Fix:** WordCaptions.word_box/locate expose the caption layout; interact.KeywordLift flies the word on an arc to its pin (parallax depth) and lands as the label; the caption word is dimmed to 40 % (still readable, not duplicated at full weight); the pin's own label and the callout title are dropped for that place.
+- **Reuse when:** Place names with stack pins mentioned in the narration.
+- **References:** `orbitalatlas/interact.py`; `orbitalatlas/captions.py`; `orbitalatlas/director.py`; `docs/references/library/REFERENCE_COMPARISON.md`
+- **Verification:** ep901 frames: CAUSEWAY, GILBERT BAY, GUNNISON BAY lifted and landed; overlay QA 0 collisions.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2c.py::test_lift_starts_on_the_caption_word_and_lands_on_the_anchor`
 
 ### labels-vs-captions-bands - Main labels must not sit in the caption band
 *VERIFIED · EP002 · 2026-10-13*
@@ -387,6 +497,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** EP001 pre-final report ranked 15 risks; editorial pass fixed the opening and a 38 s proposal block (static gaps <= 2.6 s). Retention benefit itself is unmeasured (no analytics yet).
 - **Regression test:** none - Retention effect is a HYPOTHESIS until published analytics exist; monotony_audit.py measures motion on rendered frames.
 
+### single-focus-no-number-duplication - One focus at a time: a number/impact card hides the caption that says the same thing; pacing limits cards
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** The first demo showed 4,190.2 in the caption and again as a big pop; EP003's automatic run put a number card every 2-3 s and a 6.7 s impact card.
+- **Root cause:** Captions and graphics were planned independently; no pacing rule for focus graphics.
+- **Fix:** director focus manager: impact (revelation, <= 5 words) > number; overlapping caption cards are hidden (the card carries kicker + value + unit + trailing words, e.g. '20 FEET LOWER'); map dims behind a number card; min 5 s between focus cards, max 4 per minute (others stay as style D captions); captions never count up (subtitles show the spoken words).
+- **Reuse when:** Planning any on-screen number or statement.
+- **References:** `orbitalatlas/director.py`; `orbitalatlas/captions.py`; `docs/references/library/UNIFIED_STYLE_GUIDE.md`
+- **Verification:** EP003 auto plan: 15 focus cards in 300 s, impact cards over 5 words refused; demo: captions hidden exactly under the two cards.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2b.py::test_storyboard_stat_label_is_not_drawn_twice`
+
 ### storyboard-never-shows-an-unrelated-or-wrong-year-picture - A generated storyboard must not fake relevance: no unrelated picture, wrong years are reported
 *VERIFIED · general · 2026-10-14*
 
@@ -397,6 +518,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `tools/autopilot/storyboard.py`
 - **Verification:** Found by reading the plan and looking at rendered frames of the EP003 proof; 18 storyboard tests incl. 'no unrelated picture', 'gap not a fake', 'nearest year wins'.
 - **Regression test:** `tools/autopilot/test_storyboard.py::test_no_unrelated_picture_is_ever_shown`
+
+### visual-engine-v2-reuse-map - Visual engine v2: which module to use for captions, kinetic type, graphics, grading, camera and narration-driven events
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** A new episode needs word-synced captions, kinetic titles, arrows, region highlights, grading and narration-driven timing; the old engine only had per-glyph text, markers and transitions.
+- **Root cause:** Caption code lived in Dubai episode scripts; no shared planner from narration to visual events; no evidence/presentation grade separation.
+- **Fix:** Use orbitalatlas.semantic.plan(words, places) for events and caption styles, captions.WordCaptions for A-E, kinetic.* for type, fx.* for overlays (RegionTint, RouteArrow, MarkerPin, HudFrame, NeonGrid, LightSweep, Waveform), grade.Graded (evidence_safe only on satellite pixels), camera_presets.*, transitions.FlashDip/LightWipe, sequence.Program for global overlays, demo/visual_v2.py as the worked integration. Consult python3 -m orbitalatlas.refs consult SCENE_TYPE first.
+- **Reuse when:** Before storyboarding any map/satellite episode or writing a new caption/typography/overlay effect.
+- **References:** `orbitalatlas/semantic.py`; `orbitalatlas/captions.py`; `orbitalatlas/kinetic.py`; `orbitalatlas/fx.py`; `orbitalatlas/grade.py`; `orbitalatlas/demo/visual_v2.py`; `docs/references/library/UNIFIED_STYLE_GUIDE.md`
+- **Verification:** 44 offline tests; 18.7 s demo on real EP003 Landsat mosaics rendered at 1920x1080 and inspected frame by frame.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2.py::test_every_style_draws_inside_the_frame_and_registers_boxes`
 
 ## geo
 
@@ -457,6 +589,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** 78/78 files SHA-512 verified; EO, TW and TE reports rebuilt in 51 s, ~2 min, ~2 min and equal the stored reports (valid fractions, medians, registration, stretch).
 - **Regression test:** `tools/autopilot/test_recover_ep001_stacks.py::test_paths_are_patched_and_nothing_else`
 
+### ep003-manifest-not-in-git - EP003 assets/manifest.json (with the stack) was ignored by git
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** The automatic EP003 test could not take the manifest from the branch: productions/ep###-*/assets/ is ignored, and the manifest lives there.
+- **Root cause:** .gitignore ignores the whole assets/ folder of new episodes, text included.
+- **Fix:** Force-add the manifest (git add -f productions/<slug>/assets/manifest.json); episodes keep media out of git but the manifest is text and must be committed.
+- **Reuse when:** Committing any new episode.
+- **References:** `tools/autopilot/storyboard.py`; `docs/AUTOPILOT.md`
+- **Verification:** found while copying EP003 for the director test; ep900 manifest force-added; EP003 fix pushed to its branch.
+- **Regression test:** none - needs rendered video / repository state, checked on frames
+
 ### ipad-review-copy - Make a small review copy for the iPad
 *VERIFIED · EP002 · 2026-10-13*
 
@@ -491,6 +634,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Regression test:** none - Depends on the host and credentials; verified by the download check.
 
 ## process
+
+### adaptive-intensity-and-pacing - Animation intensity follows the meaning; pacing is measured per sentence
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Fixed density rules made dense passages slow and explanations busy.
+- **Root cause:** No notion of how complex or dramatic a sentence is.
+- **Fix:** semantic.intensity: revelations, emphasis, data and fast speech raise the score, long explanations lower it (calm / normal / energetic). Director: calm -> captions A, no punches; energetic -> punch-ins on emphasis (2.5 s apart), light accents on cuts; lifts everywhere outside focus cards. report['pacing'] gives the max gap between visual changes per sentence with limits 3 / 4 / 6 s.
+- **Reuse when:** Every automatic edit.
+- **References:** `orbitalatlas/semantic.py`; `orbitalatlas/director.py`; `docs/references/library/UNIFIED_STYLE_GUIDE.md`
+- **Verification:** ep901: max gaps 1.3-1.9 s in all five sentences; the 22-word explanation is calm.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2c.py::test_long_explanation_is_calm_and_a_revelation_is_energetic`
 
 ### agent-cannot-listen-or-watch - The agent cannot listen to audio or watch continuous video
 *VERIFIED · general · 2026-10-13*

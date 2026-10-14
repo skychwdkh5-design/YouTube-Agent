@@ -205,6 +205,14 @@ class GeoScenes(Base):
                 for k in [L.get("from"), L.get("to"), *(L.get("assets") or [])]:
                     if k: self.assertIn(k, sub["assets"])
 
+    def test_plan_writes_the_motion_plan_for_the_director(self):
+        self.make_stack()
+        self.script('[VIS: geo=whole pins="Gunnison Bay|Gilbert Bay"]', "Gunnison Bay to the north is always saltier than Gilbert Bay to the south, and since 1986 it has fallen more than 20 feet.")
+        self.assertTrue(self.plan()["ok"])
+        mp = json.load(open(os.path.join(self.prod, "story", "motion_plan.json")))
+        self.assertEqual(self.tl["meta"]["motion_plan"], "story/motion_plan.json"); self.assertEqual(mp["timing_source"], "estimated"); self.assertFalse(mp["frame_accurate"])
+        kinds = {e["kind"] for e in mp["events"]}; self.assertTrue({"place", "number"} <= kinds)
+
     def test_pins_come_from_the_manifest_never_from_a_guess(self):
         self.make_stack()
         self.script('[VIS: geo=whole pins="Atlantis"]', "A sentence that names a place which the stack does not define anywhere at all.")

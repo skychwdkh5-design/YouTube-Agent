@@ -18,6 +18,22 @@ Run from the repo root: `python3 -m unittest discover -s orbitalatlas/tests -t .
 | `qa` | black frames, blank fill regions, discontinuities, static runs, transition motion/pop/duration/repetition, camera crop, out-of-frame/collision overlays, missing assets | tested; thresholds in `QAConfig` |
 | `spec` | JSON/dict → `Scene` (one code path for any image) | tested |
 | `geo` | `GlobeView` (lon/lat ↔ screen, orthographic, bearing), `GeoCamera` (great-circle path, log zoom, `arc`, spline mode, `check`), `GeoData` (Natural Earth GeoJSON), `GeoRaster` (multi-resolution land/polygon coverage), `GeoScene` (shaded globe, coast lines, graticule, camera blur), overlays `GeoFill`, `GeoPolyline`, `GeoMarker`, `GeoLabel`, `ScaleBar`, `Breadcrumb`; data via `tools/fetch_natural_earth.sh` (public domain, not committed) | tested; class B from vector data only |
+| `kinetic` | kinetic typography (word-timed reveal, replacement, slide + tracking, scale pop + glow, colour-offset duplicate, mask reveal, 2.5D tilt, streak, trail), `KineticTitle`, `StatPop` | tested |
+| `captions` | word-synchronised captions, styles A clean / B kinetic / C impact / D data / E minimal, card segmentation, `plan_styles` (rule-based, rate-limited impact) | tested; timing quality = timestamp quality |
+| `semantic` | narration words (+ places gazetteer) -> reproducible event plan (years, numbers, places, routes, comparisons, emphasis, revelations, clutter) with density limit | tested; rule-based English |
+| `fx` | `NeonGrid`, `LightSweep`, `Particles`, `HudFrame`, `Waveform`, `MarkerPin`, `CometTrail`; georeferenced `RegionTint`, `RouteArrow` + `RouteLabel` (annotation only, carry source/validation) | tested |
+| `regions` | `seeded_region`: smooth dark areas connected to seeds (water masks for RegionTint) | tested; display shapes, not measurements |
+| `grade` | colour grade presets + `Graded` scene wrapper; EVIDENCE guard (neutral / evidence_safe only), manifest records modified pixels | tested |
+| `camera_presets` | smooth_zoom, snap_zoom, punch_zoom, whip_to, pan, creep, scale_change (class A keys) | tested |
+| `testvoice` | free flite test narration with measured word timings + loudness envelope (NOT the channel voice) | tested |
+| `refs` | reference library loader/validator (`docs/references/library`): `python3 -m orbitalatlas.refs validate / consult SCENE` | tested |
+| `sequence.Program` | a Sequence plus global overlays (captions, titles) in programme time | tested |
+| `demo.visual_v2` | 18.7 s integrated demo on real Landsat mosaics: `python3 -m orbitalatlas.demo.visual_v2 OUT.mp4 --stack DIR --audio` | rendered + inspected |
+| `typeset` | word tiles + presets (rise mask, depth, slide, outline_fill, type, pop, glint), `KineticLine`, `ImpactCard`, `NumberCard`, `YearTag`, `Dim`, `push_lines` | tested |
+| `plane` | `PlaneTilt`: the map shown on a tilted plane over a floor grid, landing flat (identity at 0 deg) | tested |
+| `director` | automatic storyboard (timeline v3) + `story/motion_plan.json` -> programme: cameras, transitions by purpose, focus manager, pacing, report; `python3 -m orbitalatlas.director render SLUG OUT.mp4` | tested; geo shots only |
+| `interact` | keyword lift caption -> map, floating labels and dust in parallax, punch-in, ImageStamp (picture date) vs EventYear (narration year) | tested (v2c) |
+| `sfx` | synthesised CC0 whoosh/sweep/impact/rise/blip/tick, cue plan from the director report, ducking mixer (>= 12 dB under the voice, -16 LUFS) | tested (v2c) |
 | `synthetic` | procedural test images with exact geometry | test data only |
 | `demo` | seven-shot demo from specs; `python3 -m orbitalatlas.demo.render_demo OUT.mp4 --qa` | |
 
