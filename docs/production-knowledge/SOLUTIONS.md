@@ -174,6 +174,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** orbitalatlas clamp test; EP001 timeline builder clamps still views inside the image.
 - **Regression test:** `orbitalatlas/tests/test_engine.py::test_clamp_keeps_rotated_window_inside_image`
 
+### director-camera-leaves-image - Black strip at the frame edge on wide moves
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** EP003 at 1:48: a black strip on the right edge while the camera moved from the whole-lake view to a close view.
+- **Root cause:** The director built scenes with clamp=False, so an eased pan/zoom could leave the image.
+- **Fix:** director scenes use clamp=True (the camera keeps the rotated window inside the image).
+- **Reuse when:** Every director render.
+- **References:** `orbitalatlas/director.py`; `docs/production-knowledge/VISUAL_ENGINE_BASELINE.md`
+- **Verification:** EP003 still at 108 s has no black edge after the change.
+- **Regression test:** none - needs a full camera path over a real stack; verified on EP003 frames
+
 ### loudness-two-pass-and-int-sample-mix - Level narration with one constant gain; mix beds in integer samples
 *VERIFIED · EP002 · 2026-10-13*
 
@@ -431,6 +442,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** tests: guard raises on documentary_map with evidence=True; manifest flags enhanced pixels; localised grade leaves the rest identical.
 - **Regression test:** `orbitalatlas/tests/test_visual_v2.py::test_evidence_guard_refuses_strong_presets`
 
+### flip-and-wipe-image-date-stuck - During a year flip or a wipe the image date stayed on the first picture
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** EP003: during the 1985->2022 flip the footer said 'JUNE 1985' over 2021/2022 pictures; after a wipe the footer kept the old date. Event years 'from 1985 to 2022' were drawn as amber event years with labels like 'PUT'.
+- **Root cause:** One SourceChip/ImageStamp per storyboard shot, built from the shot's base image; the year rule did not recognise ranges.
+- **Fix:** director: every part of a shot (wipe target, each flip image) gets its own SourceChip and ImageStamp (flip stamps appear instantly, type_s=0); dates report lists them; years in 'from X to Y' are skipped; event-year labels are whole words of the last clause (max 4, no digits).
+- **Reuse when:** Any wipe or flip, any narration with year ranges.
+- **References:** `orbitalatlas/director.py`; `orbitalatlas/interact.py`; `docs/production-knowledge/VISUAL_ENGINE_BASELINE.md`
+- **Verification:** EP003 stills at 23-29 s: IMAGE · LANDSAT 5 · AUGUST 1986 -> LANDSAT 8 · JULY 2021 -> LANDSAT 8, 9 · JULY 2022, footer follows.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2c.py::test_year_range_is_not_an_event_year_and_a_wipe_dates_both_pictures`
+
 ### geo-beats-need-sentence-splits-and-camera-resets - Single-image geographic beats hold too long: split by sentence, alternate zoom, set a timelapse step
 *VERIFIED · general · 2026-10-14*
 
@@ -496,6 +518,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `productions/dubai/preview/monotony_audit.py`; commit `7a19735`; commit `b706c4c`; `production/ep001-sahara-green:productions/sahara-green/review/pre_final/RETENTION_RISK_REPORT.md`; `production/ep001-sahara-green:productions/sahara-green/review/pre_final/editorial/EDITORIAL_CHANGES_REPORT.md`
 - **Verification:** EP001 pre-final report ranked 15 risks; editorial pass fixed the opening and a 38 s proposal block (static gaps <= 2.6 s). Retention benefit itself is unmeasured (no analytics yet).
 - **Regression test:** none - Retention effect is a HYPOTHESIS until published analytics exist; monotony_audit.py measures motion on rendered frames.
+
+### number-card-unit-crosses-sentence - Number card unit took words from the next sentence ('4,209.7 FEET IN JULY 2022')
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** EP003 first full render: number cards read '4,209.7 FEET IN JULY 2022' (a wrong fact), '48 % AND THAT ITS', '6 FEET USGS SAYS THE'; long kickers overflowed the card.
+- **Root cause:** The tail loop started after the unit even when the unit word itself closed the sentence, and kept function words.
+- **Fix:** director: no tail when the unit (or number) ends the clause; tail keeps only content words and stops at TAIL_STOP/STOP words or digits (max 3); kicker = words after the last colon, at most 9.
+- **Reuse when:** Every number card.
+- **References:** `orbitalatlas/director.py`; `docs/production-knowledge/VISUAL_ENGINE_BASELINE.md`
+- **Verification:** EP003 re-render stills: '4,190.2 FEET', '3.7 FEET HIGHER', kicker 'IN JULY 2022, THE GREAT SALT LAKE MEASURED' fits.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2c.py::test_unit_stops_at_the_end_of_its_sentence`
 
 ### single-focus-no-number-duplication - One focus at a time: a number/impact card hides the caption that says the same thing; pacing limits cards
 *VERIFIED · general · 2026-10-14*

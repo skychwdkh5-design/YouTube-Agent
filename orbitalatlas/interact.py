@@ -100,13 +100,13 @@ class ParallaxDust(Overlay):
 class ImageStamp(Overlay):
     """date of the picture on screen. Always says IMAGE; cyan mono plate top-left with a viewfinder mark. Its text comes from the asset metadata."""
     layer = "ui"; cls = "TEXT"
-    def __init__(self, text, t0, t1, xy=(0.035, 0.06), group="image_stamp"):
-        self.text, self.t0, self.t1, self.xy, self.group = text.upper(), t0, t1, xy, group
+    def __init__(self, text, t0, t1, xy=(0.035, 0.06), group="image_stamp", type_s=0.5):
+        self.text, self.t0, self.t1, self.xy, self.group, self.type_s = text.upper(), t0, t1, xy, group, type_s
     def draw(self, ctx):
         t = ctx.t
         if t < self.t0 or t > self.t1 + 0.3: return
         W, H = ctx.size; k = H / 1080; px = 19 * k; x, y = self.xy[0] * W, self.xy[1] * H; o = 1 - E.smooth(E.seg(t, self.t1, self.t1 + 0.3))
-        u = E.out_expo(E.seg(t, self.t0, self.t0 + 0.35)); s = "IMAGE · " + self.text; n = int(len(s) * E.seg(t, self.t0 + 0.1, self.t0 + 0.6))
+        u = E.out_expo(E.seg(t, self.t0, self.t0 + 0.35)); s = "IMAGE · " + self.text; n = len(s) if self.type_s <= 0 else int(len(s) * E.seg(t, self.t0 + 0.1, self.t0 + 0.1 + self.type_s))
         w = K.width(s, px, "bold", 0.16) + px * 2.4; d = ImageDraw.Draw(ctx.ui, "RGBA"); col = CYAN + (int(255 * o),)
         d.rectangle([x, y, x + w * u, y + px * 1.9], fill=(6, 10, 16, int(170 * o)))
         b = px * 0.45; cx, cy = x + px * 0.9, y + px * 0.95                  # viewfinder corners

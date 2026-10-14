@@ -40,6 +40,7 @@ Image.MAX_IMAGE_PIXELS = None
 UNITS = {"feet": "FEET", "foot": "FEET", "miles": "MILES", "mile": "MILES", "km": "KM", "kilometers": "KM", "kilometres": "KM", "meters": "M", "metres": "M",
          "percent": "%", "acres": "ACRES", "people": "PEOPLE", "million": "MILLION", "billion": "BILLION"}
 STOP = {"a", "an", "the", "its", "his", "her", "their", "this", "that", "of"}
+TAIL_STOP = {"and", "or", "but", "so", "it", "is", "was", "than", "in", "on", "at", "to", "from", "by", "for", "with", "more", "less", "says", "said", "usgs", "nasa"}   # a number card unit stops before these
 
 
 def _norm(w): return re.sub(r"[^\w%$.,']", "", w)
@@ -129,12 +130,16 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
             s0 = max((k + 1 for k in range(0, i) if re.search(r"[.!?]$", words[k]["text"])), default=0)      # the number's own sentence, up to the number
             pre = [w["text"] for w in words[s0:i]]
             if pre and pre[0].lower() in ("and", "but", "so", "then"): pre = pre[1:]
-            kicker = " ".join(pre[-11:]).strip().rstrip(",") or "measured"
-            tail = []                                                                         # words after the unit up to the end of the sentence ('lower')
-            for w in words[i + (2 if unit else 1):i + 5]:
-                tail.append(re.sub(r"[^\w%$']", "", w["text"]).upper())
+            colon = max((k + 1 for k, x in enumerate(pre) if x.endswith(":")), default=0); pre = pre[colon:]      # 'the measurements are plain: IN JULY 2022, ...'
+            kicker = " ".join(pre[-9:]).strip().rstrip(",") or "measured"
+            tail = []                                                                         # content words after the unit inside the clause ('HIGHER', 'CUBIC YARDS')
+            ends = re.search(r"[.!?,;:]$", words[i + 1]["text"] if unit else words[i]["text"])   # the unit (or number) closes the clause: no tail
+            for w in ([] if ends else words[i + (2 if unit else 1):i + 5]):
+                x = re.sub(r"[^\w%$']", "", w["text"])
+                if not x or x.lower() in STOP or x.lower() in TAIL_STOP or re.search(r"\d", x): break
+                tail.append(x.upper())
                 if re.search(r"[.!?,;:]$", w["text"]): break
-            unit = " ".join([unit] + [x for x in tail if x][:3]).strip()
+            unit = " ".join([unit] + tail[:3]).strip()
             focus.append(dict(kind="number", t0=words[i]["start"] - 0.15, t1=max(words[i]["end"] + 1.4, card["t1"] + 0.4), value=val, unit=unit, kicker=kicker, word=i))
     focus.sort(key=lambda f: f["t0"]); kept = []
     for f in focus:
@@ -237,24 +242,30 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
                 else: report["skipped"].append(dict(kind="comparison", t=e["t"], why="needs two pinned places and an adjective before 'than'"))
         # image change -> HUD date stamp once
         img_now = base
-        if img_now != prev_img and not any(f["kind"] == "impact" and f["t0"] <= t_s + 0.3 <= f["t1"] for f in focus):
-            a = tl["assets"][img_now]; txt = f"{a.get('credit', '')} · {a.get('label', '')}"
-            overlays.append(IX.ImageStamp(txt, 0.15, min(dur, 3.0))); note("image_stamp", t=t_s + 0.15, text=txt.upper(), asset=img_now)
-            dates.append(dict(kind="image", t=round(t_s, 2), text=txt.upper(), asset_label=a.get("label", ""), prov=a.get("prov") or a.get("date")))
+        def stamp_txt(aid): a = tl["assets"][aid]; return f"{a.get('credit', '')} · {a.get('label', '')}"
+        def chip(aid): return SourceChip((0.03, 0.935), f"{tl['assets'][aid].get('credit', '').upper()} · {tl['assets'][aid].get('label', '').upper()} · DISPLAY GRADE", 0.1)
+        def stamp(aid, a0, a1, why=None, type_s=0.5):                            # every picture on screen carries ITS date (wipes and flips included)
+            txt = stamp_txt(aid); note("image_stamp", t=t_s + a0, text=txt.upper(), asset=aid, **({"why": why} if why else {}))
+            dates.append(dict(kind="image", t=round(t_s + a0, 2), text=txt.upper(), asset_label=tl["assets"][aid].get("label", ""), prov=tl["assets"][aid].get("prov") or tl["assets"][aid].get("date")))
+            return IX.ImageStamp(txt, a0, a1, type_s=type_s)
+        first = []
+        if img_now != prev_img and not L.get("flip") and not any(f["kind"] == "impact" and f["t0"] <= t_s + 0.3 <= f["t1"] for f in focus):
+            first.append(stamp(img_now, 0.15, min(dur, 3.0)))
         prev_img = (L.get("wipe") or {}).get("to") or ((L.get("flip") or {}).get("assets") or [img_now])[-1]
-        cred = tl["assets"][img_now].get("credit", "")
-        overlays.append(SourceChip((0.03, 0.935), f"{cred.upper()} · {tl['assets'][img_now].get('label', '').upper()} · DISPLAY GRADE", 0.1))
-        sc = Scene(image(base), keys, size, overlays=overlays, name=sh["id"], clamp=False, max_blur_samples=6, blur_threshold=10.0)
+        sc = Scene(image(base), keys, size, overlays=overlays + first + [chip(base)], name=sh["id"], clamp=True, max_blur_samples=6, blur_threshold=10.0)
         parts = [(grade.Graded(sc, "evidence_safe", evidence=True), 0.0, dur)]
         if L.get("wipe"):
-            w = L["wipe"]; tw = (w["t"][0] + w["t"][1]) / 2; sc2 = Scene(image(w["to"]), keys, size, overlays=overlays, name=sh["id"] + "_b", clamp=False, max_blur_samples=6, blur_threshold=10.0)
+            w = L["wipe"]; tw = (w["t"][0] + w["t"][1]) / 2
+            sc = Scene(image(base), keys, size, overlays=overlays + [x for x in first if x.t1 <= tw] + [IX.ImageStamp(stamp_txt(base), x.t0, min(x.t1, tw - 0.3)) for x in first if x.t1 > tw] + [chip(base)], name=sh["id"], clamp=True, max_blur_samples=6, blur_threshold=10.0)
+            sc2 = Scene(image(w["to"]), keys, size, overlays=overlays + [stamp(w["to"], tw + 0.1, min(dur, tw + 2.8), "wipe to another date"), chip(w["to"])], name=sh["id"] + "_b", clamp=True, max_blur_samples=6, blur_threshold=10.0)
             parts = [(grade.Graded(sc, "evidence_safe", evidence=True), 0.0, tw + 0.3), (grade.Graded(sc2, "evidence_safe", evidence=True), tw - 0.3, dur)]
             decisions.append(f"wipe {w['from']}->{w['to']} at {tw:.2f}s")
         elif L.get("flip"):
             fl = L["flip"]; stp = fl["step"]; parts = []
             for k, aid in enumerate(fl["assets"]):
                 s0 = k * stp; s1 = (k + 1) * stp if k < len(fl["assets"]) - 1 else dur
-                parts.append((grade.Graded(Scene(image(aid), keys, size, overlays=overlays, name=f"{sh['id']}_{aid}", clamp=False, max_blur_samples=6, blur_threshold=10.0), "evidence_safe", evidence=True), s0, s1))
+                ov = overlays + [stamp(aid, s0, min(s1, s0 + 3.0) if k == len(fl["assets"]) - 1 else s1, "flip image", type_s=0.0 if k else 0.5), chip(aid)]
+                parts.append((grade.Graded(Scene(image(aid), keys, size, overlays=ov, name=f"{sh['id']}_{aid}", clamp=True, max_blur_samples=6, blur_threshold=10.0), "evidence_safe", evidence=True), s0, s1))
             decisions.append(f"flip {len(fl['assets'])} images, step {stp}s")
         hits = []
         for e in plan["events"]:
@@ -302,11 +313,18 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
             s1 = next((k for k in range(i, len(words)) if re.search(r"[.!?]$", words[k]["text"])), len(words) - 1)
             if any(f["kind"] == "number" and s0 <= f.get("word", -1) <= s1 for f in focus):
                 report["skipped"].append(dict(kind="event_year", t=e["t"], why="the number card of this sentence carries the date")); continue
-            j = i - 1 if i > 0 and re.sub(r"[^\w]", "", words[i - 1]["text"]).lower() in semantic.MONTHS else i
-            prep = j - 1 if j > s0 and re.sub(r"[^\w]", "", words[j - 1]["text"]).lower() in ("in", "by", "since", "until", "after", "before") else j
-            clause = [re.sub(r"[^\w']", "", w["text"]) for w in words[s0:prep]]
-            if not clause: clause = [re.sub(r"[^\w']", "", w["text"]) for w in words[i + 1:s1 + 1]]
-            lab = " ".join(x for x in clause if x.lower() not in STOP and x.lower() not in ("and", "but", "so"))[-30:].strip() or "narration"
+            bare = lambda k: re.sub(r"[^\w]", "", words[k]["text"]).lower() if 0 <= k < len(words) else ""
+            yi = i + 1 if bare(i) in semantic.MONTHS else i
+            if bare(yi - 1) in ("from", "to") or bare(yi + 1) == "to" or bare(yi - 2) == "from":   # a range ('from 1985 to 2022'): the image stamps carry it
+                report["skipped"].append(dict(kind="event_year", t=e["t"], why="year range; image stamps show the dates")); continue
+            j = i - 1 if i > 0 and bare(i - 1) in semantic.MONTHS else i
+            if j > s0 + 1 and re.fullmatch(r"\d{1,2}", bare(j - 1)) and bare(j - 2) in semantic.MONTHS: j -= 2        # 'on July 3, 2022'
+            prep = j - 1 if j > s0 and bare(j - 1) in ("in", "by", "since", "until", "after", "before", "on") else j
+            raw = words[s0:prep]
+            cut = max((k + 1 for k, w in enumerate(raw) if re.search(r"[,;:]$", w["text"]) and k < len(raw) - 1), default=0); raw = raw[cut:]   # last clause only
+            clause = [re.sub(r"[^\w']", "", w["text"]) for w in raw] or [re.sub(r"[^\w']", "", w["text"]) for w in words[yi + 1:s1 + 1]]
+            keep = [x for x in clause if x and not re.search(r"\d", x) and x.lower() not in STOP and x.lower() not in ("and", "but", "so", "then")]
+            lab = " ".join(keep[-4:])
             yr = re.sub(r"[^\d]", "", words[i + 1]["text"]) if re.sub(r"[^\w]", "", words[i]["text"]).lower() in semantic.MONTHS else re.sub(r"[^\d]", "", words[i]["text"])
             t1 = min([e["t"] + 1.8] + [f["t0"] - 0.05 for f in focus if f["t0"] > e["t"]])
             if yr and t1 - e["t"] > 0.6:

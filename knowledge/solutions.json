@@ -2047,6 +2047,98 @@
     "render"
    ],
    "no_test_reason": "judged on rendered frames"
+  },
+  {
+   "id": "number-card-unit-crosses-sentence",
+   "title": "Number card unit took words from the next sentence ('4,209.7 FEET IN JULY 2022')",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "visual",
+   "date": "2026-10-14",
+   "problem": "EP003 first full render: number cards read '4,209.7 FEET IN JULY 2022' (a wrong fact), '48 % AND THAT ITS', '6 FEET USGS SAYS THE'; long kickers overflowed the card.",
+   "root_cause": "The tail loop started after the unit even when the unit word itself closed the sentence, and kept function words.",
+   "fix": "director: no tail when the unit (or number) ends the clause; tail keeps only content words and stops at TAIL_STOP/STOP words or digits (max 3); kicker = words after the last colon, at most 9.",
+   "reuse_when": "Every number card.",
+   "refs": {
+    "code": [
+     "orbitalatlas/director.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/VISUAL_ENGINE_BASELINE.md"
+    ]
+   },
+   "verification": "EP003 re-render stills: '4,190.2 FEET', '3.7 FEET HIGHER', kicker 'IN JULY 2022, THE GREAT SALT LAKE MEASURED' fits.",
+   "symptoms": [
+    "wrong unit",
+    "number card text"
+   ],
+   "stages": [
+    "render",
+    "review"
+   ],
+   "regression_test": "orbitalatlas/tests/test_visual_v2c.py::test_unit_stops_at_the_end_of_its_sentence"
+  },
+  {
+   "id": "flip-and-wipe-image-date-stuck",
+   "title": "During a year flip or a wipe the image date stayed on the first picture",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "visual",
+   "date": "2026-10-14",
+   "problem": "EP003: during the 1985->2022 flip the footer said 'JUNE 1985' over 2021/2022 pictures; after a wipe the footer kept the old date. Event years 'from 1985 to 2022' were drawn as amber event years with labels like 'PUT'.",
+   "root_cause": "One SourceChip/ImageStamp per storyboard shot, built from the shot's base image; the year rule did not recognise ranges.",
+   "fix": "director: every part of a shot (wipe target, each flip image) gets its own SourceChip and ImageStamp (flip stamps appear instantly, type_s=0); dates report lists them; years in 'from X to Y' are skipped; event-year labels are whole words of the last clause (max 4, no digits).",
+   "reuse_when": "Any wipe or flip, any narration with year ranges.",
+   "refs": {
+    "code": [
+     "orbitalatlas/director.py",
+     "orbitalatlas/interact.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/VISUAL_ENGINE_BASELINE.md"
+    ]
+   },
+   "verification": "EP003 stills at 23-29 s: IMAGE · LANDSAT 5 · AUGUST 1986 -> LANDSAT 8 · JULY 2021 -> LANDSAT 8, 9 · JULY 2022, footer follows.",
+   "symptoms": [
+    "wrong image date",
+    "date stuck",
+    "flip"
+   ],
+   "stages": [
+    "render",
+    "review"
+   ],
+   "regression_test": "orbitalatlas/tests/test_visual_v2c.py::test_year_range_is_not_an_event_year_and_a_wipe_dates_both_pictures"
+  },
+  {
+   "id": "director-camera-leaves-image",
+   "title": "Black strip at the frame edge on wide moves",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "render",
+   "date": "2026-10-14",
+   "problem": "EP003 at 1:48: a black strip on the right edge while the camera moved from the whole-lake view to a close view.",
+   "root_cause": "The director built scenes with clamp=False, so an eased pan/zoom could leave the image.",
+   "fix": "director scenes use clamp=True (the camera keeps the rotated window inside the image).",
+   "reuse_when": "Every director render.",
+   "refs": {
+    "code": [
+     "orbitalatlas/director.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/VISUAL_ENGINE_BASELINE.md"
+    ]
+   },
+   "verification": "EP003 still at 108 s has no black edge after the change.",
+   "symptoms": [
+    "black edge",
+    "black strip"
+   ],
+   "stages": [
+    "render",
+    "review"
+   ],
+   "no_test_reason": "needs a full camera path over a real stack; verified on EP003 frames"
   }
  ]
 }

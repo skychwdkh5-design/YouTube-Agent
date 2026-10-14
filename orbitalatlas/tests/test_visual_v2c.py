@@ -104,5 +104,28 @@ class TestSfx(unittest.TestCase):
         self.assertGreaterEqual(rep["margin_db_p5"], 11.0); self.assertIn("CC0", rep["license"])
 
 
+class TestDirectorEp003Fixes(unittest.TestCase):
+    """EP003 render review: a number card unit must not take the next sentence, year ranges are not event years, every picture of a wipe has its own date."""
+    def setUp(self):
+        import json
+        from orbitalatlas.tests import test_visual_v2b as V2B
+        base = V2B.TestDirector(); base.setUp(); self.d = d = base.d
+        ws = words("Its surface measured 4,209.7 feet. In July 2022 the lake was lower. Put the pictures in order, from 1986 to 2022, and it pulls back.", 0.4)
+        json.dump(semantic.plan(ws, {}, source="alignment", max_events_per_10s=12), open(f"{d}/story/motion_plan.json", "w"))
+        tl = json.load(open(f"{d}/timeline.json")); tl["shots"] = [tl["shots"][0], dict(tl["shots"][2], start=ws[13]["start"])]; tl["end"] = dict(seconds=ws[-1]["end"] + 1.0)
+        json.dump(tl, open(f"{d}/timeline.json", "w"))
+
+    def test_unit_stops_at_the_end_of_its_sentence(self):
+        from orbitalatlas import director
+        prog, rep = director.build(self.d, SIZE, log=lambda m: None, opening_tilt=False)
+        nc = [o for o in prog.overlays if type(o).__name__ == "NumberCard"]; self.assertTrue(nc); self.assertEqual(nc[0].unit, "FEET")
+
+    def test_year_range_is_not_an_event_year_and_a_wipe_dates_both_pictures(self):
+        from orbitalatlas import director
+        prog, rep = director.build(self.d, SIZE, log=lambda m: None, opening_tilt=False)
+        self.assertFalse(any(d["kind"] == "event" and d["year"] in ("1986",) for d in rep["dates"]))
+        imgs = [d["asset_label"] for d in rep["dates"] if d["kind"] == "image"]; self.assertIn("July 1986", imgs); self.assertIn("July 2022", imgs)
+
+
 if __name__ == "__main__":
     unittest.main()
