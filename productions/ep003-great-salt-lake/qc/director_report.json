@@ -594,7 +594,8 @@
    "t": 206.195,
    "frm": "Gunnison Bay",
    "to": "Gilbert Bay",
-   "km": 60.9
+   "km": 60.9,
+   "label": null
   },
   {
    "kind": "transition",
@@ -612,6 +613,13 @@
    ]
   },
   {
+   "kind": "fill",
+   "t": 211.16666666666669,
+   "mask": "water2022",
+   "minus": null,
+   "label": "GILBERT BAY"
+  },
+  {
    "kind": "transition",
    "t": 210.86666666666667,
    "why": "cut"
@@ -623,8 +631,15 @@
    "dur": 18.13,
    "base": "y2022",
    "decisions": [
-    "camera: scale change out x2.9"
+    "camera: smooth move 1.6s"
    ]
+  },
+  {
+   "kind": "outline",
+   "t": 230.56,
+   "mask": "water2022",
+   "minus": null,
+   "label": "SHORELINE \u00b7 JUL 2022"
   },
   {
    "kind": "image_stamp",
@@ -2549,50 +2564,6 @@
   203.6,
   203.633,
   210.867,
-  210.9,
-  210.933,
-  210.967,
-  211.0,
-  211.033,
-  211.067,
-  211.1,
-  211.133,
-  211.167,
-  211.2,
-  211.233,
-  211.267,
-  211.3,
-  211.333,
-  211.367,
-  211.4,
-  211.433,
-  211.467,
-  211.5,
-  211.533,
-  211.567,
-  211.6,
-  211.633,
-  211.667,
-  211.7,
-  211.733,
-  211.767,
-  211.8,
-  211.833,
-  211.867,
-  211.9,
-  211.933,
-  211.967,
-  212.0,
-  212.033,
-  212.067,
-  212.1,
-  212.133,
-  212.167,
-  212.2,
-  212.233,
-  212.267,
-  212.3,
-  212.333,
   229.0,
   229.033,
   229.067,
@@ -3651,9 +3622,21 @@
    "problems": []
   },
   {
+   "t": 7.38,
+   "kind": "number_unit",
+   "text": "FEET",
+   "problems": []
+  },
+  {
    "t": 17.32,
    "kind": "number_kicker",
    "text": "The lake's record high had come in 1986, at",
+   "problems": []
+  },
+  {
+   "t": 17.32,
+   "kind": "number_unit",
+   "text": "FEET",
    "problems": []
   },
   {
@@ -3663,9 +3646,21 @@
    "problems": []
   },
   {
+   "t": 46.08,
+   "kind": "number_unit",
+   "text": "MILES LONG",
+   "problems": []
+  },
+  {
    "t": 54.84,
    "kind": "number_kicker",
    "text": "At about",
+   "problems": []
+  },
+  {
+   "t": 54.84,
+   "kind": "number_unit",
+   "text": "FEET",
    "problems": []
   },
   {
@@ -3675,9 +3670,21 @@
    "problems": []
   },
   {
+   "t": 71.36,
+   "kind": "number_unit",
+   "text": "MILLION",
+   "problems": []
+  },
+  {
    "t": 81.19,
    "kind": "number_kicker",
    "text": "In July 2021, the gauge at Saltair read",
+   "problems": []
+  },
+  {
+   "t": 81.19,
+   "kind": "number_unit",
+   "text": "FEET",
    "problems": []
   },
   {
@@ -3687,9 +3694,21 @@
    "problems": []
   },
   {
+   "t": 119.89,
+   "kind": "number_unit",
+   "text": "%",
+   "problems": []
+  },
+  {
    "t": 127.5,
    "kind": "number_kicker",
    "text": "the lake's volume has shrunk",
+   "problems": []
+  },
+  {
+   "t": 127.5,
+   "kind": "number_unit",
+   "text": "%",
    "problems": []
   },
   {
@@ -3699,9 +3718,21 @@
    "problems": []
   },
   {
+   "t": 135.97,
+   "kind": "number_unit",
+   "text": "PEOPLE",
+   "problems": []
+  },
+  {
    "t": 157.71,
    "kind": "number_kicker",
    "text": "The causeway took",
+   "problems": []
+  },
+  {
+   "t": 157.71,
+   "kind": "number_unit",
+   "text": "MILLION CUBIC YARDS",
    "problems": []
   },
   {
@@ -3711,9 +3742,21 @@
    "problems": []
   },
   {
+   "t": 186.62,
+   "kind": "number_unit",
+   "text": "FEET HIGHER",
+   "problems": []
+  },
+  {
    "t": 260.18,
    "kind": "number_kicker",
    "text": "the lake dropped almost",
+   "problems": []
+  },
+  {
+   "t": 260.18,
+   "kind": "number_unit",
+   "text": "FEET",
    "problems": []
   },
   {
@@ -3723,15 +3766,33 @@
    "problems": []
   },
   {
+   "t": 285.29,
+   "kind": "number_unit",
+   "text": "SITES",
+   "problems": []
+  },
+  {
    "t": 333.8,
    "kind": "number_kicker",
    "text": "They show it fell by",
    "problems": []
   },
   {
+   "t": 333.8,
+   "kind": "number_unit",
+   "text": "CUBIC MILES",
+   "problems": []
+  },
+  {
    "t": 359.16,
    "kind": "number_kicker",
    "text": "in July 2022, the Great Salt Lake measured",
+   "problems": []
+  },
+  {
+   "t": 359.16,
+   "kind": "number_unit",
+   "text": "FEET",
    "problems": []
   },
   {
@@ -3916,6 +3977,20 @@
    "text": "LANDSAT 8, 9 \u00b7 USGS \u00b7 JULY 2022",
    "asset_label": "July 2022",
    "prov": "2022-07-11 (path 39, Landsat 8) and 2022-07-28 (path 38, Landsat 9)"
+  },
+  {
+   "kind": "overlay",
+   "t": 211.17,
+   "text": "GILBERT BAY \u00b7 DEEP BRINE LAYER NEAR THE BOTTOM \u00b7 USGS",
+   "mask": "water2022",
+   "minus": null
+  },
+  {
+   "kind": "overlay",
+   "t": 230.56,
+   "text": "SHORELINE \u00b7 JUL 2022",
+   "mask": "water2022",
+   "minus": null
   },
   {
    "kind": "image",
@@ -4476,7 +4551,7 @@
    "t0": 210.874,
    "t1": 223.285,
    "label": "calm",
-   "visual_events": 6,
+   "visual_events": 7,
    "max_gap": 2.95,
    "limit": 6.0,
    "ok": true
@@ -4494,7 +4569,7 @@
    "t0": 229.009,
    "t1": 231.029,
    "label": "normal",
-   "visual_events": 3,
+   "visual_events": 4,
    "max_gap": 1.18,
    "limit": 4.0,
    "ok": true
@@ -5129,12 +5204,6 @@
     "gain_db": -22
    },
    {
-    "t": 210.967,
-    "kind": "whoosh",
-    "why": "fast camera move",
-    "gain_db": -14
-   },
-   {
     "t": 224.736,
     "kind": "ui_blip",
     "why": "image_stamp",
@@ -5358,7 +5427,7 @@
    }
   ],
   "voice_active_s": 267.3,
-  "margin_db_p5": 13.2,
+  "margin_db_p5": 13.3,
   "license": "Original sound effects synthesised by orbitalatlas/sfx.py (code in this repository). No third-party audio is used; no attribution is required. Released CC0 1.0 by the project owner together with the code; safe for monetised YouTube use."
  }
 }

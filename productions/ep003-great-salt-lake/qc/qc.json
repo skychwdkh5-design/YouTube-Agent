@@ -2,7 +2,7 @@
  "result": "PASS",
  "file": "/home/user/YouTube-Agent/productions/ep003-great-salt-lake/final.mp4",
  "summary": {
-  "bytes": 1089413803,
+  "bytes": 829605224,
   "duration": 372.566667,
   "resolution": "1920x1080",
   "fps": 30.0,
@@ -28,7 +28,7 @@
    "id": "file_size",
    "status": "pass",
    "expected": "> 0 and <= 2000.0 MB",
-   "actual": 1089413803
+   "actual": 829605224
   },
   {
    "id": "container",
