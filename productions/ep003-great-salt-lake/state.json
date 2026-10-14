@@ -16,6 +16,7 @@
   },
   "tts_plan": {
    "pitfalls_consulted": [
+    "free-test-voice-measured-timing",
     "paid-tts-gate-in-the-calling-function",
     "script-lock-sha256",
     "tts-blank-lines-are-billable",
@@ -24,8 +25,8 @@
     "tts-no-blind-retry",
     "tts-persistent-chunk-cache"
    ],
-   "completed": "2026-10-14T07:27:07Z",
-   "inputs_sha": "5981582e7736ec22c5c4a7902418fbcf1f546c15f4ab8567e98e1b6614a3fcff"
+   "completed": "2026-10-14T10:12:09Z",
+   "inputs_sha": "f782c2bf9ea870ca6c5073a561cfda0f523ed3ad63584717a7c3a3d1c2a77d37"
   }
  }
 }

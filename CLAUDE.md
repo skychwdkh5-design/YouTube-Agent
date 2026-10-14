@@ -84,6 +84,8 @@ Rules in short:
 
 ## Production knowledge base (read before every new release)
 
+- VISUAL_ENGINE_STATUS: PRODUCTION_BASELINE_V2C (`docs/production-knowledge/VISUAL_ENGINE_BASELINE.md`): use it for episodes; no v3 or effect demos without a new task (`FUTURE_VISUAL_ROADMAP.md`).
+
 - Index: `docs/production-knowledge/README.md` (about 30 lines). Read the index first, then only the one or two documents your task needs; do not load the whole folder.
 - Reuse existing components (`orbitalatlas/`, `productions/dubai/preview/`, `.claude/skills/yt-*`, `tools/cesium_proof/`) and run `python3 tools/memory/kb.py search WORDS` / `kb.py diagnose LOG` before debugging; do not repeat fixed mistakes or build a duplicate tool.
 - Paid TTS: follow `docs/production-knowledge/TTS_ELEVENLABS.md` (preflight, character count, `--cache-dir`, one pass, never regenerate cached audio, no retry after an error before checking credits and the cache).
