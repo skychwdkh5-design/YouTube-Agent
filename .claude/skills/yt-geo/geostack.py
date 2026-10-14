@@ -9,6 +9,8 @@ stack.json:
     {"aoi": [lon_min, lat_min, lon_max, lat_max], "pixel_m": 30, "out_dir": "stack",
      "scenes": [{"id": "y2000", "src": "raw/LE07_..._refl.tif", "label": "2000",
                  "provenance": {...}}, ...]}
+    "src" may also be a LIST of GeoTIFFs: neighbouring rows of one pass and date (a lake that spans two Landsat frames). Each pixel
+    is taken from the first tile with real data there (no blending); an area that the tiles together do not cover is an error.
 
 Reads GeoTIFFs with Pillow only (ModelPixelScale, ModelTiepoint and the projected EPSG from the
 GeoKey directory - UTM / WGS84 zones 32601-32660 and 32701-32760), projects every output pixel
@@ -137,8 +139,9 @@ def build_grid(aoi, pixel_m):
     return {"epsg": epsg, "x0": x0, "y_top": y1, "pixel_m": pixel_m, "width": w, "height": h}
 
 
-def warp(im, info, grid):
-    """Sample a scene onto the grid (bilinear). Returns uint8 RGB array, or raises if not covered."""
+def warp(im, info, grid, partial=False):
+    """Sample a scene onto the grid (bilinear). Returns uint8 RGB array, or raises if not covered.
+    With partial=True it returns (array, valid_mask) instead and never raises for uncovered pixels (used to mosaic tiles of one pass)."""
     if im.mode != "RGB":
         im = im.convert("RGB")
     src = np.asarray(im, dtype=np.float32)
@@ -152,17 +155,38 @@ def warp(im, info, grid):
     off = 0.5 if info["pixel_is_area"] else 0.0
     col = (X - info["x0"]) / info["dx"] - off
     row = (info["y0"] - Y) / info["dy"] - off
-    if col.min() < 0 or row.min() < 0 or col.max() > info["width"] - 1 or row.max() > info["height"] - 1:
+    inside = (col >= 0) & (row >= 0) & (col <= info["width"] - 1) & (row <= info["height"] - 1)
+    if not partial and not inside.all():
         raise GeoError("the area is not fully inside this scene", status="not_covered")
-    c0, r0 = np.floor(col).astype(int), np.floor(row).astype(int)
+    colc, rowc = np.clip(col, 0, info["width"] - 1), np.clip(row, 0, info["height"] - 1)
+    c0, r0 = np.floor(colc).astype(int), np.floor(rowc).astype(int)
     c1, r1 = np.minimum(c0 + 1, info["width"] - 1), np.minimum(r0 + 1, info["height"] - 1)
-    fc, fr = (col - c0)[..., None], (row - r0)[..., None]
+    fc, fr = (colc - c0)[..., None], (rowc - r0)[..., None]
     top = src[r0, c0] * (1 - fc) + src[r0, c1] * fc
     bot = src[r1, c0] * (1 - fc) + src[r1, c1] * fc
     out = top * (1 - fr) + bot * fr
-    if (out.max(axis=2) < 3).mean() > 0.001:
+    nodata = out.max(axis=2) < 3                               # the scene's black fill around its footprint
+    valid = inside & ~nodata
+    if partial:
+        return np.clip(out + 0.5, 0, 255).astype(np.uint8), valid
+    if nodata.mean() > 0.001:
         raise GeoError("the area touches the scene's no-data fill", status="not_covered")
     return np.clip(out + 0.5, 0, 255).astype(np.uint8)
+
+
+def warp_mosaic(tiles, grid):
+    """Tiles of ONE acquisition (neighbouring rows of the same path and date) onto one grid: each pixel comes from the first tile that
+    has real data there (no blending, so nothing is invented); every pixel must be covered by some tile or it is an error."""
+    out = np.zeros((grid["height"], grid["width"], 3), np.uint8)
+    have = np.zeros((grid["height"], grid["width"]), bool)
+    for im, info in tiles:
+        arr, valid = warp(im, info, grid, partial=True)
+        take = valid & ~have
+        out[take] = arr[take]
+        have |= valid
+    if not have.all():
+        raise GeoError(f"the area is not fully covered by the {len(tiles)} tile(s): {(~have).mean() * 100:.2f} % of the grid has no data", status="not_covered")
+    return out
 
 
 # --- driver ------------------------------------------------------------------------------------
@@ -187,10 +211,18 @@ def load_spec(path):
         raise GeoError("pixel_m must be between 5 and 1000")
     spec["pixel_m"] = float(pixel)
     for s in spec["scenes"]:
-        p = os.path.realpath(os.path.join(base, s.get("src", "")))
-        if os.path.commonpath([p, base]) != base or not os.path.isfile(p):
-            raise GeoError(f"scene {s['id']}: src not found inside the spec folder")
-        s["_path"] = p
+        srcs = s.get("src", "")
+        srcs = srcs if isinstance(srcs, list) else [srcs]        # a list = tiles of one acquisition, mosaicked
+        if not srcs or not all(isinstance(x, str) for x in srcs):
+            raise GeoError(f"scene {s['id']}: src must be a path or a list of paths")
+        paths = []
+        for src in srcs:
+            p = os.path.realpath(os.path.join(base, src))
+            if os.path.commonpath([p, base]) != base or not os.path.isfile(p):
+                raise GeoError(f"scene {s['id']}: src not found inside the spec folder")
+            paths.append(p)
+        s["_paths"] = paths
+        s["_path"] = paths[0]
     spec["_base"] = base
     return spec
 
@@ -200,11 +232,12 @@ def run(spec, confirm=False, contact=None):
     out_dir = os.path.join(spec["_base"], spec.get("out_dir", "stack"))
     plan, arrays = [], {}
     for s in spec["scenes"]:
-        im, info = read_geotiff(s["_path"])
-        arr = warp(im, info, grid)
+        tiles = [read_geotiff(pth) for pth in s["_paths"]]
+        arr = warp(*tiles[0], grid) if len(tiles) == 1 else warp_mosaic(tiles, grid)
         arrays[s["id"]] = arr
-        plan.append({"id": s["id"], "label": s.get("label", s["id"]), "src": os.path.relpath(s["_path"], spec["_base"]),
-                     "scene_epsg": info["epsg"], "scene_size": [info["width"], info["height"]]})
+        info = tiles[0][1]
+        plan.append({"id": s["id"], "label": s.get("label", s["id"]), "src": [os.path.relpath(pth, spec["_base"]) for pth in s["_paths"]] if len(tiles) > 1 else os.path.relpath(s["_path"], spec["_base"]),
+                     "scene_epsg": info["epsg"], "scene_size": [info["width"], info["height"]], **({"mosaic_tiles": len(tiles)} if len(tiles) > 1 else {})})
     result = {"status": "ok" if confirm else "confirm_required", "grid": grid, "scenes": plan}
     if not confirm:
         result["error"] = "writing the stack needs --confirm; every scene covers the area"

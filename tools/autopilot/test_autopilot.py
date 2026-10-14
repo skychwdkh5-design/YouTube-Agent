@@ -131,6 +131,36 @@ class Gates(unittest.TestCase):
             self.assertTrue(gates.package(d)["ok"])
 
 
+class ClaimNumbers(unittest.TestCase):
+    def check(self, script, claims):
+        import storyboard
+        with tempfile.TemporaryDirectory() as d:
+            write(os.path.join(d, "s.md"), script); write(os.path.join(d, "c.json"), {"claims": claims})
+            return gates.claim_numbers(os.path.join(d, "s.md"), os.path.join(d, "c.json"), storyboard.parse_script)
+
+    C = [{"id": "C1", "text": "In June 1985 the surface stood at 4,209.7 feet; in July 2022 it was 4,190.2 feet.", "status": "VERIFIED", "used": True}]
+
+    def test_numbers_must_come_from_a_cited_verified_claim(self):
+        r = self.check("[VIS: claims=C1]\nIn June 1985, its surface measured 4,209.7 feet.\n", self.C)
+        self.assertTrue(r["ok"], r)
+        r = self.check("[VIS: claims=C1]\nIn June 1985, its surface measured 4,290.7 feet.\n", self.C)        # a transposed digit
+        self.assertFalse(r["ok"]); self.assertIn("4290.7", r["problems"][0])
+
+    def test_a_beat_with_numbers_but_no_claims_fails(self):
+        r = self.check("The lake covers 1,700 square miles.\n", self.C)
+        self.assertFalse(r["ok"]); self.assertIn("names no claims", r["problems"][0])
+
+    def test_unverified_or_unknown_claims_fail_and_derived_numbers_must_be_declared(self):
+        r = self.check("[VIS: claims=C9]\nIt was 4,209.7 feet.\n", self.C); self.assertFalse(r["ok"])
+        bad = [dict(self.C[0], status="PENDING")]
+        self.assertFalse(self.check("[VIS: claims=C1]\nIt was 4,209.7 feet.\n", bad)["ok"])
+        self.assertFalse(self.check("[VIS: claims=C1]\nIt sat more than 20 feet lower than 4,209.7 feet.\n", self.C)["ok"])
+        self.assertTrue(self.check('[VIS: claims=C1 derived="20"]\nIt sat more than 20 feet lower than 4,209.7 feet.\n', self.C)["ok"])
+
+    def test_text_without_numbers_needs_no_claim_hint(self):
+        self.assertTrue(self.check("This is a sentence without a single figure in it.\n", self.C)["ok"])
+
+
 class Pipeline(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()

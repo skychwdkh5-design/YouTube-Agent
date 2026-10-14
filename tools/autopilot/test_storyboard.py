@@ -8,6 +8,7 @@ from PIL import Image
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(HERE, "..", "memory"))
+sys.path.insert(0, os.path.join(HERE, "..", "..", ".claude", "skills", "yt-geo"))
 import effects, storyboard as sb  # noqa: E402
 
 HAVE_FF = bool(shutil.which("ffmpeg") and shutil.which("ffprobe"))
@@ -152,6 +153,67 @@ class Generation(Base):
         self.plan(); a = open(os.path.join(self.prod, "timeline.json"), "rb").read()
         self.plan(); b = open(os.path.join(self.prod, "timeline.json"), "rb").read()
         self.assertEqual(a, b)
+
+
+class GeoScenes(Base):
+    """Scenes on a co-registered stack: camera in lon/lat, wipe, timelapse, pins - validated by the real renderer."""
+    CENTER = (-112.5, 41.0)
+
+    def make_stack(self, size=1000):
+        import geostack as geo
+        x, y = geo.lonlat_to_utm(self.CENTER[0], self.CENTER[1], 32612)
+        grid = {"schema": "yt-geo-stack/1", "epsg": 32612, "x0": float(x) - size * 15, "y_top": float(y) + size * 15, "pixel_m": 30.0, "width": size, "height": size}
+        sd = os.path.join(self.prod, "assets", "stack"); os.makedirs(sd)
+        json.dump(grid, open(os.path.join(sd, "grid.json"), "w"))
+        for name, col in (("1985", (40, 90, 160)), ("2022", (160, 120, 60)), ("2025", (90, 140, 90))):
+            arr = np.zeros((size, size, 3), np.uint8); arr[:] = col; arr[::50, :] = 255
+            Image.fromarray(arr).save(os.path.join(sd, f"y{name}.png"))
+        self.manifest_extra = {"stacks": [{"id": "t", "grid": "assets/stack/grid.json",
+            "images": {y_: {"src": f"assets/stack/y{y_}.png", "label": f"JUNE {y_}", "credit": "Landsat · USGS", "date": f"{y_}-06-12"} for y_ in ("1985", "2022", "2025")},
+            "views": {"whole": {"center": list(self.CENTER), "width_km": 24}, "north": {"center": [self.CENTER[0], 41.05], "width_km": 12}, "huge": {"center": list(self.CENTER), "width_km": 200}},
+            "pins": {"Gunnison Bay": [-112.55, 41.04], "Gilbert Bay": [-112.4, 40.95]}}]}
+        self.write("assets/manifest.json", json.dumps({"assets": self.manifest, **self.manifest_extra}))
+
+    def script(self, *lines):
+        self.write("script.md", "\n".join(lines) + "\n")
+
+    def test_wipe_pins_and_camera_move_are_valid_for_the_renderer(self):
+        self.make_stack()
+        self.script('[VIS: geo=whole>north wipe=1985>2022 at="2022" pins="Gunnison Bay|Gilbert Bay"]',
+                    "The lake in 1985 and in 2022 shows Gunnison Bay in the north and Gilbert Bay in the south, with the water pulling back from the shore.",
+                    '[VIS: flip=1985,2022,2025]', "Then the three pictures run in order so the viewer sees the shoreline move across the years.")
+        r = self.plan()
+        self.assertTrue(r["ok"], r)
+        self.assertEqual(self.tl["grid"], "assets/stack/grid.json")
+        s0 = self.tl["shots"][0]
+        self.assertEqual(s0["camera"]["from"]["width_km"], 24); self.assertEqual(s0["camera"]["to"]["width_km"], 12)
+        types = [L["type"] for L in s0["layers"]]
+        self.assertIn("wipe", types); self.assertEqual(types.count("pin"), 2)
+        self.assertEqual([L["type"] for L in self.tl["shots"][1]["layers"]], ["flip"])
+        self.assertTrue(all(a["kind"] == "image" and a["credit"] for k, a in self.tl["assets"].items() if k.startswith("y")))
+
+    def test_pins_come_from_the_manifest_never_from_a_guess(self):
+        self.make_stack()
+        self.script('[VIS: geo=whole pins="Atlantis"]', "A sentence that names a place which the stack does not define anywhere at all.")
+        with self.assertRaises(ValueError) as cm: sb.plan_cmd(self.prod)
+        self.assertIn("unknown pin", str(cm.exception))
+
+    def test_a_geo_hint_without_a_stack_is_refused(self):
+        self.script('[VIS: geo=whole]', "A sentence that asks for a map view but no registered imagery exists for it.")
+        with self.assertRaises(ValueError): sb.plan_cmd(self.prod)
+
+    def test_a_view_that_leaves_the_imagery_is_narrowed_by_the_repair_loop(self):
+        self.make_stack()
+        self.script('[VIS: geo=huge year=1985]', "A view that is much wider than the registered imagery can possibly cover on the ground.")
+        r = self.plan()
+        self.assertTrue(r["ok"], r)
+        self.assertTrue(any("narrowed" in (x["fix"] or "") for x in r["repairs"]), r["repairs"])
+        self.assertLess(self.tl["shots"][0]["camera"]["from"]["width_km"], 200)
+
+    def test_unknown_year_is_refused(self):
+        self.make_stack()
+        self.script('[VIS: geo=whole year=1066]', "A sentence about a year that has no picture in the stack at all, so it must fail.")
+        with self.assertRaises(ValueError): sb.plan_cmd(self.prod)
 
 
 class Labels(unittest.TestCase):
