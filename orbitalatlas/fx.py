@@ -243,3 +243,52 @@ class CometTrail(Overlay):
             st.line(seg, self.width * k * (1 - i / n), 1 - i / n)
         _, head = partial(self.pts, self.cum, f); st.dot(ctx.view.pt(head), self.width * 1.3 * k, 1.0)
     def describe(self): return dict(super().describe(), effect="comet_trail")
+
+
+class CalloutPanel(Overlay):
+    """HUD panel that belongs to a place: a leader line from the source point (follows the camera) to a panel with a title and rows that type on.
+    Rows must be words from the narration or verified data (the director passes them); the panel never invents content."""
+    layer = "ui"; cls = "TEXT"
+    def __init__(self, p, t0, t1, title, rows=(), offset=(0.10, -0.16), accent=CYAN, px=0.026, group=None):
+        self.p = np.asarray(p, float); self.t0, self.t1, self.title, self.rows, self.offset, self.accent, self.px = t0, t1, title, list(rows), offset, accent, px
+        self.group = group or f"callout_{title}"
+    def draw(self, ctx):
+        t = ctx.t
+        if t < self.t0 or t > self.t1 + 0.3: return
+        W, H = ctx.size; px = self.px * H; o = 1 - E.smooth(E.seg(t, self.t1, self.t1 + 0.3)); a = ctx.view.pt(self.p)
+        f = E.out_cubic(E.seg(t, self.t0, self.t0 + 0.35)); bx, by = a[0] + self.offset[0] * W, a[1] + self.offset[1] * H
+        bx = min(max(bx, 0.03 * W), 0.97 * W - px * 12); by = min(max(by, 0.06 * H), 0.70 * H)
+        d = ImageDraw.Draw(ctx.ui, "RGBA"); col = tuple(self.accent) + (int(255 * o),)
+        d.line([tuple(a), (a[0] + (bx - a[0]) * f, a[1] + (by + px * 1.6 - a[1]) * f)], fill=col, width=max(2, int(px * 0.08)))
+        d.ellipse([a[0] - px * 0.25, a[1] - px * 0.25, a[0] + px * 0.25, a[1] + px * 0.25], outline=col, width=max(2, int(px * 0.08)))
+        if f < 0.95: return
+        u = E.out_expo(E.seg(t, self.t0 + 0.3, self.t0 + 0.65)); wmax = max([K.width(self.title.upper(), px * 1.15, "heavy", 0.12)] + [K.width(r, px, "bold") for r in self.rows]) + px * 1.4
+        hh = px * (2.2 + 1.35 * len(self.rows))
+        d.rectangle([bx, by, bx + wmax * u, by + hh], fill=(8, 12, 18, int(190 * o))); d.rectangle([bx, by, bx + wmax * u, by + px * 0.12], fill=col)
+        b = K.draw_text(ctx.ui, (bx + px * 0.6, by + px * 0.55), self.title.upper(), px * 1.15, (255, 255, 255), "heavy", o * u, track=0.12)
+        for i, r in enumerate(self.rows):
+            n = int(len(r) * E.seg(t, self.t0 + 0.55 + 0.15 * i, self.t0 + 0.95 + 0.15 * i))
+            K.draw_text(ctx.ui, (bx + px * 0.6, by + px * (2.0 + 1.35 * i)), r[:n], px, self.accent, "bold", o)
+        ctx.reg.add(self.group, (bx, by, bx + wmax, by + hh), o * u)
+    def describe(self): return dict(super().describe(), effect="callout_panel", rows=len(self.rows))
+
+
+class CompareLink(Overlay):
+    """two places compared in the narration: a dashed connector between their anchors (follows the camera) and the comparative word as a badge
+    at the first place (e.g. 'SALTIER'). Both anchors must be verified pins; the word comes from the narration."""
+    layer = "world"; cls = "MAP"
+    def __init__(self, p0, p1, t0, t1, word, color=AMBER, source=None, validation=None):
+        self.p0, self.p1 = np.asarray(p0, float), np.asarray(p1, float); self.t0, self.t1, self.word, self.color, self.source, self.validation = t0, t1, word, color, source, validation
+    def draw(self, ctx):
+        t = ctx.t; f = E.in_out_cubic(E.seg(t, self.t0, self.t0 + 0.6)); o = 1 - E.smooth(E.seg(t, self.t1, self.t1 + 0.3))
+        if f <= 0 or o <= 0: return
+        k = ctx.size[1] / 1080; a, b = ctx.view.pt(self.p0), ctx.view.pt(self.p1); st = ctx.stroke(self.color, 0.6); n = 26
+        for i in range(n):
+            if i % 2: continue
+            s0, s1 = i / n, min((i + 1) / n, f)
+            if s0 >= f: break
+            st.line([a + (b - a) * s0, a + (b - a) * s1], 4 * k, o)
+        if f >= 1:
+            ImageDraw.Draw(ctx.fills, "RGBA")
+            K.scale_pop(ctx.fills, (a[0], a[1] - 70 * k), self.word.upper(), 46 * k, t, self.t0 + 0.6, hold=max(0.2, self.t1 - self.t0 - 1.0), color=self.color, weight="black", glow_radius=0.08, out=0.25)
+    def describe(self): return dict(super().describe(), effect="compare_link", word=self.word)

@@ -29,6 +29,9 @@ Run from the repo root: `python3 -m unittest discover -s orbitalatlas/tests -t .
 | `refs` | reference library loader/validator (`docs/references/library`): `python3 -m orbitalatlas.refs validate / consult SCENE` | tested |
 | `sequence.Program` | a Sequence plus global overlays (captions, titles) in programme time | tested |
 | `demo.visual_v2` | 18.7 s integrated demo on real Landsat mosaics: `python3 -m orbitalatlas.demo.visual_v2 OUT.mp4 --stack DIR --audio` | rendered + inspected |
+| `typeset` | word tiles + presets (rise mask, depth, slide, outline_fill, type, pop, glint), `KineticLine`, `ImpactCard`, `NumberCard`, `YearTag`, `Dim`, `push_lines` | tested |
+| `plane` | `PlaneTilt`: the map shown on a tilted plane over a floor grid, landing flat (identity at 0 deg) | tested |
+| `director` | automatic storyboard (timeline v3) + `story/motion_plan.json` -> programme: cameras, transitions by purpose, focus manager, pacing, report; `python3 -m orbitalatlas.director render SLUG OUT.mp4` | tested; geo shots only |
 | `synthetic` | procedural test images with exact geometry | test data only |
 | `demo` | seven-shot demo from specs; `python3 -m orbitalatlas.demo.render_demo OUT.mp4 --qa` | |
 

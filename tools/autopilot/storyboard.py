@@ -464,7 +464,8 @@ def build(prod, allow_graphics=True, timings=None):
     scenes = build_scenes(blocks, words, {a["id"] for a in assets if a.get("kind") == "video"})
     claims = (_json(os.path.join(prod, "story", "claims.json"), {}) or {}).get("claims", [])
     duration = q(words[-1]["end"] + 1.5)
-    plan = {"timing": timing, "alignment": al, "scenes": [], "gaps": [], "warnings": []}
+    plan = {"timing": timing, "alignment": al, "scenes": [], "gaps": [], "warnings": [],
+            "timing_source": (vj.get("timing_source") or "provider") if timing == "provider" else "estimated"}   # 'alignment' = measured on a free test voice
     tl_assets, shots, history, specs = {}, [], [], []
     subject = set()
 
@@ -551,7 +552,7 @@ def build(prod, allow_graphics=True, timings=None):
             plan["needs"].append({"scene": d_["scene"], "asset": d_["chosen"].get("asset"), "need": f"a picture dated within the narrated year (the best available is {gap_} yr away): acquire one with /yt-satellite or choose a script wording that does not name the year"})
     tl = {"version": 3, "profile": "long", "grid": stack["grid"] if stack else "grid.json", "assets": tl_assets, "shots": shots, "end": {"seconds": duration},
           "render": {"segment_s": 60},
-          "meta": {"generator": "tools/autopilot/storyboard.py", "timing": timing,
+          "meta": {"generator": "tools/autopilot/storyboard.py", "timing": timing, "timing_source": plan["timing_source"],
                    "timing_note": "provider word times" if timing == "provider" else "ESTIMATED timing (2.38 words/s): a proof only, not frame-accurate; rebuild after the paid narration exists"}}
     return tl, plan, specs, words
 
@@ -676,7 +677,7 @@ def write_outputs(prod, tl, plan, res, log):
     plan["repairs"] = log
     with open(os.path.join(prod, "story", "storyboard.plan.json"), "w", encoding="utf-8") as f: json.dump(plan, f, indent=1, ensure_ascii=False)
     L = ["# Storyboard (generated - edit timeline.json, or the script/hints, then rerun `storyboard.py plan`)", "",
-         f"Timing: **{plan['timing']}**" + ("  ·  ESTIMATED, a proof only" if plan["timing"] == "estimated" else ""), ""]
+         f"Timing: **{plan['timing']}** (source: {plan.get('timing_source', plan['timing'])})" + ("  ·  ESTIMATED, a proof only" if plan["timing"] == "estimated" else ""), ""]
     for d in plan["scenes"]:
         c = d["chosen"]
         L.append(f"- **{d['scene']}** {d['start']:.1f}s · {c['template']} · asset `{c.get('asset')}` · family `{c['family']}` · score {d['score']} · {', '.join(d['kinds'])}")
@@ -701,11 +702,28 @@ def plan_cmd(prod, allow_graphics=True, timings=None):
     for shot in tl["shots"]:
         for L in shot["layers"]:
             L.pop("_steps", None); L.pop("_sent_starts", None)
+    motion = motion_plan(prod, tl, words, plan)
     res, log = validate_and_repair(prod, tl)
     write_outputs(prod, tl, plan, res, log)
     ok = res.get("status") != "error" and "plan" in res
     return {"ok": ok, "scenes": len(plan["scenes"]), "gaps": plan["gaps"], "repairs": log, "timing": plan["timing"],
             "renderer_warnings": plan["renderer_plan"]["warnings"], "compositions": hold_report(res), "error": None if ok else res.get("error")}
+
+
+def motion_plan(prod, tl, words, plan):
+    """narration -> visual events (orbitalatlas.semantic) for the motion director; places = the stack's pins and regions (never guessed).
+    Written to story/motion_plan.json and referenced from timeline.meta.motion_plan. Timing source is copied from the voice file."""
+    sys.path.insert(0, ROOT)
+    from orbitalatlas import semantic
+    st = load_stack(prod) or {}
+    places = {n: {} for n in list((st.get("pins") or {}).keys()) + list((st.get("regions") or {}).keys())}
+    vj = _json(os.path.join(prod, "voice", "narration.voice.json")) or {}
+    src = vj.get("timing_source") or ("provider" if plan["timing"] == "provider" else "estimated")
+    mp = semantic.plan(words, places, mode="long" if tl.get("profile") == "long" else "short", source=src)
+    os.makedirs(os.path.join(prod, "story"), exist_ok=True)
+    with open(os.path.join(prod, "story", "motion_plan.json"), "w", encoding="utf-8") as f: json.dump(mp, f, indent=1, ensure_ascii=False)
+    tl.setdefault("meta", {})["motion_plan"] = "story/motion_plan.json"
+    return mp
 
 
 # ------------------------------------------------------------------------------------------------ preview

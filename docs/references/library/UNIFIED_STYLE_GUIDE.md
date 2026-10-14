@@ -19,5 +19,10 @@ Narration decides what the viewer must understand. Three layers, never more than
 - **Colour**: one accent per layer. OrbitalAtlas tokens: amber = emphasis, cyan = data/annotation, violet = decor only. The references' purple is not the brand.
 - **Honesty**: timing source is written into every plan (`provider`/`alignment` = frame accurate; `estimated`/`simulated` are not). Decorations are labelled `DECOR`; a waveform says whether it is measured.
 
+## Focus and pacing (v2b, enforced by `orbitalatlas.director`)
+- One focus at a time: impact card (revelation, <= 5 words) > number card > captions. The caption that says the same thing is hidden; numbers are never shown twice.
+- Focus cards at least 5 s apart and at most 4 per minute in long-form; other numbers stay in style D captions. Captions never count up.
+- Opening: the map lands from a tilted plane (PlaneTilt). Image date shown once per image change (HUD stamp), not on every shot.
+
 ## Not to do
 Constant flashing; neon everywhere; text on every shot; flags/cloth (not built); noise glitch; recolouring Landsat; unlabeled arrows; claiming a 3D flyover (class A only).

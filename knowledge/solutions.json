@@ -1738,6 +1738,160 @@
     "storyboard",
     "review"
    ]
+  },
+  {
+   "id": "director-renders-the-automatic-storyboard",
+   "title": "Render the automatic storyboard with motion graphics: storyboard -> motion_plan.json -> orbitalatlas.director",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "visual",
+   "date": "2026-10-14",
+   "problem": "Graphics were hand-placed per demo; the storyboard generator produced only yt-render layers (labels, pins, wipes) with no kinetic type, cards or captions.",
+   "root_cause": "No link between the narration plan (semantic) and the timeline.",
+   "fix": "storyboard.py plan now writes story/motion_plan.json (semantic.plan with the stack's pins/regions as gazetteer, timing source from the voice file) and timeline.meta.motion_plan; python3 -m orbitalatlas.director render SLUG OUT.mp4 builds cameras (snap / scale change / smooth), wipes/flips, pins, region tints, routes, comparisons, callouts, year tags, number and impact cards and captions from it, and writes OUT.director.json with every decision.",
+   "reuse_when": "Any episode with a geo stack: after storyboard plan, before reviewing motion.",
+   "refs": {
+    "code": [
+     "orbitalatlas/director.py",
+     "tools/autopilot/storyboard.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ]
+   },
+   "verification": "ep900-visual-demo (19.3 s, alignment timing) and EP003 (300 s, 40 shots, estimated timing) built automatically; 30 s of EP003 and the full demo rendered and inspected.",
+   "regression_test": "orbitalatlas/tests/test_visual_v2b.py::test_focus_hides_duplicate_captions_and_decisions_are_reported",
+   "symptoms": [
+    "motion plan",
+    "director",
+    "automatic storyboard"
+   ],
+   "stages": [
+    "storyboard",
+    "render"
+   ]
+  },
+  {
+   "id": "single-focus-no-number-duplication",
+   "title": "One focus at a time: a number/impact card hides the caption that says the same thing; pacing limits cards",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "visual",
+   "date": "2026-10-14",
+   "problem": "The first demo showed 4,190.2 in the caption and again as a big pop; EP003's automatic run put a number card every 2-3 s and a 6.7 s impact card.",
+   "root_cause": "Captions and graphics were planned independently; no pacing rule for focus graphics.",
+   "fix": "director focus manager: impact (revelation, <= 5 words) > number; overlapping caption cards are hidden (the card carries kicker + value + unit + trailing words, e.g. '20 FEET LOWER'); map dims behind a number card; min 5 s between focus cards, max 4 per minute (others stay as style D captions); captions never count up (subtitles show the spoken words).",
+   "reuse_when": "Planning any on-screen number or statement.",
+   "refs": {
+    "code": [
+     "orbitalatlas/director.py",
+     "orbitalatlas/captions.py"
+    ],
+    "docs": [
+     "docs/references/library/UNIFIED_STYLE_GUIDE.md"
+    ]
+   },
+   "verification": "EP003 auto plan: 15 focus cards in 300 s, impact cards over 5 words refused; demo: captions hidden exactly under the two cards.",
+   "regression_test": "orbitalatlas/tests/test_visual_v2b.py::test_storyboard_stat_label_is_not_drawn_twice",
+   "symptoms": [
+    "duplicate number",
+    "caption and graphic"
+   ],
+   "stages": [
+    "storyboard",
+    "review"
+   ]
+  },
+  {
+   "id": "caption-count-up-showed-wrong-numbers",
+   "title": "Count-up inside subtitles showed numbers that were never spoken",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "qc",
+   "date": "2026-10-14",
+   "problem": "Style D captions counted 0 -> 4,190.2, so a frame read 'it measured 4,062.3'.",
+   "root_cause": "An animation meant for a graphic was applied to a subtitle, which must match the narration.",
+   "fix": "No count-up in captions; count-up only in NumberCard, which settles on the exact string and is the focus element.",
+   "reuse_when": "Any animated number inside subtitles.",
+   "refs": {
+    "code": [
+     "orbitalatlas/captions.py",
+     "orbitalatlas/typeset.py"
+    ],
+    "docs": [
+     "docs/references/library/UNIFIED_STYLE_GUIDE.md"
+    ]
+   },
+   "verification": "found on a frame of the EP003 automatic render, fixed, regression test.",
+   "regression_test": "orbitalatlas/tests/test_visual_v2b.py::test_style_d_never_shows_an_intermediate_number",
+   "symptoms": [
+    "wrong number in subtitles",
+    "count up"
+   ],
+   "stages": [
+    "captions",
+    "review"
+   ]
+  },
+  {
+   "id": "snap-zoom-blur-smear",
+   "title": "Full camera motion blur on a fast snap zoom smears the whole frame",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "render",
+   "date": "2026-10-14",
+   "problem": "A x2.4 snap zoom in 0.55 s rendered as an unreadable smear (EP003 automatic run, 6.0 s).",
+   "root_cause": "Scene motion blur samples scale with apparent speed (up to 16 sub-frames).",
+   "fix": "Director scenes use max_blur_samples=6 and blur_threshold=10 and snap zooms of 0.7 s; QA receives the deliberate fast-move frames as declared changes (report.intended_changes).",
+   "reuse_when": "Fast camera presets on large images.",
+   "refs": {
+    "code": [
+     "orbitalatlas/director.py",
+     "orbitalatlas/layers.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ]
+   },
+   "verification": "re-rendered frames at 5.8/6.2 s are readable; QA passes with the declared changes.",
+   "symptoms": [
+    "smear",
+    "motion blur too strong"
+   ],
+   "stages": [
+    "render"
+   ],
+   "no_test_reason": "needs rendered video / repository state, checked on frames"
+  },
+  {
+   "id": "ep003-manifest-not-in-git",
+   "title": "EP003 assets/manifest.json (with the stack) was ignored by git",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "storage",
+   "date": "2026-10-14",
+   "problem": "The automatic EP003 test could not take the manifest from the branch: productions/ep###-*/assets/ is ignored, and the manifest lives there.",
+   "root_cause": ".gitignore ignores the whole assets/ folder of new episodes, text included.",
+   "fix": "Force-add the manifest (git add -f productions/<slug>/assets/manifest.json); episodes keep media out of git but the manifest is text and must be committed.",
+   "reuse_when": "Committing any new episode.",
+   "refs": {
+    "code": [
+     "tools/autopilot/storyboard.py"
+    ],
+    "docs": [
+     "docs/AUTOPILOT.md"
+    ]
+   },
+   "verification": "found while copying EP003 for the director test; ep900 manifest force-added; EP003 fix pushed to its branch.",
+   "symptoms": [
+    "manifest missing",
+    "stack not found"
+   ],
+   "stages": [
+    "research",
+    "storyboard"
+   ],
+   "no_test_reason": "needs rendered video / repository state, checked on frames"
   }
  ]
 }

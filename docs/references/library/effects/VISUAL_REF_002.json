@@ -18,12 +18,13 @@
     "glyph rasteriser"
    ],
    "implementation": [
-    "text.kinetic",
-    "kinetic.word_by_word",
-    "kinetic.glow"
+    "typeset.tile",
+    "typeset.animate_word",
+    "typeset.KineticLine",
+    "text.kinetic"
    ],
    "status": "IMPLEMENTED",
-   "preset": "word_by_word(words, t0s)",
+   "preset": "KineticLine(words, preset='outline_fill'|'type'|'rise')",
    "scene_types": [
     "opening title",
     "hook"
@@ -32,7 +33,7 @@
     "no text outside frame",
     "contrast >= 4.5:1 for body text"
    ],
-   "uncertainty": "outline-only type is not built (heavy fills only)"
+   "uncertainty": "outline weight and glow are estimates (v2b adds outline-only type and type-on with cursor)"
   },
   {
    "id": "VR2-02",
@@ -106,11 +107,11 @@
     "flash transition"
    ],
    "implementation": [
-    "transitions.FlashDip (flash only)",
-    "kinetic.duplicate_offset"
+    "typeset.ImpactCard",
+    "transitions.FlashDip"
    ],
-   "status": "PARTIAL",
-   "preset": "FlashDip + duplicate_offset caption (style C)",
+   "status": "IMPLEMENTED",
+   "preset": "ImpactCard(words, t0, t1, bg=AMBER)  # revelation; captions hidden under it",
    "scene_types": [
     "revelation"
    ],
@@ -118,7 +119,7 @@
     "use at most 2 per minute",
     "legibility on the card"
    ],
-   "uncertainty": "full-frame colour card with black type is NOT a preset; the impact is approximated by flash + style C caption"
+   "uncertainty": "colour is the OrbitalAtlas amber, not the reference lilac; at most ~2 per minute (focus manager)"
   },
   {
    "id": "VR2-05",
@@ -159,11 +160,12 @@
     "layout"
    ],
    "implementation": [
-    "fx.HudFrame",
-    "kinetic.mask_reveal"
+    "typeset.NumberCard",
+    "fx.CalloutPanel",
+    "fx.HudFrame"
    ],
-   "status": "PARTIAL",
-   "preset": "compose HudFrame + labels",
+   "status": "IMPLEMENTED",
+   "preset": "NumberCard(value, unit, kicker, t0, t1); CalloutPanel(...)",
    "scene_types": [
     "process diagrams (use yt-graphics for the diagram itself)"
    ],
@@ -171,7 +173,7 @@
     "text >= 16 px at 1080p",
     "no more than 3 panels"
    ],
-   "uncertainty": "flow/process boxes belong to yt-graphics; only frame/labels are in the engine"
+   "uncertainty": "panel layout is ours; reference panels are denser"
   },
   {
    "id": "VR2-07",
@@ -189,7 +191,8 @@
    ],
    "implementation": [
     "kinetic.duplicate_offset",
-    "kinetic.KineticTitle"
+    "kinetic.KineticTitle",
+    "typeset.ImpactCard"
    ],
    "status": "IMPLEMENTED",
    "preset": "KineticTitle(head, sub, t0, t1)",
@@ -200,7 +203,7 @@
     "max 24 characters per line",
     "safe margins"
    ],
-   "uncertainty": "Cyrillic in the reference; OrbitalAtlas text is English"
+   "uncertainty": "Cyrillic in the reference; OrbitalAtlas text is English. v2b: outline echo behind the card text"
   },
   {
    "id": "VR2-08",
@@ -293,7 +296,8 @@
     "word timings"
    ],
    "implementation": [
-    "captions.WordCaptions style B/D"
+    "captions.WordCaptions",
+    "typeset.KineticLine"
    ],
    "status": "IMPLEMENTED",
    "preset": "WordCaptions(cards, 'B')",
@@ -339,18 +343,18 @@
     "perspective"
    ],
    "implementation": [
-    "fx.NeonGrid (floor)",
-    "kinetic.tilt_25d"
+    "plane.PlaneTilt",
+    "fx.NeonGrid"
    ],
-   "status": "PARTIAL",
-   "preset": "NeonGrid(flat=False)",
+   "status": "IMPLEMENTED",
+   "preset": "PlaneTilt(scene, [(0, 42), (1.7, 0)])  # the map lands from a tilted plane on a floor grid",
    "scene_types": [
     "intro cards"
    ],
    "qa_rules": [
     "-"
    ],
-   "uncertainty": "text on a perspective plane is only available per word via tilt_25d"
+   "uncertainty": "one flat picture shown on a plane; not terrain"
   },
   {
    "id": "VR2-14",

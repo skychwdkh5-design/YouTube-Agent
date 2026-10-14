@@ -229,6 +229,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** EP002 v4.1: only 8 changed scenes re-rendered (~25 min with 4 jobs).
 - **Regression test:** none - Atomic rename pattern is also tested generically in yt-render's output tests; build_final.py itself has no unit test.
 
+### snap-zoom-blur-smear - Full camera motion blur on a fast snap zoom smears the whole frame
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** A x2.4 snap zoom in 0.55 s rendered as an unreadable smear (EP003 automatic run, 6.0 s).
+- **Root cause:** Scene motion blur samples scale with apparent speed (up to 16 sub-frames).
+- **Fix:** Director scenes use max_blur_samples=6 and blur_threshold=10 and snap zooms of 0.7 s; QA receives the deliberate fast-move frames as declared changes (report.intended_changes).
+- **Reuse when:** Fast camera presets on large images.
+- **References:** `orbitalatlas/director.py`; `orbitalatlas/layers.py`; `docs/references/library/REFERENCE_COMPARISON.md`
+- **Verification:** re-rendered frames at 5.8/6.2 s are readable; QA passes with the declared changes.
+- **Regression test:** none - needs rendered video / repository state, checked on frames
+
 ### xfade-shortens-timeline - ffmpeg xfade between segments shortens the timeline and breaks sync
 *VERIFIED · EP002 · 2026-10-13*
 
@@ -252,6 +263,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `.claude/skills/yt-qc/qc.py`; commit `dab03c0`; commit `e5f168d`
 - **Verification:** yt-qc black-frame test; EP002 final black_frames PASS; EP001 commit dab03c0 re-timed g19/g23/g32/g34.
 - **Regression test:** `.claude/skills/yt-qc/test_qc.py::test_black_frames_and_manifest_failures`
+
+### caption-count-up-showed-wrong-numbers - Count-up inside subtitles showed numbers that were never spoken
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Style D captions counted 0 -> 4,190.2, so a frame read 'it measured 4,062.3'.
+- **Root cause:** An animation meant for a graphic was applied to a subtitle, which must match the narration.
+- **Fix:** No count-up in captions; count-up only in NumberCard, which settles on the exact string and is the focus element.
+- **Reuse when:** Any animated number inside subtitles.
+- **References:** `orbitalatlas/captions.py`; `orbitalatlas/typeset.py`; `docs/references/library/UNIFIED_STYLE_GUIDE.md`
+- **Verification:** found on a frame of the EP003 automatic render, fixed, regression test.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2b.py::test_style_d_never_shows_an_intermediate_number`
 
 ### freeze-on-static-card - Static cards trip freezedetect
 *VERIFIED · EP002 · 2026-10-13*
@@ -354,6 +376,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 
 ## visual
 
+### director-renders-the-automatic-storyboard - Render the automatic storyboard with motion graphics: storyboard -> motion_plan.json -> orbitalatlas.director
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Graphics were hand-placed per demo; the storyboard generator produced only yt-render layers (labels, pins, wipes) with no kinetic type, cards or captions.
+- **Root cause:** No link between the narration plan (semantic) and the timeline.
+- **Fix:** storyboard.py plan now writes story/motion_plan.json (semantic.plan with the stack's pins/regions as gazetteer, timing source from the voice file) and timeline.meta.motion_plan; python3 -m orbitalatlas.director render SLUG OUT.mp4 builds cameras (snap / scale change / smooth), wipes/flips, pins, region tints, routes, comparisons, callouts, year tags, number and impact cards and captions from it, and writes OUT.director.json with every decision.
+- **Reuse when:** Any episode with a geo stack: after storyboard plan, before reviewing motion.
+- **References:** `orbitalatlas/director.py`; `tools/autopilot/storyboard.py`; `docs/references/library/REFERENCE_COMPARISON.md`
+- **Verification:** ep900-visual-demo (19.3 s, alignment timing) and EP003 (300 s, 40 shots, estimated timing) built automatically; 30 s of EP003 and the full demo rendered and inspected.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2b.py::test_focus_hides_duplicate_captions_and_decisions_are_reported`
+
 ### evidence-pixels-never-recoloured - Satellite pixels get only neutral or evidence_safe grading; highlights are annotations
 *VERIFIED · general · 2026-10-14*
 
@@ -419,6 +452,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `productions/dubai/preview/monotony_audit.py`; commit `7a19735`; commit `b706c4c`; `production/ep001-sahara-green:productions/sahara-green/review/pre_final/RETENTION_RISK_REPORT.md`; `production/ep001-sahara-green:productions/sahara-green/review/pre_final/editorial/EDITORIAL_CHANGES_REPORT.md`
 - **Verification:** EP001 pre-final report ranked 15 risks; editorial pass fixed the opening and a 38 s proposal block (static gaps <= 2.6 s). Retention benefit itself is unmeasured (no analytics yet).
 - **Regression test:** none - Retention effect is a HYPOTHESIS until published analytics exist; monotony_audit.py measures motion on rendered frames.
+
+### single-focus-no-number-duplication - One focus at a time: a number/impact card hides the caption that says the same thing; pacing limits cards
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** The first demo showed 4,190.2 in the caption and again as a big pop; EP003's automatic run put a number card every 2-3 s and a 6.7 s impact card.
+- **Root cause:** Captions and graphics were planned independently; no pacing rule for focus graphics.
+- **Fix:** director focus manager: impact (revelation, <= 5 words) > number; overlapping caption cards are hidden (the card carries kicker + value + unit + trailing words, e.g. '20 FEET LOWER'); map dims behind a number card; min 5 s between focus cards, max 4 per minute (others stay as style D captions); captions never count up (subtitles show the spoken words).
+- **Reuse when:** Planning any on-screen number or statement.
+- **References:** `orbitalatlas/director.py`; `orbitalatlas/captions.py`; `docs/references/library/UNIFIED_STYLE_GUIDE.md`
+- **Verification:** EP003 auto plan: 15 focus cards in 300 s, impact cards over 5 words refused; demo: captions hidden exactly under the two cards.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2b.py::test_storyboard_stat_label_is_not_drawn_twice`
 
 ### storyboard-never-shows-an-unrelated-or-wrong-year-picture - A generated storyboard must not fake relevance: no unrelated picture, wrong years are reported
 *VERIFIED · general · 2026-10-14*
@@ -500,6 +544,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `tools/autopilot/recover_ep001_stacks.py`; `tools/autopilot/recover_narration.py`; `docs/production-knowledge/SATELLITE_DATA.md`
 - **Verification:** 78/78 files SHA-512 verified; EO, TW and TE reports rebuilt in 51 s, ~2 min, ~2 min and equal the stored reports (valid fractions, medians, registration, stretch).
 - **Regression test:** `tools/autopilot/test_recover_ep001_stacks.py::test_paths_are_patched_and_nothing_else`
+
+### ep003-manifest-not-in-git - EP003 assets/manifest.json (with the stack) was ignored by git
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** The automatic EP003 test could not take the manifest from the branch: productions/ep###-*/assets/ is ignored, and the manifest lives there.
+- **Root cause:** .gitignore ignores the whole assets/ folder of new episodes, text included.
+- **Fix:** Force-add the manifest (git add -f productions/<slug>/assets/manifest.json); episodes keep media out of git but the manifest is text and must be committed.
+- **Reuse when:** Committing any new episode.
+- **References:** `tools/autopilot/storyboard.py`; `docs/AUTOPILOT.md`
+- **Verification:** found while copying EP003 for the director test; ep900 manifest force-added; EP003 fix pushed to its branch.
+- **Regression test:** none - needs rendered video / repository state, checked on frames
 
 ### ipad-review-copy - Make a small review copy for the iPad
 *VERIFIED · EP002 · 2026-10-13*

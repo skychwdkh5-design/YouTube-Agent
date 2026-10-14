@@ -19,3 +19,9 @@ Word-timed multi-style captions existed only as Dubai episode code; no narration
 - Region masks are display shapes (seeded smooth-dark areas), not measurements; arrows are presentation curves.
 - Performance: demo 18.7 s at 1080p = about 3.5 min on 4 cores; 960x540 is about 4x faster.
 - Shorts (vertical) layout paths exist (`WordCaptions` portrait positions) but were not rendered or reviewed.
+
+## v2b additions (2026-10-14)
+`typeset` (word tiles: rise / depth / slide / outline_fill / type / pop, glint, ImpactCard, NumberCard, YearTag, Dim, push_lines), `plane.PlaneTilt`, `fx.CalloutPanel`,
+`fx.CompareLink`, `director` (timeline v3 + `story/motion_plan.json` -> programme; focus manager; transitions by purpose; pacing), `storyboard.py` writes the motion plan.
+Comparison with the references: `REFERENCE_COMPARISON.md`. Remaining limits: director renders geo shots only (stills/video shots are skipped and reported);
+no globe; no sound design; captions in yt-render still single-style.

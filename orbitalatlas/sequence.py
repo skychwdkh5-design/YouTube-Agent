@@ -65,8 +65,8 @@ class Sequence:
 class Program:
     """a Sequence plus GLOBAL overlays drawn on top of the whole timeline (captions, titles, credits): they use programme time, not shot time, so a caption
     survives a cut or a transition. Same interface as Sequence for render_video / qa (shots, duration, render, schedule)."""
-    def __init__(self, seq, overlays=(), theme=T.THEME):
-        self.seq, self.overlays, self.theme = seq, list(overlays), theme
+    def __init__(self, seq, overlays=(), theme=T.THEME, t_offset=0.0):
+        self.seq, self.overlays, self.theme, self.t_offset = seq, list(overlays), theme, float(t_offset)   # overlays run on programme time + t_offset
         self.shots, self.duration, self.problems = seq.shots, seq.duration, seq.problems
         self.size = seq.shots[0].scene.size; self.reg = T.Registry()
 
@@ -78,7 +78,7 @@ class Program:
         import numpy as np
         issues = []
         for t in np.arange(0.0, self.duration, step):
-            ctx = L.Ctx(self.size, None, float(t), self.theme, T.Registry())
+            ctx = L.Ctx(self.size, None, float(t) + self.t_offset, self.theme, T.Registry())
             for o in self.overlays:
                 if o.layer == "ui": o.draw(ctx)
             for g in ctx.reg.collisions(): issues.append(dict(check="overlay_collision", t0=round(float(t), 2), t1=round(float(t), 2), detail=" x ".join(map(str, g)), scene="global"))
@@ -86,7 +86,7 @@ class Program:
         return issues
 
     def render(self, t):
-        frame = self.seq.render(t); self.reg.reset(); ctx = L.Ctx(self.size, None, t, self.theme, self.reg)
+        frame = self.seq.render(t); self.reg.reset(); ctx = L.Ctx(self.size, None, t + self.t_offset, self.theme, self.reg)
         for o in self.overlays:
             if o.layer == "ui": o.draw(ctx)
         base = frame.convert("RGBA"); base.alpha_composite(ctx.fills)
@@ -106,7 +106,7 @@ def render_video(seq, path, fps=30, workers=4, audio=None, crf=18, preset="mediu
     _SEQ = seq; W, H = seq.shots[0].scene.size
     n = int(round(seq.duration * fps)); times = [i / fps for i in range(n)] if frames is None else frames
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(fps), "-i", "-"]
-    if audio: cmd += ["-i", audio, "-c:a", "aac", "-b:a", "192k", "-shortest"]
+    if audio: cmd += ["-i", audio, "-af", "apad", "-c:a", "aac", "-b:a", "192k", "-shortest"]   # apad: a narration shorter than the picture is padded with silence; the picture length rules
     cmd += ["-c:v", "libx264", "-preset", preset, "-crf", str(crf), "-pix_fmt", "yuv420p", "-movflags", "+faststart", path]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     with Pool(workers) as pool:

@@ -1,0 +1,124 @@
+{
+ "note": "Demo production for the visual engine; reuses the EP003 calibrated Landsat stack (files not in git; build with tools/autopilot/landsat_color.py spec_cal.json).",
+ "assets": [],
+ "stacks": [
+  {
+   "id": "gsl_calibrated",
+   "grid": "assets/landsat/stack_cal/grid.json",
+   "images": {
+    "1986": {
+     "src": "assets/landsat/stack_cal/y1986.png",
+     "label": "August 1986",
+     "credit": "Landsat 5 · USGS",
+     "date": "1986-08-02/09"
+    },
+    "2022": {
+     "src": "assets/landsat/stack_cal/y2022.png",
+     "label": "July 2022",
+     "credit": "Landsat 8, 9 · USGS",
+     "date": "2022-07-11/28"
+    }
+   },
+   "views": {
+    "whole": {
+     "center": [
+      -112.5,
+      41.2
+     ],
+     "width_km": 228
+    },
+    "whole_in": {
+     "center": [
+      -112.45,
+      41.15
+     ],
+     "width_km": 190
+    },
+    "causeway": {
+     "center": [
+      -112.65,
+      41.226
+     ],
+     "width_km": 70
+    }
+   },
+   "pins": {
+    "Gunnison Bay": [
+     -112.8,
+     41.33
+    ],
+    "Gilbert Bay": [
+     -112.35,
+     40.9
+    ],
+    "Causeway": [
+     -112.65,
+     41.226
+    ],
+    "Salt Lake City": [
+     -111.89,
+     40.76
+    ]
+   },
+   "regions": {
+    "Great Salt Lake": {
+     "seeds": [
+      [
+       -112.8,
+       41.33
+      ],
+      [
+       -112.35,
+       40.9
+      ],
+      [
+       -112.3,
+       41.0
+      ]
+     ],
+     "box": [
+      -113.15,
+      41.78,
+      -111.96,
+      40.62
+     ]
+    },
+    "Gunnison Bay": {
+     "seeds": [
+      [
+       -112.8,
+       41.33
+      ]
+     ],
+     "box": [
+      -113.15,
+      41.78,
+      -111.96,
+      41.235
+     ],
+     "color": "amber"
+    },
+    "Gilbert Bay": {
+     "seeds": [
+      [
+       -112.35,
+       40.9
+      ],
+      [
+       -112.3,
+       41.0
+      ]
+     ],
+     "box": [
+      -113.15,
+      41.215,
+      -111.96,
+      40.62
+     ],
+     "color": "cyan"
+    }
+   },
+   "verified": "pins and causeway latitude checked on the 2022 mosaic (EP003 PROOF_REPORT); region masks are display shapes"
+  }
+ ]
+}
