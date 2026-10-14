@@ -4,6 +4,7 @@ import math
 from dataclasses import dataclass
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 from .easing import clamp, seg, smooth, smoother, out_cubic
+from . import textrec as _TR
 
 _FR = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 _FB = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
@@ -130,6 +131,7 @@ def plate(layer, xy, s, px, t, t0, out_t=None, accent=THEME.amber, text_color=TH
     d.rectangle([x, y, x + ww, y + h], fill=(0, 0, 0, int(150 * a)))
     d.rectangle([x, y, x + max(2, px * 0.2), y + h], fill=tuple(accent) + (int(255 * a),))
     d.text((x + pad + 8, y + pad * 0.55), s, font=f, fill=tuple(text_color) + (int(255 * a),))
+    _TR.note(s, px, (x, y, x + w, y + h), text_color, a)
     return w
 
 

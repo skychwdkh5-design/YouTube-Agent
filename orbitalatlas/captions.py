@@ -13,6 +13,7 @@ for QA (collision / outside-frame)."""
 # shared word-timed, multi-style caption renderer (docs/references/VISUAL_EFFECT_CATALOG.md VE-20 was PARTIALLY_IMPLEMENTED).
 import math
 import re
+from PIL import Image, ImageDraw, ImageFilter
 from . import easing as E
 from . import kinetic as K
 from .layers import Overlay
@@ -124,6 +125,7 @@ class WordCaptions(Overlay):
         assert len(self.styles) == len(cards) and all(s in STYLES for s in self.styles)
         self.position, self.scale, self.source = position, scale, source
         self.hidden = set(hidden)            # cards whose content is carried by a focus graphic (number card, impact card): not drawn, no duplicate
+        self.scrim = 0.55                    # soft dark band behind captions (contrast on bright salt flats; MOBILE_READABILITY_QA)
         self.lifted = {}                     # (card, word) -> time: a keyword that flew to the map; the caption keeps it, dimmed, so the name is not shown twice at full weight
         # a card ends when the next starts (no overlap) or after `hold`
         self.ends = [min(c["t1"] + hold, cards[i + 1]["t0"] - lead - 0.01 if i + 1 < len(cards) else 1e9) for i, c in enumerate(cards)]
@@ -145,7 +147,20 @@ class WordCaptions(Overlay):
         cy = self.position[1] * H if self.position else (H * 0.70 if vertical else H * 0.845)
         cx = self.position[0] * W if self.position else W / 2
         layer, reg = ctx.ui, ctx.reg; t = ctx.t; ws = c["words"]
+        if s in ("A", "B", "D") and getattr(self, "scrim", 0.55) > 0: self._scrim(layer, t, c, ws, base, cx, cy, W, i)
         {"A": self._a, "B": self._b, "C": self._c, "D": self._d, "E": self._e}[s](layer, reg, t, c, ws, base, cx, cy, W, H, i)
+
+    def _scrim(self, layer, t, c, ws, px, cx, cy, W, i):
+        """soft dark band behind the caption lines: white text keeps >= 3:1 contrast over bright salt flats (MOBILE_READABILITY_QA)"""
+        u = E.out_cubic(E.seg(t, c["t0"] - self.lead, c["t0"] + 0.12)) * (1 - E.smooth(E.seg(t, self.ends[i] - 0.12, self.ends[i])))
+        if u <= 0.01: return
+        pos = self._layout(ws, px * 1.06, "bold", cx, cy, W); xs = [p[0] for p in pos.values()]; ys = [p[1] for p in pos.values()]
+        x1 = max(pos[j][0] + K.width(ws[j]["text"], px * 1.06, "bold") for j in pos)
+        pad = px * 0.55; x0, y0, y1 = min(xs) - pad, min(ys) - pad * 0.45, max(ys) + px * 1.25 + pad * 0.45; x1 += pad
+        w, h = int(x1 - x0 + 2 * pad), int(y1 - y0 + 2 * pad)
+        band = Image.new("L", (w, h), 0); ImageDraw.Draw(band).rounded_rectangle([pad, pad, w - pad, h - pad], radius=int(px * 0.4), fill=int(255 * getattr(self, "scrim", 0.55) * u))
+        band = band.filter(ImageFilter.GaussianBlur(px * 0.3)); tile = Image.new("RGBA", (w, h), (4, 6, 10, 0)); tile.putalpha(band)
+        layer.alpha_composite(tile, (int(x0 - pad), int(y0 - pad)))
 
     def word_box(self, size, i, j):
         """screen box (x0, y0, x1, y1) of word j of card i as the caption lays it out (styles A, B, D), or None (C, E or hidden). Lets other layers
@@ -203,6 +218,12 @@ class WordCaptions(Overlay):
         text = " ".join(clean(w["text"]) for w in ws).upper(); big = px * 1.75
         while K.width(text, big, "black") > W * 0.86 and big > px: big *= 0.93
         y = cy - px * 1.1
+        if getattr(self, "scrim", 0.55) > 0:                              # big line: the same soft band, sized to the headline
+            u = E.out_cubic(E.seg(t, c["t0"] - self.lead, c["t0"] + 0.12)) * (1 - E.smooth(E.seg(t, self.ends[i] - 0.12, self.ends[i])))
+            tw_ = K.width(text, big, "black"); pad = big * 0.4; w, h = int(tw_ + 4 * pad), int(big * 1.3 + 4 * pad)
+            band = Image.new("L", (w, h), 0); ImageDraw.Draw(band).rounded_rectangle([pad, pad, w - pad, h - pad], radius=int(big * 0.3), fill=int(255 * self.scrim * u))
+            band = band.filter(ImageFilter.GaussianBlur(big * 0.22)); tile = Image.new("RGBA", (w, h), (4, 6, 10, 0)); tile.putalpha(band)
+            layer.alpha_composite(tile, (max(0, int(cx - w / 2)), max(0, int(y - 2 * pad))))
         K.duplicate_offset(layer, (cx, y), text, big, t, c["t0"] - self.lead, front=INK, back=self.accent, offset=0.05, dur=0.22, anchor="center", reg=reg, group=f"cap{i}")
 
     def _d(self, layer, reg, t, c, ws, px, cx, cy, W, H, i):

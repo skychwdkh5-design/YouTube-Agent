@@ -212,6 +212,18 @@ def qc(d):
     try: q = _json(os.path.join(d, "qc", "qc.json"))
     except (OSError, ValueError) as x: return _res([f"cannot read qc.json: {x}"])
     if q.get("result") != "PASS": p.append(f"yt-qc result is {q.get('result')!r}")
+    try: tl = _json(os.path.join(d, "timeline.json"))
+    except (OSError, ValueError): tl = {}
+    if (tl.get("meta") or {}).get("motion_plan"):                 # director episodes: phone readability is gated, monotony is listed for review
+        try:
+            m = _json(os.path.join(d, "qc", "mobile_qa.json"))
+            if not m.get("ok"): p.append(f"MOBILE_READABILITY_QA failed: {m.get('summary')} line={m.get('line', {}).get('ok')}")
+            notes.append(f"MOBILE_READABILITY_QA human checks still open: {len(m.get('human_checks', []))}")
+        except (OSError, ValueError): p.append("qc/mobile_qa.json missing (python3 -m orbitalatlas.mobile_qa SLUG --out qc/mobile_qa.json)")
+        try:
+            v = _json(os.path.join(d, "qc", "visual_runs.json")); long_ = [r for r in v.get("longest", []) if r["seconds"] > 10]
+            if long_: notes.append("look at these near-identical runs in the visual review: " + ", ".join(f"{r['start']}-{r['end']} ({r['seconds']} s)" for r in long_))
+        except (OSError, ValueError): notes.append("qc/visual_runs.json missing (tools/autopilot/visual_runs.py)")
     notes.append("TECHNICALLY_VALID only: yt-qc is an automatic check, not a visual review")
     return _res(p, notes)
 

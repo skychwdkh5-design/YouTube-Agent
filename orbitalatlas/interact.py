@@ -54,7 +54,7 @@ class KeywordLift(Overlay):
             d = ImageDraw.Draw(ctx.ui, "RGBA"); a = ctx.view.pt(self.p); col = tuple(self.color) + (int(230 * o),)
             d.line([(pt[0], pt[1] + px * 0.65), tuple(a)], fill=col, width=max(2, int(2 * k)))
         if e >= 1:                                                         # landed: readable over any annotation (dark outline), amber like the region accents
-            K.draw_text(ctx.ui, (x, y), self.text, px, self.color, "black", o, shadow=0.06, stroke=max(2, int(px * 0.09)), stroke_color=(8, 10, 14))
+            K.draw_text(ctx.ui, (x, y), self.text, px, self.color, "black", o, shadow=0.12, stroke=max(3, int(px * 0.14)), stroke_color=(8, 10, 14))
         else:
             TS.put(ctx.ui, self.text, x, y, px, "black", self.color, "fill", o, 1.0, 0.0, None, None, None, px * 0.06 if 0 < u < 1 else 0.0)
         ctx.reg.add(self.group, (x, y, x + w, y + px * 1.25), o)
@@ -64,7 +64,7 @@ class KeywordLift(Overlay):
 class FloatingLabel(Overlay):
     """name label above its anchor on a parallax depth, with a hairline to the point; slides up into place."""
     layer = "ui"; cls = "TEXT"
-    def __init__(self, p, text, t0, t1, depth=0.06, px=26, color=WHITE, accent=CYAN, group=None):
+    def __init__(self, p, text, t0, t1, depth=0.06, px=32, color=WHITE, accent=CYAN, group=None):
         self.p, self.text, self.t0, self.t1, self.depth, self.px, self.color, self.accent = np.asarray(p, float), text, t0, t1, depth, px, color, accent
         self.group = group or f"float_{text}"
     def draw(self, ctx):
@@ -105,10 +105,10 @@ class ImageStamp(Overlay):
     def draw(self, ctx):
         t = ctx.t
         if t < self.t0 or t > self.t1 + 0.3: return
-        W, H = ctx.size; k = H / 1080; px = 19 * k; x, y = self.xy[0] * W, self.xy[1] * H; o = 1 - E.smooth(E.seg(t, self.t1, self.t1 + 0.3))
+        W, H = ctx.size; k = H / 1080; px = 30 * k; x, y = self.xy[0] * W, self.xy[1] * H; o = 1 - E.smooth(E.seg(t, self.t1, self.t1 + 0.3))   # 30 px: readable on a 6.1-inch phone (MOBILE_READABILITY_QA)
         u = E.out_expo(E.seg(t, self.t0, self.t0 + 0.35)); s = "IMAGE · " + self.text; n = len(s) if self.type_s <= 0 else int(len(s) * E.seg(t, self.t0 + 0.1, self.t0 + 0.1 + self.type_s))
         w = K.width(s, px, "bold", 0.16) + px * 2.4; d = ImageDraw.Draw(ctx.ui, "RGBA"); col = CYAN + (int(255 * o),)
-        d.rectangle([x, y, x + w * u, y + px * 1.9], fill=(6, 10, 16, int(170 * o)))
+        d.rectangle([x, y, x + w * u, y + px * 1.9], fill=(6, 10, 16, int(205 * o)))
         b = px * 0.45; cx, cy = x + px * 0.9, y + px * 0.95                  # viewfinder corners
         for dx, dy in ((-1, -1), (1, -1), (1, 1), (-1, 1)):
             d.line([(cx + dx * b, cy + dy * b * 0.4), (cx + dx * b, cy + dy * b), (cx + dx * b * 0.4, cy + dy * b)], fill=col, width=max(1, int(2 * k)))
@@ -130,10 +130,11 @@ class EventYear(Overlay):
         lw = K.width(self.year, px, "black"); f = E.out_expo(E.seg(t, self.t0 + 0.1, self.t0 + 0.5)); d = ImageDraw.Draw(ctx.ui, "RGBA")
         d.line([(x, y + px * 1.42), (x + lw * f, y + px * 1.42)], fill=AMBER + (int(255 * o),), width=max(2, int(px * 0.03)))
         n = int(len(self.words) * E.seg(t, self.t0 + 0.2, self.t0 + 0.7))
-        K.draw_text(ctx.ui, (x, y + px * 1.55), self.words[:n], max(12.0, px * 0.27), WHITE, "bold", o, track=0.12, shadow=0.08)
+        lp = max(30.0 * H / 1080, px * 0.36); lwid = K.width(self.words, lp, "bold", 0.12); lx = min(x, W * 0.965 - lwid)   # stays inside the frame
+        K.draw_text(ctx.ui, (lx, y + px * 1.55), self.words[:n], lp, WHITE, "bold", o, track=0.12, shadow=0.12, stroke=max(1, int(lp * 0.06)))
         if o < 1:
             ImageDraw.Draw(ctx.ui, "RGBA")
-        ctx.reg.add(self.group, (x, y, x + max(lw, K.width(self.words, max(12.0, px * 0.27), "bold", 0.12)), y + px * 1.95), o)
+        ctx.reg.add(self.group, (min(x, lx), y, max(x + lw, lx + lwid), y + px * 1.55 + lp * 1.3), o)
     def describe(self): return dict(super().describe(), effect="event_year", year=self.year)
 
 
