@@ -156,7 +156,7 @@ class WordCaptions(Overlay):
         if u <= 0.01: return
         pos = self._layout(ws, px * 1.06, "bold", cx, cy, W); xs = [p[0] for p in pos.values()]; ys = [p[1] for p in pos.values()]
         x1 = max(pos[j][0] + K.width(ws[j]["text"], px * 1.06, "bold") for j in pos)
-        pad = px * 0.55; x0, y0, y1 = min(xs) - pad, min(ys) - pad * 0.45, max(ys) + px * 1.25 + pad * 0.45; x1 += pad
+        pad = px * 0.55; x0, y0, y1 = min(xs) - pad * 1.8, min(ys) - pad * 0.55, max(ys) + px * 1.25 + pad * 0.55; x1 += pad * 1.8   # wide ends: the blur never thins the band under the first/last word
         w, h = int(x1 - x0 + 2 * pad), int(y1 - y0 + 2 * pad)
         band = Image.new("L", (w, h), 0); ImageDraw.Draw(band).rounded_rectangle([pad, pad, w - pad, h - pad], radius=int(px * 0.4), fill=int(255 * getattr(self, "scrim", 0.55) * u))
         band = band.filter(ImageFilter.GaussianBlur(px * 0.3)); tile = Image.new("RGBA", (w, h), (4, 6, 10, 0)); tile.putalpha(band)

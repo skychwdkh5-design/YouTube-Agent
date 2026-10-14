@@ -15,6 +15,7 @@ import math
 import numpy as np
 from PIL import Image, ImageDraw
 from . import easing as E
+from . import textrec as _TR
 from . import kinetic as K
 from . import typeset as TS
 from .layers import Overlay
@@ -56,7 +57,8 @@ class KeywordLift(Overlay):
         if e >= 1:                                                         # landed: readable over any annotation (dark outline), amber like the region accents
             K.draw_text(ctx.ui, (x, y), self.text, px, self.color, "black", o, shadow=0.12, stroke=max(3, int(px * 0.14)), stroke_color=(8, 10, 14))
         else:
-            TS.put(ctx.ui, self.text, x, y, px, "black", self.color, "fill", o, 1.0, 0.0, None, None, None, px * 0.06 if 0 < u < 1 else 0.0)
+            rec = _TR.STATE["rec"]; _TR.STATE["rec"] = None              # a word in flight (< 1 s) is motion, not text to read: QA checks the landed label
+            TS.put(ctx.ui, self.text, x, y, px, "black", self.color, "fill", o, 1.0, 0.0, None, None, None, px * 0.06 if 0 < u < 1 else 0.0); _TR.STATE["rec"] = rec
         ctx.reg.add(self.group, (x, y, x + w, y + px * 1.25), o)
     def describe(self): return dict(super().describe(), effect="keyword_lift", word=self.text)
 

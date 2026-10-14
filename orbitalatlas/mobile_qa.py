@@ -9,7 +9,7 @@ Builds the director programme of a production, renders sampled frames (default 1
   safe_area       every text box inside the title-safe frame (3.5 % x, 4 % y)
   caption_overlap no text box intersects a caption box at the same moment
   text_overlap    no two texts of different overlays intersect
-  contrast        text colour vs the median of the box's other pixels on the rendered frame >= MIN_CONTRAST (WCAG ratio)
+  contrast        settled text (alpha >= 0.9): text colour vs the median non-text pixels of the box + 6 px >= MIN_CONTRAST (WCAG ratio)
   line_width      traced outlines (RegionTint thin) measured on a synthetic edge >= MIN_LINE_PX at 1080p, with a dark under-stroke
 Checks that need a person (taste, real-device viewing, pronunciation) are listed under `human_checks`, never passed automatically.
 Prints/writes JSON with every issue (first time, count, text) and a per-style size table in phone points.
@@ -104,7 +104,7 @@ def check_records(recs, frame, size, t, issues):
         if not cap and any(inter(b, c["box"]) for c in caps): issues["caption_overlap"].append((t, r, "intersects a caption"))
         if not cap and any(o is not r and o["tag"] != r["tag"] and o["tag"] not in CAPTION_TAGS and inter(b, o["box"], 4.0) for o in recs):
             issues["text_overlap"].append((t, r, "intersects " + ", ".join(sorted({o["tag"] or "?" for o in recs if o is not r and o["tag"] != r["tag"] and o["tag"] not in CAPTION_TAGS and inter(b, o["box"], 4.0)}))))
-        if frame is not None:
+        if frame is not None and r["alpha"] >= 0.9:                   # contrast of settled text only (a 0.1 s fade is not reading time)
             c = contrast(frame, b, r["color"])
             if c is not None and c < MIN_CONTRAST: issues["contrast"].append((t, r, f"{c}:1"))
 
