@@ -1,0 +1,799 @@
+{
+ "schema": "orbitalatlas-effects/1",
+ "entries": [
+  {
+   "id": "still_push_in",
+   "kind": "camera",
+   "renderer": "yt-render-v3",
+   "status": "built",
+   "what": "External still (NASA/Landsat) with a slow view that narrows (Ken Burns inside the image, never leaving it, upscale <= 4x).",
+   "use_for": [
+    "establish_place",
+    "reveal_detail",
+    "number_context"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "push",
+    "zoom in",
+    "ken burns",
+    "still view"
+   ],
+   "refs": {
+    "code": [
+     ".claude/skills/yt-render/compose.py"
+    ],
+    "docs": [
+     "docs/production-pipeline.md"
+    ]
+   },
+   "limits": "needs provenance (credit, source_url, licence, retrieved) and >= 1280 px width",
+   "used_in": [
+    "EP001"
+   ],
+   "params": {
+    "layer": "still",
+    "view": {
+     "from": {
+      "center": [
+       0.5,
+       0.5
+      ],
+      "width": 0.9
+     },
+     "to": {
+      "center": [
+       0.5,
+       0.5
+      ],
+      "width": 0.6
+     }
+    }
+   }
+  },
+  {
+   "id": "still_pull_out",
+   "kind": "camera",
+   "renderer": "yt-render-v3",
+   "status": "built",
+   "what": "Still whose view widens: from detail to context.",
+   "use_for": [
+    "context_reveal",
+    "scale"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "pull out",
+    "zoom out",
+    "widen"
+   ],
+   "refs": {
+    "code": [
+     ".claude/skills/yt-render/compose.py"
+    ]
+   },
+   "limits": "same limits as still_push_in",
+   "used_in": [
+    "EP001"
+   ],
+   "params": {}
+  },
+  {
+   "id": "still_pan",
+   "kind": "camera",
+   "renderer": "yt-render-v3",
+   "status": "built",
+   "what": "Still whose view centre travels across the image at constant width.",
+   "use_for": [
+    "travel",
+    "compare_places"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "pan",
+    "travel",
+    "drift"
+   ],
+   "refs": {
+    "code": [
+     ".claude/skills/yt-render/compose.py"
+    ]
+   },
+   "limits": "travel < 35 % of the width does not count as a composition reset",
+   "used_in": [
+    "EP001"
+   ],
+   "params": {}
+  },
+  {
+   "id": "still_scrim_label",
+   "kind": "layer",
+   "renderer": "yt-render-v3",
+   "status": "built",
+   "what": "Top-down scrim (<= 0.8) darkens the image behind labels; the picture itself is untouched.",
+   "use_for": [
+    "label_legibility"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "scrim",
+    "legibility",
+    "label background"
+   ],
+   "refs": {
+    "code": [
+     ".claude/skills/yt-render/compose.py"
+    ],
+    "tests": [
+     ".claude/skills/yt-render/test_compose.py"
+    ]
+   },
+   "limits": "a display aid; never used to alter evidence",
+   "used_in": [
+    "EP001"
+   ],
+   "params": {}
+  },
+  {
+   "id": "label_tag",
+   "kind": "layer",
+   "renderer": "yt-render-v3",
+   "status": "built",
+   "what": "Short text label (style tag, slot upper/top/middle, <= 40 chars) anchored to narrated words.",
+   "use_for": [
+    "name_place",
+    "name_thing"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "label",
+    "tag",
+    "caption chip",
+    "place name"
+   ],
+   "refs": {
+    "code": [
+     ".claude/skills/yt-render/compose.py"
+    ]
+   },
+   "limits": "one main label per beat; keep clear of the low caption band",
+   "used_in": [
+    "EP001",
+    "EP002"
+   ],
+   "params": {}
+  },
+  {
+   "id": "label_stat",
+   "kind": "layer",
+   "renderer": "yt-render-v3",
+   "status": "built",
+   "what": "Big yellow number label (style stat).",
+   "use_for": [
+    "number"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "stat",
+    "number label",
+    "big number"
+   ],
+   "refs": {
+    "code": [
+     ".claude/skills/yt-render/compose.py"
+    ]
+   },
+   "limits": "<= 40 chars",
+   "used_in": [
+    "EP001"
+   ],
+   "params": {}
+  },
+  {
+   "id": "label_year",
+   "kind": "layer",
+   "renderer": "yt-render-v3",
+   "status": "built",
+   "what": "Year label (style year).",
+   "use_for": [
+    "date",
+    "before_after"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "year",
+    "date label"
+   ],
+   "refs": {
+    "code": [
+     ".claude/skills/yt-render/compose.py"
+    ]
+   },
+   "limits": "",
+   "used_in": [
+    "EP001"
+   ],
+   "params": {}
+  },
+  {
+   "id": "graphic_full",
+   "kind": "graphic",
+   "renderer": "yt-render-v3+yt-graphics",
+   "status": "built",
+   "what": "Full-frame original graphic (diagram, flow, circulation, water cycle, bar, line, callout, annotated Landsat, before/after) with its source printed on it.",
+   "use_for": [
+    "mechanism",
+    "process",
+    "comparison",
+    "number",
+    "trend"
+   ],
+   "composition_reset": true,
+   "keywords": [
+    "graphic",
+    "diagram",
+    "chart",
+    "flow",
+    "callout"
+   ],
+   "refs": {
+    "code": [
+     ".claude/skills/yt-graphics/graphics.py",
+     ".claude/skills/yt-render/compose.py"
+    ],
+    "tests": [
+     ".claude/skills/yt-graphics/test_graphics.py"
+    ]
+   },
+   "limits": "text >= 24 px; graphic-only runs over ~60 s are a retention risk (EP001)",
+   "used_in": [
+    "EP001"
+   ],
+   "params": {}
+  },
+  {
+   "id": "graphic_build_steps",
+   "kind": "graphic",
+   "renderer": "yt-render-v3+yt-graphics",
+   "status": "built",
+   "what": "Build steps of one graphic revealed on narrated phrases (layers with t windows share a group; steps are not new compositions).",
+   "use_for": [
+    "mechanism",
+    "process",
+    "list"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "build steps",
+    "reveal",
+    "step"
+   ],
+   "refs": {
+    "code": [
+     ".claude/skills/yt-graphics/graphics.py",
+     ".claude/skills/yt-render/compose.py"
+    ]
+   },
+   "limits": "static gaps over ~4 s need one more step",
+   "used_in": [
+    "EP001"
+   ],
+   "params": {}
+  },
+  {
+   "id": "graphic_insert",
+   "kind": "graphic",
+   "renderer": "yt-render-v3",
+   "status": "built",
+   "what": "Timed graphic insert over a map shot with a 0.35 s fade-in; the map labels are hidden meanwhile.",
+   "use_for": [
+    "number_over_map"
+   ],
+   "composition_reset": true,
+   "keywords": [
+    "insert",
+    "overlay graphic"
+   ],
+   "refs": {
+    "code": [
+     ".claude/skills/yt-render/compose.py"
+    ]
+   },
+   "limits": "needs a camera shot underneath (geo stack)",
+   "used_in": [],
+   "params": {}
+  },
+  {
+   "id": "video_sequence",
+   "kind": "video",
+   "renderer": "yt-render-v3",
+   "status": "built",
+   "what": "Pre-rendered 30 fps full-frame clip (Landsat timelapse, NASA animation) played frame for frame, no motion.",
+   "use_for": [
+    "change_over_time",
+    "process"
+   ],
+   "composition_reset": true,
+   "keywords": [
+    "video",
+    "timelapse",
+    "sequence",
+    "clip"
+   ],
+   "refs": {
+    "code": [
+     ".claude/skills/yt-render/compose.py"
+    ],
+    "tests": [
+     ".claude/skills/yt-render/test_video.py"
+    ]
+   },
+   "limits": "exactly 30 fps constant; own audio ignored",
+   "used_in": [
+    "EP001"
+   ],
+   "params": {}
+  },
+  {
+   "id": "geo_camera_move",
+   "kind": "camera",
+   "renderer": "yt-render-v3",
+   "status": "built",
+   "what": "Geographic camera in lon/lat + width_km over a yt-geo stack (sub-pixel, log zoom).",
+   "use_for": [
+    "locate",
+    "travel",
+    "compare_places"
+   ],
+   "composition_reset": true,
+   "keywords": [
+    "camera",
+    "geo camera",
+    "lon lat"
+   ],
+   "refs": {
+    "code": [
+     ".claude/skills/yt-render/compose.py",
+     ".claude/skills/yt-geo/geostack.py"
+    ]
+   },
+   "limits": "needs a yt-geo stack (Landsat GeoTIFFs); zoom >= 1.5x or 35 % relocation = reset",
+   "used_in": [
+    "Lake Mead MVP"
+   ],
+   "params": {}
+  },
+  {
+   "id": "geo_wipe",
+   "kind": "layer",
+   "renderer": "yt-render-v3",
+   "status": "built",
+   "what": "Full-frame wipe between two registered dates.",
+   "use_for": [
+    "before_after"
+   ],
+   "composition_reset": true,
+   "keywords": [
+    "wipe",
+    "before after"
+   ],
+   "refs": {
+    "code": [
+     ".claude/skills/yt-render/compose.py"
+    ]
+   },
+   "limits": "registered imagery only",
+   "used_in": [],
+   "params": {}
+  },
+  {
+   "id": "geo_flip_timelapse",
+   "kind": "layer",
+   "renderer": "yt-render-v3",
+   "status": "built",
+   "what": "Flip of >= 3 registered dates at <= 1 s per step = timelapse.",
+   "use_for": [
+    "change_over_time"
+   ],
+   "composition_reset": true,
+   "keywords": [
+    "flip",
+    "timelapse",
+    "multi-year"
+   ],
+   "refs": {
+    "code": [
+     ".claude/skills/yt-render/compose.py"
+    ]
+   },
+   "limits": "",
+   "used_in": [],
+   "params": {}
+  },
+  {
+   "id": "geo_fill_outline",
+   "kind": "layer",
+   "renderer": "yt-render-v3",
+   "status": "built",
+   "what": "Fill / outline from traced water or change masks (yt-geo watermask).",
+   "use_for": [
+    "measure_change"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "outline",
+    "fill",
+    "mask",
+    "shoreline"
+   ],
+   "refs": {
+    "code": [
+     ".claude/skills/yt-render/compose.py",
+     ".claude/skills/yt-geo/watermask.py"
+    ]
+   },
+   "limits": "masks are display aids, not measurements",
+   "used_in": [],
+   "params": {}
+  },
+  {
+   "id": "geo_arrow_pin",
+   "kind": "layer",
+   "renderer": "yt-render-v3",
+   "status": "built",
+   "what": "Geo-anchored arrow and pin.",
+   "use_for": [
+    "point_out"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "arrow",
+    "pin",
+    "marker"
+   ],
+   "refs": {
+    "code": [
+     ".claude/skills/yt-render/compose.py"
+    ]
+   },
+   "limits": "",
+   "used_in": [],
+   "params": {}
+  },
+  {
+   "id": "hard_cut",
+   "kind": "transition",
+   "renderer": "yt-render-v3",
+   "status": "built",
+   "what": "Cut between shots (the only inter-shot transition in v3).",
+   "use_for": [
+    "any"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "cut"
+   ],
+   "refs": {
+    "code": [
+     ".claude/skills/yt-render/compose.py"
+    ]
+   },
+   "limits": "v3 has no crossfade between shots; dissolves exist only inside video assets",
+   "used_in": [
+    "EP001"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_dissolve_push_whip",
+   "kind": "transition",
+   "renderer": "orbitalatlas",
+   "status": "built",
+   "what": "Dissolve, Push (cover/parallax), WhipPan, CinematicPush transitions between scenes of a Sequence.",
+   "use_for": [
+    "scene_change"
+   ],
+   "composition_reset": true,
+   "keywords": [
+    "dissolve",
+    "whip",
+    "push transition",
+    "cinematic push"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/transitions.py"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_engine.py"
+    ]
+   },
+   "limits": "rendered as a video asset (orbitalatlas.sequence.render_video, 30 fps) then included as kind video; not a timeline primitive",
+   "used_in": [
+    "EP002 proofs"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_mask_reveal_geofocus_scalematch",
+   "kind": "transition",
+   "renderer": "orbitalatlas",
+   "status": "built",
+   "what": "MaskReveal (radial/linear/custom, glow edge), GeoFocus, ScaleMatch, DateTransition.",
+   "use_for": [
+    "place_handoff",
+    "before_after"
+   ],
+   "composition_reset": true,
+   "keywords": [
+    "mask reveal",
+    "radial",
+    "geo focus",
+    "scale match",
+    "date transition",
+    "spotlight"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/transitions.py"
+    ]
+   },
+   "limits": "same integration as oa_dissolve_push_whip",
+   "used_in": [
+    "EP002"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_overlays",
+   "kind": "layer",
+   "renderer": "orbitalatlas",
+   "status": "built",
+   "what": "DrawOnPolyline, PulseMarker, AnchoredText, SourceChip, YearCounter, MaskFill, Spotlight, Brackets with class labels (EVIDENCE/TRACED/MAP/ILLUSTRATIVE).",
+   "use_for": [
+    "trace",
+    "annotate"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "draw on",
+    "polyline",
+    "pulse",
+    "year counter",
+    "brackets",
+    "spotlight",
+    "traced outline"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/layers.py"
+    ]
+   },
+   "limits": "traced outlines must be validated against registered imagery",
+   "used_in": [
+    "EP002"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_globe_locator",
+   "kind": "camera",
+   "renderer": "orbitalatlas",
+   "status": "built",
+   "what": "Class B orthographic globe camera over Natural Earth vectors (locator). Real geography, no imagery.",
+   "use_for": [
+    "locate_on_earth"
+   ],
+   "composition_reset": true,
+   "keywords": [
+    "globe",
+    "locator",
+    "orthographic"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/geo.py"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_geo.py"
+    ]
+   },
+   "limits": "NOT visually approved as a hero look (docs/KNOWN_LIMITATIONS.md)",
+   "used_in": [
+    "EP002 proof"
+   ],
+   "params": {}
+  },
+  {
+   "id": "dubai_hook_atmosphere",
+   "kind": "audio",
+   "renderer": "dubai-preview",
+   "status": "episode_only",
+   "what": "Synthesised original atmosphere bed under the hook (integer-sample mix keeps the narration bit-exact).",
+   "use_for": [
+    "hook"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "atmosphere",
+    "drone",
+    "bed",
+    "hook sound"
+   ],
+   "refs": {
+    "code": [
+     "productions/dubai/preview/atmosphere.py"
+    ]
+   },
+   "limits": "narration must still start within 1 s; a bed does not fix a late voice",
+   "used_in": [
+    "EP002"
+   ],
+   "params": {}
+  },
+  {
+   "id": "dubai_filmstrip_timeline_card",
+   "kind": "scene",
+   "renderer": "dubai-preview",
+   "status": "episode_only",
+   "what": "Dated filmstrip / thumbnails on a timeline; replaces text-card scenes with motion.",
+   "use_for": [
+    "change_over_time"
+   ],
+   "composition_reset": true,
+   "keywords": [
+    "filmstrip",
+    "timeline card",
+    "thumbnails"
+   ],
+   "refs": {
+    "code": [
+     "productions/dubai/preview/scenes_v6.py"
+    ]
+   },
+   "limits": "hand-written per scene; no timeline primitive yet",
+   "used_in": [
+    "EP002"
+   ],
+   "params": {}
+  },
+  {
+   "id": "dubai_audits",
+   "kind": "qa",
+   "renderer": "dubai-preview",
+   "status": "episode_only",
+   "what": "Text-bounds, contrast, legibility, monotony and static-run audits.",
+   "use_for": [
+    "qc"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "text bounds",
+    "contrast",
+    "legibility",
+    "monotony"
+   ],
+   "refs": {
+    "code": [
+     "productions/dubai/preview/qa_text_bounds.py",
+     "productions/dubai/preview/qa_contrast.py",
+     "productions/dubai/preview/monotony_audit.py"
+    ]
+   },
+   "limits": "work on the Dubai scene engine's frames; not yet generic",
+   "used_in": [
+    "EP002"
+   ],
+   "params": {}
+  },
+  {
+   "id": "flat_map_plane_3d",
+   "kind": "missing",
+   "renderer": "none",
+   "status": "not_built",
+   "what": "Tilted / 3D map plane, terrain relief, photoreal flyover",
+   "use_for": [],
+   "composition_reset": false,
+   "keywords": [
+    "flyover",
+    "3d",
+    "terrain",
+    "tilt",
+    "relief"
+   ],
+   "refs": {
+    "docs": [
+     "docs/KNOWN_LIMITATIONS.md"
+    ]
+   },
+   "limits": "do not simulate with a pan/zoom; list it as a limitation instead",
+   "used_in": [],
+   "params": {}
+  },
+  {
+   "id": "crossfade_between_v3_shots",
+   "kind": "missing",
+   "renderer": "none",
+   "status": "not_built",
+   "what": "Crossfade as a timeline transition in v3",
+   "use_for": [],
+   "composition_reset": false,
+   "keywords": [
+    "crossfade",
+    "xfade"
+   ],
+   "refs": {
+    "docs": [
+     "docs/KNOWN_LIMITATIONS.md"
+    ]
+   },
+   "limits": "do not simulate with a pan/zoom; list it as a limitation instead",
+   "used_in": [],
+   "params": {}
+  },
+  {
+   "id": "music_sfx",
+   "kind": "missing",
+   "renderer": "none",
+   "status": "not_built",
+   "what": "Music or sound effects (no licensed source)",
+   "use_for": [],
+   "composition_reset": false,
+   "keywords": [
+    "music",
+    "sfx",
+    "sound effect"
+   ],
+   "refs": {
+    "docs": [
+     "docs/KNOWN_LIMITATIONS.md"
+    ]
+   },
+   "limits": "do not simulate with a pan/zoom; list it as a limitation instead",
+   "used_in": [],
+   "params": {}
+  },
+  {
+   "id": "split_screen_compare",
+   "kind": "missing",
+   "renderer": "none",
+   "status": "not_built",
+   "what": "Split-screen compare in the timeline",
+   "use_for": [],
+   "composition_reset": false,
+   "keywords": [
+    "split screen",
+    "side by side"
+   ],
+   "refs": {
+    "docs": [
+     "docs/KNOWN_LIMITATIONS.md"
+    ]
+   },
+   "limits": "do not simulate with a pan/zoom; list it as a limitation instead",
+   "used_in": [],
+   "params": {}
+  },
+  {
+   "id": "data_charts_animated",
+   "kind": "missing",
+   "renderer": "none",
+   "status": "not_built",
+   "what": "Animated charts (yt-graphics makes static builds only)",
+   "use_for": [],
+   "composition_reset": false,
+   "keywords": [
+    "animated chart",
+    "chart animation"
+   ],
+   "refs": {
+    "docs": [
+     "docs/KNOWN_LIMITATIONS.md"
+    ]
+   },
+   "limits": "do not simulate with a pan/zoom; list it as a limitation instead",
+   "used_in": [],
+   "params": {}
+  }
+ ]
+}

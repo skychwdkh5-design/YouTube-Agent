@@ -145,27 +145,37 @@ def status(slug):
 
 
 # ---------------------------------------------------------------- execution
-def execute(cmd, cwd, retryable, env_extra=None):
-    """Run a command with bounded retries. Returns {ok, attempts:[...], diagnosis:[...]}."""
+def execute(cmd, cwd, retryable, env_extra=None, allow_autofix=True):
+    """Run a command with bounded retries. Returns {ok, attempts:[...], diagnosis:[...], applied_fix}.
+    A failure is matched against the registry; a matching entry that carries an `auto_fix` (environment only, whitelisted
+    in kb.py) is applied ONCE and the command retried. Paid stages pass allow_autofix=False."""
     env = dict(os.environ, **(env_extra or {}))
     max_attempts = LIMITS["max_attempts"] if retryable else 1
-    attempts = []
-    for n in range(1, max_attempts + 1):
+    attempts, applied = [], None
+    n = 0
+    while True:
+        n += 1
         t0 = time.time()
         r = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, env=env)
         a = {"n": n, "rc": r.returncode, "seconds": round(time.time() - t0, 1)}
         attempts.append(a)
         if r.returncode == 0:
-            return {"ok": True, "attempts": attempts, "stdout": r.stdout}
+            return {"ok": True, "attempts": attempts, "stdout": r.stdout, **({"applied_fix": applied} if applied else {})}
         text = (r.stdout + "\n" + r.stderr)[-4000:]
         a["tail"] = text[-600:]
         a["diagnosis"] = kb.diagnose(text)
-        if n < max_attempts and TRANSIENT.search(text):
+        fix = next((d for d in a["diagnosis"] if d.get("auto_fix")), None) if allow_autofix and not applied else None
+        if fix:
+            env.update({k: v.format(root=ROOT) for k, v in fix["auto_fix"]["env"].items()})
+            applied = {"entry": fix["id"], "env_keys": sorted(fix["auto_fix"]["env"])}
+            continue                                         # one extra attempt, not counted against max_attempts
+        if n - (1 if applied else 0) < max_attempts and TRANSIENT.search(text):
             time.sleep(LIMITS["retry_backoff_s"][min(n - 1, len(LIMITS["retry_backoff_s"]) - 1)])
             continue
         break
     return {"ok": False, "attempts": attempts, "stdout": r.stdout, "diagnosis": attempts[-1].get("diagnosis", []),
-            "retried": len(attempts) > 1, "retry_policy": "transient failures only, at most %d attempts" % max_attempts if retryable else "never retried automatically"}
+            "retried": len(attempts) > 1, **({"applied_fix": applied} if applied else {}),
+            "retry_policy": "transient failures only, at most %d attempts" % max_attempts if retryable else "never retried automatically"}
 
 
 def _auth_args():
@@ -223,7 +233,9 @@ def run(slug, stage_id=None, confirm=False, overwrite=False):
     state = _load(os.path.join(d, "state.json"), {"stages": {}})
     rec = state["stages"].setdefault(sid, {})
     approvals = _load(os.path.join(d, "approvals.json"), {})
-    result = {"stage": sid}
+    pitfalls = kb.for_stage(sid)                       # memory is consulted BEFORE the stage runs and recorded with the result
+    rec["pitfalls_consulted"] = [p["id"] for p in pitfalls]
+    result = {"stage": sid, "known_pitfalls": [{"id": p["id"], "fix": p["fix"]} for p in pitfalls]}
     if sid == "tts_plan":
         result.update(ok=True, plan=make_tts_plan(slug))
     elif sid == "tts":
@@ -240,7 +252,7 @@ def run(slug, stage_id=None, confirm=False, overwrite=False):
         cmd = [sys.executable, os.path.join(SKILLS, "yt-voice", "voice.py"), "--script", "script.md", "--output", "voice/narration.wav",
                "--max-chars", str(a["max_chars"]), "--max-chunk-chars", str(LIMITS["tts_chunk_chars"]), "--context",
                "--cache-dir", "voice/cache", "--confirm"] + _auth_args() + (["--overwrite"] if overwrite else [])
-        r = execute(cmd, d, retryable=False)
+        r = execute(cmd, d, retryable=False, allow_autofix=False)
         ledger_add(d, {"stage": "tts", "characters": plan.get("characters"), "ok": r["ok"], "approved_max": a["max_chars"]})
         if not r["ok"]:
             r["warning"] = ("A failed paid request may still have been billed. Do NOT rerun before checking the credits and voice/cache/ "

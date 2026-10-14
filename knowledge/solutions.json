@@ -34,6 +34,10 @@
    "symptoms": [
     "\\b502\\b.*(gateway|text-to-speech|elevenlabs)",
     "Bad Gateway"
+   ],
+   "stages": [
+    "tts_plan",
+    "tts"
    ]
   },
   {
@@ -944,7 +948,12 @@
     ]
    },
    "verification": "EP001 SCRIPT LOCK v1.1; EP002 claims table with 33 claims; claims gate unit test.",
-   "regression_test": "tools/autopilot/test_autopilot.py::test_claims_must_be_verified_and_sourced"
+   "regression_test": "tools/autopilot/test_autopilot.py::test_claims_must_be_verified_and_sourced",
+   "stages": [
+    "research",
+    "claims",
+    "script"
+   ]
   },
   {
    "id": "source-pages-blocked-by-proxy",
@@ -995,7 +1004,12 @@
     ]
    },
    "verification": "EP002 SCRIPT_LOCK; autopilot test blocks the paid call after a post-plan edit.",
-   "regression_test": "tools/autopilot/test_autopilot.py::test_script_change_after_plan_blocks_the_paid_call"
+   "regression_test": "tools/autopilot/test_autopilot.py::test_script_change_after_plan_blocks_the_paid_call",
+   "stages": [
+    "script",
+    "tts_plan",
+    "tts"
+   ]
   },
   {
    "id": "proof-first-then-scale",
@@ -1135,7 +1149,12 @@
    "regression_test": "tools/memory/test_kb.py::test_orbitalatlas_tests_run_as_modules_from_the_repo_root",
    "symptoms": [
     "No module named 'orbitalatlas'"
-   ]
+   ],
+   "auto_fix": {
+    "env": {
+     "PYTHONPATH": "{root}"
+    }
+   }
   },
   {
    "id": "shell-pkill-exit-144",
