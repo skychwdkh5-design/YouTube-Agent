@@ -25,3 +25,8 @@ Word-timed multi-style captions existed only as Dubai episode code; no narration
 `fx.CompareLink`, `director` (timeline v3 + `story/motion_plan.json` -> programme; focus manager; transitions by purpose; pacing), `storyboard.py` writes the motion plan.
 Comparison with the references: `REFERENCE_COMPARISON.md`. Remaining limits: director renders geo shots only (stills/video shots are skipped and reported);
 no globe; no sound design; captions in yt-render still single-style.
+
+## v2c additions (2026-10-14)
+`interact` (KeywordLift, FloatingLabel, ParallaxDust, ImageStamp, EventYear, Punch), `sfx` (synthesised CC0 effects, cue planner, ducking mixer, `--sfx`),
+`semantic.intensity` + stricter route rule, `captions.word_box/locate/lifted`, contour light and flowing route dashes in `fx`; director pacing/dates/intensity in the report.
+Tests: `tests/test_visual_v2c.py`. Demo: `productions/ep901-visual-demo-c`. Limits: no music bed; effects synthesised (simpler than foley); still one stack, no globe; 2.5D only.

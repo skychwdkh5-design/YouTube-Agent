@@ -124,6 +124,7 @@ class WordCaptions(Overlay):
         assert len(self.styles) == len(cards) and all(s in STYLES for s in self.styles)
         self.position, self.scale, self.source = position, scale, source
         self.hidden = set(hidden)            # cards whose content is carried by a focus graphic (number card, impact card): not drawn, no duplicate
+        self.lifted = {}                     # (card, word) -> time: a keyword that flew to the map; the caption keeps it, dimmed, so the name is not shown twice at full weight
         # a card ends when the next starts (no overlap) or after `hold`
         self.ends = [min(c["t1"] + hold, cards[i + 1]["t0"] - lead - 0.01 if i + 1 < len(cards) else 1e9) for i, c in enumerate(cards)]
         self.ends = [min(max(e, c["t1"] + 0.05), cards[i + 1]["t0"] - lead - 0.005 if i + 1 < len(cards) else 1e9) for i, (e, c) in enumerate(zip(self.ends, cards))]   # never overlaps the next card
@@ -146,6 +147,27 @@ class WordCaptions(Overlay):
         layer, reg = ctx.ui, ctx.reg; t = ctx.t; ws = c["words"]
         {"A": self._a, "B": self._b, "C": self._c, "D": self._d, "E": self._e}[s](layer, reg, t, c, ws, base, cx, cy, W, H, i)
 
+    def word_box(self, size, i, j):
+        """screen box (x0, y0, x1, y1) of word j of card i as the caption lays it out (styles A, B, D), or None (C, E or hidden). Lets other layers
+        lift a keyword out of the subtitle line (typeset/fx KeywordLift) without the two disagreeing about where the word is."""
+        if i is None or i >= len(self.cards) or i in self.hidden or self.styles[i] not in ("A", "B", "D"): return None
+        W, H = size; ws = self.cards[i]["words"]; vertical = H > W; px = H * (0.034 if vertical else 0.052) * self.scale
+        cy = self.position[1] * H if self.position else (H * 0.70 if vertical else H * 0.845); cx = self.position[0] * W if self.position else W / 2
+        widths = None
+        if self.styles[i] == "D":
+            sp_ = [is_year(w["text"]) or is_number(w["text"]) or w.get("kind") in ("year", "number", "place") for w in ws]
+            widths = [K.width(w["text"], px * 1.12, "black") * 1.02 if s_ else K.width(w["text"], px, "bold") for w, s_ in zip(ws, sp_)]
+        pos = self._layout(ws, px, "bold", cx, cy, W, widths=widths); x, y = pos[j]
+        wd = widths[j] if widths else K.width(ws[j]["text"], px, "bold")
+        return (x, y, x + wd, y + px * 1.2)
+
+    def locate(self, word_start, text=None):
+        """(card index, word index) of the word that starts at `word_start` (seconds), or (None, None)."""
+        for i, c in enumerate(self.cards):
+            for j, w in enumerate(c["words"]):
+                if abs(w["start"] - word_start) < 1e-3 and (text is None or w["text"] == text): return i, j
+        return None, None
+
     # ---- layout helper: positions of each word for a centred, wrapped card
     def _layout(self, ws, px, weight, cx, cy, W, gap=0.26, line_h=1.18, widths=None):
         lines, wid = _wrap(ws, px, weight, W * 0.82, gap, widths); sp = px * gap; pos = {}
@@ -156,11 +178,14 @@ class WordCaptions(Overlay):
                 pos[j] = (x, y0 + li * px * line_h); x += (widths[j] if widths else K.width(ws[j]["text"], px, weight)) + sp
         return pos
 
+    def _dim(self, i, j, t):
+        tl = self.lifted.get((i, j)); return 1.0 if tl is None else 1.0 - 0.6 * E.smooth(E.seg(t, tl, tl + 0.3))
+
     def _a(self, layer, reg, t, c, ws, px, cx, cy, W, H, i):
         u = E.out_cubic(E.seg(t, c["t0"] - self.lead, c["t0"] + 0.12)) * (1 - E.smooth(E.seg(t, self.ends[i] - 0.12, self.ends[i])))
         pos = self._layout(ws, px, "bold", cx, cy, W)
         for j, w in enumerate(ws):
-            K.draw_text(layer, pos[j], w["text"], px, INK, "bold", u, shadow=0.07, stroke=max(1, int(px * 0.035)), stroke_color=(0, 0, 0))
+            K.draw_text(layer, pos[j], w["text"], px, INK, "bold", u * self._dim(i, j, t), shadow=0.07, stroke=max(1, int(px * 0.035)), stroke_color=(0, 0, 0))
         self._reg(reg, ws, pos, px, "bold", u, f"cap{i}")
 
     def _b(self, layer, reg, t, c, ws, px, cx, cy, W, H, i):
@@ -171,7 +196,7 @@ class WordCaptions(Overlay):
             emph = bool(w.get("emph")); big = 1.0 + (0.2 * E.out_back(u, 2.0) if emph else 0.0) if u < 1 else (1.2 if emph else 1.0)
             col = self.accent if emph else INK
             K.draw_text(layer, (pos[j][0], pos[j][1] + (1 - E.out_cubic(u)) * px * 0.3 - (big - 1) * px * 0.3), w["text"], px * big, col, "heavy" if emph else "bold",
-                        E.out_cubic(u) * out, shadow=0.07, stroke=max(1, int(px * 0.035)), stroke_color=(0, 0, 0))
+                        E.out_cubic(u) * out * self._dim(i, j, t), shadow=0.07, stroke=max(1, int(px * 0.035)), stroke_color=(0, 0, 0))
         self._reg(reg, ws, pos, px, "bold", out, f"cap{i}")
 
     def _c(self, layer, reg, t, c, ws, px, cx, cy, W, H, i):
@@ -190,9 +215,9 @@ class WordCaptions(Overlay):
             txt = w["text"]; x, y = pos[j]; wd = K.width(txt, px, "heavy")
             special = is_year(txt) or is_number(txt) or w.get("kind") in ("year", "number", "place")
             if not special:
-                K.draw_text(layer, (x, y), txt, px, INK, "bold", E.out_cubic(u) * out, shadow=0.07, stroke=max(1, int(px * 0.035)), stroke_color=(0, 0, 0)); continue
+                K.draw_text(layer, (x, y), txt, px, INK, "bold", E.out_cubic(u) * out * self._dim(i, j, t), shadow=0.07, stroke=max(1, int(px * 0.035)), stroke_color=(0, 0, 0)); continue
             # no count-up in captions: a subtitle shows the spoken words exactly (count-up lives in typeset.NumberCard)
-            plate = K.draw_text(layer, (x, y), txt, px * 1.12, self.data if w.get("kind") != "place" else self.accent, "black", E.out_cubic(u) * out, shadow=0.07, stroke=max(1, int(px * 0.04)), stroke_color=(0, 0, 0))
+            plate = K.draw_text(layer, (x, y), txt, px * 1.12, self.data if w.get("kind") != "place" else self.accent, "black", E.out_cubic(u) * out * self._dim(i, j, t), shadow=0.07, stroke=max(1, int(px * 0.04)), stroke_color=(0, 0, 0))
             if is_year(w["text"]) and plate:             # underline sweep
                 sw = E.out_expo(E.seg(t, w["start"] + 0.05, w["start"] + 0.4)); d = _draw(layer)
                 d.rectangle([plate[0], plate[3] - px * 0.12, plate[0] + (plate[2] - plate[0]) * sw, plate[3] - px * 0.06], fill=self.data + (int(255 * out),))

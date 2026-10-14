@@ -207,6 +207,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** EP001 final report states 4K NOT produced.
 - **Regression test:** none - Policy decision, nothing to test.
 
+### opening-tilt-then-move - Plane tilt and a fast camera move at the same time smear the opening
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** The opening plane tilt ran together with a snap zoom: the tilted map was a motion-blur smear.
+- **Root cause:** Two moves overlapped in the first 1.7 s.
+- **Fix:** Director holds the first shot's camera until the plane has landed (keys shifted by 1.6 s) and shifts the declared fast-move window and its whoosh accordingly.
+- **Reuse when:** Any opening that combines PlaneTilt with a camera move.
+- **References:** `orbitalatlas/director.py`; `docs/references/library/REFERENCE_COMPARISON.md`
+- **Verification:** frames at 0.5 and 1.2 s are sharp in the re-render.
+- **Regression test:** none - judged on rendered frames
+
 ### pil-float-width - Float width in ImageDraw raises TypeError
 *VERIFIED · EP002 · 2026-10-13*
 
@@ -239,6 +250,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `orbitalatlas/director.py`; `orbitalatlas/layers.py`; `docs/references/library/REFERENCE_COMPARISON.md`
 - **Verification:** re-rendered frames at 5.8/6.2 s are readable; QA passes with the declared changes.
 - **Regression test:** none - needs rendered video / repository state, checked on frames
+
+### sound-design-synthesised-ducked - Sound design: original synthesised effects, cue plan from the director, ducked under the narration
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** The demos had no sound design; free libraries need licence checks and some hosts are blocked here.
+- **Root cause:** No audio layer besides narration.
+- **Fix:** orbitalatlas.sfx synthesises whoosh, sweep, impact, rise, ui_blip, tick (original, CC0 with the code, no attribution); plan_cues maps director decisions to effects with a 0.25 s minimum gap and priorities; mix ducks effects 8 dB while words are spoken and caps them 12 dB under the local voice level, then loudnorm to -16 LUFS; director --sfx writes OUT.mix.wav and reports the measured margin.
+- **Reuse when:** Any render that needs transitions/impacts to be heard.
+- **References:** `orbitalatlas/sfx.py`; `orbitalatlas/director.py`; `docs/ASSET_SOURCE_REGISTRY.md`
+- **Verification:** ep901: 11 cues, effects >= 14.4 dB under the voice (5th percentile while speaking), -15.7 LUFS, voice offset in the mix 0.0 s.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2c.py::test_mix_keeps_effects_well_under_the_voice`
 
 ### xfade-shortens-timeline - ffmpeg xfade between segments shortens the timeline and breaks sync
 *VERIFIED · EP002 · 2026-10-13*
@@ -387,6 +409,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** ep900-visual-demo (19.3 s, alignment timing) and EP003 (300 s, 40 shots, estimated timing) built automatically; 30 s of EP003 and the full demo rendered and inspected.
 - **Regression test:** `orbitalatlas/tests/test_visual_v2b.py::test_focus_hides_duplicate_captions_and_decisions_are_reported`
 
+### event-year-vs-image-date - A historical year must never read as the date of the satellite picture
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** v2b showed '1959' (causeway finished) and '2022' (image) in the same YearTag style; a viewer could take 1959 for the image date.
+- **Root cause:** One component was used for two meanings.
+- **Fix:** interact.ImageStamp ('IMAGE · <sensor> · <month year>', cyan, top-left, from asset metadata) vs interact.EventYear (amber outline-to-fill year + the narration's clause, top-right). When an event year differs from the image date, the director shows the ImageStamp at the same time; an event year in a sentence whose number card carries the date is skipped. report['dates'] lists every displayed date with its role.
+- **Reuse when:** Any narration year over imagery of another date.
+- **References:** `orbitalatlas/interact.py`; `orbitalatlas/director.py`; `docs/references/library/UNIFIED_STYLE_GUIDE.md`
+- **Verification:** ep901: 1959 shown with 'IMAGE · LANDSAT 8, 9 · USGS · JULY 2022' beside it; July 2022 date carried by the number card.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2c.py::test_image_stamp_says_image_and_event_year_never_does`
+
 ### evidence-pixels-never-recoloured - Satellite pixels get only neutral or evidence_safe grading; highlights are annotations
 *VERIFIED · general · 2026-10-14*
 
@@ -419,6 +452,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `tools/autopilot/storyboard.py`
 - **Verification:** Found only by LOOKING at a contact sheet of the proof frames; after the fix the frame reads 'GREAT SALT LAKE · JUNE 1985'.
 - **Regression test:** `tools/autopilot/test_storyboard.py::test_callout_labels_are_whole_words_and_never_cut_a_number`
+
+### keyword-lift-caption-to-map - Keywords leave the subtitle line and land on the map; the caption keeps them dimmed
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Captions and map labels were separate layers, so names appeared twice and text never interacted with the map.
+- **Root cause:** No shared word positions between captions and scene overlays.
+- **Fix:** WordCaptions.word_box/locate expose the caption layout; interact.KeywordLift flies the word on an arc to its pin (parallax depth) and lands as the label; the caption word is dimmed to 40 % (still readable, not duplicated at full weight); the pin's own label and the callout title are dropped for that place.
+- **Reuse when:** Place names with stack pins mentioned in the narration.
+- **References:** `orbitalatlas/interact.py`; `orbitalatlas/captions.py`; `orbitalatlas/director.py`; `docs/references/library/REFERENCE_COMPARISON.md`
+- **Verification:** ep901 frames: CAUSEWAY, GILBERT BAY, GUNNISON BAY lifted and landed; overlay QA 0 collisions.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2c.py::test_lift_starts_on_the_caption_word_and_lands_on_the_anchor`
 
 ### labels-vs-captions-bands - Main labels must not sit in the caption band
 *VERIFIED · EP002 · 2026-10-13*
@@ -590,6 +634,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Regression test:** none - Depends on the host and credentials; verified by the download check.
 
 ## process
+
+### adaptive-intensity-and-pacing - Animation intensity follows the meaning; pacing is measured per sentence
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Fixed density rules made dense passages slow and explanations busy.
+- **Root cause:** No notion of how complex or dramatic a sentence is.
+- **Fix:** semantic.intensity: revelations, emphasis, data and fast speech raise the score, long explanations lower it (calm / normal / energetic). Director: calm -> captions A, no punches; energetic -> punch-ins on emphasis (2.5 s apart), light accents on cuts; lifts everywhere outside focus cards. report['pacing'] gives the max gap between visual changes per sentence with limits 3 / 4 / 6 s.
+- **Reuse when:** Every automatic edit.
+- **References:** `orbitalatlas/semantic.py`; `orbitalatlas/director.py`; `docs/references/library/UNIFIED_STYLE_GUIDE.md`
+- **Verification:** ep901: max gaps 1.3-1.9 s in all five sentences; the 22-word explanation is calm.
+- **Regression test:** `orbitalatlas/tests/test_visual_v2c.py::test_long_explanation_is_calm_and_a_revelation_is_energetic`
 
 ### agent-cannot-listen-or-watch - The agent cannot listen to audio or watch continuous video
 *VERIFIED · general · 2026-10-13*

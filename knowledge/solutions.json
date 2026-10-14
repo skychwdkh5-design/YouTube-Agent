@@ -1892,6 +1892,161 @@
     "storyboard"
    ],
    "no_test_reason": "needs rendered video / repository state, checked on frames"
+  },
+  {
+   "id": "event-year-vs-image-date",
+   "title": "A historical year must never read as the date of the satellite picture",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "visual",
+   "date": "2026-10-14",
+   "problem": "v2b showed '1959' (causeway finished) and '2022' (image) in the same YearTag style; a viewer could take 1959 for the image date.",
+   "root_cause": "One component was used for two meanings.",
+   "fix": "interact.ImageStamp ('IMAGE · <sensor> · <month year>', cyan, top-left, from asset metadata) vs interact.EventYear (amber outline-to-fill year + the narration's clause, top-right). When an event year differs from the image date, the director shows the ImageStamp at the same time; an event year in a sentence whose number card carries the date is skipped. report['dates'] lists every displayed date with its role.",
+   "reuse_when": "Any narration year over imagery of another date.",
+   "refs": {
+    "code": [
+     "orbitalatlas/interact.py",
+     "orbitalatlas/director.py"
+    ],
+    "docs": [
+     "docs/references/library/UNIFIED_STYLE_GUIDE.md"
+    ]
+   },
+   "verification": "ep901: 1959 shown with 'IMAGE · LANDSAT 8, 9 · USGS · JULY 2022' beside it; July 2022 date carried by the number card.",
+   "symptoms": [
+    "wrong date",
+    "image date",
+    "event year"
+   ],
+   "stages": [
+    "storyboard",
+    "review"
+   ],
+   "regression_test": "orbitalatlas/tests/test_visual_v2c.py::test_image_stamp_says_image_and_event_year_never_does"
+  },
+  {
+   "id": "keyword-lift-caption-to-map",
+   "title": "Keywords leave the subtitle line and land on the map; the caption keeps them dimmed",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "visual",
+   "date": "2026-10-14",
+   "problem": "Captions and map labels were separate layers, so names appeared twice and text never interacted with the map.",
+   "root_cause": "No shared word positions between captions and scene overlays.",
+   "fix": "WordCaptions.word_box/locate expose the caption layout; interact.KeywordLift flies the word on an arc to its pin (parallax depth) and lands as the label; the caption word is dimmed to 40 % (still readable, not duplicated at full weight); the pin's own label and the callout title are dropped for that place.",
+   "reuse_when": "Place names with stack pins mentioned in the narration.",
+   "refs": {
+    "code": [
+     "orbitalatlas/interact.py",
+     "orbitalatlas/captions.py",
+     "orbitalatlas/director.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ]
+   },
+   "verification": "ep901 frames: CAUSEWAY, GILBERT BAY, GUNNISON BAY lifted and landed; overlay QA 0 collisions.",
+   "symptoms": [
+    "duplicate label",
+    "caption and map label"
+   ],
+   "stages": [
+    "storyboard",
+    "render"
+   ],
+   "regression_test": "orbitalatlas/tests/test_visual_v2c.py::test_lift_starts_on_the_caption_word_and_lands_on_the_anchor"
+  },
+  {
+   "id": "adaptive-intensity-and-pacing",
+   "title": "Animation intensity follows the meaning; pacing is measured per sentence",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "process",
+   "date": "2026-10-14",
+   "problem": "Fixed density rules made dense passages slow and explanations busy.",
+   "root_cause": "No notion of how complex or dramatic a sentence is.",
+   "fix": "semantic.intensity: revelations, emphasis, data and fast speech raise the score, long explanations lower it (calm / normal / energetic). Director: calm -> captions A, no punches; energetic -> punch-ins on emphasis (2.5 s apart), light accents on cuts; lifts everywhere outside focus cards. report['pacing'] gives the max gap between visual changes per sentence with limits 3 / 4 / 6 s.",
+   "reuse_when": "Every automatic edit.",
+   "refs": {
+    "code": [
+     "orbitalatlas/semantic.py",
+     "orbitalatlas/director.py"
+    ],
+    "docs": [
+     "docs/references/library/UNIFIED_STYLE_GUIDE.md"
+    ]
+   },
+   "verification": "ep901: max gaps 1.3-1.9 s in all five sentences; the 22-word explanation is calm.",
+   "symptoms": [
+    "static",
+    "slow pacing",
+    "too busy"
+   ],
+   "stages": [
+    "storyboard"
+   ],
+   "regression_test": "orbitalatlas/tests/test_visual_v2c.py::test_long_explanation_is_calm_and_a_revelation_is_energetic"
+  },
+  {
+   "id": "sound-design-synthesised-ducked",
+   "title": "Sound design: original synthesised effects, cue plan from the director, ducked under the narration",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "render",
+   "date": "2026-10-14",
+   "problem": "The demos had no sound design; free libraries need licence checks and some hosts are blocked here.",
+   "root_cause": "No audio layer besides narration.",
+   "fix": "orbitalatlas.sfx synthesises whoosh, sweep, impact, rise, ui_blip, tick (original, CC0 with the code, no attribution); plan_cues maps director decisions to effects with a 0.25 s minimum gap and priorities; mix ducks effects 8 dB while words are spoken and caps them 12 dB under the local voice level, then loudnorm to -16 LUFS; director --sfx writes OUT.mix.wav and reports the measured margin.",
+   "reuse_when": "Any render that needs transitions/impacts to be heard.",
+   "refs": {
+    "code": [
+     "orbitalatlas/sfx.py",
+     "orbitalatlas/director.py"
+    ],
+    "docs": [
+     "docs/ASSET_SOURCE_REGISTRY.md"
+    ]
+   },
+   "verification": "ep901: 11 cues, effects >= 14.4 dB under the voice (5th percentile while speaking), -15.7 LUFS, voice offset in the mix 0.0 s.",
+   "symptoms": [
+    "sound effects",
+    "whoosh",
+    "music licence"
+   ],
+   "stages": [
+    "render",
+    "qc"
+   ],
+   "regression_test": "orbitalatlas/tests/test_visual_v2c.py::test_mix_keeps_effects_well_under_the_voice"
+  },
+  {
+   "id": "opening-tilt-then-move",
+   "title": "Plane tilt and a fast camera move at the same time smear the opening",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "render",
+   "date": "2026-10-14",
+   "problem": "The opening plane tilt ran together with a snap zoom: the tilted map was a motion-blur smear.",
+   "root_cause": "Two moves overlapped in the first 1.7 s.",
+   "fix": "Director holds the first shot's camera until the plane has landed (keys shifted by 1.6 s) and shifts the declared fast-move window and its whoosh accordingly.",
+   "reuse_when": "Any opening that combines PlaneTilt with a camera move.",
+   "refs": {
+    "code": [
+     "orbitalatlas/director.py"
+    ],
+    "docs": [
+     "docs/references/library/REFERENCE_COMPARISON.md"
+    ]
+   },
+   "verification": "frames at 0.5 and 1.2 s are sharp in the re-render.",
+   "symptoms": [
+    "smear at the start"
+   ],
+   "stages": [
+    "render"
+   ],
+   "no_test_reason": "judged on rendered frames"
   }
  ]
 }

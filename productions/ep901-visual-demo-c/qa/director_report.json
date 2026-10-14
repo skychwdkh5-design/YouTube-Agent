@@ -1,0 +1,522 @@
+{
+ "decisions": [
+  {
+   "kind": "captions",
+   "t": 4.3746,
+   "why": "style C handed to the impact card"
+  },
+  {
+   "kind": "region",
+   "t": 2.912,
+   "place": "Great Salt Lake"
+  },
+  {
+   "kind": "image_stamp",
+   "t": 0.15,
+   "text": "LANDSAT 8, 9 \u00b7 USGS \u00b7 JULY 2022",
+   "asset": "y2022"
+  },
+  {
+   "kind": "shot",
+   "id": "sc01",
+   "t": 0.0,
+   "dur": 4.37,
+   "base": "y2022",
+   "decisions": [
+    "camera: snap zoom in x3.3",
+    "camera move held until the plane has landed",
+    "opening plane tilt 42 -> 0 deg"
+   ]
+  },
+  {
+   "kind": "transition",
+   "t": 4.366666666666666,
+   "why": "cut"
+  },
+  {
+   "kind": "accent",
+   "t": 4.366666666666666,
+   "why": "light sweep on an energetic cut"
+  },
+  {
+   "kind": "shot",
+   "id": "sc02",
+   "t": 4.366666666666666,
+   "dur": 3.4,
+   "base": "y2022",
+   "decisions": [
+    "camera: creep (same view)"
+   ]
+  },
+  {
+   "kind": "lift",
+   "t": 7.873,
+   "place": "Causeway"
+  },
+  {
+   "kind": "punch",
+   "t": 10.966,
+   "word": "splits"
+  },
+  {
+   "kind": "transition",
+   "t": 7.766666666666667,
+   "why": "cut"
+  },
+  {
+   "kind": "accent",
+   "t": 7.766666666666667,
+   "why": "light sweep on an energetic cut"
+  },
+  {
+   "kind": "shot",
+   "id": "sc03",
+   "t": 7.766666666666667,
+   "dur": 4.87,
+   "base": "y2022",
+   "decisions": [
+    "camera: scale change out x2.7"
+   ]
+  },
+  {
+   "kind": "lift",
+   "t": 15.189,
+   "place": "Gilbert Bay"
+  },
+  {
+   "kind": "lift",
+   "t": 17.096,
+   "place": "Gunnison Bay"
+  },
+  {
+   "kind": "region",
+   "t": 15.189,
+   "place": "Gilbert Bay"
+  },
+  {
+   "kind": "callout",
+   "t": 15.189,
+   "place": "Gilbert Bay",
+   "row": "south"
+  },
+  {
+   "kind": "region",
+   "t": 17.096,
+   "place": "Gunnison Bay"
+  },
+  {
+   "kind": "callout",
+   "t": 17.096,
+   "place": "Gunnison Bay",
+   "row": "north"
+  },
+  {
+   "kind": "transition",
+   "t": 12.633333333333333,
+   "why": "cut"
+  },
+  {
+   "kind": "shot",
+   "id": "sc04",
+   "t": 12.633333333333333,
+   "dur": 8.0,
+   "base": "y2022",
+   "decisions": [
+    "camera: creep (same view)"
+   ]
+  },
+  {
+   "kind": "punch",
+   "t": 23.027,
+   "word": "fallen"
+  },
+  {
+   "kind": "transition",
+   "t": 20.633333333333333,
+   "why": "cut"
+  },
+  {
+   "kind": "accent",
+   "t": 20.633333333333333,
+   "why": "light sweep on an energetic cut"
+  },
+  {
+   "kind": "shot",
+   "id": "sc05",
+   "t": 20.633333333333333,
+   "dur": 6.13,
+   "base": "y2022",
+   "decisions": [
+    "camera: smooth move 1.6s"
+   ]
+  },
+  {
+   "kind": "event_year",
+   "t": 9.127,
+   "year": "1959",
+   "words": "causeway was finished"
+  },
+  {
+   "kind": "image_stamp",
+   "t": 9.127,
+   "text": "LANDSAT 8, 9 \u00b7 USGS \u00b7 JULY 2022",
+   "why": "shown with an event year of another date"
+  }
+ ],
+ "skipped": [
+  {
+   "kind": "event_year",
+   "t": 20.879,
+   "why": "the number card of this sentence carries the date"
+  }
+ ],
+ "focus": [
+  {
+   "kind": "impact",
+   "t0": 6.06,
+   "t1": 7.74
+  },
+  {
+   "kind": "number",
+   "t0": 23.34,
+   "t1": 26.5
+  }
+ ],
+ "intended_changes": [
+  1.6,
+  1.633,
+  1.667,
+  1.7,
+  1.733,
+  1.767,
+  1.8,
+  1.833,
+  1.867,
+  1.9,
+  1.933,
+  1.967,
+  2.0,
+  2.033,
+  2.067,
+  2.1,
+  2.133,
+  2.167,
+  2.2,
+  2.233,
+  2.267,
+  2.3,
+  2.333,
+  2.367,
+  2.4,
+  2.433,
+  2.467,
+  2.5,
+  2.533,
+  2.567,
+  2.6,
+  2.633,
+  2.667,
+  2.7,
+  2.733,
+  2.767,
+  2.8,
+  2.833,
+  2.867,
+  2.9,
+  2.933,
+  2.967,
+  3.0,
+  3.033,
+  3.067,
+  4.367,
+  6.022,
+  6.055,
+  6.089,
+  6.122,
+  6.155,
+  6.189,
+  6.222,
+  6.255,
+  6.289,
+  6.322,
+  6.355,
+  7.711,
+  7.744,
+  7.767,
+  7.778,
+  7.8,
+  7.811,
+  7.833,
+  7.844,
+  7.867,
+  7.878,
+  7.9,
+  7.911,
+  7.933,
+  7.944,
+  7.967,
+  7.978,
+  8.0,
+  8.011,
+  8.033,
+  8.044,
+  8.067,
+  8.078,
+  8.1,
+  8.111,
+  8.133,
+  8.167,
+  8.2,
+  8.233,
+  8.267,
+  8.3,
+  8.333,
+  8.367,
+  8.4,
+  8.433,
+  8.467,
+  8.5,
+  8.533,
+  8.567,
+  8.6,
+  8.633,
+  8.667,
+  8.7,
+  8.733,
+  8.767,
+  8.8,
+  8.833,
+  8.867,
+  8.9,
+  8.933,
+  8.967,
+  9.0,
+  9.033,
+  9.067,
+  9.1,
+  9.133,
+  9.167,
+  9.2,
+  9.233,
+  12.633,
+  20.633,
+  23.309,
+  23.342,
+  23.375,
+  23.409,
+  23.442,
+  23.475,
+  23.509,
+  23.542,
+  23.575,
+  23.609,
+  23.642,
+  26.462,
+  26.495,
+  26.529,
+  26.562,
+  26.595,
+  26.629,
+  26.662,
+  26.695,
+  26.729,
+  26.762,
+  26.795,
+  26.829,
+  26.862
+ ],
+ "intensity": [
+  {
+   "w0": 0,
+   "w1": 11,
+   "t0": 0.25,
+   "t1": 3.915,
+   "score": 0.55,
+   "label": "normal"
+  },
+  {
+   "w0": 11,
+   "w1": 20,
+   "t0": 4.375,
+   "t1": 7.294,
+   "score": 0.8,
+   "label": "energetic"
+  },
+  {
+   "w0": 20,
+   "w1": 33,
+   "t0": 7.754,
+   "t1": 12.177,
+   "score": 0.8,
+   "label": "energetic"
+  },
+  {
+   "w0": 33,
+   "w1": 55,
+   "t0": 12.637,
+   "t1": 20.189,
+   "score": 0.25,
+   "label": "calm"
+  },
+  {
+   "w0": 55,
+   "w1": 65,
+   "t0": 20.649,
+   "t1": 25.262,
+   "score": 0.8,
+   "label": "energetic"
+  }
+ ],
+ "opening_tilt": true,
+ "dates": [
+  {
+   "kind": "image",
+   "t": 0.0,
+   "text": "LANDSAT 8, 9 \u00b7 USGS \u00b7 JULY 2022",
+   "asset_label": "July 2022",
+   "prov": "2022-07-11/28"
+  },
+  {
+   "kind": "event",
+   "t": 9.13,
+   "year": "1959",
+   "words": "causeway was finished",
+   "image_on_screen": "July 2022",
+   "differs": true
+  }
+ ],
+ "pacing": [
+  {
+   "t0": 0.25,
+   "t1": 3.915,
+   "label": "normal",
+   "visual_events": 2,
+   "max_gap": 1.93,
+   "limit": 4.0,
+   "ok": true
+  },
+  {
+   "t0": 4.375,
+   "t1": 7.294,
+   "label": "energetic",
+   "visual_events": 2,
+   "max_gap": 1.68,
+   "limit": 3.0,
+   "ok": true
+  },
+  {
+   "t0": 7.754,
+   "t1": 12.177,
+   "label": "energetic",
+   "visual_events": 6,
+   "max_gap": 1.32,
+   "limit": 3.0,
+   "ok": true
+  },
+  {
+   "t0": 12.637,
+   "t1": 20.189,
+   "label": "calm",
+   "visual_events": 7,
+   "max_gap": 1.79,
+   "limit": 6.0,
+   "ok": true
+  },
+  {
+   "t0": 20.649,
+   "t1": 25.262,
+   "label": "energetic",
+   "visual_events": 5,
+   "max_gap": 1.89,
+   "limit": 3.0,
+   "ok": true
+  }
+ ],
+ "t_offset": 0.0,
+ "timing_source": "alignment",
+ "hidden_cards": [
+  4,
+  16
+ ],
+ "shots": 5,
+ "duration": 26.767,
+ "sfx": {
+  "cues": [
+   {
+    "t": 0.0,
+    "kind": "rise",
+    "why": "opening plane tilt",
+    "gain_db": -16
+   },
+   {
+    "t": 1.75,
+    "kind": "whoosh",
+    "why": "fast camera move",
+    "gain_db": -14
+   },
+   {
+    "t": 2.912,
+    "kind": "ui_blip",
+    "why": "region",
+    "gain_db": -22
+   },
+   {
+    "t": 4.96,
+    "kind": "rise",
+    "why": "before impact card",
+    "gain_db": -16
+   },
+   {
+    "t": 6.08,
+    "kind": "impact",
+    "why": "impact card lands",
+    "gain_db": -12
+   },
+   {
+    "t": 7.867,
+    "kind": "whoosh",
+    "why": "fast camera move",
+    "gain_db": -14
+   },
+   {
+    "t": 9.127,
+    "kind": "ui_blip",
+    "why": "image_stamp",
+    "gain_db": -22
+   },
+   {
+    "t": 10.966,
+    "kind": "impact",
+    "why": "punch-in on emphasis",
+    "gain_db": -12
+   },
+   {
+    "t": 15.309,
+    "kind": "whoosh",
+    "why": "keyword lift",
+    "gain_db": -14
+   },
+   {
+    "t": 17.216,
+    "kind": "whoosh",
+    "why": "keyword lift",
+    "gain_db": -14
+   },
+   {
+    "t": 23.027,
+    "kind": "impact",
+    "why": "punch-in on emphasis",
+    "gain_db": -12
+   },
+   {
+    "t": 23.39,
+    "kind": "ui_blip",
+    "why": "number card",
+    "gain_db": -22
+   }
+  ],
+  "voice_active_s": 15.38,
+  "margin_db_p5": 13.9,
+  "license": "Original sound effects synthesised by orbitalatlas/sfx.py (code in this repository). No third-party audio is used; no attribution is required. Released CC0 1.0 by the project owner together with the code; safe for monetised YouTube use."
+ }
+}

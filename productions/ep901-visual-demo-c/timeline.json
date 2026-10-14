@@ -1,0 +1,266 @@
+{
+ "version": 3,
+ "profile": "long",
+ "grid": "assets/landsat/stack_cal/grid.json",
+ "assets": {
+  "y2022": {
+   "src": "assets/landsat/stack_cal/y2022.png",
+   "kind": "image",
+   "label": "July 2022",
+   "credit": "Landsat 8, 9 · USGS",
+   "prov": "2022-07-11/28"
+  }
+ },
+ "shots": [
+  {
+   "id": "sc01",
+   "beat": "From orbit, one straight line cuts",
+   "start": 0.0,
+   "info": "From orbit, one straight line cuts across the Great Salt Lak",
+   "camera": {
+    "from": {
+     "center": [
+      -112.5,
+      41.2
+     ],
+     "width_km": 228.0
+    },
+    "to": {
+     "center": [
+      -112.65,
+      41.226
+     ],
+     "width_km": 70.0
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2022"
+    },
+    {
+     "type": "label",
+     "text": "JULY 2022",
+     "style": "year",
+     "slot": "top",
+     "info": "July 2022"
+    }
+   ],
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc02",
+   "beat": "It is not a shoreline: it",
+   "start": 4.366666666666666,
+   "info": "It is not a shoreline: it is a railroad.",
+   "camera": {
+    "from": {
+     "center": [
+      -112.62,
+      41.225
+     ],
+     "width_km": 45.0
+    },
+    "to": {
+     "center": [
+      -112.62,
+      41.225
+     ],
+     "width_km": 45.0
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2022"
+    },
+    {
+     "type": "label",
+     "text": "JULY 2022",
+     "style": "year",
+     "slot": "top",
+     "info": "July 2022"
+    },
+    {
+     "type": "pin",
+     "at": [
+      -112.65,
+      41.226
+     ],
+     "text": "CAUSEWAY",
+     "t": [
+      0.967,
+      null
+     ],
+     "info": "Causeway"
+    }
+   ],
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc03",
+   "beat": "The causeway was finished in 1959,",
+   "start": 7.766666666666667,
+   "info": "The causeway was finished in 1959, and it splits the lake in",
+   "camera": {
+    "from": {
+     "center": [
+      -112.65,
+      41.226
+     ],
+     "width_km": 70.0
+    },
+    "to": {
+     "center": [
+      -112.45,
+      41.15
+     ],
+     "width_km": 190.0
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2022"
+    },
+    {
+     "type": "label",
+     "text": "JULY 2022",
+     "style": "year",
+     "slot": "top",
+     "info": "July 2022"
+    },
+    {
+     "type": "pin",
+     "at": [
+      -112.65,
+      41.226
+     ],
+     "text": "CAUSEWAY",
+     "t": [
+      0.3,
+      null
+     ],
+     "info": "Causeway"
+    }
+   ],
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc04",
+   "beat": "Almost all of the fresh water",
+   "start": 12.633333333333333,
+   "info": "Almost all of the fresh water flows into Gilbert Bay, to the",
+   "camera": {
+    "from": {
+     "center": [
+      -112.45,
+      41.15
+     ],
+     "width_km": 190.0
+    },
+    "to": {
+     "center": [
+      -112.45,
+      41.15
+     ],
+     "width_km": 190.0
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2022"
+    },
+    {
+     "type": "label",
+     "text": "JULY 2022",
+     "style": "year",
+     "slot": "top",
+     "info": "July 2022"
+    },
+    {
+     "type": "pin",
+     "at": [
+      -112.35,
+      40.9
+     ],
+     "text": "GILBERT BAY",
+     "t": [
+      2.567,
+      null
+     ],
+     "info": "Gilbert Bay"
+    },
+    {
+     "type": "pin",
+     "at": [
+      -112.8,
+      41.33
+     ],
+     "text": "GUNNISON BAY",
+     "t": [
+      4.467,
+      null
+     ],
+     "info": "Gunnison Bay"
+    }
+   ],
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc05",
+   "beat": "By July 2022, the lake had",
+   "start": 20.633333333333333,
+   "info": "By July 2022, the lake had fallen to 4,190.2 feet.",
+   "camera": {
+    "from": {
+     "center": [
+      -112.45,
+      41.15
+     ],
+     "width_km": 190.0
+    },
+    "to": {
+     "center": [
+      -112.5,
+      41.2
+     ],
+     "width_km": 228.0
+    },
+    "ease": "in_out"
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2022"
+    },
+    {
+     "type": "label",
+     "text": "JULY 2022",
+     "style": "year",
+     "slot": "top",
+     "info": "July 2022"
+    }
+   ],
+   "visual_family": "geo_2022"
+  }
+ ],
+ "end": {
+  "seconds": 26.766666666666666
+ },
+ "render": {
+  "segment_s": 60
+ },
+ "meta": {
+  "generator": "tools/autopilot/storyboard.py",
+  "timing": "provider",
+  "timing_source": "alignment",
+  "timing_note": "provider word times",
+  "motion_plan": "story/motion_plan.json"
+ }
+}
