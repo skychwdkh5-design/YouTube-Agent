@@ -1373,7 +1373,7 @@
      "tools/autopilot/topics.py"
     ],
     "docs": [
-     "productions/ep003-great-salt-lake/research/topic_decision.json"
+     "docs/AUTOPILOT.md"
     ]
    },
    "verification": "EP003 research: 7 candidates, Great Salt Lake got a measured signal (Sundance 2026 film, sold-out screenings), all others capped.",
@@ -1399,7 +1399,7 @@
      "tools/autopilot/gates.py"
     ],
     "docs": [
-     "productions/ep003-great-salt-lake/research/topic_decision.json"
+     "docs/AUTOPILOT.md"
     ]
    },
    "verification": "EP003: St. Helens led the weighted sum (4.16 vs 4.08) but under the margin, so the tie-break chose the Great Salt Lake; documented in the decision file.",
@@ -1424,7 +1424,7 @@
      ".claude/skills/yt-qc/qc.py"
     ],
     "docs": [
-     "productions/ep003-great-salt-lake/preview/PROOF_REPORT.md"
+     "docs/AUTOPILOT.md"
     ]
    },
    "verification": "EP003 proof: fails were long_duration, loudness (silent), audio_starts; freezes warn 3.07 s (a number card).",
@@ -1447,8 +1447,7 @@
    "reuse_when": "Planning imagery for any NASA-sourced episode.",
    "refs": {
     "docs": [
-     "docs/ASSET_SOURCE_REGISTRY.md",
-     "productions/ep003-great-salt-lake/assets/manifest.json"
+     "docs/ASSET_SOURCE_REGISTRY.md"
     ]
    },
    "verification": "EP003: SVS 15020 1080p movie (30 fps, 13 s, 16,204,354 bytes) downloaded and frames extracted; assets.science.nasa.gov HEAD failed.",
@@ -1456,6 +1455,31 @@
    "stages": [
     "research",
     "storyboard"
+   ]
+  },
+  {
+   "id": "stacked-prs-must-validate-alone",
+   "title": "Each PR in a stack must pass its own checks without the later PRs",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "process",
+   "date": "2026-10-14",
+   "problem": "Simulated sequential merge main <- #17 <- #18 <- #19 passed until #19, where kb.py validate --strict failed: four registry entries pointed at files that exist only in the later EP003 PR (#20).",
+   "root_cause": "Registry entries written on the EP003 branch referenced productions/ep003-*/ files while the entries themselves lived in the earlier infrastructure PR.",
+   "fix": "Reference only files that exist in the same PR (code, shared docs); keep episode-specific evidence inside the episode's own branch. Before asking for a merge run the whole stack in a throwaway worktree (tools: git worktree add, merge each PR in order, run protected.py, kb.py validate --strict and every test after each step).",
+   "reuse_when": "Any time branches are stacked or a PR adds registry/doc references.",
+   "refs": {
+    "code": [
+     "tools/memory/kb.py"
+    ],
+    "docs": [
+     "docs/AUTOPILOT.md"
+    ]
+   },
+   "verification": "The simulation found the failure; after the fix the registry validates strictly with 59 entries on the #19 branch alone.",
+   "regression_test": "tools/memory/test_kb.py::test_registry_is_valid",
+   "stages": [
+    "package"
    ]
   }
  ]

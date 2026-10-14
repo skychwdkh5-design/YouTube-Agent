@@ -282,7 +282,7 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Root cause:** long_duration (60-900 s), loudness and audio_starts cannot pass without narration and full length.
 - **Fix:** Treat those three as expected for proofs, list them, and look at the remaining checks (black frames, freezes, decode); a proof is judged by its frames, not by the QC verdict.
 - **Reuse when:** Every 12-20 s proof render.
-- **References:** `.claude/skills/yt-qc/qc.py`; `productions/ep003-great-salt-lake/preview/PROOF_REPORT.md`
+- **References:** `.claude/skills/yt-qc/qc.py`; `docs/AUTOPILOT.md`
 - **Verification:** EP003 proof: fails were long_duration, loudness (silent), audio_starts; freezes warn 3.07 s (a number card).
 - **Regression test:** none - Interpretation of an existing tool's output.
 
@@ -536,6 +536,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** EP002 SCRIPT_LOCK; autopilot test blocks the paid call after a post-plan edit.
 - **Regression test:** `tools/autopilot/test_autopilot.py::test_script_change_after_plan_blocks_the_paid_call`
 
+### stacked-prs-must-validate-alone - Each PR in a stack must pass its own checks without the later PRs
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Simulated sequential merge main <- #17 <- #18 <- #19 passed until #19, where kb.py validate --strict failed: four registry entries pointed at files that exist only in the later EP003 PR (#20).
+- **Root cause:** Registry entries written on the EP003 branch referenced productions/ep003-*/ files while the entries themselves lived in the earlier infrastructure PR.
+- **Fix:** Reference only files that exist in the same PR (code, shared docs); keep episode-specific evidence inside the episode's own branch. Before asking for a merge run the whole stack in a throwaway worktree (tools: git worktree add, merge each PR in order, run protected.py, kb.py validate --strict and every test after each step).
+- **Reuse when:** Any time branches are stacked or a PR adds registry/doc references.
+- **References:** `tools/memory/kb.py`; `docs/AUTOPILOT.md`
+- **Verification:** The simulation found the failure; after the fix the registry validates strictly with 59 entries on the #19 branch alone.
+- **Regression test:** `tools/memory/test_kb.py::test_registry_is_valid`
+
 ## env
 
 ### git-stop-hook-untracked-files - Session stop hook complains about untracked or uncommitted files
@@ -613,7 +624,7 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Root cause:** Network allowlist.
 - **Fix:** Use svs.gsfc.nasa.gov (HEAD 200, movies up to 5760x3240 and stills), extract frames locally with ffmpeg (record frame index and sha256), or fetch Landsat with the USGS M2M credentials. Credit NASA's Goddard Space Flight Center; the pages state no explicit licence, only the Reproduction Guidelines - confirm before release.
 - **Reuse when:** Planning imagery for any NASA-sourced episode.
-- **References:** `docs/ASSET_SOURCE_REGISTRY.md`; `productions/ep003-great-salt-lake/assets/manifest.json`
+- **References:** `docs/ASSET_SOURCE_REGISTRY.md`
 - **Verification:** EP003: SVS 15020 1080p movie (30 fps, 13 s, 16,204,354 bytes) downloaded and frames extracted; assets.science.nasa.gov HEAD failed.
 - **Regression test:** none - Depends on the live network and the host allowlist.
 
@@ -646,7 +657,7 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Root cause:** No decision rule.
 - **Fix:** topics.py: gates (sources, zero_cost), weighted score, auto-decision at margin >= 0.25, otherwise the tie-break order audience_evidence, us, zero_cost, originality, reach; the research gate recomputes the winner from candidates.json and rejects a mismatching decision.
 - **Reuse when:** Every episode's research stage.
-- **References:** `tools/autopilot/topics.py`; `tools/autopilot/gates.py`; `productions/ep003-great-salt-lake/research/topic_decision.json`
+- **References:** `tools/autopilot/topics.py`; `tools/autopilot/gates.py`; `docs/AUTOPILOT.md`
 - **Verification:** EP003: St. Helens led the weighted sum (4.16 vs 4.08) but under the margin, so the tie-break chose the Great Salt Lake; documented in the decision file.
 - **Regression test:** `tools/autopilot/test_autopilot.py::test_near_tie_is_decided_by_a_fixed_rule_never_left_to_the_owner`
 
@@ -657,6 +668,6 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Root cause:** Network allowlist; no API key.
 - **Fix:** audience_evidence above 3 requires a measured signal (metric, value, https URL, date) - e.g. press/festival attention; otherwise the score is capped at 3 and the note says so. Never write a view count that was not read.
 - **Reuse when:** Every research stage until a YouTube connector or the owner's Studio exports exist (/yt-retention reads those).
-- **References:** `tools/autopilot/topics.py`; `productions/ep003-great-salt-lake/research/topic_decision.json`
+- **References:** `tools/autopilot/topics.py`; `docs/AUTOPILOT.md`
 - **Verification:** EP003 research: 7 candidates, Great Salt Lake got a measured signal (Sundance 2026 film, sold-out screenings), all others capped.
 - **Regression test:** `tools/autopilot/test_autopilot.py::test_audience_evidence_is_capped_without_a_measured_signal`
