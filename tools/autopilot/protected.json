@@ -1,0 +1,5 @@
+{
+ "note": "Finished EP001/EP002 deliverables. Release refs are the branches that carry them; HEAD must match byte for byte wherever it contains them.",
+ "paths": ["productions/sahara-green/final/", "productions/dubai/final/", "productions/dubai/release/"],
+ "release_refs": ["origin/production/ep001-sahara-green", "origin/claude/youtube-agent-ep002-dubai-ts2kg8", "origin/media/ep002-dubai-final"]
+}

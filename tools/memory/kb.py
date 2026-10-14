@@ -26,6 +26,12 @@ AREAS = ("tts", "sync", "render", "qc", "visual", "geo", "storage", "process", "
 REQUIRED = ("id", "title", "status", "scope", "area", "date", "problem", "root_cause", "fix",
             "reuse_when", "refs", "verification")
 REF_KEYS = ("code", "docs", "commits", "remote", "video")
+STAGES = ("research", "claims", "script", "tts_plan", "tts", "captions", "storyboard", "render", "qc", "review", "package")
+# which pipeline stages an entry matters for when it does not say (`stages` field overrides)
+STAGE_AREAS = {"tts": ["tts_plan", "tts"], "sync": ["tts", "captions", "storyboard"], "render": ["storyboard", "render"], "qc": ["render", "qc", "review"],
+               "visual": ["storyboard", "review"], "geo": ["claims", "storyboard"], "research": ["research", "claims"], "storage": ["render", "package"],
+               "process": ["review", "package"], "env": []}
+AUTOFIX_ENV_KEYS = ("PYTHONPATH", "LC_ALL", "PYTHONIOENCODING")
 SECRET = re.compile(r"(sk_[A-Za-z0-9]{16,}|xi-api-key\s*[:=]\s*\S{8,}|ELEVENLABS_API_KEY\s*=\s*\S{8,}|ghp_[A-Za-z0-9]{20,})")
 
 
@@ -96,6 +102,15 @@ def check_entry(e, strict=False):
     for rx in e.get("symptoms", []):
         try: re.compile(rx)
         except re.error as x: errs.append(f"bad symptom regex {rx!r}: {x}")
+    for st in e.get("stages", []):
+        if st not in STAGES: errs.append(f"unknown stage {st!r} (one of {STAGES})")
+    af = e.get("auto_fix")
+    if af is not None:
+        if not (isinstance(af, dict) and set(af) == {"env"} and isinstance(af["env"], dict) and af["env"]
+                and all(k in AUTOFIX_ENV_KEYS and isinstance(v, str) for k, v in af["env"].items())):
+            errs.append(f"auto_fix must be {{'env': {{KEY: value}}}} with KEY in {AUTOFIX_ENV_KEYS} ({{root}} = repo root); nothing else is applied automatically")
+        elif not e.get("symptoms"):
+            errs.append("auto_fix needs symptoms (it is applied only when an error matches them)")
     blob = json.dumps(e, ensure_ascii=False)
     if SECRET.search(blob): errs.append("entry looks like it contains a secret - never store keys")
     return errs, warns
@@ -138,9 +153,19 @@ def diagnose(text, data=None):
         for rx in e.get("symptoms", []):
             if re.search(rx, text, re.I | re.S):
                 hits.append({"id": e["id"], "title": e["title"], "fix": e["fix"], "reuse_when": e["reuse_when"],
-                             "status": e["status"], "matched": rx})
+                             "status": e["status"], "matched": rx, **({"auto_fix": e["auto_fix"]} if e.get("auto_fix") else {})})
                 break
     return hits
+
+
+def for_stage(stage, data=None):
+    """Known pitfalls to read BEFORE a pipeline stage runs: entries that name the stage, or whose area maps to it."""
+    out = []
+    for e in (data or load())["entries"]:
+        st = e.get("stages") or STAGE_AREAS.get(e["area"], [])
+        if stage in st:
+            out.append({"id": e["id"], "title": e["title"], "status": e["status"], "fix": e["fix"], "reuse_when": e["reuse_when"]})
+    return sorted(out, key=lambda x: (x["status"] != "VERIFIED", x["id"]))
 
 
 def similar(entry, data):

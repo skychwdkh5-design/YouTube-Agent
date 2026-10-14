@@ -4,7 +4,10 @@
       {"hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/tools/memory/kb.py\" brief"}]}
     ],
     "PreToolUse": [
-      {"matcher": "Bash|Edit|Write|MultiEdit", "hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/tools/autopilot/guard.py\""}]}
+      {"matcher": "Bash|Edit|Write|MultiEdit|mcp__github__.*|mcp__.*youtube.*", "hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/tools/autopilot/guard.py\""}]}
+    ],
+    "Stop": [
+      {"hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/tools/autopilot/stop_check.py\""}]}
     ]
   }
 }

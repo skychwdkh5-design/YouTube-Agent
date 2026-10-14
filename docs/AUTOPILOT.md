@@ -32,6 +32,17 @@ There is no publish stage and the guard hook blocks upload commands. The owner u
 * **Memory loop:** SessionStart hook prints the registry brief; after a verified fix the agent adds an entry with a regression test (`kb.py add`).
 * **Guard hook** (`.claude/settings.json`): blocks direct paid TTS, pushes to main, commits on main, YouTube uploads, edits of finished EP001/EP002 deliverables, and secrets written to files.
 
+## Phase 2 additions
+* **Storyboard generator** `tools/autopilot/storyboard.py`: script paragraphs + word timings (provider, or a flagged ESTIMATE) + `assets/manifest.json` -> editable timeline v3 (profile long),
+  `story/storyboard.plan.json` (every decision with score and alternatives, `gaps`, `needs`), `story/storyboard.md`, yt-graphics number/flow graphics from VERIFIED claims only,
+  word-anchored labels and build steps, self-repair of known renderer errors, and `preview` (silent proof). It uses only effects marked `built` in `knowledge/effects.json`,
+  never shows an unrelated picture or an unflagged wrong-year picture, and lists what to acquire instead of faking it. Geographic camera shots (yt-geo stacks) are not generated.
+* **Effects library** `knowledge/effects.json` + `tools/memory/effects.py`: what the renderers really do, what exists only as Dubai scene code, and what is NOT built. The guard blocks a new code file that duplicates an entry.
+* **Topic choice** `topics.py`: gates (sources, zero cost), weighted score, auto decision at margin >= 0.25, else a fixed tie-break; measured audience signals or a cap; the gate recomputes the winner.
+* **Protection in code, not in text:** yt-voice refuses a paid request without the owner's recorded approval inside `generate()`; `protected.py` proves finished EP001/EP002 files are byte-identical to their releases; the Stop hook runs it and reminds to record a fix in the memory once.
+* **Memory is consulted:** before a stage (`known_pitfalls`, recorded in state.json), after an error (diagnosis; a whitelisted `auto_fix` such as PYTHONPATH is applied once), before writing an effect (guard), after a fix (Stop hook).
+* **Preservation** `archive.py` (create / verify / restore with SHA-256, parts under 90 MiB for a `media/<slug>-final` branch) and `recover_narration.py` (paid narration rebuilt from saved responses, proven by hash).
+
 ## What still needs Claude (not automatable today)
 Choosing and verifying topics against real sources, writing the script, the motion storyboard, looking at the frames, packaging
 copy. The tool prepares state, checks and bookkeeping; it does not replace those steps.
@@ -39,6 +50,6 @@ copy. The tool prepares state, checks and bookkeeping; it does not replace those
 ## Known gaps
 * The EP002 scene engine (`productions/dubai/preview`) is hand-written per scene; EP003 should use `yt-render` timeline v3 + `orbitalatlas/` + `yt-graphics`.
   Porting EP002's best parts (hook atmosphere, audits) into shared code is not done.
-* `storyboard -> timeline.json` is manual. No generator from script + claims + imagery exists yet.
+* The storyboard generator needs pictures: it reports what to acquire (`needs`), it cannot fetch Landsat scenes by itself yet (`/yt-satellite` is a separate step).
 * Quality audits from EP002 (text bounds, contrast, static runs) are not yet part of `yt-qc`; run them from `productions/dubai/preview/`.
 * No analytics: nothing has been published, so no retention evidence exists to tune the process.

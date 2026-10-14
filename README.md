@@ -73,3 +73,7 @@ python3 tools/autopilot/orbital.py preflight
 python3 tools/memory/kb.py search tts chunk
 python3 tools/autopilot/test_autopilot.py && python3 tools/memory/test_kb.py
 ```
+
+Phase 2 adds `tools/autopilot/storyboard.py` (script + timings + assets -> editable timeline and silent proof), `topics.py` (rule-based topic choice),
+`archive.py` / `recover_narration.py` (SHA-256 preservation and zero-cost narration rebuild), `protected.py`, a hardened `guard.py`, and the effects library
+`knowledge/effects.json`. Tests: `python3 tools/autopilot/test_storyboard.py`, `test_guard.py`, `test_memory_reuse.py`, `test_archive.py`.

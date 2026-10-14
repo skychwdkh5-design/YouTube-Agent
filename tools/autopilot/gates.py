@@ -4,7 +4,9 @@ Each gate takes the production folder and returns {"ok": bool, "problems": [...]
 A gate proves a technical fact. None of them is a visual review: the `review` gate only checks that a
 person-readable review was written, and it can never produce USER_APPROVED.
 """
-import hashlib, json, math, os, re, struct, wave
+import hashlib, json, math, os, re, struct, sys, wave
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 LEVELS = ("TECHNICALLY_VALID", "VISUALLY_REVIEWED", "USER_APPROVED")
 
@@ -52,22 +54,26 @@ def voice_onset(wav_path, threshold_db=-42.0, window_s=0.02):
 
 
 def topic_decision(d):
+    """The decision must follow the scoring rules: it is recomputed from candidates.json and has to name the same winner."""
+    import topics
     p = []
-    path = os.path.join(d, "research", "topic_decision.json")
-    cpath = os.path.join(d, "research", "candidates.json")
     try:
-        t = _json(path); c = _json(cpath)
+        t = _json(os.path.join(d, "research", "topic_decision.json")); c = _json(os.path.join(d, "research", "candidates.json"))
     except (OSError, ValueError) as x:
         return _res([f"cannot read research files: {x}"])
-    if len(c.get("candidates", [])) < 3: p.append("candidates.json needs at least 3 candidates (a choice among one is not a choice)")
-    for k in ("chosen_id", "reason", "evidence_urls", "us_hook"):
+    for k in ("chosen_id", "reason", "evidence_urls", "us_hook", "mode"):
         if not t.get(k): p.append(f"topic_decision.json missing '{k}'")
     urls = t.get("evidence_urls") or []
     if not urls or not all(isinstance(u, str) and u.startswith("https://") for u in urls):
         p.append("evidence_urls must be https URLs of reliable sources")
-    ids = [x.get("id") for x in c.get("candidates", [])]
-    if t.get("chosen_id") not in ids: p.append("chosen_id is not in candidates.json")
-    return _res(p)
+    if t.get("mode") not in ("auto", "tie_break"): p.append("mode must be 'auto' (provable advantage) or 'tie_break' (fixed rule)")
+    try:
+        again = topics.run(c)
+        if again["chosen_id"] != t.get("chosen_id"):
+            p.append(f"the recorded choice {t.get('chosen_id')!r} is not what the scoring rules give ({again['chosen_id']!r}): re-run topics.py score")
+    except (ValueError, KeyError) as x:
+        p.append(f"candidates.json does not pass the scoring rules: {x}")
+    return _res(p, [f"mode {t.get('mode')}: {str(t.get('reason', ''))[:120]}"])
 
 
 def claims(d):

@@ -32,3 +32,8 @@ Reachable: cdn.jsdelivr.net, cesium.com, api.cesium.com (405), assets.ion.cesium
 Blocked or failing then: registry.npmjs.org (DNS), tiles.maps.eox.at, services.arcgisonline.com, basemaps.cartocdn.com, www.usgs.gov (403), esri/airbus/planet/maxar pages, earth.google.com. Web fetch tool has no network; use `curl` in Bash (proxy trusted via /root/.ccr/ca-bundle.crt).
 
 Phase 2 host check (2026-10-09, all HTTP 403 from the proxy): overpass-api.de, tile.openstreetmap.org, overturemaps S3, AWS terrain-tiles and Copernicus DEM S3, planetarycomputer.microsoft.com, earth-search (element84), sentinel-cogs S3, download.blender.org, raw.githubusercontent.com, unpkg.com, cdnjs. Open buildings, open DEM and Blender are therefore unreachable until the user allowlists them.
+
+## Update 2026-10-14 (EP003 research)
+Reachable: svs.gsfc.nasa.gov (movies up to 5760x3240 and stills: HEAD 200), science.nasa.gov, earthobservatory.nasa.gov (301 -> science.nasa.gov), earthexplorer.usgs.gov, landsatlook.usgs.gov, m2m.cr.usgs.gov, svs/GIBS.
+Blocked/failing: assets.science.nasa.gov (Earth Observatory JPEG files), eoimages.gsfc.nasa.gov, www.youtube.com, www.googleapis.com/youtube, commons.wikimedia.org, planetarycomputer, earth-search AWS.
+USGS M2M credentials are present in this environment. NASA SVS pages state no licence, only the Reproduction Guidelines (https://www.nasa.gov/multimedia/guidelines) and a credit line: confirm before a monetised release.

@@ -14,35 +14,58 @@ def write(path, obj):
         f.write(obj if isinstance(obj, str) else json.dumps(obj))
 
 
-def cand(i, us=3, ev=4, sw=3, no=3, dk=3, intl=3, url=True):
-    return {"id": i, "scores": {"us": us, "sweden": sw, "norway": no, "denmark": dk, "international": intl, "visual": 4,
-                                "curiosity": 4, "evidence": ev, "satellite": 4, "monetization": 4},
-            "evidence_urls": ["https://example.org/x"] if url else []}
+def cand(i, us=3, ev=4, sw=3, no=3, dk=3, intl=3, url=True, zc=4, aud=3, orig=3, signals=False):
+    return {"id": i, "scores": {"us": us, "sweden": sw, "norway": no, "denmark": dk, "international": intl, "visual": 4, "curiosity": 4,
+                                "sources": ev, "monetization": 4, "audience_evidence": aud, "originality": orig, "zero_cost": zc, "fit": 4},
+            "rationale": {}, "evidence_urls": ["https://example.org/x"] if url else [],
+            "audience_signals": [{"metric": "views of a comparable video", "value": 1200000, "url": "https://example.org/v", "retrieved": "2026-10-14"}] if signals else []}
 
 
 class TopicRules(unittest.TestCase):
+    def rank(self, cs): return topics.rank(cs)
+
     def test_strong_us_topic_not_rejected_for_low_scandinavian_relevance(self):
-        r = topics.rank([cand("us_strong", us=5, sw=1, no=1, dk=1), cand("nordic", us=3, sw=5, no=5, dk=5)])
+        r = self.rank([cand("us_strong", us=5, sw=1, no=1, dk=1), cand("nordic", us=3, sw=5, no=5, dk=5)])
         self.assertEqual(r[0]["id"], "us_strong")
 
-    def test_missing_evidence_loses_whatever_the_other_scores(self):
-        r = topics.rank([cand("flashy", us=5, intl=5, ev=1), cand("solid", us=3, ev=4)])
+    def test_missing_sources_or_no_free_path_loses_whatever_the_other_scores(self):
+        r = self.rank([cand("flashy", us=5, intl=5, ev=1), cand("solid", us=3, ev=4)])
+        self.assertEqual(r[0]["id"], "solid"); self.assertTrue(r[1]["gated_out"])
+        r = self.rank([cand("nourl", us=5, url=False), cand("solid", us=2, ev=3)])
         self.assertEqual(r[0]["id"], "solid")
-        self.assertTrue(r[1]["evidence_gate_failed"])
-        r = topics.rank([cand("nourl", us=5, url=False), cand("solid", us=2, ev=3)])
-        self.assertEqual(r[0]["id"], "solid")
+        r = self.rank([cand("paid_only", us=5, zc=2), cand("free", us=3, zc=4)])
+        self.assertEqual(r[0]["id"], "free"); self.assertIn("zero_cost", r[1]["gated_out"][0])
 
-    def test_near_tie_on_us_prefers_international_and_scandinavian_reach(self):
-        r = topics.rank([cand("a", us=4, sw=1, no=1, dk=1, intl=2), cand("b", us=4, sw=4, no=4, dk=4, intl=5)])
-        self.assertEqual(r[0]["id"], "b")
+    def test_audience_evidence_is_capped_without_a_measured_signal(self):
+        row = topics.evaluate(cand("hype", aud=5))
+        self.assertEqual(row["scores"]["audience_evidence"], 3.0); self.assertTrue(any("capped" in n for n in row["notes"]))
+        row = topics.evaluate(cand("measured", aud=5, signals=True))
+        self.assertEqual(row["scores"]["audience_evidence"], 5.0)
+        bad = cand("fake", aud=5); bad["audience_signals"] = [{"metric": "views", "value": 9, "url": "not-a-url", "retrieved": ""}]
+        self.assertEqual(topics.evaluate(bad)["scores"]["audience_evidence"], 3.0)
 
-    def test_scores_are_validated(self):
-        with self.assertRaises(ValueError):
-            topics.rank([cand("bad", us=9)])
+    def test_provable_advantage_is_decided_automatically_with_the_reason(self):
+        rows = self.rank([cand("a", us=5, aud=5, orig=5, signals=True)] + [cand(x, us=3) for x in "bcde"])
+        d = topics.decide(rows)
+        self.assertEqual((d["chosen_id"], d["mode"]), ("a", "auto")); self.assertGreaterEqual(d["margin"], topics.MARGIN); self.assertIn("provable advantage", d["reason"])
 
-    def test_satellite_null_is_renormalised(self):
-        c = cand("nosat"); c["scores"]["satellite"] = None
-        self.assertAlmostEqual(topics.weighted(c["scores"]), 3.0 + 0.0, delta=1.5)  # just must not raise
+    def test_near_tie_is_decided_by_a_fixed_rule_never_left_to_the_owner(self):
+        rows = self.rank([cand("a", us=4, aud=3), cand("b", us=4, aud=3, orig=4), cand("c", us=3), cand("d", us=3), cand("e", us=3)])
+        d = topics.decide(rows)
+        self.assertEqual(d["mode"], "tie_break"); self.assertEqual(d["chosen_id"], "b"); self.assertIn("originality", d["reason"])
+        rows = self.rank([cand(x) for x in "dcbae"])                       # identical candidates
+        self.assertEqual(topics.decide(rows)["chosen_id"], "a")
+
+    def test_all_gated_out_is_an_error_not_a_guess(self):
+        with self.assertRaises(ValueError): topics.decide(self.rank([cand(x, ev=1) for x in "abcde"]))
+
+    def test_at_least_five_candidates_and_valid_scores(self):
+        with self.assertRaises(ValueError): topics.run({"candidates": [cand("a"), cand("b")]})
+        with self.assertRaises(ValueError): topics.rank([cand("bad", us=9)])
+
+    def test_weights_sum_to_one_and_us_is_the_largest_audience_weight(self):
+        self.assertAlmostEqual(sum(topics.WEIGHTS.values()), 1.0)
+        self.assertEqual(max(topics.WEIGHTS, key=topics.WEIGHTS.get), "us")
 
 
 class Gates(unittest.TestCase):
@@ -121,11 +144,17 @@ class Pipeline(unittest.TestCase):
     def script(self, text):
         write(os.path.join(self.d, "script.md"), text)
 
+    def research(self, tamper=None):
+        c = {"candidates": [cand(x) for x in "abcde"]}
+        write(os.path.join(self.d, "research", "candidates.json"), c)
+        out = topics.run(c)
+        dec = {k: out[k] for k in ("chosen_id", "mode", "reason", "evidence_urls")}; dec["us_hook"] = "h"
+        if tamper: dec.update(tamper)
+        write(os.path.join(self.d, "research", "topic_decision.json"), dec)
+
     def prime(self, text="One short line of narration."):
         """research + claims + locked script + tts plan: everything upstream of the paid stage."""
-        write(os.path.join(self.d, "research", "candidates.json"), {"candidates": [cand("a"), cand("b"), cand("c")]})
-        write(os.path.join(self.d, "research", "topic_decision.json"),
-              {"chosen_id": "a", "reason": "r", "evidence_urls": ["https://example.org/a"], "us_hook": "h"})
+        self.research()
         write(os.path.join(self.d, "story", "claims.json"),
               {"claims": [{"id": "C1", "text": "t", "status": "VERIFIED", "source_url": "https://a.b", "evidence_type": "model"}]})
         self.script(text)
@@ -203,6 +232,11 @@ class Pipeline(unittest.TestCase):
         r = orbital.execute([sys.executable, "-c", "import sys; print(\"ValueError: box offset can't be negative\", file=sys.stderr); sys.exit(1)"], self.d, retryable=False)
         self.assertTrue(any(x["id"] == "crop-box-leaves-source" for x in r["diagnosis"]), r["diagnosis"])
 
+    def test_a_decision_that_ignores_the_scoring_rules_fails_the_gate(self):
+        self.research(tamper={"chosen_id": "c"})
+        st = self.stage("research")
+        self.assertEqual(st["state"], "gate_failed"); self.assertIn("scoring rules", " ".join(st["gate"]["problems"]))
+
     def test_captions_stage_command_runs_the_real_skill_and_passes_its_gate(self):
         words = "The lake lost half of its water. Satellites saw it happen.".split()
         w, t = [], 0.2
@@ -216,18 +250,12 @@ class Pipeline(unittest.TestCase):
         self.assertTrue(gates.captions(self.d)["ok"])
 
     def test_research_gate_then_status_moves_on(self):
-        c = {"candidates": [cand("a"), cand("b"), cand("c")]}
-        write(os.path.join(self.d, "research", "candidates.json"), c)
-        write(os.path.join(self.d, "research", "topic_decision.json"),
-              {"chosen_id": "a", "reason": "r", "evidence_urls": ["https://example.org/a"], "us_hook": "h"})
+        self.research()
         self.assertEqual(self.stage("research")["state"], "done")
         self.assertEqual(orbital.status("ep999-test")["next"]["stage"], "claims")
 
     def test_changed_upstream_output_marks_the_stage_stale(self):
-        c = {"candidates": [cand("a"), cand("b"), cand("c")]}
-        write(os.path.join(self.d, "research", "candidates.json"), c)
-        write(os.path.join(self.d, "research", "topic_decision.json"),
-              {"chosen_id": "a", "reason": "r", "evidence_urls": ["https://example.org/a"], "us_hook": "h"})
+        self.research()
         write(os.path.join(self.d, "story", "claims.json"),
               {"claims": [{"id": "C1", "text": "t", "status": "VERIFIED", "source_url": "https://a.b", "evidence_type": "model"}]})
         self.assertTrue(orbital.complete("ep999-test", "claims")["ok"])

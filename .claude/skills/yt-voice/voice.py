@@ -369,6 +369,39 @@ def _synth_cached(provider, options, text, voice_id, ctx):
         json.dump({"audio_base64": base64.b64encode(res["audio"]).decode(), "format": res["format"], "alignment": res.get("alignment"), "characters": len(text), "voice_id": voice_id}, f)
     os.replace(tmp, path); return res
 
+def _find_approvals(out):
+    d = os.path.dirname(os.path.abspath(out))
+    for _ in range(8):
+        cand = os.path.join(d, "approvals.json")
+        if os.path.isfile(cand): return cand
+        if os.path.dirname(d) == d: break
+        d = os.path.dirname(d)
+    return None
+
+
+def approval_gate(out, characters):
+    """A paid generation needs the owner's approval recorded in the production folder's approvals.json
+    (written by tools/autopilot/orbital.py approve ... --quote "<owner's words>") covering these characters.
+    The gate lives here, in the function that makes the request, so no alternative command, script or import
+    path reaches the provider without it. It is an audit trail against mistakes, not a cryptographic lock:
+    YT_VOICE_APPROVAL_FILE may point at another approvals file (the tests do)."""
+    path = os.environ.get("YT_VOICE_APPROVAL_FILE") or _find_approvals(out)
+    if not path:
+        raise VoiceError("no approvals.json found next to or above the output: paid generation needs the owner's recorded "
+                         "approval (tools/autopilot/orbital.py approve SLUG tts --max-chars N --quote ...). Nothing was sent.",
+                         status="approval_required", characters=characters)
+    try:
+        with open(path, encoding="utf-8") as f: tts = (json.load(f) or {}).get("tts") or {}
+    except (OSError, ValueError):
+        tts = {}
+    if not (tts.get("approved") is True and tts.get("approved_by") == "user" and tts.get("quote")):
+        raise VoiceError(f"{path} has no owner approval for TTS (approved_by 'user' with their quote). Nothing was sent.",
+                         status="approval_required", characters=characters)
+    if characters > int(tts.get("max_chars", 0)):
+        raise VoiceError(f"{characters} characters exceed the approved {tts.get('max_chars')}. Nothing was sent.",
+                         status="approval_required", characters=characters)
+
+
 def generate(p, options, overwrite=False):
     out, provider = p["output"], p["provider"]
     meta = meta_path(out)
@@ -377,6 +410,7 @@ def generate(p, options, overwrite=False):
     for f in (out, meta):
         if os.path.lexists(f) and not overwrite:
             raise VoiceError(f"{f} already exists; pass --overwrite to replace it", status="exists")
+    approval_gate(out, p["characters"])
     provider.check_ready()
     work = tempfile.mkdtemp(prefix=".voice-", dir=os.path.dirname(out))
     try:

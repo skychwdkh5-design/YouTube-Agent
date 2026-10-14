@@ -34,6 +34,10 @@
    "symptoms": [
     "\\b502\\b.*(gateway|text-to-speech|elevenlabs)",
     "Bad Gateway"
+   ],
+   "stages": [
+    "tts_plan",
+    "tts"
    ]
   },
   {
@@ -944,7 +948,12 @@
     ]
    },
    "verification": "EP001 SCRIPT LOCK v1.1; EP002 claims table with 33 claims; claims gate unit test.",
-   "regression_test": "tools/autopilot/test_autopilot.py::test_claims_must_be_verified_and_sourced"
+   "regression_test": "tools/autopilot/test_autopilot.py::test_claims_must_be_verified_and_sourced",
+   "stages": [
+    "research",
+    "claims",
+    "script"
+   ]
   },
   {
    "id": "source-pages-blocked-by-proxy",
@@ -995,7 +1004,12 @@
     ]
    },
    "verification": "EP002 SCRIPT_LOCK; autopilot test blocks the paid call after a post-plan edit.",
-   "regression_test": "tools/autopilot/test_autopilot.py::test_script_change_after_plan_blocks_the_paid_call"
+   "regression_test": "tools/autopilot/test_autopilot.py::test_script_change_after_plan_blocks_the_paid_call",
+   "stages": [
+    "script",
+    "tts_plan",
+    "tts"
+   ]
   },
   {
    "id": "proof-first-then-scale",
@@ -1135,7 +1149,12 @@
    "regression_test": "tools/memory/test_kb.py::test_orbitalatlas_tests_run_as_modules_from_the_repo_root",
    "symptoms": [
     "No module named 'orbitalatlas'"
-   ]
+   ],
+   "auto_fix": {
+    "env": {
+     "PYTHONPATH": "{root}"
+    }
+   }
   },
   {
    "id": "shell-pkill-exit-144",
@@ -1219,6 +1238,225 @@
    },
    "verification": "docs/AUDIT_PHASE1.md lists what each branch holds.",
    "no_test_reason": "Repository organisation; checked by kb.py validate (references must resolve)."
+  },
+  {
+   "id": "paid-tts-gate-in-the-calling-function",
+   "title": "The paid-request wall must live in the code that makes the request",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "tts",
+   "date": "2026-10-14",
+   "problem": "A text hook that matches `voice.py --confirm` is bypassed by any alternative path: another script, python -c, an import of voice.generate, a different shell wrapper.",
+   "root_cause": "Hooks see command text, not behaviour; the paid call itself had no check.",
+   "fix": "yt-voice approval_gate() runs inside generate(): it needs approvals.json (found next to or above the output) with approved_by 'user', the owner's quote and max_chars >= the plan, else it refuses before any request. The hook stays as a second layer.",
+   "reuse_when": "Any new paid or irreversible action: put the check in the function that performs it, then add a hook as a safety net.",
+   "refs": {
+    "code": [
+     ".claude/skills/yt-voice/voice.py",
+     "tools/autopilot/guard.py",
+     "tools/autopilot/orbital.py"
+    ]
+   },
+   "verification": "5 tests: no file, unapproved, agent-approved, too small budget, direct generate() call - none sends a request; found-above-output path works.",
+   "regression_test": ".claude/skills/yt-voice/test_voice.py::test_calling_generate_directly_is_gated_too",
+   "stages": [
+    "tts_plan",
+    "tts"
+   ]
+  },
+  {
+   "id": "command-guard-quote-aware-parsing",
+   "title": "Command guards must parse commands, and be tested against bypass forms",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "process",
+   "date": "2026-10-14",
+   "problem": "The first guard blocked harmless text (a heredoc that merely mentioned a script) and missed real bypasses: `rm path` (regex needed a leading slash), `bash -lc \"...\"`, `perl -pi`, `cp` with a protected SOURCE, youtube uploader binaries.",
+   "root_cause": "Substring matching on the whole command line; splitting on ';' inside quotes; assuming flag spellings.",
+   "fix": "Split on unquoted separators only, tokenise each command, unwrap sh/bash -c (any flag cluster containing c), env/nohup/xargs, judge by command head and arguments (cp/rsync only by destination). Keep a whole-line check only for network clients (curl, urllib, node) because quoted code bodies defeat tokenising.",
+   "reuse_when": "Writing or extending any PreToolUse guard.",
+   "refs": {
+    "code": [
+     "tools/autopilot/guard.py"
+    ]
+   },
+   "verification": "29 bypass-form tests (paid TTS, git push spellings, GitHub MCP, uploads, writes to finished files, effect duplication) found 4 real gaps during development; all pass.",
+   "regression_test": "tools/autopilot/test_guard.py::test_every_way_of_writing_to_a_finished_file_is_blocked"
+  },
+  {
+   "id": "rebuild-paid-narration-from-saved-responses",
+   "title": "Paid narration can be rebuilt for free from the saved provider responses",
+   "status": "VERIFIED",
+   "scope": "EP001",
+   "area": "tts",
+   "date": "2026-10-14",
+   "problem": "EP001's final master and WAV were lost with the container; re-voicing would cost ~10,500 credits again.",
+   "root_cause": "The WAV and word timings are derived locally; only the provider responses (audio + alignment) are paid, and they were committed (7 cache files).",
+   "fix": "tools/autopilot/recover_narration.py splits the recorded text by the recorded chunk sizes (chunks are joined by a blank line), matches each chunk to its cache entry by alignment text (both cache layouts), and rebuilds with yt-voice's own to_wav/join_wavs. Result is compared with the recorded audio_sha256.",
+   "reuse_when": "After any container loss or whenever a WAV is missing but voice/cache and narration.voice.json exist.",
+   "refs": {
+    "code": [
+     "tools/autopilot/recover_narration.py",
+     "tools/autopilot/archive.py"
+    ],
+    "remote": [
+     "production/ep001-sahara-green:productions/sahara-green/narration/voice/narration.voice.json"
+    ],
+    "video": [
+     "EP001 Sahara Green narration 747.357 s, wav sha256 49e53528cd44..."
+    ]
+   },
+   "verification": "Run on the real EP001 cache: 7/7 chunks matched, WAV byte-identical to the recorded sha256 49e53528...; the normalised -16 LUFS file also reproduced byte-identical (114ba576...) with the EP001 script.",
+   "regression_test": "tools/autopilot/test_archive.py::test_rebuild_from_cache_in_both_layouts_is_byte_identical",
+   "stages": [
+    "tts"
+   ]
+  },
+  {
+   "id": "storyboard-never-shows-an-unrelated-or-wrong-year-picture",
+   "title": "A generated storyboard must not fake relevance: no unrelated picture, wrong years are reported",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "visual",
+   "date": "2026-10-14",
+   "problem": "The first generator version filled scenes with the 'best neighbour' asset (an Aral Sea image under a Lake Chad sentence) and showed a 2023 frame for 'July 2022' and a 2015 frame for 'the 1986 record' without saying so.",
+   "root_cause": "Scoring rewarded novelty (asset not used recently) above relevance, and years were not compared.",
+   "fix": "Only relevant assets (tags/place, partial multi-word match, author hint) or the current subject (continuation) are candidates; a scene without any is a reported gap and the previous shot continues; years named in the text are compared with the picture's years (penalty up to 9, nearest wins, remaining gap goes to plan.needs).",
+   "reuse_when": "Any automatic picture selection.",
+   "refs": {
+    "code": [
+     "tools/autopilot/storyboard.py"
+    ]
+   },
+   "verification": "Found by reading the plan and looking at rendered frames of the EP003 proof; 18 storyboard tests incl. 'no unrelated picture', 'gap not a fake', 'nearest year wins'.",
+   "regression_test": "tools/autopilot/test_storyboard.py::test_no_unrelated_picture_is_ever_shown",
+   "stages": [
+    "storyboard"
+   ]
+  },
+  {
+   "id": "graphic-label-cut-mid-number",
+   "title": "Callout graphic label was truncated in the middle of a number",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "visual",
+   "date": "2026-10-14",
+   "problem": "The number graphic printed 'In June 1985 the surface of the Great Salt Lake stood at 4,2' because the claim text was cut at 60 characters.",
+   "root_cause": "Character slicing of free text; passed unit tests and yt-render's own validation (it checks length, not meaning).",
+   "fix": "callout_label(): hint, else '<PLACE> · <DATE>' from the manifest and the sentence, else a cut at a word boundary with an ellipsis, never inside a number.",
+   "reuse_when": "Any text derived from a sentence.",
+   "refs": {
+    "code": [
+     "tools/autopilot/storyboard.py"
+    ]
+   },
+   "verification": "Found only by LOOKING at a contact sheet of the proof frames; after the fix the frame reads 'GREAT SALT LAKE · JUNE 1985'.",
+   "regression_test": "tools/autopilot/test_storyboard.py::test_callout_labels_are_whole_words_and_never_cut_a_number",
+   "stages": [
+    "storyboard",
+    "review"
+   ]
+  },
+  {
+   "id": "youtube-metrics-unavailable-no-invented-numbers",
+   "title": "YouTube audience metrics cannot be read here: score from documented signals and cap the rest",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "research",
+   "date": "2026-10-14",
+   "problem": "Topic selection asks for confirmed audience interest, but youtube.com / the Data API are blocked from this environment and public search results carry no view counts.",
+   "root_cause": "Network allowlist; no API key.",
+   "fix": "audience_evidence above 3 requires a measured signal (metric, value, https URL, date) - e.g. press/festival attention; otherwise the score is capped at 3 and the note says so. Never write a view count that was not read.",
+   "reuse_when": "Every research stage until a YouTube connector or the owner's Studio exports exist (/yt-retention reads those).",
+   "refs": {
+    "code": [
+     "tools/autopilot/topics.py"
+    ],
+    "docs": [
+     "productions/ep003-great-salt-lake/research/topic_decision.json"
+    ]
+   },
+   "verification": "EP003 research: 7 candidates, Great Salt Lake got a measured signal (Sundance 2026 film, sold-out screenings), all others capped.",
+   "regression_test": "tools/autopilot/test_autopilot.py::test_audience_evidence_is_capped_without_a_measured_signal",
+   "stages": [
+    "research"
+   ]
+  },
+  {
+   "id": "topic-decision-by-fixed-rule",
+   "title": "Pick the topic by gates + weighted score + fixed tie-break, and let the gate recompute it",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "research",
+   "date": "2026-10-14",
+   "problem": "Asking the owner to choose between topics wastes their time; a free-form choice is not reproducible.",
+   "root_cause": "No decision rule.",
+   "fix": "topics.py: gates (sources, zero_cost), weighted score, auto-decision at margin >= 0.25, otherwise the tie-break order audience_evidence, us, zero_cost, originality, reach; the research gate recomputes the winner from candidates.json and rejects a mismatching decision.",
+   "reuse_when": "Every episode's research stage.",
+   "refs": {
+    "code": [
+     "tools/autopilot/topics.py",
+     "tools/autopilot/gates.py"
+    ],
+    "docs": [
+     "productions/ep003-great-salt-lake/research/topic_decision.json"
+    ]
+   },
+   "verification": "EP003: St. Helens led the weighted sum (4.16 vs 4.08) but under the margin, so the tie-break chose the Great Salt Lake; documented in the decision file.",
+   "regression_test": "tools/autopilot/test_autopilot.py::test_near_tie_is_decided_by_a_fixed_rule_never_left_to_the_owner",
+   "stages": [
+    "research"
+   ]
+  },
+  {
+   "id": "silent-proof-fails-yt-qc-by-design",
+   "title": "A short silent proof always 'fails' yt-qc long: read which checks failed",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "qc",
+   "date": "2026-10-14",
+   "problem": "yt-qc --profile long reports FAIL for a 20 s silent proof.",
+   "root_cause": "long_duration (60-900 s), loudness and audio_starts cannot pass without narration and full length.",
+   "fix": "Treat those three as expected for proofs, list them, and look at the remaining checks (black frames, freezes, decode); a proof is judged by its frames, not by the QC verdict.",
+   "reuse_when": "Every 12-20 s proof render.",
+   "refs": {
+    "code": [
+     ".claude/skills/yt-qc/qc.py"
+    ],
+    "docs": [
+     "productions/ep003-great-salt-lake/preview/PROOF_REPORT.md"
+    ]
+   },
+   "verification": "EP003 proof: fails were long_duration, loudness (silent), audio_starts; freezes warn 3.07 s (a number card).",
+   "no_test_reason": "Interpretation of an existing tool's output.",
+   "stages": [
+    "qc",
+    "review"
+   ]
+  },
+  {
+   "id": "nasa-image-host-blocked-use-svs",
+   "title": "NASA Earth Observatory image files are unreachable; SVS movies and stills are",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "research",
+   "date": "2026-10-14",
+   "problem": "assets.science.nasa.gov (hosts the Earth Observatory / World of Change JPEGs) returns no response from this environment.",
+   "root_cause": "Network allowlist.",
+   "fix": "Use svs.gsfc.nasa.gov (HEAD 200, movies up to 5760x3240 and stills), extract frames locally with ffmpeg (record frame index and sha256), or fetch Landsat with the USGS M2M credentials. Credit NASA's Goddard Space Flight Center; the pages state no explicit licence, only the Reproduction Guidelines - confirm before release.",
+   "reuse_when": "Planning imagery for any NASA-sourced episode.",
+   "refs": {
+    "docs": [
+     "docs/ASSET_SOURCE_REGISTRY.md",
+     "productions/ep003-great-salt-lake/assets/manifest.json"
+    ]
+   },
+   "verification": "EP003: SVS 15020 1080p movie (30 fps, 13 s, 16,204,354 bytes) downloaded and frames extracted; assets.science.nasa.gov HEAD failed.",
+   "no_test_reason": "Depends on the live network and the host allowlist.",
+   "stages": [
+    "research",
+    "storyboard"
+   ]
   }
  ]
 }
