@@ -7,6 +7,7 @@
     python3 usgs_m2m.py search --bbox MINLON MINLAT MAXLON MAXLAT --start ... --end ... [--cloud 20]
     python3 usgs_m2m.py metadata --entity LC80150332025240LGN00
     python3 usgs_m2m.py options  --entity LC80150332025240LGN00
+    python3 usgs_m2m.py download-bands --entity ID --display-id DISPLAY_ID --bands B4,B3,B2 --out DIR --confirm   # calibrated Level-1 bands (OLI ~80 MB each, TM ~20 MB)
     python3 usgs_m2m.py download --entity ID --product "Full-Resolution Browse (Natural Color) JPEG" \\
                                  --out ./usgs --confirm [--max-mb 50]
 
@@ -25,7 +26,7 @@ removed from the USGS queue (download-order-remove); that cleanup is reported se
 Boxes that cross the 180th meridian or reach past a pole are refused with an explanation, never
 clipped or wrapped: search each side of 180/-180 as its own --bbox.
 """
-import json, math, os, sys, time, urllib.error, urllib.request
+import json, math, os, re, sys, time, urllib.error, urllib.request
 
 API = "https://m2m.cr.usgs.gov/api/api/json/stable/"
 DEFAULT_DATASET = "landsat_ot_c2_l1"
@@ -197,6 +198,51 @@ class M2M:
         return {"status": "ok", "entityId": entity_id, "product": product_name, "files": saved,
                 "cleanup": self.cleanup_order(label)}
 
+
+    def download_bands(self, entity_id, display_id, bands, out_dir, dataset=DEFAULT_DATASET, max_mb=120, wait_s=300, with_mtl=True):
+        """Level-1 band files (GeoTIFF) of ONE scene, for calibrated colour (tone curves, mosaics) instead of the per-scene stretched browse image.
+        Secondary entity ids follow the USGS pattern L1_<displayId>_<BAND>_TIF (and _MTL_TXT for the metadata file); the product id is read from
+        the scene's own download options (the 'Band File' option's secondary download), never hard-coded. Files already present with the right
+        size are skipped, so a rerun resumes. Returns the files with sizes; refuses any single file over max_mb."""
+        opts = self.options(entity_id, dataset)
+        band_opts = [o for o in opts if o["productName"] == "Landsat Collection 2 Level-1 Band File" and o["available"] and o["secondary"]]
+        if not band_opts:
+            raise M2MError(f"no band-file download option for {entity_id} in {dataset}", status="no_options")
+        product_id = band_opts[0]["secondary"][0]["productId"]
+        names = [f"{b}_TIF" for b in bands] + (["MTL_TXT"] if with_mtl else [])
+        wanted = [(f"L1_{display_id}_{n}", n) for n in names]
+        os.makedirs(out_dir, exist_ok=True)
+        saved, todo = [], []
+        for ent, n in wanted:
+            ext = ".txt" if n.endswith("TXT") else ".TIF"
+            dest = os.path.join(out_dir, f"{display_id}_{n.rsplit('_', 1)[0]}{ext}")
+            if os.path.exists(dest) and os.path.getsize(dest) > 0:
+                saved.append({"path": dest, "bytes": os.path.getsize(dest), "skipped_existing": True})
+            else:
+                todo.append((ent, dest))
+        if not todo:
+            return {"status": "ok", "entityId": entity_id, "files": saved}
+        label = f"yt-satellite-bands-{int(time.time())}"
+        try:
+            req = self.call("download-request", {"label": label, "downloads": [{"entityId": e, "productId": product_id} for e, _ in todo]}) or {}
+            avail = [d for d in req.get("availableDownloads") or [] if d.get("url")]
+            deadline = time.time() + wait_s
+            while len(avail) < len(todo) and time.time() < deadline:
+                time.sleep(8)
+                avail = [d for d in (self.call("download-retrieve", {"label": label}) or {}).get("available") or [] if d.get("url")]
+            by = {d.get("entityId"): d for d in avail}
+            for ent, dest in todo:
+                d = by.get(ent)
+                if not d:
+                    raise M2MError(f"no download URL for {ent} (not ready after {wait_s}s or not offered)")
+                r = self._fetch(d["url"], out_dir, ent, max_mb)
+                os.replace(r["path"], dest)
+                saved.append({"path": dest, "bytes": r["bytes"]})
+        except M2MError as e:
+            e.extra["cleanup"] = self.cleanup_order(label)
+            raise
+        return {"status": "ok", "entityId": entity_id, "files": saved, "cleanup": self.cleanup_order(label)}
+
     def _fetch(self, url, out_dir, entity_id, max_mb):
         """Stream one file to disk, enforcing max_mb while reading; never leaves a partial file."""
         path, n, limit = None, 0, max_mb * 1024 * 1024
@@ -312,7 +358,7 @@ def main(argv=None):
     cmd = a[0]
     try:
         dataset = _arg(a, "--dataset", default=DEFAULT_DATASET)
-        if cmd not in ("auth", "datasets", "search", "metadata", "options", "download"):
+        if cmd not in ("auth", "datasets", "search", "metadata", "options", "download", "download-bands"):
             raise M2MError(f"unknown command {cmd}")
         if cmd == "search":
             start, end = _arg(a, "--start"), _arg(a, "--end")
@@ -336,7 +382,13 @@ def main(argv=None):
                                "imagery that the video actually needs")
             if not _arg(a, "--product"): raise M2MError("download needs --product \"<productName>\"")
             max_mb = _num(a, "--max-mb", default=50, lo=0.001)
-        if cmd in ("metadata", "options", "download") and not _arg(a, "--entity"):
+        if cmd == "download-bands":
+            if "--confirm" not in a:
+                raise M2MError("download-bands needs --confirm; each OLI band is ~80 MB (TM ~20 MB) - say what and how big first")
+            if not _arg(a, "--display-id") or not _arg(a, "--bands"):
+                raise M2MError("download-bands needs --display-id SCENE_DISPLAY_ID and --bands B4,B3,B2")
+            max_mb = _num(a, "--max-mb", default=120, lo=0.001)
+        if cmd in ("metadata", "options", "download", "download-bands") and not _arg(a, "--entity"):
             raise M2MError(f"{cmd} needs --entity ENTITY_ID")
 
         with M2M() as m:
@@ -353,6 +405,10 @@ def main(argv=None):
                 rows = m.options(_arg(a, "--entity"), dataset)
                 out = {"status": "ok" if rows else "no_options", "entityId": _arg(a, "--entity"),
                        "dataset": dataset, "options": rows}
+            elif cmd == "download-bands":
+                bands = [b.strip().upper() for b in _arg(a, "--bands").split(",") if b.strip()]
+                if not all(re.fullmatch(r"B\d{1,2}|QA_PIXEL", b) for b in bands): raise M2MError("--bands must look like B4,B3,B2")
+                out = m.download_bands(_arg(a, "--entity"), _arg(a, "--display-id"), bands, _arg(a, "--out", default="./usgs"), dataset, max_mb)
             else:
                 out = m.download(_arg(a, "--entity"), _arg(a, "--product"),
                                  _arg(a, "--out", default="./usgs"), dataset, max_mb)

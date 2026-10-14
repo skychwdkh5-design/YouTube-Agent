@@ -43,6 +43,12 @@ There is no publish stage and the guard hook blocks upload commands. The owner u
 * **Memory is consulted:** before a stage (`known_pitfalls`, recorded in state.json), after an error (diagnosis; a whitelisted `auto_fix` such as PYTHONPATH is applied once), before writing an effect (guard), after a fix (Stop hook).
 * **Preservation** `archive.py` (create / verify / restore with SHA-256, parts under 90 MiB for a `media/<slug>-final` branch) and `recover_narration.py` (paid narration rebuilt from saved responses, proven by hash).
 
+## Phase 3 additions
+* **Landsat colour:** `tools/autopilot/landsat_color.py` builds calibrated mosaics (TOA reflectance, one fixed tone curve, first-tile-wins, collar removed) from Level-1 band files; `fetch_bands.py` (yt-satellite) downloads them with bounded retries.
+* **Geo scenes:** `storyboard.py` generates yt-geo camera/wipe/flip/pin/label shots from `[VIS: geo=... wipe=... flip=... pins=...]` hints and the `stacks` block of `assets/manifest.json`.
+* **Claim numbers:** the `script_lock` gate requires every number in a beat to appear in a cited VERIFIED claim or be declared `derived=`.
+* **Background jobs:** never wait with `pgrep -f NAME`; use `tools/autopilot/procs.py wait NAME --timeout S` or a result marker with a deadline (registry: `pgrep-f-matches-itself`, `usgs-504-bounded-retry`).
+
 ## What still needs Claude (not automatable today)
 Choosing and verifying topics against real sources, writing the script, the motion storyboard, looking at the frames, packaging
 copy. The tool prepares state, checks and bookkeeping; it does not replace those steps.

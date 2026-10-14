@@ -12,3 +12,9 @@ Sources and licences: `docs/ASSET_SOURCE_REGISTRY.md` (check first; do not re-in
 Scale bars, distances, areas, coordinates on ASTER/ISS frames (no verified georeference); invented coastlines/borders (use `orbitalatlas.geo` + Natural Earth for maps); statements about the present from older imagery ("nothing assumed since 2022").
 ## Limits of traced outlines **[VERIFIED]**
 They follow image pixels (thresholds, clouds, shallow water can leak), not surveyed coastlines; they are labelled "traced from this image".
+
+## EP001 recovery state (2026-10-14) **[VERIFIED unless marked]**
+- Source bands: 78/78 files restored with `landsat/source_bands/scripts/restore_source_bands.py` (SHA-512 + size checked; one MTL needed a rerun after a USGS 504, which is normal). Workspace is outside Git.
+- Link 1 proven: `tools/autopilot/recover_ep001_stacks.py` rebuilds the EO/TW/TE reflectance stacks and their reports equal the stored `reports/*_report.json` exactly.
+- Narration proven earlier: `recover_narration.py` (byte-identical WAV, zero cost).
+- **Not rebuilt, so NOT claimed:** tone frames (`build_frames.py`), sequences (`build_sequences.py`, needs `cues.json`, `scene_plan.json`; `vis_common.py` has hard-coded scratch paths ACQ/VIS), CALIPSO clip (NASA SVS, 30 fps conversion), toneB stills/graphics, normalized narration, final render. The byte-identity of `FINAL_EP001_1080P.mp4` (sha256 7547d970...) is **UNPROVEN**; only the final file on the release branch is authoritative.

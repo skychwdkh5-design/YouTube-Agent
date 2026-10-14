@@ -135,7 +135,7 @@ def cut_points(words, w0, w1, fine):
 def split_scene(sc, words, max_s, min_part_s, fine, video_ids=()):
     """Recursively cut a scene at the boundary nearest its middle until every part is <= max_s (parts stay >= min_part_s)."""
     t0, t1 = words[sc["w0"]]["start"], words[sc["w1"] - 1]["end"]
-    if t1 - t0 <= max_s or sc["hints"].get("steps") or sc["hints"].get("asset") in video_ids: return [sc]
+    if t1 - t0 <= max_s or sc["hints"].get("steps") or sc["hints"].get("asset") in video_ids or any(k in sc["hints"] for k in GEO_KEYS): return [sc]
     best = None
     for i in cut_points(words, sc["w0"], sc["w1"], fine):
         a_, b_ = words[i - 1]["end"] - t0, t1 - words[i]["start"]
@@ -174,6 +174,86 @@ def build_scenes(blocks, words, video_ids=()):
         s["sents"] = [first_sentence(s["text"])]
     for a, b in zip(out, out[1:]): a["end"] = b["start"]
     return out
+
+
+
+# ------------------------------------------------------------------------------------------------ geographic scenes (yt-geo stack)
+GEO_KEYS = ("geo", "wipe", "flip")
+
+
+def load_stack(prod):
+    """The co-registered Landsat stack declared in assets/manifest.json -> {"id","grid","images":{year:{src,label,credit,date}},"views":{},"pins":{}} or None."""
+    m = _json(os.path.join(prod, "assets", "manifest.json"), {}) or {}
+    st = (m.get("stacks") or [None])[0]
+    if not st: return None
+    gp = os.path.join(prod, st["grid"])
+    if not os.path.isfile(gp): raise ValueError(f"stack grid not found: {st['grid']}")
+    for y, im in st["images"].items():
+        if not os.path.isfile(os.path.join(prod, im["src"])): raise ValueError(f"stack image missing: {im['src']}")
+        for k in ("credit", "label"):
+            if not im.get(k): raise ValueError(f"stack image {y} lacks {k}")
+    return st
+
+
+def is_geo(sc): return any(k in sc["hints"] for k in GEO_KEYS)
+
+
+def _view_of(stack, name):
+    if name not in stack.get("views", {}): raise ValueError(f"unknown view {name!r}; the stack defines {sorted(stack.get('views', {}))}")
+    v = stack["views"][name]
+    return {"center": list(v["center"]), "width_km": float(v["width_km"])}
+
+
+def _years(txt, stack):
+    ys = [y.strip() for y in re.split(r"[>,]", txt) if y.strip()]
+    for y in ys:
+        if y not in stack["images"]: raise ValueError(f"no stack image for year {y!r}; have {sorted(stack['images'])}")
+    return ys
+
+
+def geo_shot(sc, words, stack, tl_assets, history):
+    """A shot on the registered stack: camera in lon/lat, one image / a wipe between two dates / a timelapse flip, named pins and a stat label.
+    Everything geographic comes from the manifest (views, pins), nothing is guessed from the text."""
+    h = sc["hints"]
+    t0 = sc["start"]; dur = (sc.get("end") or (words[sc["w1"] - 1]["end"] + 0.5)) - t0
+    views = (h.get("geo") or "whole").split(">")
+    v0 = _view_of(stack, views[0].strip()); v1 = _view_of(stack, views[-1].strip())
+    layers, fam = [], None
+
+    def asset_for(year):
+        im = stack["images"][year]; aid = f"y{year}"
+        tl_assets.setdefault(aid, {"src": im["src"], "kind": "image", "label": im["label"], "credit": im["credit"], "prov": im.get("date")})
+        return aid
+    at = q(trigger_time(words, sc, h["at"])) - t0 if h.get("at") else dur * 0.35
+    if h.get("flip"):
+        ys = _years(h["flip"], stack)
+        step = float(h["flip_step"]) if h.get("flip_step") else round(min(5.0, max(0.2, (dur - 0.3) / len(ys))), 3)   # flip_step=0.9: a real timelapse rhythm (<= 1 s)
+        layers.append({"type": "flip", "assets": [asset_for(y) for y in ys], "step": step})
+        fam = "geo_timelapse"
+    elif h.get("wipe"):
+        a, b = _years(h["wipe"], stack)[:2]
+        wd = float(h.get("wipe_s", 1.6))
+        layers.append({"type": "wipe", "from": asset_for(a), "to": asset_for(b), "t": [round(max(0.2, at), 3), round(max(0.2, at) + wd, 3)]})
+        fam = f"geo_wipe_{a}_{b}"
+    else:
+        y = h.get("year") or sorted(stack["images"])[0]
+        _years(y, stack)
+        layers.append({"type": "image", "asset": asset_for(y)})
+        layers.append({"type": "label", "text": stack["images"][y]["label"].upper()[:40], "style": "year", "slot": "top", "info": stack["images"][y]["label"]})
+        fam = f"geo_{y}"
+    for name in [n.strip() for n in h.get("pins", "").split("|") if n.strip()]:
+        if name not in stack.get("pins", {}): raise ValueError(f"unknown pin {name!r}; the stack defines {sorted(stack.get('pins', {}))}")
+        tp = max(0.3, q(trigger_time(words, sc, name)) - t0)
+        layers.append({"type": "pin", "at": list(stack["pins"][name]), "text": name.upper()[:32], "t": [round(tp, 3), None], "info": name})
+    if h.get("stat"):
+        tp = max(0.3, q(trigger_time(words, sc, h.get("stat_at") or h["stat"].split()[0])) - t0)
+        layers.append({"type": "label", "text": h["stat"][:40], "style": "stat", "slot": "upper", "t": [round(tp, 3), round(tp + 2.8, 3)], "info": h["stat"]})
+    shot = {"id": sc["id"], "beat": " ".join(sc["text"].split()[:6]), "start": t0, "info": first_sentence(sc["text"])[:60],
+            "camera": {"from": v0, "to": v1, "ease": "in_out"}, "layers": layers, "visual_family": h.get("family") or fam}
+    dec = {"scene": sc["id"], "start": t0, "end": t0 + dur, "kinds": ["geo"], "text": sc["text"],
+           "chosen": {"template": "geo_" + ("flip_timelapse" if h.get("flip") else "wipe" if h.get("wipe") else "camera_move" if views[0] != views[-1] else "image"), "asset": fam, "family": shot["visual_family"]},
+           "score": None, "notes": ["geographic scene authored by hint (views, pins and dates come from the stack manifest)"], "alternatives": []}
+    return shot, dec
 
 
 def classify(scene):
@@ -400,7 +480,13 @@ def build(prod, allow_graphics=True, timings=None):
                                   **({"image_date": a["image_date"]} if a.get("image_date") else {})}
     by_id = {a["id"]: a for a in assets}
     cands_by_scene = {}
+    stack = load_stack(prod)
     for sc in scenes:
+        if is_geo(sc):
+            if not stack: raise ValueError(f"{sc['id']} has a geo/wipe/flip hint but assets/manifest.json declares no stack")
+            shot, dec = geo_shot(sc, words, stack, tl_assets, history)
+            history.append({"template": dec["chosen"]["template"], "asset": dec["chosen"]["asset"], "family": shot["visual_family"], "t0": sc["start"], "scene": sc["id"]})
+            shots.append(shot); plan["scenes"].append(dec); continue
         kinds = classify(sc)
         cands = candidates(sc, kinds, assets, claims, allow_graphics)
         cands_by_scene[sc["id"]] = cands
@@ -463,7 +549,7 @@ def build(prod, allow_graphics=True, timings=None):
         gap_ = next((c.get("year_gap") for c in [x for x in cands_by_scene.get(d_["scene"], []) if x.get("asset") == d_["chosen"].get("asset")][:1]), None)
         if gap_:
             plan["needs"].append({"scene": d_["scene"], "asset": d_["chosen"].get("asset"), "need": f"a picture dated within the narrated year (the best available is {gap_} yr away): acquire one with /yt-satellite or choose a script wording that does not name the year"})
-    tl = {"version": 3, "profile": "long", "grid": "grid.json", "assets": tl_assets, "shots": shots, "end": {"seconds": duration},
+    tl = {"version": 3, "profile": "long", "grid": stack["grid"] if stack else "grid.json", "assets": tl_assets, "shots": shots, "end": {"seconds": duration},
           "render": {"segment_s": 60},
           "meta": {"generator": "tools/autopilot/storyboard.py", "timing": timing,
                    "timing_note": "provider word times" if timing == "provider" else "ESTIMATED timing (2.38 words/s): a proof only, not frame-accurate; rebuild after the paid narration exists"}}
@@ -537,6 +623,17 @@ def repair(tl, err):
                     if L["type"] == "still" and L["asset"] == aid:
                         for e in ("from", "to"): L["view"][e]["width"] = min(0.99, max(L["view"][e]["width"] * 1.25, 0.5)); L["view"][e]["center"] = [0.5, 0.5]
                         return f"widened the view of {aid} in {sid}"
+    m = re.search(r"shots\[(\d+)\]\.camera\.(from|to): a ([\d.]+) km wide view at \[([-\d.]+), ([-\d.]+)\] leaves the imagery \(covers lon ([-\d.]+)\.\.([-\d.]+), lat ([-\d.]+)\.\.([-\d.]+)\)", err)
+    if m:
+        i, end = int(m.group(1)), m.group(2)
+        wkm, lon, lat, lo0, lo1, la0, la1 = (float(x) for x in m.groups()[2:])
+        kx, ky = 111.32 * math.cos(math.radians((la0 + la1) / 2)), 110.57
+        avail_w, avail_h = (lo1 - lo0) * kx, (la1 - la0) * ky
+        w = min(wkm, avail_w * 0.97, avail_h * 0.97 * 16 / 9)
+        hw, hh = w / 2 / kx, (w * 9 / 16) / 2 / ky                                   # half extents in degrees
+        cx, cy = min(max(lon, lo0 + hw), lo1 - hw), min(max(lat, la0 + hh), la1 - hh)
+        v = tl["shots"][i]["camera"][end]; v["width_km"] = round(w, 2); v["center"] = [round(cx, 4), round(cy, 4)]
+        return f"narrowed/moved the {end} view of shot {i} to stay inside the imagery ({w:.0f} km at {cx:.3f}, {cy:.3f})"
     m = re.search(r"(shots\[(\d+)\]\.layers\[(\d+)\])\.text must be 1-40", err)
     if m:
         s = tl["shots"][int(m.group(2))]["layers"][int(m.group(3))]; s["text"] = s["text"][:LABEL_MAX]
@@ -627,7 +724,10 @@ def preview_cmd(prod, start=0.0, end=15.0, confirm=False):
                 if "t" in L: L["t"] = [max(0.0, round(L["t"][0] - shift, 4)), None if L["t"][1] is None else max(0.0, round(L["t"][1] - shift, 4))]
         shots.append(n)
     shots[0]["start"] = 0
-    used = {L["asset"] for s in shots for L in s["layers"] if "asset" in L}
+    used = set()                                   # layers name assets as asset / from / to (wipe) / assets (flip)
+    for s in shots:
+        for L in s["layers"]:
+            used.update(x for x in (L.get("asset"), L.get("from"), L.get("to")) if isinstance(x, str)); used.update(L.get("assets") or [])
     sub["assets"] = {k: v for k, v in tl["assets"].items() if k in used}
     sub["shots"] = shots
     dur = min(end, tl["end"]["seconds"]) - start

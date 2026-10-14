@@ -71,6 +71,34 @@ class Stack(unittest.TestCase):
         with open(p, "w") as f: json.dump(s, f)
         return p
 
+    def test_two_tiles_of_one_pass_are_mosaicked_without_inventing_pixels(self):
+        # north tile covers the top part of the aoi, south tile the bottom part, with a 10-pixel overlap; a black fill border like a real scene
+        n = np.full((300, 600, 3), 80, np.uint8); n[:, :, 0] = 200
+        s_ = np.full((300, 600, 3), 80, np.uint8); s_[:, :, 2] = 200
+        n[:8] = 0                                                  # no-data fill at the tile edge must never be copied
+        geotiff(os.path.join(self.dir, "n.tif"), n, self.x0, self.y0)
+        geotiff(os.path.join(self.dir, "s.tif"), s_, self.x0, self.y0 - 290 * 30.0)
+        spec = {"aoi": [-114.53, 36.17, -114.47, 36.23], "pixel_m": 30, "out_dir": "mos", "scenes": [{"id": "m", "src": ["n.tif", "s.tif"]}]}
+        p = os.path.join(self.dir, "mos.json")
+        with open(p, "w") as f: json.dump(spec, f)
+        code, d = run([p, "--confirm"])
+        self.assertEqual((code, d["status"], d["scenes"][0].get("mosaic_tiles")), (0, "ok", 2), d)
+        img = np.asarray(Image.open(os.path.join(self.dir, "mos", "m.png")))
+        self.assertGreater(img[2, 100, 0], 150)                    # top rows come from the north tile (red)
+        self.assertGreater(img[-3, 100, 2], 150)                   # bottom rows from the south tile (blue)
+        self.assertTrue((img.max(axis=2) > 10).all(), "no black fill may reach the mosaic")
+
+    def test_a_gap_between_tiles_is_an_error_not_a_black_band(self):
+        n = np.full((200, 600, 3), 120, np.uint8)
+        s_ = np.full((200, 600, 3), 120, np.uint8)
+        geotiff(os.path.join(self.dir, "n.tif"), n, self.x0, self.y0)
+        geotiff(os.path.join(self.dir, "s.tif"), s_, self.x0, self.y0 - 400 * 30.0)        # 200-pixel gap
+        spec = {"aoi": [-114.53, 36.17, -114.47, 36.23], "pixel_m": 30, "scenes": [{"id": "m", "src": ["n.tif", "s.tif"]}]}
+        p = os.path.join(self.dir, "gap.json")
+        with open(p, "w") as f: json.dump(spec, f)
+        code, d = run([p, "--confirm"])
+        self.assertNotEqual(code, 0); self.assertIn("not fully covered", d["error"])
+
     def test_dates_align_on_one_grid(self):
         code, d = run([self.spec(), "--confirm", "--contact", "sheet.jpg"])
         self.assertEqual((code, d["status"]), (0, "ok"), d)

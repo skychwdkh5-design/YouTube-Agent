@@ -1458,28 +1458,156 @@
    ]
   },
   {
-   "id": "stacked-prs-must-validate-alone",
-   "title": "Each PR in a stack must pass its own checks without the later PRs",
+   "id": "usgs-504-bounded-retry",
+   "title": "USGS band downloads fail with HTTP 504: bounded retry, never a single try or an endless wait",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "research",
+   "date": "2026-10-14",
+   "problem": "5 of 24 Landsat tile downloads (EP003) ended with 'HTTP Error 504: Gateway Time-out; removed partial file'; the one-shot script just logged the error and moved on, leaving gaps in the mosaic inputs.",
+   "root_cause": "Transient gateway time-outs of the USGS download server. Re-requesting the same tile succeeded on the first retry (14-71 s) for all five.",
+   "fix": "Use .claude/skills/yt-satellite/fetch_bands.py SPEC.json --confirm: skips tiles whose bands + MTL exist, hard wall-clock limit per attempt (child killed), 4 attempts with back-off 30/60/120/240 s, retries only transient errors (504/502/503/429/timeouts/not ready), stops at once on permanent ones (no download option, --max-mb, auth), prints [i/n] progress, exit 0 only when every tile is complete. usgs_m2m download-bands itself resumes (existing files are skipped).",
+   "reuse_when": "Any episode that downloads Landsat Level-1 bands or other USGS M2M files, and whenever a download log shows 504 / Gateway Time-out.",
+   "refs": {
+    "code": [
+     ".claude/skills/yt-satellite/fetch_bands.py",
+     ".claude/skills/yt-satellite/usgs_m2m.py"
+    ],
+    "docs": [
+     ".claude/skills/yt-satellite/SKILL.md"
+    ]
+   },
+   "verification": "EP003: the five failed tiles (1985 038032, 1999 039031/039032, 2021 038031/038032) downloaded on attempt 1 with the same logic; 24/24 tiles, 72 bands + 24 MTL present, TIFF headers readable. Offline tests cover 504, timeout, back-off cap, permanent errors, resume and skipping.",
+   "regression_test": ".claude/skills/yt-satellite/test_fetch_bands.py::test_http_504_is_retried_with_exponential_backoff_then_succeeds",
+   "symptoms": [
+    "HTTP Error 504",
+    "Gateway Time-out",
+    "file download failed"
+   ],
+   "stages": [
+    "research"
+   ]
+  },
+  {
+   "id": "pgrep-f-matches-itself",
+   "title": "`until ! pgrep -f NAME` waits forever because it finds its own shell",
    "status": "VERIFIED",
    "scope": "general",
    "area": "process",
    "date": "2026-10-14",
-   "problem": "Simulated sequential merge main <- #17 <- #18 <- #19 passed until #19, where kb.py validate --strict failed: four registry entries pointed at files that exist only in the later EP003 PR (#20).",
-   "root_cause": "Registry entries written on the EP003 branch referenced productions/ep003-*/ files while the entries themselves lived in the earlier infrastructure PR.",
-   "fix": "Reference only files that exist in the same PR (code, shared docs); keep episode-specific evidence inside the episode's own branch. Before asking for a merge run the whole stack in a throwaway worktree (tools: git worktree add, merge each PR in order, run protected.py, kb.py validate --strict and every test after each step).",
-   "reuse_when": "Any time branches are stacked or a PR adds registry/doc references.",
+   "problem": "A background wait loop `until ! pgrep -f fetch_bands; do sleep 20; done` ran for 30+ minutes after all downloads had finished; it looked like a hung download.",
+   "root_cause": "pgrep -f matches the full command line of every process, including the bash -c process that is running the loop (its command line contains the pattern). The check can never come back empty.",
+   "fix": "Do not wait on a process by substring. Use tools/autopilot/procs.py: `procs.py wait NAME --timeout S` (matches an interpreter running script NAME, excludes shells and the caller's ancestors, bounded, prints progress), or wait on a result marker (log line / output file) with a timeout. Diagnose a 'stuck' job by looking at the log mtime, file sizes and /proc/PID/cmdline before killing anything.",
+   "reuse_when": "Before writing any wait/poll loop for a background job; whenever a 'running' process has no CPU and no new output.",
    "refs": {
     "code": [
-     "tools/memory/kb.py"
+     "tools/autopilot/procs.py"
     ],
     "docs": [
      "docs/AUTOPILOT.md"
     ]
    },
-   "verification": "The simulation found the failure; after the fix the registry validates strictly with 59 entries on the #19 branch alone.",
-   "regression_test": "tools/memory/test_kb.py::test_registry_is_valid",
+   "verification": "EP003: the pattern reproduced the endless loop; pids 10089/11757 were the waiting shells, not downloads. procs.py tests check shell lines are not matches, a real script process is found, the caller is excluded and wait is bounded.",
+   "regression_test": "tools/autopilot/test_procs.py::test_shell_command_line_mentioning_the_name_is_not_a_match",
+   "symptoms": [
+    "pgrep -f",
+    "still running after .* finished"
+   ],
    "stages": [
-    "package"
+    "research",
+    "render"
+   ]
+  },
+  {
+   "id": "landsat-two-paths-calibrated-mosaic",
+   "title": "Lake-sized Landsat stills need two paths and calibrated bands, not the USGS browse image",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "geo",
+   "date": "2026-10-14",
+   "problem": "Browse GeoTIFFs of the Great Salt Lake gave a bright diagonal seam, different tones per tile and date, and one path (38) did not cover the lake's west half.",
+   "root_cause": "Browse images are stretched per scene; neighbouring Landsat paths (38 and 39) are acquired on different days (here 7 days apart) and each scene has a black no-data collar.",
+   "fix": "Download Level-1 bands (fetch_bands.py), build with tools/autopilot/landsat_color.py: TOA reflectance from the MTL, one fixed tone curve for every date/sensor, first-tile-wins in the order path 39 rows then path 38 rows, collar eroded by 3 px, no blending. A remaining hard edge between two days is real and is disclosed ('mosaic of scenes'), not hidden. Check geography by overlay: the causeway edge fell at 41.226 N in both 2021 and 2022 mosaics (different tile sets), Saltair and Salt Lake City pins landed on their sites.",
+   "reuse_when": "Any episode with a before/after Landsat sequence over an area wider than one scene (~185 km) or spanning several sensors.",
+   "refs": {
+    "code": [
+     "tools/autopilot/landsat_color.py",
+     ".claude/skills/yt-geo/geostack.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/README.md"
+    ]
+   },
+   "verification": "EP003: 5 mosaics (1985, 1986, 1999, 2021, 2022) of 4 tiles each, 3971x3122 px at 60 m, DATE_ACQUIRED of all 20 tiles equals the date in the file name; frames inspected.",
+   "regression_test": "tools/autopilot/test_landsat_color.py::test_two_tiles_give_one_seamless_picture_with_no_collar_line",
+   "symptoms": [
+    "seam",
+    "tone seam",
+    "diagonal line"
+   ],
+   "stages": [
+    "storyboard",
+    "render"
+   ]
+  },
+  {
+   "id": "geo-beats-need-sentence-splits-and-camera-resets",
+   "title": "Single-image geographic beats hold too long: split by sentence, alternate zoom, set a timelapse step",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "visual",
+   "date": "2026-10-14",
+   "problem": "The first storyboard of EP003 had a composition held 38.8 s and one beat of 22 s; a flip timelapse at 1.7 s per picture did not count as a timelapse.",
+   "root_cause": "One [VIS] beat = one camera move; the pacing rule counts a reset only when the view changes by >=1.5x zoom or >=0.35 shift. A flip needs <=1 s per picture.",
+   "fix": "Split long narration at sentence boundaries into separate [VIS] beats (about 20 words max), alternate wide and tight views with a ratio >=1.5, use flip_step=0.9 on timelapse beats, keep the wide view tall enough for the whole subject (whole = 228 km wide centred 41.2 N for the Great Salt Lake). Re-run storyboard plan and read renderer_warnings.",
+   "reuse_when": "Writing [VIS: geo=...] hints for any map or satellite episode.",
+   "refs": {
+    "code": [
+     "tools/autopilot/storyboard.py"
+    ],
+    "docs": [
+     "docs/AUTOPILOT.md"
+    ]
+   },
+   "verification": "EP003: longest static hold fell from 38.8 s to 10 s and composition resets rose from 19 to 34 for the same script.",
+   "regression_test": "tools/autopilot/test_storyboard.py::test_flip_step_hint_sets_a_timelapse_rhythm_and_preview_keeps_wipe_and_flip_assets",
+   "symptoms": [
+    "composition holds",
+    "without a reset"
+   ],
+   "stages": [
+    "script",
+    "storyboard"
+   ]
+  },
+  {
+   "id": "ep001-chain-link1-reproduced-final-unproven",
+   "title": "EP001 rebuild: source bands and reflectance stacks reproduce exactly; the final video is not proven",
+   "status": "VERIFIED",
+   "scope": "EP001",
+   "area": "storage",
+   "date": "2026-10-14",
+   "problem": "After the container loss only text and code of EP001 remained; the render chain depended on 78 Landsat band files and on scripts with hard-coded scratch paths.",
+   "root_cause": "Source bands, scratch caches and intermediate videos live outside Git; process.py, build_frames.py and vis_common.py point at a fixed old scratch directory.",
+   "fix": "Restore bands with restore_source_bands.py (rerun after a 504), then run tools/autopilot/recover_ep001_stacks.py: it patches the three path lines of a scratch copy of process.py, rebuilds the grids from the stored reports and compares the new reports with the stored ones. Never edit the EP001 files in the repo. Claim byte-identity of the final video only after the later links (frames, sequences, CALIPSO clip, stills, graphics, normalized narration, render) are rebuilt and hashes compared.",
+   "reuse_when": "Anyone asks whether EP001 can be re-rendered or reproduced; before building a similar restore tool.",
+   "refs": {
+    "code": [
+     "tools/autopilot/recover_ep001_stacks.py",
+     "tools/autopilot/recover_narration.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/SATELLITE_DATA.md"
+    ]
+   },
+   "verification": "78/78 files SHA-512 verified; EO, TW and TE reports rebuilt in 51 s, ~2 min, ~2 min and equal the stored reports (valid fractions, medians, registration, stretch).",
+   "regression_test": "tools/autopilot/test_recover_ep001_stacks.py::test_paths_are_patched_and_nothing_else",
+   "symptoms": [
+    "EP001 reproducible",
+    "hard-coded scratch"
+   ],
+   "stages": [
+    "render"
    ]
   }
  ]
