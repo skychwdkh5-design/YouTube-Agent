@@ -62,3 +62,9 @@ See `docs/references/library/IMPLEMENTATION_STATUS.md`: class-A camera only; no 
 - Tilted evidence planes (`shorts.tilted_view`) are flat pictures in perspective, not terrain; label anchors are as good as their source pixel positions (Dubai 2006 positions hand-placed).
 - Procedural music (`orbitalatlas.music`) is one electronic style; sound is checked by meter and cue timetable, not by ear, in a cloud session.
 - Private GitHub repository creation from this session failed: `403 Resource not accessible by integration` (needs owner action/permission).
+
+## True 3-D (EP004 S3 V3, 2026-10-15)
+- Blender cannot be installed in the cloud container: network policy blocks download.blender.org, PyPI (bpy) and Ubuntu mirrors (VERIFIED, proxy 403). pbrt-v4 + OIDN built from GitHub instead (docs/production-knowledge/TRUE_3D_PIPELINE.md). Owner can allowlist download.blender.org.
+- CPU path tracing is slow (~20-30 s per frame at 1440x810, 8 spp): full 13.5 s proofs take ~2.5-3 h; the proof is rendered at 1440x810 and upscaled to 1080p.
+- No volumetric scattering in the render (would multiply the cost): atmosphere is a depth-based aerial-perspective haze in post. Kinetic type, labels and pore-water particles are a 2-D layer drawn through the same camera (depth-tested particles).
+- The city is procedural boxes with window textures (not modelled architecture); strata are textured meshes with real thickness and compaction, not a geotechnical model.

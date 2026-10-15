@@ -240,6 +240,28 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** frames at 0.5 and 1.2 s are sharp in the re-render.
 - **Regression test:** none - judged on rendered frames
 
+### pbrt-horizon-wedge-and-giant-planes - Black saw-tooth wedge / teal holes at the horizon in pbrt city scenes
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** A black saw-tooth band appeared along the horizon and a flat teal trapezoid showed beside the block, where solid ground should be.
+- **Root cause:** imgtool makesky leaves the lower hemisphere black, visible wherever rays miss the ground; and 120-km-wide two-triangle planes (ground strips and their front faces) were missed by camera rays, exposing that lower hemisphere (distance 0 in the gbuffer = no hit).
+- **Fix:** make_sky fills the lower hemisphere with the horizon colour; surroundings are built as boxes a few km wide plus one dark horizon-catcher plane below the scene; diagnose holes by reading the gbuffer distance (0 = ray hit nothing).
+- **Reuse when:** Any pbrt scene with a physical sky and large ground planes.
+- **References:** `orbitalatlas/pbrt3d.py`; `productions/ep004-jakarta/proof_v3/scene_v3.py`; `docs/production-knowledge/TRUE_3D_PIPELINE.md`
+- **Verification:** stills at t=0 and 1.2 s: wedge and trapezoid gone; the distance map has hits there.
+- **Regression test:** none - visual scene construction; checked on stills
+
+### pbrt-negative-scale-motion-blur-blank - pbrt-v4 renders a blank frame (sky only) when the camera has motion blur
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** With 'Scale -1 1 1' (to un-mirror pbrt's left-handed image) plus ActiveTransform StartTime/EndTime LookAt for camera motion blur, every frame came out as empty sky; without motion blur the same scene rendered.
+- **Root cause:** The animated camera transform is decomposed (translation/rotation/scale) for interpolation; a negative scale cannot be decomposed into a rotation, so camera rays go wrong.
+- **Fix:** No negative Scale in the camera transform; flip the rendered image left-right in post (orbitalatlas.pbrt3d.load_frame does it for colour and distance).
+- **Reuse when:** Any pbrt-v4 scene with an animated camera (motion blur) or any exporter that mirrors with Scale -1.
+- **References:** `orbitalatlas/pbrt3d.py`; `docs/production-knowledge/TRUE_3D_PIPELINE.md`
+- **Verification:** same frame: with Scale -1 + motion blur mean 0 geometry (blank); without Scale mean luminance 78/255 and correct geometry after the post flip.
+- **Regression test:** `orbitalatlas/tests/test_pbrt3d.py`
+
 ### pil-float-width - Float width in ImageDraw raises TypeError
 *VERIFIED · EP002 · 2026-10-13*
 

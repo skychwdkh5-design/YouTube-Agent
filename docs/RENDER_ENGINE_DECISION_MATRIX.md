@@ -35,3 +35,10 @@ Contact sheet at 4 fps · blackdetect · frame-diff motion per second · overlay
 - Network changed after the user allowlisted hosts: cdn.jsdelivr.net, Cesium hosts, GIBS, NASA/Google doc pages are reachable; registry.npmjs.org still fails DNS. Chromium WebGL2 works in software (RENDER_BENCHMARKS).
 - Cesium rejection above is withdrawn as a *renderer* decision only; Cesium ion, Google 3D Tiles and Earth Studio are excluded by licence/cost (ASSET_SOURCE_REGISTRY).
 - No engine has yet met the reference look with free data. Phase 2 must test the open candidates in KNOWN_LIMITATIONS and choose by `REFERENCE_VISUAL_QA_CHECKLIST.md`. Blender and Three.js remain untested here.
+
+## Update 2026-10-15: true 3-D (owner standard "TRUE 3D CINEMATIC ANIMATION")
+| engine | reachable here | verdict |
+|---|---|---|
+| Blender (Cycles/EEVEE, Python) | NO: download.blender.org, PyPI `bpy`, Ubuntu mirrors blocked by the network policy (VERIFIED, proxy 403) | preferred if the owner allowlists download.blender.org |
+| pbrt-v4 (CPU path tracer, Apache-2.0) + Intel OIDN 2.3.3 | YES (GitHub sources/releases; built headless in ~15 min) | CHOSEN for EP004 S3 V3: real geometry, thin-lens DOF, animated-camera motion blur, PBR, physical sky; ~20-30 s/frame at 1440x810 8 spp |
+| orbitalatlas.scene3d | built-in | stays the fast 2.5-D illustrator; not "3-D rendering" |

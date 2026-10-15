@@ -2893,6 +2893,67 @@
     "render"
    ],
    "regression_test": "orbitalatlas/tests/test_shorts.py"
+  },
+  {
+   "id": "pbrt-negative-scale-motion-blur-blank",
+   "title": "pbrt-v4 renders a blank frame (sky only) when the camera has motion blur",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "render",
+   "date": "2026-10-15",
+   "problem": "With 'Scale -1 1 1' (to un-mirror pbrt's left-handed image) plus ActiveTransform StartTime/EndTime LookAt for camera motion blur, every frame came out as empty sky; without motion blur the same scene rendered.",
+   "root_cause": "The animated camera transform is decomposed (translation/rotation/scale) for interpolation; a negative scale cannot be decomposed into a rotation, so camera rays go wrong.",
+   "fix": "No negative Scale in the camera transform; flip the rendered image left-right in post (orbitalatlas.pbrt3d.load_frame does it for colour and distance).",
+   "reuse_when": "Any pbrt-v4 scene with an animated camera (motion blur) or any exporter that mirrors with Scale -1.",
+   "refs": {
+    "code": [
+     "orbitalatlas/pbrt3d.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/TRUE_3D_PIPELINE.md"
+    ]
+   },
+   "verification": "same frame: with Scale -1 + motion blur mean 0 geometry (blank); without Scale mean luminance 78/255 and correct geometry after the post flip.",
+   "symptoms": [
+    "pbrt blank frame",
+    "only sky rendered",
+    "motion blur camera empty"
+   ],
+   "stages": [
+    "render"
+   ],
+   "regression_test": "orbitalatlas/tests/test_pbrt3d.py"
+  },
+  {
+   "id": "pbrt-horizon-wedge-and-giant-planes",
+   "title": "Black saw-tooth wedge / teal holes at the horizon in pbrt city scenes",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "render",
+   "date": "2026-10-15",
+   "problem": "A black saw-tooth band appeared along the horizon and a flat teal trapezoid showed beside the block, where solid ground should be.",
+   "root_cause": "imgtool makesky leaves the lower hemisphere black, visible wherever rays miss the ground; and 120-km-wide two-triangle planes (ground strips and their front faces) were missed by camera rays, exposing that lower hemisphere (distance 0 in the gbuffer = no hit).",
+   "fix": "make_sky fills the lower hemisphere with the horizon colour; surroundings are built as boxes a few km wide plus one dark horizon-catcher plane below the scene; diagnose holes by reading the gbuffer distance (0 = ray hit nothing).",
+   "reuse_when": "Any pbrt scene with a physical sky and large ground planes.",
+   "refs": {
+    "code": [
+     "orbitalatlas/pbrt3d.py",
+     "productions/ep004-jakarta/proof_v3/scene_v3.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/TRUE_3D_PIPELINE.md"
+    ]
+   },
+   "verification": "stills at t=0 and 1.2 s: wedge and trapezoid gone; the distance map has hits there.",
+   "symptoms": [
+    "black sawtooth horizon",
+    "teal trapezoid",
+    "hole in ground"
+   ],
+   "stages": [
+    "render"
+   ],
+   "no_test_reason": "visual scene construction; checked on stills"
   }
  ]
 }

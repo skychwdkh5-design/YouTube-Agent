@@ -1819,6 +1819,51 @@
    ],
    "composition_reset": false,
    "params": {}
+  },
+  {
+   "id": "true_3d_cutaway_radar_pbrt",
+   "kind": "illustration",
+   "renderer": "pbrt-v4",
+   "status": "built",
+   "what": "TRUE 3-D path-traced scene (pbrt-v4 + OIDN): procedural city block with window-textured buildings, cut-away strata with real thickness and relief, half-cut well with falling head, compacting clay and sinking surface/buildings, satellite model (gold foil, panels, SAR antenna), radar pulses as emissive rings along the beam, measurement geometry (original level, extra path, LOS vs vertical with right angle) as emissive tubes; motion-blurred keyed camera with whips, thin-lens depth of field, physical sky + sun, post haze/ACES grade; 2-D kinetic type and labels anchored through the same camera.",
+   "use_for": [
+    "mechanism",
+    "measurement_principle",
+    "hero_3d"
+   ],
+   "keywords": [
+    "true 3d",
+    "pbrt",
+    "path tracing",
+    "subsidence",
+    "insar",
+    "radar",
+    "cutaway",
+    "aquifer",
+    "motion blur",
+    "depth of field"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/pbrt3d.py",
+     "productions/ep004-jakarta/proof_v3/scene_v3.py",
+     "productions/ep004-jakarta/proof_v3/run_v3.py",
+     "productions/ep004-jakarta/proof_v3/compose_v3.py",
+     "tools/pbrt3d/build_toolchain.sh"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_pbrt3d.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/TRUE_3D_PIPELINE.md"
+    ]
+   },
+   "limits": "CPU path tracing ~20-30 s/frame at 1440x810/8 spp (hours per proof); no volumetric scattering (post haze); procedural box city; illustration only",
+   "composition_reset": false,
+   "used_in": [
+    "EP004 S3 V3 proof"
+   ],
+   "params": {}
   }
  ]
 }

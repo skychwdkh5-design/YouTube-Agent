@@ -4,6 +4,7 @@ Index for future sessions. **Read this file only, then open the one or two docum
 |---|---|
 | storyboard a video or a hook | `VISUAL_STYLE.md`, then `MOTION_GRAPHICS.md` |
 | render an episode with the motion engine (automatic effects) | `VISUAL_ENGINE_BASELINE.md` (status PRODUCTION_BASELINE_V2C); deferred ideas: `FUTURE_VISUAL_ROADMAP.md` |
+| build a TRUE 3-D scene (real geometry, path tracing, motion blur, DOF) | `TRUE_3D_PIPELINE.md` (pbrt-v4 + OIDN, `orbitalatlas/pbrt3d.py`) |
 | choose camera moves / cuts | `TRANSITIONS.md` |
 | use satellite images, photos, maps, outlines | `SATELLITE_DATA.md` (+ `docs/ASSET_SOURCE_REGISTRY.md`) |
 | buy narration | `TTS_ELEVENLABS.md` (cost gate, cache) |
