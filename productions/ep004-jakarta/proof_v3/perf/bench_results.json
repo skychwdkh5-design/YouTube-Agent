@@ -1,0 +1,198 @@
+{
+ "budget_s": 300.0,
+ "runs": [
+  {
+   "name": "A_current",
+   "t": 6.0,
+   "size": [
+    1440,
+    810
+   ],
+   "spp": 8,
+   "write_s": 0.52,
+   "pbrt_s": 33.39,
+   "denoise_convert_s": 2.07,
+   "grade_s": 0.99,
+   "upscale_s": 0.04,
+   "total_s": 37.01,
+   "pbrt_file_mb": 6.15
+  },
+  {
+   "name": "B_4spp",
+   "t": 6.0,
+   "size": [
+    1440,
+    810
+   ],
+   "spp": 4,
+   "write_s": 0.47,
+   "pbrt_s": 16.79,
+   "denoise_convert_s": 1.84,
+   "grade_s": 0.96,
+   "upscale_s": 0.04,
+   "total_s": 20.1,
+   "pbrt_file_mb": 6.15
+  },
+  {
+   "name": "B_2spp",
+   "t": 6.0,
+   "size": [
+    1440,
+    810
+   ],
+   "spp": 2,
+   "write_s": 0.38,
+   "pbrt_s": 8.84,
+   "denoise_convert_s": 1.85,
+   "grade_s": 0.91,
+   "upscale_s": 0.04,
+   "total_s": 12.03,
+   "pbrt_file_mb": 6.15
+  },
+  {
+   "name": "C_lite_geometry_4spp",
+   "t": 6.0,
+   "size": [
+    1440,
+    810
+   ],
+   "spp": 4,
+   "write_s": 0.19,
+   "pbrt_s": 16.33,
+   "denoise_convert_s": 1.67,
+   "grade_s": 0.97,
+   "upscale_s": 0.04,
+   "total_s": 19.2,
+   "pbrt_file_mb": 4.32
+  },
+  {
+   "name": "D_no_blur_dof_bump_4spp",
+   "t": 6.0,
+   "size": [
+    1440,
+    810
+   ],
+   "spp": 4,
+   "write_s": 0.43,
+   "pbrt_s": 13.81,
+   "denoise_convert_s": 1.79,
+   "grade_s": 0.9,
+   "upscale_s": 0.06,
+   "total_s": 16.99,
+   "pbrt_file_mb": 6.15
+  },
+  {
+   "name": "E_depth2_4spp",
+   "t": 6.0,
+   "size": [
+    1440,
+    810
+   ],
+   "spp": 4,
+   "write_s": 0.53,
+   "pbrt_s": 17.33,
+   "denoise_convert_s": 1.85,
+   "grade_s": 0.94,
+   "upscale_s": 0.04,
+   "total_s": 20.7,
+   "pbrt_file_mb": 6.15
+  },
+  {
+   "name": "F_960x540_4spp",
+   "t": 6.0,
+   "size": [
+    960,
+    540
+   ],
+   "spp": 4,
+   "write_s": 0.43,
+   "pbrt_s": 7.62,
+   "denoise_convert_s": 0.8,
+   "grade_s": 0.4,
+   "upscale_s": 0.04,
+   "total_s": 9.3,
+   "pbrt_file_mb": 6.15
+  },
+  {
+   "name": "W_wide_current_8spp",
+   "t": 1.2,
+   "size": [
+    1440,
+    810
+   ],
+   "spp": 8,
+   "write_s": 0.37,
+   "pbrt_s": 16.35,
+   "denoise_convert_s": 1.74,
+   "grade_s": 1.06,
+   "upscale_s": 0.05,
+   "total_s": 19.57,
+   "pbrt_file_mb": 5.17
+  },
+  {
+   "name": "W_wide_960_4spp",
+   "t": 1.2,
+   "size": [
+    960,
+    540
+   ],
+   "spp": 4,
+   "write_s": 0.39,
+   "pbrt_s": 4.14,
+   "denoise_convert_s": 1.05,
+   "grade_s": 0.4,
+   "upscale_s": 0.05,
+   "total_s": 6.01,
+   "pbrt_file_mb": 5.17
+  }
+ ],
+ "quality_mean_abs_diff_vs_A_0_255": {
+  "B_4spp": 2.35,
+  "B_2spp": 2.74,
+  "C_lite": 2.35,
+  "D_no_effects": 6.94,
+  "E_depth2": 2.36,
+  "F_960_4spp": 2.94,
+  "W_960_4spp": 2.82
+ },
+ "compute_used_s": 168.8,
+ "post_compose_per_frame_s": 1.36,
+ "encode_per_frame_s": 0.053,
+ "pbrt_stats_A_current": [
+  "Statistics:",
+  "  BVH",
+  "    Interior nodes                                                  63152",
+  "    Leaf nodes                                                      63153",
+  "    Nodes visited                                               900666064",
+  "    Primitives per leaf node                        107907 /        63153 (1.71x)",
+  "  Geometry",
+  "    Cylinders                                                           2",
+  "    Spheres                                                             2",
+  "    Buffer cache hits                                   49 /          138 (35.51%)",
+  "    Triangles per mesh                              108066 /           38 (2843.84x)",
+  "  Integrator",
+  "    Camera rays traced                                            9331200",
+  "    Path length                                                     1.449 avg [range 1 - 6]",
+  "    Regularized BSDFs                              4186845 /     13518045 (30.97%)",
+  "    Zero-radiance paths                            7820244 /     13516311 (57.86%)",
+  "  Intersections",
+  "    Regular ray intersection tests                               17157978",
+  "    Shadow ray intersection tests                                 8497006",
+  "    Ray-Triangle intersection tests               20946579 /     39225275 (0.53x)",
+  "  Memory",
+  "    BVH                                                              4.68 MiB",
+  "    Film pixels                                                    213.57 MiB",
+  "    Image maps                                                      27.17 MiB",
+  "    Light BVH                                                       13.46 kB",
+  "    Primitives                                                       1.65 MiB",
+  "    Redundant vertex and index buffers                             139.33 kB",
+  "    Tokenizer buffers                                                5.87 MiB",
+  "    Triangles                                                      846.64 kB",
+  "    Unreported / unused                                             97.44 MiB",
+  "  Scene",
+  "    AreaLights                                                        163",
+  "    Lights                                                            165",
+  "    Materials                                                          40",
+  "    Textures                                                           39"
+ ]
+}
