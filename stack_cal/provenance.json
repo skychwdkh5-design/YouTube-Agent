@@ -1,0 +1,392 @@
+{
+ "y1985": {
+  "credit": "Landsat 5 · USGS",
+  "product": "Landsat Collection 2 Level-1 band files B3,B2,B1",
+  "note": "mosaic of path 38 (1985-06-12) and path 39 (1985-06-19) scenes",
+  "derived_png": "y1985.png",
+  "tiles": [
+   {
+    "displayId": "LT05_L1TP_039031_19850619_20200918_02_T1",
+    "date": "1985-06-19",
+    "sun_elevation_deg": 60.73606853,
+    "bands": [
+     "B3",
+     "B2",
+     "B1"
+    ],
+    "pixels_used_pct": 40.96
+   },
+   {
+    "displayId": "LT05_L1TP_039032_19850619_20200918_02_T1",
+    "date": "1985-06-19",
+    "sun_elevation_deg": 61.1877313,
+    "bands": [
+     "B3",
+     "B2",
+     "B1"
+    ],
+    "pixels_used_pct": 21.8
+   },
+   {
+    "displayId": "LT05_L1TP_038031_19850612_20200918_02_T1",
+    "date": "1985-06-12",
+    "sun_elevation_deg": 60.80930029,
+    "bands": [
+     "B3",
+     "B2",
+     "B1"
+    ],
+    "pixels_used_pct": 20.4
+   },
+   {
+    "displayId": "LT05_L1TP_038032_19850612_20200918_02_T1",
+    "date": "1985-06-12",
+    "sun_elevation_deg": 61.28198169,
+    "bands": [
+     "B3",
+     "B2",
+     "B1"
+    ],
+    "pixels_used_pct": 16.84
+   }
+  ],
+  "acquisition_dates": [
+   "1985-06-12",
+   "1985-06-19"
+  ],
+  "days_between_tiles": 7,
+  "processing": [
+   {
+    "op": "toa_reflectance",
+    "formula": "(DN*MULT+ADD)/sin(sun_elevation), from MTL"
+   },
+   {
+    "op": "tone_B",
+    "formula": "clip((r-0.02)/0.58,0,1)**(1/1.8)"
+   },
+   {
+    "op": "reproject_resample",
+    "method": "bilinear",
+    "grid_epsg": 32612,
+    "pixel_m": 60.0
+   },
+   {
+    "op": "mosaic",
+    "rule": "first tile with real data wins; no blending",
+    "edge_px_dropped": 3
+   }
+  ]
+ },
+ "y1986": {
+  "credit": "Landsat 5 · USGS",
+  "product": "Landsat Collection 2 Level-1 band files B3,B2,B1",
+  "note": "path 39 1986-08-09 plus path 38 1986-08-02",
+  "derived_png": "y1986.png",
+  "tiles": [
+   {
+    "displayId": "LT05_L1TP_039031_19860809_20200918_02_T1",
+    "date": "1986-08-09",
+    "sun_elevation_deg": 53.05490755,
+    "bands": [
+     "B3",
+     "B2",
+     "B1"
+    ],
+    "pixels_used_pct": 39.37
+   },
+   {
+    "displayId": "LT05_L1TP_039032_19860809_20200918_02_T1",
+    "date": "1986-08-09",
+    "sun_elevation_deg": 53.64298535,
+    "bands": [
+     "B3",
+     "B2",
+     "B1"
+    ],
+    "pixels_used_pct": 21.23
+   },
+   {
+    "displayId": "LT05_L1TP_038031_19860802_20200918_02_T1",
+    "date": "1986-08-02",
+    "sun_elevation_deg": 54.44265489,
+    "bands": [
+     "B3",
+     "B2",
+     "B1"
+    ],
+    "pixels_used_pct": 21.38
+   },
+   {
+    "displayId": "LT05_L1TP_038032_19860802_20200917_02_T1",
+    "date": "1986-08-02",
+    "sun_elevation_deg": 54.97633231,
+    "bands": [
+     "B3",
+     "B2",
+     "B1"
+    ],
+    "pixels_used_pct": 18.02
+   }
+  ],
+  "acquisition_dates": [
+   "1986-08-02",
+   "1986-08-09"
+  ],
+  "days_between_tiles": 7,
+  "processing": [
+   {
+    "op": "toa_reflectance",
+    "formula": "(DN*MULT+ADD)/sin(sun_elevation), from MTL"
+   },
+   {
+    "op": "tone_B",
+    "formula": "clip((r-0.02)/0.58,0,1)**(1/1.8)"
+   },
+   {
+    "op": "reproject_resample",
+    "method": "bilinear",
+    "grid_epsg": 32612,
+    "pixel_m": 60.0
+   },
+   {
+    "op": "mosaic",
+    "rule": "first tile with real data wins; no blending",
+    "edge_px_dropped": 3
+   }
+  ]
+ },
+ "y1999": {
+  "credit": "Landsat 5 · USGS",
+  "product": "Landsat Collection 2 Level-1 band files B3,B2,B1",
+  "note": "path 39 1999-08-29 plus path 38 1999-08-22",
+  "derived_png": "y1999.png",
+  "tiles": [
+   {
+    "displayId": "LT05_L1TP_039031_19990829_20200907_02_T1",
+    "date": "1999-08-29",
+    "sun_elevation_deg": 50.5224249,
+    "bands": [
+     "B3",
+     "B2",
+     "B1"
+    ],
+    "pixels_used_pct": 40.28
+   },
+   {
+    "displayId": "LT05_L1TP_039032_19990829_20200907_02_T1",
+    "date": "1999-08-29",
+    "sun_elevation_deg": 51.38588717,
+    "bands": [
+     "B3",
+     "B2",
+     "B1"
+    ],
+    "pixels_used_pct": 20.82
+   },
+   {
+    "displayId": "LT05_L1TP_038031_19990822_20200907_02_T1",
+    "date": "1999-08-22",
+    "sun_elevation_deg": 52.35113341,
+    "bands": [
+     "B3",
+     "B2",
+     "B1"
+    ],
+    "pixels_used_pct": 21.61
+   },
+   {
+    "displayId": "LT05_L1TP_038032_19990822_20200907_02_T1",
+    "date": "1999-08-22",
+    "sun_elevation_deg": 53.15765035,
+    "bands": [
+     "B3",
+     "B2",
+     "B1"
+    ],
+    "pixels_used_pct": 17.28
+   }
+  ],
+  "acquisition_dates": [
+   "1999-08-22",
+   "1999-08-29"
+  ],
+  "days_between_tiles": 7,
+  "processing": [
+   {
+    "op": "toa_reflectance",
+    "formula": "(DN*MULT+ADD)/sin(sun_elevation), from MTL"
+   },
+   {
+    "op": "tone_B",
+    "formula": "clip((r-0.02)/0.58,0,1)**(1/1.8)"
+   },
+   {
+    "op": "reproject_resample",
+    "method": "bilinear",
+    "grid_epsg": 32612,
+    "pixel_m": 60.0
+   },
+   {
+    "op": "mosaic",
+    "rule": "first tile with real data wins; no blending",
+    "edge_px_dropped": 3
+   }
+  ]
+ },
+ "y2021": {
+  "credit": "Landsat 8 · USGS",
+  "product": "Landsat Collection 2 Level-1 band files B4,B3,B2",
+  "note": "path 39 2021-07-24 plus path 38 2021-07-17",
+  "derived_png": "y2021.png",
+  "tiles": [
+   {
+    "displayId": "LC08_L1TP_039031_20210724_20210803_02_T1",
+    "date": "2021-07-24",
+    "sun_elevation_deg": 61.57247858,
+    "bands": [
+     "B4",
+     "B3",
+     "B2"
+    ],
+    "pixels_used_pct": 46.05
+   },
+   {
+    "displayId": "LC08_L1TP_039032_20210724_20210803_02_T1",
+    "date": "2021-07-24",
+    "sun_elevation_deg": 62.34895699,
+    "bands": [
+     "B4",
+     "B3",
+     "B2"
+    ],
+    "pixels_used_pct": 20.04
+   },
+   {
+    "displayId": "LC08_L1TP_038031_20210717_20210729_02_T1",
+    "date": "2021-07-17",
+    "sun_elevation_deg": 62.72213475,
+    "bands": [
+     "B4",
+     "B3",
+     "B2"
+    ],
+    "pixels_used_pct": 19.88
+   },
+   {
+    "displayId": "LC08_L1TP_038032_20210717_20210729_02_T1",
+    "date": "2021-07-17",
+    "sun_elevation_deg": 63.46290065,
+    "bands": [
+     "B4",
+     "B3",
+     "B2"
+    ],
+    "pixels_used_pct": 14.03
+   }
+  ],
+  "acquisition_dates": [
+   "2021-07-17",
+   "2021-07-24"
+  ],
+  "days_between_tiles": 7,
+  "processing": [
+   {
+    "op": "toa_reflectance",
+    "formula": "(DN*MULT+ADD)/sin(sun_elevation), from MTL"
+   },
+   {
+    "op": "tone_B",
+    "formula": "clip((r-0.02)/0.58,0,1)**(1/1.8)"
+   },
+   {
+    "op": "reproject_resample",
+    "method": "bilinear",
+    "grid_epsg": 32612,
+    "pixel_m": 60.0
+   },
+   {
+    "op": "mosaic",
+    "rule": "first tile with real data wins; no blending",
+    "edge_px_dropped": 3
+   }
+  ]
+ },
+ "y2022": {
+  "credit": "Landsat 8, 9 · USGS",
+  "product": "Landsat Collection 2 Level-1 band files B4,B3,B2",
+  "note": "path 39 2022-07-11 (Landsat 8) plus path 38 2022-07-28 (Landsat 9)",
+  "derived_png": "y2022.png",
+  "tiles": [
+   {
+    "displayId": "LC08_L1TP_039031_20220711_20220722_02_T1",
+    "date": "2022-07-11",
+    "sun_elevation_deg": 63.62212698,
+    "bands": [
+     "B4",
+     "B3",
+     "B2"
+    ],
+    "pixels_used_pct": 45.84
+   },
+   {
+    "displayId": "LC08_L1TP_039032_20220711_20220722_02_T1",
+    "date": "2022-07-11",
+    "sun_elevation_deg": 64.3416855,
+    "bands": [
+     "B4",
+     "B3",
+     "B2"
+    ],
+    "pixels_used_pct": 19.88
+   },
+   {
+    "displayId": "LC09_L1TP_038031_20220728_20230406_02_T1",
+    "date": "2022-07-28",
+    "sun_elevation_deg": 60.85934588,
+    "bands": [
+     "B4",
+     "B3",
+     "B2"
+    ],
+    "pixels_used_pct": 20.27
+   },
+   {
+    "displayId": "LC09_L1TP_038032_20220728_20230406_02_T1",
+    "date": "2022-07-28",
+    "sun_elevation_deg": 61.65646532,
+    "bands": [
+     "B4",
+     "B3",
+     "B2"
+    ],
+    "pixels_used_pct": 14.01
+   }
+  ],
+  "acquisition_dates": [
+   "2022-07-11",
+   "2022-07-28"
+  ],
+  "days_between_tiles": 17,
+  "processing": [
+   {
+    "op": "toa_reflectance",
+    "formula": "(DN*MULT+ADD)/sin(sun_elevation), from MTL"
+   },
+   {
+    "op": "tone_B",
+    "formula": "clip((r-0.02)/0.58,0,1)**(1/1.8)"
+   },
+   {
+    "op": "reproject_resample",
+    "method": "bilinear",
+    "grid_epsg": 32612,
+    "pixel_m": 60.0
+   },
+   {
+    "op": "mosaic",
+    "rule": "first tile with real data wins; no blending",
+    "edge_px_dropped": 3
+   }
+  ]
+ }
+}
