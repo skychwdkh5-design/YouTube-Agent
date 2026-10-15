@@ -1,0 +1,10 @@
+{
+ "note": "Owner approvals for paid or irreversible actions. Written by Claude ONLY after the owner said yes in chat; quote their words.",
+ "tts": {
+  "approved": false
+ },
+ "publish": {
+  "approved": false,
+  "note": "the agent never uploads"
+ }
+}

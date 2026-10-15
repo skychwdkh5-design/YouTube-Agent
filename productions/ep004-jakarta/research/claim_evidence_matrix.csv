@@ -1,0 +1,11 @@
+id,claim,value,unit,period,extent,uncertainty,source_url,evidence_type,status,note
+C01,Typical Jakarta subsidence rate from geodetic data,3-10,cm/yr,1974-2010,Jakarta (review),spatially/temporally variable,https://piahs.copernicus.org/articles/372/115/2015/,review of leveling+GPS+InSAR,SNIPPET_ONLY,historical - not a current rate
+C02,Local maximum in ESA Sentinel-1 map,~12,cm/yr,2017-2018,Jakarta (map extent unread),unread,https://www.esa.int/ESA_Multimedia/Images/2024/11/Ground_motion_over_Jakarta_Indonesia,Sentinel-1 InSAR map,SNIPPET_ONLY,local max not citywide; LOS/vertical unread
+C03,Province rate range,+1.8 to -10.7,cm/yr,2019-2020,Jakarta Province,unread,https://meetingorganizer.copernicus.org/EGU21/EGU21-14347.html,Sentinel-1A abstract,SNIPPET_ONLY,conference abstract
+C04,North Jakarta mean,~-4.9,cm/yr,2019-2020,North Jakarta,unread,https://meetingorganizer.copernicus.org/EGU21/EGU21-14347.html,Sentinel-1A abstract,SNIPPET_ONLY,
+C05,Surge ~mid-2018 then deceleration by 2022,qualitative,,2017-2022,North Jakarta,abstracts disagree,https://www.tandfonline.com/doi/full/10.1080/10106049.2024.2364726,multi-track SBAS,SNIPPET_ONLY,conflicting reading - must read paper
+C06,Main drivers: groundwater extraction + construction load + alluvium consolidation,qualitative,,1974-2010,Jakarta,,https://piahs.copernicus.org/articles/372/115/2015/,review,SNIPPET_ONLY,
+C07,Groundwater-free zones regulation (Pergub 93/2021) in force,2023-08-01,date,,Jakarta,enforcement disputed,https://www.thejakartapost.com/news/2021/10/13/jakarta-plans-to-ban-some-groundwater-extraction-not-so-fast-experts-say,news,SNIPPET_ONLY,
+C08,Pergub 5/2026 tightens building groundwater use,2026-02,date,,Jakarta,,https://www.thejakartapost.com/indonesia/2026/02/09/jakarta-tightens-groundwater-rule-to-curb-subsidence.html,news,SNIPPET_ONLY,
+C09,Sea-wall groundbreaking targeted Sept 2026,target,date,,Jakarta coast,happened? unknown,https://investortrust.id/market/91814/jakarta-sets-september-2026-groundbreaking-for-giant-sea-wall,news,SNIPPET_ONLY,do not state as done
+C10,Localized uplift / recovery exists,unknown,,,,,https://doi.org/10.1016/j.rsase.2026.102176,peer-reviewed (unread),UNREAD,twist cannot be scripted yet
