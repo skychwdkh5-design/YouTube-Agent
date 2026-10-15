@@ -798,6 +798,28 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** media/ep002-dubai-final holds v4.1 as one LFS file, SHA-256 checked after an anonymous download.
 - **Regression test:** none - Depends on the host and credentials; verified by the download check.
 
+### private-upload-kit-ipad - Owner uploads from an iPad: one downloadable master file + paste-ready texts
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** The approved master was stored as 90 MiB parts, which an iPad cannot join; the agent has no YouTube access.
+- **Root cause:** GitHub's 100 MB file limit; no YouTube connector or OAuth credentials in the session.
+- **Fix:** Push the approved master as one Git LFS file to media/<slug>-upload together with thumbnail.jpg, captions.srt, title.txt, description.txt, tags.txt and SHA256SUMS; verify https://github.com/<owner>/<repo>/raw/<branch>/<file> with a HEAD (Content-Length) and a 2 KB range compared with the master (no full download: LFS bandwidth quota); write release/PRIVATE_UPLOAD_IPAD.md (Studio in Safari desktop mode, visibility Private, no schedule).
+- **Reuse when:** Every release handed to the owner.
+- **References:** `tools/autopilot/archive.py`; `docs/production-knowledge/RENDERING.md`
+- **Verification:** EP003 V3: raw URL returned 826,783,556 bytes, first 2 KB identical to the master.
+- **Regression test:** none - release procedure / external policy
+
+### public-repo-exposes-unreleased-media - The repository is public: media/* branches expose unreleased video and paid narration
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** skychwdkh5-design/YouTube-Agent is public, so master parts, review copies and ElevenLabs audio on media/* branches are downloadable by anyone before publication.
+- **Root cause:** Media branches were added to the same public repository as the code.
+- **Fix:** Tell the owner before publishing; options: make the repository private (owner setting) or move media to a private repository / storage. Never put credentials in media branches. LFS on a public repo also spends the owner's LFS bandwidth when others download.
+- **Reuse when:** Before pushing any unreleased media.
+- **References:** `tools/autopilot/archive.py`; `docs/production-knowledge/RENDERING.md`
+- **Verification:** list_repos: visibility public (2026-10-15).
+- **Regression test:** none - release procedure / external policy
+
 ## process
 
 ### adaptive-intensity-and-pacing - Animation intensity follows the meaning; pacing is measured per sentence
@@ -920,6 +942,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `tools/autopilot/gates.py`; `docs/AUTOPILOT.md`
 - **Verification:** EP003: storyboard gate ok and yt-qc PASS on the same timeline.
 - **Regression test:** none - covered by the EP003 run; the existing autopilot tests pass
+
+### youtube-synthetic-disclosure-and-tts-rights - Release checks: YouTube altered/synthetic disclosure and ElevenLabs commercial rights
+*HYPOTHESIS · general · 2026-10-15*
+
+- **Problem:** Whether an AI narrator needs YouTube's 'altered or synthetic content' answer, and whether the narration may be monetised.
+- **Root cause:** Both depend on external policy and on the owner's ElevenLabs plan at generation time, which the key cannot read (no user_read).
+- **Fix:** YouTube: disclosure is required for realistic content that could be mistaken for real people/events (a real person saying something, altered real footage, realistic invented scenes); cloning your own voice is exempt; a stock AI narrator that imitates no real person is a grey zone - recommend 'No' for factual narration over real imagery, owner decides, keep the description line 'Narration voice generated with ElevenLabs'. ElevenLabs: free plan = non-commercial only and attribution ('elevenlabs.io' in the title); paid plans include a commercial licence (not for Beta services). Without proof of a paid plan on the generation date: monetization OFF, raise a blocking question.
+- **Reuse when:** Every upload.
+- **References:** `tools/autopilot/orbital.py`; `docs/production-knowledge/TTS_ELEVENLABS.md`
+- **Verification:** Search summaries of support.google.com/youtube/answer/14328491 and help.elevenlabs.io (2026-10-15); the pages themselves were not reachable from the container (DNS), so this stays HYPOTHESIS until read directly.
+- **Regression test:** none - release procedure / external policy
 
 ## env
 
