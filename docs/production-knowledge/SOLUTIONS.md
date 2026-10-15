@@ -877,6 +877,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** Autopilot's review gate refuses USER_APPROVED from the agent and demands the list of frames looked at and of what could not be verified.
 - **Regression test:** `tools/autopilot/test_autopilot.py::test_agent_cannot_grant_user_approved`
 
+### release-handoff-checks - Release hand-off after USER_APPROVED: verify the stored master, back up inputs, check the PR chain
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** EP003 V3 was approved while (1) the master existed as split parts on a media branch, (2) the calibrated Landsat stack (102 MB) existed only in the container, (3) PR #25's base branch had no PR of its own.
+- **Root cause:** Approval records the picture, not where every input lives; stacked PRs hide gaps.
+- **Fix:** After the owner's approval: record review.json level USER_APPROVED with approved_by=user and the quote, approvals.json release entry, publish still false; join the media-branch parts and compare SHA-256 with the approved master, verify the archive (archive.py verify) and REVIEW_COPIES.sha256; push gitignored inputs (stack_cal) to media/<slug>-stack; check every PR head is an ancestor of the final branch (git merge-base --is-ancestor), git merge-tree against main for conflicts, deleted files vs main = 0, and large files that would land on main; title numbers must match the video (EP003 '40 years' -> '37 years'); write release/UPLOAD_CHECKLIST.md. Never delete media/* branches after merging PRs.
+- **Reuse when:** Every approved episode before publishing.
+- **References:** `tools/autopilot/archive.py`; `tools/autopilot/orbital.py`; `docs/production-knowledge/QUALITY_CONTROL.md`
+- **Verification:** EP003 V3: joined parts sha256 b0b28c62... = approved master; stack on media/ep003-gsl-stack; chain #17-#26 contained in production/ep003-v3, merge into main conflict-free, 0 deletions; one 24 MB EP002 zip would land on main.
+- **Regression test:** none - procedure
+
 ### release-package-without-upload - No YouTube connector: deliver the package, never claim an upload
 *VERIFIED · general · 2026-10-13*
 
