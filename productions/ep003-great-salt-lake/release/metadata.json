@@ -5,7 +5,7 @@
  ],
  "thumbnail_text": "20 FEET LOWER",
  "thumbnail_idea": "Split 1986 / 2022 Landsat of the lake with the exposed shoreline outlined in amber; text '20 FEET LOWER'; no fake imagery",
- "language": "en",
+ "language": "English",
  "category": "Education",
  "made_for_kids": false,
  "altered_or_synthetic_content": "voice is AI-generated (ElevenLabs); imagery is real Landsat - disclose 'altered or synthetic content: voice' in YouTube Studio if the policy requires it for synthetic voices",
@@ -18,5 +18,16 @@
  "stack_backup": "media/ep003-gsl-stack",
  "title_note": "'37 years' = Landsat 1985-2022 shown in the video (was '40 years', which overstated the span); yt-package title.py score 98/100 with the thumbnail text",
  "thumbnail": "release/thumbnail.jpg (1280x720, real Landsat: Aug 1986 left, Jul 2022 right with the traced Aug 1986 shoreline; text '20 FEET LOWER' = 4,211.6 ft (1986 high) - 4,190.2 ft (Jul 2022), claims C1/C2)",
- "captions_file": "captions/captions.srt (English; the video also has burned-in captions - upload the SRT for accessibility/search, viewers who switch CC on will see both)"
+ "captions_file": "captions/captions.srt (English; the video also has burned-in captions - upload the SRT for accessibility/search, viewers who switch CC on will see both)",
+ "visibility": "private",
+ "public_schedule": null,
+ "monetization": "OFF until the ElevenLabs plan at generation time (2026-10-14) is confirmed as paid (free plan = non-commercial + attribution)",
+ "synthetic_disclosure": {
+  "recommendation": "No (owner decides)",
+  "reason": "stock AI narrator that imitates no real person; real Landsat imagery; annotations are clearly graphics; nothing realistic is fabricated - YouTube's trigger is realistic content that could be mistaken for real people/events (support.google.com/youtube/answer/14328491, read via search summaries; the page itself could not be loaded from the container)",
+  "transparency": "description already says 'Narration voice generated with ElevenLabs'"
+ },
+ "upload_kit": "media/ep003-gsl-v3-upload (single-file master via Git LFS + thumbnail, SRT, title, description, tags, SHA256SUMS)",
+ "audience": "not made for kids",
+ "captions_language": "English"
 }
