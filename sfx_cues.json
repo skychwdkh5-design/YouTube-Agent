@@ -1,0 +1,86 @@
+{
+ "cues": [
+  {
+   "t": 0.2,
+   "kind": "whoosh",
+   "why": "satellite arrives",
+   "gain_db": -14
+  },
+  {
+   "t": 1.65,
+   "kind": "sweep",
+   "why": "pulse 1",
+   "gain_db": -18
+  },
+  {
+   "t": 2.3,
+   "kind": "tick",
+   "why": "echo 1 returns",
+   "gain_db": -28
+  },
+  {
+   "t": 3.2,
+   "kind": "whoosh",
+   "why": "camera dives to the cut face",
+   "gain_db": -14
+  },
+  {
+   "t": 4.2,
+   "kind": "rise",
+   "why": "pumping starts",
+   "gain_db": -16
+  },
+  {
+   "t": 4.5,
+   "kind": "ui_blip",
+   "why": "label",
+   "gain_db": -22
+  },
+  {
+   "t": 5.95,
+   "kind": "ui_blip",
+   "why": "label",
+   "gain_db": -22
+  },
+  {
+   "t": 7.2,
+   "kind": "whoosh",
+   "why": "camera rises for pass 2",
+   "gain_db": -14
+  },
+  {
+   "t": 7.5,
+   "kind": "sweep",
+   "why": "pulse 2",
+   "gain_db": -18
+  },
+  {
+   "t": 8.1,
+   "kind": "tick",
+   "why": "echo 2 returns",
+   "gain_db": -28
+  },
+  {
+   "t": 8.75,
+   "kind": "ui_blip",
+   "why": "extra path",
+   "gain_db": -22
+  },
+  {
+   "t": 9.95,
+   "kind": "impact",
+   "why": "LINE OF SIGHT lockup",
+   "gain_db": -12
+  },
+  {
+   "t": 12.0,
+   "kind": "whoosh",
+   "why": "camera to the top view",
+   "gain_db": -14
+  }
+ ],
+ "voice_active_s": 0.0,
+ "margin_db_p5": null,
+ "license": "Original sound effects synthesised by orbitalatlas/sfx.py (code in this repository). No third-party audio is used; no attribution is required. Released CC0 1.0 by the project owner together with the code; safe for monetised YouTube use.",
+ "proof_gain_db": 8
+}
