@@ -1035,6 +1035,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** EP003: SVS 15020 1080p movie (30 fps, 13 s, 16,204,354 bytes) downloaded and frames extracted; assets.science.nasa.gov HEAD failed.
 - **Regression test:** none - Depends on the live network and the host allowlist.
 
+### research-source-access-matrix-ep004 - Which research sources the container can really read (EP004 test, 2026-10-15)
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** WebFetch resolves almost no host and many publisher/news sites look 'blocked', so research silently falls back to search snippets.
+- **Root cause:** WebFetch runs outside the container proxy (ENOTFOUND). Bash curl goes through the egress allowlist: some hosts open, some 403, publishers (tandfonline, sciencedirect, mdpi, pmc non-first fetch) answer with Cloudflare/reCAPTCHA bot checks, YouTube watch pages redirect to a Google 'sorry' page after automated requests.
+- **Fix:** Use `curl -sL -A 'Mozilla/5.0'` in Bash, never WebFetch. Works: esa.int pages and images, api.crossref.org (title, licence, authors), youtube.com search page (parse ytInitialData: views, duration, relative age) and i.ytimg.com thumbnails, one PMC full text (pmc.ncbi.nlm.nih.gov/articles/PMC...), github.com via git clone (Natural Earth), USGS M2M, science.nasa.gov article text. Not working: YouTube watch pages/captions (bot check - do not bypass), publisher full text, zenodo.org, doi.org targets, Copernicus catalogue, NASA assets host. Mark unreadable sources UNREAD/SNIPPET_ONLY in the claim matrix; never write their numbers into a script.
+- **Reuse when:** Start of any research stage; before promising competitor metrics or paper figures.
+- **References:** `productions/ep004-jakarta/research/data_provenance.md`
+- **Verification:** Each host was requested from this container on 2026-10-15 (HTTP status and body checked).
+- **Regression test:** none - external network policy; changes with the environment settings
+
 ### shorts-feedback-small-samples - A 2-vs-2 Shorts experiment can never be significant
 *HYPOTHESIS · general · 2026-10-13*
 

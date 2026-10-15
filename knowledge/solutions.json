@@ -2656,6 +2656,35 @@
     "package"
    ],
    "no_test_reason": "release procedure / external policy"
+  },
+  {
+   "id": "research-source-access-matrix-ep004",
+   "title": "Which research sources the container can really read (EP004 test, 2026-10-15)",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "research",
+   "date": "2026-10-15",
+   "problem": "WebFetch resolves almost no host and many publisher/news sites look 'blocked', so research silently falls back to search snippets.",
+   "root_cause": "WebFetch runs outside the container proxy (ENOTFOUND). Bash curl goes through the egress allowlist: some hosts open, some 403, publishers (tandfonline, sciencedirect, mdpi, pmc non-first fetch) answer with Cloudflare/reCAPTCHA bot checks, YouTube watch pages redirect to a Google 'sorry' page after automated requests.",
+   "fix": "Use `curl -sL -A 'Mozilla/5.0'` in Bash, never WebFetch. Works: esa.int pages and images, api.crossref.org (title, licence, authors), youtube.com search page (parse ytInitialData: views, duration, relative age) and i.ytimg.com thumbnails, one PMC full text (pmc.ncbi.nlm.nih.gov/articles/PMC...), github.com via git clone (Natural Earth), USGS M2M, science.nasa.gov article text. Not working: YouTube watch pages/captions (bot check - do not bypass), publisher full text, zenodo.org, doi.org targets, Copernicus catalogue, NASA assets host. Mark unreadable sources UNREAD/SNIPPET_ONLY in the claim matrix; never write their numbers into a script.",
+   "reuse_when": "Start of any research stage; before promising competitor metrics or paper figures.",
+   "refs": {
+    "code": [],
+    "docs": [
+     "productions/ep004-jakarta/research/data_provenance.md"
+    ]
+   },
+   "verification": "Each host was requested from this container on 2026-10-15 (HTTP status and body checked).",
+   "symptoms": [
+    "ENOTFOUND",
+    "Just a moment",
+    "google.com/sorry",
+    "connect_rejected"
+   ],
+   "stages": [
+    "research"
+   ],
+   "no_test_reason": "external network policy; changes with the environment settings"
   }
  ]
 }
