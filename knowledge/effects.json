@@ -1620,6 +1620,86 @@
     "EP004 S3 proof"
    ],
    "params": {}
+  },
+  {
+   "id": "perspective_3d_lite",
+   "kind": "camera",
+   "renderer": "orbitalatlas-scene3d",
+   "status": "built",
+   "what": "Small perspective renderer for ILLUSTRATION scenes: pinhole camera with monotone-cubic keyframed path and lens shift, flat-shaded polygons with fog, staged painter (floor < world < cut face < details < overlays), clipped 3-D lines/rings/dots with glow. numpy + Pillow only.",
+   "use_for": [
+    "mechanism",
+    "measurement_principle",
+    "establish_place_schematic"
+   ],
+   "keywords": [
+    "3d",
+    "perspective",
+    "camera path",
+    "parallax",
+    "depth",
+    "cutaway",
+    "painter",
+    "fog",
+    "lens shift"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/scene3d.py"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_subsidence3d.py"
+    ],
+    "docs": [
+     "productions/ep004-jakarta/proof_v2/PROOF_V2_REPORT.md"
+    ]
+   },
+   "limits": "painter sorting by stage + mean depth (no z-buffer): keep big polygons in their own stage; polygons crossing the near plane are dropped; no textures, no shadows; ~1.2 s per 1080p frame for ~2.5k polygons; not a georeferenced camera",
+   "composition_reset": false,
+   "used_in": [
+    "EP004 S3 V2 proof"
+   ],
+   "params": {}
+  },
+  {
+   "id": "cutaway_radar_subsidence",
+   "kind": "illustration",
+   "renderer": "orbitalatlas-scene3d",
+   "status": "built",
+   "what": "Cut-away block of city ground in 3-D: two radar passes (pulses, echoes, ground ripples), pumping lowers the head in a well, clay layers compact (surface drop == clay loss), pore-water droplets, extra-path of pass 2, side-on LOS vs vertical construction with a depth-focus fog, weight-contrast lockup, one caption/label at a time.",
+   "use_for": [
+    "mechanism",
+    "measurement_principle"
+   ],
+   "keywords": [
+    "subsidence",
+    "insar",
+    "radar",
+    "aquifer",
+    "clay",
+    "compaction",
+    "groundwater",
+    "line of sight",
+    "cutaway"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/subsidence3d.py",
+     "productions/ep004-jakarta/proof_v2/build_proof_v2.py"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_subsidence3d.py"
+    ],
+    "docs": [
+     "productions/ep004-jakarta/proof_v2/PROOF_V2_REPORT.md"
+    ]
+   },
+   "limits": "schematic; layer thicknesses, drop and satellite distance are illustrative; timing hand-set (no narration yet)",
+   "composition_reset": false,
+   "used_in": [
+    "EP004 S3 V2 proof"
+   ],
+   "params": {}
   }
  ]
 }

@@ -651,6 +651,28 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** EP003 build: 15 kickers and 8 labels, 0 lint problems, 0 overlay issues (was 1 card outside the frame).
 - **Regression test:** `orbitalatlas/tests/test_ep003_quality.py::test_lint_flags_the_ep003_defects`
 
+### painter-big-polygon-ordering - scene3d painter: a whole cut face sorted by mean depth hides the details drawn on it
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** EP004 S3 V2 first renders: floor grid lines appeared on top of the cut face, the well and its water column vanished behind the face, from some angles.
+- **Root cause:** Painter sorts by the mean depth of each primitive; one polygon spanning the whole face has a mean depth nearer than small items lying on it or behind it.
+- **Fix:** Painter.stage: floor 0 < world (top surface, buildings, satellite) 1 < cut-face layers 2 < things on the face (laminations, well, droplets, surface edge) 3 < overlays (top list). Items on the face also get a negative bias. Dust in front of the cut plane goes to stage 3, behind it to 1.
+- **Reuse when:** Any scene3d illustration with large planar faces carrying details.
+- **References:** `orbitalatlas/scene3d.py`; `orbitalatlas/subsidence3d.py`
+- **Verification:** test_lower_stage_is_drawn_first and test_near_quad_covers_far_quad; frames of the V2 proof reviewed at 4 fps.
+- **Regression test:** none - 
+
+### profile-shot-lens-shift - Show a geometric construction true (right angles) in a perspective scene: camera perpendicular to its plane + lens shift, not tilt
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** The LOS-vs-vertical construction must show a true right angle, but it sat low in the frame; tilting the camera to recentre it would skew the angle.
+- **Root cause:** Only a plane parallel to the image plane maps by a similarity; any pitch adds keystone.
+- **Fix:** Keep the view direction exactly along the plane normal (+y) during the construction and move the picture with Camera3D(shift=...) (principal-point offset, keyframed as the 5th CameraPath field). Fade the world behind the plane with a depth-focus fog so the construction reads.
+- **Reuse when:** Any diagram whose angles/lengths must read true inside a 3-D scene.
+- **References:** `orbitalatlas/scene3d.py`
+- **Verification:** test_lens_shift_moves_the_picture_and_keeps_angles, test_profile_shot_is_side_on.
+- **Regression test:** none - 
+
 ### route-label-spoken-only - A route arrow must not show a distance the narrator does not say
 *VERIFIED · general · 2026-10-15*
 
@@ -1010,6 +1032,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** commit `89559f0`
 - **Verification:** Observed in EP002 sessions.
 - **Regression test:** none - Environment policy.
+
+### session-disk-allowance-git-media - 'No space left on device' mid-render: .git holds every media branch
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** An S3 V2 render failed with 'No space left on device' while df showed 21 GB free.
+- **Root cause:** The session has a fixed write allowance; fetching all refs pulled media/* branches into an 8.8 GB pack, plus ~370 MB of scratch Landsat bands.
+- **Fix:** Delete scratch rasters no longer needed (they are re-downloadable), keep renders streaming to ffmpeg, and fetch only the branches a task needs.
+- **Reuse when:** Before long renders or large downloads in a cloud session.
+- **References:** `docs/KNOWN_LIMITATIONS.md`
+- **Verification:** freed 371 MB; the render then completed.
+- **Regression test:** none - environment allowance
 
 ### shell-pkill-exit-144 - pkill -f kills the shell that runs it
 *VERIFIED · general · 2026-10-13*

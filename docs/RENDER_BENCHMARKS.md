@@ -20,3 +20,5 @@ Rule: 12–15 s proofs only; log every benchmark here with date; do not repeat t
 | EP002 final 1080p30 (2026-10-13) | 29 scenes, 15,682 frames, x264 crf 19 medium, 4 processes, native-scale kit (EP002_SCALE=2) | about 45 min wall; mux + two-pass loudnorm about 1 min; yt-qc full decode about 3-5 min; A1 Cesium HD capture (372 frames, DSF 2, 3 workers) 10.7 min |
 
 | EP003 director render 1080p30 (2026-10-14/15) | 372.6 s, 11,177 frames, orbitalatlas.director, 4 workers, --sfx | 41.6-44.5 min wall (~7 s per video second); output ~890 MB (19 Mbit/s); review copy x264 crf 24 maxrate 1.7M = 85 MB in ~6 min; 720p 480k = 27 MB; stills (12 frames at 960x540) ~55 s - use stills, not full renders, to check fixes |
+| EP004 S3 V1 proof (2026-10-15) | 13.5 s, 405 frames 1080p30, `orbitalatlas.illustrate`, 2x canvas, 4 workers | 112 s wall (~8.3 s per video second) |
+| EP004 S3 V2 proof (2026-10-15) | 13.5 s, 405 frames 1080p30, `orbitalatlas.scene3d` + `subsidence3d` (~2.5k polygons/frame, 2x canvas, glow, grade), 4 workers | about 3.5-4 min wall (~1.0-1.4 s per frame single-thread, ~16 s per video second); QA script 72 s |

@@ -51,3 +51,8 @@ See `docs/references/library/IMPLEMENTATION_STATUS.md`: class-A camera only; no 
 - Traced shoreline masks are display aids (seeded growth on a 1/4-resolution stack), not surveys; mosaic seams can leave straight edges in a mask (EP003 1985, Bear River Bay).
 - The director still renders geo shots only (no video/still shots, no NASA SVS time-lapse); snow imagery for winter 2022-2023 was not available on the stack, so that passage shows the July 2022 image with the shoreline overlays.
 - A ~1 s pause can occur at a TTS chunk join (EP003 253.1-254.1 s); it is kept when it falls on a sentence boundary, because trimming would shift every later word timing.
+
+## EP004 S3 V2 3-D illustration (2026-10-15)
+- `orbitalatlas.scene3d` is a painter renderer (no z-buffer): ordering = stage, then mean depth. Big polygons (a whole cut face) must sit in their own stage or they cover details drawn on them; polygons crossing the near plane are dropped (keep geometry in front of the camera). No textures, shadows or anti-aliasing beyond 2x supersampling.
+- The reference videos VISUAL_REF_001/002 are not in the repository, any branch, or the owner's Google Drive (searched 2026-10-15): comparisons are against the written analyses, never frame-to-frame.
+- The cloud session's disk allowance can run out although `df` shows space: `git fetch` of all `media/*` branches made `.git` 8.8 GB; delete scratch rasters (or fetch only needed branches) before long renders.

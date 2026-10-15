@@ -24,6 +24,8 @@ Run from the repo root: `python3 -m unittest discover -s orbitalatlas/tests -t .
 | `fx` | `NeonGrid`, `LightSweep`, `Particles`, `HudFrame`, `Waveform`, `MarkerPin`, `CometTrail`; georeferenced `RegionTint`, `RouteArrow` + `RouteLabel` (annotation only, carry source/validation) | tested |
 | `regions` | `seeded_region`: smooth dark areas connected to seeds (water masks for RegionTint) | tested; display shapes, not measurements |
 | `illustrate` | original schematic diagrams (ILLUSTRATION): `los_change` radar geometry, drawing primitives, `Diagram` (Scene face), `RadarGeometryDiagram`, `EvidencePending` placeholder; additive to V2C, not wired into the director | tested (24) |
+| `scene3d` | small perspective renderer for ILLUSTRATION scenes: `Camera3D` (lens shift), `CameraPath` (monotone cubic keys), staged `Painter` (shading, fog, glow, clipped lines/rings), `box`, `sky` | tested |
+| `subsidence3d` | EP004 S3 V2 `CutawayRadarDiagram`: cut-away ground block, pumping/compaction, two radar passes, extra path, side-on LOS construction, one caption/label at a time | tested (21 with scene3d) |
 | `grade` | colour grade presets + `Graded` scene wrapper; EVIDENCE guard (neutral / evidence_safe only), manifest records modified pixels | tested |
 | `camera_presets` | smooth_zoom, snap_zoom, punch_zoom, whip_to, pan, creep, scale_change (class A keys) | tested |
 | `testvoice` | free flite test narration with measured word timings + loudness envelope (NOT the channel voice) | tested |
