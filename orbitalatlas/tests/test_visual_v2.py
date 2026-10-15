@@ -106,7 +106,7 @@ class TestCaptions(unittest.TestCase):
             self.assertGreater(ink(c.ui), 0, s); self.assertEqual(c.reg.outside(SIZE), [], s)
 
     def test_words_appear_on_their_own_timestamps_in_style_b(self):
-        ws = words("alpha beta gamma delta"); cards = C.make_cards(ws); cap = C.WordCaptions(cards, "B")
+        ws = words("alpha beta gamma delta"); cards = C.make_cards(ws); cap = C.WordCaptions(cards, "B"); cap.scrim = 0      # measure the words, not the backing band
         def x_extent(t): c = ctx(t); cap.draw(c); cols = np.nonzero(np.asarray(c.ui)[..., 3].max(0) > 20)[0]; return (cols.min(), cols.max()) if len(cols) else None
         self.assertIsNone(x_extent(-1.0)); a = x_extent(0.1); b = x_extent(0.8); self.assertLess(a[1], b[1])
 

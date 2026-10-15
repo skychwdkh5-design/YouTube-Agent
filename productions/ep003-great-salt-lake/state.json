@@ -66,6 +66,7 @@
     "caption-cards-overlapped-by-lead",
     "freeze-on-static-card",
     "low-contrast-text-on-bright-imagery",
+    "mobile-readability-qa",
     "overlap-between-layers-needs-eye",
     "qc-expected-duration-from-video",
     "silent-proof-fails-yt-qc-by-design",
@@ -74,18 +75,19 @@
     "text-clipped-at-frame-edge",
     "timeline-v3-gate-keys",
     "video-frame-accuracy-check",
-    "viewer-reencodes-files"
+    "viewer-reencodes-files",
+    "visual-runs-monotony-check"
    ],
-   "completed": "2026-10-14T14:47:58Z",
-   "inputs_sha": "ac50fbdcae8cd64df9d96a408b7300fdac39778a21a34cd0b5a65be489698f1a"
+   "completed": "2026-10-14T21:49:08Z",
+   "inputs_sha": "57a8eb6a6f18b99eb496acbe9c805b4e883e1f4b5eef52743807a6c5c6bded10"
   },
   "review": {
-   "completed": "2026-10-14T14:51:46Z",
-   "inputs_sha": "de4bd1a7f13ecadc21f8c0c40d2251fa6d6b62f782103ba5a001ca8e3ff6aefb"
+   "completed": "2026-10-15T00:30:38Z",
+   "inputs_sha": "da07a35f45731da16fcddf45518428b49cd93e091d11ebd64cd2a7808e7e8c12"
   },
   "package": {
-   "completed": "2026-10-14T14:51:57Z",
-   "inputs_sha": "e08ccf510ae7b1f527ca6a7a12215ff9cf70dbd3e5e73793dd0304ff9b904f71"
+   "completed": "2026-10-15T00:31:45Z",
+   "inputs_sha": "e8a54574dad78c0cce01f39e65efdd8c6869de9ba3bd4f2b4d5d0c5089bcef22"
   }
  }
 }

@@ -220,10 +220,13 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
             if fill and l.get("minus") in tl["assets"]:
                 b, _ = mask_img(l["minus"]); mm = m & ~_grow(b, 1)
                 mm = _grow(~_grow(~mm, 1), 1)                             # opening: drop one-pixel slivers along the shared shoreline
+            if l.get("box"):                                              # lon/lat limits, e.g. one bay of the lake (south of the causeway)
+                (bx0, by0), (bx1, by1) = geo.px(l["box"][:2]), geo.px(l["box"][2:]); keep = np.zeros_like(mm)
+                keep[int(min(by0, by1) / sc_):int(max(by0, by1) / sc_), int(min(bx0, bx1) / sc_):int(max(bx0, bx1) / sc_)] = True; mm = mm & keep
             c_ = l.get("color", "amber"); col = tuple(int(c_[k:k + 2], 16) for k in (1, 3, 5)) if c_.startswith("#") else {"amber": fx.AMBER, "cyan": fx.CYAN, "violet": fx.PURPLE}.get(c_, fx.AMBER)
             overlays.append(fx.RegionTint(regions.to_mask_image(mm, 1), a0, color=col, settle_alpha=0.17 if fill else 0.0, flash_peak=0.30 if fill else 0.0,
                                           dur=1.0 if fill else 1.6, out_t=a1, mask_scale=1.0 / sc_, outline=not fill, thin=True, glint=False,
-                                          source=f"traced water mask {l['mask']}" + (f" minus {l['minus']}" if fill else ""), validation="display aid traced from Landsat; not a survey"))
+                                          source=f"traced water mask {l['mask']}" + (f" minus {l['minus']}" if fill and l.get('minus') else "") + (f" in box {l['box']}" if l.get('box') else ""), validation="display aid traced from Landsat; not a survey"))
             legend = l.get("legend") or l.get("label")                     # 'legend' in timeline v3 (yt-render ignores it); 'label' kept for old timelines
             if legend:
                 anc = geo.px(l["at"]) if l.get("at") else None
@@ -256,10 +259,19 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
                                                     offset=(0.09, -0.2) if dirs[0] == "north" else (0.09, 0.05)))
                     note("callout", t=e["t"], place=e["place"], row=dirs[0])
             if e["kind"] == "route" and e.get("frm") in pins and e.get("to") in pins:
-                km = haversine_km(pins[e["frm"]], pins[e["to"]]); lab = f"{round(km / 5) * 5:.0f} KM"
+                km = haversine_km(pins[e["frm"]], pins[e["to"]])
+                s0_ = max((k + 1 for k in range(0, e["word"]) if re.search(r"[.!?]$", words[k]["text"])), default=0)
+                s1_ = next((k for k in range(e["word"], len(words)) if re.search(r"[.!?]$", words[k]["text"])), len(words) - 1)
+                lab = None                                                # only a distance the narrator SAYS (never the computed pin distance)
+                for k in range(s0_, s1_):
+                    u_ = re.sub(r"[^\w]", "", words[k + 1]["text"]).lower()
+                    if re.fullmatch(r"[\d,.]+", _norm(words[k]["text"]).rstrip(".,")) and u_ in ("km", "kilometers", "kilometres", "miles", "mile"):
+                        lab = f"{_norm(words[k]['text']).rstrip('.,')} {UNITS.get(u_, u_.upper())}"; break
                 arr = fx.RouteArrow(geo.px(pins[e["frm"]]), geo.px(pins[e["to"]]), lt, dur=1.2, bend=-0.2, label=lab, out_t=dur - 0.2,
-                                    validation=f"presentation arrow; {km:.1f} km great-circle between the stack pins")
-                overlays += [arr, fx.RouteLabel(arr, lt + 0.8, px=60, out_t=dur - 0.25)]; note("route", t=e["t"], frm=e["frm"], to=e["to"], km=round(km, 1))
+                                    validation=f"presentation arrow between two stack pins ({km:.1f} km apart; not shown unless spoken)")
+                overlays.append(arr)
+                if lab: overlays.append(fx.RouteLabel(arr, lt + 0.8, px=60, out_t=dur - 0.25))
+                note("route", t=e["t"], frm=e["frm"], to=e["to"], km=round(km, 1), label=lab)
             elif e["kind"] == "comparison":
                 sent_end = next((k for k in range(e["word"], len(words)) if re.search(r"[.!?]$", words[k]["text"])), len(words) - 1)
                 sent_start = max((k + 1 for k in range(0, e["word"]) if re.search(r"[.!?]$", words[k]["text"])), default=0)
@@ -275,28 +287,29 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
         # image change -> HUD date stamp once
         img_now = base
         def stamp_txt(aid): a = tl["assets"][aid]; return f"{a.get('credit', '')} · {a.get('label', '')}"
-        def chip(aid): return SourceChip((0.03, 0.935), f"{tl['assets'][aid].get('credit', '').upper()} · {tl['assets'][aid].get('label', '').upper()} · DISPLAY GRADE", 0.1)
+        def chip(aid, t0=0.1): return SourceChip((0.035, 0.045), f"{tl['assets'][aid].get('credit', '').upper()} · {tl['assets'][aid].get('label', '').upper()} · DISPLAY GRADE", t0, px_frac=0.028)   # waits while the IMAGE stamp (same facts) is up
         def stamp(aid, a0, a1, why=None, type_s=0.5):                            # every picture on screen carries ITS date (wipes and flips included)
             txt = stamp_txt(aid); note("image_stamp", t=t_s + a0, text=txt.upper(), asset=aid, **({"why": why} if why else {}))
             dates.append(dict(kind="image", t=round(t_s + a0, 2), text=txt.upper(), asset_label=tl["assets"][aid].get("label", ""), prov=tl["assets"][aid].get("prov") or tl["assets"][aid].get("date")))
-            return IX.ImageStamp(txt, a0, a1, type_s=type_s)
+            return IX.ImageStamp(txt, a0, a1, xy=(0.035, 0.115), type_s=type_s)
         first = []
         if img_now != prev_img and not L.get("flip") and not any(f["kind"] == "impact" and f["t0"] <= t_s + 0.3 <= f["t1"] for f in focus):
             first.append(stamp(img_now, 0.15, min(dur, 3.0)))
         prev_img = (L.get("wipe") or {}).get("to") or ((L.get("flip") or {}).get("assets") or [img_now])[-1]
-        sc = Scene(image(base), keys, size, overlays=overlays + first + [chip(base)], name=sh["id"], clamp=True, max_blur_samples=6, blur_threshold=10.0)
+        c0 = (max(x.t1 for x in first) + 0.35) if first else 0.1
+        sc = Scene(image(base), keys, size, overlays=overlays + first + [chip(base, c0)], name=sh["id"], clamp=True, max_blur_samples=6, blur_threshold=10.0)
         parts = [(grade.Graded(sc, "evidence_safe", evidence=True), 0.0, dur)]
         if L.get("wipe"):
             w = L["wipe"]; tw = (w["t"][0] + w["t"][1]) / 2
-            sc = Scene(image(base), keys, size, overlays=overlays + [x for x in first if x.t1 <= tw] + [IX.ImageStamp(stamp_txt(base), x.t0, min(x.t1, tw - 0.3)) for x in first if x.t1 > tw] + [chip(base)], name=sh["id"], clamp=True, max_blur_samples=6, blur_threshold=10.0)
-            sc2 = Scene(image(w["to"]), keys, size, overlays=overlays + [stamp(w["to"], tw + 0.1, min(dur, tw + 2.8), "wipe to another date"), chip(w["to"])], name=sh["id"] + "_b", clamp=True, max_blur_samples=6, blur_threshold=10.0)
+            sc = Scene(image(base), keys, size, overlays=overlays + [x for x in first if x.t1 <= tw] + [IX.ImageStamp(stamp_txt(base), x.t0, min(x.t1, tw - 0.3), xy=(0.035, 0.115)) for x in first if x.t1 > tw] + [chip(base, c0)], name=sh["id"], clamp=True, max_blur_samples=6, blur_threshold=10.0)
+            sc2 = Scene(image(w["to"]), keys, size, overlays=overlays + [stamp(w["to"], tw + 0.1, min(dur, tw + 2.8), "wipe to another date"), chip(w["to"], tw + 3.15)], name=sh["id"] + "_b", clamp=True, max_blur_samples=6, blur_threshold=10.0)
             parts = [(grade.Graded(sc, "evidence_safe", evidence=True), 0.0, tw + 0.3), (grade.Graded(sc2, "evidence_safe", evidence=True), tw - 0.3, dur)]
             decisions.append(f"wipe {w['from']}->{w['to']} at {tw:.2f}s")
         elif L.get("flip"):
             fl = L["flip"]; stp = fl["step"]; parts = []
             for k, aid in enumerate(fl["assets"]):
                 s0 = k * stp; s1 = (k + 1) * stp if k < len(fl["assets"]) - 1 else dur
-                ov = overlays + [stamp(aid, s0, min(s1, s0 + 3.0) if k == len(fl["assets"]) - 1 else s1, "flip image", type_s=0.0 if k else 0.5), chip(aid)]
+                ov = overlays + [stamp(aid, s0, min(s1, s0 + 3.0) if k == len(fl["assets"]) - 1 else s1, "flip image", type_s=0.0 if k else 0.5)] + ([chip(aid, s0 + 3.35)] if k == len(fl["assets"]) - 1 else [])
                 parts.append((grade.Graded(Scene(image(aid), keys, size, overlays=ov, name=f"{sh['id']}_{aid}", clamp=True, max_blur_samples=6, blur_threshold=10.0), "evidence_safe", evidence=True), s0, s1))
             decisions.append(f"flip {len(fl['assets'])} images, step {stp}s")
         hits = []
@@ -361,7 +374,7 @@ def build(prod, size=(1920, 1080), t_range=None, log=print, opening_tilt=True, m
                 over.append(IX.EventYear(yr, lab, e["t"], t1)); note("event_year", t=e["t"], year=yr, words=lab)
                 img = next((d_ for d_ in reversed(dates) if d_["kind"] == "image" and d_["t"] <= e["t"]), None); img_label = img["asset_label"] if img else None
                 if img and yr not in img_label:                       # an event year never stands alone over a picture of another date
-                    over.append(IX.ImageStamp(img["text"], e["t"], t1, group="image_stamp_ctx")); note("image_stamp", t=e["t"], text=img["text"], why="shown with an event year of another date")
+                    over.append(IX.ImageStamp(img["text"], e["t"], t1, xy=(0.035, 0.115), group="image_stamp_ctx")); note("image_stamp", t=e["t"], text=img["text"], why="shown with an event year of another date")
                 dates.append(dict(kind="event", t=round(e["t"], 2), year=yr, words=lab, image_on_screen=img_label, differs=bool(img_label and yr not in img_label)))
     for ta in report.pop("_accents", []): over.append(fx.LightSweep(ta - 0.05, 0.45, strength=0.16))
     over.append(caps)

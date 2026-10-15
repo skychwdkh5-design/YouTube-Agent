@@ -182,6 +182,19 @@ def _auth_args():
     return [] if os.environ.get("ELEVENLABS_API_KEY") else ["--auth", "proxy"]
 
 
+def qc_extras(d):
+    """free checks every director episode gets in the qc stage: orbitalatlas.mobile_qa -> qc/mobile_qa.json (phone readability, gated) and
+    tools/autopilot/visual_runs.py -> qc/visual_runs.json (long near-identical runs, listed for the visual review, not gated)."""
+    tl = json.load(open(os.path.join(d, "timeline.json"))) if os.path.exists(os.path.join(d, "timeline.json")) else {}
+    if not (tl.get("meta") or {}).get("motion_plan") or not os.path.exists(os.path.join(d, "final.mp4")): return
+    py = sys.executable
+    subprocess.run([py, "-m", "orbitalatlas.mobile_qa", d, "--fps", "1", "--out", os.path.join(d, "qc", "mobile_qa.json")], cwd=ROOT, capture_output=True, text=True)
+    vr = subprocess.run([py, os.path.join(ROOT, "tools", "autopilot", "visual_runs.py"), os.path.join(d, "final.mp4"), "--timeline", os.path.join(d, "timeline.json")],
+                        cwd=ROOT, capture_output=True, text=True)
+    if vr.stdout.strip():
+        with open(os.path.join(d, "qc", "visual_runs.json"), "w", encoding="utf-8") as f: f.write(vr.stdout)
+
+
 def stage_command(sid, d, overwrite=False):
     py = sys.executable
     ow = ["--overwrite"] if overwrite else []
@@ -268,6 +281,7 @@ def run(slug, stage_id=None, confirm=False, overwrite=False):
             out = r.get("stdout") or ""
             if out.strip():
                 with open(os.path.join(d, "qc", "qc.json"), "w", encoding="utf-8") as f: f.write(out)
+            qc_extras(d)                                  # MOBILE_READABILITY_QA + visual monotony (director productions), free
         result.update(r)
     if result.get("ok"):
         g = run_gate(s, d)

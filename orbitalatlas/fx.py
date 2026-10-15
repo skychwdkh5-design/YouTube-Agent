@@ -181,8 +181,8 @@ class RegionTint(Overlay):
         ctx.fills.alpha_composite(Image.fromarray(fill.astype(np.uint8), "RGBA"))
         if self.outline:
             if self.thin:                                                # the 0.5 iso-band of the (bilinear) mask: thin and smooth at any zoom
-                mb = np.asarray(m.filter(ImageFilter.GaussianBlur(max(1.0, 1.2 * k))), np.float32) / 255.0
-                edge = np.clip(1.0 - np.abs(mb - 0.5) * 2.4, 0, 1) ** 1.6
+                mb = np.asarray(m.filter(ImageFilter.GaussianBlur(max(1.6, 3.6 * k))), np.float32) / 255.0      # ~5-6 px line at 1080p (phone: >= 1.8 px)
+                edge = np.clip(1.0 - np.abs(mb - 0.5) * 2.1, 0, 1)            # factor > 2: zero inside and outside the band
             else:
                 edge = np.clip(np.asarray(m.filter(ImageFilter.MaxFilter(5)), np.float32) - np.asarray(m.filter(ImageFilter.MinFilter(5)), np.float32), 0, 255) / 255.0
             reveal = E.out_cubic(E.seg(t, self.t0 + 0.05, self.t0 + self.dur)); W = ctx.size[0]
@@ -191,7 +191,9 @@ class RegionTint(Overlay):
             gate = np.clip((x_a + (x_b - x_a + 1) * reveal - xs) / (0.04 * W) + 0.0, 0, 1)
             ed = Image.fromarray((edge * gate * 255 * o).astype(np.uint8), "L")
             ring = Image.new("RGBA", ctx.size, tuple(self.color) + (0,)); ring.putalpha(ed)
-            if self.thin:
+            if self.thin:                                                # dark under-stroke: the line keeps its contrast on bright salt flats
+                dark = Image.new("RGBA", ctx.size, (6, 8, 12, 0)); dark.putalpha(ed.filter(ImageFilter.MaxFilter(3)).filter(ImageFilter.GaussianBlur(max(1.5, 2.0 * k))).point(lambda v: int(v * 0.75)))
+                ctx.fills.alpha_composite(dark)
                 glow = ring.filter(ImageFilter.GaussianBlur(max(1.5, 2 * k))); glow.putalpha(glow.getchannel("A").point(lambda v: int(v * 0.6)))
             else:
                 glow = ring.filter(ImageFilter.GaussianBlur(max(3, 5 * k))); ga = glow.getchannel("A").point(lambda v: int(min(255, v * 2.4))); glow.putalpha(ga)
@@ -245,7 +247,8 @@ class RouteLabel(Overlay):
     def draw(self, ctx):
         o = 1 - (E.smooth(E.seg(ctx.t, self.out_t, self.out_t + 0.3)) if self.out_t else 0)
         if o <= 0.01: return
-        k = ctx.size[1] / 1080; c = self.arrow.label_pos(ctx)
+        k = ctx.size[1] / 1080; c = self.arrow.label_pos(ctx); W, H = ctx.size
+        c = (min(max(c[0], 0.10 * W), 0.90 * W), min(max(c[1], 0.16 * H), 0.74 * H))      # the label stays in the title-safe frame (MOBILE_READABILITY_QA)
         K.tilt_25d(ctx.ui, (c[0], c[1] - 46 * k), self.arrow.label, self.px * k, ctx.t, self.t0, color=self.color, reg=ctx.reg, group=f"route_{self.arrow.label}", blur=0.03)
     def describe(self): return dict(super().describe(), effect="route_label")
 
@@ -273,7 +276,7 @@ class CalloutPanel(Overlay):
     """HUD panel that belongs to a place: a leader line from the source point (follows the camera) to a panel with a title and rows that type on.
     Rows must be words from the narration or verified data (the director passes them); the panel never invents content."""
     layer = "ui"; cls = "TEXT"
-    def __init__(self, p, t0, t1, title, rows=(), offset=(0.10, -0.16), accent=CYAN, px=0.026, group=None):
+    def __init__(self, p, t0, t1, title, rows=(), offset=(0.10, -0.16), accent=CYAN, px=0.032, group=None):
         self.p = np.asarray(p, float); self.t0, self.t1, self.title, self.rows, self.offset, self.accent, self.px = t0, t1, title, list(rows), offset, accent, px
         self.group = group or f"callout_{title}"
     def draw(self, ctx):
@@ -282,13 +285,14 @@ class CalloutPanel(Overlay):
         W, H = ctx.size; px = self.px * H; o = 1 - E.smooth(E.seg(t, self.t1, self.t1 + 0.3)); a = ctx.view.pt(self.p)
         if not (0.02 * W <= a[0] <= 0.98 * W and 0.04 * H <= a[1] <= 0.96 * H): return      # never point at something off screen
         f = E.out_cubic(E.seg(t, self.t0, self.t0 + 0.35)); bx, by = a[0] + self.offset[0] * W, a[1] + self.offset[1] * H
-        bx = min(max(bx, 0.03 * W), 0.97 * W - px * 12); by = min(max(by, 0.06 * H), 0.70 * H)
+        wmax = max([K.width(self.title.upper(), px * 1.15, "heavy", 0.12)] + [K.width(r, px, "bold") for r in self.rows]) + px * 1.4
+        hh = px * (2.2 + 1.35 * len(self.rows))                         # real size: clamp inside the title-safe frame and above the caption band
+        bx = min(max(bx, 0.035 * W), 0.965 * W - wmax); by = min(max(by, 0.20 * H), 0.78 * H - hh)
         d = ImageDraw.Draw(ctx.ui, "RGBA"); col = tuple(self.accent) + (int(255 * o),)
         d.line([tuple(a), (a[0] + (bx - a[0]) * f, a[1] + (by + px * 1.6 - a[1]) * f)], fill=col, width=max(2, int(px * 0.08)))
         d.ellipse([a[0] - px * 0.25, a[1] - px * 0.25, a[0] + px * 0.25, a[1] + px * 0.25], outline=col, width=max(2, int(px * 0.08)))
         if f < 0.95: return
-        u = E.out_expo(E.seg(t, self.t0 + 0.3, self.t0 + 0.65)); wmax = max([K.width(self.title.upper(), px * 1.15, "heavy", 0.12)] + [K.width(r, px, "bold") for r in self.rows]) + px * 1.4
-        hh = px * (2.2 + 1.35 * len(self.rows))
+        u = E.out_expo(E.seg(t, self.t0 + 0.3, self.t0 + 0.65))
         d.rectangle([bx, by, bx + wmax * u, by + hh], fill=(8, 12, 18, int(190 * o))); d.rectangle([bx, by, bx + wmax * u, by + px * 0.12], fill=col)
         b = K.draw_text(ctx.ui, (bx + px * 0.6, by + px * 0.55), self.title.upper(), px * 1.15, (255, 255, 255), "heavy", o * u, track=0.12)
         for i, r in enumerate(self.rows):

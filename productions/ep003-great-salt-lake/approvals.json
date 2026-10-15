@@ -9,6 +9,14 @@
  },
  "publish": {
   "approved": false,
-  "note": "the agent never uploads"
+  "note": "the agent never uploads; the owner publishes after a separate decision"
+ },
+ "release_v3": {
+  "approved": true,
+  "approved_by": "user",
+  "quote": "EP003 V3 — FINAL USER APPROVAL. USER_APPROVED: YES. Владелец проекта официально утверждает финальную версию EP003 V3.",
+  "date": "2026-10-15",
+  "master_sha256": "b0b28c62d6f37c5e190418fa486e7e2be97f05965227dd195c6fb217f67456ce",
+  "media_branch": "media/ep003-gsl-final-v3"
  }
 }

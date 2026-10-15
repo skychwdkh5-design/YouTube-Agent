@@ -70,3 +70,25 @@ class TestDirectorShorelineLayers(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestRouteLabelSpokenOnly(unittest.TestCase):
+    def build(self, sentence):
+        import json
+        from orbitalatlas import director, semantic
+        from orbitalatlas.tests import test_visual_v2b as V2B
+        base = V2B.TestDirector(); base.setUp(); d = base.d
+        ws = V2B.words(sentence, 0.4)
+        with open(f"{d}/story/motion_plan.json", "w") as f: json.dump(semantic.plan(ws, {"North Bay": {}, "South Bay": {}}, source="alignment", max_events_per_10s=12), f)
+        with open(f"{d}/timeline.json") as f: tl = json.load(f)
+        tl["shots"] = [dict(tl["shots"][1], start=0.0)]; tl["end"] = dict(seconds=ws[-1]["end"] + 1.0)
+        with open(f"{d}/timeline.json", "w") as f: json.dump(tl, f)
+        prog, rep = director.build(d, (640, 360), log=lambda m: None, opening_tilt=False)
+        names = [type(o).__name__ for o in __import__("orbitalatlas.mobile_qa", fromlist=["x"])._all_overlays(prog)]
+        return names, [x for x in rep["decisions"] if x["kind"] == "route"]
+
+    def test_no_distance_label_unless_the_narrator_says_one(self):
+        names, routes = self.build("Dense brine from North Bay sank into the bottom of South Bay.")
+        self.assertTrue(routes); self.assertNotIn("RouteLabel", names); self.assertIsNone(routes[0]["label"])
+        names, routes = self.build("Boats sail 30 miles from North Bay to South Bay.")
+        self.assertIn("RouteLabel", names); self.assertEqual(routes[0]["label"], "30 MILES")

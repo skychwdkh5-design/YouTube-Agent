@@ -10,6 +10,7 @@ import math
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 from . import easing as E
+from . import textrec as _TR
 from . import kinetic as K
 from .layers import Overlay
 
@@ -69,7 +70,9 @@ def put(layer, word, x, y, px, weight="black", color=WHITE, mode="fill", alpha=1
         if cut_above is not None: a = a * np.clip((rows - cut_above) / 1.5, 0, 1)
         im = im.copy(); im.putalpha(Image.fromarray(a.astype(np.uint8)))
     im = _alpha(im, alpha); layer.paste(im, (ox, oy), im)
-    return (x + (1 - scale) * w / 2, y + (1 - scale) * px * 0.6, x + w * (1 + scale) / 2, y + px * 1.25 * scale)
+    box = (x + (1 - scale) * w / 2, y + (1 - scale) * px * 0.6, x + w * (1 + scale) / 2, y + px * 1.25 * scale)
+    if scale > 0.95 and blur <= 0.3 and reveal is None and mode == "fill": _TR.note(word, px * scale, box, color, alpha)       # settled words only (MOBILE_READABILITY_QA)
+    return box
 
 
 def layout(words, px, weight, max_w, gap=0.26, line_h=1.12, align="center", x0=0.0, y0=0.0, scales=None):

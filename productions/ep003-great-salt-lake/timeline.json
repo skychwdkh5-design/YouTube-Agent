@@ -1202,10 +1202,10 @@
     },
     "to": {
      "center": [
-      -112.5,
-      41.2
+      -112.4,
+      40.97
      ],
-     "width_km": 228.0
+     "width_km": 100.0
     },
     "ease": "in_out"
    },
@@ -1220,6 +1220,31 @@
      "style": "year",
      "slot": "top",
      "info": "July 2022"
+    },
+    {
+     "type": "fill",
+     "mask": "water2022",
+     "color": "#5CE1E6",
+     "box": [
+      -113.0,
+      41.215,
+      -111.8,
+      40.6
+     ],
+     "t": [
+      0.3,
+      13.61
+     ],
+     "legend": "GILBERT BAY",
+     "sub": "DEEP BRINE LAYER NEAR THE BOTTOM \u00b7 USGS",
+     "at": [
+      -112.35,
+      40.9
+     ],
+     "offset": [
+      0.1,
+      -0.1
+     ]
     }
    ],
    "visual_family": "geo_2022"
@@ -1257,6 +1282,24 @@
      "style": "year",
      "slot": "top",
      "info": "August 1986"
+    },
+    {
+     "type": "outline",
+     "mask": "water2022",
+     "color": "#5CE1E6",
+     "t": [
+      1.56,
+      null
+     ],
+     "legend": "SHORELINE \u00b7 JUL 2022",
+     "at": [
+      -112.884,
+      41.38
+     ],
+     "offset": [
+      0.06,
+      0.06
+     ]
     }
    ],
    "visual_family": "geo_1986"

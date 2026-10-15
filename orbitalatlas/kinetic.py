@@ -9,6 +9,7 @@ import math
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 from . import easing as E
+from . import textrec as _TR
 
 INTER_DIR = "/usr/share/fonts/opentype/inter/"
 _FONTS = {"regular": "Inter-Medium.otf", "bold": "Inter-Bold.otf", "heavy": "Inter-ExtraBold.otf", "black": "Inter-Black.otf"}
@@ -52,6 +53,7 @@ def draw_text(layer, xy, s, px, color=(255, 255, 255), weight="bold", alpha=1.0,
             d.text((cx + px * shadow, y + px * shadow), ch, font=f, fill=(0, 0, 0, int(a * 0.65)))
         d.text((cx, y), ch, font=f, fill=tuple(color) + (a,), stroke_width=stroke, stroke_fill=tuple(stroke_color) + (a,))
         cx += f.getlength(ch) + track * px
+    _TR.note(s, px, (x, y, x + w, y + px * 1.25), color, alpha)
     return (x, y, x + w, y + px * 1.25)
 
 
@@ -101,12 +103,14 @@ def scale_pop(layer, center, s, px, t, t0, hold=0.5, overshoot=1.18, dur=0.28, c
     a = alpha * E.out_cubic(u) * (1 - E.smooth(E.seg(t, t0 + dur + hold, t0 + dur + hold + out)))
     if a <= 0.004: return None
     w = width(s, px, weight); h = px * 1.4; pad = int(px * 0.6)
-    tile = _blank((int(w) + 2 * pad, int(h) + 2 * pad)); draw_text(tile, (pad, pad), s, px, color, weight, 1.0, shadow=0.04)
+    rec = _TR.STATE["rec"]; _TR.STATE["rec"] = None                     # the tile is off-screen: record the final screen box below instead
+    tile = _blank((int(w) + 2 * pad, int(h) + 2 * pad)); draw_text(tile, (pad, pad), s, px, color, weight, 1.0, shadow=0.04); _TR.STATE["rec"] = rec
     if glow_radius > 0: tile = glow(tile, glow_radius * px, 1.0)
     tile = tile.resize((max(1, int(tile.width * sc)), max(1, int(tile.height * sc))), Image.BICUBIC)
     tile.putalpha(tile.getchannel("A").point(lambda v: int(v * a)))
     x, y = int(center[0] - tile.width / 2), int(center[1] - tile.height / 2)
     layer.paste(tile, (x, y), tile)
+    if u >= 1.0: _TR.note(s, px * sc, (x + pad * sc, y + pad * sc, x + tile.width - pad * sc, y + tile.height - pad * sc), color, a)
     box = (center[0] - w * sc / 2, center[1] - px * sc * 0.65, center[0] + w * sc / 2, center[1] + px * sc * 0.65)
     if reg is not None: reg.add(group, box, a)
     return box
@@ -162,7 +166,8 @@ def tilt_25d(layer, xy, s, px, t, t0, angle=-55.0, color=(255, 255, 255), weight
     u = E.out_expo(E.seg(t, t0, t0 + dur))
     if u <= 0: return None
     w = width(s, px, weight); h = px * 1.4; pad = int(px * 0.5)
-    tile = _blank((int(w) + 2 * pad, int(h) + 2 * pad)); draw_text(tile, (pad, pad), s, px, color, weight, 1.0, shadow=0.04)
+    rec = _TR.STATE["rec"]; _TR.STATE["rec"] = None                     # the tile is off-screen: record the final screen box below instead
+    tile = _blank((int(w) + 2 * pad, int(h) + 2 * pad)); draw_text(tile, (pad, pad), s, px, color, weight, 1.0, shadow=0.04); _TR.STATE["rec"] = rec
     ang = math.radians(angle * (1 - u)); W, H = tile.size
     k = 0.28 * math.sin(ang); dx = W / 2 * (1 - math.cos(ang))
     src = [(0, 0), (W, 0), (W, H), (0, H)]
@@ -174,6 +179,7 @@ def tilt_25d(layer, xy, s, px, t, t0, angle=-55.0, color=(255, 255, 255), weight
     layer.paste(out, (x, y), out)
     box = (x + pad, y + pad, x + W - pad, y + H - pad)
     if reg is not None: reg.add(group, box, E.clamp(u))
+    if u >= 0.95: _TR.note(s, px, box, color, 1.0)
     return box
 
 
@@ -182,7 +188,8 @@ def motion_streak(layer, xy, s, px, t, t0, dur=0.25, direction=(1, 0), length=0.
     u = E.out_expo(E.seg(t, t0, t0 + dur))
     if u <= 0: return None
     w = width(s, px, weight); pad = int(px * 0.8) + int(length * px * 2)
-    tile = _blank((int(w) + 2 * pad, int(px * 1.5) + 2 * pad)); draw_text(tile, (pad, pad), s, px, color, weight, 1.0, shadow=0.04)
+    rec = _TR.STATE["rec"]; _TR.STATE["rec"] = None
+    tile = _blank((int(w) + 2 * pad, int(px * 1.5) + 2 * pad)); draw_text(tile, (pad, pad), s, px, color, weight, 1.0, shadow=0.04); _TR.STATE["rec"] = rec
     n = max(1, int((1 - u) * 10)); L = (1 - u) * length * px * 2
     if n > 1:
         acc = np.zeros((tile.height, tile.width, 4), np.float32)
