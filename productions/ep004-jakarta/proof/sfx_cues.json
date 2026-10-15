@@ -1,0 +1,58 @@
+{
+ "cues": [
+  {
+   "t": 0.25,
+   "kind": "whoosh",
+   "gain_db": -14
+  },
+  {
+   "t": 1.3,
+   "kind": "sweep",
+   "gain_db": -18
+  },
+  {
+   "t": 2.7,
+   "kind": "ui_blip",
+   "gain_db": -22
+  },
+  {
+   "t": 4.2,
+   "kind": "rise",
+   "gain_db": -16
+  },
+  {
+   "t": 6.2,
+   "kind": "sweep",
+   "gain_db": -18
+  },
+  {
+   "t": 7.9,
+   "kind": "ui_blip",
+   "gain_db": -22
+  },
+  {
+   "t": 8.55,
+   "kind": "whoosh",
+   "gain_db": -14
+  },
+  {
+   "t": 9.45,
+   "kind": "ui_blip",
+   "gain_db": -22
+  },
+  {
+   "t": 10.25,
+   "kind": "ui_blip",
+   "gain_db": -22
+  },
+  {
+   "t": 11.62,
+   "kind": "impact",
+   "gain_db": -12
+  }
+ ],
+ "voice_active_s": 0.0,
+ "margin_db_p5": null,
+ "license": "Original sound effects synthesised by orbitalatlas/sfx.py (code in this repository). No third-party audio is used; no attribution is required. Released CC0 1.0 by the project owner together with the code; safe for monetised YouTube use.",
+ "proof_gain_db": 8
+}

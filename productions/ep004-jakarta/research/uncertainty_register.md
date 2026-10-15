@@ -6,7 +6,7 @@
 | U3 | North coast masked in LiCSBAS data; fastest places may be unmeasured | present as a limitation, not a hidden fact | Data in Brief C09 |
 | U4 | Reference-point assumption (stable) unverified | optional caveat on-screen text | C-DiB limitations |
 | U5 | Slowing: west hotspot slowed (read), NE/NW linear (read); Harintaka abstracts conflict | twist stays "one of three hotspots" | read Harintaka, RSASE |
-| U6 | RSASE 2026 recovery findings unread | no uplift/recovery claim | owner pastes abstract/PDF |
+| U6 | RSASE 2026: only the abstract (via owner) - extent, period, uplift locations, the -180 -> -70 mm/yr figure unknown | qualitative words only; no number, no place for uplift | read full text or dataset |
 | U7 | ESA map is a JPG, not georeferenced; cluster-to-district mapping unknown | no district named on that image; use as "area" evidence only | georeference via control points (RMS reported) or use LiCS data |
 | U8 | Sea-wall status after Oct 2026 unknown | "planned" only | later news check |
 | U9 | Rain vs tide vs subsidence shares in floods not quantified | no percentages | none exists in sources |

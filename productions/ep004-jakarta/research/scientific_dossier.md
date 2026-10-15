@@ -46,7 +46,7 @@ Sea-level rise is separate and slower (3.3 mm/yr global, NASA); it is why subsid
 | Data in Brief 2026 | 2016-2024 | max -29.86 mm/yr LOS masked; west slowed; NE/NW linear | PRIMARY_READ |
 | Lapadat/Brouwer/Hanssen (FRINGE 2026 slides; TU Delft record) | 2014-2025 | 3-D InSAR+GNSS; six main bowls; slide figures "~7.7-7.8 cm/yr" max and ~1.1 (or 0.9) cm/yr regional mean - versions disagree | SNIPPET, unstable |
 | Hakim et al. 2025 GIScience & RS (doi 10.1080/15481603.2025.2465349, CC BY 4.0) | S-1 2015-2023 | ICOPS+MintPy rate maps + CNN/LSTM susceptibility | SNIPPET (rate figure not seen) |
-| Yunus et al. 2026 RSASE (doi 10.1016/j.rsase.2026.102176) "Uncovering land subsidence recovery in the Jakarta metropolitan region..." | ? | title confirms the topic; **abstract/findings not accessible** (publisher blocks automated access; not indexed by search) | UNREAD |
+| Yunus et al. 2026 RSASE (doi 10.1016/j.rsase.2026.102176) "Uncovering land subsidence recovery in the Jakarta metropolitan region, Indonesia, from satellite remote sensing" | not confirmed | heterogeneous subsidence; slowing in some areas; local uplift; continuing coastal subsidence; elastic vs irreversible (qualitative). "-180 -> -70 mm/yr" reported but extent/period unverified | ABSTRACT_VERIFIED (via owner), number blocked |
 
 ## 4. Policy and response
 - Pergub 93/2021 groundwater-free zones; in force 1 Aug 2023; enforcement criticised (SNIPPET). Pergub 5/2026 (Feb 2026) tightens building groundwater use (SNIPPET).
@@ -63,10 +63,16 @@ Jan 2020 event: BMKG recorded 377 mm/day at Halim, highest since 1866 (SNIPPET).
 Can: map millimetre-to-centimetre per-year motion along the satellite's line of sight over wide areas using phase change between repeat radar passes; Sentinel-1 is C-band (wavelength ~5.6 cm; one fringe = ~2.8 cm LOS) (SNIPPET, NGU/Utah).
 Cannot: give vertical motion without a model/2nd geometry/GNSS; measure pixels that lose coherence (vegetation, water, new construction) - Data in Brief shows this for the Jakarta coast; reference everything to an assumed-stable point. Optical Landsat/Sentinel-2 do **not** measure cm subsidence.
 
-## 7. Twist (Sequence F) - what the evidence supports today
-Supported (PRIMARY_READ): one hotspot (west) has slowed significantly after rapid subsidence from 2016 while two others (NE, NW) show no slowing (Data in Brief 2026).
-Suggestive (SNIPPET): groundwater-free-zone areas sink less; recharge-period slowdown. Not supported: "Jakarta is recovering / uplift". The RSASE 2026 title suggests recovery results exist; **pending read**.
-So the honest payoff is **"it's not one sinking city - it's several bowls moving at different speeds, and at least one has slowed"**, not "the problem is solved".
+## 7. Twist (Sequence F) - what the evidence supports today (updated 2026-10-15, after the owner supplied the RSASE abstract)
+Three independent layers, in descending strength:
+1. PRIMARY_READ (Data in Brief 2026): of three hotspots, the western one slowed significantly after rapid subsidence from 2016; the north-eastern and north-western ones show no sign of slowing.
+2. ABSTRACT_VERIFIED (Yunus et al., RSASE 2026, doi 10.1016/j.rsase.2026.102176; summary supplied by the owner, abstract not read by the agent; NOT FULL_TEXT_VERIFIED): the subsidence is heterogeneous; some areas slow
+   down; some patches of land rise locally; coastal areas keep subsiding; elastic recovery differs from irreversible compaction. The abstract is reported to cite individual rates falling from about -180 to -70 mm/yr -
+   **that number is NOT usable**: its geography, period and measurement type are unconfirmed (it is also much larger than the -29.86 mm/yr maximum in the 2016-2024 Data in Brief dataset, so it must refer to a different extent/period/method).
+3. SNIPPET (not scripted): groundwater-free zones sink less (SSRN preprint); recharge-period slowdown (2019 paper).
+Safe story: "It is not one sinking city. Satellites show several bowls moving at different speeds; some have slowed, a few spots may even be rising, and the coast keeps sinking. Sinking ground can partly rebound only
+when the compaction was elastic - the irreversible part stays." Rules: no uplift location is drawn or named; no -180/-70 figure; "recovery" is said about specific areas, never the city; coastal subsidence is stated next to it.
+Open: the full text (extent, period, uplift locations, rates) and whether its figures can be reused (Elsevier, not open access -> no figures).
 
 ## Sources
 - https://www.esa.int/ESA_Multimedia/Images/2024/11/Ground_motion_over_Jakarta_Indonesia (read 2026-10-15)

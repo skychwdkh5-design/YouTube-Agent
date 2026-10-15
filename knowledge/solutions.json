@@ -2685,6 +2685,70 @@
     "research"
    ],
    "no_test_reason": "external network policy; changes with the environment settings"
+  },
+  {
+   "id": "illustration-diagram-phone-and-geometry-gates",
+   "title": "Time-parametrised illustration diagrams: phone floors, safe margin and geometry must be tested, not eyeballed",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "visual",
+   "date": "2026-10-15",
+   "problem": "EP004 S3 radar-geometry proof: first renders had 40 px captions (repo floor 48), a label plate inside the 3.5 % safe margin, a satellite drifting under the chips during a camera push, and a sink bowl whose centre did not match the measured point (pulse 2 aimed at a point the ground never reached).",
+   "root_cause": "A custom frame function bypasses the director's checks; sizes and margins live in mobile_qa, geometry consistency lives nowhere unless the diagram derives every drawn quantity from one function.",
+   "fix": "Build diagrams on orbitalatlas.illustrate.Diagram (Scene face), derive range change / LOS projection / phase shift from `los_change`, record text with textrec (tag captions WordCaptions), run mobile_qa.check_records on rendered frames every 0.25 s, keep a unit test per rule (caption >= 48 px, labels >= 30 px, no collision, title-safe box, pulse target == end of the bowl). Draw at 2x and crop for camera pushes; fade world-space props out before a push; keep the HUD in screen space.",
+   "reuse_when": "Any ILLUSTRATION scene (measurement principle, mechanism, cross-section) and any new frame-function renderer.",
+   "refs": {
+    "code": [
+     "orbitalatlas/illustrate.py",
+     "productions/ep004-jakarta/proof/build_proof.py",
+     "productions/ep004-jakarta/proof/qa_proof.py"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_illustrate.py"
+    ],
+    "docs": [
+     "productions/ep004-jakarta/proof/PROOF_REPORT.md"
+    ]
+   },
+   "verification": "orbitalatlas 182 tests pass (24 new); proof rendered 405 frames; yt-qc PASS; mobile_qa 0 issues on 53 sampled frames; 54 frames at 4 fps and 24 transition frames viewed.",
+   "symptoms": [
+    "caption_size",
+    "safe_area",
+    "text_overlap"
+   ],
+   "stages": [
+    "storyboard",
+    "render",
+    "qc"
+   ],
+   "no_test_reason": ""
+  },
+  {
+   "id": "pkill-pattern-kills-own-shell-and-pgrep-loop",
+   "title": "Waiting for a background download: a `pgrep -f` loop inside `sh -c` matches itself; `pkill -f` can kill the tool shell",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "process",
+   "date": "2026-10-15",
+   "problem": "A queued Landsat download waited with `while pgrep -f 'download-bands --entity LC8...'` inside `sh -c`; the loop matched its own command line and never ended; `pkill -f 'while pgrep'` then ended the tool shell (exit 144) and the real download.",
+   "root_cause": "The pattern text is part of the waiting shell's own command line (registry: pgrep-f-matches-itself).",
+   "fix": "Write the sequence into a script file and run it with nohup, writing a DONE marker; wait with `timeout N bash -c 'until grep -q marker file; do sleep 3; done'`; never pkill by a pattern that occurs in your own command line. USGS 504 on one band: retry that band only (bounded loop).",
+   "reuse_when": "Any background job that must be waited for.",
+   "refs": {
+    "code": [
+     "tools/autopilot/procs.py"
+    ],
+    "docs": []
+   },
+   "verification": "reproduced and fixed 2026-10-15 (downloads finished with DONE markers).",
+   "symptoms": [
+    "Exit code 144",
+    "pgrep"
+   ],
+   "stages": [
+    "research"
+   ],
+   "no_test_reason": "shell habit; covered by the existing procs.py wait helper"
   }
  ]
 }

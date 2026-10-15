@@ -1,0 +1,121 @@
+{
+ "sha256": "5d38f15c877c0b979f1ef7cc1712cbceb84612d5df232c1fc911df3282d0687e",
+ "bytes": 1789512,
+ "video": {
+  "codec": "h264",
+  "size": "1920x1080",
+  "fps": "30/1",
+  "frames": 405,
+  "duration": 13.5,
+  "pix_fmt": "yuv420p"
+ },
+ "audio": {
+  "codec": "aac",
+  "rate": "48000",
+  "channels": 2
+ },
+ "decoded_frames": 405,
+ "yt_qc": "PASS",
+ "orbitalatlas_qa": {
+  "ok": true,
+  "issues": [],
+  "stats": {
+   "frames": 405,
+   "mean_luma": 34.07,
+   "max_diff": 0.1289,
+   "median_diff": 0.0015
+  }
+ },
+ "freeze_runs_n0.001_d0.5": [],
+ "black_frames": 0,
+ "audio_loudness": {
+  "integrated_lufs": -20.7,
+  "true_peak_dbfs": -4.8
+ },
+ "activity_per_second": [
+  {
+   "s": "0-1",
+   "mean_abs_diff": 0.302,
+   "changed_pixels_pct": 0.5
+  },
+  {
+   "s": "1-2",
+   "mean_abs_diff": 0.293,
+   "changed_pixels_pct": 0.65
+  },
+  {
+   "s": "2-3",
+   "mean_abs_diff": 0.522,
+   "changed_pixels_pct": 1.04
+  },
+  {
+   "s": "3-4",
+   "mean_abs_diff": 0.246,
+   "changed_pixels_pct": 0.68
+  },
+  {
+   "s": "4-5",
+   "mean_abs_diff": 0.523,
+   "changed_pixels_pct": 1.39
+  },
+  {
+   "s": "5-6",
+   "mean_abs_diff": 0.36,
+   "changed_pixels_pct": 1.02
+  },
+  {
+   "s": "6-7",
+   "mean_abs_diff": 0.666,
+   "changed_pixels_pct": 1.48
+  },
+  {
+   "s": "7-8",
+   "mean_abs_diff": 0.617,
+   "changed_pixels_pct": 1.46
+  },
+  {
+   "s": "8-9",
+   "mean_abs_diff": 1.157,
+   "changed_pixels_pct": 2.26
+  },
+  {
+   "s": "9-10",
+   "mean_abs_diff": 1.511,
+   "changed_pixels_pct": 2.38
+  },
+  {
+   "s": "10-11",
+   "mean_abs_diff": 0.372,
+   "changed_pixels_pct": 0.78
+  },
+  {
+   "s": "11-12",
+   "mean_abs_diff": 10.481,
+   "changed_pixels_pct": 44.99
+  },
+  {
+   "s": "12-13",
+   "mean_abs_diff": 0.06,
+   "changed_pixels_pct": 0.18
+  }
+ ],
+ "mobile_readability": {
+  "frames_checked": 53,
+  "min_px_by_style": {
+   "label": {
+    "min_px": 32.0,
+    "phone_pt_landscape": 11.6,
+    "phone_pt_portrait": 6.5,
+    "draws": 187
+   },
+   "WordCaptions": {
+    "min_px": 48.0,
+    "phone_pt_landscape": 17.5,
+    "phone_pt_portrait": 9.7,
+    "draws": 39
+   }
+  },
+  "issues": {},
+  "n_issues": {}
+ }
+}

@@ -563,6 +563,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** MOBILE_READABILITY_QA on EP003 ranges: 0 safe-area / overlap issues.
 - **Regression test:** none - judged on rendered frames
 
+### illustration-diagram-phone-and-geometry-gates - Time-parametrised illustration diagrams: phone floors, safe margin and geometry must be tested, not eyeballed
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** EP004 S3 radar-geometry proof: first renders had 40 px captions (repo floor 48), a label plate inside the 3.5 % safe margin, a satellite drifting under the chips during a camera push, and a sink bowl whose centre did not match the measured point (pulse 2 aimed at a point the ground never reached).
+- **Root cause:** A custom frame function bypasses the director's checks; sizes and margins live in mobile_qa, geometry consistency lives nowhere unless the diagram derives every drawn quantity from one function.
+- **Fix:** Build diagrams on orbitalatlas.illustrate.Diagram (Scene face), derive range change / LOS projection / phase shift from `los_change`, record text with textrec (tag captions WordCaptions), run mobile_qa.check_records on rendered frames every 0.25 s, keep a unit test per rule (caption >= 48 px, labels >= 30 px, no collision, title-safe box, pulse target == end of the bowl). Draw at 2x and crop for camera pushes; fade world-space props out before a push; keep the HUD in screen space.
+- **Reuse when:** Any ILLUSTRATION scene (measurement principle, mechanism, cross-section) and any new frame-function renderer.
+- **References:** `orbitalatlas/illustrate.py`; `productions/ep004-jakarta/proof/build_proof.py`; `productions/ep004-jakarta/proof/qa_proof.py`; `productions/ep004-jakarta/proof/PROOF_REPORT.md`
+- **Verification:** orbitalatlas 182 tests pass (24 new); proof rendered 405 frames; yt-qc PASS; mobile_qa 0 issues on 53 sampled frames; 54 frames at 4 fps and 24 transition frames viewed.
+- **Regression test:** none - 
+
 ### keyword-lift-caption-to-map - Keywords leave the subtitle line and land on the map; the caption keeps them dimmed
 *VERIFIED · general · 2026-10-14*
 
@@ -876,6 +887,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `tools/autopilot/procs.py`; `docs/AUTOPILOT.md`
 - **Verification:** EP003: the pattern reproduced the endless loop; pids 10089/11757 were the waiting shells, not downloads. procs.py tests check shell lines are not matches, a real script process is found, the caller is excluded and wait is bounded.
 - **Regression test:** `tools/autopilot/test_procs.py::test_shell_command_line_mentioning_the_name_is_not_a_match`
+
+### pkill-pattern-kills-own-shell-and-pgrep-loop - Waiting for a background download: a `pgrep -f` loop inside `sh -c` matches itself; `pkill -f` can kill the tool shell
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** A queued Landsat download waited with `while pgrep -f 'download-bands --entity LC8...'` inside `sh -c`; the loop matched its own command line and never ended; `pkill -f 'while pgrep'` then ended the tool shell (exit 144) and the real download.
+- **Root cause:** The pattern text is part of the waiting shell's own command line (registry: pgrep-f-matches-itself).
+- **Fix:** Write the sequence into a script file and run it with nohup, writing a DONE marker; wait with `timeout N bash -c 'until grep -q marker file; do sleep 3; done'`; never pkill by a pattern that occurs in your own command line. USGS 504 on one band: retry that band only (bounded loop).
+- **Reuse when:** Any background job that must be waited for.
+- **References:** `tools/autopilot/procs.py`
+- **Verification:** reproduced and fixed 2026-10-15 (downloads finished with DONE markers).
+- **Regression test:** none - shell habit; covered by the existing procs.py wait helper
 
 ### proof-first-then-scale - Render a 12-15 s proof of the hardest sequence, get review, then scale
 *VERIFIED · general · 2026-10-13*

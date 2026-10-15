@@ -1520,6 +1520,106 @@
     "productions/ep003-great-salt-lake"
    ],
    "params": {}
+  },
+  {
+   "id": "radar_geometry_diagram",
+   "kind": "illustration",
+   "renderer": "orbitalatlas-illustrate",
+   "status": "built",
+   "what": "Animated schematic of radar satellite measurement: pulses and echoes on two passes, ground sinking in a Gaussian bowl (labelled exaggerated), phase-shift panel, exact line-of-sight projection vs vertical drop, 2x-supersampled camera push. Class ILLUSTRATION, never data.",
+   "use_for": [
+    "mechanism",
+    "measurement_principle"
+   ],
+   "keywords": [
+    "radar",
+    "insar",
+    "line of sight",
+    "phase",
+    "sentinel-1",
+    "satellite measurement",
+    "subsidence"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/illustrate.py",
+     "productions/ep004-jakarta/proof/build_proof.py"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_illustrate.py"
+    ],
+    "docs": [
+     "productions/ep004-jakarta/proof/PROOF_REPORT.md"
+    ]
+   },
+   "limits": "2-D side view only; no real geometry values are printed; phase panel scale is illustrative; not wired into the director (episode driver builds the Sequence)",
+   "composition_reset": false,
+   "used_in": [
+    "EP004 S3 proof"
+   ],
+   "params": {}
+  },
+  {
+   "id": "evidence_pending_placeholder",
+   "kind": "placeholder",
+   "renderer": "orbitalatlas-illustrate",
+   "status": "built",
+   "what": "Hatched placeholder 'EVIDENCE MAP PENDING' for a measured map whose licence/period is not cleared. Shows no data, no colour scale; chip says NO DATA SHOWN.",
+   "use_for": [
+    "missing_evidence"
+   ],
+   "keywords": [
+    "placeholder",
+    "pending",
+    "licence",
+    "no data",
+    "evidence map"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/illustrate.py"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_illustrate.py"
+    ]
+   },
+   "limits": "a stand-in only; must be replaced by cleared evidence before release",
+   "composition_reset": false,
+   "used_in": [
+    "EP004 S3 proof"
+   ],
+   "params": {}
+  },
+  {
+   "id": "los_geometry",
+   "kind": "geometry",
+   "renderer": "orbitalatlas-illustrate",
+   "status": "built",
+   "what": "Pure functions: incidence angle and the share of a ground displacement a radar sees along its line of sight (range change, projection, foot point).",
+   "use_for": [
+    "mechanism"
+   ],
+   "keywords": [
+    "los",
+    "line of sight",
+    "incidence",
+    "projection",
+    "range change"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/illustrate.py"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_illustrate.py"
+    ]
+   },
+   "limits": "flat 2-D geometry; no Earth curvature, no real orbit",
+   "composition_reset": false,
+   "used_in": [
+    "EP004 S3 proof"
+   ],
+   "params": {}
   }
  ]
 }
