@@ -1,5 +1,5 @@
 {
- "level": "VISUALLY_REVIEWED",
+ "level": "USER_APPROVED",
  "reviewer": "agent",
  "date": "2026-10-15",
  "version": "EP003 V3 (REVISE plan M1-M3)",
@@ -120,5 +120,11 @@
   "pronunciation (no ASR): Saltair 1:20.39, Gunnison 2:52.79 and 3:26.19, Gilbert 2:54.86 and 3:29.62, methyl mercury 3:39.91, Newfoundland 4:02.67, Farmington 4:50.11, GRACE 5:26.37",
   "real-device viewing on a 6.1-inch phone (sizes are computed and simulated)",
   "frames between the 6 s samples were checked by automatic QA only"
- ]
+ ],
+ "approved_by": "user",
+ "approval_quote": "EP003 V3 — FINAL USER APPROVAL. USER_APPROVED: YES. Владелец проекта официально утверждает финальную версию EP003 V3.",
+ "approved_at": "2026-10-15",
+ "approved_master_sha256": "b0b28c62d6f37c5e190418fa486e7e2be97f05965227dd195c6fb217f67456ce",
+ "agent_level_before_approval": "VISUALLY_REVIEWED",
+ "frozen": "video, narration, mix, captions and timings are final; no V4 without a new objective reason"
 }
