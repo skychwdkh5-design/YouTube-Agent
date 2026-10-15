@@ -56,3 +56,9 @@ See `docs/references/library/IMPLEMENTATION_STATUS.md`: class-A camera only; no 
 - `orbitalatlas.scene3d` is a painter renderer (no z-buffer): ordering = stage, then mean depth. Big polygons (a whole cut face) must sit in their own stage or they cover details drawn on them; polygons crossing the near plane are dropped (keep geometry in front of the camera). No textures, shadows or anti-aliasing beyond 2x supersampling.
 - The reference videos VISUAL_REF_001/002 are not in the repository, any branch, or the owner's Google Drive (searched 2026-10-15): comparisons are against the written analyses, never frame-to-frame.
 - The cloud session's disk allowance can run out although `df` shows space: `git fetch` of all `media/*` branches made `.git` 8.8 GB; delete scratch rasters (or fetch only needed branches) before long renders.
+
+## Shorts EP002/EP003 (2026-10-15)
+- NASA World of Change frames are not re-registered: Shorts compare them by beat cuts and separate side-by-side panels, never by a wipe (VERIFIED by inspection).
+- Tilted evidence planes (`shorts.tilted_view`) are flat pictures in perspective, not terrain; label anchors are as good as their source pixel positions (Dubai 2006 positions hand-placed).
+- Procedural music (`orbitalatlas.music`) is one electronic style; sound is checked by meter and cue timetable, not by ear, in a cloud session.
+- Private GitHub repository creation from this session failed: `403 Resource not accessible by integration` (needs owner action/permission).

@@ -137,7 +137,7 @@ class EffectReuse(unittest.TestCase):
 
     def test_not_built_effects_do_not_block_work_on_them(self):
         # building a missing capability is allowed (the catalogue says it does not exist)
-        self.assertIsNone(guard.check_edit("tools/music_mixer.py", "def mix():\n    pass\n", exists=False))
+        self.assertIsNone(guard.check_edit("tools/split_screen.py", "def side_by_side():\n    pass\n", exists=False))   # split_screen_compare: not built
 
 
 class Protected(unittest.TestCase):

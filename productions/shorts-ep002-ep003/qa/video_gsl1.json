@@ -1,0 +1,32 @@
+{
+ "file": "gsl1.mp4",
+ "size": [
+  1080,
+  1920
+ ],
+ "fps": 30.0,
+ "frames": 450,
+ "video_s": 15.0,
+ "audio_s": 15.0,
+ "black_frames": 0,
+ "min_luma": 76.3,
+ "median_motion": 1.94,
+ "longest_static_run_s": 0.67,
+ "loop_seam_mad": 0.67,
+ "typical_cut_mad": 20.83,
+ "lufs": -15.2,
+ "true_peak_dbfs": -1.1,
+ "checks": {
+  "size": true,
+  "fps": true,
+  "frames": true,
+  "duration": true,
+  "audio": true,
+  "no_black": true,
+  "no_static_over_1s": true,
+  "loop_seam_below_a_cut": true,
+  "loudness": true,
+  "peak": true
+ },
+ "result": "PASS"
+}

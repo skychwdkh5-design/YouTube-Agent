@@ -1,0 +1,70 @@
+{
+ "voice": [
+  {
+   "src": "ep002.mp3",
+   "src_t0": 5.05,
+   "src_t1": 7.83,
+   "at": 0.3,
+   "dur": 2.78
+  },
+  {
+   "src": "ep002.mp3",
+   "src_t0": 8.21,
+   "src_t1": 13.65,
+   "at": 4.85,
+   "dur": 5.44
+  },
+  {
+   "src": "ep002.mp3",
+   "src_t0": 14.1,
+   "src_t1": 16.58,
+   "at": 11.0,
+   "dur": 2.48
+  }
+ ],
+ "cues": [
+  {
+   "t": 0.02,
+   "kind": "impact"
+  },
+  {
+   "t": 2.1929999999999996,
+   "kind": "impact"
+  },
+  {
+   "t": 3.3,
+   "kind": "whoosh"
+  },
+  {
+   "t": 4.2375,
+   "kind": "whoosh"
+  },
+  {
+   "t": 4.767999999999999,
+   "kind": "sweep"
+  },
+  {
+   "t": 8.011999999999999,
+   "kind": "whoosh"
+  },
+  {
+   "t": 9.166999999999998,
+   "kind": "impact"
+  },
+  {
+   "t": 10.895000000000001,
+   "kind": "whoosh"
+  },
+  {
+   "t": 12.527000000000001,
+   "kind": "impact"
+  },
+  {
+   "t": 13.85,
+   "kind": "sweep"
+  }
+ ],
+ "duck_db": 11.0,
+ "target_lufs": -14.0,
+ "license": "Original music synthesised by orbitalatlas.music (no samples); dedicated to the public domain (CC0 1.0) by the OrbitalAtlas project."
+}

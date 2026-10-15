@@ -1,0 +1,32 @@
+{
+ "file": "dubai1.mp4",
+ "size": [
+  1080,
+  1920
+ ],
+ "fps": 30.0,
+ "frames": 450,
+ "video_s": 15.0,
+ "audio_s": 15.0,
+ "black_frames": 0,
+ "min_luma": 27.5,
+ "median_motion": 1.66,
+ "longest_static_run_s": 0.13,
+ "loop_seam_mad": 0.59,
+ "typical_cut_mad": 28.83,
+ "lufs": -14.8,
+ "true_peak_dbfs": -1.4,
+ "checks": {
+  "size": true,
+  "fps": true,
+  "frames": true,
+  "duration": true,
+  "audio": true,
+  "no_black": true,
+  "no_static_over_1s": true,
+  "loop_seam_below_a_cut": true,
+  "loudness": true,
+  "peak": true
+ },
+ "result": "PASS"
+}

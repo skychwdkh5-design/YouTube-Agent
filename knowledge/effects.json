@@ -1700,6 +1700,125 @@
     "EP004 S3 V2 proof"
    ],
    "params": {}
+  },
+  {
+   "id": "shorts_kinetic_type",
+   "kind": "typography",
+   "renderer": "orbitalatlas-shorts",
+   "status": "built",
+   "what": "Vertical-format kinetic type: word slam (scale/blur/alpha exp-out on the narration word), 2.5-D extruded words, soft drop shadow, colour-card punch bands, starburst badge that morphs circle<->star on accents, source chips above the safe box; inked-box text records for the safe-zone and 30 px QA.",
+   "use_for": [
+    "shorts",
+    "hook",
+    "title",
+    "number"
+   ],
+   "keywords": [
+    "shorts",
+    "kinetic",
+    "typography",
+    "slam",
+    "extrude",
+    "badge",
+    "starburst",
+    "9:16",
+    "vertical"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/shorts.py",
+     "productions/shorts-ep002-ep003/shorts_build.py"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_shorts.py"
+    ],
+    "docs": [
+     "productions/shorts-ep002-ep003/CONCEPTS.md"
+    ]
+   },
+   "limits": "raster type (Inter); no per-glyph 3-D; extrusion is stacked copies",
+   "used_in": [
+    "EP002/EP003 Shorts"
+   ],
+   "composition_reset": false,
+   "params": {}
+  },
+  {
+   "id": "tilted_plane_anchored",
+   "kind": "camera",
+   "renderer": "orbitalatlas-shorts",
+   "status": "built",
+   "what": "Evidence image laid on a plane tilted back (perspective warp), rendered oversize so the plane always covers the 9:16 frame; a forward homography maps source points to screen so labels/pins stay on their features while tilted.",
+   "use_for": [
+    "shorts",
+    "map_reveal",
+    "label_tour"
+   ],
+   "keywords": [
+    "tilt",
+    "2.5d",
+    "perspective",
+    "plane",
+    "anchored labels",
+    "homography",
+    "parallax"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/shorts.py"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_shorts.py"
+    ],
+    "docs": [
+     "productions/shorts-ep002-ep003/SHORTS_REVIEW_REPORT.md"
+    ]
+   },
+   "limits": "a flat picture in perspective, not terrain or a 3-D flyover; label anchors are only as good as their source pixel positions",
+   "used_in": [
+    "EP002 Short 02",
+    "EP003 Short 02"
+   ],
+   "composition_reset": false,
+   "params": {}
+  },
+  {
+   "id": "loopable_score",
+   "kind": "audio",
+   "renderer": "orbitalatlas-music",
+   "status": "built",
+   "what": "Original synthesised electronic bed (kick, clap, hats, sub, detuned pad, pluck, risers, impacts on accents, sidechain pump) at a BPM whose bars fill the Short exactly; tail wrapped onto the head so the file loops; mix_short places approved-narration excerpts, ducks the bed and normalises to -14 LUFS.",
+   "use_for": [
+    "shorts",
+    "promo"
+   ],
+   "keywords": [
+    "music",
+    "score",
+    "loop",
+    "beat",
+    "bpm",
+    "sidechain",
+    "duck",
+    "cc0"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/music.py"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_shorts.py"
+    ],
+    "docs": [
+     "productions/shorts-ep002-ep003/SHORTS_REVIEW_REPORT.md"
+    ]
+   },
+   "limits": "procedural, not a composed track; one style; no stems",
+   "used_in": [
+    "EP002/EP003 Shorts"
+   ],
+   "composition_reset": false,
+   "params": {}
   }
  ]
 }

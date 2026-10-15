@@ -38,3 +38,6 @@ productions/ep[0-9][0-9][0-9]-*/work/
 productions/ep[0-9][0-9][0-9]-*/seg/
 productions/ep[0-9][0-9][0-9]-*/voice/cache/
 productions/ep[0-9][0-9][0-9]-*/assets/
+
+# Shorts productions: code and text only (videos stay ignored by *.mp4 / *.wav; deliverables live outside this public repo)
+!productions/shorts-*/

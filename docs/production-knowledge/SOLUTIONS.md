@@ -273,6 +273,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** EP003 V2: 1.6 min segment render + ~10 min encode instead of 48 min; boundary frames checked against the master.
 - **Regression test:** none - procedure measured on EP003
 
+### slam-none-before-start-crashes-render - Render crash 'NoneType not subscriptable' on a frame the 0.1 s text QA never sampled
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** A Short passed text QA sampled every 0.1 s, then the full 30 fps render died with TypeError: 'NoneType' object is not subscriptable.
+- **Root cause:** shorts.slam returns None before its start time; words placed unconditionally inside a window that opens a few ms before the slam start (t0 - 0.1 vs t0 - 0.08) hit None only on frames between the 0.1 s samples.
+- **Fix:** Use a wrapper that returns an invisible state (scale 1, alpha 0) before the start for unconditional placements, and render every one of the 450 frames once (no encode) before the real render.
+- **Reuse when:** Any per-frame animation helper that returns None outside its window; any QA that samples at a coarser step than the frame rate.
+- **References:** `productions/shorts-ep002-ep003/shorts_build.py`; `productions/shorts-ep002-ep003/SHORTS_REVIEW_REPORT.md`
+- **Verification:** all 450 frames of the 4 Shorts render without error; the full renders then completed.
+- **Regression test:** none - episode script
+
 ### snap-zoom-blur-smear - Full camera motion blur on a fast snap zoom smears the whole frame
 *VERIFIED · general · 2026-10-14*
 
@@ -705,6 +716,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `tools/autopilot/storyboard.py`
 - **Verification:** Found by reading the plan and looking at rendered frames of the EP003 proof; 18 storyboard tests incl. 'no unrelated picture', 'gap not a fake', 'nearest year wins'.
 - **Regression test:** `tools/autopilot/test_storyboard.py::test_no_unrelated_picture_is_ever_shown`
+
+### tilted-plane-cover-and-anchored-labels - Tilted 2.5D map shows empty corners and labels drift off their features
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** Tilting a 9:16 satellite frame back left dark triangles in the corners, and anchored labels had to be switched off while the plane was tilted.
+- **Root cause:** The perspective warp narrows the far edge, so a frame-sized source cannot cover the frame; label positions were computed with the flat view transform.
+- **Fix:** shorts.tilted_view / cover_tilt: render the view oversize by cover_scale(deg), warp, centre-crop; map label anchors with the forward homography of the same warp. Clamp the camera so the oversize view stays inside the source picture.
+- **Reuse when:** Any tilted evidence plane with pins or labels in Shorts or long-form.
+- **References:** `orbitalatlas/shorts.py`; `productions/shorts-ep002-ep003/SHORTS_REVIEW_REPORT.md`
+- **Verification:** orbitalatlas/tests/test_shorts.py: corners covered at 0-40 deg; a source dot lands within 2 px of its mapped anchor after a 28 deg tilt.
+- **Regression test:** `orbitalatlas/tests/test_shorts.py`
 
 ### visual-engine-v2-reuse-map - Visual engine v2: which module to use for captions, kinetic type, graphics, grading, camera and narration-driven events
 *VERIFIED · general · 2026-10-14*

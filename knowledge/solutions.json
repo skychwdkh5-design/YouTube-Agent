@@ -2834,6 +2834,65 @@
     "render"
    ],
    "no_test_reason": "environment allowance"
+  },
+  {
+   "id": "slam-none-before-start-crashes-render",
+   "title": "Render crash 'NoneType not subscriptable' on a frame the 0.1 s text QA never sampled",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "render",
+   "date": "2026-10-15",
+   "problem": "A Short passed text QA sampled every 0.1 s, then the full 30 fps render died with TypeError: 'NoneType' object is not subscriptable.",
+   "root_cause": "shorts.slam returns None before its start time; words placed unconditionally inside a window that opens a few ms before the slam start (t0 - 0.1 vs t0 - 0.08) hit None only on frames between the 0.1 s samples.",
+   "fix": "Use a wrapper that returns an invisible state (scale 1, alpha 0) before the start for unconditional placements, and render every one of the 450 frames once (no encode) before the real render.",
+   "reuse_when": "Any per-frame animation helper that returns None outside its window; any QA that samples at a coarser step than the frame rate.",
+   "refs": {
+    "code": [
+     "productions/shorts-ep002-ep003/shorts_build.py"
+    ],
+    "docs": [
+     "productions/shorts-ep002-ep003/SHORTS_REVIEW_REPORT.md"
+    ]
+   },
+   "verification": "all 450 frames of the 4 Shorts render without error; the full renders then completed.",
+   "symptoms": [
+    "TypeError: 'NoneType' object is not subscriptable",
+    "render crashes mid-way after QA passed"
+   ],
+   "stages": [
+    "render",
+    "qc"
+   ],
+   "no_test_reason": "episode script"
+  },
+  {
+   "id": "tilted-plane-cover-and-anchored-labels",
+   "title": "Tilted 2.5D map shows empty corners and labels drift off their features",
+   "status": "VERIFIED",
+   "scope": "general",
+   "area": "visual",
+   "date": "2026-10-15",
+   "problem": "Tilting a 9:16 satellite frame back left dark triangles in the corners, and anchored labels had to be switched off while the plane was tilted.",
+   "root_cause": "The perspective warp narrows the far edge, so a frame-sized source cannot cover the frame; label positions were computed with the flat view transform.",
+   "fix": "shorts.tilted_view / cover_tilt: render the view oversize by cover_scale(deg), warp, centre-crop; map label anchors with the forward homography of the same warp. Clamp the camera so the oversize view stays inside the source picture.",
+   "reuse_when": "Any tilted evidence plane with pins or labels in Shorts or long-form.",
+   "refs": {
+    "code": [
+     "orbitalatlas/shorts.py"
+    ],
+    "docs": [
+     "productions/shorts-ep002-ep003/SHORTS_REVIEW_REPORT.md"
+    ]
+   },
+   "verification": "orbitalatlas/tests/test_shorts.py: corners covered at 0-40 deg; a source dot lands within 2 px of its mapped anchor after a 28 deg tilt.",
+   "symptoms": [
+    "dark corners on tilted map",
+    "labels in the wrong place on a tilted plane"
+   ],
+   "stages": [
+    "render"
+   ],
+   "regression_test": "orbitalatlas/tests/test_shorts.py"
   }
  ]
 }
