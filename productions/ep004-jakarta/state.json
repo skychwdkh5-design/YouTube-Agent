@@ -23,6 +23,17 @@
    ],
    "completed": "2026-10-16T15:13:08Z",
    "inputs_sha": "2151b037b9d6106416740f097db5c66e7bdabf7024ec2b116d1398f466aeeba3"
+  },
+  "captions": {
+   "pitfalls_consulted": [
+    "caption-count-up-showed-wrong-numbers",
+    "captions-from-provider-word-times",
+    "free-test-voice-measured-timing",
+    "two-clocks-for-sync",
+    "voice-onset-measured-on-narration"
+   ],
+   "completed": "2026-10-16T15:15:33Z",
+   "inputs_sha": "89a879659e37b814ce931502c63e84e4404b1143c19b224e5cefe6fcf88e006a"
   }
  }
 }

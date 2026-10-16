@@ -1,0 +1,693 @@
+{
+ "schema": "yt-captions/1",
+ "language": "en",
+ "source": "narration.voice.json",
+ "settings": {
+  "max_chars": 84,
+  "max_lines": 2,
+  "max_duration": 6.0,
+  "min_duration": 0.8,
+  "pause": 0.6
+ },
+ "cue_count": 111,
+ "duration": 428.13,
+ "validation": {
+  "wording_preserved": true,
+  "no_overlaps": true,
+  "timestamps_valid": true,
+  "problems": [],
+  "warnings": []
+ },
+ "cues": [
+  {
+   "index": 1,
+   "start": 0.0,
+   "end": 4.342,
+   "text": "In a few spots in Jakarta, European Space Agency radar showed"
+  },
+  {
+   "index": 2,
+   "start": 4.377,
+   "end": 10.17,
+   "text": "the ground sinking almost five inches in a year, in 2017 and 2018."
+  },
+  {
+   "index": 3,
+   "start": 10.495,
+   "end": 15.952,
+   "text": "A peak at individual spots, not a citywide average, measured at an angle:"
+  },
+  {
+   "index": 4,
+   "start": 16.277,
+   "end": 18.53,
+   "text": "along the satellite's line of sight."
+  },
+  {
+   "index": 5,
+   "start": 18.913,
+   "end": 22.071,
+   "text": "The satellite circled about 430 miles up."
+  },
+  {
+   "index": 6,
+   "start": 22.396,
+   "end": 24.265,
+   "text": "It cannot watch the ground move."
+  },
+  {
+   "index": 7,
+   "start": 24.509,
+   "end": 28.015,
+   "text": "It measures the distance to the ground, pass after pass."
+  },
+  {
+   "index": 8,
+   "start": 28.398,
+   "end": 30.639,
+   "text": "So here is what we are going to find out."
+  },
+  {
+   "index": 9,
+   "start": 31.08,
+   "end": 32.903,
+   "text": "Why is the ground falling?"
+  },
+  {
+   "index": 10,
+   "start": 33.286,
+   "end": 36.212,
+   "text": "Why has one of the sinking areas slowed down?"
+  },
+  {
+   "index": 11,
+   "start": 36.537,
+   "end": 39.637,
+   "text": "And why can't the same satellites see part of the coast?"
+  },
+  {
+   "index": 12,
+   "start": 40.02,
+   "end": 44.49,
+   "text": "Jakarta sits on the northwest coast of the island of Java, in Indonesia."
+  },
+  {
+   "index": 13,
+   "start": 44.768,
+   "end": 50.318,
+   "text": "It is built on a river delta, crossed by thirteen natural and artificial rivers."
+  },
+  {
+   "index": 14,
+   "start": 50.643,
+   "end": 54.045,
+   "text": "Almost eleven million people live in the capital province."
+  },
+  {
+   "index": 15,
+   "start": 54.219,
+   "end": 59.188,
+   "text": "And by some estimates, as much as 40 percent of the city is already below sea level."
+  },
+  {
+   "index": 16,
+   "start": 59.629,
+   "end": 60.709,
+   "text": "How does that work?"
+  },
+  {
+   "index": 17,
+   "start": 61.092,
+   "end": 66.108,
+   "text": "The radar sends microwave pulses down and records each echo's phase:"
+  },
+  {
+   "index": 18,
+   "start": 66.317,
+   "end": 68.802,
+   "text": "where in the wave's cycle it arrives."
+  },
+  {
+   "index": 19,
+   "start": 69.185,
+   "end": 71.855,
+   "text": "On a later pass, it compares the echoes."
+  },
+  {
+   "index": 20,
+   "start": 72.296,
+   "end": 78.125,
+   "text": "If the distance changed, even by a small fraction of a wavelength, the phase shifts."
+  },
+  {
+   "index": 21,
+   "start": 78.635,
+   "end": 80.342,
+   "text": "Now the catch."
+  },
+  {
+   "index": 22,
+   "start": 80.853,
+   "end": 85.694,
+   "text": "The satellite measures the change in distance along its line of sight, at an angle."
+  },
+  {
+   "index": 23,
+   "start": 85.938,
+   "end": 87.529,
+   "text": "That is not the vertical drop."
+  },
+  {
+   "index": 24,
+   "start": 87.703,
+   "end": 90.954,
+   "text": "Other passes and GPS help estimate the vertical part."
+  },
+  {
+   "index": 25,
+   "start": 91.163,
+   "end": 95.098,
+   "text": "So every number here is labeled: line of sight or vertical,"
+  },
+  {
+   "index": 26,
+   "start": 95.273,
+   "end": 97.212,
+   "text": "what was measured, and when."
+  },
+  {
+   "index": 27,
+   "start": 97.653,
+   "end": 99.534,
+   "text": "So why is Jakarta sinking?"
+  },
+  {
+   "index": 28,
+   "start": 99.859,
+   "end": 103.655,
+   "text": "Scientists who have measured it for decades name three suspects."
+  },
+  {
+   "index": 29,
+   "start": 103.899,
+   "end": 106.418,
+   "text": "Groundwater pumped out from underneath the city."
+  },
+  {
+   "index": 30,
+   "start": 106.627,
+   "end": 110.621,
+   "text": "The weight of buildings and roads on soft, compressible ground."
+  },
+  {
+   "index": 31,
+   "start": 110.946,
+   "end": 113.768,
+   "text": "And the natural settling of young river mud."
+  },
+  {
+   "index": 32,
+   "start": 114.372,
+   "end": 118.097,
+   "text": "ESA's own caption points largely at the groundwater."
+  },
+  {
+   "index": 33,
+   "start": 118.097,
+   "end": 119.711,
+   "text": "Why so much pumping?"
+  },
+  {
+   "index": 34,
+   "start": 120.407,
+   "end": 122.474,
+   "text": "One 2022 study found"
+  },
+  {
+   "index": 35,
+   "start": 122.532,
+   "end": 126.445,
+   "text": "that piped water reached only 64 percent of the province."
+  },
+  {
+   "index": 36,
+   "start": 126.886,
+   "end": 130.938,
+   "text": "Its authors proposed extending the pipes first to the north and west,"
+  },
+  {
+   "index": 37,
+   "start": 131.112,
+   "end": 133.271,
+   "text": "as one way to cut the over-pumping."
+  },
+  {
+   "index": 38,
+   "start": 133.875,
+   "end": 138.763,
+   "text": "When groundwater is pumped out, soft layers of ground can compact."
+  },
+  {
+   "index": 39,
+   "start": 139.366,
+   "end": 144.858,
+   "text": "Researchers separate two things: ground that springs back a little if water returns,"
+  },
+  {
+   "index": 40,
+   "start": 144.951,
+   "end": 147.134,
+   "text": "and ground that stays squeezed."
+  },
+  {
+   "index": 41,
+   "start": 147.644,
+   "end": 150.721,
+   "text": "This animation is an illustration, not a measurement."
+  },
+  {
+   "index": 42,
+   "start": 151.104,
+   "end": 152.45,
+   "text": "None of this is new."
+  },
+  {
+   "index": 43,
+   "start": 152.776,
+   "end": 155.028,
+   "text": "Surveyors, GPS crews,"
+  },
+  {
+   "index": 44,
+   "start": 155.051,
+   "end": 159.022,
+   "text": "and radar satellites have been measuring Jakarta for decades."
+  },
+  {
+   "index": 45,
+   "start": 159.533,
+   "end": 165.303,
+   "text": "Between 1974 and 2010, their typical numbers were three to ten centimeters"
+  },
+  {
+   "index": 46,
+   "start": 165.349,
+   "end": 168.112,
+   "text": "a year, depending on the place and the time."
+  },
+  {
+   "index": 47,
+   "start": 168.902,
+   "end": 174.8,
+   "text": "A recent analysis of radar data from 2016 to 2024 found three"
+  },
+  {
+   "index": 48,
+   "start": 174.858,
+   "end": 179.235,
+   "text": "hotspots: one in the west, one on the northwest coast,"
+  },
+  {
+   "index": 49,
+   "start": 179.432,
+   "end": 183.414,
+   "text": "and one in the northeast, near the harbor at Tanjung Priok."
+  },
+  {
+   "index": 50,
+   "start": 183.913,
+   "end": 188.267,
+   "text": "The fastest spot sank about 30 millimeters a year, roughly an inch,"
+  },
+  {
+   "index": 51,
+   "start": 188.325,
+   "end": 189.88,
+   "text": "along the line of sight."
+  },
+  {
+   "index": 52,
+   "start": 190.322,
+   "end": 193.909,
+   "text": "But count the hotspots a different way, and you get a different answer."
+  },
+  {
+   "index": 53,
+   "start": 194.42,
+   "end": 198.867,
+   "text": "A separate study, still a preprint, combined radar and GPS"
+  },
+  {
+   "index": 54,
+   "start": 198.948,
+   "end": 204.289,
+   "text": "from 2014 to 2025 and counted six main subsidence bowls."
+  },
+  {
+   "index": 55,
+   "start": 204.614,
+   "end": 209.861,
+   "text": "In the worst one, the vertical drop reached up to 7.7 centimeters a year,"
+  },
+  {
+   "index": 56,
+   "start": 210.036,
+   "end": 211.348,
+   "text": "about three inches."
+  },
+  {
+   "index": 57,
+   "start": 211.951,
+   "end": 213.844,
+   "text": "Across the whole metro area,"
+  },
+  {
+   "index": 58,
+   "start": 214.053,
+   "end": 218.163,
+   "text": "the slow background sinking was about 1.1 centimeters a year."
+  },
+  {
+   "index": 59,
+   "start": 218.488,
+   "end": 224.258,
+   "text": "Its authors point out that it relies on a single continuous GPS station."
+  },
+  {
+   "index": 60,
+   "start": 224.258,
+   "end": 225.988,
+   "text": "Look at it district by district."
+  },
+  {
+   "index": 61,
+   "start": 226.15,
+   "end": 230.864,
+   "text": "A radar study of 2019 to 2020 reported average sinking rates"
+  },
+  {
+   "index": 62,
+   "start": 230.899,
+   "end": 236.507,
+   "text": "of 4.9 centimeters a year in North Jakarta, 4.8 in West Jakarta,"
+  },
+  {
+   "index": 63,
+   "start": 236.75,
+   "end": 242.59,
+   "text": "3.1 in Central Jakarta, 2.8 in the South, and 2.5 in the East."
+  },
+  {
+   "index": 64,
+   "start": 243.287,
+   "end": 247.315,
+   "text": "The abstract does not say if these are line of sight or vertical."
+  },
+  {
+   "index": 65,
+   "start": 247.64,
+   "end": 252.668,
+   "text": "The sinking was mostly near the coast and river mouths, on soft river deposits."
+  },
+  {
+   "index": 66,
+   "start": 253.109,
+   "end": 255.384,
+   "text": "On the ground, you can see the damage."
+  },
+  {
+   "index": 67,
+   "start": 255.825,
+   "end": 259.576,
+   "text": "That same study reported damaged roads at Mutiara Beach,"
+  },
+  {
+   "index": 68,
+   "start": 259.727,
+   "end": 262.513,
+   "text": "West Cengkareng, and Pademangan."
+  },
+  {
+   "index": 69,
+   "start": 263.21,
+   "end": 267.691,
+   "text": "Other researchers list cracked buildings and roads, changed river flow,"
+  },
+  {
+   "index": 70,
+   "start": 267.773,
+   "end": 271.221,
+   "text": "bigger flooded areas, and drains that stop working."
+  },
+  {
+   "index": 71,
+   "start": 271.824,
+   "end": 273.543,
+   "text": "Now the catch."
+  },
+  {
+   "index": 72,
+   "start": 274.239,
+   "end": 279.429,
+   "text": "To trust a pixel, the radar echo has to stay consistent from one pass to the next."
+  },
+  {
+   "index": 73,
+   "start": 279.87,
+   "end": 283.144,
+   "text": "In the 2016 to 2024 analysis,"
+  },
+  {
+   "index": 74,
+   "start": 283.388,
+   "end": 287.719,
+   "text": "any pixel with a coherence below 0.6 was thrown out."
+  },
+  {
+   "index": 75,
+   "start": 288.229,
+   "end": 291.747,
+   "text": "And that filter removes pixels along the northern coast,"
+  },
+  {
+   "index": 76,
+   "start": 291.956,
+   "end": 294.313,
+   "text": "the part of Jakarta closest to the sea."
+  },
+  {
+   "index": 77,
+   "start": 294.824,
+   "end": 298.319,
+   "text": "Scientists check the radar against GPS."
+  },
+  {
+   "index": 78,
+   "start": 298.702,
+   "end": 304.414,
+   "text": "At one station, the radar's line-of-sight rate came out 1.64 millimeters a year"
+  },
+  {
+   "index": 79,
+   "start": 304.484,
+   "end": 310.196,
+   "text": "higher than the GPS vertical rate, with a typical error of 9.40 millimeters."
+  },
+  {
+   "index": 80,
+   "start": 310.521,
+   "end": 313.923,
+   "text": "And that station is not in the same spot as the radar pixel,"
+  },
+  {
+   "index": 81,
+   "start": 314.167,
+   "end": 316.036,
+   "text": "so even this check has limits."
+  },
+  {
+   "index": 82,
+   "start": 316.477,
+   "end": 317.742,
+   "text": "Now the twist."
+  },
+  {
+   "index": 83,
+   "start": 318.067,
+   "end": 321.736,
+   "text": "The western hotspot started sinking fast in 2016,"
+  },
+  {
+   "index": 84,
+   "start": 321.818,
+   "end": 324.023,
+   "text": "and then slowed down significantly."
+  },
+  {
+   "index": 85,
+   "start": 324.407,
+   "end": 327.228,
+   "text": "The northwest and northeast hotspots did not."
+  },
+  {
+   "index": 86,
+   "start": 327.553,
+   "end": 329.538,
+   "text": "They kept sinking in a straight line."
+  },
+  {
+   "index": 87,
+   "start": 329.979,
+   "end": 334.333,
+   "text": "A 2026 study, which we have only read as an abstract,"
+  },
+  {
+   "index": 88,
+   "start": 334.577,
+   "end": 339.987,
+   "text": "also reports that some areas are slowing, a few even show localized uplift,"
+  },
+  {
+   "index": 89,
+   "start": 340.196,
+   "end": 341.961,
+   "text": "and the coast keeps sinking."
+  },
+  {
+   "index": 90,
+   "start": 342.344,
+   "end": 345.977,
+   "text": "Slowing down is not the same as coming back up."
+  },
+  {
+   "index": 91,
+   "start": 345.977,
+   "end": 346.917,
+   "text": "Why does it matter?"
+  },
+  {
+   "index": 92,
+   "start": 347.498,
+   "end": 349.193,
+   "text": "Jakarta already floods."
+  },
+  {
+   "index": 93,
+   "start": 349.623,
+   "end": 353.419,
+   "text": "A flood in 2007 covered more than 70 percent of the city."
+  },
+  {
+   "index": 94,
+   "start": 353.837,
+   "end": 358.829,
+   "text": "On New Year's Eve 2019, a rain gauge at Halim Perdanakusuma recorded"
+  },
+  {
+   "index": 95,
+   "start": 358.899,
+   "end": 364.17,
+   "text": "377 millimeters of rain in a single day, nearly fifteen inches."
+  },
+  {
+   "index": 96,
+   "start": 365.122,
+   "end": 371.054,
+   "text": "From 1993 to a 2018 assessment, satellites measured global sea level"
+  },
+  {
+   "index": 97,
+   "start": 371.333,
+   "end": 374.805,
+   "text": "rising about 3.1 millimeters a year on average."
+  },
+  {
+   "index": 98,
+   "start": 375.13,
+   "end": 379.739,
+   "text": "In the worst bowl of that preprint, the vertical drop was many times faster."
+  },
+  {
+   "index": 99,
+   "start": 380.122,
+   "end": 384.023,
+   "text": "Along the waterfront, seawater already tops the coastal dykes,"
+  },
+  {
+   "index": 100,
+   "start": 384.046,
+   "end": 386.02,
+   "text": "according to a survey of residents."
+  },
+  {
+   "index": 101,
+   "start": 386.461,
+   "end": 391.895,
+   "text": "And a 2017 model found that a three-meter dyke, enough for today's conditions,"
+  },
+  {
+   "index": 102,
+   "start": 392.104,
+   "end": 396.202,
+   "text": "could lose its ability to stop floods completely by the year 2040,"
+  },
+  {
+   "index": 103,
+   "start": 396.411,
+   "end": 398.385,
+   "text": "if the ground keeps sinking quickly."
+  },
+  {
+   "index": 104,
+   "start": 398.989,
+   "end": 403.726,
+   "text": "Its conclusion: stopping the sinking would be the most effective countermeasure."
+  },
+  {
+   "index": 105,
+   "start": 404.004,
+   "end": 405.792,
+   "text": "So what do satellites prove?"
+  },
+  {
+   "index": 106,
+   "start": 406.175,
+   "end": 409.507,
+   "text": "That parts of Jakarta are sinking, at different speeds,"
+  },
+  {
+   "index": 107,
+   "start": 409.681,
+   "end": 411.794,
+   "text": "and that some of that sinking has slowed."
+  },
+  {
+   "index": 108,
+   "start": 412.398,
+   "end": 414.163,
+   "text": "What can they not prove?"
+  },
+  {
+   "index": 109,
+   "start": 414.767,
+   "end": 419.875,
+   "text": "What happens where the radar goes blind, and exactly what is driving each bowl."
+  },
+  {
+   "index": 110,
+   "start": 420.2,
+   "end": 423.927,
+   "text": "And the next time you see a map of a sinking city, check the label."
+  },
+  {
+   "index": 111,
+   "start": 424.623,
+   "end": 428.13,
+   "text": "What was measured, when, and in which direction."
+  }
+ ],
+ "files": {
+  "srt": "captions.srt",
+  "vtt": "captions.vtt"
+ }
+}
