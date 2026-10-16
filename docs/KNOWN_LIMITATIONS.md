@@ -70,3 +70,5 @@ See `docs/references/library/IMPLEMENTATION_STATUS.md`: class-A camera only; no 
 - The city is procedural boxes with window textures (not modelled architecture); strata are textured meshes with real thickness and compaction, not a geotechnical model.
 - pbrt3d REVIEW renders at 1280x720 and upscales to 1080p (type drawn at 1080p): fine window textures are slightly softer than native.
 - float16 frame storage overflows on very bright emitters (inf pixel): clamp HDR to 6e4 before saving (run_v3._post) and sanitise in finish.
+
+- EP004 render speed (VERIFIED 2026-10-16): a cold 1080p pass is bound by single-threaded Pillow work per frame (plate affine, 2x stroke canvas, 4K LANCZOS resizes in the diagrams) plus x264; micro-patches (blur sample cap, reducing_gap, glyph cache, half-res glow) were within noise; 3x on a cold pass is not reachable without GPU/OpenCV. Use the segment cache for iteration.

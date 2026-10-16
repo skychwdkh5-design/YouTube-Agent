@@ -284,6 +284,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** Fixed in kit.SDraw; EP002 renders ran clean.
 - **Regression test:** none - One-line wrapper behaviour inside the episode-specific kit.
 
+### render-profile-1080p-cold-pass-is-pillow-bound - Cold 1080p pass of a 2.5-D film: where 34 minutes go, and why 3x is not reachable without GPU/OpenCV
+*VERIFIED · general · 2026-10-16*
+
+- **Problem:** EP004 FINAL 1080p took 34 min (a 90 min estimate had been quoted); the owner asked for 3x faster without paid GPUs or new services.
+- **Root cause:** Per frame, single-threaded Pillow work dominates: bicubic affine of the Landsat plate 112 ms, 2x stroke canvas + glow blur + reduce ~115 ms, glyph-by-glyph text ~25 ms (map frames 440-590 ms); diagrams 1.0-2.4 s because of 4K LANCZOS resizes (186 ms each); x264 medium adds ~20 %. No OpenCV/SciPy/numba (PyPI blocked), no GPU. Budget: map shots 49 %, x264 20 %, radar diagram 16 %, cut-away 6 %, globe 4 %, schematics 4 %.
+- **Fix:** Do not chase micro-patches (blur sample cap, reducing_gap, glyph cache, half-res glow: all within +-20 % run-to-run noise). Use veryfast CRF 17 segments (8.4 s vs 22 s per 20 s) and the shot-level segment cache; replace 4K LANCZOS by reduce(2) (59 ms) only inside the diagram classes when next touched.
+- **Reuse when:** Planning render time for any 2.5-D V2C episode or when asked to speed up rendering.
+- **References:** `productions/ep004-jakarta/build/perf.py`; `productions/ep004-jakarta/build/perf2.py`; `docs/RENDER_BENCHMARKS.md`; `docs/production-knowledge/RENDERING.md`
+- **Verification:** cProfile + primitive micro-benchmarks at 1080p on short fragments; model 9,300 core-s / 4 cores = 38.8 min vs 34 min measured.
+- **Regression test:** none - measurement record; the probes are productions/ep004-jakarta/build/perf.py and perf2.py (need the episode assets)
+
 ### resumable-segments-part-rename - Parallel renders must write .part files and rename
 *VERIFIED · EP002 · 2026-10-13*
 
@@ -305,6 +316,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `orbitalatlas/director.py`; `docs/production-knowledge/RENDERING.md`
 - **Verification:** EP003 V2: 1.6 min segment render + ~10 min encode instead of 48 min; boundary frames checked against the master.
 - **Regression test:** none - procedure measured on EP003
+
+### shot-segment-cache-incremental-render - Incremental render: cache each shot's segment by a content hash and assemble with FFmpeg stream copy
+*VERIFIED · general · 2026-10-16*
+
+- **Problem:** EP004 was fully re-rendered three times (REVIEW v1, v2, FINAL = ~105 min) although later changes touched a few shots.
+- **Root cause:** Frames were rendered straight into one MP4; nothing was reusable once the code or resolution changed.
+- **Fix:** orbitalatlas/segcache.py + `review.py render-cached`: one H.264 segment per shot keyed by SHA-1 of (builder source, previous builder source, helper functions, kit and engine sources, narration timings, size, fps, frame range, encoder settings); FFmpeg concat demuxer with -c:v copy assembles the film and adds the audio. Render REVIEW at the final size so FINAL costs seconds.
+- **Reuse when:** Any episode with a composition build like productions/ep004-jakarta/build/review.py; edit one shot, re-run, only that shot (and the next one's dissolve) re-render.
+- **References:** `orbitalatlas/segcache.py`; `orbitalatlas/tests/test_segcache.py`; `productions/ep004-jakarta/build/review.py`; `docs/RENDER_BENCHMARKS.md`; `docs/production-knowledge/RENDERING.md`
+- **Verification:** 28.4 s of EP004 at 1080p: cold 114 s, warm 1 s, one edited builder 20 s; 852/852 frames, picture differs from the final master by 0.1-1.0/255 (encoder only).
+- **Regression test:** `orbitalatlas/tests/test_segcache.py`
 
 ### slam-none-before-start-crashes-render - Render crash 'NoneType not subscriptable' on a frame the 0.1 s text QA never sampled
 *VERIFIED · general · 2026-10-15*

@@ -43,3 +43,9 @@ USGS M2M credentials are present in this environment. NASA SVS pages state no li
 - REACHABLE from the cloud container: esa.int (pages and Sentinel-1 facts: C-band, 693 km, six-day revisit, 1A ended June 2026, 1B ended Aug 2022), api.crossref.org (abstracts and licences of papers: `works/<doi>`), svs.gsfc.nasa.gov, m2m.cr.usgs.gov (Landsat; credentials in env), github.com.
 - BLOCKED / bot-checked: zenodo.org, cdn.ncbi.nlm.nih.gov, pmc.ncbi.nlm.nih.gov (reCAPTCHA now), europepmc, doi.org, science.nasa.gov (403 now), usgs.gov pages, nature/springer/science/pnas, mdpi/wiley/sciencedirect (403), worldbank, reliefweb, bmkg. Not bypassed.
 - Working route for paper facts: Crossref abstract (flag claims ABSTRACT-LEVEL; never read figures). Used for Abidin 2015 (CC BY 3.0), Taftazani 2022 (CC BY 4.0), Takagi 2017 (CC BY 4.0), Lapadat 2026 preprint (CC BY 4.0), Situmorang 2021 EGU abstract, Arief & Cahyadi 2020.
+
+## EP004 Jakarta - assets used in the FINAL (2026-10-16)
+- Landsat 8 OLI LC08_L1TP_122064_20260914_20260924_02_T1 (entityId LC81220642026257LGN00, 2026-09-14, cloud 3 %) and Landsat 5 TM LT05_L1TP_122064_19900709_20200915_02_T1 (LT51220641990190BKT00, 1990-07-09, cloud 4 %): USGS M2M, co-registered on one UTM 48S grid (30 m, AOI 106.62-107.05 E, 6.45-6.00 S) with tools/autopilot/landsat_color.py. Licence: USGS Landsat data public domain (policy page not re-read: ASSUMED); credit "courtesy of NASA/USGS". Optical context only, never shown as subsidence.
+- Natural Earth 1:10M (public domain) for the Java locator. No ESA frame, no stock, no third-party audio (sfx synthesised CC0).
+- Narration: ElevenLabs Adam, one paid pass, 5,790 characters; audio+cache on media/ep004-jakarta-audio.
+- Final files: media/ep004-jakarta-final (iPad copy, 92.6 MB) and media/ep004-jakarta-final-master (CRF 17 master, Git LFS).

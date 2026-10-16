@@ -26,3 +26,21 @@ Rule: 12–15 s proofs only; log every benchmark here with date; do not repeat t
 | EP004 S3 V3 render diagnostics (2026-10-15, `proof_v3/perf/RENDER_DIAGNOSTICS.md`) | pbrt-v4 CPU, 4 cores, no GPU; underground frame t=6.0 | 1440x810: 8 spp 37.0 s, 4 spp 20.1 s, 2 spp 12.0 s total; 960x540 4 spp 9.3 s; pbrt = 90 % of the frame; geometry cut and path depth 2 change nothing; no blur/DOF/bump -18 %; OIDN makes 4/2 spp visually equal to 8; cost ~ pixels x spp x 2.6e-6 s |
 | EP004 S3 V3 REVIEW full render (2026-10-16) | 1280x720, 4 spp (8 spp under DOF 4.3-7.2 s), pipelined post, static cache, 4 cores | 352 frames in 64.7 min (11.0 s/frame wall; pbrt orbit 6.7, dive 8.9, DOF 8-spp 19.4, pass-2 8.3, side-on 10.1 s) + 31 reused test frames; compose + encode 405 frames 3.4 min; peak system RAM 1.74 GB; 2.4x faster than the 8-spp 1440x810 run |
 | EP004 S3 V3 acceleration (2026-10-16, `proof_v3/perf/ACCELERATION.md`) | same fragment 162-206 (45 frames, strong DOF) / whole proof 383 frames | fragment: REVIEW 20.6 s/frame, PREVIEW 2.04 s (10.1x, 33.4 dB), DRAFT raster 1.08 s (19x); whole proof scene->MP4: REVIEW ~74 min, DRAFT 8.0 min (9.3x), PREVIEW 7.3 min (10.2x); frame cache: unchanged 71 s, one camera-key edit 30 frames 6.4 min; pbrt process overhead 0.30-0.38 s/frame |
+
+
+## EP004 Jakarta, 2.5-D V2C, 1080p30, 4-core box, no GPU (measured 2026-10-16)
+Full film 428.1 s = 12,844 frames. Final 1080p render + encode: **34 min wall** (16:53-17:27; an earlier "about 90 min" estimate was wrong). Master 191 MB (CRF 17, preset medium).
+| item | measurement |
+|---|---|
+| map shot with cards/rings (Landsat still + camera + overlays) | 440-590 ms/frame/core (PIL bicubic affine of the plate 112 ms; stroke canvas at 2x + glow blur + reduce ~115 ms; text per glyph ~25 ms; panels/composite) |
+| 2-D radar diagram (3 LANCZOS resizes of 4K supersample canvases, 186 ms each) | 1,200-1,430 ms |
+| cut-away scene (scene3d painter) | ~1,050 ms |
+| globe locator (GeoScene) | ~2,400 ms |
+| 2-D schematics (coherence, trends, dyke, orbit) | 120-250 ms |
+| captions + programme composite | 35-100 ms |
+| x264 on 20 s of 1080p, 4 cores | medium CRF17 22 s; veryfast CRF17 8.4 s (221 MB film); ultrafast CRF16 3.8 s (895 MB film) |
+| primitives 1080p | affine BICUBIC 112 ms, BILINEAR 50 ms, NEAREST 1.7 ms; 4K->1080p LANCZOS 186 ms vs reduce(2) 59 ms; alpha_composite 12 ms; Gaussian blur r=6 RGBA 64 ms; RGB tobytes 4 ms |
+Core-second budget of the film (~9,300 core-s = 4 cores x 38.8 min, matches the 34 min measured): map shots ~49 %, x264 ~20 %, radar diagram ~16 %, cut-away ~6 %, globe ~4 %, schematics ~4 %, misc ~2 %.
+Tried and rejected (measured): motion-blur sub-sample caps (camera <= 2.2 px/frame: always 1 sample, no gain); PIL reducing_gap on LANCZOS (no gain); BILINEAR plate (only when the view is not magnified: never at 1080p on 30 m Landsat); half-resolution glow / glyph-width cache gave +-20 % that is inside run-to-run noise.
+Not available here: OpenCV, SciPy, numba, pyvips (PyPI blocked), GPU. FFmpeg zoompan reached ~40 fps for a plain still zoom but replaces only the plate (about a quarter of a map frame).
+Incremental render (orbitalatlas/segcache.py, `review.py render-cached`): 28.4 s of film cold 114 s, warm 1 s, one edited builder re-rendered 20 s (that shot only); assembly is FFmpeg stream copy. EP004's last change (3 overlay fixes = 5 shots incl. dissolve neighbours = 107 s of film) would have cost ~8.5 min instead of 34 (4x).

@@ -25,3 +25,10 @@ Rendering at 540p and upscaling (violates the no-upscale rule); ffmpeg `xfade` b
 ## Delivering a >100 MB master (2026-10-13)
 - VERIFIED: single-file delivery = Git LFS on the media branch (`git lfs track` the file, commit, push). Needs allowed hosts `github-cloud.s3.amazonaws.com` (object upload), `lfs.github.com` (verify) and `github.com` / `media.githubusercontent.com` (download check). Without them the push fails at upload (S3) or verify (lfs.github.com). Release creation is not permitted for this session type; Drive upload via the connector cannot carry a 272 MB file.
 - VERIFIED: anonymous download `https://github.com/<owner>/<repo>/raw/<branch>/<path>` redirects (302) to `media.githubusercontent.com/media/...` and returns the real file (size and SHA-256 checked), not the LFS pointer. Public repo = public file; LFS free quota (storage/bandwidth) applies.
+
+
+## Render cost rules (EP004 measurements, docs/RENDER_BENCHMARKS.md)
+- A cold 1080p30 pass of a 7-min film is ~35 min on this box (not 90). It cannot be made 3x faster without a GPU, OpenCV or a rewrite of the overlay path; do not promise it.
+- Render REVIEW at the FINAL size from the start with `review.py render-cached` (orbitalatlas/segcache.py): later fixes re-render only the changed shots (plus their dissolve neighbours), FINAL is a stream-copy assembly (seconds). 3 full renders of EP004 (REVIEW v1, v2, FINAL = ~105 min) would have been ~35 + ~9 + ~1 min.
+- Segment encode: libx264 veryfast CRF 17 (8.4 s per 20 s of 1080p, 221 MB film) instead of medium (22 s). Derive the download copy (<95 MB for a GitHub raw link) with 2-pass slow ~1.56 Mbps (SSIM 0.992, PSNR 47.8 dB, ~9 min).
+- Any change to orbitalatlas/*.py or ep4kit.py invalidates every segment by design (key includes their hashes).

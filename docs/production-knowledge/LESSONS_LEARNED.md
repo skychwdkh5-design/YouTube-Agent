@@ -29,3 +29,10 @@ Views are not independent observations; Studio and Analytics API metrics differ 
 - VERIFIED: the narration.mp3 itself has 0.129 s of leading silence, so the best possible onset is ~0.13 s. `EP002_V4=1` / `build_final.py --hook|--full4` places word 0 at t=0 (no pre-roll, first scene window clamped to 0, tail 1.6 s).
 - VERIFIED: windows between scenes depend only on word-time differences, so unchanged scenes' segments can be reused after an offset change; only changed scenes were re-rendered (6 scenes + hook ~12 min on 4 jobs).
 - VERIFIED (2026-10-13, v4.1): the director's approval of the hook froze its segments (H1-H4 copied byte for byte) and its audio (first 34 s sample-identical); later fixes only touched other scenes. Readability bugs of the same class (amber/muted text on bright imagery) appear in many scenes: fix the class with a backing pill and run `qa_contrast.py` over all scenes, not only the one reported.
+
+## EP004 Jakarta (2026-10-16) - what to repeat and what to avoid
+- Owner-selected topic with evidence limits: every on-screen number carries its measurement kind (line of sight vs vertical), period and source class; preprints/abstracts are named as such; 5 targeted script fixes beat a rewrite.
+- Cost safety worked: free voice check, recorded approval, one TTS pass at 5,790/5,800 characters, cache + audio on a media branch, no retry.
+- First REVIEW looked "finished" but was 69 % static and had 86 phone-size text issues: run dyn.py and mqa.py BEFORE showing a REVIEW (solutions: static-landsat-shots-camera-paths, phone-text-size-floor-clamp).
+- Render REVIEW at final size with the shot cache (solutions: shot-segment-cache-incremental-render); three full renders cost ~105 min.
+- GitHub media: plain files must stay < 100 MB (raw link works); put the CRF master on a Git LFS branch and derive a 2-pass copy under 95 MB for the direct link.

@@ -343,14 +343,37 @@ def sfx_cues(plan):
     return cues
 
 
+def render_cached(a, size):
+    """shot-level segment cache (orbitalatlas.segcache): only shots whose code/inputs changed are rendered; the rest is stream-copied"""
+    import time
+    from orbitalatlas import segcache as SC
+    os.makedirs(a.cache, exist_ok=True); plan = shot_plan(); bounds = [p[0] for p in plan] + [DUR + 0.2]; total = int(round(DUR * FPS))
+    kit = SC.files_hash([os.path.join(HERE, "ep4kit.py")]); eng = SC.engine_hash(ROOT); words = SC.sha(json.dumps(WORDS)); helpers = SC.sha(*[SC.source(f) for f in (landsat, camseq, camkeys, chip, lt, tw, view, hold_keys, shot_plan, build)])
+    lo, hi = (int(x) for x in a.only.split("-")) if a.only else (0, len(plan) - 1); segs, rendered, reused, t_render = [], 0, 0, 0.0
+    for i in range(lo, hi + 1):
+        n0 = int(round(plan[i][0] * FPS)) if i else 0; n1 = int(round(bounds[i + 1] * FPS)) if i < len(plan) - 1 else total
+        prev = SC.source(plan[i - 1][1]) if i else ""; key = SC.sha(SC.source(plan[i][1]), prev, helpers, kit, eng, words, size, FPS, n0, n1, a.crf, a.preset, plan[i][2], plan[i - 1][2] if i else None)
+        p = SC.have(a.cache, key)
+        if p: reused += 1; segs.append(p); continue
+        t0 = time.time(); prog, info = build(size, (n0 / FPS, n1 / FPS)); times = [k / FPS - info["t_base"] for k in range(n0, n1)]
+        part = SC.segment_path(a.cache, key) + ".part.mp4"; SQ.render_video(prog, part, FPS, a.workers, audio=None, crf=a.crf, preset=a.preset, frames=times, log=None); os.replace(part, SC.segment_path(a.cache, key))
+        dt = time.time() - t0; t_render += dt; rendered += 1; segs.append(SC.segment_path(a.cache, key)); print(f"shot {i} {plan[i][1].__name__}: rendered {n1 - n0} frames in {dt:.1f} s", flush=True)
+    print(f"segments: {len(segs)} ({rendered} rendered in {t_render:.1f} s, {reused} reused from cache)", flush=True)
+    audio = None
+    if not a.no_audio:
+        voice = os.path.join(PROD, "voice", "narration.wav"); mix = a.out + ".mix.wav"; SFX.mix(voice, sfx_cues(plan), DUR + 0.05, mix); audio = mix
+    SC.assemble(segs, a.out, audio); print("assembled", a.out)
+
+
 def main(argv=None):
     import argparse
-    ap = argparse.ArgumentParser(); ap.add_argument("cmd", choices=("stills", "render", "plan")); ap.add_argument("out", nargs="?"); ap.add_argument("times", nargs="*", type=float)
-    ap.add_argument("--size", default="1280x720"); ap.add_argument("--start", type=float, default=None); ap.add_argument("--end", type=float, default=None); ap.add_argument("--workers", type=int, default=4); ap.add_argument("--no-audio", action="store_true"); ap.add_argument("--crf", type=int, default=18); ap.add_argument("--preset", default="medium")
+    ap = argparse.ArgumentParser(); ap.add_argument("cmd", choices=("stills", "render", "plan", "render-cached")); ap.add_argument("out", nargs="?"); ap.add_argument("times", nargs="*", type=float)
+    ap.add_argument("--size", default="1280x720"); ap.add_argument("--start", type=float, default=None); ap.add_argument("--end", type=float, default=None); ap.add_argument("--workers", type=int, default=4); ap.add_argument("--no-audio", action="store_true"); ap.add_argument("--only", default=None, help="render-cached: shot index range a-b (test)"); ap.add_argument("--cache", default=os.path.join(PROD, "cache", "segments")); ap.add_argument("--crf", type=int, default=18); ap.add_argument("--preset", default="medium")
     a = ap.parse_args(argv); size = tuple(int(x) for x in a.size.split("x"))
     if a.cmd == "plan":
         for t0, bld, tr in shot_plan(): print(f"{t0:8.2f}  {bld.__name__:12s} {tr}")
         return
+    if a.cmd == "render-cached": return render_cached(a, size)
     rng = (a.start, a.end) if a.start is not None else None
     if a.cmd == "stills":
         os.makedirs(a.out, exist_ok=True); times = a.times
