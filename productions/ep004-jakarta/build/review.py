@@ -57,7 +57,7 @@ VIEWS = {"whole": ((106.835, -6.21), 42), "bay": ((106.84, -6.13), 34), "city": 
          "nw": ((106.74, -6.09), 22), "north": ((106.82, -6.105), 30), "harbor": ((106.885, -6.115), 15), "south": ((106.83, -6.27), 30), "coast_w": ((106.77, -6.10), 17), "centre": ((106.83, -6.19), 14)}
 PINS = {"Tanjung Priok": (106.885, -6.100), "Mutiara Beach": (106.790, -6.107), "Pademangan": (106.840, -6.130), "West Cengkareng": (106.735, -6.150), "Halim airport": (106.891, -6.266), "Jakarta": (106.827, -6.175)}
 # compass-direction markers: NOT map measurements; labelled 'general direction'
-DIRS = {"west": (106.69, -6.19), "northwest coast": (106.735, -6.075)}
+DIRS = {"west": (106.70, -6.17), "northwest coast": (106.735, -6.075)}
 
 
 def view(name): c, w = VIEWS[name]; return {"center": list(c), "width_km": w}
@@ -194,7 +194,7 @@ def b11(t0, dur):
     for name, ll, ts in pins:
         named = name == "Tanjung Priok"
         ov.append(X.Ring(src_px(ll), l(ts - 0.1), l(tw(11, "fastest") - 0.1), name, X.AMBER if named else X.CYAN, 24, (0.05, -0.07) if name != "west" else (-0.05, -0.07), sub=("named place" if named else "general direction · extent not shown")))
-    return landsat("2026", "north", "harbor", dur, ov, "b11", 0.10)
+    return landsat("2026", "bay", "harbor", dur, ov, "b11", 0.10)
 
 
 def b12_stage(t0, dur):
@@ -217,20 +217,20 @@ def b13(t0, dur):
 def b14(t0, dur):
     l = lt(t0); items = [("Mutiara Beach", tw(14, "Mutiara")), ("West Cengkareng", tw(14, "Cengkareng")), ("Pademangan", tw(14, "Pademangan"))]
     ov = [chip("REAL SATELLITE", CH26), X.Tag("DAMAGED ROADS REPORTED · 2019-2020 STUDY", (0.06, 0.15), l(tw(14, "reported") - 0.1), l(tw(14, "Other") - 0.1))]
-    for i, (nm, ts) in enumerate(items): ov.append(X.Ring(src_px(PINS[nm]), l(ts - 0.1), l(tw(14, "Other") - 0.1), nm, X.AMBER, 22, [(0.04, -0.075), (-0.03, 0.06), (0.04, 0.05)][i]))
+    for i, (nm, ts) in enumerate(items): ov.append(X.Ring(src_px(PINS[nm]), l(ts - 0.1), l(tw(14, "Other") - 0.1), nm, X.AMBER, 22, [(0.04, -0.09), (-0.02, 0.09), (0.05, 0.08)][i]))
     ov.append(X.Lines([("Cracked buildings and roads", l(tw(14, "cracked")), X.WHITE), ("Changed river flow", l(tw(14, "changed")), X.WHITE), ("Bigger flooded areas", l(tw(14, "bigger")), X.WHITE), ("Drains that stop working", l(tw(14, "drains")), X.AMBER)],
                       (0.06, 0.20), l(t0 + dur), px=0.036, head="OTHER RESEARCHERS LIST"))
-    return landsat("2026", "coast_w", "north", dur, ov, "b14", 0.12)
+    return landsat("2026", "north", "north", dur, ov, "b14", 0.12)
 
 
 def b15a(t0, dur):
-    return X.CoherenceDiagram(SIZE, dur + 0.4, "b15a", t_good=(tw(15, "consistent") - t0 - 0.5, tw(15, "consistent") - t0 + 0.7), t_bad=(tw(15, "next") - t0 - 0.3, tw(15, "next") - t0 + 0.9), t_thr=(tw(15, "coherence") - t0 - 0.2, tw(15, "coherence") - t0 + 0.8))
+    return X.CoherenceDiagram(SIZE, dur + 0.4, "b15a", t_good=(tw(15, "trust") - t0, tw(15, "trust") - t0 + 1.2), t_bad=(tw(15, "next") - t0 - 0.3, tw(15, "next") - t0 + 0.9), t_thr=(tw(15, "coherence") - t0 - 0.2, tw(15, "coherence") - t0 + 0.8))
 
 
 def b15b(t0, dur):
     l = lt(t0); p = src_px((106.80, -6.085))
     ov = [chip("REAL SATELLITE", CH26), X.Tag("PIXELS REMOVED ALONG THE NORTHERN COAST · EXTENT NOT SHOWN", (0.06, 0.15), l(tw(15, "removes") - 0.2), l(t0 + dur), color=X.RED),
-          X.Arrow(src_px((106.76, -6.085)), (-0.05, -0.20), l(tw(15, "northern") - 0.2), l(t0 + dur), "radar goes blind here", X.RED), X.Arrow(src_px((106.86, -6.095)), (0.05, -0.20), l(tw(15, "northern") - 0.0), l(t0 + dur), "", X.RED)]
+          X.Arrow(src_px((106.76, -6.085)), (-0.10, -0.10), l(tw(15, "northern") - 0.2), l(t0 + dur), "radar goes blind here", X.RED), X.Arrow(src_px((106.86, -6.095)), (0.10, -0.10), l(tw(15, "northern") - 0.0), l(t0 + dur), "", X.RED)]
     return landsat("2026", "north", "coast_w", dur, ov, "b15b", 0.15)
 
 

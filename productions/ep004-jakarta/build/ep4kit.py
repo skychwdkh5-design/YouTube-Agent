@@ -105,7 +105,7 @@ class Bars(Overlay):
         x0, y0, x1, y1 = self.box[0] * W, self.box[1] * H, self.box[2] * W, self.box[3] * H; px = H * 0.032
         panel(ctx, (x0, y0, x1, y1), o, CYAN)
         K.draw_text(ctx.ui, (x0 + px * 0.7, y0 + px * 0.5), self.title.upper(), px * 0.8, CYAN, "heavy", o, 0.10)
-        n = len(self.rows); top = y0 + px * 2.3; bottom = y1 - px * 2.0; rh = (bottom - top) / max(1, n); lab_w = px * 7.4; bx0 = x0 + px * 0.7 + lab_w; bw = x1 - px * 0.7 - bx0 - px * 3.6
+        n = len(self.rows); top = y0 + px * 2.3; bottom = y1 - px * 2.0; rh = (bottom - top) / max(1, n); lab_w = px * 9.6; bx0 = x0 + px * 0.7 + lab_w; bw = x1 - px * 0.7 - bx0 - px * 3.6
         for i, (lab, val, ts) in enumerate(self.rows):
             g = E.out_cubic(E.seg(t, ts, ts + 0.8)); yy = top + i * rh
             if g <= 0.01: continue
@@ -276,8 +276,7 @@ class DykeDiagram(Panel2D):
         # ground (sinks together with the dyke and the land behind it)
         gl = base + sink; d.rectangle([W * 0.34, gl, W, H], fill=(104, 82, 64, 255)); d.rectangle([W * 0.34, gl, W, gl + 10 * k], fill=(86, 128, 70, 255))
         d.polygon([(W * 0.34 - 0.0, gl), (W * 0.30, H), (W * 0.34, H)], fill=(104, 82, 64, 255))
-        top = gl - 0.20 * H                                                                            # dyke 'three metres' tall (schematic)
-        d.polygon([(W * 0.43, gl), (W * 0.43 + dyke_w * 0.25, top), (W * 0.43 + dyke_w * 0.75, top), (W * 0.43 + dyke_w, gl)], fill=(160, 160, 168, 255), outline=(220, 224, 232, 255))
+        top = gl - 0.20 * H
         # sea, rising level labelled as 'today' then lapping the top as the land sinks (the sea stays; the ground goes down)
         sea_y = base - 0.20 * H * 0.55 - wave
         if t > self.t_over[0]: sea_y = base - 0.20 * H * (0.55 + 0.28 * E.seg(t, *self.t_over)) - wave
@@ -286,6 +285,7 @@ class DykeDiagram(Panel2D):
         over = max(0.0, (sea_y - top) * -1.0)
         if sea_y < top + 2 * k:
             f = E.seg(t, self.t_sink[1] * 0.78, self.t_sink[1]); d.polygon([(W * 0.43 + dyke_w * 0.1, sea_y), (W * 0.43 + dyke_w * (0.1 + 0.9 * f), sea_y + 40 * k * f + (top - sea_y) * 0), (W * 0.43 + dyke_w, gl), (W * 0.43 + dyke_w * 0.1, gl)], fill=(40, 110, 170, int(200 * f)))
+        d.polygon([(W * 0.43, gl), (W * 0.43 + dyke_w * 0.25, top), (W * 0.43 + dyke_w * 0.75, top), (W * 0.43 + dyke_w, gl)], fill=(160, 160, 168, 255), outline=(220, 224, 232, 255))
         for j in range(6): d.ellipse([W * 0.15 + j * 90 * k, sea_y + 20 * k + (j % 3) * 18 * k, W * 0.15 + j * 90 * k + 6 * k, sea_y + 26 * k + (j % 3) * 18 * k], fill=(255, 255, 255, 90))
         # arrow on the ground showing the sinking
         if E.seg(t, *self.t_sink) > 0.02:
@@ -354,7 +354,7 @@ class TrendsDiagram(Panel2D):
         ne = curve(None, (255, 140, 200), (self.t_others[0] + 0.5, self.t_others[1] + 0.5), lambda x: 0.02 + 0.70 * x)
         im.alpha_composite(lay); ui = Image.new("RGBA", (W, H), (0, 0, 0, 0)); px = 0.027 * H
         K.draw_text(ui, (x0, y0 - px * 1.8), "SINKING (SCHEMATIC)", px * 0.8, MUTED, "bold", 0.9, 0.12); K.draw_text(ui, (x1, y1 + px * 0.5), "2016 → 2024", px * 0.9, MUTED, "bold", 0.9, 0.12, "right")
-        if west: K.draw_text(ui, (west[0] + px * 0.5, west[1] - px * 1.9), "WEST: FAST START, THEN SLOWED", px, CYAN, "heavy", E.smooth(E.seg(t, self.t_west[1] - 1.0, self.t_west[1])), 0.06, "right")
+        if west: K.draw_text(ui, (west[0] + px * 0.5, west[1] - px * 3.4), "WEST: FAST START, THEN SLOWED", px, CYAN, "heavy", E.smooth(E.seg(t, self.t_west[1] - 1.0, self.t_west[1])), 0.06, "right")
         if nw: K.draw_text(ui, (nw[0] - px * 0.5, nw[1] + px * 0.3), "NORTHWEST COAST: STRAIGHT LINE", px, AMBER, "heavy", E.smooth(E.seg(t, self.t_others[1] - 0.9, self.t_others[1] + 0.2)), 0.06, "right")
         if ne: K.draw_text(ui, (ne[0] - px * 0.5, ne[1] - px * 2.2), "NORTHEAST (TANJUNG PRIOK): STRAIGHT LINE", px, (255, 140, 200), "heavy", E.smooth(E.seg(t, self.t_others[1] - 0.2, self.t_others[1] + 0.8)), 0.06, "right")
         K.draw_text(ui, (W / 2, H * 0.94), "SCHEMATIC OF THE SHAPE REPORTED · NO VALUES SHOWN", 0.022 * H, MUTED, "bold", 0.9, 0.16, "center")
@@ -417,8 +417,14 @@ class Suspects(Overlay):
             hi = self.hi == i and self.t_hi is not None and t >= self.t_hi; cx0 = x0 + i * (cw + gap) + (1 - a) * W * 0.04; col = AMBER if hi else CYAN
             d.rectangle([cx0, y0, cx0 + cw, y1], fill=(8, 12, 18, int(205 * a)), outline=tuple(col) + (int((255 if hi else 120) * a),), width=max(2, int(H * (0.006 if hi else 0.003))))
             self._icon(d, kind, cx0 + cw / 2, y0 + (y1 - y0) * 0.32, (y1 - y0) * 0.17, col, a)
-            px = H * 0.034; K.draw_text(ctx.ui, (cx0 + cw / 2, y0 + (y1 - y0) * 0.62), title.upper(), px, WHITE, "black", a, 0.04, "center")
-            K.draw_text(ctx.ui, (cx0 + cw / 2, y0 + (y1 - y0) * 0.62 + px * 1.25), sub.upper(), px * 0.58, MUTED, "bold", a, 0.08, "center")
+            px = H * 0.032; words = title.upper().split(); lines, cur = [], ""
+            for wd in words:
+                tst = (cur + " " + wd).strip()
+                if K.width(tst, px, "black", 0.02) > cw - px * 1.2 and cur: lines.append(cur); cur = wd
+                else: cur = tst
+            lines.append(cur); yy = y0 + (y1 - y0) * 0.58
+            for ln in lines: K.draw_text(ctx.ui, (cx0 + cw / 2, yy), ln, px, WHITE, "black", a, 0.02, "center"); yy += px * 1.15
+            K.draw_text(ctx.ui, (cx0 + cw / 2, yy + px * 0.2), sub.upper(), px * 0.52, MUTED, "bold", a, 0.06, "center")
             if hi: K.draw_text(ctx.ui, (cx0 + cw / 2, y1 - px * 2.3), "ESA CAPTION: LARGELY THIS", px * 0.62, AMBER, "heavy", a, 0.08, "center")
         ctx.reg.add("suspects", (x0, y0, x1, y1), o)
     def describe(self): return dict(super().describe(), effect="suspect_cards")
@@ -508,7 +514,7 @@ class Gauge(Overlay):
         if o <= 0.01: return
         x0, y0, x1, y1 = self.box[0] * W, self.box[1] * H, self.box[2] * W, self.box[3] * H; px = H * 0.03; panel(ctx, (x0, y0, x1, y1), o, CYAN); d = ImageDraw.Draw(ctx.ui, "RGBA")
         K.draw_text(ctx.ui, (x0 + px * 0.9, y0 + px * 0.5), "RADAR vs GPS · ONE STATION (CJKT)", px * 0.85, CYAN, "heavy", o, 0.08)
-        cy = y0 + (y1 - y0) * 0.50; ax0, ax1 = x0 + px * 2.0, x1 - px * 2.0; K.draw_text(ctx.ui, (ax0, cy + px * 0.7), "GPS: VERTICAL RATE", px * 0.62, MUTED, "bold", o, 0.08)
+        cy = y0 + (y1 - y0) * 0.50; ax0, ax1 = x0 + px * 2.0, x1 - px * 2.0; K.draw_text(ctx.ui, (ax0, cy + px * 2.0), "GPS: VERTICAL RATE (CENTRE MARK)", px * 0.62, MUTED, "bold", o, 0.08)
         d.line([(ax0, cy), (ax1, cy)], fill=(240, 244, 248, int(230 * o)), width=3)
         sc = (ax1 - ax0) * 0.46 / 12.0                                                                       # px per mm/yr: the +/-9.4 band stays inside the card
         mid = (ax0 + ax1) / 2
