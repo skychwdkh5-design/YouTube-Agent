@@ -5,6 +5,24 @@
   "research": {
    "completed": "2026-10-16T15:03:03Z",
    "inputs_sha": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "tts": {
+   "pitfalls_consulted": [
+    "captions-from-provider-word-times",
+    "paid-tts-gate-in-the-calling-function",
+    "pronunciation-check-unavailable",
+    "rebuild-paid-narration-from-saved-responses",
+    "script-lock-sha256",
+    "tts-blank-lines-are-billable",
+    "tts-gateway-502-chunk-size",
+    "tts-key-injected-by-egress-proxy",
+    "tts-no-blind-retry",
+    "tts-persistent-chunk-cache",
+    "two-clocks-for-sync",
+    "voice-onset-measured-on-narration"
+   ],
+   "completed": "2026-10-16T15:13:08Z",
+   "inputs_sha": "2151b037b9d6106416740f097db5c66e7bdabf7024ec2b116d1398f466aeeba3"
   }
  }
 }

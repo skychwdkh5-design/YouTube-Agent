@@ -1,0 +1,5122 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "narration.wav",
+ "audio_format": "wav",
+ "audio_sha256": "6eceabdf5a21b82a1cf5f2be7cfe0db7044ac7823b459f25112ca89242699dc2",
+ "duration": 428.13,
+ "characters": 5790,
+ "text": "In a few spots in Jakarta, European Space Agency radar showed the ground sinking almost five inches in a year, in 2017 and 2018. A peak at individual spots, not a citywide average, measured at an angle: along the satellite's line of sight.\n\nThe satellite circled about 430 miles up. It cannot watch the ground move. It measures the distance to the ground, pass after pass.\n\nSo here is what we are going to find out. Why is the ground falling? Why has one of the sinking areas slowed down? And why can't the same satellites see part of the coast?\n\nJakarta sits on the northwest coast of the island of Java, in Indonesia. It is built on a river delta, crossed by thirteen natural and artificial rivers. Almost eleven million people live in the capital province. And by some estimates, as much as 40 percent of the city is already below sea level.\n\nHow does that work? The radar sends microwave pulses down and records each echo's phase: where in the wave's cycle it arrives. On a later pass, it compares the echoes. If the distance changed, even by a small fraction of a wavelength, the phase shifts.\n\nNow the catch. The satellite measures the change in distance along its line of sight, at an angle. That is not the vertical drop. Other passes and GPS help estimate the vertical part. So every number here is labeled: line of sight or vertical, what was measured, and when.\n\nSo why is Jakarta sinking? Scientists who have measured it for decades name three suspects. Groundwater pumped out from underneath the city. The weight of buildings and roads on soft, compressible ground. And the natural settling of young river mud. ESA's own caption points largely at the groundwater.\n\nWhy so much pumping? One 2022 study found that piped water reached only 64 percent of the province. Its authors proposed extending the pipes first to the north and west, as one way to cut the over-pumping.\n\nWhen groundwater is pumped out, soft layers of ground can compact. Researchers separate two things: ground that springs back a little if water returns, and ground that stays squeezed. This animation is an illustration, not a measurement.\n\nNone of this is new. Surveyors, GPS crews, and radar satellites have been measuring Jakarta for decades. Between 1974 and 2010, their typical numbers were three to ten centimeters a year, depending on the place and the time.\n\nA recent analysis of radar data from 2016 to 2024 found three hotspots: one in the west, one on the northwest coast, and one in the northeast, near the harbor at Tanjung Priok. The fastest spot sank about 30 millimeters a year, roughly an inch, along the line of sight.\n\nBut count the hotspots a different way, and you get a different answer. A separate study, still a preprint, combined radar and GPS from 2014 to 2025 and counted six main subsidence bowls. In the worst one, the vertical drop reached up to 7.7 centimeters a year, about three inches. Across the whole metro area, the slow background sinking was about 1.1 centimeters a year. Its authors point out that it relies on a single continuous GPS station.\n\nLook at it district by district. A radar study of 2019 to 2020 reported average sinking rates of 4.9 centimeters a year in North Jakarta, 4.8 in West Jakarta, 3.1 in Central Jakarta, 2.8 in the South, and 2.5 in the East. The abstract does not say if these are line of sight or vertical. The sinking was mostly near the coast and river mouths, on soft river deposits.\n\nOn the ground, you can see the damage. That same study reported damaged roads at Mutiara Beach, West Cengkareng, and Pademangan. Other researchers list cracked buildings and roads, changed river flow, bigger flooded areas, and drains that stop working.\n\nNow the catch. To trust a pixel, the radar echo has to stay consistent from one pass to the next. In the 2016 to 2024 analysis, any pixel with a coherence below 0.6 was thrown out. And that filter removes pixels along the northern coast, the part of Jakarta closest to the sea.\n\nScientists check the radar against GPS. At one station, the radar's line-of-sight rate came out 1.64 millimeters a year higher than the GPS vertical rate, with a typical error of 9.40 millimeters. And that station is not in the same spot as the radar pixel, so even this check has limits.\n\nNow the twist. The western hotspot started sinking fast in 2016, and then slowed down significantly. The northwest and northeast hotspots did not. They kept sinking in a straight line.\n\nA 2026 study, which we have only read as an abstract, also reports that some areas are slowing, a few even show localized uplift, and the coast keeps sinking. Slowing down is not the same as coming back up.\n\nWhy does it matter? Jakarta already floods. A flood in 2007 covered more than 70 percent of the city. On New Year's Eve 2019, a rain gauge at Halim Perdanakusuma recorded 377 millimeters of rain in a single day, nearly fifteen inches. From 1993 to a 2018 assessment, satellites measured global sea level rising about 3.1 millimeters a year on average. In the worst bowl of that preprint, the vertical drop was many times faster.\n\nAlong the waterfront, seawater already tops the coastal dykes, according to a survey of residents. And a 2017 model found that a three-meter dyke, enough for today's conditions, could lose its ability to stop floods completely by the year 2040, if the ground keeps sinking quickly. Its conclusion: stopping the sinking would be the most effective countermeasure.\n\nSo what do satellites prove? That parts of Jakarta are sinking, at different speeds, and that some of that sinking has slowed. What can they not prove? What happens where the radar goes blind, and exactly what is driving each bowl. And the next time you see a map of a sinking city, check the label. What was measured, when, and in which direction.",
+ "text_sha256": "5c92f4209461128af0cdc059af2bd4cbda944809df416490c1776de20bdf283e",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 1676,
+   "offset": 0.0,
+   "duration": 118.097,
+   "timing": true
+  },
+  {
+   "index": 1,
+   "characters": 1388,
+   "offset": 118.097,
+   "duration": 106.162,
+   "timing": true
+  },
+  {
+   "index": 2,
+   "characters": 1584,
+   "offset": 224.258,
+   "duration": 121.719,
+   "timing": true
+  },
+  {
+   "index": 3,
+   "characters": 1142,
+   "offset": 345.977,
+   "duration": 82.152,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "In",
+   "start": 0.0,
+   "end": 0.139
+  },
+  {
+   "text": "a",
+   "start": 0.174,
+   "end": 0.197
+  },
+  {
+   "text": "few",
+   "start": 0.255,
+   "end": 0.406
+  },
+  {
+   "text": "spots",
+   "start": 0.453,
+   "end": 0.824
+  },
+  {
+   "text": "in",
+   "start": 0.859,
+   "end": 0.929
+  },
+  {
+   "text": "Jakarta,",
+   "start": 0.998,
+   "end": 1.695
+  },
+  {
+   "text": "European",
+   "start": 1.904,
+   "end": 2.461
+  },
+  {
+   "text": "Space",
+   "start": 2.531,
+   "end": 2.856
+  },
+  {
+   "text": "Agency",
+   "start": 2.891,
+   "end": 3.286
+  },
+  {
+   "text": "radar",
+   "start": 3.367,
+   "end": 3.831
+  },
+  {
+   "text": "showed",
+   "start": 4.04,
+   "end": 4.342
+  },
+  {
+   "text": "the",
+   "start": 4.377,
+   "end": 4.447
+  },
+  {
+   "text": "ground",
+   "start": 4.505,
+   "end": 4.841
+  },
+  {
+   "text": "sinking",
+   "start": 4.911,
+   "end": 5.236
+  },
+  {
+   "text": "almost",
+   "start": 5.294,
+   "end": 5.642
+  },
+  {
+   "text": "five",
+   "start": 5.712,
+   "end": 6.037
+  },
+  {
+   "text": "inches",
+   "start": 6.084,
+   "end": 6.362
+  },
+  {
+   "text": "in",
+   "start": 6.42,
+   "end": 6.49
+  },
+  {
+   "text": "a",
+   "start": 6.536,
+   "end": 6.56
+  },
+  {
+   "text": "year,",
+   "start": 6.641,
+   "end": 7.094
+  },
+  {
+   "text": "in",
+   "start": 7.303,
+   "end": 7.43
+  },
+  {
+   "text": "2017",
+   "start": 7.5,
+   "end": 8.649
+  },
+  {
+   "text": "and",
+   "start": 8.731,
+   "end": 8.824
+  },
+  {
+   "text": "2018.",
+   "start": 8.893,
+   "end": 10.17
+  },
+  {
+   "text": "A",
+   "start": 10.495,
+   "end": 10.565
+  },
+  {
+   "text": "peak",
+   "start": 10.681,
+   "end": 10.925
+  },
+  {
+   "text": "at",
+   "start": 10.971,
+   "end": 11.041
+  },
+  {
+   "text": "individual",
+   "start": 11.111,
+   "end": 11.656
+  },
+  {
+   "text": "spots,",
+   "start": 11.726,
+   "end": 12.318
+  },
+  {
+   "text": "not",
+   "start": 12.527,
+   "end": 12.771
+  },
+  {
+   "text": "a",
+   "start": 12.829,
+   "end": 12.875
+  },
+  {
+   "text": "citywide",
+   "start": 12.968,
+   "end": 13.56
+  },
+  {
+   "text": "average,",
+   "start": 13.607,
+   "end": 14.245
+  },
+  {
+   "text": "measured",
+   "start": 14.489,
+   "end": 14.907
+  },
+  {
+   "text": "at",
+   "start": 14.977,
+   "end": 15.139
+  },
+  {
+   "text": "an",
+   "start": 15.186,
+   "end": 15.267
+  },
+  {
+   "text": "angle:",
+   "start": 15.348,
+   "end": 15.952
+  },
+  {
+   "text": "along",
+   "start": 16.277,
+   "end": 16.695
+  },
+  {
+   "text": "the",
+   "start": 16.753,
+   "end": 16.823
+  },
+  {
+   "text": "satellite's",
+   "start": 16.893,
+   "end": 17.485
+  },
+  {
+   "text": "line",
+   "start": 17.554,
+   "end": 17.833
+  },
+  {
+   "text": "of",
+   "start": 17.856,
+   "end": 17.914
+  },
+  {
+   "text": "sight.",
+   "start": 17.996,
+   "end": 18.53
+  },
+  {
+   "text": "The",
+   "start": 18.913,
+   "end": 19.029
+  },
+  {
+   "text": "satellite",
+   "start": 19.087,
+   "end": 19.609
+  },
+  {
+   "text": "circled",
+   "start": 19.656,
+   "end": 20.027
+  },
+  {
+   "text": "about",
+   "start": 20.062,
+   "end": 20.283
+  },
+  {
+   "text": "430",
+   "start": 20.341,
+   "end": 21.223
+  },
+  {
+   "text": "miles",
+   "start": 21.293,
+   "end": 21.641
+  },
+  {
+   "text": "up.",
+   "start": 21.711,
+   "end": 22.071
+  },
+  {
+   "text": "It",
+   "start": 22.396,
+   "end": 22.535
+  },
+  {
+   "text": "cannot",
+   "start": 22.582,
+   "end": 22.895
+  },
+  {
+   "text": "watch",
+   "start": 22.953,
+   "end": 23.232
+  },
+  {
+   "text": "the",
+   "start": 23.29,
+   "end": 23.359
+  },
+  {
+   "text": "ground",
+   "start": 23.418,
+   "end": 23.731
+  },
+  {
+   "text": "move.",
+   "start": 23.801,
+   "end": 24.265
+  },
+  {
+   "text": "It",
+   "start": 24.509,
+   "end": 24.637
+  },
+  {
+   "text": "measures",
+   "start": 24.695,
+   "end": 25.066
+  },
+  {
+   "text": "the",
+   "start": 25.124,
+   "end": 25.194
+  },
+  {
+   "text": "distance",
+   "start": 25.252,
+   "end": 25.67
+  },
+  {
+   "text": "to",
+   "start": 25.716,
+   "end": 25.786
+  },
+  {
+   "text": "the",
+   "start": 25.856,
+   "end": 25.925
+  },
+  {
+   "text": "ground,",
+   "start": 25.972,
+   "end": 26.494
+  },
+  {
+   "text": "pass",
+   "start": 26.587,
+   "end": 27.017
+  },
+  {
+   "text": "after",
+   "start": 27.063,
+   "end": 27.33
+  },
+  {
+   "text": "pass.",
+   "start": 27.4,
+   "end": 28.015
+  },
+  {
+   "text": "So",
+   "start": 28.398,
+   "end": 28.549
+  },
+  {
+   "text": "here",
+   "start": 28.63,
+   "end": 28.816
+  },
+  {
+   "text": "is",
+   "start": 28.863,
+   "end": 28.944
+  },
+  {
+   "text": "what",
+   "start": 28.99,
+   "end": 29.141
+  },
+  {
+   "text": "we",
+   "start": 29.188,
+   "end": 29.269
+  },
+  {
+   "text": "are",
+   "start": 29.315,
+   "end": 29.42
+  },
+  {
+   "text": "going",
+   "start": 29.455,
+   "end": 29.687
+  },
+  {
+   "text": "to",
+   "start": 29.733,
+   "end": 29.78
+  },
+  {
+   "text": "find",
+   "start": 29.838,
+   "end": 30.14
+  },
+  {
+   "text": "out.",
+   "start": 30.221,
+   "end": 30.639
+  },
+  {
+   "text": "Why",
+   "start": 31.08,
+   "end": 31.347
+  },
+  {
+   "text": "is",
+   "start": 31.417,
+   "end": 31.521
+  },
+  {
+   "text": "the",
+   "start": 31.579,
+   "end": 31.649
+  },
+  {
+   "text": "ground",
+   "start": 31.695,
+   "end": 32.09
+  },
+  {
+   "text": "falling?",
+   "start": 32.206,
+   "end": 32.903
+  },
+  {
+   "text": "Why",
+   "start": 33.286,
+   "end": 33.495
+  },
+  {
+   "text": "has",
+   "start": 33.565,
+   "end": 33.692
+  },
+  {
+   "text": "one",
+   "start": 33.762,
+   "end": 33.89
+  },
+  {
+   "text": "of",
+   "start": 33.913,
+   "end": 33.959
+  },
+  {
+   "text": "the",
+   "start": 34.006,
+   "end": 34.076
+  },
+  {
+   "text": "sinking",
+   "start": 34.134,
+   "end": 34.482
+  },
+  {
+   "text": "areas",
+   "start": 34.54,
+   "end": 35.004
+  },
+  {
+   "text": "slowed",
+   "start": 35.132,
+   "end": 35.573
+  },
+  {
+   "text": "down?",
+   "start": 35.62,
+   "end": 36.212
+  },
+  {
+   "text": "And",
+   "start": 36.537,
+   "end": 36.688
+  },
+  {
+   "text": "why",
+   "start": 36.734,
+   "end": 36.897
+  },
+  {
+   "text": "can't",
+   "start": 36.966,
+   "end": 37.152
+  },
+  {
+   "text": "the",
+   "start": 37.187,
+   "end": 37.257
+  },
+  {
+   "text": "same",
+   "start": 37.315,
+   "end": 37.617
+  },
+  {
+   "text": "satellites",
+   "start": 37.675,
+   "end": 38.302
+  },
+  {
+   "text": "see",
+   "start": 38.418,
+   "end": 38.615
+  },
+  {
+   "text": "part",
+   "start": 38.673,
+   "end": 38.859
+  },
+  {
+   "text": "of",
+   "start": 38.894,
+   "end": 38.94
+  },
+  {
+   "text": "the",
+   "start": 38.975,
+   "end": 39.045
+  },
+  {
+   "text": "coast?",
+   "start": 39.091,
+   "end": 39.637
+  },
+  {
+   "text": "Jakarta",
+   "start": 40.02,
+   "end": 40.449
+  },
+  {
+   "text": "sits",
+   "start": 40.519,
+   "end": 40.763
+  },
+  {
+   "text": "on",
+   "start": 40.809,
+   "end": 40.902
+  },
+  {
+   "text": "the",
+   "start": 40.937,
+   "end": 41.007
+  },
+  {
+   "text": "northwest",
+   "start": 41.076,
+   "end": 41.645
+  },
+  {
+   "text": "coast",
+   "start": 41.703,
+   "end": 42.04
+  },
+  {
+   "text": "of",
+   "start": 42.098,
+   "end": 42.156
+  },
+  {
+   "text": "the",
+   "start": 42.203,
+   "end": 42.272
+  },
+  {
+   "text": "island",
+   "start": 42.365,
+   "end": 42.69
+  },
+  {
+   "text": "of",
+   "start": 42.748,
+   "end": 42.795
+  },
+  {
+   "text": "Java,",
+   "start": 42.876,
+   "end": 43.364
+  },
+  {
+   "text": "in",
+   "start": 43.433,
+   "end": 43.573
+  },
+  {
+   "text": "Indonesia.",
+   "start": 43.642,
+   "end": 44.49
+  },
+  {
+   "text": "It",
+   "start": 44.768,
+   "end": 44.896
+  },
+  {
+   "text": "is",
+   "start": 44.931,
+   "end": 45.012
+  },
+  {
+   "text": "built",
+   "start": 45.082,
+   "end": 45.337
+  },
+  {
+   "text": "on",
+   "start": 45.407,
+   "end": 45.488
+  },
+  {
+   "text": "a",
+   "start": 45.535,
+   "end": 45.558
+  },
+  {
+   "text": "river",
+   "start": 45.651,
+   "end": 45.918
+  },
+  {
+   "text": "delta,",
+   "start": 45.987,
+   "end": 46.58
+  },
+  {
+   "text": "crossed",
+   "start": 46.789,
+   "end": 47.183
+  },
+  {
+   "text": "by",
+   "start": 47.241,
+   "end": 47.404
+  },
+  {
+   "text": "thirteen",
+   "start": 47.52,
+   "end": 48.193
+  },
+  {
+   "text": "natural",
+   "start": 48.309,
+   "end": 48.797
+  },
+  {
+   "text": "and",
+   "start": 48.855,
+   "end": 48.96
+  },
+  {
+   "text": "artificial",
+   "start": 49.053,
+   "end": 49.656
+  },
+  {
+   "text": "rivers.",
+   "start": 49.738,
+   "end": 50.318
+  },
+  {
+   "text": "Almost",
+   "start": 50.643,
+   "end": 51.073
+  },
+  {
+   "text": "eleven",
+   "start": 51.143,
+   "end": 51.653
+  },
+  {
+   "text": "million",
+   "start": 51.746,
+   "end": 52.153
+  },
+  {
+   "text": "people",
+   "start": 52.222,
+   "end": 52.547
+  },
+  {
+   "text": "live",
+   "start": 52.605,
+   "end": 52.791
+  },
+  {
+   "text": "in",
+   "start": 52.826,
+   "end": 52.872
+  },
+  {
+   "text": "the",
+   "start": 52.896,
+   "end": 52.965
+  },
+  {
+   "text": "capital",
+   "start": 53.0,
+   "end": 53.383
+  },
+  {
+   "text": "province.",
+   "start": 53.441,
+   "end": 54.045
+  },
+  {
+   "text": "And",
+   "start": 54.219,
+   "end": 54.382
+  },
+  {
+   "text": "by",
+   "start": 54.44,
+   "end": 54.544
+  },
+  {
+   "text": "some",
+   "start": 54.614,
+   "end": 54.811
+  },
+  {
+   "text": "estimates,",
+   "start": 54.858,
+   "end": 55.438
+  },
+  {
+   "text": "as",
+   "start": 55.589,
+   "end": 55.74
+  },
+  {
+   "text": "much",
+   "start": 55.798,
+   "end": 55.961
+  },
+  {
+   "text": "as",
+   "start": 55.995,
+   "end": 56.077
+  },
+  {
+   "text": "40",
+   "start": 56.158,
+   "end": 56.46
+  },
+  {
+   "text": "percent",
+   "start": 56.53,
+   "end": 56.878
+  },
+  {
+   "text": "of",
+   "start": 56.913,
+   "end": 56.971
+  },
+  {
+   "text": "the",
+   "start": 57.017,
+   "end": 57.087
+  },
+  {
+   "text": "city",
+   "start": 57.133,
+   "end": 57.412
+  },
+  {
+   "text": "is",
+   "start": 57.47,
+   "end": 57.563
+  },
+  {
+   "text": "already",
+   "start": 57.632,
+   "end": 58.016
+  },
+  {
+   "text": "below",
+   "start": 58.074,
+   "end": 58.352
+  },
+  {
+   "text": "sea",
+   "start": 58.445,
+   "end": 58.619
+  },
+  {
+   "text": "level.",
+   "start": 58.666,
+   "end": 59.188
+  },
+  {
+   "text": "How",
+   "start": 59.629,
+   "end": 59.769
+  },
+  {
+   "text": "does",
+   "start": 59.804,
+   "end": 59.943
+  },
+  {
+   "text": "that",
+   "start": 59.978,
+   "end": 60.129
+  },
+  {
+   "text": "work?",
+   "start": 60.187,
+   "end": 60.709
+  },
+  {
+   "text": "The",
+   "start": 61.092,
+   "end": 61.208
+  },
+  {
+   "text": "radar",
+   "start": 61.278,
+   "end": 61.673
+  },
+  {
+   "text": "sends",
+   "start": 61.754,
+   "end": 62.067
+  },
+  {
+   "text": "microwave",
+   "start": 62.137,
+   "end": 62.787
+  },
+  {
+   "text": "pulses",
+   "start": 62.822,
+   "end": 63.263
+  },
+  {
+   "text": "down",
+   "start": 63.333,
+   "end": 63.704
+  },
+  {
+   "text": "and",
+   "start": 63.879,
+   "end": 64.065
+  },
+  {
+   "text": "records",
+   "start": 64.134,
+   "end": 64.587
+  },
+  {
+   "text": "each",
+   "start": 64.669,
+   "end": 64.889
+  },
+  {
+   "text": "echo's",
+   "start": 64.97,
+   "end": 65.365
+  },
+  {
+   "text": "phase:",
+   "start": 65.412,
+   "end": 66.108
+  },
+  {
+   "text": "where",
+   "start": 66.317,
+   "end": 66.724
+  },
+  {
+   "text": "in",
+   "start": 66.793,
+   "end": 66.898
+  },
+  {
+   "text": "the",
+   "start": 66.944,
+   "end": 67.014
+  },
+  {
+   "text": "wave's",
+   "start": 67.06,
+   "end": 67.397
+  },
+  {
+   "text": "cycle",
+   "start": 67.443,
+   "end": 67.85
+  },
+  {
+   "text": "it",
+   "start": 67.908,
+   "end": 68.012
+  },
+  {
+   "text": "arrives.",
+   "start": 68.047,
+   "end": 68.802
+  },
+  {
+   "text": "On",
+   "start": 69.185,
+   "end": 69.359
+  },
+  {
+   "text": "a",
+   "start": 69.405,
+   "end": 69.429
+  },
+  {
+   "text": "later",
+   "start": 69.487,
+   "end": 69.707
+  },
+  {
+   "text": "pass,",
+   "start": 69.765,
+   "end": 70.288
+  },
+  {
+   "text": "it",
+   "start": 70.439,
+   "end": 70.566
+  },
+  {
+   "text": "compares",
+   "start": 70.613,
+   "end": 71.019
+  },
+  {
+   "text": "the",
+   "start": 71.066,
+   "end": 71.147
+  },
+  {
+   "text": "echoes.",
+   "start": 71.217,
+   "end": 71.855
+  },
+  {
+   "text": "If",
+   "start": 72.296,
+   "end": 72.436
+  },
+  {
+   "text": "the",
+   "start": 72.482,
+   "end": 72.552
+  },
+  {
+   "text": "distance",
+   "start": 72.61,
+   "end": 73.028
+  },
+  {
+   "text": "changed,",
+   "start": 73.074,
+   "end": 73.724
+  },
+  {
+   "text": "even",
+   "start": 73.898,
+   "end": 74.142
+  },
+  {
+   "text": "by",
+   "start": 74.189,
+   "end": 74.34
+  },
+  {
+   "text": "a",
+   "start": 74.409,
+   "end": 74.433
+  },
+  {
+   "text": "small",
+   "start": 74.491,
+   "end": 74.792
+  },
+  {
+   "text": "fraction",
+   "start": 74.862,
+   "end": 75.292
+  },
+  {
+   "text": "of",
+   "start": 75.338,
+   "end": 75.396
+  },
+  {
+   "text": "a",
+   "start": 75.454,
+   "end": 75.477
+  },
+  {
+   "text": "wavelength,",
+   "start": 75.547,
+   "end": 76.348
+  },
+  {
+   "text": "the",
+   "start": 76.592,
+   "end": 76.696
+  },
+  {
+   "text": "phase",
+   "start": 76.743,
+   "end": 77.277
+  },
+  {
+   "text": "shifts.",
+   "start": 77.347,
+   "end": 78.125
+  },
+  {
+   "text": "Now",
+   "start": 78.635,
+   "end": 79.007
+  },
+  {
+   "text": "the",
+   "start": 79.518,
+   "end": 79.634
+  },
+  {
+   "text": "catch.",
+   "start": 79.692,
+   "end": 80.342
+  },
+  {
+   "text": "The",
+   "start": 80.853,
+   "end": 80.969
+  },
+  {
+   "text": "satellite",
+   "start": 81.027,
+   "end": 81.561
+  },
+  {
+   "text": "measures",
+   "start": 81.619,
+   "end": 81.991
+  },
+  {
+   "text": "the",
+   "start": 82.049,
+   "end": 82.119
+  },
+  {
+   "text": "change",
+   "start": 82.177,
+   "end": 82.536
+  },
+  {
+   "text": "in",
+   "start": 82.571,
+   "end": 82.641
+  },
+  {
+   "text": "distance",
+   "start": 82.711,
+   "end": 83.163
+  },
+  {
+   "text": "along",
+   "start": 83.198,
+   "end": 83.558
+  },
+  {
+   "text": "its",
+   "start": 83.628,
+   "end": 83.756
+  },
+  {
+   "text": "line",
+   "start": 83.814,
+   "end": 84.081
+  },
+  {
+   "text": "of",
+   "start": 84.104,
+   "end": 84.15
+  },
+  {
+   "text": "sight,",
+   "start": 84.22,
+   "end": 84.661
+  },
+  {
+   "text": "at",
+   "start": 84.87,
+   "end": 85.033
+  },
+  {
+   "text": "an",
+   "start": 85.067,
+   "end": 85.137
+  },
+  {
+   "text": "angle.",
+   "start": 85.207,
+   "end": 85.694
+  },
+  {
+   "text": "That",
+   "start": 85.938,
+   "end": 86.136
+  },
+  {
+   "text": "is",
+   "start": 86.182,
+   "end": 86.263
+  },
+  {
+   "text": "not",
+   "start": 86.333,
+   "end": 86.519
+  },
+  {
+   "text": "the",
+   "start": 86.565,
+   "end": 86.635
+  },
+  {
+   "text": "vertical",
+   "start": 86.693,
+   "end": 87.041
+  },
+  {
+   "text": "drop.",
+   "start": 87.088,
+   "end": 87.529
+  },
+  {
+   "text": "Other",
+   "start": 87.703,
+   "end": 87.97
+  },
+  {
+   "text": "passes",
+   "start": 88.028,
+   "end": 88.458
+  },
+  {
+   "text": "and",
+   "start": 88.504,
+   "end": 88.585
+  },
+  {
+   "text": "GPS",
+   "start": 88.643,
+   "end": 89.212
+  },
+  {
+   "text": "help",
+   "start": 89.294,
+   "end": 89.491
+  },
+  {
+   "text": "estimate",
+   "start": 89.572,
+   "end": 90.002
+  },
+  {
+   "text": "the",
+   "start": 90.037,
+   "end": 90.106
+  },
+  {
+   "text": "vertical",
+   "start": 90.164,
+   "end": 90.513
+  },
+  {
+   "text": "part.",
+   "start": 90.571,
+   "end": 90.954
+  },
+  {
+   "text": "So",
+   "start": 91.163,
+   "end": 91.302
+  },
+  {
+   "text": "every",
+   "start": 91.383,
+   "end": 91.604
+  },
+  {
+   "text": "number",
+   "start": 91.662,
+   "end": 91.917
+  },
+  {
+   "text": "here",
+   "start": 91.999,
+   "end": 92.231
+  },
+  {
+   "text": "is",
+   "start": 92.277,
+   "end": 92.37
+  },
+  {
+   "text": "labeled:",
+   "start": 92.463,
+   "end": 92.997
+  },
+  {
+   "text": "line",
+   "start": 93.206,
+   "end": 93.543
+  },
+  {
+   "text": "of",
+   "start": 93.578,
+   "end": 93.636
+  },
+  {
+   "text": "sight",
+   "start": 93.705,
+   "end": 94.019
+  },
+  {
+   "text": "or",
+   "start": 94.1,
+   "end": 94.286
+  },
+  {
+   "text": "vertical,",
+   "start": 94.379,
+   "end": 95.098
+  },
+  {
+   "text": "what",
+   "start": 95.273,
+   "end": 95.47
+  },
+  {
+   "text": "was",
+   "start": 95.528,
+   "end": 95.667
+  },
+  {
+   "text": "measured,",
+   "start": 95.76,
+   "end": 96.283
+  },
+  {
+   "text": "and",
+   "start": 96.376,
+   "end": 96.585
+  },
+  {
+   "text": "when.",
+   "start": 96.666,
+   "end": 97.212
+  },
+  {
+   "text": "So",
+   "start": 97.653,
+   "end": 97.815
+  },
+  {
+   "text": "why",
+   "start": 97.885,
+   "end": 98.175
+  },
+  {
+   "text": "is",
+   "start": 98.245,
+   "end": 98.338
+  },
+  {
+   "text": "Jakarta",
+   "start": 98.408,
+   "end": 98.837
+  },
+  {
+   "text": "sinking?",
+   "start": 98.918,
+   "end": 99.534
+  },
+  {
+   "text": "Scientists",
+   "start": 99.859,
+   "end": 100.474
+  },
+  {
+   "text": "who",
+   "start": 100.497,
+   "end": 100.59
+  },
+  {
+   "text": "have",
+   "start": 100.648,
+   "end": 100.776
+  },
+  {
+   "text": "measured",
+   "start": 100.822,
+   "end": 101.159
+  },
+  {
+   "text": "it",
+   "start": 101.194,
+   "end": 101.252
+  },
+  {
+   "text": "for",
+   "start": 101.298,
+   "end": 101.403
+  },
+  {
+   "text": "decades",
+   "start": 101.473,
+   "end": 102.007
+  },
+  {
+   "text": "name",
+   "start": 102.088,
+   "end": 102.367
+  },
+  {
+   "text": "three",
+   "start": 102.425,
+   "end": 102.715
+  },
+  {
+   "text": "suspects.",
+   "start": 102.773,
+   "end": 103.655
+  },
+  {
+   "text": "Groundwater",
+   "start": 103.899,
+   "end": 104.572
+  },
+  {
+   "text": "pumped",
+   "start": 104.642,
+   "end": 104.944
+  },
+  {
+   "text": "out",
+   "start": 104.99,
+   "end": 105.141
+  },
+  {
+   "text": "from",
+   "start": 105.176,
+   "end": 105.316
+  },
+  {
+   "text": "underneath",
+   "start": 105.385,
+   "end": 105.768
+  },
+  {
+   "text": "the",
+   "start": 105.815,
+   "end": 105.884
+  },
+  {
+   "text": "city.",
+   "start": 105.942,
+   "end": 106.418
+  },
+  {
+   "text": "The",
+   "start": 106.627,
+   "end": 106.744
+  },
+  {
+   "text": "weight",
+   "start": 106.802,
+   "end": 107.011
+  },
+  {
+   "text": "of",
+   "start": 107.045,
+   "end": 107.092
+  },
+  {
+   "text": "buildings",
+   "start": 107.173,
+   "end": 107.73
+  },
+  {
+   "text": "and",
+   "start": 107.777,
+   "end": 107.881
+  },
+  {
+   "text": "roads",
+   "start": 107.963,
+   "end": 108.404
+  },
+  {
+   "text": "on",
+   "start": 108.473,
+   "end": 108.648
+  },
+  {
+   "text": "soft,",
+   "start": 108.764,
+   "end": 109.193
+  },
+  {
+   "text": "compressible",
+   "start": 109.228,
+   "end": 109.89
+  },
+  {
+   "text": "ground.",
+   "start": 109.936,
+   "end": 110.621
+  },
+  {
+   "text": "And",
+   "start": 110.946,
+   "end": 111.109
+  },
+  {
+   "text": "the",
+   "start": 111.167,
+   "end": 111.237
+  },
+  {
+   "text": "natural",
+   "start": 111.295,
+   "end": 111.724
+  },
+  {
+   "text": "settling",
+   "start": 111.806,
+   "end": 112.27
+  },
+  {
+   "text": "of",
+   "start": 112.34,
+   "end": 112.421
+  },
+  {
+   "text": "young",
+   "start": 112.537,
+   "end": 112.781
+  },
+  {
+   "text": "river",
+   "start": 112.862,
+   "end": 113.118
+  },
+  {
+   "text": "mud.",
+   "start": 113.187,
+   "end": 113.768
+  },
+  {
+   "text": "ESA's",
+   "start": 114.372,
+   "end": 115.033
+  },
+  {
+   "text": "own",
+   "start": 115.091,
+   "end": 115.254
+  },
+  {
+   "text": "caption",
+   "start": 115.324,
+   "end": 115.741
+  },
+  {
+   "text": "points",
+   "start": 115.811,
+   "end": 116.067
+  },
+  {
+   "text": "largely",
+   "start": 116.136,
+   "end": 116.543
+  },
+  {
+   "text": "at",
+   "start": 116.589,
+   "end": 116.659
+  },
+  {
+   "text": "the",
+   "start": 116.694,
+   "end": 116.763
+  },
+  {
+   "text": "groundwater.",
+   "start": 116.81,
+   "end": 118.098
+  },
+  {
+   "text": "Why",
+   "start": 118.097,
+   "end": 118.364
+  },
+  {
+   "text": "so",
+   "start": 118.457,
+   "end": 118.608
+  },
+  {
+   "text": "much",
+   "start": 118.689,
+   "end": 118.886
+  },
+  {
+   "text": "pumping?",
+   "start": 118.945,
+   "end": 119.711
+  },
+  {
+   "text": "One",
+   "start": 120.407,
+   "end": 120.674
+  },
+  {
+   "text": "2022",
+   "start": 120.721,
+   "end": 121.603
+  },
+  {
+   "text": "study",
+   "start": 121.684,
+   "end": 122.033
+  },
+  {
+   "text": "found",
+   "start": 122.149,
+   "end": 122.474
+  },
+  {
+   "text": "that",
+   "start": 122.532,
+   "end": 122.695
+  },
+  {
+   "text": "piped",
+   "start": 122.764,
+   "end": 123.101
+  },
+  {
+   "text": "water",
+   "start": 123.159,
+   "end": 123.461
+  },
+  {
+   "text": "reached",
+   "start": 123.53,
+   "end": 123.844
+  },
+  {
+   "text": "only",
+   "start": 123.914,
+   "end": 124.215
+  },
+  {
+   "text": "64",
+   "start": 124.285,
+   "end": 124.947
+  },
+  {
+   "text": "percent",
+   "start": 125.017,
+   "end": 125.388
+  },
+  {
+   "text": "of",
+   "start": 125.435,
+   "end": 125.481
+  },
+  {
+   "text": "the",
+   "start": 125.516,
+   "end": 125.585
+  },
+  {
+   "text": "province.",
+   "start": 125.632,
+   "end": 126.445
+  },
+  {
+   "text": "Its",
+   "start": 126.886,
+   "end": 127.072
+  },
+  {
+   "text": "authors",
+   "start": 127.118,
+   "end": 127.466
+  },
+  {
+   "text": "proposed",
+   "start": 127.524,
+   "end": 128.047
+  },
+  {
+   "text": "extending",
+   "start": 128.093,
+   "end": 128.592
+  },
+  {
+   "text": "the",
+   "start": 128.639,
+   "end": 128.709
+  },
+  {
+   "text": "pipes",
+   "start": 128.767,
+   "end": 129.15
+  },
+  {
+   "text": "first",
+   "start": 129.219,
+   "end": 129.544
+  },
+  {
+   "text": "to",
+   "start": 129.591,
+   "end": 129.661
+  },
+  {
+   "text": "the",
+   "start": 129.73,
+   "end": 129.8
+  },
+  {
+   "text": "north",
+   "start": 129.87,
+   "end": 130.137
+  },
+  {
+   "text": "and",
+   "start": 130.183,
+   "end": 130.287
+  },
+  {
+   "text": "west,",
+   "start": 130.357,
+   "end": 130.938
+  },
+  {
+   "text": "as",
+   "start": 131.112,
+   "end": 131.286
+  },
+  {
+   "text": "one",
+   "start": 131.367,
+   "end": 131.553
+  },
+  {
+   "text": "way",
+   "start": 131.588,
+   "end": 131.762
+  },
+  {
+   "text": "to",
+   "start": 131.82,
+   "end": 131.878
+  },
+  {
+   "text": "cut",
+   "start": 131.948,
+   "end": 132.122
+  },
+  {
+   "text": "the",
+   "start": 132.168,
+   "end": 132.238
+  },
+  {
+   "text": "over-pumping.",
+   "start": 132.319,
+   "end": 133.271
+  },
+  {
+   "text": "When",
+   "start": 133.875,
+   "end": 134.072
+  },
+  {
+   "text": "groundwater",
+   "start": 134.13,
+   "end": 134.839
+  },
+  {
+   "text": "is",
+   "start": 134.908,
+   "end": 135.001
+  },
+  {
+   "text": "pumped",
+   "start": 135.071,
+   "end": 135.373
+  },
+  {
+   "text": "out,",
+   "start": 135.431,
+   "end": 135.883
+  },
+  {
+   "text": "soft",
+   "start": 136.058,
+   "end": 136.452
+  },
+  {
+   "text": "layers",
+   "start": 136.522,
+   "end": 136.905
+  },
+  {
+   "text": "of",
+   "start": 136.963,
+   "end": 137.021
+  },
+  {
+   "text": "ground",
+   "start": 137.091,
+   "end": 137.532
+  },
+  {
+   "text": "can",
+   "start": 137.602,
+   "end": 137.764
+  },
+  {
+   "text": "compact.",
+   "start": 137.846,
+   "end": 138.763
+  },
+  {
+   "text": "Researchers",
+   "start": 139.366,
+   "end": 139.947
+  },
+  {
+   "text": "separate",
+   "start": 140.005,
+   "end": 140.516
+  },
+  {
+   "text": "two",
+   "start": 140.551,
+   "end": 140.713
+  },
+  {
+   "text": "things:",
+   "start": 140.795,
+   "end": 141.479
+  },
+  {
+   "text": "ground",
+   "start": 141.723,
+   "end": 142.118
+  },
+  {
+   "text": "that",
+   "start": 142.164,
+   "end": 142.304
+  },
+  {
+   "text": "springs",
+   "start": 142.35,
+   "end": 142.745
+  },
+  {
+   "text": "back",
+   "start": 142.815,
+   "end": 143.058
+  },
+  {
+   "text": "a",
+   "start": 143.117,
+   "end": 143.14
+  },
+  {
+   "text": "little",
+   "start": 143.198,
+   "end": 143.465
+  },
+  {
+   "text": "if",
+   "start": 143.5,
+   "end": 143.593
+  },
+  {
+   "text": "water",
+   "start": 143.674,
+   "end": 143.964
+  },
+  {
+   "text": "returns,",
+   "start": 144.034,
+   "end": 144.858
+  },
+  {
+   "text": "and",
+   "start": 144.951,
+   "end": 145.125
+  },
+  {
+   "text": "ground",
+   "start": 145.195,
+   "end": 145.613
+  },
+  {
+   "text": "that",
+   "start": 145.671,
+   "end": 145.81
+  },
+  {
+   "text": "stays",
+   "start": 145.868,
+   "end": 146.182
+  },
+  {
+   "text": "squeezed.",
+   "start": 146.228,
+   "end": 147.134
+  },
+  {
+   "text": "This",
+   "start": 147.644,
+   "end": 147.83
+  },
+  {
+   "text": "animation",
+   "start": 147.888,
+   "end": 148.399
+  },
+  {
+   "text": "is",
+   "start": 148.457,
+   "end": 148.538
+  },
+  {
+   "text": "an",
+   "start": 148.585,
+   "end": 148.654
+  },
+  {
+   "text": "illustration,",
+   "start": 148.7,
+   "end": 149.525
+  },
+  {
+   "text": "not",
+   "start": 149.641,
+   "end": 149.827
+  },
+  {
+   "text": "a",
+   "start": 149.873,
+   "end": 149.896
+  },
+  {
+   "text": "measurement.",
+   "start": 149.954,
+   "end": 150.721
+  },
+  {
+   "text": "None",
+   "start": 151.104,
+   "end": 151.313
+  },
+  {
+   "text": "of",
+   "start": 151.348,
+   "end": 151.394
+  },
+  {
+   "text": "this",
+   "start": 151.452,
+   "end": 151.615
+  },
+  {
+   "text": "is",
+   "start": 151.673,
+   "end": 151.765
+  },
+  {
+   "text": "new.",
+   "start": 151.858,
+   "end": 152.45
+  },
+  {
+   "text": "Surveyors,",
+   "start": 152.776,
+   "end": 153.716
+  },
+  {
+   "text": "GPS",
+   "start": 153.832,
+   "end": 154.436
+  },
+  {
+   "text": "crews,",
+   "start": 154.517,
+   "end": 155.028
+  },
+  {
+   "text": "and",
+   "start": 155.051,
+   "end": 155.156
+  },
+  {
+   "text": "radar",
+   "start": 155.248,
+   "end": 155.643
+  },
+  {
+   "text": "satellites",
+   "start": 155.724,
+   "end": 156.398
+  },
+  {
+   "text": "have",
+   "start": 156.642,
+   "end": 156.804
+  },
+  {
+   "text": "been",
+   "start": 156.827,
+   "end": 156.978
+  },
+  {
+   "text": "measuring",
+   "start": 157.036,
+   "end": 157.431
+  },
+  {
+   "text": "Jakarta",
+   "start": 157.501,
+   "end": 157.942
+  },
+  {
+   "text": "for",
+   "start": 158.0,
+   "end": 158.116
+  },
+  {
+   "text": "decades.",
+   "start": 158.186,
+   "end": 159.022
+  },
+  {
+   "text": "Between",
+   "start": 159.533,
+   "end": 159.916
+  },
+  {
+   "text": "1974",
+   "start": 159.951,
+   "end": 161.053
+  },
+  {
+   "text": "and",
+   "start": 161.135,
+   "end": 161.251
+  },
+  {
+   "text": "2010,",
+   "start": 161.332,
+   "end": 162.4
+  },
+  {
+   "text": "their",
+   "start": 162.574,
+   "end": 162.76
+  },
+  {
+   "text": "typical",
+   "start": 162.818,
+   "end": 163.19
+  },
+  {
+   "text": "numbers",
+   "start": 163.271,
+   "end": 163.654
+  },
+  {
+   "text": "were",
+   "start": 163.724,
+   "end": 163.898
+  },
+  {
+   "text": "three",
+   "start": 163.956,
+   "end": 164.235
+  },
+  {
+   "text": "to",
+   "start": 164.269,
+   "end": 164.339
+  },
+  {
+   "text": "ten",
+   "start": 164.409,
+   "end": 164.618
+  },
+  {
+   "text": "centimeters",
+   "start": 164.699,
+   "end": 165.303
+  },
+  {
+   "text": "a",
+   "start": 165.349,
+   "end": 165.372
+  },
+  {
+   "text": "year,",
+   "start": 165.454,
+   "end": 165.941
+  },
+  {
+   "text": "depending",
+   "start": 166.092,
+   "end": 166.545
+  },
+  {
+   "text": "on",
+   "start": 166.603,
+   "end": 166.684
+  },
+  {
+   "text": "the",
+   "start": 166.719,
+   "end": 166.789
+  },
+  {
+   "text": "place",
+   "start": 166.835,
+   "end": 167.16
+  },
+  {
+   "text": "and",
+   "start": 167.195,
+   "end": 167.288
+  },
+  {
+   "text": "the",
+   "start": 167.334,
+   "end": 167.404
+  },
+  {
+   "text": "time.",
+   "start": 167.45,
+   "end": 168.112
+  },
+  {
+   "text": "A",
+   "start": 168.902,
+   "end": 168.995
+  },
+  {
+   "text": "recent",
+   "start": 169.087,
+   "end": 169.436
+  },
+  {
+   "text": "analysis",
+   "start": 169.482,
+   "end": 170.086
+  },
+  {
+   "text": "of",
+   "start": 170.144,
+   "end": 170.214
+  },
+  {
+   "text": "radar",
+   "start": 170.283,
+   "end": 170.701
+  },
+  {
+   "text": "data",
+   "start": 170.771,
+   "end": 171.084
+  },
+  {
+   "text": "from",
+   "start": 171.142,
+   "end": 171.293
+  },
+  {
+   "text": "2016",
+   "start": 171.363,
+   "end": 172.443
+  },
+  {
+   "text": "to",
+   "start": 172.512,
+   "end": 172.582
+  },
+  {
+   "text": "2024",
+   "start": 172.663,
+   "end": 173.673
+  },
+  {
+   "text": "found",
+   "start": 174.045,
+   "end": 174.393
+  },
+  {
+   "text": "three",
+   "start": 174.486,
+   "end": 174.8
+  },
+  {
+   "text": "hotspots:",
+   "start": 174.858,
+   "end": 175.798
+  },
+  {
+   "text": "one",
+   "start": 176.379,
+   "end": 176.599
+  },
+  {
+   "text": "in",
+   "start": 176.634,
+   "end": 176.68
+  },
+  {
+   "text": "the",
+   "start": 176.727,
+   "end": 176.796
+  },
+  {
+   "text": "west,",
+   "start": 176.843,
+   "end": 177.389
+  },
+  {
+   "text": "one",
+   "start": 177.621,
+   "end": 177.818
+  },
+  {
+   "text": "on",
+   "start": 177.853,
+   "end": 177.934
+  },
+  {
+   "text": "the",
+   "start": 177.969,
+   "end": 178.039
+  },
+  {
+   "text": "northwest",
+   "start": 178.097,
+   "end": 178.608
+  },
+  {
+   "text": "coast,",
+   "start": 178.677,
+   "end": 179.235
+  },
+  {
+   "text": "and",
+   "start": 179.432,
+   "end": 179.618
+  },
+  {
+   "text": "one",
+   "start": 179.699,
+   "end": 179.931
+  },
+  {
+   "text": "in",
+   "start": 179.954,
+   "end": 180.012
+  },
+  {
+   "text": "the",
+   "start": 180.047,
+   "end": 180.117
+  },
+  {
+   "text": "northeast,",
+   "start": 180.175,
+   "end": 180.941
+  },
+  {
+   "text": "near",
+   "start": 181.15,
+   "end": 181.348
+  },
+  {
+   "text": "the",
+   "start": 181.406,
+   "end": 181.475
+  },
+  {
+   "text": "harbor",
+   "start": 181.533,
+   "end": 181.893
+  },
+  {
+   "text": "at",
+   "start": 181.951,
+   "end": 182.056
+  },
+  {
+   "text": "Tanjung",
+   "start": 182.125,
+   "end": 182.671
+  },
+  {
+   "text": "Priok.",
+   "start": 182.741,
+   "end": 183.414
+  },
+  {
+   "text": "The",
+   "start": 183.913,
+   "end": 184.029
+  },
+  {
+   "text": "fastest",
+   "start": 184.088,
+   "end": 184.54
+  },
+  {
+   "text": "spot",
+   "start": 184.551,
+   "end": 184.865
+  },
+  {
+   "text": "sank",
+   "start": 184.923,
+   "end": 185.155
+  },
+  {
+   "text": "about",
+   "start": 185.213,
+   "end": 185.434
+  },
+  {
+   "text": "30",
+   "start": 185.492,
+   "end": 185.724
+  },
+  {
+   "text": "millimeters",
+   "start": 185.805,
+   "end": 186.363
+  },
+  {
+   "text": "a",
+   "start": 186.421,
+   "end": 186.444
+  },
+  {
+   "text": "year,",
+   "start": 186.525,
+   "end": 187.013
+  },
+  {
+   "text": "roughly",
+   "start": 187.257,
+   "end": 187.605
+  },
+  {
+   "text": "an",
+   "start": 187.663,
+   "end": 187.744
+  },
+  {
+   "text": "inch,",
+   "start": 187.837,
+   "end": 188.267
+  },
+  {
+   "text": "along",
+   "start": 188.325,
+   "end": 188.719
+  },
+  {
+   "text": "the",
+   "start": 188.777,
+   "end": 188.847
+  },
+  {
+   "text": "line",
+   "start": 188.917,
+   "end": 189.184
+  },
+  {
+   "text": "of",
+   "start": 189.207,
+   "end": 189.265
+  },
+  {
+   "text": "sight.",
+   "start": 189.335,
+   "end": 189.88
+  },
+  {
+   "text": "But",
+   "start": 190.322,
+   "end": 190.484
+  },
+  {
+   "text": "count",
+   "start": 190.542,
+   "end": 190.774
+  },
+  {
+   "text": "the",
+   "start": 190.809,
+   "end": 190.879
+  },
+  {
+   "text": "hotspots",
+   "start": 190.949,
+   "end": 191.529
+  },
+  {
+   "text": "a",
+   "start": 191.575,
+   "end": 191.61
+  },
+  {
+   "text": "different",
+   "start": 191.668,
+   "end": 191.982
+  },
+  {
+   "text": "way,",
+   "start": 192.028,
+   "end": 192.4
+  },
+  {
+   "text": "and",
+   "start": 192.458,
+   "end": 192.609
+  },
+  {
+   "text": "you",
+   "start": 192.667,
+   "end": 192.736
+  },
+  {
+   "text": "get",
+   "start": 192.795,
+   "end": 192.922
+  },
+  {
+   "text": "a",
+   "start": 192.957,
+   "end": 192.98
+  },
+  {
+   "text": "different",
+   "start": 193.038,
+   "end": 193.34
+  },
+  {
+   "text": "answer.",
+   "start": 193.387,
+   "end": 193.909
+  },
+  {
+   "text": "A",
+   "start": 194.42,
+   "end": 194.501
+  },
+  {
+   "text": "separate",
+   "start": 194.617,
+   "end": 195.035
+  },
+  {
+   "text": "study,",
+   "start": 195.07,
+   "end": 195.523
+  },
+  {
+   "text": "still",
+   "start": 195.616,
+   "end": 195.871
+  },
+  {
+   "text": "a",
+   "start": 195.918,
+   "end": 195.941
+  },
+  {
+   "text": "preprint,",
+   "start": 195.999,
+   "end": 196.754
+  },
+  {
+   "text": "combined",
+   "start": 196.997,
+   "end": 197.485
+  },
+  {
+   "text": "radar",
+   "start": 197.543,
+   "end": 197.938
+  },
+  {
+   "text": "and",
+   "start": 198.019,
+   "end": 198.158
+  },
+  {
+   "text": "GPS",
+   "start": 198.24,
+   "end": 198.867
+  },
+  {
+   "text": "from",
+   "start": 198.948,
+   "end": 199.087
+  },
+  {
+   "text": "2014",
+   "start": 199.157,
+   "end": 199.946
+  },
+  {
+   "text": "to",
+   "start": 200.016,
+   "end": 200.074
+  },
+  {
+   "text": "2025",
+   "start": 200.155,
+   "end": 201.108
+  },
+  {
+   "text": "and",
+   "start": 201.433,
+   "end": 201.63
+  },
+  {
+   "text": "counted",
+   "start": 201.7,
+   "end": 202.06
+  },
+  {
+   "text": "six",
+   "start": 202.141,
+   "end": 202.419
+  },
+  {
+   "text": "main",
+   "start": 202.512,
+   "end": 202.779
+  },
+  {
+   "text": "subsidence",
+   "start": 202.872,
+   "end": 203.546
+  },
+  {
+   "text": "bowls.",
+   "start": 203.592,
+   "end": 204.289
+  },
+  {
+   "text": "In",
+   "start": 204.614,
+   "end": 204.741
+  },
+  {
+   "text": "the",
+   "start": 204.788,
+   "end": 204.858
+  },
+  {
+   "text": "worst",
+   "start": 204.904,
+   "end": 205.159
+  },
+  {
+   "text": "one,",
+   "start": 205.241,
+   "end": 205.624
+  },
+  {
+   "text": "the",
+   "start": 205.868,
+   "end": 205.96
+  },
+  {
+   "text": "vertical",
+   "start": 206.019,
+   "end": 206.378
+  },
+  {
+   "text": "drop",
+   "start": 206.436,
+   "end": 206.715
+  },
+  {
+   "text": "reached",
+   "start": 206.808,
+   "end": 207.098
+  },
+  {
+   "text": "up",
+   "start": 207.145,
+   "end": 207.249
+  },
+  {
+   "text": "to",
+   "start": 207.307,
+   "end": 207.377
+  },
+  {
+   "text": "7.7",
+   "start": 207.493,
+   "end": 208.526
+  },
+  {
+   "text": "centimeters",
+   "start": 208.596,
+   "end": 209.176
+  },
+  {
+   "text": "a",
+   "start": 209.223,
+   "end": 209.258
+  },
+  {
+   "text": "year,",
+   "start": 209.351,
+   "end": 209.861
+  },
+  {
+   "text": "about",
+   "start": 210.036,
+   "end": 210.361
+  },
+  {
+   "text": "three",
+   "start": 210.419,
+   "end": 210.686
+  },
+  {
+   "text": "inches.",
+   "start": 210.744,
+   "end": 211.348
+  },
+  {
+   "text": "Across",
+   "start": 211.951,
+   "end": 212.381
+  },
+  {
+   "text": "the",
+   "start": 212.427,
+   "end": 212.497
+  },
+  {
+   "text": "whole",
+   "start": 212.543,
+   "end": 212.799
+  },
+  {
+   "text": "metro",
+   "start": 212.857,
+   "end": 213.252
+  },
+  {
+   "text": "area,",
+   "start": 213.344,
+   "end": 213.844
+  },
+  {
+   "text": "the",
+   "start": 214.053,
+   "end": 214.157
+  },
+  {
+   "text": "slow",
+   "start": 214.215,
+   "end": 214.494
+  },
+  {
+   "text": "background",
+   "start": 214.575,
+   "end": 215.167
+  },
+  {
+   "text": "sinking",
+   "start": 215.248,
+   "end": 215.643
+  },
+  {
+   "text": "was",
+   "start": 215.713,
+   "end": 215.829
+  },
+  {
+   "text": "about",
+   "start": 215.887,
+   "end": 216.142
+  },
+  {
+   "text": "1.1",
+   "start": 216.212,
+   "end": 216.978
+  },
+  {
+   "text": "centimeters",
+   "start": 217.06,
+   "end": 217.594
+  },
+  {
+   "text": "a",
+   "start": 217.629,
+   "end": 217.663
+  },
+  {
+   "text": "year.",
+   "start": 217.733,
+   "end": 218.163
+  },
+  {
+   "text": "Its",
+   "start": 218.488,
+   "end": 218.674
+  },
+  {
+   "text": "authors",
+   "start": 218.72,
+   "end": 219.045
+  },
+  {
+   "text": "point",
+   "start": 219.103,
+   "end": 219.359
+  },
+  {
+   "text": "out",
+   "start": 219.417,
+   "end": 219.649
+  },
+  {
+   "text": "that",
+   "start": 219.858,
+   "end": 220.032
+  },
+  {
+   "text": "it",
+   "start": 220.067,
+   "end": 220.137
+  },
+  {
+   "text": "relies",
+   "start": 220.195,
+   "end": 220.671
+  },
+  {
+   "text": "on",
+   "start": 220.74,
+   "end": 220.903
+  },
+  {
+   "text": "a",
+   "start": 220.949,
+   "end": 220.984
+  },
+  {
+   "text": "single",
+   "start": 221.1,
+   "end": 221.495
+  },
+  {
+   "text": "continuous",
+   "start": 221.541,
+   "end": 222.192
+  },
+  {
+   "text": "GPS",
+   "start": 222.261,
+   "end": 222.923
+  },
+  {
+   "text": "station.",
+   "start": 222.981,
+   "end": 224.258
+  },
+  {
+   "text": "Look",
+   "start": 224.258,
+   "end": 224.444
+  },
+  {
+   "text": "at",
+   "start": 224.502,
+   "end": 224.56
+  },
+  {
+   "text": "it",
+   "start": 224.606,
+   "end": 224.676
+  },
+  {
+   "text": "district",
+   "start": 224.722,
+   "end": 225.152
+  },
+  {
+   "text": "by",
+   "start": 225.198,
+   "end": 225.338
+  },
+  {
+   "text": "district.",
+   "start": 225.407,
+   "end": 225.988
+  },
+  {
+   "text": "A",
+   "start": 226.15,
+   "end": 226.232
+  },
+  {
+   "text": "radar",
+   "start": 226.313,
+   "end": 226.638
+  },
+  {
+   "text": "study",
+   "start": 226.708,
+   "end": 226.986
+  },
+  {
+   "text": "of",
+   "start": 227.033,
+   "end": 227.091
+  },
+  {
+   "text": "2019",
+   "start": 227.149,
+   "end": 228.113
+  },
+  {
+   "text": "to",
+   "start": 228.159,
+   "end": 228.217
+  },
+  {
+   "text": "2020",
+   "start": 228.275,
+   "end": 228.96
+  },
+  {
+   "text": "reported",
+   "start": 229.215,
+   "end": 229.633
+  },
+  {
+   "text": "average",
+   "start": 229.703,
+   "end": 230.156
+  },
+  {
+   "text": "sinking",
+   "start": 230.191,
+   "end": 230.527
+  },
+  {
+   "text": "rates",
+   "start": 230.597,
+   "end": 230.864
+  },
+  {
+   "text": "of",
+   "start": 230.899,
+   "end": 230.969
+  },
+  {
+   "text": "4.9",
+   "start": 231.038,
+   "end": 231.863
+  },
+  {
+   "text": "centimeters",
+   "start": 231.944,
+   "end": 232.466
+  },
+  {
+   "text": "a",
+   "start": 232.501,
+   "end": 232.536
+  },
+  {
+   "text": "year",
+   "start": 232.606,
+   "end": 232.861
+  },
+  {
+   "text": "in",
+   "start": 233.151,
+   "end": 233.302
+  },
+  {
+   "text": "North",
+   "start": 233.383,
+   "end": 233.592
+  },
+  {
+   "text": "Jakarta,",
+   "start": 233.65,
+   "end": 234.231
+  },
+  {
+   "text": "4.8",
+   "start": 234.486,
+   "end": 235.346
+  },
+  {
+   "text": "in",
+   "start": 235.427,
+   "end": 235.566
+  },
+  {
+   "text": "West",
+   "start": 235.636,
+   "end": 235.891
+  },
+  {
+   "text": "Jakarta,",
+   "start": 235.961,
+   "end": 236.507
+  },
+  {
+   "text": "3.1",
+   "start": 236.75,
+   "end": 237.517
+  },
+  {
+   "text": "in",
+   "start": 237.668,
+   "end": 237.772
+  },
+  {
+   "text": "Central",
+   "start": 237.842,
+   "end": 238.202
+  },
+  {
+   "text": "Jakarta,",
+   "start": 238.26,
+   "end": 238.828
+  },
+  {
+   "text": "2.8",
+   "start": 239.014,
+   "end": 239.781
+  },
+  {
+   "text": "in",
+   "start": 239.862,
+   "end": 239.966
+  },
+  {
+   "text": "the",
+   "start": 240.001,
+   "end": 240.059
+  },
+  {
+   "text": "South,",
+   "start": 240.129,
+   "end": 240.57
+  },
+  {
+   "text": "and",
+   "start": 240.686,
+   "end": 240.825
+  },
+  {
+   "text": "2.5",
+   "start": 240.895,
+   "end": 241.766
+  },
+  {
+   "text": "in",
+   "start": 241.835,
+   "end": 241.905
+  },
+  {
+   "text": "the",
+   "start": 241.94,
+   "end": 241.998
+  },
+  {
+   "text": "East.",
+   "start": 242.079,
+   "end": 242.59
+  },
+  {
+   "text": "The",
+   "start": 243.287,
+   "end": 243.414
+  },
+  {
+   "text": "abstract",
+   "start": 243.484,
+   "end": 244.053
+  },
+  {
+   "text": "does",
+   "start": 244.123,
+   "end": 244.332
+  },
+  {
+   "text": "not",
+   "start": 244.39,
+   "end": 244.587
+  },
+  {
+   "text": "say",
+   "start": 244.668,
+   "end": 244.993
+  },
+  {
+   "text": "if",
+   "start": 245.063,
+   "end": 245.168
+  },
+  {
+   "text": "these",
+   "start": 245.226,
+   "end": 245.446
+  },
+  {
+   "text": "are",
+   "start": 245.481,
+   "end": 245.597
+  },
+  {
+   "text": "line",
+   "start": 245.644,
+   "end": 245.911
+  },
+  {
+   "text": "of",
+   "start": 245.934,
+   "end": 245.992
+  },
+  {
+   "text": "sight",
+   "start": 246.062,
+   "end": 246.398
+  },
+  {
+   "text": "or",
+   "start": 246.468,
+   "end": 246.63
+  },
+  {
+   "text": "vertical.",
+   "start": 246.712,
+   "end": 247.315
+  },
+  {
+   "text": "The",
+   "start": 247.64,
+   "end": 247.757
+  },
+  {
+   "text": "sinking",
+   "start": 247.815,
+   "end": 248.186
+  },
+  {
+   "text": "was",
+   "start": 248.244,
+   "end": 248.383
+  },
+  {
+   "text": "mostly",
+   "start": 248.453,
+   "end": 248.836
+  },
+  {
+   "text": "near",
+   "start": 248.906,
+   "end": 249.08
+  },
+  {
+   "text": "the",
+   "start": 249.138,
+   "end": 249.208
+  },
+  {
+   "text": "coast",
+   "start": 249.266,
+   "end": 249.603
+  },
+  {
+   "text": "and",
+   "start": 249.672,
+   "end": 249.812
+  },
+  {
+   "text": "river",
+   "start": 249.893,
+   "end": 250.113
+  },
+  {
+   "text": "mouths,",
+   "start": 250.183,
+   "end": 250.705
+  },
+  {
+   "text": "on",
+   "start": 250.764,
+   "end": 251.007
+  },
+  {
+   "text": "soft",
+   "start": 251.123,
+   "end": 251.483
+  },
+  {
+   "text": "river",
+   "start": 251.553,
+   "end": 251.762
+  },
+  {
+   "text": "deposits.",
+   "start": 251.82,
+   "end": 252.668
+  },
+  {
+   "text": "On",
+   "start": 253.109,
+   "end": 253.295
+  },
+  {
+   "text": "the",
+   "start": 253.329,
+   "end": 253.399
+  },
+  {
+   "text": "ground,",
+   "start": 253.445,
+   "end": 253.979
+  },
+  {
+   "text": "you",
+   "start": 254.072,
+   "end": 254.165
+  },
+  {
+   "text": "can",
+   "start": 254.223,
+   "end": 254.339
+  },
+  {
+   "text": "see",
+   "start": 254.397,
+   "end": 254.572
+  },
+  {
+   "text": "the",
+   "start": 254.606,
+   "end": 254.676
+  },
+  {
+   "text": "damage.",
+   "start": 254.734,
+   "end": 255.384
+  },
+  {
+   "text": "That",
+   "start": 255.825,
+   "end": 256.035
+  },
+  {
+   "text": "same",
+   "start": 256.104,
+   "end": 256.395
+  },
+  {
+   "text": "study",
+   "start": 256.441,
+   "end": 256.778
+  },
+  {
+   "text": "reported",
+   "start": 256.859,
+   "end": 257.277
+  },
+  {
+   "text": "damaged",
+   "start": 257.335,
+   "end": 257.788
+  },
+  {
+   "text": "roads",
+   "start": 257.869,
+   "end": 258.229
+  },
+  {
+   "text": "at",
+   "start": 258.276,
+   "end": 258.357
+  },
+  {
+   "text": "Mutiara",
+   "start": 258.415,
+   "end": 258.995
+  },
+  {
+   "text": "Beach,",
+   "start": 259.065,
+   "end": 259.576
+  },
+  {
+   "text": "West",
+   "start": 259.727,
+   "end": 260.005
+  },
+  {
+   "text": "Cengkareng,",
+   "start": 260.063,
+   "end": 261.039
+  },
+  {
+   "text": "and",
+   "start": 261.19,
+   "end": 261.387
+  },
+  {
+   "text": "Pademangan.",
+   "start": 261.503,
+   "end": 262.513
+  },
+  {
+   "text": "Other",
+   "start": 263.21,
+   "end": 263.465
+  },
+  {
+   "text": "researchers",
+   "start": 263.523,
+   "end": 264.092
+  },
+  {
+   "text": "list",
+   "start": 264.173,
+   "end": 264.406
+  },
+  {
+   "text": "cracked",
+   "start": 264.475,
+   "end": 264.824
+  },
+  {
+   "text": "buildings",
+   "start": 264.882,
+   "end": 265.381
+  },
+  {
+   "text": "and",
+   "start": 265.416,
+   "end": 265.509
+  },
+  {
+   "text": "roads,",
+   "start": 265.59,
+   "end": 266.275
+  },
+  {
+   "text": "changed",
+   "start": 266.403,
+   "end": 266.832
+  },
+  {
+   "text": "river",
+   "start": 266.913,
+   "end": 267.146
+  },
+  {
+   "text": "flow,",
+   "start": 267.204,
+   "end": 267.691
+  },
+  {
+   "text": "bigger",
+   "start": 267.773,
+   "end": 268.051
+  },
+  {
+   "text": "flooded",
+   "start": 268.109,
+   "end": 268.458
+  },
+  {
+   "text": "areas,",
+   "start": 268.504,
+   "end": 269.084
+  },
+  {
+   "text": "and",
+   "start": 269.166,
+   "end": 269.34
+  },
+  {
+   "text": "drains",
+   "start": 269.41,
+   "end": 269.99
+  },
+  {
+   "text": "that",
+   "start": 270.048,
+   "end": 270.199
+  },
+  {
+   "text": "stop",
+   "start": 270.245,
+   "end": 270.536
+  },
+  {
+   "text": "working.",
+   "start": 270.617,
+   "end": 271.221
+  },
+  {
+   "text": "Now",
+   "start": 271.824,
+   "end": 272.231
+  },
+  {
+   "text": "the",
+   "start": 272.672,
+   "end": 272.8
+  },
+  {
+   "text": "catch.",
+   "start": 272.858,
+   "end": 273.543
+  },
+  {
+   "text": "To",
+   "start": 274.239,
+   "end": 274.355
+  },
+  {
+   "text": "trust",
+   "start": 274.413,
+   "end": 274.669
+  },
+  {
+   "text": "a",
+   "start": 274.715,
+   "end": 274.739
+  },
+  {
+   "text": "pixel,",
+   "start": 274.808,
+   "end": 275.4
+  },
+  {
+   "text": "the",
+   "start": 275.516,
+   "end": 275.609
+  },
+  {
+   "text": "radar",
+   "start": 275.679,
+   "end": 276.074
+  },
+  {
+   "text": "echo",
+   "start": 276.143,
+   "end": 276.422
+  },
+  {
+   "text": "has",
+   "start": 276.503,
+   "end": 276.643
+  },
+  {
+   "text": "to",
+   "start": 276.701,
+   "end": 276.759
+  },
+  {
+   "text": "stay",
+   "start": 276.805,
+   "end": 277.003
+  },
+  {
+   "text": "consistent",
+   "start": 277.061,
+   "end": 277.606
+  },
+  {
+   "text": "from",
+   "start": 277.653,
+   "end": 277.804
+  },
+  {
+   "text": "one",
+   "start": 277.896,
+   "end": 278.152
+  },
+  {
+   "text": "pass",
+   "start": 278.21,
+   "end": 278.57
+  },
+  {
+   "text": "to",
+   "start": 278.616,
+   "end": 278.686
+  },
+  {
+   "text": "the",
+   "start": 278.756,
+   "end": 278.825
+  },
+  {
+   "text": "next.",
+   "start": 278.883,
+   "end": 279.429
+  },
+  {
+   "text": "In",
+   "start": 279.87,
+   "end": 279.998
+  },
+  {
+   "text": "the",
+   "start": 280.033,
+   "end": 280.102
+  },
+  {
+   "text": "2016",
+   "start": 280.16,
+   "end": 281.205
+  },
+  {
+   "text": "to",
+   "start": 281.287,
+   "end": 281.379
+  },
+  {
+   "text": "2024",
+   "start": 281.496,
+   "end": 282.32
+  },
+  {
+   "text": "analysis,",
+   "start": 282.378,
+   "end": 283.144
+  },
+  {
+   "text": "any",
+   "start": 283.388,
+   "end": 283.655
+  },
+  {
+   "text": "pixel",
+   "start": 283.748,
+   "end": 284.177
+  },
+  {
+   "text": "with",
+   "start": 284.247,
+   "end": 284.398
+  },
+  {
+   "text": "a",
+   "start": 284.433,
+   "end": 284.456
+  },
+  {
+   "text": "coherence",
+   "start": 284.514,
+   "end": 285.118
+  },
+  {
+   "text": "below",
+   "start": 285.164,
+   "end": 285.478
+  },
+  {
+   "text": "0.6",
+   "start": 285.594,
+   "end": 286.627
+  },
+  {
+   "text": "was",
+   "start": 286.743,
+   "end": 286.883
+  },
+  {
+   "text": "thrown",
+   "start": 286.941,
+   "end": 287.231
+  },
+  {
+   "text": "out.",
+   "start": 287.289,
+   "end": 287.719
+  },
+  {
+   "text": "And",
+   "start": 288.229,
+   "end": 288.38
+  },
+  {
+   "text": "that",
+   "start": 288.438,
+   "end": 288.589
+  },
+  {
+   "text": "filter",
+   "start": 288.647,
+   "end": 288.972
+  },
+  {
+   "text": "removes",
+   "start": 289.042,
+   "end": 289.495
+  },
+  {
+   "text": "pixels",
+   "start": 289.576,
+   "end": 290.099
+  },
+  {
+   "text": "along",
+   "start": 290.168,
+   "end": 290.482
+  },
+  {
+   "text": "the",
+   "start": 290.54,
+   "end": 290.609
+  },
+  {
+   "text": "northern",
+   "start": 290.679,
+   "end": 291.051
+  },
+  {
+   "text": "coast,",
+   "start": 291.132,
+   "end": 291.747
+  },
+  {
+   "text": "the",
+   "start": 291.956,
+   "end": 292.049
+  },
+  {
+   "text": "part",
+   "start": 292.107,
+   "end": 292.316
+  },
+  {
+   "text": "of",
+   "start": 292.351,
+   "end": 292.409
+  },
+  {
+   "text": "Jakarta",
+   "start": 292.467,
+   "end": 292.967
+  },
+  {
+   "text": "closest",
+   "start": 293.048,
+   "end": 293.501
+  },
+  {
+   "text": "to",
+   "start": 293.535,
+   "end": 293.605
+  },
+  {
+   "text": "the",
+   "start": 293.686,
+   "end": 293.756
+  },
+  {
+   "text": "sea.",
+   "start": 293.814,
+   "end": 294.313
+  },
+  {
+   "text": "Scientists",
+   "start": 294.824,
+   "end": 295.637
+  },
+  {
+   "text": "check",
+   "start": 295.753,
+   "end": 295.997
+  },
+  {
+   "text": "the",
+   "start": 296.078,
+   "end": 296.148
+  },
+  {
+   "text": "radar",
+   "start": 296.206,
+   "end": 296.647
+  },
+  {
+   "text": "against",
+   "start": 296.74,
+   "end": 297.216
+  },
+  {
+   "text": "GPS.",
+   "start": 297.367,
+   "end": 298.319
+  },
+  {
+   "text": "At",
+   "start": 298.702,
+   "end": 298.841
+  },
+  {
+   "text": "one",
+   "start": 298.899,
+   "end": 299.097
+  },
+  {
+   "text": "station,",
+   "start": 299.131,
+   "end": 299.724
+  },
+  {
+   "text": "the",
+   "start": 299.898,
+   "end": 299.991
+  },
+  {
+   "text": "radar's",
+   "start": 300.049,
+   "end": 300.501
+  },
+  {
+   "text": "line-of-sight",
+   "start": 300.594,
+   "end": 301.256
+  },
+  {
+   "text": "rate",
+   "start": 301.337,
+   "end": 301.604
+  },
+  {
+   "text": "came",
+   "start": 301.651,
+   "end": 301.906
+  },
+  {
+   "text": "out",
+   "start": 301.941,
+   "end": 302.115
+  },
+  {
+   "text": "1.64",
+   "start": 302.185,
+   "end": 303.381
+  },
+  {
+   "text": "millimeters",
+   "start": 303.474,
+   "end": 304.066
+  },
+  {
+   "text": "a",
+   "start": 304.112,
+   "end": 304.135
+  },
+  {
+   "text": "year",
+   "start": 304.217,
+   "end": 304.414
+  },
+  {
+   "text": "higher",
+   "start": 304.484,
+   "end": 304.844
+  },
+  {
+   "text": "than",
+   "start": 304.902,
+   "end": 305.029
+  },
+  {
+   "text": "the",
+   "start": 305.076,
+   "end": 305.145
+  },
+  {
+   "text": "GPS",
+   "start": 305.204,
+   "end": 305.714
+  },
+  {
+   "text": "vertical",
+   "start": 305.83,
+   "end": 306.202
+  },
+  {
+   "text": "rate,",
+   "start": 306.272,
+   "end": 306.69
+  },
+  {
+   "text": "with",
+   "start": 306.968,
+   "end": 307.142
+  },
+  {
+   "text": "a",
+   "start": 307.189,
+   "end": 307.212
+  },
+  {
+   "text": "typical",
+   "start": 307.27,
+   "end": 307.642
+  },
+  {
+   "text": "error",
+   "start": 307.711,
+   "end": 308.025
+  },
+  {
+   "text": "of",
+   "start": 308.106,
+   "end": 308.222
+  },
+  {
+   "text": "9.40",
+   "start": 308.373,
+   "end": 309.302
+  },
+  {
+   "text": "millimeters.",
+   "start": 309.383,
+   "end": 310.196
+  },
+  {
+   "text": "And",
+   "start": 310.521,
+   "end": 310.66
+  },
+  {
+   "text": "that",
+   "start": 310.707,
+   "end": 310.858
+  },
+  {
+   "text": "station",
+   "start": 310.916,
+   "end": 311.322
+  },
+  {
+   "text": "is",
+   "start": 311.38,
+   "end": 311.45
+  },
+  {
+   "text": "not",
+   "start": 311.519,
+   "end": 311.694
+  },
+  {
+   "text": "in",
+   "start": 311.728,
+   "end": 311.786
+  },
+  {
+   "text": "the",
+   "start": 311.821,
+   "end": 311.891
+  },
+  {
+   "text": "same",
+   "start": 311.937,
+   "end": 312.181
+  },
+  {
+   "text": "spot",
+   "start": 312.216,
+   "end": 312.53
+  },
+  {
+   "text": "as",
+   "start": 312.576,
+   "end": 312.646
+  },
+  {
+   "text": "the",
+   "start": 312.704,
+   "end": 312.773
+  },
+  {
+   "text": "radar",
+   "start": 312.855,
+   "end": 313.226
+  },
+  {
+   "text": "pixel,",
+   "start": 313.284,
+   "end": 313.923
+  },
+  {
+   "text": "so",
+   "start": 314.167,
+   "end": 314.306
+  },
+  {
+   "text": "even",
+   "start": 314.387,
+   "end": 314.585
+  },
+  {
+   "text": "this",
+   "start": 314.631,
+   "end": 314.782
+  },
+  {
+   "text": "check",
+   "start": 314.852,
+   "end": 315.119
+  },
+  {
+   "text": "has",
+   "start": 315.177,
+   "end": 315.351
+  },
+  {
+   "text": "limits.",
+   "start": 315.444,
+   "end": 316.036
+  },
+  {
+   "text": "Now",
+   "start": 316.477,
+   "end": 316.79
+  },
+  {
+   "text": "the",
+   "start": 316.906,
+   "end": 317.011
+  },
+  {
+   "text": "twist.",
+   "start": 317.069,
+   "end": 317.742
+  },
+  {
+   "text": "The",
+   "start": 318.067,
+   "end": 318.195
+  },
+  {
+   "text": "western",
+   "start": 318.253,
+   "end": 318.648
+  },
+  {
+   "text": "hotspot",
+   "start": 318.718,
+   "end": 319.252
+  },
+  {
+   "text": "started",
+   "start": 319.31,
+   "end": 319.658
+  },
+  {
+   "text": "sinking",
+   "start": 319.728,
+   "end": 320.076
+  },
+  {
+   "text": "fast",
+   "start": 320.169,
+   "end": 320.564
+  },
+  {
+   "text": "in",
+   "start": 320.622,
+   "end": 320.691
+  },
+  {
+   "text": "2016,",
+   "start": 320.761,
+   "end": 321.736
+  },
+  {
+   "text": "and",
+   "start": 321.818,
+   "end": 321.968
+  },
+  {
+   "text": "then",
+   "start": 322.015,
+   "end": 322.166
+  },
+  {
+   "text": "slowed",
+   "start": 322.247,
+   "end": 322.595
+  },
+  {
+   "text": "down",
+   "start": 322.642,
+   "end": 322.909
+  },
+  {
+   "text": "significantly.",
+   "start": 322.979,
+   "end": 324.023
+  },
+  {
+   "text": "The",
+   "start": 324.407,
+   "end": 324.523
+  },
+  {
+   "text": "northwest",
+   "start": 324.581,
+   "end": 325.138
+  },
+  {
+   "text": "and",
+   "start": 325.184,
+   "end": 325.277
+  },
+  {
+   "text": "northeast",
+   "start": 325.347,
+   "end": 325.823
+  },
+  {
+   "text": "hotspots",
+   "start": 325.869,
+   "end": 326.462
+  },
+  {
+   "text": "did",
+   "start": 326.52,
+   "end": 326.671
+  },
+  {
+   "text": "not.",
+   "start": 326.729,
+   "end": 327.228
+  },
+  {
+   "text": "They",
+   "start": 327.553,
+   "end": 327.704
+  },
+  {
+   "text": "kept",
+   "start": 327.75,
+   "end": 327.924
+  },
+  {
+   "text": "sinking",
+   "start": 327.982,
+   "end": 328.342
+  },
+  {
+   "text": "in",
+   "start": 328.4,
+   "end": 328.458
+  },
+  {
+   "text": "a",
+   "start": 328.505,
+   "end": 328.528
+  },
+  {
+   "text": "straight",
+   "start": 328.586,
+   "end": 328.9
+  },
+  {
+   "text": "line.",
+   "start": 328.969,
+   "end": 329.538
+  },
+  {
+   "text": "A",
+   "start": 329.979,
+   "end": 330.072
+  },
+  {
+   "text": "2026",
+   "start": 330.188,
+   "end": 331.361
+  },
+  {
+   "text": "study,",
+   "start": 331.419,
+   "end": 331.988
+  },
+  {
+   "text": "which",
+   "start": 332.162,
+   "end": 332.371
+  },
+  {
+   "text": "we",
+   "start": 332.406,
+   "end": 332.487
+  },
+  {
+   "text": "have",
+   "start": 332.545,
+   "end": 332.673
+  },
+  {
+   "text": "only",
+   "start": 332.719,
+   "end": 332.928
+  },
+  {
+   "text": "read",
+   "start": 332.998,
+   "end": 333.184
+  },
+  {
+   "text": "as",
+   "start": 333.23,
+   "end": 333.323
+  },
+  {
+   "text": "an",
+   "start": 333.369,
+   "end": 333.451
+  },
+  {
+   "text": "abstract,",
+   "start": 333.532,
+   "end": 334.333
+  },
+  {
+   "text": "also",
+   "start": 334.577,
+   "end": 334.96
+  },
+  {
+   "text": "reports",
+   "start": 335.053,
+   "end": 335.552
+  },
+  {
+   "text": "that",
+   "start": 335.61,
+   "end": 335.761
+  },
+  {
+   "text": "some",
+   "start": 335.831,
+   "end": 336.063
+  },
+  {
+   "text": "areas",
+   "start": 336.121,
+   "end": 336.562
+  },
+  {
+   "text": "are",
+   "start": 336.609,
+   "end": 336.725
+  },
+  {
+   "text": "slowing,",
+   "start": 336.771,
+   "end": 337.445
+  },
+  {
+   "text": "a",
+   "start": 337.596,
+   "end": 337.677
+  },
+  {
+   "text": "few",
+   "start": 337.77,
+   "end": 337.955
+  },
+  {
+   "text": "even",
+   "start": 338.025,
+   "end": 338.234
+  },
+  {
+   "text": "show",
+   "start": 338.304,
+   "end": 338.548
+  },
+  {
+   "text": "localized",
+   "start": 338.64,
+   "end": 339.267
+  },
+  {
+   "text": "uplift,",
+   "start": 339.325,
+   "end": 339.987
+  },
+  {
+   "text": "and",
+   "start": 340.196,
+   "end": 340.359
+  },
+  {
+   "text": "the",
+   "start": 340.405,
+   "end": 340.475
+  },
+  {
+   "text": "coast",
+   "start": 340.544,
+   "end": 340.881
+  },
+  {
+   "text": "keeps",
+   "start": 340.974,
+   "end": 341.264
+  },
+  {
+   "text": "sinking.",
+   "start": 341.311,
+   "end": 341.961
+  },
+  {
+   "text": "Slowing",
+   "start": 342.344,
+   "end": 342.843
+  },
+  {
+   "text": "down",
+   "start": 342.913,
+   "end": 343.308
+  },
+  {
+   "text": "is",
+   "start": 343.389,
+   "end": 343.552
+  },
+  {
+   "text": "not",
+   "start": 343.645,
+   "end": 343.854
+  },
+  {
+   "text": "the",
+   "start": 343.912,
+   "end": 344.005
+  },
+  {
+   "text": "same",
+   "start": 344.074,
+   "end": 344.388
+  },
+  {
+   "text": "as",
+   "start": 344.423,
+   "end": 344.492
+  },
+  {
+   "text": "coming",
+   "start": 344.562,
+   "end": 344.829
+  },
+  {
+   "text": "back",
+   "start": 344.887,
+   "end": 345.108
+  },
+  {
+   "text": "up.",
+   "start": 345.189,
+   "end": 345.978
+  },
+  {
+   "text": "Why",
+   "start": 345.977,
+   "end": 346.174
+  },
+  {
+   "text": "does",
+   "start": 346.221,
+   "end": 346.349
+  },
+  {
+   "text": "it",
+   "start": 346.383,
+   "end": 346.441
+  },
+  {
+   "text": "matter?",
+   "start": 346.476,
+   "end": 346.917
+  },
+  {
+   "text": "Jakarta",
+   "start": 347.498,
+   "end": 347.997
+  },
+  {
+   "text": "already",
+   "start": 348.078,
+   "end": 348.531
+  },
+  {
+   "text": "floods.",
+   "start": 348.578,
+   "end": 349.193
+  },
+  {
+   "text": "A",
+   "start": 349.623,
+   "end": 349.692
+  },
+  {
+   "text": "flood",
+   "start": 349.773,
+   "end": 350.029
+  },
+  {
+   "text": "in",
+   "start": 350.075,
+   "end": 350.145
+  },
+  {
+   "text": "2007",
+   "start": 350.203,
+   "end": 351.062
+  },
+  {
+   "text": "covered",
+   "start": 351.178,
+   "end": 351.48
+  },
+  {
+   "text": "more",
+   "start": 351.527,
+   "end": 351.677
+  },
+  {
+   "text": "than",
+   "start": 351.712,
+   "end": 351.852
+  },
+  {
+   "text": "70",
+   "start": 351.956,
+   "end": 352.304
+  },
+  {
+   "text": "percent",
+   "start": 352.374,
+   "end": 352.711
+  },
+  {
+   "text": "of",
+   "start": 352.757,
+   "end": 352.815
+  },
+  {
+   "text": "the",
+   "start": 352.862,
+   "end": 352.931
+  },
+  {
+   "text": "city.",
+   "start": 352.966,
+   "end": 353.419
+  },
+  {
+   "text": "On",
+   "start": 353.837,
+   "end": 354.011
+  },
+  {
+   "text": "New",
+   "start": 354.058,
+   "end": 354.174
+  },
+  {
+   "text": "Year's",
+   "start": 354.208,
+   "end": 354.429
+  },
+  {
+   "text": "Eve",
+   "start": 354.51,
+   "end": 354.719
+  },
+  {
+   "text": "2019,",
+   "start": 354.766,
+   "end": 355.637
+  },
+  {
+   "text": "a",
+   "start": 355.683,
+   "end": 355.741
+  },
+  {
+   "text": "rain",
+   "start": 355.857,
+   "end": 356.078
+  },
+  {
+   "text": "gauge",
+   "start": 356.159,
+   "end": 356.496
+  },
+  {
+   "text": "at",
+   "start": 356.53,
+   "end": 356.6
+  },
+  {
+   "text": "Halim",
+   "start": 356.658,
+   "end": 357.03
+  },
+  {
+   "text": "Perdanakusuma",
+   "start": 357.099,
+   "end": 358.179
+  },
+  {
+   "text": "recorded",
+   "start": 358.411,
+   "end": 358.829
+  },
+  {
+   "text": "377",
+   "start": 358.899,
+   "end": 360.164
+  },
+  {
+   "text": "millimeters",
+   "start": 360.246,
+   "end": 360.768
+  },
+  {
+   "text": "of",
+   "start": 360.814,
+   "end": 360.873
+  },
+  {
+   "text": "rain",
+   "start": 360.942,
+   "end": 361.244
+  },
+  {
+   "text": "in",
+   "start": 361.337,
+   "end": 361.453
+  },
+  {
+   "text": "a",
+   "start": 361.499,
+   "end": 361.523
+  },
+  {
+   "text": "single",
+   "start": 361.581,
+   "end": 361.894
+  },
+  {
+   "text": "day,",
+   "start": 361.941,
+   "end": 362.37
+  },
+  {
+   "text": "nearly",
+   "start": 362.579,
+   "end": 362.881
+  },
+  {
+   "text": "fifteen",
+   "start": 362.962,
+   "end": 363.52
+  },
+  {
+   "text": "inches.",
+   "start": 363.589,
+   "end": 364.17
+  },
+  {
+   "text": "From",
+   "start": 365.122,
+   "end": 365.296
+  },
+  {
+   "text": "1993",
+   "start": 365.342,
+   "end": 366.329
+  },
+  {
+   "text": "to",
+   "start": 366.445,
+   "end": 366.538
+  },
+  {
+   "text": "a",
+   "start": 366.631,
+   "end": 366.654
+  },
+  {
+   "text": "2018",
+   "start": 366.724,
+   "end": 367.653
+  },
+  {
+   "text": "assessment,",
+   "start": 367.722,
+   "end": 368.442
+  },
+  {
+   "text": "satellites",
+   "start": 368.767,
+   "end": 369.336
+  },
+  {
+   "text": "measured",
+   "start": 369.406,
+   "end": 369.754
+  },
+  {
+   "text": "global",
+   "start": 369.824,
+   "end": 370.277
+  },
+  {
+   "text": "sea",
+   "start": 370.393,
+   "end": 370.613
+  },
+  {
+   "text": "level",
+   "start": 370.683,
+   "end": 371.054
+  },
+  {
+   "text": "rising",
+   "start": 371.333,
+   "end": 371.739
+  },
+  {
+   "text": "about",
+   "start": 371.786,
+   "end": 372.041
+  },
+  {
+   "text": "3.1",
+   "start": 372.111,
+   "end": 372.924
+  },
+  {
+   "text": "millimeters",
+   "start": 373.04,
+   "end": 373.585
+  },
+  {
+   "text": "a",
+   "start": 373.632,
+   "end": 373.655
+  },
+  {
+   "text": "year",
+   "start": 373.736,
+   "end": 373.945
+  },
+  {
+   "text": "on",
+   "start": 374.015,
+   "end": 374.12
+  },
+  {
+   "text": "average.",
+   "start": 374.189,
+   "end": 374.805
+  },
+  {
+   "text": "In",
+   "start": 375.13,
+   "end": 375.257
+  },
+  {
+   "text": "the",
+   "start": 375.292,
+   "end": 375.362
+  },
+  {
+   "text": "worst",
+   "start": 375.397,
+   "end": 375.664
+  },
+  {
+   "text": "bowl",
+   "start": 375.733,
+   "end": 376.035
+  },
+  {
+   "text": "of",
+   "start": 376.105,
+   "end": 376.163
+  },
+  {
+   "text": "that",
+   "start": 376.221,
+   "end": 376.383
+  },
+  {
+   "text": "preprint,",
+   "start": 376.453,
+   "end": 377.208
+  },
+  {
+   "text": "the",
+   "start": 377.359,
+   "end": 377.452
+  },
+  {
+   "text": "vertical",
+   "start": 377.51,
+   "end": 377.87
+  },
+  {
+   "text": "drop",
+   "start": 377.916,
+   "end": 378.229
+  },
+  {
+   "text": "was",
+   "start": 378.287,
+   "end": 378.415
+  },
+  {
+   "text": "many",
+   "start": 378.485,
+   "end": 378.671
+  },
+  {
+   "text": "times",
+   "start": 378.717,
+   "end": 379.043
+  },
+  {
+   "text": "faster.",
+   "start": 379.101,
+   "end": 379.739
+  },
+  {
+   "text": "Along",
+   "start": 380.122,
+   "end": 380.459
+  },
+  {
+   "text": "the",
+   "start": 380.517,
+   "end": 380.587
+  },
+  {
+   "text": "waterfront,",
+   "start": 380.645,
+   "end": 381.388
+  },
+  {
+   "text": "seawater",
+   "start": 381.632,
+   "end": 382.154
+  },
+  {
+   "text": "already",
+   "start": 382.212,
+   "end": 382.572
+  },
+  {
+   "text": "tops",
+   "start": 382.63,
+   "end": 382.92
+  },
+  {
+   "text": "the",
+   "start": 382.967,
+   "end": 383.036
+  },
+  {
+   "text": "coastal",
+   "start": 383.083,
+   "end": 383.443
+  },
+  {
+   "text": "dykes,",
+   "start": 383.512,
+   "end": 384.023
+  },
+  {
+   "text": "according",
+   "start": 384.046,
+   "end": 384.453
+  },
+  {
+   "text": "to",
+   "start": 384.499,
+   "end": 384.557
+  },
+  {
+   "text": "a",
+   "start": 384.639,
+   "end": 384.673
+  },
+  {
+   "text": "survey",
+   "start": 384.731,
+   "end": 385.103
+  },
+  {
+   "text": "of",
+   "start": 385.149,
+   "end": 385.207
+  },
+  {
+   "text": "residents.",
+   "start": 385.289,
+   "end": 386.02
+  },
+  {
+   "text": "And",
+   "start": 386.461,
+   "end": 386.635
+  },
+  {
+   "text": "a",
+   "start": 386.693,
+   "end": 386.717
+  },
+  {
+   "text": "2017",
+   "start": 386.786,
+   "end": 387.982
+  },
+  {
+   "text": "model",
+   "start": 388.063,
+   "end": 388.377
+  },
+  {
+   "text": "found",
+   "start": 388.447,
+   "end": 388.69
+  },
+  {
+   "text": "that",
+   "start": 388.737,
+   "end": 388.853
+  },
+  {
+   "text": "a",
+   "start": 388.888,
+   "end": 388.923
+  },
+  {
+   "text": "three-meter",
+   "start": 388.992,
+   "end": 389.573
+  },
+  {
+   "text": "dyke,",
+   "start": 389.642,
+   "end": 390.095
+  },
+  {
+   "text": "enough",
+   "start": 390.269,
+   "end": 390.56
+  },
+  {
+   "text": "for",
+   "start": 390.594,
+   "end": 390.687
+  },
+  {
+   "text": "today's",
+   "start": 390.734,
+   "end": 391.105
+  },
+  {
+   "text": "conditions,",
+   "start": 391.152,
+   "end": 391.895
+  },
+  {
+   "text": "could",
+   "start": 392.104,
+   "end": 392.289
+  },
+  {
+   "text": "lose",
+   "start": 392.348,
+   "end": 392.626
+  },
+  {
+   "text": "its",
+   "start": 392.661,
+   "end": 392.777
+  },
+  {
+   "text": "ability",
+   "start": 392.812,
+   "end": 393.207
+  },
+  {
+   "text": "to",
+   "start": 393.265,
+   "end": 393.323
+  },
+  {
+   "text": "stop",
+   "start": 393.392,
+   "end": 393.66
+  },
+  {
+   "text": "floods",
+   "start": 393.729,
+   "end": 394.008
+  },
+  {
+   "text": "completely",
+   "start": 394.054,
+   "end": 394.681
+  },
+  {
+   "text": "by",
+   "start": 394.751,
+   "end": 394.867
+  },
+  {
+   "text": "the",
+   "start": 394.914,
+   "end": 394.983
+  },
+  {
+   "text": "year",
+   "start": 395.053,
+   "end": 395.239
+  },
+  {
+   "text": "2040,",
+   "start": 395.308,
+   "end": 396.202
+  },
+  {
+   "text": "if",
+   "start": 396.411,
+   "end": 396.539
+  },
+  {
+   "text": "the",
+   "start": 396.585,
+   "end": 396.655
+  },
+  {
+   "text": "ground",
+   "start": 396.713,
+   "end": 397.038
+  },
+  {
+   "text": "keeps",
+   "start": 397.119,
+   "end": 397.363
+  },
+  {
+   "text": "sinking",
+   "start": 397.398,
+   "end": 397.735
+  },
+  {
+   "text": "quickly.",
+   "start": 397.804,
+   "end": 398.385
+  },
+  {
+   "text": "Its",
+   "start": 398.989,
+   "end": 399.186
+  },
+  {
+   "text": "conclusion:",
+   "start": 399.232,
+   "end": 400.115
+  },
+  {
+   "text": "stopping",
+   "start": 400.359,
+   "end": 400.8
+  },
+  {
+   "text": "the",
+   "start": 400.858,
+   "end": 400.928
+  },
+  {
+   "text": "sinking",
+   "start": 400.997,
+   "end": 401.427
+  },
+  {
+   "text": "would",
+   "start": 401.543,
+   "end": 401.752
+  },
+  {
+   "text": "be",
+   "start": 401.798,
+   "end": 401.903
+  },
+  {
+   "text": "the",
+   "start": 401.949,
+   "end": 402.019
+  },
+  {
+   "text": "most",
+   "start": 402.089,
+   "end": 402.309
+  },
+  {
+   "text": "effective",
+   "start": 402.356,
+   "end": 402.832
+  },
+  {
+   "text": "countermeasure.",
+   "start": 402.866,
+   "end": 403.726
+  },
+  {
+   "text": "So",
+   "start": 404.004,
+   "end": 404.178
+  },
+  {
+   "text": "what",
+   "start": 404.248,
+   "end": 404.399
+  },
+  {
+   "text": "do",
+   "start": 404.445,
+   "end": 404.527
+  },
+  {
+   "text": "satellites",
+   "start": 404.596,
+   "end": 405.095
+  },
+  {
+   "text": "prove?",
+   "start": 405.165,
+   "end": 405.792
+  },
+  {
+   "text": "That",
+   "start": 406.175,
+   "end": 406.349
+  },
+  {
+   "text": "parts",
+   "start": 406.407,
+   "end": 406.651
+  },
+  {
+   "text": "of",
+   "start": 406.686,
+   "end": 406.732
+  },
+  {
+   "text": "Jakarta",
+   "start": 406.791,
+   "end": 407.255
+  },
+  {
+   "text": "are",
+   "start": 407.325,
+   "end": 407.464
+  },
+  {
+   "text": "sinking,",
+   "start": 407.522,
+   "end": 408.091
+  },
+  {
+   "text": "at",
+   "start": 408.172,
+   "end": 408.311
+  },
+  {
+   "text": "different",
+   "start": 408.358,
+   "end": 408.66
+  },
+  {
+   "text": "speeds,",
+   "start": 408.706,
+   "end": 409.507
+  },
+  {
+   "text": "and",
+   "start": 409.681,
+   "end": 409.809
+  },
+  {
+   "text": "that",
+   "start": 409.856,
+   "end": 409.972
+  },
+  {
+   "text": "some",
+   "start": 410.041,
+   "end": 410.215
+  },
+  {
+   "text": "of",
+   "start": 410.25,
+   "end": 410.308
+  },
+  {
+   "text": "that",
+   "start": 410.355,
+   "end": 410.494
+  },
+  {
+   "text": "sinking",
+   "start": 410.564,
+   "end": 410.912
+  },
+  {
+   "text": "has",
+   "start": 410.982,
+   "end": 411.109
+  },
+  {
+   "text": "slowed.",
+   "start": 411.156,
+   "end": 411.794
+  },
+  {
+   "text": "What",
+   "start": 412.398,
+   "end": 412.596
+  },
+  {
+   "text": "can",
+   "start": 412.654,
+   "end": 412.793
+  },
+  {
+   "text": "they",
+   "start": 412.839,
+   "end": 412.967
+  },
+  {
+   "text": "not",
+   "start": 413.083,
+   "end": 413.315
+  },
+  {
+   "text": "prove?",
+   "start": 413.397,
+   "end": 414.163
+  },
+  {
+   "text": "What",
+   "start": 414.767,
+   "end": 414.964
+  },
+  {
+   "text": "happens",
+   "start": 415.022,
+   "end": 415.452
+  },
+  {
+   "text": "where",
+   "start": 415.51,
+   "end": 415.707
+  },
+  {
+   "text": "the",
+   "start": 415.742,
+   "end": 415.811
+  },
+  {
+   "text": "radar",
+   "start": 415.881,
+   "end": 416.299
+  },
+  {
+   "text": "goes",
+   "start": 416.369,
+   "end": 416.659
+  },
+  {
+   "text": "blind,",
+   "start": 416.74,
+   "end": 417.448
+  },
+  {
+   "text": "and",
+   "start": 417.565,
+   "end": 417.739
+  },
+  {
+   "text": "exactly",
+   "start": 417.808,
+   "end": 418.319
+  },
+  {
+   "text": "what",
+   "start": 418.354,
+   "end": 418.493
+  },
+  {
+   "text": "is",
+   "start": 418.54,
+   "end": 418.609
+  },
+  {
+   "text": "driving",
+   "start": 418.668,
+   "end": 419.039
+  },
+  {
+   "text": "each",
+   "start": 419.085,
+   "end": 419.26
+  },
+  {
+   "text": "bowl.",
+   "start": 419.318,
+   "end": 419.875
+  },
+  {
+   "text": "And",
+   "start": 420.2,
+   "end": 420.339
+  },
+  {
+   "text": "the",
+   "start": 420.386,
+   "end": 420.455
+  },
+  {
+   "text": "next",
+   "start": 420.514,
+   "end": 420.722
+  },
+  {
+   "text": "time",
+   "start": 420.757,
+   "end": 421.001
+  },
+  {
+   "text": "you",
+   "start": 421.048,
+   "end": 421.129
+  },
+  {
+   "text": "see",
+   "start": 421.199,
+   "end": 421.349
+  },
+  {
+   "text": "a",
+   "start": 421.396,
+   "end": 421.431
+  },
+  {
+   "text": "map",
+   "start": 421.512,
+   "end": 421.767
+  },
+  {
+   "text": "of",
+   "start": 421.837,
+   "end": 421.895
+  },
+  {
+   "text": "a",
+   "start": 421.953,
+   "end": 421.976
+  },
+  {
+   "text": "sinking",
+   "start": 422.034,
+   "end": 422.383
+  },
+  {
+   "text": "city,",
+   "start": 422.452,
+   "end": 422.836
+  },
+  {
+   "text": "check",
+   "start": 422.952,
+   "end": 423.184
+  },
+  {
+   "text": "the",
+   "start": 423.253,
+   "end": 423.323
+  },
+  {
+   "text": "label.",
+   "start": 423.381,
+   "end": 423.927
+  },
+  {
+   "text": "What",
+   "start": 424.623,
+   "end": 424.821
+  },
+  {
+   "text": "was",
+   "start": 424.879,
+   "end": 424.995
+  },
+  {
+   "text": "measured,",
+   "start": 425.076,
+   "end": 425.645
+  },
+  {
+   "text": "when,",
+   "start": 425.924,
+   "end": 426.481
+  },
+  {
+   "text": "and",
+   "start": 426.562,
+   "end": 426.783
+  },
+  {
+   "text": "in",
+   "start": 426.876,
+   "end": 426.992
+  },
+  {
+   "text": "which",
+   "start": 427.05,
+   "end": 427.236
+  },
+  {
+   "text": "direction.",
+   "start": 427.282,
+   "end": 428.13
+  }
+ ],
+ "created": "2026-10-16T15:13:05Z",
+ "warnings": []
+}
