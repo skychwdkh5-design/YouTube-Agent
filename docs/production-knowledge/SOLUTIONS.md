@@ -262,6 +262,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** same frame: with Scale -1 + motion blur mean 0 geometry (blank); without Scale mean luminance 78/255 and correct geometry after the post flip.
 - **Regression test:** `orbitalatlas/tests/test_pbrt3d.py`
 
+### pbrt-oidn-spp-policy-dof-grain - Choosing samples per pixel for pbrt + OIDN: 4 spp, 8 under depth of field, never 2 for review
+*VERIFIED · general · 2026-10-16*
+
+- **Problem:** Full true-3D proofs at 8 spp took ~3 h; lowering samples risked flicker and lost detail that single-frame checks do not show.
+- **Root cause:** OIDN removes most noise at 4 spp, but in strongly defocused regions it leaves blotchy grain; at 2 spp it smears edges (no flicker, but -23 % detail).
+- **Fix:** Measure per shot with temporal_qa.py (continuous frames, reference render, static-pixel mask from an independent render): 4 spp default, 8 spp where depth of field is strong, 2 spp only for PREVIEW. Keep the static geometry cache and pipelined post.
+- **Reuse when:** Any pbrt3d production before a REVIEW or FINAL render.
+- **References:** `productions/ep004-jakarta/proof_v3/run_v3.py`; `productions/ep004-jakarta/proof_v3/temporal_qa.py`; `productions/ep004-jakarta/proof_v3/perf/TEMPORAL_QA.md`; `docs/production-knowledge/TRUE_3D_PIPELINE.md`
+- **Verification:** underground 45 frames 4 spp vs old 8 spp: flicker ratio 0.96, PSNR 36.3 dB; controlled 4 vs 8 spp under DOF: Laplacian x2.2 (grain) -> 8 spp; wide 2 spp: PSNR 32.6 dB, smeared edges -> rejected; dive 4 spp: Laplacian 80 vs 82 -> accepted.
+- **Regression test:** `orbitalatlas/tests/test_pbrt3d.py`
+
 ### pil-float-width - Float width in ImageDraw raises TypeError
 *VERIFIED · EP002 · 2026-10-13*
 

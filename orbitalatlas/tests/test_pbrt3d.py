@@ -67,3 +67,22 @@ class TestSceneWriter(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestS3V3Presets(unittest.TestCase):
+    """render presets of the reference true-3D production (productions/ep004-jakarta/proof_v3/run_v3.py)."""
+    @classmethod
+    def setUpClass(cls):
+        import importlib.util, sys
+        p = os.path.join(os.path.dirname(__file__), "../../productions/ep004-jakarta/proof_v3/run_v3.py")
+        if not os.path.exists(p): raise unittest.SkipTest("reference production not present")
+        sys.path.insert(0, os.path.dirname(os.path.abspath(p))); spec = importlib.util.spec_from_file_location("run_v3", p); cls.R = importlib.util.module_from_spec(spec); spec.loader.exec_module(cls.R)
+
+    def test_presets_exist_and_keep_the_full_scene(self):
+        for k in ("PREVIEW", "REVIEW", "FINAL"): self.assertIn(k, self.R.PRESETS)
+        self.assertEqual(self.R.PRESETS["REVIEW"]["size"], (1280, 720)); self.assertEqual(self.R.PRESETS["FINAL"]["size"], (1920, 1080))
+
+    def test_default_4_spp_and_8_only_under_depth_of_field(self):
+        self.assertEqual(self.R.spp_for("REVIEW", 1.0), 4); self.assertEqual(self.R.spp_for("REVIEW", 5.5), 8); self.assertEqual(self.R.spp_for("REVIEW", 9.0), 4)
+        for preset in ("REVIEW", "FINAL"):
+            for t0, t1, n in self.R.SPP_OVERRIDES[preset]: self.assertGreaterEqual(n, 4)          # 2 spp was rejected for review/final

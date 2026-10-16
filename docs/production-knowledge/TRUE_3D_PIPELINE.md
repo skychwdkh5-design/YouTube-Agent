@@ -34,5 +34,19 @@ Reference production: `productions/ep004-jakarta/proof_v3/` (`scene_v3.py`, `run
    camera samples (~1.2 s per spp at 960x540 on 4 cores for a 3,000-building city + textured strata).
 6. Lens shift (V2 style) = offset `screenwindow` on the perspective camera.
 
+## Presets and sample policy (RULE, measured 2026-10-16: productions/ep004-jakarta/proof_v3/perf/)
+`run_v3.py batch A B PRESET TAG --pipeline`; copy `PRESETS` / `SPP_OVERRIDES` / `spp_for` for new productions.
+| preset | resolution | spp | frames | use |
+|---|---|---|---|---|
+| PREVIEW | 640x360 | 2 | every 2nd (15 fps, doubled) | geometry and camera check only |
+| REVIEW | 1280x720 (upscaled to 1080p in compose) | 4; 8 under strong depth of field | all 30 fps | owner review |
+| FINAL | 1920x1080 | 4; 8 under strong depth of field | all 30 fps | only after the owner's separate approval |
+- OIDN at 4 spp is clean on sharp and motion-blurred shots; under strong DOF it leaves blotchy grain (Laplacian x2.2 vs 8 spp) -> 8 spp there.
+- 2 spp is not acceptable for review/final (smeared edges, -23 % detail) even though it does not flicker.
+- Decide spp per shot with `temporal_qa.py` on 6-45 continuous frames against a reference render; take the static-pixel mask from an
+  independent render (a mask from the reference's own difference is biased).
+- Keep: static geometry cache (`Include` of never-moving meshes; write 0.34 -> 0.13 s) and pipelined post (-6.4 %, +0.3 GB RAM, bit-identical).
+- Never delete a previous full run's frames: they are the reference for the next temporal test.
+
 ## Cost (this container: 4 cores, no GPU) — see docs/RENDER_BENCHMARKS.md
 960x540 @ 8 spp + motion blur + OIDN: ~12-14 s/frame. 1280x720 @ 12 spp: see benchmarks. Plan 3-5 s tests first; full 13.5 s proofs take hours.

@@ -1,0 +1,33 @@
+{
+ "new": "temporal",
+ "ref": "full",
+ "frames": [
+  162,
+  206
+ ],
+ "n": 45,
+ "size": [
+  1280,
+  720
+ ],
+ "quality": {
+  "mae_mean": 2.55,
+  "mae_max": 2.74,
+  "psnr_mean_db": 36.27,
+  "psnr_min_db": 35.51
+ },
+ "flicker": {
+  "hf_temporal_new": 3.115,
+  "hf_temporal_ref": 3.244,
+  "ratio": 0.96,
+  "static_pixel_change_new": 0.91,
+  "static_pixel_change_ref": 0.309
+ },
+ "detail": {
+  "laplacian_new": 35.92,
+  "laplacian_ref": 18.16,
+  "ratio": 1.978,
+  "frame_to_frame_cv_new": 0.0562,
+  "frame_to_frame_cv_ref": 0.0569
+ }
+}

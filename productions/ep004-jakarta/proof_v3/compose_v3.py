@@ -108,6 +108,7 @@ def frame(i, tag, scene, card):
     t = i / FPS; work = os.path.join(R.WORK, tag)
     if t >= CARD0 + 0.6: return card.render(t - CARD0)
     j = min(i, int(round(END3D * FPS)) - 1)
+    while j > 0 and not os.path.exists(os.path.join(work, f"frame_{j:04d}.npz")) and not os.path.exists(os.path.join(work, f"hdr_{j:04d}.npy")): j -= 1   # PREVIEW renders every 2nd frame
     z = os.path.join(work, f"frame_{j:04d}.npz")
     if os.path.exists(z): f_ = np.load(z); hdr, dist = f_["hdr"].astype(np.float32), f_["dist"].astype(np.float32)
     else: hdr = np.load(os.path.join(work, f"hdr_{j:04d}.npy")).astype(np.float32); dist = np.load(os.path.join(work, f"dist_{j:04d}.npy")).astype(np.float32)

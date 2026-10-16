@@ -95,8 +95,8 @@ def cone(base, tip, r, n=16):
 
 
 class SceneV3:
-    def __init__(self, work, tex, size=(1920, 1080), spp=32):
-        self.work, self.tex, self.size, self.spp = work, tex, size, spp
+    def __init__(self, work, tex, size=(1920, 1080), spp=32, static_cache=True):
+        self.work, self.tex, self.size, self.spp, self.static_cache = work, tex, size, spp, static_cache
         rng = np.random.default_rng(11); self.buildings = []
         for x in np.arange(-150, 151, 13.0):
             for y in np.arange(9, 210, 13.0):
@@ -162,12 +162,33 @@ class SceneV3:
         s.mesh(far, [0, 1, 2, 0, 2, 3], s.material("diffuse", (0.03, 0.032, 0.036)), np.tile([0, 0, 1], (4, 1)))        # horizon catcher
 
     def city(self, s, t):
+        """block buildings sink with the ground (rebuilt per frame); the ~1,100 distant buildings never move, so they are written once to
+        a cached include file (static geometry cache) instead of being regenerated and re-serialised every frame."""
         groups = {k: [] for k in range(4)}
         for (x, y, bw, bd, h, k) in self.buildings:
             z = float(-subs(x, y, t)); groups[k].append(P.box((x - bw / 2, y - bd / 2, z - 2.0), (x + bw / 2, y + bd / 2, z + h), uv_scale=1 / 10.0))
+        for k, parts in groups.items():
+            if parts: m = P.merge(parts); s.mesh(m[0], m[1], s.material("diffuse", tex=f"fac{k}"), m[2], m[3])
+        if self.static_cache:
+            s.world.append(f'Include "{self.static_far()}"')
+        else:
+            self._far_meshes(s)
+
+    def _far_meshes(self, s):
+        groups = {k: [] for k in range(4)}
         for (x, y, bw, bd, h, k) in self.far: groups[k].append(P.box((x - bw / 2, y - bd / 2, 0), (x + bw / 2, y + bd / 2, h), uv_scale=1 / 12.0))
         for k, parts in groups.items():
             if parts: m = P.merge(parts); s.mesh(m[0], m[1], s.material("diffuse", tex=f"fac{k}"), m[2], m[3])
+
+    def static_far(self):
+        """path of the cached distant-city include; content-addressed, so a changed city layout gets a new file."""
+        import hashlib
+        key = hashlib.sha1(repr(self.far).encode()).hexdigest()[:12]; path = os.path.join(self.work, "cache", f"static_far_{key}.pbrt")
+        if not os.path.exists(path):
+            os.makedirs(os.path.dirname(path), exist_ok=True); tmp = P.Scene(); self._far_meshes(tmp)
+            with open(path + ".tmp", "w") as f: f.write("\n".join(tmp.world) + "\n")
+            os.replace(path + ".tmp", path)
+        return path
 
     def well(self, s, t):
         top = float(-subs(WELL_X, 0.0, t))
