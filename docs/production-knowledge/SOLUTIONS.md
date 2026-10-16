@@ -429,6 +429,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** Found in the v3 release gate by review.
 - **Regression test:** none - Needs human or agent looking at frames; by definition not automatable with the current audits.
 
+### phone-text-size-floor-clamp - Phone-readable text: clamp every on-screen string to a minimum size in the overlay kit
+*VERIFIED · general · 2026-10-16*
+
+- **Problem:** EP004 REVIEW v1 had 86 text_size issues in MOBILE_READABILITY_QA: informational text 15-25 px at 1080p (rule: >= 30 px) in 14 of 20 overlay styles (source lines, chart labels, chips).
+- **Root cause:** Each overlay chose its own fraction of the frame height (0.016-0.026 H) for small text; nothing enforced a floor, and the stock mobile_qa tags only orbitalatlas classes so episode overlays were not attributed.
+- **Fix:** Episode kit wraps kinetic.draw_text/width in dt()/kw() that clamp px to 0.0295 x frame height (about 32 px at 1080p) with layout widths following; ClassChip/Tag defaults raised; lighter MUTED text for contrast; footers moved out of the caption band; build/mqa.py tags kit classes and reuses mobile_qa.check_records.
+- **Reuse when:** Any episode that builds its own overlays or diagrams outside orbitalatlas/: use the clamp (or the same floor) and run build/mqa.py (or mobile_qa) before REVIEW.
+- **References:** `productions/ep004-jakarta/build/ep4kit.py`; `productions/ep004-jakarta/build/mqa.py`; `orbitalatlas/mobile_qa.py`; `productions/ep004-jakarta/qc/REVIEW_REPORT.md`
+- **Verification:** EP004 v1: text_size 86, safe_area 6, contrast 1 -> v2: 0/0/0; the three remaining dissolve overlaps (148-154, 187-193, 313-319 s) show 0 issues at 4 fps after the fix.
+- **Regression test:** none - episode-level QA script productions/ep004-jakarta/build/mqa.py needs the episode assets (not in git)
+
 ### qc-expected-duration-from-video - Use the video duration for yt-qc --expected-duration
 *VERIFIED · EP002 · 2026-10-13*
 
@@ -750,6 +761,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** EP003 auto plan: 15 focus cards in 300 s, impact cards over 5 words refused; demo: captions hidden exactly under the two cards.
 - **Regression test:** `orbitalatlas/tests/test_visual_v2b.py::test_storyboard_stat_label_is_not_drawn_twice`
 
+### static-landsat-shots-camera-paths - A 'creep' camera on long Landsat shots reads as frozen: use eased paths through several views
+*VERIFIED · general · 2026-10-16*
+
+- **Problem:** EP004 v1: 294 of 428 seconds had almost no picture motion (median frame difference 0.18) because long data-card shots sat on a Landsat still with a 4 % creep.
+- **Root cause:** director.camera_keys moves between two views only and then creeps; the opaque cards on top hid the little motion that existed.
+- **Fix:** camseq(): a list of (t, view) keys, in_out_cubic between 3-5 named views per long shot (zoom or pan every 6-9 s; anchored rings and arrows follow the camera); dim only 0.12-0.35 behind opaque cards; 4.5 % push-in on 2-D schematics; outgoing-shot overlays end before the dissolve starts so two shots never show overlapping text.
+- **Reuse when:** Any long shot over a single map or satellite image with cards or labels on top.
+- **References:** `productions/ep004-jakarta/build/review.py`; `productions/ep004-jakarta/build/dyn.py`
+- **Verification:** dyn.py (6 fps luma difference, caption band excluded): seconds below threshold 294 -> 81 of 428; median 0.18 -> 1.59.
+- **Regression test:** none - measured by productions/ep004-jakarta/build/dyn.py on the rendered MP4 (not in git)
+
 ### storyboard-never-shows-an-unrelated-or-wrong-year-picture - A generated storyboard must not fake relevance: no unrelated picture, wrong years are reported
 *VERIFIED · general · 2026-10-14*
 
@@ -839,6 +861,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `tools/autopilot/shoreline_masks.py`; `orbitalatlas/regions.py`; `docs/production-knowledge/SATELLITE_DATA.md`
 - **Verification:** EP003 1985/1986/2022 masks checked on overlays (islands cut out, Bear River and Farmington bays inside 1986, west desert excluded).
 - **Regression test:** none - measurement / environment fact, not code
+
+### usgs-m2m-entity-id-not-display-id - fetch_bands needs the M2M entityId (e.g. LC81220642026257LGN00), not the displayId
+*VERIFIED · general · 2026-10-16*
+
+- **Problem:** fetch_bands.py failed permanently with 'no band-file download option' when the spec's entity was the LC08_... displayId.
+- **Root cause:** The M2M download-options call is keyed by entityId; displayId is only the file-name prefix.
+- **Fix:** Run usgs_m2m.py search --point LAT LON --start D --end D to read entityId and displayId, then give both to the spec (entity = entityId, display_id = displayId).
+- **Reuse when:** Any new Landsat scene fetched with fetch_bands.py or usgs_m2m.py download-bands.
+- **References:** `.claude/skills/yt-satellite/fetch_bands.py`; `.claude/skills/yt-satellite/usgs_m2m.py`; `docs/ASSET_SOURCE_REGISTRY.md`
+- **Verification:** EP004: LC81220642026257LGN00 (Landsat 8, 2026-09-14) and LT51220641990190BKT00 (Landsat 5, 1990-07-09) each downloaded in one attempt (about 300 MB, 3 min).
+- **Regression test:** none - needs USGS credentials and network
 
 ## storage
 

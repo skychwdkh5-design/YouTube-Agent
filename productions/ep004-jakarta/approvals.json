@@ -9,6 +9,23 @@
  },
  "publish": {
   "approved": false,
-  "note": "the agent never uploads"
+  "note": "the agent never uploads; owner: YOUTUBE_PUBLICATION: NOT AUTHORIZED"
+ },
+ "review": {
+  "approved": true,
+  "approved_by": "user",
+  "level": "USER_APPROVED",
+  "what": "EP004 REVIEW v2 (EP004_REVIEW_720p_v2.mp4, sha256 104963664b0e1ddf...)",
+  "date": "2026-10-16",
+  "quote": "Я, владелец проекта, официально утверждаю EP004 REVIEW v2. USER_APPROVED: YES; REVIEW_STATUS: APPROVED; FINAL_RENDER: AUTHORIZED; YOUTUBE_PUBLICATION: NOT AUTHORIZED"
+ },
+ "final_render": {
+  "approved": true,
+  "approved_by": "user",
+  "size": "1920x1080",
+  "fps": 30,
+  "engine": "Visual Engine V2C (2.5-D)",
+  "date": "2026-10-16",
+  "note": "no new ElevenLabs request, no 3-D, no paid operation, main unchanged"
  }
 }

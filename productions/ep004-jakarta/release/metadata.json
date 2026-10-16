@@ -1,0 +1,23 @@
+{
+ "published": false,
+ "title": "Jakarta Is Sinking – Satellites Reveal Why",
+ "title_alternatives": [
+  "Why Jakarta Is Sinking: What Satellites Can (and Can't) Prove (61 chars, may truncate)",
+  "Jakarta Is Sinking: What Radar Shows (and What It Can't) (56)"
+ ],
+ "audience": "United States (primary); Sweden, Norway, Denmark (secondary); language English",
+ "description_file": "description.txt",
+ "chapters_file": "chapters.txt",
+ "tags_file": "tags.txt",
+ "thumbnail_concept": "thumbnail_concept.md",
+ "thumbnail_mock": "thumbnail_concept.png",
+ "video": "final/EP004_FINAL_1080p.mp4 (media branch media/ep004-jakarta-final)",
+ "category": "Education",
+ "made_for_kids": false,
+ "altered_or_synthetic_content_note": "Narration is a synthetic voice (ElevenLabs Adam); all imagery is real Landsat or labeled illustration. Owner decides the YouTube disclosure toggle at upload.",
+ "approval": {
+  "review": "USER_APPROVED 2026-10-16 (owner)",
+  "youtube_publication": "NOT AUTHORIZED",
+  "note": "the agent never uploads"
+ }
+}

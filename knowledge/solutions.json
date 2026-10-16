@@ -3022,6 +3022,99 @@
     "render"
    ],
    "regression_test": "orbitalatlas/tests/test_raster3d.py"
+  },
+  {
+   "id": "phone-text-size-floor-clamp",
+   "title": "Phone-readable text: clamp every on-screen string to a minimum size in the overlay kit",
+   "area": "qc",
+   "problem": "EP004 REVIEW v1 had 86 text_size issues in MOBILE_READABILITY_QA: informational text 15-25 px at 1080p (rule: >= 30 px) in 14 of 20 overlay styles (source lines, chart labels, chips).",
+   "root_cause": "Each overlay chose its own fraction of the frame height (0.016-0.026 H) for small text; nothing enforced a floor, and the stock mobile_qa tags only orbitalatlas classes so episode overlays were not attributed.",
+   "fix": "Episode kit wraps kinetic.draw_text/width in dt()/kw() that clamp px to 0.0295 x frame height (about 32 px at 1080p) with layout widths following; ClassChip/Tag defaults raised; lighter MUTED text for contrast; footers moved out of the caption band; build/mqa.py tags kit classes and reuses mobile_qa.check_records.",
+   "reuse_when": "Any episode that builds its own overlays or diagrams outside orbitalatlas/: use the clamp (or the same floor) and run build/mqa.py (or mobile_qa) before REVIEW.",
+   "refs": {
+    "code": [
+     "productions/ep004-jakarta/build/ep4kit.py",
+     "productions/ep004-jakarta/build/mqa.py",
+     "orbitalatlas/mobile_qa.py"
+    ],
+    "docs": [
+     "productions/ep004-jakarta/qc/REVIEW_REPORT.md"
+    ]
+   },
+   "verification": "EP004 v1: text_size 86, safe_area 6, contrast 1 -> v2: 0/0/0; the three remaining dissolve overlaps (148-154, 187-193, 313-319 s) show 0 issues at 4 fps after the fix.",
+   "symptoms": [
+    "text_size issues",
+    "text too small on phone",
+    "MOBILE_READABILITY_QA fails"
+   ],
+   "stages": [
+    "storyboard",
+    "qc"
+   ],
+   "no_test_reason": "episode-level QA script productions/ep004-jakarta/build/mqa.py needs the episode assets (not in git)",
+   "scope": "general",
+   "date": "2026-10-16",
+   "status": "VERIFIED"
+  },
+  {
+   "id": "static-landsat-shots-camera-paths",
+   "title": "A 'creep' camera on long Landsat shots reads as frozen: use eased paths through several views",
+   "area": "visual",
+   "problem": "EP004 v1: 294 of 428 seconds had almost no picture motion (median frame difference 0.18) because long data-card shots sat on a Landsat still with a 4 % creep.",
+   "root_cause": "director.camera_keys moves between two views only and then creeps; the opaque cards on top hid the little motion that existed.",
+   "fix": "camseq(): a list of (t, view) keys, in_out_cubic between 3-5 named views per long shot (zoom or pan every 6-9 s; anchored rings and arrows follow the camera); dim only 0.12-0.35 behind opaque cards; 4.5 % push-in on 2-D schematics; outgoing-shot overlays end before the dissolve starts so two shots never show overlapping text.",
+   "reuse_when": "Any long shot over a single map or satellite image with cards or labels on top.",
+   "refs": {
+    "code": [
+     "productions/ep004-jakarta/build/review.py",
+     "productions/ep004-jakarta/build/dyn.py"
+    ]
+   },
+   "verification": "dyn.py (6 fps luma difference, caption band excluded): seconds below threshold 294 -> 81 of 428; median 0.18 -> 1.59.",
+   "symptoms": [
+    "video feels like a slideshow",
+    "static map shots",
+    "long freeze-like runs"
+   ],
+   "stages": [
+    "storyboard",
+    "review"
+   ],
+   "no_test_reason": "measured by productions/ep004-jakarta/build/dyn.py on the rendered MP4 (not in git)",
+   "scope": "general",
+   "date": "2026-10-16",
+   "status": "VERIFIED"
+  },
+  {
+   "id": "usgs-m2m-entity-id-not-display-id",
+   "title": "fetch_bands needs the M2M entityId (e.g. LC81220642026257LGN00), not the displayId",
+   "area": "geo",
+   "problem": "fetch_bands.py failed permanently with 'no band-file download option' when the spec's entity was the LC08_... displayId.",
+   "root_cause": "The M2M download-options call is keyed by entityId; displayId is only the file-name prefix.",
+   "fix": "Run usgs_m2m.py search --point LAT LON --start D --end D to read entityId and displayId, then give both to the spec (entity = entityId, display_id = displayId).",
+   "reuse_when": "Any new Landsat scene fetched with fetch_bands.py or usgs_m2m.py download-bands.",
+   "refs": {
+    "code": [
+     ".claude/skills/yt-satellite/fetch_bands.py",
+     ".claude/skills/yt-satellite/usgs_m2m.py"
+    ],
+    "docs": [
+     "docs/ASSET_SOURCE_REGISTRY.md"
+    ]
+   },
+   "verification": "EP004: LC81220642026257LGN00 (Landsat 8, 2026-09-14) and LT51220641990190BKT00 (Landsat 5, 1990-07-09) each downloaded in one attempt (about 300 MB, 3 min).",
+   "symptoms": [
+    "no band-file download option",
+    "failed_permanent fetch_bands"
+   ],
+   "stages": [
+    "claims",
+    "storyboard"
+   ],
+   "no_test_reason": "needs USGS credentials and network",
+   "scope": "general",
+   "date": "2026-10-16",
+   "status": "VERIFIED"
   }
  ]
 }

@@ -195,7 +195,7 @@ def b08(t0, dur):
 
 def b10(t0, dur):
     l = lt(t0); wipe_at = tw(10, "decades") - 0.6
-    def ovs(): return [chip("REAL SATELLITE", "LANDSAT 5 · 1990  →  LANDSAT 8 · 2026 · OPTICAL, NOT SUBSIDENCE"), X.Tag("1990", (0.06, 0.88), 0.0, l(wipe_at), color=X.CYAN, px=0.03), X.Tag("2026", (0.06, 0.88), l(wipe_at + 0.8), None, color=X.AMBER, px=0.03),
+    def ovs(): return [chip("REAL SATELLITE", "LANDSAT 5 · 1990  →  LANDSAT 8 · 2026 · OPTICAL, NOT SUBSIDENCE", 0.75), X.Tag("1990", (0.06, 0.88), 0.0, l(wipe_at), color=X.CYAN, px=0.03), X.Tag("2026", (0.06, 0.88), l(wipe_at + 0.8), None, color=X.AMBER, px=0.03),
                        X.BandTimeline(l(tw(10, "Between") - 0.2), l(t0 + dur), l(tw(10, "1974")), l(tw(10, "three")), (0.06, 0.20, 0.94, 0.44))]
     a = L.Scene(IMG["1990"], camkeys([(0, "whole"), (7.0, "east2"), (dur, "city")], None, dur), size=SIZE, overlays=ovs(), name="b10a"); b = L.Scene(IMG["2026"], camkeys([(0, "whole"), (7.0, "east2"), (dur, "city")], None, dur), size=SIZE, overlays=ovs(), name="b10b")
     return X.Backdrop(X.Wipe(a, b, l(wipe_at), l(wipe_at + 1.6), name="b10"), 0.25, "b10")
@@ -204,7 +204,7 @@ def b10(t0, dur):
 def b11(t0, dur):
     l = lt(t0); t_pri = tw(11, "fastest") - t0 + 0.4; pins = [("west", DIRS["west"], tw(11, "west")), ("northwest coast", DIRS["northwest coast"], tw(11, "northwest")), ("Tanjung Priok", PINS["Tanjung Priok"], tw(11, "Tanjung"))]
     ov = [chip("REAL SATELLITE", CH26), X.Tag("3 HOTSPOTS · 2016-2024 · LINE OF SIGHT", (0.06, 0.15), l(tw(11, "recent")), l(tw(11, "fastest") - 0.1)),
-          X.Stat("30", "MM / YEAR", "Fastest spot · ≈ 1 inch", "SENTINEL-1 ANALYSIS · 2016-2024 · LINE OF SIGHT", l(tw(11, "30") - 0.5), l(t0 + dur), (0.06, 0.20), 0.15, X.AMBER)]
+          X.Stat("30", "MM / YEAR", "Fastest spot · ≈ 1 inch", "SENTINEL-1 ANALYSIS · 2016-2024 · LINE OF SIGHT", l(tw(11, "30") - 0.5), l(t0 + dur - 0.9), (0.06, 0.20), 0.15, X.AMBER)]
     for name, ll, ts in pins:
         named = name == "Tanjung Priok"
         ov.append(X.Ring(src_px(ll), l(ts - 0.1), l(tw(11, "fastest") - 0.1), name, X.AMBER if named else X.CYAN, 24, (0.05, -0.07) if named else (0.05, 0.07), sub=("named place" if named else "direction only")))
@@ -250,7 +250,7 @@ def b15b(t0, dur):
 
 def b16(t0, dur):
     l = lt(t0)
-    ov = [chip("DATA CARD", "2016-2024 ANALYSIS · SENTINEL-1 vs GNSS"), X.Gauge(l(tw(16, "Scientists") - 0.2), l(t0 + dur), l(tw(16, "1.64") - 0.3), l(tw(16, "typical") - 0.2), l(tw(16, "station", 1) - 0.1), box=(0.06, 0.18, 0.94, 0.74))]
+    ov = [chip("DATA CARD", "2016-2024 ANALYSIS · SENTINEL-1 vs GNSS"), X.Gauge(l(tw(16, "Scientists") - 0.2), l(t0 + dur - 0.9), l(tw(16, "1.64") - 0.3), l(tw(16, "typical") - 0.2), l(tw(16, "station", 1) - 0.1), box=(0.06, 0.18, 0.94, 0.74))]
     return landsat("2026", [(0, "city"), (7.0, "south"), (14.0, "centre"), (dur, "kota")], None, dur, ov, "b16", 0.30)
 
 
@@ -346,7 +346,7 @@ def sfx_cues(plan):
 def main(argv=None):
     import argparse
     ap = argparse.ArgumentParser(); ap.add_argument("cmd", choices=("stills", "render", "plan")); ap.add_argument("out", nargs="?"); ap.add_argument("times", nargs="*", type=float)
-    ap.add_argument("--size", default="1280x720"); ap.add_argument("--start", type=float, default=None); ap.add_argument("--end", type=float, default=None); ap.add_argument("--workers", type=int, default=4); ap.add_argument("--no-audio", action="store_true")
+    ap.add_argument("--size", default="1280x720"); ap.add_argument("--start", type=float, default=None); ap.add_argument("--end", type=float, default=None); ap.add_argument("--workers", type=int, default=4); ap.add_argument("--no-audio", action="store_true"); ap.add_argument("--crf", type=int, default=18); ap.add_argument("--preset", default="medium")
     a = ap.parse_args(argv); size = tuple(int(x) for x in a.size.split("x"))
     if a.cmd == "plan":
         for t0, bld, tr in shot_plan(): print(f"{t0:8.2f}  {bld.__name__:12s} {tr}")
@@ -367,7 +367,7 @@ def main(argv=None):
         audio = a.out + ".cut.wav"
         import subprocess
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{t_s}", "-t", f"{t_e - t_s}", "-i", mix_path, audio], check=True)
-    n = SQ.render_video(prog, a.out, FPS, a.workers, audio=audio, frames=times); print("frames", n)
+    n = SQ.render_video(prog, a.out, FPS, a.workers, audio=audio, crf=a.crf, preset=a.preset, frames=times); print("frames", n)
 
 
 if __name__ == "__main__":
