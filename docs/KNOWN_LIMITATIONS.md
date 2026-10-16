@@ -68,3 +68,5 @@ See `docs/references/library/IMPLEMENTATION_STATUS.md`: class-A camera only; no 
 - CPU path tracing is slow (~20-30 s per frame at 1440x810, 8 spp): full 13.5 s proofs take ~2.5-3 h; the proof is rendered at 1440x810 and upscaled to 1080p.
 - No volumetric scattering in the render (would multiply the cost): atmosphere is a depth-based aerial-perspective haze in post. Kinetic type, labels and pore-water particles are a 2-D layer drawn through the same camera (depth-tested particles).
 - The city is procedural boxes with window textures (not modelled architecture); strata are textured meshes with real thickness and compaction, not a geotechnical model.
+- pbrt3d REVIEW renders at 1280x720 and upscales to 1080p (type drawn at 1080p): fine window textures are slightly softer than native.
+- float16 frame storage overflows on very bright emitters (inf pixel): clamp HDR to 6e4 before saving (run_v3._post) and sanitise in finish.

@@ -212,7 +212,7 @@ def finish(hdr, exposure=0.0, contrast=1.08, saturation=1.0, lift=(0.0, 0.0, 0.0
            dist=None, haze=None, haze_m=900.0, wb=(1.0, 1.0, 1.0)):
     """linear HDR -> display sRGB uint8: aerial-perspective haze from the camera distance (post, not volumetric scattering), exposure, bloom of
     the brightest highlights, ACES-fitted filmic curve, lift/gain grade, vignette, grain."""
-    x = np.maximum(hdr, 0.0) * (2.0 ** exposure) * np.asarray(wb, np.float32)          # white balance against the illuminant
+    x = np.maximum(np.nan_to_num(hdr, nan=0.0, posinf=6e4), 0.0) * (2.0 ** exposure) * np.asarray(wb, np.float32)   # white balance; inf/NaN-safe
     if dist is not None and haze is not None:
         d = np.where(dist <= 0, np.inf, dist); f = (1 - np.exp(-d / haze_m))[..., None]
         sky = (dist <= 0)[..., None]; x = np.where(sky, x, x * (1 - f) + np.asarray(haze, np.float32) * (2.0 ** exposure) * f)

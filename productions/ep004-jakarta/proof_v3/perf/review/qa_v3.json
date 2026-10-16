@@ -1,0 +1,50 @@
+{
+ "sha256": "6125c262ca1c1b9c46dc31641514e6aef5b99b9b648946bc73c81827cfdf5130",
+ "bytes": 20981018,
+ "video": {
+  "codec": "h264",
+  "profile": "High",
+  "size": "1920x1080",
+  "fps": "30/1",
+  "frames": 405,
+  "duration": 13.5,
+  "pix_fmt": "yuv420p"
+ },
+ "audio": {
+  "codec": "aac",
+  "rate": "48000",
+  "channels": 2,
+  "duration": 13.5
+ },
+ "decoded_frames": 405,
+ "yt_qc": "PASS",
+ "freeze_runs": [],
+ "black_runs": 0,
+ "loudness": {
+  "integrated_lufs": -19.3,
+  "true_peak_dbfs": -4.8
+ },
+ "activity_per_second": [
+  2.555,
+  3.929,
+  13.481,
+  18.87,
+  6.37,
+  7.258,
+  9.771,
+  16.748,
+  13.769,
+  13.781,
+  2.924,
+  5.738,
+  11.318
+ ],
+ "mobile_readability": {
+  "min_px_by_style": {
+   "label": 30.0,
+   "WordCaptions": 52.0
+  },
+  "n_issues": {},
+  "issues": {}
+ }
+}

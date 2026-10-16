@@ -61,6 +61,7 @@ def spp_for(preset, t):
 def _post(stem, out, keep_exr=False):
     """EXR -> OIDN -> compressed HDR + distance. Runs in a worker thread when pipelining (its tools are subprocesses: no GIL contention)."""
     t0 = time.time(); hdr, dist = P.load_frame(stem + ".exr", stem)
+    hdr = np.nan_to_num(np.minimum(hdr, 6e4), nan=0.0, posinf=6e4)                 # float16 overflows above 65504 (emissive highlights -> inf)
     np.savez_compressed(out, hdr=hdr.astype(np.float16), dist=np.minimum(dist, 6e4).astype(np.float16))
     for f in ((stem + ".pbrt",) if keep_exr else (stem + ".exr", stem + ".pbrt")):
         try: os.remove(f)
