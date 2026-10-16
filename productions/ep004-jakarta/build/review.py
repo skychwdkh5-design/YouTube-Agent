@@ -57,14 +57,28 @@ VIEWS = {"whole": ((106.835, -6.21), 42), "bay": ((106.84, -6.13), 34), "city": 
          "nw": ((106.74, -6.09), 22), "north": ((106.82, -6.105), 30), "harbor": ((106.885, -6.115), 15), "south": ((106.83, -6.27), 30), "coast_w": ((106.77, -6.10), 17), "centre": ((106.83, -6.19), 14)}
 PINS = {"Tanjung Priok": (106.885, -6.100), "Mutiara Beach": (106.790, -6.107), "Pademangan": (106.840, -6.130), "West Cengkareng": (106.735, -6.150), "Halim airport": (106.891, -6.266), "Jakarta": (106.827, -6.175)}
 # compass-direction markers: NOT map measurements; labelled 'general direction'
-DIRS = {"west": (106.70, -6.17), "northwest coast": (106.735, -6.075)}
+DIRS = {"west": (106.70, -6.17), "northwest coast": (106.745, -6.105)}
 
 
 def view(name): c, w = VIEWS[name]; return {"center": list(c), "width_km": w}
 
 
+VIEWS.update({"whole2": ((106.84, -6.17), 36), "north2": ((106.80, -6.11), 26), "kota": ((106.82, -6.13), 17), "priok": ((106.885, -6.105), 12), "east2": ((106.93, -6.14), 24), "bay2": ((106.82, -6.12), 30), "bay3": ((106.80, -6.095), 34), "sw": ((106.76, -6.25), 26)})
+
+
 def camkeys(a, b, dur):
+    """a, b = view names, or a, None with a LIST of (t_rel, view) in `a`: an eased path through several views (continuous motion, no hold)."""
+    if isinstance(a, (list, tuple)): return camseq(a, dur)
     return D.camera_keys(geo(), {"from": view(a), "to": view(b)}, dur, lambda *_: None)
+
+
+def camseq(path, dur):
+    """[(t_rel, view_name), ...] -> camera keys; every segment eased in/out so the picture is never frozen between moves"""
+    g = geo(); keys = []
+    for i, (t, name) in enumerate(path):
+        c, w = VIEWS[name]; keys.append(dict(t=float(t), center=tuple(g.px(c)), height=g.height(w), ease="in_out_cubic", rot=0.0))
+    if keys[-1]["t"] < dur + 0.5: keys.append(dict(keys[-1], t=dur + 0.5, ease="linear"))
+    return keys
 
 
 def src_px(lonlat): return geo().px(lonlat)
@@ -89,14 +103,14 @@ def lt(t0): return lambda g: g - t0
 def b01a(t0, dur):
     l = lt(t0); five = tw(1, "five"); spots = tw(1, "individual")
     ov = [chip("REAL SATELLITE", CH26), X.Stat("12", "CM / YEAR", "ESA radar: peak at individual spots", "ESA SENTINEL-1 · 2017-2018 · LINE OF SIGHT", l(five - 1.2), l(spots + 0.4), (0.06, 0.20), 0.15, X.AMBER, sub="≈ almost 5 inches · not a citywide average")]
-    return landsat("2026", "bay", "city", dur, ov, "b01a", 0.18)
+    return landsat("2026", [(0, "whole"), (4.0, "bay"), (dur, "centre")], None, dur, ov, "b01a", 0.12)
 
 
 def b01b(t0, dur):
     l = lt(t0); along = tw(1, "along"); p = src_px(PINS["Pademangan"])
     ov = [chip("ILLUSTRATION", "LINE OF SIGHT vs VERTICAL · SCHEMATIC"), X.LosView(p, l(along), l(t0 + dur), l(along + 2.0)),
           X.Tag("PEAK AT INDIVIDUAL SPOTS ≠ CITYWIDE AVERAGE", (0.06, 0.15), 0.1, l(along - 0.2), color=X.AMBER)]
-    return landsat("2026", "city", "centre", dur, ov, "b01b", 0.35)
+    return landsat("2026", [(0, "city"), (4.0, "centre"), (dur, "coast_w")], None, dur, ov, "b01b", 0.28)
 
 
 def b02(t0, dur):
@@ -106,7 +120,7 @@ def b02(t0, dur):
 def b03(t0, dur):
     l = lt(t0); qs = [("1  Why is the ground falling?", tw(3, "Why", 0)), ("2  Why has one sinking area slowed?", tw(3, "Why", 1)), ("3  Why can't satellites see part of the coast?", tw(3, "Why", 2))]
     ov = [chip("REAL SATELLITE", CH26), X.Lines([(q, l(ts), X.WHITE if i < 2 else X.AMBER) for i, (q, ts) in enumerate(qs)], (0.06, 0.20), l(t0 + dur), px=0.040, head="THREE QUESTIONS")]
-    return landsat("2026", "north", "coast_w", dur, ov, "b03", 0.35)
+    return landsat("2026", [(0, "north"), (4.5, "west"), (dur - 1, "coast_w")], None, dur, ov, "b03", 0.25)
 
 
 def b04a(t0, dur):                                                       # globe locator -> Java -> Jakarta (stylised map)
@@ -129,7 +143,7 @@ def b04b(t0, dur):
     ov = [chip("REAL SATELLITE", CH26), X.Tag("RIVER DELTA · 13 NATURAL AND ARTIFICIAL RIVERS", (0.06, 0.15), l(tw(4, "built")), l(ppl - 0.2)),
           X.Stat("10.9", "MILLION PEOPLE", "Capital province, DKI Jakarta", "2022 STUDY (C37)", l(ppl + 0.1), l(pc - 1.4), (0.06, 0.20), 0.15, X.CYAN),
           X.Stat("40", "%", "of the city below sea level", "REPORTED 2021", l(pc - 0.6), l(t0 + dur - 0.2), (0.06, 0.20), 0.15, X.AMBER, sub="by some estimates")]
-    return landsat("2026", "bay", "city", dur, ov, "b04b", 0.30)
+    return landsat("2026", [(0, "bay"), (6.0, "north2"), (dur - 0.5, "kota")], None, dur, ov, "b04b", 0.22)
 
 
 def b05(t0, dur):
@@ -168,7 +182,7 @@ def b07(t0, dur):
     ov = [chip("ILLUSTRATION", "THREE SUSPECTS · IAHS STUDY + ESA CAPTION"),
           X.Suspects([("Groundwater pumping", "water taken from under the city", "well"), ("Weight of buildings & roads", "on soft, compressible ground", "build"), ("Settling of young river mud", "natural compaction", "mud")],
                      [l(tw(7, "Groundwater")), l(tw(7, "weight")), l(tw(7, "settling"))], l(t0 + dur), 0, l(tw(7, "ESA's")), box=(0.06, 0.24, 0.94, 0.72))]
-    return landsat("2026", "bay", "whole", dur, ov, "b07", 0.55)
+    return landsat("2026", [(0, "bay"), (6.5, "whole2"), (13.0, "sw"), (dur, "kota")], None, dur, ov, "b07", 0.30)
 
 
 def b08(t0, dur):
@@ -176,25 +190,25 @@ def b08(t0, dur):
     ov = [chip("REAL SATELLITE", CH26), X.Stat("64", "%", "of the province reached by piped water", "2022 STUDY (C37)", l(tw(8, "64") - 0.4), l(tw(8, "Its") - 0.2), (0.06, 0.20), 0.15, X.CYAN),
           X.Tag("PROPOSAL IN THE 2022 STUDY · NOT POLICY", (0.06, 0.15), l(tw(8, "Its")), l(t0 + dur)),
           X.Arrow(p_n, (0.0, 0.20), l(n0 - 0.1), l(t0 + dur), "north first"), X.Arrow(p_w, (0.20, 0.0), l(n1 - 0.1), l(t0 + dur), "west")]
-    return landsat("2026", "whole", "bay", dur, ov, "b08", 0.20)
+    return landsat("2026", [(0, "whole"), (7.0, "north2"), (dur, "west")], None, dur, ov, "b08", 0.18)
 
 
 def b10(t0, dur):
     l = lt(t0); wipe_at = tw(10, "decades") - 0.6
     def ovs(): return [chip("REAL SATELLITE", "LANDSAT 5 · 1990  →  LANDSAT 8 · 2026 · OPTICAL, NOT SUBSIDENCE"), X.Tag("1990", (0.06, 0.88), 0.0, l(wipe_at), color=X.CYAN, px=0.03), X.Tag("2026", (0.06, 0.88), l(wipe_at + 0.8), None, color=X.AMBER, px=0.03),
                        X.BandTimeline(l(tw(10, "Between") - 0.2), l(t0 + dur), l(tw(10, "1974")), l(tw(10, "three")), (0.06, 0.20, 0.94, 0.44))]
-    a = L.Scene(IMG["1990"], camkeys("whole", "city", dur), size=SIZE, overlays=ovs(), name="b10a"); b = L.Scene(IMG["2026"], camkeys("whole", "city", dur), size=SIZE, overlays=ovs(), name="b10b")
-    return X.Backdrop(X.Wipe(a, b, l(wipe_at), l(wipe_at + 1.6), name="b10"), 0.38, "b10")
+    a = L.Scene(IMG["1990"], camkeys([(0, "whole"), (7.0, "east2"), (dur, "city")], None, dur), size=SIZE, overlays=ovs(), name="b10a"); b = L.Scene(IMG["2026"], camkeys([(0, "whole"), (7.0, "east2"), (dur, "city")], None, dur), size=SIZE, overlays=ovs(), name="b10b")
+    return X.Backdrop(X.Wipe(a, b, l(wipe_at), l(wipe_at + 1.6), name="b10"), 0.25, "b10")
 
 
 def b11(t0, dur):
-    l = lt(t0); pins = [("west", DIRS["west"], tw(11, "west")), ("northwest coast", DIRS["northwest coast"], tw(11, "northwest")), ("Tanjung Priok", PINS["Tanjung Priok"], tw(11, "Tanjung"))]
+    l = lt(t0); t_pri = tw(11, "fastest") - t0 + 0.4; pins = [("west", DIRS["west"], tw(11, "west")), ("northwest coast", DIRS["northwest coast"], tw(11, "northwest")), ("Tanjung Priok", PINS["Tanjung Priok"], tw(11, "Tanjung"))]
     ov = [chip("REAL SATELLITE", CH26), X.Tag("3 HOTSPOTS · 2016-2024 · LINE OF SIGHT", (0.06, 0.15), l(tw(11, "recent")), l(tw(11, "fastest") - 0.1)),
           X.Stat("30", "MM / YEAR", "Fastest spot · ≈ 1 inch", "SENTINEL-1 ANALYSIS · 2016-2024 · LINE OF SIGHT", l(tw(11, "30") - 0.5), l(t0 + dur), (0.06, 0.20), 0.15, X.AMBER)]
     for name, ll, ts in pins:
         named = name == "Tanjung Priok"
-        ov.append(X.Ring(src_px(ll), l(ts - 0.1), l(tw(11, "fastest") - 0.1), name, X.AMBER if named else X.CYAN, 24, (0.05, -0.07) if name != "west" else (-0.05, -0.07), sub=("named place" if named else "general direction · extent not shown")))
-    return landsat("2026", "bay", "harbor", dur, ov, "b11", 0.10)
+        ov.append(X.Ring(src_px(ll), l(ts - 0.1), l(tw(11, "fastest") - 0.1), name, X.AMBER if named else X.CYAN, 24, (0.05, -0.07) if named else (0.05, 0.07), sub=("named place" if named else "direction only")))
+    return landsat("2026", [(0, "bay3"), (13.0, "bay2"), (t_pri, "priok"), (dur, "harbor")], None, dur, ov, "b11", 0.10)
 
 
 def b12_stage(t0, dur):
@@ -203,7 +217,7 @@ def b12_stage(t0, dur):
           X.Tag("PREPRINT · RADAR + GPS · 2014-2025", (0.06, 0.15), l(tw(12, "preprint") - 0.2), l(t0 + dur), color=X.AMBER),
           X.Stat("7.7", "CM / YEAR", "Worst bowl · up to · ≈ 3 inches", "VERTICAL · PREPRINT (C39)", l(tw(12, "7.7") - 0.5), l(tw(12, "Across") - 0.1), (0.06, 0.54), 0.12, X.AMBER),
           X.Stat("1.1", "CM / YEAR", "Metro area · slow background sinking", "VERTICAL · PREPRINT · ONE CONTINUOUS GPS STATION", l(tw(12, "1.1") - 0.5), l(t0 + dur), (0.06, 0.54), 0.12, X.CYAN)]
-    return landsat("2026", "whole", "south", dur, ov, "b12", 0.62)
+    return landsat("2026", [(0, "whole"), (9.0, "city"), (18.0, "south"), (27.0, "bay"), (dur, "east2")], None, dur, ov, "b12", 0.35)
 
 
 def b13(t0, dur):
@@ -211,7 +225,7 @@ def b13(t0, dur):
     rows = [("North Jakarta", 4.9, l(tw(13, "North", 0) - 0.2)), ("West Jakarta", 4.8, l(tw(13, "4.8"))), ("Central Jakarta", 3.1, l(tw(13, "3.1"))), ("South", 2.8, l(tw(13, "2.8"))), ("East", 2.5, l(tw(13, "2.5")))]
     ov = [chip("DATA CARD", "RADAR STUDY · 2019-2020 · SENTINEL-1A"), X.Bars(rows, 5.5, "CM PER YEAR", "AVERAGE SINKING RATE BY CITY", "2019-2020 · ONE STUDY", l(tw(13, "average") - 0.3), l(t0 + dur), box=(0.06, 0.16, 0.66, 0.76), colors={"North Jakarta": X.AMBER, "West Jakarta": X.AMBER}, fmt="{:.1f}", note="LINE OF SIGHT OR VERTICAL: NOT STATED"),
           X.Arrow(src_px((106.83, -6.105)), (0.12, -0.10), l(tw(13, "mostly") - 0.1), l(t0 + dur), "coast & river mouths")]
-    return landsat("2026", "whole", "north", dur, ov, "b13", 0.45)
+    return landsat("2026", [(0, "whole"), (9.0, "east2"), (18.0, "north2"), (dur, "coast_w")], None, dur, ov, "b13", 0.25)
 
 
 def b14(t0, dur):
@@ -220,7 +234,7 @@ def b14(t0, dur):
     for i, (nm, ts) in enumerate(items): ov.append(X.Ring(src_px(PINS[nm]), l(ts - 0.1), l(tw(14, "Other") - 0.1), nm, X.AMBER, 22, [(0.04, -0.09), (-0.02, 0.09), (0.05, 0.08)][i]))
     ov.append(X.Lines([("Cracked buildings and roads", l(tw(14, "cracked")), X.WHITE), ("Changed river flow", l(tw(14, "changed")), X.WHITE), ("Bigger flooded areas", l(tw(14, "bigger")), X.WHITE), ("Drains that stop working", l(tw(14, "drains")), X.AMBER)],
                       (0.06, 0.20), l(t0 + dur), px=0.036, head="OTHER RESEARCHERS LIST"))
-    return landsat("2026", "north", "north", dur, ov, "b14", 0.12)
+    return landsat("2026", [(0, "north"), (9.5, "bay2"), (dur, "east")], None, dur, ov, "b14", 0.12)
 
 
 def b15a(t0, dur):
@@ -230,14 +244,14 @@ def b15a(t0, dur):
 def b15b(t0, dur):
     l = lt(t0); p = src_px((106.80, -6.085))
     ov = [chip("REAL SATELLITE", CH26), X.Tag("PIXELS REMOVED ALONG THE NORTHERN COAST · EXTENT NOT SHOWN", (0.06, 0.15), l(tw(15, "removes") - 0.2), l(t0 + dur), color=X.RED),
-          X.Arrow(src_px((106.76, -6.085)), (-0.10, -0.10), l(tw(15, "northern") - 0.2), l(t0 + dur), "radar goes blind here", X.RED), X.Arrow(src_px((106.86, -6.095)), (0.10, -0.10), l(tw(15, "northern") - 0.0), l(t0 + dur), "", X.RED)]
+          X.Arrow(src_px((106.76, -6.085)), (-0.20, 0.0), l(tw(15, "northern") - 0.2), l(t0 + dur), "radar goes blind here", X.RED), X.Arrow(src_px((106.86, -6.095)), (0.20, 0.0), l(tw(15, "northern") - 0.0), l(t0 + dur), "", X.RED)]
     return landsat("2026", "north", "coast_w", dur, ov, "b15b", 0.15)
 
 
 def b16(t0, dur):
     l = lt(t0)
     ov = [chip("DATA CARD", "2016-2024 ANALYSIS · SENTINEL-1 vs GNSS"), X.Gauge(l(tw(16, "Scientists") - 0.2), l(t0 + dur), l(tw(16, "1.64") - 0.3), l(tw(16, "typical") - 0.2), l(tw(16, "station", 1) - 0.1), box=(0.06, 0.18, 0.94, 0.74))]
-    return landsat("2026", "city", "centre", dur, ov, "b16", 0.55)
+    return landsat("2026", [(0, "city"), (7.0, "south"), (14.0, "centre"), (dur, "kota")], None, dur, ov, "b16", 0.30)
 
 
 def b17(t0, dur):
@@ -249,7 +263,7 @@ def b18(t0, dur):
     ov = [chip("REAL SATELLITE", CH26), X.Tag("2026 STUDY · ABSTRACT ONLY · FULL TEXT NOT READ", (0.06, 0.15), l(tw(18, "2026") - 0.1), l(t0 + dur), color=X.AMBER),
           X.Lines([("Some areas slowing", l(tw(18, "slowing")), X.WHITE), ("A few: localized uplift", l(tw(18, "localized") - 0.2), X.WHITE), ("The coast keeps sinking", l(tw(18, "coast") - 0.1), X.AMBER), ("Slowing ≠ coming back up", l(tw(18, "Slowing", 1) - 0.1), X.CYAN)],
                   (0.06, 0.22), l(t0 + dur), px=0.040, head="WHAT THE ABSTRACT REPORTS")]
-    return landsat("2026", "north", "whole", dur, ov, "b18", 0.40)
+    return landsat("2026", [(0, "north"), (6.0, "west"), (12.0, "whole2"), (dur, "bay")], None, dur, ov, "b18", 0.25)
 
 
 def b19(t0, dur):
@@ -258,7 +272,7 @@ def b19(t0, dur):
           X.Stat("70", "% +", "Of Jakarta submerged · flood of 2007", "REPORTED (C14)", l(tw(19, "70") - 0.6), l(f1 - 0.2), (0.06, 0.20), 0.15, X.CYAN),
           X.Stat("377", "MM", "Rain in one day · 31 Dec 2019 · ≈ 15 inches", "HALIM PERDANAKUSUMA GAUGE (C44)", l(f1), l(f2 - 0.2), (0.06, 0.20), 0.15, X.AMBER),
           X.Compare(l(f2), l(t0 + dur), l(tw(19, "3.1") - 0.3), l(tw(19, "worst") - 0.2), box=(0.06, 0.20, 0.94, 0.72))]
-    return landsat("2026", "north", "harbor", dur, ov, "b19", 0.50)
+    return landsat("2026", [(0, "north"), (8.0, "harbor"), (17.0, "west"), (26.0, "whole"), (dur, "bay2")], None, dur, ov, "b19", 0.30)
 
 
 def b20(t0, dur):
@@ -273,7 +287,7 @@ def b21(t0, dur):
     last = tw(21, "check")
     ov = [chip("REAL SATELLITE", CH26), X.CheckList(cols, l(last - 0.6), box=(0.06, 0.20, 0.94, 0.70)),
           X.Lines([("What was measured", l(tw(21, "What", 2)) if False else l(last + 0.3), X.WHITE), ("When", l(tw(21, "when") - 0.1), X.CYAN), ("In which direction", l(tw(21, "direction") - 0.5), X.AMBER)], (0.06, 0.22), l(t0 + dur + 1), px=0.050, head="CHECK THE LABEL")]
-    return landsat("2026", "whole", "bay", dur + 0.4, ov, "b21", 0.38)
+    return landsat("2026", [(0, "whole"), (8.0, "bay"), (16.0, "north2"), (dur, "whole")], None, dur + 0.4, ov, "b21", 0.25)
 
 
 # =====================================================================================================  PROGRAMME

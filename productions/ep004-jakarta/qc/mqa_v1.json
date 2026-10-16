@@ -1,0 +1,837 @@
+{
+ "rules": {
+  "min_text_px_1080": 30.0,
+  "min_caption_px_1080": 48.0
+ },
+ "styles": {
+  "?": 30.0,
+  "Arrow": 28.1,
+  "BandTimeline": 25.3,
+  "Bars": 18.0,
+  "Bowls": 17.8,
+  "CheckList": 30.1,
+  "ClassChip": 21.8,
+  "CoherenceDiagram": 23.8,
+  "Compare": 17.3,
+  "DykeDiagram": 23.8,
+  "Gauge": 20.1,
+  "GeoMarker": 30.0,
+  "Lines": 19.4,
+  "LosView": 26.2,
+  "OrbitDiagram": 22.7,
+  "Ring": 15.0,
+  "Stat": 20.7,
+  "Suspects": 18.0,
+  "Tag": 28.1,
+  "TrendsDiagram": 23.3,
+  "WordCaptions": 56.2
+ },
+ "issues": {
+  "text_size": [
+   {
+    "tag": "ClassChip",
+    "text": "REAL SATELLITE",
+    "first_t": 0.5,
+    "last_t": 426.5,
+    "count": 88,
+    "why": "25px < 30 (5.1 pt portrait)"
+   },
+   {
+    "tag": "ClassChip",
+    "text": "LANDSAT 8 · 14 SEP 2026 · OPTICAL, NOT SUBSIDENCE",
+    "first_t": 0.5,
+    "last_t": 426.5,
+    "count": 73,
+    "why": "22px < 30 (4.4 pt portrait)"
+   },
+   {
+    "tag": "Stat",
+    "text": "ESA SENTINEL-1 · 2017-2018 · LINE OF SIGHT",
+    "first_t": 6.5,
+    "last_t": 10.5,
+    "count": 3,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "ClassChip",
+    "text": "ILLUSTRATION",
+    "first_t": 12.5,
+    "last_t": 224.5,
+    "count": 33,
+    "why": "25px < 30 (5.1 pt portrait)"
+   },
+   {
+    "tag": "ClassChip",
+    "text": "LINE OF SIGHT vs VERTICAL · SCHEMATIC",
+    "first_t": 12.5,
+    "last_t": 18.5,
+    "count": 4,
+    "why": "22px < 30 (4.4 pt portrait)"
+   },
+   {
+    "tag": "Tag",
+    "text": "PEAK AT INDIVIDUAL SPOTS ≠ CITYWIDE AVERAGE",
+    "first_t": 12.5,
+    "last_t": 14.5,
+    "count": 2,
+    "why": "28px < 30 (5.7 pt portrait)"
+   },
+   {
+    "tag": "LosView",
+    "text": "LINE OF SIGHT",
+    "first_t": 18.5,
+    "last_t": 18.5,
+    "count": 1,
+    "why": "29px < 30 (5.9 pt portrait)"
+   },
+   {
+    "tag": "LosView",
+    "text": "NOT THE VERTICAL DROP",
+    "first_t": 18.5,
+    "last_t": 18.5,
+    "count": 1,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "OrbitDiagram",
+    "text": "NOT TO SCALE",
+    "first_t": 20.5,
+    "last_t": 28.5,
+    "count": 5,
+    "why": "24px < 30 (4.8 pt portrait)"
+   },
+   {
+    "tag": "OrbitDiagram",
+    "text": "693 KM · ESA SENTINEL-1 ALTITUDE",
+    "first_t": 22.5,
+    "last_t": 28.5,
+    "count": 4,
+    "why": "23px < 30 (4.6 pt portrait)"
+   },
+   {
+    "tag": "Lines",
+    "text": "THREE QUESTIONS",
+    "first_t": 32.5,
+    "last_t": 40.5,
+    "count": 5,
+    "why": "22px < 30 (4.4 pt portrait)"
+   },
+   {
+    "tag": "ClassChip",
+    "text": "STYLISED MAP",
+    "first_t": 40.5,
+    "last_t": 44.5,
+    "count": 3,
+    "why": "25px < 30 (5.1 pt portrait)"
+   },
+   {
+    "tag": "ClassChip",
+    "text": "NATURAL EARTH 1:10M · NOT SATELLITE IMAGERY",
+    "first_t": 40.5,
+    "last_t": 44.5,
+    "count": 3,
+    "why": "22px < 30 (4.4 pt portrait)"
+   },
+   {
+    "tag": "Tag",
+    "text": "RIVER DELTA · 13 NATURAL AND ARTIFICIAL RIVERS",
+    "first_t": 46.5,
+    "last_t": 50.5,
+    "count": 3,
+    "why": "28px < 30 (5.7 pt portrait)"
+   },
+   {
+    "tag": "Stat",
+    "text": "2022 STUDY (C37)",
+    "first_t": 52.5,
+    "last_t": 126.5,
+    "count": 3,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "Stat",
+    "text": "REPORTED 2021",
+    "first_t": 56.5,
+    "last_t": 58.5,
+    "count": 2,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "ClassChip",
+    "text": "THREE SUSPECTS · IAHS STUDY + ESA CAPTION",
+    "first_t": 98.5,
+    "last_t": 118.5,
+    "count": 11,
+    "why": "22px < 30 (4.4 pt portrait)"
+   },
+   {
+    "tag": "Suspects",
+    "text": "WATER TAKEN FROM UNDER THE CITY",
+    "first_t": 104.5,
+    "last_t": 118.5,
+    "count": 8,
+    "why": "18px < 30 (3.6 pt portrait)"
+   },
+   {
+    "tag": "Suspects",
+    "text": "ON SOFT, COMPRESSIBLE GROUND",
+    "first_t": 108.5,
+    "last_t": 118.5,
+    "count": 6,
+    "why": "18px < 30 (3.6 pt portrait)"
+   },
+   {
+    "tag": "Suspects",
+    "text": "NATURAL COMPACTION",
+    "first_t": 112.5,
+    "last_t": 118.5,
+    "count": 4,
+    "why": "18px < 30 (3.6 pt portrait)"
+   },
+   {
+    "tag": "Suspects",
+    "text": "ESA CAPTION: LARGELY THIS",
+    "first_t": 114.5,
+    "last_t": 118.5,
+    "count": 3,
+    "why": "21px < 30 (4.3 pt portrait)"
+   },
+   {
+    "tag": "Tag",
+    "text": "PROPOSAL IN THE 2022 STUDY · NOT POLICY",
+    "first_t": 128.5,
+    "last_t": 132.5,
+    "count": 3,
+    "why": "28px < 30 (5.7 pt portrait)"
+   },
+   {
+    "tag": "Arrow",
+    "text": "NORTH FIRST",
+    "first_t": 130.5,
+    "last_t": 132.5,
+    "count": 2,
+    "why": "28px < 30 (5.7 pt portrait)"
+   },
+   {
+    "tag": "Arrow",
+    "text": "WEST",
+    "first_t": 130.5,
+    "last_t": 132.5,
+    "count": 2,
+    "why": "28px < 30 (5.7 pt portrait)"
+   },
+   {
+    "tag": "ClassChip",
+    "text": "LANDSAT 5 · 1990  →  LANDSAT 8 · 2026 · OPTICAL, NOT SUBSIDE",
+    "first_t": 152.5,
+    "last_t": 168.5,
+    "count": 15,
+    "why": "22px < 30 (4.4 pt portrait)"
+   },
+   {
+    "tag": "BandTimeline",
+    "text": "1974",
+    "first_t": 160.5,
+    "last_t": 168.5,
+    "count": 10,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "BandTimeline",
+    "text": "1980",
+    "first_t": 160.5,
+    "last_t": 168.5,
+    "count": 10,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "BandTimeline",
+    "text": "1990",
+    "first_t": 160.5,
+    "last_t": 168.5,
+    "count": 10,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "BandTimeline",
+    "text": "2000",
+    "first_t": 160.5,
+    "last_t": 168.5,
+    "count": 10,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "BandTimeline",
+    "text": "LEVELING · GPS · INSAR SURVEYS",
+    "first_t": 160.5,
+    "last_t": 168.5,
+    "count": 10,
+    "why": "25px < 30 (5.1 pt portrait)"
+   },
+   {
+    "tag": "BandTimeline",
+    "text": "2010",
+    "first_t": 162.5,
+    "last_t": 168.5,
+    "count": 8,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "Tag",
+    "text": "3 HOTSPOTS · 2016-2024 · LINE OF SIGHT",
+    "first_t": 170.5,
+    "last_t": 182.5,
+    "count": 7,
+    "why": "28px < 30 (5.7 pt portrait)"
+   },
+   {
+    "tag": "Ring",
+    "text": "TANJUNG PRIOK",
+    "first_t": 182.5,
+    "last_t": 182.5,
+    "count": 1,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "Ring",
+    "text": "NAMED PLACE",
+    "first_t": 182.5,
+    "last_t": 182.5,
+    "count": 1,
+    "why": "15px < 30 (3.0 pt portrait)"
+   },
+   {
+    "tag": "Stat",
+    "text": "SENTINEL-1 ANALYSIS · 2016-2024 · LINE OF SIGHT",
+    "first_t": 186.5,
+    "last_t": 190.5,
+    "count": 3,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "ClassChip",
+    "text": "SCHEMATIC COUNT · 2 STUDIES, 2 METHODS",
+    "first_t": 190.5,
+    "last_t": 224.5,
+    "count": 18,
+    "why": "22px < 30 (4.4 pt portrait)"
+   },
+   {
+    "tag": "Bowls",
+    "text": "SCHEMATIC COUNT · NOT MAP POSITIONS",
+    "first_t": 190.5,
+    "last_t": 224.5,
+    "count": 18,
+    "why": "18px < 30 (3.6 pt portrait)"
+   },
+   {
+    "tag": "Tag",
+    "text": "PREPRINT · RADAR + GPS · 2014-2025",
+    "first_t": 196.5,
+    "last_t": 224.5,
+    "count": 15,
+    "why": "28px < 30 (5.7 pt portrait)"
+   },
+   {
+    "tag": "Stat",
+    "text": "WORST BOWL · UP TO · ≈ 3 INCHES",
+    "first_t": 208.5,
+    "last_t": 210.5,
+    "count": 2,
+    "why": "25px < 30 (5.0 pt portrait)"
+   },
+   {
+    "tag": "Stat",
+    "text": "VERTICAL · PREPRINT (C39)",
+    "first_t": 208.5,
+    "last_t": 210.5,
+    "count": 2,
+    "why": "21px < 30 (4.2 pt portrait)"
+   },
+   {
+    "tag": "Stat",
+    "text": "METRO AREA · SLOW BACKGROUND SINKING",
+    "first_t": 216.5,
+    "last_t": 224.5,
+    "count": 5,
+    "why": "25px < 30 (5.0 pt portrait)"
+   },
+   {
+    "tag": "Stat",
+    "text": "VERTICAL · PREPRINT · ONE CONTINUOUS GPS STATION",
+    "first_t": 216.5,
+    "last_t": 224.5,
+    "count": 5,
+    "why": "21px < 30 (4.2 pt portrait)"
+   },
+   {
+    "tag": "ClassChip",
+    "text": "DATA CARD",
+    "first_t": 224.5,
+    "last_t": 380.5,
+    "count": 44,
+    "why": "25px < 30 (5.1 pt portrait)"
+   },
+   {
+    "tag": "ClassChip",
+    "text": "RADAR STUDY · 2019-2020 · SENTINEL-1A",
+    "first_t": 224.5,
+    "last_t": 252.5,
+    "count": 15,
+    "why": "22px < 30 (4.4 pt portrait)"
+   },
+   {
+    "tag": "Bars",
+    "text": "AVERAGE SINKING RATE BY CITY",
+    "first_t": 230.5,
+    "last_t": 252.5,
+    "count": 12,
+    "why": "28px < 30 (5.6 pt portrait)"
+   },
+   {
+    "tag": "Bars",
+    "text": "CM PER YEAR  |  2019-2020 · ONE STUDY",
+    "first_t": 230.5,
+    "last_t": 252.5,
+    "count": 12,
+    "why": "18px < 30 (3.6 pt portrait)"
+   },
+   {
+    "tag": "Bars",
+    "text": "LINE OF SIGHT OR VERTICAL: NOT STATED",
+    "first_t": 230.5,
+    "last_t": 252.5,
+    "count": 12,
+    "why": "18px < 30 (3.6 pt portrait)"
+   },
+   {
+    "tag": "Bars",
+    "text": "NORTH JAKARTA",
+    "first_t": 234.5,
+    "last_t": 252.5,
+    "count": 10,
+    "why": "27px < 30 (5.5 pt portrait)"
+   },
+   {
+    "tag": "Bars",
+    "text": "WEST JAKARTA",
+    "first_t": 236.5,
+    "last_t": 252.5,
+    "count": 9,
+    "why": "27px < 30 (5.5 pt portrait)"
+   },
+   {
+    "tag": "Bars",
+    "text": "CENTRAL JAKARTA",
+    "first_t": 238.5,
+    "last_t": 252.5,
+    "count": 8,
+    "why": "27px < 30 (5.5 pt portrait)"
+   },
+   {
+    "tag": "Bars",
+    "text": "SOUTH",
+    "first_t": 240.5,
+    "last_t": 252.5,
+    "count": 7,
+    "why": "27px < 30 (5.5 pt portrait)"
+   },
+   {
+    "tag": "Bars",
+    "text": "EAST",
+    "first_t": 242.5,
+    "last_t": 252.5,
+    "count": 6,
+    "why": "27px < 30 (5.5 pt portrait)"
+   },
+   {
+    "tag": "Arrow",
+    "text": "COAST & RIVER MOUTHS",
+    "first_t": 248.5,
+    "last_t": 252.5,
+    "count": 3,
+    "why": "28px < 30 (5.7 pt portrait)"
+   },
+   {
+    "tag": "Tag",
+    "text": "DAMAGED ROADS REPORTED · 2019-2020 STUDY",
+    "first_t": 258.5,
+    "last_t": 262.5,
+    "count": 3,
+    "why": "28px < 30 (5.7 pt portrait)"
+   },
+   {
+    "tag": "Ring",
+    "text": "MUTIARA BEACH",
+    "first_t": 258.5,
+    "last_t": 262.5,
+    "count": 3,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "Ring",
+    "text": "WEST CENGKARENG",
+    "first_t": 260.5,
+    "last_t": 260.5,
+    "count": 1,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "Ring",
+    "text": "PADEMANGAN",
+    "first_t": 262.5,
+    "last_t": 262.5,
+    "count": 1,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "Lines",
+    "text": "OTHER RESEARCHERS LIST",
+    "first_t": 266.5,
+    "last_t": 270.5,
+    "count": 3,
+    "why": "19px < 30 (3.9 pt portrait)"
+   },
+   {
+    "tag": "CoherenceDiagram",
+    "text": "SCHEMATIC · NOT A REAL ECHO",
+    "first_t": 272.5,
+    "last_t": 286.5,
+    "count": 8,
+    "why": "24px < 30 (4.8 pt portrait)"
+   },
+   {
+    "tag": "CoherenceDiagram",
+    "text": "CONSISTENT ECHO",
+    "first_t": 276.5,
+    "last_t": 286.5,
+    "count": 6,
+    "why": "28px < 30 (5.7 pt portrait)"
+   },
+   {
+    "tag": "CoherenceDiagram",
+    "text": "COHERENCE BELOW 0.6",
+    "first_t": 280.5,
+    "last_t": 286.5,
+    "count": 4,
+    "why": "28px < 30 (5.7 pt portrait)"
+   },
+   {
+    "tag": "Tag",
+    "text": "PIXELS REMOVED ALONG THE NORTHERN COAST · EXTENT NOT SHOWN",
+    "first_t": 290.5,
+    "last_t": 294.5,
+    "count": 3,
+    "why": "28px < 30 (5.7 pt portrait)"
+   },
+   {
+    "tag": "Arrow",
+    "text": "RADAR GOES BLIND HERE",
+    "first_t": 292.5,
+    "last_t": 294.5,
+    "count": 2,
+    "why": "28px < 30 (5.7 pt portrait)"
+   },
+   {
+    "tag": "ClassChip",
+    "text": "2016-2024 ANALYSIS · SENTINEL-1 vs GNSS",
+    "first_t": 296.5,
+    "last_t": 316.5,
+    "count": 11,
+    "why": "22px < 30 (4.4 pt portrait)"
+   },
+   {
+    "tag": "Gauge",
+    "text": "RADAR vs GPS · ONE STATION (CJKT)",
+    "first_t": 296.5,
+    "last_t": 316.5,
+    "count": 11,
+    "why": "28px < 30 (5.6 pt portrait)"
+   },
+   {
+    "tag": "Gauge",
+    "text": "GPS: VERTICAL RATE (CENTRE MARK)",
+    "first_t": 296.5,
+    "last_t": 316.5,
+    "count": 11,
+    "why": "20px < 30 (4.1 pt portrait)"
+   },
+   {
+    "tag": "Gauge",
+    "text": "RADAR (LINE OF SIGHT)",
+    "first_t": 302.5,
+    "last_t": 316.5,
+    "count": 8,
+    "why": "20px < 30 (4.1 pt portrait)"
+   },
+   {
+    "tag": "Gauge",
+    "text": "± 9.40 MM TYPICAL ERROR (RMSE)",
+    "first_t": 308.5,
+    "last_t": 316.5,
+    "count": 5,
+    "why": "20px < 30 (4.1 pt portrait)"
+   },
+   {
+    "tag": "Gauge",
+    "text": "STATION AND RADAR PIXEL ARE NOT IN THE SAME SPOT: THE CHECK ",
+    "first_t": 312.5,
+    "last_t": 316.5,
+    "count": 3,
+    "why": "21px < 30 (4.3 pt portrait)"
+   },
+   {
+    "tag": "TrendsDiagram",
+    "text": "SINKING (SCHEMATIC)",
+    "first_t": 316.5,
+    "last_t": 328.5,
+    "count": 7,
+    "why": "23px < 30 (4.7 pt portrait)"
+   },
+   {
+    "tag": "TrendsDiagram",
+    "text": "2016 → 2024",
+    "first_t": 316.5,
+    "last_t": 328.5,
+    "count": 7,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "TrendsDiagram",
+    "text": "SCHEMATIC OF THE SHAPE REPORTED · NO VALUES SHOWN",
+    "first_t": 316.5,
+    "last_t": 328.5,
+    "count": 7,
+    "why": "24px < 30 (4.8 pt portrait)"
+   },
+   {
+    "tag": "TrendsDiagram",
+    "text": "WEST: FAST START, THEN SLOWED",
+    "first_t": 324.5,
+    "last_t": 328.5,
+    "count": 3,
+    "why": "29px < 30 (5.9 pt portrait)"
+   },
+   {
+    "tag": "Tag",
+    "text": "2026 STUDY · ABSTRACT ONLY · FULL TEXT NOT READ",
+    "first_t": 330.5,
+    "last_t": 344.5,
+    "count": 8,
+    "why": "28px < 30 (5.7 pt portrait)"
+   },
+   {
+    "tag": "Lines",
+    "text": "WHAT THE ABSTRACT REPORTS",
+    "first_t": 338.5,
+    "last_t": 344.5,
+    "count": 4,
+    "why": "22px < 30 (4.4 pt portrait)"
+   },
+   {
+    "tag": "ClassChip",
+    "text": "FLOODS · RAIN · SEA LEVEL",
+    "first_t": 346.5,
+    "last_t": 380.5,
+    "count": 18,
+    "why": "22px < 30 (4.4 pt portrait)"
+   },
+   {
+    "tag": "Stat",
+    "text": "REPORTED (C14)",
+    "first_t": 352.5,
+    "last_t": 356.5,
+    "count": 3,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "Stat",
+    "text": "HALIM PERDANAKUSUMA GAUGE (C44)",
+    "first_t": 360.5,
+    "last_t": 364.5,
+    "count": 3,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "Compare",
+    "text": "MILLIMETERS A YEAR · SAME SCALE",
+    "first_t": 366.5,
+    "last_t": 380.5,
+    "count": 8,
+    "why": "28px < 30 (5.6 pt portrait)"
+   },
+   {
+    "tag": "Compare",
+    "text": "GLOBAL SEA LEVEL RISE",
+    "first_t": 372.5,
+    "last_t": 380.5,
+    "count": 5,
+    "why": "29px < 30 (6.0 pt portrait)"
+   },
+   {
+    "tag": "Compare",
+    "text": "1993-2018 AVERAGE · SATELLITE ALTIMETRY",
+    "first_t": 372.5,
+    "last_t": 380.5,
+    "count": 5,
+    "why": "17px < 30 (3.5 pt portrait)"
+   },
+   {
+    "tag": "Compare",
+    "text": "WORST SINKING BOWL (UP TO)",
+    "first_t": 376.5,
+    "last_t": 380.5,
+    "count": 3,
+    "why": "29px < 30 (6.0 pt portrait)"
+   },
+   {
+    "tag": "Compare",
+    "text": "VERTICAL · 2014-2025 · PREPRINT (7.7 CM/YR)",
+    "first_t": 376.5,
+    "last_t": 380.5,
+    "count": 3,
+    "why": "17px < 30 (3.5 pt portrait)"
+   },
+   {
+    "tag": "DykeDiagram",
+    "text": "SCHEMATIC · NOT TO SCALE",
+    "first_t": 380.5,
+    "last_t": 404.5,
+    "count": 13,
+    "why": "24px < 30 (4.8 pt portrait)"
+   },
+   {
+    "tag": "DykeDiagram",
+    "text": "IF THE GROUND KEEPS SINKING QUICKLY · MODEL RESULT, NOT A PR",
+    "first_t": 388.5,
+    "last_t": 404.5,
+    "count": 9,
+    "why": "26px < 30 (5.3 pt portrait)"
+   },
+   {
+    "tag": "Lines",
+    "text": "CHECK THE LABEL",
+    "first_t": 424.5,
+    "last_t": 426.5,
+    "count": 2,
+    "why": "27px < 30 (5.5 pt portrait)"
+   }
+  ],
+  "safe_area": [
+   {
+    "tag": "LosView",
+    "text": "LINE OF SIGHT",
+    "first_t": 18.5,
+    "last_t": 18.5,
+    "count": 1,
+    "why": "box 889,-486,1044,-462"
+   },
+   {
+    "tag": "LosView",
+    "text": "NOT THE VERTICAL DROP",
+    "first_t": 18.5,
+    "last_t": 18.5,
+    "count": 1,
+    "why": "box 757,-571,993,-549"
+   },
+   {
+    "tag": "Ring",
+    "text": "WEST CENGKARENG",
+    "first_t": 260.5,
+    "last_t": 260.5,
+    "count": 1,
+    "why": "box 38,640,234,662"
+   },
+   {
+    "tag": "CoherenceDiagram",
+    "text": "SCHEMATIC · NOT A REAL ECHO",
+    "first_t": 272.5,
+    "last_t": 286.5,
+    "count": 8,
+    "why": "box 479,677,801,697"
+   },
+   {
+    "tag": "TrendsDiagram",
+    "text": "SCHEMATIC OF THE SHAPE REPORTED · NO VALUES SHOWN",
+    "first_t": 316.5,
+    "last_t": 328.5,
+    "count": 7,
+    "why": "box 339,677,941,697"
+   },
+   {
+    "tag": "DykeDiagram",
+    "text": "SCHEMATIC · NOT TO SCALE",
+    "first_t": 380.5,
+    "last_t": 404.5,
+    "count": 13,
+    "why": "box 496,677,784,697"
+   }
+  ],
+  "text_overlap": [
+   {
+    "tag": "Stat",
+    "text": "FASTEST SPOT · ≈ 1 INCH",
+    "first_t": 190.5,
+    "last_t": 190.5,
+    "count": 1,
+    "why": "intersects Bowls"
+   },
+   {
+    "tag": "Bowls",
+    "text": "3 HOTSPOTS · RADAR, 2016-2024",
+    "first_t": 190.5,
+    "last_t": 190.5,
+    "count": 1,
+    "why": "intersects Stat"
+   },
+   {
+    "tag": "Tag",
+    "text": "PIXELS REMOVED ALONG THE NORTHERN COAST · EXTENT NOT SHOWN",
+    "first_t": 292.5,
+    "last_t": 294.5,
+    "count": 2,
+    "why": "intersects Arrow"
+   },
+   {
+    "tag": "Arrow",
+    "text": "RADAR GOES BLIND HERE",
+    "first_t": 292.5,
+    "last_t": 294.5,
+    "count": 2,
+    "why": "intersects Tag"
+   },
+   {
+    "tag": "Gauge",
+    "text": "RADAR vs GPS · ONE STATION (CJKT)",
+    "first_t": 316.5,
+    "last_t": 316.5,
+    "count": 1,
+    "why": "intersects TrendsDiagram"
+   },
+   {
+    "tag": "TrendsDiagram",
+    "text": "SINKING (SCHEMATIC)",
+    "first_t": 316.5,
+    "last_t": 316.5,
+    "count": 1,
+    "why": "intersects Gauge"
+   }
+  ],
+  "contrast": [
+   {
+    "tag": "DykeDiagram",
+    "text": "SCHEMATIC · NOT TO SCALE",
+    "first_t": 382.5,
+    "last_t": 402.5,
+    "count": 11,
+    "why": "2.39:1"
+   }
+  ]
+ },
+ "summary": {
+  "text_size": 86,
+  "safe_area": 6,
+  "text_overlap": 6,
+  "contrast": 1
+ }
+}
