@@ -1,0 +1,31 @@
+{
+ "rules": {
+  "min_text_px_1080": 30.0,
+  "min_caption_px_1080": 48.0
+ },
+ "styles": {
+  "?": 30.0,
+  "Arrow": 31.9,
+  "BandTimeline": 31.9,
+  "Bars": 31.9,
+  "Bowls": 31.9,
+  "CheckList": 31.9,
+  "ClassChip": 31.9,
+  "CoherenceDiagram": 31.9,
+  "Compare": 31.9,
+  "DykeDiagram": 31.9,
+  "Gauge": 31.9,
+  "GeoMarker": 30.0,
+  "Lines": 31.9,
+  "LosView": 31.9,
+  "OrbitDiagram": 31.9,
+  "Ring": 31.9,
+  "Stat": 31.9,
+  "Suspects": 31.9,
+  "Tag": 31.9,
+  "TrendsDiagram": 31.9,
+  "WordCaptions": 56.2
+ },
+ "issues": {},
+ "summary": {}
+}

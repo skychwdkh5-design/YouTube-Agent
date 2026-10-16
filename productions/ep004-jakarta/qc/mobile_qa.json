@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "summary": {},
+ "line": {
+  "ok": true
+ },
+ "frames_checked": "1 fps at 1920x1080",
+ "rules": {
+  "min_text_px_1080": 30.0,
+  "min_caption_px_1080": 48.0
+ },
+ "human_checks": [
+  "watch on a real phone",
+  "pronunciation of Indonesian names"
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "result": "PASS",
+ "file": "final/EP004_FINAL_1080p_master.mp4",
+ "sha256": "8d04bcbbecdd4ffdc67c5b6e150de2e3612f1584dffcb631d223f0a978d89284",
+ "checks": {
+  "container": "mp4 (faststart in iPad copy)",
+  "video": "h264 High yuv420p 1920x1080 30 fps",
+  "audio": "aac LC 48 kHz stereo",
+  "duration_s": 428.133,
+  "audio_duration_s": 428.117,
+  "start_offsets_s": [
+   0.0,
+   0.0
+  ],
+  "loudness_lufs": -15.9,
+  "true_peak_dbfs": -2.1,
+  "LRA_lu": 3.4,
+  "black_frames": 0,
+  "freezes_over_3s": 0,
+  "full_decode_errors": 0,
+  "audio_md5_equals_approved_review_v2": true,
+  "frame_diff_vs_approved_v2_mean_abs_8bit": 2.46,
+  "ipad_copy": {
+   "file": "final/EP004_FINAL_1080p_iPad.mp4",
+   "sha256": "fdbce979591b1e926813b22f2d47bf572fa3371831684d2050e347b2eaefedc9",
+   "size_bytes": 92617369,
+   "ssim_vs_master": 0.9917,
+   "psnr_db": 47.8,
+   "loudness_lufs": -16.0
+  }
+ }
+}

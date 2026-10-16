@@ -1,0 +1,48 @@
+{
+ "level": "USER_APPROVED",
+ "approved_by": "user",
+ "approval_quote": "Я, владелец проекта, официально утверждаю EP004 REVIEW v2. USER_APPROVED: YES; REVIEW_STATUS: APPROVED; FINAL_RENDER: AUTHORIZED; YOUTUBE_PUBLICATION: NOT AUTHORIZED",
+ "approved_artifact": "review/EP004_REVIEW_720p_v2.mp4",
+ "final_status": "FINAL_MASTER_READY",
+ "frames_reviewed": [
+  3,
+  12,
+  24,
+  34,
+  52,
+  66,
+  90,
+  110,
+  128,
+  142,
+  160,
+  176,
+  196,
+  214,
+  232,
+  258,
+  282,
+  302,
+  322,
+  340,
+  362,
+  384,
+  408,
+  424,
+  151.5,
+  190.5,
+  316.5,
+  333,
+  360,
+  395
+ ],
+ "not_verified": [
+  "audio was not listened to (pronunciation of Tanjung Priok, Cengkareng, Pademangan, Perdanakusuma unverified; clips in qc/pronunciation)",
+  "not watched on a real phone",
+  "motion smoothness between sampled frames"
+ ],
+ "defects_found_and_fixed": [
+  "three one-frame text overlaps at 151.5, 190.5 and 316.5 s (dissolves) fixed without changing the montage",
+  "final frames compared with approved v2: mean abs diff 2.5/255 (resolution/encode only)"
+ ]
+}

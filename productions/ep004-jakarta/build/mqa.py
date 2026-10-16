@@ -31,7 +31,7 @@ def main():
     tag_kit()
     out = sys.argv[1]; fps = float(sys.argv[sys.argv.index("--fps") + 1]) if "--fps" in sys.argv else 1.0
     rng = (float(sys.argv[sys.argv.index("--start") + 1]), float(sys.argv[sys.argv.index("--end") + 1])) if "--start" in sys.argv else None
-    size = (1280, 720); prog, info = R.build(size, rng); M._wrap_overlays(prog, set()); issues = defaultdict(list); styles = defaultdict(lambda: dict(min_px=1e9, n=0))
+    size = tuple(int(v) for v in sys.argv[sys.argv.index("--size") + 1].split("x")) if "--size" in sys.argv else (1280, 720); prog, info = R.build(size, rng); M._wrap_overlays(prog, set()); issues = defaultdict(list); styles = defaultdict(lambda: dict(min_px=1e9, n=0))
     t0 = rng[0] if rng else 0.0; t1 = rng[1] if rng else R.DUR
     for t in np.arange(t0 + 0.5, t1, 1.0 / fps):
         textrec.STATE["rec"] = recs = []
