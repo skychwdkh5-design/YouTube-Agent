@@ -1,0 +1,12 @@
+{
+ "characters": 3353,
+ "chunks": 3,
+ "chunk_chars_max": 1545,
+ "chunk_limit": 1700,
+ "text_sha256": "c413fab2ec89fb7935487df894a5c45d0995be2ae3571887c3e6b41b362f3857",
+ "blank_line_chars": 16,
+ "cache_dir": "voice/cache",
+ "voice": "Adam pNInz6obpgDQGcFmaJgB (channel default)",
+ "cost_class": "paid - needs owner approval + --confirm",
+ "credits_estimate": 3353
+}

@@ -1,5 +1,7 @@
 # True 3-D pipeline (pbrt-v4 + OIDN) — OrbitalAtlas
 
+**STATUS: ON PAUSE (owner, 2026-10-16). Production uses the 2.5-D Visual Engine V2C. Everything below is kept and VERIFIED, but do not start 3-D renders without a new owner task.**
+
 Status: VERIFIED in EP004 S3 V3 (2026-10-15). Use it for any scene that must be real 3-D (geometry, perspective camera, light transport);
 `orbitalatlas.scene3d` stays the fast flat-shaded 2.5-D illustrator. Do not call scene3d output "3-D rendering".
 

@@ -43,3 +43,6 @@ Contact sheet at 4 fps · blackdetect · frame-diff motion per second · overlay
 | pbrt-v4 (CPU path tracer, Apache-2.0) + Intel OIDN 2.3.3 | YES (GitHub sources/releases; built headless in ~15 min) | CHOSEN for EP004 S3 V3: real geometry, thin-lens DOF, animated-camera motion blur, PBR, physical sky; ~20-30 s/frame at 1440x810 8 spp |
 | raster3d: three.js r160 WebGL2 in headless Chromium (SwiftShader) | YES (jsdelivr + preinstalled Playwright Chromium) | CHOSEN for DRAFT 2026-10-16: same scene meshes, shadows, sky light; ~1.1 s/frame at 960x540; no GI/DOF/motion blur |
 | orbitalatlas.scene3d | built-in | stays the fast 2.5-D illustrator; not "3-D rendering" |
+
+## Decision 2026-10-16 (owner): 2.5-D V2C is the production engine; true 3-D (pbrt, raster3d, Blender) is on pause
+Reason: time cost per scene. Reusable results stay in the repo (TRUE_3D_PIPELINE.md, perf/ACCELERATION.md). Restart only on a new owner task.
