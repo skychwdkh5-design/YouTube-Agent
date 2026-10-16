@@ -24,15 +24,25 @@ def _f(v): return " ".join(f"{float(x):.5g}" for x in np.ravel(v))
 def _i(v): return " ".join(str(int(x)) for x in np.ravel(v))
 
 
+class Mat(str):
+    """a pbrt Material line that also carries its parameters (for the raster backend, orbitalatlas.raster3d)."""
+    info = None
+
+
 class Scene:
-    """collects pbrt statements for one frame. Coordinates: right-handed, z up, metres (illustration scale)."""
+    """collects pbrt statements for one frame. Coordinates: right-handed, z up, metres (illustration scale).
+    Every mesh, quadric (tessellated), material, texture, the camera and the sun/sky are also recorded as data (self.objects, self.cam,
+    self.sun, self.texpaths, self.static_bundles), so the same frame can be rasterised by orbitalatlas.raster3d (DRAFT) without pbrt."""
     def __init__(self):
         self.head, self.world, self.textures = [], [], set()
+        self.objects, self.cam, self.sun, self.texpaths, self.static_bundles = [], {}, {}, {}, []
 
     # ------------------------------------------------------------- camera ---
     def camera(self, eye, target, fov, size=(1920, 1080), spp=32, eye1=None, target1=None, lens=0.0, focus=100.0, maxdepth=5, up=(0, 0, 1),
                film="out.exr", integrator="path", regularize=True):
         """thin-lens perspective camera. eye1/target1 = camera at shutter close: pbrt blurs the motion between the two (true motion blur)."""
+        self.cam = dict(eye=list(map(float, eye)), target=list(map(float, target)), fov=float(fov), size=list(size), up=list(map(float, up)), lens=float(lens),
+                        focus=float(focus), eye1=None if eye1 is None else list(map(float, eye1)), target1=None if target1 is None else list(map(float, target1)), shift_px=0.0)
         h = self.head
         if eye1 is not None:
             h += ["TransformTimes 0 1", "ActiveTransform StartTime", f"LookAt {_f(eye)} {_f(target)} {_f(up)}",
@@ -52,11 +62,12 @@ class Scene:
         w = self.world
         w.append(f'LightSource "infinite" "string filename" "{sky_exr}" "float scale" [{sky_scale:.4g}]')
         d = np.asarray(sun_dir, float); d = d / np.linalg.norm(d)
+        self.sun = dict(dir=d.tolist(), kelvin=sun_kelvin, scale=sun_scale, sky=sky_exr, sky_scale=sky_scale)
         w.append(f'LightSource "distant" "point3 from" [{_f(d * 1000)}] "point3 to" [0 0 0] "blackbody L" [{sun_kelvin}] "float scale" [{sun_scale:.4g}]')
 
     def texture(self, name, path, kind="spectrum", scale=None):
         if name in self.textures: return
-        self.textures.add(name)
+        self.textures.add(name); self.texpaths[name] = dict(path=path, kind=kind, scale=scale)
         self.world.append(f'Texture "{name}" "{kind}" "imagemap" "string filename" "{path}"' + (f' "float scale" [{scale}]' if scale else ""))
 
     def material(self, kind="diffuse", rgb=(0.5, 0.5, 0.5), tex=None, roughness=None, bump=None, metal=None, eta=None, extra=""):
@@ -70,11 +81,15 @@ class Scene:
         if kind == "dielectric": p.append(f'"float eta" [{eta or 1.33}]')
         if roughness is not None and kind != "diffuse": p.append(f'"float roughness" [{roughness:.4g}]')
         if bump: p.append(f'"texture displacement" "{bump}"')
-        return f'Material "{kind}" ' + " ".join(p) + (" " + extra if extra else "")
+        m = Mat(f'Material "{kind}" ' + " ".join(p) + (" " + extra if extra else ""))
+        m.info = dict(kind=kind, rgb=list(map(float, rgb)), tex=tex, roughness=roughness, metal=metal, bump=bump); return m
 
-    def mesh(self, P, idx, mat, N=None, uv=None, emit=None, twosided=False, alpha=None):
-        """triangle mesh. emit = RGB radiance -> area light (emissive surface)."""
-        w = self.world; w.append("AttributeBegin"); w.append(mat)
+    def mesh(self, P, idx, mat, N=None, uv=None, emit=None, twosided=False, alpha=None, xform=None):
+        """triangle mesh. emit = RGB radiance -> area light (emissive surface). xform = 4x4 object-to-world matrix (row-major numpy)."""
+        self._record(P, idx, mat, N, uv, emit, xform)
+        w = self.world; w.append("AttributeBegin")
+        if xform is not None: w.append("ConcatTransform [" + " ".join(f"{v:.6g}" for v in np.asarray(xform, float).T.ravel()) + "]")
+        w.append(mat)
         if emit is not None: w.append(f'AreaLightSource "diffuse" "rgb L" [{_f(emit)}]' + (' "bool twosided" true' if twosided else ""))
         s = f'Shape "trianglemesh" "point3 P" [{_f(P)}] "integer indices" [{_i(idx)}]'
         if N is not None: s += f' "normal N" [{_f(N)}]'
@@ -84,6 +99,8 @@ class Scene:
 
     def shape(self, line, mat, transform=None, emit=None, twosided=False):
         """a pbrt quadric (sphere, cylinder, disk) with its own transform list (pbrt statements like 'Translate x y z')."""
+        P_, I_, N_, flip = _tessellate(line, transform or [])
+        if P_ is not None: self._record(P_, I_, mat, N_, None, emit, None, flip)
         w = self.world; w.append("AttributeBegin"); w += list(transform or []); w.append(mat)
         if emit is not None: w.append(f'AreaLightSource "diffuse" "rgb L" [{_f(emit)}]' + (' "bool twosided" true' if twosided else ""))
         w.append(line); w.append("AttributeEnd")
@@ -91,6 +108,45 @@ class Scene:
     def write(self, path):
         with open(path, "w") as f:
             f.write("\n".join(self.head) + "\nWorldBegin\n" + "\n".join(self.world) + "\n")
+
+    def _record(self, P, idx, mat, N, uv, emit, xform, flip=False):
+        P = np.asarray(P, np.float64).reshape(-1, 3); N = None if N is None else np.asarray(N, np.float64).reshape(-1, 3)
+        if xform is not None:
+            M = np.asarray(xform, float); P = P @ M[:3, :3].T + M[:3, 3]
+            if N is not None: N = N @ np.linalg.inv(M[:3, :3])
+        self.objects.append(dict(P=P.astype(np.float32), idx=np.asarray(idx, np.uint32).ravel(), N=None if N is None else N.astype(np.float32),
+                                 uv=None if uv is None else np.asarray(uv, np.float32).reshape(-1, 2), mat=getattr(mat, "info", None) or dict(kind="diffuse", rgb=[0.5, 0.5, 0.5]),
+                                 emit=None if emit is None else list(map(float, emit))))
+
+
+def _tessellate(line, transform, n=24):
+    """triangle mesh of a pbrt quadric line under its transform list (Translate / ConcatTransform / ReverseOrientation). For the raster backend."""
+    import re
+    num = lambda k, d: float(re.search(rf'"float {k}" \[([^\]]+)\]', line).group(1)) if re.search(rf'"float {k}" \[', line) else d
+    M = np.eye(4); flip = False
+    for t in transform:
+        if t.startswith("Translate"): x, y, z = map(float, t.split()[1:4]); T = np.eye(4); T[:3, 3] = (x, y, z); M = M @ T
+        elif t.startswith("ConcatTransform"): T = np.array([float(v) for v in t[t.index("[") + 1:t.index("]")].split()]).reshape(4, 4).T; M = M @ T
+        elif t.startswith("ReverseOrientation"): flip = True
+    if '"sphere"' in line:
+        r = num("radius", 1.0); th = np.linspace(0, math.pi, n // 2 + 1); ph = np.linspace(0, 2 * math.pi, n + 1)
+        T_, F_ = np.meshgrid(th, ph, indexing="ij"); N = np.stack([np.sin(T_) * np.cos(F_), np.sin(T_) * np.sin(F_), np.cos(T_)], -1).reshape(-1, 3); P = N * r
+        rows, cols = T_.shape
+    elif '"cylinder"' in line:
+        r, z0, z1, pm = num("radius", 1.0), num("zmin", -1.0), num("zmax", 1.0), num("phimax", 360.0)
+        ph = np.linspace(0, math.radians(pm), n + 1); Z_, F_ = np.meshgrid(np.array([z0, z1]), ph, indexing="ij")
+        N = np.stack([np.cos(F_), np.sin(F_), 0 * F_], -1).reshape(-1, 3); P = np.stack([r * np.cos(F_), r * np.sin(F_), Z_], -1).reshape(-1, 3); rows, cols = Z_.shape
+    elif '"disk"' in line:
+        r, ri, h = num("radius", 1.0), num("innerradius", 0.0), num("height", 0.0); ph = np.linspace(0, 2 * math.pi, n + 1)
+        R_, F_ = np.meshgrid(np.array([ri, r]), ph, indexing="ij"); P = np.stack([R_ * np.cos(F_), R_ * np.sin(F_), 0 * R_ + h], -1).reshape(-1, 3)
+        N = np.tile([0.0, 0.0, 1.0], (len(P), 1)); rows, cols = R_.shape
+    else:
+        return None, None, None, False
+    if flip: N = -N
+    i = np.arange(rows * cols).reshape(rows, cols); a, b, c, d = i[:-1, :-1], i[:-1, 1:], i[1:, 1:], i[1:, :-1]
+    I = np.stack([a, b, c, a, c, d], -1).reshape(-1)
+    P = P @ M[:3, :3].T + M[:3, 3]; N = N @ np.linalg.inv(M[:3, :3])
+    return P, I, N, flip
 
 
 # ------------------------------------------------------------- geometry ---

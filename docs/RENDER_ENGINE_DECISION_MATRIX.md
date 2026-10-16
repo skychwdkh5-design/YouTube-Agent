@@ -41,4 +41,5 @@ Contact sheet at 4 fps · blackdetect · frame-diff motion per second · overlay
 |---|---|---|
 | Blender (Cycles/EEVEE, Python) | NO: download.blender.org, PyPI `bpy`, Ubuntu mirrors blocked by the network policy (VERIFIED, proxy 403) | preferred if the owner allowlists download.blender.org |
 | pbrt-v4 (CPU path tracer, Apache-2.0) + Intel OIDN 2.3.3 | YES (GitHub sources/releases; built headless in ~15 min) | CHOSEN for EP004 S3 V3: real geometry, thin-lens DOF, animated-camera motion blur, PBR, physical sky; ~20-30 s/frame at 1440x810 8 spp |
+| raster3d: three.js r160 WebGL2 in headless Chromium (SwiftShader) | YES (jsdelivr + preinstalled Playwright Chromium) | CHOSEN for DRAFT 2026-10-16: same scene meshes, shadows, sky light; ~1.1 s/frame at 960x540; no GI/DOF/motion blur |
 | orbitalatlas.scene3d | built-in | stays the fast 2.5-D illustrator; not "3-D rendering" |

@@ -108,6 +108,14 @@ def frame(i, tag, scene, card):
     t = i / FPS; work = os.path.join(R.WORK, tag)
     if t >= CARD0 + 0.6: return card.render(t - CARD0)
     j = min(i, int(round(END3D * FPS)) - 1)
+    dj = os.path.join(work, f"d_{j:04d}.jpg")
+    if os.path.exists(dj):                                                  # DRAFT (raster): already display-referred; no depth map -> drops not occluded
+        img = Image.open(dj).convert("RGB").resize((W, H), Image.LANCZOS); cam = V.cam(t)
+        ui = Image.new("RGBA", (W, H), (0, 0, 0, 0)); captions(ui, t); labels(ui, t, cam); lockup(ui, t); chips(ui, t)
+        d_ = ImageDraw.Draw(ui); d_.text((W - 300, 30), "DRAFT · RASTER", fill=(255, 210, 90, 230))
+        out = img.convert("RGBA"); out.alpha_composite(ui); out = out.convert("RGB")
+        if t >= CARD0: out = Image.blend(out, card.render(t - CARD0), E.smooth(E.seg(t, CARD0, CARD0 + 0.6)))
+        return out
     while j > 0 and not os.path.exists(os.path.join(work, f"frame_{j:04d}.npz")) and not os.path.exists(os.path.join(work, f"hdr_{j:04d}.npy")): j -= 1   # PREVIEW renders every 2nd frame
     z = os.path.join(work, f"frame_{j:04d}.npz")
     if os.path.exists(z): f_ = np.load(z); hdr, dist = f_["hdr"].astype(np.float32), f_["dist"].astype(np.float32)

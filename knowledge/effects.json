@@ -1864,6 +1864,45 @@
     "EP004 S3 V3 proof"
    ],
    "params": {}
+  },
+  {
+   "id": "raster3d_draft",
+   "kind": "renderer",
+   "renderer": "three.js-webgl2",
+   "status": "built",
+   "what": "Real-time-style rasterisation of the same pbrt3d scene (identical meshes, perspective camera with lens shift, sun shadow map, image light from the same physical sky, PBR materials with the same textures, fog, ACES) in headless Chromium/SwiftShader; DRAFT preset.",
+   "use_for": [
+    "draft",
+    "camera_check",
+    "composition_check"
+   ],
+   "keywords": [
+    "raster",
+    "draft",
+    "three.js",
+    "webgl",
+    "preview",
+    "fast 3d"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/raster3d.py",
+     "tools/raster3d/render.js",
+     "tools/raster3d/page.html"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_raster3d.py"
+    ],
+    "docs": [
+     "productions/ep004-jakarta/proof_v3/perf/ACCELERATION.md"
+    ]
+   },
+   "limits": "no GI bounces, soft area shadows, DOF or motion blur; ~1.1 s/frame at 960x540 on SwiftShader",
+   "composition_reset": false,
+   "used_in": [
+    "EP004 S3 V3 DRAFT"
+   ],
+   "params": {}
   }
  ]
 }

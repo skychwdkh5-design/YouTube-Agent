@@ -84,5 +84,7 @@ class TestS3V3Presets(unittest.TestCase):
 
     def test_default_4_spp_and_8_only_under_depth_of_field(self):
         self.assertEqual(self.R.spp_for("REVIEW", 1.0), 4); self.assertEqual(self.R.spp_for("REVIEW", 5.5), 8); self.assertEqual(self.R.spp_for("REVIEW", 9.0), 4)
+        self.assertEqual(self.R.spp_for("REVIEW", 4.4), 4)                     # weak DOF at the start of the shot (CoC < 5 px): 4 spp is enough
+        self.assertIn("DRAFT", self.R.PRESETS); self.assertTrue(self.R.PRESETS["DRAFT"].get("raster"))
         for preset in ("REVIEW", "FINAL"):
             for t0, t1, n in self.R.SPP_OVERRIDES[preset]: self.assertGreaterEqual(n, 4)          # 2 spp was rejected for review/final

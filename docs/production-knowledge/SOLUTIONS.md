@@ -267,10 +267,10 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 
 - **Problem:** Full true-3D proofs at 8 spp took ~3 h; lowering samples risked flicker and lost detail that single-frame checks do not show.
 - **Root cause:** OIDN removes most noise at 4 spp, but in strongly defocused regions it leaves blotchy grain; at 2 spp it smears edges (no flicker, but -23 % detail).
-- **Fix:** Measure per shot with temporal_qa.py (continuous frames, reference render, static-pixel mask from an independent render): 4 spp default, 8 spp where depth of field is strong, 2 spp only for PREVIEW. Keep the static geometry cache and pipelined post.
+- **Fix:** Measure per shot with temporal_qa.py; rule: 4 spp default, 8 spp when the depth-of-field blur circle CoC = 2*lens*f_px/focus >= 5 px (run_v3.spp_for, scene_v3.coc_px), 2 spp only for PREVIEW. pbrt variance does not detect this case. Keep the static geometry cache and pipelined post.
 - **Reuse when:** Any pbrt3d production before a REVIEW or FINAL render.
 - **References:** `productions/ep004-jakarta/proof_v3/run_v3.py`; `productions/ep004-jakarta/proof_v3/temporal_qa.py`; `productions/ep004-jakarta/proof_v3/perf/TEMPORAL_QA.md`; `docs/production-knowledge/TRUE_3D_PIPELINE.md`
-- **Verification:** underground 45 frames 4 spp vs old 8 spp: flicker ratio 0.96, PSNR 36.3 dB; controlled 4 vs 8 spp under DOF: Laplacian x2.2 (grain) -> 8 spp; wide 2 spp: PSNR 32.6 dB, smeared edges -> rejected; dive 4 spp: Laplacian 80 vs 82 -> accepted.
+- **Verification:** underground 45 frames 4 spp vs old 8 spp: flicker ratio 0.96, PSNR 36.3 dB; controlled 4 vs 8 spp under DOF: Laplacian x2.2 (grain) -> 8 spp; wide 2 spp: PSNR 32.6 dB, smeared edges -> rejected; dive 4 spp: Laplacian 80 vs 82 -> accepted. CoC sweep 4 vs 8 spp Laplacian ratio: 3-4 px 0.93, 7-8 px 1.42, 8-11 px 1.21 (2026-10-16).
 - **Regression test:** `orbitalatlas/tests/test_pbrt3d.py`
 
 ### pil-float-width - Float width in ImageDraw raises TypeError
@@ -338,6 +338,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `orbitalatlas/sfx.py`; `orbitalatlas/director.py`; `docs/ASSET_SOURCE_REGISTRY.md`
 - **Verification:** ep901: 11 cues, effects >= 14.4 dB under the voice (5th percentile while speaking), -15.7 LUFS, voice offset in the mix 0.0 s.
 - **Regression test:** `orbitalatlas/tests/test_visual_v2c.py::test_mix_keeps_effects_well_under_the_voice`
+
+### true3d-draft-raster-and-frame-cache - Slow previews of true-3D scenes: raster DRAFT of the same scene + frame cache by scene hash
+*VERIFIED · general · 2026-10-16*
+
+- **Problem:** Every look at a pbrt3d sequence cost a full CPU path-traced render (~70 min for 13 s), and any edit re-rendered everything.
+- **Root cause:** One renderer for all review stages and no reuse of frames whose scene did not change.
+- **Fix:** pbrt3d.Scene records its meshes/materials/camera as data; orbitalatlas.raster3d + tools/raster3d/render.js rasterise the same scene in headless Chromium (three.js, SwiftShader) for DRAFT; REVIEW/FINAL use a frame cache keyed by the SHA-1 of each frame's pbrt scene text, so only changed frames render.
+- **Reuse when:** Any pbrt3d production: DRAFT first, PREVIEW for light/DOF, REVIEW with the cache, FINAL after approval.
+- **References:** `orbitalatlas/raster3d.py`; `tools/raster3d/render.js`; `tools/raster3d/page.html`; `productions/ep004-jakarta/proof_v3/run_v3.py`; `productions/ep004-jakarta/proof_v3/perf/ACCELERATION.md`; `docs/production-knowledge/TRUE_3D_PIPELINE.md`
+- **Verification:** S3 V3: DRAFT whole proof 8.0 min vs REVIEW ~74 min (9.3x); PREVIEW 7.3 min (10.2x, 28.4 dB); unchanged REVIEW 383/383 from cache in 71 s; one camera-key edit re-rendered 30 frames in 6.4 min.
+- **Regression test:** `orbitalatlas/tests/test_raster3d.py`
 
 ### xfade-shortens-timeline - ffmpeg xfade between segments shortens the timeline and breaks sync
 *VERIFIED · EP002 · 2026-10-13*

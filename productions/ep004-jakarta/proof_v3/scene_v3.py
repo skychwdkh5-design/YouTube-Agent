@@ -61,6 +61,16 @@ def sat_pos(t):
     return np.array([SAT[0], y, SAT[2] - 0.0015 * y * y])
 
 
+def lens_at(t):
+    """thin-lens radius: shallow depth of field underground only."""
+    return 0.06 + 0.10 * math.sin(math.pi * E.seg(t, 4.3, 7.2)) if 4.3 < t < 7.2 else 0.0
+
+
+def coc_px(t):
+    """blur-circle diameter (1080-line pixels) of geometry far behind the focus plane: 2 * lens * f_px / focus distance."""
+    e, g, f, _ = cam(t); focus = float(np.linalg.norm(np.subtract(g, e))); return 2 * lens_at(t) * (540 / math.tan(math.radians(f) / 2)) / focus
+
+
 _path = None
 def cam(t):
     global _path
@@ -73,6 +83,11 @@ def frame_matrix(origin, fwd, up=(0, 0, 1)):
     f = np.asarray(fwd, float); f /= np.linalg.norm(f); r = np.cross(f, up); r /= np.linalg.norm(r); u = np.cross(r, f)
     M = np.eye(4); M[:3, 0], M[:3, 1], M[:3, 2], M[:3, 3] = r, f, u, origin
     return "ConcatTransform [" + " ".join(f"{v:.6g}" for v in M.T.ravel()) + "]"
+
+
+def frame_matrix_np(origin, fwd, up=(0, 0, 1)):
+    f = np.asarray(fwd, float); f /= np.linalg.norm(f); r = np.cross(f, up); r /= np.linalg.norm(r); u = np.cross(r, f)
+    M = np.eye(4); M[:3, 0], M[:3, 1], M[:3, 2], M[:3, 3] = r, f, u, origin; return M
 
 
 def disk_to(origin, normal):
@@ -170,7 +185,7 @@ class SceneV3:
         for k, parts in groups.items():
             if parts: m = P.merge(parts); s.mesh(m[0], m[1], s.material("diffuse", tex=f"fac{k}"), m[2], m[3])
         if self.static_cache:
-            s.world.append(f'Include "{self.static_far()}"')
+            s.world.append(f'Include "{self.static_far()}"'); s.static_bundles.append(self.static_far_bundle())
         else:
             self._far_meshes(s)
 
@@ -179,6 +194,13 @@ class SceneV3:
         for (x, y, bw, bd, h, k) in self.far: groups[k].append(P.box((x - bw / 2, y - bd / 2, 0), (x + bw / 2, y + bd / 2, h), uv_scale=1 / 12.0))
         for k, parts in groups.items():
             if parts: m = P.merge(parts); s.mesh(m[0], m[1], s.material("diffuse", tex=f"fac{k}"), m[2], m[3])
+
+    def static_far_bundle(self):
+        """the same distant city as structured meshes (npz) for the raster backend; cached next to the pbrt include."""
+        path = self.static_far()[:-5] + ".npz"
+        if not os.path.exists(path):
+            tmp = P.Scene(); self._far_meshes(tmp); from orbitalatlas import raster3d as RZ; RZ.save_objects(path, tmp.objects)
+        return path
 
     def static_far(self):
         """path of the cached distant-city include; content-addressed, so a changed city layout gets a new file."""
@@ -209,8 +231,8 @@ class SceneV3:
         parts = [("bus", P.box((-3, -4, -3), (3, 4, 3)), gold), ("ant", P.box((-5.5, -7, -4.2), (5.5, 7, -3.4)), white),
                  ("p1", P.box((-1.2, 5, -0.15), (1.2, 7, 0.15)), white), ("p2", P.box((-4, 7, -0.12), (4, 29, 0.12), uv_scale=1 / 4.0), panel),
                  ("p3", P.box((-1.2, -7, -0.15), (1.2, -5, 0.15)), white), ("p4", P.box((-4, -29, -0.12), (4, -7, 0.12), uv_scale=1 / 4.0), panel)]
-        for _, mesh, mat in parts:
-            s.world += ["AttributeBegin", M]; s.mesh(*mesh[:2], mat, mesh[2], mesh[3]); s.world.append("AttributeEnd")
+        Mx = frame_matrix_np(S, vel, up=-look / np.linalg.norm(look))
+        for _, mesh, mat in parts: s.mesh(*mesh[:2], mat, mesh[2], mesh[3], xform=Mx)
         return S
 
     # ------------------------------------------------------- measurement ---
@@ -280,12 +302,14 @@ class SceneV3:
     # ------------------------------------------------------------- frame ---
     def write(self, t, path, film, shutter=0.5 / 30):
         s = P.Scene(); e, g, f, sh = cam(t); e1, g1, _, _ = cam(t + shutter)
-        lens, focus = 0.0, float(np.linalg.norm(np.subtract(g, e)))
-        if 4.3 < t < 7.2: lens = 0.06 + 0.10 * math.sin(math.pi * E.seg(t, 4.3, 7.2))          # shallow depth of field underground
+        lens, focus = lens_at(t), float(np.linalg.norm(np.subtract(g, e)))
         s.camera(e, g, f, self.size, self.spp, eye1=e1, target1=g1, lens=lens, focus=focus, film=film, maxdepth=5)
         if abs(sh) > 0.5:                                                                     # lens shift = offset screen window (keeps the plane undistorted)
             asp = self.size[0] / self.size[1]; dy = sh / 540.0                                     # shift is given in 1080-line pixels
             s.head[-4] = s.head[-4] + f' "float screenwindow" [{-asp} {asp} {-1 + dy:.4f} {1 + dy:.4f}]'
+        s.cam["shift_px"] = float(sh)
         s.sun_sky(os.path.join(self.work, "sky.pfm"), (-0.90, -0.30, 0.21), 5000, 7.0, 1.6)        # low raking sun from the left: long shadows, relief on the cut face
         self.materials(s); self.block(s, t); self.city(s, t); self.well(s, t); S = self.satellite(s, t); self.radar(s, t, S)
-        s.write(path); return dict(eye=e, target=g, fov=f, shift=sh, sat=S)
+        self.last_scene = s                                                                   # structured copy for the raster backend
+        if path: s.write(path)
+        return dict(eye=e, target=g, fov=f, shift=sh, sat=S)

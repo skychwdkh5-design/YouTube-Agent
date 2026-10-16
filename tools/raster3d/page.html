@@ -1,0 +1,67 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000}</style></head><body>
+<script type="module">
+// raster3d page: draws pbrt3d scene bundles with three.js (WebGL2). World is z-up; three is y-up: (x, y, z) -> (x, z, -y).
+import * as THREE from './vendor/three.module.js';
+const Y = (v) => new THREE.Vector3(v[0], v[2], -v[1]);
+let R, scene, cam, sun, dyn, W, H, texCache = {}, staticDone = false;
+const loader = new THREE.TextureLoader();
+async function J(u) { return (await fetch(u)).json(); }
+async function B(u) { return (await fetch(u)).arrayBuffer(); }
+function geom(buf, g) {
+  const G = new THREE.BufferGeometry(); const P = new Float32Array(buf, g.P[0], g.P[1] / 4), N = new Float32Array(buf, g.N[0], g.N[1] / 4);
+  const P2 = new Float32Array(P.length), N2 = new Float32Array(N.length);
+  for (let i = 0; i < P.length; i += 3) { P2[i] = P[i]; P2[i + 1] = P[i + 2]; P2[i + 2] = -P[i + 1]; N2[i] = N[i]; N2[i + 1] = N[i + 2]; N2[i + 2] = -N[i + 1]; }
+  G.setAttribute('position', new THREE.BufferAttribute(P2, 3)); G.setAttribute('normal', new THREE.BufferAttribute(N2, 3));
+  G.setAttribute('uv', new THREE.BufferAttribute(new Float32Array(buf, g.uv[0], g.uv[1] / 4).slice(), 2));
+  G.setIndex(new THREE.BufferAttribute(new Uint32Array(buf, g.idx[0], g.idx[1] / 4).slice(), 1)); return G;
+}
+async function tex(name, textures) {
+  if (!name || !textures[name]) return null;
+  if (!texCache[name]) { const t = await loader.loadAsync('/f' + textures[name].path); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.anisotropy = 4; texCache[name] = t; }
+  return texCache[name];
+}
+async function material(m, emit, textures) {
+  if (emit) { const c = new THREE.Color(emit[0], emit[1], emit[2]); return new THREE.MeshBasicMaterial({ color: c, side: THREE.DoubleSide }); }
+  const map = await tex(m.tex, textures); const col = new THREE.Color(...(m.tex ? [1, 1, 1] : m.rgb)).convertSRGBToLinear().multiplyScalar(1);
+  if (m.kind === 'conductor') return new THREE.MeshStandardMaterial({ color: m.metal === 'Au' ? new THREE.Color(1.0, 0.71, 0.29) : new THREE.Color(...m.rgb), metalness: 1, roughness: m.roughness ?? 0.3 });
+  const mat = new THREE.MeshStandardMaterial({ color: m.tex ? 0xffffff : new THREE.Color(...m.rgb), map, metalness: 0, roughness: m.kind === 'coateddiffuse' ? Math.max(0.2, m.roughness ?? 0.3) : 0.95, side: THREE.DoubleSide });
+  return mat;
+}
+async function addGroups(doc, base, parent) {
+  const buf = await B(base + doc.bin);
+  for (const g of doc.groups) { const mesh = new THREE.Mesh(geom(buf, g), await material(g.mat, g.emit, doc.textures || {})); mesh.castShadow = !g.emit; mesh.receiveShadow = !g.emit; parent.add(mesh); }
+}
+window.init = async (job) => {
+  W = job.size[0]; H = job.size[1];
+  R = new THREE.WebGLRenderer({ antialias: job.aa ?? false, preserveDrawingBuffer: true }); R.setSize(W, H); R.setPixelRatio(1); document.body.appendChild(R.domElement);
+  R.toneMapping = THREE.ACESFilmicToneMapping; R.toneMappingExposure = job.exposure ?? 0.8; R.outputColorSpace = THREE.SRGBColorSpace;
+  R.shadowMap.enabled = job.shadow > 0; R.shadowMap.type = job.pcfsoft === false ? THREE.PCFShadowMap : THREE.PCFSoftShadowMap; R.shadowMap.autoUpdate = true;
+  scene = new THREE.Scene(); cam = new THREE.PerspectiveCamera(40, W / H, 0.5, 120000);
+  const meta = await J('/f' + job.sky + '.json'); const raw = new Float32Array(await B('/f' + job.sky));
+  const sky = new THREE.DataTexture(raw, meta.w, meta.h, THREE.RGBAFormat, THREE.FloatType); sky.mapping = THREE.EquirectangularReflectionMapping; sky.needsUpdate = true;
+  const pm = new THREE.PMREMGenerator(R); scene.environment = pm.fromEquirectangular(sky).texture; scene.background = sky;
+  scene.environmentIntensity = job.env ?? 1.0; scene.backgroundIntensity = job.bg ?? 1.0;
+  sun = new THREE.DirectionalLight(0xffffff, job.sun ?? 3.0); window.WB = job.wb || [1, 1, 1]; window.FMT = job.fmt || 'jpeg'; sun.castShadow = job.shadow > 0; const s = sun.shadow; s.mapSize.set(Math.max(job.shadow, 256), Math.max(job.shadow, 256));
+  s.camera.left = -320; s.camera.right = 320; s.camera.top = 320; s.camera.bottom = -320; s.camera.near = 1; s.camera.far = 3000; s.bias = -0.0005; s.normalBias = 0.6;
+  scene.add(sun); scene.add(sun.target);
+  scene.fog = new THREE.FogExp2(new THREE.Color(job.haze ? job.haze[0] : 0.46, job.haze ? job.haze[1] : 0.44, job.haze ? job.haze[2] : 0.46), job.fog ?? 1 / 5000);
+  dyn = new THREE.Group(); scene.add(dyn); return true;
+};
+function kelvinRGB(k) { // rough blackbody tint for the sun colour
+  const t = k / 100; let r, g, b; r = t <= 66 ? 255 : 329.7 * Math.pow(t - 60, -0.1332); g = t <= 66 ? 99.47 * Math.log(t) - 161.1 : 288.1 * Math.pow(t - 60, -0.0755);
+  b = t >= 66 ? 255 : (t <= 19 ? 0 : 138.5 * Math.log(t - 10) - 305.0); return new THREE.Color(Math.min(r, 255) / 255, Math.min(g, 255) / 255, Math.min(b, 255) / 255);
+}
+window.renderFrame = async (url) => {
+  const t0 = performance.now(); const doc = await J(url); const base = url.slice(0, url.lastIndexOf('/') + 1);
+  if (!staticDone) { for (const sj of doc.static) { const sd = await J('/f' + sj); sd.textures = doc.textures; await addGroups(sd, '/f' + sj.slice(0, sj.lastIndexOf('/') + 1), scene); } staticDone = true; }
+  for (const c of [...dyn.children]) { dyn.remove(c); c.geometry.dispose(); }
+  await addGroups(doc, base, dyn); const t1 = performance.now();
+  const c = doc.cam; cam.fov = c.fov; cam.aspect = W / H; cam.up.set(0, 1, 0); cam.position.copy(Y(c.eye)); cam.lookAt(Y(c.target));
+  if (Math.abs(c.shift_px) > 0.5) cam.setViewOffset(W, H, 0, -c.shift_px * H / 1080, W, H); else cam.clearViewOffset();
+  cam.updateProjectionMatrix();
+  const d = Y(doc.sun.dir).normalize(), tgt = Y(c.target); sun.position.copy(tgt.clone().add(d.multiplyScalar(1200))); sun.target.position.copy(tgt); sun.color = kelvinRGB(doc.sun.kelvin).multiply(new THREE.Color(...window.WB));
+  R.render(scene, cam); const t2 = performance.now();
+  const png = R.domElement.toDataURL(window.FMT === 'png' ? 'image/png' : 'image/jpeg', 0.92); return { png, build_ms: t1 - t0, draw_ms: t2 - t1, encode_ms: performance.now() - t2 };
+};
+window.ready = true;
+</script></body></html>

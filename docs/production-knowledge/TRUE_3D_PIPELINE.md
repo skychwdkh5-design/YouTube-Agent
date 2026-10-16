@@ -34,19 +34,25 @@ Reference production: `productions/ep004-jakarta/proof_v3/` (`scene_v3.py`, `run
    camera samples (~1.2 s per spp at 960x540 on 4 cores for a 3,000-building city + textured strata).
 6. Lens shift (V2 style) = offset `screenwindow` on the perspective camera.
 
-## Presets and sample policy (RULE, measured 2026-10-16: productions/ep004-jakarta/proof_v3/perf/)
-`run_v3.py batch A B PRESET TAG --pipeline`; copy `PRESETS` / `SPP_OVERRIDES` / `spp_for` for new productions.
-| preset | resolution | spp | frames | use |
-|---|---|---|---|---|
-| PREVIEW | 640x360 | 2 | every 2nd (15 fps, doubled) | geometry and camera check only |
-| REVIEW | 1280x720 (upscaled to 1080p in compose) | 4; 8 under strong depth of field | all 30 fps | owner review |
-| FINAL | 1920x1080 | 4; 8 under strong depth of field | all 30 fps | only after the owner's separate approval |
-- OIDN at 4 spp is clean on sharp and motion-blurred shots; under strong DOF it leaves blotchy grain (Laplacian x2.2 vs 8 spp) -> 8 spp there.
-- 2 spp is not acceptable for review/final (smeared edges, -23 % detail) even though it does not flicker.
-- Decide spp per shot with `temporal_qa.py` on 6-45 continuous frames against a reference render; take the static-pixel mask from an
-  independent render (a mask from the reference's own difference is biased).
-- Keep: static geometry cache (`Include` of never-moving meshes; write 0.34 -> 0.13 s) and pipelined post (-6.4 %, +0.3 GB RAM, bit-identical).
-- Never delete a previous full run's frames: they are the reference for the next temporal test.
+## Presets, caches and the raster backend (RULE, measured 2026-10-16: productions/ep004-jakarta/proof_v3/perf/ACCELERATION.md)
+One scene description, several renderers: `pbrt3d.Scene` also records meshes / materials / camera / sun as data, so
+`orbitalatlas.raster3d` + `tools/raster3d/render.js` (three.js r160, WebGL2 in headless Chromium/SwiftShader, `fetch_three.sh`) draw the
+same 3-D scene without path tracing.
+| preset | renderer | settings | measured on S3 (whole proof, scene to MP4) |
+|---|---|---|---|
+| DRAFT | raster3d | 960x540, 30 fps | 8.0 min (9.3x faster than REVIEW) — geometry, camera, light direction, composition |
+| PREVIEW | pbrt + OIDN | 640x360, 2 spp, 15 fps | 7.3 min (10.2x) — GI, DOF, motion blur first look; PSNR 28.4 dB vs REVIEW |
+| REVIEW | pbrt + OIDN | 1280x720, 4 spp; 8 spp when DOF CoC >= 5 px | ~74 min first run; then only changed frames (frame cache) |
+| FINAL | pbrt + OIDN | 1920x1080, same sample rule | only after the owner's separate approval |
+- Run: `run_v3.py draft A B TAG` (DRAFT) / `run_v3.py batch A B PRESET TAG --pipeline`; `compose_v3.py TAG OUT.mp4` handles both.
+- Frame cache (`WORK/framecache/<sha1>.npz`): key = the frame's whole pbrt scene text (film path removed). Unchanged sequence: 383/383
+  cached in 71 s; one camera-key edit re-rendered 30 frames in 6.4 min. Post-only changes (grade, type, sound) never re-render.
+  `seed_cache(tag, preset, frames)` registers older renders after an equivalence check (render one frame, compare bit-for-bit).
+- Samples: OIDN leaves grain under depth of field; rule `spp = 8 if CoC >= 5 px else 4` (`V.coc_px`, `run_v3.COC_8SPP_PX`). pbrt
+  variance and denoised-grain ratios did not separate these frames. 2 spp is for PREVIEW only (smeared edges at review size).
+- Static geometry cache (`Include` + raster bundle), pipelined post (-6.4 %), float16 clamp at 6e4 (inf fireflies) — keep.
+- Not worth it: pbrt texture/light caching between frames (0.3 s/frame process overhead, 3 %; pbrt has one scene per process).
+- Never delete a previous run's frames: they are the reference for temporal QA and seed the cache.
 
 ## Cost (this container: 4 cores, no GPU) — see docs/RENDER_BENCHMARKS.md
 960x540 @ 8 spp + motion blur + OIDN: ~12-14 s/frame. 1280x720 @ 12 spp: see benchmarks. Plan 3-5 s tests first; full 13.5 s proofs take hours.
