@@ -77,6 +77,20 @@ class Gates(unittest.TestCase):
             w.writeframes(struct.pack("<%dh" % len(frames), *frames))
         return p
 
+    def test_owner_selected_topic_needs_the_owners_words_and_no_fake_scoring(self):
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "research"))
+            dec = {"mode": "owner_selected", "chosen_id": "jakarta", "reason": "assigned by the owner", "us_hook": "sinking megacity",
+                   "evidence_urls": ["https://www.esa.int/ESA_Multimedia/Images/2024/11/Ground_motion_over_Jakarta_Indonesia"]}
+            write(os.path.join(d, "research", "topic_decision.json"), dec)               # no candidates.json on purpose
+            r = gates.topic_decision(d); self.assertFalse(r["ok"]); self.assertTrue(any("owner_quote" in x for x in r["problems"]))
+            dec.update(owner_quote="the topic was assigned by me directly", owner_decided="2026-10-16")
+            write(os.path.join(d, "research", "topic_decision.json"), dec)
+            self.assertTrue(gates.topic_decision(d)["ok"])
+            dec["mode"] = "auto"; write(os.path.join(d, "research", "topic_decision.json"), dec)    # an 'auto' decision still needs real candidates
+            self.assertFalse(gates.topic_decision(d)["ok"])
+
+
     def test_voice_onset_is_measured_on_the_narration_track(self):
         with tempfile.TemporaryDirectory() as d:
             self.assertAlmostEqual(gates.voice_onset(self.wav(d, 3.35)), 3.35, delta=0.03)   # EP002 v1-v3 failure mode

@@ -58,7 +58,19 @@ def topic_decision(d):
     import topics
     p = []
     try:
-        t = _json(os.path.join(d, "research", "topic_decision.json")); c = _json(os.path.join(d, "research", "candidates.json"))
+        t = _json(os.path.join(d, "research", "topic_decision.json"))
+    except (OSError, ValueError) as x:
+        return _res([f"cannot read research files: {x}"])
+    if t.get("mode") == "owner_selected":
+        # OWNER_SELECTED_TOPIC: the owner named the topic in chat; no candidate scoring exists or is faked. The owner's own words and date are required.
+        for k in ("chosen_id", "reason", "evidence_urls", "us_hook", "owner_quote", "owner_decided"):
+            if not t.get(k): p.append(f"topic_decision.json (owner_selected) missing '{k}'")
+        urls = t.get("evidence_urls") or []
+        if not urls or not all(isinstance(u, str) and u.startswith("https://") for u in urls):
+            p.append("evidence_urls must be https URLs of reliable sources")
+        return _res(p, [f"OWNER_SELECTED_TOPIC {t.get('chosen_id')!r}: {str(t.get('owner_quote', ''))[:100]}"])
+    try:
+        c = _json(os.path.join(d, "research", "candidates.json"))
     except (OSError, ValueError) as x:
         return _res([f"cannot read research files: {x}"])
     for k in ("chosen_id", "reason", "evidence_urls", "us_hook", "mode"):
@@ -66,7 +78,7 @@ def topic_decision(d):
     urls = t.get("evidence_urls") or []
     if not urls or not all(isinstance(u, str) and u.startswith("https://") for u in urls):
         p.append("evidence_urls must be https URLs of reliable sources")
-    if t.get("mode") not in ("auto", "tie_break"): p.append("mode must be 'auto' (provable advantage) or 'tie_break' (fixed rule)")
+    if t.get("mode") not in ("auto", "tie_break", "owner_selected"): p.append("mode must be 'auto' (provable advantage), 'tie_break' (fixed rule) or 'owner_selected' (owner's words recorded)")
     try:
         again = topics.run(c)
         if again["chosen_id"] != t.get("chosen_id"):

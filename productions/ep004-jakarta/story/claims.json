@@ -1,6 +1,6 @@
 {
  "episode": "ep004-jakarta",
- "status_note": "Built from research/claim_evidence_matrix.csv on 2026-10-16 for the 2.5D REVIEW. Only claims with used=true may be spoken. 'VERIFIED' here includes VERIFIED_PRIMARY and ABSTRACT_VERIFIED (abstract-level, flagged in caveat). Snippet-only claims (C16-C26) are NOT used; policy and flood-event beats are therefore absent.",
+ "status_note": "Built from research/claim_evidence_matrix.csv + 2026-10-16 free reading (Crossref abstracts of CC BY / open papers, ESA Sentinel-1 facts page). Only claims with used=true may be spoken. 'VERIFIED' includes VERIFIED_PRIMARY and ABSTRACT_VERIFIED (abstract-level, flagged in caveat). Snippet-only claims (C16-C26) are NOT used.",
  "claims": [
   {
    "id": "C01",
@@ -385,6 +385,162 @@
    "retrieved": "2026-10-15",
    "caveat": "ABSTRACT ONLY (not full text): say 'a 2026 study' and use words only; never draw uplift on a map; no numbers. upgrade C28 to ABSTRACT_VERIFIED for the distinction; full irreversibility statement still needs the text",
    "matrix_status": "ABSTRACT_VERIFIED"
+  },
+  {
+   "id": "C33",
+   "text": "Jakarta lies on the north-west coast of Java in a deltaic plain crossed by 13 natural and artificial rivers.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "published abstract / agency page (see caveat)",
+   "source_name": "Abidin et al. 2015, Proc. IAHS 372, abstract (CC BY 3.0)",
+   "source_url": "https://doi.org/10.5194/piahs-372-115-2015",
+   "retrieved": "2026-10-16",
+   "caveat": "abstract read via Crossref API 2026-10-16; peer-reviewed proceedings",
+   "matrix_status": "ADDED_2026-10-16"
+  },
+  {
+   "id": "C34",
+   "text": "In the same IAHS study the main causative factors of subsidence in Jakarta are most probably excessive groundwater extraction, the load of construction on highly compressible soil, and natural consolidation of alluvial soil.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "published abstract / agency page (see caveat)",
+   "source_name": "Abidin et al. 2015, Proc. IAHS 372, abstract (CC BY 3.0)",
+   "source_url": "https://doi.org/10.5194/piahs-372-115-2015",
+   "retrieved": "2026-10-16",
+   "caveat": "'most probably' - say 'suspects'; abstract only",
+   "matrix_status": "ADDED_2026-10-16"
+  },
+  {
+   "id": "C35",
+   "text": "Leveling, GPS and InSAR surveys between 1974 and 2010 show land subsidence in Jakarta varying in space and time with typical rates of about 3 to 10 cm per year.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "published abstract / agency page (see caveat)",
+   "source_name": "Abidin et al. 2015, Proc. IAHS 372, abstract (CC BY 3.0)",
+   "source_url": "https://doi.org/10.5194/piahs-372-115-2015",
+   "retrieved": "2026-10-16",
+   "caveat": "typical rates, not a citywide average; abstract only",
+   "matrix_status": "ADDED_2026-10-16"
+  },
+  {
+   "id": "C36",
+   "text": "Researchers list the impacts of land subsidence in Jakarta as cracking of buildings and roads, changed river and drain flow, wider flooding areas, and malfunctioning drainage.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "published abstract / agency page (see caveat)",
+   "source_name": "Abidin et al. 2015, Proc. IAHS 370, abstract (CC BY 3.0)",
+   "source_url": "https://doi.org/10.5194/piahs-370-15-2015",
+   "retrieved": "2026-10-16",
+   "caveat": "abstract only",
+   "matrix_status": "ADDED_2026-10-16"
+  },
+  {
+   "id": "C37",
+   "text": "A 2022 study of DKI Jakarta (about 10.9 million people) found piped water coverage of only 64 percent and said excessive groundwater abstraction has caused serious land subsidence over recent decades.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "published abstract / agency page (see caveat)",
+   "source_name": "Taftazani, Kazama, Takizawa 2022, Water 14(20):3197 (CC BY 4.0)",
+   "source_url": "https://doi.org/10.3390/w14203197",
+   "retrieved": "2026-10-16",
+   "caveat": "figures as stated by the 2022 study, not current statistics",
+   "matrix_status": "ADDED_2026-10-16"
+  },
+  {
+   "id": "C38",
+   "text": "The 2022 study proposed the northern and western regions of Jakarta as priority areas for extending piped water, followed by the southern and eastern regions, to ease groundwater over-abstraction.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "published abstract / agency page (see caveat)",
+   "source_name": "Taftazani, Kazama, Takizawa 2022, Water 14(20):3197 (CC BY 4.0)",
+   "source_url": "https://doi.org/10.3390/w14203197",
+   "retrieved": "2026-10-16",
+   "caveat": "a planning study's proposal, NOT government policy",
+   "matrix_status": "ADDED_2026-10-16"
+  },
+  {
+   "id": "C39",
+   "text": "A 2026 preprint combining InSAR and GNSS for 2014-2025 found six main subsidence bowls in Jakarta, with vertical rates up to 7.7 cm per year, horizontal rates up to 1.7 cm per year and slow regional subsidence of about 1.1 cm per year; its authors note it relies on a single continuous GNSS station.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "published abstract / agency page (see caveat)",
+   "source_name": "Lapadat et al. 2026, EarthArXiv preprint (CC BY 4.0), abstract",
+   "source_url": "https://doi.org/10.31223/x5r45h",
+   "retrieved": "2026-10-16",
+   "caveat": "PREPRINT, not peer reviewed; abstract only; bowl count differs from the 2016-2024 analysis (three hotspots) because methods and masks differ",
+   "matrix_status": "ADDED_2026-10-16"
+  },
+  {
+   "id": "C40",
+   "text": "A DInSAR study of 2019-2020 Sentinel-1A data found Jakarta subsidence rates from +1.8 to -10.7 cm per year, with averages of -4.9 in North Jakarta, -4.8 in West, -3.1 in Central, -2.8 in South and -2.5 in East Jakarta, mostly in coastal areas and near estuaries on alluvial deposits.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "published abstract / agency page (see caveat)",
+   "source_name": "Situmorang et al. 2021, EGU General Assembly abstract",
+   "source_url": "https://doi.org/10.5194/egusphere-egu21-14347",
+   "retrieved": "2026-10-16",
+   "caveat": "conference abstract, two image pairs; city-level averages, not comparable with the 2016-2024 or ESA numbers",
+   "matrix_status": "ADDED_2026-10-16"
+  },
+  {
+   "id": "C41",
+   "text": "The same 2019-2020 study reported damage to road infrastructure at Mutiara Beach, West Cengkareng and Pademangan.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "published abstract / agency page (see caveat)",
+   "source_name": "Situmorang et al. 2021, EGU General Assembly abstract",
+   "source_url": "https://doi.org/10.5194/egusphere-egu21-14347",
+   "retrieved": "2026-10-16",
+   "caveat": "conference abstract",
+   "matrix_status": "ADDED_2026-10-16"
+  },
+  {
+   "id": "C42",
+   "text": "A questionnaire survey of local inhabitants found seawater already overtopping coastal dykes and flooding a vulnerable waterfront community in Jakarta.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "published abstract / agency page (see caveat)",
+   "source_name": "Takagi, Fujii, Esteban, Yi 2017, Sustainability 9(4):619 (CC BY 4.0)",
+   "source_url": "https://doi.org/10.3390/su9040619",
+   "retrieved": "2026-10-16",
+   "caveat": "abstract only",
+   "matrix_status": "ADDED_2026-10-16"
+  },
+  {
+   "id": "C43",
+   "text": "A 2017 hydrodynamic model that includes land subsidence, sea-level rise and tides projected that a 3-m dyke, enough for present-day conditions, could completely lose its ability to stop floods by the year 2040 if rapid subsidence continues; the authors conclude stopping subsidence would be the most effective countermeasure after about 2050.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "published abstract / agency page (see caveat)",
+   "source_name": "Takagi, Fujii, Esteban, Yi 2017, Sustainability 9(4):619 (CC BY 4.0)",
+   "source_url": "https://doi.org/10.3390/su9040619",
+   "retrieved": "2026-10-16",
+   "caveat": "MODEL PROJECTION under continuing-subsidence scenarios, not a forecast",
+   "matrix_status": "ADDED_2026-10-16"
+  },
+  {
+   "id": "C44",
+   "text": "On New Year's Eve, December 31, 2019, when Jakarta flooded, the rain gauge at Halim Perdanakusuma recorded 377 mm of rainfall that day according to a report by Indonesia's weather agency BMKG.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "published abstract / agency page (see caveat)",
+   "source_name": "Arief & Cahyadi 2020, J. Marine-Earth Science, abstract",
+   "source_url": "https://doi.org/10.12962/j27745449.v1i1.606",
+   "retrieved": "2026-10-16",
+   "caveat": "abstract only; BMKG report quoted by the authors; no 'record' claim",
+   "matrix_status": "ADDED_2026-10-16"
+  },
+  {
+   "id": "C45",
+   "text": "ESA lists Sentinel-1 as a C-band radar in a polar orbit at an altitude of 693 km with a six-day revisit at the equator from its two-satellite constellation (Sentinel-1A launched 2014, Sentinel-1B 2016 and ended August 2022).",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "published abstract / agency page (see caveat)",
+   "source_name": "ESA, Sentinel-1 Facts and figures",
+   "source_url": "https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-1/Facts_and_figures",
+   "retrieved": "2026-10-16",
+   "caveat": "page read 2026-10-16; ESA's page says Sentinel-1A also ended in June 2026",
+   "matrix_status": "ADDED_2026-10-16"
   }
  ]
 }

@@ -38,3 +38,8 @@ Phase 2 host check (2026-10-09, all HTTP 403 from the proxy): overpass-api.de, t
 Reachable: svs.gsfc.nasa.gov (movies up to 5760x3240 and stills: HEAD 200), science.nasa.gov, earthobservatory.nasa.gov (301 -> science.nasa.gov), earthexplorer.usgs.gov, landsatlook.usgs.gov, m2m.cr.usgs.gov, svs/GIBS.
 Blocked/failing: assets.science.nasa.gov (Earth Observatory JPEG files), eoimages.gsfc.nasa.gov, www.youtube.com, www.googleapis.com/youtube, commons.wikimedia.org, planetarycomputer, earth-search AWS.
 USGS M2M credentials are present in this environment. NASA SVS pages state no licence, only the Reproduction Guidelines (https://www.nasa.gov/multimedia/guidelines) and a credit line: confirm before a monetised release.
+
+## Research access, checked 2026-10-16 (EP004)
+- REACHABLE from the cloud container: esa.int (pages and Sentinel-1 facts: C-band, 693 km, six-day revisit, 1A ended June 2026, 1B ended Aug 2022), api.crossref.org (abstracts and licences of papers: `works/<doi>`), svs.gsfc.nasa.gov, m2m.cr.usgs.gov (Landsat; credentials in env), github.com.
+- BLOCKED / bot-checked: zenodo.org, cdn.ncbi.nlm.nih.gov, pmc.ncbi.nlm.nih.gov (reCAPTCHA now), europepmc, doi.org, science.nasa.gov (403 now), usgs.gov pages, nature/springer/science/pnas, mdpi/wiley/sciencedirect (403), worldbank, reliefweb, bmkg. Not bypassed.
+- Working route for paper facts: Crossref abstract (flag claims ABSTRACT-LEVEL; never read figures). Used for Abidin 2015 (CC BY 3.0), Taftazani 2022 (CC BY 4.0), Takagi 2017 (CC BY 4.0), Lapadat 2026 preprint (CC BY 4.0), Situmorang 2021 EGU abstract, Arief & Cahyadi 2020.

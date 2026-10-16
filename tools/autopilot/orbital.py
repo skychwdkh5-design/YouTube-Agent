@@ -98,10 +98,19 @@ def run_gate(stage, d):
     return {"ok": True, "problems": [], "notes": []}
 
 
+def outs(sid, d):
+    """required output files of a stage. OWNER_SELECTED_TOPIC: the research stage does not need candidates.json (no scoring is faked)."""
+    o = list(STAGES[sid]["outputs"])
+    if sid == "research":
+        t = _load(os.path.join(d, "research", "topic_decision.json"), {})
+        if t.get("mode") == "owner_selected": o = [x for x in o if x != "research/candidates.json"]
+    return o
+
+
 def _inputs_sha(stage, d):
     h = hashlib.sha256()
     for need in stage["needs"]:
-        for o in STAGES[need]["outputs"]:
+        for o in outs(need, d):
             p = os.path.join(d, o)
             h.update((o + ":" + (gates.sha256_file(p) if os.path.isfile(p) else "-")).encode())
     return h.hexdigest()
@@ -116,14 +125,14 @@ def status(slug):
     out, done = [], set()
     for sid in ORDER:
         s = STAGES[sid]
-        have = [o for o in s["outputs"] if os.path.exists(os.path.join(d, o))]
+        have = [o for o in outs(sid, d) if os.path.exists(os.path.join(d, o))]
         row = {"stage": sid, "kind": s["kind"], "cost": s.get("cost", "none")}
         unmet = [n for n in s["needs"] if n not in done]
         rec = state["stages"].get(sid, {})
         if unmet:                                    # an upstream stage is not done: nothing downstream can be
             row["state"] = "blocked"; row["blocked_by"] = unmet
-            if len(have) == len(s["outputs"]): row["note"] = "outputs exist but an upstream stage is not done"
-        elif len(have) == len(s["outputs"]):
+            if len(have) == len(outs(sid, d)): row["note"] = "outputs exist but an upstream stage is not done"
+        elif len(have) == len(outs(sid, d)):
             g = run_gate(s, d)
             row["gate"] = g
             if not g["ok"]: row["state"] = "gate_failed"
@@ -137,7 +146,7 @@ def status(slug):
         else:
             row["state"] = "ready"
         if rec.get("last_failure"): row["last_failure"] = rec["last_failure"]
-        row["missing_outputs"] = [o for o in s["outputs"] if o not in have]
+        row["missing_outputs"] = [o for o in outs(sid, d) if o not in have]
         out.append(row)
     nxt = next((r for r in out if r["state"] != "done"), None)
     return {"slug": slug, "stages": out, "next": nxt and {"stage": nxt["stage"], "state": nxt["state"], "kind": nxt["kind"]},
@@ -302,7 +311,7 @@ def complete(slug, sid):
     d = pdir(slug)
     s = STAGES.get(sid)
     if not s: raise ValueError(f"unknown stage {sid}")
-    miss = [o for o in s["outputs"] if not os.path.exists(os.path.join(d, o))]
+    miss = [o for o in outs(sid, d) if not os.path.exists(os.path.join(d, o))]
     if miss: return {"ok": False, "missing_outputs": miss}
     g = run_gate(s, d)
     if not g["ok"]: return {"ok": False, "gate": g}
