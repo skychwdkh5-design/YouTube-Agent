@@ -1,0 +1,92 @@
+{
+ "rules": {
+  "min_text_px_1080": 30.0,
+  "min_caption_px_1080": 48.0
+ },
+ "styles": {
+  "?": 30.0,
+  "Arrow": 31.9,
+  "BandTimeline": 31.9,
+  "Bars": 31.9,
+  "Bowls": 31.9,
+  "CheckList": 31.9,
+  "ClassChip": 31.9,
+  "CoherenceDiagram": 31.9,
+  "Compare": 31.9,
+  "DykeDiagram": 31.9,
+  "Gauge": 31.9,
+  "GeoMarker": 30.0,
+  "Lines": 31.9,
+  "LosView": 31.9,
+  "OrbitDiagram": 31.9,
+  "Ring": 31.9,
+  "Stat": 31.9,
+  "Suspects": 31.9,
+  "Tag": 31.9,
+  "TrendsDiagram": 31.9,
+  "WordCaptions": 56.2
+ },
+ "issues": {
+  "text_overlap": [
+   {
+    "tag": null,
+    "text": "ILLUSTRATION · NOT TO SCALE",
+    "first_t": 151.5,
+    "last_t": 151.5,
+    "count": 1,
+    "why": "intersects ClassChip"
+   },
+   {
+    "tag": "ClassChip",
+    "text": "REAL SATELLITE",
+    "first_t": 151.5,
+    "last_t": 151.5,
+    "count": 1,
+    "why": "intersects ?"
+   },
+   {
+    "tag": "ClassChip",
+    "text": "LANDSAT 5 · 1990  →  LANDSAT 8 · 2026 · OPTICAL, NOT SUBSIDE",
+    "first_t": 151.5,
+    "last_t": 151.5,
+    "count": 1,
+    "why": "intersects ?"
+   },
+   {
+    "tag": "Stat",
+    "text": "FASTEST SPOT · ≈ 1 INCH",
+    "first_t": 190.5,
+    "last_t": 190.5,
+    "count": 1,
+    "why": "intersects Bowls"
+   },
+   {
+    "tag": "Bowls",
+    "text": "3 HOTSPOTS · RADAR, 2016-2024",
+    "first_t": 190.5,
+    "last_t": 190.5,
+    "count": 1,
+    "why": "intersects Stat"
+   },
+   {
+    "tag": "Gauge",
+    "text": "RADAR vs GPS · ONE STATION (CJKT)",
+    "first_t": 316.5,
+    "last_t": 316.5,
+    "count": 1,
+    "why": "intersects TrendsDiagram"
+   },
+   {
+    "tag": "TrendsDiagram",
+    "text": "SINKING (SCHEMATIC)",
+    "first_t": 316.5,
+    "last_t": 316.5,
+    "count": 1,
+    "why": "intersects Gauge"
+   }
+  ]
+ },
+ "summary": {
+  "text_overlap": 7
+ }
+}
