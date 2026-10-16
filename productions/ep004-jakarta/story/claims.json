@@ -138,12 +138,12 @@
    "id": "C12",
    "text": "One scientist quoted in news coverage said sinking on artificial islands off Jakarta could reach about 80 mm per year.",
    "status": "VERIFIED",
-   "used": true,
+   "used": false,
    "evidence_type": "NASA EO article",
    "source_name": "science.nasa.gov",
    "source_url": "https://science.nasa.gov/earth/earth-observatory/as-jakarta-grows-so-do-the-water-issues-148303/",
    "retrieved": "2026-10-15",
-   "caveat": "quote from one scientist (Sengupta)",
+   "caveat": "REMOVED 2026-10-16 (owner fix): 80 mm/yr on artificial islands is one scientist's quote relayed by news, no primary source reached. quote from one scientist (Sengupta)",
    "matrix_status": "VERIFIED_PRIMARY"
   },
   {
@@ -174,12 +174,12 @@
    "id": "C15",
    "text": "Global mean sea level was rising about 3.3 mm per year, as stated in 2021 reporting.",
    "status": "VERIFIED",
-   "used": true,
+   "used": false,
    "evidence_type": "NASA EO article",
    "source_name": "science.nasa.gov",
    "source_url": "https://science.nasa.gov/earth/earth-observatory/as-jakarta-grows-so-do-the-water-issues-148303/",
    "retrieved": "2026-10-15",
-   "caveat": "2021 figure",
+   "caveat": "REMOVED 2026-10-16 (owner fix): 3.3 mm/yr had no stated period; replaced by C46. 2021 figure",
    "matrix_status": "VERIFIED_PRIMARY"
   },
   {
@@ -540,6 +540,18 @@
    "source_url": "https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-1/Facts_and_figures",
    "retrieved": "2026-10-16",
    "caveat": "page read 2026-10-16; ESA's page says Sentinel-1A also ended in June 2026",
+   "matrix_status": "ADDED_2026-10-16"
+  },
+  {
+   "id": "C46",
+   "text": "A 2018 international assessment (WCRP Global Sea Level Budget Group) estimated the satellite-altimetry global mean sea level rising at an average rate of 3.1 mm per year, with an uncertainty of 0.3, over 1993 to present as of the 2018 paper.",
+   "status": "VERIFIED",
+   "used": true,
+   "evidence_type": "peer-reviewed assessment (abstract)",
+   "source_name": "WCRP Global Sea Level Budget Group 2018, Earth System Science Data 10:1551 (CC BY 4.0)",
+   "source_url": "https://doi.org/10.5194/essd-10-1551-2018",
+   "retrieved": "2026-10-16",
+   "caveat": "abstract read via Crossref; period 1993-'present' of the 2018 paper (analysis through the late 2010s); global average, not Jakarta; replaces the undated 3.3 mm/yr",
    "matrix_status": "ADDED_2026-10-16"
   }
  ]

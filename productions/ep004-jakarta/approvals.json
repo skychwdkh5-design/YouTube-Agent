@@ -1,7 +1,11 @@
 {
  "note": "Owner approvals for paid or irreversible actions. Written by Claude ONLY after the owner said yes in chat; quote their words.",
  "tts": {
-  "approved": false
+  "approved": true,
+  "approved_by": "user",
+  "max_chars": 5800,
+  "quote": "Если проверки пройдены, разрешаю ОДИН производственный проход озвучки EP004 через ElevenLabs: Голос: Adam. Лимит: 5 800 кредитов. Без тестовых платных генераций и повторов.",
+  "date": "2026-10-16T15:11:58Z"
  },
  "publish": {
   "approved": false,

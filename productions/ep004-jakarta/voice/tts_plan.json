@@ -1,12 +1,12 @@
 {
- "characters": 5748,
+ "characters": 5790,
  "chunks": 4,
- "chunk_chars_max": 1687,
+ "chunk_chars_max": 1676,
  "chunk_limit": 1700,
- "text_sha256": "833fc5a9ef3a173c8ccb6967d58b6fcfb0a8789a8daf253ab6e031f7c8026d57",
- "blank_line_chars": 21,
+ "text_sha256": "5c92f4209461128af0cdc059af2bd4cbda944809df416490c1776de20bdf283e",
+ "blank_line_chars": 20,
  "cache_dir": "voice/cache",
  "voice": "Adam pNInz6obpgDQGcFmaJgB (channel default)",
  "cost_class": "paid - needs owner approval + --confirm",
- "credits_estimate": 5748
+ "credits_estimate": 5790
 }
