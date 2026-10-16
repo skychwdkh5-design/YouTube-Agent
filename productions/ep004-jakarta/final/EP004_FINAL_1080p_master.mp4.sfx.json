@@ -1,0 +1,139 @@
+{
+ "cues": [
+  {
+   "t": 10.331,
+   "kind": "sweep",
+   "why": "shot b01b",
+   "gain_db": -18
+  },
+  {
+   "t": 18.763,
+   "kind": "sweep",
+   "why": "shot b02",
+   "gain_db": -18
+  },
+  {
+   "t": 28.248,
+   "kind": "sweep",
+   "why": "shot b03",
+   "gain_db": -18
+  },
+  {
+   "t": 39.870000000000005,
+   "kind": "sweep",
+   "why": "shot b04a",
+   "gain_db": -18
+  },
+  {
+   "t": 44.118,
+   "kind": "sweep",
+   "why": "shot b04b",
+   "gain_db": -18
+  },
+  {
+   "t": 59.479,
+   "kind": "sweep",
+   "why": "shot b05",
+   "gain_db": -18
+  },
+  {
+   "t": 97.503,
+   "kind": "sweep",
+   "why": "shot b07",
+   "gain_db": -18
+  },
+  {
+   "t": 117.94699999999999,
+   "kind": "sweep",
+   "why": "shot b08",
+   "gain_db": -18
+  },
+  {
+   "t": 133.725,
+   "kind": "sweep",
+   "why": "shot b09",
+   "gain_db": -18
+  },
+  {
+   "t": 150.954,
+   "kind": "sweep",
+   "why": "shot b10",
+   "gain_db": -18
+  },
+  {
+   "t": 168.75199999999998,
+   "kind": "sweep",
+   "why": "shot b11",
+   "gain_db": -18
+  },
+  {
+   "t": 190.172,
+   "kind": "sweep",
+   "why": "shot b12_stage",
+   "gain_db": -18
+  },
+  {
+   "t": 224.108,
+   "kind": "sweep",
+   "why": "shot b13",
+   "gain_db": -18
+  },
+  {
+   "t": 252.959,
+   "kind": "sweep",
+   "why": "shot b14",
+   "gain_db": -18
+  },
+  {
+   "t": 271.67400000000004,
+   "kind": "sweep",
+   "why": "shot b15a",
+   "gain_db": -18
+  },
+  {
+   "t": 287.779,
+   "kind": "sweep",
+   "why": "shot b15b",
+   "gain_db": -18
+  },
+  {
+   "t": 294.67400000000004,
+   "kind": "sweep",
+   "why": "shot b16",
+   "gain_db": -18
+  },
+  {
+   "t": 316.327,
+   "kind": "sweep",
+   "why": "shot b17",
+   "gain_db": -18
+  },
+  {
+   "t": 329.829,
+   "kind": "sweep",
+   "why": "shot b18",
+   "gain_db": -18
+  },
+  {
+   "t": 345.827,
+   "kind": "sweep",
+   "why": "shot b19",
+   "gain_db": -18
+  },
+  {
+   "t": 379.97200000000004,
+   "kind": "sweep",
+   "why": "shot b20",
+   "gain_db": -18
+  },
+  {
+   "t": 403.85400000000004,
+   "kind": "sweep",
+   "why": "shot b21",
+   "gain_db": -18
+  }
+ ],
+ "voice_active_s": 298.59,
+ "margin_db_p5": 19.4,
+ "license": "Original sound effects synthesised by orbitalatlas/sfx.py (code in this repository). No third-party audio is used; no attribution is required. Released CC0 1.0 by the project owner together with the code; safe for monetised YouTube use."
+}
