@@ -5,6 +5,28 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 
 ## tts
 
+### paid-tts-gate-in-the-calling-function - The paid-request wall must live in the code that makes the request
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** A text hook that matches `voice.py --confirm` is bypassed by any alternative path: another script, python -c, an import of voice.generate, a different shell wrapper.
+- **Root cause:** Hooks see command text, not behaviour; the paid call itself had no check.
+- **Fix:** yt-voice approval_gate() runs inside generate(): it needs approvals.json (found next to or above the output) with approved_by 'user', the owner's quote and max_chars >= the plan, else it refuses before any request. The hook stays as a second layer.
+- **Reuse when:** Any new paid or irreversible action: put the check in the function that performs it, then add a hook as a safety net.
+- **References:** `.claude/skills/yt-voice/voice.py`; `tools/autopilot/guard.py`; `tools/autopilot/orbital.py`
+- **Verification:** 5 tests: no file, unapproved, agent-approved, too small budget, direct generate() call - none sends a request; found-above-output path works.
+- **Regression test:** `.claude/skills/yt-voice/test_voice.py::test_calling_generate_directly_is_gated_too`
+
+### rebuild-paid-narration-from-saved-responses - Paid narration can be rebuilt for free from the saved provider responses
+*VERIFIED · EP001 · 2026-10-14*
+
+- **Problem:** EP001's final master and WAV were lost with the container; re-voicing would cost ~10,500 credits again.
+- **Root cause:** The WAV and word timings are derived locally; only the provider responses (audio + alignment) are paid, and they were committed (7 cache files).
+- **Fix:** tools/autopilot/recover_narration.py splits the recorded text by the recorded chunk sizes (chunks are joined by a blank line), matches each chunk to its cache entry by alignment text (both cache layouts), and rebuilds with yt-voice's own to_wav/join_wavs. Result is compared with the recorded audio_sha256.
+- **Reuse when:** After any container loss or whenever a WAV is missing but voice/cache and narration.voice.json exist.
+- **References:** `tools/autopilot/recover_narration.py`; `tools/autopilot/archive.py`; `production/ep001-sahara-green:productions/sahara-green/narration/voice/narration.voice.json`; video: EP001 Sahara Green narration 747.357 s, wav sha256 49e53528cd44...
+- **Verification:** Run on the real EP001 cache: 7/7 chunks matched, WAV byte-identical to the recorded sha256 49e53528...; the normalised -16 LUFS file also reproduced byte-identical (114ba576...) with the EP001 script.
+- **Regression test:** `tools/autopilot/test_archive.py::test_rebuild_from_cache_in_both_layouts_is_byte_identical`
+
 ### tts-blank-lines-are-billable - Paragraph blank lines add billable characters
 *VERIFIED · EP002 · 2026-10-13*
 
@@ -253,6 +275,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** EP002 yt_qc_v41 PASS.
 - **Regression test:** none - Usage note; orbital.py always passes --timeline.
 
+### silent-proof-fails-yt-qc-by-design - A short silent proof always 'fails' yt-qc long: read which checks failed
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** yt-qc --profile long reports FAIL for a 20 s silent proof.
+- **Root cause:** long_duration (60-900 s), loudness and audio_starts cannot pass without narration and full length.
+- **Fix:** Treat those three as expected for proofs, list them, and look at the remaining checks (black frames, freezes, decode); a proof is judged by its frames, not by the QC verdict.
+- **Reuse when:** Every 12-20 s proof render.
+- **References:** `.claude/skills/yt-qc/qc.py`; `docs/AUTOPILOT.md`
+- **Verification:** EP003 proof: fails were long_duration, loudness (silent), audio_starts; freezes warn 3.07 s (a number card).
+- **Regression test:** none - Interpretation of an existing tool's output.
+
 ### subtitle-vs-graphic-overlap-check - Burned-in captions collided with on-screen graphics and NASA's own text
 *VERIFIED · EP001 · 2026-10-09*
 
@@ -299,6 +332,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 
 ## visual
 
+### graphic-label-cut-mid-number - Callout graphic label was truncated in the middle of a number
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** The number graphic printed 'In June 1985 the surface of the Great Salt Lake stood at 4,2' because the claim text was cut at 60 characters.
+- **Root cause:** Character slicing of free text; passed unit tests and yt-render's own validation (it checks length, not meaning).
+- **Fix:** callout_label(): hint, else '<PLACE> · <DATE>' from the manifest and the sentence, else a cut at a word boundary with an ellipsis, never inside a number.
+- **Reuse when:** Any text derived from a sentence.
+- **References:** `tools/autopilot/storyboard.py`
+- **Verification:** Found only by LOOKING at a contact sheet of the proof frames; after the fix the frame reads 'GREAT SALT LAKE · JUNE 1985'.
+- **Regression test:** `tools/autopilot/test_storyboard.py::test_callout_labels_are_whole_words_and_never_cut_a_number`
+
 ### labels-vs-captions-bands - Main labels must not sit in the caption band
 *VERIFIED · EP002 · 2026-10-13*
 
@@ -331,6 +375,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `productions/dubai/preview/monotony_audit.py`; commit `7a19735`; commit `b706c4c`; `production/ep001-sahara-green:productions/sahara-green/review/pre_final/RETENTION_RISK_REPORT.md`; `production/ep001-sahara-green:productions/sahara-green/review/pre_final/editorial/EDITORIAL_CHANGES_REPORT.md`
 - **Verification:** EP001 pre-final report ranked 15 risks; editorial pass fixed the opening and a 38 s proposal block (static gaps <= 2.6 s). Retention benefit itself is unmeasured (no analytics yet).
 - **Regression test:** none - Retention effect is a HYPOTHESIS until published analytics exist; monotony_audit.py measures motion on rendered frames.
+
+### storyboard-never-shows-an-unrelated-or-wrong-year-picture - A generated storyboard must not fake relevance: no unrelated picture, wrong years are reported
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** The first generator version filled scenes with the 'best neighbour' asset (an Aral Sea image under a Lake Chad sentence) and showed a 2023 frame for 'July 2022' and a 2015 frame for 'the 1986 record' without saying so.
+- **Root cause:** Scoring rewarded novelty (asset not used recently) above relevance, and years were not compared.
+- **Fix:** Only relevant assets (tags/place, partial multi-word match, author hint) or the current subject (continuation) are candidates; a scene without any is a reported gap and the previous shot continues; years named in the text are compared with the picture's years (penalty up to 9, nearest wins, remaining gap goes to plan.needs).
+- **Reuse when:** Any automatic picture selection.
+- **References:** `tools/autopilot/storyboard.py`
+- **Verification:** Found by reading the plan and looking at rendered frames of the EP003 proof; 18 storyboard tests incl. 'no unrelated picture', 'gap not a fake', 'nearest year wins'.
+- **Regression test:** `tools/autopilot/test_storyboard.py::test_no_unrelated_picture_is_ever_shown`
 
 ## geo
 
@@ -415,6 +470,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** Autopilot review gate requires not_verified and the list of reviewed frames.
 - **Regression test:** `tools/autopilot/test_autopilot.py::test_agent_cannot_grant_user_approved`
 
+### command-guard-quote-aware-parsing - Command guards must parse commands, and be tested against bypass forms
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** The first guard blocked harmless text (a heredoc that merely mentioned a script) and missed real bypasses: `rm path` (regex needed a leading slash), `bash -lc "..."`, `perl -pi`, `cp` with a protected SOURCE, youtube uploader binaries.
+- **Root cause:** Substring matching on the whole command line; splitting on ';' inside quotes; assuming flag spellings.
+- **Fix:** Split on unquoted separators only, tokenise each command, unwrap sh/bash -c (any flag cluster containing c), env/nohup/xargs, judge by command head and arguments (cp/rsync only by destination). Keep a whole-line check only for network clients (curl, urllib, node) because quoted code bodies defeat tokenising.
+- **Reuse when:** Writing or extending any PreToolUse guard.
+- **References:** `tools/autopilot/guard.py`
+- **Verification:** 29 bypass-form tests (paid TTS, git push spellings, GitHub MCP, uploads, writes to finished files, effect duplication) found 4 real gaps during development; all pass.
+- **Regression test:** `tools/autopilot/test_guard.py::test_every_way_of_writing_to_a_finished_file_is_blocked`
+
 ### fix-the-class-not-the-instance - Fix the whole class of a defect across all scenes
 *VERIFIED · EP002 · 2026-10-13*
 
@@ -469,6 +535,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `tools/autopilot/orbital.py`; `productions/dubai/SCRIPT_LOCK.md`
 - **Verification:** EP002 SCRIPT_LOCK; autopilot test blocks the paid call after a post-plan edit.
 - **Regression test:** `tools/autopilot/test_autopilot.py::test_script_change_after_plan_blocks_the_paid_call`
+
+### stacked-prs-must-validate-alone - Each PR in a stack must pass its own checks without the later PRs
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Simulated sequential merge main <- #17 <- #18 <- #19 passed until #19, where kb.py validate --strict failed: four registry entries pointed at files that exist only in the later EP003 PR (#20).
+- **Root cause:** Registry entries written on the EP003 branch referenced productions/ep003-*/ files while the entries themselves lived in the earlier infrastructure PR.
+- **Fix:** Reference only files that exist in the same PR (code, shared docs); keep episode-specific evidence inside the episode's own branch. Before asking for a merge run the whole stack in a throwaway worktree (tools: git worktree add, merge each PR in order, run protected.py, kb.py validate --strict and every test after each step).
+- **Reuse when:** Any time branches are stacked or a PR adds registry/doc references.
+- **References:** `tools/memory/kb.py`; `docs/AUTOPILOT.md`
+- **Verification:** The simulation found the failure; after the fix the registry validates strictly with 59 entries on the #19 branch alone.
+- **Regression test:** `tools/memory/test_kb.py::test_registry_is_valid`
 
 ## env
 
@@ -540,6 +617,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** EP001 SCRIPT LOCK v1.1; EP002 claims table with 33 claims; claims gate unit test.
 - **Regression test:** `tools/autopilot/test_autopilot.py::test_claims_must_be_verified_and_sourced`
 
+### nasa-image-host-blocked-use-svs - NASA Earth Observatory image files are unreachable; SVS movies and stills are
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** assets.science.nasa.gov (hosts the Earth Observatory / World of Change JPEGs) returns no response from this environment.
+- **Root cause:** Network allowlist.
+- **Fix:** Use svs.gsfc.nasa.gov (HEAD 200, movies up to 5760x3240 and stills), extract frames locally with ffmpeg (record frame index and sha256), or fetch Landsat with the USGS M2M credentials. Credit NASA's Goddard Space Flight Center; the pages state no explicit licence, only the Reproduction Guidelines - confirm before release.
+- **Reuse when:** Planning imagery for any NASA-sourced episode.
+- **References:** `docs/ASSET_SOURCE_REGISTRY.md`
+- **Verification:** EP003: SVS 15020 1080p movie (30 fps, 13 s, 16,204,354 bytes) downloaded and frames extracted; assets.science.nasa.gov HEAD failed.
+- **Regression test:** none - Depends on the live network and the host allowlist.
+
 ### shorts-feedback-small-samples - A 2-vs-2 Shorts experiment can never be significant
 *HYPOTHESIS · general · 2026-10-13*
 
@@ -561,3 +649,25 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** commit `f8ce0c8`; commit `75ff01e`; `production/ep001-sahara-green:productions/sahara-green/story/missing_sources.md`; `production/ep001-sahara-green:productions/sahara-green/story/source_audit.md`
 - **Verification:** EP001 rounds 1-2 and the Northwest Angle 'third pass' after the allowlist widening.
 - **Regression test:** none - Network-dependent; procedure.
+
+### topic-decision-by-fixed-rule - Pick the topic by gates + weighted score + fixed tie-break, and let the gate recompute it
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Asking the owner to choose between topics wastes their time; a free-form choice is not reproducible.
+- **Root cause:** No decision rule.
+- **Fix:** topics.py: gates (sources, zero_cost), weighted score, auto-decision at margin >= 0.25, otherwise the tie-break order audience_evidence, us, zero_cost, originality, reach; the research gate recomputes the winner from candidates.json and rejects a mismatching decision.
+- **Reuse when:** Every episode's research stage.
+- **References:** `tools/autopilot/topics.py`; `tools/autopilot/gates.py`; `docs/AUTOPILOT.md`
+- **Verification:** EP003: St. Helens led the weighted sum (4.16 vs 4.08) but under the margin, so the tie-break chose the Great Salt Lake; documented in the decision file.
+- **Regression test:** `tools/autopilot/test_autopilot.py::test_near_tie_is_decided_by_a_fixed_rule_never_left_to_the_owner`
+
+### youtube-metrics-unavailable-no-invented-numbers - YouTube audience metrics cannot be read here: score from documented signals and cap the rest
+*VERIFIED · general · 2026-10-14*
+
+- **Problem:** Topic selection asks for confirmed audience interest, but youtube.com / the Data API are blocked from this environment and public search results carry no view counts.
+- **Root cause:** Network allowlist; no API key.
+- **Fix:** audience_evidence above 3 requires a measured signal (metric, value, https URL, date) - e.g. press/festival attention; otherwise the score is capped at 3 and the note says so. Never write a view count that was not read.
+- **Reuse when:** Every research stage until a YouTube connector or the owner's Studio exports exist (/yt-retention reads those).
+- **References:** `tools/autopilot/topics.py`; `docs/AUTOPILOT.md`
+- **Verification:** EP003 research: 7 candidates, Great Salt Lake got a measured signal (Sundance 2026 film, sold-out screenings), all others capped.
+- **Regression test:** `tools/autopilot/test_autopilot.py::test_audience_evidence_is_capped_without_a_measured_signal`

@@ -18,6 +18,13 @@ One orchestrator (`tools/autopilot/orbital.py`) over the existing skills, plus t
 - A gate failure or error: `python3 tools/memory/kb.py diagnose LOG` and `kb.py search WORDS` **before** debugging. Do not rebuild a tool that exists.
 - Paid TTS: `orbital.py approve SLUG tts --max-chars N --quote "<owner's words>"` only after the owner said yes in chat, then `orbital.py run SLUG --stage tts --confirm`. Never call `voice.py --confirm` directly (the guard hook blocks it).
 
+## Phase 2 commands
+- `python3 tools/autopilot/topics.py score research/candidates.json --out research/topic_decision.json` - the tool chooses; do not ask the owner.
+- `python3 tools/autopilot/storyboard.py plan SLUG` then `preview SLUG --start 0 --end 20 --confirm` - editable timeline + silent proof. Read `story/storyboard.plan.json` (`gaps`, `needs`) and LOOK at frames before reporting anything.
+- `python3 tools/memory/effects.py search WORDS` before writing any effect or transition.
+- `python3 tools/autopilot/archive.py create SLUG --out DIR` / `verify DIR` / `restore DIR --to NEW` for release preservation; `recover_narration.py` rebuilds paid narration from voice/cache for free.
+- `python3 tools/autopilot/protected.py verify` proves the finished EP001/EP002 files are untouched.
+
 ## After every verified fix (not before it is verified)
 Write one entry (fields: id, title, status, scope, area, date, problem, root_cause, fix, reuse_when, refs, verification, regression_test or no_test_reason), then
 `python3 tools/memory/kb.py add ENTRY.json && python3 tools/memory/kb.py render`. Add a regression test whenever one can exist offline. Mark unproven things HYPOTHESIS.

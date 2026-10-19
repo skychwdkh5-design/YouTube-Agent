@@ -53,13 +53,21 @@ def eleven(seconds=1.0, body=None, error=None, align=True, requests=None):
     return urlopen
 
 
-def run(argv, urlopen=None, key=FAKE_KEY, auth_env=None):
+_APPR_DIR = tempfile.mkdtemp(prefix="voice-appr-")
+APPROVAL = os.path.join(_APPR_DIR, "approvals.json")
+with open(APPROVAL, "w") as _f:
+    json.dump({"tts": {"approved": True, "approved_by": "user", "quote": "test", "max_chars": 10 ** 6}}, _f)
+
+
+def run(argv, urlopen=None, key=FAKE_KEY, auth_env=None, approval=APPROVAL):
     """auth_env sets YT_VOICE_AUTH for this run; otherwise it is removed, so a value configured
     in the real environment never changes what a test checks."""
     buf = io.StringIO()
     env = {"ELEVENLABS_API_KEY": key} if key is not None else {}
     with mock.patch.dict(os.environ, env, clear=False), redirect_stdout(buf):
         if key is None: os.environ.pop("ELEVENLABS_API_KEY", None)
+        if approval: os.environ["YT_VOICE_APPROVAL_FILE"] = approval
+        else: os.environ.pop("YT_VOICE_APPROVAL_FILE", None)
         if auth_env is None: os.environ.pop("YT_VOICE_AUTH", None)
         else: os.environ["YT_VOICE_AUTH"] = auth_env
         if urlopen:
@@ -299,6 +307,58 @@ class ChunkCache(Base):
         calls3 = []
         def none(req, timeout=None): calls3.append(1); return ok(req, timeout)
         code, d, _ = run(argv + ["--overwrite"], none); self.assertEqual((code, len(calls3)), (0, 0), d)        # a complete cache costs nothing
+
+class ApprovalGate(Base):
+    """The paid request is refused in the function that makes it, whatever command, script or import reached it."""
+
+    def _run(self, d, approval, reqs, name="n.wav"):
+        return run(["--text", "Hello there.", "--output", os.path.join(d, name), "--confirm"], eleven(requests=reqs), approval=approval)
+
+    def _approval(self, d, tts):
+        ap = os.path.join(d, "approvals.json")
+        with open(ap, "w") as f: json.dump({"tts": tts}, f)
+        return ap
+
+    def test_no_approval_file_sends_nothing(self):
+        reqs = []
+        with tempfile.TemporaryDirectory() as d:
+            code, out, _ = self._run(d, None, reqs)
+        self.assertEqual((code, out["status"]), (2, "approval_required"))
+        self.assertEqual(reqs, [])
+
+    def test_unapproved_or_agent_approved_file_sends_nothing(self):
+        for tts in ({"approved": False}, {"approved": True, "approved_by": "claude", "quote": "x", "max_chars": 99},
+                    {"approved": True, "approved_by": "user", "max_chars": 99}):
+            with tempfile.TemporaryDirectory() as d:
+                reqs = []
+                code, out, _ = self._run(d, self._approval(d, tts), reqs)
+                self.assertEqual((code, out["status"], reqs), (2, "approval_required", []), tts)
+
+    def test_budget_smaller_than_the_plan_sends_nothing(self):
+        with tempfile.TemporaryDirectory() as d:
+            reqs = []
+            code, out, _ = self._run(d, self._approval(d, {"approved": True, "approved_by": "user", "quote": "ok", "max_chars": 5}), reqs)
+            self.assertEqual((code, out["status"], reqs), (2, "approval_required", []))
+
+    def test_approvals_json_is_found_above_the_output(self):
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "voice"))
+            self._approval(d, {"approved": True, "approved_by": "user", "quote": "ok", "max_chars": 500})
+            reqs = []
+            code, out, _ = run(["--text", "Hello there.", "--output", os.path.join(d, "voice", "n.wav"), "--confirm"], eleven(requests=reqs), approval=None)
+            self.assertEqual(code, 0, out)
+            self.assertEqual(len(reqs), 1)
+
+    def test_calling_generate_directly_is_gated_too(self):
+        with tempfile.TemporaryDirectory() as d, mock.patch.dict(os.environ, {"ELEVENLABS_API_KEY": FAKE_KEY}):
+            os.environ.pop("YT_VOICE_APPROVAL_FILE", None)
+            opts = dict(v.DEFAULTS, model=None, language="en", auth=None, context=False, cache_dir=None)
+            p = v.plan("Hello there.", "elevenlabs", None, os.path.join(d, "n.wav"), opts)
+            with mock.patch.object(v.urllib.request, "urlopen", side_effect=AssertionError("network!")):
+                with self.assertRaises(v.VoiceError) as cm:
+                    v.generate(p, opts)
+            self.assertEqual(cm.exception.status, "approval_required")
+
 
 class Failures(Base):
     def test_malformed_responses(self):

@@ -76,3 +76,18 @@ side branches, five of them never merged. A fresh clone shows `main` only; `git 
 4. `orbitalatlas/tests` failed when run like every other test file (now documented and handled by `kb.py verify`).
 5. EP001's chunk-size lesson (502 at ~30 s, billed twice) conflicts with EP002's 2,470-character chunks succeeding: the
    limit is environment-dependent. The autopilot uses 1,700 unless a free probe proves more.
+
+## 6. Addendum (phase 2): can EP001's final materials be recovered without paying again?
+
+Checked 2026-10-14 by actually doing it (scratch directory, nothing overwritten, nothing downloaded):
+
+| item | result |
+|---|---|
+| Narration WAV (747.357 s) | **Rebuilt from the 7 saved ElevenLabs responses on `production/ep001-sahara-green`: byte-identical** to the recorded sha256 `49e53528cd44...`; chunk offsets and 1,778 word timings identical. Zero cost. (`tools/autopilot/recover_narration.py`) |
+| Normalised narration (-16 LUFS file used by the master) | Rebuilt by the committed `audio_normalization_test.py`: byte-identical `114ba576...` |
+| Captions, 139 graphics, 6 Landsat/NASA stills, final timeline, QC JSON, thumbnail/branding specs | present on the branch |
+| 5 Landsat sequences (`seq_*.mp4`) | **missing**: built from 1.946 GB of source bands that are not in git. Restore needs the USGS M2M download (`restore_source_bands.py`, credentials are present in this environment, free, ~2 GB: NOT done) and `build_sequences.py` |
+| CALIPSO dust clip (`calipso_dust_30fps.mp4`) | **missing**: re-download from NASA SVS (host reachable) and convert to 30 fps |
+| Final master `FINAL_EP001_1080P.mp4` and the 2 Shorts | **not stored anywhere**; sha256 recorded (`7547d970...`). The renderer is deterministic and the manifest lists a sha256 per 60 s segment, so a rebuild after restoring the 6 videos can be PROVEN identical or shown to differ - it has not been attempted |
+
+Verdict: everything paid is recoverable at zero cost; the master is rebuildable for free but needs ~2 GB of free downloads and about an hour of rendering. No re-voicing is needed.
