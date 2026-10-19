@@ -1,0 +1,94 @@
+{
+ "epsg": 32636,
+ "x0": 666210.0,
+ "y_top": 3165840.0,
+ "pixel_m": 30.0,
+ "width": 1999,
+ "height": 2250,
+ "schema": "yt-geo-stack/1",
+ "aoi": [
+  34.7,
+  28.0,
+  35.3,
+  28.6
+ ],
+ "scenes": [
+  {
+   "id": "y2020",
+   "label": "2020",
+   "src": "raw/LC08_L1TP_174040_20200925_20201006_02_T1_refl.tif",
+   "scene_epsg": 32636,
+   "scene_size": [
+    7581,
+    7721
+   ],
+   "png": "y2020.png"
+  },
+  {
+   "id": "y2021",
+   "label": "2021",
+   "src": "raw/LC08_L1TP_174040_20210928_20211001_02_T1_refl.tif",
+   "scene_epsg": 32636,
+   "scene_size": [
+    7581,
+    7731
+   ],
+   "png": "y2021.png"
+  },
+  {
+   "id": "y2022",
+   "label": "2022",
+   "src": "raw/LC08_L1TP_174040_20221017_20221031_02_T1_refl.tif",
+   "scene_epsg": 32636,
+   "scene_size": [
+    7591,
+    7721
+   ],
+   "png": "y2022.png"
+  },
+  {
+   "id": "y2023",
+   "label": "2023",
+   "src": "raw/LC08_L1TP_174040_20231020_20231103_02_T1_refl.tif",
+   "scene_epsg": 32636,
+   "scene_size": [
+    7581,
+    7731
+   ],
+   "png": "y2023.png"
+  },
+  {
+   "id": "y2024",
+   "label": "2024",
+   "src": "raw/LC08_L1TP_174040_20241022_20241029_02_T1_refl.tif",
+   "scene_epsg": 32636,
+   "scene_size": [
+    7581,
+    7731
+   ],
+   "png": "y2024.png"
+  },
+  {
+   "id": "y2025",
+   "label": "2025",
+   "src": "raw/LC08_L1TP_174040_20251025_20251121_02_T1_refl.tif",
+   "scene_epsg": 32636,
+   "scene_size": [
+    7581,
+    7721
+   ],
+   "png": "y2025.png"
+  },
+  {
+   "id": "y2026",
+   "label": "2026",
+   "src": "raw/LC08_L1TP_174040_20260926_20261001_02_T1_refl.tif",
+   "scene_epsg": 32636,
+   "scene_size": [
+    7581,
+    7731
+   ],
+   "png": "y2026.png"
+  }
+ ]
+}

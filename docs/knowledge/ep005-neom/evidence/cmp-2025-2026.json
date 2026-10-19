@@ -1,0 +1,149 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "cmp-2025-2026",
+ "type": "compare",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "USGS Landsat 8 natural colour, 30 m, path/row 174/040",
+ "credit": null,
+ "steps": [
+  "cmp-2025-2026.png"
+ ],
+ "sha256": {
+  "cmp-2025-2026.png": "7063ed0361172558d8f156ed556e62f1fb1638b4e625e3eec881d7d51fea5d22"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "2025 to 2026: no visible extension",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    895.5,
+    177.2
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: USGS Landsat 8 natural colour, 30 m, path/row 174/040",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    835.0,
+    797.6
+   ]
+  },
+  {
+   "where": "left label",
+   "text": "Oct 25, 2025",
+   "size": 32,
+   "box": [
+    236.4,
+    204.4,
+    442.9,
+    242.8
+   ]
+  },
+  {
+   "where": "left credit",
+   "text": "USGS Landsat 8",
+   "size": 24,
+   "box": [
+    234.4,
+    618.8,
+    421.4,
+    647.6
+   ]
+  },
+  {
+   "where": "scale bar",
+   "text": "1 km",
+   "size": 28,
+   "box": [
+    834.4,
+    588.4,
+    894.9,
+    622.0
+   ]
+  },
+  {
+   "where": "left metric",
+   "text": "1.65 km dark segment",
+   "size": 48,
+   "box": [
+    318.2,
+    678.4,
+    847.2,
+    736.0
+   ]
+  },
+  {
+   "where": "right label",
+   "text": "Sep 26, 2026",
+   "size": 32,
+   "box": [
+    991.0,
+    204.4,
+    1202.5,
+    242.8
+   ]
+  },
+  {
+   "where": "right credit",
+   "text": "USGS Landsat 8",
+   "size": 24,
+   "box": [
+    989.0,
+    618.8,
+    1176.0,
+    647.6
+   ]
+  },
+  {
+   "where": "scale bar",
+   "text": "1 km",
+   "size": 28,
+   "box": [
+    1589.0,
+    588.4,
+    1649.5,
+    622.0
+   ]
+  },
+  {
+   "where": "right metric",
+   "text": "1.65 km dark segment",
+   "size": 48,
+   "box": [
+    1072.8,
+    678.4,
+    1601.8,
+    736.0
+   ]
+  }
+ ],
+ "left_scale_bar": {
+  "km": 1,
+  "px": 120.75,
+  "label": "1 km",
+  "m_per_px": 8.2816
+ },
+ "right_scale_bar": {
+  "km": 1,
+  "px": 120.75,
+  "label": "1 km",
+  "m_per_px": 8.2816
+ }
+}

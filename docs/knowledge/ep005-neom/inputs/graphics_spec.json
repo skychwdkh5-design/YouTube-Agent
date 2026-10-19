@@ -1,0 +1,147 @@
+{
+ "schema": "yt-graphics/1",
+ "graphics": [
+  {
+   "type": "compare",
+   "id": "cmp-2022-2026",
+   "title": "Same ground, 2022 and 2026",
+   "source": "USGS Landsat 8 natural colour, 30 m, same season, same WRS-2 path/row 174/040",
+   "left": {
+    "geo": {
+     "stack": "stack_wide/y2022.png",
+     "grid": "stack_wide/grid.json",
+     "center": [
+      35.2,
+      28.107
+     ],
+     "width_km": 14
+    },
+    "label": "Oct 17, 2022",
+    "credit": "USGS Landsat 8"
+   },
+   "right": {
+    "geo": {
+     "stack": "stack_wide/y2026.png",
+     "grid": "stack_wide/grid.json",
+     "center": [
+      35.2,
+      28.107
+     ],
+     "width_km": 14
+    },
+    "label": "Sep 26, 2026",
+    "credit": "USGS Landsat 8"
+   }
+  },
+  {
+   "type": "compare",
+   "id": "cmp-2024-2025",
+   "title": "The dark segment grows, then stops",
+   "source": "USGS Landsat 8 natural colour, 30 m, path/row 174/040",
+   "left": {
+    "geo": {
+     "stack": "stack_wide/y2024.png",
+     "grid": "stack_wide/grid.json",
+     "center": [
+      35.215,
+      28.107
+     ],
+     "width_km": 6
+    },
+    "label": "Oct 22, 2024",
+    "credit": "USGS Landsat 8"
+   },
+   "right": {
+    "geo": {
+     "stack": "stack_wide/y2025.png",
+     "grid": "stack_wide/grid.json",
+     "center": [
+      35.215,
+      28.107
+     ],
+     "width_km": 6
+    },
+    "label": "Oct 25, 2025",
+    "credit": "USGS Landsat 8"
+   },
+   "metric": {
+    "left": 0.7,
+    "right": 1.65,
+    "unit": "km dark segment",
+    "decimals": 2
+   }
+  },
+  {
+   "type": "compare",
+   "id": "cmp-2025-2026",
+   "title": "2025 to 2026: no visible extension",
+   "source": "USGS Landsat 8 natural colour, 30 m, path/row 174/040",
+   "left": {
+    "geo": {
+     "stack": "stack_wide/y2025.png",
+     "grid": "stack_wide/grid.json",
+     "center": [
+      35.215,
+      28.107
+     ],
+     "width_km": 6
+    },
+    "label": "Oct 25, 2025",
+    "credit": "USGS Landsat 8"
+   },
+   "right": {
+    "geo": {
+     "stack": "stack_wide/y2026.png",
+     "grid": "stack_wide/grid.json",
+     "center": [
+      35.215,
+      28.107
+     ],
+     "width_km": 6
+    },
+    "label": "Sep 26, 2026",
+    "credit": "USGS Landsat 8"
+   },
+   "metric": {
+    "left": 1.65,
+    "right": 1.65,
+    "unit": "km dark segment",
+    "decimals": 2
+   }
+  },
+  {
+   "type": "geo",
+   "id": "geo-2026",
+   "title": "A straight dark segment, about 1.65 km long",
+   "source": "USGS Landsat 8, 30 m; measured on the yt-geo grid, \u00b11 pixel (30 m)",
+   "image": {
+    "stack": "stack_wide/y2026.png",
+    "grid": "stack_wide/grid.json",
+    "center": [
+     35.215,
+     28.107
+    ],
+    "width_km": 8
+   },
+   "credit": "USGS Landsat 8",
+   "date": "Sep 26, 2026",
+   "callouts": [
+    {
+     "at": [
+      35.2084,
+      28.1064
+     ],
+     "text": "Dark segment start"
+    },
+    {
+     "at": [
+      35.2249,
+      28.1061
+     ],
+     "text": "\u22481.65 km"
+    }
+   ],
+   "scale_bar": true
+  }
+ ]
+}

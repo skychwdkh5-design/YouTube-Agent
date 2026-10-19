@@ -28,3 +28,32 @@ Needs the Natural Color GeoTIFF (14 MB) + yt-geo crop at known coordinates.
   (WSJ, Bloomberg, Reuters, CNBC) before any on-screen claim. Do not say "built 2.4 km" yet.
 - PIF governor: 2030 completion "good to have, not a must" - one aggregator, verify primary.
 - Reuters Oct 2026: NEOM Stadium shelved - single aggregator, verify.
+
+---
+# Update 2: Landsat evidence (same day, after owner approval)
+
+## What was downloaded (free, USGS M2M, Natural Color GeoTIFF browse, ~3-5 MB each, order cleaned up)
+Path/row 174/040, Landsat 8, all Sep-Nov for a like-for-like season: 2020-09-25, 2021-09-28, 2022-10-17,
+2023-10-20, 2024-10-22, 2025-10-25, 2026-09-26 (IDs in `inputs/scenes174.json`, provenance in
+`evidence/provenance.json`). Stack: AOI 34.7-35.3 E, 28.0-28.6 N, 30 m, UTM 36N (`inputs/stack_wide.json`).
+
+## Technical decisions and lessons
+- Path/row 173/041 cannot be used: the site sits on its rotated NW edge, yt-geo refuses (no-data fill).
+  174/040 covers it. Always test coverage with yt-geo plan mode before downloading more.
+- The first cloud-free-by-metadata 2020 scene (2020-10-27) had clouds over the area (metadata cloud is a
+  whole-scene number). Replaced with 2020-09-25. Always look at the crop before trusting a date.
+- USGS `options`/`download` need entityId, not displayId.
+- Location was found visually, not from a source: the NEOM Stadium planning coordinate (28.116 N, 35.104 E,
+  Wikipedia via search) was the only coordinate available; a straight E-W corridor passes ~1 km from it.
+- Dark-segment length was measured from per-column luminance contrast on the yt-geo grid (rough, +-1 px = 30 m).
+  `measure.json` 2022/2023 "strong runs" are noise (no segment yet); only 2024-2026 are meaningful.
+  The "corridor km" values in it are crude; do not quote them. Visual estimate: corridor >= ~15 km inside the AOI.
+- Evidence graphics via yt-graphics: credit text must be short (<= ~25 chars) in `compare` panels.
+
+## Environment limits found (owner can lift in environment network settings)
+Blocked hosts (403): reuters.com, bloomberg.com, wsj.com, cnbc.com, neom.com, pif.gov.sa, semafor.com,
+newatlas.com, dezeen.com, agbi.com, archinect.com, wikipedia.org, earth-search.aws.element84.com,
+catalogue.dataspace.copernicus.eu, planetarycomputer.microsoft.com; NASA GIBS times out.
+Consequence: no primary-source reading; facts are verified only through search-engine summaries of secondary
+coverage and are labelled as such in `CLAIMS.md`. Sentinel-2 (10 m, free) would make the imagery ~9x sharper
+in area; it is the single best upgrade for CTR and visual quality.

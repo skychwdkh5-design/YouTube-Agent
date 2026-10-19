@@ -1,0 +1,100 @@
+[
+ {
+  "id": "y2020",
+  "src": "raw/LC08_L1TP_174040_20200925_20201006_02_T1_refl.tif",
+  "label": "2020",
+  "provenance": {
+   "entityId": "LC81740402020269LGN00",
+   "displayId": "LC08_L1TP_174040_20200925_20201006_02_T1",
+   "acquired": "2020-09-25",
+   "license": {
+    "name": "Public domain (USGS Landsat)",
+    "commercial_use": true
+   }
+  }
+ },
+ {
+  "id": "y2021",
+  "src": "raw/LC08_L1TP_174040_20210928_20211001_02_T1_refl.tif",
+  "label": "2021",
+  "provenance": {
+   "entityId": "LC81740402021271LGN00",
+   "displayId": "LC08_L1TP_174040_20210928_20211001_02_T1",
+   "acquired": "2021-09-28",
+   "license": {
+    "name": "Public domain (USGS Landsat)",
+    "commercial_use": true
+   }
+  }
+ },
+ {
+  "id": "y2022",
+  "src": "raw/LC08_L1TP_174040_20221017_20221031_02_T1_refl.tif",
+  "label": "2022",
+  "provenance": {
+   "entityId": "LC81740402022290LGN00",
+   "displayId": "LC08_L1TP_174040_20221017_20221031_02_T1",
+   "acquired": "2022-10-17",
+   "license": {
+    "name": "Public domain (USGS Landsat)",
+    "commercial_use": true
+   }
+  }
+ },
+ {
+  "id": "y2023",
+  "src": "raw/LC08_L1TP_174040_20231020_20231103_02_T1_refl.tif",
+  "label": "2023",
+  "provenance": {
+   "entityId": "LC81740402023293LGN00",
+   "displayId": "LC08_L1TP_174040_20231020_20231103_02_T1",
+   "acquired": "2023-10-20",
+   "license": {
+    "name": "Public domain (USGS Landsat)",
+    "commercial_use": true
+   }
+  }
+ },
+ {
+  "id": "y2024",
+  "src": "raw/LC08_L1TP_174040_20241022_20241029_02_T1_refl.tif",
+  "label": "2024",
+  "provenance": {
+   "entityId": "LC81740402024296LGN00",
+   "displayId": "LC08_L1TP_174040_20241022_20241029_02_T1",
+   "acquired": "2024-10-22",
+   "license": {
+    "name": "Public domain (USGS Landsat)",
+    "commercial_use": true
+   }
+  }
+ },
+ {
+  "id": "y2025",
+  "src": "raw/LC08_L1TP_174040_20251025_20251121_02_T1_refl.tif",
+  "label": "2025",
+  "provenance": {
+   "entityId": "LC81740402025298LGN00",
+   "displayId": "LC08_L1TP_174040_20251025_20251121_02_T1",
+   "acquired": "2025-10-25",
+   "license": {
+    "name": "Public domain (USGS Landsat)",
+    "commercial_use": true
+   }
+  }
+ },
+ {
+  "id": "y2026",
+  "src": "raw/LC08_L1TP_174040_20260926_20261001_02_T1_refl.tif",
+  "label": "2026",
+  "provenance": {
+   "entityId": "LC81740402026269LGN00",
+   "displayId": "LC08_L1TP_174040_20260926_20261001_02_T1",
+   "acquired": "2026-09-26",
+   "license": {
+    "name": "Public domain (USGS Landsat)",
+    "commercial_use": true
+   }
+  }
+ }
+]
