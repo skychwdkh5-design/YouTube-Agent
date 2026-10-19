@@ -1,0 +1,88 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "s2-wide-170",
+ "type": "geo",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Copernicus Sentinel-2 L2A, 10 m (resampled 40 m), 8 Oct 2026",
+ "credit": "Contains modified Copernicus Sentinel data 2026",
+ "steps": [
+  "s2-wide-170.png"
+ ],
+ "sha256": {
+  "s2-wide-170.png": "a269a121a63fff931c5d445c6ac833a8a29c9f46a26eb4a770f78aa827611847"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "Announced length: 170 km. This frame: about 56 km.",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    1313.0,
+    177.2
+   ]
+  },
+  {
+   "where": "credit",
+   "text": "Contains modified Copernicus Sentinel data 2026 · Oct 8, 2026",
+   "size": 26,
+   "box": [
+    96.0,
+    182.0,
+    890.0,
+    213.2
+   ]
+  },
+  {
+   "where": "arrow label",
+   "text": "170 km announced length",
+   "size": 32,
+   "box": [
+    754.5,
+    220.8,
+    1154.0,
+    259.2
+   ]
+  },
+  {
+   "where": "scale bar",
+   "text": "10 km",
+   "size": 28,
+   "box": [
+    1592.8,
+    726.4,
+    1672.3,
+    760.0
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Copernicus Sentinel-2 L2A, 10 m (resampled 40 m), 8 Oct 2026",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    925.5,
+    797.6
+   ]
+  }
+ ],
+ "scale_bar": {
+  "km": 10,
+  "px": 342.86,
+  "label": "10 km",
+  "m_per_px": 29.1667
+ }
+}

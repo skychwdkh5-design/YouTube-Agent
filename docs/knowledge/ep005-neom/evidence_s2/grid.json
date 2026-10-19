@@ -1,0 +1,94 @@
+{
+ "schema": "yt-geo-stack/1",
+ "epsg": 32636,
+ "x0": 706200.0,
+ "y_top": 3116000.0,
+ "pixel_m": 10.0,
+ "width": 2180,
+ "height": 928,
+ "aoi": [
+  35.1,
+  28.07,
+  35.32,
+  28.15
+ ],
+ "scenes": [
+  {
+   "id": "y2020",
+   "label": "2020",
+   "png": "y2020.png",
+   "src": "Sentinel-2 L2A TCI via Planetary Computer data API",
+   "scene_epsg": 32636,
+   "scene_size": [
+    2180,
+    928
+   ]
+  },
+  {
+   "id": "y2021",
+   "label": "2021",
+   "png": "y2021.png",
+   "src": "Sentinel-2 L2A TCI via Planetary Computer data API",
+   "scene_epsg": 32636,
+   "scene_size": [
+    2180,
+    928
+   ]
+  },
+  {
+   "id": "y2022",
+   "label": "2022",
+   "png": "y2022.png",
+   "src": "Sentinel-2 L2A TCI via Planetary Computer data API",
+   "scene_epsg": 32636,
+   "scene_size": [
+    2180,
+    928
+   ]
+  },
+  {
+   "id": "y2023",
+   "label": "2023",
+   "png": "y2023.png",
+   "src": "Sentinel-2 L2A TCI via Planetary Computer data API",
+   "scene_epsg": 32636,
+   "scene_size": [
+    2180,
+    928
+   ]
+  },
+  {
+   "id": "y2024",
+   "label": "2024",
+   "png": "y2024.png",
+   "src": "Sentinel-2 L2A TCI via Planetary Computer data API",
+   "scene_epsg": 32636,
+   "scene_size": [
+    2180,
+    928
+   ]
+  },
+  {
+   "id": "y2025",
+   "label": "2025",
+   "png": "y2025.png",
+   "src": "Sentinel-2 L2A TCI via Planetary Computer data API",
+   "scene_epsg": 32636,
+   "scene_size": [
+    2180,
+    928
+   ]
+  },
+  {
+   "id": "y2026",
+   "label": "2026",
+   "png": "y2026.png",
+   "src": "Sentinel-2 L2A TCI via Planetary Computer data API",
+   "scene_epsg": 32636,
+   "scene_size": [
+    2180,
+    928
+   ]
+  }
+ ]
+}

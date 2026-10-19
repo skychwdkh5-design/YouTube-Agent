@@ -1,0 +1,167 @@
+{
+ "schema": "yt-graphics/1",
+ "graphics": [
+  {
+   "type": "geo",
+   "id": "s2-wide-170",
+   "title": "Announced length: 170 km. This frame: about 56 km.",
+   "source": "Copernicus Sentinel-2 L2A, 10 m (resampled 40 m), 8 Oct 2026",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "date": "Oct 8, 2026",
+   "image": {
+    "stack": "s2wide/y2026.png",
+    "grid": "s2wide/grid.json",
+    "center": [
+     35.34,
+     28.12
+    ],
+    "width_km": 56
+   },
+   "arrows": [
+    {
+     "from": [
+      35.07,
+      28.185
+     ],
+     "to": [
+      35.61,
+      28.185
+     ],
+     "label": "170 km announced length"
+    }
+   ],
+   "scale_bar": true,
+   "graticule": false
+  },
+  {
+   "type": "geo",
+   "id": "s2-hero-2026",
+   "title": "Straight corridor, 2026",
+   "source": "Copernicus Sentinel-2 L2A, 10 m, relative orbit 78",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "date": "Oct 8, 2026",
+   "image": {
+    "stack": "s2stack/y2026.png",
+    "grid": "s2stack/grid.json",
+    "center": [
+     35.215,
+     28.107
+    ],
+    "width_km": 6
+   },
+   "callouts": [
+    {
+     "at": [
+      35.2093,
+      28.1062
+     ],
+     "text": "Dark segment"
+    },
+    {
+     "at": [
+      35.224,
+      28.1062
+     ],
+     "text": "about 1.5 km"
+    }
+   ],
+   "scale_bar": true
+  },
+  {
+   "type": "compare",
+   "id": "s2-cmp-2022-2026",
+   "title": "Same ground, 2022 and 2026",
+   "source": "Copernicus Sentinel-2 L2A, 10 m, same orbit and season",
+   "left": {
+    "geo": {
+     "stack": "s2stack/y2022.png",
+     "grid": "s2stack/grid.json",
+     "center": [
+      35.215,
+      28.107
+     ],
+     "width_km": 8
+    },
+    "label": "Oct 14, 2022",
+    "credit": "Sentinel-2 \u00b7 ESA"
+   },
+   "right": {
+    "geo": {
+     "stack": "s2stack/y2026.png",
+     "grid": "s2stack/grid.json",
+     "center": [
+      35.215,
+      28.107
+     ],
+     "width_km": 8
+    },
+    "label": "Oct 8, 2026",
+    "credit": "Sentinel-2 \u00b7 ESA"
+   }
+  },
+  {
+   "type": "compare",
+   "id": "s2-cmp-2020-2026-wide",
+   "title": "The wider view, 2020 and 2026",
+   "source": "Copernicus Sentinel-2 L2A, 10 m, same orbit and season",
+   "left": {
+    "geo": {
+     "stack": "s2stack/y2020.png",
+     "grid": "s2stack/grid.json",
+     "center": [
+      35.21,
+      28.11
+     ],
+     "width_km": 16
+    },
+    "label": "Oct 19, 2020",
+    "credit": "Sentinel-2 \u00b7 ESA"
+   },
+   "right": {
+    "geo": {
+     "stack": "s2stack/y2026.png",
+     "grid": "s2stack/grid.json",
+     "center": [
+      35.21,
+      28.11
+     ],
+     "width_km": 16
+    },
+    "label": "Oct 8, 2026",
+    "credit": "Sentinel-2 \u00b7 ESA"
+   }
+  },
+  {
+   "type": "compare",
+   "id": "s2-cmp-2024-2026",
+   "title": "2024 to 2026: little visible change",
+   "source": "Copernicus Sentinel-2 L2A, 10 m, same orbit and season",
+   "left": {
+    "geo": {
+     "stack": "s2stack/y2024.png",
+     "grid": "s2stack/grid.json",
+     "center": [
+      35.215,
+      28.107
+     ],
+     "width_km": 4
+    },
+    "label": "Oct 13, 2024",
+    "credit": "Sentinel-2 \u00b7 ESA"
+   },
+   "right": {
+    "geo": {
+     "stack": "s2stack/y2026.png",
+     "grid": "s2stack/grid.json",
+     "center": [
+      35.215,
+      28.107
+     ],
+     "width_km": 4
+    },
+    "label": "Oct 8, 2026",
+    "credit": "Sentinel-2 \u00b7 ESA"
+   }
+  }
+ ]
+}

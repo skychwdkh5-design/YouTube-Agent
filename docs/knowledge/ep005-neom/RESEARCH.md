@@ -57,3 +57,15 @@ catalogue.dataspace.copernicus.eu, planetarycomputer.microsoft.com; NASA GIBS ti
 Consequence: no primary-source reading; facts are verified only through search-engine summaries of secondary
 coverage and are labelled as such in `CLAIMS.md`. Sentinel-2 (10 m, free) would make the imagery ~9x sharper
 in area; it is the single best upgrade for CTR and visual quality.
+
+---
+# Update 3: round 2 (Sentinel-2, sources, competitors, prototype)
+- Sentinel-2 is reachable only through the Planetary Computer *data API* (crop/resample/`npy` of any band); the Earth Search and PC asset hosts are blocked. Recorded in `SENTINEL2.md`, code in `scripts/s2fetch.py`.
+- Tile T36RYS, relative orbit 78 gives small nodata at the site; orbit 121 slices have ~47 % nodata there - choose by nodata_pixel_percentage.
+- The tiler returns RGBA PNG; with `coord_crs`/`dst_crs` = the UTM zone the output is on an exact UTM grid, so it drops into yt-geo/yt-graphics/yt-render via a hand-written `grid.json` (schema `yt-geo-stack/1`) without GeoTIFF reading.
+- A yt-graphics `compare` panel allows at most (stack height x 16/9) km wide: 16 km for a 9.3 km-tall stack. Arrow/title/scale-bar collisions are refused, not drawn over: move the arrow or disable the graticule.
+- A yt-render v3 long timeline needs no narration if `end.seconds` is set; `t` on a graphic layer must be `[0, null]`; a camera must stay inside the stack (width and centre).
+- Do not put a custom label over a `wipe` layer: it draws its own year labels and the two overlap.
+- yt-qc `--profile long` fails a 15 s silent clip (duration, loudness, audio start) - expected for a prototype.
+- YouTube player/caption endpoints require login: first-30-seconds analysis is not possible without bypassing it; not attempted.
+- Source hosts blocked this round as well: all primary news hosts, wikipedia, neom.com, pif.gov.sa, OSM/Overpass. Fix: Allowed domains in the environment's network settings.

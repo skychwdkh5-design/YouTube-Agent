@@ -1,0 +1,159 @@
+{
+ "version": 3,
+ "profile": "long",
+ "grid": "stack/grid.json",
+ "end": {
+  "seconds": 15
+ },
+ "assets": {
+  "y2022": {
+   "src": "stack/y2022.png",
+   "label": "2022",
+   "credit": "Contains modified Copernicus Sentinel data 2022"
+  },
+  "y2026": {
+   "src": "stack/y2026.png",
+   "label": "2026",
+   "credit": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "g170": {
+   "src": "graphics/s2-wide-170.png",
+   "kind": "graphic",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "group": "g170"
+  }
+ },
+ "shots": [
+  {
+   "id": "hook_170km",
+   "start": 0,
+   "visual_family": "wide_scale_170km",
+   "info": "170 km announced length vs a 56 km frame",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g170",
+     "t": [
+      0,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "push_2022",
+   "start": 3.5,
+   "visual_family": "corridor_2022",
+   "info": "2022 view of the site",
+   "camera": {
+    "from": {
+     "center": [
+      35.215,
+      28.107
+     ],
+     "width_km": 15
+    },
+    "to": {
+     "center": [
+      35.215,
+      28.107
+     ],
+     "width_km": 8
+    }
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2022"
+    },
+    {
+     "type": "label",
+     "text": "OCT 2022",
+     "style": "year",
+     "slot": "top"
+    }
+   ]
+  },
+  {
+   "id": "wipe_2026",
+   "start": 7.5,
+   "visual_family": "corridor_2026",
+   "info": "wipe from 2022 to 2026",
+   "camera": {
+    "from": {
+     "center": [
+      35.215,
+      28.107
+     ],
+     "width_km": 8
+    },
+    "to": {
+     "center": [
+      35.215,
+      28.107
+     ],
+     "width_km": 6.5
+    }
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2022"
+    },
+    {
+     "type": "wipe",
+     "from": "y2022",
+     "to": "y2026",
+     "t": [
+      0.5,
+      2.2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "push_dark_segment",
+   "start": 11.0,
+   "visual_family": "dark_segment_closeup",
+   "info": "close-up of the dark segment",
+   "camera": {
+    "from": {
+     "center": [
+      35.215,
+      28.107
+     ],
+     "width_km": 6.5
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 2.8
+    }
+   },
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "OCT 2026",
+     "style": "year",
+     "slot": "top"
+    },
+    {
+     "type": "label",
+     "text": "About 1.5 km",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      1.2,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,127 @@
+{
+ "schema": "yt-graphics/1",
+ "id": "s2-cmp-2024-2026",
+ "type": "compare",
+ "style": "documentary_dark",
+ "size": [
+  1920,
+  1080
+ ],
+ "source": "Copernicus Sentinel-2 L2A, 10 m, same orbit and season",
+ "credit": null,
+ "steps": [
+  "s2-cmp-2024-2026.png"
+ ],
+ "sha256": {
+  "s2-cmp-2024-2026.png": "3833bb27e8e42178965b3a1850408d167bbc50a4d026b0e0538faa66bd7d9c6f"
+ },
+ "safe_area": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "left": 0.05,
+  "right": 0.05
+ },
+ "caption_band_reserved": true,
+ "text_boxes": [
+  {
+   "where": "title",
+   "text": "2024 to 2026: little visible change",
+   "size": 46,
+   "box": [
+    96.0,
+    122.0,
+    883.5,
+    177.2
+   ]
+  },
+  {
+   "where": "source",
+   "text": "Source: Copernicus Sentinel-2 L2A, 10 m, same orbit and season",
+   "size": 24,
+   "box": [
+    96.0,
+    768.8,
+    846.5,
+    797.6
+   ]
+  },
+  {
+   "where": "left label",
+   "text": "Oct 13, 2024",
+   "size": 32,
+   "box": [
+    112.0,
+    204.4,
+    313.0,
+    242.8
+   ]
+  },
+  {
+   "where": "left credit",
+   "text": "Sentinel-2 · ESA",
+   "size": 24,
+   "box": [
+    110.0,
+    688.8,
+    297.0,
+    717.6
+   ]
+  },
+  {
+   "where": "scale bar",
+   "text": "1 km",
+   "size": 28,
+   "box": [
+    788.6,
+    658.4,
+    849.1,
+    692.0
+   ]
+  },
+  {
+   "where": "right label",
+   "text": "Oct 8, 2026",
+   "size": 32,
+   "box": [
+    991.0,
+    204.4,
+    1177.5,
+    242.8
+   ]
+  },
+  {
+   "where": "right credit",
+   "text": "Sentinel-2 · ESA",
+   "size": 24,
+   "box": [
+    989.0,
+    688.8,
+    1176.0,
+    717.6
+   ]
+  },
+  {
+   "where": "scale bar",
+   "text": "1 km",
+   "size": 28,
+   "box": [
+    1667.6,
+    658.4,
+    1728.1,
+    692.0
+   ]
+  }
+ ],
+ "left_scale_bar": {
+  "km": 1,
+  "px": 212.25,
+  "label": "1 km",
+  "m_per_px": 4.7114
+ },
+ "right_scale_bar": {
+  "km": 1,
+  "px": 212.25,
+  "label": "1 km",
+  "m_per_px": 4.7114
+ }
+}

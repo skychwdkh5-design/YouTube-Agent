@@ -1,0 +1,265 @@
+{
+ "schema": "yt-render-manifest/1",
+ "profile": "long",
+ "output": "first15s_proto.mp4",
+ "width": 1920,
+ "height": 1080,
+ "fps": 30,
+ "duration": 15.0,
+ "safe": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "right": 0.05,
+  "left": 0.05
+ },
+ "first_word_start": null,
+ "narration": null,
+ "shots": [
+  {
+   "id": "hook_170km",
+   "beat": null,
+   "start": 0.0,
+   "end": 3.5,
+   "info": "170 km announced length vs a 56 km frame",
+   "claims": [],
+   "layers": [
+    "graphic"
+   ],
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "visual_family": "wide_scale_170km"
+  },
+  {
+   "id": "push_2022",
+   "beat": null,
+   "start": 3.5,
+   "end": 7.5,
+   "info": "2022 view of the site",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Contains modified Copernicus Sentinel data 2022",
+   "visual_family": "corridor_2022"
+  },
+  {
+   "id": "wipe_2026",
+   "beat": null,
+   "start": 7.5,
+   "end": 11.0,
+   "info": "wipe from 2022 to 2026",
+   "claims": [],
+   "layers": [
+    "image",
+    "wipe"
+   ],
+   "credit": "Contains modified Copernicus Sentinel data 2022 / Contains modified Copernicus Sentinel data 2026",
+   "visual_family": "corridor_2026"
+  },
+  {
+   "id": "push_dark_segment",
+   "beat": null,
+   "start": 11.0,
+   "end": 15.0,
+   "info": "close-up of the dark segment",
+   "claims": [],
+   "layers": [
+    "image",
+    "label",
+    "label"
+   ],
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "visual_family": "dark_segment_closeup"
+  }
+ ],
+ "info_events": [
+  {
+   "t": 0.0,
+   "shot": "hook_170km",
+   "what": "170 km announced length vs a 56 km frame"
+  },
+  {
+   "t": 3.5,
+   "shot": "push_2022",
+   "what": "2022 view of the site"
+  },
+  {
+   "t": 7.5,
+   "shot": "wipe_2026",
+   "what": "wipe from 2022 to 2026"
+  },
+  {
+   "t": 11.0,
+   "shot": "push_dark_segment",
+   "what": "close-up of the dark segment"
+  }
+ ],
+ "compositions": {
+  "rule": "composition-reset/1",
+  "thresholds": {
+   "zoom_ratio": 1.5,
+   "shift": 0.35,
+   "merge_s": 0.75,
+   "timelapse_min": 3,
+   "timelapse_max_step": 1.0,
+   "sample_s": 0.1,
+   "first_10s_min": 3,
+   "resets_per_min": 5.0,
+   "max_hold_s": 8.0
+  },
+  "composition_resets": 4,
+  "distinct_first_10s": 4,
+  "longest_static_hold": {
+   "seconds": 3.5,
+   "start": 0.0,
+   "end": 3.5
+  },
+  "resets": [
+   {
+    "t": 3.5,
+    "shot": "push_2022",
+    "kind": "cut",
+    "what": "from a graphic"
+   },
+   {
+    "t": 5.9,
+    "shot": "push_2022",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 8.0,
+    "shot": "wipe_2026",
+    "kind": "wipe",
+    "what": "wipe y2022 -> y2026"
+   },
+   {
+    "t": 12.3,
+    "shot": "push_dark_segment",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   }
+  ],
+  "segments": [
+   {
+    "start": 0.0,
+    "end": 3.5,
+    "seconds": 3.5,
+    "static_hold": 3.5
+   },
+   {
+    "start": 3.5,
+    "end": 5.9,
+    "seconds": 2.4,
+    "static_hold": 0.0
+   },
+   {
+    "start": 5.9,
+    "end": 8.0,
+    "seconds": 2.1,
+    "static_hold": 0.5
+   },
+   {
+    "start": 8.0,
+    "end": 12.3,
+    "seconds": 4.3,
+    "static_hold": 1.3
+   },
+   {
+    "start": 12.3,
+    "end": 15.0,
+    "seconds": 2.7,
+    "static_hold": 0.0
+   }
+  ]
+ },
+ "visual_novelty": {
+  "rule": "visual-novelty/1",
+  "thresholds": {
+   "first_10s_min": 3,
+   "transitions_per_min": 2.0,
+   "max_family_s": 30.0
+  },
+  "transitions": 3,
+  "families": [
+   "corridor_2022",
+   "corridor_2026",
+   "dark_segment_closeup",
+   "wide_scale_170km"
+  ],
+  "families_first_10s": 3,
+  "longest_family_run": {
+   "family": "corridor_2022",
+   "start": 3.5,
+   "end": 7.5,
+   "untransformed": 4.0
+  },
+  "runs": [
+   {
+    "family": "wide_scale_170km",
+    "start": 0.0,
+    "end": 3.5,
+    "seconds": 3.5,
+    "untransformed": 3.5,
+    "shot": "hook_170km"
+   },
+   {
+    "family": "corridor_2022",
+    "start": 3.5,
+    "end": 7.5,
+    "seconds": 4.0,
+    "untransformed": 4.0,
+    "shot": "push_2022"
+   },
+   {
+    "family": "corridor_2026",
+    "start": 7.5,
+    "end": 11.0,
+    "seconds": 3.5,
+    "untransformed": 1.3,
+    "shot": "wipe_2026"
+   },
+   {
+    "family": "dark_segment_closeup",
+    "start": 11.0,
+    "end": 15.0,
+    "seconds": 4.0,
+    "untransformed": 4.0,
+    "shot": "push_dark_segment"
+   }
+  ]
+ },
+ "caption_boxes": [],
+ "assets": {
+  "y2022": {
+   "label": "2022",
+   "credit": "Contains modified Copernicus Sentinel data 2022",
+   "prov": null,
+   "kind": "image"
+  },
+  "y2026": {
+   "label": "2026",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "prov": null,
+   "kind": "image"
+  },
+  "g170": {
+   "label": "g170",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "prov": null,
+   "kind": "graphic"
+  }
+ },
+ "warnings": [
+  "duration 15.0s outside 60.0-900.0 s"
+ ],
+ "segments": [
+  {
+   "index": 0,
+   "start_frame": 0,
+   "frames": 450,
+   "start": 0.0,
+   "sha256": "177bcf1cd8c38f7d3926c85b5850a14517a692333906cda0fc9991bed6f5f1e4"
+  }
+ ]
+}

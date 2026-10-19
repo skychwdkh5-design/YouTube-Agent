@@ -22,3 +22,6 @@ productions/sahara-green/landsat/raw/
 
 # local-only test artefacts of the narration pipeline
 productions/sahara-green/narration/voice/partial_test/
+
+# EP005 first-15-second prototype (silent, 15 s, small)
+!docs/knowledge/ep005-neom/prototype/first15s_proto.mp4
