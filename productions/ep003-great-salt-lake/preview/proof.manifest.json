@@ -1,0 +1,1867 @@
+{
+ "schema": "yt-render-manifest/1",
+ "profile": "long",
+ "output": "proof.mp4",
+ "width": 1920,
+ "height": 1080,
+ "fps": 30,
+ "duration": 300.167,
+ "safe": {
+  "top": 0.07,
+  "bottom": 0.13,
+  "right": 0.05,
+  "left": 0.05
+ },
+ "first_word_start": null,
+ "narration": null,
+ "shots": [
+  {
+   "id": "sc01",
+   "beat": "This is the Great Salt Lake",
+   "start": 0.0,
+   "end": 5.533,
+   "info": "This is the Great Salt Lake in Utah, the largest saline lake",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 5 · USGS",
+   "visual_family": "geo_1985"
+  },
+  {
+   "id": "sc02",
+   "beat": "In June 1985, its surface measured",
+   "start": 5.533,
+   "end": 8.6,
+   "info": "In June 1985, its surface measured 4,209.7 feet.",
+   "claims": [],
+   "layers": [
+    "image",
+    "label",
+    "label"
+   ],
+   "credit": "Landsat 5 · USGS",
+   "visual_family": "geo_1985"
+  },
+  {
+   "id": "sc03",
+   "beat": "In July 2022, it measured 4,190.2",
+   "start": 8.6,
+   "end": 11.167,
+   "info": "In July 2022, it measured 4,190.2 feet.",
+   "claims": [],
+   "layers": [
+    "wipe",
+    "label"
+   ],
+   "credit": "Landsat 5 · USGS / Landsat 8, 9 · USGS",
+   "visual_family": "geo_wipe_1985_2022"
+  },
+  {
+   "id": "sc04",
+   "beat": "The lake's record high had come",
+   "start": 11.167,
+   "end": 17.167,
+   "info": "The lake's record high had come in 1986, at 4,211.6 feet.",
+   "claims": [],
+   "layers": [
+    "image",
+    "label",
+    "label"
+   ],
+   "credit": "Landsat 5 · USGS",
+   "visual_family": "geo_1986"
+  },
+  {
+   "id": "sc05",
+   "beat": "The Landsat satellites were watching the",
+   "start": 17.167,
+   "end": 26.0,
+   "info": "The Landsat satellites were watching the whole time.",
+   "claims": [],
+   "layers": [
+    "flip"
+   ],
+   "credit": "Landsat 5 · USGS",
+   "visual_family": "geo_timelapse"
+  },
+  {
+   "id": "sc06",
+   "beat": "These are real Landsat scenes from",
+   "start": 26.0,
+   "end": 30.1,
+   "info": "These are real Landsat scenes from the U.S.",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc07",
+   "beat": "Each picture is a mosaic of",
+   "start": 30.1,
+   "end": 37.7,
+   "info": "Each picture is a mosaic of several scenes, shown with one c",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc08",
+   "beat": "It is a big lake: about",
+   "start": 37.7,
+   "end": 45.333,
+   "info": "It is a big lake: about 70 miles long, 30 miles wide, and ab",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 5 · USGS",
+   "visual_family": "geo_1999"
+  },
+  {
+   "id": "sc09",
+   "beat": "At about 4,200 feet, it covers",
+   "start": 45.333,
+   "end": 51.733,
+   "info": "At about 4,200 feet, it covers roughly 1,700 square miles.",
+   "claims": [],
+   "layers": [
+    "wipe",
+    "label"
+   ],
+   "credit": "Landsat 5 · USGS / Landsat 8, 9 · USGS",
+   "visual_family": "geo_wipe_1986_2022"
+  },
+  {
+   "id": "sc10",
+   "beat": "It is a terminal lake: there",
+   "start": 51.733,
+   "end": 55.3,
+   "info": "It is a terminal lake: there is no outlet to the sea.",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 5 · USGS",
+   "visual_family": "geo_1999"
+  },
+  {
+   "id": "sc11",
+   "beat": "And it matters to the economy.",
+   "start": 55.3,
+   "end": 64.9,
+   "info": "And it matters to the economy.",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 5 · USGS",
+   "visual_family": "geo_1999"
+  },
+  {
+   "id": "sc12",
+   "beat": "In July 2021, the gauge at",
+   "start": 64.9,
+   "end": 71.333,
+   "info": "In July 2021, the gauge at Saltair read 4,191.3 feet, the lo",
+   "claims": [],
+   "layers": [
+    "image",
+    "label",
+    "label"
+   ],
+   "credit": "Landsat 8 · USGS",
+   "visual_family": "geo_2021"
+  },
+  {
+   "id": "sc13",
+   "beat": "NASA reports that at that level",
+   "start": 71.333,
+   "end": 78.533,
+   "info": "NASA reports that at that level the lake covered about 950 s",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8 · USGS",
+   "visual_family": "geo_2021"
+  },
+  {
+   "id": "sc14",
+   "beat": "A year later, it fell lower",
+   "start": 78.533,
+   "end": 83.933,
+   "info": "A year later, it fell lower still.",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc15",
+   "beat": "Why did it fall? NASA's account",
+   "start": 83.933,
+   "end": 88.3,
+   "info": "Why did it fall?",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc16",
+   "beat": "For about a century, water has",
+   "start": 88.3,
+   "end": 98.6,
+   "info": "For about a century, water has been diverted upstream for ho",
+   "claims": [],
+   "layers": [
+    "wipe",
+    "label"
+   ],
+   "credit": "Landsat 5 · USGS / Landsat 8, 9 · USGS",
+   "visual_family": "geo_wipe_1986_2022"
+  },
+  {
+   "id": "sc17",
+   "beat": "A 2016 white paper cited by",
+   "start": 98.6,
+   "end": 106.933,
+   "info": "A 2016 white paper cited by NASA found that the lake's volum",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc18",
+   "beat": "Meanwhile, the Salt Lake City metro",
+   "start": 106.933,
+   "end": 112.933,
+   "info": "Meanwhile, the Salt Lake City metro area grew from 700,000 p",
+   "claims": [],
+   "layers": [
+    "image",
+    "label",
+    "pin"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc19",
+   "beat": "And the climate is changing. More",
+   "start": 112.933,
+   "end": 120.667,
+   "info": "And the climate is changing.",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc20",
+   "beat": "In 1959, a solid-fill railroad causeway",
+   "start": 120.667,
+   "end": 125.933,
+   "info": "In 1959, a solid-fill railroad causeway was completed across",
+   "claims": [],
+   "layers": [
+    "image",
+    "label",
+    "pin"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc21",
+   "beat": "The causeway took 50 million cubic",
+   "start": 125.933,
+   "end": 130.2,
+   "info": "The causeway took 50 million cubic yards of rock, sand and g",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc22",
+   "beat": "It replaced a 12-mile trestle of",
+   "start": 130.2,
+   "end": 137.467,
+   "info": "It replaced a 12-mile trestle of 28,000 wooden pilings, and ",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc23",
+   "beat": "It divides the lake into Gunnison",
+   "start": 137.467,
+   "end": 142.667,
+   "info": "It divides the lake into Gunnison Bay in the north, and Gilb",
+   "claims": [],
+   "layers": [
+    "image",
+    "label",
+    "pin",
+    "pin"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc24",
+   "beat": "Almost all of the fresh water",
+   "start": 142.667,
+   "end": 148.333,
+   "info": "Almost all of the fresh water flows in on the south side, so",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc25",
+   "beat": "In July 1984, the south side",
+   "start": 148.333,
+   "end": 154.867,
+   "info": "In July 1984, the south side stood 3.7 feet higher than the ",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 5 · USGS",
+   "visual_family": "geo_1985"
+  },
+  {
+   "id": "sc26",
+   "beat": "That August, a 300-foot section of",
+   "start": 154.867,
+   "end": 162.3,
+   "info": "That August, a 300-foot section of the causeway was replaced",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc27",
+   "beat": "The divide had a strange side",
+   "start": 162.3,
+   "end": 170.067,
+   "info": "The divide had a strange side effect.",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc28",
+   "beat": "USGS says that layer had low",
+   "start": 170.067,
+   "end": 184.433,
+   "info": "USGS says that layer had low pH and no dissolved oxygen, and",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc29",
+   "beat": "The lake has not always been",
+   "start": 184.433,
+   "end": 193.333,
+   "info": "The lake has not always been too low.",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 5 · USGS",
+   "visual_family": "geo_1986"
+  },
+  {
+   "id": "sc30",
+   "beat": "Then came a pumping project, the",
+   "start": 193.333,
+   "end": 203.967,
+   "info": "Then came a pumping project, the Newfoundland Evaporation Ba",
+   "claims": [],
+   "layers": [
+    "wipe"
+   ],
+   "credit": "Landsat 5 · USGS",
+   "visual_family": "geo_wipe_1986_1999"
+  },
+  {
+   "id": "sc31",
+   "beat": "The pumps ran from April 1987",
+   "start": 203.967,
+   "end": 212.333,
+   "info": "The pumps ran from April 1987 to June 1989, and the lake dro",
+   "claims": [],
+   "layers": [
+    "image",
+    "label",
+    "label"
+   ],
+   "credit": "Landsat 5 · USGS",
+   "visual_family": "geo_1999"
+  },
+  {
+   "id": "sc32",
+   "beat": "When the water pulls back, it",
+   "start": 212.333,
+   "end": 227.233,
+   "info": "When the water pulls back, it leaves lake bed.",
+   "claims": [],
+   "layers": [
+    "wipe"
+   ],
+   "credit": "Landsat 5 · USGS / Landsat 8, 9 · USGS",
+   "visual_family": "geo_wipe_1986_2022"
+  },
+  {
+   "id": "sc33",
+   "beat": "USGS collected dust at 17 sites",
+   "start": 227.233,
+   "end": 238.1,
+   "info": "USGS collected dust at 17 sites in northern Utah, near the l",
+   "claims": [],
+   "layers": [
+    "image",
+    "label",
+    "pin"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc34",
+   "beat": "Its conclusion is careful. The dust",
+   "start": 238.1,
+   "end": 250.4,
+   "info": "Its conclusion is careful.",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc35",
+   "beat": "Then came the winter of 2022",
+   "start": 250.4,
+   "end": 260.4,
+   "info": "Then came the winter of 2022 to 2023, with record snowfall a",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc36",
+   "beat": "Did that fix the problem? NASA's",
+   "start": 260.4,
+   "end": 269.067,
+   "info": "Did that fix the problem?",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc37",
+   "beat": "They show it fell by 16.5",
+   "start": 269.067,
+   "end": 279.4,
+   "info": "They show it fell by 16.5 cubic miles over about two decades",
+   "claims": [],
+   "layers": [
+    "image",
+    "label"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc38",
+   "beat": "What do these pictures show? Where",
+   "start": 279.4,
+   "end": 286.667,
+   "info": "What do these pictures show?",
+   "claims": [],
+   "layers": [
+    "wipe"
+   ],
+   "credit": "Landsat 5 · USGS / Landsat 8, 9 · USGS",
+   "visual_family": "geo_wipe_1986_2022"
+  },
+  {
+   "id": "sc39",
+   "beat": "But the measurements are plain: in",
+   "start": 286.667,
+   "end": 294.6,
+   "info": "But the measurements are plain: in July 2022, the Great Salt",
+   "claims": [],
+   "layers": [
+    "image",
+    "label",
+    "label"
+   ],
+   "credit": "Landsat 8, 9 · USGS",
+   "visual_family": "geo_2022"
+  },
+  {
+   "id": "sc40",
+   "beat": "And nearly four decades of Landsat",
+   "start": 294.6,
+   "end": 300.167,
+   "info": "And nearly four decades of Landsat show where that water use",
+   "claims": [],
+   "layers": [
+    "flip"
+   ],
+   "credit": "Landsat 5 · USGS",
+   "visual_family": "geo_timelapse"
+  }
+ ],
+ "info_events": [
+  {
+   "t": 0.0,
+   "shot": "sc01",
+   "what": "This is the Great Salt Lake in Utah, the largest saline lake"
+  },
+  {
+   "t": 0.0,
+   "shot": "sc01",
+   "what": "June 1985"
+  },
+  {
+   "t": 5.533,
+   "shot": "sc02",
+   "what": "In June 1985, its surface measured 4,209.7 feet."
+  },
+  {
+   "t": 5.533,
+   "shot": "sc02",
+   "what": "June 1985"
+  },
+  {
+   "t": 6.033,
+   "shot": "sc02",
+   "what": "4,209.7 FEET"
+  },
+  {
+   "t": 8.6,
+   "shot": "sc03",
+   "what": "In July 2022, it measured 4,190.2 feet."
+  },
+  {
+   "t": 10.233,
+   "shot": "sc03",
+   "what": "4,190.2 FEET"
+  },
+  {
+   "t": 11.167,
+   "shot": "sc04",
+   "what": "The lake's record high had come in 1986, at 4,211.6 feet."
+  },
+  {
+   "t": 11.167,
+   "shot": "sc04",
+   "what": "August 1986"
+  },
+  {
+   "t": 13.8,
+   "shot": "sc04",
+   "what": "4,211.6 FEET"
+  },
+  {
+   "t": 17.167,
+   "shot": "sc05",
+   "what": "The Landsat satellites were watching the whole time."
+  },
+  {
+   "t": 18.067,
+   "shot": "sc05",
+   "what": "flip to y1986"
+  },
+  {
+   "t": 18.967,
+   "shot": "sc05",
+   "what": "flip to y1999"
+  },
+  {
+   "t": 19.867,
+   "shot": "sc05",
+   "what": "flip to y2021"
+  },
+  {
+   "t": 20.767,
+   "shot": "sc05",
+   "what": "flip to y2022"
+  },
+  {
+   "t": 26.0,
+   "shot": "sc06",
+   "what": "These are real Landsat scenes from the U.S."
+  },
+  {
+   "t": 26.0,
+   "shot": "sc06",
+   "what": "July 2022"
+  },
+  {
+   "t": 30.1,
+   "shot": "sc07",
+   "what": "Each picture is a mosaic of several scenes, shown with one c"
+  },
+  {
+   "t": 30.1,
+   "shot": "sc07",
+   "what": "July 2022"
+  },
+  {
+   "t": 37.7,
+   "shot": "sc08",
+   "what": "It is a big lake: about 70 miles long, 30 miles wide, and ab"
+  },
+  {
+   "t": 37.7,
+   "shot": "sc08",
+   "what": "August 1999"
+  },
+  {
+   "t": 45.333,
+   "shot": "sc09",
+   "what": "At about 4,200 feet, it covers roughly 1,700 square miles."
+  },
+  {
+   "t": 49.433,
+   "shot": "sc09",
+   "what": "2,300 SQ MI IN 1986"
+  },
+  {
+   "t": 51.733,
+   "shot": "sc10",
+   "what": "It is a terminal lake: there is no outlet to the sea."
+  },
+  {
+   "t": 51.733,
+   "shot": "sc10",
+   "what": "August 1999"
+  },
+  {
+   "t": 55.3,
+   "shot": "sc11",
+   "what": "And it matters to the economy."
+  },
+  {
+   "t": 55.3,
+   "shot": "sc11",
+   "what": "August 1999"
+  },
+  {
+   "t": 64.9,
+   "shot": "sc12",
+   "what": "In July 2021, the gauge at Saltair read 4,191.3 feet, the lo"
+  },
+  {
+   "t": 64.9,
+   "shot": "sc12",
+   "what": "July 2021"
+  },
+  {
+   "t": 67.367,
+   "shot": "sc12",
+   "what": "4,191.3 FEET"
+  },
+  {
+   "t": 71.333,
+   "shot": "sc13",
+   "what": "NASA reports that at that level the lake covered about 950 s"
+  },
+  {
+   "t": 71.333,
+   "shot": "sc13",
+   "what": "July 2021"
+  },
+  {
+   "t": 78.533,
+   "shot": "sc14",
+   "what": "A year later, it fell lower still."
+  },
+  {
+   "t": 78.533,
+   "shot": "sc14",
+   "what": "July 2022"
+  },
+  {
+   "t": 83.933,
+   "shot": "sc15",
+   "what": "Why did it fall?"
+  },
+  {
+   "t": 83.933,
+   "shot": "sc15",
+   "what": "July 2022"
+  },
+  {
+   "t": 88.3,
+   "shot": "sc16",
+   "what": "For about a century, water has been diverted upstream for ho"
+  },
+  {
+   "t": 97.033,
+   "shot": "sc16",
+   "what": "39% LESS INFLOW (ESTIMATE)"
+  },
+  {
+   "t": 98.6,
+   "shot": "sc17",
+   "what": "A 2016 white paper cited by NASA found that the lake's volum"
+  },
+  {
+   "t": 98.6,
+   "shot": "sc17",
+   "what": "July 2022"
+  },
+  {
+   "t": 106.933,
+   "shot": "sc18",
+   "what": "Meanwhile, the Salt Lake City metro area grew from 700,000 p"
+  },
+  {
+   "t": 106.933,
+   "shot": "sc18",
+   "what": "July 2022"
+  },
+  {
+   "t": 107.866,
+   "shot": "sc18",
+   "what": "Salt Lake City"
+  },
+  {
+   "t": 112.933,
+   "shot": "sc19",
+   "what": "And the climate is changing."
+  },
+  {
+   "t": 112.933,
+   "shot": "sc19",
+   "what": "July 2022"
+  },
+  {
+   "t": 120.667,
+   "shot": "sc20",
+   "what": "In 1959, a solid-fill railroad causeway was completed across"
+  },
+  {
+   "t": 120.667,
+   "shot": "sc20",
+   "what": "July 2022"
+  },
+  {
+   "t": 122.5,
+   "shot": "sc20",
+   "what": "Causeway"
+  },
+  {
+   "t": 125.933,
+   "shot": "sc21",
+   "what": "The causeway took 50 million cubic yards of rock, sand and g"
+  },
+  {
+   "t": 125.933,
+   "shot": "sc21",
+   "what": "July 2022"
+  },
+  {
+   "t": 130.2,
+   "shot": "sc22",
+   "what": "It replaced a 12-mile trestle of 28,000 wooden pilings, and "
+  },
+  {
+   "t": 130.2,
+   "shot": "sc22",
+   "what": "July 2022"
+  },
+  {
+   "t": 137.467,
+   "shot": "sc23",
+   "what": "It divides the lake into Gunnison Bay in the north, and Gilb"
+  },
+  {
+   "t": 137.467,
+   "shot": "sc23",
+   "what": "July 2022"
+  },
+  {
+   "t": 138.934,
+   "shot": "sc23",
+   "what": "Gunnison Bay"
+  },
+  {
+   "t": 140.867,
+   "shot": "sc23",
+   "what": "Gilbert Bay"
+  },
+  {
+   "t": 142.667,
+   "shot": "sc24",
+   "what": "Almost all of the fresh water flows in on the south side, so"
+  },
+  {
+   "t": 142.667,
+   "shot": "sc24",
+   "what": "July 2022"
+  },
+  {
+   "t": 148.333,
+   "shot": "sc25",
+   "what": "In July 1984, the south side stood 3.7 feet higher than the "
+  },
+  {
+   "t": 148.333,
+   "shot": "sc25",
+   "what": "June 1985"
+  },
+  {
+   "t": 154.867,
+   "shot": "sc26",
+   "what": "That August, a 300-foot section of the causeway was replaced"
+  },
+  {
+   "t": 154.867,
+   "shot": "sc26",
+   "what": "July 2022"
+  },
+  {
+   "t": 162.3,
+   "shot": "sc27",
+   "what": "The divide had a strange side effect."
+  },
+  {
+   "t": 162.3,
+   "shot": "sc27",
+   "what": "July 2022"
+  },
+  {
+   "t": 170.067,
+   "shot": "sc28",
+   "what": "USGS says that layer had low pH and no dissolved oxygen, and"
+  },
+  {
+   "t": 170.067,
+   "shot": "sc28",
+   "what": "July 2022"
+  },
+  {
+   "t": 184.433,
+   "shot": "sc29",
+   "what": "The lake has not always been too low."
+  },
+  {
+   "t": 184.433,
+   "shot": "sc29",
+   "what": "August 1986"
+  },
+  {
+   "t": 193.333,
+   "shot": "sc30",
+   "what": "Then came a pumping project, the Newfoundland Evaporation Ba"
+  },
+  {
+   "t": 203.967,
+   "shot": "sc31",
+   "what": "The pumps ran from April 1987 to June 1989, and the lake dro"
+  },
+  {
+   "t": 203.967,
+   "shot": "sc31",
+   "what": "August 1999"
+  },
+  {
+   "t": 208.334,
+   "shot": "sc31",
+   "what": "DROPPED ALMOST 6 FEET"
+  },
+  {
+   "t": 212.333,
+   "shot": "sc32",
+   "what": "When the water pulls back, it leaves lake bed."
+  },
+  {
+   "t": 227.233,
+   "shot": "sc33",
+   "what": "USGS collected dust at 17 sites in northern Utah, near the l"
+  },
+  {
+   "t": 227.233,
+   "shot": "sc33",
+   "what": "July 2022"
+  },
+  {
+   "t": 232.3,
+   "shot": "sc33",
+   "what": "Farmington Bay"
+  },
+  {
+   "t": 238.1,
+   "shot": "sc34",
+   "what": "Its conclusion is careful."
+  },
+  {
+   "t": 238.1,
+   "shot": "sc34",
+   "what": "July 2022"
+  },
+  {
+   "t": 250.4,
+   "shot": "sc35",
+   "what": "Then came the winter of 2022 to 2023, with record snowfall a"
+  },
+  {
+   "t": 250.4,
+   "shot": "sc35",
+   "what": "July 2022"
+  },
+  {
+   "t": 260.4,
+   "shot": "sc36",
+   "what": "Did that fix the problem?"
+  },
+  {
+   "t": 260.4,
+   "shot": "sc36",
+   "what": "July 2022"
+  },
+  {
+   "t": 269.067,
+   "shot": "sc37",
+   "what": "They show it fell by 16.5 cubic miles over about two decades"
+  },
+  {
+   "t": 269.067,
+   "shot": "sc37",
+   "what": "July 2022"
+  },
+  {
+   "t": 279.4,
+   "shot": "sc38",
+   "what": "What do these pictures show?"
+  },
+  {
+   "t": 286.667,
+   "shot": "sc39",
+   "what": "But the measurements are plain: in July 2022, the Great Salt"
+  },
+  {
+   "t": 286.667,
+   "shot": "sc39",
+   "what": "July 2022"
+  },
+  {
+   "t": 291.267,
+   "shot": "sc39",
+   "what": "4,190.2 FEET"
+  },
+  {
+   "t": 294.6,
+   "shot": "sc40",
+   "what": "And nearly four decades of Landsat show where that water use"
+  },
+  {
+   "t": 295.5,
+   "shot": "sc40",
+   "what": "flip to y1986"
+  },
+  {
+   "t": 296.4,
+   "shot": "sc40",
+   "what": "flip to y1999"
+  },
+  {
+   "t": 297.3,
+   "shot": "sc40",
+   "what": "flip to y2021"
+  },
+  {
+   "t": 298.2,
+   "shot": "sc40",
+   "what": "flip to y2022"
+  }
+ ],
+ "compositions": {
+  "rule": "composition-reset/1",
+  "thresholds": {
+   "zoom_ratio": 1.5,
+   "shift": 0.35,
+   "merge_s": 0.75,
+   "timelapse_min": 3,
+   "timelapse_max_step": 1.0,
+   "sample_s": 0.1,
+   "first_10s_min": 3,
+   "resets_per_min": 5.0,
+   "max_hold_s": 8.0
+  },
+  "composition_resets": 41,
+  "distinct_first_10s": 4,
+  "longest_static_hold": {
+   "seconds": 8.433,
+   "start": 17.167,
+   "end": 33.6
+  },
+  "resets": [
+   {
+    "t": 6.633,
+    "shot": "sc02",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 8.8,
+    "shot": "sc03",
+    "kind": "wipe",
+    "what": "wipe y1985 -> y2022"
+   },
+   {
+    "t": 9.9,
+    "shot": "sc03",
+    "kind": "camera_move",
+    "what": "zoom out x1.6"
+   },
+   {
+    "t": 13.867,
+    "shot": "sc04",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 17.167,
+    "shot": "sc05",
+    "kind": "timelapse",
+    "what": "timelapse of 5 dates",
+    "also": [
+     "cut"
+    ]
+   },
+   {
+    "t": 33.6,
+    "shot": "sc07",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 37.7,
+    "shot": "sc08",
+    "kind": "cut",
+    "what": "zoom out x3.0"
+   },
+   {
+    "t": 47.933,
+    "shot": "sc09",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 49.433,
+    "shot": "sc09",
+    "kind": "wipe",
+    "what": "wipe y1986 -> y2022"
+   },
+   {
+    "t": 53.233,
+    "shot": "sc10",
+    "kind": "camera_move",
+    "what": "zoom out x1.6"
+   },
+   {
+    "t": 59.3,
+    "shot": "sc11",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 74.133,
+    "shot": "sc13",
+    "kind": "camera_move",
+    "what": "zoom out x1.5"
+   },
+   {
+    "t": 85.333,
+    "shot": "sc15",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 92.6,
+    "shot": "sc16",
+    "kind": "camera_move",
+    "what": "zoom out x1.5"
+   },
+   {
+    "t": 95.833,
+    "shot": "sc16",
+    "kind": "wipe",
+    "what": "wipe y1986 -> y2022"
+   },
+   {
+    "t": 101.9,
+    "shot": "sc17",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 106.933,
+    "shot": "sc18",
+    "kind": "cut",
+    "what": "zoom out x3.3"
+   },
+   {
+    "t": 109.433,
+    "shot": "sc18",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 116.533,
+    "shot": "sc19",
+    "kind": "camera_move",
+    "what": "zoom out x1.5"
+   },
+   {
+    "t": 122.767,
+    "shot": "sc20",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 127.533,
+    "shot": "sc21",
+    "kind": "camera_move",
+    "what": "zoom out x1.6"
+   },
+   {
+    "t": 132.8,
+    "shot": "sc22",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 139.367,
+    "shot": "sc23",
+    "kind": "camera_move",
+    "what": "zoom out x1.5"
+   },
+   {
+    "t": 145.167,
+    "shot": "sc24",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 152.033,
+    "shot": "sc25",
+    "kind": "camera_move",
+    "what": "camera relocation"
+   },
+   {
+    "t": 157.567,
+    "shot": "sc26",
+    "kind": "camera_move",
+    "what": "zoom out x1.5"
+   },
+   {
+    "t": 165.6,
+    "shot": "sc27",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 176.167,
+    "shot": "sc28",
+    "kind": "camera_move",
+    "what": "zoom out x1.5"
+   },
+   {
+    "t": 188.033,
+    "shot": "sc29",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 196.766,
+    "shot": "sc30",
+    "kind": "wipe",
+    "what": "wipe y1986 -> y1999"
+   },
+   {
+    "t": 197.533,
+    "shot": "sc30",
+    "kind": "camera_move",
+    "what": "zoom out x1.5"
+   },
+   {
+    "t": 214.6,
+    "shot": "sc32",
+    "kind": "wipe",
+    "what": "wipe y1986 -> y2022"
+   },
+   {
+    "t": 217.133,
+    "shot": "sc32",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 232.233,
+    "shot": "sc33",
+    "kind": "camera_move",
+    "what": "zoom out x1.5"
+   },
+   {
+    "t": 243.8,
+    "shot": "sc34",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 254.5,
+    "shot": "sc35",
+    "kind": "camera_move",
+    "what": "zoom out x1.5"
+   },
+   {
+    "t": 263.1,
+    "shot": "sc36",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 273.167,
+    "shot": "sc37",
+    "kind": "camera_move",
+    "what": "zoom out x1.5"
+   },
+   {
+    "t": 281.733,
+    "shot": "sc38",
+    "kind": "wipe",
+    "what": "wipe y1986 -> y2022"
+   },
+   {
+    "t": 289.867,
+    "shot": "sc39",
+    "kind": "camera_move",
+    "what": "zoom in x1.5"
+   },
+   {
+    "t": 294.6,
+    "shot": "sc40",
+    "kind": "timelapse",
+    "what": "timelapse of 5 dates",
+    "also": [
+     "cut"
+    ]
+   }
+  ],
+  "segments": [
+   {
+    "start": 0.0,
+    "end": 6.633,
+    "seconds": 6.633,
+    "static_hold": 5.533
+   },
+   {
+    "start": 6.633,
+    "end": 8.8,
+    "seconds": 2.167,
+    "static_hold": 0.0
+   },
+   {
+    "start": 8.8,
+    "end": 9.9,
+    "seconds": 1.1,
+    "static_hold": 0.0
+   },
+   {
+    "start": 9.9,
+    "end": 13.867,
+    "seconds": 3.967,
+    "static_hold": 0.0
+   },
+   {
+    "start": 13.867,
+    "end": 17.167,
+    "seconds": 3.3,
+    "static_hold": 0.0
+   },
+   {
+    "start": 17.167,
+    "end": 33.6,
+    "seconds": 16.433,
+    "static_hold": 8.433
+   },
+   {
+    "start": 33.6,
+    "end": 37.7,
+    "seconds": 4.1,
+    "static_hold": 0.0
+   },
+   {
+    "start": 37.7,
+    "end": 47.933,
+    "seconds": 10.233,
+    "static_hold": 7.633
+   },
+   {
+    "start": 47.933,
+    "end": 49.433,
+    "seconds": 1.5,
+    "static_hold": 0.0
+   },
+   {
+    "start": 49.433,
+    "end": 53.233,
+    "seconds": 3.8,
+    "static_hold": 0.0
+   },
+   {
+    "start": 53.233,
+    "end": 59.3,
+    "seconds": 6.067,
+    "static_hold": 0.0
+   },
+   {
+    "start": 59.3,
+    "end": 74.133,
+    "seconds": 14.833,
+    "static_hold": 6.433
+   },
+   {
+    "start": 74.133,
+    "end": 85.333,
+    "seconds": 11.2,
+    "static_hold": 5.4
+   },
+   {
+    "start": 85.333,
+    "end": 92.6,
+    "seconds": 7.267,
+    "static_hold": 0.0
+   },
+   {
+    "start": 92.6,
+    "end": 95.833,
+    "seconds": 3.233,
+    "static_hold": 0.0
+   },
+   {
+    "start": 95.833,
+    "end": 101.9,
+    "seconds": 6.067,
+    "static_hold": 0.0
+   },
+   {
+    "start": 101.9,
+    "end": 106.933,
+    "seconds": 5.033,
+    "static_hold": 0.0
+   },
+   {
+    "start": 106.933,
+    "end": 109.433,
+    "seconds": 2.5,
+    "static_hold": 0.0
+   },
+   {
+    "start": 109.433,
+    "end": 116.533,
+    "seconds": 7.1,
+    "static_hold": 0.0
+   },
+   {
+    "start": 116.533,
+    "end": 122.767,
+    "seconds": 6.234,
+    "static_hold": 0.0
+   },
+   {
+    "start": 122.767,
+    "end": 127.533,
+    "seconds": 4.766,
+    "static_hold": 0.0
+   },
+   {
+    "start": 127.533,
+    "end": 132.8,
+    "seconds": 5.267,
+    "static_hold": 0.0
+   },
+   {
+    "start": 132.8,
+    "end": 139.367,
+    "seconds": 6.567,
+    "static_hold": 0.0
+   },
+   {
+    "start": 139.367,
+    "end": 145.167,
+    "seconds": 5.8,
+    "static_hold": 0.0
+   },
+   {
+    "start": 145.167,
+    "end": 152.033,
+    "seconds": 6.866,
+    "static_hold": 0.0
+   },
+   {
+    "start": 152.033,
+    "end": 157.567,
+    "seconds": 5.534,
+    "static_hold": 0.0
+   },
+   {
+    "start": 157.567,
+    "end": 165.6,
+    "seconds": 8.033,
+    "static_hold": 0.0
+   },
+   {
+    "start": 165.6,
+    "end": 176.167,
+    "seconds": 10.567,
+    "static_hold": 0.0
+   },
+   {
+    "start": 176.167,
+    "end": 188.033,
+    "seconds": 11.866,
+    "static_hold": 0.0
+   },
+   {
+    "start": 188.033,
+    "end": 196.766,
+    "seconds": 8.733,
+    "static_hold": 0.0
+   },
+   {
+    "start": 196.766,
+    "end": 197.533,
+    "seconds": 0.767,
+    "static_hold": 0.0
+   },
+   {
+    "start": 197.533,
+    "end": 214.6,
+    "seconds": 17.067,
+    "static_hold": 8.367
+   },
+   {
+    "start": 214.6,
+    "end": 217.133,
+    "seconds": 2.533,
+    "static_hold": 0.0
+   },
+   {
+    "start": 217.133,
+    "end": 232.233,
+    "seconds": 15.1,
+    "static_hold": 0.0
+   },
+   {
+    "start": 232.233,
+    "end": 243.8,
+    "seconds": 11.567,
+    "static_hold": 0.0
+   },
+   {
+    "start": 243.8,
+    "end": 254.5,
+    "seconds": 10.7,
+    "static_hold": 0.0
+   },
+   {
+    "start": 254.5,
+    "end": 263.1,
+    "seconds": 8.6,
+    "static_hold": 0.0
+   },
+   {
+    "start": 263.1,
+    "end": 273.167,
+    "seconds": 10.067,
+    "static_hold": 0.0
+   },
+   {
+    "start": 273.167,
+    "end": 281.733,
+    "seconds": 8.566,
+    "static_hold": 2.333
+   },
+   {
+    "start": 281.733,
+    "end": 289.867,
+    "seconds": 8.134,
+    "static_hold": 3.334
+   },
+   {
+    "start": 289.867,
+    "end": 294.6,
+    "seconds": 4.733,
+    "static_hold": 0.0
+   },
+   {
+    "start": 294.6,
+    "end": 300.167,
+    "seconds": 5.567,
+    "static_hold": 1.067
+   }
+  ]
+ },
+ "visual_novelty": {
+  "rule": "visual-novelty/1",
+  "thresholds": {
+   "first_10s_min": 3,
+   "transitions_per_min": 2.0,
+   "max_family_s": 30.0
+  },
+  "transitions": 21,
+  "families": [
+   "geo_1985",
+   "geo_1986",
+   "geo_1999",
+   "geo_2021",
+   "geo_2022",
+   "geo_timelapse",
+   "geo_wipe_1985_2022",
+   "geo_wipe_1986_1999",
+   "geo_wipe_1986_2022"
+  ],
+  "families_first_10s": 2,
+  "longest_family_run": {
+   "family": "geo_2022",
+   "start": 227.233,
+   "end": 279.4,
+   "untransformed": 52.167
+  },
+  "runs": [
+   {
+    "family": "geo_1985",
+    "start": 0.0,
+    "end": 8.6,
+    "seconds": 8.6,
+    "untransformed": 8.6,
+    "shot": "sc01"
+   },
+   {
+    "family": "geo_wipe_1985_2022",
+    "start": 8.6,
+    "end": 11.167,
+    "seconds": 2.567,
+    "untransformed": 0.567,
+    "shot": "sc03"
+   },
+   {
+    "family": "geo_1986",
+    "start": 11.167,
+    "end": 17.167,
+    "seconds": 6.0,
+    "untransformed": 6.0,
+    "shot": "sc04"
+   },
+   {
+    "family": "geo_timelapse",
+    "start": 17.167,
+    "end": 26.0,
+    "seconds": 8.833,
+    "untransformed": 4.333,
+    "shot": "sc05"
+   },
+   {
+    "family": "geo_2022",
+    "start": 26.0,
+    "end": 37.7,
+    "seconds": 11.7,
+    "untransformed": 11.7,
+    "shot": "sc06"
+   },
+   {
+    "family": "geo_1999",
+    "start": 37.7,
+    "end": 45.333,
+    "seconds": 7.633,
+    "untransformed": 7.633,
+    "shot": "sc08"
+   },
+   {
+    "family": "geo_wipe_1986_2022",
+    "start": 45.333,
+    "end": 51.733,
+    "seconds": 6.4,
+    "untransformed": 4.1,
+    "shot": "sc09"
+   },
+   {
+    "family": "geo_1999",
+    "start": 51.733,
+    "end": 64.9,
+    "seconds": 13.167,
+    "untransformed": 13.167,
+    "shot": "sc10"
+   },
+   {
+    "family": "geo_2021",
+    "start": 64.9,
+    "end": 78.533,
+    "seconds": 13.633,
+    "untransformed": 13.633,
+    "shot": "sc12"
+   },
+   {
+    "family": "geo_2022",
+    "start": 78.533,
+    "end": 88.3,
+    "seconds": 9.767,
+    "untransformed": 9.767,
+    "shot": "sc14"
+   },
+   {
+    "family": "geo_wipe_1986_2022",
+    "start": 88.3,
+    "end": 98.6,
+    "seconds": 10.3,
+    "untransformed": 7.533,
+    "shot": "sc16"
+   },
+   {
+    "family": "geo_2022",
+    "start": 98.6,
+    "end": 148.333,
+    "seconds": 49.733,
+    "untransformed": 49.733,
+    "shot": "sc17"
+   },
+   {
+    "family": "geo_1985",
+    "start": 148.333,
+    "end": 154.867,
+    "seconds": 6.533,
+    "untransformed": 6.533,
+    "shot": "sc25"
+   },
+   {
+    "family": "geo_2022",
+    "start": 154.867,
+    "end": 184.433,
+    "seconds": 29.567,
+    "untransformed": 29.567,
+    "shot": "sc26"
+   },
+   {
+    "family": "geo_1986",
+    "start": 184.433,
+    "end": 193.333,
+    "seconds": 8.9,
+    "untransformed": 8.9,
+    "shot": "sc29"
+   },
+   {
+    "family": "geo_wipe_1986_1999",
+    "start": 193.333,
+    "end": 203.967,
+    "seconds": 10.633,
+    "untransformed": 5.6,
+    "shot": "sc30"
+   },
+   {
+    "family": "geo_1999",
+    "start": 203.967,
+    "end": 212.333,
+    "seconds": 8.367,
+    "untransformed": 8.367,
+    "shot": "sc31"
+   },
+   {
+    "family": "geo_wipe_1986_2022",
+    "start": 212.333,
+    "end": 227.233,
+    "seconds": 14.9,
+    "untransformed": 11.033,
+    "shot": "sc32"
+   },
+   {
+    "family": "geo_2022",
+    "start": 227.233,
+    "end": 279.4,
+    "seconds": 52.167,
+    "untransformed": 52.167,
+    "shot": "sc33"
+   },
+   {
+    "family": "geo_wipe_1986_2022",
+    "start": 279.4,
+    "end": 286.667,
+    "seconds": 7.267,
+    "untransformed": 3.334,
+    "shot": "sc38"
+   },
+   {
+    "family": "geo_2022",
+    "start": 286.667,
+    "end": 294.6,
+    "seconds": 7.933,
+    "untransformed": 7.933,
+    "shot": "sc39"
+   },
+   {
+    "family": "geo_timelapse",
+    "start": 294.6,
+    "end": 300.167,
+    "seconds": 5.567,
+    "untransformed": 1.067,
+    "shot": "sc40"
+   }
+  ]
+ },
+ "caption_boxes": [],
+ "assets": {
+  "y1985": {
+   "label": "June 1985",
+   "credit": "Landsat 5 · USGS",
+   "prov": "1985-06-12 (path 38) and 1985-06-19 (path 39)",
+   "kind": "image"
+  },
+  "y2022": {
+   "label": "July 2022",
+   "credit": "Landsat 8, 9 · USGS",
+   "prov": "2022-07-11 (path 39, Landsat 8) and 2022-07-28 (path 38, Landsat 9)",
+   "kind": "image"
+  },
+  "y1986": {
+   "label": "August 1986",
+   "credit": "Landsat 5 · USGS",
+   "prov": "1986-08-02 (path 38) and 1986-08-09 (path 39)",
+   "kind": "image"
+  },
+  "y1999": {
+   "label": "August 1999",
+   "credit": "Landsat 5 · USGS",
+   "prov": "1999-08-22 (path 38) and 1999-08-29 (path 39)",
+   "kind": "image"
+  },
+  "y2021": {
+   "label": "July 2021",
+   "credit": "Landsat 8 · USGS",
+   "prov": "2021-07-17 (path 38) and 2021-07-24 (path 39)",
+   "kind": "image"
+  }
+ },
+ "warnings": [
+  "only 2 visual families in the first 10 s (target >= 3; a new view of the same visual idea is not new)",
+  "visual family 'geo_2022' holds 52.2s (227.2-279.4s, target <= 30s unless it is transforming)",
+  "one composition holds 8.4s without a reset (17.2-33.6s, target <= 8s)"
+ ],
+ "segments": [
+  {
+   "index": 0,
+   "start_frame": 0,
+   "frames": 1800,
+   "start": 0.0,
+   "sha256": "8b9e4b82b559269d3a578830c8668210953780ac06a40e0b55567b3e1ed99f58"
+  },
+  {
+   "index": 1,
+   "start_frame": 1800,
+   "frames": 1800,
+   "start": 60.0,
+   "sha256": "d60eb35641f51f03604f80ee9f1098616b1ba234d234b21f1516ffb1782559af"
+  },
+  {
+   "index": 2,
+   "start_frame": 3600,
+   "frames": 1800,
+   "start": 120.0,
+   "sha256": "879ccc16c3a192173809a69c6b95fcbf267e3303c6a170bc03748ad648b344e2"
+  },
+  {
+   "index": 3,
+   "start_frame": 5400,
+   "frames": 1800,
+   "start": 180.0,
+   "sha256": "49d06f7eb4beffddc0885f06a6c5af5ba5f96c18864e826d5c36bb80fd4a1298"
+  },
+  {
+   "index": 4,
+   "start_frame": 7200,
+   "frames": 1800,
+   "start": 240.0,
+   "sha256": "04e5a03d062893697ca52225b1b6829a7aa60ffc1602d9068bf7491a8b242a40"
+  },
+  {
+   "index": 5,
+   "start_frame": 9000,
+   "frames": 5,
+   "start": 300.0,
+   "sha256": "e889382bb561e35661292d4cb45c6853747f73e409898477a5d2c4adc25eb247"
+  }
+ ]
+}

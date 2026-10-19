@@ -1,0 +1,198 @@
+{
+ "ok": true,
+ "chosen_id": "great-salt-lake-shrinking",
+ "mode": "tie_break",
+ "margin": 0.08,
+ "reason": "scores within 0.25 (leader margin 0.08); decided by the fixed tie-break rule 'audience_evidence' (4)",
+ "evidence_urls": [
+  "https://science.nasa.gov/earth/earth-observatory/the-great-shrinking-lake-150187",
+  "https://svs.gsfc.nasa.gov/15020"
+ ],
+ "us_hook": "The largest saline lake in the Western Hemisphere has dropped more than 20 feet below its 1986 record high, and NASA's Landsat satellites have photographed it for forty years.",
+ "ranking": [
+  {
+   "id": "mount-st-helens-recovery",
+   "title": "Mount St. Helens: what grew back first (1975-2025 from orbit)",
+   "score": 4.16,
+   "scores": {
+    "us": 4.0,
+    "audience_evidence": 3.0,
+    "sources": 5.0,
+    "visual": 5.0,
+    "originality": 4.0,
+    "zero_cost": 4.0,
+    "fit": 5.0,
+    "curiosity": 4.0,
+    "monetization": 4.0,
+    "international": 4.0,
+    "sweden": 3.0,
+    "norway": 3.0,
+    "denmark": 3.0
+   },
+   "reach": 3.25,
+   "gated_out": [],
+   "notes": [],
+   "measured_signals": 0,
+   "rank": 1
+  },
+  {
+   "id": "great-salt-lake-shrinking",
+   "title": "The Great Salt Lake is disappearing (Landsat 1984-2023)",
+   "score": 4.08,
+   "scores": {
+    "us": 5.0,
+    "audience_evidence": 4.0,
+    "sources": 5.0,
+    "visual": 4.0,
+    "originality": 2.0,
+    "zero_cost": 4.0,
+    "fit": 5.0,
+    "curiosity": 4.0,
+    "monetization": 4.0,
+    "international": 3.0,
+    "sweden": 2.0,
+    "norway": 2.0,
+    "denmark": 2.0
+   },
+   "reach": 2.25,
+   "gated_out": [],
+   "notes": [],
+   "measured_signals": 2,
+   "rank": 2
+  },
+  {
+   "id": "louisiana-wetland-loss",
+   "title": "Louisiana is sinking: 40 years of wetland loss from Landsat",
+   "score": 3.633,
+   "scores": {
+    "us": 4.0,
+    "audience_evidence": 3.0,
+    "sources": 5.0,
+    "visual": 3.0,
+    "originality": 3.0,
+    "zero_cost": 4.0,
+    "fit": 4.0,
+    "curiosity": 3.0,
+    "monetization": 4.0,
+    "international": 3.0,
+    "sweden": 2.0,
+    "norway": 2.0,
+    "denmark": 3.0
+   },
+   "reach": 2.5,
+   "gated_out": [],
+   "notes": [],
+   "measured_signals": 0,
+   "rank": 3
+  },
+  {
+   "id": "aral-sea",
+   "title": "The Aral Sea: the sea that was taken",
+   "score": 3.6,
+   "scores": {
+    "us": 3.0,
+    "audience_evidence": 3.0,
+    "sources": 5.0,
+    "visual": 4.0,
+    "originality": 1.0,
+    "zero_cost": 4.0,
+    "fit": 5.0,
+    "curiosity": 4.0,
+    "monetization": 4.0,
+    "international": 4.0,
+    "sweden": 2.0,
+    "norway": 2.0,
+    "denmark": 2.0
+   },
+   "reach": 2.5,
+   "gated_out": [],
+   "notes": [],
+   "measured_signals": 0,
+   "rank": 4
+  },
+  {
+   "id": "hunga-tonga-island-rise-and-fall",
+   "title": "Hunga Tonga: an island born in 2015, erased in 2022",
+   "score": 3.6,
+   "scores": {
+    "us": 3.0,
+    "audience_evidence": 3.0,
+    "sources": 3.0,
+    "visual": 5.0,
+    "originality": 3.0,
+    "zero_cost": 3.0,
+    "fit": 5.0,
+    "curiosity": 5.0,
+    "monetization": 4.0,
+    "international": 4.0,
+    "sweden": 3.0,
+    "norway": 3.0,
+    "denmark": 3.0
+   },
+   "reach": 3.25,
+   "gated_out": [],
+   "notes": [],
+   "measured_signals": 0,
+   "rank": 5
+  },
+  {
+   "id": "surtsey-island-iceland",
+   "title": "Surtsey: the Nordic island born in 1963",
+   "score": 3.013,
+   "scores": {
+    "us": 2.0,
+    "audience_evidence": 3.0,
+    "sources": 4.0,
+    "visual": 2.0,
+    "originality": 4.0,
+    "zero_cost": 2.0,
+    "fit": 4.0,
+    "curiosity": 4.0,
+    "monetization": 4.0,
+    "international": 3.0,
+    "sweden": 3.0,
+    "norway": 4.0,
+    "denmark": 3.0
+   },
+   "reach": 3.25,
+   "gated_out": [
+    "zero_cost: cannot be produced with free licence-clean material"
+   ],
+   "notes": [],
+   "measured_signals": 0,
+   "rank": 6
+  },
+  {
+   "id": "lake-urmia-or-dead-sea",
+   "title": "Dead Sea sinkholes and the falling shoreline",
+   "score": 2.96,
+   "scores": {
+    "us": 2.0,
+    "audience_evidence": 3.0,
+    "sources": 2.0,
+    "visual": 4.0,
+    "originality": 3.0,
+    "zero_cost": 3.0,
+    "fit": 4.0,
+    "curiosity": 4.0,
+    "monetization": 4.0,
+    "international": 3.0,
+    "sweden": 2.0,
+    "norway": 2.0,
+    "denmark": 2.0
+   },
+   "reach": 2.25,
+   "gated_out": [
+    "sources: no reliable reachable source"
+   ],
+   "notes": [],
+   "measured_signals": 0,
+   "rank": 7
+  }
+ ],
+ "rule": "gates (sources, zero_cost) -> weighted score -> auto if margin >= 0.25 else fixed tie-break; the owner is not asked",
+ "decided_by": "tools/autopilot/topics.py (no owner input)",
+ "date": "2026-10-14",
+ "audience_data_note": "YouTube view counts could not be obtained (youtube.com is blocked from this environment and public search results carry no counts): no view metric was invented. Audience evidence rests on documented public attention (Sundance 2026 film, sold-out screenings) and is capped at 3 for every candidate without such a measured signal.",
+ "runner_up": "mount-st-helens-recovery scored higher on the weighted sum (4.16 vs 4.08) but the 0.08 margin is under the 0.25 threshold; the fixed tie-break (audience_evidence) selected the Great Salt Lake. St. Helens is the recommended EP004 candidate."
+}
