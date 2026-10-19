@@ -159,9 +159,11 @@ class RegionTint(Overlay):
     Phases: flash (t0, strong tint) -> settle (translucent) with a glowing outline that draws on left->right (or radial) -> optional fade out.
     Annotation only: the picture is never recoloured; `source`/`validation` must say where the mask came from (e.g. 'water threshold, traced by tools/...')."""
     layer = "world"; cls = "TRACED"
-    def __init__(self, mask, t0, color=AMBER, flash=(255, 64, 48), settle_alpha=0.30, dur=0.8, out_t=None, mask_scale=1.0, outline=True, source=None, validation=None, cls="TRACED"):
+    def __init__(self, mask, t0, color=AMBER, flash=(255, 64, 48), settle_alpha=0.30, dur=0.8, out_t=None, mask_scale=1.0, outline=True, source=None, validation=None, cls="TRACED", flash_peak=0.55, thin=False, glint=True):
         self.mask = mask.convert("L") if isinstance(mask, Image.Image) else Image.fromarray(np.asarray(mask, np.uint8))
         self.t0, self.color, self.flash, self.settle, self.dur, self.out_t, self.ms, self.outline = t0, color, flash, settle_alpha, dur, out_t, mask_scale, outline
+        self.flash_peak = flash_peak                                     # 0 with settle_alpha 0 = an outline only (e.g. a past shoreline)
+        self.thin, self.glint = thin, glint                              # thin: a crisp line along the mask edge (shorelines), no heavy glow
         self.source, self.validation, self.cls = source, validation, cls
     def draw(self, ctx):
         t = ctx.t; u = E.seg(t, self.t0, self.t0 + self.dur)
@@ -173,21 +175,28 @@ class RegionTint(Overlay):
         arr = np.asarray(m, np.float32) / 255.0
         if not arr.any(): return
         fl = max(0.0, 1 - E.seg(t, self.t0, self.t0 + 0.22) * 1.0) if u < 1 or True else 0.0
-        a = (self.settle + (0.55 - self.settle) * fl) * E.smooth(E.seg(t, self.t0, self.t0 + 0.12)) * o
+        a = (self.settle + max(0.0, self.flash_peak - self.settle) * fl) * E.smooth(E.seg(t, self.t0, self.t0 + 0.12)) * o
         col = np.array(self.color, np.float32) * (1 - fl) + np.array(self.flash, np.float32) * fl
         fill = np.zeros(arr.shape + (4,), np.float32); fill[..., :3] = col; fill[..., 3] = arr * a * 255
         ctx.fills.alpha_composite(Image.fromarray(fill.astype(np.uint8), "RGBA"))
         if self.outline:
-            edge = np.clip(np.asarray(m.filter(ImageFilter.MaxFilter(5)), np.float32) - np.asarray(m.filter(ImageFilter.MinFilter(5)), np.float32), 0, 255) / 255.0
+            if self.thin:                                                # the 0.5 iso-band of the (bilinear) mask: thin and smooth at any zoom
+                mb = np.asarray(m.filter(ImageFilter.GaussianBlur(max(1.0, 1.2 * k))), np.float32) / 255.0
+                edge = np.clip(1.0 - np.abs(mb - 0.5) * 2.4, 0, 1) ** 1.6
+            else:
+                edge = np.clip(np.asarray(m.filter(ImageFilter.MaxFilter(5)), np.float32) - np.asarray(m.filter(ImageFilter.MinFilter(5)), np.float32), 0, 255) / 255.0
             reveal = E.out_cubic(E.seg(t, self.t0 + 0.05, self.t0 + self.dur)); W = ctx.size[0]
             xs = np.arange(W, dtype=np.float32)[None, :]; cols = np.asarray(m, np.float32).any(axis=0); xr = np.where(cols)[0]
             x_a, x_b = (xr.min(), xr.max()) if len(xr) else (0, W)
             gate = np.clip((x_a + (x_b - x_a + 1) * reveal - xs) / (0.04 * W) + 0.0, 0, 1)
             ed = Image.fromarray((edge * gate * 255 * o).astype(np.uint8), "L")
             ring = Image.new("RGBA", ctx.size, tuple(self.color) + (0,)); ring.putalpha(ed)
-            glow = ring.filter(ImageFilter.GaussianBlur(max(3, 5 * k))); ga = glow.getchannel("A").point(lambda v: int(min(255, v * 2.4))); glow.putalpha(ga)
+            if self.thin:
+                glow = ring.filter(ImageFilter.GaussianBlur(max(1.5, 2 * k))); glow.putalpha(glow.getchannel("A").point(lambda v: int(v * 0.6)))
+            else:
+                glow = ring.filter(ImageFilter.GaussianBlur(max(3, 5 * k))); ga = glow.getchannel("A").point(lambda v: int(min(255, v * 2.4))); glow.putalpha(ga)
             ctx.fills.alpha_composite(glow); ctx.fills.alpha_composite(ring)
-            if getattr(self, "glint", True) and reveal >= 1.0:          # a light travels around the contour (angle about the region's centre)
+            if self.glint and not self.thin and reveal >= 1.0:          # a light travels around the contour (angle about the region's centre)
                 ys, xs_ = np.nonzero(edge > 0.2)
                 if len(xs_):
                     cx, cy = xs_.mean(), ys.mean(); ph = ((t - self.t0 - self.dur) * 0.9) % 1.0 * 2 * math.pi - math.pi
@@ -271,6 +280,7 @@ class CalloutPanel(Overlay):
         t = ctx.t
         if t < self.t0 or t > self.t1 + 0.3: return
         W, H = ctx.size; px = self.px * H; o = 1 - E.smooth(E.seg(t, self.t1, self.t1 + 0.3)); a = ctx.view.pt(self.p)
+        if not (0.02 * W <= a[0] <= 0.98 * W and 0.04 * H <= a[1] <= 0.96 * H): return      # never point at something off screen
         f = E.out_cubic(E.seg(t, self.t0, self.t0 + 0.35)); bx, by = a[0] + self.offset[0] * W, a[1] + self.offset[1] * H
         bx = min(max(bx, 0.03 * W), 0.97 * W - px * 12); by = min(max(by, 0.06 * H), 0.70 * H)
         d = ImageDraw.Draw(ctx.ui, "RGBA"); col = tuple(self.accent) + (int(255 * o),)

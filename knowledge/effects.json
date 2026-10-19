@@ -1449,6 +1449,77 @@
     "productions/ep901-visual-demo-c"
    ],
    "params": {}
+  },
+  {
+   "id": "oa_shoreline_overlay",
+   "kind": "overlay",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Traced shoreline outline (thin) and exposed-lake-bed fill from water masks of a co-registered stack, with a dated legend.",
+   "use_for": [
+    "change",
+    "evidence"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "shoreline",
+    "exposed lake bed",
+    "outline",
+    "then and now",
+    "lost area"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/director.py",
+     "orbitalatlas/fx.py",
+     "tools/autopilot/shoreline_masks.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/VISUAL_ENGINE_BASELINE.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_ep003_quality.py"
+    ]
+   },
+   "limits": "display aid traced at 1/4 resolution; needs a co-registered stack",
+   "used_in": [
+    "productions/ep003-great-salt-lake"
+   ],
+   "params": {}
+  },
+  {
+   "id": "oa_phrases",
+   "kind": "text",
+   "renderer": "orbitalatlas-engine",
+   "status": "built",
+   "what": "Grammatical on-screen phrases cut from the narration (kickers, event labels) with a lint.",
+   "use_for": [
+    "number_card",
+    "event_year"
+   ],
+   "composition_reset": false,
+   "keywords": [
+    "kicker",
+    "label",
+    "phrase",
+    "grammar"
+   ],
+   "refs": {
+    "code": [
+     "orbitalatlas/phrases.py"
+    ],
+    "docs": [
+     "docs/production-knowledge/VISUAL_ENGINE_BASELINE.md"
+    ],
+    "tests": [
+     "orbitalatlas/tests/test_ep003_quality.py"
+    ]
+   },
+   "limits": "English, rule based",
+   "used_in": [
+    "productions/ep003-great-salt-lake"
+   ],
+   "params": {}
   }
  ]
 }

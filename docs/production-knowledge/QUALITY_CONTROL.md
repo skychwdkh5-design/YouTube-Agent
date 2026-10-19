@@ -37,3 +37,8 @@ See `productions/dubai/final/QA_REPORT.md`.
 - VERIFIED: pre-upload checklist used for EP002: concatenate media-branch parts and compare SHA-256 with the master; full decode (`ffmpeg -i f -f null -`); chapters validated (starts 0:00, >= 3, each >= 10 s) and aligned to scene starts (rounded, speech begins ~0.35 s later); description facts checked line by line against the locked script; thumbnail = two real NASA frames from the same pixel box + dated labels; copyright table in `productions/dubai/release/COPYRIGHT_CHECK.md`.
 - RULE: no YouTube connector in the session -> deliver the package and Studio steps, never claim an upload.
 - OPEN: ElevenLabs plan/commercial-use status is unknown to the agent; the owner confirms it before publishing.
+
+## Final audit additions (EP003 V2, 2026-10-15)
+- Monotony: `python3 tools/autopilot/visual_runs.py VIDEO --timeline productions/SLUG/timeline.json` - runs > 10 s and a base picture above ~40 % of screen time need a narrative reason. **[VERIFIED]**
+- Phone check: downscale review frames to 390x219 (portrait inline) and 699x393 (landscape) and read every date, legend and label; text under ~7 pt there fails. **[VERIFIED as a method]**; the size fix is **HYPOTHESIS** until a full render (`mobile-legibility-hud-text`).
+- Pronunciation cannot be machine-checked in the cloud container (no ASR model or package source); list timecodes for the owner.

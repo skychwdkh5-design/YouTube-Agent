@@ -27,6 +27,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** 5 tests: no file, unapproved, agent-approved, too small budget, direct generate() call - none sends a request; found-above-output path works.
 - **Regression test:** `.claude/skills/yt-voice/test_voice.py::test_calling_generate_directly_is_gated_too`
 
+### pronunciation-check-unavailable - Pronunciation cannot be verified in the cloud container (no ASR)
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** Owner asked to verify Gunnison, Gilbert, Farmington, Saltair, Newfoundland, GRACE, methyl mercury.
+- **Root cause:** No local ASR model; pypi.org and huggingface.co are denied by the egress policy (2026-10-15), so whisper/vosk cannot be installed.
+- **Fix:** List exact timecodes for the owner to listen; use word durations from the provider alignment as indirect evidence only (spelled acronyms take > 1 s; GRACE 0.30 s = spoken as a word). Never report pronunciation as verified.
+- **Reuse when:** Any narration with names or acronyms.
+- **References:** `productions/ep003-great-salt-lake/voice/narration.voice.json`; `docs/production-knowledge/TTS_ELEVENLABS.md`
+- **Verification:** pip download faster-whisper / vosk: no distribution; curl huggingface.co: connect_rejected. Re-checked 2026-10-15: ffmpeg has the 'asr' (pocketsphinx) filter and libpocketsphinx is installed, but no acoustic model; apt (archive.ubuntu.com not resolvable), pypi and huggingface are unavailable.
+- **Regression test:** none - measurement / environment fact, not code
+
 ### rebuild-paid-narration-from-saved-responses - Paid narration can be rebuilt for free from the saved provider responses
 *VERIFIED · EP001 · 2026-10-14*
 
@@ -251,6 +262,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** EP002 v4.1: only 8 changed scenes re-rendered (~25 min with 4 jobs).
 - **Regression test:** none - Atomic rename pattern is also tested generically in yt-render's output tests; build_final.py itself has no unit test.
 
+### segment-splice-instead-of-full-rerender - Fix one card without a 48-minute re-render: render the shot, splice the frames
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** After the EP003 V2 render one number card still read '39 % SINCE'; a full director re-render costs about 48 minutes.
+- **Root cause:** The fix touched one overlay inside one shot; the rest of the video is byte-for-byte the same decision set.
+- **Fix:** director render SLUG seg.mp4 --start A --end B renders the whole shot(s) overlapping [A,B] from the shot start (report t_offset). Compare seg frames with the master outside the changed window (mean abs diff ~0.5 = identical content; the first ~0.6 s differ because no transition leads into the segment). Encode three parts separately with identical x264 settings (master 0..N1, seg window, master from N2 via -ss + trim), join with the concat demuxer (-c copy) and mux the master audio unchanged. Never split one input twice in a filtergraph: ffmpeg buffered the second branch and was OOM-killed.
+- **Reuse when:** A late fix that changes only a few seconds of a long render.
+- **References:** `orbitalatlas/director.py`; `docs/production-knowledge/RENDERING.md`
+- **Verification:** EP003 V2: 1.6 min segment render + ~10 min encode instead of 48 min; boundary frames checked against the master.
+- **Regression test:** none - procedure measured on EP003
+
 ### snap-zoom-blur-smear - Full camera motion blur on a fast snap zoom smears the whole frame
 *VERIFIED · general · 2026-10-14*
 
@@ -404,10 +426,32 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Fix:** Compare SHA-256 of the original; never claim identity of a viewed copy.
 - **Reuse when:** Whenever a file is reviewed through a viewer.
 - **References:** commit `89559f0`; `production/ep001-sahara-green:productions/sahara-green/final/SHA256.txt`
-- **Verification:** SHA-256 recorded for every EP001/EP002 master.
+- **Verification:** SHA-256 recorded for every EP001/EP002 master. EP003 V2 (2026-10-15): a 1280x720 / 27,163,742-byte file (sha256 bb1d5d6b...) was reported by the owner as 910x512 / 228 MB; no such file exists in the container or on media/* branches - the viewer copy is a re-encode. Point the owner to the media branch file and its SHA-256.
 - **Regression test:** none - Procedure only.
 
+### visual-runs-monotony-check - Measure monotony: longest near-identical picture runs and screen time per base image
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** EP003 V2 looked repetitive although pacing reports (events per sentence) were fine.
+- **Root cause:** Pacing counts overlay events; it does not see that the base picture (July 2022, 67 % of screen time) and the camera views (whole <-> whole_in) repeat.
+- **Fix:** tools/autopilot/visual_runs.py VIDEO --timeline TL: runs of frames within a mean-abs-diff threshold of the run start (64x36, caption band ignored), changes per minute, screen time per base picture, repeated view pairs. Review runs > 10 s against the narration; a base picture above ~40 % of screen time needs a reason.
+- **Reuse when:** Before calling any long-form render VISUALLY_REVIEWED.
+- **References:** `tools/autopilot/visual_runs.py`; `docs/production-knowledge/QUALITY_CONTROL.md`
+- **Verification:** EP003 V2: longest runs 3:32-3:49.5 (17.5 s), 4:28.5-4:43.5 (15 s), 4:58-5:11 (13 s); y2022 249 s (67 %).
+- **Regression test:** none - measured on rendered frames; fix proposed, not yet applied to a full render
+
 ## visual
+
+### callout-anchor-off-screen - A callout whose anchor is off screen drew a cut panel at the frame edge
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** EP003 352 s: the 'SHORELINE · AUG 1986' legend was cut at the top edge.
+- **Root cause:** The anchor sat at the top of the view and the offset pushed the panel above it; CalloutPanel drew even when its anchor was outside the frame.
+- **Fix:** CalloutPanel draws nothing when the anchor is outside the frame (2-98 % x, 4-96 % y); place legends below anchors near the top.
+- **Reuse when:** Every callout/legend.
+- **References:** `orbitalatlas/fx.py`; `docs/production-knowledge/VISUAL_ENGINE_BASELINE.md`
+- **Verification:** EP003 still at 352.5 s: legend fully visible.
+- **Regression test:** `orbitalatlas/tests/test_ep003_quality.py::test_callout_with_an_off_screen_anchor_draws_nothing`
 
 ### director-renders-the-automatic-storyboard - Render the automatic storyboard with motion graphics: storyboard -> motion_plan.json -> orbitalatlas.director
 *VERIFIED · general · 2026-10-14*
@@ -419,6 +463,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `orbitalatlas/director.py`; `tools/autopilot/storyboard.py`; `docs/references/library/REFERENCE_COMPARISON.md`
 - **Verification:** ep900-visual-demo (19.3 s, alignment timing) and EP003 (300 s, 40 shots, estimated timing) built automatically; 30 s of EP003 and the full demo rendered and inspected.
 - **Regression test:** `orbitalatlas/tests/test_visual_v2b.py::test_focus_hides_duplicate_captions_and_decisions_are_reported`
+
+### director-shoreline-layers - Director renders v3 'fill' and 'outline' mask layers with a dated legend
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** Timeline v3 fill/outline layers were ignored by the director, so long passages on one image (EP003 4:44-5:46) had nothing evidence-based to show.
+- **Root cause:** The director only knew image/wipe/flip/pin layers.
+- **Fix:** director: layer fill {mask, minus} = water in mask and not in minus (opened 1 px) as a soft RegionTint without outline; outline {mask} = thin RegionTint line (thin=True, no glint); optional CalloutPanel legend with the mask date; each listed in report['dates'] as kind 'overlay'. Masks are timeline assets kind 'mask' with 'scale'.
+- **Reuse when:** Episodes with co-registered stacks and a change story.
+- **References:** `orbitalatlas/director.py`; `orbitalatlas/fx.py`; `docs/production-knowledge/VISUAL_ENGINE_BASELINE.md`
+- **Verification:** EP003 stills at 275-365 s: exposed-bed fill, 1986 and 2022 shorelines, legends inside the frame.
+- **Regression test:** `orbitalatlas/tests/test_ep003_quality.py::test_fill_and_outline_layers_are_drawn_dated_and_reported`
 
 ### event-year-vs-image-date - A historical year must never read as the date of the satellite picture
 *VERIFIED · general · 2026-10-14*
@@ -508,6 +563,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **Verification:** EP001 pre-final: all five location stills and both sequences use tone B; QA JSON per place on the EP001 branch.
 - **Regression test:** none - Visual judgement; per-place QA JSON exists but needs the 1.9 GB source bands.
 
+### mobile-legibility-hud-text - Image dates, source chip, legends and event labels are illegible on a phone
+*HYPOTHESIS · general · 2026-10-15*
+
+- **Problem:** EP003 V2 final audit: on a 6.1-inch phone in portrait (video 390x219 pt) the IMAGE stamp (19 px at 1080p) renders at ~3.9 pt, the source chip (0.017 H) ~3.7 pt, callout legends (0.026 H x 1.15) ~6.5 pt, event-year labels (~25 px) ~5 pt; in landscape (699x393 pt) the stamp is ~6.9 pt. Thin shoreline outlines (~2 px at 1080p) almost vanish (0.7 px portrait).
+- **Root cause:** Sizes were judged on 1080p frames at desktop size; no phone-scale check.
+- **Fix:** Proposed (proof stills only): ImageStamp 19 -> 30 px, SourceChip px_frac 0.017 -> 0.024, CalloutPanel px 0.026 -> 0.032, EventYear label x1.3, thin outline ~2x wider (blur 2.0 px, band 1.9) with a dark under-stroke; CalloutPanel must clamp with its real width (it estimates px*12 and a larger legend ran off the right edge). Always add a phone simulation (390x219 and 699x393 pt) to the visual review.
+- **Reuse when:** Every render reviewed for YouTube (mobile is the main screen).
+- **References:** `orbitalatlas/interact.py`; `orbitalatlas/layers.py`; `orbitalatlas/fx.py`; `docs/production-knowledge/QUALITY_CONTROL.md`
+- **Verification:** Proof stills of 0:12.5 and 5:53.5 with the proposed sizes are legible at phone scale; brightness unchanged (124.6 vs 123.6 mean luma); one legend clipped at the right edge -> clamp fix needed.
+- **Regression test:** none - measured on rendered frames; fix proposed, not yet applied to a full render
+
 ### monotony-text-cards-and-graphic-runs - Long graphic-only runs and text cards drive the retention risk
 *HYPOTHESIS · general · 2026-10-13*
 
@@ -529,6 +595,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `orbitalatlas/director.py`; `docs/production-knowledge/VISUAL_ENGINE_BASELINE.md`
 - **Verification:** EP003 re-render stills: '4,190.2 FEET', '3.7 FEET HIGHER', kicker 'IN JULY 2022, THE GREAT SALT LAKE MEASURED' fits.
 - **Regression test:** `orbitalatlas/tests/test_visual_v2c.py::test_unit_stops_at_the_end_of_its_sentence`
+
+### onscreen-phrase-grammar - Number-card kickers and event-year labels must be whole clauses of the narration
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** EP003: kickers like 'BY NASA FOUND THAT THE LAKE'S VOLUME HAS SHRUNK' and labels like 'AT' (1986) or 'COMPLETED ACROSS MIDDLE LAKE'; a 9-word kicker ran off the frame.
+- **Root cause:** Kickers were 'the last 9 words before the number'; labels dropped stop words from the middle of the clause; nothing checked width or grammar.
+- **Fix:** orbitalatlas/phrases.py: clause_suffix (clause-initial, no dangling first word, max 9 words / 44 chars), label (contiguous clause, strips leading/trailing function words, falls back to the words after the year), lint (contiguous narration words, no dangling start/end). The director uses them and lists every dynamic text with its lint result in report['texts']; event years with < 1.2 s on screen are skipped.
+- **Reuse when:** Every director render; check report['texts'] for problems before rendering.
+- **References:** `orbitalatlas/phrases.py`; `orbitalatlas/director.py`; `docs/production-knowledge/VISUAL_ENGINE_BASELINE.md`
+- **Verification:** EP003 build: 15 kickers and 8 labels, 0 lint problems, 0 overlay issues (was 1 card outside the frame).
+- **Regression test:** `orbitalatlas/tests/test_ep003_quality.py::test_lint_flags_the_ep003_defects`
 
 ### single-focus-no-number-duplication - One focus at a time: a number/impact card hides the caption that says the same thing; pacing limits cards
 *VERIFIED · general · 2026-10-14*
@@ -608,6 +685,17 @@ Status: **VERIFIED** = observed and checked in this repo; **HYPOTHESIS** = plaus
 - **References:** `.claude/skills/yt-geo/geostack.py`; commit `3c05f27`; commit `fc3cf67`; `production/ep001-sahara-green:productions/sahara-green/production/verify_kufra_alignment.py`; `production/ep001-sahara-green:productions/sahara-green/production/stills/kufra_alignment.json`
 - **Verification:** EP001 Kufra alignment verification; EP002 registration check before the 2000-2003 wipe; yt-geo test puts dates on one grid.
 - **Regression test:** `.claude/skills/yt-geo/test_geo.py::test_dates_align_on_one_grid`
+
+### shoreline-masks-seeded - Traced shoreline masks on a calibrated stack: seeded growth, not the brightness threshold
+*VERIFIED · general · 2026-10-15*
+
+- **Problem:** yt-geo watermask.py (dark & non-red threshold) classified forested mountains as water and missed the pink 2022 north arm on the calibrated EP003 stack.
+- **Root cause:** The calibrated tone curve lifts lake brightness above the fixed threshold; brine colour is reddish.
+- **Fix:** tools/autopilot/shoreline_masks.py: regions.seeded_region from manifest pins (+ extra lon/lat seeds) inside a lon/lat box at 1/4 resolution; --reject-reddish YEAR removes red-brown land only for years whose lake is blue/green (1985, 1986), never for pink-brine years (2022). Writes masks + JSON + a check JPEG; look at the check JPEG before use. Masks are display aids, not surveys.
+- **Reuse when:** Any 'shoreline then/now' or 'exposed lake bed' visual.
+- **References:** `tools/autopilot/shoreline_masks.py`; `orbitalatlas/regions.py`; `docs/production-knowledge/SATELLITE_DATA.md`
+- **Verification:** EP003 1985/1986/2022 masks checked on overlays (islands cut out, Bear River and Farmington bays inside 1986, west desert excluded).
+- **Regression test:** none - measurement / environment fact, not code
 
 ## storage
 
