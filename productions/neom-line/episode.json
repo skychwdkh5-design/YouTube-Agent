@@ -1,0 +1,452 @@
+{
+ "slug": "neom-line",
+ "title": "Here's What Satellites Show Near the Construction Site (working title, not final)",
+ "titles": [
+  "Here's What Satellites Show Near the Construction Site",
+  "Saudi Arabia Promised a 170 km City. Here's What Satellites Show.",
+  "We Checked The Line From Space: 170 km Promised, This Is What's There"
+ ],
+ "grid": "evidence/stack/grid.json",
+ "focus": [
+  35.215,
+  28.11
+ ],
+ "graphics": "graphics_spec.json",
+ "evidence": {
+  "stacks": [
+   {
+    "name": "stack",
+    "aoi": [
+     35.1,
+     28.07,
+     35.32,
+     28.15
+    ],
+    "years": [
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026
+    ],
+    "pixel_m": 10,
+    "window": "09-28:10-20",
+    "cloud": 3
+   },
+   {
+    "name": "wide",
+    "aoi": [
+     35.07,
+     28.0,
+     35.62,
+     28.28
+    ],
+    "years": [
+     2026
+    ],
+    "pixel_m": 40,
+    "window": "09-28:10-20",
+    "cloud": 3
+   }
+  ]
+ },
+ "assets": {
+  "y2020": {
+   "src": "evidence/stack/y2020.png",
+   "label": "2020",
+   "credit": "Contains modified Copernicus Sentinel data 2020"
+  },
+  "y2021": {
+   "src": "evidence/stack/y2021.png",
+   "label": "2021",
+   "credit": "Contains modified Copernicus Sentinel data 2021"
+  },
+  "y2022": {
+   "src": "evidence/stack/y2022.png",
+   "label": "2022",
+   "credit": "Contains modified Copernicus Sentinel data 2022"
+  },
+  "y2023": {
+   "src": "evidence/stack/y2023.png",
+   "label": "2023",
+   "credit": "Contains modified Copernicus Sentinel data 2023"
+  },
+  "y2024": {
+   "src": "evidence/stack/y2024.png",
+   "label": "2024",
+   "credit": "Contains modified Copernicus Sentinel data 2024"
+  },
+  "y2025": {
+   "src": "evidence/stack/y2025.png",
+   "label": "2025",
+   "credit": "Contains modified Copernicus Sentinel data 2025"
+  },
+  "y2026": {
+   "src": "evidence/stack/y2026.png",
+   "label": "2026",
+   "credit": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "g170": {
+   "src": "graphics/g170.png",
+   "kind": "graphic",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "group": "g170",
+   "claims": [
+    "C1"
+   ]
+  },
+  "g_reports": {
+   "src": "graphics/g_reports.png",
+   "kind": "graphic",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "group": "g_reports",
+   "claims": [
+    "C1",
+    "C2",
+    "C3",
+    "C4"
+   ]
+  },
+  "g_tiers": {
+   "src": "graphics/g_tiers.png",
+   "kind": "graphic",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "group": "g_tiers",
+   "claims": [
+    "C1",
+    "C2",
+    "C3",
+    "C6",
+    "C7"
+   ]
+  },
+  "g_cmp2022": {
+   "src": "graphics/g_cmp2022.png",
+   "kind": "graphic",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "group": "g_cmp2022",
+   "claims": [
+    "C6",
+    "C7"
+   ]
+  },
+  "g_hero": {
+   "src": "graphics/g_hero.png",
+   "kind": "graphic",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "group": "g_hero",
+   "claims": [
+    "C7",
+    "C8"
+   ]
+  },
+  "g_cmp2425": {
+   "src": "graphics/g_cmp2425.png",
+   "kind": "graphic",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "group": "g_cmp2425",
+   "claims": [
+    "C7",
+    "C10"
+   ]
+  }
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "visuals": [
+    {
+     "asset": "g170",
+     "kind": "graphic",
+     "min_s": 3.5
+    },
+    {
+     "asset": "y2022",
+     "zoom": [
+      15,
+      8
+     ],
+     "label": {
+      "text": "OCT 2022",
+      "style": "year",
+      "exempt": true
+     }
+    },
+    {
+     "wipe": [
+      "y2022",
+      "y2026"
+     ],
+     "zoom": [
+      8,
+      6.5
+     ],
+     "family": "wipe_2022_2026",
+     "min_s": 4
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      6.5,
+      2.8
+     ],
+     "label": {
+      "text": "About 1.5 km",
+      "style": "tag",
+      "claim": "C7"
+     },
+     "focus": [
+      35.2165,
+      28.1062
+     ]
+    }
+   ]
+  },
+  {
+   "id": "promise",
+   "visuals": [
+    {
+     "asset": "y2026",
+     "zoom": [
+      15,
+      9
+     ]
+    },
+    {
+     "asset": "g170",
+     "kind": "graphic",
+     "min_s": 5
+    },
+    {
+     "asset": "y2020",
+     "zoom": [
+      14,
+      9
+     ],
+     "label": {
+      "text": "OCT 2020",
+      "style": "year",
+      "exempt": true
+     }
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      9,
+      15
+     ]
+    }
+   ]
+  },
+  {
+   "id": "plan",
+   "visuals": [
+    {
+     "asset": "g_reports",
+     "kind": "graphic",
+     "min_s": 6
+    },
+    {
+     "asset": "y2024",
+     "zoom": [
+      14,
+      8
+     ]
+    },
+    {
+     "asset": "g_tiers",
+     "kind": "graphic",
+     "min_s": 6
+    },
+    {
+     "asset": "y2025",
+     "zoom": [
+      8,
+      12
+     ]
+    }
+   ]
+  },
+  {
+   "id": "method",
+   "visuals": [
+    {
+     "asset": "y2022",
+     "zoom": [
+      15,
+      9
+     ]
+    },
+    {
+     "asset": "y2024",
+     "zoom": [
+      9,
+      15
+     ]
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      12,
+      6
+     ],
+     "focus": [
+      35.2165,
+      28.1062
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shows",
+   "visuals": [
+    {
+     "asset": "y2020",
+     "zoom": [
+      15,
+      15
+     ],
+     "label": {
+      "text": "OCT 2020",
+      "style": "year",
+      "exempt": true
+     }
+    },
+    {
+     "asset": "g_cmp2022",
+     "kind": "graphic",
+     "min_s": 6
+    },
+    {
+     "wipe": [
+      "y2021",
+      "y2023"
+     ],
+     "zoom": [
+      15,
+      10
+     ],
+     "family": "wipe_2021_2023"
+    },
+    {
+     "asset": "y2024",
+     "zoom": [
+      15,
+      9
+     ]
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      9,
+      15
+     ]
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      15,
+      9
+     ]
+    }
+   ]
+  },
+  {
+   "id": "segment",
+   "visuals": [
+    {
+     "asset": "y2023",
+     "zoom": [
+      8,
+      4
+     ],
+     "focus": [
+      35.2165,
+      28.1062
+     ]
+    },
+    {
+     "asset": "y2024",
+     "zoom": [
+      4,
+      3
+     ],
+     "focus": [
+      35.2165,
+      28.1062
+     ]
+    },
+    {
+     "asset": "g_cmp2425",
+     "kind": "graphic",
+     "min_s": 6
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      3,
+      2.6
+     ],
+     "focus": [
+      35.2165,
+      28.1062
+     ]
+    },
+    {
+     "asset": "g_hero",
+     "kind": "graphic",
+     "min_s": 6
+    }
+   ]
+  },
+  {
+   "id": "limits",
+   "visuals": [
+    {
+     "asset": "y2026",
+     "zoom": [
+      8,
+      15
+     ]
+    },
+    {
+     "asset": "g_tiers",
+     "kind": "graphic",
+     "min_s": 5
+    },
+    {
+     "asset": "y2025",
+     "zoom": [
+      15,
+      9
+     ]
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "visuals": [
+    {
+     "asset": "y2026",
+     "zoom": [
+      15,
+      6
+     ],
+     "focus": [
+      35.2165,
+      28.1062
+     ]
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      6,
+      15
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,158 @@
+{
+ "schema": "yt-facts/1",
+ "claims": [
+  {
+   "id": "C1",
+   "tier": "original",
+   "text": "The Line was announced as a 170 km linear city.",
+   "confidence": "high",
+   "attribution": "NEOM / widely reported",
+   "date": "2024-04-09",
+   "url": "https://www.constructionbriefing.com/8036596.article",
+   "wording": null
+  },
+  {
+   "id": "C2",
+   "tier": "media",
+   "text": "Bloomberg reported (Apr 2024) only about 2.4 km of The Line expected by 2030 and fewer than 300,000 residents.",
+   "confidence": "medium",
+   "attribution": "Bloomberg via Dezeen/AGBI",
+   "date": "2024-04-09",
+   "url": "https://www.dezeen.com/2024/04/09/the-line-neom-scaled-back-dezeen-agenda/",
+   "wording": "reported"
+  },
+  {
+   "id": "C3",
+   "tier": "media",
+   "text": "Semafor reported (22 May 2026) that NEOM halted work on The Line until at least after 2030, citing unnamed sources.",
+   "confidence": "medium",
+   "attribution": "Semafor",
+   "date": "2026-05-22",
+   "url": "https://www.semafor.com/article/05/22/2026/saudis-neom-halts-work-on-the-line-until-after-2030",
+   "wording": "reported",
+   "forbid": [
+    "cancelled",
+    "canceled",
+    "collapsed"
+   ]
+  },
+  {
+   "id": "C4",
+   "tier": "media",
+   "text": "Reuters reported (about 4 Oct 2026, two sources) that the NEOM stadium was shelved indefinitely; no official announcement.",
+   "confidence": "medium",
+   "attribution": "Reuters via Seoul Economic Daily",
+   "date": "2026-10-13",
+   "url": "https://en.sedaily.com/international/2026/10/13/saudi-arabia-shelves-neom-stadium-as-megaproject-unravels",
+   "wording": "reported"
+  },
+  {
+   "id": "C5",
+   "tier": "org",
+   "text": "PIF governor said completing The Line by 2030 'would be good to have, but it's not a must'.",
+   "confidence": "low",
+   "attribution": "aggregators only",
+   "date": "2026-04-01",
+   "url": "https://houseofsaud.com/neom-2026-the-line-saudi-arabia-status-update/",
+   "wording": "said"
+  },
+  {
+   "id": "C6",
+   "tier": "observation",
+   "text": "A straight, narrow cleared corridor crosses the area; at least 21.9 km long inside the 10 m frame; absent in 2020-21, faint in 2022, clear from 2023.",
+   "confidence": "high",
+   "evidence": "evidence/stack/provenance.json"
+  },
+  {
+   "id": "C7",
+   "tier": "observation",
+   "text": "A dark segment about 1.5 km long: absent in Oct 2022 and 2023, present in Oct 2024, 2025 and 2026.",
+   "confidence": "high",
+   "evidence": "evidence/stack/provenance.json"
+  },
+  {
+   "id": "C8",
+   "tier": "observation",
+   "text": "In 2024-2026 the dark segment is water-like in near-infrared (NDWI above zero, very low near-infrared); not in 2022-2023.",
+   "confidence": "medium",
+   "evidence": "evidence/stack/provenance.json"
+  },
+  {
+   "id": "C9",
+   "tier": "hypothesis",
+   "text": "The dark segment may be standing water in a long, narrow excavation.",
+   "confidence": "low"
+  },
+  {
+   "id": "C10",
+   "tier": "observation",
+   "text": "The dark segment has about the same length in Oct 2025 and Oct 2026; no visible extension of the corridor at 10 m.",
+   "confidence": "medium",
+   "evidence": "evidence/stack/provenance.json"
+  },
+  {
+   "id": "C11",
+   "tier": "media",
+   "text": "Dezeen reported (Nov 2025) aerial photos of large, repetitive worker housing in the NEOM area.",
+   "confidence": "medium",
+   "attribution": "Dezeen",
+   "date": "2025-11-10",
+   "url": "https://www.dezeen.com/2025/11/10/neom-worker-housing-aerial-photos/",
+   "wording": "reported"
+  },
+  {
+   "id": "C12",
+   "tier": "media",
+   "text": "The Wall Street Journal reported (Mar 2025) more than 50 billion dollars spent on NEOM.",
+   "confidence": "medium",
+   "attribution": "WSJ post on X",
+   "date": "2025-03-08",
+   "url": "https://x.com/WSJ/status/1898659133521326373",
+   "wording": "reported"
+  },
+  {
+   "id": "C13",
+   "tier": "science",
+   "text": "Sentinel-2 images the ground at 10 m per pixel in its visible and near-infrared bands, so features narrower than about 10 m are not resolved.",
+   "confidence": "medium",
+   "attribution": "ESA Sentinel-2 mission",
+   "date": "2026-10-20",
+   "url": "https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-2",
+   "wording": "said"
+  },
+  {
+   "id": "C14",
+   "tier": "observation",
+   "text": "Seven Sentinel-2 scenes, same orbit and season, each October from 2020 to 2026.",
+   "confidence": "high",
+   "evidence": "evidence/stack/provenance.json"
+  },
+  {
+   "id": "C15",
+   "tier": "media",
+   "text": "Soar's analysis reported (Jun 2023) a faint straight earthwork in satellite imagery of the site.",
+   "confidence": "medium",
+   "attribution": "Middle East Eye",
+   "date": "2023-06-01",
+   "url": "https://www.middleeasteye.net/news/saudi-arabia-neom-line-satellite-images-progress-construction",
+   "wording": "reported"
+  },
+  {
+   "id": "C16",
+   "tier": "observation",
+   "text": "Two settlement-like complexes near the ends of the frame grow between 2020 and 2024; what they are is unknown.",
+   "confidence": "high",
+   "evidence": "evidence/stack/provenance.json"
+  },
+  {
+   "id": "C17",
+   "tier": "science",
+   "text": "Sentinel-2 revisits a given site about every five days with two or three satellites.",
+   "confidence": "medium",
+   "attribution": "ESA Sentinel-2 mission",
+   "date": "2026-10-20",
+   "url": "https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-2",
+   "wording": "said"
+  }
+ ]
+}

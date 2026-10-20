@@ -25,3 +25,13 @@ productions/sahara-green/narration/voice/partial_test/
 
 # EP005 first-15-second prototype (silent, 15 s, small)
 !docs/knowledge/ep005-neom/prototype/first15s_proto.mp4
+
+# EP005 production: keep text and small state, never heavy media or regenerable imagery
+!productions/neom-line/
+productions/neom-line/evidence/
+productions/neom-line/graphics/
+productions/neom-line/render/
+productions/neom-line/voice/*.wav
+productions/neom-line/voice/*.mp3
+productions/neom-line/.lock
+productions/neom-line/*.part

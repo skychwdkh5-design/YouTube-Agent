@@ -1,0 +1,59 @@
+# Storyboard report
+
+- timing: estimate; duration 270.612 s; shots 50; plan hash c1ced5f7d0eafd6b
+- renderer plan: confirm_required rendering needs --confirm; the timeline is valid, plan attached
+- chapters: hook 0.0-18.37s, promise 18.37-61.22s, plan 61.22-106.94s, method 106.94-140.82s, shows 140.82-181.63s, segment 181.63-218.37s, limits 218.37-253.88s, close 253.88-270.61s
+- warning: one composition holds 8.2s without a reset (204.1-212.4s, target <= 8s)
+- warning: duration 271s is outside the 6-12 minute target; add real content, never filler
+
+Shots:
+-    0.00s +3.5s hook: g170
+-    3.50s +4.1s hook: y2022
+-    7.63s +6.6s hook: wipe y2022->y2026
+-   14.24s +4.1s hook: y2026
+-   18.37s +6.3s promise: y2026
+-   24.68s +6.3s promise: y2026
+-   30.99s +5.0s promise: g170
+-   35.99s +6.3s promise: y2020
+-   42.30s +6.3s promise: y2020
+-   48.60s +6.3s promise: y2026
+-   54.91s +6.3s promise: y2026
+-   61.22s +6.0s plan: g_reports
+-   67.22s +5.6s plan: y2024
+-   72.84s +5.6s plan: y2024
+-   78.46s +5.6s plan: y2024
+-   84.08s +6.0s plan: g_tiers
+-   90.08s +5.6s plan: y2025
+-   95.70s +5.6s plan: y2025
+-  101.32s +5.6s plan: y2025
+-  106.94s +5.6s method: y2022
+-  112.58s +5.6s method: y2022
+-  118.23s +5.6s method: y2024
+-  123.88s +5.6s method: y2024
+-  129.52s +5.6s method: y2026
+-  135.17s +5.6s method: y2026
+-  140.82s +7.0s shows: y2020
+-  147.78s +6.0s shows: g_cmp2022
+-  153.78s +7.0s shows: wipe y2021->y2023
+-  160.74s +7.0s shows: y2024
+-  167.71s +7.0s shows: y2026
+-  174.67s +7.0s shows: y2026
+-  181.63s +4.1s segment: y2023
+-  185.75s +4.1s segment: y2023
+-  189.88s +4.1s segment: y2024
+-  194.00s +4.1s segment: y2024
+-  198.12s +6.0s segment: g_cmp2425
+-  204.12s +4.1s segment: y2026
+-  208.25s +4.1s segment: y2026
+-  212.37s +6.0s segment: g_hero
+-  218.37s +5.1s limits: y2026
+-  223.45s +5.1s limits: y2026
+-  228.54s +5.1s limits: y2026
+-  233.62s +5.0s limits: g_tiers
+-  238.62s +5.1s limits: y2025
+-  243.71s +5.1s limits: y2025
+-  248.79s +5.1s limits: y2025
+-  253.88s +4.2s close: y2026
+-  258.06s +4.2s close: y2026
+-  262.25s +4.2s close: y2026
+-  266.43s +4.2s close: y2026

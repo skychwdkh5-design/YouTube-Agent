@@ -1,0 +1,7 @@
+{
+ "chars": 3700,
+ "script_sha256": "e25a864e1cc1f9f710851a3ae6a5ff82d65d1e1a9227297608461ba63cb6e0c4",
+ "provider": "elevenlabs",
+ "voice": "Adam (pNInz6obpgDQGcFmaJgB)",
+ "note": "PAID. Owner must create approvals/voice.json {approved:true, script_sha256, max_chars>=chars} and run with --allow-paid"
+}

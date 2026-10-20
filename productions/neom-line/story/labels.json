@@ -1,0 +1,104 @@
+[
+ {
+  "text": "graphic:g170",
+  "claims": [
+   "C1"
+  ],
+  "exempt": false,
+  "shot": "hook_0_0"
+ },
+ {
+  "text": "OCT 2022",
+  "claim": null,
+  "exempt": true,
+  "shot": "hook_1_0"
+ },
+ {
+  "text": "About 1.5 km",
+  "claim": "C7",
+  "exempt": false,
+  "shot": "hook_2_0"
+ },
+ {
+  "text": "graphic:g170",
+  "claims": [
+   "C1"
+  ],
+  "exempt": false,
+  "shot": "promise_3_0"
+ },
+ {
+  "text": "OCT 2020",
+  "claim": null,
+  "exempt": true,
+  "shot": "promise_4_0"
+ },
+ {
+  "text": "graphic:g_reports",
+  "claims": [
+   "C1",
+   "C2",
+   "C3",
+   "C4"
+  ],
+  "exempt": false,
+  "shot": "plan_5_0"
+ },
+ {
+  "text": "graphic:g_tiers",
+  "claims": [
+   "C1",
+   "C2",
+   "C3",
+   "C6",
+   "C7"
+  ],
+  "exempt": false,
+  "shot": "plan_6_0"
+ },
+ {
+  "text": "OCT 2020",
+  "claim": null,
+  "exempt": true,
+  "shot": "shows_7_0"
+ },
+ {
+  "text": "graphic:g_cmp2022",
+  "claims": [
+   "C6",
+   "C7"
+  ],
+  "exempt": false,
+  "shot": "shows_8_0"
+ },
+ {
+  "text": "graphic:g_cmp2425",
+  "claims": [
+   "C7",
+   "C10"
+  ],
+  "exempt": false,
+  "shot": "segment_9_0"
+ },
+ {
+  "text": "graphic:g_hero",
+  "claims": [
+   "C7",
+   "C8"
+  ],
+  "exempt": false,
+  "shot": "segment_10_0"
+ },
+ {
+  "text": "graphic:g_tiers",
+  "claims": [
+   "C1",
+   "C2",
+   "C3",
+   "C6",
+   "C7"
+  ],
+  "exempt": false,
+  "shot": "limits_11_0"
+ }
+]

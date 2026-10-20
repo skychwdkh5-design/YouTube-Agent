@@ -1,0 +1,169 @@
+{
+ "schema": "yt-graphics/1",
+ "graphics": [
+  {
+   "type": "geo",
+   "id": "g170",
+   "title": "Announced length: 170 km. This frame: about 50 km.",
+   "source": "Copernicus Sentinel-2 L2A, resampled to 40 m, Oct 2026",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "date": "2026",
+   "image": {
+    "stack": "evidence/wide/y2026.png",
+    "grid": "evidence/wide/grid.json",
+    "center": [
+     35.345,
+     28.14
+    ],
+    "width_km": 50
+   },
+   "arrows": [
+    {
+     "from": [
+      35.12,
+      28.175
+     ],
+     "to": [
+      35.57,
+      28.175
+     ],
+     "label": "170 km announced length"
+    }
+   ],
+   "graticule": false,
+   "scale_bar": true
+  },
+  {
+   "type": "flow",
+   "id": "g_reports",
+   "title": "What was reported",
+   "source": "Bloomberg Apr 2024, Semafor May 2026, Reuters Oct 2026 (via retellings); see claims C1-C4",
+   "steps": [
+    "Announced: 170 km",
+    "Bloomberg reported: about 2.4 km by 2030",
+    "Semafor reported: work halted until after 2030",
+    "Reuters reported: stadium shelved"
+   ],
+   "arrow_labels": [
+    "then",
+    "then",
+    "then"
+   ],
+   "build": false
+  },
+  {
+   "type": "flow",
+   "id": "g_tiers",
+   "title": "Keep three things apart",
+   "source": "claims C1-C7, docs/knowledge/ep005-neom/CLAIMS.md",
+   "steps": [
+    "PROMISED: 170 km",
+    "REPORTED: 2.4 km by 2030, work halted",
+    "OBSERVED: a corridor and a 1.5 km dark segment"
+   ],
+   "arrow_labels": [
+    "vs",
+    "vs"
+   ],
+   "build": false
+  },
+  {
+   "type": "compare",
+   "id": "g_cmp2022",
+   "title": "Same ground, 2022 and 2026",
+   "source": "Copernicus Sentinel-2 L2A, 10 m, same orbit and season",
+   "left": {
+    "geo": {
+     "stack": "evidence/stack/y2022.png",
+     "grid": "evidence/stack/grid.json",
+     "center": [
+      35.215,
+      28.11
+     ],
+     "width_km": 8
+    },
+    "label": "Oct 2022",
+    "credit": "Sentinel-2 · ESA"
+   },
+   "right": {
+    "geo": {
+     "stack": "evidence/stack/y2026.png",
+     "grid": "evidence/stack/grid.json",
+     "center": [
+      35.215,
+      28.11
+     ],
+     "width_km": 8
+    },
+    "label": "Oct 2026",
+    "credit": "Sentinel-2 · ESA"
+   }
+  },
+  {
+   "type": "compare",
+   "id": "g_cmp2425",
+   "title": "The dark segment, 2024 and 2025",
+   "source": "Copernicus Sentinel-2 L2A, 10 m, same orbit and season",
+   "left": {
+    "geo": {
+     "stack": "evidence/stack/y2024.png",
+     "grid": "evidence/stack/grid.json",
+     "center": [
+      35.215,
+      28.107
+     ],
+     "width_km": 4
+    },
+    "label": "Oct 2024",
+    "credit": "Sentinel-2 · ESA"
+   },
+   "right": {
+    "geo": {
+     "stack": "evidence/stack/y2025.png",
+     "grid": "evidence/stack/grid.json",
+     "center": [
+      35.215,
+      28.107
+     ],
+     "width_km": 4
+    },
+    "label": "Oct 2025",
+    "credit": "Sentinel-2 · ESA"
+   }
+  },
+  {
+   "type": "geo",
+   "id": "g_hero",
+   "title": "Dark segment, 2026",
+   "source": "Copernicus Sentinel-2 L2A, 10 m",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "date": "Oct 2026",
+   "image": {
+    "stack": "evidence/stack/y2026.png",
+    "grid": "evidence/stack/grid.json",
+    "center": [
+     35.215,
+     28.107
+    ],
+    "width_km": 6
+   },
+   "callouts": [
+    {
+     "at": [
+      35.2093,
+      28.1062
+     ],
+     "text": "Dark segment"
+    },
+    {
+     "at": [
+      35.224,
+      28.1062
+     ],
+     "text": "about 1.5 km"
+    }
+   ],
+   "scale_bar": true
+  }
+ ]
+}
