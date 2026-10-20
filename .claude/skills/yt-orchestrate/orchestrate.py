@@ -225,7 +225,8 @@ def run_voice(ep, ctx):
         raise Halt("awaiting_approval", "dry-run: paid call not made", ["voice/plan.json"])
     if a.get("max_chars", 0) < chars:
         raise Halt("blocked", f"approved max_chars {a.get('max_chars')} < {chars} characters")
-    c, d = tool([os.path.join(SK, "yt-voice", "voice.py"), "--script", "voice/spoken.md", "--output", "voice/narration.wav", "--auth", "proxy", "--confirm", "--max-chars", str(a["max_chars"])], ep.root)
+    voice_tool = os.environ.get("OA_VOICE_TOOL") or os.path.join(SK, "yt-voice", "voice.py")   # OA_VOICE_TOOL: test seam only, never set in production
+    c, d = tool([voice_tool, "--script", "voice/spoken.md", "--output", "voice/narration.wav", "--auth", "proxy", "--confirm", "--max-chars", str(a["max_chars"])], ep.root)
     if c != 0:
         raise Halt("failed", f"yt-voice: {d.get('status')} {d.get('error')}")
     ctx["costs"].append({"stage": "voice", "chars": chars, "provider": "elevenlabs", "at": now(), "note": "approved by owner"})
@@ -233,6 +234,7 @@ def run_voice(ep, ctx):
 
 
 def run_captions(ep, ctx):
+    os.makedirs(ep.p("captions"), exist_ok=True)
     c, d = tool([os.path.join(SK, "yt-captions", "captions.py"), "--voice", "voice/narration.voice.json", "--out-dir", "captions", "--overwrite"], ep.root)
     if c != 0:
         raise Halt("blocked", f"yt-captions: {d.get('error') or d.get('status')}")
@@ -240,6 +242,7 @@ def run_captions(ep, ctx):
 
 
 def run_render(ep, ctx):
+    os.makedirs(ep.p("render"), exist_ok=True)
     plan_c, plan = tool([os.path.join(SK, "yt-render", "render.py"), "--timeline", "timeline.json"], ep.root)
     write_json(ep.p("render", "plan.json"), plan)
     if plan.get("status") not in ("confirm_required", "ok"):
@@ -297,6 +300,20 @@ INPUTS = {"topic": ["topic/approval.json", "topic/candidates.json"], "research":
           "release": ["claims.json", "story/report.md"]}
 
 
+TOOLS = {"topic": ["yt-topic/topic.py"], "facts": ["yt-facts/facts.py"], "evidence": ["yt-sentinel/sentinel.py"], "visuals": ["yt-graphics/graphics.py"],
+         "script": ["yt-facts/facts.py"], "storyboard": ["yt-storyboard/storyboard.py", "yt-facts/facts.py"], "captions": ["yt-captions/captions.py"],
+         "render": ["yt-render/render.py", "yt-render/compose.py"], "qc": ["yt-qc/qc.py"]}
+
+
+def tool_hash(stage):
+    h = hashlib.sha256()
+    for f in TOOLS.get(stage, []):
+        p = os.path.join(SK, f)
+        if os.path.exists(p):
+            h.update(open(p, "rb").read())
+    return h.hexdigest()[:16]
+
+
 def ordered_inputs(ep, stage, st):
     files = list(INPUTS.get(stage, []))
     for d in DEPS[stage]:
@@ -321,46 +338,53 @@ def run(slug, until=None, only=None, force=False, dry=False, allow_paid=False, a
     ctx = {"force": force, "dry": dry, "allow_paid": allow_paid, "allow_render": allow_render, "costs": st["costs"], "state": st}
     report, virtual = {}, set()
     try:
-        for stage in STAGES:
-            rec = st["stages"].setdefault(stage, {"status": "pending", "attempts": 0})
-            if rec["status"] == "running":
-                rec["status"] = "interrupted"
-                st["log"].append({"at": now(), "stage": stage, "event": "found interrupted from an earlier run; will rerun"})
-            if only and stage != only:
-                report[stage] = rec["status"]; continue
-            if until and STAGES.index(stage) > STAGES.index(until):
-                break
-            blockers = [d for d in DEPS[stage] if st["stages"].get(d, {}).get("status") != DONE and d not in virtual]
-            if blockers:
-                if rec["status"] != DONE and not dry:
-                    rec["status"], rec["note"] = "waiting", f"waiting for {blockers}"
-                report[stage] = rec["status"]; continue
-            ins = hashes(ep, ordered_inputs(ep, stage, st))
-            cached = (stage != "release" and rec["status"] == DONE and not (force and (not only or stage == only)) and rec.get("inputs") == ins
-                      and all(os.path.exists(ep.p(o)) and sha(ep.p(o)) == h for o, h in rec.get("outputs", {}).items()))
-            if cached:
-                report[stage] = "cached"; continue
-            if rec["status"] == DONE:
-                st["log"].append({"at": now(), "stage": stage, "event": "inputs or outputs changed; rerun"})
-            if dry:
-                report[stage] = "would_run"; virtual.add(stage); continue
-            rec.update(status="running", started=now(), attempts=rec.get("attempts", 0) + 1, error=None)
-            ep.save(st)
-            if os.environ.get("OA_CRASH_IN") == stage:
-                os._exit(99)                       # test hook: simulated hard crash while running
-            try:
-                outs, note = RUN[stage](ep, ctx)
-                rec.update(status=DONE, finished=now(), note=note, inputs=ins, outputs=hashes(ep, outs), error=None)
-                st["log"].append({"at": now(), "stage": stage, "event": "done", "note": note})
-            except Halt as h:
-                rec.update(status=h.status, finished=now(), note=h.note, error=h.note if h.status in ("blocked", "failed") else None, outputs=hashes(ep, h.outputs))
-                st["log"].append({"at": now(), "stage": stage, "event": h.status, "note": h.note})
-            except Exception as e:             # a bug or an environment failure is a blocked stage, never a traceback
-                rec.update(status="failed", finished=now(), error=f"{type(e).__name__}: {e}")
-                st["log"].append({"at": now(), "stage": stage, "event": "failed", "note": rec["error"]})
-            report[stage] = rec["status"]
-            ep.save(st)
-            if os.environ.get("OA_STOP_AFTER") == stage:
+        for pass_no in range(3):      # a later stage (voice, captions) can invalidate an earlier one (storyboard): run again, bounded
+            ran = False
+            for stage in STAGES:
+                rec = st["stages"].setdefault(stage, {"status": "pending", "attempts": 0})
+                if rec["status"] == "running":
+                    rec["status"] = "interrupted"
+                    st["log"].append({"at": now(), "stage": stage, "event": "found interrupted from an earlier run; will rerun"})
+                if only and stage != only:
+                    report[stage] = rec["status"]; continue
+                if until and STAGES.index(stage) > STAGES.index(until):
+                    break
+                blockers = [d for d in DEPS[stage] if st["stages"].get(d, {}).get("status") != DONE and d not in virtual]
+                if blockers:
+                    if rec["status"] != DONE and not dry:
+                        rec["status"], rec["note"] = "waiting", f"waiting for {blockers}"
+                    report[stage] = rec["status"]; continue
+                ins = hashes(ep, ordered_inputs(ep, stage, st))
+                ins["_tool"] = tool_hash(stage)     # a changed tool re-runs its stage
+                cached = (stage != "release" and rec["status"] == DONE and not (force and (not only or stage == only)) and rec.get("inputs") == ins
+                          and all(os.path.exists(ep.p(o)) and sha(ep.p(o)) == h for o, h in rec.get("outputs", {}).items()))
+                if cached:
+                    report.setdefault(stage, "cached"); continue
+                if rec["status"] == DONE:
+                    st["log"].append({"at": now(), "stage": stage, "event": "inputs or outputs changed; rerun"})
+                if dry:
+                    report[stage] = "would_run"; virtual.add(stage); continue
+                rec.update(status="running", started=now(), attempts=rec.get("attempts", 0) + 1, error=None)
+                ep.save(st)
+                if os.environ.get("OA_CRASH_IN") == stage:
+                    os._exit(99)                       # test hook: simulated hard crash while running
+                try:
+                    outs, note = RUN[stage](ep, ctx)
+                    rec.update(status=DONE, finished=now(), note=note, inputs=ins, outputs=hashes(ep, outs), error=None)
+                    ran = ran or stage != "release"
+                    st["log"].append({"at": now(), "stage": stage, "event": "done", "note": note})
+                except Halt as h:
+                    rec.update(status=h.status, finished=now(), note=h.note, error=h.note if h.status in ("blocked", "failed") else None, outputs=hashes(ep, h.outputs))
+                    st["log"].append({"at": now(), "stage": stage, "event": h.status, "note": h.note})
+                except Exception as e:             # a bug or an environment failure is a blocked stage, never a traceback
+                    rec.update(status="failed", finished=now(), error=f"{type(e).__name__}: {e}")
+                    st["log"].append({"at": now(), "stage": stage, "event": "failed", "note": rec["error"]})
+                report[stage] = rec["status"] if rec["status"] != "cached" else report.get(stage, "cached")
+                ep.save(st)
+                if os.environ.get("OA_STOP_AFTER") == stage:
+                    break
+            ctx["force"] = False; force = False          # --force applies to the first pass only
+            if dry or not ran:
                 break
         if not dry:
             ep.save(st)

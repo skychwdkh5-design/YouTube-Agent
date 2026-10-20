@@ -1,6 +1,6 @@
 # Release package - Here's What Satellites Show Near the Construction Site (working title, not final)
 
-Generated 2026-10-20T13:24:31Z. Nothing is published.
+Generated 2026-10-20T13:32:39Z. Nothing is published.
 
 ## Status
 - topic: done owner-approved topic
@@ -9,7 +9,7 @@ Generated 2026-10-20T13:24:31Z. Nothing is published.
 - evidence: done 2 stacks
 - visuals: done 6 graphics
 - script: done 36 tagged sentences, 16 claims used
-- storyboard: done 50 shots, 270.612s, timing from estimate
+- storyboard: done 50 shots, 268.98s, timing from estimate
 - voice: awaiting_approval no approvals/voice.json; plan: 3700 characters
 - captions: waiting waiting for ['voice']
 - render: waiting waiting for ['voice', 'captions']

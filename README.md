@@ -2,6 +2,10 @@
 
 Claude Code workspace for running a YouTube channel.
 
+## One command (autonomous production)
+
+Tell the agent: **"Создай новый ролик"** (or run `python3 .claude/skills/yt-orchestrate/orchestrate.py run --slug <slug>`). The orchestrator chains topic -> research -> fact check -> Sentinel-2 evidence -> graphics -> script -> storyboard -> voice -> captions -> render -> QC -> release package, resumes after interruptions and stops before anything paid. The owner only approves the finished video and paid steps. See [`docs/ENVIRONMENT.md`](docs/ENVIRONMENT.md), [`AUTONOMY_HANDOFF.md`](AUTONOMY_HANDOFF.md) and `.claude/skills/yt-orchestrate/SKILL.md`. New skills: `yt-orchestrate`, `yt-topic`, `yt-facts`, `yt-sentinel`, `yt-storyboard`.
+
 ## Skills
 
 Each skill lives in `.claude/skills/<name>/` (a `SKILL.md` plus any helper scripts):

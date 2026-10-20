@@ -1,7 +1,7 @@
 {
  "schema": "yt-storyboard/1",
  "timing": "estimate",
- "duration": 270.612,
+ "duration": 268.98,
  "chapters": {
   "hook": [
    0.0,
@@ -29,11 +29,11 @@
   ],
   "limits": [
    218.37,
-   253.88
+   252.24
   ],
   "close": [
-   253.88,
-   270.61
+   252.24,
+   268.98
   ]
  },
  "shots": [
@@ -1224,7 +1224,7 @@
    "id": "limits_11_0",
    "chapter": "limits",
    "start": 218.367,
-   "dur": 5.085,
+   "dur": 4.813,
    "family": "y2026",
    "camera": {
     "from": {
@@ -1249,13 +1249,13 @@
      "asset": "y2026"
     }
    ],
-   "end": 223.452
+   "end": 223.18
   },
   {
    "id": "limits_11_1",
    "chapter": "limits",
-   "start": 223.452,
-   "dur": 5.085,
+   "start": 223.18,
+   "dur": 4.813,
    "family": "y2026",
    "camera": {
     "from": {
@@ -1280,13 +1280,13 @@
      "asset": "y2026"
     }
    ],
-   "end": 228.537
+   "end": 227.993
   },
   {
    "id": "limits_11_2",
    "chapter": "limits",
-   "start": 228.537,
-   "dur": 5.085,
+   "start": 227.993,
+   "dur": 4.813,
    "family": "y2026",
    "camera": {
     "from": {
@@ -1311,12 +1311,12 @@
      "asset": "y2026"
     }
    ],
-   "end": 233.622
+   "end": 232.806
   },
   {
    "id": "limits_11_0",
    "chapter": "limits",
-   "start": 233.622,
+   "start": 232.806,
    "dur": 5,
    "family": "g_tiers",
    "layers": [
@@ -1330,13 +1330,13 @@
     }
    ],
    "info": "g_tiers",
-   "end": 238.622
+   "end": 237.806
   },
   {
    "id": "limits_12_0",
    "chapter": "limits",
-   "start": 238.622,
-   "dur": 5.085,
+   "start": 237.806,
+   "dur": 4.813,
    "family": "y2025",
    "camera": {
     "from": {
@@ -1361,13 +1361,13 @@
      "asset": "y2025"
     }
    ],
-   "end": 243.707
+   "end": 242.619
   },
   {
    "id": "limits_12_1",
    "chapter": "limits",
-   "start": 243.707,
-   "dur": 5.085,
+   "start": 242.619,
+   "dur": 4.813,
    "family": "y2025",
    "camera": {
     "from": {
@@ -1392,13 +1392,13 @@
      "asset": "y2025"
     }
    ],
-   "end": 248.793
+   "end": 247.432
   },
   {
    "id": "limits_12_2",
    "chapter": "limits",
-   "start": 248.793,
-   "dur": 5.085,
+   "start": 247.432,
+   "dur": 4.813,
    "family": "y2025",
    "camera": {
     "from": {
@@ -1423,12 +1423,12 @@
      "asset": "y2025"
     }
    ],
-   "end": 253.878
+   "end": 252.245
   },
   {
    "id": "close_12_0",
    "chapter": "close",
-   "start": 253.878,
+   "start": 252.245,
    "dur": 4.184,
    "family": "y2026",
    "camera": {
@@ -1454,12 +1454,12 @@
      "asset": "y2026"
     }
    ],
-   "end": 258.061
+   "end": 256.429
   },
   {
    "id": "close_12_1",
    "chapter": "close",
-   "start": 258.061,
+   "start": 256.429,
    "dur": 4.184,
    "family": "y2026",
    "camera": {
@@ -1485,12 +1485,12 @@
      "asset": "y2026"
     }
    ],
-   "end": 262.245
+   "end": 260.612
   },
   {
    "id": "close_12_0",
    "chapter": "close",
-   "start": 262.245,
+   "start": 260.612,
    "dur": 4.184,
    "family": "y2026",
    "camera": {
@@ -1516,12 +1516,12 @@
      "asset": "y2026"
     }
    ],
-   "end": 266.429
+   "end": 264.796
   },
   {
    "id": "close_12_1",
    "chapter": "close",
-   "start": 266.429,
+   "start": 264.796,
    "dur": 4.184,
    "family": "y2026",
    "camera": {
@@ -1547,7 +1547,7 @@
      "asset": "y2026"
     }
    ],
-   "end": 270.612
+   "end": 268.98
   }
  ]
 }

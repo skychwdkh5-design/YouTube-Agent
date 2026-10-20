@@ -191,3 +191,12 @@ productions keep their manifests and QC results.
   without `--overwrite`.
 - Credentials come from the environment only and are never printed.
 - No fabricated evidence or timings: missing data is reported, not guessed.
+
+## Autonomous pipeline (yt-orchestrate)
+
+```
+topic -> research -> facts -> evidence -> visuals -> script -> storyboard -> voice(PAID) -> captions -> render(heavy) -> qc -> release
+```
+`productions/<slug>/` holds `episode.json` (assets, chapters -> visuals), `claims.json` (yt-facts/1), `script.md` (with `{C#}`/`{L}` tags),
+`graphics_spec.json`, `timeline.json` (written by yt-storyboard), `state.json`, `tasks/`, `approvals/`, `release/REVIEW.md`. Evidence stacks, graphics, voice and render
+output are regenerable and git-ignored. Voice and render need `approvals/<x>.json` bound to the script hash and an explicit flag. Details: `.claude/skills/yt-orchestrate/SKILL.md`.

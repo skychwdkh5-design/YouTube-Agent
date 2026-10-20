@@ -14,7 +14,7 @@ SK = os.path.join(HERE, "..")
 sys.path.insert(0, os.path.join(SK, "yt-geo"))
 PACE_WPS = 2.45            # spoken words per second (~147 wpm) when no voice timings exist
 MAX_SHOT_S, MIN_SHOT_S = 7.0, 2.5     # yt-render long warns above 8 s static
-TAG = re.compile(r"\{C\d+(?:\s*,\s*C\d+)*\}")
+TAG = re.compile(r"\{(?:C\d+(?:\s*,\s*C\d+)*|L)\}")
 
 
 class StoryError(Exception):

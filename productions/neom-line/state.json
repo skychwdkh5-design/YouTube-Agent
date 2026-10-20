@@ -5,13 +5,14 @@
  "stages": {
   "topic": {
    "status": "done",
-   "attempts": 1,
-   "started": "2026-10-20T13:22:44Z",
+   "attempts": 2,
+   "started": "2026-10-20T13:32:34Z",
    "error": null,
-   "finished": "2026-10-20T13:22:44Z",
+   "finished": "2026-10-20T13:32:34Z",
    "note": "owner-approved topic",
    "inputs": {
-    "topic/approval.json": "649efc696001b65df875af5f921b19ad8c40456e6c9a1244aceacc9d91c9eb7e"
+    "topic/approval.json": "649efc696001b65df875af5f921b19ad8c40456e6c9a1244aceacc9d91c9eb7e",
+    "_tool": "a7c247e10529a591"
    },
    "outputs": {
     "topic/topic.json": "a65342b22b074f5e96319ff00ff7719355abdf9e1a091ce3b84ad7b23465efe1"
@@ -19,14 +20,15 @@
   },
   "research": {
    "status": "done",
-   "attempts": 1,
+   "attempts": 2,
    "note": "claims.json present",
-   "started": "2026-10-20T13:22:44Z",
+   "started": "2026-10-20T13:32:34Z",
    "error": null,
-   "finished": "2026-10-20T13:22:44Z",
+   "finished": "2026-10-20T13:32:34Z",
    "inputs": {
     "claims.json": "9288f2f6d059ff7256ce8318eccc12a9f0e1045be0b7d0517335482862887974",
-    "topic/topic.json": "a65342b22b074f5e96319ff00ff7719355abdf9e1a091ce3b84ad7b23465efe1"
+    "topic/topic.json": "a65342b22b074f5e96319ff00ff7719355abdf9e1a091ce3b84ad7b23465efe1",
+    "_tool": "e3b0c44298fc1c14"
    },
    "outputs": {
     "claims.json": "9288f2f6d059ff7256ce8318eccc12a9f0e1045be0b7d0517335482862887974"
@@ -34,46 +36,47 @@
   },
   "facts": {
    "status": "done",
-   "attempts": 1,
+   "attempts": 2,
    "note": "17 claims, registry ok",
-   "started": "2026-10-20T13:22:44Z",
+   "started": "2026-10-20T13:32:34Z",
    "error": null,
-   "finished": "2026-10-20T13:22:44Z",
+   "finished": "2026-10-20T13:32:34Z",
    "inputs": {
-    "claims.json": "9288f2f6d059ff7256ce8318eccc12a9f0e1045be0b7d0517335482862887974"
+    "claims.json": "9288f2f6d059ff7256ce8318eccc12a9f0e1045be0b7d0517335482862887974",
+    "_tool": "011f70d2646e3c92"
    },
    "outputs": {}
   },
   "evidence": {
    "status": "done",
-   "attempts": 2,
+   "attempts": 3,
    "note": "2 stacks",
-   "started": "2026-10-20T13:23:37Z",
+   "started": "2026-10-20T13:32:34Z",
    "error": null,
-   "finished": "2026-10-20T13:23:43Z",
+   "finished": "2026-10-20T13:32:34Z",
    "outputs": {
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
-    "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
-    "evidence/wide/grid.json": "05712013a4f1e8392ac4dc5d89764d12edc4e0fd2ab3524b5e91234b0758eec6"
+    "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4"
    },
    "inputs": {
     "episode.json": "8c06ca3a1ce0521884ab3410318af3e8279186c96140dca6514506a24254b3a5",
-    "topic/topic.json": "a65342b22b074f5e96319ff00ff7719355abdf9e1a091ce3b84ad7b23465efe1"
+    "topic/topic.json": "a65342b22b074f5e96319ff00ff7719355abdf9e1a091ce3b84ad7b23465efe1",
+    "_tool": "f1d94c5b3868c2c6"
    }
   },
   "script": {
    "status": "done",
-   "attempts": 1,
+   "attempts": 2,
    "note": "36 tagged sentences, 16 claims used",
-   "started": "2026-10-20T13:23:43Z",
+   "started": "2026-10-20T13:32:39Z",
    "error": null,
-   "finished": "2026-10-20T13:23:43Z",
+   "finished": "2026-10-20T13:32:39Z",
    "inputs": {
     "claims.json": "9288f2f6d059ff7256ce8318eccc12a9f0e1045be0b7d0517335482862887974",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
-    "evidence/wide/grid.json": "05712013a4f1e8392ac4dc5d89764d12edc4e0fd2ab3524b5e91234b0758eec6",
     "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
-    "script.md": "e25a864e1cc1f9f710851a3ae6a5ff82d65d1e1a9227297608461ba63cb6e0c4"
+    "script.md": "e25a864e1cc1f9f710851a3ae6a5ff82d65d1e1a9227297608461ba63cb6e0c4",
+    "_tool": "011f70d2646e3c92"
    },
    "outputs": {
     "script.md": "e25a864e1cc1f9f710851a3ae6a5ff82d65d1e1a9227297608461ba63cb6e0c4"
@@ -81,23 +84,22 @@
   },
   "storyboard": {
    "status": "done",
-   "attempts": 4,
-   "note": "50 shots, 270.612s, timing from estimate",
-   "started": "2026-10-20T13:24:31Z",
+   "attempts": 5,
+   "note": "50 shots, 268.98s, timing from estimate",
+   "started": "2026-10-20T13:32:39Z",
    "error": null,
-   "finished": "2026-10-20T13:24:31Z",
+   "finished": "2026-10-20T13:32:39Z",
    "outputs": {
-    "story/storyboard.json": "7763697913f3512b36674c3cc5c713c8cb40e053665f268f5c52bbf71d18468a",
-    "timeline.json": "ea244a3877beafcf5f78c4acd0329ef841789fe8da1b72ff746b497655492e76",
+    "story/storyboard.json": "2707b204eb5767fb72ce338811dc081d49e22c01ff23cd53a150e8bacf28f4ff",
+    "timeline.json": "ba760dc78c3df630b1d98fc1af2601cb707da2c382ef18ff3d48afb73ebc8b2e",
     "story/labels.json": "faf141f0bbcf2398de0168c84a4bc931ebace823a6ce252c12b46d12e91b05cb",
-    "story/report.md": "b1f371f3e22a599cf552471a2d693c0a949782689979278ea52e249a5d58f430"
+    "story/report.md": "f25d8c9c173d32c285868cc05dbf7c917edb955b447ffcfe12e20d0a04acfc41"
    },
    "inputs": {
     "claims.json": "9288f2f6d059ff7256ce8318eccc12a9f0e1045be0b7d0517335482862887974",
     "episode.json": "8c06ca3a1ce0521884ab3410318af3e8279186c96140dca6514506a24254b3a5",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
-    "evidence/wide/grid.json": "05712013a4f1e8392ac4dc5d89764d12edc4e0fd2ab3524b5e91234b0758eec6",
     "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
     "graphics/g170.png": "13ebaf864523c42bf313e04ba78322ebe419838aa12faecdec282cb6d0a8e39c",
     "graphics/g_cmp2022.png": "132b57edafa2469a1a5dc55ee2b09c12c5e5ded5a343d573c8c69ef4daab7624",
@@ -105,16 +107,17 @@
     "graphics/g_hero.png": "6b6a67e5c6029f6d781468525457eea18e0381ce12a3b318586e069a65d48aa5",
     "graphics/g_reports.png": "3df20ef072642da99018bd6805b57439b75d1f8c0ab965520ca9f12c295e1f54",
     "graphics/g_tiers.png": "a28a34e6677452f1dd3fa33d8e83d137332d5c1882207ff7fd3e88feac880ba5",
-    "script.md": "e25a864e1cc1f9f710851a3ae6a5ff82d65d1e1a9227297608461ba63cb6e0c4"
+    "script.md": "e25a864e1cc1f9f710851a3ae6a5ff82d65d1e1a9227297608461ba63cb6e0c4",
+    "_tool": "bb843a9abda7798a"
    }
   },
   "visuals": {
    "status": "done",
-   "attempts": 2,
+   "attempts": 3,
    "note": "6 graphics",
-   "started": "2026-10-20T13:24:18Z",
+   "started": "2026-10-20T13:32:34Z",
    "error": null,
-   "finished": "2026-10-20T13:24:23Z",
+   "finished": "2026-10-20T13:32:39Z",
    "outputs": {
     "graphics/g170.png": "13ebaf864523c42bf313e04ba78322ebe419838aa12faecdec282cb6d0a8e39c",
     "graphics/g_cmp2022.png": "132b57edafa2469a1a5dc55ee2b09c12c5e5ded5a343d573c8c69ef4daab7624",
@@ -126,18 +129,18 @@
    "inputs": {
     "episode.json": "8c06ca3a1ce0521884ab3410318af3e8279186c96140dca6514506a24254b3a5",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
-    "evidence/wide/grid.json": "05712013a4f1e8392ac4dc5d89764d12edc4e0fd2ab3524b5e91234b0758eec6",
     "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
-    "graphics_spec.json": "af06a9735a5f7b37443d2d8310a4029538d765e8786268d9a868ae3aafd9367c"
+    "graphics_spec.json": "af06a9735a5f7b37443d2d8310a4029538d765e8786268d9a868ae3aafd9367c",
+    "_tool": "bce42ab2fa5a95cf"
    }
   },
   "voice": {
    "status": "awaiting_approval",
-   "attempts": 1,
+   "attempts": 5,
    "note": "no approvals/voice.json; plan: 3700 characters",
-   "started": "2026-10-20T13:24:31Z",
+   "started": "2026-10-20T13:32:39Z",
    "error": null,
-   "finished": "2026-10-20T13:24:31Z",
+   "finished": "2026-10-20T13:32:39Z",
    "outputs": {
     "voice/plan.json": "777e57e007253b03c2ad6f271d4008a40e9ca53ba4f0b74c6c4abf35b3e8b9f9"
    }
@@ -159,21 +162,22 @@
   },
   "release": {
    "status": "done",
-   "attempts": 1,
+   "attempts": 5,
    "note": "incomplete",
-   "started": "2026-10-20T13:24:31Z",
+   "started": "2026-10-20T13:32:39Z",
    "error": null,
-   "finished": "2026-10-20T13:24:31Z",
+   "finished": "2026-10-20T13:32:39Z",
    "inputs": {
     "claims.json": "9288f2f6d059ff7256ce8318eccc12a9f0e1045be0b7d0517335482862887974",
     "story/labels.json": "faf141f0bbcf2398de0168c84a4bc931ebace823a6ce252c12b46d12e91b05cb",
-    "story/report.md": "b1f371f3e22a599cf552471a2d693c0a949782689979278ea52e249a5d58f430",
-    "story/storyboard.json": "7763697913f3512b36674c3cc5c713c8cb40e053665f268f5c52bbf71d18468a",
-    "timeline.json": "ea244a3877beafcf5f78c4acd0329ef841789fe8da1b72ff746b497655492e76"
+    "story/report.md": "f25d8c9c173d32c285868cc05dbf7c917edb955b447ffcfe12e20d0a04acfc41",
+    "story/storyboard.json": "2707b204eb5767fb72ce338811dc081d49e22c01ff23cd53a150e8bacf28f4ff",
+    "timeline.json": "ba760dc78c3df630b1d98fc1af2601cb707da2c382ef18ff3d48afb73ebc8b2e",
+    "_tool": "e3b0c44298fc1c14"
    },
    "outputs": {
-    "release/REVIEW.md": "67c08af600d429d599331d71fae56b30ed046661ae33777a5a8fcc7fef52005a",
-    "story/report.md": "b1f371f3e22a599cf552471a2d693c0a949782689979278ea52e249a5d58f430"
+    "release/REVIEW.md": "5bd7583fbe6b75d9e8b975b8d2ea1b763e14139ca30d42c05cc9bf7358401282",
+    "story/report.md": "f25d8c9c173d32c285868cc05dbf7c917edb955b447ffcfe12e20d0a04acfc41"
    }
   }
  },
@@ -262,7 +266,152 @@
    "stage": "release",
    "event": "done",
    "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:32:24Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 3700 characters"
+  },
+  {
+   "at": "2026-10-20T13:32:24Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:32:24Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:32:34Z",
+   "stage": "topic",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:32:34Z",
+   "stage": "topic",
+   "event": "done",
+   "note": "owner-approved topic"
+  },
+  {
+   "at": "2026-10-20T13:32:34Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:32:34Z",
+   "stage": "research",
+   "event": "done",
+   "note": "claims.json present"
+  },
+  {
+   "at": "2026-10-20T13:32:34Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:32:34Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "17 claims, registry ok"
+  },
+  {
+   "at": "2026-10-20T13:32:34Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:32:34Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks"
+  },
+  {
+   "at": "2026-10-20T13:32:34Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:32:39Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "6 graphics"
+  },
+  {
+   "at": "2026-10-20T13:32:39Z",
+   "stage": "script",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:32:39Z",
+   "stage": "script",
+   "event": "done",
+   "note": "36 tagged sentences, 16 claims used"
+  },
+  {
+   "at": "2026-10-20T13:32:39Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:32:39Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "50 shots, 268.98s, timing from estimate"
+  },
+  {
+   "at": "2026-10-20T13:32:39Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 3700 characters"
+  },
+  {
+   "at": "2026-10-20T13:32:39Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:32:39Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:32:39Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 3700 characters"
+  },
+  {
+   "at": "2026-10-20T13:32:39Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:32:39Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:32:39Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 3700 characters"
+  },
+  {
+   "at": "2026-10-20T13:32:39Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:32:39Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
   }
  ],
- "updated": "2026-10-20T13:24:31Z"
+ "updated": "2026-10-20T13:32:39Z"
 }
