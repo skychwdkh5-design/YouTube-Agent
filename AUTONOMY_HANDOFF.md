@@ -37,3 +37,8 @@ Reading sources and writing `research/notes.json`; writing `script.md`; reviewin
   `render/test/`. Plan only without `--run`. Needs the narration to exist; not the full video.
 - Billed character count now comes from yt-voice's own plan (EP005: 5,128), not from a local count.
 - `productions/neom-line/approvals/voice.json` exists with `approved: false`. Owner approval = set it to `true`, then run the command in `voice/plan.json`.
+
+### Paid voice: one approval = one attempt
+Found by a probe (3 orchestrator runs with a failing voice call made 3 paid calls on a single approval). Now `run_voice` writes `voice/spend_ledger.json` BEFORE the call;
+an `approval_id` already in the ledger (started / failed / ok) is never used again, so a network error, a crash or a rerun cannot spend twice. A new attempt needs a new
+`approval_id` from the owner. A finished narration is never regenerated. Not solved: chunks already received are lost if a later chunk fails (credits for them are spent).

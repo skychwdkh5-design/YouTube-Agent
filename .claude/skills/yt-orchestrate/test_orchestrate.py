@@ -378,7 +378,7 @@ class WithVoiceStub(Base):
         env = dict(self.env, OA_VOICE_TOOL=os.path.join(HERE, "tests", "fake_voice.py"))
         plan = json.load(open(self.p("voice", "plan.json")))
         os.makedirs(self.p("approvals"), exist_ok=True)
-        json.dump({"approved": True, "script_sha256": plan["script_sha256"], "max_chars": plan["chars"] + 10}, open(self.p("approvals", "voice.json"), "w"))
+        json.dump({"approved": True, "script_sha256": plan["script_sha256"], "max_chars": plan["chars"] + 10, "approval_id": "T-1"}, open(self.p("approvals", "voice.json"), "w"))
         out = self.orch("run", "--slug", self.slug, "--allow-paid", env=env)[0]
         for s in ("voice", "captions", "storyboard", "visualcheck"):
             self.assertEqual(out["stages"][s], "done", (s, out))
@@ -400,13 +400,66 @@ class WithVoiceStub(Base):
         self.assertTrue(os.path.exists(self.p("render", "test", "test.mp4")), r)
         self.assertFalse(os.path.exists(self.p("render", "final.mp4")))
 
+    def approve(self, aid):
+        plan = json.load(open(self.p("voice", "plan.json")))
+        os.makedirs(self.p("approvals"), exist_ok=True)
+        with open(self.p("approvals", "voice.json"), "w") as f:
+            json.dump({"approved": True, "script_sha256": plan["script_sha256"], "max_chars": plan["chars"] + 10, "approval_id": aid}, f)
+
+    def test_one_approval_is_one_paid_attempt(self):
+        """A network error, a rerun or a crash must never spend again on the same approval."""
+        self.agent_artifacts()
+        self.run_all()
+        log = os.path.join(self.root, "calls.log")
+        env = dict(self.env, OA_VOICE_TOOL=os.path.join(HERE, "tests", "fake_voice.py"), FAKE_VOICE_LOG=log, FAKE_VOICE_FAIL="1")
+        self.approve("A-1")
+        for _ in range(3):
+            out = self.orch("run", "--slug", self.slug, "--allow-paid", env=env)[0]
+        self.assertEqual(len(open(log).read().split()), 1)                         # one call, not three
+        self.assertEqual(out["stages"]["voice"], "blocked")
+        led = json.load(open(self.p("voice", "spend_ledger.json")))
+        self.assertEqual([e["status"] for e in led], ["failed"])
+        # a NEW approval_id is a new owner decision and allows exactly one more attempt
+        env2 = dict(env); env2.pop("FAKE_VOICE_FAIL")
+        self.approve("A-2")
+        out = self.orch("run", "--slug", self.slug, "--allow-paid", env=env2)[0]
+        self.assertEqual(out["stages"]["voice"], "done", out)
+        self.assertEqual(len(open(log).read().split()), 2)
+        self.orch("run", "--slug", self.slug, "--allow-paid", env=env2)
+        self.assertEqual(len(open(log).read().split()), 2)                         # done stays done
+        self.assertEqual([e["status"] for e in json.load(open(self.p("voice", "spend_ledger.json")))], ["failed", "ok"])
+
+    def test_interrupted_attempt_is_not_repeated(self):
+        self.agent_artifacts()
+        self.run_all()
+        self.approve("B-1")
+        with open(self.p("voice", "spend_ledger.json"), "w") as f:           # what a crash mid-call leaves behind
+            json.dump([{"approval_id": "B-1", "status": "started"}], f)
+        log = os.path.join(self.root, "calls.log")
+        env = dict(self.env, OA_VOICE_TOOL=os.path.join(HERE, "tests", "fake_voice.py"), FAKE_VOICE_LOG=log)
+        out = self.orch("run", "--slug", self.slug, "--allow-paid", env=env)[0]
+        self.assertEqual(out["stages"]["voice"], "blocked")
+        self.assertFalse(os.path.exists(log))
+
+    def test_approval_without_id_is_refused(self):
+        self.agent_artifacts()
+        self.run_all()
+        plan = json.load(open(self.p("voice", "plan.json")))
+        os.makedirs(self.p("approvals"), exist_ok=True)
+        with open(self.p("approvals", "voice.json"), "w") as f:
+            json.dump({"approved": True, "script_sha256": plan["script_sha256"], "max_chars": plan["chars"] + 10}, f)
+        log = os.path.join(self.root, "calls.log")
+        env = dict(self.env, OA_VOICE_TOOL=os.path.join(HERE, "tests", "fake_voice.py"), FAKE_VOICE_LOG=log)
+        self.assertEqual(self.orch("run", "--slug", self.slug, "--allow-paid", env=env)[0]["stages"]["voice"], "blocked")
+        self.assertFalse(os.path.exists(log))
+
     def test_silent_narration_blocks_captions(self):
         self.agent_artifacts()
         self.run_all()
         env = dict(self.env, OA_VOICE_TOOL=os.path.join(HERE, "tests", "fake_voice.py"), FAKE_VOICE_SILENT="1")
         plan = json.load(open(self.p("voice", "plan.json")))
         os.makedirs(self.p("approvals"), exist_ok=True)
-        json.dump({"approved": True, "script_sha256": plan["script_sha256"], "max_chars": plan["chars"] + 10}, open(self.p("approvals", "voice.json"), "w"))
+        json.dump({"approved": True, "script_sha256": plan["script_sha256"], "max_chars": plan["chars"] + 10, "approval_id": "T-1"}, open(self.p("approvals", "voice.json"), "w"))
         out = self.orch("run", "--slug", self.slug, "--allow-paid", env=env)[0]
         self.assertEqual(out["stages"]["voicecheck"], "blocked", out)
         self.assertNotEqual(out["stages"]["captions"], "done")

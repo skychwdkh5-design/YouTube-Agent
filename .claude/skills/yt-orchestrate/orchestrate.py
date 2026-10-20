@@ -53,6 +53,7 @@ def write_json(path, obj):
     tmp = path + ".part"
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(obj, f, indent=1, ensure_ascii=False)
+        f.flush(); os.fsync(f.fileno())
     os.replace(tmp, path)
 
 
@@ -296,7 +297,7 @@ def run_voice(ep, ctx):
             "max_credits": (chars * per_char) if per_char is not None else None,
             "credit_basis": ("published rate for " + model + f": {per_char} credit per character (one generation; account balance and plan could not be read: the API key lacks user_read)") if per_char is not None else "unknown model: cost not computed",
             "command_after_owner_approval": f"python3 .claude/skills/yt-orchestrate/orchestrate.py run --slug {ep.slug} --stage voice --allow-paid",
-            "note": "PAID. Owner must set approvals/voice.json approved:true (script_sha256 and max_chars >= chars) and run with --allow-paid"}
+            "note": "PAID. Owner must set approvals/voice.json approved:true (script_sha256, max_chars >= chars, a fresh approval_id) and run with --allow-paid. One approval_id = one attempt, success or failure."}
     write_json(ep.p("voice", "plan.json"), plan)
     a, why = _approval(ep, "voice", plan["script_sha256"])
     if not a or not ctx["allow_paid"]:
@@ -305,10 +306,26 @@ def run_voice(ep, ctx):
         raise Halt("awaiting_approval", "dry-run: paid call not made", ["voice/plan.json"])
     if a.get("max_chars", 0) < chars:
         raise Halt("blocked", f"approved max_chars {a.get('max_chars')} < {chars} characters")
+    # ONE approval buys ONE paid attempt. The attempt is written to a ledger BEFORE the call, so a network error, a crash or a rerun can never spend again on the same approval.
+    aid = str(a.get("approval_id") or "").strip()
+    if not aid:
+        raise Halt("blocked", "approvals/voice.json needs a non-empty approval_id (a new one for every paid attempt)")
+    ledger_p = ep.p("voice", "spend_ledger.json")
+    ledger = json.load(open(ledger_p)) if os.path.exists(ledger_p) else []
+    used = [e for e in ledger if e.get("approval_id") == aid]
+    if used:
+        raise Halt("blocked", f"approval_id {aid!r} was already used (status {used[-1].get('status')}); credits may have been spent. The owner must inspect the ElevenLabs usage and issue a NEW approval_id for another attempt")
+    entry = {"approval_id": aid, "script_sha256": plan["script_sha256"], "chars": chars, "max_chars": a["max_chars"], "model_id": model, "started": now(), "status": "started"}
+    ledger.append(entry)
+    write_json(ledger_p, ledger)
     voice_tool = os.environ.get("OA_VOICE_TOOL") or os.path.join(SK, "yt-voice", "voice.py")   # OA_VOICE_TOOL: test seam only, never set in production
     c, d = tool([voice_tool, "--script", "voice/spoken.md", "--output", "voice/narration.wav", "--auth", "proxy", "--confirm", "--max-chars", str(a["max_chars"])], ep.root)
     if c != 0:
-        raise Halt("failed", f"yt-voice: {d.get('status')} {d.get('error')}")
+        entry.update(status="failed", finished=now(), error=f"{d.get('status')}: {d.get('error')}", note="a request may have been billed before the failure")
+        write_json(ledger_p, ledger)
+        raise Halt("failed", f"yt-voice: {d.get('status')} {d.get('error')}; approval {aid!r} is now spent, no automatic retry")
+    entry.update(status="ok", finished=now())
+    write_json(ledger_p, ledger)
     ctx["costs"].append({"stage": "voice", "chars": chars, "provider": "elevenlabs", "at": now(), "note": "approved by owner"})
     return ["voice/narration.wav", "voice/narration.voice.json"], f"generated {chars} chars"
 

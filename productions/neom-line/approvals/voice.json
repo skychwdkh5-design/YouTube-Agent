@@ -6,5 +6,6 @@
   "model_id": "eleven_multilingual_v2",
   "voice": "Adam (pNInz6obpgDQGcFmaJgB)",
   "expected_max_credits": 5128,
-  "note": "NOT APPROVED. The owner sets approved to true only after reading the final script. Any later edit of script.md changes the hash and voids this file."
+  "note": "NOT APPROVED. The owner sets approved to true only after reading voice/OWNER_READ.md. One approval_id allows exactly ONE paid attempt (success or failure); another attempt needs a new approval_id. Any edit of script.md changes the hash and voids this file.",
+  "approval_id": "EP005-VOICE-001"
 }

@@ -4,6 +4,10 @@ import os, argparse, hashlib, json, subprocess, sys
 ap = argparse.ArgumentParser()
 ap.add_argument("--script"); ap.add_argument("--output"); ap.add_argument("--auth"); ap.add_argument("--confirm", action="store_true"); ap.add_argument("--max-chars")
 a = ap.parse_args()
+if os.environ.get("FAKE_VOICE_LOG"):
+    open(os.environ["FAKE_VOICE_LOG"], "a").write("CALL\n")      # counts paid calls
+if os.environ.get("FAKE_VOICE_FAIL"):
+    print(json.dumps({"status": "network_error", "error": "simulated"})); sys.exit(1)
 text = open(a.script, encoding="utf-8").read()
 words = text.split()
 dur = len(words) / 2.5
