@@ -220,7 +220,7 @@
       "C10"
      ],
      "label": {
-      "text": "Dark segment, about 1.6 km",
+      "text": "Dark segment, 1.6 to 1.9 km",
       "style": "tag",
       "claim": "C10"
      }
@@ -293,23 +293,6 @@
       "exempt": true,
       "date_year": 2022
      }
-    },
-    {
-     "asset": "y2023",
-     "zoom": [
-      8,
-      15
-     ],
-     "focus": [
-      35.2165,
-      28.1062
-     ],
-     "label": {
-      "text": "OCT 2023",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2023
-     }
     }
    ]
   },
@@ -328,10 +311,27 @@
      ]
     },
     {
-     "asset": "y2024",
+     "asset": "y2023",
      "zoom": [
       14,
       8
+     ],
+     "label": {
+      "text": "OCT 2023",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2023
+     }
+    },
+    {
+     "asset": "y2024",
+     "zoom": [
+      8,
+      14
+     ],
+     "focus": [
+      35.2165,
+      28.1062
      ],
      "label": {
       "text": "OCT 2024",
@@ -343,12 +343,8 @@
     {
      "asset": "y2025",
      "zoom": [
-      8,
-      14
-     ],
-     "focus": [
-      35.2165,
-      28.1062
+      15,
+      8
      ],
      "label": {
       "text": "OCT 2025",
@@ -360,8 +356,12 @@
     {
      "asset": "y2026",
      "zoom": [
-      15,
-      8
+      8,
+      15
+     ],
+     "focus": [
+      35.2165,
+      28.1062
      ],
      "label": {
       "text": "OCT 2026",
@@ -373,12 +373,8 @@
     {
      "asset": "y2020",
      "zoom": [
-      8,
-      15
-     ],
-     "focus": [
-      35.2165,
-      28.1062
+      15,
+      8
      ],
      "label": {
       "text": "SEP 2020",
@@ -390,8 +386,12 @@
     {
      "asset": "y2021",
      "zoom": [
-      15,
-      8
+      8,
+      15
+     ],
+     "focus": [
+      35.2165,
+      28.1062
      ],
      "label": {
       "text": "SEP 2021",
@@ -399,12 +399,17 @@
       "exempt": true,
       "date_year": 2021
      }
-    },
+    }
+   ]
+  },
+  {
+   "id": "method",
+   "visuals": [
     {
      "asset": "y2022",
      "zoom": [
-      8,
-      15
+      10,
+      6
      ],
      "focus": [
       35.2165,
@@ -416,12 +421,7 @@
       "exempt": true,
       "date_year": 2022
      }
-    }
-   ]
-  },
-  {
-   "id": "method",
-   "visuals": [
+    },
     {
      "asset": "y2023",
      "zoom": [
@@ -442,12 +442,8 @@
     {
      "asset": "y2024",
      "zoom": [
-      10,
-      6
-     ],
-     "focus": [
-      35.2165,
-      28.1062
+      15,
+      8
      ],
      "label": {
       "text": "OCT 2024",
@@ -459,8 +455,12 @@
     {
      "asset": "y2025",
      "zoom": [
-      15,
-      8
+      8,
+      15
+     ],
+     "focus": [
+      35.2165,
+      28.1062
      ],
      "label": {
       "text": "OCT 2025",
@@ -472,12 +472,8 @@
     {
      "asset": "y2026",
      "zoom": [
-      8,
-      15
-     ],
-     "focus": [
-      35.2165,
-      28.1062
+      15,
+      8
      ],
      "label": {
       "text": "OCT 2026",
@@ -489,8 +485,12 @@
     {
      "asset": "y2020",
      "zoom": [
-      15,
-      8
+      8,
+      15
+     ],
+     "focus": [
+      35.2165,
+      28.1062
      ],
      "label": {
       "text": "SEP 2020",
@@ -502,31 +502,14 @@
     {
      "asset": "y2021",
      "zoom": [
-      8,
-      15
-     ],
-     "focus": [
-      35.2165,
-      28.1062
+      15,
+      8
      ],
      "label": {
       "text": "SEP 2021",
       "style": "year",
       "exempt": true,
       "date_year": 2021
-     }
-    },
-    {
-     "asset": "y2022",
-     "zoom": [
-      15,
-      8
-     ],
-     "label": {
-      "text": "OCT 2022",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2022
      }
     }
    ]
@@ -776,16 +759,16 @@
      ]
     },
     {
-     "asset": "y2023",
+     "asset": "y2022",
      "zoom": [
       15,
       8
      ],
      "label": {
-      "text": "OCT 2023",
+      "text": "OCT 2022",
       "style": "year",
       "exempt": true,
-      "date_year": 2023
+      "date_year": 2022
      }
     }
    ]
@@ -854,7 +837,7 @@
      ]
     },
     {
-     "asset": "y2024",
+     "asset": "y2023",
      "zoom": [
       10,
       6
@@ -864,10 +847,10 @@
       28.1062
      ],
      "label": {
-      "text": "OCT 2024",
+      "text": "OCT 2023",
       "style": "year",
       "exempt": true,
-      "date_year": 2024
+      "date_year": 2023
      }
     },
     {
@@ -918,10 +901,27 @@
      ]
     },
     {
-     "asset": "y2025",
+     "asset": "y2024",
      "zoom": [
       15,
       8
+     ],
+     "label": {
+      "text": "OCT 2024",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2024
+     }
+    },
+    {
+     "asset": "y2025",
+     "zoom": [
+      8,
+      15
+     ],
+     "focus": [
+      35.2165,
+      28.1062
      ],
      "label": {
       "text": "OCT 2025",

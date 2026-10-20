@@ -1,6 +1,6 @@
 # Research report
 
-Built 2026-10-20T13:50:01Z from 19 notes.
+Built 2026-10-20T15:01:55Z from 20 notes.
 
 | id | tier | confidence | why | access |
 |---|---|---|---|---|
@@ -23,8 +23,9 @@ Built 2026-10-20T13:50:01Z from 19 notes.
 | C18 | hypothesis | low | hypothesis | own data |
 | C17 | observation | medium | observation basis one_check | own data |
 | C19 | observation | medium | observation basis one_check | own data |
+| C20 | original | medium | search summary, 2 independent outlets | summary_only |
 
-Usable claims (medium+): 14 of 19. Heuristic factual capacity: about 770 spoken words (~5.2 min) at 55 words per usable claim.
+Usable claims (medium+): 15 of 20. Heuristic factual capacity: about 825 spoken words (~5.6 min) at 55 words per usable claim.
 Unusable (low) claims, not for the script: C5 (House of Saud (aggregator)): search summary, one outlet, C6 (Dezeen): search summary, one outlet, C7 (WSJ post on X): search summary, one outlet, C8 (Middle East Eye): search summary, one outlet
 Unreachable sources (not substituted): none
 **INSUFFICIENT_FOR_6_MIN**: the verified facts carry less than 6 minutes; the video should be shorter or the research deepened. Do not pad.

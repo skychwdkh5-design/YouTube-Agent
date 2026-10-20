@@ -1,79 +1,90 @@
 # Storyboard report
 
-- timing: estimate; duration 363.673 s; shots 72; plan hash 3ca6166b8a337406
+- timing: estimate; duration 373.878 s; shots 83; plan hash 93d08b47d1082308
 - renderer plan: confirm_required rendering needs --confirm; the timeline is valid, plan attached
-- chapters: hook 0.0-23.27s, promise 23.27-62.45s, plan 62.45-107.76s, method 107.76-161.22s, shows 161.22-204.9s, segment 204.9-245.71s, checks 245.71-302.45s, limits 302.45-335.92s, close 335.92-363.67s
+- chapters: hook 0.0-24.08s, promise 24.08-57.55s, plan 57.55-102.86s, method 102.86-156.33s, shows 156.33-197.96s, segment 197.96-239.59s, checks 239.59-308.98s, limits 308.98-345.31s, close 345.31-373.88s
 
 Shots:
 -    0.00s +3.5s hook: g_scale
--    3.50s +5.5s hook: y2022
--    8.99s +4.4s hook: wipe y2022->y2026
--   13.38s +4.4s hook: wipe y2022->y2026
--   17.77s +5.5s hook: y2026
--   23.27s +5.0s promise: g_scale
--   28.27s +6.8s promise: y2026
--   35.10s +6.8s promise: y2020
--   41.94s +6.8s promise: y2021
--   48.78s +6.8s promise: y2022
--   55.61s +6.8s promise: y2023
--   62.45s +6.0s plan: g_reports
--   68.45s +6.6s plan: y2024
--   75.00s +6.6s plan: y2025
--   81.55s +6.6s plan: y2026
--   88.10s +6.6s plan: y2020
--   94.65s +6.6s plan: y2021
--  101.20s +6.6s plan: y2022
--  107.75s +3.8s method: y2023
--  111.57s +3.8s method: y2023
--  115.39s +3.8s method: y2024
--  119.21s +3.8s method: y2024
--  123.03s +3.8s method: y2025
--  126.85s +3.8s method: y2025
--  130.67s +3.8s method: y2026
--  134.49s +3.8s method: y2026
--  138.31s +3.8s method: y2020
--  142.13s +3.8s method: y2020
--  145.95s +3.8s method: y2021
--  149.77s +3.8s method: y2021
--  153.59s +3.8s method: y2022
--  157.41s +3.8s method: y2022
--  161.22s +3.4s shows: y2020
--  164.67s +3.4s shows: y2022
--  168.11s +3.4s shows: y2023
--  171.55s +3.4s shows: y2026
--  175.00s +3.4s shows: y2020
--  178.44s +6.0s shows: g_cmp_2020_2024_c17
--  184.44s +5.5s shows: wipe y2020->y2024
--  189.95s +3.4s shows: y2020
--  193.39s +6.0s shows: g_cmp_2020_2024_c19
--  199.39s +5.5s shows: wipe y2020->y2024
--  204.90s +5.2s segment: y2022
--  210.07s +6.0s segment: g_cmp_2022_2026_c10
--  216.07s +4.1s segment: wipe y2022->y2026
--  220.22s +4.1s segment: wipe y2022->y2026
--  224.36s +6.0s segment: g_hero_c10
--  230.36s +5.2s segment: y2026
--  235.54s +5.0s segment: g_tiers
--  240.54s +5.2s segment: y2023
--  245.71s +6.7s checks: y2024
--  252.39s +6.7s checks: y2025
--  259.07s +6.7s checks: y2026
--  265.74s +6.7s checks: y2024
--  272.42s +6.7s checks: y2025
--  279.09s +6.0s checks: g_cmp_2025_2026_c12
--  285.09s +5.3s checks: wipe y2025->y2026
--  290.43s +5.3s checks: wipe y2025->y2026
--  295.77s +6.7s checks: y2025
--  302.45s +6.0s limits: g_reports
--  308.45s +5.0s limits: g_tiers
--  313.45s +5.6s limits: y2026
--  319.07s +5.6s limits: y2020
--  324.68s +5.6s limits: y2021
--  330.30s +5.6s limits: y2022
--  335.92s +5.0s close: g_tiers
--  340.92s +3.8s close: y2026
--  344.71s +3.8s close: y2026
--  348.50s +3.8s close: y2026
--  352.30s +3.8s close: y2026
--  356.09s +3.8s close: y2025
--  359.88s +3.8s close: y2025
+-    3.50s +5.7s hook: y2022
+-    9.22s +4.6s hook: wipe y2022->y2026
+-   13.79s +4.6s hook: wipe y2022->y2026
+-   18.36s +5.7s hook: y2026
+-   24.08s +5.0s promise: g_scale
+-   29.08s +3.6s promise: y2026
+-   32.64s +3.6s promise: y2026
+-   36.20s +3.6s promise: y2020
+-   39.76s +3.6s promise: y2020
+-   43.32s +3.6s promise: y2021
+-   46.88s +3.6s promise: y2021
+-   50.43s +3.6s promise: y2022
+-   53.99s +3.6s promise: y2022
+-   57.55s +6.0s plan: g_reports
+-   63.55s +6.6s plan: y2023
+-   70.10s +6.6s plan: y2024
+-   76.65s +6.6s plan: y2025
+-   83.20s +6.6s plan: y2026
+-   89.75s +6.6s plan: y2020
+-   96.31s +6.6s plan: y2021
+-  102.86s +3.8s method: y2022
+-  106.68s +3.8s method: y2022
+-  110.50s +3.8s method: y2023
+-  114.31s +3.8s method: y2023
+-  118.13s +3.8s method: y2024
+-  121.95s +3.8s method: y2024
+-  125.77s +3.8s method: y2025
+-  129.59s +3.8s method: y2025
+-  133.41s +3.8s method: y2026
+-  137.23s +3.8s method: y2026
+-  141.05s +3.8s method: y2020
+-  144.87s +3.8s method: y2020
+-  148.69s +3.8s method: y2021
+-  152.51s +3.8s method: y2021
+-  156.33s +3.2s shows: y2020
+-  159.55s +3.2s shows: y2022
+-  162.77s +3.2s shows: y2023
+-  165.99s +3.2s shows: y2026
+-  169.21s +3.2s shows: y2020
+-  172.43s +6.0s shows: g_cmp_2020_2024_c17
+-  178.43s +5.2s shows: wipe y2020->y2024
+-  183.59s +3.2s shows: y2020
+-  186.81s +6.0s shows: g_cmp_2020_2024_c19
+-  192.81s +5.2s shows: wipe y2020->y2024
+-  197.96s +5.4s segment: y2022
+-  203.31s +6.0s segment: g_cmp_2022_2026_c10
+-  209.31s +4.3s segment: wipe y2022->y2026
+-  213.60s +4.3s segment: wipe y2022->y2026
+-  217.88s +6.0s segment: g_hero_c10
+-  223.88s +5.4s segment: y2026
+-  229.24s +5.0s segment: g_tiers
+-  234.24s +5.4s segment: y2022
+-  239.59s +3.7s checks: y2024
+-  243.28s +3.7s checks: y2024
+-  246.96s +3.7s checks: y2025
+-  250.65s +3.7s checks: y2025
+-  254.33s +3.7s checks: y2026
+-  258.02s +3.7s checks: y2026
+-  261.70s +3.7s checks: y2023
+-  265.39s +3.7s checks: y2023
+-  269.07s +3.7s checks: y2025
+-  272.76s +3.7s checks: y2025
+-  276.44s +6.0s checks: g_cmp_2025_2026_c12
+-  282.44s +5.9s checks: wipe y2025->y2026
+-  288.34s +5.9s checks: wipe y2025->y2026
+-  294.24s +3.7s checks: y2024
+-  297.92s +3.7s checks: y2024
+-  301.61s +3.7s checks: y2025
+-  305.29s +3.7s checks: y2025
+-  308.98s +6.0s limits: g_reports
+-  314.98s +5.0s limits: g_tiers
+-  319.98s +6.3s limits: y2026
+-  326.31s +6.3s limits: y2020
+-  332.64s +6.3s limits: y2021
+-  338.97s +6.3s limits: y2022
+-  345.31s +5.0s close: g_tiers
+-  350.31s +3.9s close: y2026
+-  354.24s +3.9s close: y2026
+-  358.16s +3.9s close: y2026
+-  362.09s +3.9s close: y2026
+-  366.02s +3.9s close: y2025
+-  369.95s +3.9s close: y2025

@@ -23,35 +23,35 @@
   },
   "research": {
    "status": "done",
-   "attempts": 3,
-   "started": "2026-10-20T13:50:01Z",
+   "attempts": 4,
+   "started": "2026-10-20T15:01:55Z",
    "error": null,
-   "finished": "2026-10-20T13:50:01Z",
-   "note": "19 claims (14 usable), factual capacity about 5.2 min - INSUFFICIENT_FOR_6_MIN",
+   "finished": "2026-10-20T15:01:55Z",
+   "note": "20 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN",
    "inputs": {
-    "research/notes.json": "acf9223e30b6fe55e3a5abccfde115d524a7d39e1fb5ff64ed1b7beacf839dcc",
+    "research/notes.json": "98c9deacb509ee306f28ee9ed940125a65f2bf3df43811fa6eee01c6bc9dd1e1",
     "topic/topic.json": "a65342b22b074f5e96319ff00ff7719355abdf9e1a091ce3b84ad7b23465efe1",
     "_tool": "20551a128ea3eaf0"
    },
    "outputs": {
-    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
-    "research/report.md": "964d609c7f52f4f6532b8b24e0d251a90493eb67b1388dd1d980930ca107b5f3"
+    "claims.json": "c589a5fac6fa706509c1526c4e5382755a0e45c4ab338dad2cd956f308adea6a",
+    "research/report.md": "6a281c6dc029c1771e815da326270b620f93d6a8c0f67b62a30df730aff4d920"
    },
    "agent_artifacts": {
-    "research/notes.json": "acf9223e30b6fe55e3a5abccfde115d524a7d39e1fb5ff64ed1b7beacf839dcc",
-    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1"
+    "research/notes.json": "98c9deacb509ee306f28ee9ed940125a65f2bf3df43811fa6eee01c6bc9dd1e1",
+    "claims.json": "c589a5fac6fa706509c1526c4e5382755a0e45c4ab338dad2cd956f308adea6a"
    }
   },
   "facts": {
    "status": "done",
-   "attempts": 3,
-   "started": "2026-10-20T13:50:01Z",
+   "attempts": 4,
+   "started": "2026-10-20T15:01:55Z",
    "error": null,
-   "finished": "2026-10-20T13:50:01Z",
-   "note": "19 claims, registry ok",
+   "finished": "2026-10-20T15:01:55Z",
+   "note": "20 claims, registry ok",
    "inputs": {
-    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
-    "research/report.md": "964d609c7f52f4f6532b8b24e0d251a90493eb67b1388dd1d980930ca107b5f3",
+    "claims.json": "c589a5fac6fa706509c1526c4e5382755a0e45c4ab338dad2cd956f308adea6a",
+    "research/report.md": "6a281c6dc029c1771e815da326270b620f93d6a8c0f67b62a30df730aff4d920",
     "_tool": "011f70d2646e3c92"
    },
    "outputs": {},
@@ -59,15 +59,15 @@
   },
   "evidence": {
    "status": "done",
-   "attempts": 3,
-   "started": "2026-10-20T13:50:01Z",
+   "attempts": 4,
+   "started": "2026-10-20T15:01:55Z",
    "error": null,
-   "finished": "2026-10-20T13:50:01Z",
+   "finished": "2026-10-20T15:01:55Z",
    "note": "2 stacks + NDWI series",
    "inputs": {
-    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
-    "research/notes.json": "acf9223e30b6fe55e3a5abccfde115d524a7d39e1fb5ff64ed1b7beacf839dcc",
-    "research/report.md": "964d609c7f52f4f6532b8b24e0d251a90493eb67b1388dd1d980930ca107b5f3",
+    "claims.json": "c589a5fac6fa706509c1526c4e5382755a0e45c4ab338dad2cd956f308adea6a",
+    "research/notes.json": "98c9deacb509ee306f28ee9ed940125a65f2bf3df43811fa6eee01c6bc9dd1e1",
+    "research/report.md": "6a281c6dc029c1771e815da326270b620f93d6a8c0f67b62a30df730aff4d920",
     "topic/topic.json": "a65342b22b074f5e96319ff00ff7719355abdf9e1a091ce3b84ad7b23465efe1",
     "_tool": "9910c5ec0e089c03"
    },
@@ -82,93 +82,93 @@
   },
   "script": {
    "status": "done",
-   "attempts": 3,
-   "started": "2026-10-20T13:50:01Z",
+   "attempts": 5,
+   "started": "2026-10-20T15:02:43Z",
    "error": null,
-   "finished": "2026-10-20T13:50:01Z",
-   "note": "891 words = 6.1 min, 15 claims used",
+   "finished": "2026-10-20T15:02:43Z",
+   "note": "916 words = 6.2 min, 16 claims used",
    "inputs": {
-    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
+    "claims.json": "c589a5fac6fa706509c1526c4e5382755a0e45c4ab338dad2cd956f308adea6a",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
     "evidence/wide/grid.json": "05712013a4f1e8392ac4dc5d89764d12edc4e0fd2ab3524b5e91234b0758eec6",
     "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
-    "script.md": "df0474d6acdc4aedd638e3b2ab6adb016ed6e7576ca520a35e53f3ff4b13ac45",
+    "script.md": "bd6c5f3e4a0cc43d3462da39e9d27c9db36fff968d8a734c9800413d96350a56",
     "_tool": "1e8a31e2bf49a808"
    },
    "outputs": {
-    "script.md": "df0474d6acdc4aedd638e3b2ab6adb016ed6e7576ca520a35e53f3ff4b13ac45",
-    "research/brief.json": "ef7471a882fdb9587b1ad40adc7f5984f72d8a48e4589eb6b2a457386688aea0"
+    "script.md": "bd6c5f3e4a0cc43d3462da39e9d27c9db36fff968d8a734c9800413d96350a56",
+    "research/brief.json": "aba50289e05a99736f7197cdac1997eb0c078fe8222c39cc2c7ec8bffd3c102e"
    },
    "agent_artifacts": {
-    "script.md": "df0474d6acdc4aedd638e3b2ab6adb016ed6e7576ca520a35e53f3ff4b13ac45"
+    "script.md": "bd6c5f3e4a0cc43d3462da39e9d27c9db36fff968d8a734c9800413d96350a56"
    }
   },
   "visualplan": {
    "status": "done",
-   "attempts": 13,
-   "started": "2026-10-20T14:28:36Z",
+   "attempts": 15,
+   "started": "2026-10-20T15:02:43Z",
    "error": null,
-   "finished": "2026-10-20T14:28:37Z",
+   "finished": "2026-10-20T15:02:43Z",
    "note": "59 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']",
    "inputs": {
-    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
+    "claims.json": "c589a5fac6fa706509c1526c4e5382755a0e45c4ab338dad2cd956f308adea6a",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
     "evidence/wide/grid.json": "05712013a4f1e8392ac4dc5d89764d12edc4e0fd2ab3524b5e91234b0758eec6",
     "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
-    "research/brief.json": "ef7471a882fdb9587b1ad40adc7f5984f72d8a48e4589eb6b2a457386688aea0",
-    "research/notes.json": "acf9223e30b6fe55e3a5abccfde115d524a7d39e1fb5ff64ed1b7beacf839dcc",
-    "script.md": "df0474d6acdc4aedd638e3b2ab6adb016ed6e7576ca520a35e53f3ff4b13ac45",
+    "research/brief.json": "aba50289e05a99736f7197cdac1997eb0c078fe8222c39cc2c7ec8bffd3c102e",
+    "research/notes.json": "98c9deacb509ee306f28ee9ed940125a65f2bf3df43811fa6eee01c6bc9dd1e1",
+    "script.md": "bd6c5f3e4a0cc43d3462da39e9d27c9db36fff968d8a734c9800413d96350a56",
     "_tool": "84053e42e31ade13"
    },
    "outputs": {
-    "episode.json": "c0927dc7417f66ea847d80b04d34b6dc4d8e77aa84729f03dc82ee5caf740065",
-    "graphics_spec.json": "0ac9feec98cb024441234d34f8019ae27d7553e1b37054df4aff5ae24d9a0cea"
+    "episode.json": "7cc63f5398a89fe68b896984efb7678644df5dd7a200d0263ac1ffb9da8a5a09",
+    "graphics_spec.json": "1125cdb23f932c4c9e43325269c1b66cba6909432c045e50748fcff16adde4ee"
    },
    "agent_artifacts": {}
   },
   "visuals": {
    "status": "done",
-   "attempts": 12,
-   "started": "2026-10-20T14:18:18Z",
+   "attempts": 13,
+   "started": "2026-10-20T15:01:55Z",
    "error": null,
-   "finished": "2026-10-20T14:18:25Z",
+   "finished": "2026-10-20T15:02:08Z",
    "note": "8 graphics",
    "inputs": {
-    "episode.json": "c0927dc7417f66ea847d80b04d34b6dc4d8e77aa84729f03dc82ee5caf740065",
+    "episode.json": "7cc63f5398a89fe68b896984efb7678644df5dd7a200d0263ac1ffb9da8a5a09",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
     "evidence/wide/grid.json": "05712013a4f1e8392ac4dc5d89764d12edc4e0fd2ab3524b5e91234b0758eec6",
     "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
-    "graphics_spec.json": "0ac9feec98cb024441234d34f8019ae27d7553e1b37054df4aff5ae24d9a0cea",
+    "graphics_spec.json": "1125cdb23f932c4c9e43325269c1b66cba6909432c045e50748fcff16adde4ee",
     "_tool": "1dd7f098df93102f"
    },
    "outputs": {
     "graphics/g_cmp_2020_2024_c17.png": "784eb95f6ef462aacadfb3df3d49cdef13ad14e4b3b830e79cadc9473fcb0e1b",
     "graphics/g_cmp_2020_2024_c19.png": "dd80084889d94a2645868c4417d6f0bf80ac68a9f893b931f128d56088e2c41c",
-    "graphics/g_cmp_2022_2026_c10.png": "560f7b2970eb7b16bc635558952309ce8a1c801d5d9f96e3fb2b41211f0edcbf",
+    "graphics/g_cmp_2022_2026_c10.png": "50378daec4dd6d609669cd9c13971562ada96370c0703d51add4cc26b561b9fc",
     "graphics/g_cmp_2025_2026_c12.png": "cc0006b0f36f05727ac60ce1418dfd0f2f589d115ac9e7afde381a507edc8fce",
-    "graphics/g_hero_c10.png": "b8477a9836ee5fce07e052f27e1af19bc8cb1afdc47ac873c49da8101bf84f68",
+    "graphics/g_hero_c10.png": "db7004b9538c759584f7e4deb36f28023e782f5eabeecebeb37ad815bf4cf19a",
     "graphics/g_reports.png": "3858179cfc7e0506cf330a3655330f39a5b1e7b2e139e20c52d34e7f98a4a6cf",
     "graphics/g_scale.png": "d7c49e029bf2d10f12109754fed4f6432af5f20b241470e2dbb75ec9f3bd70cc",
-    "graphics/g_tiers.png": "a9824c2e2badc92353bef4136f7e062a767a9db4a9edabb3e1c03ea3feb76854"
+    "graphics/g_tiers.png": "33e42d6b0494a87988831d6360a96e8a57f6537fe4599f62556c5efea1e2324d"
    },
    "agent_artifacts": {}
   },
   "storyboard": {
    "status": "done",
-   "attempts": 12,
-   "started": "2026-10-20T14:03:41Z",
+   "attempts": 14,
+   "started": "2026-10-20T15:02:43Z",
    "error": null,
-   "finished": "2026-10-20T14:03:41Z",
-   "note": "72 shots, 363.673s, timing from estimate",
+   "finished": "2026-10-20T15:02:44Z",
+   "note": "83 shots, 373.878s, timing from estimate",
    "inputs": {
-    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
-    "episode.json": "c0927dc7417f66ea847d80b04d34b6dc4d8e77aa84729f03dc82ee5caf740065",
+    "claims.json": "c589a5fac6fa706509c1526c4e5382755a0e45c4ab338dad2cd956f308adea6a",
+    "episode.json": "7cc63f5398a89fe68b896984efb7678644df5dd7a200d0263ac1ffb9da8a5a09",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
@@ -176,47 +176,47 @@
     "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
     "graphics/g_cmp_2020_2024_c17.png": "784eb95f6ef462aacadfb3df3d49cdef13ad14e4b3b830e79cadc9473fcb0e1b",
     "graphics/g_cmp_2020_2024_c19.png": "dd80084889d94a2645868c4417d6f0bf80ac68a9f893b931f128d56088e2c41c",
-    "graphics/g_cmp_2022_2026_c10.png": "560f7b2970eb7b16bc635558952309ce8a1c801d5d9f96e3fb2b41211f0edcbf",
+    "graphics/g_cmp_2022_2026_c10.png": "50378daec4dd6d609669cd9c13971562ada96370c0703d51add4cc26b561b9fc",
     "graphics/g_cmp_2025_2026_c12.png": "cc0006b0f36f05727ac60ce1418dfd0f2f589d115ac9e7afde381a507edc8fce",
-    "graphics/g_hero_c10.png": "b8477a9836ee5fce07e052f27e1af19bc8cb1afdc47ac873c49da8101bf84f68",
+    "graphics/g_hero_c10.png": "db7004b9538c759584f7e4deb36f28023e782f5eabeecebeb37ad815bf4cf19a",
     "graphics/g_reports.png": "3858179cfc7e0506cf330a3655330f39a5b1e7b2e139e20c52d34e7f98a4a6cf",
     "graphics/g_scale.png": "d7c49e029bf2d10f12109754fed4f6432af5f20b241470e2dbb75ec9f3bd70cc",
-    "graphics/g_tiers.png": "a9824c2e2badc92353bef4136f7e062a767a9db4a9edabb3e1c03ea3feb76854",
-    "research/brief.json": "ef7471a882fdb9587b1ad40adc7f5984f72d8a48e4589eb6b2a457386688aea0",
-    "script.md": "df0474d6acdc4aedd638e3b2ab6adb016ed6e7576ca520a35e53f3ff4b13ac45",
+    "graphics/g_tiers.png": "33e42d6b0494a87988831d6360a96e8a57f6537fe4599f62556c5efea1e2324d",
+    "research/brief.json": "aba50289e05a99736f7197cdac1997eb0c078fe8222c39cc2c7ec8bffd3c102e",
+    "script.md": "bd6c5f3e4a0cc43d3462da39e9d27c9db36fff968d8a734c9800413d96350a56",
     "_tool": "a0eb3092a4fad6ea"
    },
    "outputs": {
-    "story/storyboard.json": "245ff78aa99c056a539cf3bc9f12fa0a2a2eef91f7570fc83eca2a14a9e74671",
-    "timeline.json": "4a12b5523528f766368c71201352336bfa01aa005c2b902a73526d370941b8ba",
-    "story/labels.json": "615d70e4416c310e7585c5700f67c4f5dd4aecc4ed1575e710c650b2d92ed34a",
-    "story/report.md": "547a7f59b1a824c4316bfd1d19d5a846bd7535f4f908cd4e4cd54c8ed60cf3d2"
+    "story/storyboard.json": "f73e51b12ca246a9dd84ac9cb657a5d2907eb1b1a470a601b7b6ef400ec0e05e",
+    "timeline.json": "af41747013bf2cfe5d397b6bba62ee026e24663ece153319234055e19ecfaf54",
+    "story/labels.json": "8a303e7ef60552f163fcffac72ebe336ef5a1b86902cecfffca51e9000064e57",
+    "story/report.md": "e8fb038196844c71d1c590f7ef9d1950ad319c4b8ec39ee9346ae4b8501fd281"
    },
    "agent_artifacts": {}
   },
   "visualcheck": {
    "status": "done",
-   "attempts": 29,
-   "started": "2026-10-20T14:18:25Z",
+   "attempts": 31,
+   "started": "2026-10-20T15:02:44Z",
    "error": null,
-   "finished": "2026-10-20T14:18:29Z",
-   "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 58, 'REVIEWED': 10} of 75 items",
+   "finished": "2026-10-20T15:02:48Z",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 62, 'REVIEWED': 10} of 79 items",
    "outputs": {
-    "qa/visual_claims.json": "7efd485571041c6a86a850aa91c6a3e1e6dcb96a22d051e2671d2b299e42c997",
-    "qa/visual_claims.md": "c409e53bb6d33e43d1eeff11b5fc2c0715a04405c6ce5414da6441b1652630bb"
+    "qa/visual_claims.json": "e57138253863d2ab9cb30814ccdf83ee28e9bb6ada54847d91d4ab1b38b521eb",
+    "qa/visual_claims.md": "a47b23488ca6f5a60aaecf241efc339da0b4de46550a6808252de6b16e763531"
    },
    "inputs": {
-    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
-    "episode.json": "c0927dc7417f66ea847d80b04d34b6dc4d8e77aa84729f03dc82ee5caf740065",
+    "claims.json": "c589a5fac6fa706509c1526c4e5382755a0e45c4ab338dad2cd956f308adea6a",
+    "episode.json": "7cc63f5398a89fe68b896984efb7678644df5dd7a200d0263ac1ffb9da8a5a09",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
-    "graphics_spec.json": "0ac9feec98cb024441234d34f8019ae27d7553e1b37054df4aff5ae24d9a0cea",
+    "graphics_spec.json": "1125cdb23f932c4c9e43325269c1b66cba6909432c045e50748fcff16adde4ee",
     "qa/visual_review.json": "3d68912ee7eb757d738fc57208672439442663e543f6fcde2f2a57b696e5645c",
-    "story/labels.json": "615d70e4416c310e7585c5700f67c4f5dd4aecc4ed1575e710c650b2d92ed34a",
-    "story/report.md": "547a7f59b1a824c4316bfd1d19d5a846bd7535f4f908cd4e4cd54c8ed60cf3d2",
-    "story/storyboard.json": "245ff78aa99c056a539cf3bc9f12fa0a2a2eef91f7570fc83eca2a14a9e74671",
-    "timeline.json": "4a12b5523528f766368c71201352336bfa01aa005c2b902a73526d370941b8ba",
+    "story/labels.json": "8a303e7ef60552f163fcffac72ebe336ef5a1b86902cecfffca51e9000064e57",
+    "story/report.md": "e8fb038196844c71d1c590f7ef9d1950ad319c4b8ec39ee9346ae4b8501fd281",
+    "story/storyboard.json": "f73e51b12ca246a9dd84ac9cb657a5d2907eb1b1a470a601b7b6ef400ec0e05e",
+    "timeline.json": "af41747013bf2cfe5d397b6bba62ee026e24663ece153319234055e19ecfaf54",
     "_tool": "0cf98cf174e3abf3"
    },
    "agent_artifacts": {
@@ -225,24 +225,24 @@
   },
   "voice": {
    "status": "awaiting_approval",
-   "attempts": 12,
-   "note": "no approvals/voice.json; plan: 4987 characters",
-   "started": "2026-10-20T14:28:37Z",
+   "attempts": 18,
+   "note": "approvals/voice.json: approved is not true; plan: 5128 characters",
+   "started": "2026-10-20T15:05:52Z",
    "error": null,
-   "finished": "2026-10-20T14:28:37Z",
+   "finished": "2026-10-20T15:05:52Z",
    "outputs": {
-    "voice/plan.json": "e8c69fb4f3b9c02f3f57d502cb06a75ff04a26633ba42d7921d01bd849d46f26"
+    "voice/plan.json": "634daedd27cda6251918525c340bd89619674bb26cb9b87e431fac411fcd84ce"
    }
   },
   "captions": {
    "status": "waiting",
    "attempts": 0,
-   "note": "waiting for ['voice']"
+   "note": "waiting for ['voicecheck']"
   },
   "render": {
    "status": "waiting",
    "attempts": 0,
-   "note": "waiting for ['voice', 'captions']"
+   "note": "waiting for ['voice', 'voicecheck', 'captions']"
   },
   "qc": {
    "status": "waiting",
@@ -251,25 +251,30 @@
   },
   "release": {
    "status": "done",
-   "attempts": 36,
-   "started": "2026-10-20T14:28:37Z",
+   "attempts": 42,
+   "started": "2026-10-20T15:05:52Z",
    "error": null,
-   "finished": "2026-10-20T14:28:37Z",
+   "finished": "2026-10-20T15:05:52Z",
    "note": "incomplete",
    "inputs": {
-    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
-    "qa/visual_claims.json": "7efd485571041c6a86a850aa91c6a3e1e6dcb96a22d051e2671d2b299e42c997",
-    "story/labels.json": "615d70e4416c310e7585c5700f67c4f5dd4aecc4ed1575e710c650b2d92ed34a",
-    "story/report.md": "547a7f59b1a824c4316bfd1d19d5a846bd7535f4f908cd4e4cd54c8ed60cf3d2",
-    "story/storyboard.json": "245ff78aa99c056a539cf3bc9f12fa0a2a2eef91f7570fc83eca2a14a9e74671",
-    "timeline.json": "4a12b5523528f766368c71201352336bfa01aa005c2b902a73526d370941b8ba",
+    "claims.json": "c589a5fac6fa706509c1526c4e5382755a0e45c4ab338dad2cd956f308adea6a",
+    "qa/visual_claims.json": "e57138253863d2ab9cb30814ccdf83ee28e9bb6ada54847d91d4ab1b38b521eb",
+    "story/labels.json": "8a303e7ef60552f163fcffac72ebe336ef5a1b86902cecfffca51e9000064e57",
+    "story/report.md": "e8fb038196844c71d1c590f7ef9d1950ad319c4b8ec39ee9346ae4b8501fd281",
+    "story/storyboard.json": "f73e51b12ca246a9dd84ac9cb657a5d2907eb1b1a470a601b7b6ef400ec0e05e",
+    "timeline.json": "af41747013bf2cfe5d397b6bba62ee026e24663ece153319234055e19ecfaf54",
     "_tool": "e3b0c44298fc1c14"
    },
    "outputs": {
-    "release/REVIEW.md": "639177e98a4f3a72bea563483e782a0043a1d534bcb87e6cc9dfbbc4f5afde7b",
-    "story/report.md": "547a7f59b1a824c4316bfd1d19d5a846bd7535f4f908cd4e4cd54c8ed60cf3d2"
+    "release/REVIEW.md": "977c5c03903a5bc81899dd26a7f236c5482d9bcb522dc7e00c8d77e7ab704a61",
+    "story/report.md": "e8fb038196844c71d1c590f7ef9d1950ad319c4b8ec39ee9346ae4b8501fd281"
    },
    "agent_artifacts": {}
+  },
+  "voicecheck": {
+   "status": "waiting",
+   "attempts": 0,
+   "note": "waiting for ['voice']"
   }
  },
  "costs": [],
@@ -1420,7 +1425,241 @@
    "stage": "release",
    "event": "done",
    "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T15:01:55Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:01:55Z",
+   "stage": "research",
+   "event": "done",
+   "note": "20 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-20T15:01:55Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:01:55Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "20 claims, registry ok"
+  },
+  {
+   "at": "2026-10-20T15:01:55Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:01:55Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + NDWI series"
+  },
+  {
+   "at": "2026-10-20T15:01:55Z",
+   "stage": "script",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:01:55Z",
+   "stage": "script",
+   "event": "done",
+   "note": "913 words = 6.2 min, 16 claims used"
+  },
+  {
+   "at": "2026-10-20T15:01:55Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:01:55Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "59 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']"
+  },
+  {
+   "at": "2026-10-20T15:01:55Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:02:08Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "8 graphics"
+  },
+  {
+   "at": "2026-10-20T15:02:08Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:02:08Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "83 shots, 372.653s, timing from estimate"
+  },
+  {
+   "at": "2026-10-20T15:02:08Z",
+   "stage": "visualcheck",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:02:12Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 62, 'REVIEWED': 10} of 79 items"
+  },
+  {
+   "at": "2026-10-20T15:02:12Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 5113 characters"
+  },
+  {
+   "at": "2026-10-20T15:02:12Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:02:12Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T15:02:12Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 5113 characters"
+  },
+  {
+   "at": "2026-10-20T15:02:12Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:02:12Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T15:02:43Z",
+   "stage": "script",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:02:43Z",
+   "stage": "script",
+   "event": "done",
+   "note": "916 words = 6.2 min, 16 claims used"
+  },
+  {
+   "at": "2026-10-20T15:02:43Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:02:43Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "59 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']"
+  },
+  {
+   "at": "2026-10-20T15:02:43Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:02:44Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "83 shots, 373.878s, timing from estimate"
+  },
+  {
+   "at": "2026-10-20T15:02:44Z",
+   "stage": "visualcheck",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:02:48Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 62, 'REVIEWED': 10} of 79 items"
+  },
+  {
+   "at": "2026-10-20T15:02:48Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 5133 characters"
+  },
+  {
+   "at": "2026-10-20T15:02:48Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:02:48Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T15:02:48Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 5133 characters"
+  },
+  {
+   "at": "2026-10-20T15:02:48Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:02:48Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T15:04:38Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 5128 characters"
+  },
+  {
+   "at": "2026-10-20T15:04:38Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:04:38Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T15:05:52Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "approvals/voice.json: approved is not true; plan: 5128 characters"
+  },
+  {
+   "at": "2026-10-20T15:05:52Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T15:05:52Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
   }
  ],
- "updated": "2026-10-20T14:28:37Z"
+ "updated": "2026-10-20T15:05:52Z"
 }

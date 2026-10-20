@@ -16,15 +16,15 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SK = os.path.abspath(os.path.join(HERE, ".."))
 REPO = os.path.abspath(os.path.join(SK, "..", ".."))
 PY = sys.executable
-STAGES = ["topic", "research", "facts", "evidence", "script", "visualplan", "visuals", "storyboard", "visualcheck", "voice", "captions", "render", "qc", "release"]
+STAGES = ["topic", "research", "facts", "evidence", "script", "visualplan", "visuals", "storyboard", "visualcheck", "voice", "voicecheck", "captions", "render", "qc", "release"]
 DEPS = {"topic": [], "research": ["topic"], "facts": ["research"], "evidence": ["topic", "research"], "script": ["facts", "evidence"], "visualplan": ["script", "evidence"],
         "visuals": ["visualplan", "evidence"], "storyboard": ["script", "evidence", "visuals"], "visualcheck": ["storyboard"], "voice": ["script", "storyboard", "visualcheck"],
-        "captions": ["voice"], "render": ["storyboard", "visuals", "voice", "captions"], "qc": ["render"], "release": ["facts", "storyboard"]}
+        "voicecheck": ["voice"], "captions": ["voicecheck"], "render": ["storyboard", "visuals", "voice", "voicecheck", "captions"], "qc": ["render"], "release": ["facts", "storyboard"]}
 KIND = {"topic": "agent", "research": "agent", "script": "agent", "voice": "paid", "render": "heavy"}
 # What a stage IS: FULLY_AUTOMATED runs without manual preparation; AGENT_REQUIRED needs Claude to do an intellectual task (a task packet is written);
 # OWNER_REQUIRED needs the owner's approval. A stage can be FULLY_AUTOMATED by default and AGENT_REQUIRED only when it hits a judgement item.
 NATURE = {"topic": "AGENT_REQUIRED", "research": "AGENT_REQUIRED", "facts": "FULLY_AUTOMATED", "evidence": "FULLY_AUTOMATED", "script": "AGENT_REQUIRED", "visualplan": "FULLY_AUTOMATED",
-          "visuals": "FULLY_AUTOMATED", "storyboard": "FULLY_AUTOMATED", "visualcheck": "FULLY_AUTOMATED", "voice": "OWNER_REQUIRED", "captions": "FULLY_AUTOMATED",
+          "visuals": "FULLY_AUTOMATED", "storyboard": "FULLY_AUTOMATED", "visualcheck": "FULLY_AUTOMATED", "voice": "OWNER_REQUIRED", "voicecheck": "FULLY_AUTOMATED", "captions": "FULLY_AUTOMATED",
           "render": "OWNER_REQUIRED", "qc": "FULLY_AUTOMATED", "release": "FULLY_AUTOMATED"}
 DONE, TERMINAL_BLOCK = "done", ("blocked", "failed", "needs_agent", "awaiting_approval", "waiting", "interrupted")
 
@@ -284,11 +284,19 @@ def run_voice(ep, ctx):
     script = ep.p("script.md")
     os.makedirs(ep.p("voice"), exist_ok=True)
     open(ep.p("voice", "spoken.md"), "w", encoding="utf-8").write(spoken_text(open(script, encoding="utf-8").read()))
-    chars = len(open(ep.p("voice", "spoken.md"), encoding="utf-8").read())
+    # the authoritative, billed character count is yt-voice's own plan (no --confirm: nothing is sent)
+    pc, pd = tool([os.path.join(SK, "yt-voice", "voice.py"), "--script", "voice/spoken.md", "--output", "voice/narration.wav", "--auth", "proxy", "--max-chars", "1000000"], ep.root)
+    chars = pd.get("characters") if pd.get("status") == "confirm_required" else len(open(ep.p("voice", "spoken.md"), encoding="utf-8").read())
     if os.path.exists(ep.p("voice", "narration.voice.json")) and os.path.exists(ep.p("voice", "narration.wav")):
         return ["voice/narration.wav", "voice/narration.voice.json"], "narration already generated (not regenerated)"
-    plan = {"chars": chars, "script_sha256": sha(script), "provider": "elevenlabs", "voice": "Adam (pNInz6obpgDQGcFmaJgB)",
-            "note": "PAID. Owner must create approvals/voice.json {approved:true, script_sha256, max_chars>=chars} and run with --allow-paid"}
+    model = pd.get("model_id", "unknown")
+    per_char = {"eleven_multilingual_v2": 1.0, "eleven_turbo_v2_5": 0.5, "eleven_flash_v2_5": 0.5}.get(model)
+    plan = {"chars": chars, "chunks": pd.get("chunks"), "script_sha256": sha(script), "spoken_sha256": sha(ep.p("voice", "spoken.md")), "provider": "elevenlabs", "model_id": model,
+            "voice": f"{pd.get('voice_name', 'Adam')} ({pd.get('voice_id', 'pNInz6obpgDQGcFmaJgB')})",
+            "max_credits": (chars * per_char) if per_char is not None else None,
+            "credit_basis": ("published rate for " + model + f": {per_char} credit per character (one generation; account balance and plan could not be read: the API key lacks user_read)") if per_char is not None else "unknown model: cost not computed",
+            "command_after_owner_approval": f"python3 .claude/skills/yt-orchestrate/orchestrate.py run --slug {ep.slug} --stage voice --allow-paid",
+            "note": "PAID. Owner must set approvals/voice.json approved:true (script_sha256 and max_chars >= chars) and run with --allow-paid"}
     write_json(ep.p("voice", "plan.json"), plan)
     a, why = _approval(ep, "voice", plan["script_sha256"])
     if not a or not ctx["allow_paid"]:
@@ -303,6 +311,14 @@ def run_voice(ep, ctx):
         raise Halt("failed", f"yt-voice: {d.get('status')} {d.get('error')}")
     ctx["costs"].append({"stage": "voice", "chars": chars, "provider": "elevenlabs", "at": now(), "note": "approved by owner"})
     return ["voice/narration.wav", "voice/narration.voice.json"], f"generated {chars} chars"
+
+
+def run_voicecheck(ep, ctx):
+    """Free check of the real narration; FAIL blocks captions/render. Pronunciation needs a human ear: the result is NEEDS_HUMAN_LISTEN, never PASS."""
+    c, d = tool([os.path.join(SK, "yt-voicecheck", "voicecheck.py"), "--root", "."], ep.root)
+    if d.get("result") == "FAIL":
+        raise Halt("blocked", "voicecheck FAIL: " + "; ".join(f"{x['id']}: {x['detail']}" for x in d.get("checks", []) if x["status"] == "fail")[:400], ["voice/voicecheck.json"])
+    return ["voice/voicecheck.json"], f"{d.get('result')}: {len(d.get('risky', []))} risky words to listen to; storyboard re-timed from real word timings"
 
 
 def run_captions(ep, ctx):
@@ -328,6 +344,62 @@ def run_render(ep, ctx):
     if c != 0:
         raise Halt("failed", f"yt-render: {d.get('error')}")
     return ["render/final.mp4", "render/final.manifest.json"], "rendered"
+
+
+def _srt_cues(text):
+    out = []
+    for blk in re.split(r"\n\s*\n", text.strip()):
+        ln = blk.splitlines()
+        m = re.search(r"(\d+):(\d+):(\d+)[,.](\d+) --> (\d+):(\d+):(\d+)[,.](\d+)", blk)
+        if m:
+            g = list(map(int, m.groups()))
+            out.append((g[0] * 3600 + g[1] * 60 + g[2] + g[3] / 1000, g[4] * 3600 + g[5] * 60 + g[6] + g[7] / 1000, blk))
+    return out
+
+
+def render_test(slug, seconds=30.0, run_it=False):
+    """Short render of the first N seconds on the real timeline, the real narration (trimmed copy) and real captions. Never the full video."""
+    ep = Ep(slug)
+    need = ["timeline.json", "voice/narration.wav", "voice/narration.voice.json", "captions/captions.srt"]
+    miss = [f for f in need if not os.path.exists(ep.p(f))]
+    if miss:
+        return {"status": "blocked", "error": f"cannot build the test: missing {miss}; the narration does not exist yet (voice is not approved/generated)"}, 1
+    vc = json.load(open(ep.p("voice", "voicecheck.json"))) if os.path.exists(ep.p("voice", "voicecheck.json")) else {}
+    if vc.get("result") == "FAIL":
+        return {"status": "blocked", "error": "voicecheck FAIL: fix the narration before any render"}, 1
+    tl = json.load(open(ep.p("timeline.json")))
+    meta = json.load(open(ep.p("voice", "narration.voice.json")))
+    words = [w for w in meta["words"] if w["end"] <= seconds]
+    if not words:
+        return {"status": "blocked", "error": "no word ends within the test window"}, 1
+    t_end = round(words[-1]["end"] + 0.5, 3)
+    d = ep.p("render", "test")
+    os.makedirs(d, exist_ok=True)
+    wav = os.path.join(d, "narration.test.wav")
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", ep.p("voice", "narration.wav"), "-t", f"{t_end:.3f}", wav], check=True)
+    m2 = dict(meta, words=words, audio="narration.test.wav", audio_sha256=sha(wav), duration=probe_duration(wav), characters=sum(len(w["text"]) for w in words),
+              text=" ".join(w["text"] for w in words), text_sha256=hashlib.sha256(" ".join(w["text"] for w in words).encode()).hexdigest(), test_excerpt=True)
+    write_json(os.path.join(d, "narration.test.voice.json"), m2)
+    cues = [c for c in _srt_cues(open(ep.p("captions", "captions.srt"), encoding="utf-8").read()) if c[1] <= t_end]
+    open(os.path.join(d, "captions.test.srt"), "w", encoding="utf-8").write("\n\n".join(f"{i}\n" + "\n".join(b.splitlines()[1:]) for i, (_, _, b) in enumerate(cues, 1)) + "\n")
+    t = dict(tl, shots=[x for x in tl["shots"] if x["start"] < t_end], end={"seconds": max(1, round(m2["duration"] + 0.5, 2))})
+    t["voice"] = {"src": "render/test/narration.test.wav", "meta": "render/test/narration.test.voice.json"}
+    t["captions"] = {"src": "render/test/captions.test.srt", "preset": "default"}
+    write_json(os.path.join(d, "timeline.test.json"), t)
+    base = [os.path.join(SK, "yt-render", "render.py"), "--timeline", "render/test/timeline.test.json", "--media-root", "."]
+    c, plan = tool(base, ep.root)
+    res = {"status": plan.get("status"), "seconds": round(m2["duration"], 2), "shots": len(t["shots"]), "plan_error": plan.get("error"), "warnings": plan.get("warnings") or (plan.get("plan") or {}).get("warnings")}
+    if not run_it:
+        res["next"] = f"python3 .claude/skills/yt-orchestrate/orchestrate.py render-test --slug {slug} --seconds {seconds:g} --run"
+        return res, 0 if plan.get("status") in ("confirm_required", "ok") else 1
+    c, out = tool(base + ["--output", "render/test/test.mp4", "--confirm", "--overwrite"], ep.root, 900)
+    res.update(status=out.get("status"), output="render/test/test.mp4", error=out.get("error"))
+    return res, 0 if c == 0 else 1
+
+
+def probe_duration(path):
+    r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path], capture_output=True, text=True)
+    return round(float(r.stdout.strip()), 3)
 
 
 def run_qc(ep, ctx):
@@ -365,7 +437,7 @@ def run_release(ep, ctx):
 
 
 RUN = {"topic": run_topic, "research": run_research, "facts": run_facts, "evidence": run_evidence, "script": run_script, "visualplan": run_visualplan, "visualcheck": run_visualcheck, "storyboard": run_storyboard,
-       "visuals": run_visuals, "voice": run_voice, "captions": run_captions, "render": run_render, "qc": run_qc, "release": run_release}
+       "visuals": run_visuals, "voice": run_voice, "voicecheck": run_voicecheck, "captions": run_captions, "render": run_render, "qc": run_qc, "release": run_release}
 # files whose change invalidates a stage (besides the outputs of its dependencies)
 INPUTS = {"topic": ["topic/approval.json", "topic/candidates.json"], "research": ["research/notes.json"], "facts": ["claims.json"], "evidence": ["research/notes.json"],
           "script": ["script.md", "claims.json", "evidence/stack/provenance.json"], "visualplan": ["script.md", "claims.json", "research/notes.json", "evidence/stack/provenance.json"],
@@ -373,14 +445,14 @@ INPUTS = {"topic": ["topic/approval.json", "topic/candidates.json"], "research":
           "storyboard": ["script.md", "episode.json", "claims.json", "evidence/stack/grid.json", "voice/narration.voice.json", "captions/captions.srt"],
           "visualcheck": ["story/storyboard.json", "story/labels.json", "qa/visual_review.json", "evidence/ndwi.json", "claims.json", "episode.json", "graphics_spec.json",
                          "evidence/stack/provenance.json", "evidence/stack/grid.json"],     # provenance carries the sha256 of every stack image the frames are cropped from
-          "voice": ["script.md", "approvals/voice.json"], "captions": ["voice/narration.voice.json"], "render": ["timeline.json", "approvals/render.json"],
+          "voice": ["script.md", "approvals/voice.json"], "voicecheck": ["voice/narration.voice.json", "voice/spoken.md"], "captions": ["voice/narration.voice.json", "voice/voicecheck.json"], "render": ["timeline.json", "approvals/render.json"],
           "qc": ["render/final.mp4", "timeline.json"], "release": ["claims.json", "story/report.md", "qa/visual_claims.json"]}
 # files an agent wrote for a stage (recorded in state.json so the autonomy report can tell agent work from code work)
 AGENT_ARTIFACTS = {"topic": ["topic/approval.json", "topic/candidates.json"], "research": ["research/notes.json", "claims.json"], "script": ["script.md"], "visualcheck": ["qa/visual_review.json"]}
 
 TOOLS = {"topic": ["yt-topic/topic.py"], "research": ["yt-research/research.py"], "facts": ["yt-facts/facts.py"], "evidence": ["yt-sentinel/sentinel.py"], "visuals": ["yt-graphics/graphics.py", "yt-geo/geostack.py"],
          "script": ["yt-facts/facts.py", "yt-script-agent/scriptagent.py"], "visualplan": ["yt-visual-planner/planner.py"], "visualcheck": ["yt-visualcheck/visualcheck.py", "yt-geo/geostack.py"],
-         "storyboard": ["yt-storyboard/storyboard.py", "yt-facts/facts.py"], "captions": ["yt-captions/captions.py"], "render": ["yt-render/render.py", "yt-render/compose.py"], "qc": ["yt-qc/qc.py"]}
+         "storyboard": ["yt-storyboard/storyboard.py", "yt-facts/facts.py"], "voicecheck": ["yt-voicecheck/voicecheck.py"], "captions": ["yt-captions/captions.py"], "render": ["yt-render/render.py", "yt-render/compose.py"], "qc": ["yt-qc/qc.py"]}
 
 
 def tool_hash(stage):
@@ -521,10 +593,13 @@ def main(argv=None):
     r.add_argument("--force", action="store_true"); r.add_argument("--dry-run", action="store_true")
     r.add_argument("--allow-paid", action="store_true", help="permit yt-voice if approvals/voice.json matches the script")
     r.add_argument("--allow-render", action="store_true", help="permit the full render if approvals/render.json matches")
+    t = sub.add_parser("render-test"); t.add_argument("--slug", required=True); t.add_argument("--seconds", type=float, default=30.0); t.add_argument("--run", action="store_true")
     s = sub.add_parser("status"); s.add_argument("--slug", required=True)
     a = ap.parse_args(argv)
     if a.cmd == "new":
         res, code = new(a.slug)
+    elif a.cmd == "render-test":
+        res, code = render_test(a.slug, a.seconds, a.run)
     elif a.cmd == "status":
         res, code = status(a.slug)
     else:

@@ -59,7 +59,7 @@
    "steps": [
     "PROMISED: 170 km announced",
     "REPORTED: Reuters: stadium shelved",
-    "OBSERVED: Straight corridor, 22+ km in frame"
+    "OBSERVED: Straight corridor, 15+ km in frame"
    ],
    "arrow_labels": [
     "vs",
@@ -70,7 +70,7 @@
   {
    "type": "compare",
    "id": "g_cmp_2022_2026_c10",
-   "title": "Dark segment, about 1.6 km",
+   "title": "Dark segment, 1.6 to 1.9 km",
    "source": "Copernicus Sentinel-2 L2A, same orbit and season",
    "left": {
     "geo": {
@@ -102,7 +102,7 @@
   {
    "type": "geo",
    "id": "g_hero_c10",
-   "title": "Dark segment, about 1.6 km",
+   "title": "Dark segment, 1.6 to 1.9 km",
    "source": "Copernicus Sentinel-2 L2A, 10 m",
    "credit": "Contains modified Copernicus Sentinel data 2026",
    "date": "OCT 2026",
@@ -128,7 +128,7 @@
       35.224,
       28.1062
      ],
-     "text": "about 1.6 km"
+     "text": "1.6 to 1.9 km"
     }
    ],
    "scale_bar": true

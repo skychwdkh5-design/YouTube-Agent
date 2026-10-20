@@ -27,3 +27,13 @@ Reading sources and writing `research/notes.json`; writing `script.md`; reviewin
 2. Supervised first paid voice + render run; extend qc to a per-chapter contact sheet.
 3. Thumbnail generator from the evidence stack with the same claim audit.
 4. Analytics import to weight yt-topic.
+
+## EP005 controlled production (voice gate)
+
+- Stage `voicecheck` (free, new `yt-voicecheck`) runs right after `voice`: audio readable, duration vs script words, every word timed in order, silence, loudness,
+  list of risky pronunciations with timestamps. `FAIL` blocks captions/render; otherwise the result is `NEEDS_HUMAN_LISTEN` (never PASS). The storyboard is re-timed
+  from the real word timings and visualcheck re-runs automatically (same run, bounded passes); the narration is never re-billed.
+- `orchestrate.py render-test --slug S --seconds 30 [--run]`: first N seconds on the real timeline, a trimmed copy of the real narration and real captions into
+  `render/test/`. Plan only without `--run`. Needs the narration to exist; not the full video.
+- Billed character count now comes from yt-voice's own plan (EP005: 5,128), not from a local count.
+- `productions/neom-line/approvals/voice.json` exists with `approved: false`. Owner approval = set it to `true`, then run the command in `voice/plan.json`.

@@ -1,20 +1,21 @@
 # Release package - Here's What Satellites Show Near the Construction Site (working title, not final)
 
-Generated 2026-10-20T14:28:37Z. Nothing is published.
+Generated 2026-10-20T15:05:52Z. Nothing is published.
 
 ## Status
 - topic: done owner-approved topic
-- research: done 19 claims (14 usable), factual capacity about 5.2 min - INSUFFICIENT_FOR_6_MIN
-- facts: done 19 claims, registry ok
+- research: done 20 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN
+- facts: done 20 claims, registry ok
 - evidence: done 2 stacks + NDWI series
-- script: done 891 words = 6.1 min, 15 claims used
+- script: done 916 words = 6.2 min, 16 claims used
 - visualplan: done 59 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']
 - visuals: done 8 graphics
-- storyboard: done 72 shots, 363.673s, timing from estimate
-- visualcheck: done visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 58, 'REVIEWED': 10} of 75 items
-- voice: awaiting_approval no approvals/voice.json; plan: 4987 characters
-- captions: waiting waiting for ['voice']
-- render: waiting waiting for ['voice', 'captions']
+- storyboard: done 83 shots, 373.878s, timing from estimate
+- visualcheck: done visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 62, 'REVIEWED': 10} of 79 items
+- voice: awaiting_approval approvals/voice.json: approved is not true; plan: 5128 characters
+- voicecheck: waiting waiting for ['voice']
+- captions: waiting waiting for ['voicecheck']
+- render: waiting waiting for ['voice', 'voicecheck', 'captions']
 - qc: waiting waiting for ['render']
 
 ## Autonomy (what was automated)
@@ -28,6 +29,7 @@ Generated 2026-10-20T14:28:37Z. Nothing is published.
 - storyboard: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - visualcheck: FULLY_AUTOMATED / now FULLY_AUTOMATED / agent artifact, then code
 - voice: OWNER_REQUIRED / now OWNER_REQUIRED / -
+- voicecheck: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
 - captions: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
 - render: OWNER_REQUIRED / now OWNER_REQUIRED / -
 - qc: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
@@ -47,22 +49,23 @@ Generated 2026-10-20T14:28:37Z. Nothing is published.
 - C6 [media/low] Dezeen reported (Nov 2025) aerial photos of large, repetitive worker housing in the NEOM area. (Dezeen, 2025-11-10, https://www.dezeen.com/2025/11/10/neom-worker-housing-aerial-photos/)
 - C7 [media/low] The Wall Street Journal reported (Mar 2025) more than 50 billion dollars spent on NEOM. (WSJ post on X, 2025-03-08, https://x.com/WSJ/status/1898659133521326373)
 - C8 [media/low] Soar's analysis reported (Jun 2023) a faint straight earthwork in satellite imagery of the site. (Middle East Eye, 2023-06-01, https://www.middleeasteye.net/news/saudi-arabia-neom-line-satellite-images-progress-construction)
-- C9 [observation/high] A straight, narrow cleared corridor crosses the area, at least 21.9 km long inside our 10 m frame: absent in 2020-21, faint in 2022, clear from 2023.
-- C10 [observation/high] A dark segment about 1.6 km long is absent in Oct 2022 and 2023 and present in Oct 2024, 2025 and 2026.
+- C9 [observation/high] A straight, narrow cleared corridor crosses the area, at least 15 km long inside our 10 m frame: absent in 2020-21, faint in 2022, clear from 2023.
+- C10 [observation/high] A dark segment is absent in Oct 2022 and 2023 and present in Oct 2024, 2025 and 2026: about 1.6 km long in 2024 and 2025 and about 1.9 km long in 2026, measured at 10 m.
 - C11 [observation/medium] In 2024, 2025 and 2026 the dark segment is water-like in near-infrared (NDWI above zero, very low near-infrared); in 2022 and 2023 no pixel qualifies.
 - C12 [observation/medium] Measured at 10 m, the segment is about 1.6 km long in Oct 2025 and about 1.9 km in Oct 2026; we cannot tell growth from water level or a threshold effect.
-- C13 [observation/medium] Landsat 8 at 30 m independently shows the same segment: about 0.7 km in Oct 2024 and about 1.65 km in Oct 2025 and Sep 2026.
+- C13 [observation/medium] Landsat 8 at 30 m shows the same segment but measures it differently: about 0.7 km in Oct 2024 (Sentinel-2: 1.6 km) and about 1.65 km in Oct 2025 and Sep 2026 (Sentinel-2: 1.6 and 1.9 km); the Landsat and Sentinel-2 scenes are two to three weeks apart.
 - C14 [observation/medium] The segment appears on three different dates and on three different Sentinel-2 satellites (2A, 2B and 2C) in 2024, 2025 and 2026.
 - C15 [observation/high] Each pixel in our Sentinel-2 frames covers 10 meters of ground.
 - C16 [observation/high] Seven Sentinel-2 scenes, all from the same orbit, taken in late September or October of each year from 2020 to 2026.
 - C18 [hypothesis/low] The dark segment may be standing water in a long, narrow excavation.
 - C17 [observation/medium] A settlement-like complex at the western end of our frame grows from a small compound in 2020 to a large planned street grid by 2024; what it is is unknown.
 - C19 [observation/medium] A second settlement-like complex at the eastern end of our frame grows from sparse tracks in 2020 to a planned street grid with buildings by 2024; what it is is unknown.
+- C20 [original/medium] The Line is part of NEOM, on Saudi Arabia's Red Sea coast. (Gulf News and Dezeen on the Hidden Marina, 2025-02-17, https://gulfnews.com/business/property/saudi-arabia-neom-unveils-hidden-marina-as-first-phase-of-the-line-1.500037889)
 
 ## Costs
 - none (no paid action taken)
 
 ## Package is INCOMPLETE
-Pending: voice, captions, render, qc
+Pending: voice, voicecheck, captions, render, qc
 
 **Owner question: approve the paid step(s) listed as awaiting_approval, or change?**

@@ -4,15 +4,13 @@ So we pointed free satellite images at the same stretch of desert, year after ye
 
 In 2022, a faint line.
 
-By 2026, a long straight corridor, and one dark segment about 1.6 kilometers long.
+By 2026, a long straight corridor, and one dark segment between 1.6 and 1.9 kilometers long.
 
 Here is what that is, and what it is not.
 
 The project is called The Line, part of NEOM, on Saudi Arabia's Red Sea coast.
 
 It was announced as one straight city, 170 kilometers long.
-
-That is a little shorter than the drive from Los Angeles to San Diego.
 
 The frame on screen is only a fraction of that length. The full line would run far past both edges.
 
@@ -58,7 +56,7 @@ In October 2022, a faint, straight line appears.
 
 By 2023, the line is a clear cleared corridor, narrow and perfectly straight.
 
-It crosses our frame for at least 22 kilometers, heading just south of east.
+It crosses our frame for at least 15 kilometers.
 
 And it is still there in 2026.
 
@@ -76,7 +74,7 @@ In October 2022 and 2023, nothing dark is here.
 
 In October 2024, a dark segment appears.
 
-In 2025 and 2026, it is still there, about 1.6 kilometers long.
+In 2025 and 2026, it is still there, about 1.6 to 1.9 kilometers long.
 
 In near-infrared light, the segment looks like water.
 
@@ -92,9 +90,13 @@ We tried to break our own result.
 
 First, was it a one-day accident? No. The segment appears on three different dates and on three different Sentinel-2 satellites in 2024, 2025 and 2026.
 
-Second, does a different satellite agree? Landsat 8, at 30 meters per pixel, shows the same segment.
+Second, does a different satellite agree? Landsat 8, at 30 meters per pixel, shows the same segment, but measures it differently.
 
-It measures about 0.7 kilometers in October 2024, and about 1.65 kilometers in October 2025 and September 2026.
+It gives about 0.7 kilometers in October 2024, where Sentinel-2 says 1.6.
+
+It gives about 1.65 kilometers in October 2025 and September 2026.
+
+The two sets of scenes are two to three weeks apart, so we cannot tell whether the gap is resolution or timing.
 
 Third, how long is it? At 10 meters, about 1.6 kilometers in October 2025, and about 1.9 kilometers in October 2026.
 
@@ -106,7 +108,7 @@ That is the honest result: three checks agree it is real, and one number refuses
 
 So what can we not say?
 
-These images show no buildings.
+At this resolution, we cannot identify any building along the corridor itself.
 
 They are not a picture of a finished city.
 
@@ -126,7 +128,7 @@ Promised: a city 170 kilometers long.
 
 Reported: about 2.4 kilometers by 2030, and work halted until at least after 2030.
 
-Observed: one straight corridor, and one dark segment about 1.6 kilometers long.
+Observed: one straight corridor, and one dark segment between 1.6 and 1.9 kilometers long.
 
 The satellites keep passing, so the picture keeps updating, whatever anyone announces.
 

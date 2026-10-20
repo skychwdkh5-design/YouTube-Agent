@@ -123,8 +123,8 @@
   {
    "id": "C9",
    "tier": "observation",
-   "text": "A straight, narrow cleared corridor crosses the area, at least 21.9 km long inside our 10 m frame: absent in 2020-21, faint in 2022, clear from 2023.",
-   "short": "Straight corridor, 22+ km in frame",
+   "text": "A straight, narrow cleared corridor crosses the area, at least 15 km long inside our 10 m frame: absent in 2020-21, faint in 2022, clear from 2023.",
+   "short": "Straight corridor, 15+ km in frame",
    "confidence": "high",
    "confidence_reason": "observation basis two_checks",
    "evidence": "evidence/stack/provenance.json",
@@ -144,8 +144,8 @@
   {
    "id": "C10",
    "tier": "observation",
-   "text": "A dark segment about 1.6 km long is absent in Oct 2022 and 2023 and present in Oct 2024, 2025 and 2026.",
-   "short": "Dark segment, about 1.6 km",
+   "text": "A dark segment is absent in Oct 2022 and 2023 and present in Oct 2024, 2025 and 2026: about 1.6 km long in 2024 and 2025 and about 1.9 km long in 2026, measured at 10 m.",
+   "short": "Dark segment, 1.6 to 1.9 km",
    "confidence": "high",
    "confidence_reason": "observation basis two_checks",
    "evidence": "evidence/ndwi.json",
@@ -186,7 +186,7 @@
       35.224,
       28.1062
      ],
-     "text": "about 1.6 km"
+     "text": "1.6 to 1.9 km"
     }
    ],
    "anchor": [
@@ -262,8 +262,8 @@
   {
    "id": "C13",
    "tier": "observation",
-   "text": "Landsat 8 at 30 m independently shows the same segment: about 0.7 km in Oct 2024 and about 1.65 km in Oct 2025 and Sep 2026.",
-   "short": "Landsat 30 m agrees",
+   "text": "Landsat 8 at 30 m shows the same segment but measures it differently: about 0.7 km in Oct 2024 (Sentinel-2: 1.6 km) and about 1.65 km in Oct 2025 and Sep 2026 (Sentinel-2: 1.6 and 1.9 km); the Landsat and Sentinel-2 scenes are two to three weeks apart.",
+   "short": "Landsat 30 m: same segment, other length",
    "confidence": "medium",
    "confidence_reason": "observation basis one_check",
    "evidence": "research/evidence/landsat_measure.json",
@@ -378,6 +378,20 @@
     28.1141
    ],
    "compare_km": 3.5
+  },
+  {
+   "id": "C20",
+   "tier": "original",
+   "text": "The Line is part of NEOM, on Saudi Arabia's Red Sea coast.",
+   "short": "The Line: part of NEOM, Red Sea coast",
+   "confidence": "medium",
+   "confidence_reason": "search summary, 2 independent outlets",
+   "wording": null,
+   "attribution": "Gulf News and Dezeen on the Hidden Marina",
+   "date": "2025-02-17",
+   "url": "https://gulfnews.com/business/property/saudi-arabia-neom-unveils-hidden-marina-as-first-phase-of-the-line-1.500037889",
+   "source_access": "summary_only",
+   "source_kind": "search_summary"
   }
  ]
 }

@@ -388,6 +388,29 @@ class WithVoiceStub(Base):
         n = len(self.state()["costs"])
         self.run_all()
         self.assertEqual(len(self.state()["costs"]), n)                              # not re-billed
+        self.assertEqual(out["stages"]["voicecheck"], "done")
+        vc = json.load(open(self.p("voice", "voicecheck.json")))
+        self.assertEqual(vc["result"], "NEEDS_HUMAN_LISTEN")                          # never "PASS": pronunciation needs a human ear
+        self.assertTrue(any(r["word"].lower().startswith("neom") for r in vc["risky"]))
+        # short render test: plan only by default, then a real short render of the first seconds
+        r = self.orch("render-test", "--slug", self.slug, "--seconds", "20", env=env)[0]
+        self.assertIn(r["status"], ("confirm_required", "ok"), r)
+        self.assertFalse(os.path.exists(self.p("render", "test", "test.mp4")))
+        r = self.orch("render-test", "--slug", self.slug, "--seconds", "20", "--run", env=env)[0]
+        self.assertTrue(os.path.exists(self.p("render", "test", "test.mp4")), r)
+        self.assertFalse(os.path.exists(self.p("render", "final.mp4")))
+
+    def test_silent_narration_blocks_captions(self):
+        self.agent_artifacts()
+        self.run_all()
+        env = dict(self.env, OA_VOICE_TOOL=os.path.join(HERE, "tests", "fake_voice.py"), FAKE_VOICE_SILENT="1")
+        plan = json.load(open(self.p("voice", "plan.json")))
+        os.makedirs(self.p("approvals"), exist_ok=True)
+        json.dump({"approved": True, "script_sha256": plan["script_sha256"], "max_chars": plan["chars"] + 10}, open(self.p("approvals", "voice.json"), "w"))
+        out = self.orch("run", "--slug", self.slug, "--allow-paid", env=env)[0]
+        self.assertEqual(out["stages"]["voicecheck"], "blocked", out)
+        self.assertNotEqual(out["stages"]["captions"], "done")
+        self.assertEqual(self.orch("render-test", "--slug", self.slug, env=env)[1], 1)
 
 
 if __name__ == "__main__":

@@ -8,7 +8,7 @@
   882,
   1323
  ],
- "factual_capacity_words": 770,
+ "factual_capacity_words": 825,
  "insufficient_facts": false,
  "chapters": [
   {
@@ -23,7 +23,8 @@
    "id": "promise",
    "title": "The promise",
    "claims": [
-    "C1"
+    "C1",
+    "C20"
    ]
   },
   {
@@ -125,13 +126,13 @@
   "C9": {
    "tier": "observation",
    "confidence": "high",
-   "text": "A straight, narrow cleared corridor crosses the area, at least 21.9 km long inside our 10 m frame: absent in 2020-21, faint in 2022, clear from 2023.",
+   "text": "A straight, narrow cleared corridor crosses the area, at least 15 km long inside our 10 m frame: absent in 2020-21, faint in 2022, clear from 2023.",
    "wording": null
   },
   "C10": {
    "tier": "observation",
    "confidence": "high",
-   "text": "A dark segment about 1.6 km long is absent in Oct 2022 and 2023 and present in Oct 2024, 2025 and 2026.",
+   "text": "A dark segment is absent in Oct 2022 and 2023 and present in Oct 2024, 2025 and 2026: about 1.6 km long in 2024 and 2025 and about 1.9 km long in 2026, measured at 10 m.",
    "wording": null
   },
   "C11": {
@@ -149,7 +150,7 @@
   "C13": {
    "tier": "observation",
    "confidence": "medium",
-   "text": "Landsat 8 at 30 m independently shows the same segment: about 0.7 km in Oct 2024 and about 1.65 km in Oct 2025 and Sep 2026.",
+   "text": "Landsat 8 at 30 m shows the same segment but measures it differently: about 0.7 km in Oct 2024 (Sentinel-2: 1.6 km) and about 1.65 km in Oct 2025 and Sep 2026 (Sentinel-2: 1.6 and 1.9 km); the Landsat and Sentinel-2 scenes are two to three weeks apart.",
    "wording": null
   },
   "C14": {
@@ -186,6 +187,12 @@
    "tier": "observation",
    "confidence": "medium",
    "text": "A second settlement-like complex at the eastern end of our frame grows from sparse tracks in 2020 to a planned street grid with buildings by 2024; what it is is unknown.",
+   "wording": null
+  },
+  "C20": {
+   "tier": "original",
+   "confidence": "medium",
+   "text": "The Line is part of NEOM, on Saudi Arabia's Red Sea coast.",
    "wording": null
   }
  }

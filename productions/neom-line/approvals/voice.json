@@ -1,0 +1,10 @@
+{
+  "approved": false,
+  "script_sha256": "bd6c5f3e4a0cc43d3462da39e9d27c9db36fff968d8a734c9800413d96350a56",
+  "max_chars": 5128,
+  "provider": "elevenlabs",
+  "model_id": "eleven_multilingual_v2",
+  "voice": "Adam (pNInz6obpgDQGcFmaJgB)",
+  "expected_max_credits": 5128,
+  "note": "NOT APPROVED. The owner sets approved to true only after reading the final script. Any later edit of script.md changes the hash and voids this file."
+}

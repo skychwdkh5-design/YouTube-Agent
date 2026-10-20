@@ -4,13 +4,12 @@
 Saudi Arabia announced a city 170 kilometers long. {C1} That is about 105 miles. {C1}
 So we pointed free satellite images at the same stretch of desert, year after year. {C16}
 In 2022, a faint line. {C9}
-By 2026, a long straight corridor, and one dark segment about 1.6 kilometers long. {C10}
+By 2026, a long straight corridor, and one dark segment between 1.6 and 1.9 kilometers long. {C10}
 Here is what that is, and what it is not.
 
 ## promise: The promise
-The project is called The Line, part of NEOM, on Saudi Arabia's Red Sea coast.
+The project is called The Line, part of NEOM, on Saudi Arabia's Red Sea coast. {C20}
 It was announced as one straight city, 170 kilometers long. {C1}
-That is a little shorter than the drive from Los Angeles to San Diego.
 The frame on screen is only a fraction of that length. The full line would run far past both edges.
 That promise is the first of three things we will keep apart in this video.
 The second is what the news has reported. The third is what a satellite can actually see.
@@ -39,7 +38,7 @@ We also checked every frame for clouds.
 Start with 2020 and 2021, when the ground here is empty desert. {C9}
 In October 2022, a faint, straight line appears. {C9}
 By 2023, the line is a clear cleared corridor, narrow and perfectly straight. {C9}
-It crosses our frame for at least 22 kilometers, heading just south of east. {C9}
+It crosses our frame for at least 15 kilometers. {C9}
 And it is still there in 2026. {C9}
 Along the way, two large settlement-like complexes, one at each end of our frame, grow between 2020 and 2024. {C17,C19}
 From orbit, we cannot tell what they are. {L}
@@ -50,7 +49,7 @@ What we cannot say is what the corridor is for. {L}
 Now zoom in on one stretch of that corridor.
 In October 2022 and 2023, nothing dark is here. {C10}
 In October 2024, a dark segment appears. {C10}
-In 2025 and 2026, it is still there, about 1.6 kilometers long. {C10}
+In 2025 and 2026, it is still there, about 1.6 to 1.9 kilometers long. {C10}
 In near-infrared light, the segment looks like water. {C11}
 That is a useful clue, because a shadow does not behave that way. A shadow is dark in every color band. Water is not.
 In 2022 and 2023, no pixel here qualifies. {C11}
@@ -60,8 +59,10 @@ But that is a hypothesis, and it could be wrong. {C18}
 ## checks: How we tried to break it
 We tried to break our own result.
 First, was it a one-day accident? No. The segment appears on three different dates and on three different Sentinel-2 satellites in 2024, 2025 and 2026. {C14}
-Second, does a different satellite agree? Landsat 8, at 30 meters per pixel, shows the same segment. {C13}
-It measures about 0.7 kilometers in October 2024, and about 1.65 kilometers in October 2025 and September 2026. {C13}
+Second, does a different satellite agree? Landsat 8, at 30 meters per pixel, shows the same segment, but measures it differently. {C13}
+It gives about 0.7 kilometers in October 2024, where Sentinel-2 says 1.6. {C13}
+It gives about 1.65 kilometers in October 2025 and September 2026. {C13}
+The two sets of scenes are two to three weeks apart, so we cannot tell whether the gap is resolution or timing. {L}
 Third, how long is it? At 10 meters, about 1.6 kilometers in October 2025, and about 1.9 kilometers in October 2026. {C12}
 That difference of 0.3 kilometers could be growth. {C12} It could also be a different water level, or just where our threshold falls. {C12}
 So we do not claim that the segment grew. We cannot tell. {L}
@@ -69,7 +70,7 @@ That is the honest result: three checks agree it is real, and one number refuses
 
 ## limits: What we cannot say
 So what can we not say?
-These images show no buildings. {L}
+At this resolution, we cannot identify any building along the corridor itself. {L}
 They are not a picture of a finished city. {L}
 We cannot prove that this corridor is The Line. {L}
 We had no official NEOM map to match it against, and matching would take sources we could not open. {L}
@@ -81,6 +82,6 @@ Official figures and the full original reports would change how sure we can be.
 Keep three words in your head: promised, reported, observed.
 Promised: a city 170 kilometers long. {C1}
 Reported: about 2.4 kilometers by 2030, and work halted until at least after 2030. {C2,C3}
-Observed: one straight corridor, and one dark segment about 1.6 kilometers long. {C9,C10}
+Observed: one straight corridor, and one dark segment between 1.6 and 1.9 kilometers long. {C9,C10}
 The satellites keep passing, so the picture keeps updating, whatever anyone announces.
 Next time you see a number about NEOM, ask which of the three it is.
