@@ -107,11 +107,11 @@
   },
   "visualplan": {
    "status": "done",
-   "attempts": 7,
-   "started": "2026-10-20T13:51:57Z",
+   "attempts": 12,
+   "started": "2026-10-20T14:03:34Z",
    "error": null,
-   "finished": "2026-10-20T13:51:57Z",
-   "note": "42 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']",
+   "finished": "2026-10-20T14:03:35Z",
+   "note": "59 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']",
    "inputs": {
     "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
@@ -122,23 +122,23 @@
     "research/brief.json": "ef7471a882fdb9587b1ad40adc7f5984f72d8a48e4589eb6b2a457386688aea0",
     "research/notes.json": "acf9223e30b6fe55e3a5abccfde115d524a7d39e1fb5ff64ed1b7beacf839dcc",
     "script.md": "df0474d6acdc4aedd638e3b2ab6adb016ed6e7576ca520a35e53f3ff4b13ac45",
-    "_tool": "0973ceb91a0a3920"
+    "_tool": "7b3cb742d6a17e4a"
    },
    "outputs": {
-    "episode.json": "8edfe5085d07dd9275e6783902e7549ef9d216fe8863fb699383e9f902e0cfed",
+    "episode.json": "c0927dc7417f66ea847d80b04d34b6dc4d8e77aa84729f03dc82ee5caf740065",
     "graphics_spec.json": "0ac9feec98cb024441234d34f8019ae27d7553e1b37054df4aff5ae24d9a0cea"
    },
    "agent_artifacts": {}
   },
   "visuals": {
    "status": "done",
-   "attempts": 7,
-   "started": "2026-10-20T13:51:57Z",
+   "attempts": 11,
+   "started": "2026-10-20T14:03:35Z",
    "error": null,
-   "finished": "2026-10-20T13:52:03Z",
+   "finished": "2026-10-20T14:03:41Z",
    "note": "8 graphics",
    "inputs": {
-    "episode.json": "8edfe5085d07dd9275e6783902e7549ef9d216fe8863fb699383e9f902e0cfed",
+    "episode.json": "c0927dc7417f66ea847d80b04d34b6dc4d8e77aa84729f03dc82ee5caf740065",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
@@ -161,14 +161,14 @@
   },
   "storyboard": {
    "status": "done",
-   "attempts": 8,
-   "started": "2026-10-20T13:52:33Z",
+   "attempts": 12,
+   "started": "2026-10-20T14:03:41Z",
    "error": null,
-   "finished": "2026-10-20T13:52:34Z",
-   "note": "69 shots, 363.673s, timing from estimate",
+   "finished": "2026-10-20T14:03:41Z",
+   "note": "72 shots, 363.673s, timing from estimate",
    "inputs": {
     "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
-    "episode.json": "8edfe5085d07dd9275e6783902e7549ef9d216fe8863fb699383e9f902e0cfed",
+    "episode.json": "c0927dc7417f66ea847d80b04d34b6dc4d8e77aa84729f03dc82ee5caf740065",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
@@ -184,49 +184,49 @@
     "graphics/g_tiers.png": "a9824c2e2badc92353bef4136f7e062a767a9db4a9edabb3e1c03ea3feb76854",
     "research/brief.json": "ef7471a882fdb9587b1ad40adc7f5984f72d8a48e4589eb6b2a457386688aea0",
     "script.md": "df0474d6acdc4aedd638e3b2ab6adb016ed6e7576ca520a35e53f3ff4b13ac45",
-    "_tool": "cf4e9030a66478e3"
+    "_tool": "a0eb3092a4fad6ea"
    },
    "outputs": {
-    "story/storyboard.json": "93f67248e5f43922780ebd63eaad840a5847acbb7934be6d20c11a389e010c9a",
-    "timeline.json": "cd2606168b0a2cb7e3d58f1569bf2f372ad044cd6c7931a5d699051736dc8699",
-    "story/labels.json": "4a088503045026c3cb5db4c95fc283bac450f13f844b193f59dd0e7451a545a3",
-    "story/report.md": "36ac696e8e7f2efb075fc2336ba8d68a8d306c24e178cdea827b97b9bb961961"
+    "story/storyboard.json": "245ff78aa99c056a539cf3bc9f12fa0a2a2eef91f7570fc83eca2a14a9e74671",
+    "timeline.json": "4a12b5523528f766368c71201352336bfa01aa005c2b902a73526d370941b8ba",
+    "story/labels.json": "615d70e4416c310e7585c5700f67c4f5dd4aecc4ed1575e710c650b2d92ed34a",
+    "story/report.md": "547a7f59b1a824c4316bfd1d19d5a846bd7535f4f908cd4e4cd54c8ed60cf3d2"
    },
    "agent_artifacts": {}
   },
   "visualcheck": {
    "status": "done",
-   "attempts": 19,
-   "started": "2026-10-20T13:53:37Z",
+   "attempts": 28,
+   "started": "2026-10-20T14:03:41Z",
    "error": null,
-   "finished": "2026-10-20T13:53:42Z",
-   "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 45, 'REVIEWED': 10}",
+   "finished": "2026-10-20T14:03:45Z",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 58, 'REVIEWED': 10}",
    "outputs": {
-    "qa/visual_claims.json": "718e53d439cc3919d576d0195fbb1251e2ca9b9f34f47287e42da8e164a5c602",
-    "qa/visual_claims.md": "76e81a5de4c7553c85bb747c0003da62b753ce5296f139057dbe57ef8b331e4e"
+    "qa/visual_claims.json": "ae6498239a9cecf5abb963a68963de03dc4d392eed7aacf8f849acf942ab0689",
+    "qa/visual_claims.md": "63bce9dca6f280ee3fbda548cb8f2884bf30f8d39d07567aef2ee7c8a34b01a1"
    },
    "inputs": {
     "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
-    "episode.json": "8edfe5085d07dd9275e6783902e7549ef9d216fe8863fb699383e9f902e0cfed",
+    "episode.json": "c0927dc7417f66ea847d80b04d34b6dc4d8e77aa84729f03dc82ee5caf740065",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
-    "qa/visual_review.json": "990e3709385118fa10fd3ec57371dd5c003f1e43a7be785e8a1bb2360a9e22b5",
-    "story/labels.json": "4a088503045026c3cb5db4c95fc283bac450f13f844b193f59dd0e7451a545a3",
-    "story/report.md": "36ac696e8e7f2efb075fc2336ba8d68a8d306c24e178cdea827b97b9bb961961",
-    "story/storyboard.json": "93f67248e5f43922780ebd63eaad840a5847acbb7934be6d20c11a389e010c9a",
-    "timeline.json": "cd2606168b0a2cb7e3d58f1569bf2f372ad044cd6c7931a5d699051736dc8699",
+    "qa/visual_review.json": "d669fd4acc38b1f6b0f5757449bafea0b5b8cad6c2c0ed93e352f1e7304dd01a",
+    "story/labels.json": "615d70e4416c310e7585c5700f67c4f5dd4aecc4ed1575e710c650b2d92ed34a",
+    "story/report.md": "547a7f59b1a824c4316bfd1d19d5a846bd7535f4f908cd4e4cd54c8ed60cf3d2",
+    "story/storyboard.json": "245ff78aa99c056a539cf3bc9f12fa0a2a2eef91f7570fc83eca2a14a9e74671",
+    "timeline.json": "4a12b5523528f766368c71201352336bfa01aa005c2b902a73526d370941b8ba",
     "_tool": "f977b2b9d32a6b39"
    },
    "agent_artifacts": {
-    "qa/visual_review.json": "990e3709385118fa10fd3ec57371dd5c003f1e43a7be785e8a1bb2360a9e22b5"
+    "qa/visual_review.json": "d669fd4acc38b1f6b0f5757449bafea0b5b8cad6c2c0ed93e352f1e7304dd01a"
    }
   },
   "voice": {
    "status": "awaiting_approval",
-   "attempts": 2,
+   "attempts": 8,
    "note": "no approvals/voice.json; plan: 4987 characters",
-   "started": "2026-10-20T13:53:42Z",
+   "started": "2026-10-20T14:03:45Z",
    "error": null,
-   "finished": "2026-10-20T13:53:42Z",
+   "finished": "2026-10-20T14:03:45Z",
    "outputs": {
     "voice/plan.json": "e8c69fb4f3b9c02f3f57d502cb06a75ff04a26633ba42d7921d01bd849d46f26"
    }
@@ -248,23 +248,23 @@
   },
   "release": {
    "status": "done",
-   "attempts": 20,
-   "started": "2026-10-20T13:53:42Z",
+   "attempts": 32,
+   "started": "2026-10-20T14:03:45Z",
    "error": null,
-   "finished": "2026-10-20T13:53:42Z",
+   "finished": "2026-10-20T14:03:45Z",
    "note": "incomplete",
    "inputs": {
     "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
-    "qa/visual_claims.json": "718e53d439cc3919d576d0195fbb1251e2ca9b9f34f47287e42da8e164a5c602",
-    "story/labels.json": "4a088503045026c3cb5db4c95fc283bac450f13f844b193f59dd0e7451a545a3",
-    "story/report.md": "36ac696e8e7f2efb075fc2336ba8d68a8d306c24e178cdea827b97b9bb961961",
-    "story/storyboard.json": "93f67248e5f43922780ebd63eaad840a5847acbb7934be6d20c11a389e010c9a",
-    "timeline.json": "cd2606168b0a2cb7e3d58f1569bf2f372ad044cd6c7931a5d699051736dc8699",
+    "qa/visual_claims.json": "ae6498239a9cecf5abb963a68963de03dc4d392eed7aacf8f849acf942ab0689",
+    "story/labels.json": "615d70e4416c310e7585c5700f67c4f5dd4aecc4ed1575e710c650b2d92ed34a",
+    "story/report.md": "547a7f59b1a824c4316bfd1d19d5a846bd7535f4f908cd4e4cd54c8ed60cf3d2",
+    "story/storyboard.json": "245ff78aa99c056a539cf3bc9f12fa0a2a2eef91f7570fc83eca2a14a9e74671",
+    "timeline.json": "4a12b5523528f766368c71201352336bfa01aa005c2b902a73526d370941b8ba",
     "_tool": "e3b0c44298fc1c14"
    },
    "outputs": {
-    "release/REVIEW.md": "277bcb418a50d721a1cfb72a5afda2b76eb2f376f518354c25ee660f5dc44551",
-    "story/report.md": "36ac696e8e7f2efb075fc2336ba8d68a8d306c24e178cdea827b97b9bb961961"
+    "release/REVIEW.md": "7c4efe04f8c3c44753ee61a3624e19354c259b56d36add3957d12a8cbbf97722",
+    "story/report.md": "547a7f59b1a824c4316bfd1d19d5a846bd7535f4f908cd4e4cd54c8ed60cf3d2"
    },
    "agent_artifacts": {}
   }
@@ -936,7 +936,387 @@
    "stage": "release",
    "event": "done",
    "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:01:59Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:01:59Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "42 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']"
+  },
+  {
+   "at": "2026-10-20T14:01:59Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:02:06Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "8 graphics"
+  },
+  {
+   "at": "2026-10-20T14:02:06Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:02:06Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "69 shots, 363.673s, timing from estimate"
+  },
+  {
+   "at": "2026-10-20T14:02:06Z",
+   "stage": "visualcheck",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:02:10Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T14:02:10Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:02:10Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:02:15Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T14:02:15Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:02:15Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:02:26Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:02:26Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "43 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']"
+  },
+  {
+   "at": "2026-10-20T14:02:26Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:02:32Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "8 graphics"
+  },
+  {
+   "at": "2026-10-20T14:02:32Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:02:33Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "69 shots, 363.673s, timing from estimate"
+  },
+  {
+   "at": "2026-10-20T14:02:37Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T14:02:37Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:02:37Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:02:42Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T14:02:42Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:02:42Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:02:53Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:02:53Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "43 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']"
+  },
+  {
+   "at": "2026-10-20T14:02:58Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T14:02:58Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:02:58Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:03:02Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T14:03:02Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:03:02Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:03:07Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 46, 'REVIEWED': 10}"
+  },
+  {
+   "at": "2026-10-20T14:03:07Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 4987 characters"
+  },
+  {
+   "at": "2026-10-20T14:03:07Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:03:07Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:03:07Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 4987 characters"
+  },
+  {
+   "at": "2026-10-20T14:03:07Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:03:07Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:03:14Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:03:14Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "43 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']"
+  },
+  {
+   "at": "2026-10-20T14:03:14Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:03:20Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "8 graphics"
+  },
+  {
+   "at": "2026-10-20T14:03:20Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:03:21Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "69 shots, 363.673s, timing from estimate"
+  },
+  {
+   "at": "2026-10-20T14:03:21Z",
+   "stage": "visualcheck",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:03:25Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 46, 'REVIEWED': 10}"
+  },
+  {
+   "at": "2026-10-20T14:03:25Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 4987 characters"
+  },
+  {
+   "at": "2026-10-20T14:03:25Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:03:25Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:03:25Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 4987 characters"
+  },
+  {
+   "at": "2026-10-20T14:03:25Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:03:25Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:03:34Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:03:35Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "59 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']"
+  },
+  {
+   "at": "2026-10-20T14:03:35Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:03:41Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "8 graphics"
+  },
+  {
+   "at": "2026-10-20T14:03:41Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:03:41Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "72 shots, 363.673s, timing from estimate"
+  },
+  {
+   "at": "2026-10-20T14:03:41Z",
+   "stage": "visualcheck",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:03:45Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 58, 'REVIEWED': 10}"
+  },
+  {
+   "at": "2026-10-20T14:03:45Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 4987 characters"
+  },
+  {
+   "at": "2026-10-20T14:03:45Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:03:45Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:03:45Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 4987 characters"
+  },
+  {
+   "at": "2026-10-20T14:03:45Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:03:45Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
   }
  ],
- "updated": "2026-10-20T13:53:42Z"
+ "updated": "2026-10-20T14:03:45Z"
 }

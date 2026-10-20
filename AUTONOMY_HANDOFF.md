@@ -1,44 +1,29 @@
-# AUTONOMY_HANDOFF (updated 2026-10-20)
+# AUTONOMY_HANDOFF (updated 2026-10-20, round 3)
 
-Goal: "Создай новый ролик" runs topic -> research -> fact check -> evidence -> script -> storyboard -> media -> QC -> release package; the owner only approves the result and paid steps.
-Branch: `ep005/neom-research` (never main). Read `docs/ENVIRONMENT.md` first.
+Branch `ep005/neom-research` (never main). Read `docs/ENVIRONMENT.md`, then `docs/AUTONOMY_REPORT.md` (measured autonomy per stage).
 
-## Built and tested (this session)
-| Piece | Where | Tests |
-|---|---|---|
-| Orchestrator (state machine, resume, dry-run, hashes, paid/heavy gates, release package) | `.claude/skills/yt-orchestrate/` | 15 end-to-end tests on EP005 (`test_orchestrate.py`): pipeline to the paid gate, idempotent rerun, state.json, hard-crash resume, changed-output detection, edited-script partial rerun, single-stage force, dry-run, claim blocks, paid blocks, max_chars, voice->captions->retimed storyboard->render gate (voice stubbed, no cost) |
-| yt-facts (claims gate for script and on-screen text) | `.claude/skills/yt-facts/` | 13 unit tests |
-| yt-sentinel (Sentinel-2 10 m search, same-orbit pick, UTM stack, provenance, NDWI) | `.claude/skills/yt-sentinel/` | 9 offline tests + live test (`YT_SENTINEL_LIVE=1`, passed) |
-| yt-topic (collect, imagery check, transparent score) | `.claude/skills/yt-topic/` | 13 unit tests on saved EP005 data; live `collect` verified |
-| yt-storyboard (script + visual vocabulary -> timeline v3 long + labels + report) | `.claude/skills/yt-storyboard/` | 9 unit tests; used by the orchestrator tests |
-| EP005 as the reference production | `productions/neom-line/` | runs end to end with real Sentinel-2 imagery |
+## Done and tested
+- Round 2: yt-orchestrate (state machine, resume, hashes, gates), yt-topic, yt-facts, yt-sentinel, yt-storyboard.
+- Round 3: **yt-research** (provenance journal, derived confidence, claims.json built from notes), **yt-script-agent** (brief + acceptance gate, honest INSUFFICIENT_FACTS), **yt-visual-planner**
+  (episode.json + graphics_spec.json generated), **yt-visualcheck** (per-caption source/frame/wording audit; NEEDS_VISUAL_REVIEW is never auto-passed), orchestrator integration with
+  FULLY_AUTOMATED / AGENT_REQUIRED / OWNER_REQUIRED classes, invalidation of stale downstream stages, task packets for the agent.
+- EP005 regenerated from `research/notes.json` + `script.md` only: 891 words (6.1 min), 69 shots, 62 audited on-screen items, stopped at the owner's voice gate (4,987 characters, nothing paid).
 
-## Autonomous now
-Everything up to the voice gate for an episode that has `episode.json`, `claims.json`, `script.md`, `graphics_spec.json` (evidence, graphics, fact lint, storyboard, renderer plan, release package are fully automatic). Resume is automatic.
-After approval: voice -> captions -> storyboard retime -> render -> QC run by the same command (voice->captions->retime->render plan verified with a stub; the real paid call and the full render are NOT exercised yet).
+## What the owner still does
+Approve voice (`approvals/voice.json` with the current `script_sha256`, then `--allow-paid`), approve the full render (`approvals/render.json`, `--allow-render`), publishing, anything on main.
 
-## Still manual (agent judgement, by design)
-1. Topic ratings (us/se/no/dk/intl/visual/curiosity/evidence/monetization with rationale) and candidate collection queries.
-2. Research and `claims.json` (sources are read by the agent; primaries are unreachable here).
-3. Writing `script.md`, `episode.json` visual vocabulary and `graphics_spec.json`.
-4. Review that each frame supports its caption (no tool checks meaning), and the owner's approvals: voice, render, publish.
+## What the agent still does (cannot be code)
+Reading sources and writing `research/notes.json`; writing `script.md`; reviewing frames code cannot judge; rating topic candidates. Each is validated, resumable, and has a task packet.
 
-## Problems found
-- Primary sources (Reuters, Bloomberg, WSJ, CNBC, Semafor, neom.com, pif.gov.sa, Wikipedia) blocked -> every media claim is "reported", medium/low confidence.
-- EP005's script is 4:30 (660 words), below the 6-9 minute target; the storyboard warns. Adding real content (Landsat cross-check chapter, how shadows were excluded) would fix it; padding is refused.
-- One 8.2 s static hold flagged by the renderer's pacing check in the `segment` chapter.
-- yt-topic demand uses first-page channel medians (rounded), relative ages; exact dates and CTR are not available. OrbitalAtlas has no Analytics input yet.
-- Caught by tests and fixed: tag tokens counted as spoken words, missing output folders, renderer refusing unknown asset keys, graphic stretched to fill a chapter, tile edge not covering the AOI (now falls back to the next scene and records it).
-- Full render and the real ElevenLabs call have never been run in the new chain: first real run should be watched.
-
-## Owner actions for full autonomy
-1. Network: allow reuters.com, bloomberg.com, wsj.com, cnbc.com, semafor.com, neom.com, pif.gov.sa, en.wikipedia.org (and, optionally, dataspace.copernicus.eu) in the environment's Allowed domains.
-2. Provide YouTube Analytics exports (CSV) into `docs/analytics/` or API access, so yt-topic and yt-retention can use real CTR/retention.
-3. Decide EP005: approve voice (`productions/neom-line/approvals/voice.json` with the printed script hash) after the script is lengthened or accepted at 4:30.
-4. Standing approval policy for paid steps (e.g. max characters per episode) so the agent can request fewer confirmations.
+## Open items / risks
+1. Primary sources (Reuters, Bloomberg, WSJ, CNBC, Semafor, neom.com, pif.gov.sa) are blocked by the network policy -> media claims cap at medium. Owner: allow the domains.
+2. Not yet exercised in the new chain: the real ElevenLabs call, the full render + QC of a whole video, topic discovery on a fresh subject end to end. First real run should be supervised.
+3. The factual-capacity estimate (55 words per usable claim) is a heuristic; EP005 needed explanation, not new facts, to reach 6.1 minutes - the script is at the minimum.
+4. Visual review by the agent is honest but not independent; the owner can re-review (`--reviewer owner`).
+5. YouTube data: no Analytics; exact dates and first-30-seconds unavailable; YouTube page parsing may break.
 
 ## Next engineering steps
-1. A claim/frame reviewer pass (contact sheet per chapter with claim ids) in yt-qc.
-2. Auto-draft `episode.json` visuals from the evidence manifest and chapter list.
-3. Optional: a Landsat fallback in `yt-sentinel` when Sentinel-2 has no coverage; thumbnail generator from the evidence stack.
-4. Exercise the paid and render stages once, supervised.
+1. Run a fresh topic through `Создай новый ролик` end to end (topic -> research -> script) with the owner watching.
+2. Supervised first paid voice + render run; extend qc to a per-chapter contact sheet.
+3. Thumbnail generator from the evidence stack with the same claim audit.
+4. Analytics import to weight yt-topic.

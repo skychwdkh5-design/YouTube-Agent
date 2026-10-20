@@ -69,3 +69,11 @@ in area; it is the single best upgrade for CTR and visual quality.
 - yt-qc `--profile long` fails a 15 s silent clip (duration, loudness, audio start) - expected for a prototype.
 - YouTube player/caption endpoints require login: first-30-seconds analysis is not possible without bypassing it; not attempted.
 - Source hosts blocked this round as well: all primary news hosts, wikipedia, neom.com, pif.gov.sa, OSM/Overpass. Fix: Allowed domains in the environment's network settings.
+
+---
+# Update 4: round 3 (automatic research notes, script, visual planning, visual-claim audit)
+- Scenes are now picked automatically (same orbit, lowest cloud in a 09-28..10-20 window): 2026 = 2026-10-18 (earlier hand-pick was 10-08), 2022 = 2022-10-09, etc. `evidence/ndwi.json` measured the dark segment at ~1.6 km (2024, 2025) and ~1.9 km (2026): the earlier "about 1.5 km, unchanged 2025->2026" is superseded; the script says "cannot tell growth from water level or threshold".
+- Confidence is derived from source access (`yt-research`): single-outlet sources (WSJ X post, Soar/MEE, Dezeen worker housing, PIF quote) are LOW and unused in the script.
+- The visual-claim audit found that the planner's settlement shots did not show the settlements; fixed with anchors, then 14 frames were reviewed by the agent (REVIEWED_BY_AGENT, bound to frame hashes).
+- Machine-checked: date labels, NDWI presence/absence/extent, scene metadata (3 dates, 3 satellites). Not machine-checkable: corridor and settlement appearance (agent review).
+- Script v2: 891 words = 6.1 minutes (estimate at 2.45 words/s), every factual sentence tagged; no new facts were added to reach the length - added explanation (how to read the images) and the "how we tried to break it" chapter built from measured data.

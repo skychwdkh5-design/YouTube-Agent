@@ -3,7 +3,7 @@
  "overall": "OK",
  "counts": {
   "VERIFIED_SOURCE": 7,
-  "VERIFIED_DATA": 45,
+  "VERIFIED_DATA": 58,
   "REVIEWED": 10
  },
  "items": [
@@ -200,10 +200,61 @@
    }
   },
   {
-   "id": "promise_009:label:OCT 2023",
+   "id": "promise_007:label:SEP 2020",
+   "kind": "label",
+   "text": "SEP 2020",
+   "shot": "promise_007",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20200929T080731_R078_T36RYS_20201001T154846 acquired 2020-09-29",
+   "frame": {
+    "asset": "y2020"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "promise_008:label:SEP 2021",
+   "kind": "label",
+   "text": "SEP 2021",
+   "shot": "promise_008",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2B_MSIL2A_20210929T080719_R078_T36RYS_20210929T211810 acquired 2021-09-29",
+   "frame": {
+    "asset": "y2021"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "promise_009:label:OCT 2022",
+   "kind": "label",
+   "text": "OCT 2022",
+   "shot": "promise_009",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20221009T080841_R078_T36RYS_20240725T054556 acquired 2022-10-09",
+   "frame": {
+    "asset": "y2022"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "promise_010:label:OCT 2023",
    "kind": "label",
    "text": "OCT 2023",
-   "shot": "promise_009",
+   "shot": "promise_010",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051 acquired 2023-10-14",
@@ -217,10 +268,10 @@
    }
   },
   {
-   "id": "plan_012:graphic:g_reports",
+   "id": "plan_011:graphic:g_reports",
    "kind": "graphic",
    "text": "g_reports",
-   "shot": "plan_012",
+   "shot": "plan_011",
    "claims": [
     "C1",
     "C2",
@@ -282,15 +333,32 @@
    }
   },
   {
-   "id": "plan_013:label:OCT 2023",
+   "id": "plan_012:label:OCT 2024",
    "kind": "label",
-   "text": "OCT 2023",
+   "text": "OCT 2024",
+   "shot": "plan_012",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20241008T080831_R078_T36RYS_20241008T112248 acquired 2024-10-08",
+   "frame": {
+    "asset": "y2024"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "plan_013:label:OCT 2025",
+   "kind": "label",
+   "text": "OCT 2025",
    "shot": "plan_013",
    "claims": [],
    "status": "VERIFIED_DATA",
-   "why": "scene S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051 acquired 2023-10-14",
+   "why": "scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08",
    "frame": {
-    "asset": "y2023"
+    "asset": "y2025"
    },
    "source": [],
    "allowed": {
@@ -299,27 +367,10 @@
    }
   },
   {
-   "id": "plan_016:label:OCT 2023",
-   "kind": "label",
-   "text": "OCT 2023",
-   "shot": "plan_016",
-   "claims": [],
-   "status": "VERIFIED_DATA",
-   "why": "scene S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051 acquired 2023-10-14",
-   "frame": {
-    "asset": "y2023"
-   },
-   "source": [],
-   "allowed": {
-    "wording": [],
-    "forbid": []
-   }
-  },
-  {
-   "id": "method_019:label:OCT 2026",
+   "id": "plan_014:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "method_019",
+   "shot": "plan_014",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
@@ -333,44 +384,10 @@
    }
   },
   {
-   "id": "method_022:label:OCT 2026",
-   "kind": "label",
-   "text": "OCT 2026",
-   "shot": "method_022",
-   "claims": [],
-   "status": "VERIFIED_DATA",
-   "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
-   "frame": {
-    "asset": "y2026"
-   },
-   "source": [],
-   "allowed": {
-    "wording": [],
-    "forbid": []
-   }
-  },
-  {
-   "id": "method_025:label:OCT 2023",
-   "kind": "label",
-   "text": "OCT 2023",
-   "shot": "method_025",
-   "claims": [],
-   "status": "VERIFIED_DATA",
-   "why": "scene S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051 acquired 2023-10-14",
-   "frame": {
-    "asset": "y2023"
-   },
-   "source": [],
-   "allowed": {
-    "wording": [],
-    "forbid": []
-   }
-  },
-  {
-   "id": "shows_028:label:SEP 2020",
+   "id": "plan_015:label:SEP 2020",
    "kind": "label",
    "text": "SEP 2020",
-   "shot": "shows_028",
+   "shot": "plan_015",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20200929T080731_R078_T36RYS_20201001T154846 acquired 2020-09-29",
@@ -384,48 +401,27 @@
    }
   },
   {
-   "id": "shows_028:shot",
-   "kind": "shot",
-   "text": "y2020",
-   "shot": "shows_028",
-   "claims": [
-    "C9"
-   ],
-   "frames": [
-    {
-     "file": "qa/frames/shows_028_shot_0.png",
-     "sha256": "ece18fd1026c2966792932170e90189854654a07ad15a248a9724ebb099b1347",
-     "stack": "evidence/stack/y2020.png",
-     "center": [
-      35.215,
-      28.11
-     ],
-     "width_km": 12,
-     "review": "supports"
-    }
-   ],
-   "status": "REVIEWED_BY_AGENT",
-   "why": "Empty desert; no straight line, only natural wadis and dunes.",
-   "source": [
-    {
-     "claim": "C9",
-     "tier": "observation",
-     "attribution": null,
-     "url": null,
-     "date": null,
-     "evidence": "evidence/stack/provenance.json"
-    }
-   ],
+   "id": "plan_016:label:SEP 2021",
+   "kind": "label",
+   "text": "SEP 2021",
+   "shot": "plan_016",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2B_MSIL2A_20210929T080719_R078_T36RYS_20210929T211810 acquired 2021-09-29",
+   "frame": {
+    "asset": "y2021"
+   },
+   "source": [],
    "allowed": {
     "wording": [],
     "forbid": []
    }
   },
   {
-   "id": "shows_029:label:OCT 2022",
+   "id": "plan_017:label:OCT 2022",
    "kind": "label",
    "text": "OCT 2022",
-   "shot": "shows_029",
+   "shot": "plan_017",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20221009T080841_R078_T36RYS_20240725T054556 acquired 2022-10-09",
@@ -439,48 +435,10 @@
    }
   },
   {
-   "id": "shows_029:shot",
-   "kind": "shot",
-   "text": "y2022",
-   "shot": "shows_029",
-   "claims": [
-    "C9"
-   ],
-   "frames": [
-    {
-     "file": "qa/frames/shows_029_shot_0.png",
-     "sha256": "7e6bce8a28a1833d3d2fdb77d3d4f7e874f3086163912d0b3b22d4557df277c7",
-     "stack": "evidence/stack/y2022.png",
-     "center": [
-      35.215,
-      28.11
-     ],
-     "width_km": 12,
-     "review": "supports"
-    }
-   ],
-   "status": "REVIEWED_BY_AGENT",
-   "why": "A faint thin straight light line crosses the middle-right of the frame; hard to see at small size.",
-   "source": [
-    {
-     "claim": "C9",
-     "tier": "observation",
-     "attribution": null,
-     "url": null,
-     "date": null,
-     "evidence": "evidence/stack/provenance.json"
-    }
-   ],
-   "allowed": {
-    "wording": [],
-    "forbid": []
-   }
-  },
-  {
-   "id": "shows_030:label:OCT 2023",
+   "id": "method_018:label:OCT 2023",
    "kind": "label",
    "text": "OCT 2023",
-   "shot": "shows_030",
+   "shot": "method_018",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051 acquired 2023-10-14",
@@ -494,48 +452,44 @@
    }
   },
   {
-   "id": "shows_030:shot",
-   "kind": "shot",
-   "text": "y2023",
-   "shot": "shows_030",
-   "claims": [
-    "C9"
-   ],
-   "frames": [
-    {
-     "file": "qa/frames/shows_030_shot_0.png",
-     "sha256": "8bae852467242128897768891d72309637963322c393ab204dcb403687a5e3ed",
-     "stack": "evidence/stack/y2023.png",
-     "center": [
-      35.215,
-      28.11
-     ],
-     "width_km": 12,
-     "review": "supports"
-    }
-   ],
-   "status": "REVIEWED_BY_AGENT",
-   "why": "A clear pale straight corridor with darker edges crosses the full width of the frame.",
-   "source": [
-    {
-     "claim": "C9",
-     "tier": "observation",
-     "attribution": null,
-     "url": null,
-     "date": null,
-     "evidence": "evidence/stack/provenance.json"
-    }
-   ],
+   "id": "method_020:label:OCT 2024",
+   "kind": "label",
+   "text": "OCT 2024",
+   "shot": "method_020",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20241008T080831_R078_T36RYS_20241008T112248 acquired 2024-10-08",
+   "frame": {
+    "asset": "y2024"
+   },
+   "source": [],
    "allowed": {
     "wording": [],
     "forbid": []
    }
   },
   {
-   "id": "shows_031:label:OCT 2026",
+   "id": "method_022:label:OCT 2025",
+   "kind": "label",
+   "text": "OCT 2025",
+   "shot": "method_022",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08",
+   "frame": {
+    "asset": "y2025"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "method_024:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "shows_031",
+   "shot": "method_024",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
@@ -549,38 +503,51 @@
    }
   },
   {
-   "id": "shows_031:shot",
-   "kind": "shot",
-   "text": "y2026",
-   "shot": "shows_031",
-   "claims": [
-    "C9"
-   ],
-   "frames": [
-    {
-     "file": "qa/frames/shows_031_shot_0.png",
-     "sha256": "957e3e5190a60dc06d89df4cfb4769fca0b27228d4ce79954ee8c6927044f7e7",
-     "stack": "evidence/stack/y2026.png",
-     "center": [
-      35.215,
-      28.11
-     ],
-     "width_km": 9,
-     "review": "supports"
-    }
-   ],
-   "status": "REVIEWED_BY_AGENT",
-   "why": "Straight corridor with a dark green segment at the center; the 21.9 km total length is not visible in this 9 km view.",
-   "source": [
-    {
-     "claim": "C9",
-     "tier": "observation",
-     "attribution": null,
-     "url": null,
-     "date": null,
-     "evidence": "evidence/stack/provenance.json"
-    }
-   ],
+   "id": "method_026:label:SEP 2020",
+   "kind": "label",
+   "text": "SEP 2020",
+   "shot": "method_026",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20200929T080731_R078_T36RYS_20201001T154846 acquired 2020-09-29",
+   "frame": {
+    "asset": "y2020"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "method_028:label:SEP 2021",
+   "kind": "label",
+   "text": "SEP 2021",
+   "shot": "method_028",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2B_MSIL2A_20210929T080719_R078_T36RYS_20210929T211810 acquired 2021-09-29",
+   "frame": {
+    "asset": "y2021"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "method_030:label:OCT 2022",
+   "kind": "label",
+   "text": "OCT 2022",
+   "shot": "method_030",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20221009T080841_R078_T36RYS_20240725T054556 acquired 2022-10-09",
+   "frame": {
+    "asset": "y2022"
+   },
+   "source": [],
    "allowed": {
     "wording": [],
     "forbid": []
@@ -609,11 +576,231 @@
    "text": "y2020",
    "shot": "shows_032",
    "claims": [
-    "C17"
+    "C9"
    ],
    "frames": [
     {
      "file": "qa/frames/shows_032_shot_0.png",
+     "sha256": "92303c862444bc6ee7c4e4b9785655dd785bd79bee2f2ef53028aa5ae802a671",
+     "stack": "evidence/stack/y2020.png",
+     "center": [
+      35.215,
+      28.11
+     ],
+     "width_km": 9,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Empty desert with a few scattered dark specks; no straight line or corridor anywhere in the frame.",
+   "source": [
+    {
+     "claim": "C9",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/stack/provenance.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "shows_033:label:OCT 2022",
+   "kind": "label",
+   "text": "OCT 2022",
+   "shot": "shows_033",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20221009T080841_R078_T36RYS_20240725T054556 acquired 2022-10-09",
+   "frame": {
+    "asset": "y2022"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "shows_033:shot",
+   "kind": "shot",
+   "text": "y2022",
+   "shot": "shows_033",
+   "claims": [
+    "C9"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/shows_033_shot_0.png",
+     "sha256": "2bb71121c93618daba1531a8f005276a7a05f197f8ec0e78f6a504e254d87771",
+     "stack": "evidence/stack/y2022.png",
+     "center": [
+      35.215,
+      28.11
+     ],
+     "width_km": 15,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "A faint, thin, straight light line crosses the middle of the frame, easy to miss; a curved road runs above it.",
+   "source": [
+    {
+     "claim": "C9",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/stack/provenance.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "shows_034:label:OCT 2023",
+   "kind": "label",
+   "text": "OCT 2023",
+   "shot": "shows_034",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051 acquired 2023-10-14",
+   "frame": {
+    "asset": "y2023"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "shows_034:shot",
+   "kind": "shot",
+   "text": "y2023",
+   "shot": "shows_034",
+   "claims": [
+    "C9"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/shows_034_shot_0.png",
+     "sha256": "0a00412d396a19345d5381f10591a7516e7ef05bb9cb1b74cc5184a6faf5fab8",
+     "stack": "evidence/stack/y2023.png",
+     "center": [
+      35.215,
+      28.11
+     ],
+     "width_km": 9,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "A clear, pale, straight corridor with darker edges crosses the full width, with a few dark patches along it.",
+   "source": [
+    {
+     "claim": "C9",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/stack/provenance.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "shows_035:label:OCT 2026",
+   "kind": "label",
+   "text": "OCT 2026",
+   "shot": "shows_035",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "shows_035:shot",
+   "kind": "shot",
+   "text": "y2026",
+   "shot": "shows_035",
+   "claims": [
+    "C9"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/shows_035_shot_0.png",
+     "sha256": "03a75a0023f80572460e65a011ad3c1f036cace3e93924b2824fdea947bc5413",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      35.215,
+      28.11
+     ],
+     "width_km": 15,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "A long straight corridor crosses the full width with the dark green segment at the center; its total length beyond the frame is not shown.",
+   "source": [
+    {
+     "claim": "C9",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/stack/provenance.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "shows_036:label:SEP 2020",
+   "kind": "label",
+   "text": "SEP 2020",
+   "shot": "shows_036",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20200929T080731_R078_T36RYS_20201001T154846 acquired 2020-09-29",
+   "frame": {
+    "asset": "y2020"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "shows_036:shot",
+   "kind": "shot",
+   "text": "y2020",
+   "shot": "shows_036",
+   "claims": [
+    "C17"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/shows_036_shot_0.png",
      "sha256": "3b97773d8958740820d44edb38af5bf8504c41595221022ae93cb9eef9a723bc",
      "stack": "evidence/stack/y2020.png",
      "center": [
@@ -642,10 +829,10 @@
    }
   },
   {
-   "id": "shows_033:graphic:g_cmp_2020_2024_c17",
+   "id": "shows_037:graphic:g_cmp_2020_2024_c17",
    "kind": "graphic",
    "text": "g_cmp_2020_2024_c17",
-   "shot": "shows_033",
+   "shot": "shows_037",
    "claims": [
     "C17"
    ],
@@ -654,7 +841,7 @@
    ],
    "frames": [
     {
-     "file": "qa/frames/shows_033_graphic_g_cmp_2020_2024_c17_0.png",
+     "file": "qa/frames/shows_037_graphic_g_cmp_2020_2024_c17_0.png",
      "sha256": "4a927a440d76395da3d33d2e7842f23ccf1cd54a5d52a960a21deae89da3c7c3",
      "stack": "evidence/stack/y2020.png",
      "center": [
@@ -665,7 +852,7 @@
      "review": "supports"
     },
     {
-     "file": "qa/frames/shows_033_graphic_g_cmp_2020_2024_c17_1.png",
+     "file": "qa/frames/shows_037_graphic_g_cmp_2020_2024_c17_1.png",
      "sha256": "8d70540138535b8cb3f35048070e74366a6db4fa1109c72f659eb277bff58c81",
      "stack": "evidence/stack/y2024.png",
      "center": [
@@ -694,16 +881,16 @@
    }
   },
   {
-   "id": "shows_034:shot",
+   "id": "shows_038:shot",
    "kind": "shot",
    "text": "wipe y2020->y2024",
-   "shot": "shows_034",
+   "shot": "shows_038",
    "claims": [
     "C17"
    ],
    "frames": [
     {
-     "file": "qa/frames/shows_034_shot_0.png",
+     "file": "qa/frames/shows_038_shot_0.png",
      "sha256": "9c7d8344bb165571a3de634f2df45e7c8ad3d8d52f5de1d80021cbdc9b61ce73",
      "stack": "evidence/stack/y2020.png",
      "center": [
@@ -714,7 +901,7 @@
      "review": "supports"
     },
     {
-     "file": "qa/frames/shows_034_shot_1.png",
+     "file": "qa/frames/shows_038_shot_1.png",
      "sha256": "dd25dcf86afcde937a8d600e910a8797a17147daa0f55b8e1940d399be3a284a",
      "stack": "evidence/stack/y2024.png",
      "center": [
@@ -743,10 +930,10 @@
    }
   },
   {
-   "id": "shows_035:label:SEP 2020",
+   "id": "shows_039:label:SEP 2020",
    "kind": "label",
    "text": "SEP 2020",
-   "shot": "shows_035",
+   "shot": "shows_039",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20200929T080731_R078_T36RYS_20201001T154846 acquired 2020-09-29",
@@ -760,16 +947,16 @@
    }
   },
   {
-   "id": "shows_035:shot",
+   "id": "shows_039:shot",
    "kind": "shot",
    "text": "y2020",
-   "shot": "shows_035",
+   "shot": "shows_039",
    "claims": [
     "C19"
    ],
    "frames": [
     {
-     "file": "qa/frames/shows_035_shot_0.png",
+     "file": "qa/frames/shows_039_shot_0.png",
      "sha256": "ee0af452fbd87483037abe9ee5bc48578f4cb4d147fd0aa5e75e705d3c25861b",
      "stack": "evidence/stack/y2020.png",
      "center": [
@@ -798,10 +985,10 @@
    }
   },
   {
-   "id": "shows_036:graphic:g_cmp_2020_2024_c19",
+   "id": "shows_040:graphic:g_cmp_2020_2024_c19",
    "kind": "graphic",
    "text": "g_cmp_2020_2024_c19",
-   "shot": "shows_036",
+   "shot": "shows_040",
    "claims": [
     "C19"
    ],
@@ -810,7 +997,7 @@
    ],
    "frames": [
     {
-     "file": "qa/frames/shows_036_graphic_g_cmp_2020_2024_c19_0.png",
+     "file": "qa/frames/shows_040_graphic_g_cmp_2020_2024_c19_0.png",
      "sha256": "ab51f179c7298490de3f8fe09b47ca10293910a35cd19eb6ad28d02af5f01b71",
      "stack": "evidence/stack/y2020.png",
      "center": [
@@ -821,7 +1008,7 @@
      "review": "supports"
     },
     {
-     "file": "qa/frames/shows_036_graphic_g_cmp_2020_2024_c19_1.png",
+     "file": "qa/frames/shows_040_graphic_g_cmp_2020_2024_c19_1.png",
      "sha256": "206440b95d5fd68ba196b2ef5745b9d9bc048606af61b32e2a97a7e466bccfbe",
      "stack": "evidence/stack/y2024.png",
      "center": [
@@ -850,16 +1037,16 @@
    }
   },
   {
-   "id": "shows_037:shot",
+   "id": "shows_041:shot",
    "kind": "shot",
    "text": "wipe y2020->y2024",
-   "shot": "shows_037",
+   "shot": "shows_041",
    "claims": [
     "C19"
    ],
    "frames": [
     {
-     "file": "qa/frames/shows_037_shot_0.png",
+     "file": "qa/frames/shows_041_shot_0.png",
      "sha256": "b8617e46dbba7d286424baee6097667486a9ba530f2557c8ee7e16ef7e0a0be8",
      "stack": "evidence/stack/y2020.png",
      "center": [
@@ -870,7 +1057,7 @@
      "review": "supports"
     },
     {
-     "file": "qa/frames/shows_037_shot_1.png",
+     "file": "qa/frames/shows_041_shot_1.png",
      "sha256": "ceeb324ca9bb706d398b80fbdb8175e1ae88a7231dbcdbf6a04904008f9f00df",
      "stack": "evidence/stack/y2024.png",
      "center": [
@@ -899,10 +1086,10 @@
    }
   },
   {
-   "id": "segment_038:label:OCT 2022",
+   "id": "segment_042:label:OCT 2022",
    "kind": "label",
    "text": "OCT 2022",
-   "shot": "segment_038",
+   "shot": "segment_042",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20221009T080841_R078_T36RYS_20240725T054556 acquired 2022-10-09",
@@ -916,10 +1103,10 @@
    }
   },
   {
-   "id": "segment_038:shot",
+   "id": "segment_042:shot",
    "kind": "shot",
    "text": "y2022",
-   "shot": "segment_038",
+   "shot": "segment_042",
    "claims": [
     "C10"
    ],
@@ -941,10 +1128,10 @@
    }
   },
   {
-   "id": "segment_039:graphic:g_cmp_2022_2026_c10",
+   "id": "segment_043:graphic:g_cmp_2022_2026_c10",
    "kind": "graphic",
    "text": "g_cmp_2022_2026_c10",
-   "shot": "segment_039",
+   "shot": "segment_043",
    "claims": [
     "C10"
    ],
@@ -969,10 +1156,10 @@
    }
   },
   {
-   "id": "segment_040:shot",
+   "id": "segment_044:shot",
    "kind": "shot",
    "text": "wipe y2022->y2026",
-   "shot": "segment_040",
+   "shot": "segment_044",
    "claims": [
     "C10"
    ],
@@ -994,10 +1181,10 @@
    }
   },
   {
-   "id": "segment_041:shot",
+   "id": "segment_045:shot",
    "kind": "shot",
    "text": "wipe y2022->y2026",
-   "shot": "segment_041",
+   "shot": "segment_045",
    "claims": [
     "C10"
    ],
@@ -1019,10 +1206,10 @@
    }
   },
   {
-   "id": "segment_042:graphic:g_hero_c10",
+   "id": "segment_046:graphic:g_hero_c10",
    "kind": "graphic",
    "text": "g_hero_c10",
-   "shot": "segment_042",
+   "shot": "segment_046",
    "claims": [
     "C10"
    ],
@@ -1049,10 +1236,10 @@
    }
   },
   {
-   "id": "segment_043:label:OCT 2026",
+   "id": "segment_047:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "segment_043",
+   "shot": "segment_047",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
@@ -1066,10 +1253,10 @@
    }
   },
   {
-   "id": "segment_043:shot",
+   "id": "segment_047:shot",
    "kind": "shot",
    "text": "y2026",
-   "shot": "segment_043",
+   "shot": "segment_047",
    "claims": [
     "C11"
    ],
@@ -1091,10 +1278,10 @@
    }
   },
   {
-   "id": "segment_044:graphic:g_tiers",
+   "id": "segment_048:graphic:g_tiers",
    "kind": "graphic",
    "text": "g_tiers",
-   "shot": "segment_044",
+   "shot": "segment_048",
    "claims": [
     "C1",
     "C4",
@@ -1142,10 +1329,27 @@
    }
   },
   {
-   "id": "checks_045:label:OCT 2024",
+   "id": "segment_049:label:OCT 2023",
+   "kind": "label",
+   "text": "OCT 2023",
+   "shot": "segment_049",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051 acquired 2023-10-14",
+   "frame": {
+    "asset": "y2023"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "checks_050:label:OCT 2024",
    "kind": "label",
    "text": "OCT 2024",
-   "shot": "checks_045",
+   "shot": "checks_050",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20241008T080831_R078_T36RYS_20241008T112248 acquired 2024-10-08",
@@ -1159,168 +1363,9 @@
    }
   },
   {
-   "id": "checks_045:shot",
-   "kind": "shot",
-   "text": "y2024",
-   "shot": "checks_045",
-   "claims": [
-    "C14"
-   ],
-   "status": "VERIFIED_DATA",
-   "why": "3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view contains the location; what the image looks like is not machine-judged]",
-   "source": [
-    {
-     "claim": "C14",
-     "tier": "observation",
-     "attribution": null,
-     "url": null,
-     "date": null,
-     "evidence": "evidence/stack/provenance.json"
-    }
-   ],
-   "allowed": {
-    "wording": [],
-    "forbid": []
-   }
-  },
-  {
-   "id": "checks_046:shot",
-   "kind": "shot",
-   "text": "y2024",
-   "shot": "checks_046",
-   "claims": [
-    "C14"
-   ],
-   "status": "VERIFIED_DATA",
-   "why": "3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view contains the location; what the image looks like is not machine-judged]",
-   "source": [
-    {
-     "claim": "C14",
-     "tier": "observation",
-     "attribution": null,
-     "url": null,
-     "date": null,
-     "evidence": "evidence/stack/provenance.json"
-    }
-   ],
-   "allowed": {
-    "wording": [],
-    "forbid": []
-   }
-  },
-  {
-   "id": "checks_047:label:OCT 2025",
-   "kind": "label",
-   "text": "OCT 2025",
-   "shot": "checks_047",
-   "claims": [],
-   "status": "VERIFIED_DATA",
-   "why": "scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08",
-   "frame": {
-    "asset": "y2025"
-   },
-   "source": [],
-   "allowed": {
-    "wording": [],
-    "forbid": []
-   }
-  },
-  {
-   "id": "checks_047:shot",
-   "kind": "shot",
-   "text": "y2025",
-   "shot": "checks_047",
-   "claims": [
-    "C14"
-   ],
-   "status": "VERIFIED_DATA",
-   "why": "3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view contains the location; what the image looks like is not machine-judged]",
-   "source": [
-    {
-     "claim": "C14",
-     "tier": "observation",
-     "attribution": null,
-     "url": null,
-     "date": null,
-     "evidence": "evidence/stack/provenance.json"
-    }
-   ],
-   "allowed": {
-    "wording": [],
-    "forbid": []
-   }
-  },
-  {
-   "id": "checks_048:shot",
-   "kind": "shot",
-   "text": "y2025",
-   "shot": "checks_048",
-   "claims": [
-    "C14"
-   ],
-   "status": "VERIFIED_DATA",
-   "why": "3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view contains the location; what the image looks like is not machine-judged]",
-   "source": [
-    {
-     "claim": "C14",
-     "tier": "observation",
-     "attribution": null,
-     "url": null,
-     "date": null,
-     "evidence": "evidence/stack/provenance.json"
-    }
-   ],
-   "allowed": {
-    "wording": [],
-    "forbid": []
-   }
-  },
-  {
-   "id": "checks_049:label:OCT 2026",
-   "kind": "label",
-   "text": "OCT 2026",
-   "shot": "checks_049",
-   "claims": [],
-   "status": "VERIFIED_DATA",
-   "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
-   "frame": {
-    "asset": "y2026"
-   },
-   "source": [],
-   "allowed": {
-    "wording": [],
-    "forbid": []
-   }
-  },
-  {
-   "id": "checks_049:shot",
-   "kind": "shot",
-   "text": "y2026",
-   "shot": "checks_049",
-   "claims": [
-    "C14"
-   ],
-   "status": "VERIFIED_DATA",
-   "why": "3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view contains the location; what the image looks like is not machine-judged]",
-   "source": [
-    {
-     "claim": "C14",
-     "tier": "observation",
-     "attribution": null,
-     "url": null,
-     "date": null,
-     "evidence": "evidence/stack/provenance.json"
-    }
-   ],
-   "allowed": {
-    "wording": [],
-    "forbid": []
-   }
-  },
-  {
    "id": "checks_050:shot",
    "kind": "shot",
-   "text": "y2026",
+   "text": "y2024",
    "shot": "checks_050",
    "claims": [
     "C14"
@@ -1343,27 +1388,10 @@
    }
   },
   {
-   "id": "checks_051:label:OCT 2026",
-   "kind": "label",
-   "text": "OCT 2026",
-   "shot": "checks_051",
-   "claims": [],
-   "status": "VERIFIED_DATA",
-   "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
-   "frame": {
-    "asset": "y2026"
-   },
-   "source": [],
-   "allowed": {
-    "wording": [],
-    "forbid": []
-   }
-  },
-  {
-   "id": "checks_053:label:OCT 2025",
+   "id": "checks_051:label:OCT 2025",
    "kind": "label",
    "text": "OCT 2025",
-   "shot": "checks_053",
+   "shot": "checks_051",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08",
@@ -1377,25 +1405,101 @@
    }
   },
   {
-   "id": "checks_053:shot",
+   "id": "checks_051:shot",
    "kind": "shot",
    "text": "y2025",
-   "shot": "checks_053",
+   "shot": "checks_051",
    "claims": [
-    "C12"
+    "C14"
    ],
    "status": "VERIFIED_DATA",
-   "why": "measured extents inside the claimed ranges: 2025: 1.6 km, 2026: 1.92 km [data check + the view contains the location; what the image looks like is not machine-judged]",
+   "why": "3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view contains the location; what the image looks like is not machine-judged]",
    "source": [
     {
-     "claim": "C12",
+     "claim": "C14",
      "tier": "observation",
      "attribution": null,
      "url": null,
      "date": null,
-     "evidence": "evidence/ndwi.json"
+     "evidence": "evidence/stack/provenance.json"
     }
    ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "checks_052:label:OCT 2026",
+   "kind": "label",
+   "text": "OCT 2026",
+   "shot": "checks_052",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "checks_052:shot",
+   "kind": "shot",
+   "text": "y2026",
+   "shot": "checks_052",
+   "claims": [
+    "C14"
+   ],
+   "status": "VERIFIED_DATA",
+   "why": "3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view contains the location; what the image looks like is not machine-judged]",
+   "source": [
+    {
+     "claim": "C14",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/stack/provenance.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "checks_053:label:OCT 2024",
+   "kind": "label",
+   "text": "OCT 2024",
+   "shot": "checks_053",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20241008T080831_R078_T36RYS_20241008T112248 acquired 2024-10-08",
+   "frame": {
+    "asset": "y2024"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "checks_054:label:OCT 2025",
+   "kind": "label",
+   "text": "OCT 2025",
+   "shot": "checks_054",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08",
+   "frame": {
+    "asset": "y2025"
+   },
+   "source": [],
    "allowed": {
     "wording": [],
     "forbid": []
@@ -1505,10 +1609,27 @@
    }
   },
   {
-   "id": "limits_058:graphic:g_reports",
+   "id": "checks_058:label:OCT 2025",
+   "kind": "label",
+   "text": "OCT 2025",
+   "shot": "checks_058",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08",
+   "frame": {
+    "asset": "y2025"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "limits_059:graphic:g_reports",
    "kind": "graphic",
    "text": "g_reports",
-   "shot": "limits_058",
+   "shot": "limits_059",
    "claims": [
     "C1",
     "C2",
@@ -1570,78 +1691,10 @@
    }
   },
   {
-   "id": "limits_059:graphic:g_tiers",
+   "id": "limits_060:graphic:g_tiers",
    "kind": "graphic",
    "text": "g_tiers",
-   "shot": "limits_059",
-   "claims": [
-    "C1",
-    "C4",
-    "C9"
-   ],
-   "texts": [
-    "Keep three things apart",
-    "PROMISED: 170 km announced",
-    "REPORTED: Reuters: stadium shelved",
-    "OBSERVED: Straight corridor, 22+ km in frame"
-   ],
-   "status": "VERIFIED_SOURCE",
-   "why": "each step carries its claim's short text",
-   "source": [
-    {
-     "claim": "C1",
-     "tier": "original",
-     "attribution": "Construction Briefing (with Dezeen, AGBI)",
-     "url": "https://www.constructionbriefing.com/8036596.article",
-     "date": "2024-04-09",
-     "evidence": null
-    },
-    {
-     "claim": "C4",
-     "tier": "media",
-     "attribution": "Reuters via Seoul Economic Daily",
-     "url": "https://en.sedaily.com/international/2026/10/13/saudi-arabia-shelves-neom-stadium-as-megaproject-unravels",
-     "date": "2026-10-13",
-     "evidence": null
-    },
-    {
-     "claim": "C9",
-     "tier": "observation",
-     "attribution": null,
-     "url": null,
-     "date": null,
-     "evidence": "evidence/stack/provenance.json"
-    }
-   ],
-   "allowed": {
-    "wording": [
-     "reported"
-    ],
-    "forbid": []
-   }
-  },
-  {
-   "id": "limits_060:label:OCT 2023",
-   "kind": "label",
-   "text": "OCT 2023",
    "shot": "limits_060",
-   "claims": [],
-   "status": "VERIFIED_DATA",
-   "why": "scene S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051 acquired 2023-10-14",
-   "frame": {
-    "asset": "y2023"
-   },
-   "source": [],
-   "allowed": {
-    "wording": [],
-    "forbid": []
-   }
-  },
-  {
-   "id": "close_064:graphic:g_tiers",
-   "kind": "graphic",
-   "text": "g_tiers",
-   "shot": "close_064",
    "claims": [
     "C1",
     "C4",
@@ -1689,10 +1742,10 @@
    }
   },
   {
-   "id": "close_065:label:OCT 2026",
+   "id": "limits_061:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "close_065",
+   "shot": "limits_061",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
@@ -1706,15 +1759,151 @@
    }
   },
   {
-   "id": "close_067:label:OCT 2026",
+   "id": "limits_062:label:SEP 2020",
+   "kind": "label",
+   "text": "SEP 2020",
+   "shot": "limits_062",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20200929T080731_R078_T36RYS_20201001T154846 acquired 2020-09-29",
+   "frame": {
+    "asset": "y2020"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "limits_063:label:SEP 2021",
+   "kind": "label",
+   "text": "SEP 2021",
+   "shot": "limits_063",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2B_MSIL2A_20210929T080719_R078_T36RYS_20210929T211810 acquired 2021-09-29",
+   "frame": {
+    "asset": "y2021"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "limits_064:label:OCT 2022",
+   "kind": "label",
+   "text": "OCT 2022",
+   "shot": "limits_064",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20221009T080841_R078_T36RYS_20240725T054556 acquired 2022-10-09",
+   "frame": {
+    "asset": "y2022"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "close_065:graphic:g_tiers",
+   "kind": "graphic",
+   "text": "g_tiers",
+   "shot": "close_065",
+   "claims": [
+    "C1",
+    "C4",
+    "C9"
+   ],
+   "texts": [
+    "Keep three things apart",
+    "PROMISED: 170 km announced",
+    "REPORTED: Reuters: stadium shelved",
+    "OBSERVED: Straight corridor, 22+ km in frame"
+   ],
+   "status": "VERIFIED_SOURCE",
+   "why": "each step carries its claim's short text",
+   "source": [
+    {
+     "claim": "C1",
+     "tier": "original",
+     "attribution": "Construction Briefing (with Dezeen, AGBI)",
+     "url": "https://www.constructionbriefing.com/8036596.article",
+     "date": "2024-04-09",
+     "evidence": null
+    },
+    {
+     "claim": "C4",
+     "tier": "media",
+     "attribution": "Reuters via Seoul Economic Daily",
+     "url": "https://en.sedaily.com/international/2026/10/13/saudi-arabia-shelves-neom-stadium-as-megaproject-unravels",
+     "date": "2026-10-13",
+     "evidence": null
+    },
+    {
+     "claim": "C9",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/stack/provenance.json"
+    }
+   ],
+   "allowed": {
+    "wording": [
+     "reported"
+    ],
+    "forbid": []
+   }
+  },
+  {
+   "id": "close_066:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "close_067",
+   "shot": "close_066",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
    "frame": {
     "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "close_068:label:OCT 2026",
+   "kind": "label",
+   "text": "OCT 2026",
+   "shot": "close_068",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "close_070:label:OCT 2025",
+   "kind": "label",
+   "text": "OCT 2025",
+   "shot": "close_070",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08",
+   "frame": {
+    "asset": "y2025"
    },
    "source": [],
    "allowed": {

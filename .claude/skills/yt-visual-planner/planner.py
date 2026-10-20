@@ -24,6 +24,17 @@ class PlanError(Exception):
     pass
 
 
+def chapter_text_lines(script):
+    out, cur = {}, None
+    for line in script.splitlines():
+        m = CH_RE.match(line.strip())
+        if m:
+            cur = m.group(1); out[cur] = []; continue
+        if cur and line.strip() and not line.strip().startswith(("#", "[")):
+            out[cur].append(line.strip())
+    return out
+
+
 def chapter_claims(script):
     out, order, cur = {}, [], None
     for line in script.splitlines():
@@ -79,6 +90,7 @@ def plan(root):
     claims = {c["id"]: c for c in json.load(open(os.path.join(root, "claims.json")))["claims"]}
     script = open(os.path.join(root, "script.md"), encoding="utf-8").read()
     used, order = chapter_claims(script)
+    chap_text = chapter_text_lines(script)
     main = geo["stacks"][0]["name"]
     wide = next((s["name"] for s in geo["stacks"] if s.get("role") == "wide"), None)
     mi = stack_info(root, main)
@@ -149,6 +161,8 @@ def plan(root):
     def gr(name, ids, m=5):
         return {"asset": name, "kind": "graphic", "min_s": m, "claims": ids}
 
+    import itertools
+    cyc = itertools.cycle(years)
     chapters, hook_done, dropped = [], False, []
     first, last = years[0], years[-1]
     mid = years[len(years) // 2]
@@ -177,9 +191,10 @@ def plan(root):
                 vis.append(img(last, [15, 9]))
             elif t in ("media", "org") and "g_reports" in gid and "g_reports" not in seen:
                 vis.append(gr("g_reports", gid["g_reports"]["claims"], 6)); seen.add("g_reports")
-                vis.append(img(mid, [14, 8]))
+                vis.append(img(next(cyc), [14, 8]))
+                vis.append(img(next(cyc), [8, 14], seg))
             elif t == "science" and "sci" not in seen:
-                vis.append(img(first, [15, 9])); vis.append(img(last, [9, 15], seg)); seen.add("sci")
+                vis.append(img(first, [15, 9])); vis.append(img(mid, [9, 15], seg)); vis.append(img(last, [15, 7])); vis.append(img(next(cyc), [7, 15], seg)); seen.add("sci")
             elif t == "observation":
                 ys = c.get("years") or []
                 if len(ys) == 2 and f"obs{c['id']}" not in seen:
@@ -193,11 +208,11 @@ def plan(root):
                     vis.append({"wipe": [f"y{ys[0]}", f"y{ys[1]}"], "zoom": [ck * 1.2, ck * 0.9] if ck else [10, 7], "focus": c.get("focus"), "family": f"wipe_{ys[0]}_{ys[1]}", "min_s": 4, "claims": [c["id"]]})
                 elif len(ys) > 2 and f"obs{c['id']}" not in seen:
                     seen.add(f"obs{c['id']}")
-                    for y in ys:
-                        vis.append(img(y, [15, 12] if y != ys[-1] else [12, 9], c.get("focus"), claims_=[c["id"]]))
+                    for n_, y in enumerate(ys):             # alternate in/out by >= 1.6x so every year is a real composition change
+                        vis.append(img(y, [15, 9] if n_ % 2 == 0 else [9, 15], c.get("focus"), claims_=[c["id"]]))
                 elif f"obs{c['id']}" not in seen:
                     seen.add(f"obs{c['id']}")
-                    vis.append(img(last, [10, 6], c.get("focus") or seg, claims_=[c["id"]]))
+                    vis.append(img(next(cyc) if not c.get("visual", True) else last, [10, 6], c.get("focus") or seg, claims_=[c["id"]]))
                 hn = next((k for k in gid if k.startswith(f"g_hero_{c['id'].lower()}")), None)
                 if hn:
                     vis.append(gr(hn, [c["id"]], 6))
@@ -212,6 +227,11 @@ def plan(root):
         vis = vis[:10]                           # no chapter is a slideshow of everything it cites; what was dropped is reported
         if cid == "limits" and "g_tiers" in gid and "g_tiers" not in seen:
             vis.insert(1 if vis else 0, gr("g_tiers", gid["g_tiers"]["claims"], 5))
+        words = len(TAG.sub("", " ".join(l for l in chap_text.get(cid, [])).replace("**", "")).split())
+        need = -(-int(words / 2.45 - 5 * len([v for v in vis if v.get("kind") == "graphic"])) // 8)     # one picture per ~8 s of narration that graphics do not cover
+        k_ = 0
+        while len([v for v in vis if v.get("kind") != "graphic"]) < min(need, 8):
+            vis.append(img(next(cyc), [15, 8] if k_ % 2 == 0 else [8, 15], seg if k_ % 2 else None)); k_ += 1
         while len([v for v in vis if v.get("kind") != "graphic"]) < 1:
             vis.append(img(last, [15, 9]))
         if len(vis) < 3:

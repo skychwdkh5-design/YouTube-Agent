@@ -1,6 +1,6 @@
 # Release package - Here's What Satellites Show Near the Construction Site (working title, not final)
 
-Generated 2026-10-20T13:53:42Z. Nothing is published.
+Generated 2026-10-20T14:03:45Z. Nothing is published.
 
 ## Status
 - topic: done owner-approved topic
@@ -8,10 +8,10 @@ Generated 2026-10-20T13:53:42Z. Nothing is published.
 - facts: done 19 claims, registry ok
 - evidence: done 2 stacks + NDWI series
 - script: done 891 words = 6.1 min, 15 claims used
-- visualplan: done 42 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']
+- visualplan: done 59 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']
 - visuals: done 8 graphics
-- storyboard: done 69 shots, 363.673s, timing from estimate
-- visualcheck: done visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 45, 'REVIEWED': 10}
+- storyboard: done 72 shots, 363.673s, timing from estimate
+- visualcheck: done visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 58, 'REVIEWED': 10}
 - voice: awaiting_approval no approvals/voice.json; plan: 4987 characters
 - captions: waiting waiting for ['voice']
 - render: waiting waiting for ['voice', 'captions']

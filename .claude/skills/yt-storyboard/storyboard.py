@@ -143,7 +143,7 @@ def build(ep, root, voice_meta=None):
 
 def _shot(ep, grid, chap, v, k, n, t, d, labels, idx):
     sid = f"{chap['id']}_{idx:03d}"        # unique across the whole storyboard
-    s = {"id": sid, "chapter": chap["id"], "start": round(t, 3), "dur": round(d, 3), "family": v.get("family") or v.get("asset") or "wipe"}
+    s = {"id": sid, "chapter": chap["id"], "start": round(t, 3), "dur": round(d, 3), "family": v.get("family") or f"{v.get('asset') or 'wipe'}_{chap['id']}"}
     if v.get("claims"):
         s["claims"] = list(v["claims"])
     if v.get("kind") == "graphic":

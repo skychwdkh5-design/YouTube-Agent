@@ -153,6 +153,50 @@
    "reviewer": "agent",
    "verdict": "supports",
    "note": "Planned street grid with roads and clusters of buildings where there were only tracks in 2020."
+  },
+  {
+   "item": "shows_028:shot",
+   "frame": 0,
+   "frame_sha256": "92303c862444bc6ee7c4e4b9785655dd785bd79bee2f2ef53028aa5ae802a671",
+   "claims": [
+    "C9"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Empty desert with a few scattered dark specks; no straight line or corridor anywhere in the frame."
+  },
+  {
+   "item": "shows_029:shot",
+   "frame": 0,
+   "frame_sha256": "2bb71121c93618daba1531a8f005276a7a05f197f8ec0e78f6a504e254d87771",
+   "claims": [
+    "C9"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "A faint, thin, straight light line crosses the middle of the frame, easy to miss; a curved road runs above it."
+  },
+  {
+   "item": "shows_030:shot",
+   "frame": 0,
+   "frame_sha256": "0a00412d396a19345d5381f10591a7516e7ef05bb9cb1b74cc5184a6faf5fab8",
+   "claims": [
+    "C9"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "A clear, pale, straight corridor with darker edges crosses the full width, with a few dark patches along it."
+  },
+  {
+   "item": "shows_031:shot",
+   "frame": 0,
+   "frame_sha256": "03a75a0023f80572460e65a011ad3c1f036cace3e93924b2824fdea947bc5413",
+   "claims": [
+    "C9"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "A long straight corridor crosses the full width with the dark green segment at the center; its total length beyond the frame is not shown."
   }
  ]
 }

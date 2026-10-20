@@ -5,8 +5,12 @@ No secret is stored in this repository. Credentials come from environment variab
 ## Start here
 1. `git checkout ep005/neom-research` (all work is on this branch; `main` is never changed by the agent).
 2. `python3 .claude/skills/yt-orchestrate/orchestrate.py status --slug neom-line` shows where EP005 is; `run` continues it. State: `productions/neom-line/state.json`.
-3. EP005 at the time of writing: topic, research, facts, evidence, visuals, script, storyboard = done; voice = awaiting owner approval (3,700 characters, paid); captions, render, qc wait; release package = incomplete (REVIEW.md).
+3. EP005 at the time of writing: every stage up to visualcheck is done (claims, episode.json, graphics, storyboard and the visual-claim audit are GENERATED from `research/notes.json` + `script.md`); voice = awaiting owner approval (4,987 characters, paid); captions, render, qc wait; release package = incomplete (`release/REVIEW.md`). Measured autonomy: `docs/AUTONOMY_REPORT.md`.
 4. Imagery under `productions/neom-line/evidence/` and `graphics/` is git-ignored and regenerated for free by `run` (about 1 minute, needs network).
+
+## Stage classes (read this before acting)
+FULLY_AUTOMATED = code runs it; AGENT_REQUIRED = you (Claude) do an intellectual task, the orchestrator wrote `tasks/<stage>.md` and validates the result (topic, research notes, script, visual reviews); OWNER_REQUIRED = voice and render approvals.
+`python3 .claude/skills/yt-orchestrate/orchestrate.py status --slug <slug>` prints the live table. Resume after any interruption: run the same command again.
 
 ## Tools in the container
 Python 3.13 (numpy, Pillow), ffmpeg/ffprobe, git. No `yt-dlp`, no rasterio/GDAL, no `gh` CLI. Skills live in `.claude/skills/yt-*`; each has `SKILL.md` and tests.
