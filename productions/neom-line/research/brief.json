@@ -1,0 +1,192 @@
+{
+ "schema": "yt-script-brief/1",
+ "target_seconds": [
+  360,
+  540
+ ],
+ "target_words": [
+  882,
+  1323
+ ],
+ "factual_capacity_words": 770,
+ "insufficient_facts": false,
+ "chapters": [
+  {
+   "id": "hook",
+   "title": "The first fifteen seconds",
+   "claims": [
+    "C1",
+    "C9"
+   ]
+  },
+  {
+   "id": "promise",
+   "title": "The promise",
+   "claims": [
+    "C1"
+   ]
+  },
+  {
+   "id": "plan",
+   "title": "What has been reported",
+   "claims": [
+    "C2",
+    "C3",
+    "C4"
+   ]
+  },
+  {
+   "id": "method",
+   "title": "How we looked",
+   "claims": [
+    "C15",
+    "C16"
+   ]
+  },
+  {
+   "id": "shows",
+   "title": "What the satellites show",
+   "claims": [
+    "C9",
+    "C17",
+    "C19"
+   ]
+  },
+  {
+   "id": "segment",
+   "title": "The dark segment",
+   "claims": [
+    "C10",
+    "C11"
+   ]
+  },
+  {
+   "id": "checks",
+   "title": "How we tried to break it",
+   "claims": [
+    "C12",
+    "C13",
+    "C14"
+   ]
+  },
+  {
+   "id": "limits",
+   "title": "What we cannot say",
+   "claims": [
+    "C18"
+   ]
+  },
+  {
+   "id": "close",
+   "title": "What to watch",
+   "claims": []
+  }
+ ],
+ "style": [
+  "American English, spoken, second person plural 'we' for the investigation",
+  "hook in the first 45 words: a concrete contrast, no throat-clearing",
+  "one idea per sentence; no filler transitions; never repeat a fact to fill time",
+  "keep PROMISED / REPORTED / OBSERVED apart in every chapter",
+  "media/org claims contain their wording word (reported/said); hypotheses are hedged; limitations end with {L}",
+  "no 'proves', 'reveals', 'collapsed', 'cancelled', 'built' unless a claim explicitly allows it",
+  "explain US-specific references in a few words"
+ ],
+ "do_not_use": [
+  "C5",
+  "C6",
+  "C7",
+  "C8"
+ ],
+ "claims": {
+  "C1": {
+   "tier": "original",
+   "confidence": "medium",
+   "text": "The Line was announced as a 170 km linear city.",
+   "wording": null
+  },
+  "C2": {
+   "tier": "media",
+   "confidence": "medium",
+   "text": "Bloomberg reported (Apr 2024) only about 2.4 km of The Line expected by 2030 and fewer than 300,000 residents.",
+   "wording": "reported"
+  },
+  "C3": {
+   "tier": "media",
+   "confidence": "medium",
+   "text": "Semafor reported (22 May 2026) that NEOM halted work on The Line until at least after 2030, citing unnamed sources.",
+   "wording": "reported"
+  },
+  "C4": {
+   "tier": "media",
+   "confidence": "medium",
+   "text": "Reuters reported (about 4 Oct 2026, two sources) that the NEOM stadium was shelved indefinitely, with no official announcement.",
+   "wording": "reported"
+  },
+  "C9": {
+   "tier": "observation",
+   "confidence": "high",
+   "text": "A straight, narrow cleared corridor crosses the area, at least 21.9 km long inside our 10 m frame: absent in 2020-21, faint in 2022, clear from 2023.",
+   "wording": null
+  },
+  "C10": {
+   "tier": "observation",
+   "confidence": "high",
+   "text": "A dark segment about 1.6 km long is absent in Oct 2022 and 2023 and present in Oct 2024, 2025 and 2026.",
+   "wording": null
+  },
+  "C11": {
+   "tier": "observation",
+   "confidence": "medium",
+   "text": "In 2024, 2025 and 2026 the dark segment is water-like in near-infrared (NDWI above zero, very low near-infrared); in 2022 and 2023 no pixel qualifies.",
+   "wording": null
+  },
+  "C12": {
+   "tier": "observation",
+   "confidence": "medium",
+   "text": "Measured at 10 m, the segment is about 1.6 km long in Oct 2025 and about 1.9 km in Oct 2026; we cannot tell growth from water level or a threshold effect.",
+   "wording": null
+  },
+  "C13": {
+   "tier": "observation",
+   "confidence": "medium",
+   "text": "Landsat 8 at 30 m independently shows the same segment: about 0.7 km in Oct 2024 and about 1.65 km in Oct 2025 and Sep 2026.",
+   "wording": null
+  },
+  "C14": {
+   "tier": "observation",
+   "confidence": "medium",
+   "text": "The segment appears on three different dates and on three different Sentinel-2 satellites (2A, 2B and 2C) in 2024, 2025 and 2026.",
+   "wording": null
+  },
+  "C15": {
+   "tier": "observation",
+   "confidence": "high",
+   "text": "Each pixel in our Sentinel-2 frames covers 10 meters of ground.",
+   "wording": null
+  },
+  "C16": {
+   "tier": "observation",
+   "confidence": "high",
+   "text": "Seven Sentinel-2 scenes, all from the same orbit, taken in late September or October of each year from 2020 to 2026.",
+   "wording": null
+  },
+  "C18": {
+   "tier": "hypothesis",
+   "confidence": "low",
+   "text": "The dark segment may be standing water in a long, narrow excavation.",
+   "wording": null
+  },
+  "C17": {
+   "tier": "observation",
+   "confidence": "medium",
+   "text": "A settlement-like complex at the western end of our frame grows from a small compound in 2020 to a large planned street grid by 2024; what it is is unknown.",
+   "wording": null
+  },
+  "C19": {
+   "tier": "observation",
+   "confidence": "medium",
+   "text": "A second settlement-like complex at the eastern end of our frame grows from sparse tracks in 2020 to a planned street grid with buildings by 2024; what it is is unknown.",
+   "wording": null
+  }
+ }
+}

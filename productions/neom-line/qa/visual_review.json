@@ -1,0 +1,158 @@
+{
+ "reviews": [
+  {
+   "item": "shows_028:shot",
+   "frame": 0,
+   "frame_sha256": "ece18fd1026c2966792932170e90189854654a07ad15a248a9724ebb099b1347",
+   "claims": [
+    "C9"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Empty desert; no straight line, only natural wadis and dunes."
+  },
+  {
+   "item": "shows_029:shot",
+   "frame": 0,
+   "frame_sha256": "7e6bce8a28a1833d3d2fdb77d3d4f7e874f3086163912d0b3b22d4557df277c7",
+   "claims": [
+    "C9"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "A faint thin straight light line crosses the middle-right of the frame; hard to see at small size."
+  },
+  {
+   "item": "shows_030:shot",
+   "frame": 0,
+   "frame_sha256": "8bae852467242128897768891d72309637963322c393ab204dcb403687a5e3ed",
+   "claims": [
+    "C9"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "A clear pale straight corridor with darker edges crosses the full width of the frame."
+  },
+  {
+   "item": "shows_031:shot",
+   "frame": 0,
+   "frame_sha256": "957e3e5190a60dc06d89df4cfb4769fca0b27228d4ce79954ee8c6927044f7e7",
+   "claims": [
+    "C9"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Straight corridor with a dark green segment at the center; the 21.9 km total length is not visible in this 9 km view."
+  },
+  {
+   "item": "shows_032:shot",
+   "frame": 0,
+   "frame_sha256": "3b97773d8958740820d44edb38af5bf8504c41595221022ae93cb9eef9a723bc",
+   "claims": [
+    "C17"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Small walled compound with a few buildings and two roads at the left of the frame."
+  },
+  {
+   "item": "shows_033:graphic:g_cmp_2020_2024_c17",
+   "frame": 0,
+   "frame_sha256": "4a927a440d76395da3d33d2e7842f23ccf1cd54a5d52a960a21deae89da3c7c3",
+   "claims": [
+    "C17"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Small walled compound with a few buildings and two roads at the left of the frame."
+  },
+  {
+   "item": "shows_033:graphic:g_cmp_2020_2024_c17",
+   "frame": 1,
+   "frame_sha256": "8d70540138535b8cb3f35048070e74366a6db4fa1109c72f659eb277bff58c81",
+   "claims": [
+    "C17"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Large planned street grid with many buildings where the small compound was; much larger than in 2020."
+  },
+  {
+   "item": "shows_034:shot",
+   "frame": 0,
+   "frame_sha256": "9c7d8344bb165571a3de634f2df45e7c8ad3d8d52f5de1d80021cbdc9b61ce73",
+   "claims": [
+    "C17"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Small walled compound with a few buildings and two roads at the left of the frame."
+  },
+  {
+   "item": "shows_034:shot",
+   "frame": 1,
+   "frame_sha256": "dd25dcf86afcde937a8d600e910a8797a17147daa0f55b8e1940d399be3a284a",
+   "claims": [
+    "C17"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Large planned street grid with many buildings where the small compound was; much larger than in 2020."
+  },
+  {
+   "item": "shows_035:shot",
+   "frame": 0,
+   "frame_sha256": "ee0af452fbd87483037abe9ee5bc48578f4cb4d147fd0aa5e75e705d3c25861b",
+   "claims": [
+    "C19"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Curved roads, rectangular plots and a few dark brown streaks; no buildings, consistent with sparse tracks."
+  },
+  {
+   "item": "shows_036:graphic:g_cmp_2020_2024_c19",
+   "frame": 0,
+   "frame_sha256": "ab51f179c7298490de3f8fe09b47ca10293910a35cd19eb6ad28d02af5f01b71",
+   "claims": [
+    "C19"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Curved roads, rectangular plots and a few dark brown streaks; no buildings, consistent with sparse tracks."
+  },
+  {
+   "item": "shows_036:graphic:g_cmp_2020_2024_c19",
+   "frame": 1,
+   "frame_sha256": "206440b95d5fd68ba196b2ef5745b9d9bc048606af61b32e2a97a7e466bccfbe",
+   "claims": [
+    "C19"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Planned street grid with roads and clusters of buildings where there were only tracks in 2020."
+  },
+  {
+   "item": "shows_037:shot",
+   "frame": 0,
+   "frame_sha256": "b8617e46dbba7d286424baee6097667486a9ba530f2557c8ee7e16ef7e0a0be8",
+   "claims": [
+    "C19"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Curved roads, rectangular plots and a few dark brown streaks; no buildings, consistent with sparse tracks."
+  },
+  {
+   "item": "shows_037:shot",
+   "frame": 1,
+   "frame_sha256": "ceeb324ca9bb706d398b80fbdb8175e1ae88a7231dbcdbf6a04904008f9f00df",
+   "claims": [
+    "C19"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Planned street grid with roads and clusters of buildings where there were only tracks in 2020."
+  }
+ ]
+}

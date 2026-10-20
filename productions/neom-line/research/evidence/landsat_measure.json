@@ -1,0 +1,47 @@
+{
+ "2022": {
+  "strong_run_px": 9,
+  "strong_len_km": 0.27,
+  "x0": 1589,
+  "x1": 1597,
+  "mean_contrast": 15.3,
+  "cor_cols": 485,
+  "cor_km": 14.6
+ },
+ "2023": {
+  "strong_run_px": 9,
+  "strong_len_km": 0.27,
+  "x0": 1841,
+  "x1": 1849,
+  "mean_contrast": 15.9,
+  "cor_cols": 518,
+  "cor_km": 15.5
+ },
+ "2024": {
+  "strong_run_px": 24,
+  "strong_len_km": 0.72,
+  "x0": 1691,
+  "x1": 1714,
+  "mean_contrast": 18.3,
+  "cor_cols": 562,
+  "cor_km": 16.9
+ },
+ "2025": {
+  "strong_run_px": 55,
+  "strong_len_km": 1.65,
+  "x0": 1691,
+  "x1": 1745,
+  "mean_contrast": 19.0,
+  "cor_cols": 547,
+  "cor_km": 16.4
+ },
+ "2026": {
+  "strong_run_px": 55,
+  "strong_len_km": 1.65,
+  "x0": 1691,
+  "x1": 1745,
+  "mean_contrast": 20.9,
+  "cor_cols": 540,
+  "cor_km": 16.2
+ }
+}

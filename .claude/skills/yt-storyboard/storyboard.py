@@ -77,7 +77,7 @@ def fit_view(grid, center, width_km):
     import numpy as np
     g, (x0, y0, x1, y1) = _bounds(grid)
     w = min(width_km, (x1 - x0) / 1000 * 0.98, (y1 - y0) / 1000 * 16 / 9 * 0.98)
-    hw, hh = w * 500, w * 500 * 9 / 16
+    hw, hh = w * 500 * 1.02, w * 500 * 9 / 16 * 1.02          # 2 % margin: the renderer refuses a view that touches the edge
     cx, cy = g.lonlat_to_utm(np.array([center[0]]), np.array([center[1]]), grid["epsg"])
     cx = min(max(cx[0], x0 + hw), x1 - hw)
     cy = min(max(cy[0], y0 + hh), y1 - hh)
@@ -132,7 +132,7 @@ def build(ep, root, voice_meta=None):
             dur = gdur[i] if i in gdur else rest * mw[i] / sum(mw.values())
             parts = [dur] if i in gdur else split_duration(dur)
             for k, d in enumerate(parts):
-                shots.append(_shot(ep, grid, chap, v, k, len(parts), t, d, labels))
+                shots.append(_shot(ep, grid, chap, v, k, len(parts), t, d, labels, len(shots)))
                 t += d
     for i, s in enumerate(shots):
         s["end"] = shots[i + 1]["start"] if i + 1 < len(shots) else round(times[order[-1]][1], 3)
@@ -141,9 +141,11 @@ def build(ep, root, voice_meta=None):
             "shots": shots}, labels
 
 
-def _shot(ep, grid, chap, v, k, n, t, d, labels):
-    sid = f"{chap['id']}_{len(labels)}_{k}"
+def _shot(ep, grid, chap, v, k, n, t, d, labels, idx):
+    sid = f"{chap['id']}_{idx:03d}"        # unique across the whole storyboard
     s = {"id": sid, "chapter": chap["id"], "start": round(t, 3), "dur": round(d, 3), "family": v.get("family") or v.get("asset") or "wipe"}
+    if v.get("claims"):
+        s["claims"] = list(v["claims"])
     if v.get("kind") == "graphic":
         s["layers"] = [{"type": "graphic", "asset": v["asset"], "t": [0, None]}]
         s["info"] = v.get("info", v["asset"])

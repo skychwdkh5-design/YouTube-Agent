@@ -16,11 +16,16 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SK = os.path.abspath(os.path.join(HERE, ".."))
 REPO = os.path.abspath(os.path.join(SK, "..", ".."))
 PY = sys.executable
-STAGES = ["topic", "research", "facts", "evidence", "visuals", "script", "storyboard", "voice", "captions", "render", "qc", "release"]
-DEPS = {"topic": [], "research": ["topic"], "facts": ["research"], "evidence": ["topic"], "script": ["facts", "evidence"],
-        "storyboard": ["script", "evidence", "visuals"], "visuals": ["evidence"], "voice": ["script", "storyboard"],
+STAGES = ["topic", "research", "facts", "evidence", "script", "visualplan", "visuals", "storyboard", "visualcheck", "voice", "captions", "render", "qc", "release"]
+DEPS = {"topic": [], "research": ["topic"], "facts": ["research"], "evidence": ["topic", "research"], "script": ["facts", "evidence"], "visualplan": ["script", "evidence"],
+        "visuals": ["visualplan", "evidence"], "storyboard": ["script", "evidence", "visuals"], "visualcheck": ["storyboard"], "voice": ["script", "storyboard", "visualcheck"],
         "captions": ["voice"], "render": ["storyboard", "visuals", "voice", "captions"], "qc": ["render"], "release": ["facts", "storyboard"]}
 KIND = {"topic": "agent", "research": "agent", "script": "agent", "voice": "paid", "render": "heavy"}
+# What a stage IS: FULLY_AUTOMATED runs without manual preparation; AGENT_REQUIRED needs Claude to do an intellectual task (a task packet is written);
+# OWNER_REQUIRED needs the owner's approval. A stage can be FULLY_AUTOMATED by default and AGENT_REQUIRED only when it hits a judgement item.
+NATURE = {"topic": "AGENT_REQUIRED", "research": "AGENT_REQUIRED", "facts": "FULLY_AUTOMATED", "evidence": "FULLY_AUTOMATED", "script": "AGENT_REQUIRED", "visualplan": "FULLY_AUTOMATED",
+          "visuals": "FULLY_AUTOMATED", "storyboard": "FULLY_AUTOMATED", "visualcheck": "FULLY_AUTOMATED", "voice": "OWNER_REQUIRED", "captions": "FULLY_AUTOMATED",
+          "render": "OWNER_REQUIRED", "qc": "FULLY_AUTOMATED", "release": "FULLY_AUTOMATED"}
 DONE, TERMINAL_BLOCK = "done", ("blocked", "failed", "needs_agent", "awaiting_approval", "waiting", "interrupted")
 
 
@@ -121,13 +126,32 @@ def run_topic(ep, ctx):
     raise Halt("needs_agent", "write topic/candidates.json (see tasks/topic.md)")
 
 
+RESEARCH_TASK = """# Task: research (AGENT_REQUIRED)
+
+Topic: see topic/topic.json. Do the reading and searching with your own tools (WebSearch, WebFetch), prefer primary and scientific sources, and note every unreachable primary.
+Log what you did so the work is auditable:
+  python3 .claude/skills/yt-research/research.py --root productions/{slug} log --tool WebSearch --query "..." --status ok --note "..."
+  python3 .claude/skills/yt-research/research.py --root productions/{slug} fetch <url>      # Python-side read; blocked/dns/timeout is logged, never replaced
+Write `research/notes.json` (schema yt-research/1) - see .claude/skills/yt-research/SKILL.md:
+  - "geo": {{"focus": [lon,lat], "segment": [lon,lat], "ndwi_bbox": [...], "stacks": [{{"name":"stack","aoi":[minlon,minlat,maxlon,maxlat],"years":[...],"pixel_m":10,"window":"MM-DD:MM-DD","cloud":3}}, {{"name":"wide","role":"wide",...}}]}}
+    (the AOI and years are a research decision; check availability with `yt-topic imagery`)
+  - "notes": one per claim: id C1.., kind, statement, short (<= 44 chars, drawn on screen), source {{outlet,url,date,access,kind}}, independent_outlets, or evidence+basis for observations.
+Confidence is DERIVED from the sources (a primary read gives high; search summaries need >= 2 independent outlets; unreachable gives low). Do not try to raise it.
+Then run the orchestrator again; `yt-research build` turns the notes into claims.json and a coverage report.
+"""
+
+
 def run_research(ep, ctx):
-    if not os.path.exists(ep.p("claims.json")):
-        packet(ep, "research", "# Task: research and claims\n\nCollect sources for the topic (primary first; say when a primary is unreachable). Write `claims.json` (schema yt-facts/1, see .claude/skills/yt-facts/SKILL.md): "
-               "every claim has a tier (original/media/org/science/observation/hypothesis), confidence, and for media/org/science an attribution, date, URL and the wording word ('reported'/'said'). "
-               "Observations point to an evidence file. Never raise confidence to make a script fit.\n")
-        raise Halt("needs_agent", "write claims.json (see tasks/research.md)")
-    return ["claims.json"], "claims.json present"
+    if os.path.exists(ep.p("research", "notes.json")):
+        c, d = tool([os.path.join(SK, "yt-research", "research.py"), "--root", ".", "build"], ep.root)
+        if c != 0:
+            raise Halt("blocked", f"yt-research: {d.get('error')}")
+        note = f"{d['claims']} claims ({d['usable']} usable), factual capacity about {d['capacity_minutes']} min" + (" - INSUFFICIENT_FOR_6_MIN" if d["insufficient_for_6_min"] else "")
+        return ["claims.json", "research/report.md"], note
+    if os.path.exists(ep.p("claims.json")):
+        return ["claims.json"], "claims.json provided manually (legacy path, no provenance derivation)"
+    packet(ep, "research", RESEARCH_TASK.format(slug=ep.slug))
+    raise Halt("needs_agent", "write research/notes.json (see tasks/research.md)")
 
 
 def run_facts(ep, ctx):
@@ -137,34 +161,77 @@ def run_facts(ep, ctx):
     return [], f"{d['claims']} claims, registry ok"
 
 
+def _geo(ep):
+    p = ep.p("research", "notes.json")
+    if os.path.exists(p):
+        return json.load(open(p)).get("geo") or {}
+    return {"stacks": ep.episode().get("evidence", {}).get("stacks", [])}
+
+
 def run_evidence(ep, ctx):
-    cfg = ep.episode().get("evidence", {})
+    geo = _geo(ep)
+    if not geo.get("stacks"):
+        raise Halt("blocked", "no geo.stacks in research/notes.json (the AOI is a research decision)")
     outs = []
-    for stk in cfg.get("stacks", []):
+    for stk in geo["stacks"]:
         out = f"evidence/{stk['name']}"
         if os.path.exists(ep.p(out, "provenance.json")) and not ctx["force"]:
-            outs.append(f"{out}/provenance.json"); continue
-        if ctx["dry"]:
-            raise Halt("waiting", f"dry-run: would build stack {stk['name']} (free, Sentinel-2)")
+            outs += [f"{out}/provenance.json", f"{out}/grid.json"]; continue
         args = [os.path.join(SK, "yt-sentinel", "sentinel.py"), "stack", "--aoi", ",".join(map(str, stk["aoi"])), "--years", ",".join(map(str, stk["years"])),
                 "--window", stk.get("window", "09-28:10-20"), "--cloud", str(stk.get("cloud", 3)), "--out", out, "--pixel-m", str(stk.get("pixel_m", 10)), "--confirm", "--overwrite"]
         c, d = tool(args, ep.root)
         if c != 0:
             raise Halt("blocked", f"yt-sentinel {stk['name']}: {d.get('status')} {d.get('error')} {d.get('missing', '')}")
         outs += [f"{out}/provenance.json", f"{out}/grid.json"]
-    return outs, f"{len(cfg.get('stacks', []))} stacks"
+    if geo.get("ndwi_bbox"):
+        if not os.path.exists(ep.p("evidence", "ndwi.json")) or ctx["force"]:
+            c, d = tool([os.path.join(SK, "yt-sentinel", "sentinel.py"), "ndwi-series", "--provenance", f"evidence/{geo['stacks'][0]['name']}/provenance.json",
+                         "--bbox", ",".join(map(str, geo["ndwi_bbox"])), "--out", "evidence/ndwi.json"], ep.root)
+            if c != 0:
+                raise Halt("blocked", f"yt-sentinel ndwi-series: {d.get('error')}")
+        outs.append("evidence/ndwi.json")
+    return outs, f"{len(geo['stacks'])} stacks" + (" + NDWI series" if geo.get("ndwi_bbox") else "")
 
 
 def run_script(ep, ctx):
-    if not os.path.exists(ep.p("script.md")):
-        packet(ep, "script", "# Task: script\n\nWrite `script.md`: American English, 6-9 minutes (about 900-1,300 words), chapters `## id: Title` matching episode.json. "
-               "Every sentence with a number or strong word ends with {C#} (claims.json); media/org claims must contain their wording word ('reported'); hypotheses must be hedged; "
-               "limitations end with {L}. Keep promised / reported / observed apart. Then run `facts.py --claims claims.json --script script.md --root .`.\n")
-        raise Halt("needs_agent", "write script.md (see tasks/script.md)")
-    c, d = tool([os.path.join(SK, "yt-facts", "facts.py"), "--claims", "claims.json", "--script", "script.md", "--root", "."], ep.root)
+    c, d = tool([os.path.join(SK, "yt-script-agent", "scriptagent.py"), "brief", "--root", "."], ep.root)
     if c != 0:
-        raise Halt("blocked", "script vs claims: " + "; ".join(d.get("problems") or [d.get("error", "?")])[:500])
-    return ["script.md"], f"{d['stats']['tagged_sentences']} tagged sentences, {len(d['used'])} claims used"
+        raise Halt("blocked", f"yt-script-agent brief: {d.get('error')}")
+    if not os.path.exists(ep.p("script.md")):
+        raise Halt("needs_agent", f"write script.md from tasks/script.md (target {d['target_words'][0]}-{d['target_words'][1]} words; factual capacity about {d['capacity_words']} words)", ["research/brief.json"])
+    c, v = tool([os.path.join(SK, "yt-script-agent", "scriptagent.py"), "validate", "--root", "."], ep.root)
+    if c != 0:
+        raise Halt("blocked", "script: " + "; ".join(v.get("problems") or [v.get("error", "?")])[:600], ["research/brief.json"])
+    return ["script.md", "research/brief.json"], f"{v['words']} words = {v['minutes']} min, {len(v['claims_used'])} claims used" + ("; " + "; ".join(v["warnings"]) if v.get("warnings") else "")
+
+
+def run_visualplan(ep, ctx):
+    if os.path.exists(ep.p("episode.json")):
+        try:
+            if json.load(open(ep.p("episode.json"))).get("generated_by") != "yt-visual-planner":
+                return ["episode.json", "graphics_spec.json"], "hand-written episode.json kept (not generated by the planner)"
+        except ValueError:
+            pass
+    c, d = tool([os.path.join(SK, "yt-visual-planner", "planner.py"), "--root", "."], ep.root)
+    if c != 0:
+        raise Halt("blocked", f"yt-visual-planner: {d.get('error')}")
+    return ["episode.json", "graphics_spec.json"], f"{d['visuals']} visuals in {d['chapters']} chapters, graphics {d['graphics']}"
+
+
+def run_visualcheck(ep, ctx):
+    c, d = tool([os.path.join(SK, "yt-visualcheck", "visualcheck.py"), "--root", "."], ep.root)
+    outs = ["qa/visual_claims.json", "qa/visual_claims.md"]
+    if d.get("status") == "FAIL":
+        raise Halt("blocked", f"visual-claim check FAIL {d.get('counts')} (see qa/visual_claims.md)", outs)
+    if d.get("status") == "NEEDS_VISUAL_REVIEW":
+        items = [i for i in json.load(open(ep.p("qa", "visual_claims.json")))["items"] if i["status"] == "NEEDS_VISUAL_REVIEW"]
+        packet(ep, "visualcheck", "# Task: visual review (AGENT_REQUIRED)\n\nLook at each frame file, decide whether it supports the on-screen text, and record what you SAW:\n"
+               f"  python3 .claude/skills/yt-visualcheck/visualcheck.py --root productions/{ep.slug} review --item \"<item id>\" --verdict supports|does_not_support|unclear --note \"what the frame shows\"\n\n"
+               + "\n".join(f"- `{i['id']}` claims {i['claims']}: text {i.get('text')!r}; frames " + ", ".join(f"[{k}] `{f['file']}`" + ("" if not f.get("review") else f" (reviewed: {f['review']})") for k, f in enumerate(i.get("frames") or [])) for i in items) + "\n\nA review is bound to the frame's sha256; it is recorded as REVIEWED_BY_AGENT, never as machine-verified.\n")
+        raise Halt("needs_agent", f"{len(items)} items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)", outs)
+    if c != 0:
+        raise Halt("blocked", f"visualcheck: {d.get('error') or d}", outs)
+    return outs, f"visual claims OK {d['counts']}"
 
 
 def run_storyboard(ep, ctx):
@@ -268,12 +335,14 @@ def run_qc(ep, ctx):
 
 
 def run_release(ep, ctx):
-    e = ep.episode()
+    e = ep.episode() if os.path.exists(ep.p('episode.json')) else {}
+    st_full = ctx["state"]
     st = ctx["state"]["stages"]
     pending = [s for s in STAGES if s != "release" and st.get(s, {}).get("status") != DONE]
     claims = json.load(open(ep.p("claims.json")))["claims"]
     L = [f"# Release package - {e.get('title', ep.slug)}", "", f"Generated {now()}. Nothing is published.", "",
          "## Status", *[f"- {s}: {st.get(s, {}).get('status', 'pending')} {st.get(s, {}).get('note', '')}" for s in STAGES if s != "release"], "",
+         "## Autonomy (what was automated)", *[f"- {r['stage']}: {r['nature']} / now {r['class_now']} / {r['produced_by']}" for r in autonomy(st_full)["stages"]], "",
          "## Title options (working title approved by owner; not final)", *[f"- {t}" for t in e.get("titles", [])], "",
          "## Claims ledger", *[f"- {c['id']} [{c['tier']}/{c['confidence']}] {c['text']}" + (f" ({c.get('attribution')}, {c.get('date')}, {c.get('url')})" if c.get("url") else "") for c in claims], "",
          "## Costs", *([f"- {c}" for c in ctx["state"]["costs"]] or ["- none (no paid action taken)"]), ""]
@@ -290,19 +359,22 @@ def run_release(ep, ctx):
     return outs, "incomplete" if pending else "complete"
 
 
-RUN = {"topic": run_topic, "research": run_research, "facts": run_facts, "evidence": run_evidence, "script": run_script, "storyboard": run_storyboard,
+RUN = {"topic": run_topic, "research": run_research, "facts": run_facts, "evidence": run_evidence, "script": run_script, "visualplan": run_visualplan, "visualcheck": run_visualcheck, "storyboard": run_storyboard,
        "visuals": run_visuals, "voice": run_voice, "captions": run_captions, "render": run_render, "qc": run_qc, "release": run_release}
 # files whose change invalidates a stage (besides the outputs of its dependencies)
-INPUTS = {"topic": ["topic/approval.json", "topic/candidates.json"], "research": ["claims.json"], "facts": ["claims.json"], "evidence": ["episode.json"],
-          "script": ["script.md", "claims.json", "evidence/stack/provenance.json"], "storyboard": ["script.md", "episode.json", "claims.json", "evidence/stack/grid.json", "voice/narration.voice.json", "captions/captions.srt"],
-          "visuals": ["episode.json", "graphics_spec.json", "evidence/stack/provenance.json"], "voice": ["script.md", "approvals/voice.json"],
-          "captions": ["voice/narration.voice.json"], "render": ["timeline.json", "approvals/render.json"] , "qc": ["render/final.mp4", "timeline.json"],
-          "release": ["claims.json", "story/report.md"]}
+INPUTS = {"topic": ["topic/approval.json", "topic/candidates.json"], "research": ["research/notes.json"], "facts": ["claims.json"], "evidence": ["research/notes.json"],
+          "script": ["script.md", "claims.json", "evidence/stack/provenance.json"], "visualplan": ["script.md", "claims.json", "research/notes.json", "evidence/stack/provenance.json"],
+          "visuals": ["episode.json", "graphics_spec.json", "evidence/stack/provenance.json"],
+          "storyboard": ["script.md", "episode.json", "claims.json", "evidence/stack/grid.json", "voice/narration.voice.json", "captions/captions.srt"],
+          "visualcheck": ["story/storyboard.json", "story/labels.json", "qa/visual_review.json", "evidence/ndwi.json", "claims.json", "episode.json"],
+          "voice": ["script.md", "approvals/voice.json"], "captions": ["voice/narration.voice.json"], "render": ["timeline.json", "approvals/render.json"],
+          "qc": ["render/final.mp4", "timeline.json"], "release": ["claims.json", "story/report.md", "qa/visual_claims.json"]}
+# files an agent wrote for a stage (recorded in state.json so the autonomy report can tell agent work from code work)
+AGENT_ARTIFACTS = {"topic": ["topic/approval.json", "topic/candidates.json"], "research": ["research/notes.json", "claims.json"], "script": ["script.md"], "visualcheck": ["qa/visual_review.json"]}
 
-
-TOOLS = {"topic": ["yt-topic/topic.py"], "facts": ["yt-facts/facts.py"], "evidence": ["yt-sentinel/sentinel.py"], "visuals": ["yt-graphics/graphics.py"],
-         "script": ["yt-facts/facts.py"], "storyboard": ["yt-storyboard/storyboard.py", "yt-facts/facts.py"], "captions": ["yt-captions/captions.py"],
-         "render": ["yt-render/render.py", "yt-render/compose.py"], "qc": ["yt-qc/qc.py"]}
+TOOLS = {"topic": ["yt-topic/topic.py"], "research": ["yt-research/research.py"], "facts": ["yt-facts/facts.py"], "evidence": ["yt-sentinel/sentinel.py"], "visuals": ["yt-graphics/graphics.py"],
+         "script": ["yt-facts/facts.py", "yt-script-agent/scriptagent.py"], "visualplan": ["yt-visual-planner/planner.py"], "visualcheck": ["yt-visualcheck/visualcheck.py"],
+         "storyboard": ["yt-storyboard/storyboard.py", "yt-facts/facts.py"], "captions": ["yt-captions/captions.py"], "render": ["yt-render/render.py", "yt-render/compose.py"], "qc": ["yt-qc/qc.py"]}
 
 
 def tool_hash(stage):
@@ -351,7 +423,9 @@ def run(slug, until=None, only=None, force=False, dry=False, allow_paid=False, a
                     break
                 blockers = [d for d in DEPS[stage] if st["stages"].get(d, {}).get("status") != DONE and d not in virtual]
                 if blockers:
-                    if rec["status"] != DONE and not dry:
+                    if not dry:
+                        if rec["status"] == DONE:      # an upstream stage is no longer done: this result is stale and must not be trusted
+                            st["log"].append({"at": now(), "stage": stage, "event": f"invalidated: upstream {blockers} not done"})
                         rec["status"], rec["note"] = "waiting", f"waiting for {blockers}"
                     report[stage] = rec["status"]; continue
                 ins = hashes(ep, ordered_inputs(ep, stage, st))
@@ -370,7 +444,7 @@ def run(slug, until=None, only=None, force=False, dry=False, allow_paid=False, a
                     os._exit(99)                       # test hook: simulated hard crash while running
                 try:
                     outs, note = RUN[stage](ep, ctx)
-                    rec.update(status=DONE, finished=now(), note=note, inputs=ins, outputs=hashes(ep, outs), error=None)
+                    rec.update(status=DONE, finished=now(), note=note, inputs=ins, outputs=hashes(ep, outs), error=None, agent_artifacts=hashes(ep, AGENT_ARTIFACTS.get(stage, [])))
                     ran = ran or stage != "release"
                     st["log"].append({"at": now(), "stage": stage, "event": "done", "note": note})
                 except Halt as h:
@@ -395,23 +469,41 @@ def run(slug, until=None, only=None, force=False, dry=False, allow_paid=False, a
             pass
     nxt = next((s for s in STAGES if st["stages"].get(s, {}).get("status") not in (DONE, None)), None)
     res = {"status": "ok" if all(st["stages"].get(s, {}).get("status") == DONE for s in STAGES) else "incomplete", "slug": slug, "stages": report,
-           "next": {nxt: st["stages"][nxt].get("note")} if nxt else None, "dry_run": dry}
+           "next": {nxt: st["stages"][nxt].get("note")} if nxt else None, "autonomy": {k: v for k, v in autonomy(st).items() if k != "stages"}, "dry_run": dry}
     return res, 0
+
+
+def autonomy(st):
+    """What was actually automated: per stage nature, current state, and whether an agent artifact was involved."""
+    rows, auto_done, agent_done, owner_pending, need_agent = [], 0, 0, 0, 0
+    for s in STAGES:
+        r = st["stages"].get(s, {})
+        status = r.get("status", "pending")
+        now_cls = "AGENT_REQUIRED" if status == "needs_agent" else "OWNER_REQUIRED" if status == "awaiting_approval" else NATURE[s]
+        by = ("agent artifact, then code" if r.get("agent_artifacts") else "code") if status == DONE else "-"
+        if status == DONE and NATURE[s] == "FULLY_AUTOMATED" and not r.get("agent_artifacts"):
+            auto_done += 1
+        elif status == DONE:
+            agent_done += 1
+        if status == "awaiting_approval" or (status in ("waiting", "pending") and NATURE[s] == "OWNER_REQUIRED"):
+            owner_pending += 1
+        if status == "needs_agent":
+            need_agent += 1
+        rows.append({"stage": s, "nature": NATURE[s], "status": status, "class_now": now_cls, "produced_by": by})
+    return {"stages": rows, "fully_automated_done": auto_done, "agent_work_done": agent_done, "agent_needed_now": need_agent, "owner_gates_pending": owner_pending, "total": len(STAGES)}
 
 
 def status(slug):
     ep = Ep(slug)
     st = ep.load()
     return {"slug": slug, "stages": {s: {"status": st["stages"].get(s, {}).get("status", "pending"), "note": st["stages"].get(s, {}).get("note")} for s in STAGES},
-            "costs": st["costs"], "updated": st.get("updated")}, 0
+            "autonomy": autonomy(st), "costs": st["costs"], "updated": st.get("updated")}, 0
 
 
 def new(slug):
     slug = slug or "ep-" + time.strftime("%Y%m%d")
     ep = Ep(slug)
     os.makedirs(ep.p("topic"), exist_ok=True)
-    if not os.path.exists(ep.p("episode.json")):
-        write_json(ep.p("episode.json"), {"slug": slug, "title": "TBD", "titles": [], "grid": "evidence/stack/grid.json", "evidence": {"stacks": []}, "assets": {}, "chapters": []})
     return {"status": "ok", "slug": slug, "next": f"python3 .claude/skills/yt-orchestrate/orchestrate.py run --slug {slug}"}, 0
 
 

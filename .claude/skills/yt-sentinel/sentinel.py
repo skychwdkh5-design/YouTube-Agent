@@ -179,9 +179,30 @@ def ndwi_check(item_id, bbox_lonlat, size=(352, 178)):
     g, n = band("B03"), band("B08")
     ndwi = (g - n) / (g + n + 1e-6)
     water = (ndwi > 0) & (n < 0.05)
-    return {"item": item_id, "water_like_px": int(water.sum()), "mean_ndwi": round(float(ndwi[water].mean()), 3) if water.any() else None,
+    cols = np.where(water.any(axis=0))[0]
+    m_per_px = (bbox_lonlat[2] - bbox_lonlat[0]) * 111320 * math.cos(math.radians((bbox_lonlat[1] + bbox_lonlat[3]) / 2)) / size[0]
+    return {"item": item_id, "extent_km": round(float((cols.max() - cols.min() + 1) * m_per_px / 1000), 2) if len(cols) else 0.0, "water_like_px": int(water.sum()), "mean_ndwi": round(float(ndwi[water].mean()), 3) if water.any() else None,
             "mean_b08": round(float(n[water].mean()), 4) if water.any() else None,
             "interpretation": "counts only: consistent with standing water if > 0, not proof; a shadow gives NDWI <= 0"}
+
+
+def ndwi_series(provenance_path, bbox, out_path, min_baseline="04.00"):
+    """NDWI counts for every scene of a stack -> evidence/ndwi.json. Baselines < 04.00 are skipped (different reflectance offset), recorded as null."""
+    prov = json.load(open(provenance_path))["scenes"]
+    years = {}
+    for sc in prov:
+        y = sc["id"][1:]
+        if (sc.get("processing_baseline") or "00") < min_baseline:
+            years[y] = {"water_like_px": None, "note": f"baseline {sc.get('processing_baseline')} < {min_baseline}: not comparable"}
+            continue
+        r = ndwi_check(sc["itemId"], bbox)
+        years[y] = {k: r[k] for k in ("water_like_px", "mean_ndwi", "mean_b08", "extent_km")}
+        years[y]["item"] = sc["itemId"]
+    out = {"schema": "yt-sentinel-ndwi/1", "bbox": list(bbox), "method": "NDWI=(B03-B08)/(B03+B08), offset 1000 removed; water-like = NDWI>0 and B08<0.05", "years": years}
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    json.dump(out, open(out_path + ".part", "w"), indent=1)
+    os.replace(out_path + ".part", out_path)
+    return out
 
 
 def _aoi(s):
@@ -208,10 +229,16 @@ def main(argv=None):
     p = sub.add_parser("ndwi")
     p.add_argument("--item", required=True)
     p.add_argument("--bbox", required=True)
+    p = sub.add_parser("ndwi-series")
+    p.add_argument("--provenance", required=True)
+    p.add_argument("--bbox", required=True)
+    p.add_argument("--out", required=True)
     a = ap.parse_args(argv)
     try:
         if a.cmd == "ndwi":
             return _out(ndwi_check(a.item, _aoi(a.bbox)))
+        if a.cmd == "ndwi-series":
+            return _out({"status": "ok", **ndwi_series(a.provenance, _aoi(a.bbox), a.out)})
         aoi = _aoi(a.aoi)
         years = sorted(int(y) for y in a.years.split(","))
         w0, w1 = a.window.split(":")

@@ -1,37 +1,43 @@
 [
  {
-  "text": "graphic:g170",
+  "text": "graphic:g_scale",
   "claims": [
    "C1"
   ],
   "exempt": false,
-  "shot": "hook_0_0"
+  "shot": "hook_000"
  },
  {
   "text": "OCT 2022",
   "claim": null,
   "exempt": true,
-  "shot": "hook_1_0"
+  "shot": "hook_001"
  },
  {
-  "text": "About 1.5 km",
-  "claim": "C7",
+  "text": "Dark segment, about 1.6 km",
+  "claim": "C10",
   "exempt": false,
-  "shot": "hook_2_0"
+  "shot": "hook_004"
  },
  {
-  "text": "graphic:g170",
+  "text": "graphic:g_scale",
   "claims": [
    "C1"
   ],
   "exempt": false,
-  "shot": "promise_3_0"
+  "shot": "promise_005"
  },
  {
-  "text": "OCT 2020",
+  "text": "OCT 2026",
   "claim": null,
   "exempt": true,
-  "shot": "promise_4_0"
+  "shot": "promise_006"
+ },
+ {
+  "text": "OCT 2023",
+  "claim": null,
+  "exempt": true,
+  "shot": "promise_009"
  },
  {
   "text": "graphic:g_reports",
@@ -42,63 +48,213 @@
    "C4"
   ],
   "exempt": false,
-  "shot": "plan_5_0"
+  "shot": "plan_012"
  },
  {
-  "text": "graphic:g_tiers",
-  "claims": [
-   "C1",
-   "C2",
-   "C3",
-   "C6",
-   "C7"
-  ],
-  "exempt": false,
-  "shot": "plan_6_0"
- },
- {
-  "text": "OCT 2020",
+  "text": "OCT 2023",
   "claim": null,
   "exempt": true,
-  "shot": "shows_7_0"
+  "shot": "plan_013"
  },
  {
-  "text": "graphic:g_cmp2022",
+  "text": "OCT 2023",
+  "claim": null,
+  "exempt": true,
+  "shot": "plan_016"
+ },
+ {
+  "text": "OCT 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "method_019"
+ },
+ {
+  "text": "OCT 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "method_022"
+ },
+ {
+  "text": "OCT 2023",
+  "claim": null,
+  "exempt": true,
+  "shot": "method_025"
+ },
+ {
+  "text": "SEP 2020",
+  "claim": null,
+  "exempt": true,
+  "shot": "shows_028"
+ },
+ {
+  "text": "OCT 2022",
+  "claim": null,
+  "exempt": true,
+  "shot": "shows_029"
+ },
+ {
+  "text": "OCT 2023",
+  "claim": null,
+  "exempt": true,
+  "shot": "shows_030"
+ },
+ {
+  "text": "OCT 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "shows_031"
+ },
+ {
+  "text": "SEP 2020",
+  "claim": null,
+  "exempt": true,
+  "shot": "shows_032"
+ },
+ {
+  "text": "graphic:g_cmp_2020_2024_c17",
   "claims": [
-   "C6",
-   "C7"
+   "C17"
   ],
   "exempt": false,
-  "shot": "shows_8_0"
+  "shot": "shows_033"
  },
  {
-  "text": "graphic:g_cmp2425",
+  "text": "SEP 2020",
+  "claim": null,
+  "exempt": true,
+  "shot": "shows_035"
+ },
+ {
+  "text": "graphic:g_cmp_2020_2024_c19",
   "claims": [
-   "C7",
+   "C19"
+  ],
+  "exempt": false,
+  "shot": "shows_036"
+ },
+ {
+  "text": "OCT 2022",
+  "claim": null,
+  "exempt": true,
+  "shot": "segment_038"
+ },
+ {
+  "text": "graphic:g_cmp_2022_2026_c10",
+  "claims": [
    "C10"
   ],
   "exempt": false,
-  "shot": "segment_9_0"
+  "shot": "segment_039"
  },
  {
-  "text": "graphic:g_hero",
+  "text": "graphic:g_hero_c10",
   "claims": [
-   "C7",
-   "C8"
+   "C10"
   ],
   "exempt": false,
-  "shot": "segment_10_0"
+  "shot": "segment_042"
+ },
+ {
+  "text": "OCT 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "segment_043"
  },
  {
   "text": "graphic:g_tiers",
   "claims": [
    "C1",
-   "C2",
-   "C3",
-   "C6",
-   "C7"
+   "C4",
+   "C9"
   ],
   "exempt": false,
-  "shot": "limits_11_0"
+  "shot": "segment_044"
+ },
+ {
+  "text": "OCT 2024",
+  "claim": null,
+  "exempt": true,
+  "shot": "checks_045"
+ },
+ {
+  "text": "OCT 2025",
+  "claim": null,
+  "exempt": true,
+  "shot": "checks_047"
+ },
+ {
+  "text": "OCT 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "checks_049"
+ },
+ {
+  "text": "OCT 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "checks_051"
+ },
+ {
+  "text": "OCT 2025",
+  "claim": null,
+  "exempt": true,
+  "shot": "checks_053"
+ },
+ {
+  "text": "graphic:g_cmp_2025_2026_c12",
+  "claims": [
+   "C12"
+  ],
+  "exempt": false,
+  "shot": "checks_055"
+ },
+ {
+  "text": "graphic:g_reports",
+  "claims": [
+   "C1",
+   "C2",
+   "C3",
+   "C4"
+  ],
+  "exempt": false,
+  "shot": "limits_058"
+ },
+ {
+  "text": "graphic:g_tiers",
+  "claims": [
+   "C1",
+   "C4",
+   "C9"
+  ],
+  "exempt": false,
+  "shot": "limits_059"
+ },
+ {
+  "text": "OCT 2023",
+  "claim": null,
+  "exempt": true,
+  "shot": "limits_060"
+ },
+ {
+  "text": "graphic:g_tiers",
+  "claims": [
+   "C1",
+   "C4",
+   "C9"
+  ],
+  "exempt": false,
+  "shot": "close_064"
+ },
+ {
+  "text": "OCT 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "close_065"
+ },
+ {
+  "text": "OCT 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "close_067"
  }
 ]

@@ -63,6 +63,13 @@ class Build(unittest.TestCase):
         self.assertEqual([l for l in labels if l["text"] == "graphic:g"][0]["claims"], ["C1"])
         self.assertTrue(all(s["dur"] <= sb.MAX_SHOT_S + 0.01 for s in plan["shots"] if "camera" in s))
 
+    def test_shot_ids_are_unique(self):
+        self.ep["chapters"][0]["visuals"] = [{"asset": "a", "zoom": [12, 6]}, {"asset": "a", "zoom": [8, 4]}, {"asset": "a", "zoom": [10, 5]}]
+        self.write("## one: One\n" + "word " * 80 + "\n")
+        plan, _ = sb.build(self.ep, self.d)
+        ids = [s["id"] for s in plan["shots"]]
+        self.assertEqual(len(ids), len(set(ids)))
+
     def test_heading_mismatch_is_an_error(self):
         self.write("## other: X\nword word word\n")
         with self.assertRaises(sb.StoryError):

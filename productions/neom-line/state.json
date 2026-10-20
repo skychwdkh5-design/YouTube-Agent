@@ -1,14 +1,14 @@
 {
  "schema": "yt-orchestrate/1",
  "slug": "neom-line",
- "created": "2026-10-20T13:22:36Z",
+ "created": "2026-10-20T13:48:16Z",
  "stages": {
   "topic": {
    "status": "done",
-   "attempts": 2,
-   "started": "2026-10-20T13:32:34Z",
+   "attempts": 1,
+   "started": "2026-10-20T13:48:16Z",
    "error": null,
-   "finished": "2026-10-20T13:32:34Z",
+   "finished": "2026-10-20T13:48:16Z",
    "note": "owner-approved topic",
    "inputs": {
     "topic/approval.json": "649efc696001b65df875af5f921b19ad8c40456e6c9a1244aceacc9d91c9eb7e",
@@ -16,133 +16,219 @@
    },
    "outputs": {
     "topic/topic.json": "a65342b22b074f5e96319ff00ff7719355abdf9e1a091ce3b84ad7b23465efe1"
+   },
+   "agent_artifacts": {
+    "topic/approval.json": "649efc696001b65df875af5f921b19ad8c40456e6c9a1244aceacc9d91c9eb7e"
    }
   },
   "research": {
    "status": "done",
-   "attempts": 2,
-   "note": "claims.json present",
-   "started": "2026-10-20T13:32:34Z",
+   "attempts": 3,
+   "started": "2026-10-20T13:50:01Z",
    "error": null,
-   "finished": "2026-10-20T13:32:34Z",
+   "finished": "2026-10-20T13:50:01Z",
+   "note": "19 claims (14 usable), factual capacity about 5.2 min - INSUFFICIENT_FOR_6_MIN",
    "inputs": {
-    "claims.json": "9288f2f6d059ff7256ce8318eccc12a9f0e1045be0b7d0517335482862887974",
+    "research/notes.json": "acf9223e30b6fe55e3a5abccfde115d524a7d39e1fb5ff64ed1b7beacf839dcc",
     "topic/topic.json": "a65342b22b074f5e96319ff00ff7719355abdf9e1a091ce3b84ad7b23465efe1",
-    "_tool": "e3b0c44298fc1c14"
+    "_tool": "20551a128ea3eaf0"
    },
    "outputs": {
-    "claims.json": "9288f2f6d059ff7256ce8318eccc12a9f0e1045be0b7d0517335482862887974"
+    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
+    "research/report.md": "964d609c7f52f4f6532b8b24e0d251a90493eb67b1388dd1d980930ca107b5f3"
+   },
+   "agent_artifacts": {
+    "research/notes.json": "acf9223e30b6fe55e3a5abccfde115d524a7d39e1fb5ff64ed1b7beacf839dcc",
+    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1"
    }
   },
   "facts": {
    "status": "done",
-   "attempts": 2,
-   "note": "17 claims, registry ok",
-   "started": "2026-10-20T13:32:34Z",
+   "attempts": 3,
+   "started": "2026-10-20T13:50:01Z",
    "error": null,
-   "finished": "2026-10-20T13:32:34Z",
+   "finished": "2026-10-20T13:50:01Z",
+   "note": "19 claims, registry ok",
    "inputs": {
-    "claims.json": "9288f2f6d059ff7256ce8318eccc12a9f0e1045be0b7d0517335482862887974",
+    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
+    "research/report.md": "964d609c7f52f4f6532b8b24e0d251a90493eb67b1388dd1d980930ca107b5f3",
     "_tool": "011f70d2646e3c92"
    },
-   "outputs": {}
+   "outputs": {},
+   "agent_artifacts": {}
   },
   "evidence": {
    "status": "done",
    "attempts": 3,
-   "note": "2 stacks",
-   "started": "2026-10-20T13:32:34Z",
+   "started": "2026-10-20T13:50:01Z",
    "error": null,
-   "finished": "2026-10-20T13:32:34Z",
+   "finished": "2026-10-20T13:50:01Z",
+   "note": "2 stacks + NDWI series",
+   "inputs": {
+    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
+    "research/notes.json": "acf9223e30b6fe55e3a5abccfde115d524a7d39e1fb5ff64ed1b7beacf839dcc",
+    "research/report.md": "964d609c7f52f4f6532b8b24e0d251a90493eb67b1388dd1d980930ca107b5f3",
+    "topic/topic.json": "a65342b22b074f5e96319ff00ff7719355abdf9e1a091ce3b84ad7b23465efe1",
+    "_tool": "9910c5ec0e089c03"
+   },
    "outputs": {
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
-    "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4"
+    "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
+    "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
+    "evidence/wide/grid.json": "05712013a4f1e8392ac4dc5d89764d12edc4e0fd2ab3524b5e91234b0758eec6",
+    "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991"
    },
-   "inputs": {
-    "episode.json": "8c06ca3a1ce0521884ab3410318af3e8279186c96140dca6514506a24254b3a5",
-    "topic/topic.json": "a65342b22b074f5e96319ff00ff7719355abdf9e1a091ce3b84ad7b23465efe1",
-    "_tool": "f1d94c5b3868c2c6"
-   }
+   "agent_artifacts": {}
   },
   "script": {
    "status": "done",
-   "attempts": 2,
-   "note": "36 tagged sentences, 16 claims used",
-   "started": "2026-10-20T13:32:39Z",
+   "attempts": 3,
+   "started": "2026-10-20T13:50:01Z",
    "error": null,
-   "finished": "2026-10-20T13:32:39Z",
+   "finished": "2026-10-20T13:50:01Z",
+   "note": "891 words = 6.1 min, 15 claims used",
    "inputs": {
-    "claims.json": "9288f2f6d059ff7256ce8318eccc12a9f0e1045be0b7d0517335482862887974",
-    "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
-    "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
-    "script.md": "e25a864e1cc1f9f710851a3ae6a5ff82d65d1e1a9227297608461ba63cb6e0c4",
-    "_tool": "011f70d2646e3c92"
-   },
-   "outputs": {
-    "script.md": "e25a864e1cc1f9f710851a3ae6a5ff82d65d1e1a9227297608461ba63cb6e0c4"
-   }
-  },
-  "storyboard": {
-   "status": "done",
-   "attempts": 5,
-   "note": "50 shots, 268.98s, timing from estimate",
-   "started": "2026-10-20T13:32:39Z",
-   "error": null,
-   "finished": "2026-10-20T13:32:39Z",
-   "outputs": {
-    "story/storyboard.json": "2707b204eb5767fb72ce338811dc081d49e22c01ff23cd53a150e8bacf28f4ff",
-    "timeline.json": "ba760dc78c3df630b1d98fc1af2601cb707da2c382ef18ff3d48afb73ebc8b2e",
-    "story/labels.json": "faf141f0bbcf2398de0168c84a4bc931ebace823a6ce252c12b46d12e91b05cb",
-    "story/report.md": "f25d8c9c173d32c285868cc05dbf7c917edb955b447ffcfe12e20d0a04acfc41"
-   },
-   "inputs": {
-    "claims.json": "9288f2f6d059ff7256ce8318eccc12a9f0e1045be0b7d0517335482862887974",
-    "episode.json": "8c06ca3a1ce0521884ab3410318af3e8279186c96140dca6514506a24254b3a5",
+    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
+    "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
+    "evidence/wide/grid.json": "05712013a4f1e8392ac4dc5d89764d12edc4e0fd2ab3524b5e91234b0758eec6",
     "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
-    "graphics/g170.png": "13ebaf864523c42bf313e04ba78322ebe419838aa12faecdec282cb6d0a8e39c",
-    "graphics/g_cmp2022.png": "132b57edafa2469a1a5dc55ee2b09c12c5e5ded5a343d573c8c69ef4daab7624",
-    "graphics/g_cmp2425.png": "658641229d90f3c28be1e861dabd0643ae581ba453253317ed05d2f6de60dfde",
-    "graphics/g_hero.png": "6b6a67e5c6029f6d781468525457eea18e0381ce12a3b318586e069a65d48aa5",
-    "graphics/g_reports.png": "3df20ef072642da99018bd6805b57439b75d1f8c0ab965520ca9f12c295e1f54",
-    "graphics/g_tiers.png": "a28a34e6677452f1dd3fa33d8e83d137332d5c1882207ff7fd3e88feac880ba5",
-    "script.md": "e25a864e1cc1f9f710851a3ae6a5ff82d65d1e1a9227297608461ba63cb6e0c4",
-    "_tool": "bb843a9abda7798a"
+    "script.md": "df0474d6acdc4aedd638e3b2ab6adb016ed6e7576ca520a35e53f3ff4b13ac45",
+    "_tool": "1e8a31e2bf49a808"
+   },
+   "outputs": {
+    "script.md": "df0474d6acdc4aedd638e3b2ab6adb016ed6e7576ca520a35e53f3ff4b13ac45",
+    "research/brief.json": "ef7471a882fdb9587b1ad40adc7f5984f72d8a48e4589eb6b2a457386688aea0"
+   },
+   "agent_artifacts": {
+    "script.md": "df0474d6acdc4aedd638e3b2ab6adb016ed6e7576ca520a35e53f3ff4b13ac45"
    }
+  },
+  "visualplan": {
+   "status": "done",
+   "attempts": 7,
+   "started": "2026-10-20T13:51:57Z",
+   "error": null,
+   "finished": "2026-10-20T13:51:57Z",
+   "note": "42 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']",
+   "inputs": {
+    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
+    "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
+    "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
+    "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
+    "evidence/wide/grid.json": "05712013a4f1e8392ac4dc5d89764d12edc4e0fd2ab3524b5e91234b0758eec6",
+    "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
+    "research/brief.json": "ef7471a882fdb9587b1ad40adc7f5984f72d8a48e4589eb6b2a457386688aea0",
+    "research/notes.json": "acf9223e30b6fe55e3a5abccfde115d524a7d39e1fb5ff64ed1b7beacf839dcc",
+    "script.md": "df0474d6acdc4aedd638e3b2ab6adb016ed6e7576ca520a35e53f3ff4b13ac45",
+    "_tool": "0973ceb91a0a3920"
+   },
+   "outputs": {
+    "episode.json": "8edfe5085d07dd9275e6783902e7549ef9d216fe8863fb699383e9f902e0cfed",
+    "graphics_spec.json": "0ac9feec98cb024441234d34f8019ae27d7553e1b37054df4aff5ae24d9a0cea"
+   },
+   "agent_artifacts": {}
   },
   "visuals": {
    "status": "done",
-   "attempts": 3,
-   "note": "6 graphics",
-   "started": "2026-10-20T13:32:34Z",
+   "attempts": 7,
+   "started": "2026-10-20T13:51:57Z",
    "error": null,
-   "finished": "2026-10-20T13:32:39Z",
+   "finished": "2026-10-20T13:52:03Z",
+   "note": "8 graphics",
+   "inputs": {
+    "episode.json": "8edfe5085d07dd9275e6783902e7549ef9d216fe8863fb699383e9f902e0cfed",
+    "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
+    "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
+    "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
+    "evidence/wide/grid.json": "05712013a4f1e8392ac4dc5d89764d12edc4e0fd2ab3524b5e91234b0758eec6",
+    "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
+    "graphics_spec.json": "0ac9feec98cb024441234d34f8019ae27d7553e1b37054df4aff5ae24d9a0cea",
+    "_tool": "bce42ab2fa5a95cf"
+   },
    "outputs": {
-    "graphics/g170.png": "13ebaf864523c42bf313e04ba78322ebe419838aa12faecdec282cb6d0a8e39c",
-    "graphics/g_cmp2022.png": "132b57edafa2469a1a5dc55ee2b09c12c5e5ded5a343d573c8c69ef4daab7624",
-    "graphics/g_cmp2425.png": "658641229d90f3c28be1e861dabd0643ae581ba453253317ed05d2f6de60dfde",
-    "graphics/g_hero.png": "6b6a67e5c6029f6d781468525457eea18e0381ce12a3b318586e069a65d48aa5",
-    "graphics/g_reports.png": "3df20ef072642da99018bd6805b57439b75d1f8c0ab965520ca9f12c295e1f54",
-    "graphics/g_tiers.png": "a28a34e6677452f1dd3fa33d8e83d137332d5c1882207ff7fd3e88feac880ba5"
+    "graphics/g_cmp_2020_2024_c17.png": "784eb95f6ef462aacadfb3df3d49cdef13ad14e4b3b830e79cadc9473fcb0e1b",
+    "graphics/g_cmp_2020_2024_c19.png": "dd80084889d94a2645868c4417d6f0bf80ac68a9f893b931f128d56088e2c41c",
+    "graphics/g_cmp_2022_2026_c10.png": "560f7b2970eb7b16bc635558952309ce8a1c801d5d9f96e3fb2b41211f0edcbf",
+    "graphics/g_cmp_2025_2026_c12.png": "cc0006b0f36f05727ac60ce1418dfd0f2f589d115ac9e7afde381a507edc8fce",
+    "graphics/g_hero_c10.png": "b8477a9836ee5fce07e052f27e1af19bc8cb1afdc47ac873c49da8101bf84f68",
+    "graphics/g_reports.png": "3858179cfc7e0506cf330a3655330f39a5b1e7b2e139e20c52d34e7f98a4a6cf",
+    "graphics/g_scale.png": "d7c49e029bf2d10f12109754fed4f6432af5f20b241470e2dbb75ec9f3bd70cc",
+    "graphics/g_tiers.png": "a9824c2e2badc92353bef4136f7e062a767a9db4a9edabb3e1c03ea3feb76854"
+   },
+   "agent_artifacts": {}
+  },
+  "storyboard": {
+   "status": "done",
+   "attempts": 8,
+   "started": "2026-10-20T13:52:33Z",
+   "error": null,
+   "finished": "2026-10-20T13:52:34Z",
+   "note": "69 shots, 363.673s, timing from estimate",
+   "inputs": {
+    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
+    "episode.json": "8edfe5085d07dd9275e6783902e7549ef9d216fe8863fb699383e9f902e0cfed",
+    "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
+    "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
+    "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
+    "evidence/wide/grid.json": "05712013a4f1e8392ac4dc5d89764d12edc4e0fd2ab3524b5e91234b0758eec6",
+    "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
+    "graphics/g_cmp_2020_2024_c17.png": "784eb95f6ef462aacadfb3df3d49cdef13ad14e4b3b830e79cadc9473fcb0e1b",
+    "graphics/g_cmp_2020_2024_c19.png": "dd80084889d94a2645868c4417d6f0bf80ac68a9f893b931f128d56088e2c41c",
+    "graphics/g_cmp_2022_2026_c10.png": "560f7b2970eb7b16bc635558952309ce8a1c801d5d9f96e3fb2b41211f0edcbf",
+    "graphics/g_cmp_2025_2026_c12.png": "cc0006b0f36f05727ac60ce1418dfd0f2f589d115ac9e7afde381a507edc8fce",
+    "graphics/g_hero_c10.png": "b8477a9836ee5fce07e052f27e1af19bc8cb1afdc47ac873c49da8101bf84f68",
+    "graphics/g_reports.png": "3858179cfc7e0506cf330a3655330f39a5b1e7b2e139e20c52d34e7f98a4a6cf",
+    "graphics/g_scale.png": "d7c49e029bf2d10f12109754fed4f6432af5f20b241470e2dbb75ec9f3bd70cc",
+    "graphics/g_tiers.png": "a9824c2e2badc92353bef4136f7e062a767a9db4a9edabb3e1c03ea3feb76854",
+    "research/brief.json": "ef7471a882fdb9587b1ad40adc7f5984f72d8a48e4589eb6b2a457386688aea0",
+    "script.md": "df0474d6acdc4aedd638e3b2ab6adb016ed6e7576ca520a35e53f3ff4b13ac45",
+    "_tool": "cf4e9030a66478e3"
+   },
+   "outputs": {
+    "story/storyboard.json": "93f67248e5f43922780ebd63eaad840a5847acbb7934be6d20c11a389e010c9a",
+    "timeline.json": "cd2606168b0a2cb7e3d58f1569bf2f372ad044cd6c7931a5d699051736dc8699",
+    "story/labels.json": "4a088503045026c3cb5db4c95fc283bac450f13f844b193f59dd0e7451a545a3",
+    "story/report.md": "36ac696e8e7f2efb075fc2336ba8d68a8d306c24e178cdea827b97b9bb961961"
+   },
+   "agent_artifacts": {}
+  },
+  "visualcheck": {
+   "status": "done",
+   "attempts": 19,
+   "started": "2026-10-20T13:53:37Z",
+   "error": null,
+   "finished": "2026-10-20T13:53:42Z",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 45, 'REVIEWED': 10}",
+   "outputs": {
+    "qa/visual_claims.json": "718e53d439cc3919d576d0195fbb1251e2ca9b9f34f47287e42da8e164a5c602",
+    "qa/visual_claims.md": "76e81a5de4c7553c85bb747c0003da62b753ce5296f139057dbe57ef8b331e4e"
    },
    "inputs": {
-    "episode.json": "8c06ca3a1ce0521884ab3410318af3e8279186c96140dca6514506a24254b3a5",
-    "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
-    "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
-    "graphics_spec.json": "af06a9735a5f7b37443d2d8310a4029538d765e8786268d9a868ae3aafd9367c",
-    "_tool": "bce42ab2fa5a95cf"
+    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
+    "episode.json": "8edfe5085d07dd9275e6783902e7549ef9d216fe8863fb699383e9f902e0cfed",
+    "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
+    "qa/visual_review.json": "990e3709385118fa10fd3ec57371dd5c003f1e43a7be785e8a1bb2360a9e22b5",
+    "story/labels.json": "4a088503045026c3cb5db4c95fc283bac450f13f844b193f59dd0e7451a545a3",
+    "story/report.md": "36ac696e8e7f2efb075fc2336ba8d68a8d306c24e178cdea827b97b9bb961961",
+    "story/storyboard.json": "93f67248e5f43922780ebd63eaad840a5847acbb7934be6d20c11a389e010c9a",
+    "timeline.json": "cd2606168b0a2cb7e3d58f1569bf2f372ad044cd6c7931a5d699051736dc8699",
+    "_tool": "f977b2b9d32a6b39"
+   },
+   "agent_artifacts": {
+    "qa/visual_review.json": "990e3709385118fa10fd3ec57371dd5c003f1e43a7be785e8a1bb2360a9e22b5"
    }
   },
   "voice": {
    "status": "awaiting_approval",
-   "attempts": 5,
-   "note": "no approvals/voice.json; plan: 3700 characters",
-   "started": "2026-10-20T13:32:39Z",
+   "attempts": 2,
+   "note": "no approvals/voice.json; plan: 4987 characters",
+   "started": "2026-10-20T13:53:42Z",
    "error": null,
-   "finished": "2026-10-20T13:32:39Z",
+   "finished": "2026-10-20T13:53:42Z",
    "outputs": {
-    "voice/plan.json": "777e57e007253b03c2ad6f271d4008a40e9ca53ba4f0b74c6c4abf35b3e8b9f9"
+    "voice/plan.json": "e8c69fb4f3b9c02f3f57d502cb06a75ff04a26633ba42d7921d01bd849d46f26"
    }
   },
   "captions": {
@@ -162,256 +248,695 @@
   },
   "release": {
    "status": "done",
-   "attempts": 5,
-   "note": "incomplete",
-   "started": "2026-10-20T13:32:39Z",
+   "attempts": 20,
+   "started": "2026-10-20T13:53:42Z",
    "error": null,
-   "finished": "2026-10-20T13:32:39Z",
+   "finished": "2026-10-20T13:53:42Z",
+   "note": "incomplete",
    "inputs": {
-    "claims.json": "9288f2f6d059ff7256ce8318eccc12a9f0e1045be0b7d0517335482862887974",
-    "story/labels.json": "faf141f0bbcf2398de0168c84a4bc931ebace823a6ce252c12b46d12e91b05cb",
-    "story/report.md": "f25d8c9c173d32c285868cc05dbf7c917edb955b447ffcfe12e20d0a04acfc41",
-    "story/storyboard.json": "2707b204eb5767fb72ce338811dc081d49e22c01ff23cd53a150e8bacf28f4ff",
-    "timeline.json": "ba760dc78c3df630b1d98fc1af2601cb707da2c382ef18ff3d48afb73ebc8b2e",
+    "claims.json": "c5eb0f0329dc4b81533496c09e2ec59d0d106775d9c2afd46d4e72caf73d59c1",
+    "qa/visual_claims.json": "718e53d439cc3919d576d0195fbb1251e2ca9b9f34f47287e42da8e164a5c602",
+    "story/labels.json": "4a088503045026c3cb5db4c95fc283bac450f13f844b193f59dd0e7451a545a3",
+    "story/report.md": "36ac696e8e7f2efb075fc2336ba8d68a8d306c24e178cdea827b97b9bb961961",
+    "story/storyboard.json": "93f67248e5f43922780ebd63eaad840a5847acbb7934be6d20c11a389e010c9a",
+    "timeline.json": "cd2606168b0a2cb7e3d58f1569bf2f372ad044cd6c7931a5d699051736dc8699",
     "_tool": "e3b0c44298fc1c14"
    },
    "outputs": {
-    "release/REVIEW.md": "5bd7583fbe6b75d9e8b975b8d2ea1b763e14139ca30d42c05cc9bf7358401282",
-    "story/report.md": "f25d8c9c173d32c285868cc05dbf7c917edb955b447ffcfe12e20d0a04acfc41"
-   }
+    "release/REVIEW.md": "277bcb418a50d721a1cfb72a5afda2b76eb2f376f518354c25ee660f5dc44551",
+    "story/report.md": "36ac696e8e7f2efb075fc2336ba8d68a8d306c24e178cdea827b97b9bb961961"
+   },
+   "agent_artifacts": {}
   }
  },
  "costs": [],
  "log": [
   {
-   "at": "2026-10-20T13:22:44Z",
+   "at": "2026-10-20T13:48:16Z",
    "stage": "topic",
    "event": "done",
    "note": "owner-approved topic"
   },
   {
-   "at": "2026-10-20T13:22:44Z",
+   "at": "2026-10-20T13:48:16Z",
    "stage": "research",
    "event": "done",
-   "note": "claims.json present"
+   "note": "18 claims (13 usable), factual capacity about 4.9 min - INSUFFICIENT_FOR_6_MIN"
   },
   {
-   "at": "2026-10-20T13:22:44Z",
+   "at": "2026-10-20T13:48:16Z",
    "stage": "facts",
    "event": "done",
-   "note": "17 claims, registry ok"
+   "note": "18 claims, registry ok"
   },
   {
-   "at": "2026-10-20T13:23:22Z",
-   "stage": "evidence",
-   "event": "blocked",
-   "note": "yt-sentinel wide: not_covered S2C_MSIL2A_20261018T080931_R078_T36RYR_20261018T111002 does not cover the AOI (no-data in the crop); choose another scene/orbit "
-  },
-  {
-   "at": "2026-10-20T13:23:43Z",
+   "at": "2026-10-20T13:48:16Z",
    "stage": "evidence",
    "event": "done",
-   "note": "2 stacks"
+   "note": "2 stacks + NDWI series"
   },
   {
-   "at": "2026-10-20T13:23:43Z",
+   "at": "2026-10-20T13:48:16Z",
    "stage": "script",
    "event": "done",
-   "note": "36 tagged sentences, 16 claims used"
+   "note": "884 words = 6.0 min, 14 claims used"
   },
   {
-   "at": "2026-10-20T13:23:44Z",
-   "stage": "storyboard",
-   "event": "blocked",
-   "note": "yt-storyboard: StoryError: graphic g170 would sit 17.1s on screen in chapter promise; add visuals or a build step"
+   "at": "2026-10-20T13:48:16Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "37 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12']"
   },
   {
-   "at": "2026-10-20T13:23:53Z",
-   "stage": "storyboard",
-   "event": "blocked",
-   "note": "yt-storyboard: {'status': 'error', 'error': \"grid.src not found: 'evidence/stack/grid.json'\", 'warnings': []}"
-  },
-  {
-   "at": "2026-10-20T13:24:05Z",
-   "stage": "visuals",
-   "event": "blocked",
-   "note": "yt-graphics: overflow title 'Announced length: 170 km. This frame: about 50 km.' is drawn across a line or arrow"
-  },
-  {
-   "at": "2026-10-20T13:24:23Z",
+   "at": "2026-10-20T13:48:21Z",
    "stage": "visuals",
    "event": "done",
    "note": "6 graphics"
   },
   {
-   "at": "2026-10-20T13:24:23Z",
-   "stage": "storyboard",
-   "event": "blocked",
-   "note": "yt-storyboard: {'status': 'error', 'error': \"assets.g170 has unknown key(s) ['claims']; allowed: ['credit', 'derived_from', 'group', 'image_date', 'kind', 'label', 'license', 'prov', 'retrieved', 'source_url', 'src']\", 'warnings': []}"
-  },
-  {
-   "at": "2026-10-20T13:24:31Z",
+   "at": "2026-10-20T13:48:21Z",
    "stage": "storyboard",
    "event": "done",
-   "note": "50 shots, 270.612s, timing from estimate"
+   "note": "69 shots, 360.816s, timing from estimate"
   },
   {
-   "at": "2026-10-20T13:24:31Z",
-   "stage": "voice",
-   "event": "awaiting_approval",
-   "note": "no approvals/voice.json; plan: 3700 characters"
+   "at": "2026-10-20T13:48:29Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "24 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
   },
   {
-   "at": "2026-10-20T13:24:31Z",
+   "at": "2026-10-20T13:48:29Z",
    "stage": "release",
    "event": "done",
    "note": "incomplete"
   },
   {
-   "at": "2026-10-20T13:32:24Z",
-   "stage": "voice",
-   "event": "awaiting_approval",
-   "note": "no approvals/voice.json; plan: 3700 characters"
+   "at": "2026-10-20T13:48:37Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "24 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
   },
   {
-   "at": "2026-10-20T13:32:24Z",
+   "at": "2026-10-20T13:48:37Z",
    "stage": "release",
    "event": "inputs or outputs changed; rerun"
   },
   {
-   "at": "2026-10-20T13:32:24Z",
+   "at": "2026-10-20T13:48:37Z",
    "stage": "release",
    "event": "done",
    "note": "incomplete"
   },
   {
-   "at": "2026-10-20T13:32:34Z",
-   "stage": "topic",
-   "event": "inputs or outputs changed; rerun"
-  },
-  {
-   "at": "2026-10-20T13:32:34Z",
-   "stage": "topic",
-   "event": "done",
-   "note": "owner-approved topic"
-  },
-  {
-   "at": "2026-10-20T13:32:34Z",
+   "at": "2026-10-20T13:49:12Z",
    "stage": "research",
    "event": "inputs or outputs changed; rerun"
   },
   {
-   "at": "2026-10-20T13:32:34Z",
+   "at": "2026-10-20T13:49:13Z",
    "stage": "research",
    "event": "done",
-   "note": "claims.json present"
+   "note": "18 claims (13 usable), factual capacity about 4.9 min - INSUFFICIENT_FOR_6_MIN"
   },
   {
-   "at": "2026-10-20T13:32:34Z",
+   "at": "2026-10-20T13:49:13Z",
    "stage": "facts",
    "event": "inputs or outputs changed; rerun"
   },
   {
-   "at": "2026-10-20T13:32:34Z",
+   "at": "2026-10-20T13:49:13Z",
    "stage": "facts",
    "event": "done",
-   "note": "17 claims, registry ok"
+   "note": "18 claims, registry ok"
   },
   {
-   "at": "2026-10-20T13:32:34Z",
+   "at": "2026-10-20T13:49:13Z",
    "stage": "evidence",
    "event": "inputs or outputs changed; rerun"
   },
   {
-   "at": "2026-10-20T13:32:34Z",
+   "at": "2026-10-20T13:49:13Z",
    "stage": "evidence",
    "event": "done",
-   "note": "2 stacks"
+   "note": "2 stacks + NDWI series"
   },
   {
-   "at": "2026-10-20T13:32:34Z",
+   "at": "2026-10-20T13:49:13Z",
+   "stage": "script",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:49:13Z",
+   "stage": "script",
+   "event": "done",
+   "note": "884 words = 6.0 min, 14 claims used"
+  },
+  {
+   "at": "2026-10-20T13:49:13Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:49:13Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "37 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12']"
+  },
+  {
+   "at": "2026-10-20T13:49:13Z",
    "stage": "visuals",
    "event": "inputs or outputs changed; rerun"
   },
   {
-   "at": "2026-10-20T13:32:39Z",
+   "at": "2026-10-20T13:49:18Z",
    "stage": "visuals",
    "event": "done",
    "note": "6 graphics"
   },
   {
-   "at": "2026-10-20T13:32:39Z",
-   "stage": "script",
-   "event": "inputs or outputs changed; rerun"
-  },
-  {
-   "at": "2026-10-20T13:32:39Z",
-   "stage": "script",
-   "event": "done",
-   "note": "36 tagged sentences, 16 claims used"
-  },
-  {
-   "at": "2026-10-20T13:32:39Z",
+   "at": "2026-10-20T13:49:18Z",
    "stage": "storyboard",
    "event": "inputs or outputs changed; rerun"
   },
   {
-   "at": "2026-10-20T13:32:39Z",
+   "at": "2026-10-20T13:49:18Z",
    "stage": "storyboard",
    "event": "done",
-   "note": "50 shots, 268.98s, timing from estimate"
+   "note": "69 shots, 360.816s, timing from estimate"
   },
   {
-   "at": "2026-10-20T13:32:39Z",
-   "stage": "voice",
-   "event": "awaiting_approval",
-   "note": "no approvals/voice.json; plan: 3700 characters"
+   "at": "2026-10-20T13:49:22Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "10 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
   },
   {
-   "at": "2026-10-20T13:32:39Z",
+   "at": "2026-10-20T13:49:22Z",
    "stage": "release",
    "event": "inputs or outputs changed; rerun"
   },
   {
-   "at": "2026-10-20T13:32:39Z",
+   "at": "2026-10-20T13:49:22Z",
    "stage": "release",
    "event": "done",
    "note": "incomplete"
   },
   {
-   "at": "2026-10-20T13:32:39Z",
-   "stage": "voice",
-   "event": "awaiting_approval",
-   "note": "no approvals/voice.json; plan: 3700 characters"
+   "at": "2026-10-20T13:49:25Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "10 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
   },
   {
-   "at": "2026-10-20T13:32:39Z",
+   "at": "2026-10-20T13:49:25Z",
    "stage": "release",
    "event": "inputs or outputs changed; rerun"
   },
   {
-   "at": "2026-10-20T13:32:39Z",
+   "at": "2026-10-20T13:49:25Z",
    "stage": "release",
    "event": "done",
    "note": "incomplete"
   },
   {
-   "at": "2026-10-20T13:32:39Z",
-   "stage": "voice",
-   "event": "awaiting_approval",
-   "note": "no approvals/voice.json; plan: 3700 characters"
+   "at": "2026-10-20T13:50:01Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
   },
   {
-   "at": "2026-10-20T13:32:39Z",
+   "at": "2026-10-20T13:50:01Z",
+   "stage": "research",
+   "event": "done",
+   "note": "19 claims (14 usable), factual capacity about 5.2 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-20T13:50:01Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:50:01Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "19 claims, registry ok"
+  },
+  {
+   "at": "2026-10-20T13:50:01Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:50:01Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + NDWI series"
+  },
+  {
+   "at": "2026-10-20T13:50:01Z",
+   "stage": "script",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:50:01Z",
+   "stage": "script",
+   "event": "done",
+   "note": "891 words = 6.1 min, 15 claims used"
+  },
+  {
+   "at": "2026-10-20T13:50:01Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:50:01Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "39 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']"
+  },
+  {
+   "at": "2026-10-20T13:50:01Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:50:07Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: error graphics[6].left.geo: a 4.0 km view at [35.1175, 28.1127] leaves the imagery"
+  },
+  {
+   "at": "2026-10-20T13:50:10Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "10 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T13:50:10Z",
    "stage": "release",
    "event": "inputs or outputs changed; rerun"
   },
   {
-   "at": "2026-10-20T13:32:39Z",
+   "at": "2026-10-20T13:50:10Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:50:15Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: error graphics[6].left.geo: a 4.0 km view at [35.1175, 28.1127] leaves the imagery"
+  },
+  {
+   "at": "2026-10-20T13:50:18Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "10 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T13:50:18Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:50:18Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:50:31Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:50:31Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "39 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']"
+  },
+  {
+   "at": "2026-10-20T13:50:37Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "8 graphics"
+  },
+  {
+   "at": "2026-10-20T13:50:37Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:50:37Z",
+   "stage": "storyboard",
+   "event": "blocked",
+   "note": "yt-storyboard: {'status': 'error', 'error': 'shots[32].camera.to: a 10.0 km wide view at [35.14998, 28.11219] leaves the imagery (covers lon 35.098..35.322, lat 28.070..28.150); move it or narrow it', 'warnings': []}"
+  },
+  {
+   "at": "2026-10-20T13:50:37Z",
+   "stage": "release",
+   "event": "invalidated: upstream ['storyboard'] not done"
+  },
+  {
+   "at": "2026-10-20T13:50:38Z",
+   "stage": "storyboard",
+   "event": "blocked",
+   "note": "yt-storyboard: {'status': 'error', 'error': 'shots[32].camera.to: a 10.0 km wide view at [35.14998, 28.11219] leaves the imagery (covers lon 35.098..35.322, lat 28.070..28.150); move it or narrow it', 'warnings': []}"
+  },
+  {
+   "at": "2026-10-20T13:50:51Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "67 shots, 363.673s, timing from estimate"
+  },
+  {
+   "at": "2026-10-20T13:50:54Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "8 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T13:50:54Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:50:57Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "8 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T13:50:57Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:50:57Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:51:18Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:51:18Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "39 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']"
+  },
+  {
+   "at": "2026-10-20T13:51:18Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:51:24Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "8 graphics"
+  },
+  {
+   "at": "2026-10-20T13:51:24Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:51:25Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "67 shots, 363.673s, timing from estimate"
+  },
+  {
+   "at": "2026-10-20T13:51:27Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "8 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T13:51:27Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:51:27Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:51:30Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "8 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T13:51:30Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:51:30Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:51:40Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:51:40Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "39 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']"
+  },
+  {
+   "at": "2026-10-20T13:51:43Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "8 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T13:51:43Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:51:43Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:51:45Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "8 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T13:51:45Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:51:45Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:51:57Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:51:57Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "42 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']"
+  },
+  {
+   "at": "2026-10-20T13:51:57Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:52:03Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "8 graphics"
+  },
+  {
+   "at": "2026-10-20T13:52:03Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:52:04Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "69 shots, 363.673s, timing from estimate"
+  },
+  {
+   "at": "2026-10-20T13:52:08Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "10 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T13:52:08Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:52:08Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:52:11Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "10 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T13:52:11Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:52:11Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:52:33Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:52:34Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "69 shots, 363.673s, timing from estimate"
+  },
+  {
+   "at": "2026-10-20T13:52:37Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "10 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T13:52:37Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:52:37Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:52:41Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "10 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T13:52:41Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:52:41Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:53:10Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "10 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T13:53:10Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:53:10Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:53:26Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T13:53:26Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:53:26Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:53:42Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 45, 'REVIEWED': 10}"
+  },
+  {
+   "at": "2026-10-20T13:53:42Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 4987 characters"
+  },
+  {
+   "at": "2026-10-20T13:53:42Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:53:42Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T13:53:42Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 4987 characters"
+  },
+  {
+   "at": "2026-10-20T13:53:42Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T13:53:42Z",
    "stage": "release",
    "event": "done",
    "note": "incomplete"
   }
  ],
- "updated": "2026-10-20T13:32:39Z"
+ "updated": "2026-10-20T13:53:42Z"
 }

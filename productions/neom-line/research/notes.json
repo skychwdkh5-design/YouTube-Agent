@@ -1,0 +1,441 @@
+{
+ "schema": "yt-research/1",
+ "topic": "NEOM / The Line - what Sentinel-2 shows",
+ "title": "Here's What Satellites Show Near the Construction Site (working title, not final)",
+ "titles": [
+  "Here's What Satellites Show Near the Construction Site",
+  "Saudi Arabia Promised a 170 km City. Here's What Satellites Show.",
+  "We Checked The Line From Space: 170 km Promised, This Is What's There"
+ ],
+ "geo": {
+  "focus": [
+   35.215,
+   28.11
+  ],
+  "segment": [
+   35.2165,
+   28.1062
+  ],
+  "wide_focus": [
+   35.345,
+   28.14
+  ],
+  "ndwi_bbox": [
+   35.2,
+   28.098,
+   35.232,
+   28.114
+  ],
+  "stacks": [
+   {
+    "name": "stack",
+    "aoi": [
+     35.1,
+     28.07,
+     35.32,
+     28.15
+    ],
+    "years": [
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026
+    ],
+    "pixel_m": 10,
+    "window": "09-28:10-20",
+    "cloud": 3
+   },
+   {
+    "name": "wide",
+    "role": "wide",
+    "aoi": [
+     35.07,
+     28.0,
+     35.62,
+     28.28
+    ],
+    "years": [
+     2026
+    ],
+    "pixel_m": 40,
+    "window": "09-28:10-20",
+    "cloud": 3
+   }
+  ]
+ },
+ "notes": [
+  {
+   "id": "C1",
+   "kind": "original",
+   "statement": "The Line was announced as a 170 km linear city.",
+   "short": "170 km announced",
+   "scale_km": 170,
+   "independent_outlets": 3,
+   "source": {
+    "outlet": "Construction Briefing (with Dezeen, AGBI)",
+    "url": "https://www.constructionbriefing.com/8036596.article",
+    "date": "2024-04-09",
+    "access": "summary_only",
+    "kind": "search_summary"
+   },
+   "corroboration": "Construction Briefing, Dezeen and AGBI each state the 170 km length"
+  },
+  {
+   "id": "C2",
+   "kind": "media",
+   "statement": "Bloomberg reported (Apr 2024) only about 2.4 km of The Line expected by 2030 and fewer than 300,000 residents.",
+   "short": "Bloomberg: 2.4 km by 2030",
+   "independent_outlets": 3,
+   "source": {
+    "outlet": "Bloomberg via Dezeen",
+    "url": "https://www.dezeen.com/2024/04/09/the-line-neom-scaled-back-dezeen-agenda/",
+    "date": "2024-04-09",
+    "access": "summary_only",
+    "kind": "search_summary"
+   },
+   "corroboration": "Dezeen, AGBI and Interesting Engineering each attribute the figures to Bloomberg; Bloomberg itself unreachable"
+  },
+  {
+   "id": "C3",
+   "kind": "media",
+   "statement": "Semafor reported (22 May 2026) that NEOM halted work on The Line until at least after 2030, citing unnamed sources.",
+   "short": "Semafor: halted past 2030",
+   "independent_outlets": 3,
+   "forbid": [
+    "cancelled",
+    "canceled",
+    "collapsed"
+   ],
+   "source": {
+    "outlet": "Semafor",
+    "url": "https://www.semafor.com/article/05/22/2026/saudis-neom-halts-work-on-the-line-until-after-2030",
+    "date": "2026-05-22",
+    "access": "summary_only",
+    "kind": "search_summary"
+   },
+   "corroboration": "New Atlas, Archinect and Domus retell it; Domus notes it is not officially confirmed; Semafor itself unreachable"
+  },
+  {
+   "id": "C4",
+   "kind": "media",
+   "statement": "Reuters reported (about 4 Oct 2026, two sources) that the NEOM stadium was shelved indefinitely, with no official announcement.",
+   "short": "Reuters: stadium shelved",
+   "independent_outlets": 2,
+   "source": {
+    "outlet": "Reuters via Seoul Economic Daily",
+    "url": "https://en.sedaily.com/international/2026/10/13/saudi-arabia-shelves-neom-stadium-as-megaproject-unravels",
+    "date": "2026-10-13",
+    "access": "summary_only",
+    "kind": "search_summary"
+   },
+   "corroboration": "Seoul Economic Daily and StadiumDB retell Reuters; Reuters unreachable"
+  },
+  {
+   "id": "C5",
+   "kind": "org",
+   "statement": "The PIF governor said completing The Line by 2030 would be good to have, but is not a must.",
+   "short": "PIF: 2030 not a must",
+   "independent_outlets": 1,
+   "wording": "said",
+   "source": {
+    "outlet": "House of Saud (aggregator)",
+    "url": "https://houseofsaud.com/neom-2026-the-line-saudi-arabia-status-update/",
+    "date": "2026-04-01",
+    "access": "summary_only",
+    "kind": "search_summary"
+   }
+  },
+  {
+   "id": "C6",
+   "kind": "media",
+   "statement": "Dezeen reported (Nov 2025) aerial photos of large, repetitive worker housing in the NEOM area.",
+   "short": "Dezeen: worker housing photos",
+   "independent_outlets": 1,
+   "source": {
+    "outlet": "Dezeen",
+    "url": "https://www.dezeen.com/2025/11/10/neom-worker-housing-aerial-photos/",
+    "date": "2025-11-10",
+    "access": "summary_only",
+    "kind": "search_summary"
+   }
+  },
+  {
+   "id": "C7",
+   "kind": "media",
+   "statement": "The Wall Street Journal reported (Mar 2025) more than 50 billion dollars spent on NEOM.",
+   "short": "WSJ: $50B+ spent",
+   "independent_outlets": 1,
+   "source": {
+    "outlet": "WSJ post on X",
+    "url": "https://x.com/WSJ/status/1898659133521326373",
+    "date": "2025-03-08",
+    "access": "summary_only",
+    "kind": "search_summary"
+   }
+  },
+  {
+   "id": "C8",
+   "kind": "media",
+   "statement": "Soar's analysis reported (Jun 2023) a faint straight earthwork in satellite imagery of the site.",
+   "short": "Soar: faint earthwork, 2023",
+   "independent_outlets": 1,
+   "source": {
+    "outlet": "Middle East Eye",
+    "url": "https://www.middleeasteye.net/news/saudi-arabia-neom-line-satellite-images-progress-construction",
+    "date": "2023-06-01",
+    "access": "summary_only",
+    "kind": "search_summary"
+   }
+  },
+  {
+   "id": "C9",
+   "kind": "observation",
+   "statement": "A straight, narrow cleared corridor crosses the area, at least 21.9 km long inside our 10 m frame: absent in 2020-21, faint in 2022, clear from 2023.",
+   "short": "Straight corridor, 22+ km in frame",
+   "evidence": "evidence/stack/provenance.json",
+   "basis": "two_checks",
+   "group": "shows",
+   "years": [
+    2020,
+    2022,
+    2023,
+    2026
+   ],
+   "must_cover": true,
+   "anchor": [
+    35.215,
+    28.108
+   ]
+  },
+  {
+   "id": "C10",
+   "kind": "observation",
+   "statement": "A dark segment about 1.6 km long is absent in Oct 2022 and 2023 and present in Oct 2024, 2025 and 2026.",
+   "short": "Dark segment, about 1.6 km",
+   "evidence": "evidence/ndwi.json",
+   "basis": "two_checks",
+   "group": "segment",
+   "years": [
+    2022,
+    2026
+   ],
+   "must_cover": true,
+   "callouts": [
+    {
+     "at": [
+      35.2093,
+      28.1062
+     ],
+     "text": "Dark segment"
+    },
+    {
+     "at": [
+      35.224,
+      28.1062
+     ],
+     "text": "about 1.6 km"
+    }
+   ],
+   "check": {
+    "kind": "ndwi_years",
+    "file": "evidence/ndwi.json",
+    "present": [
+     2024,
+     2025,
+     2026
+    ],
+    "absent": [
+     2022,
+     2023
+    ],
+    "min_px": 100,
+    "length_km": [
+     1.3,
+     2.1
+    ]
+   },
+   "anchor": [
+    35.2165,
+    28.1062
+   ]
+  },
+  {
+   "id": "C11",
+   "kind": "observation",
+   "statement": "In 2024, 2025 and 2026 the dark segment is water-like in near-infrared (NDWI above zero, very low near-infrared); in 2022 and 2023 no pixel qualifies.",
+   "short": "Water-like in near-infrared",
+   "evidence": "evidence/ndwi.json",
+   "basis": "one_check",
+   "group": "segment",
+   "check": {
+    "kind": "ndwi_years",
+    "file": "evidence/ndwi.json",
+    "present": [
+     2024,
+     2025,
+     2026
+    ],
+    "absent": [
+     2022,
+     2023
+    ],
+    "min_px": 100
+   },
+   "anchor": [
+    35.2165,
+    28.1062
+   ]
+  },
+  {
+   "id": "C12",
+   "kind": "observation",
+   "statement": "Measured at 10 m, the segment is about 1.6 km long in Oct 2025 and about 1.9 km in Oct 2026; we cannot tell growth from water level or a threshold effect.",
+   "short": "1.6 km (2025), 1.9 km (2026)",
+   "evidence": "evidence/ndwi.json",
+   "basis": "one_check",
+   "group": "checks",
+   "check": {
+    "kind": "ndwi_extent",
+    "file": "evidence/ndwi.json",
+    "years": {
+     "2025": [
+      1.4,
+      1.8
+     ],
+     "2026": [
+      1.7,
+      2.1
+     ]
+    }
+   },
+   "years": [
+    2025,
+    2026
+   ],
+   "focus": [
+    35.2165,
+    28.1062
+   ],
+   "compare_km": 4,
+   "anchor": [
+    35.2165,
+    28.1062
+   ]
+  },
+  {
+   "id": "C13",
+   "kind": "observation",
+   "statement": "Landsat 8 at 30 m independently shows the same segment: about 0.7 km in Oct 2024 and about 1.65 km in Oct 2025 and Sep 2026.",
+   "short": "Landsat 30 m agrees",
+   "evidence": "research/evidence/landsat_measure.json",
+   "basis": "one_check",
+   "group": "checks",
+   "visual": false
+  },
+  {
+   "id": "C14",
+   "kind": "observation",
+   "statement": "The segment appears on three different dates and on three different Sentinel-2 satellites (2A, 2B and 2C) in 2024, 2025 and 2026.",
+   "short": "Three dates, three satellites",
+   "evidence": "evidence/stack/provenance.json",
+   "basis": "one_check",
+   "group": "checks",
+   "years": [
+    2024,
+    2025,
+    2026
+   ],
+   "focus": [
+    35.2165,
+    28.1062
+   ],
+   "anchor": [
+    35.2165,
+    28.1062
+   ],
+   "check": {
+    "kind": "scene_meta",
+    "years": [
+     2024,
+     2025,
+     2026
+    ],
+    "platforms_min": 3,
+    "dates_min": 3
+   }
+  },
+  {
+   "id": "C15",
+   "kind": "observation",
+   "statement": "Each pixel in our Sentinel-2 frames covers 10 meters of ground.",
+   "short": "One pixel = 10 meters",
+   "evidence": "evidence/stack/grid.json",
+   "basis": "two_checks",
+   "group": "method",
+   "visual": false
+  },
+  {
+   "id": "C16",
+   "kind": "observation",
+   "statement": "Seven Sentinel-2 scenes, all from the same orbit, taken in late September or October of each year from 2020 to 2026.",
+   "short": "Seven scenes, same orbit",
+   "evidence": "evidence/stack/provenance.json",
+   "basis": "two_checks",
+   "group": "method",
+   "visual": false
+  },
+  {
+   "id": "C18",
+   "kind": "hypothesis",
+   "statement": "The dark segment may be standing water in a long, narrow excavation.",
+   "short": "May be water in an excavation"
+  },
+  {
+   "id": "C17",
+   "kind": "observation",
+   "statement": "A settlement-like complex at the western end of our frame grows from a small compound in 2020 to a large planned street grid by 2024; what it is is unknown.",
+   "short": "Western complex grows, 2020-2024",
+   "evidence": "evidence/stack/provenance.json",
+   "basis": "one_check",
+   "group": "shows",
+   "years": [
+    2020,
+    2024
+   ],
+   "focus": [
+    35.1175,
+    28.1127
+   ],
+   "anchor": [
+    35.1175,
+    28.1127
+   ],
+   "compare_km": 4
+  },
+  {
+   "id": "C19",
+   "kind": "observation",
+   "statement": "A second settlement-like complex at the eastern end of our frame grows from sparse tracks in 2020 to a planned street grid with buildings by 2024; what it is is unknown.",
+   "short": "Eastern complex grows, 2020-2024",
+   "evidence": "evidence/stack/provenance.json",
+   "basis": "one_check",
+   "group": "shows",
+   "years": [
+    2020,
+    2024
+   ],
+   "focus": [
+    35.2995,
+    28.1141
+   ],
+   "anchor": [
+    35.3078,
+    28.1141
+   ],
+   "compare_km": 3.5
+  }
+ ]
+}
