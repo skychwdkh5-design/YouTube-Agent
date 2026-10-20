@@ -97,6 +97,31 @@ class Checks(unittest.TestCase):
         self.assertEqual(st["s1:label:Outlet reported"], "VERIFIED_SOURCE")
 
 
+class Totals(unittest.TestCase):
+    def test_total_equals_sum_of_counts_and_orphans_are_reported(self):
+        d = tempfile.mkdtemp()
+        make(d, labels=[{"text": "OCT 2026", "shot": "s1", "exempt": True}])
+        os.makedirs(os.path.join(d, "qa"))
+        json.dump({"reviews": [{"item": "x", "frame_sha256": "a" * 64, "claims": ["C9"], "reviewer": "agent", "verdict": "supports", "note": "n" * 25}]}, open(os.path.join(d, "qa", "visual_review.json"), "w"))
+        r = vc.run(d)
+        self.assertEqual(r["total"], len(r["items"]))
+        self.assertEqual(sum(r["counts"].values()), r["total"])
+        self.assertEqual(r["orphan_reviews"], 1)
+        self.assertEqual(vc.prune_reviews(d)["removed"], 1)
+
+    def test_missing_item_is_a_fail_not_a_silent_skip(self):
+        d = tempfile.mkdtemp()
+        make(d, labels=[{"text": "OCT 2026", "shot": "s1", "exempt": True}])
+        sbp = os.path.join(d, "story", "storyboard.json")
+        sb = json.load(open(sbp))
+        sb["shots"].append({"id": "ghost", "info": "x", "claims": [], "layers": [{"type": "image", "asset": "y2026"}]})   # no claims: legitimately not audited
+        json.dump(sb, open(sbp, "w"))
+        lp = os.path.join(d, "story", "labels.json")
+        json.dump(json.load(open(lp)) + [{"text": "Mystery", "shot": "nope"}], open(lp, "w"))                          # a label on an unknown shot: must still be audited
+        r = vc.run(d)
+        self.assertEqual(r["overall"], "FAIL")
+
+
 class Reviews(unittest.TestCase):
     def setUp(self):
         self.d = tempfile.mkdtemp()

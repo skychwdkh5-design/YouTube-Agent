@@ -1,0 +1,81 @@
+{
+ "reviews": [
+  {
+   "item": "hook_001:shot",
+   "frame": 0,
+   "frame_sha256": "4b8ae4e78c9afc8fb44df54341c9e5cfc5b4e089e9e84bbbc2cc65d043e3a5ce",
+   "claims": [
+    "C5"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Dark green water covers the left and upper part of the frame, with mud flats and a pale shoreline; a pond and fields lie to the right. Consistent with fewer water-like pixels; the counts themselves are not visible."
+  },
+  {
+   "item": "hook_001:shot",
+   "frame": 1,
+   "frame_sha256": "851e6df6f4bf6b4248945cdfbe1c9a310724682c7b4391562af8e09f831cc46b",
+   "claims": [
+    "C5"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "A large bright white exposed surface now covers where water was on the left; dark water remains at the top and in a rectangular pond to the right. Consistent with fewer water-like pixels; the counts themselves are not visible."
+  },
+  {
+   "item": "shows_009:shot",
+   "frame": 0,
+   "frame_sha256": "00af927ea3c50814ceec858ab5f225d15b1d6c7a70ed7992cf7a557bc21b851e",
+   "claims": [
+    "C5"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Dark green water covers the left and upper part of the frame, with mud flats and a pale shoreline; a pond and fields lie to the right. Consistent with fewer water-like pixels; the counts themselves are not visible."
+  },
+  {
+   "item": "shows_010:graphic:g_cmp_2022_2026_c5",
+   "frame": 0,
+   "frame_sha256": "fee0961155c2d78d0f8667a32e6a725088e22e3c68fc59ab77daa664093a68cd",
+   "claims": [
+    "C5"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Dark green water covers the left and upper part of the frame, with mud flats and a pale shoreline; a pond and fields lie to the right. Consistent with fewer water-like pixels; the counts themselves are not visible."
+  },
+  {
+   "item": "shows_010:graphic:g_cmp_2022_2026_c5",
+   "frame": 1,
+   "frame_sha256": "c014622e20a7820b3b11ee724e28d9873e5ffecd89ac28f2ac2dc00046f0dd75",
+   "claims": [
+    "C5"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "A large bright white exposed surface now covers where water was on the left; dark water remains at the top and in a rectangular pond to the right. Consistent with fewer water-like pixels; the counts themselves are not visible."
+  },
+  {
+   "item": "shows_011:shot",
+   "frame": 0,
+   "frame_sha256": "f6b47b5f5e3d6feea17318076423b03ea22138716bb313cd895fd220bc85754a",
+   "claims": [
+    "C5"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Dark green water covers the left and upper part of the frame, with mud flats and a pale shoreline; a pond and fields lie to the right. Consistent with fewer water-like pixels; the counts themselves are not visible."
+  },
+  {
+   "item": "shows_011:shot",
+   "frame": 1,
+   "frame_sha256": "7a1ddf47e11b40e0d89729f551974680ea87600c9232d4b3ed9f64fad626129d",
+   "claims": [
+    "C5"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "A large bright white exposed surface now covers where water was on the left; dark water remains at the top and in a rectangular pond to the right. Consistent with fewer water-like pixels; the counts themselves are not visible."
+  }
+ ]
+}

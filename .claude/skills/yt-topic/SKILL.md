@@ -10,7 +10,7 @@ description: >-
 
 ```bash
 python3 topic.py collect --queries "Salton Sea satellite;Great Salt Lake drying" --out topic/videos_salton.json   # public YouTube JSON, no login
-python3 topic.py imagery --aoi 35.1,33.2,35.9,33.6 --years 2020,2022,2024,2026                                   # free Sentinel-2 check
+python3 topic.py imagery --aoi=35.1,33.2,35.9,33.6 --years 2020,2022,2024,2026                                   # free Sentinel-2 check (use --aoi=... with an equals sign: a negative longitude otherwise breaks parsing)
 python3 topic.py score --candidates topic/candidates.json --out topic/topic.json --memo topic/topic.md
 python3 test_topic.py
 ```

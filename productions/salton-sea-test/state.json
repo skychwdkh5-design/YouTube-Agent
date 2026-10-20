@@ -1,0 +1,664 @@
+{
+ "schema": "yt-orchestrate/1",
+ "slug": "salton-sea-test",
+ "created": "2026-10-20T14:23:24Z",
+ "stages": {
+  "topic": {
+   "status": "done",
+   "attempts": 2,
+   "started": "2026-10-20T14:25:15Z",
+   "error": null,
+   "finished": "2026-10-20T14:25:15Z",
+   "note": "chosen salton-sea",
+   "outputs": {
+    "topic/topic.json": "84a248c4a1cb9d3e8e392f41f920e644704b7e0b6cc3aa92b031a8d1366a63e9",
+    "topic/topic.md": "0f408329261d9cd4a625a2332a5b9103e077eb4b652b6339825ddc3a2e4e6e1f"
+   },
+   "inputs": {
+    "topic/candidates.json": "e48bc85f7b6ebe89c0f9e7950b59b1451fefbf8934fd76f8620c98a8577fdefc",
+    "_tool": "a7c247e10529a591"
+   },
+   "agent_artifacts": {
+    "topic/candidates.json": "e48bc85f7b6ebe89c0f9e7950b59b1451fefbf8934fd76f8620c98a8577fdefc"
+   }
+  },
+  "research": {
+   "status": "done",
+   "attempts": 5,
+   "note": "6 claims (3 usable), factual capacity about 1.1 min - INSUFFICIENT_FOR_6_MIN",
+   "started": "2026-10-20T14:28:01Z",
+   "error": null,
+   "finished": "2026-10-20T14:28:01Z",
+   "outputs": {
+    "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508",
+    "research/report.md": "887a87e033dd405bc9a73ddbb7831c3191b28ef446266e6745665558b3c7c5ed"
+   },
+   "inputs": {
+    "research/notes.json": "4573f64b5bc8d76ed586aa6c9ca795e7feea7d2c8d33f887b2d85f8d03f600b4",
+    "topic/topic.json": "84a248c4a1cb9d3e8e392f41f920e644704b7e0b6cc3aa92b031a8d1366a63e9",
+    "topic/topic.md": "0f408329261d9cd4a625a2332a5b9103e077eb4b652b6339825ddc3a2e4e6e1f",
+    "_tool": "20551a128ea3eaf0"
+   },
+   "agent_artifacts": {
+    "research/notes.json": "4573f64b5bc8d76ed586aa6c9ca795e7feea7d2c8d33f887b2d85f8d03f600b4",
+    "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508"
+   }
+  },
+  "facts": {
+   "status": "done",
+   "attempts": 3,
+   "note": "6 claims, registry ok",
+   "started": "2026-10-20T14:28:01Z",
+   "error": null,
+   "finished": "2026-10-20T14:28:01Z",
+   "inputs": {
+    "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508",
+    "research/report.md": "887a87e033dd405bc9a73ddbb7831c3191b28ef446266e6745665558b3c7c5ed",
+    "_tool": "011f70d2646e3c92"
+   },
+   "outputs": {},
+   "agent_artifacts": {}
+  },
+  "evidence": {
+   "status": "done",
+   "attempts": 5,
+   "note": "1 stacks + NDWI series",
+   "started": "2026-10-20T14:28:01Z",
+   "error": null,
+   "finished": "2026-10-20T14:28:01Z",
+   "outputs": {
+    "evidence/stack/provenance.json": "318732c8c7b540904b82a4f529408e70281a62a981edd011f1507f796103a554",
+    "evidence/stack/grid.json": "3f3863c5b82d7183cc2b64a10b74225274a23d550dd5886274a7528e728de46f",
+    "evidence/ndwi.json": "02e25921487462ad745e8605ba28003a4149094c8a9833b851b515c03189d09a"
+   },
+   "inputs": {
+    "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508",
+    "research/notes.json": "4573f64b5bc8d76ed586aa6c9ca795e7feea7d2c8d33f887b2d85f8d03f600b4",
+    "research/report.md": "887a87e033dd405bc9a73ddbb7831c3191b28ef446266e6745665558b3c7c5ed",
+    "topic/topic.json": "84a248c4a1cb9d3e8e392f41f920e644704b7e0b6cc3aa92b031a8d1366a63e9",
+    "topic/topic.md": "0f408329261d9cd4a625a2332a5b9103e077eb4b652b6339825ddc3a2e4e6e1f",
+    "_tool": "9910c5ec0e089c03"
+   },
+   "agent_artifacts": {}
+  },
+  "script": {
+   "status": "done",
+   "attempts": 6,
+   "note": "199 words = 1.4 min, 3 claims used; 199 words = 81s, under 6 minutes (the verified facts do not carry more: INSUFFICIENT_FACTS)",
+   "started": "2026-10-20T14:28:01Z",
+   "error": null,
+   "finished": "2026-10-20T14:28:01Z",
+   "outputs": {
+    "script.md": "cf264c8e5803ac93de5fc3e384f8cf768d68e38b152c5428cba611044c168244",
+    "research/brief.json": "a3901f39ed9a0598eaff9141e10a8da8175340b76ddf429d0ae3d1b89e0221f1"
+   },
+   "inputs": {
+    "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508",
+    "evidence/ndwi.json": "02e25921487462ad745e8605ba28003a4149094c8a9833b851b515c03189d09a",
+    "evidence/stack/grid.json": "3f3863c5b82d7183cc2b64a10b74225274a23d550dd5886274a7528e728de46f",
+    "evidence/stack/provenance.json": "318732c8c7b540904b82a4f529408e70281a62a981edd011f1507f796103a554",
+    "script.md": "cf264c8e5803ac93de5fc3e384f8cf768d68e38b152c5428cba611044c168244",
+    "_tool": "1e8a31e2bf49a808"
+   },
+   "agent_artifacts": {
+    "script.md": "cf264c8e5803ac93de5fc3e384f8cf768d68e38b152c5428cba611044c168244"
+   }
+  },
+  "visualplan": {
+   "status": "done",
+   "attempts": 5,
+   "note": "16 visuals in 6 chapters, graphics ['g_cmp_2022_2026_c5']",
+   "started": "2026-10-20T14:28:01Z",
+   "error": null,
+   "finished": "2026-10-20T14:28:01Z",
+   "inputs": {
+    "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508",
+    "evidence/ndwi.json": "02e25921487462ad745e8605ba28003a4149094c8a9833b851b515c03189d09a",
+    "evidence/stack/grid.json": "3f3863c5b82d7183cc2b64a10b74225274a23d550dd5886274a7528e728de46f",
+    "evidence/stack/provenance.json": "318732c8c7b540904b82a4f529408e70281a62a981edd011f1507f796103a554",
+    "research/brief.json": "a3901f39ed9a0598eaff9141e10a8da8175340b76ddf429d0ae3d1b89e0221f1",
+    "research/notes.json": "4573f64b5bc8d76ed586aa6c9ca795e7feea7d2c8d33f887b2d85f8d03f600b4",
+    "script.md": "cf264c8e5803ac93de5fc3e384f8cf768d68e38b152c5428cba611044c168244",
+    "_tool": "84053e42e31ade13"
+   },
+   "outputs": {
+    "episode.json": "cd24047db883e15ff5db5f631c48e737ad80c6a3b4482dc0eb536cff51b031bf",
+    "graphics_spec.json": "7e39c7f5f9664f70d0c847e236906fe49cbb8deb0913f349d1afa526a5a07e7e"
+   },
+   "agent_artifacts": {}
+  },
+  "visuals": {
+   "status": "done",
+   "attempts": 4,
+   "note": "1 graphics",
+   "started": "2026-10-20T14:28:01Z",
+   "error": null,
+   "finished": "2026-10-20T14:28:02Z",
+   "inputs": {
+    "episode.json": "cd24047db883e15ff5db5f631c48e737ad80c6a3b4482dc0eb536cff51b031bf",
+    "evidence/ndwi.json": "02e25921487462ad745e8605ba28003a4149094c8a9833b851b515c03189d09a",
+    "evidence/stack/grid.json": "3f3863c5b82d7183cc2b64a10b74225274a23d550dd5886274a7528e728de46f",
+    "evidence/stack/provenance.json": "318732c8c7b540904b82a4f529408e70281a62a981edd011f1507f796103a554",
+    "graphics_spec.json": "7e39c7f5f9664f70d0c847e236906fe49cbb8deb0913f349d1afa526a5a07e7e",
+    "_tool": "1dd7f098df93102f"
+   },
+   "outputs": {
+    "graphics/g_cmp_2022_2026_c5.png": "8b3fd1bdfb9b4b27f2e740a2f3ecec5b21ebde2b703a20dde650baf5366cca21"
+   },
+   "agent_artifacts": {}
+  },
+  "storyboard": {
+   "status": "done",
+   "attempts": 6,
+   "note": "16 shots, 81.224s, timing from estimate",
+   "started": "2026-10-20T14:28:02Z",
+   "error": null,
+   "finished": "2026-10-20T14:28:03Z",
+   "outputs": {
+    "story/storyboard.json": "cdb5f2bfd26b09be04d0fa667dbb549661538439602136ce86f9266fc0fb72d0",
+    "timeline.json": "cb15e929256f3982903e60ad209f2d0d572114b042f648c9bada9d6aab5921bc",
+    "story/labels.json": "4e8ea5c69522ab33f9c1e9f3c356e3bc3e1f2ae18797328fa92f919d1a91c06f",
+    "story/report.md": "8b0b3e892f718563dd6179b68cab304731bcd5df489a8668a8624a401e711707"
+   },
+   "inputs": {
+    "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508",
+    "episode.json": "cd24047db883e15ff5db5f631c48e737ad80c6a3b4482dc0eb536cff51b031bf",
+    "evidence/ndwi.json": "02e25921487462ad745e8605ba28003a4149094c8a9833b851b515c03189d09a",
+    "evidence/stack/grid.json": "3f3863c5b82d7183cc2b64a10b74225274a23d550dd5886274a7528e728de46f",
+    "evidence/stack/provenance.json": "318732c8c7b540904b82a4f529408e70281a62a981edd011f1507f796103a554",
+    "graphics/g_cmp_2022_2026_c5.png": "8b3fd1bdfb9b4b27f2e740a2f3ecec5b21ebde2b703a20dde650baf5366cca21",
+    "research/brief.json": "a3901f39ed9a0598eaff9141e10a8da8175340b76ddf429d0ae3d1b89e0221f1",
+    "script.md": "cf264c8e5803ac93de5fc3e384f8cf768d68e38b152c5428cba611044c168244",
+    "_tool": "a0eb3092a4fad6ea"
+   },
+   "agent_artifacts": {}
+  },
+  "visualcheck": {
+   "status": "done",
+   "attempts": 5,
+   "note": "visual claims OK {'VERIFIED_DATA': 12, 'REVIEWED': 4} of 16 items",
+   "started": "2026-10-20T14:28:16Z",
+   "error": null,
+   "finished": "2026-10-20T14:28:19Z",
+   "outputs": {
+    "qa/visual_claims.json": "361ca70dbdd09b0553e0b326435de1e437d225656faebd4e21f05b59d0c5d112",
+    "qa/visual_claims.md": "c423346e42eae9bb937728e3a1a6e4c2b42c755996256c3ed12c64ae7452e28f"
+   },
+   "inputs": {
+    "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508",
+    "episode.json": "cd24047db883e15ff5db5f631c48e737ad80c6a3b4482dc0eb536cff51b031bf",
+    "evidence/ndwi.json": "02e25921487462ad745e8605ba28003a4149094c8a9833b851b515c03189d09a",
+    "evidence/stack/grid.json": "3f3863c5b82d7183cc2b64a10b74225274a23d550dd5886274a7528e728de46f",
+    "evidence/stack/provenance.json": "318732c8c7b540904b82a4f529408e70281a62a981edd011f1507f796103a554",
+    "graphics_spec.json": "7e39c7f5f9664f70d0c847e236906fe49cbb8deb0913f349d1afa526a5a07e7e",
+    "qa/visual_review.json": "cbe048570bd5920831f9eb271348e51a397c276eeaabddadaf36f6f29468693a",
+    "story/labels.json": "4e8ea5c69522ab33f9c1e9f3c356e3bc3e1f2ae18797328fa92f919d1a91c06f",
+    "story/report.md": "8b0b3e892f718563dd6179b68cab304731bcd5df489a8668a8624a401e711707",
+    "story/storyboard.json": "cdb5f2bfd26b09be04d0fa667dbb549661538439602136ce86f9266fc0fb72d0",
+    "timeline.json": "cb15e929256f3982903e60ad209f2d0d572114b042f648c9bada9d6aab5921bc",
+    "_tool": "0cf98cf174e3abf3"
+   },
+   "agent_artifacts": {
+    "qa/visual_review.json": "cbe048570bd5920831f9eb271348e51a397c276eeaabddadaf36f6f29468693a"
+   }
+  },
+  "voice": {
+   "status": "awaiting_approval",
+   "attempts": 3,
+   "note": "no approvals/voice.json; plan: 1141 characters",
+   "started": "2026-10-20T14:28:37Z",
+   "error": null,
+   "finished": "2026-10-20T14:28:37Z",
+   "outputs": {
+    "voice/plan.json": "f3fc1c8c0e9600c82e2d14a40986e5a9d9e4baf603344abc8d1e5957945ebf37"
+   }
+  },
+  "captions": {
+   "status": "waiting",
+   "attempts": 0,
+   "note": "waiting for ['voice']"
+  },
+  "render": {
+   "status": "waiting",
+   "attempts": 0,
+   "note": "waiting for ['voice', 'captions']"
+  },
+  "qc": {
+   "status": "waiting",
+   "attempts": 0,
+   "note": "waiting for ['render']"
+  },
+  "release": {
+   "status": "done",
+   "attempts": 7,
+   "note": "incomplete",
+   "started": "2026-10-20T14:28:37Z",
+   "error": null,
+   "finished": "2026-10-20T14:28:37Z",
+   "inputs": {
+    "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508",
+    "qa/visual_claims.json": "361ca70dbdd09b0553e0b326435de1e437d225656faebd4e21f05b59d0c5d112",
+    "story/labels.json": "4e8ea5c69522ab33f9c1e9f3c356e3bc3e1f2ae18797328fa92f919d1a91c06f",
+    "story/report.md": "8b0b3e892f718563dd6179b68cab304731bcd5df489a8668a8624a401e711707",
+    "story/storyboard.json": "cdb5f2bfd26b09be04d0fa667dbb549661538439602136ce86f9266fc0fb72d0",
+    "timeline.json": "cb15e929256f3982903e60ad209f2d0d572114b042f648c9bada9d6aab5921bc",
+    "_tool": "e3b0c44298fc1c14"
+   },
+   "outputs": {
+    "release/REVIEW.md": "98f677ab474b3596235e0e54d6d8209a8110d198a338442973dd10f172e68055",
+    "story/report.md": "8b0b3e892f718563dd6179b68cab304731bcd5df489a8668a8624a401e711707"
+   },
+   "agent_artifacts": {}
+  }
+ },
+ "costs": [],
+ "log": [
+  {
+   "at": "2026-10-20T14:23:24Z",
+   "stage": "topic",
+   "event": "needs_agent",
+   "note": "write topic/candidates.json (see tasks/topic.md)"
+  },
+  {
+   "at": "2026-10-20T14:25:15Z",
+   "stage": "topic",
+   "event": "done",
+   "note": "chosen salton-sea"
+  },
+  {
+   "at": "2026-10-20T14:25:15Z",
+   "stage": "research",
+   "event": "needs_agent",
+   "note": "write research/notes.json (see tasks/research.md)"
+  },
+  {
+   "at": "2026-10-20T14:25:15Z",
+   "stage": "research",
+   "event": "needs_agent",
+   "note": "write research/notes.json (see tasks/research.md)"
+  },
+  {
+   "at": "2026-10-20T14:25:49Z",
+   "stage": "research",
+   "event": "done",
+   "note": "4 claims (1 usable), factual capacity about 0.4 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-20T14:25:49Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "4 claims, registry ok"
+  },
+  {
+   "at": "2026-10-20T14:25:49Z",
+   "stage": "evidence",
+   "event": "blocked",
+   "note": "yt-sentinel stack: error usage: sentinel.py stack [-h] --aoi AOI --years YEARS [--window WINDOW]\n                         [--cloud CLOUD] --out OUT [--pixel-m PIXEL_M]\n                         [--overwrite] [--confirm]\nsentinel.py stack: error: argument --aoi: expected one argument\n "
+  },
+  {
+   "at": "2026-10-20T14:25:49Z",
+   "stage": "evidence",
+   "event": "blocked",
+   "note": "yt-sentinel stack: error usage: sentinel.py stack [-h] --aoi AOI --years YEARS [--window WINDOW]\n                         [--cloud CLOUD] --out OUT [--pixel-m PIXEL_M]\n                         [--overwrite] [--confirm]\nsentinel.py stack: error: argument --aoi: expected one argument\n "
+  },
+  {
+   "at": "2026-10-20T14:26:34Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "1 stacks + NDWI series"
+  },
+  {
+   "at": "2026-10-20T14:26:34Z",
+   "stage": "script",
+   "event": "needs_agent",
+   "note": "write script.md from tasks/script.md (target 882-1323 words; factual capacity about 55 words)"
+  },
+  {
+   "at": "2026-10-20T14:26:34Z",
+   "stage": "script",
+   "event": "needs_agent",
+   "note": "write script.md from tasks/script.md (target 882-1323 words; factual capacity about 55 words)"
+  },
+  {
+   "at": "2026-10-20T14:26:59Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:27:00Z",
+   "stage": "research",
+   "event": "done",
+   "note": "6 claims (3 usable), factual capacity about 1.1 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-20T14:27:00Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:27:00Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "6 claims, registry ok"
+  },
+  {
+   "at": "2026-10-20T14:27:00Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:27:00Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "1 stacks + NDWI series"
+  },
+  {
+   "at": "2026-10-20T14:27:00Z",
+   "stage": "script",
+   "event": "blocked",
+   "note": "script: line 23: {L} is only for limitations (needs not/cannot/no): 'Water color, algae and the lake level on the day of each pass can chan'"
+  },
+  {
+   "at": "2026-10-20T14:27:00Z",
+   "stage": "script",
+   "event": "blocked",
+   "note": "script: line 23: {L} is only for limitations (needs not/cannot/no): 'Water color, algae and the lake level on the day of each pass can chan'"
+  },
+  {
+   "at": "2026-10-20T14:27:04Z",
+   "stage": "script",
+   "event": "done",
+   "note": "199 words = 1.4 min, 3 claims used; 199 words = 81s, under 6 minutes (the verified facts do not carry more: INSUFFICIENT_FACTS)"
+  },
+  {
+   "at": "2026-10-20T14:27:04Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "18 visuals in 6 chapters, graphics ['g_cmp_2022_2026_c5']"
+  },
+  {
+   "at": "2026-10-20T14:27:05Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "1 graphics"
+  },
+  {
+   "at": "2026-10-20T14:27:05Z",
+   "stage": "storyboard",
+   "event": "blocked",
+   "note": "yt-storyboard: StoryError: chapter close: 4.1s is too short for 3 visuals"
+  },
+  {
+   "at": "2026-10-20T14:27:06Z",
+   "stage": "storyboard",
+   "event": "blocked",
+   "note": "yt-storyboard: StoryError: chapter close: 4.1s is too short for 3 visuals"
+  },
+  {
+   "at": "2026-10-20T14:27:16Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:27:16Z",
+   "stage": "visualplan",
+   "event": "blocked",
+   "note": "yt-visual-planner: r = write(a.root)\n  File \"/home/user/YouTube-Agent/.claude/skills/yt-visual-planner/planner.py\", line 252, in write\n    ep, spec = plan(root)\n               ~~~~^^^^^^\n  File \"/home/user/YouTube-Agent/.claude/skills/yt-visual-planner/planner.py\", line 225, in plan\n    dur = words / 2.45\n          ^^^^^\nUnboundLocalError: cannot access local variable 'words' where it is not associated with a value\n"
+  },
+  {
+   "at": "2026-10-20T14:27:16Z",
+   "stage": "visuals",
+   "event": "invalidated: upstream ['visualplan'] not done"
+  },
+  {
+   "at": "2026-10-20T14:27:22Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "17 visuals in 6 chapters, graphics ['g_cmp_2022_2026_c5']"
+  },
+  {
+   "at": "2026-10-20T14:27:23Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "1 graphics"
+  },
+  {
+   "at": "2026-10-20T14:27:23Z",
+   "stage": "storyboard",
+   "event": "blocked",
+   "note": "yt-storyboard: StoryError: chapter close: 4.1s is too short for 2 visuals"
+  },
+  {
+   "at": "2026-10-20T14:27:23Z",
+   "stage": "storyboard",
+   "event": "blocked",
+   "note": "yt-storyboard: StoryError: chapter close: 4.1s is too short for 2 visuals"
+  },
+  {
+   "at": "2026-10-20T14:27:37Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:27:37Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "16 visuals in 6 chapters, graphics ['g_cmp_2022_2026_c5']"
+  },
+  {
+   "at": "2026-10-20T14:27:37Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:27:38Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "1 graphics"
+  },
+  {
+   "at": "2026-10-20T14:27:38Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "16 shots, 81.224s, timing from estimate"
+  },
+  {
+   "at": "2026-10-20T14:27:41Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T14:27:41Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:27:43Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T14:27:43Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:27:43Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:28:01Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:28:01Z",
+   "stage": "research",
+   "event": "done",
+   "note": "6 claims (3 usable), factual capacity about 1.1 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-20T14:28:01Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:28:01Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "6 claims, registry ok"
+  },
+  {
+   "at": "2026-10-20T14:28:01Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:28:01Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "1 stacks + NDWI series"
+  },
+  {
+   "at": "2026-10-20T14:28:01Z",
+   "stage": "script",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:28:01Z",
+   "stage": "script",
+   "event": "done",
+   "note": "199 words = 1.4 min, 3 claims used; 199 words = 81s, under 6 minutes (the verified facts do not carry more: INSUFFICIENT_FACTS)"
+  },
+  {
+   "at": "2026-10-20T14:28:01Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:28:01Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "16 visuals in 6 chapters, graphics ['g_cmp_2022_2026_c5']"
+  },
+  {
+   "at": "2026-10-20T14:28:01Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:28:02Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "1 graphics"
+  },
+  {
+   "at": "2026-10-20T14:28:02Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:28:03Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "16 shots, 81.224s, timing from estimate"
+  },
+  {
+   "at": "2026-10-20T14:28:05Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T14:28:05Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:28:05Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:28:07Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-20T14:28:07Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:28:07Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:28:19Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_DATA': 12, 'REVIEWED': 4} of 16 items"
+  },
+  {
+   "at": "2026-10-20T14:28:19Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 1141 characters"
+  },
+  {
+   "at": "2026-10-20T14:28:19Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:28:19Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:28:19Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 1141 characters"
+  },
+  {
+   "at": "2026-10-20T14:28:19Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:28:19Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-20T14:28:37Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 1141 characters"
+  },
+  {
+   "at": "2026-10-20T14:28:37Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-20T14:28:37Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  }
+ ],
+ "updated": "2026-10-20T14:28:37Z"
+}

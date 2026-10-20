@@ -1,50 +1,6 @@
 {
  "reviews": [
   {
-   "item": "shows_028:shot",
-   "frame": 0,
-   "frame_sha256": "ece18fd1026c2966792932170e90189854654a07ad15a248a9724ebb099b1347",
-   "claims": [
-    "C9"
-   ],
-   "reviewer": "agent",
-   "verdict": "supports",
-   "note": "Empty desert; no straight line, only natural wadis and dunes."
-  },
-  {
-   "item": "shows_029:shot",
-   "frame": 0,
-   "frame_sha256": "7e6bce8a28a1833d3d2fdb77d3d4f7e874f3086163912d0b3b22d4557df277c7",
-   "claims": [
-    "C9"
-   ],
-   "reviewer": "agent",
-   "verdict": "supports",
-   "note": "A faint thin straight light line crosses the middle-right of the frame; hard to see at small size."
-  },
-  {
-   "item": "shows_030:shot",
-   "frame": 0,
-   "frame_sha256": "8bae852467242128897768891d72309637963322c393ab204dcb403687a5e3ed",
-   "claims": [
-    "C9"
-   ],
-   "reviewer": "agent",
-   "verdict": "supports",
-   "note": "A clear pale straight corridor with darker edges crosses the full width of the frame."
-  },
-  {
-   "item": "shows_031:shot",
-   "frame": 0,
-   "frame_sha256": "957e3e5190a60dc06d89df4cfb4769fca0b27228d4ce79954ee8c6927044f7e7",
-   "claims": [
-    "C9"
-   ],
-   "reviewer": "agent",
-   "verdict": "supports",
-   "note": "Straight corridor with a dark green segment at the center; the 21.9 km total length is not visible in this 9 km view."
-  },
-  {
    "item": "shows_032:shot",
    "frame": 0,
    "frame_sha256": "3b97773d8958740820d44edb38af5bf8504c41595221022ae93cb9eef9a723bc",

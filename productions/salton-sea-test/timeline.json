@@ -1,0 +1,612 @@
+{
+ "version": 3,
+ "profile": "long",
+ "grid": "evidence/stack/grid.json",
+ "assets": {
+  "y2022": {
+   "src": "evidence/stack/y2022.png",
+   "label": "2022",
+   "credit": "Contains modified Copernicus Sentinel data 2022"
+  },
+  "y2024": {
+   "src": "evidence/stack/y2024.png",
+   "label": "2024",
+   "credit": "Contains modified Copernicus Sentinel data 2024"
+  },
+  "y2025": {
+   "src": "evidence/stack/y2025.png",
+   "label": "2025",
+   "credit": "Contains modified Copernicus Sentinel data 2025"
+  },
+  "y2026": {
+   "src": "evidence/stack/y2026.png",
+   "label": "2026",
+   "credit": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "g_cmp_2022_2026_c5": {
+   "src": "graphics/g_cmp_2022_2026_c5.png",
+   "kind": "graphic",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "group": "g_cmp_2022_2026_c5"
+  }
+ },
+ "shots": [
+  {
+   "id": "hook_000",
+   "start": 0.0,
+   "visual_family": "y2022_hook",
+   "info": "y2022",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2022"
+    },
+    {
+     "type": "label",
+     "text": "OCT 2022",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 15
+    },
+    "to": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 8
+    }
+   }
+  },
+  {
+   "id": "hook_001",
+   "start": 3.175,
+   "visual_family": "wipe_2022_2026",
+   "info": "wipe y2022->y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2022"
+    },
+    {
+     "type": "wipe",
+     "from": "y2022",
+     "to": "y2026",
+     "t": [
+      0.5,
+      2.2
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 8
+    },
+    "to": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 6.5
+    }
+   }
+  },
+  {
+   "id": "hook_002",
+   "start": 8.254,
+   "visual_family": "y2026_hook",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 6.5
+    },
+    "to": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 2.8
+    }
+   }
+  },
+  {
+   "id": "plan_003",
+   "start": 11.429,
+   "visual_family": "y2026_plan",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "OCT 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 15
+    },
+    "to": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 9
+    }
+   }
+  },
+  {
+   "id": "plan_004",
+   "start": 17.415,
+   "visual_family": "y2022_plan",
+   "info": "y2022",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2022"
+    },
+    {
+     "type": "label",
+     "text": "OCT 2022",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 15
+    },
+    "to": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 8
+    }
+   }
+  },
+  {
+   "id": "plan_005",
+   "start": 23.401,
+   "visual_family": "y2024_plan",
+   "info": "y2024",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2024"
+    },
+    {
+     "type": "label",
+     "text": "OCT 2024",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 8
+    },
+    "to": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 15
+    }
+   }
+  },
+  {
+   "id": "method_006",
+   "start": 29.388,
+   "visual_family": "y2025_method",
+   "info": "y2025",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2025"
+    },
+    {
+     "type": "label",
+     "text": "OCT 2025",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 10
+    },
+    "to": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 6
+    }
+   }
+  },
+  {
+   "id": "method_007",
+   "start": 34.694,
+   "visual_family": "y2026_method",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "OCT 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 15
+    },
+    "to": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 8
+    }
+   }
+  },
+  {
+   "id": "method_008",
+   "start": 40.0,
+   "visual_family": "y2025_method",
+   "info": "y2025",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2025"
+    },
+    {
+     "type": "label",
+     "text": "OCT 2025",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 9
+    },
+    "to": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 14
+    }
+   }
+  },
+  {
+   "id": "shows_009",
+   "start": 45.306,
+   "visual_family": "y2022_shows",
+   "info": "y2022",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2022"
+    },
+    {
+     "type": "label",
+     "text": "OCT 2022",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -115.72524,
+      33.12026
+     ],
+     "width_km": 23.128
+    },
+    "to": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 17.6
+    }
+   }
+  },
+  {
+   "id": "shows_010",
+   "start": 48.336,
+   "visual_family": "g_cmp_2022_2026_c5_shows",
+   "info": "g_cmp_2022_2026_c5",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g_cmp_2022_2026_c5",
+     "t": [
+      0,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shows_011",
+   "start": 54.336,
+   "visual_family": "wipe_2022_2026",
+   "info": "wipe y2022->y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2022"
+    },
+    {
+     "type": "wipe",
+     "from": "y2022",
+     "to": "y2026",
+     "t": [
+      0.5,
+      2.2
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -115.70377,
+      33.12004
+     ],
+     "width_km": 19.2
+    },
+    "to": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 14.4
+    }
+   }
+  },
+  {
+   "id": "limits_012",
+   "start": 59.184,
+   "visual_family": "y2026_limits",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "OCT 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 15
+    },
+    "to": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 9
+    }
+   }
+  },
+  {
+   "id": "limits_013",
+   "start": 65.17,
+   "visual_family": "y2022_limits",
+   "info": "y2022",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2022"
+    },
+    {
+     "type": "label",
+     "text": "OCT 2022",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 15
+    },
+    "to": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 8
+    }
+   }
+  },
+  {
+   "id": "limits_014",
+   "start": 71.156,
+   "visual_family": "y2024_limits",
+   "info": "y2024",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2024"
+    },
+    {
+     "type": "label",
+     "text": "OCT 2024",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 8
+    },
+    "to": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 15
+    }
+   }
+  },
+  {
+   "id": "close_015",
+   "start": 77.143,
+   "visual_family": "y2026_close",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "OCT 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 15
+    },
+    "to": {
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 6
+    }
+   }
+  }
+ ],
+ "end": {
+  "seconds": 82.22
+ }
+}

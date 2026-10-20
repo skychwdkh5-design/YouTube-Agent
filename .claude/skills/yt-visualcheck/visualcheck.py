@@ -230,14 +230,31 @@ def run(root, stage_review=True):
             else:
                 it.update(status="NEEDS_VISUAL_REVIEW", why="no frame")
             finish(it)
+    # self-audit: every drawn label, graphic and claim-bearing shot must be represented by an item (a miss is a FAIL, not a silent skip)
+    expected = set()
+    for l_ in json.load(open(os.path.join(root, "story", "labels.json"))):
+        if not str(l_["text"]).startswith("graphic:"):
+            expected.add(f"{l_['shot']}:label:{l_['text']}")
+    for shot in sb["shots"]:
+        if shot.get("layers") and shot["layers"][0].get("type") == "graphic":
+            expected.add(f"{shot['id']}:graphic:{shot['layers'][0]['asset']}")
+        elif shot.get("claims"):
+            expected.add(f"{shot['id']}:shot")
+    have = {i["id"] for i in items}
+    for miss in sorted(expected - have):
+        items.append({"id": f"coverage:{miss}", "kind": "coverage", "text": miss, "claims": [], "status": "FAIL", "why": "expected item was not produced by the audit", "source": [], "allowed": {}})
+    # reviews that match no current frame (the picture or the plan changed): reported, never counted
+    live = {(f["sha256"], tuple(sorted(i["claims"]))) for i in items for f in i.get("frames", [])}
+    orphans = [r["item"] for r in reviews if (r.get("frame_sha256"), tuple(sorted(r.get("claims", [])))) not in live]
     counts = {}
     for it in items:
         k = it["status"].split("_BY_")[0] if it["status"].startswith("REVIEWED") else it["status"]
         counts[k] = counts.get(k, 0) + 1
-    res = {"schema": "yt-visualcheck/1", "overall": "FAIL" if counts.get("FAIL") else "NEEDS_VISUAL_REVIEW" if counts.get("NEEDS_VISUAL_REVIEW") else "OK", "counts": counts, "items": items}
+    assert sum(counts.values()) == len(items)
+    res = {"schema": "yt-visualcheck/1", "total": len(items), "orphan_reviews": len(orphans), "overall": "FAIL" if counts.get("FAIL") else "NEEDS_VISUAL_REVIEW" if counts.get("NEEDS_VISUAL_REVIEW") else "OK", "counts": counts, "items": items}
     os.makedirs(os.path.join(root, "qa"), exist_ok=True)
     json.dump(res, open(os.path.join(root, "qa", "visual_claims.json"), "w"), indent=1, ensure_ascii=False)
-    md = ["# Visual-claim check", "", f"Overall: **{res['overall']}** {counts}", "", "| item | claims | status | frame / why |", "|---|---|---|---|"]
+    md = ["# Visual-claim check", "", f"Overall: **{res['overall']}** {counts} (total {len(items)}; orphan reviews not matching any current frame: {len(orphans)})", "", "| item | claims | status | frame / why |", "|---|---|---|---|"]
     for it in items:
         md.append(f"| {it['id'][:60]} | {','.join(it['claims'])} | {it['status']} | {(it.get('frames') or [{}])[0].get('file', '')} {it.get('why', '')[:110]} |")
     md += ["", "Reviewing: look at each `frames` file, then add to qa/visual_review.json {item, frame_sha256, reviewer, verdict, note}. A review is bound to the frame hash."]
@@ -261,14 +278,29 @@ def add_review(root, item, verdict, note, reviewer, frame=0):
     return {"status": "ok", "reviews": len(d["reviews"])}
 
 
+def prune_reviews(root):
+    """Remove reviews that match no current frame (explicit housekeeping; live reviews are untouched)."""
+    rep = json.load(open(os.path.join(root, "qa", "visual_claims.json")))
+    live = {(f["sha256"], tuple(sorted(i["claims"]))) for i in rep["items"] for f in i.get("frames", [])}
+    p = os.path.join(root, "qa", "visual_review.json")
+    d = json.load(open(p))
+    keep = [r for r in d["reviews"] if (r.get("frame_sha256"), tuple(sorted(r.get("claims", [])))) in live]
+    json.dump({"reviews": keep}, open(p, "w"), indent=1, ensure_ascii=False)
+    return {"status": "ok", "removed": len(d["reviews"]) - len(keep), "kept": len(keep)}
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--root", default=".")
     sub = ap.add_subparsers(dest="cmd")
     sub.add_parser("check")
+    sub.add_parser("prune")
     rv = sub.add_parser("review")
     rv.add_argument("--item", required=True); rv.add_argument("--verdict", required=True); rv.add_argument("--note", required=True); rv.add_argument("--reviewer", default="agent", choices=["agent", "owner"]); rv.add_argument("--frame", type=int, default=0)
     a = ap.parse_args(argv)
+    if a.cmd == "prune":
+        print(json.dumps(prune_reviews(a.root)))
+        return 0
     if a.cmd == "review":
         try:
             print(json.dumps(add_review(a.root, a.item, a.verdict, a.note, a.reviewer, a.frame)))
@@ -281,7 +313,7 @@ def main(argv=None):
     except (OSError, KeyError, ValueError) as e:
         print(json.dumps({"status": "error", "error": f"{type(e).__name__}: {e}"}))
         return 1
-    print(json.dumps({"status": r["overall"], "counts": r["counts"], "report": "qa/visual_claims.md"}, indent=1))
+    print(json.dumps({"status": r["overall"], "total": r["total"], "counts": r["counts"], "orphan_reviews": r["orphan_reviews"], "report": "qa/visual_claims.md"}, indent=1))
     return 0 if r["overall"] == "OK" else 1
 
 

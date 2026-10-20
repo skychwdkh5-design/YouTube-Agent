@@ -1,0 +1,87 @@
+{
+ "schema": "yt-topic/1",
+ "ranking": [
+  {
+   "id": "salton-sea",
+   "title": "The Salton Sea: what Sentinel-2 shows about the shrinking lake",
+   "status": "ok",
+   "gates": [],
+   "total": 50.0,
+   "max": 65.0,
+   "tie_break": 2.4,
+   "points": {
+    "us": 4,
+    "demand": 2.75,
+    "imagery": 5.0,
+    "visual": 4,
+    "curiosity": 4,
+    "evidence": 4,
+    "intl": 3,
+    "monetization": 4
+   },
+   "demand_facts": {
+    "videos": 29,
+    "recent_120d": 3,
+    "small_channel_hits_200k": 9,
+    "recent_small_hits": 5,
+    "recent_500k": 0,
+    "crowding_penalty": 0.0
+   },
+   "imagery_facts": {
+    "years_found": [
+     2020,
+     2022,
+     2024,
+     2025,
+     2026
+    ],
+    "years_missing": []
+   }
+  },
+  {
+   "id": "great-salt-lake",
+   "title": "The Great Salt Lake: what satellites show about the drying lake",
+   "status": "ok",
+   "gates": [],
+   "total": 46.0,
+   "max": 65.0,
+   "tie_break": 2.4,
+   "points": {
+    "us": 5,
+    "demand": 0.0,
+    "imagery": 5.0,
+    "visual": 4,
+    "curiosity": 3,
+    "evidence": 4,
+    "intl": 3,
+    "monetization": 4
+   },
+   "demand_facts": {
+    "videos": 17,
+    "recent_120d": 0,
+    "small_channel_hits_200k": 0,
+    "recent_small_hits": 0,
+    "recent_500k": 0,
+    "crowding_penalty": 0.0
+   },
+   "imagery_facts": {
+    "years_found": [
+     2020,
+     2022,
+     2024,
+     2025,
+     2026
+    ],
+    "years_missing": []
+   }
+  }
+ ],
+ "excluded": [],
+ "chosen": "salton-sea",
+ "caveats": [
+  "demand = what similar videos achieved, not a CTR/retention forecast",
+  "ratings 1-5 are the agent's judgement with written rationale",
+  "no OrbitalAtlas analytics are used; add them when available"
+ ],
+ "status": "ok"
+}

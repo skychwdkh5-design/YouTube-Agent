@@ -4,7 +4,7 @@
 Never calls a paid service: the voice step uses tests/fake_voice.py through the OA_VOICE_TOOL seam.
 Run: python3 .claude/skills/yt-orchestrate/test_orchestrate.py
 """
-import hashlib, json, os, shutil, subprocess, sys, unittest
+import hashlib, json, os, re, shutil, subprocess, sys, unittest
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
@@ -63,6 +63,31 @@ class Base(unittest.TestCase):
 
     def p(self, *a):
         return os.path.join(self.root, *a)
+
+    def live_review(self):
+        """Index of a review that matches a CURRENT frame (a review for a frame that no longer exists changes nothing)."""
+        rep = json.load(open(self.p("qa", "visual_claims.json")))
+        live = {(f["sha256"], tuple(sorted(i["claims"]))) for i in rep["items"] for f in i.get("frames", [])}
+        rv = json.load(open(self.p("qa", "visual_review.json")))["reviews"]
+        idx = [k for k, r in enumerate(rv) if (r["frame_sha256"], tuple(sorted(r["claims"]))) in live]
+        self.assertTrue(idx, "fixture has no live review")
+        return idx[0]
+
+
+class Args(unittest.TestCase):
+    """No stack needed: argument construction for the Western Hemisphere (negative longitudes) - found by the fresh-topic run."""
+
+    def test_negative_longitudes_are_one_token_with_their_flag(self):
+        sys.path.insert(0, HERE)
+        import orchestrate as o
+        a = o.sentinel_stack_args({"aoi": [-115.85, 33.05, -115.60, 33.25], "years": [2022, 2026], "pixel_m": 20}, "evidence/stack")
+        self.assertIn("--aoi=-115.85,33.05,-115.6,33.25", a)
+        self.assertFalse(any(re.match(r"^-\d", x) for x in a), a)
+
+    def test_sentinel_cli_accepts_negative_aoi_when_joined(self):
+        r = subprocess.run([sys.executable, os.path.join(HERE, "..", "yt-sentinel", "sentinel.py"), "pick", "--aoi=-115.85,33.05,-115.60,33.25", "--years", "2099", "--window", "09-20:11-10"],
+                           capture_output=True, text=True, timeout=120)
+        self.assertNotIn("expected one argument", r.stderr)                          # parsed (the search itself may return no scenes for year 2099)
 
 
 GENERATED = ("claims.json", "episode.json", "graphics_spec.json", "timeline.json", "story/storyboard.json", "story/labels.json", "qa/visual_claims.json", "release/REVIEW.md")
@@ -250,20 +275,82 @@ class Gates(Base):
 
     def test_negative_review_blocks(self):
         self.agent_artifacts()
+        self.run_all()                                                              # first run: produces qa/visual_claims.json with the live frames
         d = json.load(open(self.p("qa", "visual_review.json")))
-        d["reviews"][0]["verdict"] = "does_not_support"
-        d["reviews"][0]["note"] = "The frame shows nothing like the described corridor."
+        k = self.live_review()
+        d["reviews"][k]["verdict"] = "does_not_support"
+        d["reviews"][k]["note"] = "The frame shows nothing like the described corridor."
         json.dump(d, open(self.p("qa", "visual_review.json"), "w"))
         r = self.run_all()
         self.assertEqual(r["stages"]["visualcheck"], "blocked")
         self.assertEqual(r["stages"]["voice"], "waiting")
+        self.assertEqual(r["stages"]["release"], "done")
 
     def test_stale_review_is_not_accepted_after_the_picture_changes(self):
         self.agent_artifacts()
+        self.run_all()
         d = json.load(open(self.p("qa", "visual_review.json")))
-        d["reviews"][0]["frame_sha256"] = "0" * 64                                  # as if the frame had changed
+        d["reviews"][self.live_review()]["frame_sha256"] = "0" * 64                 # as if the frame had changed
         json.dump(d, open(self.p("qa", "visual_review.json"), "w"))
-        self.assertEqual(self.run_all()["stages"]["visualcheck"], "needs_agent")
+        r = self.run_all()
+        self.assertEqual(r["stages"]["visualcheck"], "needs_agent")
+        self.assertEqual(r["stages"]["voice"], "waiting")
+
+    def test_review_file_with_only_orphans_is_reported_and_prunable(self):
+        self.agent_artifacts()
+        self.run_all()
+        vc = os.path.join(REPO, ".claude", "skills", "yt-visualcheck", "visualcheck.py")
+        d = json.load(open(self.p("qa", "visual_review.json")))
+        d["reviews"].append({"item": "gone", "frame": 0, "frame_sha256": "f" * 64, "claims": ["C9"], "reviewer": "agent", "verdict": "supports", "note": "a frame that no longer exists in the plan"})
+        json.dump(d, open(self.p("qa", "visual_review.json"), "w"))
+        rep = json.loads(subprocess.run([sys.executable, vc, "--root", self.root], capture_output=True, text=True).stdout)
+        self.assertEqual(rep["orphan_reviews"], 1)
+        self.assertEqual(rep["status"], "OK")                                       # an orphan neither passes nor fails anything
+        n = len(d["reviews"])
+        pr = json.loads(subprocess.run([sys.executable, vc, "--root", self.root, "prune"], capture_output=True, text=True).stdout)
+        self.assertEqual(pr["removed"], 1)
+        self.assertEqual(len(json.load(open(self.p("qa", "visual_review.json")))["reviews"]), n - 1)
+
+    def test_visualcheck_counts_and_coverage_are_consistent(self):
+        self.agent_artifacts()
+        self.run_all()
+        rep = json.load(open(self.p("qa", "visual_claims.json")))
+        items = rep["items"]
+        self.assertEqual(rep["total"], len(items))
+        self.assertEqual(sum(rep["counts"].values()), rep["total"])
+        recount = {}
+        for i in items:
+            k = "REVIEWED" if i["status"].startswith("REVIEWED") else i["status"]
+            recount[k] = recount.get(k, 0) + 1
+        self.assertEqual(recount, rep["counts"])
+        sb = json.load(open(self.p("story", "storyboard.json")))
+        labels = json.load(open(self.p("story", "labels.json")))
+        ids = {i["id"] for i in items}
+        for l in labels:
+            if not l["text"].startswith("graphic:"):
+                self.assertIn(f"{l['shot']}:label:{l['text']}", ids)
+        for s_ in sb["shots"]:
+            if s_["layers"][0]["type"] == "graphic":
+                self.assertIn(f"{s_['id']}:graphic:{s_['layers'][0]['asset']}", ids)
+            elif s_.get("claims"):
+                self.assertIn(f"{s_['id']}:shot", ids)
+        self.assertEqual(len(ids), len(items))                                      # unique ids
+        for i in items:                                                             # nothing is VERIFIED without its basis
+            if i["status"] == "VERIFIED_DATA":
+                self.assertTrue(i["claims"] or i["kind"] == "label", i["id"])
+            if i["status"].startswith("REVIEWED"):
+                self.assertTrue(all(f.get("review") == "supports" for f in i["frames"]), i["id"])
+
+    def test_changed_stack_image_invalidates_visualcheck(self):
+        self.agent_artifacts()
+        self.run_all()
+        pv = self.p("evidence", "stack", "provenance.json")
+        os.unlink(pv)                                                               # hardlinked fixture: break the link before editing
+        d = json.load(open(os.path.join(SRC, "evidence", "stack", "provenance.json")))
+        d["scenes"][0]["sha256"] = "0" * 64                                         # as if y2020.png had been replaced
+        json.dump(d, open(pv, "w"))
+        out = self.run_all()
+        self.assertNotEqual(out["stages"]["visualcheck"], "cached")
 
     def test_paid_blocked_without_approval_flag_or_matching_hash(self):
         self.agent_artifacts()

@@ -169,6 +169,7 @@ def plan(root):
     for cid in order:
         cl = [claims[i] for i in used.get(cid, []) if i in claims]
         vis, seen = [], set()
+        words = len(TAG.sub("", " ".join(l for l in chap_text.get(cid, [])).replace("**", "")).split())
         if cid == "hook" or not chapters:
             if "g_scale" in gid:
                 vis.append(gr("g_scale", gid["g_scale"]["claims"], 3.5))
@@ -227,15 +228,19 @@ def plan(root):
         vis = vis[:10]                           # no chapter is a slideshow of everything it cites; what was dropped is reported
         if cid == "limits" and "g_tiers" in gid and "g_tiers" not in seen:
             vis.insert(1 if vis else 0, gr("g_tiers", gid["g_tiers"]["claims"], 5))
-        words = len(TAG.sub("", " ".join(l for l in chap_text.get(cid, [])).replace("**", "")).split())
         need = -(-int(words / 2.45 - 5 * len([v for v in vis if v.get("kind") == "graphic"])) // 8)     # one picture per ~8 s of narration that graphics do not cover
         k_ = 0
         while len([v for v in vis if v.get("kind") != "graphic"]) < min(need, 8):
             vis.append(img(next(cyc), [15, 8] if k_ % 2 == 0 else [8, 15], seg if k_ % 2 else None)); k_ += 1
         while len([v for v in vis if v.get("kind") != "graphic"]) < 1:
             vis.append(img(last, [15, 9]))
-        if len(vis) < 3:
+        dur = words / 2.45
+        if len(vis) < 3 and dur >= 9:
             vis.append(img(mid, [9, 14]))
+        dur = words / 2.45
+        while len(vis) > 1 and 2.0 * len([v for v in vis if v.get("kind") == "graphic"]) + 2.5 * len([v for v in vis if v.get("kind") != "graphic"]) > dur:
+            gone = vis.pop()                    # the chapter is too short for this many pictures: drop from the end and say so
+            dropped.append({"chapter": cid, "dropped": [gone.get("asset") or str(gone.get("wipe"))], "reason": f"chapter is {dur:.1f}s"})
         chapters.append({"id": cid, "visuals": vis})
     ep = {"slug": os.path.basename(os.path.abspath(root)), "title": notes.get("title", "TBD"), "titles": notes.get("titles", []), "grid": grid_rel, "focus": focus,
           "graphics": "graphics_spec.json", "evidence": {"stacks": [{k: v for k, v in s.items() if k != "role"} for s in geo["stacks"]]}, "assets": assets, "chapters": chapters,

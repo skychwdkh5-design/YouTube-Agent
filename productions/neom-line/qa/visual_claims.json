@@ -1,5 +1,7 @@
 {
  "schema": "yt-visualcheck/1",
+ "total": 75,
+ "orphan_reviews": 0,
  "overall": "OK",
  "counts": {
   "VERIFIED_SOURCE": 7,

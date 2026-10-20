@@ -121,7 +121,7 @@ def run_topic(ep, ctx):
             raise Halt("blocked", f"yt-topic: {d.get('status')} {d.get('excluded') or d.get('error')}")
         return ["topic/topic.json", "topic/topic.md"], f"chosen {d['chosen']}"
     packet(ep, "topic", "# Task: topic discovery\n\n1. Run `python3 .claude/skills/yt-topic/topic.py collect --queries \"q1;q2;...\" --out topic/videos_<name>.json` for 3-5 candidate topics (CLAUDE.md: unusual geography, satellite-visible change, strong US appeal).\n"
-           "2. Run `topic.py imagery --aoi minlon,minlat,maxlon,maxlat --years 2020,2022,2024,2026` for each.\n3. Write `topic/candidates.json` (schema in .claude/skills/yt-topic/SKILL.md) with ratings 1-5 and a written rationale for each of us/se/no/dk/intl/visual/curiosity/evidence/monetization. Do not invent audience, CTR or retention data.\n"
+           "2. Run `topic.py imagery --aoi=minlon,minlat,maxlon,maxlat --years 2020,2022,2024,2026` for each (write `--aoi=...` with the equals sign: negative longitudes otherwise break argument parsing).\n3. Write `topic/candidates.json` (schema in .claude/skills/yt-topic/SKILL.md) with ratings 1-5 and a written rationale for each of us/se/no/dk/intl/visual/curiosity/evidence/monetization. Do not invent audience, CTR or retention data.\n"
            "4. Re-run the orchestrator. The owner may instead approve a topic by writing `topic/approval.json` {\"approved\": true, \"title\": ...}.\n")
     raise Halt("needs_agent", "write topic/candidates.json (see tasks/topic.md)")
 
@@ -168,6 +168,12 @@ def _geo(ep):
     return {"stacks": ep.episode().get("evidence", {}).get("stacks", [])}
 
 
+def sentinel_stack_args(stk, out):
+    """Western-hemisphere coordinates start with '-': they must be joined to the flag (--aoi=-115.8,...), or argparse reads them as an option."""
+    return [os.path.join(SK, "yt-sentinel", "sentinel.py"), "stack", "--aoi=" + ",".join(map(str, stk["aoi"])), "--years", ",".join(map(str, stk["years"])),
+            "--window", stk.get("window", "09-28:10-20"), "--cloud", str(stk.get("cloud", 3)), "--out", out, "--pixel-m", str(stk.get("pixel_m", 10)), "--confirm", "--overwrite"]
+
+
 def run_evidence(ep, ctx):
     geo = _geo(ep)
     if not geo.get("stacks"):
@@ -177,8 +183,7 @@ def run_evidence(ep, ctx):
         out = f"evidence/{stk['name']}"
         if os.path.exists(ep.p(out, "provenance.json")) and not ctx["force"]:
             outs += [f"{out}/provenance.json", f"{out}/grid.json"]; continue
-        args = [os.path.join(SK, "yt-sentinel", "sentinel.py"), "stack", "--aoi", ",".join(map(str, stk["aoi"])), "--years", ",".join(map(str, stk["years"])),
-                "--window", stk.get("window", "09-28:10-20"), "--cloud", str(stk.get("cloud", 3)), "--out", out, "--pixel-m", str(stk.get("pixel_m", 10)), "--confirm", "--overwrite"]
+        args = sentinel_stack_args(stk, out)
         c, d = tool(args, ep.root)
         if c != 0:
             raise Halt("blocked", f"yt-sentinel {stk['name']}: {d.get('status')} {d.get('error')} {d.get('missing', '')}")
@@ -186,7 +191,7 @@ def run_evidence(ep, ctx):
     if geo.get("ndwi_bbox"):
         if not os.path.exists(ep.p("evidence", "ndwi.json")) or ctx["force"]:
             c, d = tool([os.path.join(SK, "yt-sentinel", "sentinel.py"), "ndwi-series", "--provenance", f"evidence/{geo['stacks'][0]['name']}/provenance.json",
-                         "--bbox", ",".join(map(str, geo["ndwi_bbox"])), "--out", "evidence/ndwi.json"], ep.root)
+                         "--bbox=" + ",".join(map(str, geo["ndwi_bbox"])), "--out", "evidence/ndwi.json"], ep.root)
             if c != 0:
                 raise Halt("blocked", f"yt-sentinel ndwi-series: {d.get('error')}")
         outs.append("evidence/ndwi.json")
@@ -231,7 +236,7 @@ def run_visualcheck(ep, ctx):
         raise Halt("needs_agent", f"{len(items)} items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)", outs)
     if c != 0:
         raise Halt("blocked", f"visualcheck: {d.get('error') or d}", outs)
-    return outs, f"visual claims OK {d['counts']}"
+    return outs, f"visual claims OK {d['counts']} of {d['total']} items" + (f"; {d['orphan_reviews']} orphan reviews (run `visualcheck.py prune`)" if d.get("orphan_reviews") else "")
 
 
 def run_storyboard(ep, ctx):
@@ -366,14 +371,15 @@ INPUTS = {"topic": ["topic/approval.json", "topic/candidates.json"], "research":
           "script": ["script.md", "claims.json", "evidence/stack/provenance.json"], "visualplan": ["script.md", "claims.json", "research/notes.json", "evidence/stack/provenance.json"],
           "visuals": ["episode.json", "graphics_spec.json", "evidence/stack/provenance.json"],
           "storyboard": ["script.md", "episode.json", "claims.json", "evidence/stack/grid.json", "voice/narration.voice.json", "captions/captions.srt"],
-          "visualcheck": ["story/storyboard.json", "story/labels.json", "qa/visual_review.json", "evidence/ndwi.json", "claims.json", "episode.json"],
+          "visualcheck": ["story/storyboard.json", "story/labels.json", "qa/visual_review.json", "evidence/ndwi.json", "claims.json", "episode.json", "graphics_spec.json",
+                         "evidence/stack/provenance.json", "evidence/stack/grid.json"],     # provenance carries the sha256 of every stack image the frames are cropped from
           "voice": ["script.md", "approvals/voice.json"], "captions": ["voice/narration.voice.json"], "render": ["timeline.json", "approvals/render.json"],
           "qc": ["render/final.mp4", "timeline.json"], "release": ["claims.json", "story/report.md", "qa/visual_claims.json"]}
 # files an agent wrote for a stage (recorded in state.json so the autonomy report can tell agent work from code work)
 AGENT_ARTIFACTS = {"topic": ["topic/approval.json", "topic/candidates.json"], "research": ["research/notes.json", "claims.json"], "script": ["script.md"], "visualcheck": ["qa/visual_review.json"]}
 
-TOOLS = {"topic": ["yt-topic/topic.py"], "research": ["yt-research/research.py"], "facts": ["yt-facts/facts.py"], "evidence": ["yt-sentinel/sentinel.py"], "visuals": ["yt-graphics/graphics.py"],
-         "script": ["yt-facts/facts.py", "yt-script-agent/scriptagent.py"], "visualplan": ["yt-visual-planner/planner.py"], "visualcheck": ["yt-visualcheck/visualcheck.py"],
+TOOLS = {"topic": ["yt-topic/topic.py"], "research": ["yt-research/research.py"], "facts": ["yt-facts/facts.py"], "evidence": ["yt-sentinel/sentinel.py"], "visuals": ["yt-graphics/graphics.py", "yt-geo/geostack.py"],
+         "script": ["yt-facts/facts.py", "yt-script-agent/scriptagent.py"], "visualplan": ["yt-visual-planner/planner.py"], "visualcheck": ["yt-visualcheck/visualcheck.py", "yt-geo/geostack.py"],
          "storyboard": ["yt-storyboard/storyboard.py", "yt-facts/facts.py"], "captions": ["yt-captions/captions.py"], "render": ["yt-render/render.py", "yt-render/compose.py"], "qc": ["yt-qc/qc.py"]}
 
 

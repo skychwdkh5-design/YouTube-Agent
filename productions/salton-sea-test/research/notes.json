@@ -1,0 +1,136 @@
+{
+ "schema": "yt-research/1",
+ "topic": "The Salton Sea: what Sentinel-2 shows",
+ "title": "The Salton Sea: What Satellites Show (test topic)",
+ "titles": [],
+ "geo": {
+  "focus": [
+   -115.7,
+   33.12
+  ],
+  "segment": [
+   -115.7,
+   33.12
+  ],
+  "ndwi_bbox": [
+   -115.8,
+   33.1,
+   -115.65,
+   33.22
+  ],
+  "stacks": [
+   {
+    "name": "stack",
+    "aoi": [
+     -115.85,
+     33.05,
+     -115.6,
+     33.25
+    ],
+    "years": [
+     2022,
+     2024,
+     2025,
+     2026
+    ],
+    "pixel_m": 20,
+    "window": "09-20:11-10",
+    "cloud": 3
+   }
+  ]
+ },
+ "notes": [
+  {
+   "id": "C1",
+   "kind": "org",
+   "statement": "The Salton Sea is shrinking mainly because less Colorado River water reaches it since the 2003 water transfers, according to a UC Riverside-led task force report, the Congressional Research Service and the Water Education Foundation.",
+   "short": "Less river water since 2003 transfers",
+   "independent_outlets": 3,
+   "wording": "according to",
+   "source": {
+    "outlet": "UC Riverside Salton Sea Task Force / CRS / Water Education Foundation",
+    "url": "https://www.watereducation.org/aquapedia/quantification-settlement-agreement",
+    "date": "2021-06-01",
+    "access": "summary_only",
+    "kind": "search_summary"
+   },
+   "corroboration": "three independent publishers describe the 2003 Quantification Settlement Agreement as the main driver"
+  },
+  {
+   "id": "C2",
+   "kind": "org",
+   "statement": "A Congressional Research Service report puts the drop in water surface elevation at about 10 feet since 2003.",
+   "short": "CRS: about 10 ft drop since 2003",
+   "independent_outlets": 1,
+   "wording": "according to",
+   "source": {
+    "outlet": "Congressional Research Service",
+    "url": "https://www.congress.gov/crs-product/R46625",
+    "date": "2020-12-01",
+    "access": "summary_only",
+    "kind": "search_summary"
+   }
+  },
+  {
+   "id": "C3",
+   "kind": "media",
+   "statement": "The Imperial Valley Press reported that the sea's surface fell about 10 inches since August 2024.",
+   "short": "IVP: 10 inches lower since Aug 2024",
+   "independent_outlets": 1,
+   "source": {
+    "outlet": "Imperial Valley Press",
+    "url": "https://www.ivpressonline.com/news/salton-sea-shrinking-rapidly-as-iid-conserves-more-water/article_d47e6432-8121-11ef-8c52-bfac984e7f63.html",
+    "date": "2025-09-01",
+    "access": "summary_only",
+    "kind": "search_summary"
+   }
+  },
+  {
+   "id": "C4",
+   "kind": "media",
+   "statement": "NBC Palm Springs reported in September 2026 that an appeals court set back a Salton Sea lithium project.",
+   "short": "NBC: court set back lithium project",
+   "independent_outlets": 1,
+   "source": {
+    "outlet": "NBC Palm Springs",
+    "url": "https://www.nbcpalmsprings.com/local-and-community/2026/09/03/court-deals-setback-to-salton-sea-lithium-project-as-restoration-efforts-take-shape",
+    "date": "2026-09-03",
+    "access": "summary_only",
+    "kind": "search_summary"
+   }
+  },
+  {
+   "id": "C5",
+   "kind": "observation",
+   "statement": "In a window over the southern shore, the number of water-like pixels fell from 42,022 in October 2022 to 33,784 in October 2026, about 20 percent fewer; the counts for 2024 and 2025 are 38,436 and 37,550.",
+   "short": "Water-like pixels down 20%, 2022-2026",
+   "evidence": "evidence/ndwi.json",
+   "basis": "one_check",
+   "group": "shows",
+   "years": [
+    2022,
+    2026
+   ],
+   "focus": [
+    -115.7,
+    33.12
+   ],
+   "anchor": [
+    -115.7,
+    33.12
+   ],
+   "compare_km": 16,
+   "must_cover": true
+  },
+  {
+   "id": "C6",
+   "kind": "observation",
+   "statement": "Four Sentinel-2 scenes, all from the same orbit, taken between October 3 and October 31 in 2022, 2024, 2025 and 2026.",
+   "short": "Four scenes, same orbit, each October",
+   "evidence": "evidence/stack/provenance.json",
+   "basis": "two_checks",
+   "group": "method",
+   "visual": false
+  }
+ ]
+}

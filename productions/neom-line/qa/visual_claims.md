@@ -1,6 +1,6 @@
 # Visual-claim check
 
-Overall: **OK** {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 58, 'REVIEWED': 10}
+Overall: **OK** {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 58, 'REVIEWED': 10} (total 75; orphan reviews not matching any current frame: 0)
 
 | item | claims | status | frame / why |
 |---|---|---|---|

@@ -1,0 +1,404 @@
+{
+ "schema": "yt-visualcheck/1",
+ "total": 16,
+ "orphan_reviews": 0,
+ "overall": "OK",
+ "counts": {
+  "VERIFIED_DATA": 12,
+  "REVIEWED": 4
+ },
+ "items": [
+  {
+   "id": "hook_000:label:OCT 2022",
+   "kind": "label",
+   "text": "OCT 2022",
+   "shot": "hook_000",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2B_MSIL2A_20221017T182339_R127_T11SPS_20240722T093247 acquired 2022-10-17",
+   "frame": {
+    "asset": "y2022"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "hook_001:shot",
+   "kind": "shot",
+   "text": "wipe y2022->y2026",
+   "shot": "hook_001",
+   "claims": [
+    "C5"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/hook_001_shot_0.png",
+     "sha256": "4b8ae4e78c9afc8fb44df54341c9e5cfc5b4e089e9e84bbbc2cc65d043e3a5ce",
+     "stack": "evidence/stack/y2022.png",
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 6.5,
+     "review": "supports"
+    },
+    {
+     "file": "qa/frames/hook_001_shot_1.png",
+     "sha256": "851e6df6f4bf6b4248945cdfbe1c9a310724682c7b4391562af8e09f831cc46b",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 6.5,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Dark green water covers the left and upper part of the frame, with mud flats and a pale shoreline; a pond and fields lie to the right. Consistent with fewer water-like pixels; the counts themselves are not visible. | A large bright white exposed surface now covers where water was on the left; dark w",
+   "source": [
+    {
+     "claim": "C5",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/ndwi.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "plan_003:label:OCT 2026",
+   "kind": "label",
+   "text": "OCT 2026",
+   "shot": "plan_003",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20261003T182811_R127_T11SPS_20261004T021702 acquired 2026-10-03",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "plan_004:label:OCT 2022",
+   "kind": "label",
+   "text": "OCT 2022",
+   "shot": "plan_004",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2B_MSIL2A_20221017T182339_R127_T11SPS_20240722T093247 acquired 2022-10-17",
+   "frame": {
+    "asset": "y2022"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "plan_005:label:OCT 2024",
+   "kind": "label",
+   "text": "OCT 2024",
+   "shot": "plan_005",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20241031T182511_R127_T11SPS_20241031T213750 acquired 2024-10-31",
+   "frame": {
+    "asset": "y2024"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "method_006:label:OCT 2025",
+   "kind": "label",
+   "text": "OCT 2025",
+   "shot": "method_006",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20251016T182351_R127_T11SPS_20251016T212415 acquired 2025-10-16",
+   "frame": {
+    "asset": "y2025"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "method_007:label:OCT 2026",
+   "kind": "label",
+   "text": "OCT 2026",
+   "shot": "method_007",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20261003T182811_R127_T11SPS_20261004T021702 acquired 2026-10-03",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "method_008:label:OCT 2025",
+   "kind": "label",
+   "text": "OCT 2025",
+   "shot": "method_008",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20251016T182351_R127_T11SPS_20251016T212415 acquired 2025-10-16",
+   "frame": {
+    "asset": "y2025"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "shows_009:label:OCT 2022",
+   "kind": "label",
+   "text": "OCT 2022",
+   "shot": "shows_009",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2B_MSIL2A_20221017T182339_R127_T11SPS_20240722T093247 acquired 2022-10-17",
+   "frame": {
+    "asset": "y2022"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "shows_009:shot",
+   "kind": "shot",
+   "text": "y2022",
+   "shot": "shows_009",
+   "claims": [
+    "C5"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/shows_009_shot_0.png",
+     "sha256": "00af927ea3c50814ceec858ab5f225d15b1d6c7a70ed7992cf7a557bc21b851e",
+     "stack": "evidence/stack/y2022.png",
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 17.6,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Dark green water covers the left and upper part of the frame, with mud flats and a pale shoreline; a pond and fields lie to the right. Consistent with fewer water-like pixels; the counts themselves are not visible.",
+   "source": [
+    {
+     "claim": "C5",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/ndwi.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "shows_010:graphic:g_cmp_2022_2026_c5",
+   "kind": "graphic",
+   "text": "g_cmp_2022_2026_c5",
+   "shot": "shows_010",
+   "claims": [
+    "C5"
+   ],
+   "texts": [
+    "Water-like pixels down 20%, 2022-2026"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/shows_010_graphic_g_cmp_2022_2026_c5_0.png",
+     "sha256": "fee0961155c2d78d0f8667a32e6a725088e22e3c68fc59ab77daa664093a68cd",
+     "stack": "evidence/stack/y2022.png",
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 16,
+     "review": "supports"
+    },
+    {
+     "file": "qa/frames/shows_010_graphic_g_cmp_2022_2026_c5_1.png",
+     "sha256": "c014622e20a7820b3b11ee724e28d9873e5ffecd89ac28f2ac2dc00046f0dd75",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 16,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Dark green water covers the left and upper part of the frame, with mud flats and a pale shoreline; a pond and fields lie to the right. Consistent with fewer water-like pixels; the counts themselves are not visible. | A large bright white exposed surface now covers where water was on the left; dark w",
+   "source": [
+    {
+     "claim": "C5",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/ndwi.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "shows_011:shot",
+   "kind": "shot",
+   "text": "wipe y2022->y2026",
+   "shot": "shows_011",
+   "claims": [
+    "C5"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/shows_011_shot_0.png",
+     "sha256": "f6b47b5f5e3d6feea17318076423b03ea22138716bb313cd895fd220bc85754a",
+     "stack": "evidence/stack/y2022.png",
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 14.4,
+     "review": "supports"
+    },
+    {
+     "file": "qa/frames/shows_011_shot_1.png",
+     "sha256": "7a1ddf47e11b40e0d89729f551974680ea87600c9232d4b3ed9f64fad626129d",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 14.4,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Dark green water covers the left and upper part of the frame, with mud flats and a pale shoreline; a pond and fields lie to the right. Consistent with fewer water-like pixels; the counts themselves are not visible. | A large bright white exposed surface now covers where water was on the left; dark w",
+   "source": [
+    {
+     "claim": "C5",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/ndwi.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "limits_012:label:OCT 2026",
+   "kind": "label",
+   "text": "OCT 2026",
+   "shot": "limits_012",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20261003T182811_R127_T11SPS_20261004T021702 acquired 2026-10-03",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "limits_013:label:OCT 2022",
+   "kind": "label",
+   "text": "OCT 2022",
+   "shot": "limits_013",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2B_MSIL2A_20221017T182339_R127_T11SPS_20240722T093247 acquired 2022-10-17",
+   "frame": {
+    "asset": "y2022"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "limits_014:label:OCT 2024",
+   "kind": "label",
+   "text": "OCT 2024",
+   "shot": "limits_014",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20241031T182511_R127_T11SPS_20241031T213750 acquired 2024-10-31",
+   "frame": {
+    "asset": "y2024"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "close_015:label:OCT 2026",
+   "kind": "label",
+   "text": "OCT 2026",
+   "shot": "close_015",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20261003T182811_R127_T11SPS_20261004T021702 acquired 2026-10-03",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  }
+ ]
+}

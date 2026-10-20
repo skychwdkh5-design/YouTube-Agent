@@ -1,0 +1,338 @@
+{
+ "slug": "salton-sea-test",
+ "title": "The Salton Sea: What Satellites Show (test topic)",
+ "titles": [],
+ "grid": "evidence/stack/grid.json",
+ "focus": [
+  -115.7,
+  33.12
+ ],
+ "graphics": "graphics_spec.json",
+ "evidence": {
+  "stacks": [
+   {
+    "name": "stack",
+    "aoi": [
+     -115.85,
+     33.05,
+     -115.6,
+     33.25
+    ],
+    "years": [
+     2022,
+     2024,
+     2025,
+     2026
+    ],
+    "pixel_m": 20,
+    "window": "09-20:11-10",
+    "cloud": 3
+   }
+  ]
+ },
+ "assets": {
+  "y2022": {
+   "src": "evidence/stack/y2022.png",
+   "label": "2022",
+   "credit": "Contains modified Copernicus Sentinel data 2022"
+  },
+  "y2024": {
+   "src": "evidence/stack/y2024.png",
+   "label": "2024",
+   "credit": "Contains modified Copernicus Sentinel data 2024"
+  },
+  "y2025": {
+   "src": "evidence/stack/y2025.png",
+   "label": "2025",
+   "credit": "Contains modified Copernicus Sentinel data 2025"
+  },
+  "y2026": {
+   "src": "evidence/stack/y2026.png",
+   "label": "2026",
+   "credit": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "g_cmp_2022_2026_c5": {
+   "src": "graphics/g_cmp_2022_2026_c5.png",
+   "kind": "graphic",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "group": "g_cmp_2022_2026_c5",
+   "claims": [
+    "C5"
+   ]
+  }
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "visuals": [
+    {
+     "asset": "y2022",
+     "zoom": [
+      15,
+      8
+     ],
+     "label": {
+      "text": "OCT 2022",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2022
+     }
+    },
+    {
+     "wipe": [
+      "y2022",
+      "y2026"
+     ],
+     "zoom": [
+      8,
+      6.5
+     ],
+     "family": "wipe_2022_2026",
+     "min_s": 4,
+     "claims": [
+      "C5"
+     ]
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      6.5,
+      2.8
+     ],
+     "focus": [
+      -115.7,
+      33.12
+     ]
+    }
+   ]
+  },
+  {
+   "id": "plan",
+   "visuals": [
+    {
+     "asset": "y2026",
+     "zoom": [
+      15,
+      9
+     ],
+     "label": {
+      "text": "OCT 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     }
+    },
+    {
+     "asset": "y2022",
+     "zoom": [
+      15,
+      8
+     ],
+     "label": {
+      "text": "OCT 2022",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2022
+     }
+    },
+    {
+     "asset": "y2024",
+     "zoom": [
+      8,
+      15
+     ],
+     "focus": [
+      -115.7,
+      33.12
+     ],
+     "label": {
+      "text": "OCT 2024",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2024
+     }
+    }
+   ]
+  },
+  {
+   "id": "method",
+   "visuals": [
+    {
+     "asset": "y2025",
+     "zoom": [
+      10,
+      6
+     ],
+     "focus": [
+      -115.7,
+      33.12
+     ],
+     "label": {
+      "text": "OCT 2025",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2025
+     }
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      15,
+      8
+     ],
+     "label": {
+      "text": "OCT 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     }
+    },
+    {
+     "asset": "y2025",
+     "zoom": [
+      9,
+      14
+     ],
+     "label": {
+      "text": "OCT 2025",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2025
+     }
+    }
+   ]
+  },
+  {
+   "id": "shows",
+   "visuals": [
+    {
+     "asset": "y2022",
+     "zoom": [
+      25.6,
+      17.6
+     ],
+     "focus": [
+      -115.7,
+      33.12
+     ],
+     "label": {
+      "text": "OCT 2022",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2022
+     },
+     "claims": [
+      "C5"
+     ]
+    },
+    {
+     "asset": "g_cmp_2022_2026_c5",
+     "kind": "graphic",
+     "min_s": 6,
+     "claims": [
+      "C5"
+     ]
+    },
+    {
+     "wipe": [
+      "y2022",
+      "y2026"
+     ],
+     "zoom": [
+      19.2,
+      14.4
+     ],
+     "focus": [
+      -115.7,
+      33.12
+     ],
+     "family": "wipe_2022_2026",
+     "min_s": 4,
+     "claims": [
+      "C5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "limits",
+   "visuals": [
+    {
+     "asset": "y2026",
+     "zoom": [
+      15,
+      9
+     ],
+     "label": {
+      "text": "OCT 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     }
+    },
+    {
+     "asset": "y2022",
+     "zoom": [
+      15,
+      8
+     ],
+     "label": {
+      "text": "OCT 2022",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2022
+     }
+    },
+    {
+     "asset": "y2024",
+     "zoom": [
+      8,
+      15
+     ],
+     "focus": [
+      -115.7,
+      33.12
+     ],
+     "label": {
+      "text": "OCT 2024",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2024
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "visuals": [
+    {
+     "asset": "y2026",
+     "zoom": [
+      15,
+      6
+     ],
+     "focus": [
+      -115.7,
+      33.12
+     ],
+     "label": {
+      "text": "OCT 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     }
+    }
+   ]
+  }
+ ],
+ "generated_by": "yt-visual-planner",
+ "planner_dropped": [
+  {
+   "chapter": "close",
+   "dropped": [
+    "y2026"
+   ],
+   "reason": "chapter is 4.1s"
+  }
+ ]
+}

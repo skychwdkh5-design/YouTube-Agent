@@ -35,3 +35,15 @@ productions/neom-line/voice/*.wav
 productions/neom-line/voice/*.mp3
 productions/neom-line/.lock
 productions/neom-line/*.part
+
+# every production: keep text and small state; never regenerable imagery, media or test fixtures
+!productions/*/
+productions/_t_*/
+productions/*/evidence/
+productions/*/graphics/
+productions/*/render/
+productions/*/qa/frames/
+productions/*/voice/*.wav
+productions/*/voice/*.mp3
+productions/*/.lock
+productions/*/*.part

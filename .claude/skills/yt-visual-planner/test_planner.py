@@ -105,6 +105,17 @@ class Plan(unittest.TestCase):
         self.assertGreater(c[0], 35.10)
 
 
+class Short(unittest.TestCase):
+    def test_short_chapter_gets_fewer_visuals_and_the_drop_is_reported(self):
+        d = tempfile.mkdtemp()
+        short = SCRIPT.replace("Bye.", "Bye.")                                        # 'close' has two words: about 0.8 s
+        make(d, script=short)
+        ep, _ = pl.plan(d)
+        close = next(c for c in ep["chapters"] if c["id"] == "close")
+        self.assertEqual(len(close["visuals"]), 1)
+        self.assertTrue(any(x["chapter"] == "close" for x in ep["planner_dropped"]))
+
+
 class Errors(unittest.TestCase):
     def test_missing_stack_is_reported(self):
         d = tempfile.mkdtemp()
