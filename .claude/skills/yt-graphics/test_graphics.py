@@ -157,6 +157,19 @@ class Resample(Base):
         self.err(dict(g_, id="px2"), "resample")
 
 
+    def test_plate_darkens_the_area_behind_text_over_imagery_and_is_off_by_default(self):
+        import numpy as np
+        arr = np.full((1000, 1000, 3), 250, np.uint8)                       # pale "sand"
+        Image.fromarray(arr).save(os.path.join(self.dir, "stack", "a.png"))
+        g_ = {"type": "geo", "id": "pl", "title": "Plate (TEST DATA)", "source": SRC, "credit": "TEST", "date": "TEST", "scale_bar": False, "graticule": False,
+              "image": self.geo_image(width_km=4), "callouts": [{"at": CENTER, "text": "Callout"}]}
+        self.ok(g_)
+        im = np.asarray(self.png("pl.png").convert("RGB")).astype(int)
+        box = next(t for t in json.load(open(os.path.join(self.dir, "out", "pl.json")))["text_boxes"] if t["where"] == "source")["box"]
+        x0, y0, x1, y1 = [int(v) for v in box]
+        self.assertLess(im[y0 - 4:y0 + 2, x0 + 20:x1 - 20].mean(), 120)        # the plate behind the source line is dark although the imagery is pale
+
+
 class Validation(Base):
     def test_provenance_is_mandatory(self):
         for t in (BAR, LINE, DIAGRAM):

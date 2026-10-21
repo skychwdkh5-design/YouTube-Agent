@@ -242,11 +242,11 @@ class Canvas:
         return lines
 
     def text(self, text, x, y, size=36, weight="Bold", color="fg", anchor="mm", max_w=None, max_lines=1,
-             min_size=None, stroke=0, where="text"):
+             min_size=None, stroke=0, where="text", plate=False):
         """Fit text (shrinking to min_size, wrapping to max_lines) into max_w; draw it; record its box.
         Raises if it cannot fit."""
         lay = self.layout(text, x, y, size, weight, anchor, max_w, max_lines, min_size, where)
-        return self.draw_layout(lay, color, stroke, where)
+        return self.draw_layout(lay, color, stroke, where, plate)
 
     def layout(self, text, x, y, size=36, weight="Bold", anchor="mm", max_w=None, max_lines=1, min_size=None,
                where="text"):
@@ -275,8 +275,12 @@ class Canvas:
                max(r[3][3] for r in rows))
         return {"text": text, "size": s_, "weight": weight, "rows": rows, "box": box}
 
-    def draw_layout(self, lay, color, stroke, where):
+    def draw_layout(self, lay, color, stroke, where, plate=False):
         f = self.fonts.get(lay["weight"], lay["size"])
+        if plate:                      # text over photographs / satellite imagery: a dark rounded plate keeps it legible on pale sand (opt-in, other graphics render as before)
+            bx0, by0, bx1, by1 = lay["box"]
+            pad = max(8, lay["size"] * 0.28)
+            self.d.rounded_rectangle([(bx0 - pad) * SS, (by0 - pad * 0.6) * SS, (bx1 + pad) * SS, (by1 + pad * 0.6) * SS], radius=int(pad * 1.4 * SS), fill=(8, 12, 20, 205))
         for l, lx, cy, _ in lay["rows"]:
             self.d.text((lx * SS, cy * SS), l, font=f, fill=self.c(color), anchor="lm",
                         stroke_width=int(stroke * SS), stroke_fill=self.s["bg"])
@@ -296,14 +300,14 @@ class Canvas:
                     return "a drawn line or arrow"
         return None
 
-    def place(self, text, candidates, size, weight, color, max_w, max_lines=2, stroke=3, where="label"):
+    def place(self, text, candidates, size, weight, color, max_w, max_lines=2, stroke=3, where="label", plate=False):
         """Draw text at the first candidate (x, y, anchor) where it touches no other text and no line."""
         last = None
         for x, y, anchor in candidates:
             lay = self.layout(text, x, y, size, weight, anchor, max_w, max_lines, where=where)
             last = self.collides(lay["box"])
             if last is None and self.inside(lay["box"]):
-                return self.draw_layout(lay, color, stroke, where)
+                return self.draw_layout(lay, color, stroke, where, plate)
         raise E(f"{where}: no free place for {text!r} (it would overlap {last or 'the safe-area edge'})",
                 status="overflow")
 
@@ -992,7 +996,7 @@ def d_geo(cv, g, step, root, where):
             if x0 + 60 < sx < tick_x1:
                 cv.line([(sx, bottom - 30), (sx, bottom - 12)], "fg", 3)
                 cv.text(f"{abs(v):.{max(0, -int(math.floor(math.log10(st))))}f}°{'E' if v >= 0 else 'W'}", sx, bottom - 50,
-                        26, "Bold", "fg", stroke=3, max_w=220, where="graticule")
+                        26, "Bold", "fg", stroke=3, max_w=220, where="graticule", plate=True)
                 ticks.append(round(v, 6))
             v += st
         st2 = nice_step(abs(lat0 - lat1), 3)
@@ -1002,7 +1006,7 @@ def d_geo(cv, g, step, root, where):
             if y0 + CREDIT_BAND + 170 < sy < bottom - 90:
                 cv.line([(x0 - 30, sy), (x0 - 12, sy)], "fg", 3)
                 cv.text(f"{abs(v):.{max(0, -int(math.floor(math.log10(st2))))}f}°{'N' if v >= 0 else 'S'}", x0, sy,
-                        26, "Bold", "fg", anchor="lm", stroke=3, max_w=220, where="graticule")
+                        26, "Bold", "fg", anchor="lm", stroke=3, max_w=220, where="graticule", plate=True)
             v += st2
         info["graticule_lon"] = ticks
     pending_arrow_labels = []
@@ -1036,19 +1040,19 @@ def d_geo(cv, g, step, root, where):
         cv.line([p, end], (0, 0, 0), 6)
         cv.line([p, end], "accent", 3)
         cv.obstacle([p, end], 6, ("callout", c["text"]))   # its own leader may touch it
-        cv.draw_layout(lay, "accent", 4, "callout")
+        cv.draw_layout(lay, "accent", 4, "callout", plate=True)
     for text, p0, p1 in pending_arrow_labels:            # after callouts: arrow labels find a free side
         mx, my = (p0[0] + p1[0]) / 2, (p0[1] + p1[1]) / 2
         ang = math.atan2(p1[1] - p0[1], p1[0] - p0[0])
         nxv, nyv = -math.sin(ang), math.cos(ang)
         cands = [(mx + nxv * d * sg, my + nyv * d * sg, "mm") for d in (52, 80, 112) for sg in (-1, 1)]
-        cv.place(text, cands, 32, "Bold", "accent", 420, stroke=4, where="arrow label")
+        cv.place(text, cands, 32, "Bold", "accent", 420, stroke=4, where="arrow label", plate=True)
     if sb:
         _draw_scale(cv, sb, x1 - sb["px"] - 20, bottom - 30)
         info["scale_bar"] = sb
     cv.text(("Source: " if not g["source"].lower().startswith(("source", "data")) else "") + g["source"],
             x0, bottom - 16, 24, "SemiBold", "fg", anchor="lm", max_w=(x1 - x0) * 0.6, stroke=3,
-            where="source")
+            where="source", plate=True)
     return info
 
 
@@ -1104,7 +1108,7 @@ def d_compare(cv, g, step, root, where):
         cv.rect((ox, oy, ox + pw, oy + ph), outline="fg", width=2)
         cv.text(s["label"], ox + 16, oy - 24, 32, "Black", "fg", anchor="lm", max_w=pw - 32, where=f"{side} label")
         cv.text(s["credit"], ox + 14, oy + ph - 22, 24, "SemiBold", "fg", anchor="lm", max_w=pw * 0.55,
-                stroke=3, where=f"{side} credit")
+                stroke=3, where=f"{side} credit", plate=True)
         if sb:
             _draw_scale(cv, sb, ox + pw - sb["px"] - 20, oy + ph - 24)
         if g.get("metric"):

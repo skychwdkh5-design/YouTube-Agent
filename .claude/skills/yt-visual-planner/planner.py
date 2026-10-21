@@ -286,7 +286,7 @@ def plan(root):
             info_dropped.append({"id": iid, "reason": f"assets {gone} are not available (evidence stage)"}); continue
         v = {"kind": "scene", "id": iid, "asset": used_assets[0], "min_s": it.get("min_s", 6), "claims": it.get("claims", []), "anchor": "claim",
              "zoom": it.get("zoom", [8, 4]), "marks": it.get("marks", [])}
-        for k in ("focus", "focus_to", "wipe", "flip", "step", "wipe_at", "label", "anchor_text", "anchor_claims", "info", "limit"):
+        for k in ("focus", "focus_to", "wipe", "flip", "step", "wipe_at", "label", "anchor_text", "anchor_claims", "info", "limit", "resample"):
             if it.get(k) is not None:
                 v[k] = it[k]
         if not v["claims"] and not v.get("anchor_text"):
@@ -401,7 +401,8 @@ def plan(root):
             else:
                 break
             dropped.append({"chapter": cid, "dropped": [gone.get("asset") or str(gone.get("wipe"))], "reason": f"chapter is {dur:.1f}s"})
-        skip_ = set(notes.get("skip_graphics") or [])          # a rule-made graphic that an explicit scene replaces
+        sk_ = notes.get("skip_graphics") or []                  # a rule-made graphic that an explicit scene replaces: a list (everywhere) or {asset: [chapters]}
+        skip_ = {a_ for a_ in sk_ if not isinstance(sk_, dict) or cid in sk_[a_]}
         vis = [v for v in vis if v.get("asset") not in skip_]
         cap_maps = (notes.get("max_map_beats") or {}).get(cid)           # an author's cap: a chapter carried by explicit scenes needs few map beats between them
         while cap_maps is not None and sum(1 for v in vis if v.get("kind") not in full) > (cap_maps if sum(1 for v in vis if v.get("kind") in full) >= 3 else max(cap_maps, 1)):

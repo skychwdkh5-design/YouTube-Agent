@@ -1,6 +1,6 @@
 # Release package - Here's What Satellites Show Near the Construction Site (working title, not final)
 
-Generated 2026-10-21T13:37:39Z. Nothing is published.
+Generated 2026-10-21T15:00:31Z. Nothing is published.
 
 ## Status
 - topic: done owner-approved topic
@@ -9,10 +9,10 @@ Generated 2026-10-21T13:37:39Z. Nothing is published.
 - evidence: done 2 stacks + Landsat stack(s) + NDWI series
 - script: done 943 words = 6.4 min, 16 claims used
 - media: done 0 verified of 5 media entries (style v2: media optional)
-- visualplan: done 61 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19', 'i_bloomberg', 'i_semafor', 'i_reuters', 'i_opened', 'i_source', 'i_orbit', 'i_cloud', 'i_ndwi', 'i_landsat', 'i_lengths', 'i_apart', 'i_growth', 'i_verdict', 'i_cannot', 'i_nomatch']
-- visuals: done 53 graphics
-- storyboard: done 65 shots, 385.312s, timing from voice
-- visualcheck: done visual claims OK {'VERIFIED_SOURCE': 6, 'VERIFIED_DATA': 41, 'REVIEWED': 37} of 84 items; 15 orphan reviews (run `visualcheck.py prune`)
+- visualplan: done 62 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19', 'i_scale', 'i_bloomberg', 'i_semafor', 'i_reuters', 'i_opened', 'i_described', 'i_source', 'i_orbit', 'i_season', 'i_cloud', 'i_ndwi', 'i_landsat', 'i_lengths', 'i_apart', 'i_growth', 'i_verdict', 'i_cannot', 'i_nomatch']
+- visuals: done 60 graphics
+- storyboard: done 66 shots, 385.312s, timing from voice
+- visualcheck: done visual claims OK {'VERIFIED_SOURCE': 6, 'VERIFIED_DATA': 40, 'REVIEWED': 40} of 86 items; 21 orphan reviews (run `visualcheck.py prune`)
 - voice: done narration already generated (not regenerated)
 - voicecheck: done NEEDS_HUMAN_LISTEN: 21 risky words to listen to; storyboard re-timed from real word timings
 - captions: done captions built from real word timings

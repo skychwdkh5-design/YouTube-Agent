@@ -21,6 +21,12 @@ def main(argv=None):
     a = ap.parse_args(argv)
     spec_path = os.path.join(a.root, a.spec)
     spec = json.load(open(spec_path))
+    if spec.get("nearest_from"):          # the same scenes on the Sentinel-2 grid WITHOUT interpolation: 30 m pixels stay 30 m blocks (not a gain in detail)
+        sys.path.insert(0, os.path.join(HERE, "..", "yt-geo"))
+        import regrid_nearest
+        ev_ = os.path.join(a.root, "evidence")
+        print(json.dumps(regrid_nearest.regrid(os.path.join(ev_, spec["nearest_from"]), os.path.join(ev_, spec["target"]), os.path.join(ev_, spec["out_dir"]))))
+        return 0
     raw_dir = os.path.join(a.root, "evidence", "landsat_raw")
     todo = []
     for s in spec["scenes"]:

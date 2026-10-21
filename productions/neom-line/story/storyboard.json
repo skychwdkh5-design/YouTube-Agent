@@ -69,7 +69,7 @@
     "visual": 2,
     "year": "claim",
     "target": 42.51,
-    "was": 36.14,
+    "was": 42.14,
     "now": 42.51
    }
   ],
@@ -85,22 +85,29 @@
     "visual": 2,
     "year": "claim",
     "target": 76.83,
-    "was": 70.04,
+    "was": 72.04,
     "now": 76.83
    },
    {
     "visual": 3,
     "year": "claim",
     "target": 85.02,
-    "was": 79.04,
+    "was": 81.04,
     "now": 85.02
    },
    {
     "visual": 4,
     "year": "claim",
     "target": 88.8,
-    "was": 83.54,
+    "was": 85.54,
     "now": 88.8
+   },
+   {
+    "visual": 5,
+    "year": "claim",
+    "target": 95.55,
+    "was": 92.04,
+    "now": 95.55
    }
   ],
   "method": [
@@ -108,39 +115,46 @@
     "visual": 1,
     "year": "claim",
     "target": 106.78,
-    "was": 111.93,
+    "was": 108.43,
     "now": 106.78
    },
    {
     "visual": 2,
     "year": "claim",
     "target": 111.39,
-    "was": 116.93,
+    "was": 113.43,
     "now": 111.39
    },
    {
     "visual": 3,
     "year": "claim",
     "target": 114.97,
-    "was": 120.53,
+    "was": 117.03,
     "now": 114.97
    },
    {
     "visual": 4,
     "year": "claim",
     "target": 121.57,
-    "was": 126.53,
+    "was": 123.03,
     "now": 121.57
    },
    {
     "visual": 5,
     "year": "claim",
     "target": 130.3,
-    "was": 134.93,
+    "was": 131.43,
     "now": 130.3
    },
    {
     "visual": 6,
+    "year": "claim",
+    "target": 138.88,
+    "was": 139.93,
+    "now": 138.88
+   },
+   {
+    "visual": 7,
     "year": "claim",
     "target": 145.39,
     "was": 145.93,
@@ -569,7 +583,8 @@
      "t": [
       0.8,
       null
-     ]
+     ],
+     "plate": true
     }
    ],
    "end": 25.136
@@ -617,7 +632,8 @@
       35.10146,
       28.07686
      ],
-     "text": "RED SEA COAST"
+     "text": "RED SEA COAST",
+     "plate": true
     }
    ],
    "end": 30.675
@@ -627,29 +643,38 @@
    "chapter": "promise",
    "start": 30.675,
    "dur": 11.831,
-   "family": "g_scale_promise",
+   "family": "i_scale_s1_promise",
    "claims": [
     "C1"
    ],
    "layers": [
     {
      "type": "graphic",
-     "asset": "g_scale",
+     "asset": "i_scale_s1",
      "t": [
       0,
       null
      ],
      "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_scale",
+     "t": [
+      7.752,
+      null
+     ],
+     "push": 0.04
     }
    ],
-   "info": "g_scale",
+   "info": "i_scale_s1",
    "end": 42.506
   },
   {
    "id": "promise_008",
    "chapter": "promise",
    "start": 42.506,
-   "dur": 4.196,
+   "dur": 7.0,
    "family": "g_tiers_promise",
    "claims": [
     "C1",
@@ -668,13 +693,13 @@
     }
    ],
    "info": "g_tiers",
-   "end": 46.702
+   "end": 49.506
   },
   {
    "id": "promise_009",
    "chapter": "promise",
-   "start": 46.702,
-   "dur": 2.667,
+   "start": 49.506,
+   "dur": 2.53,
    "family": "y2026_promise",
    "camera": {
     "from": {
@@ -709,51 +734,10 @@
      ]
     }
    ],
-   "end": 49.369
-  },
-  {
-   "id": "promise_010",
-   "chapter": "promise",
-   "start": 49.369,
-   "dur": 2.667,
-   "family": "y2026_promise",
-   "camera": {
-    "from": {
-     "center": [
-      35.215,
-      28.11
-     ],
-     "width_km": 15
-    },
-    "to": {
-     "center": [
-      35.215,
-      28.11
-     ],
-     "width_km": 8
-    }
-   },
-   "info": "y2026",
-   "layers": [
-    {
-     "type": "image",
-     "asset": "y2026"
-    },
-    {
-     "type": "label",
-     "text": "OCT 2026",
-     "style": "year",
-     "slot": "upper",
-     "t": [
-      0.8,
-      null
-     ]
-    }
-   ],
    "end": 52.036
   },
   {
-   "id": "plan_011",
+   "id": "plan_010",
    "chapter": "plan",
    "start": 52.036,
    "dur": 12.935,
@@ -785,7 +769,7 @@
    "end": 64.971
   },
   {
-   "id": "plan_012",
+   "id": "plan_011",
    "chapter": "plan",
    "start": 64.971,
    "dur": 11.854,
@@ -805,6 +789,15 @@
     },
     {
      "type": "graphic",
+     "asset": "i_semafor_s2",
+     "t": [
+      7.496,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
      "asset": "i_semafor",
      "t": [
       9.609,
@@ -817,7 +810,7 @@
    "end": 76.825
   },
   {
-   "id": "plan_013",
+   "id": "plan_012",
    "chapter": "plan",
    "start": 76.825,
    "dur": 8.197,
@@ -849,7 +842,7 @@
    "end": 85.022
   },
   {
-   "id": "plan_014",
+   "id": "plan_013",
    "chapter": "plan",
    "start": 85.022,
    "dur": 3.773,
@@ -875,10 +868,10 @@
    "end": 88.795
   },
   {
-   "id": "plan_015",
+   "id": "plan_014",
    "chapter": "plan",
    "start": 88.795,
-   "dur": 8.568,
+   "dur": 6.757,
    "family": "i_opened_s1_plan",
    "layers": [
     {
@@ -894,20 +887,49 @@
      "type": "graphic",
      "asset": "i_opened",
      "t": [
-      6.857,
+      1.923,
       null
      ],
      "push": 0.04
     }
    ],
    "info": "i_opened_s1",
-   "end": 97.363
+   "end": 95.552
+  },
+  {
+   "id": "plan_015",
+   "chapter": "plan",
+   "start": 95.552,
+   "dur": 3.867,
+   "family": "i_described_s1_plan",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_described_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_described",
+     "t": [
+      3.366720598644955,
+      null
+     ],
+     "push": 0.04
+    }
+   ],
+   "info": "i_described_s1",
+   "end": 99.419
   },
   {
    "id": "plan_016",
    "chapter": "plan",
-   "start": 97.363,
-   "dur": 4.562,
+   "start": 99.419,
+   "dur": 2.506,
    "family": "y2026_plan",
    "camera": {
     "from": {
@@ -1020,20 +1042,21 @@
    "camera": {
     "from": {
      "center": [
-      35.2165,
+      35.2128,
       28.1062
      ],
-     "width_km": 3.2
+     "width_km": 1.3
     },
     "to": {
      "center": [
-      35.2165,
+      35.2128,
       28.1062
      ],
-     "width_km": 0.55
+     "width_km": 0.42
     }
    },
    "scene": true,
+   "resample": "nearest",
    "scene_id": "m_pixel",
    "info": "y2026",
    "layers": [
@@ -1046,10 +1069,39 @@
      "text": "1 PIXEL = 10 M OF GROUND",
      "style": "tag",
      "slot": "upper",
+     "plate": true,
      "t": [
       0.6,
       null
      ]
+    },
+    {
+     "type": "arrow",
+     "t": [
+      1.54,
+      null
+     ],
+     "from": [
+      35.2124,
+      28.10585
+     ],
+     "to": [
+      35.212909,
+      28.10585
+     ],
+     "width": 9,
+     "color": "#FFD23F"
+    },
+    {
+     "type": "label",
+     "t": [
+      1.54,
+      null
+     ],
+     "text": "5 PIXELS = 50 M",
+     "style": "tag",
+     "slot": "middle",
+     "plate": true
     }
    ],
    "end": 114.965
@@ -1097,7 +1149,8 @@
       35.1703,
       28.11053
      ],
-     "text": "A LONG CLEARED STRIP"
+     "text": "A LONG CLEARED STRIP",
+     "plate": true
     },
     {
      "type": "pin",
@@ -1109,7 +1162,8 @@
       35.1196,
       28.11972
      ],
-     "text": "A ROAD"
+     "text": "A ROAD",
+     "plate": true
     },
     {
      "type": "label",
@@ -1119,7 +1173,8 @@
      ],
      "text": "NOT VISIBLE: PERSON, CRANE, WINDOW",
      "style": "tag",
-     "slot": "upper"
+     "slot": "upper",
+     "plate": true
     }
    ],
    "end": 121.571
@@ -1173,7 +1228,7 @@
    "id": "method_022",
    "chapter": "method",
    "start": 130.302,
-   "dur": 15.092,
+   "dur": 8.579,
    "family": "i_orbit_s1_method",
    "claims": [
     "C16"
@@ -1192,17 +1247,49 @@
      "type": "graphic",
      "asset": "i_orbit",
      "t": [
-      8.679,
+      3.385,
       null
      ],
      "push": 0.04
     }
    ],
    "info": "i_orbit_s1",
-   "end": 145.394
+   "end": 138.881
   },
   {
    "id": "method_023",
+   "chapter": "method",
+   "start": 138.881,
+   "dur": 6.513,
+   "family": "i_season_s1_method",
+   "claims": [
+    "C16"
+   ],
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_season_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_season",
+     "t": [
+      3.549,
+      null
+     ],
+     "push": 0.04
+    }
+   ],
+   "info": "i_season_s1",
+   "end": 145.394
+  },
+  {
+   "id": "method_024",
    "chapter": "method",
    "start": 145.394,
    "dur": 4.538,
@@ -1225,7 +1312,7 @@
    "end": 149.932
   },
   {
-   "id": "shows_024",
+   "id": "shows_025",
    "chapter": "shows",
    "start": 149.932,
    "dur": 6.131,
@@ -1269,7 +1356,7 @@
    "end": 156.063
   },
   {
-   "id": "shows_025",
+   "id": "shows_026",
    "chapter": "shows",
    "start": 156.063,
    "dur": 3.494,
@@ -1313,7 +1400,7 @@
    "end": 159.557
   },
   {
-   "id": "shows_026",
+   "id": "shows_027",
    "chapter": "shows",
    "start": 159.557,
    "dur": 4.406,
@@ -1357,7 +1444,7 @@
    "end": 163.963
   },
   {
-   "id": "shows_027",
+   "id": "shows_028",
    "chapter": "shows",
    "start": 163.963,
    "dur": 4.406,
@@ -1391,7 +1478,7 @@
    "end": 168.369
   },
   {
-   "id": "shows_028",
+   "id": "shows_029",
    "chapter": "shows",
    "start": 168.369,
    "dur": 3.791,
@@ -1435,7 +1522,7 @@
    "end": 172.16
   },
   {
-   "id": "shows_029",
+   "id": "shows_030",
    "chapter": "shows",
    "start": 172.16,
    "dur": 3.791,
@@ -1469,7 +1556,7 @@
    "end": 175.951
   },
   {
-   "id": "shows_030",
+   "id": "shows_031",
    "chapter": "shows",
    "start": 175.951,
    "dur": 1.532,
@@ -1513,7 +1600,7 @@
    "end": 177.483
   },
   {
-   "id": "shows_031",
+   "id": "shows_032",
    "chapter": "shows",
    "start": 177.483,
    "dur": 3.018,
@@ -1536,7 +1623,7 @@
    "end": 180.5
   },
   {
-   "id": "shows_032",
+   "id": "shows_033",
    "chapter": "shows",
    "start": 180.5,
    "dur": 3.018,
@@ -1559,7 +1646,7 @@
    "end": 183.518
   },
   {
-   "id": "shows_033",
+   "id": "shows_034",
    "chapter": "shows",
    "start": 183.518,
    "dur": 2.451,
@@ -1602,7 +1689,7 @@
    "end": 185.969
   },
   {
-   "id": "shows_034",
+   "id": "shows_035",
    "chapter": "shows",
    "start": 185.969,
    "dur": 1.532,
@@ -1646,7 +1733,7 @@
    "end": 187.5
   },
   {
-   "id": "shows_035",
+   "id": "shows_036",
    "chapter": "shows",
    "start": 187.5,
    "dur": 2.451,
@@ -1689,7 +1776,7 @@
    "end": 189.951
   },
   {
-   "id": "segment_036",
+   "id": "segment_037",
    "chapter": "segment",
    "start": 189.951,
    "dur": 3.753,
@@ -1733,7 +1820,7 @@
    "end": 193.704
   },
   {
-   "id": "segment_037",
+   "id": "segment_038",
    "chapter": "segment",
    "start": 193.704,
    "dur": 7.0,
@@ -1756,7 +1843,7 @@
    "end": 200.704
   },
   {
-   "id": "segment_038",
+   "id": "segment_039",
    "chapter": "segment",
    "start": 200.704,
    "dur": 7.082,
@@ -1779,7 +1866,7 @@
    "end": 207.786
   },
   {
-   "id": "segment_039",
+   "id": "segment_040",
    "chapter": "segment",
    "start": 207.786,
    "dur": 9.497,
@@ -1811,7 +1898,7 @@
    "end": 217.283
   },
   {
-   "id": "segment_040",
+   "id": "segment_041",
    "chapter": "segment",
    "start": 217.283,
    "dur": 6.2,
@@ -1853,7 +1940,8 @@
       35.2165,
       28.1062
      ],
-     "text": "DARK SEGMENT"
+     "text": "DARK SEGMENT",
+     "plate": true
     },
     {
      "type": "label",
@@ -1864,13 +1952,14 @@
      "text": "FITS WATER, NOT PROOF",
      "style": "tag",
      "slot": "upper",
+     "plate": true,
      "sub": "A SHADOW CAN FOOL IT"
     }
    ],
    "end": 223.483
   },
   {
-   "id": "segment_041",
+   "id": "segment_042",
    "chapter": "segment",
    "start": 223.483,
    "dur": 5.526,
@@ -1913,7 +2002,7 @@
    "end": 229.009
   },
   {
-   "id": "segment_042",
+   "id": "segment_043",
    "chapter": "segment",
    "start": 229.009,
    "dur": 5.526,
@@ -1947,7 +2036,7 @@
    "end": 234.535
   },
   {
-   "id": "segment_043",
+   "id": "segment_044",
    "chapter": "segment",
    "start": 234.535,
    "dur": 6.907,
@@ -1991,7 +2080,7 @@
    "end": 241.442
   },
   {
-   "id": "checks_044",
+   "id": "checks_045",
    "chapter": "checks",
    "start": 241.442,
    "dur": 15.629,
@@ -2036,7 +2125,8 @@
      ],
      "text": "SENTINEL-2A - 8 OCT 2024",
      "style": "tag",
-     "slot": "middle"
+     "slot": "middle",
+     "plate": true
     },
     {
      "type": "label",
@@ -2046,7 +2136,8 @@
      ],
      "text": "SENTINEL-2B - 8 OCT 2025",
      "style": "tag",
-     "slot": "middle"
+     "slot": "middle",
+     "plate": true
     },
     {
      "type": "label",
@@ -2056,13 +2147,14 @@
      ],
      "text": "SENTINEL-2C - 18 OCT 2026",
      "style": "tag",
-     "slot": "middle"
+     "slot": "middle",
+     "plate": true
     }
    ],
    "end": 257.071
   },
   {
-   "id": "checks_045",
+   "id": "checks_046",
    "chapter": "checks",
    "start": 257.071,
    "dur": 8.823,
@@ -2076,17 +2168,18 @@
       35.2165,
       28.1062
      ],
-     "width_km": 4.4
+     "width_km": 2.4
     },
     "to": {
      "center": [
       35.2165,
       28.1062
      ],
-     "width_km": 2.6
+     "width_km": 1.7
     }
    },
    "scene": true,
+   "resample": "nearest",
    "scene_id": "m_l8",
    "info": "wipe y2024->l2024",
    "layers": [
@@ -2109,9 +2202,10 @@
       0.6,
       3.0
      ],
-     "text": "SENTINEL-2 - 10 M",
+     "text": "SENTINEL-2: 10 M PIXELS",
      "style": "tag",
-     "slot": "upper"
+     "slot": "upper",
+     "plate": true
     },
     {
      "type": "label",
@@ -2119,15 +2213,17 @@
       2.944,
       null
      ],
-     "text": "LANDSAT 8 - 30 M, SAME PLACE",
+     "text": "LANDSAT 8: 30 M PIXELS",
      "style": "tag",
-     "slot": "upper"
+     "slot": "upper",
+     "plate": true,
+     "sub": "INDEPENDENT SATELLITE, NOT SHARPENED"
     }
    ],
    "end": 265.894
   },
   {
-   "id": "checks_046",
+   "id": "checks_047",
    "chapter": "checks",
    "start": 265.894,
    "dur": 7.024,
@@ -2150,7 +2246,7 @@
    "end": 272.918
   },
   {
-   "id": "checks_047",
+   "id": "checks_048",
    "chapter": "checks",
    "start": 272.918,
    "dur": 6.664,
@@ -2174,7 +2270,7 @@
    "end": 279.582
   },
   {
-   "id": "checks_048",
+   "id": "checks_049",
    "chapter": "checks",
    "start": 279.582,
    "dur": 6.537,
@@ -2206,7 +2302,7 @@
    "end": 286.119
   },
   {
-   "id": "checks_049",
+   "id": "checks_050",
    "chapter": "checks",
    "start": 286.119,
    "dur": 10.971,
@@ -2272,7 +2368,8 @@
      ],
      "text": "OCT 2025: ABOUT 1.6 KM",
      "style": "tag",
-     "slot": "upper"
+     "slot": "upper",
+     "plate": true
     },
     {
      "type": "arrow",
@@ -2299,13 +2396,14 @@
      ],
      "text": "OCT 2026: ABOUT 1.9 KM",
      "style": "tag",
-     "slot": "middle"
+     "slot": "middle",
+     "plate": true
     }
    ],
    "end": 297.09
   },
   {
-   "id": "checks_050",
+   "id": "checks_051",
    "chapter": "checks",
    "start": 297.09,
    "dur": 11.993,
@@ -2355,7 +2453,7 @@
    "end": 309.083
   },
   {
-   "id": "checks_051",
+   "id": "checks_052",
    "chapter": "checks",
    "start": 309.083,
    "dur": 4.417,
@@ -2389,7 +2487,7 @@
    "end": 313.5
   },
   {
-   "id": "checks_052",
+   "id": "checks_053",
    "chapter": "checks",
    "start": 313.5,
    "dur": 2.152,
@@ -2433,7 +2531,7 @@
    "end": 315.652
   },
   {
-   "id": "limits_053",
+   "id": "limits_054",
    "chapter": "limits",
    "start": 315.652,
    "dur": 3.752,
@@ -2474,7 +2572,7 @@
    "end": 319.404
   },
   {
-   "id": "limits_054",
+   "id": "limits_055",
    "chapter": "limits",
    "start": 319.404,
    "dur": 4.319,
@@ -2508,6 +2606,7 @@
      "text": "AT THIS RESOLUTION: NO BUILDING",
      "style": "tag",
      "slot": "upper",
+     "plate": true,
      "t": [
       0.6,
       null
@@ -2517,7 +2616,7 @@
    "end": 323.723
   },
   {
-   "id": "limits_055",
+   "id": "limits_056",
    "chapter": "limits",
    "start": 323.723,
    "dur": 6.989,
@@ -2546,7 +2645,7 @@
    "end": 330.712
   },
   {
-   "id": "limits_056",
+   "id": "limits_057",
    "chapter": "limits",
    "start": 330.712,
    "dur": 10,
@@ -2575,7 +2674,7 @@
    "end": 340.712
   },
   {
-   "id": "limits_057",
+   "id": "limits_058",
    "chapter": "limits",
    "start": 340.712,
    "dur": 5.489,
@@ -2616,7 +2715,7 @@
    "end": 346.201
   },
   {
-   "id": "limits_058",
+   "id": "limits_059",
    "chapter": "limits",
    "start": 346.201,
    "dur": 5.489,
@@ -2647,7 +2746,7 @@
    "end": 351.689
   },
   {
-   "id": "close_059",
+   "id": "close_060",
    "chapter": "close",
    "start": 351.689,
    "dur": 4.797,
@@ -2690,7 +2789,7 @@
    "end": 356.486
   },
   {
-   "id": "close_060",
+   "id": "close_061",
    "chapter": "close",
    "start": 356.486,
    "dur": 4.284,
@@ -2713,7 +2812,7 @@
    "end": 360.77
   },
   {
-   "id": "close_061",
+   "id": "close_062",
    "chapter": "close",
    "start": 360.77,
    "dur": 7.523,
@@ -2739,7 +2838,7 @@
    "end": 368.293
   },
   {
-   "id": "close_062",
+   "id": "close_063",
    "chapter": "close",
    "start": 368.293,
    "dur": 5,
@@ -2762,7 +2861,7 @@
    "end": 373.293
   },
   {
-   "id": "close_063",
+   "id": "close_064",
    "chapter": "close",
    "start": 373.293,
    "dur": 6.01,
@@ -2803,7 +2902,7 @@
    "end": 379.303
   },
   {
-   "id": "close_064",
+   "id": "close_065",
    "chapter": "close",
    "start": 379.303,
    "dur": 6.01,

@@ -8,20 +8,20 @@
   "chapter": "hook"
  },
  "kind_share_info_only": {
-  "map": 0.462,
-  "scene": 0.138,
-  "graphic": 0.4,
+  "map": 0.439,
+  "scene": 0.136,
+  "graphic": 0.424,
   "still": 0.0,
   "video": 0.0
  },
  "kind_share": {
-  "map": 0.462,
-  "scene": 0.138,
-  "graphic": 0.4,
+  "map": 0.439,
+  "scene": 0.136,
+  "graphic": 0.424,
   "still": 0.0,
   "video": 0.0
  },
- "same_scale_neighbours": 5,
+ "same_scale_neighbours": 4,
  "justified_chapters": [
   "shows"
  ],
@@ -54,8 +54,8 @@
    ],
    "would_replace": {
     "shot": "promise_009",
-    "start": 46.702,
-    "dur": 2.7
+    "start": 49.506,
+    "dur": 2.5
    }
   },
   {
@@ -71,8 +71,8 @@
    ],
    "would_replace": {
     "shot": "promise_009",
-    "start": 46.702,
-    "dur": 2.7
+    "start": 49.506,
+    "dur": 2.5
    }
   },
   {

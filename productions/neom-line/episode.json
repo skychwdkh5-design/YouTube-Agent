@@ -200,6 +200,24 @@
     "C19"
    ]
   },
+  "i_scale_s1": {
+   "src": "graphics/i_scale.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_scale",
+   "claims": [
+    "C1"
+   ]
+  },
+  "i_scale": {
+   "src": "graphics/i_scale.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_scale",
+   "claims": [
+    "C1"
+   ]
+  },
   "i_bloomberg_s1": {
    "src": "graphics/i_bloomberg.step1.png",
    "kind": "graphic",
@@ -220,6 +238,15 @@
   },
   "i_semafor_s1": {
    "src": "graphics/i_semafor.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_semafor",
+   "claims": [
+    "C3"
+   ]
+  },
+  "i_semafor_s2": {
+   "src": "graphics/i_semafor.step2.png",
    "kind": "graphic",
    "credit": "Graphic: OrbitalAtlas",
    "group": "i_semafor",
@@ -270,6 +297,22 @@
    "claims": [],
    "exempt": true
   },
+  "i_described_s1": {
+   "src": "graphics/i_described.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_described",
+   "claims": [],
+   "exempt": true
+  },
+  "i_described": {
+   "src": "graphics/i_described.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_described",
+   "claims": [],
+   "exempt": true
+  },
   "i_source": {
    "src": "graphics/i_source.png",
    "kind": "graphic",
@@ -293,6 +336,24 @@
    "kind": "graphic",
    "credit": "Graphic: OrbitalAtlas",
    "group": "i_orbit",
+   "claims": [
+    "C16"
+   ]
+  },
+  "i_season_s1": {
+   "src": "graphics/i_season.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_season",
+   "claims": [
+    "C16"
+   ]
+  },
+  "i_season": {
+   "src": "graphics/i_season.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_season",
    "claims": [
     "C16"
    ]
@@ -558,6 +619,26 @@
      "anchor_text": "first of three things"
     },
     {
+     "asset": "i_scale_s1",
+     "kind": "graphic",
+     "min_s": 11,
+     "claims": [
+      "C1"
+     ],
+     "anchor": "claim",
+     "anchor_text": "It was announced as one straight city",
+     "steps": [
+      {
+       "asset": "i_scale_s1",
+       "anchor_text": "It was announced as one straight city"
+      },
+      {
+       "asset": "i_scale",
+       "anchor_text": "The full line would run far past both edges"
+      }
+     ]
+    },
+    {
      "kind": "scene",
      "id": "m_coast",
      "asset": "y2026",
@@ -593,35 +674,10 @@
      "anchor_text": "The project is called"
     },
     {
-     "asset": "g_scale",
-     "kind": "graphic",
-     "min_s": 5,
-     "claims": [
-      "C1"
-     ],
-     "anchor": "claim",
-     "anchor_claims": [
-      "C1"
-     ]
-    },
-    {
      "asset": "y2026",
      "zoom": [
       15,
       9
-     ],
-     "label": {
-      "text": "OCT 2026",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2026
-     }
-    },
-    {
-     "asset": "y2026",
-     "zoom": [
-      15,
-      8
      ],
      "label": {
       "text": "OCT 2026",
@@ -658,7 +714,7 @@
     {
      "asset": "i_semafor_s1",
      "kind": "graphic",
-     "min_s": 9,
+     "min_s": 11,
      "claims": [
       "C3"
      ],
@@ -668,6 +724,10 @@
       {
        "asset": "i_semafor_s1",
        "anchor_text": "In May 2026, Semafor reported"
+      },
+      {
+       "asset": "i_semafor_s2",
+       "anchor_text": "citing unnamed sources"
       },
       {
        "asset": "i_semafor",
@@ -716,7 +776,7 @@
     {
      "asset": "i_opened_s1",
      "kind": "graphic",
-     "min_s": 12,
+     "min_s": 6.5,
      "claims": [],
      "anchor": "claim",
      "anchor_text": "We could not open the original articles",
@@ -727,7 +787,25 @@
       },
       {
        "asset": "i_opened",
+       "anchor_text": "from our research setup"
+      }
+     ]
+    },
+    {
+     "asset": "i_described_s1",
+     "kind": "graphic",
+     "min_s": 6,
+     "claims": [],
+     "anchor": "claim",
+     "anchor_text": "Each report was described by at least two other outlets",
+     "steps": [
+      {
+       "asset": "i_described_s1",
        "anchor_text": "Each report was described by at least two other outlets"
+      },
+      {
+       "asset": "i_described",
+       "anchor_text": "We say who reported what"
       }
      ]
     },
@@ -762,7 +840,7 @@
     {
      "asset": "i_orbit_s1",
      "kind": "graphic",
-     "min_s": 11,
+     "min_s": 8.5,
      "claims": [
       "C16"
      ],
@@ -775,7 +853,27 @@
       },
       {
        "asset": "i_orbit",
+       "anchor_text": "at nearly the same time of day"
+      }
+     ]
+    },
+    {
+     "asset": "i_season_s1",
+     "kind": "graphic",
+     "min_s": 6,
+     "claims": [
+      "C16"
+     ],
+     "anchor": "claim",
+     "anchor_text": "Same season means",
+     "steps": [
+      {
+       "asset": "i_season_s1",
        "anchor_text": "Same season means"
+      },
+      {
+       "asset": "i_season",
+       "anchor_text": "so a change is less likely"
       }
      ]
     },
@@ -799,12 +897,34 @@
      ],
      "anchor": "claim",
      "zoom": [
-      3.2,
-      0.55
+      1.3,
+      0.42
      ],
-     "marks": [],
+     "marks": [
+      {
+       "type": "arrow",
+       "from": [
+        35.2124,
+        28.10585
+       ],
+       "to": [
+        35.212909,
+        28.10585
+       ],
+       "color": "#FFD23F",
+       "width": 9,
+       "anchor_text": "covers 10 meters"
+      },
+      {
+       "type": "label",
+       "text": "5 PIXELS = 50 M",
+       "style": "tag",
+       "slot": "middle",
+       "anchor_text": "covers 10 meters"
+      }
+     ],
      "focus": [
-      35.2165,
+      35.2128,
       28.1062
      ],
      "label": {
@@ -812,7 +932,8 @@
       "style": "tag",
       "slot": "upper"
      },
-     "anchor_text": "Each pixel in our frames"
+     "anchor_text": "Each pixel in our frames",
+     "resample": "nearest"
     },
     {
      "kind": "scene",
@@ -1378,13 +1499,13 @@
      ],
      "anchor": "claim",
      "zoom": [
-      4.4,
-      2.6
+      2.4,
+      1.7
      ],
      "marks": [
       {
        "type": "label",
-       "text": "SENTINEL-2 - 10 M",
+       "text": "SENTINEL-2: 10 M PIXELS",
        "style": "tag",
        "slot": "upper",
        "t": 0.6,
@@ -1392,7 +1513,8 @@
       },
       {
        "type": "label",
-       "text": "LANDSAT 8 - 30 M, SAME PLACE",
+       "text": "LANDSAT 8: 30 M PIXELS",
+       "sub": "INDEPENDENT SATELLITE, NOT SHARPENED",
        "style": "tag",
        "slot": "upper",
        "anchor_text": "Landsat 8, at 30 meters",
@@ -1408,7 +1530,8 @@
       "l2024"
      ],
      "wipe_at": "Landsat 8, at 30 meters",
-     "anchor_text": "Second, does a different satellite agree"
+     "anchor_text": "Second, does a different satellite agree",
+     "resample": "nearest"
     },
     {
      "kind": "scene",

@@ -32,7 +32,7 @@
   "shot": "hook_005"
  },
  {
-  "text": "graphic:g_scale",
+  "text": "graphic:i_scale_s1",
   "claims": [
    "C1"
   ],
@@ -56,18 +56,12 @@
   "shot": "promise_009"
  },
  {
-  "text": "OCT 2026",
-  "claim": null,
-  "exempt": true,
-  "shot": "promise_010"
- },
- {
   "text": "graphic:i_bloomberg_s1",
   "claims": [
    "C2"
   ],
   "exempt": false,
-  "shot": "plan_011"
+  "shot": "plan_010"
  },
  {
   "text": "graphic:i_semafor_s1",
@@ -75,7 +69,7 @@
    "C3"
   ],
   "exempt": false,
-  "shot": "plan_012"
+  "shot": "plan_011"
  },
  {
   "text": "graphic:i_reuters_s1",
@@ -83,7 +77,7 @@
    "C4"
   ],
   "exempt": false,
-  "shot": "plan_013"
+  "shot": "plan_012"
  },
  {
   "text": "graphic:g_reports",
@@ -94,10 +88,16 @@
    "C4"
   ],
   "exempt": false,
-  "shot": "plan_014"
+  "shot": "plan_013"
  },
  {
   "text": "graphic:i_opened_s1",
+  "claims": [],
+  "exempt": true,
+  "shot": "plan_014"
+ },
+ {
+  "text": "graphic:i_described_s1",
   "claims": [],
   "exempt": true,
   "shot": "plan_015"
@@ -130,6 +130,13 @@
   "shot": "method_019"
  },
  {
+  "text": "5 PIXELS = 50 M",
+  "claim": "C15",
+  "exempt": false,
+  "limit": false,
+  "shot": "method_019"
+ },
+ {
   "text": "NOT VISIBLE: PERSON, CRANE, WINDOW",
   "claim": "C15",
   "exempt": false,
@@ -145,7 +152,7 @@
   "shot": "method_022"
  },
  {
-  "text": "graphic:i_cloud",
+  "text": "graphic:i_season_s1",
   "claims": [
    "C16"
   ],
@@ -153,34 +160,42 @@
   "shot": "method_023"
  },
  {
-  "text": "SEP 2020",
-  "claim": null,
-  "exempt": true,
-  "shot": "shows_024"
+  "text": "graphic:i_cloud",
+  "claims": [
+   "C16"
+  ],
+  "exempt": false,
+  "shot": "method_024"
  },
  {
-  "text": "OCT 2022",
+  "text": "SEP 2020",
   "claim": null,
   "exempt": true,
   "shot": "shows_025"
  },
  {
-  "text": "OCT 2023",
+  "text": "OCT 2022",
   "claim": null,
   "exempt": true,
   "shot": "shows_026"
  },
  {
+  "text": "OCT 2023",
+  "claim": null,
+  "exempt": true,
+  "shot": "shows_027"
+ },
+ {
   "text": "OCT 2026",
   "claim": null,
   "exempt": true,
-  "shot": "shows_028"
+  "shot": "shows_029"
  },
  {
   "text": "SEP 2020",
   "claim": null,
   "exempt": true,
-  "shot": "shows_030"
+  "shot": "shows_031"
  },
  {
   "text": "graphic:g_cmp_2020_2024_c19",
@@ -188,7 +203,7 @@
    "C19"
   ],
   "exempt": false,
-  "shot": "shows_031"
+  "shot": "shows_032"
  },
  {
   "text": "graphic:g_cmp_2020_2024_c17",
@@ -196,19 +211,19 @@
    "C17"
   ],
   "exempt": false,
-  "shot": "shows_032"
+  "shot": "shows_033"
  },
  {
   "text": "SEP 2020",
   "claim": null,
   "exempt": true,
-  "shot": "shows_034"
+  "shot": "shows_035"
  },
  {
   "text": "OCT 2022",
   "claim": null,
   "exempt": true,
-  "shot": "segment_036"
+  "shot": "segment_037"
  },
  {
   "text": "graphic:g_cmp_2022_2026_c10",
@@ -216,7 +231,7 @@
    "C10"
   ],
   "exempt": false,
-  "shot": "segment_037"
+  "shot": "segment_038"
  },
  {
   "text": "graphic:g_hero_c10",
@@ -224,7 +239,7 @@
    "C10"
   ],
   "exempt": false,
-  "shot": "segment_038"
+  "shot": "segment_039"
  },
  {
   "text": "graphic:i_ndwi_s1",
@@ -232,55 +247,55 @@
    "C11"
   ],
   "exempt": false,
-  "shot": "segment_039"
+  "shot": "segment_040"
  },
  {
   "text": "FITS WATER, NOT PROOF",
   "claim": "C11",
   "exempt": false,
   "limit": false,
-  "shot": "segment_040"
+  "shot": "segment_041"
  },
  {
   "text": "OCT 2026",
   "claim": null,
   "exempt": true,
-  "shot": "segment_043"
+  "shot": "segment_044"
  },
  {
   "text": "SENTINEL-2A - 8 OCT 2024",
   "claim": "C14",
   "exempt": false,
   "limit": false,
-  "shot": "checks_044"
+  "shot": "checks_045"
  },
  {
   "text": "SENTINEL-2B - 8 OCT 2025",
   "claim": "C14",
   "exempt": false,
   "limit": false,
-  "shot": "checks_044"
+  "shot": "checks_045"
  },
  {
   "text": "SENTINEL-2C - 18 OCT 2026",
   "claim": "C14",
   "exempt": false,
   "limit": false,
-  "shot": "checks_044"
- },
- {
-  "text": "SENTINEL-2 - 10 M",
-  "claim": "C13",
-  "exempt": false,
-  "limit": false,
   "shot": "checks_045"
  },
  {
-  "text": "LANDSAT 8 - 30 M, SAME PLACE",
+  "text": "SENTINEL-2: 10 M PIXELS",
   "claim": "C13",
   "exempt": false,
   "limit": false,
-  "shot": "checks_045"
+  "shot": "checks_046"
+ },
+ {
+  "text": "LANDSAT 8: 30 M PIXELS",
+  "claim": "C13",
+  "exempt": false,
+  "limit": false,
+  "shot": "checks_046"
  },
  {
   "text": "graphic:i_landsat",
@@ -288,7 +303,7 @@
    "C13"
   ],
   "exempt": false,
-  "shot": "checks_046"
+  "shot": "checks_047"
  },
  {
   "text": "graphic:i_lengths",
@@ -297,7 +312,7 @@
    "C12"
   ],
   "exempt": false,
-  "shot": "checks_047"
+  "shot": "checks_048"
  },
  {
   "text": "graphic:i_apart_s1",
@@ -305,21 +320,21 @@
    "C13"
   ],
   "exempt": false,
-  "shot": "checks_048"
+  "shot": "checks_049"
  },
  {
   "text": "OCT 2025: ABOUT 1.6 KM",
   "claim": "C12",
   "exempt": false,
   "limit": false,
-  "shot": "checks_049"
+  "shot": "checks_050"
  },
  {
   "text": "OCT 2026: ABOUT 1.9 KM",
   "claim": "C12",
   "exempt": false,
   "limit": false,
-  "shot": "checks_049"
+  "shot": "checks_050"
  },
  {
   "text": "graphic:i_growth_s1",
@@ -327,7 +342,7 @@
    "C12"
   ],
   "exempt": false,
-  "shot": "checks_050"
+  "shot": "checks_051"
  },
  {
   "text": "graphic:i_verdict_s1",
@@ -337,44 +352,44 @@
    "C12"
   ],
   "exempt": false,
-  "shot": "checks_051"
+  "shot": "checks_052"
  },
  {
   "text": "OCT 2024",
   "claim": null,
   "exempt": true,
-  "shot": "checks_052"
+  "shot": "checks_053"
  },
  {
   "text": "OCT 2026",
   "claim": null,
   "exempt": true,
-  "shot": "limits_053"
+  "shot": "limits_054"
  },
  {
   "text": "AT THIS RESOLUTION: NO BUILDING",
   "claim": null,
   "exempt": false,
   "limit": true,
-  "shot": "limits_054"
+  "shot": "limits_055"
  },
  {
   "text": "graphic:i_cannot_s1",
   "claims": [],
   "exempt": true,
-  "shot": "limits_055"
+  "shot": "limits_056"
  },
  {
   "text": "graphic:i_nomatch_s1",
   "claims": [],
   "exempt": true,
-  "shot": "limits_056"
+  "shot": "limits_057"
  },
  {
   "text": "OCT 2026",
   "claim": null,
   "exempt": true,
-  "shot": "limits_057"
+  "shot": "limits_058"
  },
  {
   "text": "graphic:g_scale",
@@ -382,7 +397,7 @@
    "C1"
   ],
   "exempt": false,
-  "shot": "close_060"
+  "shot": "close_061"
  },
  {
   "text": "graphic:g_reports",
@@ -393,7 +408,7 @@
    "C4"
   ],
   "exempt": false,
-  "shot": "close_061"
+  "shot": "close_062"
  },
  {
   "text": "graphic:g_hero_c10",
@@ -401,12 +416,6 @@
    "C10"
   ],
   "exempt": false,
-  "shot": "close_062"
- },
- {
-  "text": "OCT 2026",
-  "claim": null,
-  "exempt": true,
   "shot": "close_063"
  },
  {
@@ -414,5 +423,11 @@
   "claim": null,
   "exempt": true,
   "shot": "close_064"
+ },
+ {
+  "text": "OCT 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "close_065"
  }
 ]

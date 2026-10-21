@@ -23,35 +23,35 @@
   },
   "research": {
    "status": "done",
-   "attempts": 38,
-   "started": "2026-10-21T13:35:19Z",
+   "attempts": 42,
+   "started": "2026-10-21T14:59:16Z",
    "error": null,
-   "finished": "2026-10-21T13:35:19Z",
+   "finished": "2026-10-21T14:59:16Z",
    "note": "20 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN",
    "inputs": {
-    "research/notes.json": "0e3b6d955930630108bba45a45ca821a9d2be457f47b163598c67bf1c0df8c38",
+    "research/notes.json": "01528c5ff93b4fbf0e734614af711b95901aab09e37349697bb42fd7d9628f7a",
     "topic/topic.json": "a65342b22b074f5e96319ff00ff7719355abdf9e1a091ce3b84ad7b23465efe1",
     "_tool": "20551a128ea3eaf0"
    },
    "outputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "research/report.md": "5f24feb962f60e7411e6111227327c3135c6f834003c05bf28fce9408c9633fd"
+    "research/report.md": "99319d3fdc2fa222c4eb6b9c4b2dade1fd4a345a17208e8fc72764b1cc4f6c55"
    },
    "agent_artifacts": {
-    "research/notes.json": "0e3b6d955930630108bba45a45ca821a9d2be457f47b163598c67bf1c0df8c38",
+    "research/notes.json": "01528c5ff93b4fbf0e734614af711b95901aab09e37349697bb42fd7d9628f7a",
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c"
    }
   },
   "facts": {
    "status": "done",
-   "attempts": 38,
-   "started": "2026-10-21T13:35:19Z",
+   "attempts": 42,
+   "started": "2026-10-21T14:59:16Z",
    "error": null,
-   "finished": "2026-10-21T13:35:19Z",
+   "finished": "2026-10-21T14:59:16Z",
    "note": "20 claims, registry ok",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "research/report.md": "5f24feb962f60e7411e6111227327c3135c6f834003c05bf28fce9408c9633fd",
+    "research/report.md": "99319d3fdc2fa222c4eb6b9c4b2dade1fd4a345a17208e8fc72764b1cc4f6c55",
     "_tool": "011f70d2646e3c92"
    },
    "outputs": {},
@@ -59,15 +59,15 @@
   },
   "evidence": {
    "status": "done",
-   "attempts": 38,
-   "started": "2026-10-21T13:35:19Z",
+   "attempts": 42,
+   "started": "2026-10-21T14:59:16Z",
    "error": null,
-   "finished": "2026-10-21T13:35:19Z",
+   "finished": "2026-10-21T14:59:16Z",
    "note": "2 stacks + Landsat stack(s) + NDWI series",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "research/notes.json": "0e3b6d955930630108bba45a45ca821a9d2be457f47b163598c67bf1c0df8c38",
-    "research/report.md": "5f24feb962f60e7411e6111227327c3135c6f834003c05bf28fce9408c9633fd",
+    "research/notes.json": "01528c5ff93b4fbf0e734614af711b95901aab09e37349697bb42fd7d9628f7a",
+    "research/report.md": "99319d3fdc2fa222c4eb6b9c4b2dade1fd4a345a17208e8fc72764b1cc4f6c55",
     "topic/topic.json": "a65342b22b074f5e96319ff00ff7719355abdf9e1a091ce3b84ad7b23465efe1",
     "_tool": "9910c5ec0e089c03"
    },
@@ -77,26 +77,26 @@
     "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
     "evidence/wide/grid.json": "05712013a4f1e8392ac4dc5d89764d12edc4e0fd2ab3524b5e91234b0758eec6",
     "evidence/landsat/provenance.json": "9f4912dfba5f9072a0de32523230c113b3a47f72afbea4e92fcefa5f18fdbac7",
-    "evidence/landsat/grid.json": "a7cae15127269feb820a695484f6f233d904dc7e8c10d5af3798f3fd26b4d8f9",
-    "evidence/landsat10/provenance.json": "9080277f6712faba69193a01e4e26ff1f2a9dffcd584a865742273617f76f3d4",
-    "evidence/landsat10/grid.json": "278f7597bdc32e08c9909562bc83396ddafbd686ba9d9014a29c682d5a7478bf",
+    "evidence/landsat/grid.json": "e951d13363530fbc620519d767b31fcaad99f49ba2ed6fafeb37eb91a7a01e7f",
+    "evidence/landsat10/provenance.json": "d5a26f465df4b1cf8261d41821f9e11f55123f912c73e9e09773a71fc704961f",
+    "evidence/landsat10/grid.json": "368ce8d53c9a5af488f73adaadb990151f4e4f89ca78d121e4fedc105abe6c34",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991"
    },
    "agent_artifacts": {}
   },
   "script": {
    "status": "done",
-   "attempts": 10,
-   "started": "2026-10-21T13:23:26Z",
+   "attempts": 11,
+   "started": "2026-10-21T14:54:29Z",
    "error": null,
-   "finished": "2026-10-21T13:23:26Z",
+   "finished": "2026-10-21T14:54:29Z",
    "note": "943 words = 6.4 min, 16 claims used",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "evidence/landsat/grid.json": "a7cae15127269feb820a695484f6f233d904dc7e8c10d5af3798f3fd26b4d8f9",
+    "evidence/landsat/grid.json": "e951d13363530fbc620519d767b31fcaad99f49ba2ed6fafeb37eb91a7a01e7f",
     "evidence/landsat/provenance.json": "9f4912dfba5f9072a0de32523230c113b3a47f72afbea4e92fcefa5f18fdbac7",
-    "evidence/landsat10/grid.json": "278f7597bdc32e08c9909562bc83396ddafbd686ba9d9014a29c682d5a7478bf",
-    "evidence/landsat10/provenance.json": "9080277f6712faba69193a01e4e26ff1f2a9dffcd584a865742273617f76f3d4",
+    "evidence/landsat10/grid.json": "368ce8d53c9a5af488f73adaadb990151f4e4f89ca78d121e4fedc105abe6c34",
+    "evidence/landsat10/provenance.json": "d5a26f465df4b1cf8261d41821f9e11f55123f912c73e9e09773a71fc704961f",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
@@ -115,17 +115,17 @@
   },
   "visualplan": {
    "status": "done",
-   "attempts": 68,
-   "started": "2026-10-21T13:35:19Z",
+   "attempts": 72,
+   "started": "2026-10-21T14:59:16Z",
    "error": null,
-   "finished": "2026-10-21T13:35:19Z",
-   "note": "61 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19', 'i_bloomberg', 'i_semafor', 'i_reuters', 'i_opened', 'i_source', 'i_orbit', 'i_cloud', 'i_ndwi', 'i_landsat', 'i_lengths', 'i_apart', 'i_growth', 'i_verdict', 'i_cannot', 'i_nomatch']",
+   "finished": "2026-10-21T14:59:16Z",
+   "note": "62 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19', 'i_scale', 'i_bloomberg', 'i_semafor', 'i_reuters', 'i_opened', 'i_described', 'i_source', 'i_orbit', 'i_season', 'i_cloud', 'i_ndwi', 'i_landsat', 'i_lengths', 'i_apart', 'i_growth', 'i_verdict', 'i_cannot', 'i_nomatch']",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "evidence/landsat/grid.json": "a7cae15127269feb820a695484f6f233d904dc7e8c10d5af3798f3fd26b4d8f9",
+    "evidence/landsat/grid.json": "e951d13363530fbc620519d767b31fcaad99f49ba2ed6fafeb37eb91a7a01e7f",
     "evidence/landsat/provenance.json": "9f4912dfba5f9072a0de32523230c113b3a47f72afbea4e92fcefa5f18fdbac7",
-    "evidence/landsat10/grid.json": "278f7597bdc32e08c9909562bc83396ddafbd686ba9d9014a29c682d5a7478bf",
-    "evidence/landsat10/provenance.json": "9080277f6712faba69193a01e4e26ff1f2a9dffcd584a865742273617f76f3d4",
+    "evidence/landsat10/grid.json": "368ce8d53c9a5af488f73adaadb990151f4e4f89ca78d121e4fedc105abe6c34",
+    "evidence/landsat10/provenance.json": "d5a26f465df4b1cf8261d41821f9e11f55123f912c73e9e09773a71fc704961f",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
@@ -135,45 +135,45 @@
     "media/ledger.json": "d2ac57fd67905bbba0e508d3fa9f957d2b8031b0a3cf0c6b6df5e4dbeaa7048e",
     "media/report.json": "20e7b01d6d3355e2873a9c0c2dcb3ac3babbb6c357218c91e07917545f8cbbb6",
     "research/brief.json": "c149b15f762a9b43f5757664c3cdba1fcf5dddd27ceef29c486be4c1de1641b0",
-    "research/notes.json": "0e3b6d955930630108bba45a45ca821a9d2be457f47b163598c67bf1c0df8c38",
+    "research/notes.json": "01528c5ff93b4fbf0e734614af711b95901aab09e37349697bb42fd7d9628f7a",
     "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
-    "_tool": "3a5d506e8ebc6dd3"
+    "_tool": "9f6c0aad1b30e35c"
    },
    "outputs": {
-    "episode.json": "988c6a592a80287fff5c1348ee9b000efc55777451e1200b5ed7a720567897a4",
-    "graphics_spec.json": "02c4cd61d41187a5e72888cb354cbb4e1b7409a912f9fef18f01cd2b927117fe"
+    "episode.json": "2f2d52a2bbf4134ff63d8723319a8a8e023792160d691b4b7e31fe5832a5cd25",
+    "graphics_spec.json": "63dc153fddf5182da9ace18ddb69ef7785f0cf1d13cf3876bf8f9b54455bbb48"
    },
    "agent_artifacts": {}
   },
   "visuals": {
    "status": "done",
-   "attempts": 66,
-   "started": "2026-10-21T13:35:19Z",
+   "attempts": 70,
+   "started": "2026-10-21T14:59:16Z",
    "error": null,
-   "finished": "2026-10-21T13:35:37Z",
-   "note": "53 graphics",
+   "finished": "2026-10-21T14:59:38Z",
+   "note": "60 graphics",
    "inputs": {
-    "episode.json": "988c6a592a80287fff5c1348ee9b000efc55777451e1200b5ed7a720567897a4",
-    "evidence/landsat/grid.json": "a7cae15127269feb820a695484f6f233d904dc7e8c10d5af3798f3fd26b4d8f9",
+    "episode.json": "2f2d52a2bbf4134ff63d8723319a8a8e023792160d691b4b7e31fe5832a5cd25",
+    "evidence/landsat/grid.json": "e951d13363530fbc620519d767b31fcaad99f49ba2ed6fafeb37eb91a7a01e7f",
     "evidence/landsat/provenance.json": "9f4912dfba5f9072a0de32523230c113b3a47f72afbea4e92fcefa5f18fdbac7",
-    "evidence/landsat10/grid.json": "278f7597bdc32e08c9909562bc83396ddafbd686ba9d9014a29c682d5a7478bf",
-    "evidence/landsat10/provenance.json": "9080277f6712faba69193a01e4e26ff1f2a9dffcd584a865742273617f76f3d4",
+    "evidence/landsat10/grid.json": "368ce8d53c9a5af488f73adaadb990151f4e4f89ca78d121e4fedc105abe6c34",
+    "evidence/landsat10/provenance.json": "d5a26f465df4b1cf8261d41821f9e11f55123f912c73e9e09773a71fc704961f",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
     "evidence/wide/grid.json": "05712013a4f1e8392ac4dc5d89764d12edc4e0fd2ab3524b5e91234b0758eec6",
     "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
-    "graphics_spec.json": "02c4cd61d41187a5e72888cb354cbb4e1b7409a912f9fef18f01cd2b927117fe",
-    "_tool": "064bc7f7747236fe"
+    "graphics_spec.json": "63dc153fddf5182da9ace18ddb69ef7785f0cf1d13cf3876bf8f9b54455bbb48",
+    "_tool": "09bccd9933611a78"
    },
    "outputs": {
-    "graphics/g_cmp_2020_2024_c17.png": "784eb95f6ef462aacadfb3df3d49cdef13ad14e4b3b830e79cadc9473fcb0e1b",
-    "graphics/g_cmp_2020_2024_c19.png": "dd80084889d94a2645868c4417d6f0bf80ac68a9f893b931f128d56088e2c41c",
-    "graphics/g_cmp_2022_2026_c10.png": "50378daec4dd6d609669cd9c13971562ada96370c0703d51add4cc26b561b9fc",
-    "graphics/g_cmp_2025_2026_c12.png": "cc0006b0f36f05727ac60ce1418dfd0f2f589d115ac9e7afde381a507edc8fce",
-    "graphics/g_hero_c10.png": "77120715259082b1fb69cd2cae5031949db81fe4460676fdd0a6b6ccd903a800",
+    "graphics/g_cmp_2020_2024_c17.png": "d2c1e9756dd0e0acc9e5f2eb22f578a4249df141da47504351e7806101284fcb",
+    "graphics/g_cmp_2020_2024_c19.png": "7b8cd3dd4edce9557372cdbf23b49349e4489b0df0425e7132c0422abdef9137",
+    "graphics/g_cmp_2022_2026_c10.png": "b3b459a4348cc573e8a82d40136ade6ad8571a40133253e0997238e8abbcd5aa",
+    "graphics/g_cmp_2025_2026_c12.png": "e6726b92ff6dc4a5ef6ca5a7b8f218791ca2e33b19c1357d8a1929290967d570",
+    "graphics/g_hero_c10.png": "8a7972368b71a470e51be03731e0f9861ee70ec59c79def9ca9724087d479f4e",
     "graphics/g_reports.png": "3858179cfc7e0506cf330a3655330f39a5b1e7b2e139e20c52d34e7f98a4a6cf",
-    "graphics/g_scale.png": "d1766f60296fc33efd9778897ed04d0eb002d8a85e555c96e08268ee0bb3e05b",
+    "graphics/g_scale.png": "2b1b8d5deae641f5fa81dd2e21c1e01ef5d8451757f43c130a1a511c0721e811",
     "graphics/g_tiers.png": "33e42d6b0494a87988831d6360a96e8a57f6537fe4599f62556c5efea1e2324d",
     "graphics/i_apart.png": "a808850d4ad2431e57c18891741d99aec423cda29094825a3dee21e0a3654318",
     "graphics/i_apart.step1.png": "8a54e1ca8bb5cd719ea52031a8f653f0c38704690c8dcfe45beb9f94599f2dc5",
@@ -188,12 +188,14 @@
     "graphics/i_dates.png": "ba4d1379a10fa8bd52624da71d17713c16fef4fcf0d3404094a871094dc07b61",
     "graphics/i_dates.step1.png": "aa5b5f3906fcebfa9622cadb3e40dd663851401d54a68b0dad17a38b13f013eb",
     "graphics/i_dates.step2.png": "efb73d801dcee70a34e294e517eb6574c6b32133ac7c6f22545291384909a1d2",
+    "graphics/i_described.png": "a56a74667161e6c9c40670e646f11960ed91557a5d18e04e0c24b7239d263599",
+    "graphics/i_described.step1.png": "c19879334d7f505c770f97ff4712861db8131665e5f092c9ec3b07bcea6f859c",
     "graphics/i_growth.png": "eb688e0e0ff4ce7edaac28ef726797911f6375958d67af496f225e5f5c718b17",
     "graphics/i_growth.step1.png": "e6d0a629c5c61808b3ba9903c53cf2c78f8ff9eff9775d5c94ef333ca72b9c17",
     "graphics/i_growth.step2.png": "aeb62c5e0e4aa4a63d857205b0c0dcdab276e0639b2db5b702526085b0906583",
     "graphics/i_growth.step3.png": "56b90cc74b2f4aabf54e49cd2b1403ded22859dc0b9835db8538fafd62668fc4",
     "graphics/i_l8.png": "44350f155dc693bfec4c2c72b2660c738836e402ab9e03a23fb871c03cfa6576",
-    "graphics/i_landsat.png": "48bcf2d26bca184b52420c28ba60b7c086b7f65ba5af541d10319a722032ca89",
+    "graphics/i_landsat.png": "9210b2844bfa6fbc026225598695460317d69e3b9ba0ba9e0a1a8809d325348b",
     "graphics/i_lengths.png": "e4c2826657e9da4274f4cc3856320a9bfd02233c36d273f78dd1550200bd237a",
     "graphics/i_ndwi.png": "8240d9cc44c3c13bc40d6140f529953d530607a155d2810fea79c9235992f31a",
     "graphics/i_ndwi.step1.png": "18b064bf7b90425540faf82fa11aae74438f356fea0b2f95f9b83629d96d014a",
@@ -201,20 +203,25 @@
     "graphics/i_nobuilding.png": "a54f50a37dd0d6bce0ffe54edc68d7daea0a8c043010ffb712a3b58a7886bde2",
     "graphics/i_nomatch.png": "a59a40d9acdcc52aeb49b4852b98e9a735f0aa132fdfb91c42b3ad6e2703872f",
     "graphics/i_nomatch.step1.png": "63397cc89476544e5363926cfd79f61e90f1774b45d25fb1146e29de0c716b9f",
-    "graphics/i_opened.png": "57a914cd834f3d495d6af3d0530ab2e5594ee53802d1fcbb71bab1f0b53b071f",
-    "graphics/i_opened.step1.png": "a8bb65fdb49b10e48a3e5a70683e5bbc6a661cfb8374eb3af8499634d63a6e10",
-    "graphics/i_orbit.png": "9351b554832cae10f937f7a7d4243e21b527ddae2ea0340e0315fb2d81381f0c",
-    "graphics/i_orbit.step1.png": "60d9d270e093ebfd2e67435979e33e2b58606b314c812d3182d95eec03cb4279",
+    "graphics/i_opened.png": "28f9c7b8a6721222bc4de6ffe3f6f7da28894db5707aa814b87c85e5f3cb6fec",
+    "graphics/i_opened.step1.png": "ac7a5a23b9fd1125dcfa510f4fa76a0f5b3abd0298aa90e6aa75fdcf8feba4d1",
+    "graphics/i_orbit.png": "3d2ed970b9fe7b312fed55f9d124c73519809cf37955271404a4e1de8dda19d5",
+    "graphics/i_orbit.step1.png": "c56a6b369e5ccda07f1d999026b6cc30a90910956ba5e219867e29016e03af23",
     "graphics/i_orbit.step2.png": "4af5140ba825862f9b6d7e62d485d8c25e954f559e6d71aad2ab6c89d5ca5604",
     "graphics/i_pixel.png": "11543358f5e2ec9ba53732b53d05eec39cf3804bb340043b2cdb9e1bdb137eb9",
     "graphics/i_reuters.png": "a9822fa6d2b1e9d201693238b704dfb9c5079f37ae482caac86133acf0ef0218",
     "graphics/i_reuters.step1.png": "131032a33537a03b1fb6c58a1b50fcf552ff43d30a545f242f757b5ba8ff2808",
+    "graphics/i_scale.png": "2b1b8d5deae641f5fa81dd2e21c1e01ef5d8451757f43c130a1a511c0721e811",
+    "graphics/i_scale.step1.png": "ac27e3991e2d7bdcecc77fd97e8025a204c56aa8fb4c5c289fa1533660e64ff1",
     "graphics/i_scenes.png": "b9d34fd7aa94e8eb371aa1307501dc18cb1ad214a9230ca48408a03ee70c8cbf",
     "graphics/i_scenes.step1.png": "acfcceebcc944f8f0cade60e84ef342a0fabd16c37201e2b09f2b5d7c4561b85",
     "graphics/i_scenes.step2.png": "a805059314b38b14711bf97b76b84515a55470002d21cec6eb484f065243739a",
     "graphics/i_scenes.step3.png": "21910bd68124ef89f4701625b274bee373cf971f1d52a98df64a5d7a76797406",
-    "graphics/i_semafor.png": "ca088c717fdfaec4d640e0fd1e90eef47d04464b9ddf9bb0ea9cebd91d086a64",
-    "graphics/i_semafor.step1.png": "335de3a71b7d49e4d4b1a7a491422bce3f1a030f7f037c3114623a312a876451",
+    "graphics/i_season.png": "6e4603c475a9d796a3b86fbd6f3fbb4c7ef74be78b701832933e5faf95b4871d",
+    "graphics/i_season.step1.png": "819102cc8f2db1a58b58b225c747cb97e98d94349f296ed313bc8cb09d541fdf",
+    "graphics/i_semafor.png": "7c0268ff11149ec88e249a2fef815cedf69728963856f000d22195979a3a9804",
+    "graphics/i_semafor.step1.png": "b272938f66d6546d586bc1b82f30f71921b254cb9b39c78e283ce7296e79c1b2",
+    "graphics/i_semafor.step2.png": "e4847a93e63df359779889cf6bf625a037d0b8e96ec050f6dff9536909847685",
     "graphics/i_source.png": "a4fcd612076e0b00050d655e7d73d3644cce86f9df2614687cabfee45b9d9aab",
     "graphics/i_verdict.png": "aada3c92ceb146a63dbaa1738983aa1fb11b55e7f081742c3d67a1981af266dd",
     "graphics/i_verdict.step1.png": "65274a9013b664e8d140feb6df4d46f4e22cfc0dea91a279d3678a57464dd150",
@@ -225,31 +232,31 @@
   },
   "storyboard": {
    "status": "done",
-   "attempts": 77,
-   "started": "2026-10-21T13:37:12Z",
+   "attempts": 82,
+   "started": "2026-10-21T14:59:38Z",
    "error": null,
-   "finished": "2026-10-21T13:37:17Z",
-   "note": "65 shots, 385.312s, timing from voice",
+   "finished": "2026-10-21T14:59:42Z",
+   "note": "66 shots, 385.312s, timing from voice",
    "inputs": {
     "captions/captions.srt": "d9f857ee8b3f20fe9be700f3dbe26f54e8bfb5517e6ad72b8f466f500dad2d5e",
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "episode.json": "988c6a592a80287fff5c1348ee9b000efc55777451e1200b5ed7a720567897a4",
-    "evidence/landsat/grid.json": "a7cae15127269feb820a695484f6f233d904dc7e8c10d5af3798f3fd26b4d8f9",
+    "episode.json": "2f2d52a2bbf4134ff63d8723319a8a8e023792160d691b4b7e31fe5832a5cd25",
+    "evidence/landsat/grid.json": "e951d13363530fbc620519d767b31fcaad99f49ba2ed6fafeb37eb91a7a01e7f",
     "evidence/landsat/provenance.json": "9f4912dfba5f9072a0de32523230c113b3a47f72afbea4e92fcefa5f18fdbac7",
-    "evidence/landsat10/grid.json": "278f7597bdc32e08c9909562bc83396ddafbd686ba9d9014a29c682d5a7478bf",
-    "evidence/landsat10/provenance.json": "9080277f6712faba69193a01e4e26ff1f2a9dffcd584a865742273617f76f3d4",
+    "evidence/landsat10/grid.json": "368ce8d53c9a5af488f73adaadb990151f4e4f89ca78d121e4fedc105abe6c34",
+    "evidence/landsat10/provenance.json": "d5a26f465df4b1cf8261d41821f9e11f55123f912c73e9e09773a71fc704961f",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
     "evidence/wide/grid.json": "05712013a4f1e8392ac4dc5d89764d12edc4e0fd2ab3524b5e91234b0758eec6",
     "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
-    "graphics/g_cmp_2020_2024_c17.png": "784eb95f6ef462aacadfb3df3d49cdef13ad14e4b3b830e79cadc9473fcb0e1b",
-    "graphics/g_cmp_2020_2024_c19.png": "dd80084889d94a2645868c4417d6f0bf80ac68a9f893b931f128d56088e2c41c",
-    "graphics/g_cmp_2022_2026_c10.png": "50378daec4dd6d609669cd9c13971562ada96370c0703d51add4cc26b561b9fc",
-    "graphics/g_cmp_2025_2026_c12.png": "cc0006b0f36f05727ac60ce1418dfd0f2f589d115ac9e7afde381a507edc8fce",
-    "graphics/g_hero_c10.png": "77120715259082b1fb69cd2cae5031949db81fe4460676fdd0a6b6ccd903a800",
+    "graphics/g_cmp_2020_2024_c17.png": "d2c1e9756dd0e0acc9e5f2eb22f578a4249df141da47504351e7806101284fcb",
+    "graphics/g_cmp_2020_2024_c19.png": "7b8cd3dd4edce9557372cdbf23b49349e4489b0df0425e7132c0422abdef9137",
+    "graphics/g_cmp_2022_2026_c10.png": "b3b459a4348cc573e8a82d40136ade6ad8571a40133253e0997238e8abbcd5aa",
+    "graphics/g_cmp_2025_2026_c12.png": "e6726b92ff6dc4a5ef6ca5a7b8f218791ca2e33b19c1357d8a1929290967d570",
+    "graphics/g_hero_c10.png": "8a7972368b71a470e51be03731e0f9861ee70ec59c79def9ca9724087d479f4e",
     "graphics/g_reports.png": "3858179cfc7e0506cf330a3655330f39a5b1e7b2e139e20c52d34e7f98a4a6cf",
-    "graphics/g_scale.png": "d1766f60296fc33efd9778897ed04d0eb002d8a85e555c96e08268ee0bb3e05b",
+    "graphics/g_scale.png": "2b1b8d5deae641f5fa81dd2e21c1e01ef5d8451757f43c130a1a511c0721e811",
     "graphics/g_tiers.png": "33e42d6b0494a87988831d6360a96e8a57f6537fe4599f62556c5efea1e2324d",
     "graphics/i_apart.png": "a808850d4ad2431e57c18891741d99aec423cda29094825a3dee21e0a3654318",
     "graphics/i_apart.step1.png": "8a54e1ca8bb5cd719ea52031a8f653f0c38704690c8dcfe45beb9f94599f2dc5",
@@ -264,12 +271,14 @@
     "graphics/i_dates.png": "ba4d1379a10fa8bd52624da71d17713c16fef4fcf0d3404094a871094dc07b61",
     "graphics/i_dates.step1.png": "aa5b5f3906fcebfa9622cadb3e40dd663851401d54a68b0dad17a38b13f013eb",
     "graphics/i_dates.step2.png": "efb73d801dcee70a34e294e517eb6574c6b32133ac7c6f22545291384909a1d2",
+    "graphics/i_described.png": "a56a74667161e6c9c40670e646f11960ed91557a5d18e04e0c24b7239d263599",
+    "graphics/i_described.step1.png": "c19879334d7f505c770f97ff4712861db8131665e5f092c9ec3b07bcea6f859c",
     "graphics/i_growth.png": "eb688e0e0ff4ce7edaac28ef726797911f6375958d67af496f225e5f5c718b17",
     "graphics/i_growth.step1.png": "e6d0a629c5c61808b3ba9903c53cf2c78f8ff9eff9775d5c94ef333ca72b9c17",
     "graphics/i_growth.step2.png": "aeb62c5e0e4aa4a63d857205b0c0dcdab276e0639b2db5b702526085b0906583",
     "graphics/i_growth.step3.png": "56b90cc74b2f4aabf54e49cd2b1403ded22859dc0b9835db8538fafd62668fc4",
     "graphics/i_l8.png": "44350f155dc693bfec4c2c72b2660c738836e402ab9e03a23fb871c03cfa6576",
-    "graphics/i_landsat.png": "48bcf2d26bca184b52420c28ba60b7c086b7f65ba5af541d10319a722032ca89",
+    "graphics/i_landsat.png": "9210b2844bfa6fbc026225598695460317d69e3b9ba0ba9e0a1a8809d325348b",
     "graphics/i_lengths.png": "e4c2826657e9da4274f4cc3856320a9bfd02233c36d273f78dd1550200bd237a",
     "graphics/i_ndwi.png": "8240d9cc44c3c13bc40d6140f529953d530607a155d2810fea79c9235992f31a",
     "graphics/i_ndwi.step1.png": "18b064bf7b90425540faf82fa11aae74438f356fea0b2f95f9b83629d96d014a",
@@ -277,20 +286,25 @@
     "graphics/i_nobuilding.png": "a54f50a37dd0d6bce0ffe54edc68d7daea0a8c043010ffb712a3b58a7886bde2",
     "graphics/i_nomatch.png": "a59a40d9acdcc52aeb49b4852b98e9a735f0aa132fdfb91c42b3ad6e2703872f",
     "graphics/i_nomatch.step1.png": "63397cc89476544e5363926cfd79f61e90f1774b45d25fb1146e29de0c716b9f",
-    "graphics/i_opened.png": "57a914cd834f3d495d6af3d0530ab2e5594ee53802d1fcbb71bab1f0b53b071f",
-    "graphics/i_opened.step1.png": "a8bb65fdb49b10e48a3e5a70683e5bbc6a661cfb8374eb3af8499634d63a6e10",
-    "graphics/i_orbit.png": "9351b554832cae10f937f7a7d4243e21b527ddae2ea0340e0315fb2d81381f0c",
-    "graphics/i_orbit.step1.png": "60d9d270e093ebfd2e67435979e33e2b58606b314c812d3182d95eec03cb4279",
+    "graphics/i_opened.png": "28f9c7b8a6721222bc4de6ffe3f6f7da28894db5707aa814b87c85e5f3cb6fec",
+    "graphics/i_opened.step1.png": "ac7a5a23b9fd1125dcfa510f4fa76a0f5b3abd0298aa90e6aa75fdcf8feba4d1",
+    "graphics/i_orbit.png": "3d2ed970b9fe7b312fed55f9d124c73519809cf37955271404a4e1de8dda19d5",
+    "graphics/i_orbit.step1.png": "c56a6b369e5ccda07f1d999026b6cc30a90910956ba5e219867e29016e03af23",
     "graphics/i_orbit.step2.png": "4af5140ba825862f9b6d7e62d485d8c25e954f559e6d71aad2ab6c89d5ca5604",
     "graphics/i_pixel.png": "11543358f5e2ec9ba53732b53d05eec39cf3804bb340043b2cdb9e1bdb137eb9",
     "graphics/i_reuters.png": "a9822fa6d2b1e9d201693238b704dfb9c5079f37ae482caac86133acf0ef0218",
     "graphics/i_reuters.step1.png": "131032a33537a03b1fb6c58a1b50fcf552ff43d30a545f242f757b5ba8ff2808",
+    "graphics/i_scale.png": "2b1b8d5deae641f5fa81dd2e21c1e01ef5d8451757f43c130a1a511c0721e811",
+    "graphics/i_scale.step1.png": "ac27e3991e2d7bdcecc77fd97e8025a204c56aa8fb4c5c289fa1533660e64ff1",
     "graphics/i_scenes.png": "b9d34fd7aa94e8eb371aa1307501dc18cb1ad214a9230ca48408a03ee70c8cbf",
     "graphics/i_scenes.step1.png": "acfcceebcc944f8f0cade60e84ef342a0fabd16c37201e2b09f2b5d7c4561b85",
     "graphics/i_scenes.step2.png": "a805059314b38b14711bf97b76b84515a55470002d21cec6eb484f065243739a",
     "graphics/i_scenes.step3.png": "21910bd68124ef89f4701625b274bee373cf971f1d52a98df64a5d7a76797406",
-    "graphics/i_semafor.png": "ca088c717fdfaec4d640e0fd1e90eef47d04464b9ddf9bb0ea9cebd91d086a64",
-    "graphics/i_semafor.step1.png": "335de3a71b7d49e4d4b1a7a491422bce3f1a030f7f037c3114623a312a876451",
+    "graphics/i_season.png": "6e4603c475a9d796a3b86fbd6f3fbb4c7ef74be78b701832933e5faf95b4871d",
+    "graphics/i_season.step1.png": "819102cc8f2db1a58b58b225c747cb97e98d94349f296ed313bc8cb09d541fdf",
+    "graphics/i_semafor.png": "7c0268ff11149ec88e249a2fef815cedf69728963856f000d22195979a3a9804",
+    "graphics/i_semafor.step1.png": "b272938f66d6546d586bc1b82f30f71921b254cb9b39c78e283ce7296e79c1b2",
+    "graphics/i_semafor.step2.png": "e4847a93e63df359779889cf6bf625a037d0b8e96ec050f6dff9536909847685",
     "graphics/i_source.png": "a4fcd612076e0b00050d655e7d73d3644cce86f9df2614687cabfee45b9d9aab",
     "graphics/i_verdict.png": "aada3c92ceb146a63dbaa1738983aa1fb11b55e7f081742c3d67a1981af266dd",
     "graphics/i_verdict.step1.png": "65274a9013b664e8d140feb6df4d46f4e22cfc0dea91a279d3678a57464dd150",
@@ -299,81 +313,81 @@
     "research/brief.json": "c149b15f762a9b43f5757664c3cdba1fcf5dddd27ceef29c486be4c1de1641b0",
     "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
     "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441",
-    "_tool": "22e61abeeb56d2cf"
+    "_tool": "f03c50c96d0995f1"
    },
    "outputs": {
-    "story/storyboard.json": "1eb8016994dfc2bb12a07cb37e36790af8cd38e328aa870d462cc23a40026863",
-    "timeline.json": "06a00aeb785da2980731f8682143ff6c8039184ab9f32f274455c71ed7cebcd9",
-    "story/labels.json": "34c11a330d6fa1979bfeab59a8a4edeaad8cd4cbafa30acc21052a90c2f49079",
-    "story/report.md": "1b5d168a8c37020669268046bea36537a6ac3b01eb47c4052389204256a2cfa7",
-    "story/diversity.json": "0484a0725b669f430ad0896fa79259995e04f4e848d4da04e5e51ffd42699e9f"
+    "story/storyboard.json": "282eda3d677462dc07d7bf89ea915e99e99f019998513803e78219dd3aafea1b",
+    "timeline.json": "957c9e356d5ca4ada3145732fc3a43d344edaae758774001a745325d7972055e",
+    "story/labels.json": "b22337429947a2a1af36920c7bb1fabd1ae9cda3212471c2769dafacf848f414",
+    "story/report.md": "801be700e830af8c2a82a2dc4aa6592d6b7929595b5a5511eef81f70cdff50b4",
+    "story/diversity.json": "588990f499d1293ec30a73f79e4c4730225269eb1edf1b8d1ee9e702bc1030e7"
    },
    "agent_artifacts": {}
   },
   "visualcheck": {
    "status": "done",
-   "attempts": 126,
-   "started": "2026-10-21T13:37:17Z",
+   "attempts": 133,
+   "started": "2026-10-21T15:00:09Z",
    "error": null,
-   "finished": "2026-10-21T13:37:29Z",
-   "note": "visual claims OK {'VERIFIED_SOURCE': 6, 'VERIFIED_DATA': 41, 'REVIEWED': 37} of 84 items; 15 orphan reviews (run `visualcheck.py prune`)",
+   "finished": "2026-10-21T15:00:21Z",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 6, 'VERIFIED_DATA': 40, 'REVIEWED': 40} of 86 items; 21 orphan reviews (run `visualcheck.py prune`)",
    "outputs": {
-    "qa/visual_claims.json": "8cc27231680f615f3445c12e6c5d6b990275afa4e55de7fca6fb89ee8a7b1e82",
-    "qa/visual_claims.md": "6a95662cfa0e15be4462537567a1083d6093f418ecdc07f2ad45778e9878c7e3"
+    "qa/visual_claims.json": "51ec066149689757d7ec6fe527b4e17f21fe93b25d55e23bd102463d78bdec44",
+    "qa/visual_claims.md": "8eb1050c455941e7e8a5a3dbd794eaebf8666e18891991caa1110d9c87455e9d"
    },
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "episode.json": "988c6a592a80287fff5c1348ee9b000efc55777451e1200b5ed7a720567897a4",
+    "episode.json": "2f2d52a2bbf4134ff63d8723319a8a8e023792160d691b4b7e31fe5832a5cd25",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
-    "graphics_spec.json": "02c4cd61d41187a5e72888cb354cbb4e1b7409a912f9fef18f01cd2b927117fe",
+    "graphics_spec.json": "63dc153fddf5182da9ace18ddb69ef7785f0cf1d13cf3876bf8f9b54455bbb48",
     "media/assets/northwestern_coast_of_saudi_.jpg": "93236ad9ce7d540e3917a45b79c19e0aa576706fcf937dc7e8a425f376d116b6",
-    "qa/visual_review.json": "b948ae217cc48b72fb1904eb2472990ca37b0945928c689a25f3b56efc72f9c9",
-    "story/diversity.json": "0484a0725b669f430ad0896fa79259995e04f4e848d4da04e5e51ffd42699e9f",
-    "story/labels.json": "34c11a330d6fa1979bfeab59a8a4edeaad8cd4cbafa30acc21052a90c2f49079",
-    "story/report.md": "1b5d168a8c37020669268046bea36537a6ac3b01eb47c4052389204256a2cfa7",
-    "story/storyboard.json": "1eb8016994dfc2bb12a07cb37e36790af8cd38e328aa870d462cc23a40026863",
-    "timeline.json": "06a00aeb785da2980731f8682143ff6c8039184ab9f32f274455c71ed7cebcd9",
+    "qa/visual_review.json": "3be60f39ed2846b4b931230182774e9c5bd67f7bbd04c8747725ca820a812390",
+    "story/diversity.json": "588990f499d1293ec30a73f79e4c4730225269eb1edf1b8d1ee9e702bc1030e7",
+    "story/labels.json": "b22337429947a2a1af36920c7bb1fabd1ae9cda3212471c2769dafacf848f414",
+    "story/report.md": "801be700e830af8c2a82a2dc4aa6592d6b7929595b5a5511eef81f70cdff50b4",
+    "story/storyboard.json": "282eda3d677462dc07d7bf89ea915e99e99f019998513803e78219dd3aafea1b",
+    "timeline.json": "957c9e356d5ca4ada3145732fc3a43d344edaae758774001a745325d7972055e",
     "_tool": "99a34655b31d05f3"
    },
    "agent_artifacts": {
-    "qa/visual_review.json": "b948ae217cc48b72fb1904eb2472990ca37b0945928c689a25f3b56efc72f9c9"
+    "qa/visual_review.json": "3be60f39ed2846b4b931230182774e9c5bd67f7bbd04c8747725ca820a812390"
    }
   },
   "voice": {
    "status": "done",
-   "attempts": 50,
+   "attempts": 51,
    "note": "narration already generated (not regenerated)",
-   "started": "2026-10-21T13:37:29Z",
+   "started": "2026-10-21T15:00:21Z",
    "error": null,
-   "finished": "2026-10-21T13:37:29Z",
+   "finished": "2026-10-21T15:00:21Z",
    "outputs": {
     "voice/narration.wav": "2b4e32ad400affa806b3731a8701178dfda2401a1591d7d0f7981a7abc866479",
     "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441"
    },
    "inputs": {
     "approvals/voice.json": "c896fb94c2cefc63b790bdc06478b51f0d354d30163db640e76e8e1d92d9f7f2",
-    "qa/visual_claims.json": "8cc27231680f615f3445c12e6c5d6b990275afa4e55de7fca6fb89ee8a7b1e82",
-    "qa/visual_claims.md": "6a95662cfa0e15be4462537567a1083d6093f418ecdc07f2ad45778e9878c7e3",
+    "qa/visual_claims.json": "51ec066149689757d7ec6fe527b4e17f21fe93b25d55e23bd102463d78bdec44",
+    "qa/visual_claims.md": "8eb1050c455941e7e8a5a3dbd794eaebf8666e18891991caa1110d9c87455e9d",
     "research/brief.json": "c149b15f762a9b43f5757664c3cdba1fcf5dddd27ceef29c486be4c1de1641b0",
     "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
-    "story/diversity.json": "0484a0725b669f430ad0896fa79259995e04f4e848d4da04e5e51ffd42699e9f",
-    "story/labels.json": "34c11a330d6fa1979bfeab59a8a4edeaad8cd4cbafa30acc21052a90c2f49079",
-    "story/report.md": "1b5d168a8c37020669268046bea36537a6ac3b01eb47c4052389204256a2cfa7",
-    "story/storyboard.json": "1eb8016994dfc2bb12a07cb37e36790af8cd38e328aa870d462cc23a40026863",
-    "timeline.json": "06a00aeb785da2980731f8682143ff6c8039184ab9f32f274455c71ed7cebcd9",
+    "story/diversity.json": "588990f499d1293ec30a73f79e4c4730225269eb1edf1b8d1ee9e702bc1030e7",
+    "story/labels.json": "b22337429947a2a1af36920c7bb1fabd1ae9cda3212471c2769dafacf848f414",
+    "story/report.md": "801be700e830af8c2a82a2dc4aa6592d6b7929595b5a5511eef81f70cdff50b4",
+    "story/storyboard.json": "282eda3d677462dc07d7bf89ea915e99e99f019998513803e78219dd3aafea1b",
+    "timeline.json": "957c9e356d5ca4ada3145732fc3a43d344edaae758774001a745325d7972055e",
     "_tool": "e3b0c44298fc1c14"
    },
    "agent_artifacts": {}
   },
   "captions": {
    "status": "done",
-   "attempts": 10,
+   "attempts": 11,
    "note": "captions built from real word timings",
-   "started": "2026-10-21T13:36:50Z",
+   "started": "2026-10-21T15:00:23Z",
    "error": null,
-   "finished": "2026-10-21T13:36:50Z",
+   "finished": "2026-10-21T15:00:23Z",
    "inputs": {
     "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441",
     "voice/voicecheck.json": "409a69b6b523bfc7e0d7336a9e7b7aafd38f2e3d8bea079150fad96c6773c522",
@@ -388,13 +402,13 @@
   },
   "render": {
    "status": "awaiting_approval",
-   "attempts": 58,
+   "attempts": 60,
    "note": "approval present but --allow-render not given; plan validated",
-   "started": "2026-10-21T13:37:35Z",
+   "started": "2026-10-21T15:00:27Z",
    "error": null,
-   "finished": "2026-10-21T13:37:39Z",
+   "finished": "2026-10-21T15:00:31Z",
    "outputs": {
-    "render/plan.json": "5f755266841a832eab0530041077661e37b969d37d1ca9dceb9dee9cbc870369"
+    "render/plan.json": "4f6b9bcc06204bbf54524ee75ad8c59a9e0fcb04329e3c81062d4440d7940fc8"
    },
    "inputs": {
     "approvals/render.json": "0641d44303f11aea7d9af9ec6b8b10639a90fa832fb948da51f440bb606fee24",
@@ -441,34 +455,34 @@
   },
   "release": {
    "status": "done",
-   "attempts": 176,
-   "started": "2026-10-21T13:37:39Z",
+   "attempts": 184,
+   "started": "2026-10-21T15:00:31Z",
    "error": null,
-   "finished": "2026-10-21T13:37:39Z",
+   "finished": "2026-10-21T15:00:31Z",
    "note": "incomplete",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "qa/visual_claims.json": "8cc27231680f615f3445c12e6c5d6b990275afa4e55de7fca6fb89ee8a7b1e82",
-    "story/diversity.json": "0484a0725b669f430ad0896fa79259995e04f4e848d4da04e5e51ffd42699e9f",
-    "story/labels.json": "34c11a330d6fa1979bfeab59a8a4edeaad8cd4cbafa30acc21052a90c2f49079",
-    "story/report.md": "1b5d168a8c37020669268046bea36537a6ac3b01eb47c4052389204256a2cfa7",
-    "story/storyboard.json": "1eb8016994dfc2bb12a07cb37e36790af8cd38e328aa870d462cc23a40026863",
-    "timeline.json": "06a00aeb785da2980731f8682143ff6c8039184ab9f32f274455c71ed7cebcd9",
+    "qa/visual_claims.json": "51ec066149689757d7ec6fe527b4e17f21fe93b25d55e23bd102463d78bdec44",
+    "story/diversity.json": "588990f499d1293ec30a73f79e4c4730225269eb1edf1b8d1ee9e702bc1030e7",
+    "story/labels.json": "b22337429947a2a1af36920c7bb1fabd1ae9cda3212471c2769dafacf848f414",
+    "story/report.md": "801be700e830af8c2a82a2dc4aa6592d6b7929595b5a5511eef81f70cdff50b4",
+    "story/storyboard.json": "282eda3d677462dc07d7bf89ea915e99e99f019998513803e78219dd3aafea1b",
+    "timeline.json": "957c9e356d5ca4ada3145732fc3a43d344edaae758774001a745325d7972055e",
     "_tool": "e3b0c44298fc1c14"
    },
    "outputs": {
-    "release/REVIEW.md": "d182715ce9408d031b35c23366197fd7f23f2c25825be4b161d9f9cecd2e1779",
-    "story/report.md": "1b5d168a8c37020669268046bea36537a6ac3b01eb47c4052389204256a2cfa7"
+    "release/REVIEW.md": "8c789443fbf1d3fd5913af681b7b5f01a07481c1ce3d1062db5b941acd50cf5f",
+    "story/report.md": "801be700e830af8c2a82a2dc4aa6592d6b7929595b5a5511eef81f70cdff50b4"
    },
    "agent_artifacts": {}
   },
   "voicecheck": {
    "status": "done",
-   "attempts": 10,
+   "attempts": 11,
    "note": "NEEDS_HUMAN_LISTEN: 21 risky words to listen to; storyboard re-timed from real word timings",
-   "started": "2026-10-21T13:36:49Z",
+   "started": "2026-10-21T15:00:21Z",
    "error": null,
-   "finished": "2026-10-21T13:36:50Z",
+   "finished": "2026-10-21T15:00:23Z",
    "inputs": {
     "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441",
     "voice/narration.wav": "2b4e32ad400affa806b3731a8701178dfda2401a1591d7d0f7981a7abc866479",
@@ -482,16 +496,16 @@
   },
   "media": {
    "status": "done",
-   "attempts": 33,
-   "started": "2026-10-21T13:35:19Z",
+   "attempts": 37,
+   "started": "2026-10-21T14:59:16Z",
    "error": null,
-   "finished": "2026-10-21T13:35:19Z",
+   "finished": "2026-10-21T14:59:16Z",
    "note": "0 verified of 5 media entries (style v2: media optional)",
    "inputs": {
     "media/assets/northwestern_coast_of_saudi_.jpg": "93236ad9ce7d540e3917a45b79c19e0aa576706fcf937dc7e8a425f376d116b6",
     "media/ledger.json": "d2ac57fd67905bbba0e508d3fa9f957d2b8031b0a3cf0c6b6df5e4dbeaa7048e",
     "research/brief.json": "c149b15f762a9b43f5757664c3cdba1fcf5dddd27ceef29c486be4c1de1641b0",
-    "research/notes.json": "0e3b6d955930630108bba45a45ca821a9d2be457f47b163598c67bf1c0df8c38",
+    "research/notes.json": "01528c5ff93b4fbf0e734614af711b95901aab09e37349697bb42fd7d9628f7a",
     "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
     "_tool": "bcf6af8b3dcf17e9"
    },
@@ -8315,7 +8329,507 @@
    "stage": "release",
    "event": "done",
    "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T14:54:28Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:54:28Z",
+   "stage": "research",
+   "event": "done",
+   "note": "20 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-21T14:54:28Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:54:29Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "20 claims, registry ok"
+  },
+  {
+   "at": "2026-10-21T14:54:29Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:54:29Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s) + NDWI series"
+  },
+  {
+   "at": "2026-10-21T14:54:29Z",
+   "stage": "script",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:54:29Z",
+   "stage": "script",
+   "event": "done",
+   "note": "943 words = 6.4 min, 16 claims used"
+  },
+  {
+   "at": "2026-10-21T14:54:29Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:54:29Z",
+   "stage": "media",
+   "event": "done",
+   "note": "0 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-21T14:54:29Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:54:29Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "61 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19', 'i_bloomberg', 'i_semafor', 'i_reuters', 'i_opened', 'i_source', 'i_orbit', 'i_cloud', 'i_ndwi', 'i_landsat', 'i_lengths', 'i_apart', 'i_growth', 'i_verdict', 'i_cannot', 'i_nomatch']"
+  },
+  {
+   "at": "2026-10-21T14:54:29Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:54:46Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "53 graphics"
+  },
+  {
+   "at": "2026-10-21T14:54:46Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:54:51Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "65 shots, 385.312s, timing from voice"
+  },
+  {
+   "at": "2026-10-21T14:54:51Z",
+   "stage": "visualcheck",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:55:03Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "6 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-21T14:55:03Z",
+   "stage": "voice",
+   "event": "invalidated: upstream ['visualcheck'] not done"
+  },
+  {
+   "at": "2026-10-21T14:55:03Z",
+   "stage": "voicecheck",
+   "event": "invalidated: upstream ['voice'] not done"
+  },
+  {
+   "at": "2026-10-21T14:55:03Z",
+   "stage": "captions",
+   "event": "invalidated: upstream ['voicecheck'] not done"
+  },
+  {
+   "at": "2026-10-21T14:55:03Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:55:03Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T14:55:17Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "6 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-21T14:55:17Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:55:17Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T14:57:07Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:57:07Z",
+   "stage": "research",
+   "event": "done",
+   "note": "20 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-21T14:57:07Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:57:07Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "20 claims, registry ok"
+  },
+  {
+   "at": "2026-10-21T14:57:07Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:57:07Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s) + NDWI series"
+  },
+  {
+   "at": "2026-10-21T14:57:07Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:57:07Z",
+   "stage": "media",
+   "event": "done",
+   "note": "0 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-21T14:57:07Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:57:08Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "63 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19', 'i_bloomberg', 'i_semafor', 'i_reuters', 'i_opened', 'i_described', 'i_source', 'i_orbit', 'i_season', 'i_cloud', 'i_ndwi', 'i_landsat', 'i_lengths', 'i_apart', 'i_growth', 'i_verdict', 'i_cannot', 'i_nomatch']"
+  },
+  {
+   "at": "2026-10-21T14:57:08Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:57:26Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "58 graphics"
+  },
+  {
+   "at": "2026-10-21T14:57:26Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:57:30Z",
+   "stage": "storyboard",
+   "event": "blocked",
+   "note": "on-screen text vs claims: graphic:i_described_s1: graphic declares no claims (set assets.<id>.claims or exempt)"
+  },
+  {
+   "at": "2026-10-21T14:57:30Z",
+   "stage": "release",
+   "event": "invalidated: upstream ['storyboard'] not done"
+  },
+  {
+   "at": "2026-10-21T14:57:34Z",
+   "stage": "storyboard",
+   "event": "blocked",
+   "note": "on-screen text vs claims: graphic:i_described_s1: graphic declares no claims (set assets.<id>.claims or exempt)"
+  },
+  {
+   "at": "2026-10-21T14:57:54Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:57:54Z",
+   "stage": "research",
+   "event": "done",
+   "note": "20 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-21T14:57:54Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:57:55Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "20 claims, registry ok"
+  },
+  {
+   "at": "2026-10-21T14:57:55Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:57:55Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s) + NDWI series"
+  },
+  {
+   "at": "2026-10-21T14:57:55Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:57:55Z",
+   "stage": "media",
+   "event": "done",
+   "note": "0 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-21T14:57:55Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:57:55Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "62 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19', 'i_scale', 'i_bloomberg', 'i_semafor', 'i_reuters', 'i_opened', 'i_described', 'i_source', 'i_orbit', 'i_season', 'i_cloud', 'i_ndwi', 'i_landsat', 'i_lengths', 'i_apart', 'i_growth', 'i_verdict', 'i_cannot', 'i_nomatch']"
+  },
+  {
+   "at": "2026-10-21T14:57:55Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:58:15Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "60 graphics"
+  },
+  {
+   "at": "2026-10-21T14:58:20Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "66 shots, 385.312s, timing from voice"
+  },
+  {
+   "at": "2026-10-21T14:58:31Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "11 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-21T14:58:31Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T14:58:44Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "11 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-21T14:58:44Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:58:44Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T14:59:16Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:59:16Z",
+   "stage": "research",
+   "event": "done",
+   "note": "20 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-21T14:59:16Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:59:16Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "20 claims, registry ok"
+  },
+  {
+   "at": "2026-10-21T14:59:16Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:59:16Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s) + NDWI series"
+  },
+  {
+   "at": "2026-10-21T14:59:16Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:59:16Z",
+   "stage": "media",
+   "event": "done",
+   "note": "0 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-21T14:59:16Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:59:16Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "62 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19', 'i_scale', 'i_bloomberg', 'i_semafor', 'i_reuters', 'i_opened', 'i_described', 'i_source', 'i_orbit', 'i_season', 'i_cloud', 'i_ndwi', 'i_landsat', 'i_lengths', 'i_apart', 'i_growth', 'i_verdict', 'i_cannot', 'i_nomatch']"
+  },
+  {
+   "at": "2026-10-21T14:59:16Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:59:38Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "60 graphics"
+  },
+  {
+   "at": "2026-10-21T14:59:38Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:59:42Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "66 shots, 385.312s, timing from voice"
+  },
+  {
+   "at": "2026-10-21T14:59:55Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "11 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-21T14:59:55Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T14:59:55Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T15:00:08Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "11 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-21T15:00:08Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T15:00:08Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T15:00:21Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 6, 'VERIFIED_DATA': 40, 'REVIEWED': 40} of 86 items; 21 orphan reviews (run `visualcheck.py prune`)"
+  },
+  {
+   "at": "2026-10-21T15:00:21Z",
+   "stage": "voice",
+   "event": "done",
+   "note": "narration already generated (not regenerated)"
+  },
+  {
+   "at": "2026-10-21T15:00:23Z",
+   "stage": "voicecheck",
+   "event": "done",
+   "note": "NEEDS_HUMAN_LISTEN: 21 risky words to listen to; storyboard re-timed from real word timings"
+  },
+  {
+   "at": "2026-10-21T15:00:23Z",
+   "stage": "captions",
+   "event": "done",
+   "note": "captions built from real word timings"
+  },
+  {
+   "at": "2026-10-21T15:00:27Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "approval present but --allow-render not given; plan validated"
+  },
+  {
+   "at": "2026-10-21T15:00:27Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T15:00:27Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T15:00:31Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "approval present but --allow-render not given; plan validated"
+  },
+  {
+   "at": "2026-10-21T15:00:31Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T15:00:31Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
   }
  ],
- "updated": "2026-10-21T13:37:39Z"
+ "updated": "2026-10-21T15:00:31Z"
 }

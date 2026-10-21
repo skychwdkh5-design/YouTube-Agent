@@ -408,7 +408,8 @@ def _shot(ep, grid, chap, v, k, n, t, d, labels, idx):
         s["info"] = v.get("info", v["asset"])
     if v.get("label") and k == 0:
         lab = v["label"]
-        layers.append({"type": "label", "text": lab["text"], "style": lab.get("style", "tag"), "slot": lab.get("slot", "upper"), "t": [min(0.8, d / 3), None]})
+        layers.append({"type": "label", "text": lab["text"], "style": lab.get("style", "tag"), "slot": lab.get("slot", "upper"), "t": [min(0.8, d / 3), None],
+                       **({"plate": True} if lab.get("style", "tag") == "tag" else {})})
         labels.append({"text": lab["text"], "claim": lab.get("claim"), "exempt": lab.get("exempt", False), "shot": sid})
     s["layers"] = layers
     return s
@@ -422,6 +423,8 @@ def _scene_shot(ep, grid, chap, v, s, d, labels, sid):
     c1, w1 = fit_view(grid, v.get("focus_to") or focus, z1)
     s["camera"] = {"from": {"center": c0, "width_km": w0}, "to": {"center": c1, "width_km": w1}}
     s["scene"] = True
+    if v.get("resample"):
+        s["resample"] = v["resample"]
     s["scene_id"] = v.get("id")
     if v.get("claims"):
         s["claims"] = list(v["claims"])
@@ -440,18 +443,18 @@ def _scene_shot(ep, grid, chap, v, s, d, labels, sid):
     c0_ = (v.get("claims") or [None])[0]          # on-screen words of a scene carry the scene's claim; a limitation scene (limit: true) carries none and is reviewed by a person
     lab = v.get("label")
     if lab:
-        layers.append({"type": "label", "text": lab["text"], "style": lab.get("style", "tag"), "slot": lab.get("slot", "upper"), **({"sub": lab["sub"]} if lab.get("sub") else {}), "t": [min(0.6, d / 4), None]})
+        layers.append({"type": "label", "text": lab["text"], "style": lab.get("style", "tag"), "slot": lab.get("slot", "upper"), "plate": True, **({"sub": lab["sub"]} if lab.get("sub") else {}), "t": [min(0.6, d / 4), None]})
         labels.append({"text": lab["text"], "claim": lab.get("claim") or c0_, "exempt": False, "limit": bool(v.get("limit")), "shot": sid})
     for m_, tt in zip(v.get("marks") or [], v.get("mark_t") or [0.6] * len(v.get("marks") or [])):
         tt = min(tt, max(d - 0.8, 0.1))
         end = None if m_.get("dur") is None else min(tt + m_["dur"], d)
         L = {"type": m_["type"], "t": [tt, end]}
         if m_["type"] == "pin":
-            L.update(at=m_["at"], text=m_["text"])
+            L.update(at=m_["at"], text=m_["text"], plate=True)
         elif m_["type"] == "arrow":
             L.update({"from": m_["from"], "to": m_["to"]}, **({"width": m_["width"]} if m_.get("width") else {}))
         elif m_["type"] == "label":
-            L.update(text=m_["text"], style=m_.get("style", "tag"), slot=m_.get("slot", "upper"), **({"sub": m_["sub"]} if m_.get("sub") else {}))
+            L.update(text=m_["text"], style=m_.get("style", "tag"), slot=m_.get("slot", "upper"), plate=True, **({"sub": m_["sub"]} if m_.get("sub") else {}))
             labels.append({"text": m_["text"], "claim": m_.get("claim") or c0_, "exempt": False, "limit": bool(v.get("limit")), "shot": sid})
         if m_.get("color"):
             L["color"] = m_["color"]
@@ -513,7 +516,7 @@ def to_timeline(ep, sb, root, voice=None, captions=None):
     assets = {k: {kk: vv for kk, vv in a.items() if kk not in ("claims", "exempt", "media_id", "pending")} for k, a in ep["assets"].items()}   # renderer rejects unknown keys
     tl = {"version": 3, "profile": "long", "grid": ep["grid"], "assets": assets, "shots": []}
     for s in sb["shots"]:
-        o = {"id": s["id"], "start": s["start"], "visual_family": re.sub(r"[^a-z0-9_]", "_", str(s["family"]).lower()), "info": s["info"], "layers": s["layers"]}
+        o = {**({"resample": s["resample"]} if s.get("resample") else {}), "id": s["id"], "start": s["start"], "visual_family": re.sub(r"[^a-z0-9_]", "_", str(s["family"]).lower()), "info": s["info"], "layers": s["layers"]}
         if "camera" in s:
             o["camera"] = s["camera"]
         tl["shots"].append(o)

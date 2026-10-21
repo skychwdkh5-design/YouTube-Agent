@@ -639,6 +639,90 @@
    "reviewer": "agent",
    "verdict": "supports",
    "note": "Sentinel-2 zoom along the corridor: no individual building can be made out at 10 m; tag 'AT THIS RESOLUTION: NO BUILDING' states the script's limitation."
+  },
+  {
+   "item": "plan_011:graphic:i_semafor_s1",
+   "frame": 0,
+   "frame_sha256": "786cd6e4edf84bb7df5772c75f5cf9e031ea9c2fd38474385e1660d9709868ee",
+   "claims": [
+    "C3"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Card SEMAFOR - 22 MAY 2026: 'Work on The Line halted until at least after 2030', 'Citing unnamed sources', red 'Not officially confirmed'. Matches C3 and its hedging."
+  },
+  {
+   "item": "plan_014:graphic:i_opened_s1",
+   "frame": 0,
+   "frame_sha256": "cabc937556b01dcd2ec499520c018aee5f9d99463cfeaf59b8f89a299fd4c031",
+   "claims": [],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Card: ORIGINAL ARTICLES / NOT OPENED BY US: THEY WERE NOT REACHABLE FROM OUR RESEARCH SETUP. States our own method; matches the script."
+  },
+  {
+   "item": "plan_015:graphic:i_described_s1",
+   "frame": 0,
+   "frame_sha256": "bb3baf85823a52eca44fa4ae9cb2dbc64f6a1b0af58d92c6d448ada0e72ea437",
+   "claims": [],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Card: Outlet A and Outlet B described it -> WHO REPORTED WHAT, AND NOTHING MORE. Matches the script's reliance on other outlets; no external claim."
+  },
+  {
+   "item": "method_019:shot",
+   "frame": 0,
+   "frame_sha256": "646ab3746508960b43c126ec719c229ca0ff88f134e20a03954dccc891732f54",
+   "claims": [
+    "C15"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Sentinel-2 zoom to a few hundred metres on the dark segment with arrow '5 pixels = 50 m' and tag '1 PIXEL = 10 M OF GROUND'; rendered with nearest-neighbour so pixels are flat squares. Supports C15."
+  },
+  {
+   "item": "method_022:graphic:i_orbit_s1",
+   "frame": 0,
+   "frame_sha256": "1741aa601cf84969db4f7975725248df5dc500276161ed113de06bd7ae5ff96c",
+   "claims": [
+    "C16"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Card: SAME ORBIT: NUMBER 78; SAME TRACK, NEARLY THE SAME TIME OF DAY (ABOUT 08:08 UTC). Matches provenance (relative orbit 78, 08:07-08:09 UTC) and C16."
+  },
+  {
+   "item": "method_023:graphic:i_season_s1",
+   "frame": 0,
+   "frame_sha256": "6da1f3d0e0d6e33a231bfcb6fa26eb33ac8986b4ab8b8b1aa9ac043cf573fad4",
+   "claims": [
+    "C16"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Card: SAME SEASON: 29 SEP TO 18 OCT; LIGHT AND SAND LOOK MORE ALIKE: LESS CHANCE OF A TRICK OF THE LIGHT. Matches scene dates and the script, C16."
+  },
+  {
+   "item": "checks_046:shot",
+   "frame": 0,
+   "frame_sha256": "b61637a090bec6b2729dafc4c4796b3b0bcf330be614e80c2fe3bc52c5cc5bfe",
+   "claims": [
+    "C13"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Wipe Sentinel-2 (10 m pixels) -> Landsat 8 (30 m pixels, nearest-neighbour blocks, not sharpened) on the same ground; tags state each instrument's pixel size and 'not sharpened'. The dark segment is visible in both, shorter and blockier in Landsat. Supports C13."
+  },
+  {
+   "item": "checks_046:shot",
+   "frame": 1,
+   "frame_sha256": "cb069f63bbf2f48543d87aa0069a3bf19d152737cc9013a357d0a6dc4f3396ee",
+   "claims": [
+    "C13"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Wipe Sentinel-2 (10 m pixels) -> Landsat 8 (30 m pixels, nearest-neighbour blocks, not sharpened) on the same ground; tags state each instrument's pixel size and 'not sharpened'. The dark segment is visible in both, shorter and blockier in Landsat. Supports C13."
   }
  ]
 }

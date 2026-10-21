@@ -481,6 +481,56 @@
    "min_s": 9
   },
   {
+   "id": "i_scale",
+   "chapter": "promise",
+   "claims": [
+    "C1"
+   ],
+   "min_s": 11,
+   "anchor_text": "It was announced as one straight city",
+   "graphic": {
+    "type": "geo",
+    "title": "Announced length: 170 km. This frame: about 45 km.",
+    "source": "Copernicus Sentinel-2 L2A, resampled to 40 m",
+    "credit": "Contains modified Copernicus Sentinel data 2026",
+    "show_credit": false,
+    "date": "OCT 2026",
+    "image": {
+     "stack": "evidence/wide/y2026.png",
+     "grid": "evidence/wide/grid.json",
+     "center": [
+      35.345,
+      28.14
+     ],
+     "width_km": 45
+    },
+    "arrows": [
+     {
+      "from": [
+       35.1425,
+       28.1715
+      ],
+      "to": [
+       35.5475,
+       28.1715
+      ],
+      "label": "170 km announced length",
+      "step": 2
+     }
+    ],
+    "graticule": false,
+    "scale_bar": true
+   },
+   "steps": [
+    {
+     "anchor_text": "It was announced as one straight city"
+    },
+    {
+     "anchor_text": "The full line would run far past both edges"
+    }
+   ]
+  },
+  {
    "id": "i_bloomberg",
    "chapter": "plan",
    "claims": [
@@ -539,7 +589,7 @@
    "claims": [
     "C3"
    ],
-   "min_s": 9,
+   "min_s": 11,
    "graphic": {
     "type": "diagram",
     "title": "What was reported",
@@ -549,9 +599,9 @@
       "id": "h",
       "text": "SEMAFOR - 22 MAY 2026",
       "x": 0.5,
-      "y": 0.17,
+      "y": 0.15,
       "w": 0.62,
-      "h": 0.13,
+      "h": 0.12,
       "style": "plain",
       "step": 1
      },
@@ -559,27 +609,40 @@
       "id": "a",
       "text": "Work on The Line halted until at least after 2030",
       "x": 0.5,
-      "y": 0.47,
+      "y": 0.38,
       "w": 0.84,
-      "h": 0.22,
+      "h": 0.2,
       "style": "accent",
       "step": 1
      },
      {
       "id": "b",
-      "text": "Unnamed sources. Not officially confirmed",
+      "text": "Citing unnamed sources",
       "x": 0.5,
-      "y": 0.76,
+      "y": 0.62,
       "w": 0.84,
-      "h": 0.17,
-      "style": "red",
+      "h": 0.14,
+      "style": "default",
       "step": 2
+     },
+     {
+      "id": "c",
+      "text": "Not officially confirmed",
+      "x": 0.5,
+      "y": 0.82,
+      "w": 0.84,
+      "h": 0.14,
+      "style": "red",
+      "step": 3
      }
     ]
    },
    "steps": [
     {
      "anchor_text": "In May 2026, Semafor reported"
+    },
+    {
+     "anchor_text": "citing unnamed sources"
     },
     {
      "anchor_text": "It has not been officially confirmed"
@@ -650,7 +713,7 @@
    "id": "i_opened",
    "chapter": "plan",
    "claims": [],
-   "min_s": 12,
+   "min_s": 6.5,
    "graphic": {
     "type": "diagram",
     "title": "How we handled the reports",
@@ -658,70 +721,78 @@
     "nodes": [
      {
       "id": "o",
-      "text": "ORIGINAL ARTICLE",
-      "x": 0.17,
-      "y": 0.45,
-      "w": 0.28,
+      "text": "ORIGINAL ARTICLES",
+      "x": 0.5,
+      "y": 0.35,
+      "w": 0.6,
       "h": 0.2,
       "style": "red",
       "step": 1
      },
      {
       "id": "x",
-      "text": "NOT OPENED BY US",
-      "x": 0.17,
-      "y": 0.75,
-      "w": 0.28,
-      "h": 0.12,
+      "text": "NOT OPENED BY US: THEY WERE NOT REACHABLE FROM OUR RESEARCH SETUP",
+      "x": 0.5,
+      "y": 0.68,
+      "w": 0.84,
+      "h": 0.2,
       "style": "plain",
+      "step": 2
+     }
+    ]
+   },
+   "steps": [
+    {
+     "anchor_text": "We could not open the original articles"
+    },
+    {
+     "anchor_text": "from our research setup"
+    }
+   ],
+   "exempt": true
+  },
+  {
+   "id": "i_described",
+   "chapter": "plan",
+   "claims": [],
+   "min_s": 6,
+   "graphic": {
+    "type": "diagram",
+    "title": "What we rely on instead",
+    "source": "OrbitalAtlas research log: each report found in at least two other outlets",
+    "nodes": [
+     {
+      "id": "p",
+      "text": "OUTLET A DESCRIBED IT",
+      "x": 0.25,
+      "y": 0.3,
+      "w": 0.38,
+      "h": 0.18,
+      "style": "default",
       "step": 1
      },
      {
-      "id": "p",
-      "text": "Outlet A",
-      "x": 0.55,
-      "y": 0.3,
-      "w": 0.24,
-      "h": 0.16,
-      "style": "default",
-      "step": 2
-     },
-     {
       "id": "q",
-      "text": "Outlet B",
-      "x": 0.55,
-      "y": 0.6,
-      "w": 0.24,
-      "h": 0.16,
+      "text": "OUTLET B DESCRIBED IT",
+      "x": 0.75,
+      "y": 0.3,
+      "w": 0.38,
+      "h": 0.18,
       "style": "default",
-      "step": 2
+      "step": 1
      },
      {
       "id": "w",
       "text": "WHO REPORTED WHAT, AND NOTHING MORE",
-      "x": 0.89,
-      "y": 0.45,
-      "w": 0.2,
-      "h": 0.34,
+      "x": 0.5,
+      "y": 0.7,
+      "w": 0.8,
+      "h": 0.2,
       "style": "accent",
       "step": 2
      }
     ],
     "arrows": [
-     {
-      "from": "o",
-      "to": "p",
-      "color": "accent",
-      "label": "described",
-      "step": 2
-     },
-     {
-      "from": "o",
-      "to": "q",
-      "color": "accent",
-      "label": "described",
-      "step": 2
-     },
      {
       "from": "p",
       "to": "w",
@@ -738,10 +809,10 @@
    },
    "steps": [
     {
-     "anchor_text": "We could not open the original articles"
+     "anchor_text": "Each report was described by at least two other outlets"
     },
     {
-     "anchor_text": "Each report was described by at least two other outlets"
+     "anchor_text": "We say who reported what"
     }
    ],
    "exempt": true
@@ -807,28 +878,28 @@
    "claims": [
     "C16"
    ],
-   "min_s": 11,
+   "min_s": 8.5,
    "graphic": {
     "type": "diagram",
-    "title": "Why the scenes can be compared",
+    "title": "Why the scenes can be compared: orbit",
     "source": "Sentinel-2 L2A scene metadata (relative orbit 78, tile T36RYS); Planetary Computer STAC",
     "nodes": [
      {
       "id": "o",
-      "text": "SAME ORBIT: 78 - PASS AROUND 08:08 UTC",
+      "text": "SAME ORBIT: NUMBER 78",
       "x": 0.5,
       "y": 0.3,
-      "w": 0.8,
+      "w": 0.7,
       "h": 0.2,
       "style": "accent",
       "step": 1
      },
      {
       "id": "s",
-      "text": "SAME SEASON: 29 SEP TO 18 OCT",
+      "text": "SAME TRACK, NEARLY THE SAME TIME OF DAY (ABOUT 08:08 UTC)",
       "x": 0.5,
       "y": 0.7,
-      "w": 0.8,
+      "w": 0.86,
       "h": 0.2,
       "style": "default",
       "step": 2
@@ -840,7 +911,50 @@
      "anchor_text": "Same orbit means"
     },
     {
+     "anchor_text": "at nearly the same time of day"
+    }
+   ]
+  },
+  {
+   "id": "i_season",
+   "chapter": "method",
+   "claims": [
+    "C16"
+   ],
+   "min_s": 6,
+   "graphic": {
+    "type": "diagram",
+    "title": "Why the scenes can be compared: season",
+    "source": "Sentinel-2 L2A scene dates (29 Sep - 18 Oct, 2020-2026); Planetary Computer STAC",
+    "nodes": [
+     {
+      "id": "s",
+      "text": "SAME SEASON: 29 SEP TO 18 OCT",
+      "x": 0.5,
+      "y": 0.3,
+      "w": 0.7,
+      "h": 0.2,
+      "style": "accent",
+      "step": 1
+     },
+     {
+      "id": "l",
+      "text": "LIGHT AND SAND LOOK MORE ALIKE: LESS CHANCE OF A TRICK OF THE LIGHT",
+      "x": 0.5,
+      "y": 0.7,
+      "w": 0.86,
+      "h": 0.2,
+      "style": "default",
+      "step": 2
+     }
+    ]
+   },
+   "steps": [
+    {
      "anchor_text": "Same season means"
+    },
+    {
+     "anchor_text": "so a change is less likely"
     }
    ]
   },
@@ -936,7 +1050,8 @@
        35.2165,
        28.1062
       ],
-      "width_km": 4
+      "width_km": 4,
+      "resample": "nearest"
      },
      "label": "SENTINEL-2 - 10 M",
      "credit": "Copernicus Sentinel data 2024"
@@ -949,7 +1064,8 @@
        35.2165,
        28.1062
       ],
-      "width_km": 4
+      "width_km": 4,
+      "resample": "nearest"
      },
      "label": "LANDSAT 8 - 30 M",
      "credit": "Landsat / USGS"
@@ -1341,18 +1457,42 @@
    "min_s": 3.6,
    "asset": "y2026",
    "zoom": [
-    3.2,
-    0.55
+    1.3,
+    0.42
    ],
    "focus": [
-    35.2165,
+    35.2128,
     28.1062
    ],
+   "resample": "nearest",
    "label": {
     "text": "1 PIXEL = 10 M OF GROUND",
     "style": "tag",
     "slot": "upper"
-   }
+   },
+   "marks": [
+    {
+     "type": "arrow",
+     "from": [
+      35.2124,
+      28.10585
+     ],
+     "to": [
+      35.212909,
+      28.10585
+     ],
+     "color": "#FFD23F",
+     "width": 9,
+     "anchor_text": "covers 10 meters"
+    },
+    {
+     "type": "label",
+     "text": "5 PIXELS = 50 M",
+     "style": "tag",
+     "slot": "middle",
+     "anchor_text": "covers 10 meters"
+    }
+   ]
   },
   {
    "id": "m_visible",
@@ -1527,18 +1667,19 @@
     "l2024"
    ],
    "zoom": [
-    4.4,
-    2.6
+    2.4,
+    1.7
    ],
    "focus": [
     35.2165,
     28.1062
    ],
    "wipe_at": "Landsat 8, at 30 meters",
+   "resample": "nearest",
    "marks": [
     {
      "type": "label",
-     "text": "SENTINEL-2 - 10 M",
+     "text": "SENTINEL-2: 10 M PIXELS",
      "style": "tag",
      "slot": "upper",
      "t": 0.6,
@@ -1546,7 +1687,8 @@
     },
     {
      "type": "label",
-     "text": "LANDSAT 8 - 30 M, SAME PLACE",
+     "text": "LANDSAT 8: 30 M PIXELS",
+     "sub": "INDEPENDENT SATELLITE, NOT SHARPENED",
      "style": "tag",
      "slot": "upper",
      "anchor_text": "Landsat 8, at 30 meters",
@@ -1651,7 +1793,12 @@
    }
   }
  ],
- "skip_graphics": [
-  "g_cmp_2025_2026_c12"
- ]
+ "skip_graphics": {
+  "g_cmp_2025_2026_c12": [
+   "checks"
+  ],
+  "g_scale": [
+   "promise"
+  ]
+ }
 }

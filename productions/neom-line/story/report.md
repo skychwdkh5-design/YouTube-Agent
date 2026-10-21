@@ -1,10 +1,10 @@
 # Storyboard report
 
-- timing: voice; duration 385.312 s; shots 65; plan hash a89349a5a45a0023
+- timing: voice; duration 385.312 s; shots 66; plan hash a1195b3963fca259
 - renderer plan: confirm_required rendering needs --confirm; the timeline is valid, plan attached
 - chapters: hook 0.0-25.14s, promise 25.14-52.04s, plan 52.04-101.92s, method 101.92-149.93s, shows 149.93-189.95s, segment 189.95-241.44s, checks 241.44-315.65s, limits 315.65-351.69s, close 351.69-385.31s
-- warning: one composition holds 15.1s without a reset (130.3-145.4s, target <= 8s)
-- diversity WARN: map 46% / graphic 40% / photo 0% / video 0%; longest satellite-map run 5 shots
+- warning: one composition holds 14.8s without a reset (245.2-260.0s, target <= 8s)
+- diversity WARN: map 44% / graphic 42% / photo 0% / video 0%; longest satellite-map run 5 shots
 - diversity warning: 5 satellite-map shots in a row (4-25 s, chapter hook): say in research/notes.json visual_choices['hook'] why maps are the best evidence here, or use the material that proves or explains the claim better
 - media PENDING (not in the render, rights not VERIFIED): northwestern_coast_of_saudi_ [REJECTED] for scene promise https://www.nasa.gov/image-article/northwestern-coast-of-saudi-arabia-red-sea/
 - media PENDING (not in the render, rights not VERIFIED): neom_official_newsroom_resou [DISCOVERED] for scene promise https://www.neom.com/en-us/newsroom/resources
@@ -20,22 +20,23 @@ Shots:
 -   13.89s +6.9s hook: wipe y2022->y2026
 -   20.81s +4.3s hook: y2026
 -   25.14s +5.5s promise: y2026
--   30.68s +11.8s promise: g_scale
--   42.51s +4.2s promise: g_tiers
--   46.70s +2.7s promise: y2026
--   49.37s +2.7s promise: y2026
+-   30.68s +11.8s promise: i_scale_s1
+-   42.51s +7.0s promise: g_tiers
+-   49.51s +2.5s promise: y2026
 -   52.04s +12.9s plan: i_bloomberg_s1
 -   64.97s +11.9s plan: i_semafor_s1
 -   76.83s +8.2s plan: i_reuters_s1
 -   85.02s +3.8s plan: g_reports
--   88.80s +8.6s plan: i_opened_s1
--   97.36s +4.6s plan: y2026
+-   88.80s +6.8s plan: i_opened_s1
+-   95.55s +3.9s plan: i_described_s1
+-   99.42s +2.5s plan: y2026
 -  101.92s +4.9s method: y2026
 -  106.78s +4.6s method: i_source
 -  111.39s +3.6s method: y2026
 -  114.97s +6.6s method: y2026
 -  121.57s +8.7s method: flip y2020,y2021,y2022,y2023,y2024,y2025,y2026
--  130.30s +15.1s method: i_orbit_s1
+-  130.30s +8.6s method: i_orbit_s1
+-  138.88s +6.5s method: i_season_s1
 -  145.39s +4.5s method: i_cloud
 -  149.93s +6.1s shows: y2020
 -  156.06s +3.5s shows: y2022

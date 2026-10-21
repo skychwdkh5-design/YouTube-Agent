@@ -278,7 +278,7 @@ def validate(tl, root, limits):
     shots = []
     for i, s in enumerate(shots_in):
         where = f"shots[{i}]"
-        r._keys(s, ("id", "beat", "start", "camera", "layers", "info", "focus", "claims", "visual_family"), where)
+        r._keys(s, ("id", "beat", "start", "camera", "layers", "info", "focus", "claims", "visual_family", "resample"), where)
         start = _time(s.get("start", 0), words, f"{where}.start")
         if i == 0 and start != 0:
             raise E("the first shot must start at 0 - the first frame is the hook")
@@ -317,7 +317,8 @@ def validate(tl, root, limits):
         shots.append({"id": str(s.get("id", f"s{i + 1}")), "beat": s.get("beat"), "start": start,
                       "views": (v0, v1) if v0 is not None else None,
                       "ease": ease, "layers": layers, "info": s.get("info"), "focus": focus,
-                      "claims": s.get("claims") or [], "family": family})
+                      "claims": s.get("claims") or [], "family": family,
+                      "resample": _resample(s.get("resample"), where)})
     tagged = [s["family"] is not None for s in shots]
     if any(tagged) and not all(tagged):
         raise E("visual_family is set on some shots but not on " +
@@ -364,14 +365,30 @@ def validate(tl, root, limits):
     return plan
 
 
+def _resample(v, where):
+    """Opt-in per shot: 'nearest' draws the source pixels as flat squares (no smoothing, no invented detail) - for a scene that explains real pixel size. Default bilinear, as before."""
+    if v is None:
+        return None
+    if v not in ("nearest", "bilinear"):
+        raise E(f"{where}.resample must be 'nearest' or 'bilinear'")
+    return v
+
+
+def _plate(L, where):
+    """Opt-in dark plate behind a label or pin text (legibility on pale imagery). Default off: timelines without it render byte for byte as before."""
+    if "plate" in L and not isinstance(L["plate"], bool):
+        raise E(f"{where}.plate must be true or false")
+    return bool(L.get("plate", False))
+
+
 def _layer(L, assets, grid, where, fps=30):
     if not isinstance(L, dict) or L.get("type") not in LAYER_TYPES:
         raise E(f"{where}.type must be one of {LAYER_TYPES}")
     t = L["type"]
     allowed = {"image": ("asset",), "flip": ("assets", "step"), "wipe": ("from", "to"),
                "fill": ("mask", "minus", "color", "opacity"), "outline": ("mask", "color", "width"),
-               "label": ("text", "sub", "slot", "style", "color"), "arrow": ("from", "to", "color", "width"),
-               "pin": ("at", "text", "color"), "graphic": ("asset", "push"), "video": ("asset", "trim", "credit", "captions", "caption"), "still": ("asset", "view", "credit", "captions", "caption", "scrim")}[t]
+               "label": ("text", "sub", "slot", "style", "color", "plate"), "arrow": ("from", "to", "color", "width"),
+               "pin": ("at", "text", "color", "plate"), "graphic": ("asset", "push"), "video": ("asset", "trim", "credit", "captions", "caption"), "still": ("asset", "view", "credit", "captions", "caption", "scrim")}[t]
     r._keys(L, ("type", "t", "info") + allowed + (("visual_family",) if t in ("image", "flip", "wipe", "graphic", "video", "still") else ()), where)
     out = {"type": t, "info": L.get("info"), "family": _family(L.get("visual_family"), f"{where}.visual_family")}
     tw = L.get("t", [0, None])
@@ -461,6 +478,7 @@ def _layer(L, assets, grid, where, fps=30):
         if out["slot"] not in SLOTS or out["style"] not in STYLES:
             raise E(f"{where}: slot must be one of {sorted(SLOTS)}, style one of {sorted(STYLES)}")
         out["color"] = _color(L["color"], f"{where}.color") if L.get("color") else None
+        out["plate"] = _plate(L, where)
     elif t == "arrow":
         out["from"], out["to"] = grid.px(*_ll(L.get("from"), f"{where}.from")), grid.px(*_ll(L.get("to"), f"{where}.to"))
         out["color"] = _color(L.get("color", "#FFD23F"), f"{where}.color")
@@ -471,6 +489,7 @@ def _layer(L, assets, grid, where, fps=30):
             raise E(f"{where}.text must be 1-32 characters")
         out["text"] = L["text"]
         out["color"] = _color(L.get("color", "#FFD23F"), f"{where}.color")
+        out["plate"] = _plate(L, where)
     return out
 
 
@@ -848,8 +867,8 @@ class Painter:
         h = w * self.H / self.W
         return (cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2)
 
-    def crop(self, aid, box):
-        return np.asarray(self.img[aid].resize((self.W, self.H), Image.BILINEAR, box=box))
+    def crop(self, aid, box, nearest=False):
+        return np.asarray(self.img[aid].resize((self.W, self.H), Image.NEAREST if nearest else Image.BILINEAR, box=box))
 
     def crop_mask(self, aid, box):
         return np.asarray(self.mask[aid].resize((self.W, self.H), Image.NEAREST, box=box)) > 127
@@ -891,15 +910,15 @@ class Painter:
                 if L["credit"]:
                     credits.append(L["asset"])
             elif L["type"] == "image" and active(L):
-                base = self.crop(L["asset"], box); credits.append(L["asset"])
+                base = self.crop(L["asset"], box, shot.get("resample") == "nearest"); credits.append(L["asset"])
             elif L["type"] == "flip":
                 k = min(max(0, int((lt - L["t0"]) / L["step"])), len(L["assets"]) - 1)
                 aid = L["assets"][k]
-                base = self.crop(aid, box); credits.append(aid)
+                base = self.crop(aid, box, shot.get("resample") == "nearest"); credits.append(aid)
                 overlays.append(("label", {"text": self.p["assets"][aid]["label"], "sub": None, "slot": "top",
                                            "style": "year", "color": None}, 1.0))
             elif L["type"] == "wipe":
-                a, b = self.crop(L["from"], box), self.crop(L["to"], box)
+                a, b = self.crop(L["from"], box, shot.get("resample") == "nearest"), self.crop(L["to"], box, shot.get("resample") == "nearest")
                 k = _ease((lt - L["t0"]) / max(L["t1"] - L["t0"], 1e-6), "in_out")   # 0 before t0: "from"
                 xw = int(round(k * self.W))
                 base = a.copy()
@@ -994,11 +1013,24 @@ class Painter:
         while d.textlength(L["text"], font=font) > self.W * 0.82 and size > 30:
             size -= 6
             font = self.fonts.get(style, size)
+        if L.get("plate"):
+            sub = L.get("sub")
+            sz, st, _ = self.lay["styles"]["sub"]
+            sfont = self.fonts.get(st, sz) if sub else None
+            tw = max(d.textlength(L["text"], font=font), d.textlength(sub, font=sfont) if sub else 0)
+            top = y - size * 0.62
+            bot = y + size * 0.62 if not sub else y + size // 2 + self.lay["sub_gap"] + sz * 0.7
+            self._plate(d, self.W // 2, (top + bot) / 2, tw, bot - top, a)
         self._text(d, L["text"], font, (self.W // 2, y), col, a, stroke=max(4, size // 14))
         if L.get("sub"):
             sz, st, _ = self.lay["styles"]["sub"]
             self._text(d, L["sub"], self.fonts.get(st, sz), (self.W // 2, y + size // 2 + self.lay["sub_gap"]),
                        (255, 255, 255), a, self.lay["sub_stroke"])
+
+    def _plate(self, d, cx, cy, w, h, a, pad_x=34, pad_y=14):
+        """A dark, mostly opaque rounded plate: white or yellow text on it keeps a contrast ratio well above 7:1 on any imagery."""
+        d.rounded_rectangle([cx - w / 2 - pad_x, cy - h / 2 - pad_y, cx + w / 2 + pad_x, cy + h / 2 + pad_y], radius=int(h * 0.4 + pad_y),
+                            fill=(8, 12, 20, int(205 * a)), outline=(255, 255, 255, int(70 * a)), width=2)
 
     def _arrow(self, d, p0, p1, L, a):
         col = L["color"] + (int(255 * a),)
@@ -1017,10 +1049,13 @@ class Painter:
         x, y = p
         pr, dy = self.lay["pin_r"], self.lay["pin_dy"]
         d.ellipse([x - pr, y - pr, x + pr, y + pr], fill=col, outline=(0, 0, 0, int(200 * a)), width=4)
-        font = self.fonts.get("Black", self.lay["pin_font"])
+        font = self.fonts.get("Black", int(self.lay["pin_font"] * (1.3 if L.get("plate") else 1)))
         tw = d.textlength(L["text"], font=font)
         tx = min(max(x, tw / 2 + self.lay["pin_x_min"]), self.W * (1 - self.safe["right"]) - tw / 2 - 10)
         ty = y - dy if y > self.H * 0.3 else y + dy
+        if L.get("plate"):
+            ty = y - dy - 14 if y > self.H * 0.3 else y + dy + 14
+            self._plate(d, int(tx), int(ty), tw, font.size, a, 26, 10)
         self._text(d, L["text"], font, (int(tx), int(ty)), L["color"], a)
 
     def _caption(self, d, shot, box, t, opts=None):

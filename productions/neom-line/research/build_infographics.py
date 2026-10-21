@@ -19,6 +19,11 @@ inf.append({"id":"i_coast","chapter":"promise","claims":["C20"],"anchor_text":"R
   "left":{"file":"media/assets/northwestern_coast_of_saudi_.jpg","label":"ISS PHOTO - NOT THE NEOM SITE","credit":"NASA / ISS, 30 Nov 2021"},
   "right":{"geo":{"stack":"evidence/wide/y2026.png","grid":"evidence/wide/grid.json","center":[35.345,28.14],"width_km":45},"label":"SENTINEL-2 - NEOM AREA","credit":"Copernicus Sentinel data 2026"}}})
 inf.append({"id":"i_tiers_promise","chapter":"promise","ref":"g_tiers","anchor_text":"first of three things","min_s":9})
+inf.append({"id":"i_scale","chapter":"promise","claims":["C1"],"min_s":11,"anchor_text":"It was announced as one straight city",
+ "graphic":{"type":"geo","title":"Announced length: 170 km. This frame: about 45 km.","source":"Copernicus Sentinel-2 L2A, resampled to 40 m","credit":"Contains modified Copernicus Sentinel data 2026","show_credit":False,"date":"OCT 2026",
+  "image":{"stack":"evidence/wide/y2026.png","grid":"evidence/wide/grid.json","center":[35.345,28.14],"width_km":45},
+  "arrows":[{"from":[35.1425,28.1715],"to":[35.5475,28.1715],"label":"170 km announced length","step":2}],"graticule":False,"scale_bar":True},
+ "steps":[{"anchor_text":"It was announced as one straight city"},{"anchor_text":"The full line would run far past both edges"}]})
 # --- plan: reported claims as quote cards
 def card(id,claim,head,l1,l2,note,a1,a2,col1="accent",title=None):
     g={"type":"diagram","title":title or "What was reported","source":SRC_NEWS,
@@ -29,16 +34,23 @@ def card(id,claim,head,l1,l2,note,a1,a2,col1="accent",title=None):
        }
     return {"id":id,"chapter":"plan","claims":[claim],"min_s":9,"graphic":g,"steps":[{"anchor_text":a1},{"anchor_text":a2}]}
 inf.append(card("i_bloomberg","C2","BLOOMBERG - APRIL 2024","About 2.4 km of The Line expected by 2030","Fewer than 300,000 residents by then",None,"In April 2024, Bloomberg reported","fewer than 300,000 residents"))
-inf.append(card("i_semafor","C3","SEMAFOR - 22 MAY 2026","Work on The Line halted until at least after 2030",None,"Unnamed sources. Not officially confirmed","In May 2026, Semafor reported","It has not been officially confirmed"))
+inf.append({"id":"i_semafor","chapter":"plan","claims":["C3"],"min_s":11,
+ "graphic":{"type":"diagram","title":"What was reported","source":SRC_NEWS,
+  "nodes":[N("h","SEMAFOR - 22 MAY 2026",0.5,0.15,0.62,0.12,"plain",1),N("a","Work on The Line halted until at least after 2030",0.5,0.38,0.84,0.2,"accent",1),
+           N("b","Citing unnamed sources",0.5,0.62,0.84,0.14,"default",2),N("c","Not officially confirmed",0.5,0.82,0.84,0.14,"red",3)]},
+ "steps":[{"anchor_text":"In May 2026, Semafor reported"},{"anchor_text":"citing unnamed sources"},{"anchor_text":"It has not been officially confirmed"}]})
 inf.append({"id":"i_reports_recap","chapter":"plan","ref":"g_reports","anchor_text":"These are news reports","min_s":4.5})
 inf.append(card("i_reuters","C4","REUTERS - ABOUT 4 OCT 2026","NEOM stadium shelved indefinitely",None,"Two sources. No official announcement","In October 2026, Reuters reported","with no official announcement"))
-inf.append({"id":"i_opened","chapter":"plan","claims":[],"min_s":12,
+inf.append({"id":"i_opened","chapter":"plan","claims":[],"min_s":6.5,
  "graphic":{"type":"diagram","title":"How we handled the reports","source":"OrbitalAtlas research log: original articles not reachable from our research setup",
-  "nodes":[N("o","ORIGINAL ARTICLE",0.17,0.45,0.28,0.2,"red",1),N("x","NOT OPENED BY US",0.17,0.75,0.28,0.12,"plain",1),
-           N("p","Outlet A",0.55,0.3,0.24,0.16,"default",2),N("q","Outlet B",0.55,0.6,0.24,0.16,"default",2),
-           N("w","WHO REPORTED WHAT, AND NOTHING MORE",0.89,0.45,0.2,0.34,"accent",2)],
-  "arrows":[A("o","p","described",2),A("o","q","described",2),A("p","w",None,2),A("q","w",None,2)]},
- "steps":[{"anchor_text":"We could not open the original articles"},{"anchor_text":"Each report was described by at least two other outlets"}]})
+  "nodes":[N("o","ORIGINAL ARTICLES",0.5,0.35,0.6,0.2,"red",1),N("x","NOT OPENED BY US: THEY WERE NOT REACHABLE FROM OUR RESEARCH SETUP",0.5,0.68,0.84,0.2,"plain",2)]},
+ "steps":[{"anchor_text":"We could not open the original articles"},{"anchor_text":"from our research setup"}]})
+inf.append({"id":"i_described","chapter":"plan","claims":[],"min_s":6,
+ "graphic":{"type":"diagram","title":"What we rely on instead","source":"OrbitalAtlas research log: each report found in at least two other outlets",
+  "nodes":[N("p","OUTLET A DESCRIBED IT",0.25,0.3,0.38,0.18,"default",1),N("q","OUTLET B DESCRIBED IT",0.75,0.3,0.38,0.18,"default",1),
+           N("w","WHO REPORTED WHAT, AND NOTHING MORE",0.5,0.7,0.8,0.2,"accent",2)],
+  "arrows":[A("p","w",None,2),A("q","w",None,2)]},
+ "steps":[{"anchor_text":"Each report was described by at least two other outlets"},{"anchor_text":"We say who reported what"}]})
 # --- method
 inf.append({"id":"i_source","chapter":"method","claims":["C16"],"anchor_text":"We used free Sentinel-2 images","min_s":5,
  "graphic":{"type":"diagram","title":"Where the pictures come from","source":"Copernicus Sentinel-2 L2A (ESA / European Union), free, full and open data",
@@ -56,10 +68,14 @@ inf.append({"id":"i_visible","chapter":"method","claims":["C15"],"min_s":9,
 inf.append({"id":"i_scenes","chapter":"method","claims":["C16"],"anchor_text":"We picked seven scenes","min_s":6,
  "graphic":{"type":"diagram","title":"Seven scenes, 2020 to 2026","source":"Sentinel-2 L2A scene metadata (relative orbit 78, tile T36RYS); Planetary Computer STAC",
   "nodes":[N(f"y{y}",str(y),0.075+0.141*i,0.3,0.125,0.16,"blue") for i,(y,d) in enumerate(DATES)]+[N(f"d{y}",d,0.075+0.141*i,0.55,0.125,0.14,"default") for i,(y,d) in enumerate(DATES)]}})
-inf.append({"id":"i_orbit","chapter":"method","claims":["C16"],"min_s":11,
- "graphic":{"type":"diagram","title":"Why the scenes can be compared","source":"Sentinel-2 L2A scene metadata (relative orbit 78, tile T36RYS); Planetary Computer STAC",
-  "nodes":[N("o","SAME ORBIT: 78 - PASS AROUND 08:08 UTC",0.5,0.3,0.8,0.2,"accent",1),N("s","SAME SEASON: 29 SEP TO 18 OCT",0.5,0.7,0.8,0.2,"default",2)]},
- "steps":[{"anchor_text":"Same orbit means"},{"anchor_text":"Same season means"}]})
+inf.append({"id":"i_orbit","chapter":"method","claims":["C16"],"min_s":8.5,
+ "graphic":{"type":"diagram","title":"Why the scenes can be compared: orbit","source":"Sentinel-2 L2A scene metadata (relative orbit 78, tile T36RYS); Planetary Computer STAC",
+  "nodes":[N("o","SAME ORBIT: NUMBER 78",0.5,0.3,0.7,0.2,"accent",1),N("s","SAME TRACK, NEARLY THE SAME TIME OF DAY (ABOUT 08:08 UTC)",0.5,0.7,0.86,0.2,"default",2)]},
+ "steps":[{"anchor_text":"Same orbit means"},{"anchor_text":"at nearly the same time of day"}]})
+inf.append({"id":"i_season","chapter":"method","claims":["C16"],"min_s":6,
+ "graphic":{"type":"diagram","title":"Why the scenes can be compared: season","source":"Sentinel-2 L2A scene dates (29 Sep - 18 Oct, 2020-2026); Planetary Computer STAC",
+  "nodes":[N("s","SAME SEASON: 29 SEP TO 18 OCT",0.5,0.3,0.7,0.2,"accent",1),N("l","LIGHT AND SAND LOOK MORE ALIKE: LESS CHANCE OF A TRICK OF THE LIGHT",0.5,0.7,0.86,0.2,"default",2)]},
+ "steps":[{"anchor_text":"Same season means"},{"anchor_text":"so a change is less likely"}]})
 inf.append({"id":"i_cloud","chapter":"method","claims":["C16"],"anchor_text":"The scenes report almost no cloud","min_s":4,"closes_chapter":True,
  "graphic":{"type":"callout","title":"Cloud cover in all seven scenes","source":"Sentinel-2 L2A scene metadata (scene cloud cover 0.03 to 0.06 percent)","value":0.1,"unit":"percent","label":"is the ceiling for reported cloud cover in all seven scenes","decimals":1}})
 # --- segment
@@ -81,8 +97,8 @@ inf.append({"id":"i_l8","chapter":"checks","claims":["C13"],"anchor_text":"Secon
   "callouts":[{"at":[35.2119,28.1062],"text":"DARK SEGMENT: ABOUT 0.7 KM"}],"graticule":False,"scale_bar":True}})
 inf.append({"id":"i_landsat","chapter":"checks","claims":["C13"],"anchor_text":"It gives about 0.7 kilometers","min_s":7,
  "graphic":{"type":"compare","title":"Check 2 of 3: a different satellite, Oct 2024","source":"Sentinel-2 L2A 10 m (8 Oct 2024) and Landsat 8 OLI 30 m (22 Oct 2024); lengths are our own measures",
-  "left":{"geo":{"stack":"evidence/stack/y2024.png","grid":"evidence/stack/grid.json","center":[35.2165,28.1062],"width_km":4},"label":"SENTINEL-2 - 10 M","credit":"Copernicus Sentinel data 2024"},
-  "right":{"geo":{"stack":"evidence/landsat/y2024.png","grid":"evidence/landsat/grid.json","center":[35.2165,28.1062],"width_km":4},"label":"LANDSAT 8 - 30 M","credit":"Landsat / USGS"},
+  "left":{"geo":{"stack":"evidence/stack/y2024.png","grid":"evidence/stack/grid.json","center":[35.2165,28.1062],"width_km":4,"resample":"nearest"},"label":"SENTINEL-2 - 10 M","credit":"Copernicus Sentinel data 2024"},
+  "right":{"geo":{"stack":"evidence/landsat/y2024.png","grid":"evidence/landsat/grid.json","center":[35.2165,28.1062],"width_km":4,"resample":"nearest"},"label":"LANDSAT 8 - 30 M","credit":"Landsat / USGS"},
   "metric":{"left":1.6,"right":0.7,"unit":"km","decimals":1}}})
 inf.append({"id":"i_lengths","chapter":"checks","claims":["C13","C12"],"anchor_text":"It gives about 1.65 kilometers","min_s":7,
  "graphic":{"type":"bar","title":"Same segment, two instruments","source":"Sentinel-2 10 m (NDWI, our measure) and Landsat 8 30 m (our contrast measure); scenes 2-3 weeks apart","unit":"km","decimals":2,
@@ -115,12 +131,12 @@ inf.append({"id":"i_nomatch","chapter":"limits","claims":[],"min_s":10,
   "nodes":[N("c","NO OFFICIAL NEOM MAP TO MATCH IT AGAINST",0.5,0.3,0.8,0.18,"plain",1),N("d","A SIMILAR PICTURE IN 2025 AND 2026 DOES NOT PROVE A PAUSE",0.5,0.65,0.8,0.22,"red",2)]},
  "steps":[{"anchor_text":"We had no official NEOM map"},{"anchor_text":"A similar picture in 2025"}]})
 for i in inf:
-    if i["id"] in ("i_opened","i_nobuilding","i_cannot","i_nomatch"): i["exempt"]=True
+    if i["id"] in ("i_opened","i_described","i_nobuilding","i_cannot","i_nomatch"): i["exempt"]=True
 DROP={"i_coast","i_pixel","i_visible","i_scenes","i_dates","i_l8","i_nobuilding"}
 inf=[i for i in inf if i["id"] not in DROP]
 exec(open("/tmp/gx/maps_def.py").read())
 n["maps"]=MAPS
-n["skip_graphics"]=["g_cmp_2025_2026_c12"]
+n["skip_graphics"]={"g_cmp_2025_2026_c12":["checks"],"g_scale":["promise"]}
 n["infographics"]=inf
 json.dump(n,open(P,'w'),indent=1,ensure_ascii=False)
 print(len(inf))
