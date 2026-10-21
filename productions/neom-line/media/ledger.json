@@ -1,0 +1,34 @@
+{
+ "schema": "yt-media-ledger/1",
+ "entries": [
+  {
+   "id": "northwestern_coast_of_saudi_",
+   "scene": "promise",
+   "title": "Northwestern coast of Saudi Arabia on the Red Sea (ISS photograph iss066e091657)",
+   "page_url": "https://www.nasa.gov/image-article/northwestern-coast-of-saudi-arabia-red-sea/",
+   "author": "NASA / International Space Station crew",
+   "license": "NASA media usage guidelines (not copyrighted unless noted)",
+   "kind": "photo",
+   "file_url": "https://www.nasa.gov/wp-content/uploads/2023/03/iss066e091657.jpg",
+   "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+   "attribution_text": "Photo: NASA / International Space Station, 30 Nov 2021 (iss066e091657). Northwest coast of Saudi Arabia, not the NEOM site",
+   "rights_evidence": "2026-10-21: read https://www.nasa.gov/nasa-brand-center/images-and-media/ : \"NASA content - images, audio, video ... generally are not subject to copyright in the United States ... NASA content used in a factual manner that does not imply endorsement may be used without needing explicit permission. NASA should be acknowledged as the source\"; third-party material is marked as copyright protected - the image page (https://www.nasa.gov/image-article/northwestern-coast-of-saudi-arabia-red-sea/, 31 Jan 2022) carries no such mark and credits the ISS. Geography/time: caption 'The northwestern coast of Saudi Arabia on the Red Sea is pictured from the ISS as it orbited 263 miles above', iss066e091657 (Nov. 30, 2021). The caption does not name the NEOM area: the picture is used only as regional context and labelled as not the NEOM site.",
+   "on_screen_label": "ISS PHOTO, NW SAUDI COAST, 30 NOV 2021. NOT THE NEOM SITE",
+   "date": "2021-11-30",
+   "discovered_by": "web-search",
+   "depicts_reality": true,
+   "claims": [
+    "C20"
+   ],
+   "found_at": "2026-10-21",
+   "rights_class": "US_GOVERNMENT",
+   "status": "VERIFIED",
+   "status_reasons": [
+    "US government work: usually free to use, credit the agency, never imply endorsement; third-party material inside it (photographer credits, logos) is NOT covered"
+   ],
+   "local_path": "media/assets/northwestern_coast_of_saudi_.jpg",
+   "sha256": "93236ad9ce7d540e3917a45b79c19e0aa576706fcf937dc7e8a425f376d116b6",
+   "retrieved": "2026-10-21"
+  }
+ ]
+}

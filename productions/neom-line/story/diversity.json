@@ -1,22 +1,30 @@
 {
- "rule": "visual-diversity/1",
+ "rule": "visual-monotony/2",
  "max_map_run": 4,
  "longest_map_run": {
-  "shots": 26,
-  "from": 58.0,
-  "to": 177.5
+  "shots": 6,
+  "from": 3.5,
+  "to": 30.0,
+  "chapter": "promise"
  },
- "kind_share": {
-  "map": 0.84,
-  "graphic": 0.16,
+ "kind_share_info_only": {
+  "map": 0.469,
+  "graphic": 0.531,
   "still": 0.0,
   "video": 0.0
  },
- "same_scale_neighbours": 26,
+ "kind_share": {
+  "map": 0.469,
+  "graphic": 0.531,
+  "still": 0.0,
+  "video": 0.0
+ },
+ "same_scale_neighbours": 4,
+ "justified_chapters": [
+  "shows"
+ ],
  "warnings": [
-  "26 satellite-map shots in a row (58-177 s, 119 s): more than 4; add a photo, video, graphic or map of a different kind",
-  "26 neighbouring map shots end at the same scale class; alternate wide / mid / tight",
-  "no photo or video at all: the film is satellite maps and graphics only"
+  "6 satellite-map shots in a row (4-30 s, chapter promise): say in research/notes.json visual_choices['promise'] why maps are the best evidence here, or use the material that proves or explains the claim better"
  ],
  "status": "WARN",
  "media_pending": []

@@ -141,6 +141,22 @@ class Types(Base):
         self.assertEqual(im.shape, (1080, 1920, 3))
 
 
+class Resample(Base):
+    def test_nearest_shows_the_source_pixels_and_an_unknown_mode_is_refused(self):
+        arr = np.zeros((1000, 1000, 3), np.uint8)
+        arr[:, ::2] = (255, 255, 255)                      # one-pixel stripes: bilinear blurs them, nearest keeps two flat colours
+        Image.fromarray(arr).save(os.path.join(self.dir, "stack", "a.png"))
+        def uniq(mode, gid):
+            g_ = {"type": "geo", "id": gid, "title": "Pixels (TEST DATA)", "source": SRC, "credit": "TEST", "date": "TEST", "scale_bar": True,
+                  "image": self.geo_image(width_km=0.9, **({"resample": mode} if mode else {}))}
+            self.ok(g_)
+            return len(np.unique(np.array(self.png(f"{gid}.png").convert("RGB"))[500:700, 300:1500, 0]))
+        self.assertLess(uniq("nearest", "px_n"), uniq(None, "px_b"))       # nearest keeps flat blocks; the default bilinear blends them
+        g_ = {"type": "geo", "id": "px", "title": "Pixels (TEST DATA)", "source": SRC, "credit": "TEST", "date": "TEST", "scale_bar": True, "image": self.geo_image(width_km=0.9)}
+        g_["image"]["resample"] = "bicubic"
+        self.err(dict(g_, id="px2"), "resample")
+
+
 class Validation(Base):
     def test_provenance_is_mandatory(self):
         for t in (BAR, LINE, DIAGRAM):

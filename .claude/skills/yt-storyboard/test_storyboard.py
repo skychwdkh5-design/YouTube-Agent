@@ -184,6 +184,42 @@ class Anchors(unittest.TestCase):
         self.assertEqual(tl["captions"]["style"], "kinetic")
 
 
+    def test_build_steps_can_sit_in_one_tagged_sentence(self):
+        """EP005 checks chapter: 'First, was it a one-day accident? No. The segment appears on three dates...' is ONE tagged sentence holding three steps."""
+        self.assets["g_s1"] = {"src": "a", "kind": "graphic", "claims": [], "exempt": True}
+        self.assets["g"] = {"src": "b", "kind": "graphic", "claims": [], "exempt": True}
+        text = "## one: One\n" + " ".join(["w"] * 19) + " end.\nAlpha beta " + " ".join(["w"] * 3) + " gamma delta " + " ".join(["x"] * 14) + ". {C1}\n"
+        open(os.path.join(self.d, "script.md"), "w").write(text)
+        words = [{"text": "w", "start": i / 2, "end": i / 2 + .4} for i in range(20 + 2 + 3 + 2 + 14)]
+        vis = [{"asset": "y2020", "zoom": [20, 12]},
+               {"asset": "g_s1", "kind": "graphic", "min_s": 6, "claims": [], "anchor": "claim", "anchor_text": "alpha beta",
+                "steps": [{"asset": "g_s1", "anchor_text": "alpha beta"}, {"asset": "g", "anchor_text": "gamma delta"}]},
+               {"asset": "y2022", "zoom": [15, 8]}]
+        plan, _ = sb.build(self.ep(vis), self.d, {"words": words})
+        g = next(x for x in plan["shots"] if x["info"] == "g_s1")
+        extra = next(L for L in g["layers"] if L.get("asset") == "g")
+        self.assertAlmostEqual(g["start"] + extra["t"][0], 25 * 0.5 - 0.2, places=1)       # "gamma" is word 25 (12.5 s), inside the same sentence
+
+    def test_anchor_text_places_a_graphic_and_each_build_step_at_its_own_words(self):
+        """EP005 visual revision: scenes written in notes.json are tied to the sentence they illustrate, and a stepped card builds as the narrator speaks."""
+        self.assets["g_s1"] = {"src": "g.s1.png", "kind": "graphic", "claims": [], "exempt": True}
+        self.assets["g"] = {"src": "g.png", "kind": "graphic", "claims": [], "exempt": True}
+        text = "## one: One\n" + " ".join(["w"] * 19) + " end.\nAlpha beta " + " ".join(["w"] * 5) + " done.\nGamma delta " + " ".join(["x"] * 14) + ".\n"
+        open(os.path.join(self.d, "script.md"), "w").write(text)
+        words = [{"text": "w", "start": i / 2, "end": i / 2 + .4} for i in range(20 + 2 + 6 + 2 + 14)]
+        vis = [{"asset": "y2020", "zoom": [20, 12]},
+               {"asset": "g_s1", "kind": "graphic", "min_s": 6, "claims": [], "anchor": "claim", "anchor_text": "alpha beta",
+                "steps": [{"asset": "g_s1", "anchor_text": "alpha beta"}, {"asset": "g", "anchor_text": "gamma delta"}]},
+               {"asset": "y2022", "zoom": [15, 8]}]
+        plan, _ = sb.build(self.ep(vis), self.d, {"words": words})
+        g = next(x for x in plan["shots"] if x["info"] == "g_s1")
+        self.assertAlmostEqual(g["start"], 20 * 0.5 - 0.3, places=1)                  # "alpha" is word 20 (10.0 s); the card leads it by 0.3 s
+        extra = [L for L in g["layers"] if L.get("asset") == "g"]
+        self.assertEqual(len(extra), 1)
+        self.assertAlmostEqual(g["start"] + extra[0]["t"][0], 28 * 0.5 - 0.2, places=1)   # the second build step arrives as the "Gamma" line begins (word 28, 14.0 s)
+        self.assertGreater(extra[0]["push"], 0)
+
+
 class NoQuota(unittest.TestCase):
     def mono(self, chapter):
         return {"chapters": {"c": [0, 45]}, "shots": [{"id": f"s{i}", "chapter": chapter, "start": i * 5.0, "dur": 5.0, "layers": [{"type": "image"}], "camera": {"to": {"width_km": 8}}} for i in range(9)]}

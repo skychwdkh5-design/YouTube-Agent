@@ -186,6 +186,307 @@
    "reviewer": "agent",
    "verdict": "supports",
    "note": "Tight crop of the 2026 scene: the straight corridor crosses the frame west to east and the dark segment sits on it; supports the corridor still present in 2026 (C9)."
+  },
+  {
+   "item": "promise_006:graphic:i_coast",
+   "frame": 0,
+   "frame_sha256": "905f9c0e819388c6e7a0003a115382c9f518c6a9a2a18992e36fe0b4e0ac588f",
+   "claims": [
+    "C20"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Two panels: left NASA ISS photo of Red Sea coast labelled \"ISS PHOTO - NOT THE NEOM SITE\", credit NASA/ISS 30 Nov 2021; right Sentinel-2 NEOM area with 10 km scale bar. Supports C20 (Red Sea coast) without claiming the ISS photo is NEOM."
+  },
+  {
+   "item": "plan_011:graphic:i_bloomberg_s1",
+   "frame": 0,
+   "frame_sha256": "2047593942dc9a513b46325e6df718ddd0e4b4c8d4f909ca4104a96617cce382",
+   "claims": [
+    "C2"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Card: BLOOMBERG - APRIL 2024; \"About 2.4 km of The Line expected by 2030\"; \"Fewer than 300,000 residents by then\". Matches C2 wording."
+  },
+  {
+   "item": "plan_012:graphic:i_semafor_s1",
+   "frame": 0,
+   "frame_sha256": "4f2009e3a5ab1727b98679f6363b9495ec6962bce04cb5ae51c76225e845576d",
+   "claims": [
+    "C3"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Card: SEMAFOR - 22 MAY 2026; \"Work on The Line halted until at least after 2030\"; \"Unnamed sources. Not officially confirmed\". Matches C3 and hedging."
+  },
+  {
+   "item": "plan_013:graphic:i_reuters_s1",
+   "frame": 0,
+   "frame_sha256": "d04b90a0c44673cf2b3d1aa29312bfdd2843b34e2787683437d84b5bff3c84c2",
+   "claims": [
+    "C4"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Card: REUTERS - ABOUT 4 OCT 2026; \"NEOM stadium shelved indefinitely\"; \"Two sources. No official announcement\". Matches C4."
+  },
+  {
+   "item": "plan_014:graphic:i_opened_s1",
+   "frame": 0,
+   "frame_sha256": "899dc05274a7ec995bd9ad603785d699c2a87d472876c449d69fde4499166f72",
+   "claims": [],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Process diagram: original article NOT OPENED BY US -> described by Outlet A/B -> who reported what, and nothing more. States our own method; no external claim."
+  },
+  {
+   "item": "method_020:graphic:i_pixel",
+   "frame": 0,
+   "frame_sha256": "f545a3700526bce19f7f32dcbd4c54810badb31d715177780c46872abde0c0c1",
+   "claims": [
+    "C15"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Nearest-neighbour zoom of Sentinel-2 Oct 2026 showing visible 10 m pixels, title \"One pixel = 10 m of ground\", 100 m scale bar. Supports C15."
+  },
+  {
+   "item": "method_021:graphic:i_visible_s1",
+   "frame": 0,
+   "frame_sha256": "788735aaf9b6a073cd84d531413b639f12fffb977da16e63639aeaea1ab7da81",
+   "claims": [
+    "C15"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Two columns: CAN SEE long cleared strip, road; CANNOT SEE person, crane, window. Matches script wording about 10 m resolution (C15)."
+  },
+  {
+   "item": "method_022:graphic:i_scenes_s1",
+   "frame": 0,
+   "frame_sha256": "75bef731f0770dd4000ecdea9b5b5f05083e94278cf33fbeb3dc7a995b17a9ed",
+   "claims": [
+    "C16"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Seven year chips with scene dates 29 SEP-18 OCT, SAME ORBIT 78 pass about 08:08 UTC, SAME SEASON, CLOUD UNDER 0.1 PERCENT. Dates/orbit/cloud match stack provenance (C16)."
+  },
+  {
+   "item": "segment_040:graphic:i_ndwi_s1",
+   "frame": 0,
+   "frame_sha256": "b02d4637637f5e5243c3d2011fd04612a86eaf8db9922dfc870d2d705c09d750",
+   "claims": [
+    "C11"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Cards: near-infrared very low; NDWI above zero; 2024-2026 water-like; 2022-2023 no pixel qualifies; \"fits water - not proof, a shadow can fool it\". Matches C11 and the hedge."
+  },
+  {
+   "item": "checks_045:graphic:i_dates_s1",
+   "frame": 0,
+   "frame_sha256": "83165eb3b7af11ac707925dc93a779c3d578605a2a2cab4e6c0c23e69e9f066c",
+   "claims": [
+    "C14"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Three dates 8 OCT 2024, 8 OCT 2025, 18 OCT 2026 mapped to Sentinel-2A/2B/2C; segment present in all three. Matches provenance and C14."
+  },
+  {
+   "item": "checks_046:graphic:i_landsat",
+   "frame": 0,
+   "frame_sha256": "8fc6aa90e3920d94d94e3bb558aeabb9a5fcad2dc6d425ef831ea04a3ea382e6",
+   "claims": [
+    "C13"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Side by side Sentinel-2 (10 m) vs Landsat 8 (30 m) Oct 2024 on the same coordinates, 1 km scale bars, 1.6 km vs 0.7 km. Dark segment visible in both. Supports C13."
+  },
+  {
+   "item": "checks_047:graphic:i_lengths",
+   "frame": 0,
+   "frame_sha256": "e593cb06a0eb5754a60c3b32755ee314e97d619e3f731731a66ebca2cca9c2d0",
+   "claims": [
+    "C12",
+    "C13"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Bar chart in km: S2 Oct 2024 1.60, L8 Oct 2024 0.72 highlighted, S2 Oct 2025 1.60, L8 Oct 2025 1.65, S2 Oct 2026 1.92, L8 Sep 2026 1.65. Values match ndwi.json and landsat_measure.json (C12, C13)."
+  },
+  {
+   "item": "checks_055:graphic:i_verdict_s1",
+   "frame": 0,
+   "frame_sha256": "7e32ca97cf6890c2e009df6721b642d7b75f288f158bd85feab9ebf8e8b37634",
+   "claims": [
+    "C12",
+    "C13",
+    "C14"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Three green checks (3 dates/3 satellites agree, Landsat sees it, present 2024-2026) and a red \"LENGTH: 1.6 OR 1.9 KM? UNSETTLED\". Matches C14, C13, C12 and the script conclusion."
+  },
+  {
+   "item": "limits_056:graphic:i_nobuilding",
+   "frame": 0,
+   "frame_sha256": "6bb435b6990660ddf91b49536d171c4581910a746ae387a922c0a35e8f9a1255",
+   "claims": [],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Sentinel-2 Oct 2026 zoom, 2.5 km wide, callout DARK SEGMENT, 200 m scale bar; title says no building can be identified at 10 m. Limitation statement, no new claim."
+  },
+  {
+   "item": "limits_057:graphic:i_cannot_s1",
+   "frame": 0,
+   "frame_sha256": "932b5f25c71bbc8ac9ddf0b9f6649ee091e5a00de135a67570d27bd375e2ddc1",
+   "claims": [],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Four limits: not a finished city; not that this corridor is The Line; no official NEOM map; a similar picture does not prove a pause. Mirrors script limits (L)."
+  },
+  {
+   "item": "checks_046:graphic:i_landsat",
+   "frame": 1,
+   "frame_sha256": "f4b10451caf38564ed0af45c8d68d50a44f035cb7db24aea0d136fa369006d9b",
+   "claims": [
+    "C13"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Landsat 8 panel (30 m, 22 Oct 2024): dark segment visible as a short dark streak, same coordinates as the Sentinel-2 panel, 1 km scale bar; supports C13 (shorter measured length, 0.7 km)."
+  },
+  {
+   "item": "method_022:graphic:i_scenes",
+   "frame": 0,
+   "frame_sha256": "42c6727b15fafe41a09d00ba9dff45440dda904352e3b6e10e1e2d897942baf0",
+   "claims": [
+    "C16"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Seven year chips 2020-2026 with scene dates 29 SEP, 29 SEP, 9 OCT, 14 OCT, 8 OCT, 8 OCT, 18 OCT; match stack provenance datetimes (C16)."
+  },
+  {
+   "item": "method_023:graphic:i_orbit_s1",
+   "frame": 0,
+   "frame_sha256": "d0c625bc2a293dd8abd280be617f5e7084efc585d12e6ae9a95ef7adc46532a2",
+   "claims": [
+    "C16"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Three rows: SAME ORBIT 78 pass around 08:08 UTC, SAME SEASON 29 SEP to 18 OCT, CLOUD COVER UNDER 0.1 PERCENT; matches provenance (relative orbit 78, 08:07-08:09 UTC, cloud 0.03-0.05 percent) and C16."
+  },
+  {
+   "item": "limits_058:graphic:i_cannot_s1",
+   "frame": 0,
+   "frame_sha256": "aa855d56d348ad5c3d27213e3f2bb1c698a1a678ad404665dcc7a55bb22c6eb4",
+   "claims": [],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Two red cards: THAT IT IS A FINISHED CITY; THAT THIS CORRIDOR IS THE LINE. Mirror the script limits (L)."
+  },
+  {
+   "item": "limits_059:graphic:i_nomatch_s1",
+   "frame": 0,
+   "frame_sha256": "21e33df771574e4b1c46c117129be93aa2ec5f21b9fa5d259bb49638ac56c437",
+   "claims": [],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "NO OFFICIAL NEOM MAP TO MATCH IT AGAINST; A SIMILAR PICTURE IN 2025 AND 2026 DOES NOT PROVE A PAUSE. Mirror the script limits (L)."
+  },
+  {
+   "item": "checks_047:graphic:i_l8",
+   "frame": 0,
+   "frame_sha256": "1a221688a737d7753a5d346a28b3ee5239a81be05482f9a53860ceda9d539473",
+   "claims": [
+    "C13"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Landsat 8 22 Oct 2024 at 30 m, 6 km wide view, 1 km scale bar; callout dot sits on the short dark streak, text 'DARK SEGMENT: ABOUT 0.7 KM' matches C13. Image is hazy (real low contrast)."
+  },
+  {
+   "item": "method_023:graphic:i_orbit_s1",
+   "frame": 0,
+   "frame_sha256": "c0da32b82a64b1d43b90018a947a376f9232fdb7f6a343328535671834cd1646",
+   "claims": [
+    "C16"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Two rows: SAME ORBIT 78 pass around 08:08 UTC; SAME SEASON 29 SEP TO 18 OCT. Matches stack provenance (relative orbit 78, 08:07-08:09 UTC, dates 29 Sep-18 Oct) and C16."
+  },
+  {
+   "item": "method_025:graphic:i_cloud",
+   "frame": 0,
+   "frame_sha256": "6ee4a59ea9c04d52f9b83664082dea39c9f063773e646e71232ed1d7f97a4a25",
+   "claims": [
+    "C16"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Big number 0.1 percent with caption 'is the ceiling for reported cloud cover in all seven scenes'; provenance cloud cover is 0.029-0.059 percent, so under 0.1 (C16). Source line states 0.03 to 0.06 percent."
+  },
+  {
+   "item": "segment_041:graphic:i_ndwi_s1",
+   "frame": 0,
+   "frame_sha256": "f304c8ec02cfbb462f4d500eaeb68643b14824a8ee22b09fae575e179ae674a0",
+   "claims": [
+    "C11"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Cards: near-infrared signal very low; water index NDWI above zero; 2024, 2025, 2026 water-like; red 'fits water - not proof, a shadow can fool it'. Matches C11 and its hedge."
+  },
+  {
+   "item": "checks_045:graphic:i_dates_s1",
+   "frame": 0,
+   "frame_sha256": "a42d0ba115c6acd13dfb93c18cfed93b472757160f9a51de65f2e1bb47694504",
+   "claims": [
+    "C14"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Dates 8 OCT 2024, 8 OCT 2025, 18 OCT 2026; segment present in all three; Sentinel-2A, 2B, 2C. Matches provenance platforms/dates and C14."
+  },
+  {
+   "item": "method_018:graphic:i_source",
+   "frame": 0,
+   "frame_sha256": "7d8ce55c83a79410a7d65855c815e097120ce6d8e3b0074e5bdedd6482e85771",
+   "claims": [
+    "C16"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Chain: SENTINEL-2 SATELLITES -> EUROPEAN COPERNICUS PROGRAM -> FREE, FULL AND OPEN DATA. Matches the script wording and the licence text in provenance (C16)."
+  },
+  {
+   "item": "checks_047:graphic:i_apart_s1",
+   "frame": 0,
+   "frame_sha256": "13a4e7eaf247503547eca7367dd7b60a9353999f22acc915580e62b96ade0118",
+   "claims": [
+    "C13"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Rows: OCT 2024 8 and 22 Oct; OCT 2025 8 and 25 Oct; 2026 26 Sep and 18 Oct; red '2 to 3 weeks apart: resolution or timing? we cannot tell'. Dates match Sentinel-2 and Landsat provenance (14, 17, 22 days), C13."
+  },
+  {
+   "item": "checks_049:graphic:i_growth_s1",
+   "frame": 0,
+   "frame_sha256": "96f721d89c03e01e3aca8f3f448c0ed5eb7125561508defb17ef12dcc148e1b4",
+   "claims": [
+    "C12"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Three blue questions (growth / different water level / where our threshold falls) and a red 'we do not claim that it grew, we cannot tell'. Mirrors C12 and the script."
   }
  ]
 }

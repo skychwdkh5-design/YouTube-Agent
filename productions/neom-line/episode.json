@@ -164,6 +164,346 @@
    "claims": [
     "C19"
    ]
+  },
+  "i_coast": {
+   "src": "graphics/i_coast.png",
+   "kind": "graphic",
+   "credit": "NASA / ISS photo; Contains modified Copernicus Sentinel data 2026",
+   "group": "i_coast",
+   "claims": [
+    "C20"
+   ]
+  },
+  "i_bloomberg_s1": {
+   "src": "graphics/i_bloomberg.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_bloomberg",
+   "claims": [
+    "C2"
+   ]
+  },
+  "i_bloomberg": {
+   "src": "graphics/i_bloomberg.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_bloomberg",
+   "claims": [
+    "C2"
+   ]
+  },
+  "i_semafor_s1": {
+   "src": "graphics/i_semafor.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_semafor",
+   "claims": [
+    "C3"
+   ]
+  },
+  "i_semafor": {
+   "src": "graphics/i_semafor.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_semafor",
+   "claims": [
+    "C3"
+   ]
+  },
+  "i_reuters_s1": {
+   "src": "graphics/i_reuters.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_reuters",
+   "claims": [
+    "C4"
+   ]
+  },
+  "i_reuters": {
+   "src": "graphics/i_reuters.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_reuters",
+   "claims": [
+    "C4"
+   ]
+  },
+  "i_opened_s1": {
+   "src": "graphics/i_opened.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_opened",
+   "claims": [],
+   "exempt": true
+  },
+  "i_opened": {
+   "src": "graphics/i_opened.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_opened",
+   "claims": [],
+   "exempt": true
+  },
+  "i_source": {
+   "src": "graphics/i_source.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_source",
+   "claims": [
+    "C16"
+   ]
+  },
+  "i_pixel": {
+   "src": "graphics/i_pixel.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_pixel",
+   "claims": [
+    "C15"
+   ]
+  },
+  "i_visible_s1": {
+   "src": "graphics/i_visible.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_visible",
+   "claims": [
+    "C15"
+   ]
+  },
+  "i_visible": {
+   "src": "graphics/i_visible.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_visible",
+   "claims": [
+    "C15"
+   ]
+  },
+  "i_scenes": {
+   "src": "graphics/i_scenes.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_scenes",
+   "claims": [
+    "C16"
+   ]
+  },
+  "i_orbit_s1": {
+   "src": "graphics/i_orbit.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_orbit",
+   "claims": [
+    "C16"
+   ]
+  },
+  "i_orbit": {
+   "src": "graphics/i_orbit.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_orbit",
+   "claims": [
+    "C16"
+   ]
+  },
+  "i_cloud": {
+   "src": "graphics/i_cloud.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_cloud",
+   "claims": [
+    "C16"
+   ]
+  },
+  "i_ndwi_s1": {
+   "src": "graphics/i_ndwi.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_ndwi",
+   "claims": [
+    "C11"
+   ]
+  },
+  "i_ndwi": {
+   "src": "graphics/i_ndwi.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_ndwi",
+   "claims": [
+    "C11"
+   ]
+  },
+  "i_dates_s1": {
+   "src": "graphics/i_dates.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_dates",
+   "claims": [
+    "C14"
+   ]
+  },
+  "i_dates_s2": {
+   "src": "graphics/i_dates.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_dates",
+   "claims": [
+    "C14"
+   ]
+  },
+  "i_dates": {
+   "src": "graphics/i_dates.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_dates",
+   "claims": [
+    "C14"
+   ]
+  },
+  "i_l8": {
+   "src": "graphics/i_l8.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_l8",
+   "claims": [
+    "C13"
+   ]
+  },
+  "i_landsat": {
+   "src": "graphics/i_landsat.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_landsat",
+   "claims": [
+    "C13"
+   ]
+  },
+  "i_lengths": {
+   "src": "graphics/i_lengths.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_lengths",
+   "claims": [
+    "C13",
+    "C12"
+   ]
+  },
+  "i_apart_s1": {
+   "src": "graphics/i_apart.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_apart",
+   "claims": [
+    "C13"
+   ]
+  },
+  "i_apart": {
+   "src": "graphics/i_apart.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_apart",
+   "claims": [
+    "C13"
+   ]
+  },
+  "i_growth_s1": {
+   "src": "graphics/i_growth.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_growth",
+   "claims": [
+    "C12"
+   ]
+  },
+  "i_growth_s2": {
+   "src": "graphics/i_growth.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_growth",
+   "claims": [
+    "C12"
+   ]
+  },
+  "i_growth_s3": {
+   "src": "graphics/i_growth.step3.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_growth",
+   "claims": [
+    "C12"
+   ]
+  },
+  "i_growth": {
+   "src": "graphics/i_growth.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_growth",
+   "claims": [
+    "C12"
+   ]
+  },
+  "i_verdict_s1": {
+   "src": "graphics/i_verdict.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_verdict",
+   "claims": [
+    "C14",
+    "C13",
+    "C12"
+   ]
+  },
+  "i_verdict": {
+   "src": "graphics/i_verdict.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_verdict",
+   "claims": [
+    "C14",
+    "C13",
+    "C12"
+   ]
+  },
+  "i_nobuilding": {
+   "src": "graphics/i_nobuilding.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_nobuilding",
+   "claims": [],
+   "exempt": true
+  },
+  "i_cannot_s1": {
+   "src": "graphics/i_cannot.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_cannot",
+   "claims": [],
+   "exempt": true
+  },
+  "i_cannot": {
+   "src": "graphics/i_cannot.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_cannot",
+   "claims": [],
+   "exempt": true
+  },
+  "i_nomatch_s1": {
+   "src": "graphics/i_nomatch.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_nomatch",
+   "claims": [],
+   "exempt": true
+  },
+  "i_nomatch": {
+   "src": "graphics/i_nomatch.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_nomatch",
+   "claims": [],
+   "exempt": true
   }
  },
  "chapters": [
@@ -260,6 +600,28 @@
    "id": "promise",
    "visuals": [
     {
+     "asset": "i_coast",
+     "kind": "graphic",
+     "min_s": 8,
+     "claims": [
+      "C20"
+     ],
+     "anchor": "claim",
+     "anchor_text": "Red Sea coast"
+    },
+    {
+     "asset": "g_tiers",
+     "kind": "graphic",
+     "min_s": 9,
+     "claims": [
+      "C1",
+      "C4",
+      "C9"
+     ],
+     "anchor": "claim",
+     "anchor_text": "first of three things"
+    },
+    {
      "asset": "g_scale",
      "kind": "graphic",
      "min_s": 5,
@@ -268,7 +630,7 @@
      ],
      "anchor": "claim",
      "anchor_claims": [
-      "C20"
+      "C1"
      ]
     },
     {
@@ -285,46 +647,16 @@
      }
     },
     {
-     "asset": "y2020",
+     "asset": "y2026",
      "zoom": [
       15,
       8
      ],
      "label": {
-      "text": "SEP 2020",
+      "text": "OCT 2026",
       "style": "year",
       "exempt": true,
-      "date_year": 2020
-     }
-    },
-    {
-     "asset": "y2021",
-     "zoom": [
-      8,
-      15
-     ],
-     "focus": [
-      35.2165,
-      28.1062
-     ],
-     "label": {
-      "text": "SEP 2021",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2021
-     }
-    },
-    {
-     "asset": "y2022",
-     "zoom": [
-      15,
-      8
-     ],
-     "label": {
-      "text": "OCT 2022",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2022
+      "date_year": 2026
      }
     }
    ]
@@ -333,9 +665,49 @@
    "id": "plan",
    "visuals": [
     {
+     "asset": "i_bloomberg_s1",
+     "kind": "graphic",
+     "min_s": 9,
+     "claims": [
+      "C2"
+     ],
+     "anchor": "claim",
+     "anchor_text": "In April 2024, Bloomberg reported",
+     "steps": [
+      {
+       "asset": "i_bloomberg_s1",
+       "anchor_text": "In April 2024, Bloomberg reported"
+      },
+      {
+       "asset": "i_bloomberg",
+       "anchor_text": "fewer than 300,000 residents"
+      }
+     ]
+    },
+    {
+     "asset": "i_semafor_s1",
+     "kind": "graphic",
+     "min_s": 9,
+     "claims": [
+      "C3"
+     ],
+     "anchor": "claim",
+     "anchor_text": "In May 2026, Semafor reported",
+     "steps": [
+      {
+       "asset": "i_semafor_s1",
+       "anchor_text": "In May 2026, Semafor reported"
+      },
+      {
+       "asset": "i_semafor",
+       "anchor_text": "It has not been officially confirmed"
+      }
+     ]
+    },
+    {
      "asset": "g_reports",
      "kind": "graphic",
-     "min_s": 6,
+     "min_s": 4.5,
      "claims": [
       "C1",
       "C2",
@@ -344,97 +716,61 @@
      ],
      "anchor": "claim",
      "anchor_claims": [
-      "C2"
+      "C2",
+      "C3",
+      "C4"
+     ],
+     "anchor_text": "These are news reports"
+    },
+    {
+     "asset": "i_reuters_s1",
+     "kind": "graphic",
+     "min_s": 9,
+     "claims": [
+      "C4"
+     ],
+     "anchor": "claim",
+     "anchor_text": "In October 2026, Reuters reported",
+     "steps": [
+      {
+       "asset": "i_reuters_s1",
+       "anchor_text": "In October 2026, Reuters reported"
+      },
+      {
+       "asset": "i_reuters",
+       "anchor_text": "with no official announcement"
+      }
      ]
     },
     {
-     "asset": "y2023",
-     "zoom": [
-      14,
-      8
-     ],
-     "label": {
-      "text": "OCT 2023",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2023
-     }
-    },
-    {
-     "asset": "y2024",
-     "zoom": [
-      8,
-      14
-     ],
-     "focus": [
-      35.2165,
-      28.1062
-     ],
-     "label": {
-      "text": "OCT 2024",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2024
-     }
-    },
-    {
-     "asset": "y2025",
-     "zoom": [
-      15,
-      8
-     ],
-     "label": {
-      "text": "OCT 2025",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2025
-     }
+     "asset": "i_opened_s1",
+     "kind": "graphic",
+     "min_s": 12,
+     "claims": [],
+     "anchor": "claim",
+     "anchor_text": "We could not open the original articles",
+     "steps": [
+      {
+       "asset": "i_opened_s1",
+       "anchor_text": "We could not open the original articles"
+      },
+      {
+       "asset": "i_opened",
+       "anchor_text": "Each report was described by at least two other outlets"
+      }
+     ]
     },
     {
      "asset": "y2026",
      "zoom": [
-      8,
-      15
-     ],
-     "focus": [
-      35.2165,
-      28.1062
+      15,
+      8
      ],
      "label": {
       "text": "OCT 2026",
       "style": "year",
       "exempt": true,
       "date_year": 2026
-     }
-    },
-    {
-     "asset": "y2020",
-     "zoom": [
-      15,
-      8
-     ],
-     "label": {
-      "text": "SEP 2020",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2020
-     }
-    },
-    {
-     "asset": "y2021",
-     "zoom": [
-      8,
-      15
-     ],
-     "focus": [
-      35.2165,
-      28.1062
-     ],
-     "label": {
-      "text": "SEP 2021",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2021
      }
     }
    ]
@@ -443,110 +779,100 @@
    "id": "method",
    "visuals": [
     {
-     "asset": "y2022",
-     "zoom": [
-      10,
-      6
+     "asset": "i_source",
+     "kind": "graphic",
+     "min_s": 5,
+     "claims": [
+      "C16"
      ],
-     "focus": [
-      35.2165,
-      28.1062
-     ],
-     "label": {
-      "text": "OCT 2022",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2022
-     }
+     "anchor": "claim",
+     "anchor_text": "We used free Sentinel-2 images"
     },
     {
-     "asset": "y2023",
-     "zoom": [
-      10,
-      6
+     "asset": "i_pixel",
+     "kind": "graphic",
+     "min_s": 8,
+     "claims": [
+      "C15"
      ],
-     "focus": [
-      35.2165,
-      28.1062
-     ],
-     "label": {
-      "text": "OCT 2023",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2023
-     }
+     "anchor": "claim",
+     "anchor_text": "Each pixel in our frames"
     },
     {
-     "asset": "y2024",
-     "zoom": [
-      15,
-      8
+     "asset": "i_visible_s1",
+     "kind": "graphic",
+     "min_s": 9,
+     "claims": [
+      "C15"
      ],
-     "label": {
-      "text": "OCT 2024",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2024
-     }
+     "anchor": "claim",
+     "anchor_text": "sharp enough to see",
+     "steps": [
+      {
+       "asset": "i_visible_s1",
+       "anchor_text": "sharp enough to see"
+      },
+      {
+       "asset": "i_visible",
+       "anchor_text": "but not a person"
+      }
+     ]
     },
     {
-     "asset": "y2025",
-     "zoom": [
-      8,
-      15
+     "asset": "i_scenes",
+     "kind": "graphic",
+     "min_s": 6,
+     "claims": [
+      "C16"
      ],
-     "focus": [
-      35.2165,
-      28.1062
+     "anchor": "claim",
+     "anchor_text": "We picked seven scenes"
+    },
+    {
+     "asset": "i_orbit_s1",
+     "kind": "graphic",
+     "min_s": 11,
+     "claims": [
+      "C16"
      ],
-     "label": {
-      "text": "OCT 2025",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2025
-     }
+     "anchor": "claim",
+     "anchor_text": "Same orbit means",
+     "steps": [
+      {
+       "asset": "i_orbit_s1",
+       "anchor_text": "Same orbit means"
+      },
+      {
+       "asset": "i_orbit",
+       "anchor_text": "Same season means"
+      }
+     ]
+    },
+    {
+     "asset": "i_cloud",
+     "kind": "graphic",
+     "min_s": 4,
+     "claims": [
+      "C16"
+     ],
+     "anchor": "claim",
+     "anchor_text": "The scenes report almost no cloud"
     },
     {
      "asset": "y2026",
      "zoom": [
-      15,
-      8
+      10,
+      6
+     ],
+     "focus": [
+      35.2165,
+      28.1062
      ],
      "label": {
       "text": "OCT 2026",
       "style": "year",
       "exempt": true,
       "date_year": 2026
-     }
-    },
-    {
-     "asset": "y2020",
-     "zoom": [
-      8,
-      15
-     ],
-     "focus": [
-      35.2165,
-      28.1062
-     ],
-     "label": {
-      "text": "SEP 2020",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2020
-     }
-    },
-    {
-     "asset": "y2021",
-     "zoom": [
-      15,
-      8
-     ],
-     "label": {
-      "text": "SEP 2021",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2021
      }
     }
    ]
@@ -730,6 +1056,26 @@
    "id": "segment",
    "visuals": [
     {
+     "asset": "i_ndwi_s1",
+     "kind": "graphic",
+     "min_s": 16,
+     "claims": [
+      "C11"
+     ],
+     "anchor": "claim",
+     "anchor_text": "In near-infrared light",
+     "steps": [
+      {
+       "asset": "i_ndwi_s1",
+       "anchor_text": "In near-infrared light"
+      },
+      {
+       "asset": "i_ndwi",
+       "anchor_text": "That fits water"
+      }
+     ]
+    },
+    {
      "asset": "y2022",
      "zoom": [
       15,
@@ -802,50 +1148,6 @@
      "claims": [
       "C11"
      ]
-    },
-    {
-     "asset": "g_tiers",
-     "kind": "graphic",
-     "min_s": 5,
-     "claims": [
-      "C1",
-      "C4",
-      "C9"
-     ],
-     "anchor": "claim",
-     "anchor_claims": [
-      "C18"
-     ]
-    },
-    {
-     "asset": "y2022",
-     "zoom": [
-      15,
-      8
-     ],
-     "label": {
-      "text": "OCT 2022",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2022
-     }
-    },
-    {
-     "asset": "y2023",
-     "zoom": [
-      8,
-      15
-     ],
-     "focus": [
-      35.2165,
-      28.1062
-     ],
-     "label": {
-      "text": "OCT 2023",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2023
-     }
     }
    ]
   },
@@ -853,103 +1155,148 @@
    "id": "checks",
    "visuals": [
     {
-     "asset": "y2024",
-     "zoom": [
-      15,
-      9
-     ],
-     "focus": [
-      35.2165,
-      28.1062
-     ],
-     "label": {
-      "text": "OCT 2024",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2024
-     },
+     "asset": "i_dates_s1",
+     "kind": "graphic",
+     "min_s": 14,
      "claims": [
       "C14"
      ],
-     "anchor": "year"
+     "anchor": "claim",
+     "anchor_text": "First, was it a one-day accident",
+     "steps": [
+      {
+       "asset": "i_dates_s1",
+       "anchor_text": "First, was it a one-day accident"
+      },
+      {
+       "asset": "i_dates_s2",
+       "anchor_text": "No."
+      },
+      {
+       "asset": "i_dates",
+       "anchor_text": "three different Sentinel-2 satellites"
+      }
+     ]
     },
     {
-     "asset": "y2025",
-     "zoom": [
-      9,
-      15
-     ],
-     "focus": [
-      35.2165,
-      28.1062
-     ],
-     "label": {
-      "text": "OCT 2025",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2025
-     },
+     "asset": "i_l8",
+     "kind": "graphic",
+     "min_s": 7,
      "claims": [
-      "C14"
+      "C13"
      ],
-     "anchor": "year"
+     "anchor": "claim",
+     "anchor_text": "Second, does a different satellite agree"
     },
     {
-     "asset": "y2026",
-     "zoom": [
-      15,
-      9
-     ],
-     "focus": [
-      35.2165,
-      28.1062
-     ],
-     "label": {
-      "text": "OCT 2026",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2026
-     },
+     "asset": "i_landsat",
+     "kind": "graphic",
+     "min_s": 7,
      "claims": [
-      "C14"
+      "C13"
      ],
-     "anchor": "year"
+     "anchor": "claim",
+     "anchor_text": "It gives about 0.7 kilometers"
     },
     {
-     "asset": "y2024",
-     "zoom": [
-      10,
-      6
+     "asset": "i_lengths",
+     "kind": "graphic",
+     "min_s": 7,
+     "claims": [
+      "C13",
+      "C12"
      ],
-     "focus": [
-      35.2165,
-      28.1062
-     ],
-     "label": {
-      "text": "OCT 2024",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2024
-     }
+     "anchor": "claim",
+     "anchor_text": "It gives about 1.65 kilometers"
     },
     {
-     "asset": "y2025",
-     "zoom": [
-      6.4,
-      4.4
+     "asset": "i_apart_s1",
+     "kind": "graphic",
+     "min_s": 6,
+     "claims": [
+      "C13"
      ],
-     "focus": [
-      35.2165,
-      28.1062
-     ],
-     "label": {
-      "text": "OCT 2025",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2025
-     },
+     "anchor": "claim",
+     "anchor_text": "The two sets of scenes",
+     "steps": [
+      {
+       "asset": "i_apart_s1",
+       "anchor_text": "The two sets of scenes"
+      },
+      {
+       "asset": "i_apart",
+       "anchor_text": "so we cannot tell"
+      }
+     ]
+    },
+    {
+     "asset": "i_growth_s1",
+     "kind": "graphic",
+     "min_s": 12,
      "claims": [
       "C12"
+     ],
+     "anchor": "claim",
+     "anchor_text": "That difference of 0.3 kilometers",
+     "steps": [
+      {
+       "asset": "i_growth_s1",
+       "anchor_text": "That difference of 0.3 kilometers"
+      },
+      {
+       "asset": "i_growth_s2",
+       "anchor_text": "different water level"
+      },
+      {
+       "asset": "i_growth_s3",
+       "anchor_text": "where our threshold falls"
+      },
+      {
+       "asset": "i_growth",
+       "anchor_text": "So we do not claim"
+      }
+     ]
+    },
+    {
+     "asset": "i_verdict_s1",
+     "kind": "graphic",
+     "min_s": 7,
+     "claims": [
+      "C14",
+      "C13",
+      "C12"
+     ],
+     "anchor": "claim",
+     "anchor_text": "That is the honest result",
+     "steps": [
+      {
+       "asset": "i_verdict_s1",
+       "anchor_text": "That is the honest result"
+      },
+      {
+       "asset": "i_verdict",
+       "anchor_text": "one number refuses to settle"
+      }
+     ]
+    },
+    {
+     "asset": "y2024",
+     "zoom": [
+      15,
+      9
+     ],
+     "focus": [
+      35.2165,
+      28.1062
+     ],
+     "label": {
+      "text": "OCT 2024",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2024
+     },
+     "claims": [
+      "C14"
      ],
      "anchor": "year"
     },
@@ -962,38 +1309,67 @@
      ],
      "anchor": "claim",
      "anchor_year": "2025"
+    }
+   ]
+  },
+  {
+   "id": "limits",
+   "visuals": [
+    {
+     "asset": "i_nobuilding",
+     "kind": "graphic",
+     "min_s": 8,
+     "claims": [],
+     "anchor": "claim",
+     "anchor_text": "cannot identify any building"
     },
     {
-     "wipe": [
-      "y2025",
-      "y2026"
-     ],
-     "zoom": [
-      4.8,
-      3.6
-     ],
-     "focus": [
-      35.2165,
-      28.1062
-     ],
-     "family": "wipe_2025_2026",
-     "min_s": 4,
-     "claims": [
-      "C12"
-     ],
-     "anchor": "year"
+     "asset": "i_cannot_s1",
+     "kind": "graphic",
+     "min_s": 10,
+     "claims": [],
+     "anchor": "claim",
+     "anchor_text": "We also cannot say this is a finished city",
+     "steps": [
+      {
+       "asset": "i_cannot_s1",
+       "anchor_text": "We also cannot say this is a finished city"
+      },
+      {
+       "asset": "i_cannot",
+       "anchor_text": "We cannot prove that this corridor"
+      }
+     ]
     },
     {
-     "asset": "y2025",
+     "asset": "i_nomatch_s1",
+     "kind": "graphic",
+     "min_s": 10,
+     "claims": [],
+     "anchor": "claim",
+     "anchor_text": "We had no official NEOM map",
+     "steps": [
+      {
+       "asset": "i_nomatch_s1",
+       "anchor_text": "We had no official NEOM map"
+      },
+      {
+       "asset": "i_nomatch",
+       "anchor_text": "A similar picture in 2025"
+      }
+     ]
+    },
+    {
+     "asset": "y2026",
      "zoom": [
       15,
       8
      ],
      "label": {
-      "text": "OCT 2025",
+      "text": "OCT 2026",
       "style": "year",
       "exempt": true,
-      "date_year": 2025
+      "date_year": 2026
      }
     },
     {
@@ -1011,99 +1387,6 @@
       "style": "year",
       "exempt": true,
       "date_year": 2026
-     }
-    }
-   ]
-  },
-  {
-   "id": "limits",
-   "visuals": [
-    {
-     "asset": "g_reports",
-     "kind": "graphic",
-     "min_s": 6,
-     "claims": [
-      "C1",
-      "C2",
-      "C3",
-      "C4"
-     ],
-     "anchor": "claim",
-     "anchor_claims": [
-      "C3"
-     ]
-    },
-    {
-     "asset": "y2020",
-     "zoom": [
-      14,
-      8
-     ],
-     "label": {
-      "text": "SEP 2020",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2020
-     }
-    },
-    {
-     "asset": "y2021",
-     "zoom": [
-      8,
-      14
-     ],
-     "focus": [
-      35.2165,
-      28.1062
-     ],
-     "label": {
-      "text": "SEP 2021",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2021
-     }
-    },
-    {
-     "asset": "y2022",
-     "zoom": [
-      15,
-      8
-     ],
-     "label": {
-      "text": "OCT 2022",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2022
-     }
-    },
-    {
-     "asset": "y2023",
-     "zoom": [
-      8,
-      15
-     ],
-     "focus": [
-      35.2165,
-      28.1062
-     ],
-     "label": {
-      "text": "OCT 2023",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2023
-     }
-    },
-    {
-     "asset": "y2024",
-     "zoom": [
-      15,
-      8
-     ],
-     "label": {
-      "text": "OCT 2024",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2024
      }
     }
    ]
@@ -1199,7 +1482,50 @@
   }
  ],
  "generated_by": "yt-visual-planner",
- "planner_dropped": [],
+ "planner_dropped": [
+  {
+   "chapter": "method",
+   "dropped": [
+    "y2026"
+   ],
+   "reason": "a scene closes this chapter"
+  },
+  {
+   "chapter": "checks",
+   "dropped": [
+    "['y2025', 'y2026']"
+   ],
+   "reason": "chapter is 70.2s"
+  },
+  {
+   "chapter": "checks",
+   "dropped": [
+    "y2025"
+   ],
+   "reason": "chapter is 70.2s"
+  },
+  {
+   "chapter": "checks",
+   "dropped": [
+    "y2026"
+   ],
+   "reason": "chapter is 70.2s"
+  },
+  {
+   "chapter": "checks",
+   "dropped": [
+    "y2026"
+   ],
+   "reason": "chapter is 70.2s"
+  },
+  {
+   "chapter": "checks",
+   "dropped": [
+    "y2025"
+   ],
+   "reason": "chapter is 70.2s"
+  }
+ ],
  "media_pending": [],
  "media_gaps": [
   {
@@ -1208,34 +1534,13 @@
    "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"
   },
   {
-   "chapter": "promise",
-   "map_beats_in_a_row": 4,
-   "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"
-  },
-  {
-   "chapter": "plan",
-   "map_beats_in_a_row": 6,
-   "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"
-  },
-  {
-   "chapter": "method",
-   "map_beats_in_a_row": 7,
-   "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"
-  },
-  {
    "chapter": "shows",
    "map_beats_in_a_row": 5,
    "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"
-  },
-  {
-   "chapter": "checks",
-   "map_beats_in_a_row": 5,
-   "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"
-  },
-  {
-   "chapter": "limits",
-   "map_beats_in_a_row": 5,
-   "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"
   }
- ]
+ ],
+ "visual_choices": {
+  "shows": "The year-by-year satellite series is the evidence for this chapter: the narrator walks through 2020 to 2026 on the same grid, and each year is a separate fact. A graphic or photo of anything else would not show the corridor appearing."
+ },
+ "infographics_dropped": []
 }

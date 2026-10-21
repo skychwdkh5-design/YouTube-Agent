@@ -1,23 +1,23 @@
 # Release package - Here's What Satellites Show Near the Construction Site (working title, not final)
 
-Generated 2026-10-21T09:29:22Z. Nothing is published.
+Generated 2026-10-21T11:15:50Z. Nothing is published.
 
 ## Status
 - topic: done owner-approved topic
 - research: done 20 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN
 - facts: done 20 claims, registry ok
-- evidence: done 2 stacks + NDWI series
+- evidence: done 2 stacks + Landsat stack + NDWI series
 - script: done 943 words = 6.4 min, 16 claims used
-- media: done 0 verified of 0 media entries (style v2: media optional)
-- visualplan: done 64 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']
-- visuals: done 8 graphics
-- storyboard: done 81 shots, 385.312s, timing from voice
-- visualcheck: done visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 67, 'REVIEWED': 12} of 86 items; 2 orphan reviews (run `visualcheck.py prune`)
+- media: done 1 verified of 1 media entries (style v2: media optional)
+- visualplan: done 60 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19', 'i_coast', 'i_bloomberg', 'i_semafor', 'i_reuters', 'i_opened', 'i_source', 'i_pixel', 'i_visible', 'i_scenes', 'i_orbit', 'i_cloud', 'i_ndwi', 'i_dates', 'i_l8', 'i_landsat', 'i_lengths', 'i_apart', 'i_growth', 'i_verdict', 'i_nobuilding', 'i_cannot', 'i_nomatch']
+- visuals: done 53 graphics
+- storyboard: done 64 shots, 385.312s, timing from voice
+- visualcheck: done visual claims OK {'VERIFIED_SOURCE': 6, 'VERIFIED_DATA': 33, 'REVIEWED': 34} of 73 items; 7 orphan reviews (run `visualcheck.py prune`)
 - voice: done narration already generated (not regenerated)
 - voicecheck: done NEEDS_HUMAN_LISTEN: 21 risky words to listen to; storyboard re-timed from real word timings
 - captions: done captions built from real word timings
-- render: done rendered
-- qc: done QC PASS
+- render: awaiting_approval approval present but --allow-render not given; plan validated
+- qc: waiting waiting for ['render']
 
 ## Autonomy (what was automated)
 - topic: AGENT_REQUIRED / now AGENT_REQUIRED / agent artifact, then code
@@ -25,7 +25,7 @@ Generated 2026-10-21T09:29:22Z. Nothing is published.
 - facts: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - evidence: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - script: AGENT_REQUIRED / now AGENT_REQUIRED / agent artifact, then code
-- media: AGENT_REQUIRED / now AGENT_REQUIRED / code
+- media: AGENT_REQUIRED / now AGENT_REQUIRED / agent artifact, then code
 - visualplan: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - visuals: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - storyboard: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
@@ -33,8 +33,8 @@ Generated 2026-10-21T09:29:22Z. Nothing is published.
 - voice: OWNER_REQUIRED / now OWNER_REQUIRED / code
 - voicecheck: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - captions: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
-- render: OWNER_REQUIRED / now OWNER_REQUIRED / code
-- qc: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
+- render: OWNER_REQUIRED / now OWNER_REQUIRED / -
+- qc: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
 - release: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
 
 ## Title options (working title approved by owner; not final)
@@ -67,5 +67,7 @@ Generated 2026-10-21T09:29:22Z. Nothing is published.
 ## Costs
 - {'stage': 'voice', 'chars': 5280, 'provider': 'elevenlabs', 'at': '2026-10-21T05:05:17Z', 'note': 'approved by owner'}
 
-## Ready for review
-**Owner question: approve for publishing, or change?** (publishing is never automatic)
+## Package is INCOMPLETE
+Pending: render, qc
+
+**Owner question: approve the paid step(s) listed as awaiting_approval, or change?**

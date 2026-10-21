@@ -72,6 +72,11 @@ def _fixed(v):
     return v.get("kind") in ("graphic", "still", "video")
 
 
+def _cap(v):
+    """Longest a full-frame visual may sit on screen: a video 12 s, a graphic built in steps as long as its steps run (<= 40 s), any other graphic or photo 7 s."""
+    return 12.0 if v.get("kind") == "video" else 40.0 if v.get("steps") else 7.0
+
+
 def _visual_year(v):
     """The year a visual is meant to be on screen for: set explicitly by the planner (anchor: year) for a year image or the reveal of a wipe."""
     if v.get("anchor") != "year" or _fixed(v):
@@ -82,6 +87,11 @@ def _visual_year(v):
 
 def _claim_sentence(v, sents, after):
     """Index of the first sentence after word index `after` that cites any claim of graphic v, else None."""
+    if v.get("anchor_text"):                 # an explicit sentence: the first one (after the cursor) that contains this text
+        needle = v["anchor_text"].lower()
+        hit = next((k for k, x in enumerate(sents) if x["w0"] > after and needle in x["text"].lower()), None)
+        if hit is not None:
+            return hit
     ids = set(v.get("anchor_claims") or v.get("claims") or [])
     cand = [k for k, x in enumerate(sents) if x["w0"] > after and ids & set(x["claims"])]
     y = v.get("anchor_year")
@@ -92,6 +102,30 @@ def _claim_sentence(v, sents, after):
     return cand[0] if cand else None
 
 
+def _text_word(needle, sents, after):
+    """Index (within the chapter) of the first word of `needle` spoken after word index `after`, found inside any sentence - so two build steps may sit in ONE tagged sentence.
+    Words are compared without punctuation or case ("water," matches "water")."""
+    def tok(w):
+        return re.sub(r"[^\w'.-]|[.-]+$", "", w.lower())
+    needle = [tok(w) for w in needle.split()]
+    for x in sents:
+        ws = [tok(w) for w in x["text"].split()]
+        for k in range(len(ws) - len(needle) + 1):
+            if x["w0"] + k > after and ws[k:k + len(needle)] == needle:
+                return x["w0"] + k
+    return None
+
+
+def _claim_word(v, sents, after):
+    """Word index (within the chapter) at which graphic v belongs: the words of its anchor_text when it has one and they are spoken, else the start of the sentence that cites its claims."""
+    if v.get("anchor_text"):
+        wi = _text_word(v["anchor_text"], sents, after)
+        if wi is not None:
+            return wi
+    k = _claim_sentence(v, sents, after)
+    return sents[k]["w0"] if k is not None else None
+
+
 def place_by_claims(vis, durs, sents, word_time, t0):
     """Reorder so each claim-anchored graphic (anchor: claim) sits among the map visuals at the time its claim is spoken, not at the chapter start.
     A graphic whose claim is made in the first 2.5 s stays where it is."""
@@ -99,8 +133,8 @@ def place_by_claims(vis, durs, sents, word_time, t0):
     base, inserts = [], []
     for i, v in enumerate(vis):
         if v.get("anchor") == "claim" and _fixed(v):
-            k = _claim_sentence(v, sents, -1)
-            tt = word_time(sents[k]["w0"]) - 0.3 if k is not None else None
+            wi = _claim_word(v, sents, -1)
+            tt = word_time(wi) - 0.3 if wi is not None else None
             if tt is not None and tt > t0 + 2.5:
                 inserts.append((tt, i, v)); continue
         base.append((starts[i], v))
@@ -111,6 +145,10 @@ def place_by_claims(vis, durs, sents, word_time, t0):
     for tt, _, v in sorted(inserts, key=lambda x: x[0]):
         pos = next((n for n, t_ in enumerate(pos_t) if t_ >= tt and n > 0), len(out))
         out.insert(pos, v); pos_t.insert(pos, tt)
+    first = min(t for t, _, _ in inserts)
+    k = next((n for n, v in enumerate(out) if not _fixed(v)), None)
+    if _fixed(out[0]) and first - t0 > 3.0 and k is not None:          # the chapter's first graphic is spoken about later: a map beat covers the narration before it
+        out.insert(0, out.pop(k))
     return out
 
 
@@ -127,8 +165,7 @@ def anchor_durations(vis, durs, sents, word_time, t0, t1, min_of):
         if i == 0 or (y is None and not (v.get("anchor") == "claim" and _fixed(v))):
             continue
         if y is None:                                    # a graphic citing claims: when the first sentence that cites them begins
-            k = _claim_sentence(v, sents, cursor)
-            hit = sents[k]["w0"] if k is not None else None
+            hit = _claim_word(v, sents, cursor)
             y = "claim"
         else:
             hit = next((wi for wi, w in toks if wi > cursor and re.search(rf"(?<!\d){y}(?!\d)", w)), None)
@@ -174,7 +211,7 @@ def anchor_durations(vis, durs, sents, word_time, t0, t1, min_of):
         del fixed[bad + 1]
         new = spread(fixed)
     for k in range(1, n):                              # a graphic is never stretched past 7 s: it starts a little after its claim and the map before it holds longer
-        cap = 12.0 if vis[k].get("kind") == "video" else 7.0
+        cap = _cap(vis[k])
         if _fixed(vis[k]) and new[k] > cap and not _fixed(vis[k - 1]):
             new[k - 1] += new[k] - cap
             new[k] = cap
@@ -258,7 +295,7 @@ def build(ep, root, voice_meta=None):
             raise StoryError(f"chapter {cid} has no spoken text")
         def alloc(vis):
             """Graphics keep a fixed on-screen time (min_s, at most 7 s); the remaining time is shared by map visuals. Returns (durations, set of graphic indexes)."""
-            gdur = {i: min(max(v.get("min_s", 4.0), 2.0), 12.0 if v.get("kind") == "video" else 7.0) for i, v in enumerate(vis) if _fixed(v)}
+            gdur = {i: min(max(v.get("min_s", 4.0), 2.0), _cap(v)) for i, v in enumerate(vis) if _fixed(v)}
             maps = [i for i in range(len(vis)) if i not in gdur]
             rest = total - sum(gdur.values())
             if maps and rest < MIN_SHOT_S * len(maps):
@@ -272,7 +309,7 @@ def build(ep, root, voice_meta=None):
                 rest = total - sum(gdur.values())
             if not maps:
                 gdur = {i: d * total / sum(gdur.values()) for i, d in gdur.items()}
-                if max(gdur.values()) > 9.0:
+                if max([d for i, d in gdur.items() if not vis[i].get("steps")] or [0.0]) > 9.0:       # a stepped graphic builds as the narrator speaks: it may be long
                     raise StoryError(f"chapter {cid}: graphics would sit {max(gdur.values()):.1f}s on screen; add visuals")
             mw = {i: max(vis[i].get("min_s", MIN_SHOT_S), 0.1) for i in maps}
             return [gdur[i] if i in gdur else rest * mw[i] / sum(mw.values()) for i in range(len(vis))], set(gdur)
@@ -290,6 +327,14 @@ def build(ep, root, voice_meta=None):
         t = t0
         for i, v in enumerate(vis):
             dur = durs[i]
+            if v.get("steps") and sents:                 # a graphic built in steps: each step appears when its sentence begins (times relative to the shot start)
+                cur, st_t = -1, []
+                for n_, st in enumerate(v["steps"]):
+                    wi = _text_word(st.get("anchor_text") or "", sents, cur) if st.get("anchor_text") else None
+                    tt = (tof(wi) - 0.2 - t) if wi is not None else (dur * n_ / len(v["steps"]))
+                    cur = wi if wi is not None else cur
+                    st_t.append(round(max(tt, 0.0) if n_ else 0.0, 3))
+                v = dict(v, step_t=st_t)
             parts = [dur] if i in gset else split_duration(dur)
             for k, d in enumerate(parts):
                 shots.append(_shot(ep, grid, chap, v, k, len(parts), t, d, labels, len(shots)))
@@ -308,6 +353,8 @@ def _shot(ep, grid, chap, v, k, n, t, d, labels, idx):
         s["claims"] = list(v["claims"])
     if v.get("kind") == "graphic":
         s["layers"] = [{"type": "graphic", "asset": v["asset"], "t": [0, None], "push": GRAPHIC_PUSH}]
+        for st, tt in list(zip(v.get("steps") or [], v.get("step_t") or []))[1:]:
+            s["layers"].append({"type": "graphic", "asset": st["asset"], "t": [min(tt, max(d - 0.5, 0.1)), None], "push": GRAPHIC_PUSH})
         s["info"] = v.get("info", v["asset"])
         a = ep["assets"][v["asset"]]
         labels.append({"text": f"graphic:{v['asset']}", "claims": a.get("claims") or [], "exempt": bool(a.get("exempt")), "shot": sid})

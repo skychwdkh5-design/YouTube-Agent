@@ -122,6 +122,31 @@ class Totals(unittest.TestCase):
         self.assertEqual(r["overall"], "FAIL")
 
 
+class Cards(unittest.TestCase):
+    """EP005 visual revision: a stepped card/diagram/chart has no map - its finished picture is the frame a reviewer must read."""
+    def setUp(self):
+        self.d = tempfile.mkdtemp()
+        make(self.d, labels=[{"text": "graphic:card_s1", "claims": ["C2"], "exempt": False, "shot": "s1"}],
+             shots=[{"id": "s1", "info": "card", "claims": ["C2"], "layers": [{"type": "graphic", "asset": "card_s1"}, {"type": "graphic", "asset": "card", "t": [3, None]}]}])
+        os.makedirs(os.path.join(self.d, "graphics"))
+        Image.fromarray(np.full((1080, 1920, 3), 30, dtype=np.uint8)).save(os.path.join(self.d, "graphics", "card.png"))
+        Image.fromarray(np.full((1080, 1920, 3), 20, dtype=np.uint8)).save(os.path.join(self.d, "graphics", "card.step1.png"))
+        ep = json.load(open(os.path.join(self.d, "episode.json")))
+        ep["assets"]["card_s1"] = {"src": "graphics/card.step1.png", "kind": "graphic", "group": "card", "claims": ["C2"]}
+        ep["assets"]["card"] = {"src": "graphics/card.png", "kind": "graphic", "group": "card", "claims": ["C2"]}
+        json.dump(ep, open(os.path.join(self.d, "episode.json"), "w"))
+        json.dump({"graphics": [{"id": "card", "type": "diagram", "title": "Card"}]}, open(os.path.join(self.d, "g.json"), "w"))
+
+    def test_a_card_needs_a_reviewer_who_sees_the_final_picture_and_the_review_is_bound_to_it(self):
+        r, st = status(self.d)
+        self.assertEqual(st["s1:graphic:card_s1"], "NEEDS_VISUAL_REVIEW")
+        self.assertEqual(r["items"][0]["frames"][0]["stack"], "graphics/card.png")           # the finished picture, not the first build step
+        vc.add_review(self.d, "s1:graphic:card_s1", "supports", "Two boxes with the claimed wording and numbers are visible.", "agent")
+        self.assertEqual(status(self.d)[1]["s1:graphic:card_s1"], "REVIEWED_BY_AGENT")
+        Image.fromarray(np.full((1080, 1920, 3), 99, dtype=np.uint8)).save(os.path.join(self.d, "graphics", "card.png"))      # the card is redrawn
+        self.assertEqual(status(self.d)[1]["s1:graphic:card_s1"], "NEEDS_VISUAL_REVIEW")
+
+
 class Reviews(unittest.TestCase):
     def setUp(self):
         self.d = tempfile.mkdtemp()

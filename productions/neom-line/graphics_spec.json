@@ -230,6 +230,1005 @@
     "label": "OCT 2024",
     "credit": "Sentinel-2 · ESA"
    }
+  },
+  {
+   "type": "compare",
+   "title": "Saudi Arabia's Red Sea coast",
+   "source": "Left: NASA ISS photo iss066e091657 (public domain). Right: Copernicus Sentinel-2 L2A, 40 m",
+   "left": {
+    "file": "media/assets/northwestern_coast_of_saudi_.jpg",
+    "label": "ISS PHOTO - NOT THE NEOM SITE",
+    "credit": "NASA / ISS, 30 Nov 2021"
+   },
+   "right": {
+    "geo": {
+     "stack": "evidence/wide/y2026.png",
+     "grid": "evidence/wide/grid.json",
+     "center": [
+      35.345,
+      28.14
+     ],
+     "width_km": 45
+    },
+    "label": "SENTINEL-2 - NEOM AREA",
+    "credit": "Copernicus Sentinel data 2026"
+   },
+   "id": "i_coast"
+  },
+  {
+   "type": "diagram",
+   "title": "What was reported",
+   "source": "Reported by the outlet named; we could not open the original article (see script)",
+   "nodes": [
+    {
+     "id": "h",
+     "text": "BLOOMBERG - APRIL 2024",
+     "x": 0.5,
+     "y": 0.17,
+     "w": 0.62,
+     "h": 0.13,
+     "style": "plain",
+     "step": 1
+    },
+    {
+     "id": "a",
+     "text": "About 2.4 km of The Line expected by 2030",
+     "x": 0.5,
+     "y": 0.47,
+     "w": 0.84,
+     "h": 0.22,
+     "style": "accent",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "Fewer than 300,000 residents by then",
+     "x": 0.5,
+     "y": 0.76,
+     "w": 0.84,
+     "h": 0.17,
+     "style": "default",
+     "step": 2
+    }
+   ],
+   "id": "i_bloomberg"
+  },
+  {
+   "type": "diagram",
+   "title": "What was reported",
+   "source": "Reported by the outlet named; we could not open the original article (see script)",
+   "nodes": [
+    {
+     "id": "h",
+     "text": "SEMAFOR - 22 MAY 2026",
+     "x": 0.5,
+     "y": 0.17,
+     "w": 0.62,
+     "h": 0.13,
+     "style": "plain",
+     "step": 1
+    },
+    {
+     "id": "a",
+     "text": "Work on The Line halted until at least after 2030",
+     "x": 0.5,
+     "y": 0.47,
+     "w": 0.84,
+     "h": 0.22,
+     "style": "accent",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "Unnamed sources. Not officially confirmed",
+     "x": 0.5,
+     "y": 0.76,
+     "w": 0.84,
+     "h": 0.17,
+     "style": "red",
+     "step": 2
+    }
+   ],
+   "id": "i_semafor"
+  },
+  {
+   "type": "diagram",
+   "title": "What was reported",
+   "source": "Reported by the outlet named; we could not open the original article (see script)",
+   "nodes": [
+    {
+     "id": "h",
+     "text": "REUTERS - ABOUT 4 OCT 2026",
+     "x": 0.5,
+     "y": 0.17,
+     "w": 0.62,
+     "h": 0.13,
+     "style": "plain",
+     "step": 1
+    },
+    {
+     "id": "a",
+     "text": "NEOM stadium shelved indefinitely",
+     "x": 0.5,
+     "y": 0.47,
+     "w": 0.84,
+     "h": 0.22,
+     "style": "accent",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "Two sources. No official announcement",
+     "x": 0.5,
+     "y": 0.76,
+     "w": 0.84,
+     "h": 0.17,
+     "style": "red",
+     "step": 2
+    }
+   ],
+   "id": "i_reuters"
+  },
+  {
+   "type": "diagram",
+   "title": "How we handled the reports",
+   "source": "OrbitalAtlas research log: original articles not reachable from our research setup",
+   "nodes": [
+    {
+     "id": "o",
+     "text": "ORIGINAL ARTICLE",
+     "x": 0.17,
+     "y": 0.45,
+     "w": 0.28,
+     "h": 0.2,
+     "style": "red",
+     "step": 1
+    },
+    {
+     "id": "x",
+     "text": "NOT OPENED BY US",
+     "x": 0.17,
+     "y": 0.75,
+     "w": 0.28,
+     "h": 0.12,
+     "style": "plain",
+     "step": 1
+    },
+    {
+     "id": "p",
+     "text": "Outlet A",
+     "x": 0.55,
+     "y": 0.3,
+     "w": 0.24,
+     "h": 0.16,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "q",
+     "text": "Outlet B",
+     "x": 0.55,
+     "y": 0.6,
+     "w": 0.24,
+     "h": 0.16,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "w",
+     "text": "WHO REPORTED WHAT, AND NOTHING MORE",
+     "x": 0.89,
+     "y": 0.45,
+     "w": 0.2,
+     "h": 0.34,
+     "style": "accent",
+     "step": 2
+    }
+   ],
+   "arrows": [
+    {
+     "from": "o",
+     "to": "p",
+     "color": "accent",
+     "label": "described",
+     "step": 2
+    },
+    {
+     "from": "o",
+     "to": "q",
+     "color": "accent",
+     "label": "described",
+     "step": 2
+    },
+    {
+     "from": "p",
+     "to": "w",
+     "color": "accent",
+     "step": 2
+    },
+    {
+     "from": "q",
+     "to": "w",
+     "color": "accent",
+     "step": 2
+    }
+   ],
+   "id": "i_opened"
+  },
+  {
+   "type": "diagram",
+   "title": "Where the pictures come from",
+   "source": "Copernicus Sentinel-2 L2A (ESA / European Union), free, full and open data",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "SENTINEL-2 SATELLITES",
+     "x": 0.5,
+     "y": 0.25,
+     "w": 0.6,
+     "h": 0.18,
+     "style": "blue"
+    },
+    {
+     "id": "b",
+     "text": "EUROPEAN COPERNICUS PROGRAM",
+     "x": 0.5,
+     "y": 0.52,
+     "w": 0.6,
+     "h": 0.18,
+     "style": "accent"
+    },
+    {
+     "id": "c",
+     "text": "FREE, FULL AND OPEN DATA",
+     "x": 0.5,
+     "y": 0.79,
+     "w": 0.6,
+     "h": 0.18,
+     "style": "green"
+    }
+   ],
+   "arrows": [
+    {
+     "from": "a",
+     "to": "b",
+     "color": "accent"
+    },
+    {
+     "from": "b",
+     "to": "c",
+     "color": "accent"
+    }
+   ],
+   "id": "i_source"
+  },
+  {
+   "type": "geo",
+   "title": "One pixel = 10 m of ground",
+   "source": "Copernicus Sentinel-2 L2A, 10 m, Oct 2026",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "show_credit": false,
+   "date": "OCT 2026",
+   "image": {
+    "stack": "evidence/stack/y2026.png",
+    "grid": "evidence/stack/grid.json",
+    "center": [
+     35.2165,
+     28.1062
+    ],
+    "width_km": 0.6,
+    "resample": "nearest"
+   },
+   "graticule": false,
+   "scale_bar": true,
+   "id": "i_pixel"
+  },
+  {
+   "type": "diagram",
+   "title": "What 10 m can and cannot show",
+   "source": "Pixel size 10 m (Sentinel-2 L2A); statement from our method notes",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "CAN SEE",
+     "x": 0.27,
+     "y": 0.2,
+     "w": 0.36,
+     "h": 0.14,
+     "style": "green",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "A long cleared strip",
+     "x": 0.27,
+     "y": 0.46,
+     "w": 0.36,
+     "h": 0.16,
+     "style": "default",
+     "step": 1
+    },
+    {
+     "id": "c",
+     "text": "A road",
+     "x": 0.27,
+     "y": 0.7,
+     "w": 0.36,
+     "h": 0.14,
+     "style": "default",
+     "step": 1
+    },
+    {
+     "id": "d",
+     "text": "CANNOT SEE",
+     "x": 0.73,
+     "y": 0.2,
+     "w": 0.36,
+     "h": 0.14,
+     "style": "red",
+     "step": 2
+    },
+    {
+     "id": "e",
+     "text": "A person",
+     "x": 0.73,
+     "y": 0.46,
+     "w": 0.36,
+     "h": 0.14,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "f",
+     "text": "A crane",
+     "x": 0.73,
+     "y": 0.64,
+     "w": 0.36,
+     "h": 0.12,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "g",
+     "text": "A window",
+     "x": 0.73,
+     "y": 0.82,
+     "w": 0.36,
+     "h": 0.12,
+     "style": "default",
+     "step": 2
+    }
+   ],
+   "id": "i_visible"
+  },
+  {
+   "type": "diagram",
+   "title": "Seven scenes, 2020 to 2026",
+   "source": "Sentinel-2 L2A scene metadata (relative orbit 78, tile T36RYS); Planetary Computer STAC",
+   "nodes": [
+    {
+     "id": "y2020",
+     "text": "2020",
+     "x": 0.075,
+     "y": 0.3,
+     "w": 0.125,
+     "h": 0.16,
+     "style": "blue"
+    },
+    {
+     "id": "y2021",
+     "text": "2021",
+     "x": 0.21599999999999997,
+     "y": 0.3,
+     "w": 0.125,
+     "h": 0.16,
+     "style": "blue"
+    },
+    {
+     "id": "y2022",
+     "text": "2022",
+     "x": 0.357,
+     "y": 0.3,
+     "w": 0.125,
+     "h": 0.16,
+     "style": "blue"
+    },
+    {
+     "id": "y2023",
+     "text": "2023",
+     "x": 0.49799999999999994,
+     "y": 0.3,
+     "w": 0.125,
+     "h": 0.16,
+     "style": "blue"
+    },
+    {
+     "id": "y2024",
+     "text": "2024",
+     "x": 0.6389999999999999,
+     "y": 0.3,
+     "w": 0.125,
+     "h": 0.16,
+     "style": "blue"
+    },
+    {
+     "id": "y2025",
+     "text": "2025",
+     "x": 0.7799999999999999,
+     "y": 0.3,
+     "w": 0.125,
+     "h": 0.16,
+     "style": "blue"
+    },
+    {
+     "id": "y2026",
+     "text": "2026",
+     "x": 0.9209999999999998,
+     "y": 0.3,
+     "w": 0.125,
+     "h": 0.16,
+     "style": "blue"
+    },
+    {
+     "id": "d2020",
+     "text": "29 SEP",
+     "x": 0.075,
+     "y": 0.55,
+     "w": 0.125,
+     "h": 0.14,
+     "style": "default"
+    },
+    {
+     "id": "d2021",
+     "text": "29 SEP",
+     "x": 0.21599999999999997,
+     "y": 0.55,
+     "w": 0.125,
+     "h": 0.14,
+     "style": "default"
+    },
+    {
+     "id": "d2022",
+     "text": "9 OCT",
+     "x": 0.357,
+     "y": 0.55,
+     "w": 0.125,
+     "h": 0.14,
+     "style": "default"
+    },
+    {
+     "id": "d2023",
+     "text": "14 OCT",
+     "x": 0.49799999999999994,
+     "y": 0.55,
+     "w": 0.125,
+     "h": 0.14,
+     "style": "default"
+    },
+    {
+     "id": "d2024",
+     "text": "8 OCT",
+     "x": 0.6389999999999999,
+     "y": 0.55,
+     "w": 0.125,
+     "h": 0.14,
+     "style": "default"
+    },
+    {
+     "id": "d2025",
+     "text": "8 OCT",
+     "x": 0.7799999999999999,
+     "y": 0.55,
+     "w": 0.125,
+     "h": 0.14,
+     "style": "default"
+    },
+    {
+     "id": "d2026",
+     "text": "18 OCT",
+     "x": 0.9209999999999998,
+     "y": 0.55,
+     "w": 0.125,
+     "h": 0.14,
+     "style": "default"
+    }
+   ],
+   "id": "i_scenes"
+  },
+  {
+   "type": "diagram",
+   "title": "Why the scenes can be compared",
+   "source": "Sentinel-2 L2A scene metadata (relative orbit 78, tile T36RYS); Planetary Computer STAC",
+   "nodes": [
+    {
+     "id": "o",
+     "text": "SAME ORBIT: 78 - PASS AROUND 08:08 UTC",
+     "x": 0.5,
+     "y": 0.3,
+     "w": 0.8,
+     "h": 0.2,
+     "style": "accent",
+     "step": 1
+    },
+    {
+     "id": "s",
+     "text": "SAME SEASON: 29 SEP TO 18 OCT",
+     "x": 0.5,
+     "y": 0.7,
+     "w": 0.8,
+     "h": 0.2,
+     "style": "default",
+     "step": 2
+    }
+   ],
+   "id": "i_orbit"
+  },
+  {
+   "type": "callout",
+   "title": "Cloud cover in all seven scenes",
+   "source": "Sentinel-2 L2A scene metadata (scene cloud cover 0.03 to 0.06 percent)",
+   "value": 0.1,
+   "unit": "percent",
+   "label": "is the ceiling for reported cloud cover in all seven scenes",
+   "decimals": 1,
+   "id": "i_cloud"
+  },
+  {
+   "type": "diagram",
+   "title": "Water-like in near-infrared",
+   "source": "Sentinel-2 B03/B08 NDWI, our notes: NDWI above zero and B08 below 0.05",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "NEAR-INFRARED SIGNAL: VERY LOW",
+     "x": 0.27,
+     "y": 0.3,
+     "w": 0.4,
+     "h": 0.2,
+     "style": "blue",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "WATER INDEX (NDWI): ABOVE ZERO",
+     "x": 0.73,
+     "y": 0.3,
+     "w": 0.4,
+     "h": 0.2,
+     "style": "blue",
+     "step": 1
+    },
+    {
+     "id": "c",
+     "text": "2024, 2025, 2026: WATER-LIKE",
+     "x": 0.5,
+     "y": 0.62,
+     "w": 0.6,
+     "h": 0.18,
+     "style": "green",
+     "step": 1
+    },
+    {
+     "id": "e",
+     "text": "FITS WATER - NOT PROOF. A SHADOW CAN FOOL IT",
+     "x": 0.5,
+     "y": 0.88,
+     "w": 0.84,
+     "h": 0.12,
+     "style": "red",
+     "step": 2
+    }
+   ],
+   "id": "i_ndwi"
+  },
+  {
+   "type": "diagram",
+   "title": "Check 1 of 3: is it repeatable?",
+   "source": "Sentinel-2 L2A scene metadata; NDWI per scene (evidence/ndwi.json)",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "8 OCT 2024",
+     "x": 0.2,
+     "y": 0.3,
+     "w": 0.26,
+     "h": 0.16,
+     "style": "blue",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "8 OCT 2025",
+     "x": 0.5,
+     "y": 0.3,
+     "w": 0.26,
+     "h": 0.16,
+     "style": "blue",
+     "step": 1
+    },
+    {
+     "id": "c",
+     "text": "18 OCT 2026",
+     "x": 0.8,
+     "y": 0.3,
+     "w": 0.26,
+     "h": 0.16,
+     "style": "blue",
+     "step": 1
+    },
+    {
+     "id": "r",
+     "text": "SEGMENT PRESENT IN ALL THREE",
+     "x": 0.5,
+     "y": 0.58,
+     "w": 0.8,
+     "h": 0.12,
+     "style": "green",
+     "step": 2
+    },
+    {
+     "id": "a2",
+     "text": "SENTINEL-2A",
+     "x": 0.2,
+     "y": 0.84,
+     "w": 0.26,
+     "h": 0.14,
+     "style": "accent",
+     "step": 3
+    },
+    {
+     "id": "b2",
+     "text": "SENTINEL-2B",
+     "x": 0.5,
+     "y": 0.84,
+     "w": 0.26,
+     "h": 0.14,
+     "style": "accent",
+     "step": 3
+    },
+    {
+     "id": "c2",
+     "text": "SENTINEL-2C",
+     "x": 0.8,
+     "y": 0.84,
+     "w": 0.26,
+     "h": 0.14,
+     "style": "accent",
+     "step": 3
+    }
+   ],
+   "id": "i_dates"
+  },
+  {
+   "type": "geo",
+   "title": "Check 2 of 3: Landsat 8, 30 m per pixel",
+   "source": "Landsat 8 OLI, 22 Oct 2024, 30 m (USGS)",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey",
+   "show_credit": false,
+   "date": "OCT 2024",
+   "image": {
+    "stack": "evidence/landsat/y2024.png",
+    "grid": "evidence/landsat/grid.json",
+    "center": [
+     35.2165,
+     28.1062
+    ],
+    "width_km": 6
+   },
+   "callouts": [
+    {
+     "at": [
+      35.2119,
+      28.1062
+     ],
+     "text": "DARK SEGMENT: ABOUT 0.7 KM"
+    }
+   ],
+   "graticule": false,
+   "scale_bar": true,
+   "id": "i_l8"
+  },
+  {
+   "type": "compare",
+   "title": "Check 2 of 3: a different satellite, Oct 2024",
+   "source": "Sentinel-2 L2A 10 m (8 Oct 2024) and Landsat 8 OLI 30 m (22 Oct 2024); lengths are our own measures",
+   "left": {
+    "geo": {
+     "stack": "evidence/stack/y2024.png",
+     "grid": "evidence/stack/grid.json",
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 4
+    },
+    "label": "SENTINEL-2 - 10 M",
+    "credit": "Copernicus Sentinel data 2024"
+   },
+   "right": {
+    "geo": {
+     "stack": "evidence/landsat/y2024.png",
+     "grid": "evidence/landsat/grid.json",
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 4
+    },
+    "label": "LANDSAT 8 - 30 M",
+    "credit": "Landsat / USGS"
+   },
+   "metric": {
+    "left": 1.6,
+    "right": 0.7,
+    "unit": "km",
+    "decimals": 1
+   },
+   "id": "i_landsat"
+  },
+  {
+   "type": "bar",
+   "title": "Same segment, two instruments",
+   "source": "Sentinel-2 10 m (NDWI, our measure) and Landsat 8 30 m (our contrast measure); scenes 2-3 weeks apart",
+   "unit": "km",
+   "decimals": 2,
+   "bars": [
+    {
+     "label": "S2 Oct 2024",
+     "value": 1.6
+    },
+    {
+     "label": "L8 Oct 2024",
+     "value": 0.72,
+     "highlight": true
+    },
+    {
+     "label": "S2 Oct 2025",
+     "value": 1.6
+    },
+    {
+     "label": "L8 Oct 2025",
+     "value": 1.65
+    },
+    {
+     "label": "S2 Oct 2026",
+     "value": 1.92
+    },
+    {
+     "label": "L8 Sep 2026",
+     "value": 1.65
+    }
+   ],
+   "id": "i_lengths"
+  },
+  {
+   "type": "diagram",
+   "title": "The two satellites were not there on the same day",
+   "source": "Scene dates: Sentinel-2 L2A and Landsat 8 OLI provenance files",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "OCT 2024: 8 OCT AND 22 OCT",
+     "x": 0.5,
+     "y": 0.22,
+     "w": 0.8,
+     "h": 0.15,
+     "style": "blue",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "OCT 2025: 8 OCT AND 25 OCT",
+     "x": 0.5,
+     "y": 0.42,
+     "w": 0.8,
+     "h": 0.15,
+     "style": "blue",
+     "step": 1
+    },
+    {
+     "id": "c",
+     "text": "2026: 26 SEP AND 18 OCT",
+     "x": 0.5,
+     "y": 0.62,
+     "w": 0.8,
+     "h": 0.15,
+     "style": "blue",
+     "step": 1
+    },
+    {
+     "id": "d",
+     "text": "2 TO 3 WEEKS APART: RESOLUTION OR TIMING? WE CANNOT TELL",
+     "x": 0.5,
+     "y": 0.86,
+     "w": 0.9,
+     "h": 0.15,
+     "style": "red",
+     "step": 2
+    }
+   ],
+   "id": "i_apart"
+  },
+  {
+   "type": "diagram",
+   "title": "A 0.3 km difference: three explanations",
+   "source": "Sentinel-2 10 m, Oct 2025 (1.6 km) and Oct 2026 (1.9 km); our NDWI measure",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "GROWTH?",
+     "x": 0.5,
+     "y": 0.2,
+     "w": 0.5,
+     "h": 0.15,
+     "style": "blue",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "A DIFFERENT WATER LEVEL?",
+     "x": 0.5,
+     "y": 0.4,
+     "w": 0.5,
+     "h": 0.15,
+     "style": "blue",
+     "step": 2
+    },
+    {
+     "id": "c",
+     "text": "WHERE OUR THRESHOLD FALLS?",
+     "x": 0.5,
+     "y": 0.6,
+     "w": 0.5,
+     "h": 0.15,
+     "style": "blue",
+     "step": 3
+    },
+    {
+     "id": "d",
+     "text": "WE DO NOT CLAIM THAT IT GREW. WE CANNOT TELL.",
+     "x": 0.5,
+     "y": 0.85,
+     "w": 0.8,
+     "h": 0.15,
+     "style": "red",
+     "step": 4
+    }
+   ],
+   "id": "i_growth"
+  },
+  {
+   "type": "diagram",
+   "title": "Three checks, one open number",
+   "source": "Our checks 1-3 (Sentinel-2 dates, Landsat 8 agreement, length at 10 m)",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "3 DATES, 3 SATELLITES: AGREE",
+     "x": 0.5,
+     "y": 0.2,
+     "w": 0.7,
+     "h": 0.15,
+     "style": "green",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "LANDSAT 8 SEES IT TOO",
+     "x": 0.5,
+     "y": 0.42,
+     "w": 0.7,
+     "h": 0.15,
+     "style": "green",
+     "step": 1
+    },
+    {
+     "id": "c",
+     "text": "PRESENT IN 2024, 2025, 2026",
+     "x": 0.5,
+     "y": 0.64,
+     "w": 0.7,
+     "h": 0.15,
+     "style": "green",
+     "step": 1
+    },
+    {
+     "id": "d",
+     "text": "LENGTH: 1.6 OR 1.9 KM? UNSETTLED",
+     "x": 0.5,
+     "y": 0.87,
+     "w": 0.7,
+     "h": 0.15,
+     "style": "red",
+     "step": 2
+    }
+   ],
+   "id": "i_verdict"
+  },
+  {
+   "type": "geo",
+   "title": "At 10 m: no building can be identified here",
+   "source": "Copernicus Sentinel-2 L2A, 10 m, Oct 2026",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "show_credit": false,
+   "date": "OCT 2026",
+   "image": {
+    "stack": "evidence/stack/y2026.png",
+    "grid": "evidence/stack/grid.json",
+    "center": [
+     35.2165,
+     28.1062
+    ],
+    "width_km": 2.5
+   },
+   "callouts": [
+    {
+     "at": [
+      35.2165,
+      28.1062
+     ],
+     "text": "DARK SEGMENT"
+    }
+   ],
+   "graticule": false,
+   "scale_bar": true,
+   "id": "i_nobuilding"
+  },
+  {
+   "type": "diagram",
+   "title": "What we cannot say",
+   "source": "Limitations listed in the script (L)",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "THAT IT IS A FINISHED CITY",
+     "x": 0.5,
+     "y": 0.3,
+     "w": 0.7,
+     "h": 0.18,
+     "style": "red",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "THAT THIS CORRIDOR IS THE LINE",
+     "x": 0.5,
+     "y": 0.65,
+     "w": 0.7,
+     "h": 0.18,
+     "style": "red",
+     "step": 2
+    }
+   ],
+   "id": "i_cannot"
+  },
+  {
+   "type": "diagram",
+   "title": "Why we stop here",
+   "source": "Limitations listed in the script (L)",
+   "nodes": [
+    {
+     "id": "c",
+     "text": "NO OFFICIAL NEOM MAP TO MATCH IT AGAINST",
+     "x": 0.5,
+     "y": 0.3,
+     "w": 0.8,
+     "h": 0.18,
+     "style": "plain",
+     "step": 1
+    },
+    {
+     "id": "d",
+     "text": "A SIMILAR PICTURE IN 2025 AND 2026 DOES NOT PROVE A PAUSE",
+     "x": 0.5,
+     "y": 0.65,
+     "w": 0.8,
+     "h": 0.22,
+     "style": "red",
+     "step": 2
+    }
+   ],
+   "id": "i_nomatch"
   }
  ]
 }

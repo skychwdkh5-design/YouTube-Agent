@@ -207,5 +207,97 @@ class Media(unittest.TestCase):
         self.assertIsInstance(ep["media_gaps"], list)
 
 
+class Infographics(unittest.TestCase):
+    """Scenes written in notes.json: placed first in their chapter, anchored by words, never drawn on weak ground."""
+    def setUp(self):
+        self.d = tempfile.mkdtemp()
+        make(self.d)
+        self.n = json.load(open(os.path.join(self.d, "research", "notes.json")))
+
+    def go(self, items):
+        self.n["infographics"] = items
+        json.dump(self.n, open(os.path.join(self.d, "research", "notes.json"), "w"))
+        return pl.plan(self.d)
+
+    def card(self, **k):
+        d = {"id": "i_card", "chapter": "plan", "claims": ["C2"], "min_s": 8,
+             "graphic": {"type": "diagram", "title": "T", "source": "S", "nodes": [{"id": "a", "text": "A", "x": 0.5, "y": 0.5, "step": 1}, {"id": "b", "text": "B", "x": 0.5, "y": 0.8, "step": 2}]},
+             "steps": [{"anchor_text": "Outlet reported"}, {"anchor_text": "Another reported"}]}
+        d.update(k)
+        return d
+
+    def test_stepped_graphic_gets_one_asset_per_step_in_one_group_and_leads_its_chapter(self):
+        ep, spec = self.go([self.card()])
+        v = next(c for c in ep["chapters"] if c["id"] == "plan")["visuals"][0]
+        self.assertEqual([s["asset"] for s in v["steps"]], ["i_card_s1", "i_card"])
+        self.assertEqual(v["steps"][0]["anchor_text"], "Outlet reported")
+        for a in ("i_card_s1", "i_card"):
+            self.assertEqual(ep["assets"][a]["group"], "i_card")
+            self.assertEqual(ep["assets"][a]["claims"], ["C2"])
+        self.assertIn("i_card", {g["id"] for g in spec["graphics"]})
+
+    def test_unknown_claim_is_an_error_and_low_confidence_is_dropped_and_reported(self):
+        with self.assertRaises(pl.PlanError):
+            self.go([self.card(claims=["C99"])])
+        ep, spec = self.go([self.card(claims=["C4"])])
+        self.assertEqual([d["id"] for d in ep["infographics_dropped"]], ["i_card"])
+        self.assertNotIn("i_card", {g["id"] for g in spec["graphics"]})
+
+    def test_media_that_is_not_verified_is_dropped(self):
+        g = {"type": "compare", "title": "T", "source": "S", "left": {"file": "media/assets/x.jpg", "label": "L", "credit": "C"}, "right": {"file": "media/assets/x.jpg", "label": "L", "credit": "C"}}
+        ep, _ = self.go([{"id": "i_c", "chapter": "plan", "claims": ["C2"], "graphic": g}])
+        self.assertIn("not VERIFIED", ep["infographics_dropped"][0]["reason"])
+
+    def test_hook_and_close_are_built_by_rule_so_a_scene_placed_there_is_reported_not_lost(self):
+        ep, _ = self.go([self.card(chapter="hook")])
+        self.assertIn("built by rule", ep["infographics_dropped"][0]["reason"])
+
+    def test_a_scene_that_closes_its_chapter_is_not_followed_by_a_filler_map_beat(self):
+        ep0, _ = self.go([self.card(chapter="method", claims=[], exempt=True)])
+        ep1, _ = self.go([self.card(chapter="method", claims=[], exempt=True, closes_chapter=True)])
+        maps = lambda ep: len([v for c in ep["chapters"] if c["id"] == "method" for v in c["visuals"] if v.get("kind") not in ("graphic", "still", "video")])
+        self.assertLessEqual(maps(ep1), maps(ep0))
+        if maps(ep0) > 1:
+            self.assertEqual(maps(ep1), maps(ep0) - 1)
+            self.assertTrue(any(d.get("reason") == "a scene closes this chapter" for d in ep1["planner_dropped"]))
+
+    def test_author_can_cap_the_map_beats_of_a_chapter_carried_by_scenes(self):
+        self.n["max_map_beats"] = {"plan": 1}
+        ep, _ = self.go([self.card()])
+        maps = [v for c in ep["chapters"] if c["id"] == "plan" for v in c["visuals"] if v.get("kind") not in ("graphic", "still", "video")]
+        self.assertLessEqual(len(maps), 1)
+
+    def test_exempt_flag_reaches_every_step_asset(self):
+        ep, _ = self.go([self.card(claims=[], exempt=True)])
+        self.assertTrue(ep["assets"]["i_card_s1"]["exempt"] and ep["assets"]["i_card"]["exempt"])
+
+    def test_ref_places_an_existing_graphic_at_a_sentence_and_the_claim_rules_do_not_repeat_it(self):
+        ep, _ = self.go([{"id": "i_t", "chapter": "plan", "ref": "g_tiers", "anchor_text": "Outlet reported", "min_s": 6}])
+        uses = [v for c in ep["chapters"] for v in c["visuals"] if v.get("asset") == "g_tiers"]
+        self.assertEqual(len(uses), 1)
+        self.assertEqual(uses[0]["anchor_text"], "Outlet reported")
+
+
+class Media2(unittest.TestCase):
+    def test_media_shown_inside_an_infographic_is_not_also_a_full_frame_still(self):
+        from PIL import Image
+        import hashlib
+        d = tempfile.mkdtemp()
+        make(d)
+        os.makedirs(os.path.join(d, "media", "assets"))
+        png = os.path.join(d, "media", "assets", "p.jpg")
+        Image.new("RGB", (1041, 694), (120, 90, 60)).save(png)
+        e = {"id": "p", "scene": "plan", "title": "Photo", "page_url": "https://example.org/p", "author": "A", "license": "Public Domain", "kind": "photo", "status": "VERIFIED",
+             "local_path": "media/assets/p.jpg", "sha256": hashlib.sha256(open(png, "rb").read()).hexdigest(), "retrieved": "2026-10-21", "attribution_text": "A", "depicts_reality": True}
+        json.dump({"schema": "yt-media-ledger/1", "entries": [e]}, open(os.path.join(d, "media", "ledger.json"), "w"))
+        n = json.load(open(os.path.join(d, "research", "notes.json")))
+        g = {"type": "compare", "title": "T", "source": "S", "left": {"file": "media/assets/p.jpg", "label": "L", "credit": "C"}, "right": {"file": "media/assets/p.jpg", "label": "L", "credit": "C"}}
+        n["infographics"] = [{"id": "i_c", "chapter": "plan", "claims": ["C2"], "graphic": g}]
+        json.dump(n, open(os.path.join(d, "research", "notes.json"), "w"))
+        ep, _ = pl.plan(d)
+        self.assertEqual([v for c in ep["chapters"] for v in c["visuals"] if v.get("kind") == "still"], [])
+        self.assertNotIn("m_p", ep["assets"])
+
+
 if __name__ == "__main__":
     unittest.main()

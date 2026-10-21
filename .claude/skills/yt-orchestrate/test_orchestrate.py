@@ -403,6 +403,19 @@ class WithVoiceStub(Base):
         self.assertGreaterEqual(r["seconds"], 20)
         self.assertIn("-->", srt)
         self.assertFalse(os.path.exists(self.p("render", "final.mp4")))
+        # a stretch from the middle: starts at a shot boundary, narration / captions / shots all re-based to 0, never touches the full render
+        tl = json.load(open(self.p("timeline.json")))
+        mid = tl["shots"][len(tl["shots"]) // 2]["start"]
+        r = self.orch("render-test", "--slug", self.slug, "--start", str(mid + 0.4), "--seconds", "10", "--name", "mid", env=env)[0]
+        self.assertAlmostEqual(r["from"], mid, places=2)
+        t2 = json.load(open(self.p("render", "mid", "timeline.mid.json")))
+        self.assertAlmostEqual(t2["shots"][0]["start"], 0.0, places=2)
+        first = open(self.p("render", "mid", "captions.mid.srt")).read().splitlines()[1]
+        self.assertTrue(first.startswith("00:00:0"), first)
+        vm = json.load(open(self.p("render", "mid", "narration.mid.voice.json")))
+        self.assertAlmostEqual(vm["excerpt_from"], mid, places=2)
+        self.assertGreaterEqual(vm["words"][0]["start"], -0.06)
+        self.assertFalse(os.path.exists(self.p("render", "final.mp4")))
 
     def approve(self, aid):
         plan = json.load(open(self.p("voice", "plan.json")))

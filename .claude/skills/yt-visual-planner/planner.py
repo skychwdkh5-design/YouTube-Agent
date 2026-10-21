@@ -208,6 +208,62 @@ def plan(root):
             d["anchor_year"] = str(anchor_year)
         return d
 
+    media_ok, media_pending = load_media(root)
+    ledger_paths = {e["local_path"]: e for e in media_ok}
+    info_vis, info_dropped = {}, []
+    closers = set()                                               # chapters whose last spoken line has its own scene: no filler map beat may follow it
+    embedded = set()                                              # media shown inside an infographic panel is not also a full-frame still
+    info_refs = {it["ref"] for it in notes.get("infographics") or [] if it.get("ref")}     # a graphic placed by hand is not also placed by the claim rules
+    for it in notes.get("infographics") or []:
+        iid, cid_ = it["id"], it["chapter"]
+        if cid_ in ("hook", "close"):
+            info_dropped.append({"id": iid, "reason": f"chapter {cid_} is built by rule (opening beats and the closing recap); put the scene in another chapter"}); continue
+        if it.get("ref"):                                      # an already generated graphic placed at a chosen sentence
+            if it["ref"] not in gid:
+                info_dropped.append({"id": iid, "reason": f"ref {it['ref']} does not exist"}); continue
+            v = gr(it["ref"], gid[it["ref"]]["claims"], it.get("min_s", 5), it.get("anchor_claims"))
+        else:
+            g = dict(it["graphic"], id=iid)
+            miss = [c for c in it.get("claims", []) if c not in claims]
+            if miss:
+                raise PlanError(f"infographic {iid} cites unknown claims {miss}")
+            low = [c for c in it.get("claims", []) if claims[c]["tier"] != "hypothesis" and claims[c]["confidence"] == "low"]
+            if low:
+                info_dropped.append({"id": iid, "reason": f"cites low-confidence claims {low}"}); continue
+            media_used = sorted(set(re.findall(r"media/assets/[A-Za-z0-9_.\-]+", json.dumps(g))))
+            bad = [u for u in media_used if u not in ledger_paths]
+            if bad:
+                info_dropped.append({"id": iid, "reason": f"uses media whose rights are not VERIFIED: {bad}"}); continue
+            for u in re.findall(r"evidence/[A-Za-z0-9_./\-]+\.(?:png|json)", json.dumps(g)):
+                if not os.path.exists(os.path.join(root, u)):
+                    raise PlanError(f"infographic {iid} needs {u}, which does not exist (evidence stage)")
+            cr = it.get("credit") or "Graphic: OrbitalAtlas"
+            gfx.append(g)
+            embedded.update(media_used)
+            ids_ = it.get("claims", [])
+            steps = it.get("steps")
+            if steps:
+                layer_assets = [f"{iid}_s{n}" for n in range(1, len(steps))] + [iid]
+                for n, a_ in enumerate(layer_assets[:-1], 1):
+                    assets[a_] = {"src": f"graphics/{iid}.step{n}.png", "kind": "graphic", "credit": cr, "group": iid, "claims": ids_, **({"exempt": True} if it.get("exempt") else {})}
+                assets[iid] = {"src": f"graphics/{iid}.png", "kind": "graphic", "credit": cr, "group": iid, "claims": ids_, **({"exempt": True} if it.get("exempt") else {})}
+                v = {"asset": layer_assets[0], "kind": "graphic", "min_s": it.get("min_s", 12), "claims": ids_, "anchor": "claim", "anchor_text": steps[0]["anchor_text"],
+                     "steps": [{"asset": a_, "anchor_text": st["anchor_text"]} for a_, st in zip(layer_assets, steps)]}
+            else:
+                assets[iid] = {"src": f"graphics/{iid}.png", "kind": "graphic", "credit": cr, "group": iid, "claims": ids_, **({"exempt": True} if it.get("exempt") else {})}
+                v = {"asset": iid, "kind": "graphic", "min_s": it.get("min_s", 6), "claims": ids_, "anchor": "claim"}
+            if it.get("anchor_claims"):
+                v["anchor_claims"] = list(it["anchor_claims"])
+            if it.get("anchor_year"):
+                v["anchor_year"] = str(it["anchor_year"])
+        if it.get("anchor_text") and not v.get("steps"):
+            v["anchor_text"] = it["anchor_text"]
+        if not v.get("claims") and not v.get("anchor_text"):
+            v.pop("anchor", None)
+        info_vis.setdefault(cid_, []).append(v)
+        if it.get("closes_chapter"):
+            closers.add(cid_)
+
     import itertools
     cyc = itertools.cycle(years)
     chapters, hook_done, dropped = [], False, []
@@ -239,12 +295,12 @@ def plan(root):
         for c in cl:
             t = c["tier"]
             if t == "original" and "g_scale" in gid and "g_scale" not in seen:
-                vis.append(gr("g_scale", gid["g_scale"]["claims"], 5, [c["id"]])); seen.add("g_scale")
+                vis.append(gr("g_scale", gid["g_scale"]["claims"], 5, [x["id"] for x in cl if x["tier"] == "original" and x.get("scale_km")] or [c["id"]])); seen.add("g_scale")      # it illustrates the claim that carries the announced length
                 vis.append(img(last, [15, 9]))
-            elif t in ("media", "org") and "g_reports" in gid and "g_reports" not in seen:
+            elif t in ("media", "org") and "g_reports" in gid and "g_reports" not in seen and "g_reports" not in info_refs:
                 vis.append(gr("g_reports", gid["g_reports"]["claims"], 6, [c["id"]])); seen.add("g_reports")
-                vis.append(img(next(cyc), [14, 8]))
-                vis.append(img(next(cyc), [8, 14], seg))
+                vis.append(img(last, [14, 8]))
+                vis.append(img(last, [8, 14], seg))
             elif t == "science" and "sci" not in seen:
                 vis.append(img(first, [15, 9])); vis.append(img(mid, [9, 15], seg)); vis.append(img(last, [15, 7])); vis.append(img(next(cyc), [7, 15], seg)); seen.add("sci")
             elif t == "observation":
@@ -264,11 +320,11 @@ def plan(root):
                         vis.append(img(y, [15, 9] if n_ % 2 == 0 else [9, 15], c.get("focus"), claims_=[c["id"]], anchor="year"))
                 elif f"obs{c['id']}" not in seen:
                     seen.add(f"obs{c['id']}")
-                    vis.append(img(next(cyc) if not c.get("visual", True) else last, [10, 6], c.get("focus") or seg, claims_=[c["id"]]))
+                    vis.append(img(last, [10, 6], c.get("focus") or seg, claims_=[c["id"]]))
                 hn = next((k for k in gid if k.startswith(f"g_hero_{c['id'].lower()}")), None)
                 if hn:
                     vis.append(gr(hn, [c["id"]], 6, anchor_year=years[-1]))
-            elif t == "hypothesis" and "g_tiers" in gid and "g_tiers" not in seen:
+            elif t == "hypothesis" and "g_tiers" in gid and "g_tiers" not in seen and "g_tiers" not in info_refs:
                 vis.append(gr("g_tiers", gid["g_tiers"]["claims"], 5, [c["id"]])); seen.add("g_tiers")
         if cid == "close":                       # closing recap in the order the narrator says it: time-lapse, PROMISED, REPORTED, OBSERVED, then pull back (distinct families: no long holds)
             o2 = next((c for c in obs if len(c.get("years") or []) == 2), None)
@@ -283,29 +339,49 @@ def plan(root):
                 vis.append(gr(hn, [o2["id"]], 5))
             vis.append(img(last, [10, 6], seg, family="close_view", min_s=3))
             vis.append(img(last, [8, 24], None, family="close_wide", min_s=3))       # last line: pull back to the whole stretch
+        if cid != "close":
+            vis = info_vis.get(cid, []) + vis       # explicit infographics first: truncation drops fillers, never them; the storyboard places each at its sentence
         if not vis:
             vis.append(img(last, [15, 9]))
-        if len(vis) > 10:
+        if len(vis) > 10 + len(info_vis.get(cid, [])):
             dropped.append({"chapter": cid, "dropped": [v.get("asset") or str(v.get("wipe")) for v in vis[10:]]})
-        vis = vis[:10]                           # no chapter is a slideshow of everything it cites; what was dropped is reported
-        need = -(-int(words / 2.45 - 5 * len([v for v in vis if v.get("kind") == "graphic"])) // 8)     # one picture per ~8 s of narration that graphics do not cover
+        vis = vis[:10 + len(info_vis.get(cid, []))]       # no chapter is a slideshow of everything it cites; what was dropped is reported
+        need = -(-int(max(words / 2.45 - sum(v.get("min_s", 5) for v in vis if v.get("kind") == "graphic"), 0)) // 8)     # one picture per ~8 s of narration that graphics do not cover
         k_ = 0
         while len([v for v in vis if v.get("kind") != "graphic"]) < min(need, 8):
-            vis.append(img(next(cyc), [15, 8] if k_ % 2 == 0 else [8, 15], seg if k_ % 2 else None)); k_ += 1
+            vis.append(img(last, [15, 8] if k_ % 2 == 0 else [8, 15], seg if k_ % 2 else None)); k_ += 1       # the latest scene at alternating scales: never a year flip the narration does not tell
         while len([v for v in vis if v.get("kind") != "graphic"]) < 1:
             vis.append(img(last, [15, 9]))
         dur = words / 2.45
         if len(vis) < 3 and dur >= 9:
             vis.append(img(mid, [9, 14]))
         dur = words / 2.45
-        while len(vis) > 1 and 2.0 * len([v for v in vis if v.get("kind") == "graphic"]) + 2.5 * len([v for v in vis if v.get("kind") != "graphic"]) > dur:
-            gone = vis.pop()                    # the chapter is too short for this many pictures: drop from the end and say so
+        full = ("graphic", "still", "video")
+        def seconds_needed():
+            """What the storyboard will ask of this chapter: full-frame visuals keep min_s (a stepped graphic up to 40 s, any other 7 s); every map beat needs at least 2.5 s."""
+            return (sum(min(max(v.get("min_s", 4.0), 2.0), 40.0 if v.get("steps") else 7.0) for v in vis if v.get("kind") in full)
+                    + 2.5 * len([v for v in vis if v.get("kind") not in full]))
+        while len(vis) > 1 and seconds_needed() > dur:
+            maps_ = [i for i, v in enumerate(vis) if v.get("kind") not in full]
+            if len(maps_) > 1:                  # too many pictures for this chapter: map beats go first (the last one), the graphics that carry the claims stay
+                gone = vis.pop(maps_[-1])
+            elif len(vis) > 1 and sum(1 for v in vis if v.get("kind") in full and not v.get("steps")) and not info_vis.get(cid):
+                gone = vis.pop()                # no explicit scenes in this chapter: the old rule (drop from the end)
+            else:
+                break
             dropped.append({"chapter": cid, "dropped": [gone.get("asset") or str(gone.get("wipe"))], "reason": f"chapter is {dur:.1f}s"})
+        cap_maps = (notes.get("max_map_beats") or {}).get(cid)           # an author's cap: a chapter carried by explicit scenes needs few map beats between them
+        while cap_maps is not None and sum(1 for v in vis if v.get("kind") not in full) > (cap_maps if sum(1 for v in vis if v.get("kind") in full) >= 3 else max(cap_maps, 1)):
+            gone = vis.pop(max(i for i, v in enumerate(vis) if v.get("kind") not in full))
+            dropped.append({"chapter": cid, "dropped": [gone.get("asset") or str(gone.get("wipe"))], "reason": f"notes.max_map_beats caps {cid} at {cap_maps}"})
+        if cid in closers:
+            last_map = max((i for i, v in enumerate(vis) if v.get("kind") not in ("graphic", "still", "video")), default=None)
+            if last_map is not None and sum(1 for v in vis if v.get("kind") not in ("graphic", "still", "video")) > 1:
+                dropped.append({"chapter": cid, "dropped": [vis.pop(last_map).get("asset") or "wipe"], "reason": "a scene closes this chapter"})
         chapters.append({"id": cid, "visuals": vis})
-    media_ok, media_pending = load_media(root)
     media_gaps = []
     for ch in chapters:
-        mine = [e for e in media_ok if e["scene"] == ch["id"]]
+        mine = [e for e in media_ok if e["scene"] == ch["id"] and e["local_path"] not in embedded]
         for e in mine:
             aid = f"m_{e['id']}"
             cr = e.get("attribution_text") or f"{e['author']} / {e['license']}"
@@ -336,7 +412,7 @@ def plan(root):
             media_gaps.append({"chapter": ch["id"], "map_beats_in_a_row": mr, "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"})
     ep = {"slug": os.path.basename(os.path.abspath(root)), "title": notes.get("title", "TBD"), "titles": notes.get("titles", []), "grid": grid_rel, "focus": focus,
           "graphics": "graphics_spec.json", "evidence": {"stacks": [{k: v for k, v in s.items() if k != "role"} for s in geo["stacks"]]}, "assets": assets, "chapters": chapters,
-          "generated_by": "yt-visual-planner", "planner_dropped": dropped, "media_pending": media_pending, "media_gaps": media_gaps, "visual_choices": notes.get("visual_choices") or {}}
+          "generated_by": "yt-visual-planner", "planner_dropped": dropped, "media_pending": media_pending, "media_gaps": media_gaps, "visual_choices": notes.get("visual_choices") or {}, "infographics_dropped": info_dropped}
     spec = {"schema": "yt-graphics/1", "graphics": gfx}
     return ep, spec
 

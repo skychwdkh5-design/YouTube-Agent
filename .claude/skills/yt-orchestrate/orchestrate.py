@@ -189,6 +189,12 @@ def run_evidence(ep, ctx):
         if c != 0:
             raise Halt("blocked", f"yt-sentinel {stk['name']}: {d.get('status')} {d.get('error')} {d.get('missing', '')}")
         outs += [f"{out}/provenance.json", f"{out}/grid.json"]
+    if geo.get("landsat_spec"):                       # a second instrument on the same ground (free USGS Landsat browse GeoTIFFs); idempotent
+        if not os.path.exists(ep.p("evidence", "landsat", "grid.json")) or ctx["force"]:
+            c, d = tool([os.path.join(SK, "yt-satellite", "landsat_stack.py"), "--spec", geo["landsat_spec"], "--root", ".", "--confirm"], ep.root, 1800)
+            if c != 0:
+                raise Halt("blocked", f"landsat_stack: {d.get('status')} {d.get('error')}")
+        outs += ["evidence/landsat/provenance.json", "evidence/landsat/grid.json"]
     if geo.get("ndwi_bbox"):
         if not os.path.exists(ep.p("evidence", "ndwi.json")) or ctx["force"]:
             c, d = tool([os.path.join(SK, "yt-sentinel", "sentinel.py"), "ndwi-series", "--provenance", f"evidence/{geo['stacks'][0]['name']}/provenance.json",
@@ -196,7 +202,7 @@ def run_evidence(ep, ctx):
             if c != 0:
                 raise Halt("blocked", f"yt-sentinel ndwi-series: {d.get('error')}")
         outs.append("evidence/ndwi.json")
-    return outs, f"{len(geo['stacks'])} stacks" + (" + NDWI series" if geo.get("ndwi_bbox") else "")
+    return outs, f"{len(geo['stacks'])} stacks" + (" + Landsat stack" if geo.get("landsat_spec") else "") + (" + NDWI series" if geo.get("ndwi_bbox") else "")
 
 
 def run_script(ep, ctx):
@@ -438,8 +444,14 @@ def _srt_cues(text):
     return out
 
 
-def render_test(slug, seconds=30.0, run_it=False):
-    """Short render of the first N seconds on the real timeline, the real narration (trimmed copy) and real captions. Never the full video."""
+def _srt_time(t):
+    ms = int(round(t * 1000))
+    return f"{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d},{ms % 1000:03d}"
+
+
+def render_test(slug, seconds=30.0, run_it=False, start=0.0, name="test"):
+    """Short render of N seconds on the real timeline, the real narration (trimmed copy) and real captions. Never the full video.
+    start > 0 renders a stretch from the middle: it begins at the shot boundary at or before `start`, so every shot is shown whole and the camera moves from its first frame."""
     ep = Ep(slug)
     need = ["timeline.json", "voice/narration.wav", "voice/narration.voice.json", "captions/captions.srt"]
     miss = [f for f in need if not os.path.exists(ep.p(f))]
@@ -451,35 +463,40 @@ def render_test(slug, seconds=30.0, run_it=False):
     tl = json.load(open(ep.p("timeline.json")))
     meta = json.load(open(ep.p("voice", "narration.voice.json")))
     allcues = _srt_cues(open(ep.p("captions", "captions.srt"), encoding="utf-8").read())
+    t0 = max([x["start"] for x in tl["shots"] if x["start"] <= start + 1e-6] or [0.0]) if start > 0 else 0.0
     # cut at the end of the first caption cue that reaches the requested length: never mid-sentence, never a stretch without subtitles
-    last = next((c for c in allcues if c[1] >= seconds), allcues[-1] if allcues else None)
+    last = next((c for c in allcues if c[1] >= t0 + seconds), allcues[-1] if allcues else None)
     if last is None:
         return {"status": "blocked", "error": "captions.srt has no cues"}, 1
-    words = [w for w in meta["words"] if w["end"] <= last[1] + 0.05]
+    words = [dict(w, start=round(w["start"] - t0, 3), end=round(w["end"] - t0, 3)) for w in meta["words"] if w["start"] >= t0 - 0.05 and w["end"] <= last[1] + 0.05]
     if not words:
         return {"status": "blocked", "error": "no word ends within the test window"}, 1
     t_end = round(last[1] + 0.4, 3)
-    d = ep.p("render", "test")
+    d = ep.p("render", name)
     os.makedirs(d, exist_ok=True)
-    wav = os.path.join(d, "narration.test.wav")
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", ep.p("voice", "narration.wav"), "-t", f"{t_end:.3f}", wav], check=True)
-    m2 = dict(meta, words=words, audio="narration.test.wav", audio_sha256=sha(wav), duration=probe_duration(wav), characters=sum(len(w["text"]) for w in words),
-              text=" ".join(w["text"] for w in words), text_sha256=hashlib.sha256(" ".join(w["text"] for w in words).encode()).hexdigest(), test_excerpt=True)
-    write_json(os.path.join(d, "narration.test.voice.json"), m2)
-    cues = [c for c in allcues if c[1] <= last[1] + 0.05]
-    open(os.path.join(d, "captions.test.srt"), "w", encoding="utf-8").write("\n\n".join(f"{i}\n" + "\n".join(b.splitlines()[1:]) for i, (_, _, b) in enumerate(cues, 1)) + "\n")
-    t = dict(tl, shots=[x for x in tl["shots"] if x["start"] < t_end], end={"seconds": max(1, round(m2["duration"] + 0.5, 2))})
-    t["voice"] = {"src": "render/test/narration.test.wav", "meta": "render/test/narration.test.voice.json"}
-    t["captions"] = {"src": "render/test/captions.test.srt", "preset": "default"}
-    write_json(os.path.join(d, "timeline.test.json"), t)
-    base = [os.path.join(SK, "yt-render", "render.py"), "--timeline", "render/test/timeline.test.json", "--media-root", "."]
+    wav = os.path.join(d, f"narration.{name}.wav")
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{t0:.3f}", "-i", ep.p("voice", "narration.wav"), "-t", f"{t_end - t0:.3f}", wav], check=True)
+    m2 = dict(meta, words=words, audio=f"narration.{name}.wav", audio_sha256=sha(wav), duration=probe_duration(wav), characters=sum(len(w["text"]) for w in words),
+              text=" ".join(w["text"] for w in words), text_sha256=hashlib.sha256(" ".join(w["text"] for w in words).encode()).hexdigest(), test_excerpt=True, excerpt_from=t0)
+    write_json(os.path.join(d, f"narration.{name}.voice.json"), m2)
+    cues = [c for c in allcues if c[0] >= t0 - 0.05 and c[1] <= last[1] + 0.05]
+    def shifted(c):
+        body = c[2].splitlines()
+        arrow = next(i for i, ln in enumerate(body) if "-->" in ln)
+        return "\n".join([f"{_srt_time(c[0] - t0)} --> {_srt_time(c[1] - t0)}"] + body[arrow + 1:])
+    open(os.path.join(d, f"captions.{name}.srt"), "w", encoding="utf-8").write("\n\n".join(f"{i}\n" + shifted(c) for i, c in enumerate(cues, 1)) + "\n")
+    t = dict(tl, shots=[dict(x, start=round(x["start"] - t0, 3)) for x in tl["shots"] if t0 - 1e-6 <= x["start"] < t_end], end={"seconds": max(1, round(m2["duration"] + 0.5, 2))})
+    t["voice"] = {"src": f"render/{name}/narration.{name}.wav", "meta": f"render/{name}/narration.{name}.voice.json"}
+    t["captions"] = dict(tl.get("captions") or {}, src=f"render/{name}/captions.{name}.srt")
+    write_json(os.path.join(d, f"timeline.{name}.json"), t)
+    base = [os.path.join(SK, "yt-render", "render.py"), "--timeline", f"render/{name}/timeline.{name}.json", "--media-root", "."]
     c, plan = tool(base, ep.root)
-    res = {"status": plan.get("status"), "seconds": round(m2["duration"], 2), "shots": len(t["shots"]), "plan_error": plan.get("error"), "warnings": plan.get("warnings") or (plan.get("plan") or {}).get("warnings")}
+    res = {"status": plan.get("status"), "from": t0, "seconds": round(m2["duration"], 2), "shots": len(t["shots"]), "plan_error": plan.get("error"), "warnings": plan.get("warnings") or (plan.get("plan") or {}).get("warnings")}
     if not run_it:
-        res["next"] = f"python3 .claude/skills/yt-orchestrate/orchestrate.py render-test --slug {slug} --seconds {seconds:g} --run"
+        res["next"] = f"python3 .claude/skills/yt-orchestrate/orchestrate.py render-test --slug {slug} --start {t0:g} --seconds {seconds:g} --name {name} --run"
         return res, 0 if plan.get("status") in ("confirm_required", "ok") else 1
-    c, out = tool(base + ["--output", "render/test/test.mp4", "--confirm", "--overwrite"], ep.root, 900)
-    res.update(status=out.get("status"), output="render/test/test.mp4", error=out.get("error"))
+    c, out = tool(base + ["--output", f"render/{name}/{name}.mp4", "--confirm", "--overwrite"], ep.root, 1800)
+    res.update(status=out.get("status"), output=f"render/{name}/{name}.mp4", error=out.get("error"))
     return res, 0 if c == 0 else 1
 
 
@@ -685,7 +702,7 @@ def main(argv=None):
     r.add_argument("--force", action="store_true"); r.add_argument("--dry-run", action="store_true")
     r.add_argument("--allow-paid", action="store_true", help="permit yt-voice if approvals/voice.json matches the script")
     r.add_argument("--allow-render", action="store_true", help="permit the full render if approvals/render.json matches")
-    t = sub.add_parser("render-test"); t.add_argument("--slug", required=True); t.add_argument("--seconds", type=float, default=30.0); t.add_argument("--run", action="store_true")
+    t = sub.add_parser("render-test"); t.add_argument("--slug", required=True); t.add_argument("--seconds", type=float, default=30.0); t.add_argument("--start", type=float, default=0.0); t.add_argument("--name", default="test"); t.add_argument("--run", action="store_true")
     pk = sub.add_parser("package"); pk.add_argument("--slug", required=True)
     s = sub.add_parser("status"); s.add_argument("--slug", required=True)
     a = ap.parse_args(argv)
@@ -695,7 +712,7 @@ def main(argv=None):
         import package
         package.main(a.slug); return 0
     elif a.cmd == "render-test":
-        res, code = render_test(a.slug, a.seconds, a.run)
+        res, code = render_test(a.slug, a.seconds, a.run, a.start, a.name)
     elif a.cmd == "status":
         res, code = status(a.slug)
     else:

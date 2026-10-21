@@ -115,6 +115,28 @@ def run(root, stage_review=True):
         it["allowed"] = allowed(ids)
         items.append(it)
 
+    def fgrid(fr):
+        """The grid of a frame: its own (a Landsat panel) or the episode's."""
+        return json.load(open(os.path.join(root, fr[3]))) if len(fr) > 3 and fr[3] else grid
+
+    def file_review(it, png_rel):
+        """A graphic with no map in it (chart, card, diagram): the finished picture itself is the frame a reviewer must look at (bound to its sha256 and the claim set)."""
+        from PIL import Image
+        out = os.path.join(root, "qa", "frames", re.sub(r"[^A-Za-z0-9_.-]", "_", it["id"]) + "_0.png")
+        os.makedirs(os.path.dirname(out), exist_ok=True)
+        with Image.open(os.path.join(root, png_rel)) as im:
+            im.convert("RGB").resize((1280, 720)).save(out)
+        f_ = {"file": os.path.relpath(out, root), "sha256": sha(out), "stack": png_rel, "center": None, "width_km": None}
+        it["frames"] = [f_]
+        rv = next((r for r in reviews if r.get("frame_sha256") == f_["sha256"] and sorted(r.get("claims", [])) == sorted(it["claims"])), None)
+        f_["review"] = rv["verdict"] if rv else None
+        if rv and rv["verdict"] == "supports":
+            it["status"], it["why"] = "REVIEWED_BY_" + rv["reviewer"].upper(), rv.get("note", "")[:300]
+        elif rv and rv["verdict"] == "does_not_support":
+            it["status"], it["why"] = "FAIL", "review: does_not_support - " + rv.get("note", "")
+        else:
+            it["status"], it["why"] = "NEEDS_VISUAL_REVIEW", "a chart / card / diagram: a reviewer must compare its numbers and wording with the claims"
+
     def image_assertion(it, frames):
         """Machine check if every claim defines one; otherwise a reviewable frame."""
         ids = it["claims"]
@@ -124,7 +146,7 @@ def run(root, stage_review=True):
             anchors = [c_["at"] for c_ in claims[i].get("callouts", [])] if i in claims else []
             anchor = claims[i].get("anchor") if i in claims else None
             pts = ([anchor] if anchor else anchors[:1]) if i in claims else []
-            if chk and pts and frames and not all(view_contains(grid, c_, w_, pts[0]) for (_, c_, w_) in frames):
+            if chk and pts and frames and not all(view_contains(fgrid(fr), fr[1], fr[2], pts[0]) for fr in frames):
                 results.append((None, "data check exists, but this view does not contain the measured location"))
                 continue
             if chk and not pts:
@@ -146,9 +168,10 @@ def run(root, stage_review=True):
             it["status"], it["why"] = "FAIL", "; ".join(r[1] for r in results if r[0] is False)
             return
         fl = []
-        for k, (stack_rel, center, wkm) in enumerate(frames):
+        for k, fr in enumerate(frames):
+            stack_rel, center, wkm = fr[:3]
             out = os.path.join(root, "qa", "frames", re.sub(r"[^A-Za-z0-9_.-]", "_", it["id"]) + f"_{k}.png")
-            fl.append({"file": os.path.relpath(out, root), "sha256": crop_frame(root, stack_rel, grid, center, wkm, out), "stack": stack_rel, "center": center, "width_km": wkm})
+            fl.append({"file": os.path.relpath(out, root), "sha256": crop_frame(root, stack_rel, fgrid(fr), center, wkm, out), "stack": stack_rel, "center": center, "width_km": wkm})
         it["frames"] = fl
         sig = sorted(ids)
         found = []
@@ -192,8 +215,9 @@ def run(root, stage_review=True):
         if g0.get("type") == "graphic":
             gid = g0["asset"]
             a = ep["assets"][gid]
+            spec_id = a.get("group", gid)
             it = {"id": f"{shot['id']}:graphic:{gid}", "kind": "graphic", "text": gid, "shot": shot["id"], "claims": a.get("claims", [])}
-            g = spec.get(gid, {})
+            g = spec.get(spec_id, {})
             texts = [g.get("title", "")] + list(g.get("steps", [])) + [x.get("label", "") for x in g.get("arrows", [])] + [x["text"] for x in g.get("callouts", [])]
             it["texts"] = [t for t in texts if t]
             tiers = {claims[i]["tier"] for i in it["claims"] if i in claims}
@@ -208,15 +232,16 @@ def run(root, stage_review=True):
             else:
                 frames = []
                 for side in ("left", "right"):
-                    if g.get(side):
+                    if g.get(side) and g[side].get("geo"):
                         gg = g[side]["geo"]
-                        frames.append((gg["stack"], gg["center"], gg["width_km"]))
+                        frames.append((gg["stack"], gg["center"], gg["width_km"], gg.get("grid") if gg.get("grid") != ep.get("grid") else None))
                 if g.get("image"):
-                    frames.append((g["image"]["stack"], g["image"]["center"], g["image"]["width_km"]))
-                if frames:
+                    frames.append((g["image"]["stack"], g["image"]["center"], g["image"]["width_km"], g["image"].get("grid") if g["image"].get("grid") != ep.get("grid") else None))
+                if frames and not any(g.get(side, {}).get("file") for side in ("left", "right")):
                     image_assertion(it, frames)
                 else:
-                    it.update(status="NEEDS_VISUAL_REVIEW", why="no frame")
+                    final = f"graphics/{spec_id}.png"
+                    file_review(it, final if os.path.exists(os.path.join(root, final)) else a["src"])
             finish(it)
         # 2b) external media (photo / NASA image / video): rights come from the ledger, the picture must be the registered file
         if g0.get("type") in ("still", "video"):

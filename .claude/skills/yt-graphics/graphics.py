@@ -865,7 +865,7 @@ class GeoView:
     """A 16:9 view of a yt-geo stack PNG, placed by lon/lat with a width in km. The scale comes only
     from the grid's projection (EPSG) and pixel size - it is never assumed."""
     def __init__(self, spec, root, where, size):
-        _keys(spec, ("stack", "grid", "center", "width_km"), where)
+        _keys(spec, ("stack", "grid", "center", "width_km", "resample"), where)
         gpath = _resolve(spec.get("grid"), root, f"{where}.grid")
         try:
             with open(gpath) as f:
@@ -896,7 +896,10 @@ class GeoView:
         self.box = (cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2)
         if self.box[0] < -0.01 or self.box[1] < -0.01 or self.box[2] > grid["width"] + 0.01 or self.box[3] > grid["height"] + 0.01:
             raise E(f"{where}: a {self.width_km} km view at {c} leaves the imagery")
-        self.image = im.resize(size, Image.BILINEAR, box=self.box)
+        rs = spec.get("resample", "bilinear")
+        if rs not in ("bilinear", "nearest"):
+            raise E(f"{where}.resample must be 'bilinear' or 'nearest'")
+        self.image = im.resize(size, Image.NEAREST if rs == "nearest" else Image.BILINEAR, box=self.box)     # nearest shows the true pixels of the source
         self.m_per_px = self.width_km * 1000 / size[0]          # metres per output pixel (projected grid)
 
     def px(self, lon, lat):
