@@ -90,5 +90,76 @@ class Build(unittest.TestCase):
         self.assertIn("seconds", tl["end"])
 
 
+class Anchors(unittest.TestCase):
+    """A year image / wipe reveal must be on screen when the narrator SAYS the year (the 9-15 s mismatch of the EP005 test render)."""
+    def setUp(self):
+        import tempfile, json
+        self.d = tempfile.mkdtemp()
+        json.dump(GRID, open(os.path.join(self.d, "grid.json"), "w"))
+        self.assets = {f"y{y}": {"src": f"y{y}.png"} for y in (2020, 2022, 2026)}
+        # 40 words; "2022" is word 20 and "2026" is word 28; voice paces 2 words per second
+        text = "## one: One\n" + " ".join(["w"] * 20) + " 2022 " + " ".join(["w"] * 7) + " 2026 " + " ".join(["w"] * 10) + "\n"
+        open(os.path.join(self.d, "script.md"), "w").write(text)
+        self.words = [{"text": "w", "start": i / 2, "end": i / 2 + .4} for i in range(40)]
+        self.vm = {"words": self.words}
+
+    def ep(self, vis):
+        return {"grid": "grid.json", "focus": [35.215, 28.11], "assets": self.assets, "chapters": [{"id": "one", "visuals": vis}]}
+
+    def test_year_image_and_wipe_follow_the_spoken_year(self):
+        vis = [{"asset": "y2020", "zoom": [20, 12]}, {"asset": "y2022", "zoom": [15, 8], "anchor": "year"},
+               {"wipe": ["y2022", "y2026"], "zoom": [8, 6], "family": "w", "min_s": 4, "anchor": "year"}, {"asset": "y2026", "zoom": [6, 3]}]
+        plan, _ = sb.build(self.ep(vis), self.d, self.vm)
+        by = {s["info"]: s for s in plan["shots"]}
+        self.assertAlmostEqual(by["y2022"]["start"], 10.0 - 0.15, places=1)           # word 20 starts at 10.0 s
+        wipe = by["wipe y2022->y2026"]
+        reveal = wipe["start"] + wipe["layers"][1]["t"][0]
+        self.assertAlmostEqual(reveal, 14.0, places=1)                                  # the reveal of 2026 begins at the word "2026" (14.0 s)
+        self.assertTrue(plan["anchors"]["one"])
+
+    def test_without_the_flag_nothing_moves(self):
+        vis = [{"asset": "y2020", "zoom": [20, 12]}, {"asset": "y2022", "zoom": [15, 8]}, {"asset": "y2026", "zoom": [6, 3]}]
+        plan, _ = sb.build(self.ep(vis), self.d, self.vm)
+        self.assertEqual(plan["anchors"], {})
+
+    def test_unspoken_year_is_reported_not_forced(self):
+        vis = [{"asset": "y2020", "zoom": [20, 12]}, {"asset": "y2020", "zoom": [15, 8]}, {"asset": "y2022", "zoom": [6, 3], "anchor": "year"}]
+        self.assertTrue(sb.anchor_durations(vis, [8, 6, 6], [{"w0": 0, "n": 2, "text": "no years here"}], lambda i: i, 0, 20, lambda v: 2.5)[1][0]["status"])
+
+    def test_long_wipe_slot_is_one_reveal_not_a_repeat(self):
+        vis = [{"asset": "y2020", "zoom": [20, 12]}, {"wipe": ["y2022", "y2026"], "zoom": [8, 6], "family": "w", "min_s": 4}]
+        plan, _ = sb.build(self.ep(vis), self.d, self.vm)          # 20 s chapter: the wipe slot is long enough to split
+        wipes = [x for x in plan["shots"] if any(L["type"] == "wipe" for L in x["layers"])]
+        self.assertEqual(len(wipes), 1)
+        self.assertGreater(len([x for x in plan["shots"] if x["info"] == "y2026"]), 0)
+
+    def test_graphics_keep_their_time_when_anchors_stretch_the_gap(self):
+        self.assets["g"] = {"src": "g.png", "kind": "graphic"}
+        vis = [{"asset": "g", "kind": "graphic", "min_s": 3.5}, {"asset": "y2020", "zoom": [20, 12]}, {"asset": "y2022", "zoom": [15, 8], "anchor": "year"}]
+        plan, _ = sb.build(self.ep(vis), self.d, self.vm)
+        self.assertAlmostEqual(plan["shots"][0]["dur"], 3.5, places=1)
+
+    def test_graphic_appears_when_its_claim_is_spoken_not_at_chapter_start(self):
+        """EP005 render review: the 'What was reported' graphic sat under a sentence about buildings because its claim is made at the END of the chapter."""
+        import json
+        self.assets["g"] = {"src": "g.png", "kind": "graphic", "claims": ["C3"]}
+        text = "## one: One\n" + " ".join(["w"] * 20) + " first. {L}\n" + " ".join(["x"] * 19) + " It is only compatible with Semafor. {C3}\n"
+        open(os.path.join(self.d, "script.md"), "w").write(text)
+        vis = [{"asset": "y2020", "zoom": [20, 12]}, {"asset": "g", "kind": "graphic", "min_s": 4, "claims": ["C3"], "anchor": "claim"}, {"asset": "y2022", "zoom": [15, 8]}]
+        plan, _ = sb.build(self.ep(vis), self.d, {"words": [{"text": "w", "start": i / 2, "end": i / 2 + .4} for i in range(len(" ".join(["w"] * 20 + ["first."] + ["x"] * 19 + ["It", "is", "only", "compatible", "with", "Semafor."]).split()))]})
+        g = next(x for x in plan["shots"] if x["info"] == "g")
+        self.assertAlmostEqual(g["start"], 21 * 0.5 - 0.3, places=1)               # the C3 sentence begins at word 21 (10.5 s); the graphic leads it by 0.3 s
+        self.assertNotEqual(plan["shots"][0]["info"], "g")
+
+    def test_graphics_get_push_and_captions_are_kinetic(self):
+        import json
+        vis = [{"asset": "g", "kind": "graphic", "min_s": 4}, {"asset": "y2020", "zoom": [12, 6]}]
+        self.assets["g"] = {"src": "g.png", "kind": "graphic"}
+        plan, _ = sb.build(self.ep(vis), self.d, self.vm)
+        tl = sb.to_timeline(self.ep(vis), plan, self.d, {"src": "n.wav", "meta": "n.json"}, "c.srt")
+        self.assertGreater(tl["shots"][0]["layers"][0]["push"], 0)
+        self.assertEqual(tl["captions"]["style"], "kinetic")
+
+
 if __name__ == "__main__":
     unittest.main()

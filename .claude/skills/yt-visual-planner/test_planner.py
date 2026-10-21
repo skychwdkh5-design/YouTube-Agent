@@ -63,6 +63,23 @@ class Plan(unittest.TestCase):
                     self.assertIn(a, self.ep["assets"], (ch["id"], v))
         self.assertEqual([c["id"] for c in self.ep["chapters"]], ["hook", "plan", "method", "segment", "limits", "close"])
 
+    def test_year_visuals_are_flagged_for_narration_anchoring(self):
+        """The hook's year beats must follow the narrator's words (storyboard anchors them); an establishing beat precedes them."""
+        hook = next(c for c in self.ep["chapters"] if c["id"] == "hook")["visuals"]
+        flagged = [v for v in hook if v.get("anchor") == "year"]
+        self.assertTrue(any("wipe" in v for v in flagged))
+        self.assertTrue(any(v.get("asset") == "y2022" for v in flagged))
+        first_map = next(v for v in hook if v.get("kind") != "graphic")
+        self.assertEqual(first_map["asset"], "y2020")                    # establishing beat: earliest scene, not anchored
+        self.assertNotEqual(first_map.get("anchor"), "year")
+
+    def test_credit_is_printed_once(self):
+        """The renderer's credit pill is the single credit on screen: geo graphics do not print their own."""
+        for g in self.spec["graphics"]:
+            if g["type"] == "geo":
+                self.assertIs(g.get("show_credit"), False, g["id"])
+                self.assertNotIn("· 20", g.get("date", ""))                 # date is a real scene date label, never a repeated year
+
     def test_low_confidence_claims_never_drawn(self):
         text = json.dumps(self.spec)
         self.assertNotIn("C: low", text)
@@ -88,7 +105,9 @@ class Plan(unittest.TestCase):
 
     def test_close_is_compact(self):
         close = next(c for c in self.ep["chapters"] if c["id"] == "close")
-        self.assertLessEqual(len(close["visuals"]), 3)
+        self.assertLessEqual(len(close["visuals"]), 6)                     # tiers, one recap wipe, hero graphic, closing view: never a replay of the film
+        fams = [v.get("family") or v.get("asset") for v in close["visuals"]]
+        self.assertEqual(len(fams), len(set(fams)))
 
     def test_scale_arrow_uses_claim_length(self):
         g = next(g for g in self.spec["graphics"] if g["id"] == "g_scale")

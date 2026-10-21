@@ -153,6 +153,39 @@
    "reviewer": "agent",
    "verdict": "supports",
    "note": "A long straight corridor crosses the full width with the dark green segment at the center; its total length beyond the frame is not shown."
+  },
+  {
+   "item": "shows_033:shot",
+   "frame": 0,
+   "frame_sha256": "b8dd4bcbb06a42f9802da2bef86c9b2032fba50e381633c3de2f7226614ba5ba",
+   "claims": [
+    "C9"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Frame shows a narrow, very straight pale corridor crossing the full width of the frame west to east in the 2023 scene, with a road and compounds to the north; supports corridor present in 2023 (claim C9)."
+  },
+  {
+   "item": "shows_035:shot",
+   "frame": 0,
+   "frame_sha256": "0ca3e826f6e09298729cdb88e6cbf4aec1d53073ae2537a61f61f3ffaecbcfec",
+   "claims": [
+    "C9"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Frame shows the same straight corridor crossing the whole frame in the 2026 scene, plus the dark segment in the middle; supports the corridor still being there in 2026 (C9)."
+  },
+  {
+   "item": "shows_036:shot",
+   "frame": 0,
+   "frame_sha256": "4f5b461dfd41eaeb6b5f51ab7343a9745d3575b060d88f3b910d59e542370bf4",
+   "claims": [
+    "C9"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Tight crop of the 2026 scene: the straight corridor crosses the frame west to east and the dark segment sits on it; supports the corridor still present in 2026 (C9)."
   }
  ]
 }

@@ -115,7 +115,7 @@ def plan(root):
             wy = max(int(y) for y in next(s for s in geo["stacks"] if s["name"] == wide)["years"])
             f2 = geo.get("wide_focus") or focus
             add_graphic({"type": "geo", "id": "g_scale", "title": f"Announced length: {c['scale_km']} km. This frame: about {w} km.", "source": f"Copernicus Sentinel-2 L2A, resampled to {int(wi['grid']['pixel_m'])} m",
-                         "credit": CREDIT.format(y=wy), "date": str(wy), "image": {"stack": f"evidence/{wide}/y{wy}.png", "grid": f"evidence/{wide}/grid.json", "center": f2, "width_km": w},
+                         "credit": CREDIT.format(y=wy), "show_credit": False, "date": date_label(wi["prov"], wy), "image": {"stack": f"evidence/{wide}/y{wy}.png", "grid": f"evidence/{wide}/grid.json", "center": f2, "width_km": w},
                          "arrows": [{"from": [f2[0] - w * 0.0045, f2[1] + w * 0.0007], "to": [f2[0] + w * 0.0045, f2[1] + w * 0.0007], "label": f"{c['scale_km']} km announced length"}],
                          "graticule": False, "scale_bar": True}, [c["id"]], wy)
     rep = sorted([c for c in claims.values() if c["tier"] in ("media", "org") and c["confidence"] != "low"], key=lambda c: c.get("date", ""))
@@ -136,7 +136,7 @@ def plan(root):
                          "right": {"geo": {"stack": f"evidence/{main}/y{ys[1]}.png", "grid": grid_rel, "center": f, "width_km": c.get("compare_km", 8)}, "label": date_label(mi["prov"], ys[1]), "credit": SMALL_CREDIT}},
                         [c["id"]], ys[1])
         if c.get("callouts"):
-            add_graphic({"type": "geo", "id": f"g_hero_{c['id'].lower()}", "title": c["short"], "source": "Copernicus Sentinel-2 L2A, 10 m", "credit": CREDIT.format(y=years[-1]), "date": date_label(mi["prov"], years[-1]),
+            add_graphic({"type": "geo", "id": f"g_hero_{c['id'].lower()}", "title": c["short"], "source": "Copernicus Sentinel-2 L2A, 10 m", "credit": CREDIT.format(y=years[-1]), "show_credit": False, "date": date_label(mi["prov"], years[-1]),
                          "image": {"stack": f"evidence/{main}/y{years[-1]}.png", "grid": grid_rel, "center": c.get("focus") or seg, "width_km": c.get("hero_km", 6)},
                          "callouts": c["callouts"], "scale_bar": True}, [c["id"]], years[-1])
     assets.update(g_assets)
@@ -159,7 +159,10 @@ def plan(root):
         return d
 
     def gr(name, ids, m=5):
-        return {"asset": name, "kind": "graphic", "min_s": m, "claims": ids}
+        d = {"asset": name, "kind": "graphic", "min_s": m, "claims": ids, "anchor": "claim"}
+        if name == "g_reports" and orig:
+            d["anchor_claims"] = [i for i in ids if i != orig[0]["id"]]       # the graphic opens with the promise, but it belongs where the REPORTS are spoken
+        return d
 
     import itertools
     cyc = itertools.cycle(years)
@@ -174,10 +177,14 @@ def plan(root):
             if "g_scale" in gid:
                 vis.append(gr("g_scale", gid["g_scale"]["claims"], 3.5))
             o = next((c for c in cl if c["tier"] == "observation" and len(c.get("years") or []) == 2), None) or next((c for c in obs if len(c.get("years") or []) == 2), None)
-            vis.append(img(o["years"][0] if o else first, [15, 8], None))
+            if o and o["years"][0] != first:         # "year after year": two establishing beats (two different years, each with its date label) before the narrator's year-bound words
+                vis.append(img(first, [22, 14], None))
+                if len(years) > 1:
+                    vis.append(img(years[1], [8, 16], None))
+            vis.append(img(o["years"][0] if o else first, [15, 8], None, anchor="year" if o else None))
             if o:
                 a, b = o["years"]
-                vis.append({"wipe": [f"y{a}", f"y{b}"], "zoom": [8, 6.5], "family": f"wipe_{a}_{b}", "min_s": 4, "claims": [o["id"]]})
+                vis.append({"wipe": [f"y{a}", f"y{b}"], "zoom": [8, 6.5], "family": f"wipe_{a}_{b}", "min_s": 4, "claims": [o["id"]], "anchor": "year"})
             k = next((c for c in cl + obs if c.get("callouts")), None)
             d = img(last, [6.5, 2.8], seg, False, [k["id"]] if k else None)
             if k:
@@ -202,15 +209,15 @@ def plan(root):
                     seen.add(f"obs{c['id']}")
                     ck = c.get("compare_km")
                     z = [ck * 1.6, ck * 1.1] if ck else [15, 10]
-                    vis.append(img(ys[0], z, c.get("focus"), claims_=[c["id"]]))
+                    vis.append(img(ys[0], z, c.get("focus"), claims_=[c["id"]], anchor="year"))
                     gn = next((k for k in gid if k.startswith(f"g_cmp_{ys[0]}_{ys[1]}_{c['id'].lower()}")), None)
                     if gn:
                         vis.append(gr(gn, [c["id"]], 6))
-                    vis.append({"wipe": [f"y{ys[0]}", f"y{ys[1]}"], "zoom": [ck * 1.2, ck * 0.9] if ck else [10, 7], "focus": c.get("focus"), "family": f"wipe_{ys[0]}_{ys[1]}", "min_s": 4, "claims": [c["id"]]})
+                    vis.append({"wipe": [f"y{ys[0]}", f"y{ys[1]}"], "zoom": [ck * 1.2, ck * 0.9] if ck else [10, 7], "focus": c.get("focus"), "family": f"wipe_{ys[0]}_{ys[1]}", "min_s": 4, "claims": [c["id"]], "anchor": "year"})
                 elif len(ys) > 2 and f"obs{c['id']}" not in seen:
                     seen.add(f"obs{c['id']}")
                     for n_, y in enumerate(ys):             # alternate in/out by >= 1.6x so every year is a real composition change
-                        vis.append(img(y, [15, 9] if n_ % 2 == 0 else [9, 15], c.get("focus"), claims_=[c["id"]]))
+                        vis.append(img(y, [15, 9] if n_ % 2 == 0 else [9, 15], c.get("focus"), claims_=[c["id"]], anchor="year"))
                 elif f"obs{c['id']}" not in seen:
                     seen.add(f"obs{c['id']}")
                     vis.append(img(next(cyc) if not c.get("visual", True) else last, [10, 6], c.get("focus") or seg, claims_=[c["id"]]))
@@ -219,15 +226,24 @@ def plan(root):
                     vis.append(gr(hn, [c["id"]], 6))
             elif t == "hypothesis" and "g_tiers" in gid and "g_tiers" not in seen:
                 vis.append(gr("g_tiers", gid["g_tiers"]["claims"], 5)); seen.add("g_tiers")
-        if cid == "close":                       # closing recap: one compact graphic and the latest frame, not a replay of the film
-            vis = ([gr("g_tiers", gid["g_tiers"]["claims"], 5)] if "g_tiers" in gid else []) + [img(last, [15, 6], seg), img(last, [6, 15])]
+        if cid == "close":                       # closing recap in the order the narrator says it: time-lapse, PROMISED, REPORTED, OBSERVED, then pull back (distinct families: no long holds)
+            o2 = next((c for c in obs if len(c.get("years") or []) == 2), None)
+            vis = []
+            if o2:
+                vis.append({"wipe": [f"y{first}", f"y{last}"], "zoom": [16, 10], "family": "wipe_recap", "min_s": 3, "claims": [o2["id"]]})
+            for name in ("g_scale", "g_reports"):
+                if name in gid:
+                    vis.append(gr(name, gid[name]["claims"], 4))
+            hn = next((k for k in gid if o2 and k.startswith(f"g_hero_{o2['id'].lower()}")), None)
+            if hn:
+                vis.append(gr(hn, [o2["id"]], 5))
+            vis.append(img(last, [10, 6], seg, family="close_view", min_s=3))
+            vis.append(img(last, [8, 24], None, family="close_wide", min_s=3))       # last line: pull back to the whole stretch
         if not vis:
             vis.append(img(last, [15, 9]))
         if len(vis) > 10:
             dropped.append({"chapter": cid, "dropped": [v.get("asset") or str(v.get("wipe")) for v in vis[10:]]})
         vis = vis[:10]                           # no chapter is a slideshow of everything it cites; what was dropped is reported
-        if cid == "limits" and "g_tiers" in gid and "g_tiers" not in seen:
-            vis.insert(1 if vis else 0, gr("g_tiers", gid["g_tiers"]["claims"], 5))
         need = -(-int(words / 2.45 - 5 * len([v for v in vis if v.get("kind") == "graphic"])) // 8)     # one picture per ~8 s of narration that graphics do not cover
         k_ = 0
         while len([v for v in vis if v.get("kind") != "graphic"]) < min(need, 8):

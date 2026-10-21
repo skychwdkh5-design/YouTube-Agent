@@ -635,10 +635,14 @@ def main(argv=None):
     r.add_argument("--allow-paid", action="store_true", help="permit yt-voice if approvals/voice.json matches the script")
     r.add_argument("--allow-render", action="store_true", help="permit the full render if approvals/render.json matches")
     t = sub.add_parser("render-test"); t.add_argument("--slug", required=True); t.add_argument("--seconds", type=float, default=30.0); t.add_argument("--run", action="store_true")
+    pk = sub.add_parser("package"); pk.add_argument("--slug", required=True)
     s = sub.add_parser("status"); s.add_argument("--slug", required=True)
     a = ap.parse_args(argv)
     if a.cmd == "new":
         res, code = new(a.slug)
+    elif a.cmd == "package":
+        import package
+        package.main(a.slug); return 0
     elif a.cmd == "render-test":
         res, code = render_test(a.slug, a.seconds, a.run)
     elif a.cmd == "status":

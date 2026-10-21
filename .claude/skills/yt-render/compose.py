@@ -50,7 +50,8 @@ LAYOUTS = {
                         "legend": (34, "Bold", "#FFFFFF")},
              "slots": {"top": 0.16, "upper": 0.27, "middle": 0.4},
              "wipe_font": 64, "wipe_min": 320, "pin_font": 38, "pin_r": 12, "pin_dy": 52, "pin_x_min": 60,
-             "credit_font": 24, "sub_gap": 30, "sub_stroke": 4},
+             "credit_font": 24, "sub_gap": 30, "sub_stroke": 4,
+             "caption_highlight": "#FFD23F", "caption_fade": 0.12, "caption_shade": 120},   # kinetic captions: the spoken word lights up; a soft shade keeps white text legible on pale desert
 }
 E = r.RenderError
 
@@ -258,7 +259,9 @@ def validate(tl, root, limits):
     captions = None
     if tl.get("captions"):
         c = tl["captions"]
-        r._keys(c, ("src", "preset"), "captions")
+        r._keys(c, ("src", "preset", "style"), "captions")
+        if c.get("style", "plain") not in ("plain", "kinetic"):
+            raise E("captions.style must be 'plain' or 'kinetic'")
         want = prof.get("captions_preset", "short")
         if c.get("preset", want) != want:
             raise E(f"captions.preset must be '{want}' for profile {tl['profile']}")
@@ -267,7 +270,7 @@ def validate(tl, root, limits):
             cues = r.parse_srt(f.read())
         if cues and cues[-1][1] / 1000 > duration + 1e-6:
             raise E("captions run past the end of the video")
-        captions = {"src": src, "cues": [(a / 1000, b / 1000, t) for a, b, t in cues]}
+        captions = {"src": src, "cues": [(a / 1000, b / 1000, t) for a, b, t in cues], "kinetic": c.get("style") == "kinetic"}
 
     shots_in = tl.get("shots")
     if not isinstance(shots_in, list) or not shots_in:
@@ -368,7 +371,7 @@ def _layer(L, assets, grid, where, fps=30):
     allowed = {"image": ("asset",), "flip": ("assets", "step"), "wipe": ("from", "to"),
                "fill": ("mask", "minus", "color", "opacity"), "outline": ("mask", "color", "width"),
                "label": ("text", "sub", "slot", "style", "color"), "arrow": ("from", "to", "color", "width"),
-               "pin": ("at", "text", "color"), "graphic": ("asset",), "video": ("asset", "trim", "credit", "captions", "caption"), "still": ("asset", "view", "credit", "captions", "caption", "scrim")}[t]
+               "pin": ("at", "text", "color"), "graphic": ("asset", "push"), "video": ("asset", "trim", "credit", "captions", "caption"), "still": ("asset", "view", "credit", "captions", "caption", "scrim")}[t]
     r._keys(L, ("type", "t", "info") + allowed + (("visual_family",) if t in ("image", "flip", "wipe", "graphic", "video", "still") else ()), where)
     out = {"type": t, "info": L.get("info"), "family": _family(L.get("visual_family"), f"{where}.visual_family")}
     tw = L.get("t", [0, None])
@@ -385,6 +388,7 @@ def _layer(L, assets, grid, where, fps=30):
         out["asset"] = asset(L.get("asset"), "image", f"{where}.asset")
     elif t == "graphic":
         out["asset"] = asset(L.get("asset"), "graphic", f"{where}.asset")
+        out["push"] = r._num(L.get("push", 0), f"{where}.push", 0, 0.1)
     elif t == "still":
         out["asset"] = asset(L.get("asset"), "external_still", f"{where}.asset")
         v = L.get("view") or {"from": {"center": [0.5, 0.5], "width": 1.0}}
@@ -910,6 +914,13 @@ class Painter:
             if L["type"] == "graphic" and active(L):
                 a = 1.0 if (L["t0"] == 0 or base is None) else min(1.0, (lt - L["t0"]) / 0.35)
                 g = self.img[L["asset"]]
+                push = L.get("push", 0)               # opt-in per graphic layer: a slow push-in so a full-frame graphic is not a still
+                if push:
+                    kk = _ease(min(1.0, max(0.0, lt / max(shot["end"] - shot["start"], 1e-6))), "in_out")
+                    z = 1.0 - push * kk                          # visible fraction of the frame: 1.0 -> 1 - push
+                    bw_, bh_ = self.W * z, self.H * z
+                    x0_, y0_ = (self.W - bw_) / 2, (self.H - bh_) / 2
+                    g = np.asarray(Image.fromarray(g).resize((self.W, self.H), Image.BILINEAR, box=(x0_, y0_, x0_ + bw_, y0_ + bh_)))
                 base = g if base is None or a >= 1.0 else (base * (1 - a) + g * a).astype(np.uint8)
                 cover = max(cover, a)
                 credits = ([] if a >= 1.0 else credits) + [L["asset"]]
@@ -1041,12 +1052,51 @@ class Painter:
                 band = CAP["band_upper"]
         lh = size + CAP["line_gap"]
         cy = self.H * band - (len(src_lines) - 1) * lh / 2
+        kin = cap.get("kinetic")
+        shade = self.lay.get("caption_shade", 0) if kin else 0
+        if shade:                                          # smooth cinematic shade under the caption block (legibility on pale imagery); fades to nothing well above the text
+            lower = band > 0.5
+            top_y = int(self.H * (band - 0.30)) if lower else 0
+            bot_y = self.H if lower else int(self.H * (band + 0.30))
+            span = max(1, bot_y - top_y)
+            for yy in range(top_y, bot_y, 4):
+                u = (yy - top_y) / span if lower else 1 - (yy - top_y) / span
+                d.rectangle((0, yy, self.W, yy + 4), fill=(0, 0, 0, int(shade * u * u * (3 - 2 * u))))   # smoothstep: no visible edges
+        fade = min(1.0, max(0.0, (t - cue[1][0]) / self.lay["caption_fade"])) if kin else 1.0
+        hl = self._cue_words(idx) if kin else None
+        hc = tuple(int(self.lay["caption_highlight"][i:i + 2], 16) for i in (1, 3, 5)) if hl else None
+        wi = 0
         for k, line in enumerate(src_lines):
-            self._text(d, line, font, (cap_x, int(cy + k * lh)), (255, 255, 255), 1.0, CAP["stroke"])
+            if hl is None:
+                self._text(d, line, font, (cap_x, int(cy + k * lh)), (255, 255, 255), fade, CAP["stroke"])
+                continue
+            toks = line.split()
+            sp = d.textlength(" ", font=font)
+            total = sum(d.textlength(w_, font=font) for w_ in toks) + sp * (len(toks) - 1)
+            x = cap_x - total / 2
+            for w_ in toks:
+                tw = hl[wi] if wi < len(hl) else None
+                on = tw is not None and tw["start"] - 0.02 <= t < (hl[wi + 1]["start"] if wi + 1 < len(hl) else tw["end"] + 0.25)
+                d.text((x, int(cy + k * lh)), w_, font=font, fill=(hc if on else (255, 255, 255)) + (int(255 * fade),), anchor="lm",
+                       stroke_width=CAP["stroke"], stroke_fill=(0, 0, 0, int(220 * fade)))
+                x += d.textlength(w_, font=font) + sp
+                wi += 1
         bw = max(d.textlength(l, font=font) for l in src_lines)
         self.caption_boxes.setdefault(idx, {"cue": idx + 1, "band": band,
             "box": [round(cap_x - bw / 2), round(cy - size / 2), round(cap_x + bw / 2),
                     round(cy + (len(src_lines) - 1) * lh + size / 2)], "font_size": size})
+
+    def _cue_words(self, idx):
+        """The timed voice words of caption cue idx (None when the cue text and the voice words do not line up one to one: highlighting is then off, never wrong)."""
+        if not hasattr(self, "_cw"):
+            counts = [sum(len(l.split()) for l in self._srt_lines(i)) for i in range(len(self.p["captions"]["cues"]))]
+            ws = self.p["words"]
+            self._cw = None
+            if ws and sum(counts) == len(ws):
+                self._cw, o = [], 0
+                for n in counts:
+                    self._cw.append(ws[o:o + n]); o += n
+        return self._cw[idx] if self._cw else None
 
     def _srt_lines(self, idx):
         if not hasattr(self, "_lines"):

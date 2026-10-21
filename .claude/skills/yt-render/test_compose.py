@@ -324,6 +324,23 @@ class LongProfile(Base):
             captions={"src": "c.srt", "preset": "default"}, end={"seconds": seconds},
             **({"render": {"segment_s": segment_s}} if segment_s else {}), **extra)
 
+    def test_kinetic_captions_render_and_shade_the_caption_band(self):
+        self.voice(3.2)
+        plain, kin = self.long_tl(), self.long_tl()
+        t = json.load(open(kin)); t["captions"]["style"] = "kinetic"
+        kp = os.path.join(self.dir, "kin.json"); json.dump(t, open(kp, "w"))
+        outs = []
+        for name, tlp in (("plain", plain), ("kin", kp)):
+            out = os.path.join(self.dir, f"{name}.mp4")
+            code, d = run(["--timeline", tlp, "--output", out, "--confirm"])
+            self.assertEqual((code, d["status"]), (0, "ok"), d)
+            outs.append(out)
+        # a frame while a caption cue is on screen: the band behind the caption is darker with the kinetic shade, the rest is untouched
+        fp, fk = (self.frames(o, [20])[0].reshape(1080, 1920, 3) for o in outs)
+        band = slice(int(1080 * 0.815) - 120, int(1080 * 0.815) + 120)
+        self.assertLess(fk[band].mean(), fp[band].mean())
+        self.assertAlmostEqual(fk[:200].mean(), fp[:200].mean(), delta=1.0)
+
     def probe(self, path):
         p = r.ffprobe_json(path)
         v = [s for s in p["streams"] if s["codec_type"] == "video"][0]
@@ -494,6 +511,29 @@ class Graphics(Base):
         man = json.load(open(out[:-4] + ".manifest.json"))
         self.assertEqual([s["credit"] for s in man["shots"]], ["Test B", "Graphic (TEST)", "Test B"])
         self.assertEqual(man["shots"][1]["layers"], ["graphic", "graphic"])
+
+    def test_graphic_push_is_opt_in_validated_and_moves(self):
+        self.make_graphics()
+        sh = self.shots(); sh[1]["layers"] = [{"type": "graphic", "asset": "d1", "push": 0.5}]
+        self.assertIn("push", run(["--timeline", self.gtl(sh)])[1]["error"])
+        sh = self.shots(); sh[1] = {"id": "g", "start": 1.0, "layers": [{"type": "graphic", "asset": "d1", "push": 0.04}]}
+        out = os.path.join(self.dir, "p.mp4")
+        code, d = run(["--timeline", self.gtl(sh, render={"segment_s": 1}), "--output", out, "--confirm"])
+        self.assertEqual((code, d["status"]), (0, "ok"), d)
+
+        def frame(t):
+            raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", str(t), "-i", out, "-frames:v", "1", "-f", "rawvideo",
+                                  "-pix_fmt", "rgb24", "-"], capture_output=True, check=True).stdout
+            return np.frombuffer(raw, np.uint8).reshape(1080, 1920, 3).astype(float)
+        a_, b_ = frame(1.05), frame(2.9)
+        self.assertGreater(np.mean(np.abs(a_ - b_)), 0.5)          # the graphic is not a still: it pushes in over its time
+
+    def test_caption_style_is_validated(self):
+        self.make_graphics()
+        tl = json.load(open(self.gtl(self.shots())))
+        tl["captions"] = {"src": "c.srt", "preset": "default", "style": "disco"}
+        p = os.path.join(self.dir, "cs.json"); json.dump(tl, open(p, "w"))
+        self.assertIn("captions.style", run(["--timeline", p])[1]["error"])
 
 
 class ExternalStill(Base):

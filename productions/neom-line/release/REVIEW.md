@@ -1,6 +1,6 @@
 # Release package - Here's What Satellites Show Near the Construction Site (working title, not final)
 
-Generated 2026-10-21T05:05:54Z. Nothing is published.
+Generated 2026-10-21T07:29:25Z. Nothing is published.
 
 ## Status
 - topic: done owner-approved topic
@@ -8,15 +8,15 @@ Generated 2026-10-21T05:05:54Z. Nothing is published.
 - facts: done 20 claims, registry ok
 - evidence: done 2 stacks + NDWI series
 - script: done 943 words = 6.4 min, 16 claims used
-- visualplan: done 60 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']
+- visualplan: done 64 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']
 - visuals: done 8 graphics
-- storyboard: done 79 shots, 385.312s, timing from voice
-- visualcheck: done visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 63, 'REVIEWED': 10} of 80 items
+- storyboard: done 82 shots, 385.312s, timing from voice
+- visualcheck: done visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 67, 'REVIEWED': 12} of 86 items; 2 orphan reviews (run `visualcheck.py prune`)
 - voice: done narration already generated (not regenerated)
 - voicecheck: done NEEDS_HUMAN_LISTEN: 21 risky words to listen to; storyboard re-timed from real word timings
 - captions: done captions built from real word timings
-- render: awaiting_approval no approvals/render.json; plan validated
-- qc: waiting waiting for ['render']
+- render: done rendered
+- qc: done QC PASS
 
 ## Autonomy (what was automated)
 - topic: AGENT_REQUIRED / now AGENT_REQUIRED / agent artifact, then code
@@ -31,8 +31,8 @@ Generated 2026-10-21T05:05:54Z. Nothing is published.
 - voice: OWNER_REQUIRED / now OWNER_REQUIRED / code
 - voicecheck: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - captions: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
-- render: OWNER_REQUIRED / now OWNER_REQUIRED / -
-- qc: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
+- render: OWNER_REQUIRED / now OWNER_REQUIRED / code
+- qc: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - release: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
 
 ## Title options (working title approved by owner; not final)
@@ -65,7 +65,5 @@ Generated 2026-10-21T05:05:54Z. Nothing is published.
 ## Costs
 - {'stage': 'voice', 'chars': 5280, 'provider': 'elevenlabs', 'at': '2026-10-21T05:05:17Z', 'note': 'approved by owner'}
 
-## Package is INCOMPLETE
-Pending: render, qc
-
-**Owner question: approve the paid step(s) listed as awaiting_approval, or change?**
+## Ready for review
+**Owner question: approve for publishing, or change?** (publishing is never automatic)

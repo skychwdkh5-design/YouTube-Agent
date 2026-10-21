@@ -452,5 +452,20 @@
    },
    "corroboration": "Gulf News and Dezeen both place the first segment of The Line next to the Red Sea"
   }
- ]
+ ],
+ "chapter_titles": {
+  "hook": "170 km promised",
+  "promise": "The promise",
+  "plan": "What was reported",
+  "method": "How we looked",
+  "shows": "What the satellites show",
+  "segment": "The dark segment",
+  "checks": "Trying to break our own result",
+  "limits": "What we cannot say",
+  "close": "Promised, reported, observed"
+ },
+ "thumbnail": {
+  "top": "170 KM PROMISED",
+  "bottom": "THIS IS WHAT WE SEE"
+ }
 }

@@ -944,7 +944,7 @@ def _draw_scale(cv, sb, x, y):
 
 
 def v_geo(g, where, root):
-    _keys(g, ("type", "id", "title", "subtitle", "source", "style", "caption_band", "image", "credit", "date",
+    _keys(g, ("type", "id", "title", "subtitle", "source", "style", "caption_band", "image", "credit", "show_credit", "date",
               "callouts", "arrows", "graticule", "scale_bar"), where)
     _text(g.get("credit"), f"{where}.credit", 80)
     _text(g.get("date"), f"{where}.date", 40, required=False)
@@ -973,7 +973,7 @@ def d_geo(cv, g, step, root, where):
     ty = y0 + CREDIT_BAND
     if g.get("title"):
         cv.text(g["title"], x0, ty + 30, 46, "Black", "fg", anchor="lm", max_w=x1 - x0, stroke=3, where="title")
-    meta = g["credit"] + (f" · {g['date']}" if g.get("date") else "")
+    meta = " · ".join(x for x in ((g["credit"] if g.get("show_credit", True) else ""), g.get("date") or "") if x)   # show_credit false: the renderer's credit pill is the one credit on screen
     cv.text(meta, x0, ty + 78, 26, "SemiBold", "fg", anchor="lm", max_w=x1 - x0, stroke=3, where="credit")
     info = {}
     sb = scale_bar(view.m_per_px, (x1 - x0) * 0.22) if g.get("scale_bar", True) else None

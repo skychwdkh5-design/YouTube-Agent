@@ -7,7 +7,8 @@
    "title": "Announced length: 170 km. This frame: about 45 km.",
    "source": "Copernicus Sentinel-2 L2A, resampled to 40 m",
    "credit": "Contains modified Copernicus Sentinel data 2026",
-   "date": "2026",
+   "show_credit": false,
+   "date": "OCT 2026",
    "image": {
     "stack": "evidence/wide/y2026.png",
     "grid": "evidence/wide/grid.json",
@@ -105,6 +106,7 @@
    "title": "Dark segment, 1.6 to 1.9 km",
    "source": "Copernicus Sentinel-2 L2A, 10 m",
    "credit": "Contains modified Copernicus Sentinel data 2026",
+   "show_credit": false,
    "date": "OCT 2026",
    "image": {
     "stack": "evidence/stack/y2026.png",

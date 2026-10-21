@@ -1,0 +1,33 @@
+Here's What Satellites Show Near the Construction Site
+
+Saudi Arabia announced a 170 km linear city. We pointed free Sentinel-2 satellite images at the same stretch of desert, year after year (2020-2026), and kept three things apart: what was PROMISED, what was REPORTED, and what we OBSERVED.
+
+CHAPTERS
+0:00 170 km promised
+0:25 The promise
+0:52 What was reported
+1:41 How we looked
+2:29 What the satellites show
+3:09 The dark segment
+4:01 Trying to break our own result
+5:15 What we cannot say
+5:51 Promised, reported, observed
+
+WHAT WE CLAIM, AND HOW SURE WE ARE
+- Observed: a straight corridor and a dark segment of about 1.6-1.9 km, measured at 10 m per pixel. A water index reads it as water-like, which is a clue, not proof.
+- Not claimed: that the corridor is The Line, that it is a finished city, that the segment grew, or what the segment is.
+- Reported items are attributed to the outlets named. We could not open the original Bloomberg, Semafor and Reuters articles from our research setup, so those lines rest on how other outlets described them.
+
+SOURCES (as reported; links are to the pages we actually read)
+- C1 Construction Briefing (with Dezeen, AGBI) (2024-04-09): https://www.constructionbriefing.com/8036596.article
+- C2 Bloomberg via Dezeen (2024-04-09): https://www.dezeen.com/2024/04/09/the-line-neom-scaled-back-dezeen-agenda/
+- C3 Semafor (2026-05-22): https://www.semafor.com/article/05/22/2026/saudis-neom-halts-work-on-the-line-until-after-2030
+- C4 Reuters via Seoul Economic Daily (2026-10-13): https://en.sedaily.com/international/2026/10/13/saudi-arabia-shelves-neom-stadium-as-megaproject-unravels
+- C20 Gulf News and Dezeen on the Hidden Marina (2025-02-17): https://gulfnews.com/business/property/saudi-arabia-neom-unveils-hidden-marina-as-first-phase-of-the-line-1.500037889
+
+SATELLITE DATA
+Contains modified Copernicus Sentinel data 2020, 2021, 2022, 2023, 2024, 2025, 2026. Sentinel-2 L2A via Microsoft Planetary Computer; scenes from relative orbit 78, tile T36RYS, late September-October each year.
+Scene IDs: S2A_MSIL2A_20200929T080731_R078_T36RYS_20201001T154846; S2B_MSIL2A_20210929T080719_R078_T36RYS_20210929T211810; S2A_MSIL2A_20221009T080841_R078_T36RYS_20240725T054556; S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051; S2A_MSIL2A_20241008T080831_R078_T36RYS_20241008T112248; S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527; S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002
+
+Narration: ElevenLabs synthetic voice (Adam). Runtime 6:25.
+Made by OrbitalAtlas.

@@ -12,6 +12,7 @@ import argparse, hashlib, json, math, os, re, subprocess, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 SK = os.path.join(HERE, "..")
 sys.path.insert(0, os.path.join(SK, "yt-geo"))
+GRAPHIC_PUSH = 0.04        # slow push-in on every full-frame graphic: none is ever a still
 PACE_WPS = 2.45            # spoken words per second (~147 wpm) when no voice timings exist
 MAX_SHOT_S, MIN_SHOT_S = 7.0, 2.5     # yt-render long warns above 8 s static
 TAG = re.compile(r"\{(?:C\d+(?:\s*,\s*C\d+)*|L)\}")
@@ -37,6 +38,125 @@ def parse_script(text):
         s = TAG.sub("", re.sub(r"\*\*", "", s))
         ch[cur] += s.split()
     return ch, order
+
+
+def parse_sentences(text):
+    """{chapter_id: [{"w0": first word index inside the chapter, "n": words, "text": str, "claims": [ids]}]}: one entry per tagged or untagged sentence.
+    Word counts follow parse_script exactly, so indexes line up with the voice word timings."""
+    out, cur = {}, None
+    for line in text.splitlines():
+        st = line.strip()
+        m = re.match(r"##\s+([a-z0-9_]+)\s*[:\-]", st)
+        if m:
+            cur = m.group(1); out[cur] = []; continue
+        if not st or st.startswith(("#", "[", ">", "---", "<!--")) or cur is None:
+            continue
+        st = st.replace("**", "")
+        done = sum(x["n"] for x in out[cur])
+        pos = 0
+        for mt in list(TAG.finditer(st)) + [None]:
+            seg = st[pos:mt.start()] if mt else st[pos:]
+            if mt:
+                pos = mt.end()
+            words = TAG.sub("", seg).split()
+            if not words:
+                continue
+            ids = re.findall(r"C\d+", mt.group(0)) if mt else []
+            out[cur].append({"w0": done, "n": len(words), "text": " ".join(words), "claims": ids})
+            done += len(words)
+    return out
+
+
+def _visual_year(v):
+    """The year a visual is meant to be on screen for: set explicitly by the planner (anchor: year) for a year image or the reveal of a wipe."""
+    if v.get("anchor") != "year" or v.get("kind") == "graphic":
+        return None
+    m = re.fullmatch(r"y(\d{4})", str(v["wipe"][1] if "wipe" in v else v.get("asset", "")))
+    return m.group(1) if m else None
+
+
+def _claim_sentence(v, sents, after):
+    """Index of the first sentence after word index `after` that cites any claim of graphic v, else None."""
+    ids = set(v.get("anchor_claims") or v.get("claims") or [])
+    return next((k for k, x in enumerate(sents) if x["w0"] > after and ids & set(x["claims"])), None)
+
+
+def place_by_claims(vis, durs, sents, word_time, t0):
+    """Reorder so each claim-anchored graphic (anchor: claim) sits among the map visuals at the time its claim is spoken, not at the chapter start.
+    A graphic whose claim is made in the first 2.5 s stays where it is."""
+    starts = [t0 + sum(durs[:i]) for i in range(len(vis))]
+    base, inserts = [], []
+    for i, v in enumerate(vis):
+        if v.get("anchor") == "claim" and v.get("kind") == "graphic":
+            k = _claim_sentence(v, sents, -1)
+            tt = word_time(sents[k]["w0"]) - 0.3 if k is not None else None
+            if tt is not None and tt > t0 + 2.5:
+                inserts.append((tt, i, v)); continue
+        base.append((starts[i], v))
+    if not inserts:
+        return vis
+    out = [v for _, v in sorted(base, key=lambda x: x[0])]
+    pos_t = [t for t, _ in sorted(base, key=lambda x: x[0])]
+    for tt, _, v in sorted(inserts, key=lambda x: x[0]):
+        pos = next((n for n, t_ in enumerate(pos_t) if t_ >= tt and n > 0), len(out))
+        out.insert(pos, v); pos_t.insert(pos, tt)
+    return out
+
+
+def anchor_durations(vis, durs, sents, word_time, t0, t1, min_of):
+    """Move shot boundaries so a year-anchored visual appears when the narrator says its year (the word itself, not the sentence).
+    word_time(i) -> start seconds of chapter word i. Visuals between two anchors share the time proportionally.
+    Returns (new durations, report). An anchor that cannot be honoured (year not said later, or no room) is reported and skipped."""
+    n = len(vis)
+    starts = [t0 + sum(durs[:i]) for i in range(n)]
+    toks = [(x["w0"] + k, w) for x in sents for k, w in enumerate(x["text"].split())]
+    fixed, rep, cursor = {0: t0}, [], -1
+    for i, v in enumerate(vis):
+        y = _visual_year(v)
+        if i == 0 or (y is None and not (v.get("anchor") == "claim" and v.get("kind") == "graphic")):
+            continue
+        if y is None:                                    # a graphic citing claims: when the first sentence that cites them begins
+            k = _claim_sentence(v, sents, cursor)
+            hit = sents[k]["w0"] if k is not None else None
+            y = "claim"
+        else:
+            hit = next((wi for wi, w in toks if wi > cursor and re.search(rf"(?<!\d){y}(?!\d)", w)), None)
+        if hit is None:
+            rep.append({"visual": i, "year": y, "status": "the narrator does not say this year after the previous anchor"}); continue
+        want = word_time(hit) - (min(0.5, durs[i] / 4) if "wipe" in v else 0.3 if y == "claim" else 0.15)
+        prev_i = max(fixed)
+        floor_ = fixed[prev_i] + sum(min_of(vis[k]) for k in range(prev_i, i))
+        ceil_ = t1 - sum(min_of(vis[k]) for k in range(i, n))
+        got = min(max(want, floor_), ceil_)
+        if abs(got - want) > 1.0:
+            rep.append({"visual": i, "year": y, "status": f"cannot reach {want:.1f}s (room {floor_:.1f}-{ceil_:.1f}s)"}); continue
+        fixed[i] = got
+        cursor = hit
+        rep.append({"visual": i, "year": y, "target": round(want, 2), "was": round(starts[i], 2), "now": round(got, 2)})
+    pts = sorted(fixed) + [n]
+    new = [0.0] * n
+    for a, b in zip(pts, pts[1:]):
+        t_a = fixed[a]
+        t_b = fixed[b] if b in fixed else t1
+        seg = range(a, b)
+        gs = [k for k in seg if vis[k].get("kind") == "graphic"]
+        ms = [k for k in seg if k not in gs]
+        spare = (t_b - t_a) - sum(durs[k] for k in gs)
+        if ms and spare >= sum(min_of(vis[k]) for k in ms):      # graphics keep their own time; the map beats absorb the stretch
+            for k in gs:
+                new[k] = durs[k]
+            tot = sum(durs[k] for k in ms)
+            for k in ms:
+                new[k] = spare * durs[k] / tot
+        else:
+            tot = sum(durs[a:b]) or 1.0
+            for k in seg:
+                new[k] = (t_b - t_a) * durs[k] / tot
+    for k in range(1, n):                              # a graphic is never stretched past 7 s: it starts a little after its claim and the map before it holds longer
+        if vis[k].get("kind") == "graphic" and new[k] > 7.0 and vis[k - 1].get("kind") != "graphic":
+            new[k - 1] += new[k] - 7.0
+            new[k] = 7.0
+    return new, rep
 
 
 def chapter_times(chapters, order, voice_meta=None):
@@ -99,7 +219,12 @@ def build(ep, root, voice_meta=None):
     want = [c["id"] for c in ep["chapters"]]
     if want != order:
         raise StoryError(f"chapters in episode.json {want} do not match script headings {order}")
-    shots, labels, fam_prev = [], [], None
+    shots, labels, fam_prev, anchors = [], [], None, {}
+    sentences = parse_sentences(open(os.path.join(root, ep.get("script", "script.md")), encoding="utf-8").read())
+    chap_base, acc = {}, 0
+    for c_ in order:
+        chap_base[c_] = acc
+        acc += len(sc[c_])
     for chap in ep["chapters"]:
         cid = chap["id"]
         t0, t1 = times[cid]
@@ -109,28 +234,41 @@ def build(ep, root, voice_meta=None):
         total = t1 - t0
         if total < 0.5:
             raise StoryError(f"chapter {cid} has no spoken text")
-        # graphics keep a fixed on-screen time (min_s, at most 7 s); the remaining time is shared by map visuals
-        gdur = {i: min(max(v.get("min_s", 4.0), 2.0), 7.0) for i, v in enumerate(vis) if v.get("kind") == "graphic"}
-        maps = [i for i in range(len(vis)) if i not in gdur]
-        rest = total - sum(gdur.values())
-        if maps and rest < MIN_SHOT_S * len(maps):
-            # not enough time: shrink graphics proportionally (never below 2 s) before giving up
-            need = MIN_SHOT_S * len(maps) - rest
-            room = sum(d - 2.0 for d in gdur.values())
-            if room < need:
-                raise StoryError(f"chapter {cid}: {total:.1f}s is too short for {len(vis)} visuals")
-            f = 1 - need / room
-            gdur = {i: 2.0 + (d - 2.0) * f for i, d in gdur.items()}
+        def alloc(vis):
+            """Graphics keep a fixed on-screen time (min_s, at most 7 s); the remaining time is shared by map visuals. Returns (durations, set of graphic indexes)."""
+            gdur = {i: min(max(v.get("min_s", 4.0), 2.0), 7.0) for i, v in enumerate(vis) if v.get("kind") == "graphic"}
+            maps = [i for i in range(len(vis)) if i not in gdur]
             rest = total - sum(gdur.values())
-        if not maps:
-            gdur = {i: d * total / sum(gdur.values()) for i, d in gdur.items()}
-            if max(gdur.values()) > 9.0:
-                raise StoryError(f"chapter {cid}: graphics would sit {max(gdur.values()):.1f}s on screen; add visuals")
-        mw = {i: max(vis[i].get("min_s", MIN_SHOT_S), 0.1) for i in maps}
+            if maps and rest < MIN_SHOT_S * len(maps):
+                # not enough time: shrink graphics proportionally (never below 2 s) before giving up
+                need = MIN_SHOT_S * len(maps) - rest
+                room = sum(d - 2.0 for d in gdur.values())
+                if room < need:
+                    raise StoryError(f"chapter {cid}: {total:.1f}s is too short for {len(vis)} visuals")
+                f = 1 - need / room
+                gdur = {i: 2.0 + (d - 2.0) * f for i, d in gdur.items()}
+                rest = total - sum(gdur.values())
+            if not maps:
+                gdur = {i: d * total / sum(gdur.values()) for i, d in gdur.items()}
+                if max(gdur.values()) > 9.0:
+                    raise StoryError(f"chapter {cid}: graphics would sit {max(gdur.values()):.1f}s on screen; add visuals")
+            mw = {i: max(vis[i].get("min_s", MIN_SHOT_S), 0.1) for i in maps}
+            return [gdur[i] if i in gdur else rest * mw[i] / sum(mw.values()) for i in range(len(vis))], set(gdur)
+        durs, gset = alloc(vis)
+        sents = sentences.get(cid) or []
+        if sents:
+            base_w = chap_base[cid]
+            nw = max(1, sum(x["n"] for x in sents))
+            tof = (lambda wi: voice_meta["words"][base_w + wi]["start"]) if voice_meta else (lambda wi: t0 + total * wi / nw)
+            vis = place_by_claims(vis, durs, sents, tof, t0)           # a graphic that cites claims sits where the narrator makes them
+            durs, gset = alloc(vis)
+            durs, arep = anchor_durations(vis, durs, sents, tof, t0, t1, lambda v: 2.0 if v.get("kind") == "graphic" else MIN_SHOT_S)
+            if arep:
+                anchors[cid] = arep
         t = t0
         for i, v in enumerate(vis):
-            dur = gdur[i] if i in gdur else rest * mw[i] / sum(mw.values())
-            parts = [dur] if i in gdur else split_duration(dur)
+            dur = durs[i]
+            parts = [dur] if i in gset else split_duration(dur)
             for k, d in enumerate(parts):
                 shots.append(_shot(ep, grid, chap, v, k, len(parts), t, d, labels, len(shots)))
                 t += d
@@ -138,7 +276,7 @@ def build(ep, root, voice_meta=None):
         s["end"] = shots[i + 1]["start"] if i + 1 < len(shots) else round(times[order[-1]][1], 3)
     total = shots[-1]["end"]
     return {"schema": "yt-storyboard/1", "timing": timing, "duration": round(total, 3), "chapters": {c: [round(a, 2), round(b, 2)] for c, (a, b) in times.items()},
-            "shots": shots}, labels
+            "anchors": anchors, "shots": shots}, labels
 
 
 def _shot(ep, grid, chap, v, k, n, t, d, labels, idx):
@@ -147,17 +285,21 @@ def _shot(ep, grid, chap, v, k, n, t, d, labels, idx):
     if v.get("claims"):
         s["claims"] = list(v["claims"])
     if v.get("kind") == "graphic":
-        s["layers"] = [{"type": "graphic", "asset": v["asset"], "t": [0, None]}]
+        s["layers"] = [{"type": "graphic", "asset": v["asset"], "t": [0, None], "push": GRAPHIC_PUSH}]
         s["info"] = v.get("info", v["asset"])
         a = ep["assets"][v["asset"]]
         labels.append({"text": f"graphic:{v['asset']}", "claims": a.get("claims") or [], "exempt": bool(a.get("exempt")), "shot": sid})
         return s
+    if "wipe" in v and k > 0:             # a long wipe slot is ONE reveal followed by the revealed picture, never the same wipe played again
+        end_w = (v.get("zoom") or [12, 6])[1]
+        v = dict({kk: vv for kk, vv in v.items() if kk != "wipe"}, asset=v["wipe"][1], zoom=[end_w * 0.4, end_w * 0.3])   # cut in on the revealed picture (a real composition change), then keep pushing
+        kz = 0
+    else:
+        kz = k
     focus = v.get("focus") or chap.get("focus") or ep.get("focus")
     z0, z1 = (v.get("zoom") or [12, 6])
-    if k % 2 == 1:                      # alternate direction between beats of the same visual: a real composition change
-        z0, z1 = z1, z0
-    if n > 1:
-        z0, z1 = z0 * (1 + 0.25 * k), z1 * (1 + 0.25 * k)
+    if kz % 2 == 1:                     # beats of one visual alternate wide and tight (>= 1.5x between beats): each is a real composition change, never a long hold
+        z0, z1 = max(z1 * 0.6, 2.5), max(z0 * 0.6, 2.5)
     c0, w0 = fit_view(grid, focus, z0)
     c1, w1 = fit_view(grid, v.get("focus_to") or focus, z1)
     s["camera"] = {"from": {"center": c0, "width_km": w0}, "to": {"center": c1, "width_km": w1}}
@@ -187,7 +329,7 @@ def to_timeline(ep, sb, root, voice=None, captions=None):
         tl["shots"].append(o)
     if voice:
         tl["voice"] = voice
-        tl["captions"] = {"src": captions, "preset": "default"} if captions else None
+        tl["captions"] = {"src": captions, "preset": "default", "style": "kinetic"} if captions else None
         if not captions:
             tl.pop("captions")
         tl["end"] = {"after_last_word": 1.5}

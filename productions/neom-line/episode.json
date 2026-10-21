@@ -176,7 +176,34 @@
      "min_s": 3.5,
      "claims": [
       "C1"
-     ]
+     ],
+     "anchor": "claim"
+    },
+    {
+     "asset": "y2020",
+     "zoom": [
+      22,
+      14
+     ],
+     "label": {
+      "text": "SEP 2020",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2020
+     }
+    },
+    {
+     "asset": "y2021",
+     "zoom": [
+      8,
+      16
+     ],
+     "label": {
+      "text": "SEP 2021",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2021
+     }
     },
     {
      "asset": "y2022",
@@ -189,7 +216,8 @@
       "style": "year",
       "exempt": true,
       "date_year": 2022
-     }
+     },
+     "anchor": "year"
     },
     {
      "wipe": [
@@ -204,7 +232,8 @@
      "min_s": 4,
      "claims": [
       "C10"
-     ]
+     ],
+     "anchor": "year"
     },
     {
      "asset": "y2026",
@@ -236,7 +265,8 @@
      "min_s": 5,
      "claims": [
       "C1"
-     ]
+     ],
+     "anchor": "claim"
     },
     {
      "asset": "y2026",
@@ -305,6 +335,12 @@
      "min_s": 6,
      "claims": [
       "C1",
+      "C2",
+      "C3",
+      "C4"
+     ],
+     "anchor": "claim",
+     "anchor_claims": [
       "C2",
       "C3",
       "C4"
@@ -531,7 +567,8 @@
      },
      "claims": [
       "C9"
-     ]
+     ],
+     "anchor": "year"
     },
     {
      "asset": "y2022",
@@ -547,7 +584,8 @@
      },
      "claims": [
       "C9"
-     ]
+     ],
+     "anchor": "year"
     },
     {
      "asset": "y2023",
@@ -563,7 +601,8 @@
      },
      "claims": [
       "C9"
-     ]
+     ],
+     "anchor": "year"
     },
     {
      "asset": "y2026",
@@ -579,7 +618,8 @@
      },
      "claims": [
       "C9"
-     ]
+     ],
+     "anchor": "year"
     },
     {
      "asset": "y2020",
@@ -599,7 +639,8 @@
      },
      "claims": [
       "C17"
-     ]
+     ],
+     "anchor": "year"
     },
     {
      "asset": "g_cmp_2020_2024_c17",
@@ -607,7 +648,8 @@
      "min_s": 6,
      "claims": [
       "C17"
-     ]
+     ],
+     "anchor": "claim"
     },
     {
      "wipe": [
@@ -626,7 +668,8 @@
      "min_s": 4,
      "claims": [
       "C17"
-     ]
+     ],
+     "anchor": "year"
     },
     {
      "asset": "y2020",
@@ -646,7 +689,8 @@
      },
      "claims": [
       "C19"
-     ]
+     ],
+     "anchor": "year"
     },
     {
      "asset": "g_cmp_2020_2024_c19",
@@ -654,7 +698,8 @@
      "min_s": 6,
      "claims": [
       "C19"
-     ]
+     ],
+     "anchor": "claim"
     },
     {
      "wipe": [
@@ -673,7 +718,8 @@
      "min_s": 4,
      "claims": [
       "C19"
-     ]
+     ],
+     "anchor": "year"
     }
    ]
   },
@@ -694,7 +740,8 @@
      },
      "claims": [
       "C10"
-     ]
+     ],
+     "anchor": "year"
     },
     {
      "asset": "g_cmp_2022_2026_c10",
@@ -702,7 +749,8 @@
      "min_s": 6,
      "claims": [
       "C10"
-     ]
+     ],
+     "anchor": "claim"
     },
     {
      "wipe": [
@@ -718,7 +766,8 @@
      "min_s": 4,
      "claims": [
       "C10"
-     ]
+     ],
+     "anchor": "year"
     },
     {
      "asset": "g_hero_c10",
@@ -726,7 +775,8 @@
      "min_s": 6,
      "claims": [
       "C10"
-     ]
+     ],
+     "anchor": "claim"
     },
     {
      "asset": "y2026",
@@ -756,7 +806,8 @@
       "C1",
       "C4",
       "C9"
-     ]
+     ],
+     "anchor": "claim"
     },
     {
      "asset": "y2022",
@@ -811,7 +862,8 @@
      },
      "claims": [
       "C14"
-     ]
+     ],
+     "anchor": "year"
     },
     {
      "asset": "y2025",
@@ -831,7 +883,8 @@
      },
      "claims": [
       "C14"
-     ]
+     ],
+     "anchor": "year"
     },
     {
      "asset": "y2026",
@@ -851,7 +904,8 @@
      },
      "claims": [
       "C14"
-     ]
+     ],
+     "anchor": "year"
     },
     {
      "asset": "y2024",
@@ -888,7 +942,8 @@
      },
      "claims": [
       "C12"
-     ]
+     ],
+     "anchor": "year"
     },
     {
      "asset": "g_cmp_2025_2026_c12",
@@ -896,7 +951,8 @@
      "min_s": 6,
      "claims": [
       "C12"
-     ]
+     ],
+     "anchor": "claim"
     },
     {
      "wipe": [
@@ -915,7 +971,8 @@
      "min_s": 4,
      "claims": [
       "C12"
-     ]
+     ],
+     "anchor": "year"
     },
     {
      "asset": "y2025",
@@ -961,16 +1018,12 @@
       "C2",
       "C3",
       "C4"
-     ]
-    },
-    {
-     "asset": "g_tiers",
-     "kind": "graphic",
-     "min_s": 5,
-     "claims": [
-      "C1",
-      "C4",
-      "C9"
+     ],
+     "anchor": "claim",
+     "anchor_claims": [
+      "C2",
+      "C3",
+      "C4"
      ]
     },
     {
@@ -1032,6 +1085,19 @@
       "exempt": true,
       "date_year": 2023
      }
+    },
+    {
+     "asset": "y2024",
+     "zoom": [
+      15,
+      8
+     ],
+     "label": {
+      "text": "OCT 2024",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2024
+     }
     }
    ]
   },
@@ -1039,19 +1105,59 @@
    "id": "close",
    "visuals": [
     {
-     "asset": "g_tiers",
+     "wipe": [
+      "y2020",
+      "y2026"
+     ],
+     "zoom": [
+      16,
+      10
+     ],
+     "family": "wipe_recap",
+     "min_s": 3,
+     "claims": [
+      "C10"
+     ]
+    },
+    {
+     "asset": "g_scale",
+     "kind": "graphic",
+     "min_s": 4,
+     "claims": [
+      "C1"
+     ],
+     "anchor": "claim"
+    },
+    {
+     "asset": "g_reports",
+     "kind": "graphic",
+     "min_s": 4,
+     "claims": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+     ],
+     "anchor": "claim",
+     "anchor_claims": [
+      "C2",
+      "C3",
+      "C4"
+     ]
+    },
+    {
+     "asset": "g_hero_c10",
      "kind": "graphic",
      "min_s": 5,
      "claims": [
-      "C1",
-      "C4",
-      "C9"
-     ]
+      "C10"
+     ],
+     "anchor": "claim"
     },
     {
      "asset": "y2026",
      "zoom": [
-      15,
+      10,
       6
      ],
      "focus": [
@@ -1063,33 +1169,24 @@
       "style": "year",
       "exempt": true,
       "date_year": 2026
-     }
+     },
+     "family": "close_view",
+     "min_s": 3
     },
     {
      "asset": "y2026",
      "zoom": [
-      6,
-      15
+      8,
+      24
      ],
      "label": {
       "text": "OCT 2026",
       "style": "year",
       "exempt": true,
       "date_year": 2026
-     }
-    },
-    {
-     "asset": "y2026",
-     "zoom": [
-      15,
-      8
-     ],
-     "label": {
-      "text": "OCT 2026",
-      "style": "year",
-      "exempt": true,
-      "date_year": 2026
-     }
+     },
+     "family": "close_wide",
+     "min_s": 3
     }
    ]
   }
