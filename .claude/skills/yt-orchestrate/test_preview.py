@@ -42,6 +42,8 @@ class Key(unittest.TestCase):
         k1 = P.chapter_key(d, tl, 0, 10)
         tl2 = json.loads(json.dumps(tl)); tl2["shots"][1]["layers"][0]["asset"] = "a"; tl2["shots"][1]["start"] = 31
         self.assertEqual(k1, P.chapter_key(d, tl2, 0, 10))                       # a later chapter changed: the first one is unchanged
+        tl["shots"][0]["layers"].append({"type": "arrow", "from": [35.2, 28.1], "to": [35.3, 28.1]})      # geo arrows carry lists in 'from'/'to': not assets
+        P.chapter_key(d, tl, 0, 10)
         tl3 = json.loads(json.dumps(tl)); tl3["shots"][0]["layers"].append({"type": "label"})
         self.assertNotEqual(k1, P.chapter_key(d, tl3, 0, 10))
 

@@ -1,0 +1,22 @@
+{
+ "schema": "produce-config/1",
+ "topic": "NEOM The Line: what satellites show",
+ "slug": "neom-line",
+ "updated": "2026-10-21T15:37:08Z",
+ "budget_chars": 0,
+ "paid_allowed": false,
+ "sources": {
+  "claims": "claims.json",
+  "ledger": "media/ledger.json",
+  "licence_cache": "media_cache/index.json",
+  "exceptions": "media/exceptions.json"
+ },
+ "scenes": {
+  "infographics": 20,
+  "maps": 9,
+  "templates": 0
+ },
+ "voice": "voice/narration.voice.json",
+ "timeline": "timeline.json",
+ "preview": "render/neom-line_preview_720p.mp4"
+}

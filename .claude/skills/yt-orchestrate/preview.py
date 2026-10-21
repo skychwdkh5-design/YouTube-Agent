@@ -25,7 +25,9 @@ def sha_file(p):
 
 def chapter_key(root, tl, t0, t1):
     shots = [s for s in tl["shots"] if t0 - 1e-6 <= s["start"] < t1 + 0.5]
-    assets = sorted({L.get("asset") for s in shots for L in s["layers"] if L.get("asset")} | {x for s in shots for L in s["layers"] for x in ([L.get("from"), L.get("to")] + list(L.get("assets") or [])) if x})
+    def used(L):
+        return [L.get("asset")] + ([L.get("from"), L.get("to")] if L.get("type") == "wipe" else []) + (list(L.get("assets") or []) if L.get("type") == "flip" else [])
+    assets = sorted({x for s in shots for L in s["layers"] for x in used(L) if isinstance(x, str)})
     files = {a: sha_file(os.path.join(root, tl["assets"][a]["src"])) for a in assets if a in tl["assets"] and os.path.exists(os.path.join(root, tl["assets"][a]["src"]))}
     h = hashlib.sha256()
     h.update(json.dumps([shots, files, tl.get("captions"), tl.get("end")], sort_keys=True).encode())
