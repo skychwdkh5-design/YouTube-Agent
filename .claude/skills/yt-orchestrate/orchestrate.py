@@ -450,7 +450,7 @@ def _srt_time(t):
     return f"{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d},{ms % 1000:03d}"
 
 
-def render_test(slug, seconds=30.0, run_it=False, start=0.0, name="test"):
+def render_test(slug, seconds=30.0, run_it=False, start=0.0, name="test", fps=None):
     """Short render of N seconds on the real timeline, the real narration (trimmed copy) and real captions. Never the full video.
     start > 0 renders a stretch from the middle: it begins at the shot boundary at or before `start`, so every shot is shown whole and the camera moves from its first frame."""
     ep = Ep(slug)
@@ -487,7 +487,7 @@ def render_test(slug, seconds=30.0, run_it=False, start=0.0, name="test"):
         return "\n".join([f"{_srt_time(c[0] - t0)} --> {_srt_time(c[1] - t0)}"] + body[arrow + 1:])
     open(os.path.join(d, f"captions.{name}.srt"), "w", encoding="utf-8").write("\n\n".join(f"{i}\n" + shifted(c) for i, c in enumerate(cues, 1)) + "\n")
     t = dict(tl, shots=[dict(x, start=round(x["start"] - t0, 3)) for x in tl["shots"] if t0 - 1e-6 <= x["start"] < t_end], end={"seconds": max(1, round(m2["duration"] + 0.5, 2))})
-    t["render"] = dict(tl.get("render") or {}, preset="veryfast", crf=26)           # a preview, never the master: the encoder works about three times faster
+    t["render"] = dict(tl.get("render") or {}, preset="veryfast", crf=26, **({"fps": fps} if fps else {}))           # a preview, never the master: the encoder works about three times faster
     t["voice"] = {"src": f"render/{name}/narration.{name}.wav", "meta": f"render/{name}/narration.{name}.voice.json"}
     t["captions"] = dict(tl.get("captions") or {}, src=f"render/{name}/captions.{name}.srt")
     write_json(os.path.join(d, f"timeline.{name}.json"), t)
@@ -704,7 +704,7 @@ def main(argv=None):
     r.add_argument("--force", action="store_true"); r.add_argument("--dry-run", action="store_true")
     r.add_argument("--allow-paid", action="store_true", help="permit yt-voice if approvals/voice.json matches the script")
     r.add_argument("--allow-render", action="store_true", help="permit the full render if approvals/render.json matches")
-    t = sub.add_parser("render-test"); t.add_argument("--slug", required=True); t.add_argument("--seconds", type=float, default=30.0); t.add_argument("--start", type=float, default=0.0); t.add_argument("--name", default="test"); t.add_argument("--run", action="store_true")
+    t = sub.add_parser("render-test"); t.add_argument("--slug", required=True); t.add_argument("--seconds", type=float, default=30.0); t.add_argument("--start", type=float, default=0.0); t.add_argument("--name", default="test"); t.add_argument("--fps", type=int, default=None); t.add_argument("--run", action="store_true")
     pk = sub.add_parser("package"); pk.add_argument("--slug", required=True)
     s = sub.add_parser("status"); s.add_argument("--slug", required=True)
     a = ap.parse_args(argv)
@@ -714,7 +714,7 @@ def main(argv=None):
         import package
         package.main(a.slug); return 0
     elif a.cmd == "render-test":
-        res, code = render_test(a.slug, a.seconds, a.run, a.start, a.name)
+        res, code = render_test(a.slug, a.seconds, a.run, a.start, a.name, a.fps)
     elif a.cmd == "status":
         res, code = status(a.slug)
     else:

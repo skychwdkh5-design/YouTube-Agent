@@ -163,7 +163,9 @@ def validate(tl, root, limits):
     if tl.get("render") is not None:
         if "segment_s" not in prof:
             raise E(f"timeline.render (segmented rendering) is only for profile 'long'")
-        r._keys(tl["render"], ("segment_s", "preset", "crf"), "render")
+        r._keys(tl["render"], ("segment_s", "preset", "crf", "fps"), "render")
+        if "fps" in tl["render"]:           # opt-in, previews only: fewer frames per second (the master stays at the profile rate)
+            fps = r._num(tl["render"]["fps"], "render.fps", 5, prof["fps"], int)
         segment_s = r._num(tl["render"].get("segment_s", prof["segment_s"]), "render.segment_s", 1, 300)
     elif "segment_s" in prof:
         segment_s = prof["segment_s"]
