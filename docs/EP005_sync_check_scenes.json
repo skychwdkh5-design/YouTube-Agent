@@ -1,0 +1,135 @@
+[
+ {
+  "scene": "m_coast",
+  "what": "scene",
+  "narrator_says_s": 25.41,
+  "shown_s": 25.14,
+  "delta_s": -0.28
+ },
+ {
+  "scene": "m_coast",
+  "what": "pin:RED SEA COAST",
+  "narrator_says_s": 28.73,
+  "shown_s": 28.54,
+  "delta_s": -0.2
+ },
+ {
+  "scene": "m_pixel",
+  "what": "scene",
+  "narrator_says_s": 111.69,
+  "shown_s": 111.39,
+  "delta_s": -0.3
+ },
+ {
+  "scene": "m_visible",
+  "what": "scene",
+  "narrator_says_s": 115.27,
+  "shown_s": 114.97,
+  "delta_s": -0.3
+ },
+ {
+  "scene": "m_visible",
+  "what": "pin:A LONG CLEARED S",
+  "narrator_says_s": 116.17,
+  "shown_s": 115.97,
+  "delta_s": -0.2
+ },
+ {
+  "scene": "m_visible",
+  "what": "pin:A ROAD",
+  "narrator_says_s": 117.49,
+  "shown_s": 117.29,
+  "delta_s": -0.2
+ },
+ {
+  "scene": "m_visible",
+  "what": "label:NOT VISIBLE: PER",
+  "narrator_says_s": 118.41,
+  "shown_s": 118.21,
+  "delta_s": -0.2
+ },
+ {
+  "scene": "m_scenes",
+  "what": "scene",
+  "narrator_says_s": 121.87,
+  "shown_s": 121.57,
+  "delta_s": -0.3
+ },
+ {
+  "scene": "m_notproof",
+  "what": "scene",
+  "narrator_says_s": 217.58,
+  "shown_s": 217.28,
+  "delta_s": -0.3
+ },
+ {
+  "scene": "m_notproof",
+  "what": "label:FITS WATER, NOT ",
+  "narrator_says_s": 220.87,
+  "shown_s": 220.67,
+  "delta_s": -0.2
+ },
+ {
+  "scene": "m_dates",
+  "what": "scene",
+  "narrator_says_s": 241.82,
+  "shown_s": 241.44,
+  "delta_s": -0.38
+ },
+ {
+  "scene": "m_l8",
+  "what": "scene",
+  "narrator_says_s": 257.37,
+  "shown_s": 257.07,
+  "delta_s": -0.3
+ },
+ {
+  "scene": "m_l8",
+  "what": "label:LANDSAT 8 - 30 M",
+  "narrator_says_s": 260.21,
+  "shown_s": 260.02,
+  "delta_s": -0.2
+ },
+ {
+  "scene": "m_len",
+  "what": "scene",
+  "narrator_says_s": 286.42,
+  "shown_s": 286.12,
+  "delta_s": -0.3
+ },
+ {
+  "scene": "m_len",
+  "what": "arrow:",
+  "narrator_says_s": 289.15,
+  "shown_s": 288.95,
+  "delta_s": -0.2
+ },
+ {
+  "scene": "m_len",
+  "what": "label:OCT 2025: ABOUT ",
+  "narrator_says_s": 289.15,
+  "shown_s": 288.95,
+  "delta_s": -0.2
+ },
+ {
+  "scene": "m_len",
+  "what": "arrow:",
+  "narrator_says_s": 293.48,
+  "shown_s": 293.28,
+  "delta_s": -0.2
+ },
+ {
+  "scene": "m_len",
+  "what": "label:OCT 2026: ABOUT ",
+  "narrator_says_s": 293.48,
+  "shown_s": 293.28,
+  "delta_s": -0.2
+ },
+ {
+  "scene": "m_nobuilding",
+  "what": "scene",
+  "narrator_says_s": 319.7,
+  "shown_s": 319.4,
+  "delta_s": -0.3
+ }
+]

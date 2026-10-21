@@ -2,12 +2,11 @@
  "schema": "yt-visualcheck/1",
  "total": 84,
  "orphan_reviews": 15,
- "overall": "NEEDS_VISUAL_REVIEW",
+ "overall": "OK",
  "counts": {
   "VERIFIED_SOURCE": 6,
   "VERIFIED_DATA": 41,
-  "NEEDS_VISUAL_REVIEW": 11,
-  "REVIEWED": 26
+  "REVIEWED": 37
  },
  "items": [
   {
@@ -176,18 +175,18 @@
    "frames": [
     {
      "file": "qa/frames/promise_006_shot_0.png",
-     "sha256": "967809e4f278ca59da9da8503dd6e54d79808bdd9de78d63d98a0f18b465184b",
+     "sha256": "af92ee56c54524837198cdb9d018c143003d1e1cab05f26e4f7565e3d0d8b532",
      "stack": "evidence/stack/y2026.png",
      "center": [
-      35.17005,
-      28.10241
+      35.1428,
+      28.09119
      ],
-     "width_km": 13,
-     "review": null
+     "width_km": 8.5,
+     "review": "supports"
     }
    ],
-   "status": "NEEDS_VISUAL_REVIEW",
-   "why": "1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Camera starts at the sea in the lower-left (dark water and coast, a highway) and pans inland toward the corridor; pin 'RED SEA COAST' sits at the sea edge. Supports C20 (NEOM on the Red Sea coast).",
    "source": [
     {
      "claim": "C20",
@@ -625,11 +624,11 @@
       28.1062
      ],
      "width_km": 0.55,
-     "review": null
+     "review": "supports"
     }
    ],
-   "status": "NEEDS_VISUAL_REVIEW",
-   "why": "1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Zoom into the dark segment until the 10 m pixel blur is visible; tag '1 PIXEL = 10 M OF GROUND'. Supports C15.",
    "source": [
     {
      "claim": "C15",
@@ -663,11 +662,11 @@
       28.1062
      ],
      "width_km": 0.55,
-     "review": null
+     "review": "supports"
     }
    ],
-   "status": "NEEDS_VISUAL_REVIEW",
-   "why": "1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Zoom into the dark segment until the 10 m pixel blur is visible; tag '1 PIXEL = 10 M OF GROUND'. Supports C15.",
    "source": [
     {
      "claim": "C15",
@@ -694,18 +693,18 @@
    "frames": [
     {
      "file": "qa/frames/method_020_label_NOT_VISIBLE__PERSON__CRANE__WINDOW_0.png",
-     "sha256": "3be74e0d09e4e18a4b2df58869cf00def37d7bb8583c37c33b13fd5b6219af51",
+     "sha256": "d6c96c452fb16fefd713f23f016c25585c979249fd52f3264f116815a759fe64",
      "stack": "evidence/stack/y2026.png",
      "center": [
-      35.14964,
-      28.09507
+      35.14493,
+      28.11409
      ],
-     "width_km": 7,
-     "review": null
+     "width_km": 6.5,
+     "review": "supports"
     }
    ],
-   "status": "NEEDS_VISUAL_REVIEW",
-   "why": "1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Corridor (long straight cleared strip), highway and settlement visible; pins on the strip and the road, then tag 'NOT VISIBLE: PERSON, CRANE, WINDOW'. Supports C15 (what 10 m can and cannot show).",
    "source": [
     {
      "claim": "C15",
@@ -732,18 +731,18 @@
    "frames": [
     {
      "file": "qa/frames/method_020_shot_0.png",
-     "sha256": "3be74e0d09e4e18a4b2df58869cf00def37d7bb8583c37c33b13fd5b6219af51",
+     "sha256": "d6c96c452fb16fefd713f23f016c25585c979249fd52f3264f116815a759fe64",
      "stack": "evidence/stack/y2026.png",
      "center": [
-      35.14964,
-      28.09507
+      35.14493,
+      28.11409
      ],
-     "width_km": 7,
-     "review": null
+     "width_km": 6.5,
+     "review": "supports"
     }
    ],
-   "status": "NEEDS_VISUAL_REVIEW",
-   "why": "1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Corridor (long straight cleared strip), highway and settlement visible; pins on the strip and the road, then tag 'NOT VISIBLE: PERSON, CRANE, WINDOW'. Supports C15 (what 10 m can and cannot show).",
    "source": [
     {
      "claim": "C15",
@@ -777,7 +776,7 @@
       28.1062
      ],
      "width_km": 8,
-     "review": null
+     "review": "supports"
     },
     {
      "file": "qa/frames/method_021_shot_1.png",
@@ -788,7 +787,7 @@
       28.1062
      ],
      "width_km": 8,
-     "review": null
+     "review": "supports"
     },
     {
      "file": "qa/frames/method_021_shot_2.png",
@@ -799,7 +798,7 @@
       28.1062
      ],
      "width_km": 8,
-     "review": null
+     "review": "supports"
     },
     {
      "file": "qa/frames/method_021_shot_3.png",
@@ -810,7 +809,7 @@
       28.1062
      ],
      "width_km": 8,
-     "review": null
+     "review": "supports"
     },
     {
      "file": "qa/frames/method_021_shot_4.png",
@@ -821,7 +820,7 @@
       28.1062
      ],
      "width_km": 8,
-     "review": null
+     "review": "supports"
     },
     {
      "file": "qa/frames/method_021_shot_5.png",
@@ -832,7 +831,7 @@
       28.1062
      ],
      "width_km": 8,
-     "review": null
+     "review": "supports"
     },
     {
      "file": "qa/frames/method_021_shot_6.png",
@@ -843,11 +842,11 @@
       28.1062
      ],
      "width_km": 8,
-     "review": null
+     "review": "supports"
     }
    ],
-   "status": "NEEDS_VISUAL_REVIEW",
-   "why": "7 of 7 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Flip of the seven Sentinel-2 dates 2020-2026 over the same frame; each frame is the same ground (corridor absent in 2020-21, faint 2022, clear from 2023). Supports C16. | Flip of the seven Sentinel-2 dates 2020-2026 over the same frame; each frame is the same ground (corridor absent in 2020-21, fain",
    "source": [
     {
      "claim": "C16",
@@ -1665,11 +1664,11 @@
      "stack": "graphics/i_ndwi.png",
      "center": null,
      "width_km": null,
-     "review": null
+     "review": "supports"
     }
    ],
-   "status": "NEEDS_VISUAL_REVIEW",
-   "why": "a chart / card / diagram: a reviewer must compare its numbers and wording with the claims",
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Card: near-infrared signal very low; NDWI above zero; 2024, 2025, 2026 water-like. Matches C11.",
    "source": [
     {
      "claim": "C11",
@@ -1945,11 +1944,11 @@
       28.1062
      ],
      "width_km": 2.6,
-     "review": null
+     "review": "supports"
     }
    ],
-   "status": "NEEDS_VISUAL_REVIEW",
-   "why": "1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Wipe from Sentinel-2 (10 m) to Landsat 8 (30 m, resampled to the 10 m grid) on exactly the same ground; the dark segment is visible in both, shorter and blurrier in Landsat. Tags state the two instruments. Supports C13.",
    "source": [
     {
      "claim": "C13",
@@ -1983,11 +1982,11 @@
       28.1062
      ],
      "width_km": 2.6,
-     "review": null
+     "review": "supports"
     }
    ],
-   "status": "NEEDS_VISUAL_REVIEW",
-   "why": "1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Wipe from Sentinel-2 (10 m) to Landsat 8 (30 m, resampled to the 10 m grid) on exactly the same ground; the dark segment is visible in both, shorter and blurrier in Landsat. Tags state the two instruments. Supports C13.",
    "source": [
     {
      "claim": "C13",
@@ -2021,7 +2020,7 @@
       28.1062
      ],
      "width_km": 2.6,
-     "review": null
+     "review": "supports"
     },
     {
      "file": "qa/frames/checks_045_shot_1.png",
@@ -2032,11 +2031,11 @@
       28.1062
      ],
      "width_km": 2.6,
-     "review": null
+     "review": "supports"
     }
    ],
-   "status": "NEEDS_VISUAL_REVIEW",
-   "why": "2 of 2 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Wipe from Sentinel-2 (10 m) to Landsat 8 (30 m, resampled to the 10 m grid) on exactly the same ground; the dark segment is visible in both, shorter and blurrier in Landsat. Tags state the two instruments. Supports C13. | Wipe from Sentinel-2 (10 m) to Landsat 8 (30 m, resampled to the 10 m grid) on",
    "source": [
     {
      "claim": "C13",
@@ -2433,11 +2432,11 @@
       28.1062
      ],
      "width_km": 1.8,
-     "review": null
+     "review": "supports"
     }
    ],
-   "status": "NEEDS_VISUAL_REVIEW",
-   "why": "1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Sentinel-2 zoom along the corridor: no individual building can be made out at 10 m; tag 'AT THIS RESOLUTION: NO BUILDING' states the script's limitation.",
    "source": [],
    "allowed": {
     "wording": [],

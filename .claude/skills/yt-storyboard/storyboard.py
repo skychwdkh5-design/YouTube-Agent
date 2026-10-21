@@ -422,6 +422,7 @@ def _scene_shot(ep, grid, chap, v, s, d, labels, sid):
     c1, w1 = fit_view(grid, v.get("focus_to") or focus, z1)
     s["camera"] = {"from": {"center": c0, "width_km": w0}, "to": {"center": c1, "width_km": w1}}
     s["scene"] = True
+    s["scene_id"] = v.get("id")
     if v.get("claims"):
         s["claims"] = list(v["claims"])
     if v.get("wipe"):

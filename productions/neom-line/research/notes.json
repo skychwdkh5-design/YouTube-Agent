@@ -1307,16 +1307,16 @@
    "min_s": 6,
    "asset": "y2026",
    "zoom": [
-    4.2,
-    13
+    5,
+    8.5
    ],
    "focus": [
-    35.11382,
-    28.0848
+    35.112,
+    28.082
    ],
    "focus_to": [
-    35.17,
-    28.1
+    35.128,
+    28.087
    ],
    "marks": [
     {
@@ -1364,19 +1364,19 @@
    "min_s": 6,
    "asset": "y2026",
    "zoom": [
-    10,
-    7
+    7.5,
+    6.5
    ],
    "focus": [
-    35.14964,
-    28.09507
+    35.14493,
+    28.11409
    ],
    "marks": [
     {
      "type": "pin",
      "at": [
-      35.16014,
-      28.11151
+      35.1703,
+      28.11053
      ],
      "text": "A LONG CLEARED STRIP",
      "anchor_text": "a long cleared strip",
@@ -1385,8 +1385,8 @@
     {
      "type": "pin",
      "at": [
-      35.13911,
-      28.07719
+      35.1196,
+      28.11972
      ],
      "text": "A ROAD",
      "anchor_text": "or a road",
@@ -1535,12 +1535,15 @@
     28.1062
    ],
    "wipe_at": "Landsat 8, at 30 meters",
-   "label": {
-    "text": "SENTINEL-2 - 10 M",
-    "style": "tag",
-    "slot": "upper"
-   },
    "marks": [
+    {
+     "type": "label",
+     "text": "SENTINEL-2 - 10 M",
+     "style": "tag",
+     "slot": "upper",
+     "t": 0.6,
+     "dur": 2.4
+    },
     {
      "type": "label",
      "text": "LANDSAT 8 - 30 M, SAME PLACE",

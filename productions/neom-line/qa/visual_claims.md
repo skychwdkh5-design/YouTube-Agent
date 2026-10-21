@@ -1,6 +1,6 @@
 # Visual-claim check
 
-Overall: **NEEDS_VISUAL_REVIEW** {'VERIFIED_SOURCE': 6, 'VERIFIED_DATA': 41, 'NEEDS_VISUAL_REVIEW': 11, 'REVIEWED': 26} (total 84; orphan reviews not matching any current frame: 15)
+Overall: **OK** {'VERIFIED_SOURCE': 6, 'VERIFIED_DATA': 41, 'REVIEWED': 37} (total 84; orphan reviews not matching any current frame: 15)
 
 | item | claims | status | frame / why |
 |---|---|---|---|
@@ -11,7 +11,7 @@ Overall: **NEEDS_VISUAL_REVIEW** {'VERIFIED_SOURCE': 6, 'VERIFIED_DATA': 41, 'NE
 | hook_004:shot | C10 | VERIFIED_DATA |  present [2024, 2025, 2026], absent [2022, 2023] confirmed by NDWI counts [data check + the view contains the l |
 | hook_005:label:Dark segment, 1.6 to 1.9 km | C10 | VERIFIED_DATA |  present [2024, 2025, 2026], absent [2022, 2023] confirmed by NDWI counts [data check + the view contains the l |
 | hook_005:shot | C10 | VERIFIED_DATA |  present [2024, 2025, 2026], absent [2022, 2023] confirmed by NDWI counts [data check + the view contains the l |
-| promise_006:shot | C20 | NEEDS_VISUAL_REVIEW | qa/frames/promise_006_shot_0.png 1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame |
+| promise_006:shot | C20 | REVIEWED_BY_AGENT | qa/frames/promise_006_shot_0.png Camera starts at the sea in the lower-left (dark water and coast, a highway) and pans inland toward the corrid |
 | promise_007:graphic:g_scale | C1 | VERIFIED_SOURCE |  arrow label equals the claim's announced length; the scale bar is computed from the grid |
 | promise_008:graphic:g_tiers | C1,C4,C9 | VERIFIED_SOURCE |  each step carries its claim's short text |
 | promise_009:label:OCT 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18 |
@@ -24,11 +24,11 @@ Overall: **NEEDS_VISUAL_REVIEW** {'VERIFIED_SOURCE': 6, 'VERIFIED_DATA': 41, 'NE
 | plan_016:label:OCT 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18 |
 | method_017:label:OCT 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18 |
 | method_018:graphic:i_source | C16 | REVIEWED_BY_AGENT | qa/frames/method_018_graphic_i_source_0.png Chain: SENTINEL-2 SATELLITES -> EUROPEAN COPERNICUS PROGRAM -> FREE, FULL AND OPEN DATA. Matches the script wo |
-| method_019:label:1 PIXEL = 10 M OF GROUND | C15 | NEEDS_VISUAL_REVIEW | qa/frames/method_019_label_1_PIXEL___10_M_OF_GROUND_0.png 1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame |
-| method_019:shot | C15 | NEEDS_VISUAL_REVIEW | qa/frames/method_019_shot_0.png 1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame |
-| method_020:label:NOT VISIBLE: PERSON, CRANE, WINDOW | C15 | NEEDS_VISUAL_REVIEW | qa/frames/method_020_label_NOT_VISIBLE__PERSON__CRANE__WINDOW_0.png 1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame |
-| method_020:shot | C15 | NEEDS_VISUAL_REVIEW | qa/frames/method_020_shot_0.png 1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame |
-| method_021:shot | C16 | NEEDS_VISUAL_REVIEW | qa/frames/method_021_shot_0.png 7 of 7 frames not reviewed (or review unclear/stale); a reviewer must look at each frame |
+| method_019:label:1 PIXEL = 10 M OF GROUND | C15 | REVIEWED_BY_AGENT | qa/frames/method_019_label_1_PIXEL___10_M_OF_GROUND_0.png Zoom into the dark segment until the 10 m pixel blur is visible; tag '1 PIXEL = 10 M OF GROUND'. Supports C15. |
+| method_019:shot | C15 | REVIEWED_BY_AGENT | qa/frames/method_019_shot_0.png Zoom into the dark segment until the 10 m pixel blur is visible; tag '1 PIXEL = 10 M OF GROUND'. Supports C15. |
+| method_020:label:NOT VISIBLE: PERSON, CRANE, WINDOW | C15 | REVIEWED_BY_AGENT | qa/frames/method_020_label_NOT_VISIBLE__PERSON__CRANE__WINDOW_0.png Corridor (long straight cleared strip), highway and settlement visible; pins on the strip and the road, then t |
+| method_020:shot | C15 | REVIEWED_BY_AGENT | qa/frames/method_020_shot_0.png Corridor (long straight cleared strip), highway and settlement visible; pins on the strip and the road, then t |
+| method_021:shot | C16 | REVIEWED_BY_AGENT | qa/frames/method_021_shot_0.png Flip of the seven Sentinel-2 dates 2020-2026 over the same frame; each frame is the same ground (corridor abse |
 | method_022:graphic:i_orbit_s1 | C16 | REVIEWED_BY_AGENT | qa/frames/method_022_graphic_i_orbit_s1_0.png Two rows: SAME ORBIT 78 pass around 08:08 UTC; SAME SEASON 29 SEP TO 18 OCT. Matches stack provenance (relativ |
 | method_023:graphic:i_cloud | C16 | REVIEWED_BY_AGENT | qa/frames/method_023_graphic_i_cloud_0.png Big number 0.1 percent with caption 'is the ceiling for reported cloud cover in all seven scenes'; provenance  |
 | shows_024:label:SEP 2020 |  | VERIFIED_DATA |  scene S2A_MSIL2A_20200929T080731_R078_T36RYS_20201001T154846 acquired 2020-09-29 |
@@ -53,7 +53,7 @@ Overall: **NEEDS_VISUAL_REVIEW** {'VERIFIED_SOURCE': 6, 'VERIFIED_DATA': 41, 'NE
 | segment_036:shot | C10 | VERIFIED_DATA |  present [2024, 2025, 2026], absent [2022, 2023] confirmed by NDWI counts [data check + the view contains the l |
 | segment_037:graphic:g_cmp_2022_2026_c10 | C10 | VERIFIED_DATA |  present [2024, 2025, 2026], absent [2022, 2023] confirmed by NDWI counts [data check + the view contains the l |
 | segment_038:graphic:g_hero_c10 | C10 | VERIFIED_DATA |  present [2024, 2025, 2026], absent [2022, 2023] confirmed by NDWI counts [data check + the view contains the l |
-| segment_039:graphic:i_ndwi_s1 | C11 | NEEDS_VISUAL_REVIEW | qa/frames/segment_039_graphic_i_ndwi_s1_0.png a chart / card / diagram: a reviewer must compare its numbers and wording with the claims |
+| segment_039:graphic:i_ndwi_s1 | C11 | REVIEWED_BY_AGENT | qa/frames/segment_039_graphic_i_ndwi_s1_0.png Card: near-infrared signal very low; NDWI above zero; 2024, 2025, 2026 water-like. Matches C11. |
 | segment_040:label:FITS WATER, NOT PROOF | C11 | VERIFIED_DATA |  present [2024, 2025, 2026], absent [2022, 2023] confirmed by NDWI counts [data check + the view contains the l |
 | segment_040:shot | C11 | VERIFIED_DATA |  present [2024, 2025, 2026], absent [2022, 2023] confirmed by NDWI counts [data check + the view contains the l |
 | segment_041:shot | C10 | VERIFIED_DATA |  present [2024, 2025, 2026], absent [2022, 2023] confirmed by NDWI counts [data check + the view contains the l |
@@ -64,9 +64,9 @@ Overall: **NEEDS_VISUAL_REVIEW** {'VERIFIED_SOURCE': 6, 'VERIFIED_DATA': 41, 'NE
 | checks_044:label:SENTINEL-2B - 8 OCT 2025 | C14 | VERIFIED_DATA |  3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view c |
 | checks_044:label:SENTINEL-2C - 18 OCT 2026 | C14 | VERIFIED_DATA |  3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view c |
 | checks_044:shot | C14 | VERIFIED_DATA |  3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view c |
-| checks_045:label:SENTINEL-2 - 10 M | C13 | NEEDS_VISUAL_REVIEW | qa/frames/checks_045_label_SENTINEL-2_-_10_M_0.png 1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame |
-| checks_045:label:LANDSAT 8 - 30 M, SAME PLACE | C13 | NEEDS_VISUAL_REVIEW | qa/frames/checks_045_label_LANDSAT_8_-_30_M__SAME_PLACE_0.png 1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame |
-| checks_045:shot | C13 | NEEDS_VISUAL_REVIEW | qa/frames/checks_045_shot_0.png 2 of 2 frames not reviewed (or review unclear/stale); a reviewer must look at each frame |
+| checks_045:label:SENTINEL-2 - 10 M | C13 | REVIEWED_BY_AGENT | qa/frames/checks_045_label_SENTINEL-2_-_10_M_0.png Wipe from Sentinel-2 (10 m) to Landsat 8 (30 m, resampled to the 10 m grid) on exactly the same ground; the da |
+| checks_045:label:LANDSAT 8 - 30 M, SAME PLACE | C13 | REVIEWED_BY_AGENT | qa/frames/checks_045_label_LANDSAT_8_-_30_M__SAME_PLACE_0.png Wipe from Sentinel-2 (10 m) to Landsat 8 (30 m, resampled to the 10 m grid) on exactly the same ground; the da |
+| checks_045:shot | C13 | REVIEWED_BY_AGENT | qa/frames/checks_045_shot_0.png Wipe from Sentinel-2 (10 m) to Landsat 8 (30 m, resampled to the 10 m grid) on exactly the same ground; the da |
 | checks_046:graphic:i_landsat | C13 | REVIEWED_BY_AGENT | qa/frames/checks_046_graphic_i_landsat_0.png Side by side Sentinel-2 (10 m) vs Landsat 8 (30 m) Oct 2024 on the same coordinates, 1 km scale bars, 1.6 km v |
 | checks_047:graphic:i_lengths | C13,C12 | REVIEWED_BY_AGENT | qa/frames/checks_047_graphic_i_lengths_0.png Bar chart in km: S2 Oct 2024 1.60, L8 Oct 2024 0.72 highlighted, S2 Oct 2025 1.60, L8 Oct 2025 1.65, S2 Oct 20 |
 | checks_048:graphic:i_apart_s1 | C13 | REVIEWED_BY_AGENT | qa/frames/checks_048_graphic_i_apart_s1_0.png Rows: OCT 2024 8 and 22 Oct; OCT 2025 8 and 25 Oct; 2026 26 Sep and 18 Oct; red '2 to 3 weeks apart: resolutio |
@@ -78,7 +78,7 @@ Overall: **NEEDS_VISUAL_REVIEW** {'VERIFIED_SOURCE': 6, 'VERIFIED_DATA': 41, 'NE
 | checks_052:label:OCT 2024 |  | VERIFIED_DATA |  scene S2A_MSIL2A_20241008T080831_R078_T36RYS_20241008T112248 acquired 2024-10-08 |
 | checks_052:shot | C14 | VERIFIED_DATA |  3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view c |
 | limits_053:label:OCT 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18 |
-| limits_054:label:AT THIS RESOLUTION: NO BUILDING |  | NEEDS_VISUAL_REVIEW | qa/frames/limits_054_label_AT_THIS_RESOLUTION__NO_BUILDING_0.png 1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame |
+| limits_054:label:AT THIS RESOLUTION: NO BUILDING |  | REVIEWED_BY_AGENT | qa/frames/limits_054_label_AT_THIS_RESOLUTION__NO_BUILDING_0.png Sentinel-2 zoom along the corridor: no individual building can be made out at 10 m; tag 'AT THIS RESOLUTION: N |
 | limits_055:graphic:i_cannot_s1 |  | REVIEWED_BY_AGENT | qa/frames/limits_055_graphic_i_cannot_s1_0.png Two red cards: THAT IT IS A FINISHED CITY; THAT THIS CORRIDOR IS THE LINE. Mirror the script limits (L). |
 | limits_056:graphic:i_nomatch_s1 |  | REVIEWED_BY_AGENT | qa/frames/limits_056_graphic_i_nomatch_s1_0.png NO OFFICIAL NEOM MAP TO MATCH IT AGAINST; A SIMILAR PICTURE IN 2025 AND 2026 DOES NOT PROVE A PAUSE. Mirror th |
 | limits_057:label:OCT 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18 |

@@ -23,35 +23,35 @@
   },
   "research": {
    "status": "done",
-   "attempts": 37,
-   "started": "2026-10-21T13:27:44Z",
+   "attempts": 38,
+   "started": "2026-10-21T13:35:19Z",
    "error": null,
-   "finished": "2026-10-21T13:27:44Z",
+   "finished": "2026-10-21T13:35:19Z",
    "note": "20 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN",
    "inputs": {
-    "research/notes.json": "576cfdfa73668917d823f0e1b44d56303282b8dc41da767af7d124f51a859956",
+    "research/notes.json": "0e3b6d955930630108bba45a45ca821a9d2be457f47b163598c67bf1c0df8c38",
     "topic/topic.json": "a65342b22b074f5e96319ff00ff7719355abdf9e1a091ce3b84ad7b23465efe1",
     "_tool": "20551a128ea3eaf0"
    },
    "outputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "research/report.md": "77584fbff2ef4afc26ada77bde113e1be0e37f75b404a3fc234158b4d2ad482c"
+    "research/report.md": "5f24feb962f60e7411e6111227327c3135c6f834003c05bf28fce9408c9633fd"
    },
    "agent_artifacts": {
-    "research/notes.json": "576cfdfa73668917d823f0e1b44d56303282b8dc41da767af7d124f51a859956",
+    "research/notes.json": "0e3b6d955930630108bba45a45ca821a9d2be457f47b163598c67bf1c0df8c38",
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c"
    }
   },
   "facts": {
    "status": "done",
-   "attempts": 37,
-   "started": "2026-10-21T13:27:44Z",
+   "attempts": 38,
+   "started": "2026-10-21T13:35:19Z",
    "error": null,
-   "finished": "2026-10-21T13:27:44Z",
+   "finished": "2026-10-21T13:35:19Z",
    "note": "20 claims, registry ok",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "research/report.md": "77584fbff2ef4afc26ada77bde113e1be0e37f75b404a3fc234158b4d2ad482c",
+    "research/report.md": "5f24feb962f60e7411e6111227327c3135c6f834003c05bf28fce9408c9633fd",
     "_tool": "011f70d2646e3c92"
    },
    "outputs": {},
@@ -59,15 +59,15 @@
   },
   "evidence": {
    "status": "done",
-   "attempts": 37,
-   "started": "2026-10-21T13:27:44Z",
+   "attempts": 38,
+   "started": "2026-10-21T13:35:19Z",
    "error": null,
-   "finished": "2026-10-21T13:27:44Z",
+   "finished": "2026-10-21T13:35:19Z",
    "note": "2 stacks + Landsat stack(s) + NDWI series",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "research/notes.json": "576cfdfa73668917d823f0e1b44d56303282b8dc41da767af7d124f51a859956",
-    "research/report.md": "77584fbff2ef4afc26ada77bde113e1be0e37f75b404a3fc234158b4d2ad482c",
+    "research/notes.json": "0e3b6d955930630108bba45a45ca821a9d2be457f47b163598c67bf1c0df8c38",
+    "research/report.md": "5f24feb962f60e7411e6111227327c3135c6f834003c05bf28fce9408c9633fd",
     "topic/topic.json": "a65342b22b074f5e96319ff00ff7719355abdf9e1a091ce3b84ad7b23465efe1",
     "_tool": "9910c5ec0e089c03"
    },
@@ -115,10 +115,10 @@
   },
   "visualplan": {
    "status": "done",
-   "attempts": 67,
-   "started": "2026-10-21T13:27:44Z",
+   "attempts": 68,
+   "started": "2026-10-21T13:35:19Z",
    "error": null,
-   "finished": "2026-10-21T13:27:44Z",
+   "finished": "2026-10-21T13:35:19Z",
    "note": "61 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19', 'i_bloomberg', 'i_semafor', 'i_reuters', 'i_opened', 'i_source', 'i_orbit', 'i_cloud', 'i_ndwi', 'i_landsat', 'i_lengths', 'i_apart', 'i_growth', 'i_verdict', 'i_cannot', 'i_nomatch']",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
@@ -135,25 +135,25 @@
     "media/ledger.json": "d2ac57fd67905bbba0e508d3fa9f957d2b8031b0a3cf0c6b6df5e4dbeaa7048e",
     "media/report.json": "20e7b01d6d3355e2873a9c0c2dcb3ac3babbb6c357218c91e07917545f8cbbb6",
     "research/brief.json": "c149b15f762a9b43f5757664c3cdba1fcf5dddd27ceef29c486be4c1de1641b0",
-    "research/notes.json": "576cfdfa73668917d823f0e1b44d56303282b8dc41da767af7d124f51a859956",
+    "research/notes.json": "0e3b6d955930630108bba45a45ca821a9d2be457f47b163598c67bf1c0df8c38",
     "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
     "_tool": "3a5d506e8ebc6dd3"
    },
    "outputs": {
-    "episode.json": "6651c160b955099df57a368107987dc8de67110ab52f4e5354fede94364200ce",
+    "episode.json": "988c6a592a80287fff5c1348ee9b000efc55777451e1200b5ed7a720567897a4",
     "graphics_spec.json": "02c4cd61d41187a5e72888cb354cbb4e1b7409a912f9fef18f01cd2b927117fe"
    },
    "agent_artifacts": {}
   },
   "visuals": {
    "status": "done",
-   "attempts": 65,
-   "started": "2026-10-21T13:27:44Z",
+   "attempts": 66,
+   "started": "2026-10-21T13:35:19Z",
    "error": null,
-   "finished": "2026-10-21T13:28:02Z",
+   "finished": "2026-10-21T13:35:37Z",
    "note": "53 graphics",
    "inputs": {
-    "episode.json": "6651c160b955099df57a368107987dc8de67110ab52f4e5354fede94364200ce",
+    "episode.json": "988c6a592a80287fff5c1348ee9b000efc55777451e1200b5ed7a720567897a4",
     "evidence/landsat/grid.json": "a7cae15127269feb820a695484f6f233d904dc7e8c10d5af3798f3fd26b4d8f9",
     "evidence/landsat/provenance.json": "9f4912dfba5f9072a0de32523230c113b3a47f72afbea4e92fcefa5f18fdbac7",
     "evidence/landsat10/grid.json": "278f7597bdc32e08c9909562bc83396ddafbd686ba9d9014a29c682d5a7478bf",
@@ -225,15 +225,15 @@
   },
   "storyboard": {
    "status": "done",
-   "attempts": 75,
-   "started": "2026-10-21T13:28:46Z",
+   "attempts": 77,
+   "started": "2026-10-21T13:37:12Z",
    "error": null,
-   "finished": "2026-10-21T13:28:50Z",
+   "finished": "2026-10-21T13:37:17Z",
    "note": "65 shots, 385.312s, timing from voice",
    "inputs": {
     "captions/captions.srt": "d9f857ee8b3f20fe9be700f3dbe26f54e8bfb5517e6ad72b8f466f500dad2d5e",
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "episode.json": "6651c160b955099df57a368107987dc8de67110ab52f4e5354fede94364200ce",
+    "episode.json": "988c6a592a80287fff5c1348ee9b000efc55777451e1200b5ed7a720567897a4",
     "evidence/landsat/grid.json": "a7cae15127269feb820a695484f6f233d904dc7e8c10d5af3798f3fd26b4d8f9",
     "evidence/landsat/provenance.json": "9f4912dfba5f9072a0de32523230c113b3a47f72afbea4e92fcefa5f18fdbac7",
     "evidence/landsat10/grid.json": "278f7597bdc32e08c9909562bc83396ddafbd686ba9d9014a29c682d5a7478bf",
@@ -299,81 +299,81 @@
     "research/brief.json": "c149b15f762a9b43f5757664c3cdba1fcf5dddd27ceef29c486be4c1de1641b0",
     "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
     "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441",
-    "_tool": "4f477bd3e5308e83"
+    "_tool": "22e61abeeb56d2cf"
    },
    "outputs": {
-    "story/storyboard.json": "296db0c78526dcecdd9b47dc6191a60a20bfb1f3316f727263a015e8ac4c1465",
-    "timeline.json": "4d066c34a6d975683433ce65dca96d4b61000bb41a1302dc03a8dd0cad4e4b38",
+    "story/storyboard.json": "1eb8016994dfc2bb12a07cb37e36790af8cd38e328aa870d462cc23a40026863",
+    "timeline.json": "06a00aeb785da2980731f8682143ff6c8039184ab9f32f274455c71ed7cebcd9",
     "story/labels.json": "34c11a330d6fa1979bfeab59a8a4edeaad8cd4cbafa30acc21052a90c2f49079",
-    "story/report.md": "8f53469d2f144d5c2d927ef1123b1e645d1686afff0f4c8245ac918950f25deb",
+    "story/report.md": "1b5d168a8c37020669268046bea36537a6ac3b01eb47c4052389204256a2cfa7",
     "story/diversity.json": "0484a0725b669f430ad0896fa79259995e04f4e848d4da04e5e51ffd42699e9f"
    },
    "agent_artifacts": {}
   },
   "visualcheck": {
-   "status": "needs_agent",
-   "attempts": 122,
-   "started": "2026-10-21T13:29:04Z",
+   "status": "done",
+   "attempts": 126,
+   "started": "2026-10-21T13:37:17Z",
    "error": null,
-   "finished": "2026-10-21T13:29:18Z",
-   "note": "11 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)",
+   "finished": "2026-10-21T13:37:29Z",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 6, 'VERIFIED_DATA': 41, 'REVIEWED': 37} of 84 items; 15 orphan reviews (run `visualcheck.py prune`)",
    "outputs": {
-    "qa/visual_claims.json": "18e626eeab2a759fbe3341516c71bfd04f4f5c482017381c7dcbb42928b77145",
-    "qa/visual_claims.md": "cf5874fe15bf4182416f22e45372d927adb16efb2cc8a202f6998acbd769dc62"
+    "qa/visual_claims.json": "8cc27231680f615f3445c12e6c5d6b990275afa4e55de7fca6fb89ee8a7b1e82",
+    "qa/visual_claims.md": "6a95662cfa0e15be4462537567a1083d6093f418ecdc07f2ad45778e9878c7e3"
    },
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "episode.json": "ab526683d4f1559e718e95d853c5279a9855fe0910567ab2a51b62b61fe071df",
+    "episode.json": "988c6a592a80287fff5c1348ee9b000efc55777451e1200b5ed7a720567897a4",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
-    "graphics_spec.json": "73b401d7e424711906c6aaaa0f74af9753cd70aebbf1694b53a0e2861bfddb23",
+    "graphics_spec.json": "02c4cd61d41187a5e72888cb354cbb4e1b7409a912f9fef18f01cd2b927117fe",
     "media/assets/northwestern_coast_of_saudi_.jpg": "93236ad9ce7d540e3917a45b79c19e0aa576706fcf937dc7e8a425f376d116b6",
-    "qa/visual_review.json": "8d315387aa2a515ba9da18ad694bb82e4cca8d5cab20df46b3cebde7fb2e87ab",
-    "story/diversity.json": "c7b3f0a01699ddfd42b429d5d14d9cbc2b1ec2d2519cd57582b0cb4245c33add",
-    "story/labels.json": "22a6395bfc8b6af0cf96e06e94c3268507bcfa3b2c9617a4737273a27cf745e5",
-    "story/report.md": "e3a7349b68e4055dce5fb0e46d88bef2dfb7576c83f238e799c31be90b962db7",
-    "story/storyboard.json": "c16c516d860f10e76ce8fffb8398672e4a6a680e10e68884e2c9141bb62af654",
-    "timeline.json": "41eb9afb24a7ad6a3fcf26265be38c84ab27953424c47cb55f8c365db5631985",
-    "_tool": "f0605fbf39b19611"
+    "qa/visual_review.json": "b948ae217cc48b72fb1904eb2472990ca37b0945928c689a25f3b56efc72f9c9",
+    "story/diversity.json": "0484a0725b669f430ad0896fa79259995e04f4e848d4da04e5e51ffd42699e9f",
+    "story/labels.json": "34c11a330d6fa1979bfeab59a8a4edeaad8cd4cbafa30acc21052a90c2f49079",
+    "story/report.md": "1b5d168a8c37020669268046bea36537a6ac3b01eb47c4052389204256a2cfa7",
+    "story/storyboard.json": "1eb8016994dfc2bb12a07cb37e36790af8cd38e328aa870d462cc23a40026863",
+    "timeline.json": "06a00aeb785da2980731f8682143ff6c8039184ab9f32f274455c71ed7cebcd9",
+    "_tool": "99a34655b31d05f3"
    },
    "agent_artifacts": {
-    "qa/visual_review.json": "8d315387aa2a515ba9da18ad694bb82e4cca8d5cab20df46b3cebde7fb2e87ab"
+    "qa/visual_review.json": "b948ae217cc48b72fb1904eb2472990ca37b0945928c689a25f3b56efc72f9c9"
    }
   },
   "voice": {
-   "status": "waiting",
-   "attempts": 48,
-   "note": "waiting for ['visualcheck']",
-   "started": "2026-10-21T11:15:41Z",
+   "status": "done",
+   "attempts": 50,
+   "note": "narration already generated (not regenerated)",
+   "started": "2026-10-21T13:37:29Z",
    "error": null,
-   "finished": "2026-10-21T11:15:41Z",
+   "finished": "2026-10-21T13:37:29Z",
    "outputs": {
     "voice/narration.wav": "2b4e32ad400affa806b3731a8701178dfda2401a1591d7d0f7981a7abc866479",
     "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441"
    },
    "inputs": {
     "approvals/voice.json": "c896fb94c2cefc63b790bdc06478b51f0d354d30163db640e76e8e1d92d9f7f2",
-    "qa/visual_claims.json": "60926da9f7f55dfd5231a6a3d80e161a65ec41361b4ee642ba83328af39f0154",
-    "qa/visual_claims.md": "19e7cf5d9831248593f043488aa30e41fbe675c9360c61a3a7b50dc80c1e3f88",
+    "qa/visual_claims.json": "8cc27231680f615f3445c12e6c5d6b990275afa4e55de7fca6fb89ee8a7b1e82",
+    "qa/visual_claims.md": "6a95662cfa0e15be4462537567a1083d6093f418ecdc07f2ad45778e9878c7e3",
     "research/brief.json": "c149b15f762a9b43f5757664c3cdba1fcf5dddd27ceef29c486be4c1de1641b0",
     "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
-    "story/diversity.json": "c7b3f0a01699ddfd42b429d5d14d9cbc2b1ec2d2519cd57582b0cb4245c33add",
-    "story/labels.json": "22a6395bfc8b6af0cf96e06e94c3268507bcfa3b2c9617a4737273a27cf745e5",
-    "story/report.md": "e3a7349b68e4055dce5fb0e46d88bef2dfb7576c83f238e799c31be90b962db7",
-    "story/storyboard.json": "c16c516d860f10e76ce8fffb8398672e4a6a680e10e68884e2c9141bb62af654",
-    "timeline.json": "41eb9afb24a7ad6a3fcf26265be38c84ab27953424c47cb55f8c365db5631985",
+    "story/diversity.json": "0484a0725b669f430ad0896fa79259995e04f4e848d4da04e5e51ffd42699e9f",
+    "story/labels.json": "34c11a330d6fa1979bfeab59a8a4edeaad8cd4cbafa30acc21052a90c2f49079",
+    "story/report.md": "1b5d168a8c37020669268046bea36537a6ac3b01eb47c4052389204256a2cfa7",
+    "story/storyboard.json": "1eb8016994dfc2bb12a07cb37e36790af8cd38e328aa870d462cc23a40026863",
+    "timeline.json": "06a00aeb785da2980731f8682143ff6c8039184ab9f32f274455c71ed7cebcd9",
     "_tool": "e3b0c44298fc1c14"
    },
    "agent_artifacts": {}
   },
   "captions": {
-   "status": "waiting",
-   "attempts": 9,
-   "note": "waiting for ['voicecheck']",
-   "started": "2026-10-21T11:12:45Z",
+   "status": "done",
+   "attempts": 10,
+   "note": "captions built from real word timings",
+   "started": "2026-10-21T13:36:50Z",
    "error": null,
-   "finished": "2026-10-21T11:12:45Z",
+   "finished": "2026-10-21T13:36:50Z",
    "inputs": {
     "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441",
     "voice/voicecheck.json": "409a69b6b523bfc7e0d7336a9e7b7aafd38f2e3d8bea079150fad96c6773c522",
@@ -387,14 +387,14 @@
    "agent_artifacts": {}
   },
   "render": {
-   "status": "waiting",
-   "attempts": 54,
-   "note": "waiting for ['voice', 'voicecheck', 'captions']",
-   "started": "2026-10-21T11:15:46Z",
+   "status": "awaiting_approval",
+   "attempts": 58,
+   "note": "approval present but --allow-render not given; plan validated",
+   "started": "2026-10-21T13:37:35Z",
    "error": null,
-   "finished": "2026-10-21T11:15:50Z",
+   "finished": "2026-10-21T13:37:39Z",
    "outputs": {
-    "render/plan.json": "32e5bc2818620d01260eb02244edc0adce39a0cf9cdced4a7354fa017eb7ac34"
+    "render/plan.json": "5f755266841a832eab0530041077661e37b969d37d1ca9dceb9dee9cbc870369"
    },
    "inputs": {
     "approvals/render.json": "0641d44303f11aea7d9af9ec6b8b10639a90fa832fb948da51f440bb606fee24",
@@ -441,34 +441,34 @@
   },
   "release": {
    "status": "done",
-   "attempts": 170,
-   "started": "2026-10-21T13:29:18Z",
+   "attempts": 176,
+   "started": "2026-10-21T13:37:39Z",
    "error": null,
-   "finished": "2026-10-21T13:29:18Z",
+   "finished": "2026-10-21T13:37:39Z",
    "note": "incomplete",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "qa/visual_claims.json": "18e626eeab2a759fbe3341516c71bfd04f4f5c482017381c7dcbb42928b77145",
+    "qa/visual_claims.json": "8cc27231680f615f3445c12e6c5d6b990275afa4e55de7fca6fb89ee8a7b1e82",
     "story/diversity.json": "0484a0725b669f430ad0896fa79259995e04f4e848d4da04e5e51ffd42699e9f",
     "story/labels.json": "34c11a330d6fa1979bfeab59a8a4edeaad8cd4cbafa30acc21052a90c2f49079",
-    "story/report.md": "8f53469d2f144d5c2d927ef1123b1e645d1686afff0f4c8245ac918950f25deb",
-    "story/storyboard.json": "296db0c78526dcecdd9b47dc6191a60a20bfb1f3316f727263a015e8ac4c1465",
-    "timeline.json": "4d066c34a6d975683433ce65dca96d4b61000bb41a1302dc03a8dd0cad4e4b38",
+    "story/report.md": "1b5d168a8c37020669268046bea36537a6ac3b01eb47c4052389204256a2cfa7",
+    "story/storyboard.json": "1eb8016994dfc2bb12a07cb37e36790af8cd38e328aa870d462cc23a40026863",
+    "timeline.json": "06a00aeb785da2980731f8682143ff6c8039184ab9f32f274455c71ed7cebcd9",
     "_tool": "e3b0c44298fc1c14"
    },
    "outputs": {
-    "release/REVIEW.md": "828d6020a736aa5de8c8748d56cb3a0a16bdc6f3eaceb43d5af850ebb82806f2",
-    "story/report.md": "8f53469d2f144d5c2d927ef1123b1e645d1686afff0f4c8245ac918950f25deb"
+    "release/REVIEW.md": "d182715ce9408d031b35c23366197fd7f23f2c25825be4b161d9f9cecd2e1779",
+    "story/report.md": "1b5d168a8c37020669268046bea36537a6ac3b01eb47c4052389204256a2cfa7"
    },
    "agent_artifacts": {}
   },
   "voicecheck": {
-   "status": "waiting",
-   "attempts": 9,
-   "note": "waiting for ['voice']",
-   "started": "2026-10-21T11:12:44Z",
+   "status": "done",
+   "attempts": 10,
+   "note": "NEEDS_HUMAN_LISTEN: 21 risky words to listen to; storyboard re-timed from real word timings",
+   "started": "2026-10-21T13:36:49Z",
    "error": null,
-   "finished": "2026-10-21T11:12:45Z",
+   "finished": "2026-10-21T13:36:50Z",
    "inputs": {
     "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441",
     "voice/narration.wav": "2b4e32ad400affa806b3731a8701178dfda2401a1591d7d0f7981a7abc866479",
@@ -482,16 +482,16 @@
   },
   "media": {
    "status": "done",
-   "attempts": 32,
-   "started": "2026-10-21T13:27:44Z",
+   "attempts": 33,
+   "started": "2026-10-21T13:35:19Z",
    "error": null,
-   "finished": "2026-10-21T13:27:44Z",
+   "finished": "2026-10-21T13:35:19Z",
    "note": "0 verified of 5 media entries (style v2: media optional)",
    "inputs": {
     "media/assets/northwestern_coast_of_saudi_.jpg": "93236ad9ce7d540e3917a45b79c19e0aa576706fcf937dc7e8a425f376d116b6",
     "media/ledger.json": "d2ac57fd67905bbba0e508d3fa9f957d2b8031b0a3cf0c6b6df5e4dbeaa7048e",
     "research/brief.json": "c149b15f762a9b43f5757664c3cdba1fcf5dddd27ceef29c486be4c1de1641b0",
-    "research/notes.json": "576cfdfa73668917d823f0e1b44d56303282b8dc41da767af7d124f51a859956",
+    "research/notes.json": "0e3b6d955930630108bba45a45ca821a9d2be457f47b163598c67bf1c0df8c38",
     "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
     "_tool": "bcf6af8b3dcf17e9"
    },
@@ -8079,7 +8079,243 @@
    "stage": "release",
    "event": "done",
    "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T13:35:19Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T13:35:19Z",
+   "stage": "research",
+   "event": "done",
+   "note": "20 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-21T13:35:19Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T13:35:19Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "20 claims, registry ok"
+  },
+  {
+   "at": "2026-10-21T13:35:19Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T13:35:19Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s) + NDWI series"
+  },
+  {
+   "at": "2026-10-21T13:35:19Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T13:35:19Z",
+   "stage": "media",
+   "event": "done",
+   "note": "0 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-21T13:35:19Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T13:35:19Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "61 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19', 'i_bloomberg', 'i_semafor', 'i_reuters', 'i_opened', 'i_source', 'i_orbit', 'i_cloud', 'i_ndwi', 'i_landsat', 'i_lengths', 'i_apart', 'i_growth', 'i_verdict', 'i_cannot', 'i_nomatch']"
+  },
+  {
+   "at": "2026-10-21T13:35:19Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T13:35:37Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "53 graphics"
+  },
+  {
+   "at": "2026-10-21T13:35:37Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T13:35:42Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "65 shots, 385.312s, timing from voice"
+  },
+  {
+   "at": "2026-10-21T13:35:55Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "11 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-21T13:35:55Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T13:35:55Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T13:36:08Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "11 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-21T13:36:08Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T13:36:08Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T13:36:48Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 6, 'VERIFIED_DATA': 41, 'REVIEWED': 37} of 84 items; 15 orphan reviews (run `visualcheck.py prune`)"
+  },
+  {
+   "at": "2026-10-21T13:36:49Z",
+   "stage": "voice",
+   "event": "done",
+   "note": "narration already generated (not regenerated)"
+  },
+  {
+   "at": "2026-10-21T13:36:50Z",
+   "stage": "voicecheck",
+   "event": "done",
+   "note": "NEEDS_HUMAN_LISTEN: 21 risky words to listen to; storyboard re-timed from real word timings"
+  },
+  {
+   "at": "2026-10-21T13:36:50Z",
+   "stage": "captions",
+   "event": "done",
+   "note": "captions built from real word timings"
+  },
+  {
+   "at": "2026-10-21T13:36:54Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "approval present but --allow-render not given; plan validated"
+  },
+  {
+   "at": "2026-10-21T13:36:54Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T13:36:54Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T13:36:58Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "approval present but --allow-render not given; plan validated"
+  },
+  {
+   "at": "2026-10-21T13:36:58Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T13:36:58Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T13:37:12Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T13:37:17Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "65 shots, 385.312s, timing from voice"
+  },
+  {
+   "at": "2026-10-21T13:37:17Z",
+   "stage": "visualcheck",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T13:37:29Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 6, 'VERIFIED_DATA': 41, 'REVIEWED': 37} of 84 items; 15 orphan reviews (run `visualcheck.py prune`)"
+  },
+  {
+   "at": "2026-10-21T13:37:29Z",
+   "stage": "voice",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T13:37:29Z",
+   "stage": "voice",
+   "event": "done",
+   "note": "narration already generated (not regenerated)"
+  },
+  {
+   "at": "2026-10-21T13:37:34Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "approval present but --allow-render not given; plan validated"
+  },
+  {
+   "at": "2026-10-21T13:37:34Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T13:37:34Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T13:37:39Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "approval present but --allow-render not given; plan validated"
+  },
+  {
+   "at": "2026-10-21T13:37:39Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T13:37:39Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
   }
  ],
- "updated": "2026-10-21T13:29:18Z"
+ "updated": "2026-10-21T13:37:39Z"
 }

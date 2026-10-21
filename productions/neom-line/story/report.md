@@ -1,6 +1,6 @@
 # Storyboard report
 
-- timing: voice; duration 385.312 s; shots 65; plan hash c3140607b09359c8
+- timing: voice; duration 385.312 s; shots 65; plan hash a89349a5a45a0023
 - renderer plan: confirm_required rendering needs --confirm; the timeline is valid, plan attached
 - chapters: hook 0.0-25.14s, promise 25.14-52.04s, plan 52.04-101.92s, method 101.92-149.93s, shows 149.93-189.95s, segment 189.95-241.44s, checks 241.44-315.65s, limits 315.65-351.69s, close 351.69-385.31s
 - warning: one composition holds 15.1s without a reset (130.3-145.4s, target <= 8s)
@@ -57,12 +57,12 @@ Shots:
 -  223.48s +5.5s segment: wipe y2022->y2026
 -  229.01s +5.5s segment: y2026
 -  234.53s +6.9s segment: y2026
--  241.44s +15.4s checks: flip y2024,y2025,y2026
--  256.87s +9.0s checks: wipe y2024->l2024
+-  241.44s +15.6s checks: flip y2024,y2025,y2026
+-  257.07s +8.8s checks: wipe y2024->l2024
 -  265.89s +7.0s checks: i_landsat
 -  272.92s +6.7s checks: i_lengths
--  279.58s +6.3s checks: i_apart_s1
--  285.92s +11.2s checks: wipe y2025->y2026
+-  279.58s +6.5s checks: i_apart_s1
+-  286.12s +11.0s checks: wipe y2025->y2026
 -  297.09s +12.0s checks: i_growth_s1
 -  309.08s +4.4s checks: i_verdict_s1
 -  313.50s +2.2s checks: y2024

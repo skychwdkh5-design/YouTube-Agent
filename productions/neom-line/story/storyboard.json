@@ -241,9 +241,9 @@
    {
     "visual": 1,
     "year": "claim",
-    "target": 256.87,
+    "target": 257.07,
     "was": 253.44,
-    "now": 256.87
+    "now": 257.07
    },
    {
     "visual": 2,
@@ -269,9 +269,9 @@
    {
     "visual": 5,
     "year": "claim",
-    "target": 285.92,
+    "target": 286.12,
     "was": 282.24,
-    "now": 285.92
+    "now": 286.12
    },
    {
     "visual": 6,
@@ -586,20 +586,21 @@
    "camera": {
     "from": {
      "center": [
-      35.12035,
-      28.0847
+      35.12446,
+      28.08242
      ],
-     "width_km": 4.2
+     "width_km": 5
     },
     "to": {
      "center": [
-      35.17005,
-      28.10241
+      35.1428,
+      28.09119
      ],
-     "width_km": 13
+     "width_km": 8.5
     }
    },
    "scene": true,
+   "scene_id": "m_coast",
    "info": "y2026",
    "layers": [
     {
@@ -1033,6 +1034,7 @@
     }
    },
    "scene": true,
+   "scene_id": "m_pixel",
    "info": "y2026",
    "layers": [
     {
@@ -1064,20 +1066,21 @@
    "camera": {
     "from": {
      "center": [
-      35.15066,
-      28.09505
+      35.14493,
+      28.11409
      ],
-     "width_km": 10
+     "width_km": 7.5
     },
     "to": {
      "center": [
-      35.14964,
-      28.09507
+      35.14493,
+      28.11409
      ],
-     "width_km": 7
+     "width_km": 6.5
     }
    },
    "scene": true,
+   "scene_id": "m_visible",
    "info": "y2026",
    "layers": [
     {
@@ -1091,8 +1094,8 @@
       4.206
      ],
      "at": [
-      35.16014,
-      28.11151
+      35.1703,
+      28.11053
      ],
      "text": "A LONG CLEARED STRIP"
     },
@@ -1103,8 +1106,8 @@
       5.329000000000001
      ],
      "at": [
-      35.13911,
-      28.07719
+      35.1196,
+      28.11972
      ],
      "text": "A ROAD"
     },
@@ -1147,6 +1150,7 @@
     }
    },
    "scene": true,
+   "scene_id": "m_scenes",
    "info": "flip y2020,y2021,y2022,y2023,y2024,y2025,y2026",
    "layers": [
     {
@@ -1832,6 +1836,7 @@
     }
    },
    "scene": true,
+   "scene_id": "m_notproof",
    "info": "y2026",
    "layers": [
     {
@@ -1989,7 +1994,7 @@
    "id": "checks_044",
    "chapter": "checks",
    "start": 241.442,
-   "dur": 15.429,
+   "dur": 15.629,
    "family": "y2024_checks",
    "claims": [
     "C14"
@@ -2011,6 +2016,7 @@
     }
    },
    "scene": true,
+   "scene_id": "m_dates",
    "info": "flip y2024,y2025,y2026",
    "layers": [
     {
@@ -2053,13 +2059,13 @@
      "slot": "middle"
     }
    ],
-   "end": 256.871
+   "end": 257.071
   },
   {
    "id": "checks_045",
    "chapter": "checks",
-   "start": 256.871,
-   "dur": 9.023,
+   "start": 257.071,
+   "dur": 8.823,
    "family": "y2024_checks",
    "claims": [
     "C13"
@@ -2081,6 +2087,7 @@
     }
    },
    "scene": true,
+   "scene_id": "m_l8",
    "info": "wipe y2024->l2024",
    "layers": [
     {
@@ -2092,24 +2099,24 @@
      "from": "y2024",
      "to": "l2024",
      "t": [
-      3.144,
-      4.944
+      2.944,
+      4.744
      ]
     },
     {
      "type": "label",
-     "text": "SENTINEL-2 - 10 M",
-     "style": "tag",
-     "slot": "upper",
      "t": [
       0.6,
-      null
-     ]
+      3.0
+     ],
+     "text": "SENTINEL-2 - 10 M",
+     "style": "tag",
+     "slot": "upper"
     },
     {
      "type": "label",
      "t": [
-      3.144,
+      2.944,
       null
      ],
      "text": "LANDSAT 8 - 30 M, SAME PLACE",
@@ -2170,7 +2177,7 @@
    "id": "checks_048",
    "chapter": "checks",
    "start": 279.582,
-   "dur": 6.337,
+   "dur": 6.537,
    "family": "i_apart_s1_checks",
    "claims": [
     "C13"
@@ -2196,13 +2203,13 @@
     }
    ],
    "info": "i_apart_s1",
-   "end": 285.919
+   "end": 286.119
   },
   {
    "id": "checks_049",
    "chapter": "checks",
-   "start": 285.919,
-   "dur": 11.171,
+   "start": 286.119,
+   "dur": 10.971,
    "family": "y2025_checks",
    "claims": [
     "C12"
@@ -2224,6 +2231,7 @@
     }
    },
    "scene": true,
+   "scene_id": "m_len",
    "info": "wipe y2025->y2026",
    "layers": [
     {
@@ -2235,14 +2243,14 @@
      "from": "y2025",
      "to": "y2026",
      "t": [
-      7.359,
-      9.159
+      7.159,
+      8.959
      ]
     },
     {
      "type": "arrow",
      "t": [
-      3.028,
+      2.828,
       null
      ],
      "from": [
@@ -2259,7 +2267,7 @@
     {
      "type": "label",
      "t": [
-      3.028,
+      2.828,
       null
      ],
      "text": "OCT 2025: ABOUT 1.6 KM",
@@ -2269,7 +2277,7 @@
     {
      "type": "arrow",
      "t": [
-      7.359,
+      7.159,
       null
      ],
      "from": [
@@ -2286,7 +2294,7 @@
     {
      "type": "label",
      "t": [
-      7.359,
+      7.159,
       null
      ],
      "text": "OCT 2026: ABOUT 1.9 KM",
@@ -2488,6 +2496,7 @@
     }
    },
    "scene": true,
+   "scene_id": "m_nobuilding",
    "info": "y2026",
    "layers": [
     {

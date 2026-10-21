@@ -487,6 +487,158 @@
    "reviewer": "agent",
    "verdict": "supports",
    "note": "Three blue questions (growth / different water level / where our threshold falls) and a red 'we do not claim that it grew, we cannot tell'. Mirrors C12 and the script."
+  },
+  {
+   "item": "promise_006:shot",
+   "frame": 0,
+   "frame_sha256": "af92ee56c54524837198cdb9d018c143003d1e1cab05f26e4f7565e3d0d8b532",
+   "claims": [
+    "C20"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Camera starts at the sea in the lower-left (dark water and coast, a highway) and pans inland toward the corridor; pin 'RED SEA COAST' sits at the sea edge. Supports C20 (NEOM on the Red Sea coast)."
+  },
+  {
+   "item": "method_019:shot",
+   "frame": 0,
+   "frame_sha256": "782b06c1bc96e337c97b59f8154ca09a0290b61920ce4e3d5b90871ae49a0f11",
+   "claims": [
+    "C15"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Zoom into the dark segment until the 10 m pixel blur is visible; tag '1 PIXEL = 10 M OF GROUND'. Supports C15."
+  },
+  {
+   "item": "method_020:shot",
+   "frame": 0,
+   "frame_sha256": "d6c96c452fb16fefd713f23f016c25585c979249fd52f3264f116815a759fe64",
+   "claims": [
+    "C15"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Corridor (long straight cleared strip), highway and settlement visible; pins on the strip and the road, then tag 'NOT VISIBLE: PERSON, CRANE, WINDOW'. Supports C15 (what 10 m can and cannot show)."
+  },
+  {
+   "item": "method_021:shot",
+   "frame": 0,
+   "frame_sha256": "b56f16cc4bb8192b1777536e7defb4a74901ba46b40f54ba646c5bbfd873f888",
+   "claims": [
+    "C16"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Flip of the seven Sentinel-2 dates 2020-2026 over the same frame; each frame is the same ground (corridor absent in 2020-21, faint 2022, clear from 2023). Supports C16."
+  },
+  {
+   "item": "method_021:shot",
+   "frame": 1,
+   "frame_sha256": "356f3365d3ca55ebc8eaaab2d3c5b650b919ad242f2aaa6d802c6fbcf269ec5c",
+   "claims": [
+    "C16"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Flip of the seven Sentinel-2 dates 2020-2026 over the same frame; each frame is the same ground (corridor absent in 2020-21, faint 2022, clear from 2023). Supports C16."
+  },
+  {
+   "item": "method_021:shot",
+   "frame": 2,
+   "frame_sha256": "72ec6532c94223da1ea02106d5651f1577f87b114e0ce4bc7be95e1305735337",
+   "claims": [
+    "C16"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Flip of the seven Sentinel-2 dates 2020-2026 over the same frame; each frame is the same ground (corridor absent in 2020-21, faint 2022, clear from 2023). Supports C16."
+  },
+  {
+   "item": "method_021:shot",
+   "frame": 3,
+   "frame_sha256": "4e501044412eee7ae8b320fdd52a8df775226d4971e92de8f75be1f02ec20036",
+   "claims": [
+    "C16"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Flip of the seven Sentinel-2 dates 2020-2026 over the same frame; each frame is the same ground (corridor absent in 2020-21, faint 2022, clear from 2023). Supports C16."
+  },
+  {
+   "item": "method_021:shot",
+   "frame": 4,
+   "frame_sha256": "7376bd7a49e105c716b41a776b70281dd0b5c2e5d935e13838f5de7cce255fef",
+   "claims": [
+    "C16"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Flip of the seven Sentinel-2 dates 2020-2026 over the same frame; each frame is the same ground (corridor absent in 2020-21, faint 2022, clear from 2023). Supports C16."
+  },
+  {
+   "item": "method_021:shot",
+   "frame": 5,
+   "frame_sha256": "10319656a99effeeac3248c35a90bd92d3e9df1dde895b8cafb4eeb5b4ccc627",
+   "claims": [
+    "C16"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Flip of the seven Sentinel-2 dates 2020-2026 over the same frame; each frame is the same ground (corridor absent in 2020-21, faint 2022, clear from 2023). Supports C16."
+  },
+  {
+   "item": "method_021:shot",
+   "frame": 6,
+   "frame_sha256": "3fc3ffee6b9b6dc27699fe22c47d3b539e75da34ec37dd060fcb42b4dc605035",
+   "claims": [
+    "C16"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Flip of the seven Sentinel-2 dates 2020-2026 over the same frame; each frame is the same ground (corridor absent in 2020-21, faint 2022, clear from 2023). Supports C16."
+  },
+  {
+   "item": "segment_039:graphic:i_ndwi_s1",
+   "frame": 0,
+   "frame_sha256": "5ae5ab60440c65885dacef9543da9fb0d922c07312b31923b9b83eb065495212",
+   "claims": [
+    "C11"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Card: near-infrared signal very low; NDWI above zero; 2024, 2025, 2026 water-like. Matches C11."
+  },
+  {
+   "item": "checks_045:shot",
+   "frame": 0,
+   "frame_sha256": "494b5511d1e689ab16d8927543f3fbd979e5dcd8c1e52fc13072a2f5c02c6c93",
+   "claims": [
+    "C13"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Wipe from Sentinel-2 (10 m) to Landsat 8 (30 m, resampled to the 10 m grid) on exactly the same ground; the dark segment is visible in both, shorter and blurrier in Landsat. Tags state the two instruments. Supports C13."
+  },
+  {
+   "item": "checks_045:shot",
+   "frame": 1,
+   "frame_sha256": "451bb8299d647acbbece7dd9a900c464aaf2d12a3322326a506e75303ea58526",
+   "claims": [
+    "C13"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Wipe from Sentinel-2 (10 m) to Landsat 8 (30 m, resampled to the 10 m grid) on exactly the same ground; the dark segment is visible in both, shorter and blurrier in Landsat. Tags state the two instruments. Supports C13."
+  },
+  {
+   "item": "limits_054:label:AT THIS RESOLUTION: NO BUILDING",
+   "frame": 0,
+   "frame_sha256": "1bf0297f31f26414f457144f3b20ba258727b02885d31ea2a56771e47159007c",
+   "claims": [],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Sentinel-2 zoom along the corridor: no individual building can be made out at 10 m; tag 'AT THIS RESOLUTION: NO BUILDING' states the script's limitation."
   }
  ]
 }
