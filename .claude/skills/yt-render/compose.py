@@ -163,7 +163,7 @@ def validate(tl, root, limits):
     if tl.get("render") is not None:
         if "segment_s" not in prof:
             raise E(f"timeline.render (segmented rendering) is only for profile 'long'")
-        r._keys(tl["render"], ("segment_s", "preset", "crf", "fps"), "render")
+        r._keys(tl["render"], ("segment_s", "preset", "crf", "fps", "cache_captions"), "render")
         if "fps" in tl["render"]:           # opt-in, previews only: fewer frames per second (the master stays at the profile rate)
             fps = r._num(tl["render"]["fps"], "render.fps", 5, prof["fps"], int)
         segment_s = r._num(tl["render"].get("segment_s", prof["segment_s"]), "render.segment_s", 1, 300)
@@ -359,7 +359,8 @@ def validate(tl, root, limits):
             preset=(tl.get("render") or {}).get("preset", "medium"), audio_bitrate="192k"),
             "segment_frames": int(round(segment_s * fps)) if segment_s else None,
             "grid": grid, "assets": assets, "voice": voice, "words": words, "captions": captions,
-            "shots": shots, "total_frames": total_frames, "expected_duration": round(total_frames / fps, 3)}
+            "shots": shots, "total_frames": total_frames, "expected_duration": round(total_frames / fps, 3),
+            "cache_captions": bool((tl.get("render") or {}).get("cache_captions", False))}
     plan["events"] = info_events(plan)
     plan["compositions"] = compositions(plan)
     plan["novelty"] = visual_novelty(plan)
@@ -1091,33 +1092,59 @@ class Painter:
         cy = self.H * band - (len(src_lines) - 1) * lh / 2
         kin = cap.get("kinetic")
         shade = self.lay.get("caption_shade", 0) if kin else 0
-        if shade:                                          # smooth cinematic shade under the caption block (legibility on pale imagery); fades to nothing well above the text
-            lower = band > 0.5
-            top_y = int(self.H * (band - 0.30)) if lower else 0
-            bot_y = self.H if lower else int(self.H * (band + 0.30))
-            span = max(1, bot_y - top_y)
-            for yy in range(top_y, bot_y, 4):
-                u = (yy - top_y) / span if lower else 1 - (yy - top_y) / span
-                d.rectangle((0, yy, self.W, yy + 4), fill=(0, 0, 0, int(shade * u * u * (3 - 2 * u))))   # smoothstep: no visible edges
         fade = min(1.0, max(0.0, (t - cue[1][0]) / self.lay["caption_fade"])) if kin else 1.0
         hl = self._cue_words(idx) if kin else None
         hc = tuple(int(self.lay["caption_highlight"][i:i + 2], 16) for i in (1, 3, 5)) if hl else None
-        wi = 0
-        for k, line in enumerate(src_lines):
-            if hl is None:
-                self._text(d, line, font, (cap_x, int(cy + k * lh)), (255, 255, 255), fade, CAP["stroke"])
-                continue
-            toks = line.split()
-            sp = d.textlength(" ", font=font)
-            total = sum(d.textlength(w_, font=font) for w_ in toks) + sp * (len(toks) - 1)
-            x = cap_x - total / 2
-            for w_ in toks:
-                tw = hl[wi] if wi < len(hl) else None
-                on = tw is not None and tw["start"] - 0.02 <= t < (hl[wi + 1]["start"] if wi + 1 < len(hl) else tw["end"] + 0.25)
-                d.text((x, int(cy + k * lh)), w_, font=font, fill=(hc if on else (255, 255, 255)) + (int(255 * fade),), anchor="lm",
-                       stroke_width=CAP["stroke"], stroke_fill=(0, 0, 0, int(220 * fade)))
-                x += d.textlength(w_, font=font) + sp
-                wi += 1
+        def active_flags():
+            on_ = []
+            if hl is not None:
+                for j in range(sum(len(l.split()) for l in src_lines)):
+                    tw = hl[j] if j < len(hl) else None
+                    on_.append(tw is not None and tw["start"] - 0.02 <= t < (hl[j + 1]["start"] if j + 1 < len(hl) else tw["end"] + 0.25))
+            return tuple(on_)
+
+        def paint(d):
+            if shade:                                          # smooth cinematic shade under the caption block (legibility on pale imagery); fades to nothing well above the text
+                lower = band > 0.5
+                top_y = int(self.H * (band - 0.30)) if lower else 0
+                bot_y = self.H if lower else int(self.H * (band + 0.30))
+                span = max(1, bot_y - top_y)
+                for yy in range(top_y, bot_y, 4):
+                    u = (yy - top_y) / span if lower else 1 - (yy - top_y) / span
+                    d.rectangle((0, yy, self.W, yy + 4), fill=(0, 0, 0, int(shade * u * u * (3 - 2 * u))))   # smoothstep: no visible edges
+            wi = 0
+            for k, line in enumerate(src_lines):
+                if hl is None:
+                    self._text(d, line, font, (cap_x, int(cy + k * lh)), (255, 255, 255), fade, CAP["stroke"])
+                    continue
+                toks = line.split()
+                sp = d.textlength(" ", font=font)
+                total = sum(d.textlength(w_, font=font) for w_ in toks) + sp * (len(toks) - 1)
+                x = cap_x - total / 2
+                for w_ in toks:
+                    tw = hl[wi] if wi < len(hl) else None
+                    on = tw is not None and tw["start"] - 0.02 <= t < (hl[wi + 1]["start"] if wi + 1 < len(hl) else tw["end"] + 0.25)
+                    d.text((x, int(cy + k * lh)), w_, font=font, fill=(hc if on else (255, 255, 255)) + (int(255 * fade),), anchor="lm",
+                           stroke_width=CAP["stroke"], stroke_fill=(0, 0, 0, int(220 * fade)))
+                    x += d.textlength(w_, font=font) + sp
+                    wi += 1
+
+        im_ = getattr(d, "_image", None)
+        if self.p.get("cache_captions") and im_ is not None:      # opt-in (previews): the caption block only changes with the cue, the highlighted word and the fade, so it is drawn once and pasted
+            key = (idx, active_flags(), round(fade, 2), band, size, cap_x)
+            cache = self.__dict__.setdefault("_capcache", {})
+            ent = cache.get(key)
+            if ent is None:
+                ov = Image.new("RGBA", (self.W, self.H), (0, 0, 0, 0))
+                paint(ImageDraw.Draw(ov, "RGBA"))
+                bb = ov.getbbox() or (0, 0, 1, 1)
+                ent = (ov.crop(bb), bb[:2])
+                if len(cache) > 400:
+                    cache.clear()
+                cache[key] = ent
+            im_.paste(ent[0], ent[1], ent[0])
+        else:
+            paint(d)
         bw = max(d.textlength(l, font=font) for l in src_lines)
         self.caption_boxes.setdefault(idx, {"cue": idx + 1, "band": band,
             "box": [round(cap_x - bw / 2), round(cy - size / 2), round(cap_x + bw / 2),

@@ -487,7 +487,7 @@ def render_test(slug, seconds=30.0, run_it=False, start=0.0, name="test", fps=No
         return "\n".join([f"{_srt_time(c[0] - t0)} --> {_srt_time(c[1] - t0)}"] + body[arrow + 1:])
     open(os.path.join(d, f"captions.{name}.srt"), "w", encoding="utf-8").write("\n\n".join(f"{i}\n" + shifted(c) for i, c in enumerate(cues, 1)) + "\n")
     t = dict(tl, shots=[dict(x, start=round(x["start"] - t0, 3)) for x in tl["shots"] if t0 - 1e-6 <= x["start"] < t_end], end={"seconds": max(1, round(m2["duration"] + 0.5, 2))})
-    t["render"] = dict(tl.get("render") or {}, preset="veryfast", crf=26, **({"fps": fps} if fps else {}))           # a preview, never the master: the encoder works about three times faster
+    t["render"] = dict(tl.get("render") or {}, preset="veryfast", crf=26, cache_captions=True, **({"fps": fps} if fps else {}))           # a preview, never the master: the encoder works about three times faster
     t["voice"] = {"src": f"render/{name}/narration.{name}.wav", "meta": f"render/{name}/narration.{name}.voice.json"}
     t["captions"] = dict(tl.get("captions") or {}, src=f"render/{name}/captions.{name}.srt")
     write_json(os.path.join(d, f"timeline.{name}.json"), t)
