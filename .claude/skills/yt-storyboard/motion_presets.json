@@ -1,0 +1,11 @@
+{
+ "_note": "OrbitalAtlas motion style v1: parameters only. Scenes are expanded from these presets by scene_templates.py; every number here was tuned on EP005 and is reused, not re-invented per episode.",
+ "style": "orbitalatlas_v1",
+ "label": {"style": "tag", "plate": true},
+ "pin": {"plate": true},
+ "arrow": {"color": "#FFD23F", "width": 9},
+ "flip_step_s": 1.15,
+ "dates_step_s": 4.6,
+ "camera": {"coast_zoom": [5, 8.5], "pixel_zoom": [1.3, 0.42], "measure_zoom": [3.4, 2.6], "compare_zoom": [2.4, 1.7], "callout_zoom": [2.6, 1.3]},
+ "min_s": {"coast_pin": 6, "pixel_zoom": 3.6, "timelapse": 8.4, "compare_instruments": 8.8, "measure": 11, "callout_zoom": 6}
+}

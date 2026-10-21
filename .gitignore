@@ -47,3 +47,4 @@ productions/*/voice/*.wav
 productions/*/voice/*.mp3
 productions/*/.lock
 productions/*/*.part
+media_cache/assets/

@@ -287,6 +287,11 @@ class Infographics(unittest.TestCase):
         ep1, _ = self.go([])
         self.assertFalse(any(v.get("asset") == "g_reports" for c in ep1["chapters"] for v in c["visuals"]))
 
+    def test_template_scenes_expand_into_map_scenes(self):
+        self.n["scenes"] = [{"template": "callout_zoom", "id": "s_t", "chapter": "plan", "claims": ["C2"], "asset": "y2026", "focus": [35.2165, 28.1062], "anchor_text": "Outlet reported", "pin_text": "HERE"}]
+        ep, _ = self.go([])
+        self.assertEqual([v["id"] for c in ep["chapters"] for v in c["visuals"] if v.get("kind") == "scene"], ["s_t"])
+
     def test_exempt_flag_reaches_every_step_asset(self):
         ep, _ = self.go([self.card(claims=[], exempt=True)])
         self.assertTrue(ep["assets"]["i_card_s1"]["exempt"] and ep["assets"]["i_card"]["exempt"])

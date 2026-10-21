@@ -270,7 +270,12 @@ def plan(root):
         if it.get("closes_chapter"):
             closers.add(cid_)
 
-    for it in notes.get("maps") or []:                       # annotated, animated map scenes: camera moves, wipes between instruments, flips, pins, arrows, labels
+    scenes_ = list(notes.get("maps") or [])
+    if notes.get("scenes"):                                  # ready-made templates (yt-storyboard/scene_templates.py) expand into the same entries
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "yt-storyboard"))
+        import scene_templates
+        scenes_ += scene_templates.expand_all(notes["scenes"])
+    for it in scenes_:                                       # annotated, animated map scenes: camera moves, wipes between instruments, flips, pins, arrows, labels
         iid, cid_ = it["id"], it["chapter"]
         if cid_ in ("hook", "close"):
             info_dropped.append({"id": iid, "reason": f"chapter {cid_} is built by rule"}); continue
