@@ -51,8 +51,9 @@ def render_chapter(slug, root, cid, t0, t1, name):
 
 
 def encode_720(src, trim_from, t_len, dst):
+    """Re-encode to 720p, starting trim_from seconds into the file (the render begins at a shot boundary at or before the chapter) for t_len seconds."""
     vf = "scale=1280:720,fps=30,format=yuv420p"
-    cmd = ["ffmpeg", "-v", "error", "-y", "-i", src] + (["-t", f"{t_len:.3f}"] if t_len else []) + ["-vf", vf, "-c:v", "libx264", "-preset", "fast", "-crf", "29", "-c:a", "aac", "-b:a", "96k", "-ar", "44100", "-ac", "2", dst]
+    cmd = ["ffmpeg", "-v", "error", "-y"] + (["-ss", f"{trim_from:.3f}"] if trim_from else []) + ["-i", src] + (["-t", f"{t_len:.3f}"] if t_len else []) + ["-vf", vf, "-c:v", "libx264", "-preset", "fast", "-crf", "29", "-c:a", "aac", "-b:a", "96k", "-ar", "44100", "-ac", "2", dst]
     r = run(cmd)
     if r.returncode:
         raise RuntimeError(r.stderr[-300:])
@@ -91,7 +92,11 @@ def build(slug, jobs=4, force=False):
     voice = json.load(open(os.path.join(root, "voice", "narration.voice.json")))["duration"]
     cp = os.path.join(root, "render", "preview_cache.json")
     cache = json.load(open(cp)) if os.path.exists(cp) and not force else {}
-    chapters = [(c, a, b) for c, (a, b) in sb["chapters"].items()]
+    firsts = {}
+    for s in sb["shots"]:
+        firsts.setdefault(s["chapter"], s["start"])           # exact chapter boundaries = the first shot of each chapter (the rounded chapter times would drift by a few ms per seam)
+    ids = list(sb["chapters"].keys())
+    chapters = [(c, firsts[c], firsts[ids[i + 1]] if i + 1 < len(ids) else sb["chapters"][c][1]) for i, c in enumerate(ids)]
     todo, report = [], {}
     for cid, t0, t1 in chapters:
         key = chapter_key(root, tl, t0, t1)
@@ -112,10 +117,10 @@ def build(slug, jobs=4, force=False):
     # trim to the chapter and re-encode to 720p (parallel); the last chapter keeps its natural tail
     def enc(item):
         cid, t0, t1, name, key = item
-        d = json.load(open(os.path.join(root, "render", name, f"timeline.{name}.json")))
         src = os.path.join(root, "render", name, f"{name}.mp4")
         last = cid == chapters[-1][0]
-        encode_720(src, 0, None if last else t1 - t0, os.path.join(root, "render", name, "seg720.mp4"))
+        voice_meta = json.load(open(os.path.join(root, "render", name, f"narration.{name}.voice.json")))
+        encode_720(src, max(t0 - voice_meta.get("excerpt_from", 0.0), 0.0), None if last else t1 - t0, os.path.join(root, "render", name, "seg720.mp4"))
         return cid, key
     with cf.ThreadPoolExecutor(max_workers=jobs) as ex:
         for cid, key in ex.map(enc, todo):

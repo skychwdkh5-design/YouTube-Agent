@@ -464,7 +464,7 @@ def render_test(slug, seconds=30.0, run_it=False, start=0.0, name="test"):
     tl = json.load(open(ep.p("timeline.json")))
     meta = json.load(open(ep.p("voice", "narration.voice.json")))
     allcues = _srt_cues(open(ep.p("captions", "captions.srt"), encoding="utf-8").read())
-    t0 = max([x["start"] for x in tl["shots"] if x["start"] <= start + 1e-6] or [0.0]) if start > 0 else 0.0
+    t0 = max([x["start"] for x in tl["shots"] if x["start"] <= start + 0.02] or [0.0]) if start > 0 else 0.0      # 20 ms of tolerance: a chapter boundary rounded to 3 decimals must still pick its own first shot
     # cut at the end of the first caption cue that reaches the requested length: never mid-sentence, never a stretch without subtitles
     last = next((c for c in allcues if c[1] >= t0 + seconds), allcues[-1] if allcues else None)
     if last is None:
