@@ -26,6 +26,8 @@ It also reported fewer than 300,000 residents by then.
 
 In May 2026, Semafor reported that NEOM had halted work on The Line until at least after 2030, citing unnamed sources.
 
+It has not been officially confirmed.
+
 In October 2026, Reuters reported that the NEOM stadium was shelved indefinitely, with no official announcement.
 
 These are news reports, not official statements.
@@ -44,17 +46,17 @@ That is sharp enough to see a long cleared strip or a road, but not a person, a 
 
 We picked seven scenes from the same orbit, taken in late September or October of each year from 2020 to 2026.
 
-Same orbit means the satellite looks from the same angle at the same time of day, so hills and roads line up from year to year.
+Same orbit means the satellite passes over on the same track at nearly the same time of day, so the views can be compared from year to year.
 
-Same season means the light and the sand look alike, so a change is more likely to be real than a trick of the light.
+Same season means the light and the sand look more alike, so a change is less likely to be a trick of the light.
 
-We also checked every frame for clouds.
+The scenes report almost no cloud cover, and we looked at every frame.
 
 Start with 2020 and 2021, when the ground here is empty desert.
 
 In October 2022, a faint, straight line appears.
 
-By 2023, the line is a clear cleared corridor, narrow and perfectly straight.
+By 2023, the line is a clear, narrow corridor, and very straight.
 
 It crosses our frame for at least 15 kilometers.
 
@@ -76,9 +78,11 @@ In October 2024, a dark segment appears.
 
 In 2025 and 2026, it is still there, about 1.6 to 1.9 kilometers long.
 
-In near-infrared light, the segment looks like water.
+In near-infrared light, the segment reads like water: our water index is above zero, and the near-infrared signal is very low.
 
-That is a useful clue, because a shadow does not behave that way. A shadow is dark in every color band. Water is not.
+That fits water, but it is not proof.
+
+A shadow can also fool a water index, and we cannot rule that out from these images alone.
 
 In 2022 and 2023, no pixel here qualifies.
 
@@ -110,7 +114,7 @@ So what can we not say?
 
 At this resolution, we cannot identify any building along the corridor itself.
 
-They are not a picture of a finished city.
+We also cannot say this is a finished city.
 
 We cannot prove that this corridor is The Line.
 

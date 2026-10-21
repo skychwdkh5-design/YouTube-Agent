@@ -19,6 +19,7 @@ We will not mix them.
 First, the plans. In April 2024, Bloomberg reported that only about 2.4 kilometers of The Line was expected by 2030. {C2}
 It also reported fewer than 300,000 residents by then. {C2}
 In May 2026, Semafor reported that NEOM had halted work on The Line until at least after 2030, citing unnamed sources. {C3}
+It has not been officially confirmed. {L}
 In October 2026, Reuters reported that the NEOM stadium was shelved indefinitely, with no official announcement. {C4}
 These are news reports, not official statements. {L}
 We could not open the original articles from our research setup, so we rely on how other outlets described them. {L}
@@ -30,14 +31,14 @@ We used free Sentinel-2 images from the European Copernicus program. {C16}
 Each pixel in our frames covers 10 meters of ground. {C15}
 That is sharp enough to see a long cleared strip or a road, but not a person, a crane, or a window.
 We picked seven scenes from the same orbit, taken in late September or October of each year from 2020 to 2026. {C16}
-Same orbit means the satellite looks from the same angle at the same time of day, so hills and roads line up from year to year.
-Same season means the light and the sand look alike, so a change is more likely to be real than a trick of the light.
-We also checked every frame for clouds.
+Same orbit means the satellite passes over on the same track at nearly the same time of day, so the views can be compared from year to year.
+Same season means the light and the sand look more alike, so a change is less likely to be a trick of the light.
+The scenes report almost no cloud cover, and we looked at every frame. {C16}
 
 ## shows: What the satellites show
 Start with 2020 and 2021, when the ground here is empty desert. {C9}
 In October 2022, a faint, straight line appears. {C9}
-By 2023, the line is a clear cleared corridor, narrow and perfectly straight. {C9}
+By 2023, the line is a clear, narrow corridor, and very straight. {C9}
 It crosses our frame for at least 15 kilometers. {C9}
 And it is still there in 2026. {C9}
 Along the way, two large settlement-like complexes, one at each end of our frame, grow between 2020 and 2024. {C17,C19}
@@ -50,8 +51,9 @@ Now zoom in on one stretch of that corridor.
 In October 2022 and 2023, nothing dark is here. {C10}
 In October 2024, a dark segment appears. {C10}
 In 2025 and 2026, it is still there, about 1.6 to 1.9 kilometers long. {C10}
-In near-infrared light, the segment looks like water. {C11}
-That is a useful clue, because a shadow does not behave that way. A shadow is dark in every color band. Water is not.
+In near-infrared light, the segment reads like water: our water index is above zero, and the near-infrared signal is very low. {C11}
+That fits water, but it is not proof. {L}
+A shadow can also fool a water index, and we cannot rule that out from these images alone. {L}
 In 2022 and 2023, no pixel here qualifies. {C11}
 That is consistent with one idea: standing water in a long, narrow excavation. {C18}
 But that is a hypothesis, and it could be wrong. {C18}
@@ -71,7 +73,7 @@ That is the honest result: three checks agree it is real, and one number refuses
 ## limits: What we cannot say
 So what can we not say?
 At this resolution, we cannot identify any building along the corridor itself. {L}
-They are not a picture of a finished city. {L}
+We also cannot say this is a finished city. {L}
 We cannot prove that this corridor is The Line. {L}
 We had no official NEOM map to match it against, and matching would take sources we could not open. {L}
 A similar picture in 2025 and 2026 does not prove a pause. {L}

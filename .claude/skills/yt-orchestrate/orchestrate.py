@@ -281,10 +281,29 @@ def _approval(ep, name, script_sha):
     return a, ""
 
 
+def owner_read(script_text, spoken, script_hash):
+    """The narration as the owner reads it: chapters and numbered lines, no claim tags. Exactly the text that will be sent (checked below)."""
+    out = ["# Narration text - exactly what will be sent to the voice provider", "",
+           f"Words: {len(spoken.split())} | script sha256: `{script_hash}`", "", "Chapter titles and claim tags are not spoken.", ""]
+    lines, n = [], 0
+    for sec in re.split(r"^## ", script_text, flags=re.M)[1:]:
+        head, _, body = sec.partition("\n")
+        out.append("## " + (head.split(":", 1)[1].strip() if ":" in head else head))
+        for ln in body.splitlines():
+            t = re.sub(r"\s*\{[^}]*\}", "", ln).strip()
+            if t:
+                n += 1; out.append(f"{n}. {t}"); lines.append(t)
+        out.append("")
+    if re.sub(r"\s+", " ", " ".join(lines)).strip() != re.sub(r"\s+", " ", spoken).strip():
+        raise Halt("blocked", "owner reading copy differs from the spoken text")
+    return "\n".join(out)
+
+
 def run_voice(ep, ctx):
     script = ep.p("script.md")
     os.makedirs(ep.p("voice"), exist_ok=True)
     open(ep.p("voice", "spoken.md"), "w", encoding="utf-8").write(spoken_text(open(script, encoding="utf-8").read()))
+    open(ep.p("voice", "OWNER_READ.md"), "w", encoding="utf-8").write(owner_read(open(script, encoding="utf-8").read(), open(ep.p("voice", "spoken.md"), encoding="utf-8").read(), sha(script)))
     # the authoritative, billed character count is yt-voice's own plan (no --confirm: nothing is sent)
     pc, pd = tool([os.path.join(SK, "yt-voice", "voice.py"), "--script", "voice/spoken.md", "--output", "voice/narration.wav", "--auth", "proxy", "--max-chars", "1000000"], ep.root)
     chars = pd.get("characters") if pd.get("status") == "confirm_required" else len(open(ep.p("voice", "spoken.md"), encoding="utf-8").read())

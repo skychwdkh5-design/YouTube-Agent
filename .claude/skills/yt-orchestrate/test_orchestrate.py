@@ -410,6 +410,7 @@ class WithVoiceStub(Base):
         """A network error, a rerun or a crash must never spend again on the same approval."""
         self.agent_artifacts()
         self.run_all()
+        self.assertTrue(os.path.exists(self.p("voice", "OWNER_READ.md")))              # owner reading copy is a pipeline output
         log = os.path.join(self.root, "calls.log")
         env = dict(self.env, OA_VOICE_TOOL=os.path.join(HERE, "tests", "fake_voice.py"), FAKE_VOICE_LOG=log, FAKE_VOICE_FAIL="1")
         self.approve("A-1")

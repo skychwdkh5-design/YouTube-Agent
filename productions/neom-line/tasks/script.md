@@ -35,7 +35,7 @@ If capacity is below the target, write the honest shorter script and say so; pad
 - C13 [observation/medium] Landsat 8 at 30 m shows the same segment but measures it differently: about 0.7 km in Oct 2024 (Sentinel-2: 1.6 km) and about 1.65 km in Oct 2025 and Sep 2026 (Sentinel-2: 1.6 and 1.9 km); the Landsat and Sentinel-2 scenes are two to three weeks apart.
 - C14 [observation/medium] The segment appears on three different dates and on three different Sentinel-2 satellites (2A, 2B and 2C) in 2024, 2025 and 2026.
 - C15 [observation/high] Each pixel in our Sentinel-2 frames covers 10 meters of ground.
-- C16 [observation/high] Seven Sentinel-2 scenes, all from the same orbit, taken in late September or October of each year from 2020 to 2026.
+- C16 [observation/high] Seven Sentinel-2 scenes, all from the same orbit, taken in late September or October of each year from 2020 to 2026, each with reported scene cloud cover under 0.1 percent.
 - C18 [hypothesis/low] The dark segment may be standing water in a long, narrow excavation.
 - C17 [observation/medium] A settlement-like complex at the western end of our frame grows from a small compound in 2020 to a large planned street grid by 2024; what it is is unknown.
 - C19 [observation/medium] A second settlement-like complex at the eastern end of our frame grows from sparse tracks in 2020 to a planned street grid with buildings by 2024; what it is is unknown.

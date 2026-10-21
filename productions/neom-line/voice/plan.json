@@ -1,13 +1,13 @@
 {
- "chars": 5128,
+ "chars": 5280,
  "chunks": 3,
- "script_sha256": "bd6c5f3e4a0cc43d3462da39e9d27c9db36fff968d8a734c9800413d96350a56",
- "spoken_sha256": "091757e428974677c1888dab8260f85490285ff1ec69d8087812cbb06ea40796",
+ "script_sha256": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
+ "spoken_sha256": "7c9d969f2af5e4b0b96136644da2f14e3d7ebc9ee40a3a8ba83310412cc4082e",
  "provider": "elevenlabs",
  "model_id": "eleven_multilingual_v2",
  "voice": "Adam (pNInz6obpgDQGcFmaJgB)",
- "max_credits": 5128.0,
+ "max_credits": 5280.0,
  "credit_basis": "published rate for eleven_multilingual_v2: 1.0 credit per character (one generation; account balance and plan could not be read: the API key lacks user_read)",
  "command_after_owner_approval": "python3 .claude/skills/yt-orchestrate/orchestrate.py run --slug neom-line --stage voice --allow-paid",
- "note": "PAID. Owner must set approvals/voice.json approved:true (script_sha256 and max_chars >= chars) and run with --allow-paid"
+ "note": "PAID. Owner must set approvals/voice.json approved:true (script_sha256, max_chars >= chars, a fresh approval_id) and run with --allow-paid. One approval_id = one attempt, success or failure."
 }

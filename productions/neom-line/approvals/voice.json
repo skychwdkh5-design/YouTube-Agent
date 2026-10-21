@@ -1,11 +1,11 @@
 {
   "approved": false,
-  "script_sha256": "bd6c5f3e4a0cc43d3462da39e9d27c9db36fff968d8a734c9800413d96350a56",
-  "max_chars": 5128,
+  "script_sha256": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
+  "max_chars": 5280,
   "provider": "elevenlabs",
   "model_id": "eleven_multilingual_v2",
   "voice": "Adam (pNInz6obpgDQGcFmaJgB)",
-  "expected_max_credits": 5128,
+  "expected_max_credits": 5280.0,
   "note": "NOT APPROVED. The owner sets approved to true only after reading voice/OWNER_READ.md. One approval_id allows exactly ONE paid attempt (success or failure); another attempt needs a new approval_id. Any edit of script.md changes the hash and voids this file.",
   "approval_id": "EP005-VOICE-001"
 }

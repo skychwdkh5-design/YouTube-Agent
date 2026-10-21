@@ -1,6 +1,6 @@
 # Visual-claim check
 
-Overall: **OK** {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 62, 'REVIEWED': 10} (total 79; orphan reviews not matching any current frame: 0)
+Overall: **OK** {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 63, 'REVIEWED': 10} (total 80; orphan reviews not matching any current frame: 0)
 
 | item | claims | status | frame / why |
 |---|---|---|---|
@@ -55,33 +55,34 @@ Overall: **OK** {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 62, 'REVIEWED': 10} (tot
 | segment_050:shot | C11 | VERIFIED_DATA |  present [2024, 2025, 2026], absent [2022, 2023] confirmed by NDWI counts [data check + the view contains the l |
 | segment_051:graphic:g_tiers | C1,C4,C9 | VERIFIED_SOURCE |  each step carries its claim's short text |
 | segment_052:label:OCT 2022 |  | VERIFIED_DATA |  scene S2A_MSIL2A_20221009T080841_R078_T36RYS_20240725T054556 acquired 2022-10-09 |
-| checks_053:label:OCT 2024 |  | VERIFIED_DATA |  scene S2A_MSIL2A_20241008T080831_R078_T36RYS_20241008T112248 acquired 2024-10-08 |
-| checks_053:shot | C14 | VERIFIED_DATA |  3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view c |
+| segment_053:label:OCT 2023 |  | VERIFIED_DATA |  scene S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051 acquired 2023-10-14 |
+| checks_054:label:OCT 2024 |  | VERIFIED_DATA |  scene S2A_MSIL2A_20241008T080831_R078_T36RYS_20241008T112248 acquired 2024-10-08 |
 | checks_054:shot | C14 | VERIFIED_DATA |  3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view c |
-| checks_055:label:OCT 2025 |  | VERIFIED_DATA |  scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08 |
 | checks_055:shot | C14 | VERIFIED_DATA |  3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view c |
+| checks_056:label:OCT 2025 |  | VERIFIED_DATA |  scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08 |
 | checks_056:shot | C14 | VERIFIED_DATA |  3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view c |
-| checks_057:label:OCT 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18 |
 | checks_057:shot | C14 | VERIFIED_DATA |  3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view c |
+| checks_058:label:OCT 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18 |
 | checks_058:shot | C14 | VERIFIED_DATA |  3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view c |
-| checks_059:label:OCT 2023 |  | VERIFIED_DATA |  scene S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051 acquired 2023-10-14 |
-| checks_061:label:OCT 2025 |  | VERIFIED_DATA |  scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08 |
-| checks_061:shot | C12 | VERIFIED_DATA |  measured extents inside the claimed ranges: 2025: 1.6 km, 2026: 1.92 km [data check + the view contains the lo |
+| checks_059:shot | C14 | VERIFIED_DATA |  3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view c |
+| checks_060:label:OCT 2024 |  | VERIFIED_DATA |  scene S2A_MSIL2A_20241008T080831_R078_T36RYS_20241008T112248 acquired 2024-10-08 |
+| checks_062:label:OCT 2025 |  | VERIFIED_DATA |  scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08 |
 | checks_062:shot | C12 | VERIFIED_DATA |  measured extents inside the claimed ranges: 2025: 1.6 km, 2026: 1.92 km [data check + the view contains the lo |
-| checks_063:graphic:g_cmp_2025_2026_c12 | C12 | VERIFIED_DATA |  measured extents inside the claimed ranges: 2025: 1.6 km, 2026: 1.92 km [data check + the view contains the lo |
-| checks_064:shot | C12 | VERIFIED_DATA |  measured extents inside the claimed ranges: 2025: 1.6 km, 2026: 1.92 km [data check + the view contains the lo |
+| checks_063:shot | C12 | VERIFIED_DATA |  measured extents inside the claimed ranges: 2025: 1.6 km, 2026: 1.92 km [data check + the view contains the lo |
+| checks_064:graphic:g_cmp_2025_2026_c12 | C12 | VERIFIED_DATA |  measured extents inside the claimed ranges: 2025: 1.6 km, 2026: 1.92 km [data check + the view contains the lo |
 | checks_065:shot | C12 | VERIFIED_DATA |  measured extents inside the claimed ranges: 2025: 1.6 km, 2026: 1.92 km [data check + the view contains the lo |
-| checks_066:label:OCT 2024 |  | VERIFIED_DATA |  scene S2A_MSIL2A_20241008T080831_R078_T36RYS_20241008T112248 acquired 2024-10-08 |
-| checks_068:label:OCT 2025 |  | VERIFIED_DATA |  scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08 |
-| limits_070:graphic:g_reports | C1,C2,C3,C4 | VERIFIED_SOURCE |  each step carries its claim's short text |
-| limits_071:graphic:g_tiers | C1,C4,C9 | VERIFIED_SOURCE |  each step carries its claim's short text |
-| limits_072:label:OCT 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18 |
+| checks_066:shot | C12 | VERIFIED_DATA |  measured extents inside the claimed ranges: 2025: 1.6 km, 2026: 1.92 km [data check + the view contains the lo |
+| checks_067:label:OCT 2025 |  | VERIFIED_DATA |  scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08 |
+| checks_069:label:OCT 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18 |
+| limits_071:graphic:g_reports | C1,C2,C3,C4 | VERIFIED_SOURCE |  each step carries its claim's short text |
+| limits_072:graphic:g_tiers | C1,C4,C9 | VERIFIED_SOURCE |  each step carries its claim's short text |
 | limits_073:label:SEP 2020 |  | VERIFIED_DATA |  scene S2A_MSIL2A_20200929T080731_R078_T36RYS_20201001T154846 acquired 2020-09-29 |
 | limits_074:label:SEP 2021 |  | VERIFIED_DATA |  scene S2B_MSIL2A_20210929T080719_R078_T36RYS_20210929T211810 acquired 2021-09-29 |
 | limits_075:label:OCT 2022 |  | VERIFIED_DATA |  scene S2A_MSIL2A_20221009T080841_R078_T36RYS_20240725T054556 acquired 2022-10-09 |
-| close_076:graphic:g_tiers | C1,C4,C9 | VERIFIED_SOURCE |  each step carries its claim's short text |
-| close_077:label:OCT 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18 |
-| close_079:label:OCT 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18 |
-| close_081:label:OCT 2025 |  | VERIFIED_DATA |  scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08 |
+| limits_076:label:OCT 2023 |  | VERIFIED_DATA |  scene S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051 acquired 2023-10-14 |
+| close_077:graphic:g_tiers | C1,C4,C9 | VERIFIED_SOURCE |  each step carries its claim's short text |
+| close_078:label:OCT 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18 |
+| close_080:label:OCT 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18 |
+| close_082:label:OCT 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18 |
 
 Reviewing: look at each `frames` file, then add to qa/visual_review.json {item, frame_sha256, reviewer, verdict, note}. A review is bound to the frame hash.

@@ -380,7 +380,7 @@
   {
    "id": "C16",
    "kind": "observation",
-   "statement": "Seven Sentinel-2 scenes, all from the same orbit, taken in late September or October of each year from 2020 to 2026.",
+   "statement": "Seven Sentinel-2 scenes, all from the same orbit, taken in late September or October of each year from 2020 to 2026, each with reported scene cloud cover under 0.1 percent.",
    "short": "Seven scenes, same orbit",
    "evidence": "evidence/stack/provenance.json",
    "basis": "two_checks",
