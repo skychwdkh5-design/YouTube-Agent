@@ -398,6 +398,9 @@ class WithVoiceStub(Base):
         self.assertFalse(os.path.exists(self.p("render", "test", "test.mp4")))
         r = self.orch("render-test", "--slug", self.slug, "--seconds", "20", "--run", env=env)[0]
         self.assertTrue(os.path.exists(self.p("render", "test", "test.mp4")), r)
+        srt = open(self.p("render", "test", "captions.test.srt")).read()
+        self.assertGreaterEqual(r["seconds"], 20)
+        self.assertIn("-->", srt)
         self.assertFalse(os.path.exists(self.p("render", "final.mp4")))
 
     def approve(self, aid):

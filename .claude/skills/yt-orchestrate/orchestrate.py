@@ -405,10 +405,15 @@ def render_test(slug, seconds=30.0, run_it=False):
         return {"status": "blocked", "error": "voicecheck FAIL: fix the narration before any render"}, 1
     tl = json.load(open(ep.p("timeline.json")))
     meta = json.load(open(ep.p("voice", "narration.voice.json")))
-    words = [w for w in meta["words"] if w["end"] <= seconds]
+    allcues = _srt_cues(open(ep.p("captions", "captions.srt"), encoding="utf-8").read())
+    # cut at the end of the first caption cue that reaches the requested length: never mid-sentence, never a stretch without subtitles
+    last = next((c for c in allcues if c[1] >= seconds), allcues[-1] if allcues else None)
+    if last is None:
+        return {"status": "blocked", "error": "captions.srt has no cues"}, 1
+    words = [w for w in meta["words"] if w["end"] <= last[1] + 0.05]
     if not words:
         return {"status": "blocked", "error": "no word ends within the test window"}, 1
-    t_end = round(words[-1]["end"] + 0.5, 3)
+    t_end = round(last[1] + 0.4, 3)
     d = ep.p("render", "test")
     os.makedirs(d, exist_ok=True)
     wav = os.path.join(d, "narration.test.wav")
@@ -416,7 +421,7 @@ def render_test(slug, seconds=30.0, run_it=False):
     m2 = dict(meta, words=words, audio="narration.test.wav", audio_sha256=sha(wav), duration=probe_duration(wav), characters=sum(len(w["text"]) for w in words),
               text=" ".join(w["text"] for w in words), text_sha256=hashlib.sha256(" ".join(w["text"] for w in words).encode()).hexdigest(), test_excerpt=True)
     write_json(os.path.join(d, "narration.test.voice.json"), m2)
-    cues = [c for c in _srt_cues(open(ep.p("captions", "captions.srt"), encoding="utf-8").read()) if c[1] <= t_end]
+    cues = [c for c in allcues if c[1] <= last[1] + 0.05]
     open(os.path.join(d, "captions.test.srt"), "w", encoding="utf-8").write("\n\n".join(f"{i}\n" + "\n".join(b.splitlines()[1:]) for i, (_, _, b) in enumerate(cues, 1)) + "\n")
     t = dict(tl, shots=[x for x in tl["shots"] if x["start"] < t_end], end={"seconds": max(1, round(m2["duration"] + 0.5, 2))})
     t["voice"] = {"src": "render/test/narration.test.wav", "meta": "render/test/narration.test.voice.json"}
