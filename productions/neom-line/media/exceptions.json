@@ -1,0 +1,35 @@
+{
+ "schema": "yt-media-exceptions/1",
+ "note": "chapters that fall outside the real-photo/video standard; shown to the owner, never hidden",
+ "exceptions": [
+  {
+   "chapter": "promise",
+   "reason": "no provider reachable from this machine (see media.py probe)",
+   "queries": [
+    "Gulf of Aqaba coast Saudi Arabia",
+    "NEOM Sharma coast"
+   ]
+  },
+  {
+   "chapter": "method",
+   "reason": "no provider reachable from this machine (see media.py probe)",
+   "queries": [
+    "Tabuk desert landscape"
+   ]
+  },
+  {
+   "chapter": "segment",
+   "reason": "no provider reachable from this machine (see media.py probe)",
+   "queries": [
+    "NEOM construction excavation"
+   ]
+  },
+  {
+   "chapter": "limits",
+   "reason": "no provider reachable from this machine (see media.py probe)",
+   "queries": [
+    "Saudi Arabia Red Sea coast infrastructure"
+   ]
+  }
+ ]
+}

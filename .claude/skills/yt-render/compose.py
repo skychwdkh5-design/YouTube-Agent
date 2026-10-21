@@ -163,7 +163,7 @@ def validate(tl, root, limits):
     if tl.get("render") is not None:
         if "segment_s" not in prof:
             raise E(f"timeline.render (segmented rendering) is only for profile 'long'")
-        r._keys(tl["render"], ("segment_s",), "render")
+        r._keys(tl["render"], ("segment_s", "preset", "crf"), "render")
         segment_s = r._num(tl["render"].get("segment_s", prof["segment_s"]), "render.segment_s", 1, 300)
     elif "segment_s" in prof:
         segment_s = prof["segment_s"]
@@ -353,8 +353,8 @@ def validate(tl, root, limits):
                         f"({(need - have) / fps:.3f}s short); shorten the shot, trim less, or hold a different image")
 
     plan = {"version": 3, "profile": tl["profile"], "output": dict(prof, width=W, height=H, fps=fps,
-            video_codec="h264", audio_codec="aac", audio_rate=48000, audio_channels=2, crf=prof.get("crf", 18),
-            preset="medium", audio_bitrate="192k"),
+            video_codec="h264", audio_codec="aac", audio_rate=48000, audio_channels=2, crf=(tl.get("render") or {}).get("crf", prof.get("crf", 18)),
+            preset=(tl.get("render") or {}).get("preset", "medium"), audio_bitrate="192k"),
             "segment_frames": int(round(segment_s * fps)) if segment_s else None,
             "grid": grid, "assets": assets, "voice": voice, "words": words, "captions": captions,
             "shots": shots, "total_frames": total_frames, "expected_duration": round(total_frames / fps, 3)}

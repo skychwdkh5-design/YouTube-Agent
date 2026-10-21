@@ -65,14 +65,14 @@ def qc(path, expected_s):
     pr = json.loads(run(["ffprobe", "-v", "error", "-show_entries", "format=duration,size:stream=codec_name,codec_type,width,height,r_frame_rate", "-of", "json", path]).stdout)
     v = next((s for s in pr["streams"] if s["codec_type"] == "video"), {}); a = next((s for s in pr["streams"] if s["codec_type"] == "audio"), {})
     dur = float(pr["format"]["duration"])
-    dec = [l for l in run(["ffmpeg", "-v", "error", "-i", path, "-f", "null", "-"]).stderr.splitlines() if l.strip()]
-    eb = run(["ffmpeg", "-nostats", "-i", path, "-af", "ebur128=peak=true", "-f", "null", "-"]).stderr
-    lufs = re.findall(r"I:\s+(-?[\d.]+) LUFS", eb); tp = re.findall(r"Peak:\s+(-?[\d.]+) dBFS", eb)
-    bl = re.findall(r"black_start:([\d.]+) black_end:([\d.]+)", run(["ffmpeg", "-nostats", "-i", path, "-vf", "blackdetect=d=0.5:pix_th=0.05", "-an", "-f", "null", "-"]).stderr)
-    fz = run(["ffmpeg", "-nostats", "-i", path, "-vf", "freezedetect=n=-55dB:d=6", "-an", "-f", "null", "-"]).stderr
-    fs_, fd_ = [float(x) for x in re.findall(r"freeze_start: ([\d.]+)", fz)], [float(x) for x in re.findall(r"freeze_duration: ([\d.]+)", fz)]
+    # ONE decode pass for everything: decode errors, loudness, black frames, frozen picture, silence (five separate passes took 84 s on a 6.5-minute film)
+    full = run(["ffmpeg", "-nostats", "-v", "info", "-i", path, "-vf", "blackdetect=d=0.5:pix_th=0.05,freezedetect=n=-55dB:d=6", "-af", "ebur128=peak=true,silencedetect=n=-45dB:d=2.5", "-f", "null", "-"]).stderr
+    dec = [l for l in full.splitlines() if re.search(r"(error|invalid|corrupt|failed)", l, re.I) and "freezedetect" not in l and "Parsed_" not in l][:10]
+    lufs = re.findall(r"I:\s+(-?[\d.]+) LUFS", full); tp = re.findall(r"Peak:\s+(-?[\d.]+) dBFS", full)
+    bl = re.findall(r"black_start:([\d.]+) black_end:([\d.]+)", full)
+    fs_, fd_ = [float(x) for x in re.findall(r"freeze_start: ([\d.]+)", full)], [float(x) for x in re.findall(r"freeze_duration: ([\d.]+)", full)]
     freeze = [(st, fd_[i] if i < len(fd_) else round(dur - st, 2)) for i, st in enumerate(fs_)]       # a freeze that lasts to the end of the file has no duration line
-    sil = [float(x) for x in re.findall(r"silence_start: ([\d.]+)", run(["ffmpeg", "-nostats", "-i", path, "-af", "silencedetect=n=-45dB:d=2.5", "-vn", "-f", "null", "-"]).stderr)]
+    sil = [float(x) for x in re.findall(r"silence_start: ([\d.]+)", full)]
     checks = [
         ("format", v.get("codec_name") == "h264" and (v.get("width"), v.get("height")) == (1280, 720) and a.get("codec_name") == "aac", f"{v.get('codec_name')} {v.get('width')}x{v.get('height')} / {a.get('codec_name')}", "fail"),
         ("duration", expected_s - 0.5 <= dur <= expected_s + 2.5, f"{dur:.2f}s (narration {expected_s:.2f}s + tail)", "fail"),

@@ -1,0 +1,45 @@
+{
+ "slug": "neom-line",
+ "total_seconds": 92.3,
+ "steps": [
+  {
+   "step": "media_search",
+   "seconds": 0.5
+  },
+  {
+   "step": "pipeline",
+   "seconds": 5.2
+  },
+  {
+   "step": "preview_render_qc",
+   "seconds": 86.5
+  }
+ ],
+ "media": {
+  "cached_applied": 0,
+  "searched": 0,
+  "usable_providers": [],
+  "probe_from_cache": true,
+  "verified_scenes": [],
+  "exceptions": [
+   "promise",
+   "method",
+   "segment",
+   "limits"
+  ],
+  "seconds": 0.4
+ },
+ "stopped": null,
+ "visual_standard_exceptions": [
+  "promise",
+  "method",
+  "segment",
+  "limits"
+ ],
+ "claude_model_calls": "not measurable from code (this process makes none; agent steps are listed under 'stopped')",
+ "tokens": "not available",
+ "owner_needed": [
+  "final render (--allow-render)",
+  "publish (never automatic)"
+ ]
+}

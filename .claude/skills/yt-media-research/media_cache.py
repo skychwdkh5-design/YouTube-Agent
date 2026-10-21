@@ -91,7 +91,7 @@ def auto(root, run=subprocess.run):
     t0 = time.time()
     summary = {"cached_applied": apply(root) if os.path.exists(M.ledger_path(root)) else 0, "searched": 0, "usable_providers": []}
     probe, cached = probe_cached()
-    usable = [p["source"] for p in probe.get("api_providers", []) if p.get("usable")]
+    usable = [p["source"] for p in probe if p.get("usable") and p.get("status") == "OK"]          # manual sources (usgs, press pages) cannot be searched automatically
     summary.update(usable_providers=usable, probe_from_cache=cached)
     for ch, qs in scenes.items():
         for q in qs:

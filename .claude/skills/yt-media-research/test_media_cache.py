@@ -49,7 +49,7 @@ class Cache(unittest.TestCase):
 
     def test_auto_writes_visible_exceptions_when_no_provider_is_reachable(self):
         a = tempfile.mkdtemp(); mkroot(a)
-        probe = {"api_providers": [{"source": "commons", "usable": False}], "public_pages": []}
+        probe = [{"source": "commons", "usable": False, "status": "BLOCKED_BY_NETWORK_POLICY"}, {"source": "usgs", "usable": True, "status": "MANUAL"}]
         with mock.patch.object(M, "probe", return_value=probe):
             s = C.auto(a, run=lambda *x, **k: None)
         self.assertEqual(s["usable_providers"], [])
@@ -58,7 +58,7 @@ class Cache(unittest.TestCase):
         self.assertIn("no provider reachable", exc[0]["reason"])
 
     def test_probe_is_cached_for_a_day(self):
-        probe = {"api_providers": [], "public_pages": []}
+        probe = []
         with mock.patch.object(M, "probe", return_value=probe) as pr:
             C.probe_cached(); _, cached = C.probe_cached()
         self.assertTrue(cached); self.assertEqual(pr.call_count, 1)

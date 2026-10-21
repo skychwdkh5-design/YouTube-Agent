@@ -402,11 +402,11 @@
   },
   "render": {
    "status": "awaiting_approval",
-   "attempts": 63,
+   "attempts": 64,
    "note": "approval present but --allow-render not given; plan validated",
-   "started": "2026-10-21T15:37:03Z",
+   "started": "2026-10-21T15:55:07Z",
    "error": null,
-   "finished": "2026-10-21T15:37:08Z",
+   "finished": "2026-10-21T15:55:11Z",
    "outputs": {
     "render/plan.json": "4f6b9bcc06204bbf54524ee75ad8c59a9e0fcb04329e3c81062d4440d7940fc8"
    },
@@ -455,10 +455,10 @@
   },
   "release": {
    "status": "done",
-   "attempts": 187,
-   "started": "2026-10-21T15:37:08Z",
+   "attempts": 188,
+   "started": "2026-10-21T15:55:11Z",
    "error": null,
-   "finished": "2026-10-21T15:37:08Z",
+   "finished": "2026-10-21T15:55:11Z",
    "note": "incomplete",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
@@ -471,7 +471,7 @@
     "_tool": "e3b0c44298fc1c14"
    },
    "outputs": {
-    "release/REVIEW.md": "8c6610005e7d66311642b94b729b28afc3b87aaad91ebb0bffa8d2e2b1a556b2",
+    "release/REVIEW.md": "ab09e0518783f1bb3f8ae3e4c7135eb1dd5827233f4f41f57e4d55bff798108b",
     "story/report.md": "801be700e830af8c2a82a2dc4aa6592d6b7929595b5a5511eef81f70cdff50b4"
    },
    "agent_artifacts": {}
@@ -8935,7 +8935,24 @@
    "stage": "release",
    "event": "done",
    "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T15:55:11Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "approval present but --allow-render not given; plan validated"
+  },
+  {
+   "at": "2026-10-21T15:55:11Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T15:55:11Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
   }
  ],
- "updated": "2026-10-21T15:37:08Z"
+ "updated": "2026-10-21T15:55:11Z"
 }

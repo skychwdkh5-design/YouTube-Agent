@@ -1,6 +1,6 @@
 # Release package - Here's What Satellites Show Near the Construction Site (working title, not final)
 
-Generated 2026-10-21T15:37:08Z. Nothing is published.
+Generated 2026-10-21T15:55:11Z. Nothing is published.
 
 ## Status
 - topic: done owner-approved topic
