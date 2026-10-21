@@ -69,7 +69,7 @@ def parse_sentences(text):
 
 def _fixed(v):
     """Full-frame visuals that keep their own on-screen time: yt-graphics images and external stills (photos, NASA images)."""
-    return v.get("kind") in ("graphic", "still")
+    return v.get("kind") in ("graphic", "still", "video")
 
 
 def _visual_year(v):
@@ -174,9 +174,10 @@ def anchor_durations(vis, durs, sents, word_time, t0, t1, min_of):
         del fixed[bad + 1]
         new = spread(fixed)
     for k in range(1, n):                              # a graphic is never stretched past 7 s: it starts a little after its claim and the map before it holds longer
-        if _fixed(vis[k]) and new[k] > 7.0 and not _fixed(vis[k - 1]):
-            new[k - 1] += new[k] - 7.0
-            new[k] = 7.0
+        cap = 12.0 if vis[k].get("kind") == "video" else 7.0
+        if _fixed(vis[k]) and new[k] > cap and not _fixed(vis[k - 1]):
+            new[k - 1] += new[k] - cap
+            new[k] = cap
     return new, rep
 
 
@@ -257,7 +258,7 @@ def build(ep, root, voice_meta=None):
             raise StoryError(f"chapter {cid} has no spoken text")
         def alloc(vis):
             """Graphics keep a fixed on-screen time (min_s, at most 7 s); the remaining time is shared by map visuals. Returns (durations, set of graphic indexes)."""
-            gdur = {i: min(max(v.get("min_s", 4.0), 2.0), 7.0) for i, v in enumerate(vis) if _fixed(v)}
+            gdur = {i: min(max(v.get("min_s", 4.0), 2.0), 12.0 if v.get("kind") == "video" else 7.0) for i, v in enumerate(vis) if _fixed(v)}
             maps = [i for i in range(len(vis)) if i not in gdur]
             rest = total - sum(gdur.values())
             if maps and rest < MIN_SHOT_S * len(maps):
@@ -311,6 +312,12 @@ def _shot(ep, grid, chap, v, k, n, t, d, labels, idx):
         a = ep["assets"][v["asset"]]
         labels.append({"text": f"graphic:{v['asset']}", "claims": a.get("claims") or [], "exempt": bool(a.get("exempt")), "shot": sid})
         return s
+    if v.get("kind") == "video":
+        a = ep["assets"][v["asset"]]
+        s["layers"] = [{"type": "video", "asset": v["asset"], "trim": v.get("trim", 0), "credit": True, "captions": True}]
+        s["info"] = v.get("info", v["asset"])
+        s["media"] = a.get("media_id")
+        return s
     if v.get("kind") == "still":
         a = ep["assets"][v["asset"]]
         wide, tight = (1.0, 0.84) if v.get("zoom_in", True) else (0.84, 1.0)
@@ -351,14 +358,19 @@ def _shot(ep, grid, chap, v, k, n, t, d, labels, idx):
 
 
 def diversity(sb, ep=None, max_map_run=4):
-    """Visual-variety audit of a storyboard (VISUAL_STYLE_V3): kinds, scale classes, longest run of satellite-map shots, adjacent same-scale shots.
-    kind: map (camera over the imagery stack) / graphic (yt-graphics) / still (photo or NASA image) / video. scale: wide >= 10 km, mid 4-10 km, tight < 4 km (at the end of the move)."""
-    kinds, runs, run, run_start, worst = [], [], 0, 0.0, (0, 0.0, 0.0)
+    """Monotony signal for a storyboard (VISUAL_STYLE_V3). There is NO quota of photos or video: a long run of satellite-map shots is flagged only so that someone states why maps are the best evidence there.
+    A chapter listed in ep['visual_choices'] (chapter -> the reason this material proves or explains its claims best) is exempt from the run warning.
+    kind: map / graphic / still / video. scale: wide >= 10 km, mid 4-10 km, tight < 4 km (end of the move). Reported for information: kinds, scale classes, longest run."""
+    justified = set(((ep or {}).get("visual_choices") or {}).keys())
+    kinds, run, run_start, worst, run_chapter = [], 0, 0.0, (0, 0.0, 0.0, None), None
     prev_scale, same_scale = None, []
     for s in sb["shots"]:
         l0 = s["layers"][0]["type"] if s.get("layers") else "image"
         kind = "graphic" if l0 == "graphic" else "still" if l0 == "still" else "video" if l0 == "video" else "map"
         kinds.append(kind)
+        if s.get("chapter") in justified:                    # a chapter whose evidence choice is stated is not counted, and it ends any run before it
+            run, prev_scale = 0, None
+            continue
         if kind == "map":
             w = (s.get("camera") or {}).get("to", {}).get("width_km", 8)
             sc = "wide" if w >= 10 else "mid" if w >= 4 else "tight"
@@ -367,33 +379,31 @@ def diversity(sb, ep=None, max_map_run=4):
             run += 1
             end = s["start"] + s["dur"]
             if run > worst[0]:
-                worst = (run, run_start, end)
+                worst = (run, run_start, end, s.get("chapter"))
             if prev_scale == sc:
                 same_scale.append(s["id"])
             prev_scale = sc
         else:
             run, prev_scale = 0, None
-    n = len(kinds)
+    n = max(len(kinds), 1)
     share = {k: round(kinds.count(k) / n, 3) for k in ("map", "graphic", "still", "video")}
     warns = []
     if worst[0] > max_map_run:
-        warns.append(f"{worst[0]} satellite-map shots in a row ({worst[1]:.0f}-{worst[2]:.0f} s, {worst[2] - worst[1]:.0f} s): more than {max_map_run}; add a photo, video, graphic or map of a different kind")
+        warns.append(f"{worst[0]} satellite-map shots in a row ({worst[1]:.0f}-{worst[2]:.0f} s, chapter {worst[3]}): say in research/notes.json visual_choices[{worst[3]!r}] why maps are the best evidence here, or use the material that proves or explains the claim better")
     if len(same_scale) > max(2, n // 6):
         warns.append(f"{len(same_scale)} neighbouring map shots end at the same scale class; alternate wide / mid / tight")
-    if share["still"] + share["video"] == 0:
-        warns.append("no photo or video at all: the film is satellite maps and graphics only")
     pending = []
     for p in (ep or {}).get("media_pending") or []:
         p = dict(p)
-        if p.get("status") != "REJECTED":                   # where it WOULD go once its rights are VERIFIED: the middle map shot of its chapter (the planner inserts it for real then)
+        if p.get("status") != "REJECTED":                   # where it WOULD go once its rights are VERIFIED: the middle map shot of its chapter
             ch = (sb.get("chapters") or {}).get(p.get("scene"))
-            cand = [s for s in sb["shots"] if ch and ch[0] - 0.01 <= s["start"] < ch[1] and (s["layers"][0]["type"] if s.get("layers") else "image") == "image" or (ch and ch[0] - 0.01 <= s["start"] < ch[1] and s.get("camera"))]
+            cand = [s for s in sb["shots"] if ch and ch[0] - 0.01 <= s["start"] < ch[1] and s.get("camera")]
             if cand:
                 m = cand[len(cand) // 2]
                 p["would_replace"] = {"shot": m["id"], "start": m["start"], "dur": round(min(m["dur"], 6.0), 1)}
         pending.append(p)
-    return {"rule": "visual-diversity/1", "max_map_run": max_map_run, "longest_map_run": {"shots": worst[0], "from": round(worst[1], 1), "to": round(worst[2], 1)}, "kind_share": share,
-            "same_scale_neighbours": len(same_scale), "warnings": warns, "status": "WARN" if warns else "OK", "media_pending": pending}
+    return {"rule": "visual-monotony/2", "max_map_run": max_map_run, "longest_map_run": {"shots": worst[0], "from": round(worst[1], 1), "to": round(worst[2], 1), "chapter": worst[3]}, "kind_share_info_only": share,
+            "kind_share": share, "same_scale_neighbours": len(same_scale), "justified_chapters": sorted(justified), "warnings": warns, "status": "WARN" if warns else "OK", "media_pending": pending}
 
 
 def to_timeline(ep, sb, root, voice=None, captions=None):

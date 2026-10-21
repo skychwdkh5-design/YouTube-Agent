@@ -83,6 +83,8 @@ def date_label(prov, year):
 
 
 def still_visual(e):
+    if e.get("kind") == "video":
+        return {"asset": f"m_{e['id']}", "kind": "video", "min_s": 8, "family": f"media_{e['id']}"[:48], "info": f"video: {e['title']}"[:60], "trim": 0, **({"claims": list(e["claims"])} if e.get("claims") else {})}
     v = {"asset": f"m_{e['id']}", "kind": "still", "min_s": 5, "family": f"media_{e['id']}"[:48], "info": f"photo: {e['title']}"[:60]}
     if e.get("claims"):
         v["claims"] = list(e["claims"])
@@ -94,7 +96,7 @@ def still_visual(e):
 def longest_map_run(vis):
     best = run = 0
     for v in vis:
-        run = 0 if v.get("kind") in ("graphic", "still") else run + 1
+        run = 0 if v.get("kind") in ("graphic", "still", "video") else run + 1
         best = max(best, run)
     return best
 
@@ -108,7 +110,7 @@ def load_media(root):
     for e in json.load(open(p, encoding="utf-8")).get("entries", []):
         fp = os.path.join(root, e.get("local_path") or "")
         good = e.get("status") == "VERIFIED" and e.get("local_path") and os.path.exists(fp) and hashlib.sha256(open(fp, "rb").read()).hexdigest() == e.get("sha256")
-        if good and e.get("kind") in ("photo", "satellite", "map", "diagram", "rendering", "concept_art", "illustration"):
+        if good and e.get("kind") in ("photo", "video", "satellite", "map", "diagram", "rendering", "concept_art", "illustration"):
             ok.append(e)
         else:
             why = e.get("status_reasons") or []
@@ -306,11 +308,15 @@ def plan(root):
         mine = [e for e in media_ok if e["scene"] == ch["id"]]
         for e in mine:
             aid = f"m_{e['id']}"
-            assets[aid] = {"src": e["local_path"], "kind": "external_still", "label": e["title"], "credit": e.get("attribution_text") or f"{e['author']} / {e['license']}", "source_url": e["page_url"],
-                           "license": e["license"], "retrieved": e["retrieved"], "image_date": e.get("date") or None, "derived_from": None, "media_id": e["id"], "claims": e.get("claims") or []}
+            cr = e.get("attribution_text") or f"{e['author']} / {e['license']}"
+            if e.get("kind") == "video":
+                assets[aid] = {"src": e["local_path"], "kind": "video", "label": e["title"], "credit": cr, "media_id": e["id"], "claims": e.get("claims") or []}
+            else:
+                assets[aid] = {"src": e["local_path"], "kind": "external_still", "label": e["title"], "credit": cr, "source_url": e["page_url"],
+                               "license": e["license"], "retrieved": e["retrieved"], "image_date": e.get("date") or None, "derived_from": None, "media_id": e["id"], "claims": e.get("claims") or []}
         out, run, q = [], 0, list(mine)
         for v in ch["visuals"]:
-            if v.get("kind") in ("graphic", "still"):
+            if v.get("kind") in ("graphic", "still", "video"):
                 run = 0
             else:
                 run += 1
@@ -320,9 +326,9 @@ def plan(root):
             out.append(v)
             if not q:
                 continue
-        if q and out and any(v.get("kind") not in ("graphic", "still") for v in out):
+        if q and out and any(v.get("kind") not in ("graphic", "still", "video") for v in out):
             for e in q:                                 # leftover media of this scene: after the first map beat, then spread
-                pos = next((i for i, v in enumerate(out) if v.get("kind") not in ("graphic", "still")), 0) + 1
+                pos = next((i for i, v in enumerate(out) if v.get("kind") not in ("graphic", "still", "video")), 0) + 1
                 out.insert(min(pos, len(out)), still_visual(e))
         ch["visuals"] = out
         mr = longest_map_run(out)
@@ -330,7 +336,7 @@ def plan(root):
             media_gaps.append({"chapter": ch["id"], "map_beats_in_a_row": mr, "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"})
     ep = {"slug": os.path.basename(os.path.abspath(root)), "title": notes.get("title", "TBD"), "titles": notes.get("titles", []), "grid": grid_rel, "focus": focus,
           "graphics": "graphics_spec.json", "evidence": {"stacks": [{k: v for k, v in s.items() if k != "role"} for s in geo["stacks"]]}, "assets": assets, "chapters": chapters,
-          "generated_by": "yt-visual-planner", "planner_dropped": dropped, "media_pending": media_pending, "media_gaps": media_gaps}
+          "generated_by": "yt-visual-planner", "planner_dropped": dropped, "media_pending": media_pending, "media_gaps": media_gaps, "visual_choices": notes.get("visual_choices") or {}}
     spec = {"schema": "yt-graphics/1", "graphics": gfx}
     return ep, spec
 

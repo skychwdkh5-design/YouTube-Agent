@@ -28,6 +28,12 @@
    "kind": "graphic",
    "credit": "Contains modified Copernicus Sentinel data 2026",
    "group": "g_cmp_2022_2026_c5"
+  },
+  "m_the_shrinking_salton_sea_hls": {
+   "src": "media/assets/the_shrinking_salton_sea_hls.mp4",
+   "kind": "video",
+   "label": "The Shrinking Salton Sea (HLS Landsat + Sentinel-2 time series, 2013-2026)",
+   "credit": "The Shrinking Salton Sea / NASA's Goddard Space Flight Center, Scientific Visualization Studio (visualizer: Ross K. Walter, SSAI)"
   }
  },
  "shots": [
@@ -378,7 +384,7 @@
      "style": "year",
      "slot": "upper",
      "t": [
-      0.8,
+      0.5032703488372092,
       null
      ]
     }
@@ -402,7 +408,22 @@
   },
   {
    "id": "shows_010",
-   "start": 48.151,
+   "start": 46.816,
+   "visual_family": "media_the_shrinking_salton_sea_hls",
+   "info": "video: The Shrinking Salton Sea (HLS Landsat + Sentinel-2 ti",
+   "layers": [
+    {
+     "type": "video",
+     "asset": "m_the_shrinking_salton_sea_hls",
+     "trim": 0,
+     "credit": true,
+     "captions": true
+    }
+   ]
+  },
+  {
+   "id": "shows_011",
+   "start": 50.684,
    "visual_family": "g_cmp_2022_2026_c5_shows",
    "info": "g_cmp_2022_2026_c5",
    "layers": [
@@ -418,7 +439,7 @@
    ]
   },
   {
-   "id": "shows_011",
+   "id": "shows_012",
    "start": 53.786,
    "visual_family": "wipe_2022_2026",
    "info": "wipe y2022->y2026",
@@ -455,7 +476,7 @@
    }
   },
   {
-   "id": "limits_012",
+   "id": "limits_013",
    "start": 59.184,
    "visual_family": "y2026_limits",
    "info": "y2026",
@@ -493,7 +514,7 @@
    }
   },
   {
-   "id": "limits_013",
+   "id": "limits_014",
    "start": 65.17,
    "visual_family": "y2022_limits",
    "info": "y2022",
@@ -531,7 +552,7 @@
    }
   },
   {
-   "id": "limits_014",
+   "id": "limits_015",
    "start": 71.156,
    "visual_family": "y2024_limits",
    "info": "y2024",
@@ -569,7 +590,7 @@
    }
   },
   {
-   "id": "close_015",
+   "id": "close_016",
    "start": 77.143,
    "visual_family": "wipe_recap",
    "info": "wipe y2022->y2026",

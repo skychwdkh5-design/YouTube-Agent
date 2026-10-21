@@ -59,6 +59,14 @@
    "claims": [
     "C5"
    ]
+  },
+  "m_the_shrinking_salton_sea_hls": {
+   "src": "media/assets/the_shrinking_salton_sea_hls.mp4",
+   "kind": "video",
+   "label": "The Shrinking Salton Sea (HLS Landsat + Sentinel-2 time series, 2013-2026)",
+   "credit": "The Shrinking Salton Sea / NASA's Goddard Space Flight Center, Scientific Visualization Studio (visualizer: Ross K. Walter, SSAI)",
+   "media_id": "the_shrinking_salton_sea_hls",
+   "claims": []
   }
  },
  "chapters": [
@@ -229,13 +237,22 @@
      "anchor": "year"
     },
     {
+     "asset": "m_the_shrinking_salton_sea_hls",
+     "kind": "video",
+     "min_s": 8,
+     "family": "media_the_shrinking_salton_sea_hls",
+     "info": "video: The Shrinking Salton Sea (HLS Landsat + Sentinel-2 ti",
+     "trim": 0
+    },
+    {
      "asset": "g_cmp_2022_2026_c5",
      "kind": "graphic",
      "min_s": 6,
      "claims": [
       "C5"
      ],
-     "anchor": "claim"
+     "anchor": "claim",
+     "anchor_year": "2022"
     },
     {
      "wipe": [
@@ -359,18 +376,6 @@
    ]
   },
   {
-   "id": "the_shrinking_salton_sea_hls",
-   "scene": "shows",
-   "status": "DISCOVERED",
-   "page_url": "https://svs.gsfc.nasa.gov/15085/",
-   "license": null,
-   "title": "The Shrinking Salton Sea (HLS Landsat + Sentinel-2 time series, 2013-2026)",
-   "reasons": [
-    "no rights evidence recorded (the licence statement read on the source page, with the date); a search-result snippet is not evidence",
-    "licence unknown"
-   ]
-  },
-  {
    "id": "salton_sea_california_jpl_im",
    "scene": "hook",
    "status": "DISCOVERED",
@@ -405,5 +410,6 @@
    ]
   }
  ],
- "media_gaps": []
+ "media_gaps": [],
+ "visual_choices": {}
 }

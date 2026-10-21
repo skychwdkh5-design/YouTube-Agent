@@ -26,17 +26,18 @@ The planner draws only VERIFIED entries whose file still has the recorded sha256
 to illustrate an observed fact. Pending entries are listed in the storyboard report ("media PENDING") with the slot they would take.
 Sources: Wikimedia Commons, NASA Image and Video Library, USGS (manual), Pexels, Pixabay, Unsplash, official press kits (manual, quoting the terms sentence). Commercial-use and
 modification rules are encoded in `yt-media-research/media.py` (`RULES`), including the caveat that a US-government work can contain third-party material that is not free.
-Reachability is measured, not assumed: `media.py probe`. On 2026-10-21 the build machine's network policy denied all five API hosts (HTTP 403 on CONNECT), so live search, licence reading
-and download could not be exercised there; the parsing and rules are covered by tests on canned payloads in each provider's documented format.
+Network access and legal permission are separate questions. Reachability is measured (`media.py probe`: free public hosts and API providers, one row per host); the right to use a file comes only from `rights_evidence`.
+Free public pages need no API key: `media.py svs --url <SVS page>` reads an SVS page and its rights FAQ and builds the entry; `fetch --confirm` downloads and hashes. Paid APIs and stock agencies are not used.
 
-## 3. Shot grammar and numbers (checked by `story/diversity.json`)
-- No more than **4 satellite-map shots in a row** (about 25 s). Break with a photo, video, graphic or a map of another kind.
-- Alternate scale: **wide (>= 10 km) / mid (4-10 km) / tight (< 4 km)**. Neighbouring map shots must not end at the same class.
-- A film that is maps and graphics only is a warning ("no photo or video at all"). In `style v3` the warning **blocks the storyboard stage** unless verified media or graphics fix it, or the owner records `diversity_waiver` with a reason.
+## 3. Shot grammar (checked by `story/diversity.json`) - no quotas
+There is **no percentage or minimum count of photographs or video**. Every scene uses the material that best proves or explains its claim: a measurement is shown by the satellite frames, a
+comparison by a graphic, a place or an event the viewer must *see* by a real photograph or archival clip. The tools only flag monotony so that a person has to decide on purpose:
+- A run of more than **4 satellite-map shots** in a chapter is flagged. It clears when the chapter has a stated reason in `research/notes.json` -> `visual_choices[<chapter>]` (why maps are the best evidence there) or when other material breaks the run.
+- Neighbouring map shots that end at the same scale class (wide >= 10 km / mid 4-10 km / tight < 4 km) are flagged; alternate scales.
+- In `style v3` every chapter needs either a VERIFIED medium or a `visual_choices` sentence before planning (stage `media`), and an unresolved monotony flag blocks the storyboard stage.
 - First 10 s: at least 3 distinct compositions, 3 information events, 3 visual families (yt-render lint).
-- Year images and wipe reveals appear **when the narrator says the year** (storyboard anchors them to the word); a graphic that cites claims appears when the claim is spoken.
-- A wipe is one reveal followed by the revealed picture, never the same wipe played again. Beats of one visual alternate wide and tight (>= 1.5x).
-- Every full-frame graphic or photo has a slow push-in; nothing is a still for more than 7 s.
+- Year images and wipe reveals appear **when the narrator says the year**; a graphic that cites claims appears when the claim is spoken (and is never squeezed below 3.5 s).
+- A wipe is one reveal followed by the revealed picture, never repeated. Beats of one visual alternate wide and tight (>= 1.5x). Every full-frame graphic or photo has a slow push-in; nothing is a still for more than 7 s.
 
 ## 4. Motion graphics and type (meaningful only)
 Allowed: slow push-ins, camera moves that change scale, a wipe between co-registered years, an arrow or ring that points at the measured thing, a counter that lands on its number,
@@ -52,9 +53,9 @@ photograph never makes a claim stronger than its caption.
 
 ## 6. Pipeline
 `topic -> research -> facts -> evidence -> script -> media -> visualplan -> visuals -> storyboard -> visualcheck -> voice (paid, owner) -> voicecheck -> captions -> render (owner) -> qc -> release`.
-`media` is AGENT_REQUIRED in v3 (needs at least one VERIFIED real photo/video, `tasks/media.md` tells the agent how) and a pass-through for v2.
+`media` is AGENT_REQUIRED in v3 until each chapter has a VERIFIED medium or a stated `visual_choices` reason (`tasks/media.md` tells the agent how) and a pass-through for v2.
 
 ## 7. Known limits
-- In the build environment the media libraries are unreachable; V3 episodes there stay blocked on media or run with an explicit, recorded owner waiver.
+- Network access to the free public media sources is partial in the build environment (measured, see docs/knowledge/media-access/MEDIA_ACCESS_TEST_2026-10-21.md).
 - Video clips are supported by the renderer (same fps and aspect required); the planner currently places photos only.
 - Rendering/concept art needs its on-screen label text in `on_screen_label`.

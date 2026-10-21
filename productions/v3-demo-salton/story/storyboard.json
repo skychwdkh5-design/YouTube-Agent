@@ -38,15 +38,15 @@
   ],
   "shows": [
    {
-    "visual": 1,
+    "visual": 2,
     "year": "claim",
-    "status": "cannot reach 45.0s (room 47.8-54.7s)"
+    "status": "cannot reach 45.0s (room 49.8-54.7s)"
    },
    {
-    "visual": 2,
+    "visual": 3,
     "year": "2026",
     "target": 53.79,
-    "was": 54.34,
+    "was": 56.11,
     "now": 53.79
    }
   ]
@@ -417,7 +417,7 @@
    "id": "shows_009",
    "chapter": "shows",
    "start": 45.306,
-   "dur": 2.845,
+   "dur": 1.51,
    "family": "y2022_shows",
    "claims": [
     "C5"
@@ -450,18 +450,37 @@
      "style": "year",
      "slot": "upper",
      "t": [
-      0.8,
+      0.5032703488372092,
       null
      ]
     }
    ],
-   "end": 48.151
+   "end": 46.816
   },
   {
    "id": "shows_010",
    "chapter": "shows",
-   "start": 48.151,
-   "dur": 5.634,
+   "start": 46.816,
+   "dur": 3.868,
+   "family": "media_the_shrinking_salton_sea_hls",
+   "layers": [
+    {
+     "type": "video",
+     "asset": "m_the_shrinking_salton_sea_hls",
+     "trim": 0,
+     "credit": true,
+     "captions": true
+    }
+   ],
+   "info": "video: The Shrinking Salton Sea (HLS Landsat + Sentinel-2 ti",
+   "media": "the_shrinking_salton_sea_hls",
+   "end": 50.684
+  },
+  {
+   "id": "shows_011",
+   "chapter": "shows",
+   "start": 50.684,
+   "dur": 3.102,
    "family": "g_cmp_2022_2026_c5_shows",
    "claims": [
     "C5"
@@ -481,7 +500,7 @@
    "end": 53.786
   },
   {
-   "id": "shows_011",
+   "id": "shows_012",
    "chapter": "shows",
    "start": 53.786,
    "dur": 5.398,
@@ -524,7 +543,7 @@
    "end": 59.184
   },
   {
-   "id": "limits_012",
+   "id": "limits_013",
    "chapter": "limits",
    "start": 59.184,
    "dur": 5.986,
@@ -565,7 +584,7 @@
    "end": 65.17
   },
   {
-   "id": "limits_013",
+   "id": "limits_014",
    "chapter": "limits",
    "start": 65.17,
    "dur": 5.986,
@@ -606,7 +625,7 @@
    "end": 71.156
   },
   {
-   "id": "limits_014",
+   "id": "limits_015",
    "chapter": "limits",
    "start": 71.156,
    "dur": 5.986,
@@ -647,7 +666,7 @@
    "end": 77.143
   },
   {
-   "id": "close_015",
+   "id": "close_016",
    "chapter": "close",
    "start": 77.143,
    "dur": 4.082,

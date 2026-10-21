@@ -106,59 +106,61 @@
   },
   "media": {
    "status": "done",
-   "attempts": 1,
-   "started": "2026-10-21T08:17:53Z",
+   "attempts": 2,
+   "started": "2026-10-21T10:03:18Z",
    "error": null,
-   "finished": "2026-10-21T08:17:53Z",
-   "note": "0 verified of 5 media entries",
+   "finished": "2026-10-21T10:03:18Z",
+   "note": "1 verified of 5 media entries",
    "inputs": {
-    "media/ledger.json": "a0534aef1e531fac31ae943b792209728d2e0096cf78e8566c30ff0474614c3e",
+    "media/assets/the_shrinking_salton_sea_hls.mp4": "56a9297ea3e108f51e114ea1fc2e80c9ccdc748c5e0645d4ed58123f17acfec1",
+    "media/ledger.json": "e2bcd86cd8cecd6ca1af350663a7ee3885cc952376f9c6b5dd05b07e0bff53e5",
     "research/brief.json": "a3901f39ed9a0598eaff9141e10a8da8175340b76ddf429d0ae3d1b89e0221f1",
     "research/notes.json": "7feff7d8023eb5f67d10685c8fbe3d99bc884fdbcdfb3dce1c159b5a60ba638f",
     "script.md": "cf264c8e5803ac93de5fc3e384f8cf768d68e38b152c5428cba611044c168244",
-    "_tool": "bd899513ebffabdd"
+    "_tool": "bcf6af8b3dcf17e9"
    },
    "outputs": {
-    "media/report.json": "e9a1b1e32823e9ffde5e3a605ce8502da2a9b4f98323f562487b26f69937b75a"
+    "media/report.json": "ef8188cc8d08774639f5290c762cd451af9efdff1e6e28338a8424544cdda429"
    },
    "agent_artifacts": {
-    "media/ledger.json": "a0534aef1e531fac31ae943b792209728d2e0096cf78e8566c30ff0474614c3e"
+    "media/ledger.json": "e2bcd86cd8cecd6ca1af350663a7ee3885cc952376f9c6b5dd05b07e0bff53e5"
    }
   },
   "visualplan": {
    "status": "done",
-   "attempts": 1,
-   "started": "2026-10-21T08:17:53Z",
+   "attempts": 3,
+   "started": "2026-10-21T10:03:51Z",
    "error": null,
-   "finished": "2026-10-21T08:17:54Z",
-   "note": "16 visuals in 6 chapters, graphics ['g_cmp_2022_2026_c5']",
+   "finished": "2026-10-21T10:03:52Z",
+   "note": "17 visuals in 6 chapters, graphics ['g_cmp_2022_2026_c5']",
    "inputs": {
     "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508",
     "evidence/ndwi.json": "02e25921487462ad745e8605ba28003a4149094c8a9833b851b515c03189d09a",
     "evidence/stack/grid.json": "3f3863c5b82d7183cc2b64a10b74225274a23d550dd5886274a7528e728de46f",
     "evidence/stack/provenance.json": "318732c8c7b540904b82a4f529408e70281a62a981edd011f1507f796103a554",
-    "media/ledger.json": "a0534aef1e531fac31ae943b792209728d2e0096cf78e8566c30ff0474614c3e",
-    "media/report.json": "e9a1b1e32823e9ffde5e3a605ce8502da2a9b4f98323f562487b26f69937b75a",
+    "media/assets/the_shrinking_salton_sea_hls.mp4": "56a9297ea3e108f51e114ea1fc2e80c9ccdc748c5e0645d4ed58123f17acfec1",
+    "media/ledger.json": "e2bcd86cd8cecd6ca1af350663a7ee3885cc952376f9c6b5dd05b07e0bff53e5",
+    "media/report.json": "ef8188cc8d08774639f5290c762cd451af9efdff1e6e28338a8424544cdda429",
     "research/brief.json": "a3901f39ed9a0598eaff9141e10a8da8175340b76ddf429d0ae3d1b89e0221f1",
     "research/notes.json": "7feff7d8023eb5f67d10685c8fbe3d99bc884fdbcdfb3dce1c159b5a60ba638f",
     "script.md": "cf264c8e5803ac93de5fc3e384f8cf768d68e38b152c5428cba611044c168244",
-    "_tool": "915c9baac347a820"
+    "_tool": "76843c8c6b1b5736"
    },
    "outputs": {
-    "episode.json": "1ffbbbdc592906b003eb3ab46e8328e04993beb29a3f7af906ec2d1c4ecbf3b8",
+    "episode.json": "8400b40071e344e86cfa4ff42d4b483a50869746044b239ac57d2f38135ef648",
     "graphics_spec.json": "7e39c7f5f9664f70d0c847e236906fe49cbb8deb0913f349d1afa526a5a07e7e"
    },
    "agent_artifacts": {}
   },
   "visuals": {
    "status": "done",
-   "attempts": 1,
-   "started": "2026-10-21T08:17:54Z",
+   "attempts": 3,
+   "started": "2026-10-21T10:03:52Z",
    "error": null,
-   "finished": "2026-10-21T08:17:55Z",
+   "finished": "2026-10-21T10:03:53Z",
    "note": "1 graphics",
    "inputs": {
-    "episode.json": "1ffbbbdc592906b003eb3ab46e8328e04993beb29a3f7af906ec2d1c4ecbf3b8",
+    "episode.json": "8400b40071e344e86cfa4ff42d4b483a50869746044b239ac57d2f38135ef648",
     "evidence/ndwi.json": "02e25921487462ad745e8605ba28003a4149094c8a9833b851b515c03189d09a",
     "evidence/stack/grid.json": "3f3863c5b82d7183cc2b64a10b74225274a23d550dd5886274a7528e728de46f",
     "evidence/stack/provenance.json": "318732c8c7b540904b82a4f529408e70281a62a981edd011f1507f796103a554",
@@ -172,28 +174,28 @@
   },
   "storyboard": {
    "status": "done",
-   "attempts": 2,
-   "started": "2026-10-21T08:18:26Z",
+   "attempts": 4,
+   "started": "2026-10-21T10:03:53Z",
    "error": null,
-   "finished": "2026-10-21T08:18:27Z",
-   "note": "16 shots, 81.224s, timing from estimate",
+   "finished": "2026-10-21T10:03:54Z",
+   "note": "17 shots, 81.224s, timing from estimate",
    "inputs": {
     "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508",
-    "episode.json": "1ffbbbdc592906b003eb3ab46e8328e04993beb29a3f7af906ec2d1c4ecbf3b8",
+    "episode.json": "8400b40071e344e86cfa4ff42d4b483a50869746044b239ac57d2f38135ef648",
     "evidence/ndwi.json": "02e25921487462ad745e8605ba28003a4149094c8a9833b851b515c03189d09a",
     "evidence/stack/grid.json": "3f3863c5b82d7183cc2b64a10b74225274a23d550dd5886274a7528e728de46f",
     "evidence/stack/provenance.json": "318732c8c7b540904b82a4f529408e70281a62a981edd011f1507f796103a554",
     "graphics/g_cmp_2022_2026_c5.png": "8b3fd1bdfb9b4b27f2e740a2f3ecec5b21ebde2b703a20dde650baf5366cca21",
     "research/brief.json": "a3901f39ed9a0598eaff9141e10a8da8175340b76ddf429d0ae3d1b89e0221f1",
     "script.md": "cf264c8e5803ac93de5fc3e384f8cf768d68e38b152c5428cba611044c168244",
-    "_tool": "b670149dc3f0dd83"
+    "_tool": "5db183975cf00ff3"
    },
    "outputs": {
-    "story/storyboard.json": "6653d469d0be3baa8b87b44a6686d7b7d4119082b8f47a7ed642b4e34c611998",
-    "timeline.json": "dc94d22d671d97eaf6041d56dc36197a4ca025b4db714cc9c0264c5f8eabb580",
-    "story/labels.json": "ea2b6144144081c7494d68d136139c40a5741fb3cf4c14dfbccdfa1f08967844",
-    "story/report.md": "8f915a3bc382c0ae7567afe06a904d11313c5365680ab53cf5da5267b235d927",
-    "story/diversity.json": "4c654f230a3f11cc24a5655342a6c57b24b1c2d21019e28fa845831ca5554951"
+    "story/storyboard.json": "fbcfdcf0feae6b1a842517e42d33cc85275bcdcbcb51ddd7fb0625462bdfe9c0",
+    "timeline.json": "f80cc33301d60995162ae26add8c9e499b12f723c9f305946bbc14c7d9f835f9",
+    "story/labels.json": "23c1a8b81b80faeaffe841b6b81b2f942b16bde29e48415befb8422515442dea",
+    "story/report.md": "593de3f2ce892704e10198323ad5edf86bc113e8aa021a85c81f750defc87d0d",
+    "story/diversity.json": "70acc86b32cfc1da2340281dfd4c2339650df3e41fc918003b09ffa1b7afe627"
    },
    "agent_artifacts": {}
   },
@@ -268,7 +270,84 @@
    "stage": "storyboard",
    "event": "done",
    "note": "16 shots, 81.224s, timing from estimate"
+  },
+  {
+   "at": "2026-10-21T10:03:18Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T10:03:18Z",
+   "stage": "media",
+   "event": "done",
+   "note": "1 verified of 5 media entries"
+  },
+  {
+   "at": "2026-10-21T10:03:18Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T10:03:18Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "16 visuals in 6 chapters, graphics ['g_cmp_2022_2026_c5']"
+  },
+  {
+   "at": "2026-10-21T10:03:18Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T10:03:19Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "1 graphics"
+  },
+  {
+   "at": "2026-10-21T10:03:19Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T10:03:20Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "16 shots, 81.224s, timing from estimate"
+  },
+  {
+   "at": "2026-10-21T10:03:51Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T10:03:52Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "17 visuals in 6 chapters, graphics ['g_cmp_2022_2026_c5']"
+  },
+  {
+   "at": "2026-10-21T10:03:52Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T10:03:53Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "1 graphics"
+  },
+  {
+   "at": "2026-10-21T10:03:53Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T10:03:54Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "17 shots, 81.224s, timing from estimate"
   }
  ],
- "updated": "2026-10-21T08:18:27Z"
+ "updated": "2026-10-21T10:03:54Z"
 }

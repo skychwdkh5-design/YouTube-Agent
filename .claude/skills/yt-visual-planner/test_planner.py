@@ -189,6 +189,13 @@ class Media(unittest.TestCase):
             self.assertEqual(self.stills(ep), [], kw)
             self.assertEqual(len(ep["media_pending"]), 1, kw)
 
+    def test_verified_video_becomes_a_video_visual(self):
+        self.ledger(kind="video", local_path="media/assets/p.jpg")          # stand-in file: the planner only checks presence and sha256
+        ep, _ = pl.plan(self.d)
+        vids = [v for c in ep["chapters"] for v in c["visuals"] if v.get("kind") == "video"]
+        self.assertEqual(len(vids), 1)
+        self.assertEqual(ep["assets"][vids[0]["asset"]]["kind"], "video")
+
     def test_rendering_carries_its_label(self):
         self.ledger(kind="rendering", on_screen_label="ARTIST'S RENDERING", depicts_reality=False)
         ep, _ = pl.plan(self.d)

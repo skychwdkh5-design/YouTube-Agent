@@ -69,3 +69,4 @@ in the first 10 s, about 7-10 resets, no composition held over 6 s). Storyboards
 
 ## Visual style
 From EP006 the channel uses [VISUAL_STYLE_V3.md](VISUAL_STYLE_V3.md): satellite data plus real photos and video (rights-verified via `yt-media-research`), infographics and purposeful motion graphics.
+Proposal for EP006: [docs/EP006_VISUAL_PROPOSAL.md](docs/EP006_VISUAL_PROPOSAL.md). Media access test: [docs/knowledge/media-access/MEDIA_ACCESS_TEST_2026-10-21.md](docs/knowledge/media-access/MEDIA_ACCESS_TEST_2026-10-21.md).

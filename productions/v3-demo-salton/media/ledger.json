@@ -31,25 +31,27 @@
    "scene": "shows",
    "title": "The Shrinking Salton Sea (HLS Landsat + Sentinel-2 time series, 2013-2026)",
    "page_url": "https://svs.gsfc.nasa.gov/15085/",
-   "author": "NASA Scientific Visualization Studio",
-   "license": null,
+   "author": "NASA's Goddard Space Flight Center; visualizer Ross K. Walter (SSAI)",
+   "license": "NASA SVS public domain (unless otherwise noted)",
    "kind": "video",
-   "file_url": null,
-   "license_url": null,
-   "attribution_text": null,
-   "rights_evidence": null,
+   "file_url": "https://svs.gsfc.nasa.gov/vis/a010000/a015000/a015085/Salton_Sea_Shrinking_-_Web.mp4",
+   "license_url": "https://svs.gsfc.nasa.gov/help/",
+   "attribution_text": "The Shrinking Salton Sea / NASA's Goddard Space Flight Center, Scientific Visualization Studio (visualizer: Ross K. Walter, SSAI)",
+   "rights_evidence": "2026-10-21: read https://svs.gsfc.nasa.gov/help/ FAQ 'Can I use your visualizations?': \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit\" (exception: some visualizations feature licensed music, which is not in the public domain; individual pages say so). Page https://svs.gsfc.nasa.gov/15085/ credits 'NASA's Goddard Space Flight Center', visualizer Ross K. Walter (SSAI), carries no 'otherwise noted' exception and no music note. NASA guideline: https://www.nasa.gov/nasa-brand-center/images-and-media/ (acknowledge NASA, do not imply endorsement; NASA insignia not public domain).",
    "on_screen_label": null,
    "date": null,
    "discovered_by": "web-search",
    "depicts_reality": true,
    "claims": [],
    "found_at": "2026-10-21",
-   "rights_class": "UNKNOWN",
-   "status": "DISCOVERED",
+   "rights_class": "US_GOVERNMENT",
+   "status": "VERIFIED",
    "status_reasons": [
-    "no rights evidence recorded (the licence statement read on the source page, with the date); a search-result snippet is not evidence",
-    "licence unknown"
-   ]
+    "US government work: usually free to use, credit the agency, never imply endorsement; third-party material inside it (photographer credits, logos) is NOT covered"
+   ],
+   "retrieved": "2026-10-21",
+   "local_path": "media/assets/the_shrinking_salton_sea_hls.mp4",
+   "sha256": "56a9297ea3e108f51e114ea1fc2e80c9ccdc748c5e0645d4ed58123f17acfec1"
   },
   {
    "id": "salton_sea_california_jpl_im",

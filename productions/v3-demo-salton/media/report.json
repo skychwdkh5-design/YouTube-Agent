@@ -1,9 +1,12 @@
 {
  "entries": 5,
  "by_status": {
-  "DISCOVERED": 3,
+  "DISCOVERED": 2,
+  "VERIFIED": 1,
   "REJECTED": 2
  },
- "verified": [],
+ "verified": [
+  "the_shrinking_salton_sea_hls"
+ ],
  "style": "v3"
 }

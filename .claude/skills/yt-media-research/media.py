@@ -200,6 +200,37 @@ def probe_host(host):
         return {"host": host, "reachable": False, "detail": f"{type(e).__name__}: {e}"[:120]}
 
 
+PUBLIC_HOSTS = [   # free public pages and their direct asset hosts: no API key needed; role says what the host is for
+    ("svs.gsfc.nasa.gov", "NASA Scientific Visualization Studio", "page+assets"),
+    ("science.nasa.gov", "NASA Earth Observatory pages (earthobservatory.nasa.gov redirects here)", "page"),
+    ("earthobservatory.nasa.gov", "NASA Earth Observatory (redirect)", "page"),
+    ("assets.science.nasa.gov", "NASA Earth Observatory / science image files", "assets"),
+    ("www.nasa.gov", "NASA media usage guidelines (the rights text)", "rights"),
+    ("images.nasa.gov", "NASA Image and Video Library pages", "page"),
+    ("images-api.nasa.gov", "NASA Image and Video Library API (free, no key)", "api"),
+    ("images-assets.nasa.gov", "NASA Image and Video Library files", "assets"),
+    ("commons.wikimedia.org", "Wikimedia Commons pages and API", "page+api"),
+    ("upload.wikimedia.org", "Wikimedia Commons files", "assets"),
+    ("www.usgs.gov", "USGS pages (public-domain policy in each image credit)", "page"),
+    ("d9-wret.s3.us-west-2.amazonaws.com", "USGS-hosted image files", "assets"),
+    ("pubs.usgs.gov", "USGS publications and figures", "page+assets"),
+]
+
+
+def probe_public():
+    """Network reachability of the free public sources, one row per host. Reachability says nothing about the right to use a file: that is decided by `rights_evidence`."""
+    rows = []
+    for host, what, role in PUBLIC_HOSTS:
+        try:
+            r = urllib.request.urlopen(urllib.request.Request(f"https://{host}/", headers={"User-Agent": UA}), timeout=15)
+            rows.append({"host": host, "role": role, "what": what, "network": "OK", "http": r.status})
+        except urllib.error.HTTPError as e:
+            rows.append({"host": host, "role": role, "what": what, "network": "OK" if e.code < 500 and e.code != 403 else "DENIED", "http": e.code})
+        except Exception as e:
+            rows.append({"host": host, "role": role, "what": what, "network": "BLOCKED_BY_NETWORK_POLICY" if "403" in str(e) else "UNREACHABLE", "detail": f"{type(e).__name__}: {e}"[:100]})
+    return rows
+
+
 def probe():
     rows = []
     for name, p in PROVIDERS.items():
@@ -225,11 +256,44 @@ def search(source, query):
         return {"source": source, "status": "BLOCKED", "error": f"{type(e).__name__}: {e}"[:200], "results": []}
 
 
+# --- NASA Scientific Visualization Studio: free public pages, no key ---------------------------------------------------------------------------------------------
+SVS_RIGHTS_SENTENCE = "All of our content is in the public domain (unless otherwise noted)"
+
+
+def parse_svs(html_text):
+    """Title, credit, visualizer, release date and movie files of an SVS visualization page, read from the page text itself."""
+    import html as H
+    t = H.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", re.sub(r"<script.*?</script>|<style.*?</style>", "", html_text, flags=re.S))))
+    title = (re.search(r"<title>(?:NASA SVS \| )?(.*?)</title>", html_text, flags=re.S) or [None, ""])[1].strip()
+    credit = (re.search(r"Please give credit for this item to:\s*(.*?)\s+Visualizer\b", t) or [None, ""])[1].strip()
+    viz = (re.search(r"Visualizer\s+(.*?)\s+(?:Missions|Datasets|Scientist|Producer|Writer|Data provider|Release date)", t) or [None, ""])[1].strip()
+    rel = (re.search(r"Released\s+(\w+day, \w+ \d+, \d{4})", t) or [None, ""])[1]
+    movies = []
+    for m in re.finditer(r"([A-Za-z0-9_\-]+\.(?:mp4|webm))\s*\((\d+)x(\d+)\)\s*\[([\d.]+) (MB|GB|KB)\]", t):
+        path = re.search(r'href="([^"]*' + re.escape(m.group(1)) + r')"', html_text)
+        movies.append({"file": m.group(1), "w": int(m.group(2)), "h": int(m.group(3)), "size": m.group(4) + " " + m.group(5), "url": ("https://svs.gsfc.nasa.gov" + path.group(1)) if path and path.group(1).startswith("/") else (path.group(1) if path else None)})
+    caveats = [w for w in ("music", "copyright", "licensed", "third party", "courtesy") if re.search(w, t, flags=re.I)]
+    return {"title": title, "credit": credit, "visualizer": viz, "released": rel, "movies": movies, "caveat_words_on_page": caveats}
+
+
+def svs_entry(page_url, page, help_text, today):
+    """A ledger entry for an SVS visualization. The rights evidence is the sentence actually found on the SVS help page plus what the item page says (or does not say)."""
+    movie = next((m for m in page["movies"] if "Web" in m["file"] and m["url"]), None) or next((m for m in page["movies"] if m["url"] and m["w"] <= 1920), None)
+    found = SVS_RIGHTS_SENTENCE.lower() in re.sub(r"\s+", " ", help_text).lower()
+    ev = (f"{today}: read https://svs.gsfc.nasa.gov/help/ FAQ: \"{SVS_RIGHTS_SENTENCE}\"" if found else "") + \
+         (f"; item page {page_url} credits '{page['credit']}', visualizer {page['visualizer']}; caveat words on the item page: {page['caveat_words_on_page'] or 'none'}" if found else "")
+    return {"title": page["title"], "page_url": page_url, "file_url": movie["url"] if movie else None, "kind": "video", "author": f"{page['credit']}; visualizer {page['visualizer']}".strip("; "),
+            "license": "NASA SVS public domain (unless otherwise noted)", "license_url": "https://svs.gsfc.nasa.gov/help/", "date": page["released"],
+            "attribution_text": f"{page['title']} / {page['credit']}, Scientific Visualization Studio", "rights_evidence": ev, "discovered_by": "svs-page",
+            "svs_note": "if the item page names music or a third party, the audio/third-party part is NOT public domain: decide before use" if page["caveat_words_on_page"] else ""}
+
+
 # --- CLI ----------------------------------------------------------------------------------------------------------------------------------------------------------
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("probe")
+    s = sub.add_parser("svs"); s.add_argument("--root", required=True); s.add_argument("--scene", required=True); s.add_argument("--url", required=True); s.add_argument("--fetch", action="store_true")
     for n in ("verify", "gaps", "report"):
         s = sub.add_parser(n); s.add_argument("--root", required=True)
     s = sub.add_parser("search"); s.add_argument("--root", required=True); s.add_argument("--scene", required=True); s.add_argument("--query", required=True); s.add_argument("--sources", default="commons,nasa,pexels,pixabay,unsplash")
@@ -240,7 +304,21 @@ def main(argv=None):
     s = sub.add_parser("fetch"); s.add_argument("--root", required=True); s.add_argument("--id"); s.add_argument("--confirm", action="store_true")
     a = ap.parse_args(argv)
     if a.cmd == "probe":
-        print(json.dumps(probe(), indent=1)); return 0
+        print(json.dumps({"api_providers": probe(), "free_public_hosts": probe_public()}, indent=1)); return 0
+    if a.cmd == "svs":
+        def get(u):
+            return urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": UA}), timeout=40).read().decode("utf-8", "replace")
+        try:
+            pg_html, helpt = get(a.url), get("https://svs.gsfc.nasa.gov/help/")
+        except Exception as e:
+            print(json.dumps({"status": "BLOCKED", "error": f"{type(e).__name__}: {e}"[:200]})); return 1
+        page = parse_svs(pg_html)
+        led = load(a.root)
+        e = dict(svs_entry(a.url, page, helpt, datetime.date.today().isoformat()), scene=a.scene, depicts_reality=True, found_at=datetime.date.today().isoformat())
+        e["id"] = new_id(led, page["title"])
+        e["status"], e["status_reasons"] = evaluate(e)
+        led["entries"].append(e); save(a.root, led)
+        print(json.dumps({"id": e["id"], "status": e["status"], "reasons": e["status_reasons"], "file_url": e["file_url"], "movies": page["movies"]}, indent=1)); return 0
     if a.cmd == "search":
         led = load(a.root); out = []
         for src in a.sources.split(","):

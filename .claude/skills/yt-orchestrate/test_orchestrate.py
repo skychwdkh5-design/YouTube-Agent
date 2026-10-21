@@ -499,10 +499,14 @@ class StyleV3(Base):
         self.agent_artifacts()
         self.set_notes(style="v3")
         out = self.run_all("--until", "visualcheck")
-        self.assertEqual(out["stages"]["media"], "needs_agent", out)
+        self.assertEqual(out["stages"]["media"], "needs_agent", out)                  # no verified medium and no stated visual choice for any chapter
         self.assertTrue(os.path.exists(self.p("tasks", "media.md")))
         sha = self.make_photo()
-        self.entry(sha)
+        self.entry(sha)                                                                # a verified photo for chapter 'shows' only
+        chapters = ["hook", "promise", "plan", "method", "shows", "segment", "checks", "limits", "close"]
+        out = self.run_all("--until", "visualcheck")
+        self.assertEqual(out["stages"]["media"], "needs_agent", out)                  # the other chapters still have no decision
+        self.set_notes(visual_choices={c: "satellite measurement or our own graphic proves this best (test)" for c in chapters if c != "shows"})
         out = self.run_all("--until", "visualcheck")
         self.assertEqual(out["stages"]["media"], "done", out)
         ep = json.load(open(self.p("episode.json")))
@@ -512,10 +516,7 @@ class StyleV3(Base):
         tl = json.load(open(self.p("timeline.json")))
         self.assertTrue(any(a.get("kind") == "external_still" and a.get("license") == "Public Domain" for a in tl["assets"].values()))
         dv = json.load(open(self.p("story", "diversity.json")))
-        if dv["status"] == "WARN":                                         # v3 blocks on an unresolved diversity warning unless the owner waives it
-            self.assertEqual(out["stages"]["storyboard"], "blocked", out)
-            self.set_notes(diversity_waiver="test: owner accepts the warning")
-            out = self.run_all("--until", "visualcheck")
+        self.assertEqual(dv["status"], "OK", dv)                                      # chapters with a stated reason are exempt; no photo quota exists
         self.assertEqual(out["stages"]["storyboard"], "done", out)
         vc = json.load(open(self.p("qa", "visual_claims.json")))
         med = [i for i in vc["items"] if i["kind"] == "media"]
@@ -528,7 +529,7 @@ class StyleV3(Base):
         self.entry(sha, license="CC BY-SA 3.0", attribution_text="x")
         out = self.run_all("--until", "visualplan")
         self.assertEqual(out["stages"]["media"], "needs_agent", out)           # NEEDS_OWNER is not VERIFIED: still no usable media
-        self.set_notes(diversity_waiver="test")
+        self.set_notes(visual_choices={c: "test" for c in ["hook", "promise", "plan", "method", "shows", "segment", "checks", "limits", "close"]})
         self.entry(sha)
         self.run_all("--until", "visualplan")
         with open(self.p("media", "assets", "shore.jpg"), "ab") as f:

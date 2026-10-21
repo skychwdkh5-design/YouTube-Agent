@@ -91,6 +91,41 @@ class Providers(unittest.TestCase):
         self.assertEqual((r["status"], r["results"]), ("BLOCKED", []))
 
 
+class Svs(unittest.TestCase):
+    """Fixtures are real excerpts of https://svs.gsfc.nasa.gov/15085/ and https://svs.gsfc.nasa.gov/help/ read on 2026-10-21."""
+    def test_parse_real_page_and_build_entry(self):
+        page = m.parse_svs(open(os.path.join(HERE, "fixtures_svs_15085.html")).read())
+        self.assertEqual((page["title"], page["credit"], page["visualizer"]), ("The Shrinking Salton Sea", "NASA's Goddard Space Flight Center", "Ross K. Walter (SSAI)"))
+        self.assertEqual([x["w"] for x in page["movies"]], [5760, 1920])
+        e = m.svs_entry("https://svs.gsfc.nasa.gov/15085/", page, open(os.path.join(HERE, "fixtures_svs_help.txt")).read(), "2026-10-21")
+        self.assertTrue(e["file_url"].endswith("Salton_Sea_Shrinking_-_Web.mp4"))
+        self.assertIn("All of our content is in the public domain", e["rights_evidence"])
+        self.assertEqual(m.classify(e["license"])["class"], "US_GOVERNMENT")
+        st, why = m.evaluate(dict(e, id="x", scene="s"))
+        self.assertEqual(st, "UNVERIFIED")                          # rights fine; not VERIFIED until the file is downloaded and hashed
+        self.assertEqual(m.evaluate(dict(e, id="x", scene="s", local_path="p", sha256="0" * 64))[0], "VERIFIED")
+
+    def test_no_rights_sentence_found_means_no_evidence(self):
+        page = m.parse_svs(open(os.path.join(HERE, "fixtures_svs_15085.html")).read())
+        e = m.svs_entry("https://svs.gsfc.nasa.gov/15085/", page, "some other page text", "2026-10-21")
+        self.assertEqual(e["rights_evidence"], "")
+        self.assertEqual(m.evaluate(dict(e, id="x", scene="s"))[0], "DISCOVERED")
+
+    def test_music_or_third_party_words_on_the_item_page_are_flagged(self):
+        page = m.parse_svs("<title>NASA SVS | X</title><p>X Released Monday, May 4, 2026 ID: 1 Music provided by a licensed library. Credits Please give credit for this item to: NASA Visualizer A B Missions</p>")
+        self.assertIn("music", page["caveat_words_on_page"])
+
+    def test_probe_public_rows_separate_network_from_rights(self):
+        orig = m.urllib.request.urlopen
+        m.urllib.request.urlopen = lambda *a, **k: (_ for _ in ()).throw(OSError("Tunnel connection failed: 403 Forbidden"))
+        try:
+            rows = m.probe_public()
+        finally:
+            m.urllib.request.urlopen = orig
+        self.assertTrue(all(r["network"] == "BLOCKED_BY_NETWORK_POLICY" for r in rows))
+        self.assertTrue(all("rights" not in r.get("status", "") for r in rows))
+
+
 class Cli(unittest.TestCase):
     def run_cli(self, *a):
         buf = io.StringIO()

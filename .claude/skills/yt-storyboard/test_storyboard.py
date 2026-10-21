@@ -184,6 +184,23 @@ class Anchors(unittest.TestCase):
         self.assertEqual(tl["captions"]["style"], "kinetic")
 
 
+class NoQuota(unittest.TestCase):
+    def mono(self, chapter):
+        return {"chapters": {"c": [0, 45]}, "shots": [{"id": f"s{i}", "chapter": chapter, "start": i * 5.0, "dur": 5.0, "layers": [{"type": "image"}], "camera": {"to": {"width_km": 8}}} for i in range(9)]}
+
+    def test_long_map_run_needs_a_stated_reason_not_a_photo(self):
+        d = sb.diversity(self.mono("c"), {})
+        self.assertEqual(d["status"], "WARN")
+        self.assertTrue(any("visual_choices" in w for w in d["warnings"]))
+        ok = sb.diversity(self.mono("c"), {"visual_choices": {"c": "the measurement itself is the evidence: only the satellite frames show the change"}})
+        self.assertEqual(ok["status"], "OK")
+
+    def test_no_photo_quota_exists(self):
+        d = sb.diversity({"chapters": {}, "shots": [{"id": "a", "chapter": "c", "start": 0, "dur": 5, "layers": [{"type": "graphic"}]}, {"id": "b", "chapter": "c", "start": 5, "dur": 5, "layers": [{"type": "image"}], "camera": {"to": {"width_km": 3}}}]}, {})
+        self.assertEqual(d["status"], "OK")
+        self.assertFalse(any("no photo" in w for w in d["warnings"]))
+
+
 class Media(unittest.TestCase):
     def setUp(self):
         import tempfile, json
@@ -206,6 +223,16 @@ class Media(unittest.TestCase):
         tl = sb.to_timeline(ep, plan, self.d)
         self.assertNotIn("media_id", tl["assets"]["m_p"])
         self.assertEqual(tl["assets"]["m_p"]["license"], "Public Domain")
+
+    def test_video_is_a_full_frame_shot_with_its_trim_and_kept_time(self):
+        self.assets["m_v"] = {"src": "media/assets/v.mp4", "kind": "video", "label": "Time-lapse", "credit": "NASA / SVS", "media_id": "v", "claims": []}
+        vis = [{"asset": "a", "zoom": [12, 6]}, {"asset": "m_v", "kind": "video", "min_s": 8, "trim": 3.0}, {"asset": "a", "zoom": [6, 12]}]
+        ep = self.ep(vis)
+        plan, _ = sb.build(ep, self.d)
+        v = next(x for x in plan["shots"] if x["layers"][0]["type"] == "video")
+        self.assertAlmostEqual(v["dur"], 8.0, places=1)
+        self.assertEqual(v["layers"][0]["trim"], 3.0)
+        self.assertNotIn("media_id", sb.to_timeline(ep, plan, self.d)["assets"]["m_v"])
 
     def test_rendering_label_is_drawn_and_exempt_from_claim_matching(self):
         vis = [{"asset": "a", "zoom": [12, 6]}, {"asset": "m_p", "kind": "still", "min_s": 5, "label": {"text": "ARTIST'S RENDERING"}}]

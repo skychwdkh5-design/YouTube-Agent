@@ -213,14 +213,16 @@ def run_script(ep, ctx):
 
 MEDIA_TASK = """# Task: media research (AGENT_REQUIRED, style v3)
 
-This film must not be satellite maps only (VISUAL_STYLE_V3.md). For each chapter that needs real-world context (a place, a structure, people at work, an event) find a REAL photo or video:
+VISUAL_STYLE_V3.md: no quota of photos or video. For EACH chapter pick the material that proves or explains its claims best: satellite measurement, map, infographic, or a REAL photo / archival clip when the viewer needs to see the ground.
+Where a real photo or video is the best evidence (a place, a structure, people at work, an event), find it:
 1. `python3 .claude/skills/yt-media-research/media.py probe` - which libraries this machine can reach (a blocked host is reported, never faked).
 2. `media.py search --root productions/{slug} --scene <chapter id> --query "..." --sources commons,nasa,pexels,pixabay,unsplash` for the reachable ones; web search may DISCOVER a source page:
    register it with `media.py add ... --discovered-by web-search` (status DISCOVERED: not a permission).
 3. Read the licence statement ON THE SOURCE PAGE; record it as `--rights-evidence "<what the page says, date>"`, plus author, licence, attribution text.
 4. `media.py fetch --root productions/{slug} --confirm` downloads only entries whose rights are clear; `media.py verify` re-evaluates. Only VERIFIED entries (rights + file + sha256) can enter a render.
 5. A rendering, concept art or illustration needs `--kind rendering --on-screen-label "ARTIST'S RENDERING"` and is never used as a photograph of a built object.
-If no library is reachable and no verified media exists, say so: write `research/notes.json` "diversity_waiver": "<reason>" ONLY if the owner agrees; otherwise the storyboard stays blocked on visual diversity.
+Where maps or graphics are the best evidence, say so in `research/notes.json` "visual_choices": {{"<chapter id>": "why this material proves or explains the claim best"}}; every chapter needs either a VERIFIED medium or such a sentence.
+If a library is unreachable (media.py probe says BLOCKED) say so in the report; "diversity_waiver" exists only for the owner.
 """
 
 
@@ -238,9 +240,14 @@ def run_media(ep, ctx):
         by[e["status"]] = by.get(e["status"], 0) + 1
     verified = [e["id"] for e in led["entries"] if e["status"] == "VERIFIED"]
     write_json(ep.p("media", "report.json"), {"entries": len(led["entries"]), "by_status": by, "verified": verified, "style": notes.get("style", "v2")})
-    if notes.get("style") == "v3" and not verified and not notes.get("diversity_waiver"):
-        packet(ep, "media", MEDIA_TASK.format(slug=ep.slug))
-        raise Halt("needs_agent", f"style v3 needs verified real photos/video (ledger: {by or 'empty'}); see tasks/media.md", ["media/report.json"])
+    if notes.get("style") == "v3":
+        chapters = re.findall(r"^##\s+([a-z0-9_]+)\s*[:\-]", open(ep.p("script.md"), encoding="utf-8").read(), flags=re.M) if os.path.exists(ep.p("script.md")) else []
+        have = {e["scene"] for e in led["entries"] if e["status"] == "VERIFIED"}
+        choices = notes.get("visual_choices") or {}
+        open_ = [c for c in chapters if c not in have and not str(choices.get(c, "")).strip()]
+        if open_ and not notes.get("diversity_waiver"):
+            packet(ep, "media", MEDIA_TASK.format(slug=ep.slug) + "\nChapters still without a decision: " + ", ".join(open_) + "\n")
+            raise Halt("needs_agent", f"style v3: decide the best evidence for chapters {open_} (verified media in the ledger, or visual_choices[chapter] = why maps/graphics prove it best); see tasks/media.md", ["media/report.json"])
     return ["media/report.json"], f"{len(verified)} verified of {len(led['entries'])} media entries" + ("" if notes.get("style") == "v3" else " (style v2: media optional)")
 
 
@@ -289,7 +296,7 @@ def run_storyboard(ep, ctx):
     notes = json.load(open(ep.p("research", "notes.json"))) if os.path.exists(ep.p("research", "notes.json")) else {}
     dv = json.load(open(ep.p("story", "diversity.json"))) if os.path.exists(ep.p("story", "diversity.json")) else {}
     if notes.get("style") == "v3" and dv.get("status") == "WARN" and not notes.get("diversity_waiver"):
-        raise Halt("blocked", "visual diversity (style v3): " + "; ".join(dv.get("warnings", []))[:400] + " - add verified media or graphics (tasks/media.md), or the owner sets research/notes.json diversity_waiver",
+        raise Halt("blocked", "visual diversity (style v3): " + "; ".join(dv.get("warnings", []))[:400] + " - use the material that proves the claim better, or record research/notes.json visual_choices[chapter] (why maps are the best evidence there); tasks/media.md",
                    ["story/storyboard.json", "timeline.json", "story/labels.json", "story/report.md", "story/diversity.json"])
     return ["story/storyboard.json", "timeline.json", "story/labels.json", "story/report.md", "story/diversity.json"], f"{d['shots']} shots, {d['duration']}s, timing from {d['timing']}"
 

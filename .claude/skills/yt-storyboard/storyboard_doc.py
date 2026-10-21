@@ -36,6 +36,14 @@ def main(argv=None):
             src = "own graphic; claims " + ", ".join(g.get("claims") or []) + (" (" + "; ".join(f"{c}: {claims[c].get('attribution') or 'our measurement'}" for c in (g.get('claims') or []) if c in claims)[:120] + ")")
             rights = "own work / " + str(g.get("credit"))
             mot = "slow push-in"
+        elif l0["type"] == "video":
+            g = ep["assets"][l0["asset"]]
+            led = json.load(open(P("media", "ledger.json")))["entries"] if os.path.exists(P("media", "ledger.json")) else []
+            e = next((x for x in led if x["id"] == g.get("media_id")), {})
+            vis, scale = f"REAL VIDEO `{l0['asset']}` (from {l0.get('trim', 0)} s)", "-"
+            src = f"{e.get('page_url')} ({g.get('credit')}); file sha256 {str(e.get('sha256'))[:12]}"
+            rights = f"{e.get('license')} - VERIFIED (evidence recorded {e.get('retrieved')})"
+            mot = "source footage plays as is"
         elif l0["type"] == "still":
             g = ep["assets"][l0["asset"]]
             vis, scale = f"PHOTO `{l0['asset']}`", "-"
