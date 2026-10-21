@@ -23,35 +23,35 @@
   },
   "research": {
    "status": "done",
-   "attempts": 42,
-   "started": "2026-10-21T14:59:16Z",
+   "attempts": 43,
+   "started": "2026-10-21T15:36:25Z",
    "error": null,
-   "finished": "2026-10-21T14:59:16Z",
+   "finished": "2026-10-21T15:36:25Z",
    "note": "20 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN",
    "inputs": {
-    "research/notes.json": "01528c5ff93b4fbf0e734614af711b95901aab09e37349697bb42fd7d9628f7a",
+    "research/notes.json": "4bc3767de7e80637f4e7848c319e34f8b09e4cc17221baa3db6790180612c6d8",
     "topic/topic.json": "a65342b22b074f5e96319ff00ff7719355abdf9e1a091ce3b84ad7b23465efe1",
     "_tool": "20551a128ea3eaf0"
    },
    "outputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "research/report.md": "99319d3fdc2fa222c4eb6b9c4b2dade1fd4a345a17208e8fc72764b1cc4f6c55"
+    "research/report.md": "e07f1f58089d6d73622680879d8ec000a7a79885c96847ca2a183ed776304608"
    },
    "agent_artifacts": {
-    "research/notes.json": "01528c5ff93b4fbf0e734614af711b95901aab09e37349697bb42fd7d9628f7a",
+    "research/notes.json": "4bc3767de7e80637f4e7848c319e34f8b09e4cc17221baa3db6790180612c6d8",
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c"
    }
   },
   "facts": {
    "status": "done",
-   "attempts": 42,
-   "started": "2026-10-21T14:59:16Z",
+   "attempts": 43,
+   "started": "2026-10-21T15:36:25Z",
    "error": null,
-   "finished": "2026-10-21T14:59:16Z",
+   "finished": "2026-10-21T15:36:25Z",
    "note": "20 claims, registry ok",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "research/report.md": "99319d3fdc2fa222c4eb6b9c4b2dade1fd4a345a17208e8fc72764b1cc4f6c55",
+    "research/report.md": "e07f1f58089d6d73622680879d8ec000a7a79885c96847ca2a183ed776304608",
     "_tool": "011f70d2646e3c92"
    },
    "outputs": {},
@@ -59,15 +59,15 @@
   },
   "evidence": {
    "status": "done",
-   "attempts": 42,
-   "started": "2026-10-21T14:59:16Z",
+   "attempts": 43,
+   "started": "2026-10-21T15:36:25Z",
    "error": null,
-   "finished": "2026-10-21T14:59:16Z",
+   "finished": "2026-10-21T15:36:25Z",
    "note": "2 stacks + Landsat stack(s) + NDWI series",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "research/notes.json": "01528c5ff93b4fbf0e734614af711b95901aab09e37349697bb42fd7d9628f7a",
-    "research/report.md": "99319d3fdc2fa222c4eb6b9c4b2dade1fd4a345a17208e8fc72764b1cc4f6c55",
+    "research/notes.json": "4bc3767de7e80637f4e7848c319e34f8b09e4cc17221baa3db6790180612c6d8",
+    "research/report.md": "e07f1f58089d6d73622680879d8ec000a7a79885c96847ca2a183ed776304608",
     "topic/topic.json": "a65342b22b074f5e96319ff00ff7719355abdf9e1a091ce3b84ad7b23465efe1",
     "_tool": "9910c5ec0e089c03"
    },
@@ -115,10 +115,10 @@
   },
   "visualplan": {
    "status": "done",
-   "attempts": 72,
-   "started": "2026-10-21T14:59:16Z",
+   "attempts": 73,
+   "started": "2026-10-21T15:36:25Z",
    "error": null,
-   "finished": "2026-10-21T14:59:16Z",
+   "finished": "2026-10-21T15:36:26Z",
    "note": "62 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19', 'i_scale', 'i_bloomberg', 'i_semafor', 'i_reuters', 'i_opened', 'i_described', 'i_source', 'i_orbit', 'i_season', 'i_cloud', 'i_ndwi', 'i_landsat', 'i_lengths', 'i_apart', 'i_growth', 'i_verdict', 'i_cannot', 'i_nomatch']",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
@@ -135,9 +135,9 @@
     "media/ledger.json": "d2ac57fd67905bbba0e508d3fa9f957d2b8031b0a3cf0c6b6df5e4dbeaa7048e",
     "media/report.json": "20e7b01d6d3355e2873a9c0c2dcb3ac3babbb6c357218c91e07917545f8cbbb6",
     "research/brief.json": "c149b15f762a9b43f5757664c3cdba1fcf5dddd27ceef29c486be4c1de1641b0",
-    "research/notes.json": "01528c5ff93b4fbf0e734614af711b95901aab09e37349697bb42fd7d9628f7a",
+    "research/notes.json": "4bc3767de7e80637f4e7848c319e34f8b09e4cc17221baa3db6790180612c6d8",
     "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
-    "_tool": "9f6c0aad1b30e35c"
+    "_tool": "86573ffac96cfd08"
    },
    "outputs": {
     "episode.json": "2f2d52a2bbf4134ff63d8723319a8a8e023792160d691b4b7e31fe5832a5cd25",
@@ -401,12 +401,12 @@
    "agent_artifacts": {}
   },
   "render": {
-   "status": "awaiting_approval",
-   "attempts": 60,
+   "status": "running",
+   "attempts": 62,
    "note": "approval present but --allow-render not given; plan validated",
-   "started": "2026-10-21T15:00:27Z",
+   "started": "2026-10-21T15:36:31Z",
    "error": null,
-   "finished": "2026-10-21T15:00:31Z",
+   "finished": "2026-10-21T15:36:30Z",
    "outputs": {
     "render/plan.json": "4f6b9bcc06204bbf54524ee75ad8c59a9e0fcb04329e3c81062d4440d7940fc8"
    },
@@ -455,10 +455,10 @@
   },
   "release": {
    "status": "done",
-   "attempts": 184,
-   "started": "2026-10-21T15:00:31Z",
+   "attempts": 185,
+   "started": "2026-10-21T15:36:30Z",
    "error": null,
-   "finished": "2026-10-21T15:00:31Z",
+   "finished": "2026-10-21T15:36:30Z",
    "note": "incomplete",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
@@ -471,7 +471,7 @@
     "_tool": "e3b0c44298fc1c14"
    },
    "outputs": {
-    "release/REVIEW.md": "8c789443fbf1d3fd5913af681b7b5f01a07481c1ce3d1062db5b941acd50cf5f",
+    "release/REVIEW.md": "85970a8a901993ff56a7151c188607283d66101089a087b5164d9694b96a6345",
     "story/report.md": "801be700e830af8c2a82a2dc4aa6592d6b7929595b5a5511eef81f70cdff50b4"
    },
    "agent_artifacts": {}
@@ -496,16 +496,16 @@
   },
   "media": {
    "status": "done",
-   "attempts": 37,
-   "started": "2026-10-21T14:59:16Z",
+   "attempts": 38,
+   "started": "2026-10-21T15:36:25Z",
    "error": null,
-   "finished": "2026-10-21T14:59:16Z",
+   "finished": "2026-10-21T15:36:25Z",
    "note": "0 verified of 5 media entries (style v2: media optional)",
    "inputs": {
     "media/assets/northwestern_coast_of_saudi_.jpg": "93236ad9ce7d540e3917a45b79c19e0aa576706fcf937dc7e8a425f376d116b6",
     "media/ledger.json": "d2ac57fd67905bbba0e508d3fa9f957d2b8031b0a3cf0c6b6df5e4dbeaa7048e",
     "research/brief.json": "c149b15f762a9b43f5757664c3cdba1fcf5dddd27ceef29c486be4c1de1641b0",
-    "research/notes.json": "01528c5ff93b4fbf0e734614af711b95901aab09e37349697bb42fd7d9628f7a",
+    "research/notes.json": "4bc3767de7e80637f4e7848c319e34f8b09e4cc17221baa3db6790180612c6d8",
     "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
     "_tool": "bcf6af8b3dcf17e9"
    },
@@ -8829,7 +8829,79 @@
    "stage": "release",
    "event": "done",
    "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T15:36:25Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T15:36:25Z",
+   "stage": "research",
+   "event": "done",
+   "note": "20 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-21T15:36:25Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T15:36:25Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "20 claims, registry ok"
+  },
+  {
+   "at": "2026-10-21T15:36:25Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T15:36:25Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s) + NDWI series"
+  },
+  {
+   "at": "2026-10-21T15:36:25Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T15:36:25Z",
+   "stage": "media",
+   "event": "done",
+   "note": "0 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-21T15:36:25Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T15:36:26Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "62 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19', 'i_scale', 'i_bloomberg', 'i_semafor', 'i_reuters', 'i_opened', 'i_described', 'i_source', 'i_orbit', 'i_season', 'i_cloud', 'i_ndwi', 'i_landsat', 'i_lengths', 'i_apart', 'i_growth', 'i_verdict', 'i_cannot', 'i_nomatch']"
+  },
+  {
+   "at": "2026-10-21T15:36:30Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "approval present but --allow-render not given; plan validated"
+  },
+  {
+   "at": "2026-10-21T15:36:30Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T15:36:30Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
   }
  ],
- "updated": "2026-10-21T15:00:31Z"
+ "updated": "2026-10-21T15:36:31Z"
 }

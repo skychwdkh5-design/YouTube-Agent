@@ -1,0 +1,77 @@
+{
+ "schema": "yt-media-cache/1",
+ "entries": {},
+ "probe": {
+  "at": 1792596985.476293,
+  "result": [
+   {
+    "host": "commons.wikimedia.org",
+    "reachable": false,
+    "detail": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+    "source": "commons",
+    "key_env": null,
+    "key_present": null,
+    "usable": false,
+    "status": "BLOCKED_BY_NETWORK_POLICY"
+   },
+   {
+    "host": "images-api.nasa.gov",
+    "reachable": false,
+    "detail": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+    "source": "nasa",
+    "key_env": null,
+    "key_present": null,
+    "usable": false,
+    "status": "BLOCKED_BY_NETWORK_POLICY"
+   },
+   {
+    "host": "api.pexels.com",
+    "reachable": false,
+    "detail": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+    "source": "pexels",
+    "key_env": "PEXELS_API_KEY",
+    "key_present": false,
+    "usable": false,
+    "status": "BLOCKED_BY_NETWORK_POLICY"
+   },
+   {
+    "host": "pixabay.com",
+    "reachable": false,
+    "detail": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+    "source": "pixabay",
+    "key_env": "PIXABAY_API_KEY",
+    "key_present": false,
+    "usable": false,
+    "status": "BLOCKED_BY_NETWORK_POLICY"
+   },
+   {
+    "host": "api.unsplash.com",
+    "reachable": false,
+    "detail": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+    "source": "unsplash",
+    "key_env": "UNSPLASH_ACCESS_KEY",
+    "key_present": false,
+    "usable": false,
+    "status": "BLOCKED_BY_NETWORK_POLICY"
+   },
+   {
+    "source": "usgs",
+    "usable": true,
+    "status": "MANUAL",
+    "detail": "USGS has no stable media API: register pages by hand (add); public domain unless the page credits a third party"
+   },
+   {
+    "source": "press",
+    "usable": true,
+    "status": "MANUAL",
+    "detail": "official press kits / media libraries: register by hand and quote the terms-of-use sentence that permits our use as rights_evidence"
+   },
+   {
+    "source": "web",
+    "usable": true,
+    "status": "MANUAL",
+    "detail": "web search (Google or other) only DISCOVERS a source page; it is never a licence"
+   }
+  ]
+ }
+}
