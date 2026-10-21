@@ -162,10 +162,10 @@
   },
   "storyboard": {
    "status": "done",
-   "attempts": 32,
-   "started": "2026-10-21T08:20:53Z",
+   "attempts": 33,
+   "started": "2026-10-21T09:06:31Z",
    "error": null,
-   "finished": "2026-10-21T08:20:57Z",
+   "finished": "2026-10-21T09:06:35Z",
    "note": "81 shots, 385.312s, timing from voice",
    "inputs": {
     "captions/captions.srt": "d9f857ee8b3f20fe9be700f3dbe26f54e8bfb5517e6ad72b8f466f500dad2d5e",
@@ -187,23 +187,23 @@
     "research/brief.json": "c149b15f762a9b43f5757664c3cdba1fcf5dddd27ceef29c486be4c1de1641b0",
     "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
     "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441",
-    "_tool": "48151b4304949432"
+    "_tool": "357ad7994ea39360"
    },
    "outputs": {
-    "story/storyboard.json": "1839e67629705ae5af785d87ff6816d5a4ccdf2bc0bc97c7059d789bb861886e",
-    "timeline.json": "a7a859ee7ef8889970818e71c8569b35f1c0991737f5dab3b5feb870441d79e1",
+    "story/storyboard.json": "1a8ef80c76899de607416770ebbc6a7a973d94cc4e0e34d8bc041947a51d5c4c",
+    "timeline.json": "7963801e625830be12002fe7b56f9f80bf044c29db9efc54e26a51e3979d71c8",
     "story/labels.json": "7f82d2172563f96bff078702157bba284e1648d580418c4c1c2cb0c090b42f74",
-    "story/report.md": "583774240be4b10bfbce7e79ddf6df853f0b2e1cabab5a2b55759ed0018ad150",
+    "story/report.md": "b37a813753a7a83bb94007a1e789971e486f4aff456fa658e6359e0986c5b472",
     "story/diversity.json": "09708aba49926f76ba91ce63f4e7a01024ee1e3d69c662a79e28710cc0c9b677"
    },
    "agent_artifacts": {}
   },
   "visualcheck": {
    "status": "done",
-   "attempts": 54,
-   "started": "2026-10-21T08:20:57Z",
+   "attempts": 55,
+   "started": "2026-10-21T09:06:35Z",
    "error": null,
-   "finished": "2026-10-21T08:21:02Z",
+   "finished": "2026-10-21T09:06:41Z",
    "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 67, 'REVIEWED': 12} of 86 items; 2 orphan reviews (run `visualcheck.py prune`)",
    "outputs": {
     "qa/visual_claims.json": "2ef84b39c0e9e899a1672f0df91f8bd41c049df39a8a15961df7dbb085b88c32",
@@ -219,9 +219,9 @@
     "qa/visual_review.json": "2f845075ff05db1022ae22fc55b5e37cf96bb553bfa2efee3c1d3bd61440d0bb",
     "story/diversity.json": "09708aba49926f76ba91ce63f4e7a01024ee1e3d69c662a79e28710cc0c9b677",
     "story/labels.json": "7f82d2172563f96bff078702157bba284e1648d580418c4c1c2cb0c090b42f74",
-    "story/report.md": "583774240be4b10bfbce7e79ddf6df853f0b2e1cabab5a2b55759ed0018ad150",
-    "story/storyboard.json": "1839e67629705ae5af785d87ff6816d5a4ccdf2bc0bc97c7059d789bb861886e",
-    "timeline.json": "a7a859ee7ef8889970818e71c8569b35f1c0991737f5dab3b5feb870441d79e1",
+    "story/report.md": "b37a813753a7a83bb94007a1e789971e486f4aff456fa658e6359e0986c5b472",
+    "story/storyboard.json": "1a8ef80c76899de607416770ebbc6a7a973d94cc4e0e34d8bc041947a51d5c4c",
+    "timeline.json": "7963801e625830be12002fe7b56f9f80bf044c29db9efc54e26a51e3979d71c8",
     "_tool": "d013157b54750660"
    },
    "agent_artifacts": {
@@ -230,11 +230,11 @@
   },
   "voice": {
    "status": "done",
-   "attempts": 39,
+   "attempts": 40,
    "note": "narration already generated (not regenerated)",
-   "started": "2026-10-21T08:21:02Z",
+   "started": "2026-10-21T09:06:41Z",
    "error": null,
-   "finished": "2026-10-21T08:21:03Z",
+   "finished": "2026-10-21T09:06:41Z",
    "outputs": {
     "voice/narration.wav": "2b4e32ad400affa806b3731a8701178dfda2401a1591d7d0f7981a7abc866479",
     "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441"
@@ -247,9 +247,9 @@
     "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
     "story/diversity.json": "09708aba49926f76ba91ce63f4e7a01024ee1e3d69c662a79e28710cc0c9b677",
     "story/labels.json": "7f82d2172563f96bff078702157bba284e1648d580418c4c1c2cb0c090b42f74",
-    "story/report.md": "583774240be4b10bfbce7e79ddf6df853f0b2e1cabab5a2b55759ed0018ad150",
-    "story/storyboard.json": "1839e67629705ae5af785d87ff6816d5a4ccdf2bc0bc97c7059d789bb861886e",
-    "timeline.json": "a7a859ee7ef8889970818e71c8569b35f1c0991737f5dab3b5feb870441d79e1",
+    "story/report.md": "b37a813753a7a83bb94007a1e789971e486f4aff456fa658e6359e0986c5b472",
+    "story/storyboard.json": "1a8ef80c76899de607416770ebbc6a7a973d94cc4e0e34d8bc041947a51d5c4c",
+    "timeline.json": "7963801e625830be12002fe7b56f9f80bf044c29db9efc54e26a51e3979d71c8",
     "_tool": "e3b0c44298fc1c14"
    },
    "agent_artifacts": {}
@@ -274,15 +274,14 @@
    "agent_artifacts": {}
   },
   "render": {
-   "status": "done",
-   "attempts": 35,
-   "note": "rendered",
-   "started": "2026-10-21T08:21:18Z",
+   "status": "awaiting_approval",
+   "attempts": 37,
+   "note": "approval present but --allow-render not given; plan validated",
+   "started": "2026-10-21T09:06:47Z",
    "error": null,
-   "finished": "2026-10-21T08:39:26Z",
+   "finished": "2026-10-21T09:06:51Z",
    "outputs": {
-    "render/final.mp4": "082d27182952f67ff67f715ad0058d13f6a43d01c1cb658abb179af9de6771ef",
-    "render/final.manifest.json": "0fee5dba814c0e6ec3601406013d04492d21f0461aa33d17882528f381c4a07b"
+    "render/plan.json": "fbf27d373bc9add929c9d928fa8f0ac5fed62cff7072e7869a195d0dc47c089f"
    },
    "inputs": {
     "approvals/render.json": "0641d44303f11aea7d9af9ec6b8b10639a90fa832fb948da51f440bb606fee24",
@@ -310,9 +309,9 @@
    "agent_artifacts": {}
   },
   "qc": {
-   "status": "done",
+   "status": "waiting",
    "attempts": 3,
-   "note": "QC PASS",
+   "note": "waiting for ['render']",
    "started": "2026-10-21T08:39:28Z",
    "error": null,
    "finished": "2026-10-21T08:42:34Z",
@@ -329,24 +328,24 @@
   },
   "release": {
    "status": "done",
-   "attempts": 91,
-   "started": "2026-10-21T08:42:37Z",
+   "attempts": 93,
+   "started": "2026-10-21T09:06:51Z",
    "error": null,
-   "finished": "2026-10-21T08:42:37Z",
-   "note": "complete",
+   "finished": "2026-10-21T09:06:51Z",
+   "note": "incomplete",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
     "qa/visual_claims.json": "2ef84b39c0e9e899a1672f0df91f8bd41c049df39a8a15961df7dbb085b88c32",
     "story/diversity.json": "09708aba49926f76ba91ce63f4e7a01024ee1e3d69c662a79e28710cc0c9b677",
     "story/labels.json": "7f82d2172563f96bff078702157bba284e1648d580418c4c1c2cb0c090b42f74",
-    "story/report.md": "583774240be4b10bfbce7e79ddf6df853f0b2e1cabab5a2b55759ed0018ad150",
-    "story/storyboard.json": "1839e67629705ae5af785d87ff6816d5a4ccdf2bc0bc97c7059d789bb861886e",
-    "timeline.json": "a7a859ee7ef8889970818e71c8569b35f1c0991737f5dab3b5feb870441d79e1",
+    "story/report.md": "b37a813753a7a83bb94007a1e789971e486f4aff456fa658e6359e0986c5b472",
+    "story/storyboard.json": "1a8ef80c76899de607416770ebbc6a7a973d94cc4e0e34d8bc041947a51d5c4c",
+    "timeline.json": "7963801e625830be12002fe7b56f9f80bf044c29db9efc54e26a51e3979d71c8",
     "_tool": "e3b0c44298fc1c14"
    },
    "outputs": {
-    "release/REVIEW.md": "65d46c3b5ae83523a9a4ee8d52a94d9a48a031f4c17ed8300b71fc3bd276dbf0",
-    "story/report.md": "583774240be4b10bfbce7e79ddf6df853f0b2e1cabab5a2b55759ed0018ad150"
+    "release/REVIEW.md": "7566c800c66193f5aac606e82dd8154e7ecadbe39c014d89fbe77ef4bfefccbf",
+    "story/report.md": "b37a813753a7a83bb94007a1e789971e486f4aff456fa658e6359e0986c5b472"
    },
    "agent_artifacts": {}
   },
@@ -3617,7 +3616,84 @@
    "stage": "release",
    "event": "done",
    "note": "complete"
+  },
+  {
+   "at": "2026-10-21T09:06:31Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T09:06:35Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "81 shots, 385.312s, timing from voice"
+  },
+  {
+   "at": "2026-10-21T09:06:35Z",
+   "stage": "visualcheck",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T09:06:41Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 67, 'REVIEWED': 12} of 86 items; 2 orphan reviews (run `visualcheck.py prune`)"
+  },
+  {
+   "at": "2026-10-21T09:06:41Z",
+   "stage": "voice",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T09:06:41Z",
+   "stage": "voice",
+   "event": "done",
+   "note": "narration already generated (not regenerated)"
+  },
+  {
+   "at": "2026-10-21T09:06:42Z",
+   "stage": "render",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T09:06:46Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "approval present but --allow-render not given; plan validated"
+  },
+  {
+   "at": "2026-10-21T09:06:46Z",
+   "stage": "qc",
+   "event": "invalidated: upstream ['render'] not done"
+  },
+  {
+   "at": "2026-10-21T09:06:46Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T09:06:46Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T09:06:51Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "approval present but --allow-render not given; plan validated"
+  },
+  {
+   "at": "2026-10-21T09:06:51Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T09:06:51Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
   }
  ],
- "updated": "2026-10-21T08:42:37Z"
+ "updated": "2026-10-21T09:06:51Z"
 }

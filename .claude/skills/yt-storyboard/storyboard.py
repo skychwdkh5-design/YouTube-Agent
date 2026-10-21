@@ -144,25 +144,35 @@ def anchor_durations(vis, durs, sents, word_time, t0, t1, min_of):
         fixed[i] = got
         cursor = hit
         rep.append({"visual": i, "year": y, "target": round(want, 2), "was": round(starts[i], 2), "now": round(got, 2)})
-    pts = sorted(fixed) + [n]
-    new = [0.0] * n
-    for a, b in zip(pts, pts[1:]):
-        t_a = fixed[a]
-        t_b = fixed[b] if b in fixed else t1
-        seg = range(a, b)
-        gs = [k for k in seg if _fixed(vis[k])]
-        ms = [k for k in seg if k not in gs]
-        spare = (t_b - t_a) - sum(durs[k] for k in gs)
-        if ms and spare >= sum(min_of(vis[k]) for k in ms):      # graphics keep their own time; the map beats absorb the stretch
-            for k in gs:
-                new[k] = durs[k]
-            tot = sum(durs[k] for k in ms)
-            for k in ms:
-                new[k] = spare * durs[k] / tot
-        else:
-            tot = sum(durs[a:b]) or 1.0
-            for k in seg:
-                new[k] = (t_b - t_a) * durs[k] / tot
+    def spread(fx):
+        pts = sorted(fx) + [n]
+        out = [0.0] * n
+        for a, b in zip(pts, pts[1:]):
+            t_a = fx[a]
+            t_b = fx[b] if b in fx else t1
+            seg = range(a, b)
+            gs = [k for k in seg if _fixed(vis[k])]
+            ms = [k for k in seg if k not in gs]
+            spare = (t_b - t_a) - sum(durs[k] for k in gs)
+            if ms and spare >= sum(min_of(vis[k]) for k in ms):      # graphics keep their own time; the map beats absorb the stretch
+                for k in gs:
+                    out[k] = durs[k]
+                tot = sum(durs[k] for k in ms)
+                for k in ms:
+                    out[k] = spare * durs[k] / tot
+            else:
+                tot = sum(durs[a:b]) or 1.0
+                for k in seg:
+                    out[k] = (t_b - t_a) * durs[k] / tot
+        return out
+    new = spread(fixed)
+    while True:                                        # a graphic squeezed below 3.5 s cannot be read: the NEXT anchor yields, the graphic keeps its time
+        bad = next((k for k in range(n) if _fixed(vis[k]) and new[k] < min(3.5, durs[k] * 0.7) and k + 1 in fixed and k + 1 > 0), None)
+        if bad is None:
+            break
+        rep.append({"visual": bad + 1, "year": "-", "status": f"anchor released: it would squeeze the graphic before it to {new[bad]:.1f}s"})
+        del fixed[bad + 1]
+        new = spread(fixed)
     for k in range(1, n):                              # a graphic is never stretched past 7 s: it starts a little after its claim and the map before it holds longer
         if _fixed(vis[k]) and new[k] > 7.0 and not _fixed(vis[k - 1]):
             new[k - 1] += new[k] - 7.0

@@ -140,6 +140,11 @@
     "target": 231.91,
     "was": 230.28,
     "now": 231.91
+   },
+   {
+    "visual": 3,
+    "year": "-",
+    "status": "anchor released: it would squeeze the graphic before it to 2.0s"
    }
   ],
   "checks": [
@@ -1911,7 +1916,7 @@
    "id": "segment_045",
    "chapter": "segment",
    "start": 200.704,
-   "dur": 2.0,
+   "dur": 6,
    "family": "g_hero_c10_segment",
    "claims": [
     "C10"
@@ -1928,13 +1933,13 @@
     }
    ],
    "info": "g_hero_c10",
-   "end": 202.704
+   "end": 206.704
   },
   {
    "id": "segment_046",
    "chapter": "segment",
-   "start": 202.704,
-   "dur": 6.491,
+   "start": 206.704,
+   "dur": 5.602,
    "family": "wipe_2022_2026",
    "claims": [
     "C10"
@@ -1971,13 +1976,13 @@
      ]
     }
    ],
-   "end": 209.195
+   "end": 212.306
   },
   {
    "id": "segment_047",
    "chapter": "segment",
-   "start": 209.195,
-   "dur": 6.491,
+   "start": 212.306,
+   "dur": 5.602,
    "family": "wipe_2022_2026",
    "claims": [
     "C10"
@@ -2005,13 +2010,13 @@
      "asset": "y2026"
     }
    ],
-   "end": 215.685
+   "end": 217.908
   },
   {
    "id": "segment_048",
    "chapter": "segment",
-   "start": 215.685,
-   "dur": 4.057,
+   "start": 217.908,
+   "dur": 3.501,
    "family": "y2026_segment",
    "claims": [
     "C11"
@@ -2049,13 +2054,13 @@
      ]
     }
    ],
-   "end": 219.742
+   "end": 221.409
   },
   {
    "id": "segment_049",
    "chapter": "segment",
-   "start": 219.742,
-   "dur": 4.057,
+   "start": 221.409,
+   "dur": 3.501,
    "family": "y2026_segment",
    "claims": [
     "C11"
@@ -2083,13 +2088,13 @@
      "asset": "y2026"
     }
    ],
-   "end": 223.799
+   "end": 224.91
   },
   {
    "id": "segment_050",
    "chapter": "segment",
-   "start": 223.799,
-   "dur": 4.057,
+   "start": 224.91,
+   "dur": 3.501,
    "family": "y2022_segment",
    "camera": {
     "from": {
@@ -2124,13 +2129,13 @@
      ]
     }
    ],
-   "end": 227.855
+   "end": 228.411
   },
   {
    "id": "segment_051",
    "chapter": "segment",
-   "start": 227.855,
-   "dur": 4.057,
+   "start": 228.411,
+   "dur": 3.501,
    "family": "y2022_segment",
    "camera": {
     "from": {

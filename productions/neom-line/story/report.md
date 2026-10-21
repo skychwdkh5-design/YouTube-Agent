@@ -1,6 +1,6 @@
 # Storyboard report
 
-- timing: voice; duration 385.312 s; shots 81; plan hash b8f0175ffdc0e5ae
+- timing: voice; duration 385.312 s; shots 81; plan hash b123881a2181f2d6
 - renderer plan: confirm_required rendering needs --confirm; the timeline is valid, plan attached
 - chapters: hook 0.0-25.14s, promise 25.14-52.04s, plan 52.04-101.92s, method 101.92-149.93s, shows 149.93-189.95s, segment 189.95-241.44s, checks 241.44-315.65s, limits 315.65-351.69s, close 351.69-385.31s
 - diversity WARN: map 84% / graphic 16% / photo 0% / video 0%; longest satellite-map run 26 shots
@@ -54,13 +54,13 @@ Shots:
 -  187.50s +2.5s shows: wipe y2020->y2024
 -  189.95s +3.8s segment: y2022
 -  193.70s +7.0s segment: g_cmp_2022_2026_c10
--  200.70s +2.0s segment: g_hero_c10
--  202.70s +6.5s segment: wipe y2022->y2026
--  209.19s +6.5s segment: y2026
--  215.69s +4.1s segment: y2026
--  219.74s +4.1s segment: y2026
--  223.80s +4.1s segment: y2022
--  227.85s +4.1s segment: y2022
+-  200.70s +6.0s segment: g_hero_c10
+-  206.70s +5.6s segment: wipe y2022->y2026
+-  212.31s +5.6s segment: y2026
+-  217.91s +3.5s segment: y2026
+-  221.41s +3.5s segment: y2026
+-  224.91s +3.5s segment: y2022
+-  228.41s +3.5s segment: y2022
 -  231.91s +5.0s segment: g_tiers
 -  236.91s +4.5s segment: y2023
 -  241.44s +6.4s checks: y2024

@@ -162,6 +162,18 @@ class Anchors(unittest.TestCase):
         g = next(x for x in plan["shots"] if x["info"] == "g")
         self.assertAlmostEqual(g["start"], 15 * 0.5 - 0.3, places=1)           # the 2026 sentence begins at word 15 (7.5 s); the 2022 sentence (word 0) was not chosen
 
+    def test_a_graphic_is_never_squeezed_unreadable_by_the_next_anchor(self):
+        """EP005 final render: the annotated hero graphic got 2 s because the wipe anchored on the word '2026' two seconds after it."""
+        self.assets["g"] = {"src": "g.png", "kind": "graphic", "claims": ["C10"]}
+        text = "## one: One\n" + " ".join(["w"] * 10) + " In 2025 and 2026 it is still there. {C10}\n" + " ".join(["x"] * 10) + "\n"
+        open(os.path.join(self.d, "script.md"), "w").write(text)
+        words = [{"text": "w", "start": i / 2, "end": i / 2 + .4} for i in range(10 + 8 + 10)]
+        vis = [{"asset": "y2020", "zoom": [20, 12]}, {"asset": "g", "kind": "graphic", "min_s": 6, "claims": ["C10"], "anchor": "claim"},
+               {"wipe": ["y2022", "y2026"], "zoom": [8, 6], "family": "w", "min_s": 4, "anchor": "year"}, {"asset": "y2026", "zoom": [6, 3]}]
+        plan, _ = sb.build(self.ep(vis), self.d, {"words": words})
+        g = next(x for x in plan["shots"] if x["info"] == "g")
+        self.assertGreaterEqual(g["dur"], 3.5)
+
     def test_graphics_get_push_and_captions_are_kinetic(self):
         import json
         vis = [{"asset": "g", "kind": "graphic", "min_s": 4}, {"asset": "y2020", "zoom": [12, 6]}]

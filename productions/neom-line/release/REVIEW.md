@@ -1,6 +1,6 @@
 # Release package - Here's What Satellites Show Near the Construction Site (working title, not final)
 
-Generated 2026-10-21T08:42:37Z. Nothing is published.
+Generated 2026-10-21T09:06:51Z. Nothing is published.
 
 ## Status
 - topic: done owner-approved topic
@@ -16,8 +16,8 @@ Generated 2026-10-21T08:42:37Z. Nothing is published.
 - voice: done narration already generated (not regenerated)
 - voicecheck: done NEEDS_HUMAN_LISTEN: 21 risky words to listen to; storyboard re-timed from real word timings
 - captions: done captions built from real word timings
-- render: done rendered
-- qc: done QC PASS
+- render: awaiting_approval approval present but --allow-render not given; plan validated
+- qc: waiting waiting for ['render']
 
 ## Autonomy (what was automated)
 - topic: AGENT_REQUIRED / now AGENT_REQUIRED / agent artifact, then code
@@ -33,8 +33,8 @@ Generated 2026-10-21T08:42:37Z. Nothing is published.
 - voice: OWNER_REQUIRED / now OWNER_REQUIRED / code
 - voicecheck: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - captions: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
-- render: OWNER_REQUIRED / now OWNER_REQUIRED / code
-- qc: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
+- render: OWNER_REQUIRED / now OWNER_REQUIRED / -
+- qc: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
 - release: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
 
 ## Title options (working title approved by owner; not final)
@@ -67,5 +67,7 @@ Generated 2026-10-21T08:42:37Z. Nothing is published.
 ## Costs
 - {'stage': 'voice', 'chars': 5280, 'provider': 'elevenlabs', 'at': '2026-10-21T05:05:17Z', 'note': 'approved by owner'}
 
-## Ready for review
-**Owner question: approve for publishing, or change?** (publishing is never automatic)
+## Package is INCOMPLETE
+Pending: render, qc
+
+**Owner question: approve the paid step(s) listed as awaiting_approval, or change?**
