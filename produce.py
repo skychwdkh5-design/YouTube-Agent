@@ -80,7 +80,8 @@ def grant_voice_budget(root, budget):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--topic", required=True); ap.add_argument("--slug"); ap.add_argument("--preview", action="store_true")
-    ap.add_argument("--jobs", type=int, default=4); ap.add_argument("--budget-chars", type=int, default=0); ap.add_argument("--force-preview", action="store_true")
+    ap.add_argument("--jobs", type=int, default=3); ap.add_argument("--budget-chars", type=int, default=0); ap.add_argument("--force-preview", action="store_true")
+    ap.add_argument("--fast", action="store_true", help="fast preview: 15 fps (about 2x quicker, previews only; finals stay 1080p/30)")
     a = ap.parse_args(argv)
     slug = a.slug or slugify(a.topic)
     root = os.path.join(REPO, "productions", slug)
@@ -111,7 +112,7 @@ def main(argv=None):
     elif a.preview and all(st.get(s) in ("done", "cached") for s in ("visualcheck", "voice", "voicecheck", "captions")):
         sys.path.insert(0, os.path.join(SK, "yt-orchestrate"))
         import preview
-        rep = L.step("preview_render_qc", lambda: preview.build(slug, a.jobs, a.force_preview))
+        rep = L.step("preview_render_qc", lambda: preview.build(slug, a.jobs, a.force_preview, 15 if a.fast else None))
         out["preview"] = rep
     elif a.preview:
         stop = {"waiting_for": [k for k in ("visualcheck", "voice", "voicecheck", "captions") if st.get(k) not in ("done", "cached")], "voice": voice_msg or "voice stays behind the owner's approval (no --budget-chars)"}

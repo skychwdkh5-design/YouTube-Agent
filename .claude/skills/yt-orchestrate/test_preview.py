@@ -46,6 +46,7 @@ class Key(unittest.TestCase):
         P.chapter_key(d, tl, 0, 10)
         tl3 = json.loads(json.dumps(tl)); tl3["shots"][0]["layers"].append({"type": "label"})
         self.assertNotEqual(k1, P.chapter_key(d, tl3, 0, 10))
+        self.assertNotEqual(k1, P.chapter_key(d, tl, 0, 10, 15))                 # a 15 fps preview never reuses a 30 fps chapter
 
 
 if __name__ == "__main__":
