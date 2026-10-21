@@ -1,0 +1,97 @@
+{
+ "rule": "visual-diversity/1",
+ "max_map_run": 4,
+ "longest_map_run": {
+  "shots": 10,
+  "from": 0.0,
+  "to": 48.2
+ },
+ "kind_share": {
+  "map": 0.938,
+  "graphic": 0.062,
+  "still": 0.0,
+  "video": 0.0
+ },
+ "same_scale_neighbours": 6,
+ "warnings": [
+  "10 satellite-map shots in a row (0-48 s, 48 s): more than 4; add a photo, video, graphic or map of a different kind",
+  "6 neighbouring map shots end at the same scale class; alternate wide / mid / tight",
+  "no photo or video at all: the film is satellite maps and graphics only"
+ ],
+ "status": "WARN",
+ "media_pending": [
+  {
+   "id": "shrinking_shoreline_of_the_s",
+   "scene": "plan",
+   "status": "DISCOVERED",
+   "page_url": "https://www.earthobservatory.nasa.gov/images/86746/shrinking-shoreline-of-the-salton-sea",
+   "license": null,
+   "title": "Shrinking Shoreline of the Salton Sea (Landsat 5, 1984 / ASTER, 2015)",
+   "reasons": [
+    "no rights evidence recorded (the licence statement read on the source page, with the date); a search-result snippet is not evidence",
+    "licence unknown"
+   ],
+   "would_replace": {
+    "shot": "plan_005",
+    "start": 23.401,
+    "dur": 6.0
+   }
+  },
+  {
+   "id": "the_shrinking_salton_sea_hls",
+   "scene": "shows",
+   "status": "DISCOVERED",
+   "page_url": "https://svs.gsfc.nasa.gov/15085/",
+   "license": null,
+   "title": "The Shrinking Salton Sea (HLS Landsat + Sentinel-2 time series, 2013-2026)",
+   "reasons": [
+    "no rights evidence recorded (the licence statement read on the source page, with the date); a search-result snippet is not evidence",
+    "licence unknown"
+   ],
+   "would_replace": {
+    "shot": "shows_011",
+    "start": 53.786,
+    "dur": 5.4
+   }
+  },
+  {
+   "id": "salton_sea_california_jpl_im",
+   "scene": "hook",
+   "status": "DISCOVERED",
+   "page_url": "https://www.jpl.nasa.gov/images/salton-sea-california",
+   "license": null,
+   "title": "Salton Sea, California (JPL image page)",
+   "reasons": [
+    "no rights evidence recorded (the licence statement read on the source page, with the date); a search-result snippet is not evidence",
+    "licence unknown"
+   ],
+   "would_replace": {
+    "shot": "hook_002",
+    "start": 8.254,
+    "dur": 3.2
+   }
+  },
+  {
+   "id": "bombay_beach_salton_sea_ocea",
+   "scene": "plan",
+   "status": "REJECTED",
+   "page_url": "https://oceanlight.com/spotlight.php?img=22488",
+   "license": "All rights reserved",
+   "title": "Bombay Beach, Salton Sea (Oceanlight stock photo, #22488)",
+   "reasons": [
+    "licence 'All rights reserved': copyrighted: needs a licence we do not have"
+   ]
+  },
+  {
+   "id": "photographs_of_the_salton_se",
+   "scene": "plan",
+   "status": "REJECTED",
+   "page_url": "https://www.americansouthwest.net/california/salton-sea/bombay-beach9_l.html",
+   "license": "All rights reserved",
+   "title": "Photographs of the Salton Sea (americansouthwest.net)",
+   "reasons": [
+    "licence 'All rights reserved': copyrighted: needs a licence we do not have"
+   ]
+  }
+ ]
+}

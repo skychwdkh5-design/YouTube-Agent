@@ -471,5 +471,73 @@ class WithVoiceStub(Base):
         self.assertEqual(self.orch("render-test", "--slug", self.slug, env=env)[1], 1)
 
 
+class StyleV3(Base):
+    """VISUAL_STYLE_V3 through the real pipeline: media gate, rights-cleared still in the plan, diversity gate, visualcheck of media."""
+    def make_photo(self):
+        from PIL import Image
+        import hashlib
+        os.makedirs(self.p("media", "assets"), exist_ok=True)
+        fp = self.p("media", "assets", "shore.jpg")
+        Image.new("RGB", (1920, 1080), (140, 110, 80)).save(fp)
+        return hashlib.sha256(open(fp, "rb").read()).hexdigest()
+
+    def entry(self, sha, **k):
+        e = {"id": "shore", "scene": "shows", "title": "Shore test photo", "page_url": "https://example.org/shore", "author": "T. Tester", "license": "Public Domain", "kind": "photo",
+             "rights_evidence": "test fixture: licence text read on the page", "local_path": "media/assets/shore.jpg", "sha256": sha, "retrieved": "2026-10-21", "depicts_reality": True}
+        e.update(k)
+        os.makedirs(self.p("media"), exist_ok=True)
+        with open(self.p("media", "ledger.json"), "w") as f:
+            json.dump({"schema": "yt-media-ledger/1", "entries": [e]}, f)
+
+    def set_notes(self, **k):
+        n = json.load(open(self.p("research", "notes.json")))
+        n.update(k)
+        with open(self.p("research", "notes.json"), "w") as f:
+            json.dump(n, f)
+
+    def test_v3_media_gate_still_in_render_plan_and_diversity_gate(self):
+        self.agent_artifacts()
+        self.set_notes(style="v3")
+        out = self.run_all("--until", "visualcheck")
+        self.assertEqual(out["stages"]["media"], "needs_agent", out)
+        self.assertTrue(os.path.exists(self.p("tasks", "media.md")))
+        sha = self.make_photo()
+        self.entry(sha)
+        out = self.run_all("--until", "visualcheck")
+        self.assertEqual(out["stages"]["media"], "done", out)
+        ep = json.load(open(self.p("episode.json")))
+        self.assertTrue(any(a.get("kind") == "external_still" for a in ep["assets"].values()))
+        sb = json.load(open(self.p("story", "storyboard.json")))
+        self.assertTrue(any(s["layers"][0]["type"] == "still" for s in sb["shots"]))
+        tl = json.load(open(self.p("timeline.json")))
+        self.assertTrue(any(a.get("kind") == "external_still" and a.get("license") == "Public Domain" for a in tl["assets"].values()))
+        dv = json.load(open(self.p("story", "diversity.json")))
+        if dv["status"] == "WARN":                                         # v3 blocks on an unresolved diversity warning unless the owner waives it
+            self.assertEqual(out["stages"]["storyboard"], "blocked", out)
+            self.set_notes(diversity_waiver="test: owner accepts the warning")
+            out = self.run_all("--until", "visualcheck")
+        self.assertEqual(out["stages"]["storyboard"], "done", out)
+        vc = json.load(open(self.p("qa", "visual_claims.json")))
+        med = [i for i in vc["items"] if i["kind"] == "media"]
+        self.assertTrue(med and all(i["status"] == "VERIFIED_SOURCE" for i in med), med)
+
+    def test_tampered_or_unverified_photo_never_reaches_the_plan(self):
+        self.agent_artifacts()
+        self.set_notes(style="v3")
+        sha = self.make_photo()
+        self.entry(sha, license="CC BY-SA 3.0", attribution_text="x")
+        out = self.run_all("--until", "visualplan")
+        self.assertEqual(out["stages"]["media"], "needs_agent", out)           # NEEDS_OWNER is not VERIFIED: still no usable media
+        self.set_notes(diversity_waiver="test")
+        self.entry(sha)
+        self.run_all("--until", "visualplan")
+        with open(self.p("media", "assets", "shore.jpg"), "ab") as f:
+            f.write(b"tamper")                                                 # file changes after rights were verified
+        self.run_all("--until", "visualplan")
+        ep = json.load(open(self.p("episode.json")))
+        self.assertFalse(any(a.get("kind") == "external_still" for a in ep["assets"].values()))
+        self.assertEqual(ep["media_pending"][0]["status"], "UNVERIFIED")                    # the media stage re-checked the sha256 and withdrew VERIFIED
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

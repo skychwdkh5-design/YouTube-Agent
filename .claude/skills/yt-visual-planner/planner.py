@@ -11,7 +11,7 @@ Deterministic rules (no prose, no invention):
 Claims declare what is drawable (short, years, focus, callouts, scale_km) in research/notes.json; the planner adds nothing else.
 Output asserts every graphic's claims so yt-facts and yt-visualcheck can audit them.
 """
-import argparse, json, os, re, sys
+import argparse, hashlib, json, os, re, sys
 
 MON = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
 TAG = re.compile(r"\{(C\d+(?:\s*,\s*C\d+)*)\}")
@@ -80,6 +80,43 @@ def date_label(prov, year):
         raise PlanError(f"no scene for {year} in provenance")
     d = s["datetime"]
     return f"{MON[int(d[5:7]) - 1]} {d[:4]}"
+
+
+def still_visual(e):
+    v = {"asset": f"m_{e['id']}", "kind": "still", "min_s": 5, "family": f"media_{e['id']}"[:48], "info": f"photo: {e['title']}"[:60]}
+    if e.get("claims"):
+        v["claims"] = list(e["claims"])
+    if e.get("on_screen_label"):
+        v["label"] = {"text": e["on_screen_label"], "style": "tag"}
+    return v
+
+
+def longest_map_run(vis):
+    best = run = 0
+    for v in vis:
+        run = 0 if v.get("kind") in ("graphic", "still") else run + 1
+        best = max(best, run)
+    return best
+
+
+def load_media(root):
+    """Entries of media/ledger.json that may appear in the render (status VERIFIED, file present, sha256 equal) and the ones that may not (reported, never drawn)."""
+    p = os.path.join(root, "media", "ledger.json")
+    if not os.path.exists(p):
+        return [], []
+    ok, pend = [], []
+    for e in json.load(open(p, encoding="utf-8")).get("entries", []):
+        fp = os.path.join(root, e.get("local_path") or "")
+        good = e.get("status") == "VERIFIED" and e.get("local_path") and os.path.exists(fp) and hashlib.sha256(open(fp, "rb").read()).hexdigest() == e.get("sha256")
+        if good and e.get("kind") in ("photo", "satellite", "map", "diagram", "rendering", "concept_art", "illustration"):
+            ok.append(e)
+        else:
+            why = e.get("status_reasons") or []
+            if e.get("status") == "VERIFIED" and not good:
+                why = ["marked VERIFIED but the file is missing or its sha256 changed"]
+            pend.append({"id": e["id"], "scene": e.get("scene"), "status": "VERIFIED_FILE_MISSING" if e.get("status") == "VERIFIED" and not good else e.get("status"), "page_url": e.get("page_url"),
+                         "license": e.get("license"), "title": e.get("title"), "reasons": why[:3]})
+    return ok, pend
 
 
 def plan(root):
@@ -258,9 +295,37 @@ def plan(root):
             gone = vis.pop()                    # the chapter is too short for this many pictures: drop from the end and say so
             dropped.append({"chapter": cid, "dropped": [gone.get("asset") or str(gone.get("wipe"))], "reason": f"chapter is {dur:.1f}s"})
         chapters.append({"id": cid, "visuals": vis})
+    media_ok, media_pending = load_media(root)
+    media_gaps = []
+    for ch in chapters:
+        mine = [e for e in media_ok if e["scene"] == ch["id"]]
+        for e in mine:
+            aid = f"m_{e['id']}"
+            assets[aid] = {"src": e["local_path"], "kind": "external_still", "label": e["title"], "credit": e.get("attribution_text") or f"{e['author']} / {e['license']}", "source_url": e["page_url"],
+                           "license": e["license"], "retrieved": e["retrieved"], "image_date": e.get("date") or None, "derived_from": None, "media_id": e["id"], "claims": e.get("claims") or []}
+        out, run, q = [], 0, list(mine)
+        for v in ch["visuals"]:
+            if v.get("kind") in ("graphic", "still"):
+                run = 0
+            else:
+                run += 1
+                if run >= 3 and q:                       # break a run of satellite beats with a real photo
+                    e = q.pop(0)
+                    out.append(still_visual(e)); run = 0
+            out.append(v)
+            if not q:
+                continue
+        if q and out and any(v.get("kind") not in ("graphic", "still") for v in out):
+            for e in q:                                 # leftover media of this scene: after the first map beat, then spread
+                pos = next((i for i, v in enumerate(out) if v.get("kind") not in ("graphic", "still")), 0) + 1
+                out.insert(min(pos, len(out)), still_visual(e))
+        ch["visuals"] = out
+        mr = longest_map_run(out)
+        if mr > 3 and not mine:
+            media_gaps.append({"chapter": ch["id"], "map_beats_in_a_row": mr, "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"})
     ep = {"slug": os.path.basename(os.path.abspath(root)), "title": notes.get("title", "TBD"), "titles": notes.get("titles", []), "grid": grid_rel, "focus": focus,
           "graphics": "graphics_spec.json", "evidence": {"stacks": [{k: v for k, v in s.items() if k != "role"} for s in geo["stacks"]]}, "assets": assets, "chapters": chapters,
-          "generated_by": "yt-visual-planner", "planner_dropped": dropped}
+          "generated_by": "yt-visual-planner", "planner_dropped": dropped, "media_pending": media_pending, "media_gaps": media_gaps}
     spec = {"schema": "yt-graphics/1", "graphics": gfx}
     return ep, spec
 

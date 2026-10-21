@@ -1,0 +1,87 @@
+{
+ "schema": "yt-script-brief/1",
+ "target_seconds": [
+  360,
+  540
+ ],
+ "target_words": [
+  882,
+  1323
+ ],
+ "factual_capacity_words": 165,
+ "insufficient_facts": true,
+ "chapters": [
+  {
+   "id": "hook",
+   "title": "The first fifteen seconds",
+   "claims": [
+    "C5"
+   ]
+  },
+  {
+   "id": "plan",
+   "title": "What has been reported",
+   "claims": [
+    "C1"
+   ]
+  },
+  {
+   "id": "method",
+   "title": "How we looked",
+   "claims": [
+    "C6"
+   ]
+  },
+  {
+   "id": "shows",
+   "title": "What the satellites show",
+   "claims": [
+    "C5"
+   ]
+  },
+  {
+   "id": "limits",
+   "title": "What we cannot say",
+   "claims": []
+  },
+  {
+   "id": "close",
+   "title": "What to watch",
+   "claims": []
+  }
+ ],
+ "style": [
+  "American English, spoken, second person plural 'we' for the investigation",
+  "hook in the first 45 words: a concrete contrast, no throat-clearing",
+  "one idea per sentence; no filler transitions; never repeat a fact to fill time",
+  "keep PROMISED / REPORTED / OBSERVED apart in every chapter",
+  "media/org claims contain their wording word (reported/said); hypotheses are hedged; limitations end with {L}",
+  "no 'proves', 'reveals', 'collapsed', 'cancelled', 'built' unless a claim explicitly allows it",
+  "explain US-specific references in a few words"
+ ],
+ "do_not_use": [
+  "C2",
+  "C3",
+  "C4"
+ ],
+ "claims": {
+  "C1": {
+   "tier": "org",
+   "confidence": "medium",
+   "text": "The Salton Sea is shrinking mainly because less Colorado River water reaches it since the 2003 water transfers, according to a UC Riverside-led task force report, the Congressional Research Service and the Water Education Foundation.",
+   "wording": "according to"
+  },
+  "C5": {
+   "tier": "observation",
+   "confidence": "medium",
+   "text": "In a window over the southern shore, the number of water-like pixels fell from 42,022 in October 2022 to 33,784 in October 2026, about 20 percent fewer; the counts for 2024 and 2025 are 38,436 and 37,550.",
+   "wording": null
+  },
+  "C6": {
+   "tier": "observation",
+   "confidence": "high",
+   "text": "Four Sentinel-2 scenes, all from the same orbit, taken between October 3 and October 31 in 2022, 2024, 2025 and 2026.",
+   "wording": null
+  }
+ }
+}

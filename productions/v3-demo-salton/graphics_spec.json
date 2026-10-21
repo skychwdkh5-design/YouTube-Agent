@@ -1,0 +1,37 @@
+{
+ "schema": "yt-graphics/1",
+ "graphics": [
+  {
+   "type": "compare",
+   "id": "g_cmp_2022_2026_c5",
+   "title": "Water-like pixels down 20%, 2022-2026",
+   "source": "Copernicus Sentinel-2 L2A, same orbit and season",
+   "left": {
+    "geo": {
+     "stack": "evidence/stack/y2022.png",
+     "grid": "evidence/stack/grid.json",
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 16
+    },
+    "label": "OCT 2022",
+    "credit": "Sentinel-2 · ESA"
+   },
+   "right": {
+    "geo": {
+     "stack": "evidence/stack/y2026.png",
+     "grid": "evidence/stack/grid.json",
+     "center": [
+      -115.7,
+      33.12
+     ],
+     "width_km": 16
+    },
+    "label": "OCT 2026",
+    "credit": "Sentinel-2 · ESA"
+   }
+  }
+ ]
+}

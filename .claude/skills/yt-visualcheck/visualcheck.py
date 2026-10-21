@@ -92,6 +92,8 @@ def run(root, stage_review=True):
     main = ep["evidence"]["stacks"][0]["name"]
     prov = {s["id"]: s for s in json.load(open(os.path.join(root, "evidence", main, "provenance.json")))["scenes"]}
     grid = json.load(open(os.path.join(root, ep["grid"])))
+    lp = os.path.join(root, "media", "ledger.json")
+    ledger = json.load(open(lp, encoding="utf-8")).get("entries", []) if os.path.exists(lp) else []
     reviews = []
     rp = os.path.join(root, "qa", "visual_review.json")
     if os.path.exists(rp):
@@ -216,8 +218,42 @@ def run(root, stage_review=True):
                 else:
                     it.update(status="NEEDS_VISUAL_REVIEW", why="no frame")
             finish(it)
+        # 2b) external media (photo / NASA image / video): rights come from the ledger, the picture must be the registered file
+        if g0.get("type") in ("still", "video"):
+            aid = g0["asset"]
+            a = ep["assets"][aid]
+            it = {"id": f"{shot['id']}:media:{aid}", "kind": "media", "text": str(a.get("label", aid)), "shot": shot["id"], "claims": shot.get("claims") or []}
+            e = next((x for x in ledger if x.get("id") == a.get("media_id")), None)
+            fp = os.path.join(root, a["src"])
+            if not e:
+                it.update(status="FAIL", why="no entry in media/ledger.json for this asset: unknown rights")
+            elif e.get("status") != "VERIFIED":
+                it.update(status="FAIL", why=f"media rights are {e.get('status')}, not VERIFIED: {'; '.join(e.get('status_reasons') or [])[:160]}")
+            elif not os.path.exists(fp) or sha(fp) != e.get("sha256"):
+                it.update(status="FAIL", why="the file on disk is not the file whose rights were verified (missing or sha256 changed)")
+            elif e.get("depicts_reality") is False and any(claims.get(i, {}).get("tier") == "observation" for i in it["claims"]):
+                it.update(status="FAIL", why="a rendering / concept art / illustration cannot illustrate an observed fact")
+            elif it["claims"]:
+                from PIL import Image
+                out = os.path.join(root, "qa", "frames", re.sub(r"[^A-Za-z0-9_.-]", "_", it["id"]) + "_0.png")
+                os.makedirs(os.path.dirname(out), exist_ok=True)
+                with Image.open(fp) as im:
+                    im.convert("RGB").resize((960, int(960 * im.size[1] / im.size[0]))).save(out)
+                f_ = {"file": os.path.relpath(out, root), "sha256": sha(out), "stack": a["src"], "center": None, "width_km": None}
+                it["frames"] = [f_]
+                rv = next((r for r in reviews if r.get("frame_sha256") == f_["sha256"] and sorted(r.get("claims", [])) == sorted(it["claims"])), None)
+                f_["review"] = rv["verdict"] if rv else None
+                if rv and rv["verdict"] == "supports":
+                    it.update(status="REVIEWED_BY_" + rv["reviewer"].upper(), why=rv.get("note", "")[:300])
+                elif rv and rv["verdict"] == "does_not_support":
+                    it.update(status="FAIL", why="review: does_not_support - " + rv.get("note", ""))
+                else:
+                    it.update(status="NEEDS_VISUAL_REVIEW", why="a photo that carries claims must be looked at by a reviewer")
+            else:
+                it.update(status="VERIFIED_SOURCE", why=f"rights VERIFIED in the ledger ({e.get('license')}; {e.get('author')}); the file is the registered one; context picture, no claim attached")
+            finish(it)
         # 3) shots tied to claims without text (e.g. a wipe that illustrates a claim)
-        if shot.get("claims") and g0.get("type") != "graphic":
+        if shot.get("claims") and g0.get("type") not in ("graphic", "still", "video"):
             it = {"id": f"{shot['id']}:shot", "kind": "shot", "text": shot["info"], "shot": shot["id"], "claims": shot["claims"]}
             cam = shot.get("camera", {}).get("to")
             assets_ = []
@@ -238,6 +274,8 @@ def run(root, stage_review=True):
     for shot in sb["shots"]:
         if shot.get("layers") and shot["layers"][0].get("type") == "graphic":
             expected.add(f"{shot['id']}:graphic:{shot['layers'][0]['asset']}")
+        elif shot.get("layers") and shot["layers"][0].get("type") in ("still", "video"):
+            expected.add(f"{shot['id']}:media:{shot['layers'][0]['asset']}")
         elif shot.get("claims"):
             expected.add(f"{shot['id']}:shot")
     have = {i["id"] for i in items}

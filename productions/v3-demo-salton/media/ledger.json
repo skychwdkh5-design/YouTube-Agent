@@ -1,0 +1,128 @@
+{
+ "schema": "yt-media-ledger/1",
+ "entries": [
+  {
+   "id": "shrinking_shoreline_of_the_s",
+   "scene": "plan",
+   "title": "Shrinking Shoreline of the Salton Sea (Landsat 5, 1984 / ASTER, 2015)",
+   "page_url": "https://www.earthobservatory.nasa.gov/images/86746/shrinking-shoreline-of-the-salton-sea",
+   "author": "NASA Earth Observatory",
+   "license": null,
+   "kind": "photo",
+   "file_url": null,
+   "license_url": null,
+   "attribution_text": null,
+   "rights_evidence": null,
+   "on_screen_label": null,
+   "date": "2015-10-09",
+   "discovered_by": "web-search",
+   "depicts_reality": true,
+   "claims": [],
+   "found_at": "2026-10-21",
+   "rights_class": "UNKNOWN",
+   "status": "DISCOVERED",
+   "status_reasons": [
+    "no rights evidence recorded (the licence statement read on the source page, with the date); a search-result snippet is not evidence",
+    "licence unknown"
+   ]
+  },
+  {
+   "id": "the_shrinking_salton_sea_hls",
+   "scene": "shows",
+   "title": "The Shrinking Salton Sea (HLS Landsat + Sentinel-2 time series, 2013-2026)",
+   "page_url": "https://svs.gsfc.nasa.gov/15085/",
+   "author": "NASA Scientific Visualization Studio",
+   "license": null,
+   "kind": "video",
+   "file_url": null,
+   "license_url": null,
+   "attribution_text": null,
+   "rights_evidence": null,
+   "on_screen_label": null,
+   "date": null,
+   "discovered_by": "web-search",
+   "depicts_reality": true,
+   "claims": [],
+   "found_at": "2026-10-21",
+   "rights_class": "UNKNOWN",
+   "status": "DISCOVERED",
+   "status_reasons": [
+    "no rights evidence recorded (the licence statement read on the source page, with the date); a search-result snippet is not evidence",
+    "licence unknown"
+   ]
+  },
+  {
+   "id": "salton_sea_california_jpl_im",
+   "scene": "hook",
+   "title": "Salton Sea, California (JPL image page)",
+   "page_url": "https://www.jpl.nasa.gov/images/salton-sea-california",
+   "author": "NASA/JPL",
+   "license": null,
+   "kind": "photo",
+   "file_url": null,
+   "license_url": null,
+   "attribution_text": null,
+   "rights_evidence": null,
+   "on_screen_label": null,
+   "date": null,
+   "discovered_by": "web-search",
+   "depicts_reality": true,
+   "claims": [],
+   "found_at": "2026-10-21",
+   "rights_class": "UNKNOWN",
+   "status": "DISCOVERED",
+   "status_reasons": [
+    "no rights evidence recorded (the licence statement read on the source page, with the date); a search-result snippet is not evidence",
+    "licence unknown"
+   ]
+  },
+  {
+   "id": "bombay_beach_salton_sea_ocea",
+   "scene": "plan",
+   "title": "Bombay Beach, Salton Sea (Oceanlight stock photo, #22488)",
+   "page_url": "https://oceanlight.com/spotlight.php?img=22488",
+   "author": "Phillip Colla / Oceanlight",
+   "license": "All rights reserved",
+   "kind": "photo",
+   "file_url": null,
+   "license_url": null,
+   "attribution_text": null,
+   "rights_evidence": "web search result summary 2026-10-21: copyrighted, all rights reserved, sold as licensed stock photos",
+   "on_screen_label": null,
+   "date": null,
+   "discovered_by": "web-search",
+   "depicts_reality": true,
+   "claims": [],
+   "found_at": "2026-10-21",
+   "rights_class": "COPYRIGHTED",
+   "status": "REJECTED",
+   "status_reasons": [
+    "licence 'All rights reserved': copyrighted: needs a licence we do not have"
+   ]
+  },
+  {
+   "id": "photographs_of_the_salton_se",
+   "scene": "plan",
+   "title": "Photographs of the Salton Sea (americansouthwest.net)",
+   "page_url": "https://www.americansouthwest.net/california/salton-sea/bombay-beach9_l.html",
+   "author": "americansouthwest.net",
+   "license": "All rights reserved",
+   "kind": "photo",
+   "file_url": null,
+   "license_url": null,
+   "attribution_text": null,
+   "rights_evidence": "web search result summary 2026-10-21: site-wide copyright notice, photos offered for license or purchase",
+   "on_screen_label": null,
+   "date": null,
+   "discovered_by": "web-search",
+   "depicts_reality": true,
+   "claims": [],
+   "found_at": "2026-10-21",
+   "rights_class": "COPYRIGHTED",
+   "status": "REJECTED",
+   "status_reasons": [
+    "licence 'All rights reserved': copyrighted: needs a licence we do not have"
+   ]
+  }
+ ]
+}

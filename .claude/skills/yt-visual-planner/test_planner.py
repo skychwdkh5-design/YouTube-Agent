@@ -150,5 +150,55 @@ class Errors(unittest.TestCase):
         self.assertNotIn("g_scale", {g["id"] for g in spec["graphics"]})
 
 
+class Media(unittest.TestCase):
+    """VISUAL_STYLE_V3: verified real media enters the plan; anything else is listed as pending and never drawn."""
+    def setUp(self):
+        from PIL import Image
+        self.d = tempfile.mkdtemp()
+        make(self.d)
+        os.makedirs(os.path.join(self.d, "media", "assets"))
+        self.png = os.path.join(self.d, "media", "assets", "p.jpg")
+        Image.new("RGB", (1600, 900), (120, 90, 60)).save(self.png)
+        import hashlib
+        self.sha = hashlib.sha256(open(self.png, "rb").read()).hexdigest()
+
+    def ledger(self, **k):
+        e = {"id": "p", "scene": "segment", "title": "Shore photo", "page_url": "https://example.org/p", "author": "A. Author", "license": "Public Domain", "kind": "photo", "status": "VERIFIED",
+             "local_path": "media/assets/p.jpg", "sha256": self.sha, "retrieved": "2026-10-21", "attribution_text": "Shore photo / A. Author / Public Domain", "depicts_reality": True}
+        e.update(k)
+        json.dump({"schema": "yt-media-ledger/1", "entries": [e]}, open(os.path.join(self.d, "media", "ledger.json"), "w"))
+
+    def stills(self, ep):
+        return [v for c in ep["chapters"] for v in c["visuals"] if v.get("kind") == "still"]
+
+    def test_verified_media_becomes_a_still_with_full_provenance(self):
+        self.ledger()
+        ep, _ = pl.plan(self.d)
+        st = self.stills(ep)
+        self.assertEqual(len(st), 1)
+        a = ep["assets"][st[0]["asset"]]
+        for k in ("src", "credit", "source_url", "license", "retrieved"):
+            self.assertTrue(a[k])
+        self.assertEqual(a["kind"], "external_still")
+        self.assertEqual(ep["media_pending"], [])
+
+    def test_unverified_or_tampered_media_is_never_drawn(self):
+        for kw in ({"status": "UNVERIFIED"}, {"status": "DISCOVERED"}, {"status": "NEEDS_OWNER"}, {"status": "REJECTED"}, {"sha256": "0" * 64}, {"local_path": "media/assets/missing.jpg"}):
+            self.ledger(**kw)
+            ep, _ = pl.plan(self.d)
+            self.assertEqual(self.stills(ep), [], kw)
+            self.assertEqual(len(ep["media_pending"]), 1, kw)
+
+    def test_rendering_carries_its_label(self):
+        self.ledger(kind="rendering", on_screen_label="ARTIST'S RENDERING", depicts_reality=False)
+        ep, _ = pl.plan(self.d)
+        self.assertEqual(self.stills(ep)[0]["label"]["text"], "ARTIST'S RENDERING")
+
+    def test_no_ledger_is_fine_and_long_map_runs_are_reported_as_gaps(self):
+        ep, _ = pl.plan(self.d)
+        self.assertEqual(ep["media_pending"], [])
+        self.assertIsInstance(ep["media_gaps"], list)
+
+
 if __name__ == "__main__":
     unittest.main()

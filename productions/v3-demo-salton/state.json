@@ -1,0 +1,274 @@
+{
+ "schema": "yt-orchestrate/1",
+ "slug": "v3-demo-salton",
+ "created": "2026-10-21T08:17:53Z",
+ "stages": {
+  "topic": {
+   "status": "done",
+   "attempts": 1,
+   "started": "2026-10-21T08:17:53Z",
+   "error": null,
+   "finished": "2026-10-21T08:17:53Z",
+   "note": "chosen salton-sea",
+   "inputs": {
+    "topic/candidates.json": "e48bc85f7b6ebe89c0f9e7950b59b1451fefbf8934fd76f8620c98a8577fdefc",
+    "_tool": "a7c247e10529a591"
+   },
+   "outputs": {
+    "topic/topic.json": "84a248c4a1cb9d3e8e392f41f920e644704b7e0b6cc3aa92b031a8d1366a63e9",
+    "topic/topic.md": "0f408329261d9cd4a625a2332a5b9103e077eb4b652b6339825ddc3a2e4e6e1f"
+   },
+   "agent_artifacts": {
+    "topic/candidates.json": "e48bc85f7b6ebe89c0f9e7950b59b1451fefbf8934fd76f8620c98a8577fdefc"
+   }
+  },
+  "research": {
+   "status": "done",
+   "attempts": 1,
+   "started": "2026-10-21T08:17:53Z",
+   "error": null,
+   "finished": "2026-10-21T08:17:53Z",
+   "note": "6 claims (3 usable), factual capacity about 1.1 min - INSUFFICIENT_FOR_6_MIN",
+   "inputs": {
+    "research/notes.json": "7feff7d8023eb5f67d10685c8fbe3d99bc884fdbcdfb3dce1c159b5a60ba638f",
+    "topic/topic.json": "84a248c4a1cb9d3e8e392f41f920e644704b7e0b6cc3aa92b031a8d1366a63e9",
+    "topic/topic.md": "0f408329261d9cd4a625a2332a5b9103e077eb4b652b6339825ddc3a2e4e6e1f",
+    "_tool": "20551a128ea3eaf0"
+   },
+   "outputs": {
+    "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508",
+    "research/report.md": "7ef5625ebe75c85fa9b60d7ea3337ed75b9e7b1dffce97e913e4603a2eac0d87"
+   },
+   "agent_artifacts": {
+    "research/notes.json": "7feff7d8023eb5f67d10685c8fbe3d99bc884fdbcdfb3dce1c159b5a60ba638f",
+    "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508"
+   }
+  },
+  "facts": {
+   "status": "done",
+   "attempts": 1,
+   "started": "2026-10-21T08:17:53Z",
+   "error": null,
+   "finished": "2026-10-21T08:17:53Z",
+   "note": "6 claims, registry ok",
+   "inputs": {
+    "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508",
+    "research/report.md": "7ef5625ebe75c85fa9b60d7ea3337ed75b9e7b1dffce97e913e4603a2eac0d87",
+    "_tool": "011f70d2646e3c92"
+   },
+   "outputs": {},
+   "agent_artifacts": {}
+  },
+  "evidence": {
+   "status": "done",
+   "attempts": 1,
+   "started": "2026-10-21T08:17:53Z",
+   "error": null,
+   "finished": "2026-10-21T08:17:53Z",
+   "note": "1 stacks + NDWI series",
+   "inputs": {
+    "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508",
+    "research/notes.json": "7feff7d8023eb5f67d10685c8fbe3d99bc884fdbcdfb3dce1c159b5a60ba638f",
+    "research/report.md": "7ef5625ebe75c85fa9b60d7ea3337ed75b9e7b1dffce97e913e4603a2eac0d87",
+    "topic/topic.json": "84a248c4a1cb9d3e8e392f41f920e644704b7e0b6cc3aa92b031a8d1366a63e9",
+    "topic/topic.md": "0f408329261d9cd4a625a2332a5b9103e077eb4b652b6339825ddc3a2e4e6e1f",
+    "_tool": "9910c5ec0e089c03"
+   },
+   "outputs": {
+    "evidence/stack/provenance.json": "318732c8c7b540904b82a4f529408e70281a62a981edd011f1507f796103a554",
+    "evidence/stack/grid.json": "3f3863c5b82d7183cc2b64a10b74225274a23d550dd5886274a7528e728de46f",
+    "evidence/ndwi.json": "02e25921487462ad745e8605ba28003a4149094c8a9833b851b515c03189d09a"
+   },
+   "agent_artifacts": {}
+  },
+  "script": {
+   "status": "done",
+   "attempts": 1,
+   "started": "2026-10-21T08:17:53Z",
+   "error": null,
+   "finished": "2026-10-21T08:17:53Z",
+   "note": "199 words = 1.4 min, 3 claims used; 199 words = 81s, under 6 minutes (the verified facts do not carry more: INSUFFICIENT_FACTS)",
+   "inputs": {
+    "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508",
+    "evidence/ndwi.json": "02e25921487462ad745e8605ba28003a4149094c8a9833b851b515c03189d09a",
+    "evidence/stack/grid.json": "3f3863c5b82d7183cc2b64a10b74225274a23d550dd5886274a7528e728de46f",
+    "evidence/stack/provenance.json": "318732c8c7b540904b82a4f529408e70281a62a981edd011f1507f796103a554",
+    "script.md": "cf264c8e5803ac93de5fc3e384f8cf768d68e38b152c5428cba611044c168244",
+    "_tool": "1e8a31e2bf49a808"
+   },
+   "outputs": {
+    "script.md": "cf264c8e5803ac93de5fc3e384f8cf768d68e38b152c5428cba611044c168244",
+    "research/brief.json": "a3901f39ed9a0598eaff9141e10a8da8175340b76ddf429d0ae3d1b89e0221f1"
+   },
+   "agent_artifacts": {
+    "script.md": "cf264c8e5803ac93de5fc3e384f8cf768d68e38b152c5428cba611044c168244"
+   }
+  },
+  "media": {
+   "status": "done",
+   "attempts": 1,
+   "started": "2026-10-21T08:17:53Z",
+   "error": null,
+   "finished": "2026-10-21T08:17:53Z",
+   "note": "0 verified of 5 media entries",
+   "inputs": {
+    "media/ledger.json": "a0534aef1e531fac31ae943b792209728d2e0096cf78e8566c30ff0474614c3e",
+    "research/brief.json": "a3901f39ed9a0598eaff9141e10a8da8175340b76ddf429d0ae3d1b89e0221f1",
+    "research/notes.json": "7feff7d8023eb5f67d10685c8fbe3d99bc884fdbcdfb3dce1c159b5a60ba638f",
+    "script.md": "cf264c8e5803ac93de5fc3e384f8cf768d68e38b152c5428cba611044c168244",
+    "_tool": "bd899513ebffabdd"
+   },
+   "outputs": {
+    "media/report.json": "e9a1b1e32823e9ffde5e3a605ce8502da2a9b4f98323f562487b26f69937b75a"
+   },
+   "agent_artifacts": {
+    "media/ledger.json": "a0534aef1e531fac31ae943b792209728d2e0096cf78e8566c30ff0474614c3e"
+   }
+  },
+  "visualplan": {
+   "status": "done",
+   "attempts": 1,
+   "started": "2026-10-21T08:17:53Z",
+   "error": null,
+   "finished": "2026-10-21T08:17:54Z",
+   "note": "16 visuals in 6 chapters, graphics ['g_cmp_2022_2026_c5']",
+   "inputs": {
+    "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508",
+    "evidence/ndwi.json": "02e25921487462ad745e8605ba28003a4149094c8a9833b851b515c03189d09a",
+    "evidence/stack/grid.json": "3f3863c5b82d7183cc2b64a10b74225274a23d550dd5886274a7528e728de46f",
+    "evidence/stack/provenance.json": "318732c8c7b540904b82a4f529408e70281a62a981edd011f1507f796103a554",
+    "media/ledger.json": "a0534aef1e531fac31ae943b792209728d2e0096cf78e8566c30ff0474614c3e",
+    "media/report.json": "e9a1b1e32823e9ffde5e3a605ce8502da2a9b4f98323f562487b26f69937b75a",
+    "research/brief.json": "a3901f39ed9a0598eaff9141e10a8da8175340b76ddf429d0ae3d1b89e0221f1",
+    "research/notes.json": "7feff7d8023eb5f67d10685c8fbe3d99bc884fdbcdfb3dce1c159b5a60ba638f",
+    "script.md": "cf264c8e5803ac93de5fc3e384f8cf768d68e38b152c5428cba611044c168244",
+    "_tool": "915c9baac347a820"
+   },
+   "outputs": {
+    "episode.json": "1ffbbbdc592906b003eb3ab46e8328e04993beb29a3f7af906ec2d1c4ecbf3b8",
+    "graphics_spec.json": "7e39c7f5f9664f70d0c847e236906fe49cbb8deb0913f349d1afa526a5a07e7e"
+   },
+   "agent_artifacts": {}
+  },
+  "visuals": {
+   "status": "done",
+   "attempts": 1,
+   "started": "2026-10-21T08:17:54Z",
+   "error": null,
+   "finished": "2026-10-21T08:17:55Z",
+   "note": "1 graphics",
+   "inputs": {
+    "episode.json": "1ffbbbdc592906b003eb3ab46e8328e04993beb29a3f7af906ec2d1c4ecbf3b8",
+    "evidence/ndwi.json": "02e25921487462ad745e8605ba28003a4149094c8a9833b851b515c03189d09a",
+    "evidence/stack/grid.json": "3f3863c5b82d7183cc2b64a10b74225274a23d550dd5886274a7528e728de46f",
+    "evidence/stack/provenance.json": "318732c8c7b540904b82a4f529408e70281a62a981edd011f1507f796103a554",
+    "graphics_spec.json": "7e39c7f5f9664f70d0c847e236906fe49cbb8deb0913f349d1afa526a5a07e7e",
+    "_tool": "3377d41f7d2881a1"
+   },
+   "outputs": {
+    "graphics/g_cmp_2022_2026_c5.png": "8b3fd1bdfb9b4b27f2e740a2f3ecec5b21ebde2b703a20dde650baf5366cca21"
+   },
+   "agent_artifacts": {}
+  },
+  "storyboard": {
+   "status": "done",
+   "attempts": 2,
+   "started": "2026-10-21T08:18:26Z",
+   "error": null,
+   "finished": "2026-10-21T08:18:27Z",
+   "note": "16 shots, 81.224s, timing from estimate",
+   "inputs": {
+    "claims.json": "5f08052c6ebf380f9ee983a4304c9e57a8b0d1542b11585553b2640a4d10c508",
+    "episode.json": "1ffbbbdc592906b003eb3ab46e8328e04993beb29a3f7af906ec2d1c4ecbf3b8",
+    "evidence/ndwi.json": "02e25921487462ad745e8605ba28003a4149094c8a9833b851b515c03189d09a",
+    "evidence/stack/grid.json": "3f3863c5b82d7183cc2b64a10b74225274a23d550dd5886274a7528e728de46f",
+    "evidence/stack/provenance.json": "318732c8c7b540904b82a4f529408e70281a62a981edd011f1507f796103a554",
+    "graphics/g_cmp_2022_2026_c5.png": "8b3fd1bdfb9b4b27f2e740a2f3ecec5b21ebde2b703a20dde650baf5366cca21",
+    "research/brief.json": "a3901f39ed9a0598eaff9141e10a8da8175340b76ddf429d0ae3d1b89e0221f1",
+    "script.md": "cf264c8e5803ac93de5fc3e384f8cf768d68e38b152c5428cba611044c168244",
+    "_tool": "b670149dc3f0dd83"
+   },
+   "outputs": {
+    "story/storyboard.json": "6653d469d0be3baa8b87b44a6686d7b7d4119082b8f47a7ed642b4e34c611998",
+    "timeline.json": "dc94d22d671d97eaf6041d56dc36197a4ca025b4db714cc9c0264c5f8eabb580",
+    "story/labels.json": "ea2b6144144081c7494d68d136139c40a5741fb3cf4c14dfbccdfa1f08967844",
+    "story/report.md": "8f915a3bc382c0ae7567afe06a904d11313c5365680ab53cf5da5267b235d927",
+    "story/diversity.json": "4c654f230a3f11cc24a5655342a6c57b24b1c2d21019e28fa845831ca5554951"
+   },
+   "agent_artifacts": {}
+  },
+  "visualcheck": {
+   "status": "pending",
+   "attempts": 0
+  }
+ },
+ "costs": [],
+ "log": [
+  {
+   "at": "2026-10-21T08:17:53Z",
+   "stage": "topic",
+   "event": "done",
+   "note": "chosen salton-sea"
+  },
+  {
+   "at": "2026-10-21T08:17:53Z",
+   "stage": "research",
+   "event": "done",
+   "note": "6 claims (3 usable), factual capacity about 1.1 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-21T08:17:53Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "6 claims, registry ok"
+  },
+  {
+   "at": "2026-10-21T08:17:53Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "1 stacks + NDWI series"
+  },
+  {
+   "at": "2026-10-21T08:17:53Z",
+   "stage": "script",
+   "event": "done",
+   "note": "199 words = 1.4 min, 3 claims used; 199 words = 81s, under 6 minutes (the verified facts do not carry more: INSUFFICIENT_FACTS)"
+  },
+  {
+   "at": "2026-10-21T08:17:53Z",
+   "stage": "media",
+   "event": "done",
+   "note": "0 verified of 5 media entries"
+  },
+  {
+   "at": "2026-10-21T08:17:54Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "16 visuals in 6 chapters, graphics ['g_cmp_2022_2026_c5']"
+  },
+  {
+   "at": "2026-10-21T08:17:55Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "1 graphics"
+  },
+  {
+   "at": "2026-10-21T08:17:56Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "16 shots, 81.224s, timing from estimate"
+  },
+  {
+   "at": "2026-10-21T08:18:26Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T08:18:27Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "16 shots, 81.224s, timing from estimate"
+  }
+ ],
+ "updated": "2026-10-21T08:18:27Z"
+}

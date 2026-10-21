@@ -67,9 +67,14 @@ def parse_sentences(text):
     return out
 
 
+def _fixed(v):
+    """Full-frame visuals that keep their own on-screen time: yt-graphics images and external stills (photos, NASA images)."""
+    return v.get("kind") in ("graphic", "still")
+
+
 def _visual_year(v):
     """The year a visual is meant to be on screen for: set explicitly by the planner (anchor: year) for a year image or the reveal of a wipe."""
-    if v.get("anchor") != "year" or v.get("kind") == "graphic":
+    if v.get("anchor") != "year" or _fixed(v):
         return None
     m = re.fullmatch(r"y(\d{4})", str(v["wipe"][1] if "wipe" in v else v.get("asset", "")))
     return m.group(1) if m else None
@@ -87,7 +92,7 @@ def place_by_claims(vis, durs, sents, word_time, t0):
     starts = [t0 + sum(durs[:i]) for i in range(len(vis))]
     base, inserts = [], []
     for i, v in enumerate(vis):
-        if v.get("anchor") == "claim" and v.get("kind") == "graphic":
+        if v.get("anchor") == "claim" and _fixed(v):
             k = _claim_sentence(v, sents, -1)
             tt = word_time(sents[k]["w0"]) - 0.3 if k is not None else None
             if tt is not None and tt > t0 + 2.5:
@@ -113,7 +118,7 @@ def anchor_durations(vis, durs, sents, word_time, t0, t1, min_of):
     fixed, rep, cursor = {0: t0}, [], -1
     for i, v in enumerate(vis):
         y = _visual_year(v)
-        if i == 0 or (y is None and not (v.get("anchor") == "claim" and v.get("kind") == "graphic")):
+        if i == 0 or (y is None and not (v.get("anchor") == "claim" and _fixed(v))):
             continue
         if y is None:                                    # a graphic citing claims: when the first sentence that cites them begins
             k = _claim_sentence(v, sents, cursor)
@@ -139,7 +144,7 @@ def anchor_durations(vis, durs, sents, word_time, t0, t1, min_of):
         t_a = fixed[a]
         t_b = fixed[b] if b in fixed else t1
         seg = range(a, b)
-        gs = [k for k in seg if vis[k].get("kind") == "graphic"]
+        gs = [k for k in seg if _fixed(vis[k])]
         ms = [k for k in seg if k not in gs]
         spare = (t_b - t_a) - sum(durs[k] for k in gs)
         if ms and spare >= sum(min_of(vis[k]) for k in ms):      # graphics keep their own time; the map beats absorb the stretch
@@ -153,7 +158,7 @@ def anchor_durations(vis, durs, sents, word_time, t0, t1, min_of):
             for k in seg:
                 new[k] = (t_b - t_a) * durs[k] / tot
     for k in range(1, n):                              # a graphic is never stretched past 7 s: it starts a little after its claim and the map before it holds longer
-        if vis[k].get("kind") == "graphic" and new[k] > 7.0 and vis[k - 1].get("kind") != "graphic":
+        if _fixed(vis[k]) and new[k] > 7.0 and not _fixed(vis[k - 1]):
             new[k - 1] += new[k] - 7.0
             new[k] = 7.0
     return new, rep
@@ -236,7 +241,7 @@ def build(ep, root, voice_meta=None):
             raise StoryError(f"chapter {cid} has no spoken text")
         def alloc(vis):
             """Graphics keep a fixed on-screen time (min_s, at most 7 s); the remaining time is shared by map visuals. Returns (durations, set of graphic indexes)."""
-            gdur = {i: min(max(v.get("min_s", 4.0), 2.0), 7.0) for i, v in enumerate(vis) if v.get("kind") == "graphic"}
+            gdur = {i: min(max(v.get("min_s", 4.0), 2.0), 7.0) for i, v in enumerate(vis) if _fixed(v)}
             maps = [i for i in range(len(vis)) if i not in gdur]
             rest = total - sum(gdur.values())
             if maps and rest < MIN_SHOT_S * len(maps):
@@ -262,7 +267,7 @@ def build(ep, root, voice_meta=None):
             tof = (lambda wi: voice_meta["words"][base_w + wi]["start"]) if voice_meta else (lambda wi: t0 + total * wi / nw)
             vis = place_by_claims(vis, durs, sents, tof, t0)           # a graphic that cites claims sits where the narrator makes them
             durs, gset = alloc(vis)
-            durs, arep = anchor_durations(vis, durs, sents, tof, t0, t1, lambda v: 2.0 if v.get("kind") == "graphic" else MIN_SHOT_S)
+            durs, arep = anchor_durations(vis, durs, sents, tof, t0, t1, lambda v: 2.0 if _fixed(v) else MIN_SHOT_S)
             if arep:
                 anchors[cid] = arep
         t = t0
@@ -289,6 +294,16 @@ def _shot(ep, grid, chap, v, k, n, t, d, labels, idx):
         s["info"] = v.get("info", v["asset"])
         a = ep["assets"][v["asset"]]
         labels.append({"text": f"graphic:{v['asset']}", "claims": a.get("claims") or [], "exempt": bool(a.get("exempt")), "shot": sid})
+        return s
+    if v.get("kind") == "still":
+        a = ep["assets"][v["asset"]]
+        wide, tight = (1.0, 0.84) if v.get("zoom_in", True) else (0.84, 1.0)
+        s["layers"] = [{"type": "still", "asset": v["asset"], "view": {"from": {"center": [0.5, 0.5], "width": wide}, "to": {"center": [0.5, 0.5], "width": tight}}, "credit": True, "scrim": 0.0}]
+        s["info"] = v.get("info", v["asset"])
+        s["media"] = a.get("media_id")
+        if v.get("label"):
+            s["layers"].append({"type": "label", "text": v["label"]["text"], "style": v["label"].get("style", "tag"), "slot": v["label"].get("slot", "upper"), "t": [0.6, None]})
+            labels.append({"text": v["label"]["text"], "claim": None, "exempt": True, "shot": sid})
         return s
     if "wipe" in v and k > 0:             # a long wipe slot is ONE reveal followed by the revealed picture, never the same wipe played again
         end_w = (v.get("zoom") or [12, 6])[1]
@@ -319,8 +334,54 @@ def _shot(ep, grid, chap, v, k, n, t, d, labels, idx):
     return s
 
 
+def diversity(sb, ep=None, max_map_run=4):
+    """Visual-variety audit of a storyboard (VISUAL_STYLE_V3): kinds, scale classes, longest run of satellite-map shots, adjacent same-scale shots.
+    kind: map (camera over the imagery stack) / graphic (yt-graphics) / still (photo or NASA image) / video. scale: wide >= 10 km, mid 4-10 km, tight < 4 km (at the end of the move)."""
+    kinds, runs, run, run_start, worst = [], [], 0, 0.0, (0, 0.0, 0.0)
+    prev_scale, same_scale = None, []
+    for s in sb["shots"]:
+        l0 = s["layers"][0]["type"] if s.get("layers") else "image"
+        kind = "graphic" if l0 == "graphic" else "still" if l0 == "still" else "video" if l0 == "video" else "map"
+        kinds.append(kind)
+        if kind == "map":
+            w = (s.get("camera") or {}).get("to", {}).get("width_km", 8)
+            sc = "wide" if w >= 10 else "mid" if w >= 4 else "tight"
+            if run == 0:
+                run_start = s["start"]
+            run += 1
+            end = s["start"] + s["dur"]
+            if run > worst[0]:
+                worst = (run, run_start, end)
+            if prev_scale == sc:
+                same_scale.append(s["id"])
+            prev_scale = sc
+        else:
+            run, prev_scale = 0, None
+    n = len(kinds)
+    share = {k: round(kinds.count(k) / n, 3) for k in ("map", "graphic", "still", "video")}
+    warns = []
+    if worst[0] > max_map_run:
+        warns.append(f"{worst[0]} satellite-map shots in a row ({worst[1]:.0f}-{worst[2]:.0f} s, {worst[2] - worst[1]:.0f} s): more than {max_map_run}; add a photo, video, graphic or map of a different kind")
+    if len(same_scale) > max(2, n // 6):
+        warns.append(f"{len(same_scale)} neighbouring map shots end at the same scale class; alternate wide / mid / tight")
+    if share["still"] + share["video"] == 0:
+        warns.append("no photo or video at all: the film is satellite maps and graphics only")
+    pending = []
+    for p in (ep or {}).get("media_pending") or []:
+        p = dict(p)
+        if p.get("status") != "REJECTED":                   # where it WOULD go once its rights are VERIFIED: the middle map shot of its chapter (the planner inserts it for real then)
+            ch = (sb.get("chapters") or {}).get(p.get("scene"))
+            cand = [s for s in sb["shots"] if ch and ch[0] - 0.01 <= s["start"] < ch[1] and (s["layers"][0]["type"] if s.get("layers") else "image") == "image" or (ch and ch[0] - 0.01 <= s["start"] < ch[1] and s.get("camera"))]
+            if cand:
+                m = cand[len(cand) // 2]
+                p["would_replace"] = {"shot": m["id"], "start": m["start"], "dur": round(min(m["dur"], 6.0), 1)}
+        pending.append(p)
+    return {"rule": "visual-diversity/1", "max_map_run": max_map_run, "longest_map_run": {"shots": worst[0], "from": round(worst[1], 1), "to": round(worst[2], 1)}, "kind_share": share,
+            "same_scale_neighbours": len(same_scale), "warnings": warns, "status": "WARN" if warns else "OK", "media_pending": pending}
+
+
 def to_timeline(ep, sb, root, voice=None, captions=None):
-    assets = {k: {kk: vv for kk, vv in a.items() if kk not in ("claims", "exempt")} for k, a in ep["assets"].items()}   # renderer rejects unknown keys
+    assets = {k: {kk: vv for kk, vv in a.items() if kk not in ("claims", "exempt", "media_id", "pending")} for k, a in ep["assets"].items()}   # renderer rejects unknown keys
     tl = {"version": 3, "profile": "long", "grid": ep["grid"], "assets": assets, "shots": []}
     for s in sb["shots"]:
         o = {"id": s["id"], "start": s["start"], "visual_family": re.sub(r"[^a-z0-9_]", "_", str(s["family"]).lower()), "info": s["info"], "layers": s["layers"]}
@@ -363,7 +424,8 @@ def main(argv=None):
         tl = to_timeline(ep, sb, root, voice, a.captions)
         out = os.path.join(root, "story")
         os.makedirs(out, exist_ok=True)
-        for name, obj, dst in (("storyboard.json", sb, out), ("timeline.json", tl, root), ("labels.json", labels, out)):
+        div = diversity(sb, ep)
+        for name, obj, dst in (("storyboard.json", sb, out), ("timeline.json", tl, root), ("labels.json", labels, out), ("diversity.json", div, out)):
             tmp = os.path.join(dst, name + ".part")
             json.dump(obj, open(tmp, "w"), indent=1)
             os.replace(tmp, os.path.join(dst, name))
@@ -372,6 +434,9 @@ def main(argv=None):
         rep = [f"# Storyboard report", "", f"- timing: {sb['timing']}; duration {sb['duration']} s; shots {len(sb['shots'])}; plan hash {sha}",
                f"- renderer plan: {chk['status']} {chk.get('error') or ''}", "- chapters: " + ", ".join(f"{c} {v[0]}-{v[1]}s" for c, v in sb["chapters"].items())]
         rep += [f"- warning: {w}" for w in chk.get("warnings", [])]
+        rep += [f"- diversity {div['status']}: map {div['kind_share']['map']:.0%} / graphic {div['kind_share']['graphic']:.0%} / photo {div['kind_share']['still']:.0%} / video {div['kind_share']['video']:.0%}; longest satellite-map run {div['longest_map_run']['shots']} shots"]
+        rep += [f"- diversity warning: {w}" for w in div["warnings"]]
+        rep += [f"- media PENDING (not in the render, rights not VERIFIED): {p['id']} [{p['status']}] for scene {p['scene']} {p.get('page_url', '')}" for p in div["media_pending"]]
         if sb["duration"] < 360 or sb["duration"] > 720:
             rep.append(f"- warning: duration {sb['duration']:.0f}s is outside the 6-12 minute target; add real content, never filler")
         rep += ["", "Shots:"] + [f"- {s['start']:>7.2f}s +{s['dur']:.1f}s {s['chapter']}: {s['info']}" for s in sb["shots"]]

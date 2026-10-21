@@ -65,3 +65,7 @@ composition-reset rule (new information is not a new composition: at least 3 dis
 in the first 10 s, about 7-10 resets, no composition held over 6 s). Storyboards can also tag each shot's
 `visual_family`, so a new view of the same visual idea is not mistaken for something new (warnings only). See
 [`docs/production-pipeline.md`](docs/production-pipeline.md).
+
+
+## Visual style
+From EP006 the channel uses [VISUAL_STYLE_V3.md](VISUAL_STYLE_V3.md): satellite data plus real photos and video (rights-verified via `yt-media-research`), infographics and purposeful motion graphics.

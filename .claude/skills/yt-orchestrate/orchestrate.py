@@ -16,14 +16,14 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SK = os.path.abspath(os.path.join(HERE, ".."))
 REPO = os.path.abspath(os.path.join(SK, "..", ".."))
 PY = sys.executable
-STAGES = ["topic", "research", "facts", "evidence", "script", "visualplan", "visuals", "storyboard", "visualcheck", "voice", "voicecheck", "captions", "render", "qc", "release"]
-DEPS = {"topic": [], "research": ["topic"], "facts": ["research"], "evidence": ["topic", "research"], "script": ["facts", "evidence"], "visualplan": ["script", "evidence"],
+STAGES = ["topic", "research", "facts", "evidence", "script", "media", "visualplan", "visuals", "storyboard", "visualcheck", "voice", "voicecheck", "captions", "render", "qc", "release"]
+DEPS = {"topic": [], "research": ["topic"], "facts": ["research"], "evidence": ["topic", "research"], "script": ["facts", "evidence"], "media": ["script"], "visualplan": ["script", "evidence", "media"],
         "visuals": ["visualplan", "evidence"], "storyboard": ["script", "evidence", "visuals"], "visualcheck": ["storyboard"], "voice": ["script", "storyboard", "visualcheck"],
         "voicecheck": ["voice"], "captions": ["voicecheck"], "render": ["storyboard", "visuals", "voice", "voicecheck", "captions"], "qc": ["render"], "release": ["facts", "storyboard"]}
 KIND = {"topic": "agent", "research": "agent", "script": "agent", "voice": "paid", "render": "heavy"}
 # What a stage IS: FULLY_AUTOMATED runs without manual preparation; AGENT_REQUIRED needs Claude to do an intellectual task (a task packet is written);
 # OWNER_REQUIRED needs the owner's approval. A stage can be FULLY_AUTOMATED by default and AGENT_REQUIRED only when it hits a judgement item.
-NATURE = {"topic": "AGENT_REQUIRED", "research": "AGENT_REQUIRED", "facts": "FULLY_AUTOMATED", "evidence": "FULLY_AUTOMATED", "script": "AGENT_REQUIRED", "visualplan": "FULLY_AUTOMATED",
+NATURE = {"topic": "AGENT_REQUIRED", "research": "AGENT_REQUIRED", "facts": "FULLY_AUTOMATED", "evidence": "FULLY_AUTOMATED", "script": "AGENT_REQUIRED", "media": "AGENT_REQUIRED", "visualplan": "FULLY_AUTOMATED",
           "visuals": "FULLY_AUTOMATED", "storyboard": "FULLY_AUTOMATED", "visualcheck": "FULLY_AUTOMATED", "voice": "OWNER_REQUIRED", "voicecheck": "FULLY_AUTOMATED", "captions": "FULLY_AUTOMATED",
           "render": "OWNER_REQUIRED", "qc": "FULLY_AUTOMATED", "release": "FULLY_AUTOMATED"}
 DONE, TERMINAL_BLOCK = "done", ("blocked", "failed", "needs_agent", "awaiting_approval", "waiting", "interrupted")
@@ -211,6 +211,39 @@ def run_script(ep, ctx):
     return ["script.md", "research/brief.json"], f"{v['words']} words = {v['minutes']} min, {len(v['claims_used'])} claims used" + ("; " + "; ".join(v["warnings"]) if v.get("warnings") else "")
 
 
+MEDIA_TASK = """# Task: media research (AGENT_REQUIRED, style v3)
+
+This film must not be satellite maps only (VISUAL_STYLE_V3.md). For each chapter that needs real-world context (a place, a structure, people at work, an event) find a REAL photo or video:
+1. `python3 .claude/skills/yt-media-research/media.py probe` - which libraries this machine can reach (a blocked host is reported, never faked).
+2. `media.py search --root productions/{slug} --scene <chapter id> --query "..." --sources commons,nasa,pexels,pixabay,unsplash` for the reachable ones; web search may DISCOVER a source page:
+   register it with `media.py add ... --discovered-by web-search` (status DISCOVERED: not a permission).
+3. Read the licence statement ON THE SOURCE PAGE; record it as `--rights-evidence "<what the page says, date>"`, plus author, licence, attribution text.
+4. `media.py fetch --root productions/{slug} --confirm` downloads only entries whose rights are clear; `media.py verify` re-evaluates. Only VERIFIED entries (rights + file + sha256) can enter a render.
+5. A rendering, concept art or illustration needs `--kind rendering --on-screen-label "ARTIST'S RENDERING"` and is never used as a photograph of a built object.
+If no library is reachable and no verified media exists, say so: write `research/notes.json` "diversity_waiver": "<reason>" ONLY if the owner agrees; otherwise the storyboard stays blocked on visual diversity.
+"""
+
+
+def run_media(ep, ctx):
+    """Refresh the rights ledger (offline). Style v3 needs at least one VERIFIED real photo/video before planning; older episodes pass through."""
+    sys.path.insert(0, os.path.join(SK, "yt-media-research"))
+    import media as M
+    notes = json.load(open(ep.p("research", "notes.json"))) if os.path.exists(ep.p("research", "notes.json")) else {}
+    led = M.load(ep.root)
+    M.refresh(led, ep.root)
+    if led["entries"]:
+        M.save(ep.root, led)
+    by = {}
+    for e in led["entries"]:
+        by[e["status"]] = by.get(e["status"], 0) + 1
+    verified = [e["id"] for e in led["entries"] if e["status"] == "VERIFIED"]
+    write_json(ep.p("media", "report.json"), {"entries": len(led["entries"]), "by_status": by, "verified": verified, "style": notes.get("style", "v2")})
+    if notes.get("style") == "v3" and not verified and not notes.get("diversity_waiver"):
+        packet(ep, "media", MEDIA_TASK.format(slug=ep.slug))
+        raise Halt("needs_agent", f"style v3 needs verified real photos/video (ledger: {by or 'empty'}); see tasks/media.md", ["media/report.json"])
+    return ["media/report.json"], f"{len(verified)} verified of {len(led['entries'])} media entries" + ("" if notes.get("style") == "v3" else " (style v2: media optional)")
+
+
 def run_visualplan(ep, ctx):
     if os.path.exists(ep.p("episode.json")):
         try:
@@ -253,7 +286,12 @@ def run_storyboard(ep, ctx):
     c2, d2 = tool([os.path.join(SK, "yt-facts", "facts.py"), "--claims", "claims.json", "--labels", "story/labels.json", "--root", "."], ep.root)
     if c2 != 0:
         raise Halt("blocked", "on-screen text vs claims: " + "; ".join(d2.get("problems") or [])[:400])
-    return ["story/storyboard.json", "timeline.json", "story/labels.json", "story/report.md"], f"{d['shots']} shots, {d['duration']}s, timing from {d['timing']}"
+    notes = json.load(open(ep.p("research", "notes.json"))) if os.path.exists(ep.p("research", "notes.json")) else {}
+    dv = json.load(open(ep.p("story", "diversity.json"))) if os.path.exists(ep.p("story", "diversity.json")) else {}
+    if notes.get("style") == "v3" and dv.get("status") == "WARN" and not notes.get("diversity_waiver"):
+        raise Halt("blocked", "visual diversity (style v3): " + "; ".join(dv.get("warnings", []))[:400] + " - add verified media or graphics (tasks/media.md), or the owner sets research/notes.json diversity_waiver",
+                   ["story/storyboard.json", "timeline.json", "story/labels.json", "story/report.md", "story/diversity.json"])
+    return ["story/storyboard.json", "timeline.json", "story/labels.json", "story/report.md", "story/diversity.json"], f"{d['shots']} shots, {d['duration']}s, timing from {d['timing']}"
 
 
 def run_visuals(ep, ctx):
@@ -477,11 +515,12 @@ def run_release(ep, ctx):
     return outs, "incomplete" if pending else "complete"
 
 
-RUN = {"topic": run_topic, "research": run_research, "facts": run_facts, "evidence": run_evidence, "script": run_script, "visualplan": run_visualplan, "visualcheck": run_visualcheck, "storyboard": run_storyboard,
+RUN = {"topic": run_topic, "research": run_research, "facts": run_facts, "evidence": run_evidence, "script": run_script, "media": run_media, "visualplan": run_visualplan, "visualcheck": run_visualcheck, "storyboard": run_storyboard,
        "visuals": run_visuals, "voice": run_voice, "voicecheck": run_voicecheck, "captions": run_captions, "render": run_render, "qc": run_qc, "release": run_release}
 # files whose change invalidates a stage (besides the outputs of its dependencies)
 INPUTS = {"topic": ["topic/approval.json", "topic/candidates.json"], "research": ["research/notes.json"], "facts": ["claims.json"], "evidence": ["research/notes.json"],
-          "script": ["script.md", "claims.json", "evidence/stack/provenance.json"], "visualplan": ["script.md", "claims.json", "research/notes.json", "evidence/stack/provenance.json"],
+          "script": ["script.md", "claims.json", "evidence/stack/provenance.json"], "media": ["script.md", "media/ledger.json", "research/notes.json"],
+          "visualplan": ["script.md", "claims.json", "research/notes.json", "evidence/stack/provenance.json", "media/ledger.json"],
           "visuals": ["episode.json", "graphics_spec.json", "evidence/stack/provenance.json"],
           "storyboard": ["script.md", "episode.json", "claims.json", "evidence/stack/grid.json", "voice/narration.voice.json", "captions/captions.srt"],
           "visualcheck": ["story/storyboard.json", "story/labels.json", "qa/visual_review.json", "evidence/ndwi.json", "claims.json", "episode.json", "graphics_spec.json",
@@ -489,10 +528,10 @@ INPUTS = {"topic": ["topic/approval.json", "topic/candidates.json"], "research":
           "voice": ["script.md", "approvals/voice.json"], "voicecheck": ["voice/narration.voice.json", "voice/spoken.md"], "captions": ["voice/narration.voice.json", "voice/voicecheck.json"], "render": ["timeline.json", "approvals/render.json"],
           "qc": ["render/final.mp4", "timeline.json"], "release": ["claims.json", "story/report.md", "qa/visual_claims.json"]}
 # files an agent wrote for a stage (recorded in state.json so the autonomy report can tell agent work from code work)
-AGENT_ARTIFACTS = {"topic": ["topic/approval.json", "topic/candidates.json"], "research": ["research/notes.json", "claims.json"], "script": ["script.md"], "visualcheck": ["qa/visual_review.json"]}
+AGENT_ARTIFACTS = {"media": ["media/ledger.json"], "topic": ["topic/approval.json", "topic/candidates.json"], "research": ["research/notes.json", "claims.json"], "script": ["script.md"], "visualcheck": ["qa/visual_review.json"]}
 
 TOOLS = {"topic": ["yt-topic/topic.py"], "research": ["yt-research/research.py"], "facts": ["yt-facts/facts.py"], "evidence": ["yt-sentinel/sentinel.py"], "visuals": ["yt-graphics/graphics.py", "yt-geo/geostack.py"],
-         "script": ["yt-facts/facts.py", "yt-script-agent/scriptagent.py"], "visualplan": ["yt-visual-planner/planner.py"], "visualcheck": ["yt-visualcheck/visualcheck.py", "yt-geo/geostack.py"],
+         "script": ["yt-facts/facts.py", "yt-script-agent/scriptagent.py"], "media": ["yt-media-research/media.py"], "visualplan": ["yt-visual-planner/planner.py"], "visualcheck": ["yt-visualcheck/visualcheck.py", "yt-geo/geostack.py"],
          "storyboard": ["yt-storyboard/storyboard.py", "yt-facts/facts.py"], "voicecheck": ["yt-voicecheck/voicecheck.py"], "captions": ["yt-captions/captions.py"], "render": ["yt-render/render.py", "yt-render/compose.py"], "qc": ["yt-qc/qc.py"]}
 
 
@@ -507,6 +546,11 @@ def tool_hash(stage):
 
 def ordered_inputs(ep, stage, st):
     files = list(INPUTS.get(stage, []))
+    if stage in ("media", "visualplan", "visualcheck", "render") and os.path.exists(ep.p("media", "ledger.json")):
+        try:                                   # a changed photo file re-runs the stages that rely on its verified rights
+            files += [e["local_path"] for e in json.load(open(ep.p("media", "ledger.json"))).get("entries", []) if e.get("local_path")]
+        except ValueError:
+            pass
     for d in DEPS[stage]:
         files += st["stages"].get(d, {}).get("outputs", {}).keys()
     return sorted(set(files))

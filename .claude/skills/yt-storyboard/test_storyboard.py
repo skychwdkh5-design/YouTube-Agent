@@ -161,5 +161,46 @@ class Anchors(unittest.TestCase):
         self.assertEqual(tl["captions"]["style"], "kinetic")
 
 
+class Media(unittest.TestCase):
+    def setUp(self):
+        import tempfile, json
+        self.d = tempfile.mkdtemp()
+        json.dump(GRID, open(os.path.join(self.d, "grid.json"), "w"))
+        open(os.path.join(self.d, "script.md"), "w").write("## one: One\n" + "word " * 70 + "\n")
+        self.assets = {"a": {"src": "a.png"}, "m_p": {"src": "media/assets/p.jpg", "kind": "external_still", "label": "Shore", "credit": "Shore / A / PD", "source_url": "https://example.org/p",
+                                                       "license": "Public Domain", "retrieved": "2026-10-21", "media_id": "p", "claims": []}}
+
+    def ep(self, vis, **k):
+        return dict({"grid": "grid.json", "focus": [35.215, 28.11], "assets": self.assets, "chapters": [{"id": "one", "visuals": vis}]}, **k)
+
+    def test_still_is_a_full_frame_shot_with_fixed_time_and_its_provenance_reaches_the_timeline(self):
+        vis = [{"asset": "a", "zoom": [12, 6]}, {"asset": "m_p", "kind": "still", "min_s": 5, "info": "photo"}, {"asset": "a", "zoom": [6, 12]}]
+        ep = self.ep(vis)
+        plan, labels = sb.build(ep, self.d)
+        st = next(x for x in plan["shots"] if x["layers"][0]["type"] == "still")
+        self.assertAlmostEqual(st["dur"], 5.0, places=1)
+        self.assertNotIn("camera", st)
+        tl = sb.to_timeline(ep, plan, self.d)
+        self.assertNotIn("media_id", tl["assets"]["m_p"])
+        self.assertEqual(tl["assets"]["m_p"]["license"], "Public Domain")
+
+    def test_rendering_label_is_drawn_and_exempt_from_claim_matching(self):
+        vis = [{"asset": "a", "zoom": [12, 6]}, {"asset": "m_p", "kind": "still", "min_s": 5, "label": {"text": "ARTIST'S RENDERING"}}]
+        plan, labels = sb.build(self.ep(vis), self.d)
+        lab = next(l for l in labels if l["text"] == "ARTIST'S RENDERING")
+        self.assertTrue(lab["exempt"])
+
+    def test_diversity_flags_a_wall_of_satellite_maps_and_credits_variety(self):
+        mono = {"shots": [{"id": f"s{i}", "start": i * 5.0, "dur": 5.0, "layers": [{"type": "image"}], "camera": {"to": {"width_km": 8}}} for i in range(9)]}
+        d = sb.diversity(mono)
+        self.assertEqual(d["status"], "WARN")
+        self.assertEqual(d["longest_map_run"]["shots"], 9)
+        mixed = {"shots": [{"id": f"s{i}", "start": i * 5.0, "dur": 5.0, "layers": [{"type": ["image", "image", "still", "graphic"][i % 4]}],
+                            "camera": {"to": {"width_km": [14, 6, 3, 8][i % 4]}}} for i in range(12)]}
+        m = sb.diversity(mixed)
+        self.assertEqual(m["status"], "OK")
+        self.assertGreater(m["kind_share"]["still"], 0.2)
+
+
 if __name__ == "__main__":
     unittest.main()
