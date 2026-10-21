@@ -15,7 +15,7 @@ python3 .claude/skills/yt-orchestrate/orchestrate.py run --slug neom-line       
 python3 .claude/skills/yt-orchestrate/orchestrate.py run --slug neom-line --dry-run
 python3 .claude/skills/yt-orchestrate/orchestrate.py run --slug neom-line --stage storyboard --force
 python3 .claude/skills/yt-orchestrate/orchestrate.py status --slug neom-line
-python3 .claude/skills/yt-orchestrate/test_orchestrate.py                         # 15 end-to-end tests on EP005
+python3 .claude/skills/yt-orchestrate/test_orchestrate.py                         # REGRESSION ONLY (about 17 min, end-to-end on EP005): run after code changes, never during video production
 ```
 
 ## When the owner says "Создай новый ролик"

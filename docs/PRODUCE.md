@@ -21,3 +21,6 @@ Every episode: real photos/video where rights are confirmed + satellite evidence
 2. `python produce.py --topic "TOPIC" --slug ep006 --preview --budget-chars N` — repeat after each agent step (research, facts, script, visual notes); each stop names the task file.
 3. Measured automatically in `productions/ep006/produce_runs.json`: seconds per orchestrator stage (`started`/`finished`), per-invocation seconds, wall clock since the first run, ElevenLabs characters/credits (plan + voice cost ledger), sizes of agent artifacts. Model calls and tokens are NOT readable from the repo: copy them from the session usage panel at the end.
 4. Stage time spent waiting between invocations is Claude/owner time, visible as the gap between runs in `runs[].at`.
+
+## Checks per release vs regression
+Production never calls any `test_*.py` (verified: no caller in produce.py, orchestrate.py, preview.py). Per video the gates are the fast, video-facing ones: yt-facts, yt-visualcheck, yt-voicecheck, caption/sync checks and the single-pass preview QC (decode errors, loudness, black/freeze/silence). `test_orchestrate.py` (~17 min) and the other suites run only after code changes.
