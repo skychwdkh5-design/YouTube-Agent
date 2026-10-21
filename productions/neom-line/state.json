@@ -274,14 +274,15 @@
    "agent_artifacts": {}
   },
   "render": {
-   "status": "awaiting_approval",
-   "attempts": 37,
-   "note": "approval present but --allow-render not given; plan validated",
-   "started": "2026-10-21T09:06:47Z",
+   "status": "done",
+   "attempts": 38,
+   "note": "rendered",
+   "started": "2026-10-21T09:07:00Z",
    "error": null,
-   "finished": "2026-10-21T09:06:51Z",
+   "finished": "2026-10-21T09:26:17Z",
    "outputs": {
-    "render/plan.json": "fbf27d373bc9add929c9d928fa8f0ac5fed62cff7072e7869a195d0dc47c089f"
+    "render/final.mp4": "01adb62946e46bdd5b2c29b3640f3655ac71285666f87191255d3d1b35c5d769",
+    "render/final.manifest.json": "673032a666bc256b2e121a903c7c6ab72898a5a94aed98544b4ac5cd2c281926"
    },
    "inputs": {
     "approvals/render.json": "0641d44303f11aea7d9af9ec6b8b10639a90fa832fb948da51f440bb606fee24",
@@ -298,9 +299,9 @@
     "graphics/g_tiers.png": "33e42d6b0494a87988831d6360a96e8a57f6537fe4599f62556c5efea1e2324d",
     "story/diversity.json": "09708aba49926f76ba91ce63f4e7a01024ee1e3d69c662a79e28710cc0c9b677",
     "story/labels.json": "7f82d2172563f96bff078702157bba284e1648d580418c4c1c2cb0c090b42f74",
-    "story/report.md": "583774240be4b10bfbce7e79ddf6df853f0b2e1cabab5a2b55759ed0018ad150",
-    "story/storyboard.json": "1839e67629705ae5af785d87ff6816d5a4ccdf2bc0bc97c7059d789bb861886e",
-    "timeline.json": "a7a859ee7ef8889970818e71c8569b35f1c0991737f5dab3b5feb870441d79e1",
+    "story/report.md": "b37a813753a7a83bb94007a1e789971e486f4aff456fa658e6359e0986c5b472",
+    "story/storyboard.json": "1a8ef80c76899de607416770ebbc6a7a973d94cc4e0e34d8bc041947a51d5c4c",
+    "timeline.json": "7963801e625830be12002fe7b56f9f80bf044c29db9efc54e26a51e3979d71c8",
     "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441",
     "voice/narration.wav": "2b4e32ad400affa806b3731a8701178dfda2401a1591d7d0f7981a7abc866479",
     "voice/voicecheck.json": "409a69b6b523bfc7e0d7336a9e7b7aafd38f2e3d8bea079150fad96c6773c522",
@@ -309,30 +310,30 @@
    "agent_artifacts": {}
   },
   "qc": {
-   "status": "waiting",
-   "attempts": 3,
-   "note": "waiting for ['render']",
-   "started": "2026-10-21T08:39:28Z",
+   "status": "done",
+   "attempts": 4,
+   "note": "QC PASS",
+   "started": "2026-10-21T09:26:19Z",
    "error": null,
-   "finished": "2026-10-21T08:42:34Z",
+   "finished": "2026-10-21T09:29:20Z",
    "inputs": {
-    "render/final.manifest.json": "0fee5dba814c0e6ec3601406013d04492d21f0461aa33d17882528f381c4a07b",
-    "render/final.mp4": "082d27182952f67ff67f715ad0058d13f6a43d01c1cb658abb179af9de6771ef",
-    "timeline.json": "a7a859ee7ef8889970818e71c8569b35f1c0991737f5dab3b5feb870441d79e1",
+    "render/final.manifest.json": "673032a666bc256b2e121a903c7c6ab72898a5a94aed98544b4ac5cd2c281926",
+    "render/final.mp4": "01adb62946e46bdd5b2c29b3640f3655ac71285666f87191255d3d1b35c5d769",
+    "timeline.json": "7963801e625830be12002fe7b56f9f80bf044c29db9efc54e26a51e3979d71c8",
     "_tool": "d42f30ea200b1d86"
    },
    "outputs": {
-    "render/qc.json": "08ffac487eed0084452c307958b272e0d8d3e731bfc86389720a4acae09abbae"
+    "render/qc.json": "d0889e21126adc80c218ad45de6335cbd5075f1cb035ed9538dba278dae06212"
    },
    "agent_artifacts": {}
   },
   "release": {
    "status": "done",
-   "attempts": 93,
-   "started": "2026-10-21T09:06:51Z",
+   "attempts": 95,
+   "started": "2026-10-21T09:29:22Z",
    "error": null,
-   "finished": "2026-10-21T09:06:51Z",
-   "note": "incomplete",
+   "finished": "2026-10-21T09:29:22Z",
+   "note": "complete",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
     "qa/visual_claims.json": "2ef84b39c0e9e899a1672f0df91f8bd41c049df39a8a15961df7dbb085b88c32",
@@ -344,7 +345,7 @@
     "_tool": "e3b0c44298fc1c14"
    },
    "outputs": {
-    "release/REVIEW.md": "7566c800c66193f5aac606e82dd8154e7ecadbe39c014d89fbe77ef4bfefccbf",
+    "release/REVIEW.md": "85522d24278df48aeb88cf58f223e2791e49bec07176690d9b2eab9f11a52403",
     "story/report.md": "b37a813753a7a83bb94007a1e789971e486f4aff456fa658e6359e0986c5b472"
    },
    "agent_artifacts": {}
@@ -3693,7 +3694,41 @@
    "stage": "release",
    "event": "done",
    "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T09:26:18Z",
+   "stage": "render",
+   "event": "done",
+   "note": "rendered"
+  },
+  {
+   "at": "2026-10-21T09:29:20Z",
+   "stage": "qc",
+   "event": "done",
+   "note": "QC PASS"
+  },
+  {
+   "at": "2026-10-21T09:29:20Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T09:29:20Z",
+   "stage": "release",
+   "event": "done",
+   "note": "complete"
+  },
+  {
+   "at": "2026-10-21T09:29:22Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T09:29:22Z",
+   "stage": "release",
+   "event": "done",
+   "note": "complete"
   }
  ],
- "updated": "2026-10-21T09:06:51Z"
+ "updated": "2026-10-21T09:29:22Z"
 }
