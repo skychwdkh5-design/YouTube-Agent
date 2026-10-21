@@ -300,16 +300,17 @@ class Gates(Base):
         self.agent_artifacts()
         self.run_all()
         vc = os.path.join(REPO, ".claude", "skills", "yt-visualcheck", "visualcheck.py")
+        base = json.loads(subprocess.run([sys.executable, vc, "--root", self.root], capture_output=True, text=True).stdout)["orphan_reviews"]   # the fixture's reviews were made against the voice-timed plan; this run is estimate-timed
         d = json.load(open(self.p("qa", "visual_review.json")))
         d["reviews"].append({"item": "gone", "frame": 0, "frame_sha256": "f" * 64, "claims": ["C9"], "reviewer": "agent", "verdict": "supports", "note": "a frame that no longer exists in the plan"})
         json.dump(d, open(self.p("qa", "visual_review.json"), "w"))
         rep = json.loads(subprocess.run([sys.executable, vc, "--root", self.root], capture_output=True, text=True).stdout)
-        self.assertEqual(rep["orphan_reviews"], 1)
+        self.assertEqual(rep["orphan_reviews"], base + 1)
         self.assertEqual(rep["status"], "OK")                                       # an orphan neither passes nor fails anything
         n = len(d["reviews"])
         pr = json.loads(subprocess.run([sys.executable, vc, "--root", self.root, "prune"], capture_output=True, text=True).stdout)
-        self.assertEqual(pr["removed"], 1)
-        self.assertEqual(len(json.load(open(self.p("qa", "visual_review.json")))["reviews"]), n - 1)
+        self.assertEqual(pr["removed"], base + 1)
+        self.assertEqual(len(json.load(open(self.p("qa", "visual_review.json")))["reviews"]), n - (base + 1))
 
     def test_visualcheck_counts_and_coverage_are_consistent(self):
         self.agent_artifacts()

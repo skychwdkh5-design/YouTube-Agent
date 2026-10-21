@@ -1,0 +1,38 @@
+{
+ "name": "EP004_Jakarta_Short_02_DISTRICT_BY_DISTRICT",
+ "source": {
+  "video": "/tmp/ep4/ipad.mp4",
+  "voice_json": "/tmp/ep4/voice.json",
+  "fetch": "git show origin/media/ep004-jakarta-final:EP004_FINAL_1080p_iPad.mp4 > /tmp/ep4/ipad.mp4 (sha256: see SHA256SUMS.txt on that branch); git show origin/claude/orbitalatlas-ep004-25d-review:productions/ep004-jakarta/voice/narration.voice.json > /tmp/ep4/voice.json"
+ },
+ "t0": 224.3,
+ "t1": 252.7,
+ "crop": [
+  100,
+  150,
+  1230,
+  720
+ ],
+ "band_y": 600,
+ "chip": "One radar study, 2019-2020 | EP004",
+ "hook": {
+  "text": "SINKING,\nDISTRICT BY DISTRICT",
+  "accent": "DISTRICT BY DISTRICT",
+  "seconds": 3.4
+ },
+ "kicks": [
+  {
+   "at": 10.0,
+   "text": "North 4.9 | West 4.8 cm a year"
+  },
+  {
+   "at": 20.5,
+   "text": "Line of sight or vertical: not stated"
+  }
+ ],
+ "endcard": {
+  "title": "Jakarta is sinking\nfull episode",
+  "line": "OrbitalAtlas EP004",
+  "seconds": 2.0
+ }
+}
