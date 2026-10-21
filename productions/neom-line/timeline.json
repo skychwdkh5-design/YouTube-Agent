@@ -38,6 +38,41 @@
    "label": "2026",
    "credit": "Contains modified Copernicus Sentinel data 2026"
   },
+  "l2020": {
+   "src": "evidence/landsat10/y2020.png",
+   "label": "2020",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
+  "l2021": {
+   "src": "evidence/landsat10/y2021.png",
+   "label": "2021",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
+  "l2022": {
+   "src": "evidence/landsat10/y2022.png",
+   "label": "2022",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
+  "l2023": {
+   "src": "evidence/landsat10/y2023.png",
+   "label": "2023",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
+  "l2024": {
+   "src": "evidence/landsat10/y2024.png",
+   "label": "2024",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
+  "l2025": {
+   "src": "evidence/landsat10/y2025.png",
+   "label": "2025",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
+  "l2026": {
+   "src": "evidence/landsat10/y2026.png",
+   "label": "2026",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
   "g_scale": {
    "src": "graphics/g_scale.png",
    "kind": "graphic",
@@ -85,12 +120,6 @@
    "kind": "graphic",
    "credit": "Contains modified Copernicus Sentinel data 2024",
    "group": "g_cmp_2020_2024_c19"
-  },
-  "i_coast": {
-   "src": "graphics/i_coast.png",
-   "kind": "graphic",
-   "credit": "NASA / ISS photo; Contains modified Copernicus Sentinel data 2026",
-   "group": "i_coast"
   },
   "i_bloomberg_s1": {
    "src": "graphics/i_bloomberg.step1.png",
@@ -146,30 +175,6 @@
    "credit": "Graphic: OrbitalAtlas",
    "group": "i_source"
   },
-  "i_pixel": {
-   "src": "graphics/i_pixel.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_pixel"
-  },
-  "i_visible_s1": {
-   "src": "graphics/i_visible.step1.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_visible"
-  },
-  "i_visible": {
-   "src": "graphics/i_visible.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_visible"
-  },
-  "i_scenes": {
-   "src": "graphics/i_scenes.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_scenes"
-  },
   "i_orbit_s1": {
    "src": "graphics/i_orbit.step1.png",
    "kind": "graphic",
@@ -199,30 +204,6 @@
    "kind": "graphic",
    "credit": "Graphic: OrbitalAtlas",
    "group": "i_ndwi"
-  },
-  "i_dates_s1": {
-   "src": "graphics/i_dates.step1.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_dates"
-  },
-  "i_dates_s2": {
-   "src": "graphics/i_dates.step2.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_dates"
-  },
-  "i_dates": {
-   "src": "graphics/i_dates.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_dates"
-  },
-  "i_l8": {
-   "src": "graphics/i_l8.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_l8"
   },
   "i_landsat": {
    "src": "graphics/i_landsat.png",
@@ -283,12 +264,6 @@
    "kind": "graphic",
    "credit": "Graphic: OrbitalAtlas",
    "group": "i_verdict"
-  },
-  "i_nobuilding": {
-   "src": "graphics/i_nobuilding.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_nobuilding"
   },
   "i_cannot_s1": {
    "src": "graphics/i_cannot.step1.png",
@@ -533,6 +508,80 @@
      "asset": "y2026"
     },
     {
+     "type": "pin",
+     "t": [
+      3.399,
+      5.5390000000000015
+     ],
+     "at": [
+      35.10146,
+      28.07686
+     ],
+     "text": "RED SEA COAST"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.12035,
+      28.0847
+     ],
+     "width_km": 4.2
+    },
+    "to": {
+     "center": [
+      35.17005,
+      28.10241
+     ],
+     "width_km": 13
+    }
+   }
+  },
+  {
+   "id": "promise_007",
+   "start": 30.675,
+   "visual_family": "g_scale_promise",
+   "info": "g_scale",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g_scale",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "promise_008",
+   "start": 42.506,
+   "visual_family": "g_tiers_promise",
+   "info": "g_tiers",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g_tiers",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "promise_009",
+   "start": 46.702,
+   "visual_family": "y2026_promise",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
      "type": "label",
      "text": "OCT 2026",
      "style": "year",
@@ -561,59 +610,8 @@
    }
   },
   {
-   "id": "promise_007",
-   "start": 30.049,
-   "visual_family": "i_coast_promise",
-   "info": "i_coast",
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "i_coast",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    }
-   ]
-  },
-  {
-   "id": "promise_008",
-   "start": 37.049,
-   "visual_family": "g_scale_promise",
-   "info": "g_scale",
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "g_scale",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    }
-   ]
-  },
-  {
-   "id": "promise_009",
-   "start": 42.506,
-   "visual_family": "g_tiers_promise",
-   "info": "g_tiers",
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "g_tiers",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    }
-   ]
-  },
-  {
    "id": "promise_010",
-   "start": 49.506,
+   "start": 49.369,
    "visual_family": "y2026_promise",
    "info": "y2026",
    "layers": [
@@ -652,6 +650,127 @@
   {
    "id": "plan_011",
    "start": 52.036,
+   "visual_family": "i_bloomberg_s1_plan",
+   "info": "i_bloomberg_s1",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_bloomberg_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_bloomberg",
+     "t": [
+      10.028,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "plan_012",
+   "start": 64.971,
+   "visual_family": "i_semafor_s1_plan",
+   "info": "i_semafor_s1",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_semafor_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_semafor",
+     "t": [
+      9.609,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "plan_013",
+   "start": 76.825,
+   "visual_family": "i_reuters_s1_plan",
+   "info": "i_reuters_s1",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_reuters_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_reuters",
+     "t": [
+      6.091,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "plan_014",
+   "start": 85.022,
+   "visual_family": "g_reports_plan",
+   "info": "g_reports",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g_reports",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "plan_015",
+   "start": 88.795,
+   "visual_family": "i_opened_s1_plan",
+   "info": "i_opened_s1",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_opened_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_opened",
+     "t": [
+      6.857,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "plan_016",
+   "start": 97.363,
    "visual_family": "y2026_plan",
    "info": "y2026",
    "layers": [
@@ -686,127 +805,6 @@
      "width_km": 8
     }
    }
-  },
-  {
-   "id": "plan_012",
-   "start": 54.536,
-   "visual_family": "i_bloomberg_s1_plan",
-   "info": "i_bloomberg_s1",
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "i_bloomberg_s1",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    },
-    {
-     "type": "graphic",
-     "asset": "i_bloomberg",
-     "t": [
-      7.528,
-      null
-     ],
-     "push": 0.04
-    }
-   ]
-  },
-  {
-   "id": "plan_013",
-   "start": 64.971,
-   "visual_family": "i_semafor_s1_plan",
-   "info": "i_semafor_s1",
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "i_semafor_s1",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    },
-    {
-     "type": "graphic",
-     "asset": "i_semafor",
-     "t": [
-      9.609,
-      null
-     ],
-     "push": 0.04
-    }
-   ]
-  },
-  {
-   "id": "plan_014",
-   "start": 76.825,
-   "visual_family": "i_reuters_s1_plan",
-   "info": "i_reuters_s1",
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "i_reuters_s1",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    },
-    {
-     "type": "graphic",
-     "asset": "i_reuters",
-     "t": [
-      6.091,
-      null
-     ],
-     "push": 0.04
-    }
-   ]
-  },
-  {
-   "id": "plan_015",
-   "start": 85.022,
-   "visual_family": "g_reports_plan",
-   "info": "g_reports",
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "g_reports",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    }
-   ]
-  },
-  {
-   "id": "plan_016",
-   "start": 88.795,
-   "visual_family": "i_opened_s1_plan",
-   "info": "i_opened_s1",
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "i_opened_s1",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    },
-    {
-     "type": "graphic",
-     "asset": "i_opened",
-     "t": [
-      6.857,
-      null
-     ],
-     "push": 0.04
-    }
-   ]
   },
   {
    "id": "method_017",
@@ -866,62 +864,139 @@
   {
    "id": "method_019",
    "start": 111.389,
-   "visual_family": "i_pixel_method",
-   "info": "i_pixel",
+   "visual_family": "y2026_method",
+   "info": "y2026",
    "layers": [
     {
-     "type": "graphic",
-     "asset": "i_pixel",
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "1 PIXEL = 10 M OF GROUND",
+     "style": "tag",
+     "slot": "upper",
      "t": [
-      0,
+      0.6,
       null
-     ],
-     "push": 0.04
+     ]
     }
-   ]
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 3.2
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 0.55
+    }
+   }
   },
   {
    "id": "method_020",
    "start": 114.965,
-   "visual_family": "i_visible_s1_method",
-   "info": "i_visible_s1",
+   "visual_family": "y2026_method",
+   "info": "y2026",
    "layers": [
     {
-     "type": "graphic",
-     "asset": "i_visible_s1",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
+     "type": "image",
+     "asset": "y2026"
     },
     {
-     "type": "graphic",
-     "asset": "i_visible",
+     "type": "pin",
+     "t": [
+      1.006,
+      4.206
+     ],
+     "at": [
+      35.16014,
+      28.11151
+     ],
+     "text": "A LONG CLEARED STRIP"
+    },
+    {
+     "type": "pin",
+     "t": [
+      2.329,
+      5.329000000000001
+     ],
+     "at": [
+      35.13911,
+      28.07719
+     ],
+     "text": "A ROAD"
+    },
+    {
+     "type": "label",
      "t": [
       3.246,
       null
      ],
-     "push": 0.04
+     "text": "NOT VISIBLE: PERSON, CRANE, WINDOW",
+     "style": "tag",
+     "slot": "upper"
     }
-   ]
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.15066,
+      28.09505
+     ],
+     "width_km": 10
+    },
+    "to": {
+     "center": [
+      35.14964,
+      28.09507
+     ],
+     "width_km": 7
+    }
+   }
   },
   {
    "id": "method_021",
    "start": 121.571,
-   "visual_family": "i_scenes_method",
-   "info": "i_scenes",
+   "visual_family": "y2020_method",
+   "info": "flip y2020,y2021,y2022,y2023,y2024,y2025,y2026",
    "layers": [
     {
-     "type": "graphic",
-     "asset": "i_scenes",
-     "t": [
-      0,
-      null
+     "type": "flip",
+     "assets": [
+      "y2020",
+      "y2021",
+      "y2022",
+      "y2023",
+      "y2024",
+      "y2025",
+      "y2026"
      ],
-     "push": 0.04
+     "step": 1.15
     }
-   ]
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 11
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 8
+    }
+   }
   },
   {
    "id": "method_022",
@@ -1449,7 +1524,7 @@
      "type": "graphic",
      "asset": "i_ndwi",
      "t": [
-      9.597,
+      4.082,
       null
      ],
      "push": 0.04
@@ -1458,7 +1533,58 @@
   },
   {
    "id": "segment_040",
-   "start": 223.786,
+   "start": 217.283,
+   "visual_family": "y2026_segment",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "pin",
+     "t": [
+      0.6,
+      null
+     ],
+     "at": [
+      35.2165,
+      28.1062
+     ],
+     "text": "DARK SEGMENT"
+    },
+    {
+     "type": "label",
+     "t": [
+      3.386,
+      null
+     ],
+     "text": "FITS WATER, NOT PROOF",
+     "style": "tag",
+     "slot": "upper",
+     "sub": "A SHADOW CAN FOOL IT"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 2.6
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 1.3
+    }
+   }
+  },
+  {
+   "id": "segment_041",
+   "start": 223.483,
    "visual_family": "wipe_2022_2026",
    "info": "wipe y2022->y2026",
    "layers": [
@@ -1494,8 +1620,8 @@
    }
   },
   {
-   "id": "segment_041",
-   "start": 229.219,
+   "id": "segment_042",
+   "start": 229.009,
    "visual_family": "wipe_2022_2026",
    "info": "y2026",
    "layers": [
@@ -1522,8 +1648,8 @@
    }
   },
   {
-   "id": "segment_042",
-   "start": 234.651,
+   "id": "segment_043",
+   "start": 234.535,
    "visual_family": "y2026_segment",
    "info": "y2026",
    "layers": [
@@ -1560,94 +1686,124 @@
    }
   },
   {
-   "id": "checks_043",
+   "id": "checks_044",
    "start": 241.442,
    "visual_family": "y2024_checks",
-   "info": "y2024",
+   "info": "flip y2024,y2025,y2026",
    "layers": [
     {
-     "type": "image",
-     "asset": "y2024"
+     "type": "flip",
+     "assets": [
+      "y2024",
+      "y2025",
+      "y2026"
+     ],
+     "step": 4.6
     },
     {
      "type": "label",
-     "text": "OCT 2024",
-     "style": "year",
-     "slot": "upper",
      "t": [
-      0.8,
+      2.3,
+      4.5
+     ],
+     "text": "SENTINEL-2A - 8 OCT 2024",
+     "style": "tag",
+     "slot": "middle"
+    },
+    {
+     "type": "label",
+     "t": [
+      4.8,
+      9.1
+     ],
+     "text": "SENTINEL-2B - 8 OCT 2025",
+     "style": "tag",
+     "slot": "middle"
+    },
+    {
+     "type": "label",
+     "t": [
+      9.3,
       null
-     ]
+     ],
+     "text": "SENTINEL-2C - 18 OCT 2026",
+     "style": "tag",
+     "slot": "middle"
     }
    ],
    "camera": {
     "from": {
      "center": [
-      35.21651,
-      28.10684
+      35.2165,
+      28.1062
      ],
-     "width_km": 15
+     "width_km": 4.2
     },
     "to": {
      "center": [
       35.2165,
       28.1062
      ],
-     "width_km": 9
+     "width_km": 3.0
     }
    }
   },
   {
-   "id": "checks_044",
-   "start": 243.942,
-   "visual_family": "i_dates_s1_checks",
-   "info": "i_dates_s1",
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "i_dates_s1",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    },
-    {
-     "type": "graphic",
-     "asset": "i_dates_s2",
-     "t": [
-      2.536,
-      null
-     ],
-     "push": 0.04
-    },
-    {
-     "type": "graphic",
-     "asset": "i_dates",
-     "t": [
-      6.588,
-      null
-     ],
-     "push": 0.04
-    }
-   ]
-  },
-  {
    "id": "checks_045",
-   "start": 257.071,
-   "visual_family": "i_l8_checks",
-   "info": "i_l8",
+   "start": 256.871,
+   "visual_family": "y2024_checks",
+   "info": "wipe y2024->l2024",
    "layers": [
     {
-     "type": "graphic",
-     "asset": "i_l8",
+     "type": "image",
+     "asset": "y2024"
+    },
+    {
+     "type": "wipe",
+     "from": "y2024",
+     "to": "l2024",
      "t": [
-      0,
+      3.144,
+      4.944
+     ]
+    },
+    {
+     "type": "label",
+     "text": "SENTINEL-2 - 10 M",
+     "style": "tag",
+     "slot": "upper",
+     "t": [
+      0.6,
+      null
+     ]
+    },
+    {
+     "type": "label",
+     "t": [
+      3.144,
       null
      ],
-     "push": 0.04
+     "text": "LANDSAT 8 - 30 M, SAME PLACE",
+     "style": "tag",
+     "slot": "upper"
     }
-   ]
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 4.4
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 2.6
+    }
+   }
   },
   {
    "id": "checks_046",
@@ -1711,20 +1867,94 @@
   },
   {
    "id": "checks_049",
-   "start": 286.119,
-   "visual_family": "g_cmp_2025_2026_c12_checks",
-   "info": "g_cmp_2025_2026_c12",
+   "start": 285.919,
+   "visual_family": "y2025_checks",
+   "info": "wipe y2025->y2026",
    "layers": [
     {
-     "type": "graphic",
-     "asset": "g_cmp_2025_2026_c12",
+     "type": "image",
+     "asset": "y2025"
+    },
+    {
+     "type": "wipe",
+     "from": "y2025",
+     "to": "y2026",
      "t": [
-      0,
+      7.359,
+      9.159
+     ]
+    },
+    {
+     "type": "arrow",
+     "t": [
+      3.028,
       null
      ],
-     "push": 0.04
+     "from": [
+      35.20855,
+      28.10618
+     ],
+     "to": [
+      35.22482,
+      28.10618
+     ],
+     "width": 9,
+     "color": "#FFD23F"
+    },
+    {
+     "type": "label",
+     "t": [
+      3.028,
+      null
+     ],
+     "text": "OCT 2025: ABOUT 1.6 KM",
+     "style": "tag",
+     "slot": "upper"
+    },
+    {
+     "type": "arrow",
+     "t": [
+      7.359,
+      null
+     ],
+     "from": [
+      35.20527,
+      28.10627
+     ],
+     "to": [
+      35.22482,
+      28.10627
+     ],
+     "width": 9,
+     "color": "#FFD23F"
+    },
+    {
+     "type": "label",
+     "t": [
+      7.359,
+      null
+     ],
+     "text": "OCT 2026: ABOUT 1.9 KM",
+     "style": "tag",
+     "slot": "middle"
     }
-   ]
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 3.4
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 2.6
+    }
+   }
   },
   {
    "id": "checks_050",
@@ -1789,7 +2019,7 @@
      "type": "graphic",
      "asset": "i_verdict",
      "t": [
-      4.419,
+      3.9171950048030926,
       null
      ],
      "push": 0.04
@@ -1797,7 +2027,45 @@
    ]
   },
   {
-   "id": "limits_052",
+   "id": "checks_052",
+   "start": 313.5,
+   "visual_family": "y2024_checks",
+   "info": "y2024",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2024"
+    },
+    {
+     "type": "label",
+     "text": "OCT 2024",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.7172683317323081,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.21651,
+      28.10684
+     ],
+     "width_km": 15
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 9
+    }
+   }
+  },
+  {
+   "id": "limits_053",
    "start": 315.652,
    "visual_family": "y2026_limits",
    "info": "y2026",
@@ -1835,24 +2103,45 @@
    }
   },
   {
-   "id": "limits_053",
+   "id": "limits_054",
    "start": 319.404,
-   "visual_family": "i_nobuilding_limits",
-   "info": "i_nobuilding",
+   "visual_family": "y2026_limits",
+   "info": "y2026",
    "layers": [
     {
-     "type": "graphic",
-     "asset": "i_nobuilding",
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AT THIS RESOLUTION: NO BUILDING",
+     "style": "tag",
+     "slot": "upper",
      "t": [
-      0,
+      0.6,
       null
-     ],
-     "push": 0.04
+     ]
     }
-   ]
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.17029,
+      28.11008
+     ],
+     "width_km": 5
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 1.8
+    }
+   }
   },
   {
-   "id": "limits_054",
+   "id": "limits_055",
    "start": 323.723,
    "visual_family": "i_cannot_s1_limits",
    "info": "i_cannot_s1",
@@ -1878,7 +2167,7 @@
    ]
   },
   {
-   "id": "limits_055",
+   "id": "limits_056",
    "start": 330.712,
    "visual_family": "i_nomatch_s1_limits",
    "info": "i_nomatch_s1",
@@ -1904,7 +2193,7 @@
    ]
   },
   {
-   "id": "limits_056",
+   "id": "limits_057",
    "start": 340.712,
    "visual_family": "y2026_limits",
    "info": "y2026",
@@ -1942,7 +2231,7 @@
    }
   },
   {
-   "id": "limits_057",
+   "id": "limits_058",
    "start": 346.201,
    "visual_family": "y2026_limits",
    "info": "y2026",
@@ -1970,7 +2259,7 @@
    }
   },
   {
-   "id": "close_058",
+   "id": "close_059",
    "start": 351.689,
    "visual_family": "wipe_recap",
    "info": "wipe y2020->y2026",
@@ -2007,7 +2296,7 @@
    }
   },
   {
-   "id": "close_059",
+   "id": "close_060",
    "start": 356.486,
    "visual_family": "g_scale_close",
    "info": "g_scale",
@@ -2024,7 +2313,7 @@
    ]
   },
   {
-   "id": "close_060",
+   "id": "close_061",
    "start": 360.77,
    "visual_family": "g_reports_close",
    "info": "g_reports",
@@ -2041,7 +2330,7 @@
    ]
   },
   {
-   "id": "close_061",
+   "id": "close_062",
    "start": 368.293,
    "visual_family": "g_hero_c10_close",
    "info": "g_hero_c10",
@@ -2058,7 +2347,7 @@
    ]
   },
   {
-   "id": "close_062",
+   "id": "close_063",
    "start": 373.293,
    "visual_family": "close_view",
    "info": "y2026",
@@ -2096,7 +2385,7 @@
    }
   },
   {
-   "id": "close_063",
+   "id": "close_064",
    "start": 379.303,
    "visual_family": "close_wide",
    "info": "y2026",

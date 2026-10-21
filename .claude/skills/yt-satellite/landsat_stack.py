@@ -41,8 +41,8 @@ def main(argv=None):
         if d.get("status") != "ok":
             print(json.dumps({"status": "error", "scene": t["id"], "error": d.get("error") or d.get("status")})); return 1
     ev = os.path.abspath(os.path.join(a.root, "evidence"))              # yt-geo resolves src and out_dir relative to the spec's folder
-    local = dict(spec, scenes=[dict(s, src=os.path.join("landsat_raw", os.path.basename(s["src"]))) for s in spec["scenes"]], out_dir="landsat")
-    local_spec = os.path.join(ev, "landsat_stack.resolved.json")
+    local = dict(spec, scenes=[dict(s, src=os.path.join("landsat_raw", os.path.basename(s["src"]))) for s in spec["scenes"]], out_dir=spec.get("out_dir", "landsat"))
+    local_spec = os.path.join(ev, f"landsat_stack.{spec.get('out_dir', 'landsat')}.resolved.json")
     json.dump(local, open(local_spec, "w"), indent=1)
     r = subprocess.run([sys.executable, GEO, local_spec, "--confirm"], capture_output=True, text=True)
     print(r.stdout[-1500:] if r.returncode == 0 else json.dumps({"status": "error", "error": (r.stderr or r.stdout)[-400:]}))

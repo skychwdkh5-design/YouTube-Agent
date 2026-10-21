@@ -232,30 +232,6 @@
    }
   },
   {
-   "type": "compare",
-   "title": "Saudi Arabia's Red Sea coast",
-   "source": "Left: NASA ISS photo iss066e091657 (public domain). Right: Copernicus Sentinel-2 L2A, 40 m",
-   "left": {
-    "file": "media/assets/northwestern_coast_of_saudi_.jpg",
-    "label": "ISS PHOTO - NOT THE NEOM SITE",
-    "credit": "NASA / ISS, 30 Nov 2021"
-   },
-   "right": {
-    "geo": {
-     "stack": "evidence/wide/y2026.png",
-     "grid": "evidence/wide/grid.json",
-     "center": [
-      35.345,
-      28.14
-     ],
-     "width_km": 45
-    },
-    "label": "SENTINEL-2 - NEOM AREA",
-    "credit": "Copernicus Sentinel data 2026"
-   },
-   "id": "i_coast"
-  },
-  {
    "type": "diagram",
    "title": "What was reported",
    "source": "Reported by the outlet named; we could not open the original article (see script)",
@@ -503,239 +479,6 @@
    "id": "i_source"
   },
   {
-   "type": "geo",
-   "title": "One pixel = 10 m of ground",
-   "source": "Copernicus Sentinel-2 L2A, 10 m, Oct 2026",
-   "credit": "Contains modified Copernicus Sentinel data 2026",
-   "show_credit": false,
-   "date": "OCT 2026",
-   "image": {
-    "stack": "evidence/stack/y2026.png",
-    "grid": "evidence/stack/grid.json",
-    "center": [
-     35.2165,
-     28.1062
-    ],
-    "width_km": 0.6,
-    "resample": "nearest"
-   },
-   "graticule": false,
-   "scale_bar": true,
-   "id": "i_pixel"
-  },
-  {
-   "type": "diagram",
-   "title": "What 10 m can and cannot show",
-   "source": "Pixel size 10 m (Sentinel-2 L2A); statement from our method notes",
-   "nodes": [
-    {
-     "id": "a",
-     "text": "CAN SEE",
-     "x": 0.27,
-     "y": 0.2,
-     "w": 0.36,
-     "h": 0.14,
-     "style": "green",
-     "step": 1
-    },
-    {
-     "id": "b",
-     "text": "A long cleared strip",
-     "x": 0.27,
-     "y": 0.46,
-     "w": 0.36,
-     "h": 0.16,
-     "style": "default",
-     "step": 1
-    },
-    {
-     "id": "c",
-     "text": "A road",
-     "x": 0.27,
-     "y": 0.7,
-     "w": 0.36,
-     "h": 0.14,
-     "style": "default",
-     "step": 1
-    },
-    {
-     "id": "d",
-     "text": "CANNOT SEE",
-     "x": 0.73,
-     "y": 0.2,
-     "w": 0.36,
-     "h": 0.14,
-     "style": "red",
-     "step": 2
-    },
-    {
-     "id": "e",
-     "text": "A person",
-     "x": 0.73,
-     "y": 0.46,
-     "w": 0.36,
-     "h": 0.14,
-     "style": "default",
-     "step": 2
-    },
-    {
-     "id": "f",
-     "text": "A crane",
-     "x": 0.73,
-     "y": 0.64,
-     "w": 0.36,
-     "h": 0.12,
-     "style": "default",
-     "step": 2
-    },
-    {
-     "id": "g",
-     "text": "A window",
-     "x": 0.73,
-     "y": 0.82,
-     "w": 0.36,
-     "h": 0.12,
-     "style": "default",
-     "step": 2
-    }
-   ],
-   "id": "i_visible"
-  },
-  {
-   "type": "diagram",
-   "title": "Seven scenes, 2020 to 2026",
-   "source": "Sentinel-2 L2A scene metadata (relative orbit 78, tile T36RYS); Planetary Computer STAC",
-   "nodes": [
-    {
-     "id": "y2020",
-     "text": "2020",
-     "x": 0.075,
-     "y": 0.3,
-     "w": 0.125,
-     "h": 0.16,
-     "style": "blue"
-    },
-    {
-     "id": "y2021",
-     "text": "2021",
-     "x": 0.21599999999999997,
-     "y": 0.3,
-     "w": 0.125,
-     "h": 0.16,
-     "style": "blue"
-    },
-    {
-     "id": "y2022",
-     "text": "2022",
-     "x": 0.357,
-     "y": 0.3,
-     "w": 0.125,
-     "h": 0.16,
-     "style": "blue"
-    },
-    {
-     "id": "y2023",
-     "text": "2023",
-     "x": 0.49799999999999994,
-     "y": 0.3,
-     "w": 0.125,
-     "h": 0.16,
-     "style": "blue"
-    },
-    {
-     "id": "y2024",
-     "text": "2024",
-     "x": 0.6389999999999999,
-     "y": 0.3,
-     "w": 0.125,
-     "h": 0.16,
-     "style": "blue"
-    },
-    {
-     "id": "y2025",
-     "text": "2025",
-     "x": 0.7799999999999999,
-     "y": 0.3,
-     "w": 0.125,
-     "h": 0.16,
-     "style": "blue"
-    },
-    {
-     "id": "y2026",
-     "text": "2026",
-     "x": 0.9209999999999998,
-     "y": 0.3,
-     "w": 0.125,
-     "h": 0.16,
-     "style": "blue"
-    },
-    {
-     "id": "d2020",
-     "text": "29 SEP",
-     "x": 0.075,
-     "y": 0.55,
-     "w": 0.125,
-     "h": 0.14,
-     "style": "default"
-    },
-    {
-     "id": "d2021",
-     "text": "29 SEP",
-     "x": 0.21599999999999997,
-     "y": 0.55,
-     "w": 0.125,
-     "h": 0.14,
-     "style": "default"
-    },
-    {
-     "id": "d2022",
-     "text": "9 OCT",
-     "x": 0.357,
-     "y": 0.55,
-     "w": 0.125,
-     "h": 0.14,
-     "style": "default"
-    },
-    {
-     "id": "d2023",
-     "text": "14 OCT",
-     "x": 0.49799999999999994,
-     "y": 0.55,
-     "w": 0.125,
-     "h": 0.14,
-     "style": "default"
-    },
-    {
-     "id": "d2024",
-     "text": "8 OCT",
-     "x": 0.6389999999999999,
-     "y": 0.55,
-     "w": 0.125,
-     "h": 0.14,
-     "style": "default"
-    },
-    {
-     "id": "d2025",
-     "text": "8 OCT",
-     "x": 0.7799999999999999,
-     "y": 0.55,
-     "w": 0.125,
-     "h": 0.14,
-     "style": "default"
-    },
-    {
-     "id": "d2026",
-     "text": "18 OCT",
-     "x": 0.9209999999999998,
-     "y": 0.55,
-     "w": 0.125,
-     "h": 0.14,
-     "style": "default"
-    }
-   ],
-   "id": "i_scenes"
-  },
-  {
    "type": "diagram",
    "title": "Why the scenes can be compared",
    "source": "Sentinel-2 L2A scene metadata (relative orbit 78, tile T36RYS); Planetary Computer STAC",
@@ -781,9 +524,9 @@
     {
      "id": "a",
      "text": "NEAR-INFRARED SIGNAL: VERY LOW",
-     "x": 0.27,
-     "y": 0.3,
-     "w": 0.4,
+     "x": 0.5,
+     "y": 0.25,
+     "w": 0.7,
      "h": 0.2,
      "style": "blue",
      "step": 1
@@ -791,142 +534,25 @@
     {
      "id": "b",
      "text": "WATER INDEX (NDWI): ABOVE ZERO",
-     "x": 0.73,
-     "y": 0.3,
-     "w": 0.4,
+     "x": 0.5,
+     "y": 0.52,
+     "w": 0.7,
      "h": 0.2,
      "style": "blue",
-     "step": 1
+     "step": 2
     },
     {
      "id": "c",
      "text": "2024, 2025, 2026: WATER-LIKE",
      "x": 0.5,
-     "y": 0.62,
-     "w": 0.6,
+     "y": 0.8,
+     "w": 0.7,
      "h": 0.18,
      "style": "green",
-     "step": 1
-    },
-    {
-     "id": "e",
-     "text": "FITS WATER - NOT PROOF. A SHADOW CAN FOOL IT",
-     "x": 0.5,
-     "y": 0.88,
-     "w": 0.84,
-     "h": 0.12,
-     "style": "red",
      "step": 2
     }
    ],
    "id": "i_ndwi"
-  },
-  {
-   "type": "diagram",
-   "title": "Check 1 of 3: is it repeatable?",
-   "source": "Sentinel-2 L2A scene metadata; NDWI per scene (evidence/ndwi.json)",
-   "nodes": [
-    {
-     "id": "a",
-     "text": "8 OCT 2024",
-     "x": 0.2,
-     "y": 0.3,
-     "w": 0.26,
-     "h": 0.16,
-     "style": "blue",
-     "step": 1
-    },
-    {
-     "id": "b",
-     "text": "8 OCT 2025",
-     "x": 0.5,
-     "y": 0.3,
-     "w": 0.26,
-     "h": 0.16,
-     "style": "blue",
-     "step": 1
-    },
-    {
-     "id": "c",
-     "text": "18 OCT 2026",
-     "x": 0.8,
-     "y": 0.3,
-     "w": 0.26,
-     "h": 0.16,
-     "style": "blue",
-     "step": 1
-    },
-    {
-     "id": "r",
-     "text": "SEGMENT PRESENT IN ALL THREE",
-     "x": 0.5,
-     "y": 0.58,
-     "w": 0.8,
-     "h": 0.12,
-     "style": "green",
-     "step": 2
-    },
-    {
-     "id": "a2",
-     "text": "SENTINEL-2A",
-     "x": 0.2,
-     "y": 0.84,
-     "w": 0.26,
-     "h": 0.14,
-     "style": "accent",
-     "step": 3
-    },
-    {
-     "id": "b2",
-     "text": "SENTINEL-2B",
-     "x": 0.5,
-     "y": 0.84,
-     "w": 0.26,
-     "h": 0.14,
-     "style": "accent",
-     "step": 3
-    },
-    {
-     "id": "c2",
-     "text": "SENTINEL-2C",
-     "x": 0.8,
-     "y": 0.84,
-     "w": 0.26,
-     "h": 0.14,
-     "style": "accent",
-     "step": 3
-    }
-   ],
-   "id": "i_dates"
-  },
-  {
-   "type": "geo",
-   "title": "Check 2 of 3: Landsat 8, 30 m per pixel",
-   "source": "Landsat 8 OLI, 22 Oct 2024, 30 m (USGS)",
-   "credit": "Landsat imagery courtesy of the U.S. Geological Survey",
-   "show_credit": false,
-   "date": "OCT 2024",
-   "image": {
-    "stack": "evidence/landsat/y2024.png",
-    "grid": "evidence/landsat/grid.json",
-    "center": [
-     35.2165,
-     28.1062
-    ],
-    "width_km": 6
-   },
-   "callouts": [
-    {
-     "at": [
-      35.2119,
-      28.1062
-     ],
-     "text": "DARK SEGMENT: ABOUT 0.7 KM"
-    }
-   ],
-   "graticule": false,
-   "scale_bar": true,
-   "id": "i_l8"
   },
   {
    "type": "compare",
@@ -1144,35 +770,6 @@
     }
    ],
    "id": "i_verdict"
-  },
-  {
-   "type": "geo",
-   "title": "At 10 m: no building can be identified here",
-   "source": "Copernicus Sentinel-2 L2A, 10 m, Oct 2026",
-   "credit": "Contains modified Copernicus Sentinel data 2026",
-   "show_credit": false,
-   "date": "OCT 2026",
-   "image": {
-    "stack": "evidence/stack/y2026.png",
-    "grid": "evidence/stack/grid.json",
-    "center": [
-     35.2165,
-     28.1062
-    ],
-    "width_km": 2.5
-   },
-   "callouts": [
-    {
-     "at": [
-      35.2165,
-      28.1062
-     ],
-     "text": "DARK SEGMENT"
-    }
-   ],
-   "graticule": false,
-   "scale_bar": true,
-   "id": "i_nobuilding"
   },
   {
    "type": "diagram",

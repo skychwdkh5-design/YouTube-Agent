@@ -22,13 +22,113 @@
    ],
    "found_at": "2026-10-21",
    "rights_class": "US_GOVERNMENT",
-   "status": "VERIFIED",
+   "status": "REJECTED",
    "status_reasons": [
-    "US government work: usually free to use, credit the agency, never imply endorsement; third-party material inside it (photographer credits, logos) is NOT covered"
+    "EXCLUDED 2026-10-21 per owner rule (credit/authorship must come from the primary source; unconfirmed = excluded). Primary page https://www.nasa.gov/image-article/northwestern-coast-of-saudi-arabia-red-sea/ gives only the image id iss066e091657 and byline NASA, no photographer and no rights statement; the NASA Earth-observations record (eol.jsc.nasa.gov) is blocked in this environment, so the individual author cannot be confirmed. EXIF text names ESA astronaut Matthias Maurer but it is a template caption of another photo ('crew running Myotones and vascular aging') and is not evidence of authorship or copyright. Not NEOM-specific. Not shown."
    ],
    "local_path": "media/assets/northwestern_coast_of_saudi_.jpg",
    "sha256": "93236ad9ce7d540e3917a45b79c19e0aa576706fcf937dc7e8a425f376d116b6",
-   "retrieved": "2026-10-21"
+   "retrieved": "2026-10-21",
+   "rejected_by_owner": true,
+   "exif_note": "EXIF ImageDescription = \"GMT350_15_41_For ESA_Matthias Maurer_1089_crew running Myotones and vascular aging\"; IPTC \"NASA 3502608\"; Nikon D5"
+  },
+  {
+   "id": "neom_official_newsroom_resou",
+   "scene": "promise",
+   "title": "NEOM official newsroom resources (images and video)",
+   "page_url": "https://www.neom.com/en-us/newsroom/resources",
+   "author": "NEOM",
+   "license": "NEOM Terms of Use (text not readable from this environment)",
+   "kind": "photo",
+   "file_url": null,
+   "license_url": null,
+   "attribution_text": null,
+   "rights_evidence": null,
+   "on_screen_label": null,
+   "date": null,
+   "discovered_by": "web-search",
+   "depicts_reality": true,
+   "claims": [],
+   "found_at": "2026-10-21",
+   "rights_class": "UNKNOWN",
+   "status": "DISCOVERED",
+   "status_reasons": [
+    "no rights evidence recorded (the licence statement read on the source page, with the date); a search-result snippet is not evidence",
+    "licence unknown"
+   ]
+  },
+  {
+   "id": "wikimedia_commons_category_n",
+   "scene": "promise",
+   "title": "Wikimedia Commons Category:Neom (ISS and satellite views of the coast)",
+   "page_url": "https://commons.wikimedia.org/wiki/Category:Neom",
+   "author": "various (per file)",
+   "license": "per file; host blocked, not read",
+   "kind": "photo",
+   "file_url": null,
+   "license_url": null,
+   "attribution_text": null,
+   "rights_evidence": null,
+   "on_screen_label": null,
+   "date": null,
+   "discovered_by": "web-search",
+   "depicts_reality": true,
+   "claims": [],
+   "found_at": "2026-10-21",
+   "rights_class": "UNKNOWN",
+   "status": "DISCOVERED",
+   "status_reasons": [
+    "no rights evidence recorded (the licence statement read on the source page, with the date); a search-result snippet is not evidence",
+    "licence unknown"
+   ]
+  },
+  {
+   "id": "aerial_construction_photos_o",
+   "scene": "segment",
+   "title": "Aerial construction photos of The Line (Dezeen, Feb 2024)",
+   "page_url": "https://www.dezeen.com/2024/02/08/aerial-photos-the-line-megacity/",
+   "author": "The Line project team, published by Dezeen",
+   "license": "All rights reserved (press photos)",
+   "kind": "photo",
+   "file_url": null,
+   "license_url": null,
+   "attribution_text": null,
+   "rights_evidence": "2026-10-21 search result only; press photos from the project, no free licence",
+   "on_screen_label": null,
+   "date": null,
+   "discovered_by": "web-search",
+   "depicts_reality": true,
+   "claims": [],
+   "found_at": "2026-10-21",
+   "rights_class": "COPYRIGHTED",
+   "status": "REJECTED",
+   "status_reasons": [
+    "licence 'All rights reserved (press photos)': copyrighted: needs a licence we do not have"
+   ]
+  },
+  {
+   "id": "ot_sky_drone_photos_of_the_l",
+   "scene": "segment",
+   "title": "OT Sky drone photos of The Line construction",
+   "page_url": "https://parametric-architecture.com/ot-sky-released-photos-of-neoms-the-line-project-construction/",
+   "author": "OT Sky",
+   "license": "All rights reserved",
+   "kind": "photo",
+   "file_url": null,
+   "license_url": null,
+   "attribution_text": null,
+   "rights_evidence": "2026-10-21 search result only; commercial drone company, no free licence",
+   "on_screen_label": null,
+   "date": null,
+   "discovered_by": "web-search",
+   "depicts_reality": true,
+   "claims": [],
+   "found_at": "2026-10-21",
+   "rights_class": "COPYRIGHTED",
+   "status": "REJECTED",
+   "status_reasons": [
+    "licence 'All rights reserved': copyrighted: needs a licence we do not have"
+   ]
   }
  ]
 }

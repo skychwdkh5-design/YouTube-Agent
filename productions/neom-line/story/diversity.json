@@ -2,30 +2,100 @@
  "rule": "visual-monotony/2",
  "max_map_run": 4,
  "longest_map_run": {
-  "shots": 6,
+  "shots": 5,
   "from": 3.5,
-  "to": 30.0,
-  "chapter": "promise"
+  "to": 25.1,
+  "chapter": "hook"
  },
  "kind_share_info_only": {
-  "map": 0.469,
-  "graphic": 0.531,
+  "map": 0.462,
+  "scene": 0.138,
+  "graphic": 0.4,
   "still": 0.0,
   "video": 0.0
  },
  "kind_share": {
-  "map": 0.469,
-  "graphic": 0.531,
+  "map": 0.462,
+  "scene": 0.138,
+  "graphic": 0.4,
   "still": 0.0,
   "video": 0.0
  },
- "same_scale_neighbours": 4,
+ "same_scale_neighbours": 5,
  "justified_chapters": [
   "shows"
  ],
  "warnings": [
-  "6 satellite-map shots in a row (4-30 s, chapter promise): say in research/notes.json visual_choices['promise'] why maps are the best evidence here, or use the material that proves or explains the claim better"
+  "5 satellite-map shots in a row (4-25 s, chapter hook): say in research/notes.json visual_choices['hook'] why maps are the best evidence here, or use the material that proves or explains the claim better"
  ],
  "status": "WARN",
- "media_pending": []
+ "media_pending": [
+  {
+   "id": "northwestern_coast_of_saudi_",
+   "scene": "promise",
+   "status": "REJECTED",
+   "page_url": "https://www.nasa.gov/image-article/northwestern-coast-of-saudi-arabia-red-sea/",
+   "license": "NASA media usage guidelines (not copyrighted unless noted)",
+   "title": "Northwestern coast of Saudi Arabia on the Red Sea (ISS photograph iss066e091657)",
+   "reasons": [
+    "EXCLUDED 2026-10-21 per owner rule (credit/authorship must come from the primary source; unconfirmed = excluded). Primary page https://www.nasa.gov/image-article/northwestern-coast-of-saudi-arabia-red-sea/ gives only the image id iss066e091657 and byline NASA, no photographer and no rights statement; the NASA Earth-observations record (eol.jsc.nasa.gov) is blocked in this environment, so the individual author cannot be confirmed. EXIF text names ESA astronaut Matthias Maurer but it is a template caption of another photo ('crew running Myotones and vascular aging') and is not evidence of authorship or copyright. Not NEOM-specific. Not shown."
+   ]
+  },
+  {
+   "id": "neom_official_newsroom_resou",
+   "scene": "promise",
+   "status": "DISCOVERED",
+   "page_url": "https://www.neom.com/en-us/newsroom/resources",
+   "license": "NEOM Terms of Use (text not readable from this environment)",
+   "title": "NEOM official newsroom resources (images and video)",
+   "reasons": [
+    "no rights evidence recorded (the licence statement read on the source page, with the date); a search-result snippet is not evidence",
+    "licence unknown"
+   ],
+   "would_replace": {
+    "shot": "promise_009",
+    "start": 46.702,
+    "dur": 2.7
+   }
+  },
+  {
+   "id": "wikimedia_commons_category_n",
+   "scene": "promise",
+   "status": "DISCOVERED",
+   "page_url": "https://commons.wikimedia.org/wiki/Category:Neom",
+   "license": "per file; host blocked, not read",
+   "title": "Wikimedia Commons Category:Neom (ISS and satellite views of the coast)",
+   "reasons": [
+    "no rights evidence recorded (the licence statement read on the source page, with the date); a search-result snippet is not evidence",
+    "licence unknown"
+   ],
+   "would_replace": {
+    "shot": "promise_009",
+    "start": 46.702,
+    "dur": 2.7
+   }
+  },
+  {
+   "id": "aerial_construction_photos_o",
+   "scene": "segment",
+   "status": "REJECTED",
+   "page_url": "https://www.dezeen.com/2024/02/08/aerial-photos-the-line-megacity/",
+   "license": "All rights reserved (press photos)",
+   "title": "Aerial construction photos of The Line (Dezeen, Feb 2024)",
+   "reasons": [
+    "licence 'All rights reserved (press photos)': copyrighted: needs a licence we do not have"
+   ]
+  },
+  {
+   "id": "ot_sky_drone_photos_of_the_l",
+   "scene": "segment",
+   "status": "REJECTED",
+   "page_url": "https://parametric-architecture.com/ot-sky-released-photos-of-neoms-the-line-project-construction/",
+   "license": "All rights reserved",
+   "title": "OT Sky drone photos of The Line construction",
+   "reasons": [
+    "licence 'All rights reserved': copyrighted: needs a licence we do not have"
+   ]
+  }
+ ]
 }

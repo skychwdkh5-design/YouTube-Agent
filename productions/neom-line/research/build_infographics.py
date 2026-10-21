@@ -63,12 +63,11 @@ inf.append({"id":"i_orbit","chapter":"method","claims":["C16"],"min_s":11,
 inf.append({"id":"i_cloud","chapter":"method","claims":["C16"],"anchor_text":"The scenes report almost no cloud","min_s":4,"closes_chapter":True,
  "graphic":{"type":"callout","title":"Cloud cover in all seven scenes","source":"Sentinel-2 L2A scene metadata (scene cloud cover 0.03 to 0.06 percent)","value":0.1,"unit":"percent","label":"is the ceiling for reported cloud cover in all seven scenes","decimals":1}})
 # --- segment
-inf.append({"id":"i_ndwi","chapter":"segment","claims":["C11"],"min_s":16,
+inf.append({"id":"i_ndwi","chapter":"segment","claims":["C11"],"min_s":10,
  "graphic":{"type":"diagram","title":"Water-like in near-infrared","source":"Sentinel-2 B03/B08 NDWI, our notes: NDWI above zero and B08 below 0.05",
-  "nodes":[N("a","NEAR-INFRARED SIGNAL: VERY LOW",0.27,0.3,0.4,0.2,"blue",1),N("b","WATER INDEX (NDWI): ABOVE ZERO",0.73,0.3,0.4,0.2,"blue",1),
-           N("c","2024, 2025, 2026: WATER-LIKE",0.5,0.62,0.6,0.18,"green",1),
-           N("e","FITS WATER - NOT PROOF. A SHADOW CAN FOOL IT",0.5,0.88,0.84,0.12,"red",2)]},
- "steps":[{"anchor_text":"In near-infrared light"},{"anchor_text":"That fits water"}]})
+  "nodes":[N("a","NEAR-INFRARED SIGNAL: VERY LOW",0.5,0.25,0.7,0.2,"blue",1),N("b","WATER INDEX (NDWI): ABOVE ZERO",0.5,0.52,0.7,0.2,"blue",2),
+           N("c","2024, 2025, 2026: WATER-LIKE",0.5,0.8,0.7,0.18,"green",2)]},
+ "steps":[{"anchor_text":"In near-infrared light"},{"anchor_text":"our water index is above zero"}]})
 # --- checks
 inf.append({"id":"i_dates","chapter":"checks","claims":["C14"],"min_s":14,
  "graphic":{"type":"diagram","title":"Check 1 of 3: is it repeatable?","source":"Sentinel-2 L2A scene metadata; NDWI per scene (evidence/ndwi.json)",
@@ -117,6 +116,11 @@ inf.append({"id":"i_nomatch","chapter":"limits","claims":[],"min_s":10,
  "steps":[{"anchor_text":"We had no official NEOM map"},{"anchor_text":"A similar picture in 2025"}]})
 for i in inf:
     if i["id"] in ("i_opened","i_nobuilding","i_cannot","i_nomatch"): i["exempt"]=True
+DROP={"i_coast","i_pixel","i_visible","i_scenes","i_dates","i_l8","i_nobuilding"}
+inf=[i for i in inf if i["id"] not in DROP]
+exec(open("/tmp/gx/maps_def.py").read())
+n["maps"]=MAPS
+n["skip_graphics"]=["g_cmp_2025_2026_c12"]
 n["infographics"]=inf
 json.dump(n,open(P,'w'),indent=1,ensure_ascii=False)
 print(len(inf))

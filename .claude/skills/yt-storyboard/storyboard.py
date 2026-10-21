@@ -69,12 +69,12 @@ def parse_sentences(text):
 
 def _fixed(v):
     """Full-frame visuals that keep their own on-screen time: yt-graphics images and external stills (photos, NASA images)."""
-    return v.get("kind") in ("graphic", "still", "video")
+    return v.get("kind") in ("graphic", "still", "video", "scene")
 
 
 def _cap(v):
     """Longest a full-frame visual may sit on screen: a video 12 s, a graphic built in steps as long as its steps run (<= 40 s), any other graphic or photo 7 s."""
-    return 12.0 if v.get("kind") == "video" else 40.0 if v.get("steps") else 7.0
+    return 12.0 if v.get("kind") in ("video", "scene") else 40.0 if v.get("steps") else 7.0
 
 
 def _visual_year(v):
@@ -147,7 +147,7 @@ def place_by_claims(vis, durs, sents, word_time, t0):
         out.insert(pos, v); pos_t.insert(pos, tt)
     first = min(t for t, _, _ in inserts)
     k = next((n for n, v in enumerate(out) if not _fixed(v)), None)
-    if _fixed(out[0]) and first - t0 > 3.0 and k is not None:          # the chapter's first graphic is spoken about later: a map beat covers the narration before it
+    if any(out[0] is v for _, _, v in inserts) and first - t0 > 3.0 and k is not None:          # the chapter's first graphic is spoken about later: a map beat covers the narration before it
         out.insert(0, out.pop(k))
     return out
 
@@ -171,7 +171,7 @@ def anchor_durations(vis, durs, sents, word_time, t0, t1, min_of):
             hit = next((wi for wi, w in toks if wi > cursor and re.search(rf"(?<!\d){y}(?!\d)", w)), None)
         if hit is None:
             rep.append({"visual": i, "year": y, "status": "the narrator does not say this year after the previous anchor"}); continue
-        want = word_time(hit) - (min(0.5, durs[i] / 4) if "wipe" in v else 0.3 if y == "claim" else 0.15)
+        want = word_time(hit) - (min(0.5, durs[i] / 4) if "wipe" in v and v.get("kind") != "scene" else 0.3 if y == "claim" else 0.15)
         prev_i = max(fixed)
         floor_ = fixed[prev_i] + sum(min_of(vis[k]) for k in range(prev_i, i))
         ceil_ = t1 - sum(min_of(vis[k]) for k in range(i, n))
@@ -335,6 +335,14 @@ def build(ep, root, voice_meta=None):
                     cur = wi if wi is not None else cur
                     st_t.append(round(max(tt, 0.0) if n_ else 0.0, 3))
                 v = dict(v, step_t=st_t)
+            if v.get("kind") == "scene" and v.get("marks"):      # pins, arrows, labels and the wipe of an annotated map scene arrive on their own words (seconds from the shot start)
+                cur, mt = -1, []
+                for m_ in v["marks"] + ([{"anchor_text": v["wipe_at"]}] if v.get("wipe_at") else []):
+                    wi = _text_word(m_["anchor_text"], sents, cur) if m_.get("anchor_text") and sents else None
+                    tt = (tof(wi) - 0.2 - t) if wi is not None else m_.get("t", 0.6)
+                    cur = wi - 1 if wi is not None else cur          # several marks may arrive on the same words
+                    mt.append(round(max(tt, 0.1), 3))
+                v = dict(v, mark_t=mt[:len(v["marks"])], wipe_t=(mt[len(v["marks"])] if v.get("wipe_at") else None))
             parts = [dur] if i in gset else split_duration(dur)
             for k, d in enumerate(parts):
                 shots.append(_shot(ep, grid, chap, v, k, len(parts), t, d, labels, len(shots)))
@@ -359,6 +367,8 @@ def _shot(ep, grid, chap, v, k, n, t, d, labels, idx):
         a = ep["assets"][v["asset"]]
         labels.append({"text": f"graphic:{v['asset']}", "claims": a.get("claims") or [], "exempt": bool(a.get("exempt")), "shot": sid})
         return s
+    if v.get("kind") == "scene":
+        return _scene_shot(ep, grid, chap, v, s, d, labels, sid)
     if v.get("kind") == "video":
         a = ep["assets"][v["asset"]]
         s["layers"] = [{"type": "video", "asset": v["asset"], "trim": v.get("trim", 0), "credit": True, "captions": True}]
@@ -404,6 +414,51 @@ def _shot(ep, grid, chap, v, k, n, t, d, labels, idx):
     return s
 
 
+def _scene_shot(ep, grid, chap, v, s, d, labels, sid):
+    """An annotated, animated map shot: a real camera move over the evidence, a wipe or flip between dates / instruments, and pins, arrows and labels that arrive on the narrator's words."""
+    focus = v.get("focus") or chap.get("focus") or ep.get("focus")
+    z0, z1 = v.get("zoom") or [8, 4]
+    c0, w0 = fit_view(grid, focus, z0)
+    c1, w1 = fit_view(grid, v.get("focus_to") or focus, z1)
+    s["camera"] = {"from": {"center": c0, "width_km": w0}, "to": {"center": c1, "width_km": w1}}
+    s["scene"] = True
+    if v.get("claims"):
+        s["claims"] = list(v["claims"])
+    if v.get("wipe"):
+        a, b = v["wipe"]
+        t0 = v.get("wipe_t") if v.get("wipe_t") is not None else min(1.2, d / 3)
+        t0 = min(t0, max(d - 2.0, 0.1))
+        layers = [{"type": "image", "asset": a}, {"type": "wipe", "from": a, "to": b, "t": [t0, t0 + min(1.8, max(d - t0 - 0.3, 0.6))]}]
+        s["info"] = v.get("info") or f"wipe {a}->{b}"
+    elif v.get("flip"):
+        layers = [{"type": "flip", "assets": list(v["flip"]), "step": v.get("step", 1.0)}]
+        s["info"] = v.get("info") or "flip " + ",".join(v["flip"])
+    else:
+        layers = [{"type": "image", "asset": v["asset"]}]
+        s["info"] = v.get("info") or v["asset"]
+    c0_ = (v.get("claims") or [None])[0]          # on-screen words of a scene carry the scene's claim; a limitation scene (limit: true) carries none and is reviewed by a person
+    lab = v.get("label")
+    if lab:
+        layers.append({"type": "label", "text": lab["text"], "style": lab.get("style", "tag"), "slot": lab.get("slot", "upper"), **({"sub": lab["sub"]} if lab.get("sub") else {}), "t": [min(0.6, d / 4), None]})
+        labels.append({"text": lab["text"], "claim": lab.get("claim") or c0_, "exempt": False, "limit": bool(v.get("limit")), "shot": sid})
+    for m_, tt in zip(v.get("marks") or [], v.get("mark_t") or [0.6] * len(v.get("marks") or [])):
+        tt = min(tt, max(d - 0.8, 0.1))
+        end = None if m_.get("dur") is None else min(tt + m_["dur"], d)
+        L = {"type": m_["type"], "t": [tt, end]}
+        if m_["type"] == "pin":
+            L.update(at=m_["at"], text=m_["text"])
+        elif m_["type"] == "arrow":
+            L.update({"from": m_["from"], "to": m_["to"]}, **({"width": m_["width"]} if m_.get("width") else {}))
+        elif m_["type"] == "label":
+            L.update(text=m_["text"], style=m_.get("style", "tag"), slot=m_.get("slot", "upper"), **({"sub": m_["sub"]} if m_.get("sub") else {}))
+            labels.append({"text": m_["text"], "claim": m_.get("claim") or c0_, "exempt": False, "limit": bool(v.get("limit")), "shot": sid})
+        if m_.get("color"):
+            L["color"] = m_["color"]
+        layers.append(L)
+    s["layers"] = layers
+    return s
+
+
 def diversity(sb, ep=None, max_map_run=4):
     """Monotony signal for a storyboard (VISUAL_STYLE_V3). There is NO quota of photos or video: a long run of satellite-map shots is flagged only so that someone states why maps are the best evidence there.
     A chapter listed in ep['visual_choices'] (chapter -> the reason this material proves or explains its claims best) is exempt from the run warning.
@@ -413,7 +468,7 @@ def diversity(sb, ep=None, max_map_run=4):
     prev_scale, same_scale = None, []
     for s in sb["shots"]:
         l0 = s["layers"][0]["type"] if s.get("layers") else "image"
-        kind = "graphic" if l0 == "graphic" else "still" if l0 == "still" else "video" if l0 == "video" else "map"
+        kind = "graphic" if l0 == "graphic" else "still" if l0 == "still" else "video" if l0 == "video" else "scene" if s.get("scene") else "map"
         kinds.append(kind)
         if s.get("chapter") in justified:                    # a chapter whose evidence choice is stated is not counted, and it ends any run before it
             run, prev_scale = 0, None
@@ -433,7 +488,7 @@ def diversity(sb, ep=None, max_map_run=4):
         else:
             run, prev_scale = 0, None
     n = max(len(kinds), 1)
-    share = {k: round(kinds.count(k) / n, 3) for k in ("map", "graphic", "still", "video")}
+    share = {k: round(kinds.count(k) / n, 3) for k in ("map", "scene", "graphic", "still", "video")}
     warns = []
     if worst[0] > max_map_run:
         warns.append(f"{worst[0]} satellite-map shots in a row ({worst[1]:.0f}-{worst[2]:.0f} s, chapter {worst[3]}): say in research/notes.json visual_choices[{worst[3]!r}] why maps are the best evidence here, or use the material that proves or explains the claim better")

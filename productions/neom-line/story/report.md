@@ -1,11 +1,16 @@
 # Storyboard report
 
-- timing: voice; duration 385.312 s; shots 64; plan hash a37f9b9f72615813
+- timing: voice; duration 385.312 s; shots 65; plan hash c3140607b09359c8
 - renderer plan: confirm_required rendering needs --confirm; the timeline is valid, plan attached
 - chapters: hook 0.0-25.14s, promise 25.14-52.04s, plan 52.04-101.92s, method 101.92-149.93s, shows 149.93-189.95s, segment 189.95-241.44s, checks 241.44-315.65s, limits 315.65-351.69s, close 351.69-385.31s
-- warning: one composition holds 16.0s without a reset (207.8-223.8s, target <= 8s)
-- diversity WARN: map 47% / graphic 53% / photo 0% / video 0%; longest satellite-map run 6 shots
-- diversity warning: 6 satellite-map shots in a row (4-30 s, chapter promise): say in research/notes.json visual_choices['promise'] why maps are the best evidence here, or use the material that proves or explains the claim better
+- warning: one composition holds 15.1s without a reset (130.3-145.4s, target <= 8s)
+- diversity WARN: map 46% / graphic 40% / photo 0% / video 0%; longest satellite-map run 5 shots
+- diversity warning: 5 satellite-map shots in a row (4-25 s, chapter hook): say in research/notes.json visual_choices['hook'] why maps are the best evidence here, or use the material that proves or explains the claim better
+- media PENDING (not in the render, rights not VERIFIED): northwestern_coast_of_saudi_ [REJECTED] for scene promise https://www.nasa.gov/image-article/northwestern-coast-of-saudi-arabia-red-sea/
+- media PENDING (not in the render, rights not VERIFIED): neom_official_newsroom_resou [DISCOVERED] for scene promise https://www.neom.com/en-us/newsroom/resources
+- media PENDING (not in the render, rights not VERIFIED): wikimedia_commons_category_n [DISCOVERED] for scene promise https://commons.wikimedia.org/wiki/Category:Neom
+- media PENDING (not in the render, rights not VERIFIED): aerial_construction_photos_o [REJECTED] for scene segment https://www.dezeen.com/2024/02/08/aerial-photos-the-line-megacity/
+- media PENDING (not in the render, rights not VERIFIED): ot_sky_drone_photos_of_the_l [REJECTED] for scene segment https://parametric-architecture.com/ot-sky-released-photos-of-neoms-the-line-project-construction/
 
 Shots:
 -    0.00s +3.5s hook: g_scale
@@ -14,22 +19,22 @@ Shots:
 -   11.39s +2.5s hook: y2022
 -   13.89s +6.9s hook: wipe y2022->y2026
 -   20.81s +4.3s hook: y2026
--   25.14s +4.9s promise: y2026
--   30.05s +7.0s promise: i_coast
--   37.05s +5.5s promise: g_scale
--   42.51s +7.0s promise: g_tiers
--   49.51s +2.5s promise: y2026
--   52.04s +2.5s plan: y2026
--   54.54s +10.4s plan: i_bloomberg_s1
+-   25.14s +5.5s promise: y2026
+-   30.68s +11.8s promise: g_scale
+-   42.51s +4.2s promise: g_tiers
+-   46.70s +2.7s promise: y2026
+-   49.37s +2.7s promise: y2026
+-   52.04s +12.9s plan: i_bloomberg_s1
 -   64.97s +11.9s plan: i_semafor_s1
 -   76.83s +8.2s plan: i_reuters_s1
 -   85.02s +3.8s plan: g_reports
--   88.80s +13.1s plan: i_opened_s1
+-   88.80s +8.6s plan: i_opened_s1
+-   97.36s +4.6s plan: y2026
 -  101.92s +4.9s method: y2026
 -  106.78s +4.6s method: i_source
--  111.39s +3.6s method: i_pixel
--  114.97s +6.6s method: i_visible_s1
--  121.57s +8.7s method: i_scenes
+-  111.39s +3.6s method: y2026
+-  114.97s +6.6s method: y2026
+-  121.57s +8.7s method: flip y2020,y2021,y2022,y2023,y2024,y2025,y2026
 -  130.30s +15.1s method: i_orbit_s1
 -  145.39s +4.5s method: i_cloud
 -  149.93s +6.1s shows: y2020
@@ -47,21 +52,22 @@ Shots:
 -  189.95s +3.8s segment: y2022
 -  193.70s +7.0s segment: g_cmp_2022_2026_c10
 -  200.70s +7.1s segment: g_hero_c10
--  207.79s +16.0s segment: i_ndwi_s1
--  223.79s +5.4s segment: wipe y2022->y2026
--  229.22s +5.4s segment: y2026
--  234.65s +6.8s segment: y2026
--  241.44s +2.5s checks: y2024
--  243.94s +13.1s checks: i_dates_s1
--  257.07s +8.8s checks: i_l8
+-  207.79s +9.5s segment: i_ndwi_s1
+-  217.28s +6.2s segment: y2026
+-  223.48s +5.5s segment: wipe y2022->y2026
+-  229.01s +5.5s segment: y2026
+-  234.53s +6.9s segment: y2026
+-  241.44s +15.4s checks: flip y2024,y2025,y2026
+-  256.87s +9.0s checks: wipe y2024->l2024
 -  265.89s +7.0s checks: i_landsat
 -  272.92s +6.7s checks: i_lengths
--  279.58s +6.5s checks: i_apart_s1
--  286.12s +11.0s checks: g_cmp_2025_2026_c12
+-  279.58s +6.3s checks: i_apart_s1
+-  285.92s +11.2s checks: wipe y2025->y2026
 -  297.09s +12.0s checks: i_growth_s1
--  309.08s +6.6s checks: i_verdict_s1
+-  309.08s +4.4s checks: i_verdict_s1
+-  313.50s +2.2s checks: y2024
 -  315.65s +3.8s limits: y2026
--  319.40s +4.3s limits: i_nobuilding
+-  319.40s +4.3s limits: y2026
 -  323.72s +7.0s limits: i_cannot_s1
 -  330.71s +10.0s limits: i_nomatch_s1
 -  340.71s +5.5s limits: y2026

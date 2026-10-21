@@ -1,0 +1,33 @@
+{
+ "_method": "Same water-like test as evidence/ndwi.json (NDWI=(B03-B08)/(B03+B08)>0 and B08<0.05, Sentinel-2 L2A, bbox 35.2,28.098,35.232,28.114, 352x178 px): west/east end = first/last water-like column; lat = mean water-like row. Used only to place the length arrows.",
+ "2024": {
+  "lon_w": 35.20845454545455,
+  "lon_e": 35.22472727272727,
+  "lat": 28.106224719101125,
+  "cols": [
+   93,
+   271
+  ],
+  "km": 1.6
+ },
+ "2025": {
+  "lon_w": 35.20854545454546,
+  "lon_e": 35.22481818181818,
+  "lat": 28.1061797752809,
+  "cols": [
+   94,
+   272
+  ],
+  "km": 1.6
+ },
+ "2026": {
+  "lon_w": 35.20527272727273,
+  "lon_e": 35.22481818181818,
+  "lat": 28.10626966292135,
+  "cols": [
+   58,
+   272
+  ],
+  "km": 1.92
+ }
+}

@@ -189,12 +189,13 @@ def run_evidence(ep, ctx):
         if c != 0:
             raise Halt("blocked", f"yt-sentinel {stk['name']}: {d.get('status')} {d.get('error')} {d.get('missing', '')}")
         outs += [f"{out}/provenance.json", f"{out}/grid.json"]
-    if geo.get("landsat_spec"):                       # a second instrument on the same ground (free USGS Landsat browse GeoTIFFs); idempotent
-        if not os.path.exists(ep.p("evidence", "landsat", "grid.json")) or ctx["force"]:
-            c, d = tool([os.path.join(SK, "yt-satellite", "landsat_stack.py"), "--spec", geo["landsat_spec"], "--root", ".", "--confirm"], ep.root, 1800)
+    for spec_ in ([geo["landsat_spec"]] if isinstance(geo.get("landsat_spec"), str) else geo.get("landsat_spec") or []):   # a second instrument on the same ground (free USGS Landsat browse GeoTIFFs); idempotent
+        out_dir = json.load(open(ep.p(spec_))).get("out_dir", "landsat")
+        if not os.path.exists(ep.p("evidence", out_dir, "grid.json")) or ctx["force"]:
+            c, d = tool([os.path.join(SK, "yt-satellite", "landsat_stack.py"), "--spec", spec_, "--root", ".", "--confirm"], ep.root, 1800)
             if c != 0:
-                raise Halt("blocked", f"landsat_stack: {d.get('status')} {d.get('error')}")
-        outs += ["evidence/landsat/provenance.json", "evidence/landsat/grid.json"]
+                raise Halt("blocked", f"landsat_stack {spec_}: {d.get('status')} {d.get('error')}")
+        outs += [f"evidence/{out_dir}/provenance.json", f"evidence/{out_dir}/grid.json"]
     if geo.get("ndwi_bbox"):
         if not os.path.exists(ep.p("evidence", "ndwi.json")) or ctx["force"]:
             c, d = tool([os.path.join(SK, "yt-sentinel", "sentinel.py"), "ndwi-series", "--provenance", f"evidence/{geo['stacks'][0]['name']}/provenance.json",
@@ -202,7 +203,7 @@ def run_evidence(ep, ctx):
             if c != 0:
                 raise Halt("blocked", f"yt-sentinel ndwi-series: {d.get('error')}")
         outs.append("evidence/ndwi.json")
-    return outs, f"{len(geo['stacks'])} stacks" + (" + Landsat stack" if geo.get("landsat_spec") else "") + (" + NDWI series" if geo.get("ndwi_bbox") else "")
+    return outs, f"{len(geo['stacks'])} stacks" + (" + Landsat stack(s)" if geo.get("landsat_spec") else "") + (" + NDWI series" if geo.get("ndwi_bbox") else "")
 
 
 def run_script(ep, ctx):

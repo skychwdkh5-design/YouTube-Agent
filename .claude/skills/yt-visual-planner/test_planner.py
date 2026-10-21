@@ -267,6 +267,26 @@ class Infographics(unittest.TestCase):
         maps = [v for c in ep["chapters"] if c["id"] == "plan" for v in c["visuals"] if v.get("kind") not in ("graphic", "still", "video")]
         self.assertLessEqual(len(maps), 1)
 
+    def test_map_scene_needs_real_assets_and_claims_and_is_not_a_filler(self):
+        self.n["maps"] = [{"id": "m_ok", "chapter": "plan", "claims": ["C2"], "asset": "y2026", "anchor_text": "Outlet reported", "marks": []},
+                          {"id": "m_noasset", "chapter": "plan", "claims": ["C2"], "asset": "l1999"},
+                          {"id": "m_weak", "chapter": "plan", "claims": ["C4"], "asset": "y2026"},
+                          {"id": "m_hook", "chapter": "hook", "claims": ["C2"], "asset": "y2026"}]
+        ep, _ = self.go([])
+        scenes = [v for c in ep["chapters"] for v in c["visuals"] if v.get("kind") == "scene"]
+        self.assertEqual([v["id"] for v in scenes], ["m_ok"])
+        self.assertEqual(sorted(d["id"] for d in ep["infographics_dropped"]), ["m_hook", "m_noasset", "m_weak"])
+        with self.assertRaises(pl.PlanError):
+            self.n["maps"] = [{"id": "m_x", "chapter": "plan", "claims": ["C99"], "asset": "y2026"}]
+            self.go([])
+
+    def test_skip_graphics_removes_a_rule_made_graphic_that_a_scene_replaces(self):
+        ep0, _ = self.go([])
+        self.assertTrue(any(v.get("asset") == "g_reports" for c in ep0["chapters"] for v in c["visuals"]))
+        self.n["skip_graphics"] = ["g_reports"]
+        ep1, _ = self.go([])
+        self.assertFalse(any(v.get("asset") == "g_reports" for c in ep1["chapters"] for v in c["visuals"]))
+
     def test_exempt_flag_reaches_every_step_asset(self):
         ep, _ = self.go([self.card(claims=[], exempt=True)])
         self.assertTrue(ep["assets"]["i_card_s1"]["exempt"] and ep["assets"]["i_card"]["exempt"])

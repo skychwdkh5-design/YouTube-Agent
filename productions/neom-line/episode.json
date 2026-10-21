@@ -88,6 +88,41 @@
    "label": "2026",
    "credit": "Contains modified Copernicus Sentinel data 2026"
   },
+  "l2020": {
+   "src": "evidence/landsat10/y2020.png",
+   "label": "2020",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
+  "l2021": {
+   "src": "evidence/landsat10/y2021.png",
+   "label": "2021",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
+  "l2022": {
+   "src": "evidence/landsat10/y2022.png",
+   "label": "2022",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
+  "l2023": {
+   "src": "evidence/landsat10/y2023.png",
+   "label": "2023",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
+  "l2024": {
+   "src": "evidence/landsat10/y2024.png",
+   "label": "2024",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
+  "l2025": {
+   "src": "evidence/landsat10/y2025.png",
+   "label": "2025",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
+  "l2026": {
+   "src": "evidence/landsat10/y2026.png",
+   "label": "2026",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
   "g_scale": {
    "src": "graphics/g_scale.png",
    "kind": "graphic",
@@ -163,15 +198,6 @@
    "group": "g_cmp_2020_2024_c19",
    "claims": [
     "C19"
-   ]
-  },
-  "i_coast": {
-   "src": "graphics/i_coast.png",
-   "kind": "graphic",
-   "credit": "NASA / ISS photo; Contains modified Copernicus Sentinel data 2026",
-   "group": "i_coast",
-   "claims": [
-    "C20"
    ]
   },
   "i_bloomberg_s1": {
@@ -253,42 +279,6 @@
     "C16"
    ]
   },
-  "i_pixel": {
-   "src": "graphics/i_pixel.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_pixel",
-   "claims": [
-    "C15"
-   ]
-  },
-  "i_visible_s1": {
-   "src": "graphics/i_visible.step1.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_visible",
-   "claims": [
-    "C15"
-   ]
-  },
-  "i_visible": {
-   "src": "graphics/i_visible.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_visible",
-   "claims": [
-    "C15"
-   ]
-  },
-  "i_scenes": {
-   "src": "graphics/i_scenes.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_scenes",
-   "claims": [
-    "C16"
-   ]
-  },
   "i_orbit_s1": {
    "src": "graphics/i_orbit.step1.png",
    "kind": "graphic",
@@ -332,42 +322,6 @@
    "group": "i_ndwi",
    "claims": [
     "C11"
-   ]
-  },
-  "i_dates_s1": {
-   "src": "graphics/i_dates.step1.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_dates",
-   "claims": [
-    "C14"
-   ]
-  },
-  "i_dates_s2": {
-   "src": "graphics/i_dates.step2.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_dates",
-   "claims": [
-    "C14"
-   ]
-  },
-  "i_dates": {
-   "src": "graphics/i_dates.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_dates",
-   "claims": [
-    "C14"
-   ]
-  },
-  "i_l8": {
-   "src": "graphics/i_l8.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_l8",
-   "claims": [
-    "C13"
    ]
   },
   "i_landsat": {
@@ -464,14 +418,6 @@
     "C13",
     "C12"
    ]
-  },
-  "i_nobuilding": {
-   "src": "graphics/i_nobuilding.png",
-   "kind": "graphic",
-   "credit": "Graphic: OrbitalAtlas",
-   "group": "i_nobuilding",
-   "claims": [],
-   "exempt": true
   },
   "i_cannot_s1": {
    "src": "graphics/i_cannot.step1.png",
@@ -600,16 +546,6 @@
    "id": "promise",
    "visuals": [
     {
-     "asset": "i_coast",
-     "kind": "graphic",
-     "min_s": 8,
-     "claims": [
-      "C20"
-     ],
-     "anchor": "claim",
-     "anchor_text": "Red Sea coast"
-    },
-    {
      "asset": "g_tiers",
      "kind": "graphic",
      "min_s": 9,
@@ -620,6 +556,41 @@
      ],
      "anchor": "claim",
      "anchor_text": "first of three things"
+    },
+    {
+     "kind": "scene",
+     "id": "m_coast",
+     "asset": "y2026",
+     "min_s": 6,
+     "claims": [
+      "C20"
+     ],
+     "anchor": "claim",
+     "zoom": [
+      4.2,
+      13
+     ],
+     "marks": [
+      {
+       "type": "pin",
+       "at": [
+        35.10146,
+        28.07686
+       ],
+       "text": "RED SEA COAST",
+       "anchor_text": "Saudi Arabia's Red Sea coast",
+       "dur": 4.5
+      }
+     ],
+     "focus": [
+      35.11382,
+      28.0848
+     ],
+     "focus_to": [
+      35.17,
+      28.1
+     ],
+     "anchor_text": "The project is called"
     },
     {
      "asset": "g_scale",
@@ -789,46 +760,6 @@
      "anchor_text": "We used free Sentinel-2 images"
     },
     {
-     "asset": "i_pixel",
-     "kind": "graphic",
-     "min_s": 8,
-     "claims": [
-      "C15"
-     ],
-     "anchor": "claim",
-     "anchor_text": "Each pixel in our frames"
-    },
-    {
-     "asset": "i_visible_s1",
-     "kind": "graphic",
-     "min_s": 9,
-     "claims": [
-      "C15"
-     ],
-     "anchor": "claim",
-     "anchor_text": "sharp enough to see",
-     "steps": [
-      {
-       "asset": "i_visible_s1",
-       "anchor_text": "sharp enough to see"
-      },
-      {
-       "asset": "i_visible",
-       "anchor_text": "but not a person"
-      }
-     ]
-    },
-    {
-     "asset": "i_scenes",
-     "kind": "graphic",
-     "min_s": 6,
-     "claims": [
-      "C16"
-     ],
-     "anchor": "claim",
-     "anchor_text": "We picked seven scenes"
-    },
-    {
      "asset": "i_orbit_s1",
      "kind": "graphic",
      "min_s": 11,
@@ -857,6 +788,109 @@
      ],
      "anchor": "claim",
      "anchor_text": "The scenes report almost no cloud"
+    },
+    {
+     "kind": "scene",
+     "id": "m_pixel",
+     "asset": "y2026",
+     "min_s": 3.6,
+     "claims": [
+      "C15"
+     ],
+     "anchor": "claim",
+     "zoom": [
+      3.2,
+      0.55
+     ],
+     "marks": [],
+     "focus": [
+      35.2165,
+      28.1062
+     ],
+     "label": {
+      "text": "1 PIXEL = 10 M OF GROUND",
+      "style": "tag",
+      "slot": "upper"
+     },
+     "anchor_text": "Each pixel in our frames"
+    },
+    {
+     "kind": "scene",
+     "id": "m_visible",
+     "asset": "y2026",
+     "min_s": 6,
+     "claims": [
+      "C15"
+     ],
+     "anchor": "claim",
+     "zoom": [
+      10,
+      7
+     ],
+     "marks": [
+      {
+       "type": "pin",
+       "at": [
+        35.16014,
+        28.11151
+       ],
+       "text": "A LONG CLEARED STRIP",
+       "anchor_text": "a long cleared strip",
+       "dur": 3.2
+      },
+      {
+       "type": "pin",
+       "at": [
+        35.13911,
+        28.07719
+       ],
+       "text": "A ROAD",
+       "anchor_text": "or a road",
+       "dur": 3.0
+      },
+      {
+       "type": "label",
+       "text": "NOT VISIBLE: PERSON, CRANE, WINDOW",
+       "style": "tag",
+       "slot": "upper",
+       "anchor_text": "but not a person"
+      }
+     ],
+     "focus": [
+      35.14964,
+      28.09507
+     ],
+     "anchor_text": "sharp enough to see"
+    },
+    {
+     "kind": "scene",
+     "id": "m_scenes",
+     "asset": "y2020",
+     "min_s": 8.4,
+     "claims": [
+      "C16"
+     ],
+     "anchor": "claim",
+     "zoom": [
+      11,
+      8
+     ],
+     "marks": [],
+     "focus": [
+      35.2165,
+      28.1062
+     ],
+     "flip": [
+      "y2020",
+      "y2021",
+      "y2022",
+      "y2023",
+      "y2024",
+      "y2025",
+      "y2026"
+     ],
+     "step": 1.15,
+     "anchor_text": "We picked seven scenes"
     },
     {
      "asset": "y2026",
@@ -1058,7 +1092,7 @@
     {
      "asset": "i_ndwi_s1",
      "kind": "graphic",
-     "min_s": 16,
+     "min_s": 10,
      "claims": [
       "C11"
      ],
@@ -1071,9 +1105,48 @@
       },
       {
        "asset": "i_ndwi",
-       "anchor_text": "That fits water"
+       "anchor_text": "our water index is above zero"
       }
      ]
+    },
+    {
+     "kind": "scene",
+     "id": "m_notproof",
+     "asset": "y2026",
+     "min_s": 6.2,
+     "claims": [
+      "C11"
+     ],
+     "anchor": "claim",
+     "zoom": [
+      2.6,
+      1.3
+     ],
+     "marks": [
+      {
+       "type": "pin",
+       "at": [
+        35.2165,
+        28.1062
+       ],
+       "text": "DARK SEGMENT",
+       "t": 0.6,
+       "dur": null
+      },
+      {
+       "type": "label",
+       "text": "FITS WATER, NOT PROOF",
+       "sub": "A SHADOW CAN FOOL IT",
+       "style": "tag",
+       "slot": "upper",
+       "anchor_text": "A shadow can also fool"
+      }
+     ],
+     "focus": [
+      35.2165,
+      28.1062
+     ],
+     "anchor_text": "That fits water"
     },
     {
      "asset": "y2022",
@@ -1154,40 +1227,6 @@
   {
    "id": "checks",
    "visuals": [
-    {
-     "asset": "i_dates_s1",
-     "kind": "graphic",
-     "min_s": 14,
-     "claims": [
-      "C14"
-     ],
-     "anchor": "claim",
-     "anchor_text": "First, was it a one-day accident",
-     "steps": [
-      {
-       "asset": "i_dates_s1",
-       "anchor_text": "First, was it a one-day accident"
-      },
-      {
-       "asset": "i_dates_s2",
-       "anchor_text": "No."
-      },
-      {
-       "asset": "i_dates",
-       "anchor_text": "three different Sentinel-2 satellites"
-      }
-     ]
-    },
-    {
-     "asset": "i_l8",
-     "kind": "graphic",
-     "min_s": 7,
-     "claims": [
-      "C13"
-     ],
-     "anchor": "claim",
-     "anchor_text": "Second, does a different satellite agree"
-    },
     {
      "asset": "i_landsat",
      "kind": "graphic",
@@ -1280,6 +1319,167 @@
      ]
     },
     {
+     "kind": "scene",
+     "id": "m_dates",
+     "asset": "y2024",
+     "min_s": 15.4,
+     "claims": [
+      "C14"
+     ],
+     "anchor": "claim",
+     "zoom": [
+      4.2,
+      3.0
+     ],
+     "marks": [
+      {
+       "type": "label",
+       "text": "SENTINEL-2A - 8 OCT 2024",
+       "style": "tag",
+       "slot": "middle",
+       "t": 2.3,
+       "dur": 2.2
+      },
+      {
+       "type": "label",
+       "text": "SENTINEL-2B - 8 OCT 2025",
+       "style": "tag",
+       "slot": "middle",
+       "t": 4.8,
+       "dur": 4.3
+      },
+      {
+       "type": "label",
+       "text": "SENTINEL-2C - 18 OCT 2026",
+       "style": "tag",
+       "slot": "middle",
+       "t": 9.3
+      }
+     ],
+     "focus": [
+      35.2165,
+      28.1062
+     ],
+     "flip": [
+      "y2024",
+      "y2025",
+      "y2026"
+     ],
+     "step": 4.6,
+     "anchor_text": "We tried to break our own result"
+    },
+    {
+     "kind": "scene",
+     "id": "m_l8",
+     "asset": "y2024",
+     "min_s": 8.8,
+     "claims": [
+      "C13"
+     ],
+     "anchor": "claim",
+     "zoom": [
+      4.4,
+      2.6
+     ],
+     "marks": [
+      {
+       "type": "label",
+       "text": "LANDSAT 8 - 30 M, SAME PLACE",
+       "style": "tag",
+       "slot": "upper",
+       "anchor_text": "Landsat 8, at 30 meters",
+       "dur": null
+      }
+     ],
+     "focus": [
+      35.2165,
+      28.1062
+     ],
+     "wipe": [
+      "y2024",
+      "l2024"
+     ],
+     "wipe_at": "Landsat 8, at 30 meters",
+     "label": {
+      "text": "SENTINEL-2 - 10 M",
+      "style": "tag",
+      "slot": "upper"
+     },
+     "anchor_text": "Second, does a different satellite agree"
+    },
+    {
+     "kind": "scene",
+     "id": "m_len",
+     "asset": "y2025",
+     "min_s": 11,
+     "claims": [
+      "C12"
+     ],
+     "anchor": "claim",
+     "zoom": [
+      3.4,
+      2.6
+     ],
+     "marks": [
+      {
+       "type": "arrow",
+       "from": [
+        35.20855,
+        28.10618
+       ],
+       "to": [
+        35.22482,
+        28.10618
+       ],
+       "color": "#FFD23F",
+       "width": 9,
+       "anchor_text": "about 1.6 kilometers",
+       "dur": null
+      },
+      {
+       "type": "label",
+       "text": "OCT 2025: ABOUT 1.6 KM",
+       "style": "tag",
+       "slot": "upper",
+       "anchor_text": "about 1.6 kilometers",
+       "dur": null
+      },
+      {
+       "type": "arrow",
+       "from": [
+        35.20527,
+        28.10627
+       ],
+       "to": [
+        35.22482,
+        28.10627
+       ],
+       "color": "#FFD23F",
+       "width": 9,
+       "anchor_text": "about 1.9 kilometers",
+       "dur": null
+      },
+      {
+       "type": "label",
+       "text": "OCT 2026: ABOUT 1.9 KM",
+       "style": "tag",
+       "slot": "middle",
+       "anchor_text": "about 1.9 kilometers",
+       "dur": null
+      }
+     ],
+     "focus": [
+      35.2165,
+      28.1062
+     ],
+     "wipe": [
+      "y2025",
+      "y2026"
+     ],
+     "wipe_at": "about 1.9 kilometers",
+     "anchor_text": "Third, how long is it"
+    },
+    {
      "asset": "y2024",
      "zoom": [
       15,
@@ -1299,30 +1499,12 @@
       "C14"
      ],
      "anchor": "year"
-    },
-    {
-     "asset": "g_cmp_2025_2026_c12",
-     "kind": "graphic",
-     "min_s": 6,
-     "claims": [
-      "C12"
-     ],
-     "anchor": "claim",
-     "anchor_year": "2025"
     }
    ]
   },
   {
    "id": "limits",
    "visuals": [
-    {
-     "asset": "i_nobuilding",
-     "kind": "graphic",
-     "min_s": 8,
-     "claims": [],
-     "anchor": "claim",
-     "anchor_text": "cannot identify any building"
-    },
     {
      "asset": "i_cannot_s1",
      "kind": "graphic",
@@ -1358,6 +1540,34 @@
        "anchor_text": "A similar picture in 2025"
       }
      ]
+    },
+    {
+     "kind": "scene",
+     "id": "m_nobuilding",
+     "asset": "y2026",
+     "min_s": 4.3,
+     "claims": [],
+     "anchor": "claim",
+     "zoom": [
+      5,
+      1.8
+     ],
+     "marks": [],
+     "focus": [
+      35.17029,
+      28.11008
+     ],
+     "focus_to": [
+      35.2165,
+      28.1062
+     ],
+     "label": {
+      "text": "AT THIS RESOLUTION: NO BUILDING",
+      "style": "tag",
+      "slot": "upper"
+     },
+     "anchor_text": "cannot identify any building",
+     "limit": true
     },
     {
      "asset": "y2026",
@@ -1526,7 +1736,65 @@
    "reason": "chapter is 70.2s"
   }
  ],
- "media_pending": [],
+ "media_pending": [
+  {
+   "id": "northwestern_coast_of_saudi_",
+   "scene": "promise",
+   "status": "REJECTED",
+   "page_url": "https://www.nasa.gov/image-article/northwestern-coast-of-saudi-arabia-red-sea/",
+   "license": "NASA media usage guidelines (not copyrighted unless noted)",
+   "title": "Northwestern coast of Saudi Arabia on the Red Sea (ISS photograph iss066e091657)",
+   "reasons": [
+    "EXCLUDED 2026-10-21 per owner rule (credit/authorship must come from the primary source; unconfirmed = excluded). Primary page https://www.nasa.gov/image-article/northwestern-coast-of-saudi-arabia-red-sea/ gives only the image id iss066e091657 and byline NASA, no photographer and no rights statement; the NASA Earth-observations record (eol.jsc.nasa.gov) is blocked in this environment, so the individual author cannot be confirmed. EXIF text names ESA astronaut Matthias Maurer but it is a template caption of another photo ('crew running Myotones and vascular aging') and is not evidence of authorship or copyright. Not NEOM-specific. Not shown."
+   ]
+  },
+  {
+   "id": "neom_official_newsroom_resou",
+   "scene": "promise",
+   "status": "DISCOVERED",
+   "page_url": "https://www.neom.com/en-us/newsroom/resources",
+   "license": "NEOM Terms of Use (text not readable from this environment)",
+   "title": "NEOM official newsroom resources (images and video)",
+   "reasons": [
+    "no rights evidence recorded (the licence statement read on the source page, with the date); a search-result snippet is not evidence",
+    "licence unknown"
+   ]
+  },
+  {
+   "id": "wikimedia_commons_category_n",
+   "scene": "promise",
+   "status": "DISCOVERED",
+   "page_url": "https://commons.wikimedia.org/wiki/Category:Neom",
+   "license": "per file; host blocked, not read",
+   "title": "Wikimedia Commons Category:Neom (ISS and satellite views of the coast)",
+   "reasons": [
+    "no rights evidence recorded (the licence statement read on the source page, with the date); a search-result snippet is not evidence",
+    "licence unknown"
+   ]
+  },
+  {
+   "id": "aerial_construction_photos_o",
+   "scene": "segment",
+   "status": "REJECTED",
+   "page_url": "https://www.dezeen.com/2024/02/08/aerial-photos-the-line-megacity/",
+   "license": "All rights reserved (press photos)",
+   "title": "Aerial construction photos of The Line (Dezeen, Feb 2024)",
+   "reasons": [
+    "licence 'All rights reserved (press photos)': copyrighted: needs a licence we do not have"
+   ]
+  },
+  {
+   "id": "ot_sky_drone_photos_of_the_l",
+   "scene": "segment",
+   "status": "REJECTED",
+   "page_url": "https://parametric-architecture.com/ot-sky-released-photos-of-neoms-the-line-project-construction/",
+   "license": "All rights reserved",
+   "title": "OT Sky drone photos of The Line construction",
+   "reasons": [
+    "licence 'All rights reserved': copyrighted: needs a licence we do not have"
+   ]
+  }
+ ],
  "media_gaps": [
   {
    "chapter": "hook",

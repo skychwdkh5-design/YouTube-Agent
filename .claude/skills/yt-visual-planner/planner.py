@@ -16,6 +16,7 @@ import argparse, hashlib, json, os, re, sys
 MON = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
 TAG = re.compile(r"\{(C\d+(?:\s*,\s*C\d+)*)\}")
 CH_RE = re.compile(r"^##\s+([a-z0-9_]+)\s*[:\-]")
+FULL_KINDS = ("graphic", "still", "video", "scene")       # visuals that keep their own on-screen time (a scene is an annotated, animated map shot)
 CREDIT = "Contains modified Copernicus Sentinel data {y}"
 SMALL_CREDIT = "Sentinel-2 · ESA"
 
@@ -96,7 +97,7 @@ def still_visual(e):
 def longest_map_run(vis):
     best = run = 0
     for v in vis:
-        run = 0 if v.get("kind") in ("graphic", "still", "video") else run + 1
+        run = 0 if v.get("kind") in FULL_KINDS else run + 1
         best = max(best, run)
     return best
 
@@ -139,6 +140,11 @@ def plan(root):
     focus, seg = geo.get("focus"), geo.get("segment") or geo.get("focus")
     grid_rel = f"evidence/{main}/grid.json"
     assets = {f"y{y}": {"src": f"evidence/{main}/y{y}.png", "label": str(y), "credit": CREDIT.format(y=y)} for y in years}
+    if os.path.exists(os.path.join(root, "evidence", "landsat10", "grid.json")):          # Landsat 8 resampled onto the SAME 10 m grid: wipes and flips between instruments are exact
+        lp = json.load(open(os.path.join(root, "evidence", "landsat10", "provenance.json")))
+        for y in years:
+            if f"y{y}" in lp:
+                assets[f"l{y}"] = {"src": f"evidence/landsat10/y{y}.png", "label": str(y), "credit": "Landsat imagery courtesy of the U.S. Geological Survey"}
     gfx, g_assets = [], {}
 
     def add_graphic(g, ids, credit_year=None):
@@ -264,6 +270,31 @@ def plan(root):
         if it.get("closes_chapter"):
             closers.add(cid_)
 
+    for it in notes.get("maps") or []:                       # annotated, animated map scenes: camera moves, wipes between instruments, flips, pins, arrows, labels
+        iid, cid_ = it["id"], it["chapter"]
+        if cid_ in ("hook", "close"):
+            info_dropped.append({"id": iid, "reason": f"chapter {cid_} is built by rule"}); continue
+        miss = [c for c in it.get("claims", []) if c not in claims]
+        if miss:
+            raise PlanError(f"map scene {iid} cites unknown claims {miss}")
+        low = [c for c in it.get("claims", []) if claims[c]["tier"] != "hypothesis" and claims[c]["confidence"] == "low"]
+        if low:
+            info_dropped.append({"id": iid, "reason": f"cites low-confidence claims {low}"}); continue
+        used_assets = [it["asset"]] if it.get("asset") else list(it.get("wipe") or []) + list(it.get("flip") or [])
+        gone = [a_ for a_ in used_assets if a_ not in assets]
+        if gone:
+            info_dropped.append({"id": iid, "reason": f"assets {gone} are not available (evidence stage)"}); continue
+        v = {"kind": "scene", "id": iid, "asset": used_assets[0], "min_s": it.get("min_s", 6), "claims": it.get("claims", []), "anchor": "claim",
+             "zoom": it.get("zoom", [8, 4]), "marks": it.get("marks", [])}
+        for k in ("focus", "focus_to", "wipe", "flip", "step", "wipe_at", "label", "anchor_text", "anchor_claims", "info", "limit"):
+            if it.get(k) is not None:
+                v[k] = it[k]
+        if not v["claims"] and not v.get("anchor_text"):
+            v.pop("anchor")
+        info_vis.setdefault(cid_, []).append(v)
+        if it.get("closes_chapter"):
+            closers.add(cid_)
+
     import itertools
     cyc = itertools.cycle(years)
     chapters, hook_done, dropped = [], False, []
@@ -356,10 +387,10 @@ def plan(root):
         if len(vis) < 3 and dur >= 9:
             vis.append(img(mid, [9, 14]))
         dur = words / 2.45
-        full = ("graphic", "still", "video")
+        full = FULL_KINDS
         def seconds_needed():
             """What the storyboard will ask of this chapter: full-frame visuals keep min_s (a stepped graphic up to 40 s, any other 7 s); every map beat needs at least 2.5 s."""
-            return (sum(min(max(v.get("min_s", 4.0), 2.0), 40.0 if v.get("steps") else 7.0) for v in vis if v.get("kind") in full)
+            return (sum(min(max(v.get("min_s", 4.0), 2.0), 40.0 if v.get("steps") else 12.0 if v.get("kind") == "scene" else 7.0) for v in vis if v.get("kind") in full)
                     + 2.5 * len([v for v in vis if v.get("kind") not in full]))
         while len(vis) > 1 and seconds_needed() > dur:
             maps_ = [i for i, v in enumerate(vis) if v.get("kind") not in full]
@@ -370,13 +401,15 @@ def plan(root):
             else:
                 break
             dropped.append({"chapter": cid, "dropped": [gone.get("asset") or str(gone.get("wipe"))], "reason": f"chapter is {dur:.1f}s"})
+        skip_ = set(notes.get("skip_graphics") or [])          # a rule-made graphic that an explicit scene replaces
+        vis = [v for v in vis if v.get("asset") not in skip_]
         cap_maps = (notes.get("max_map_beats") or {}).get(cid)           # an author's cap: a chapter carried by explicit scenes needs few map beats between them
         while cap_maps is not None and sum(1 for v in vis if v.get("kind") not in full) > (cap_maps if sum(1 for v in vis if v.get("kind") in full) >= 3 else max(cap_maps, 1)):
             gone = vis.pop(max(i for i, v in enumerate(vis) if v.get("kind") not in full))
             dropped.append({"chapter": cid, "dropped": [gone.get("asset") or str(gone.get("wipe"))], "reason": f"notes.max_map_beats caps {cid} at {cap_maps}"})
         if cid in closers:
-            last_map = max((i for i, v in enumerate(vis) if v.get("kind") not in ("graphic", "still", "video")), default=None)
-            if last_map is not None and sum(1 for v in vis if v.get("kind") not in ("graphic", "still", "video")) > 1:
+            last_map = max((i for i, v in enumerate(vis) if v.get("kind") not in FULL_KINDS), default=None)
+            if last_map is not None and sum(1 for v in vis if v.get("kind") not in FULL_KINDS) > 1:
                 dropped.append({"chapter": cid, "dropped": [vis.pop(last_map).get("asset") or "wipe"], "reason": "a scene closes this chapter"})
         chapters.append({"id": cid, "visuals": vis})
     media_gaps = []
@@ -392,7 +425,7 @@ def plan(root):
                                "license": e["license"], "retrieved": e["retrieved"], "image_date": e.get("date") or None, "derived_from": None, "media_id": e["id"], "claims": e.get("claims") or []}
         out, run, q = [], 0, list(mine)
         for v in ch["visuals"]:
-            if v.get("kind") in ("graphic", "still", "video"):
+            if v.get("kind") in FULL_KINDS:
                 run = 0
             else:
                 run += 1
@@ -402,9 +435,9 @@ def plan(root):
             out.append(v)
             if not q:
                 continue
-        if q and out and any(v.get("kind") not in ("graphic", "still", "video") for v in out):
+        if q and out and any(v.get("kind") not in FULL_KINDS for v in out):
             for e in q:                                 # leftover media of this scene: after the first map beat, then spread
-                pos = next((i for i, v in enumerate(out) if v.get("kind") not in ("graphic", "still", "video")), 0) + 1
+                pos = next((i for i, v in enumerate(out) if v.get("kind") not in FULL_KINDS), 0) + 1
                 out.insert(min(pos, len(out)), still_visual(e))
         ch["visuals"] = out
         mr = longest_map_run(out)

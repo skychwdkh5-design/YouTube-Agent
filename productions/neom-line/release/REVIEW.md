@@ -1,22 +1,22 @@
 # Release package - Here's What Satellites Show Near the Construction Site (working title, not final)
 
-Generated 2026-10-21T11:15:50Z. Nothing is published.
+Generated 2026-10-21T13:29:18Z. Nothing is published.
 
 ## Status
 - topic: done owner-approved topic
 - research: done 20 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN
 - facts: done 20 claims, registry ok
-- evidence: done 2 stacks + Landsat stack + NDWI series
+- evidence: done 2 stacks + Landsat stack(s) + NDWI series
 - script: done 943 words = 6.4 min, 16 claims used
-- media: done 1 verified of 1 media entries (style v2: media optional)
-- visualplan: done 60 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19', 'i_coast', 'i_bloomberg', 'i_semafor', 'i_reuters', 'i_opened', 'i_source', 'i_pixel', 'i_visible', 'i_scenes', 'i_orbit', 'i_cloud', 'i_ndwi', 'i_dates', 'i_l8', 'i_landsat', 'i_lengths', 'i_apart', 'i_growth', 'i_verdict', 'i_nobuilding', 'i_cannot', 'i_nomatch']
+- media: done 0 verified of 5 media entries (style v2: media optional)
+- visualplan: done 61 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19', 'i_bloomberg', 'i_semafor', 'i_reuters', 'i_opened', 'i_source', 'i_orbit', 'i_cloud', 'i_ndwi', 'i_landsat', 'i_lengths', 'i_apart', 'i_growth', 'i_verdict', 'i_cannot', 'i_nomatch']
 - visuals: done 53 graphics
-- storyboard: done 64 shots, 385.312s, timing from voice
-- visualcheck: done visual claims OK {'VERIFIED_SOURCE': 6, 'VERIFIED_DATA': 33, 'REVIEWED': 34} of 73 items; 7 orphan reviews (run `visualcheck.py prune`)
-- voice: done narration already generated (not regenerated)
-- voicecheck: done NEEDS_HUMAN_LISTEN: 21 risky words to listen to; storyboard re-timed from real word timings
-- captions: done captions built from real word timings
-- render: awaiting_approval approval present but --allow-render not given; plan validated
+- storyboard: done 65 shots, 385.312s, timing from voice
+- visualcheck: needs_agent 11 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)
+- voice: waiting waiting for ['visualcheck']
+- voicecheck: waiting waiting for ['voice']
+- captions: waiting waiting for ['voicecheck']
+- render: waiting waiting for ['voice', 'voicecheck', 'captions']
 - qc: waiting waiting for ['render']
 
 ## Autonomy (what was automated)
@@ -29,10 +29,10 @@ Generated 2026-10-21T11:15:50Z. Nothing is published.
 - visualplan: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - visuals: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - storyboard: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
-- visualcheck: FULLY_AUTOMATED / now FULLY_AUTOMATED / agent artifact, then code
-- voice: OWNER_REQUIRED / now OWNER_REQUIRED / code
-- voicecheck: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
-- captions: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
+- visualcheck: FULLY_AUTOMATED / now AGENT_REQUIRED / -
+- voice: OWNER_REQUIRED / now OWNER_REQUIRED / -
+- voicecheck: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
+- captions: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
 - render: OWNER_REQUIRED / now OWNER_REQUIRED / -
 - qc: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
 - release: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
@@ -68,6 +68,6 @@ Generated 2026-10-21T11:15:50Z. Nothing is published.
 - {'stage': 'voice', 'chars': 5280, 'provider': 'elevenlabs', 'at': '2026-10-21T05:05:17Z', 'note': 'approved by owner'}
 
 ## Package is INCOMPLETE
-Pending: render, qc
+Pending: visualcheck, voice, voicecheck, captions, render, qc
 
 **Owner question: approve the paid step(s) listed as awaiting_approval, or change?**

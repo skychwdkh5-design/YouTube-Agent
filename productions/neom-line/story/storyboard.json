@@ -61,64 +61,45 @@
    {
     "visual": 1,
     "year": "claim",
-    "target": 29.41,
-    "was": 29.09,
-    "now": 29.41
+    "target": 30.68,
+    "was": 31.14,
+    "now": 30.68
    },
    {
     "visual": 2,
-    "year": "claim",
-    "target": 30.68,
-    "was": 36.09,
-    "now": 31.41
-   },
-   {
-    "visual": 3,
     "year": "claim",
     "target": 42.51,
-    "was": 41.09,
+    "was": 36.14,
     "now": 42.51
-   },
-   {
-    "visual": 2,
-    "year": "-",
-    "status": "anchor released: it would squeeze the graphic before it to 2.0s"
    }
   ],
   "plan": [
    {
     "visual": 1,
     "year": "claim",
-    "target": 53.74,
-    "was": 58.42,
-    "now": 54.54
+    "target": 64.97,
+    "was": 61.04,
+    "now": 64.97
    },
    {
     "visual": 2,
     "year": "claim",
-    "target": 64.97,
-    "was": 67.42,
-    "now": 64.97
+    "target": 76.83,
+    "was": 70.04,
+    "now": 76.83
    },
    {
     "visual": 3,
     "year": "claim",
-    "target": 76.83,
-    "was": 76.42,
-    "now": 76.83
+    "target": 85.02,
+    "was": 79.04,
+    "now": 85.02
    },
    {
     "visual": 4,
     "year": "claim",
-    "target": 85.02,
-    "was": 85.42,
-    "now": 85.02
-   },
-   {
-    "visual": 5,
-    "year": "claim",
     "target": 88.8,
-    "was": 89.92,
+    "was": 83.54,
     "now": 88.8
    }
   ],
@@ -127,28 +108,28 @@
     "visual": 1,
     "year": "claim",
     "target": 106.78,
-    "was": 107.93,
+    "was": 111.93,
     "now": 106.78
    },
    {
     "visual": 2,
     "year": "claim",
     "target": 111.39,
-    "was": 112.93,
+    "was": 116.93,
     "now": 111.39
    },
    {
     "visual": 3,
     "year": "claim",
     "target": 114.97,
-    "was": 119.93,
+    "was": 120.53,
     "now": 114.97
    },
    {
     "visual": 4,
     "year": "claim",
     "target": 121.57,
-    "was": 128.93,
+    "was": 126.53,
     "now": 121.57
    },
    {
@@ -226,25 +207,32 @@
     "visual": 1,
     "year": "claim",
     "target": 192.65,
-    "was": 196.48,
+    "was": 196.42,
     "now": 192.65
    },
    {
     "visual": 2,
     "year": "claim",
     "target": 200.7,
-    "was": 202.48,
+    "was": 202.42,
     "now": 200.7
    },
    {
     "visual": 3,
     "year": "claim",
     "target": 207.79,
-    "was": 208.48,
+    "was": 208.42,
     "now": 207.79
    },
    {
     "visual": 4,
+    "year": "claim",
+    "target": 217.28,
+    "was": 218.42,
+    "now": 217.28
+   },
+   {
+    "visual": 5,
     "year": "2026",
     "status": "the narrator does not say this year after the previous anchor"
    }
@@ -253,58 +241,56 @@
    {
     "visual": 1,
     "year": "claim",
-    "target": 243.68,
-    "was": 249.65,
-    "now": 243.94
+    "target": 256.87,
+    "was": 253.44,
+    "now": 256.87
    },
    {
     "visual": 2,
     "year": "claim",
-    "target": 257.07,
-    "was": 263.65,
-    "now": 257.07
+    "target": 265.89,
+    "was": 262.24,
+    "now": 265.89
    },
    {
     "visual": 3,
     "year": "claim",
-    "target": 265.89,
-    "was": 270.65,
-    "now": 265.89
+    "target": 272.92,
+    "was": 269.24,
+    "now": 272.92
    },
    {
     "visual": 4,
     "year": "claim",
-    "target": 272.92,
-    "was": 277.65,
-    "now": 272.92
+    "target": 279.58,
+    "was": 276.24,
+    "now": 279.58
    },
    {
     "visual": 5,
     "year": "claim",
-    "target": 279.58,
-    "was": 284.65,
-    "now": 279.58
+    "target": 285.92,
+    "was": 282.24,
+    "now": 285.92
    },
    {
     "visual": 6,
     "year": "claim",
-    "target": 286.12,
-    "was": 290.65,
-    "now": 286.12
+    "target": 297.09,
+    "was": 293.24,
+    "now": 297.09
    },
    {
     "visual": 7,
     "year": "claim",
-    "target": 297.09,
-    "was": 296.65,
-    "now": 297.09
+    "target": 309.08,
+    "was": 305.24,
+    "now": 309.08
    },
    {
     "visual": 8,
-    "year": "claim",
-    "target": 309.08,
-    "was": 308.65,
-    "now": 309.08
+    "year": "2024",
+    "status": "the narrator does not say this year after the previous anchor"
    }
   ],
   "limits": [
@@ -312,21 +298,21 @@
     "visual": 1,
     "year": "claim",
     "target": 319.4,
-    "was": 320.17,
+    "was": 321.52,
     "now": 319.4
    },
    {
     "visual": 2,
     "year": "claim",
     "target": 323.72,
-    "was": 327.17,
+    "was": 325.82,
     "now": 323.72
    },
    {
     "visual": 3,
     "year": "claim",
     "target": 330.71,
-    "was": 337.17,
+    "was": 335.82,
     "now": 330.71
    }
   ],
@@ -592,7 +578,102 @@
    "id": "promise_006",
    "chapter": "promise",
    "start": 25.136,
-   "dur": 4.913,
+   "dur": 5.539,
+   "family": "y2026_promise",
+   "claims": [
+    "C20"
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.12035,
+      28.0847
+     ],
+     "width_km": 4.2
+    },
+    "to": {
+     "center": [
+      35.17005,
+      28.10241
+     ],
+     "width_km": 13
+    }
+   },
+   "scene": true,
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "pin",
+     "t": [
+      3.399,
+      5.5390000000000015
+     ],
+     "at": [
+      35.10146,
+      28.07686
+     ],
+     "text": "RED SEA COAST"
+    }
+   ],
+   "end": 30.675
+  },
+  {
+   "id": "promise_007",
+   "chapter": "promise",
+   "start": 30.675,
+   "dur": 11.831,
+   "family": "g_scale_promise",
+   "claims": [
+    "C1"
+   ],
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g_scale",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    }
+   ],
+   "info": "g_scale",
+   "end": 42.506
+  },
+  {
+   "id": "promise_008",
+   "chapter": "promise",
+   "start": 42.506,
+   "dur": 4.196,
+   "family": "g_tiers_promise",
+   "claims": [
+    "C1",
+    "C4",
+    "C9"
+   ],
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g_tiers",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    }
+   ],
+   "info": "g_tiers",
+   "end": 46.702
+  },
+  {
+   "id": "promise_009",
+   "chapter": "promise",
+   "start": 46.702,
+   "dur": 2.667,
    "family": "y2026_promise",
    "camera": {
     "from": {
@@ -627,84 +708,13 @@
      ]
     }
    ],
-   "end": 30.049
-  },
-  {
-   "id": "promise_007",
-   "chapter": "promise",
-   "start": 30.049,
-   "dur": 7.0,
-   "family": "i_coast_promise",
-   "claims": [
-    "C20"
-   ],
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "i_coast",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    }
-   ],
-   "info": "i_coast",
-   "end": 37.049
-  },
-  {
-   "id": "promise_008",
-   "chapter": "promise",
-   "start": 37.049,
-   "dur": 5.457,
-   "family": "g_scale_promise",
-   "claims": [
-    "C1"
-   ],
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "g_scale",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    }
-   ],
-   "info": "g_scale",
-   "end": 42.506
-  },
-  {
-   "id": "promise_009",
-   "chapter": "promise",
-   "start": 42.506,
-   "dur": 7.0,
-   "family": "g_tiers_promise",
-   "claims": [
-    "C1",
-    "C4",
-    "C9"
-   ],
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "g_tiers",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    }
-   ],
-   "info": "g_tiers",
-   "end": 49.506
+   "end": 49.369
   },
   {
    "id": "promise_010",
    "chapter": "promise",
-   "start": 49.506,
-   "dur": 2.53,
+   "start": 49.369,
+   "dur": 2.667,
    "family": "y2026_promise",
    "camera": {
     "from": {
@@ -745,7 +755,158 @@
    "id": "plan_011",
    "chapter": "plan",
    "start": 52.036,
-   "dur": 2.5,
+   "dur": 12.935,
+   "family": "i_bloomberg_s1_plan",
+   "claims": [
+    "C2"
+   ],
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_bloomberg_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_bloomberg",
+     "t": [
+      10.028,
+      null
+     ],
+     "push": 0.04
+    }
+   ],
+   "info": "i_bloomberg_s1",
+   "end": 64.971
+  },
+  {
+   "id": "plan_012",
+   "chapter": "plan",
+   "start": 64.971,
+   "dur": 11.854,
+   "family": "i_semafor_s1_plan",
+   "claims": [
+    "C3"
+   ],
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_semafor_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_semafor",
+     "t": [
+      9.609,
+      null
+     ],
+     "push": 0.04
+    }
+   ],
+   "info": "i_semafor_s1",
+   "end": 76.825
+  },
+  {
+   "id": "plan_013",
+   "chapter": "plan",
+   "start": 76.825,
+   "dur": 8.197,
+   "family": "i_reuters_s1_plan",
+   "claims": [
+    "C4"
+   ],
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_reuters_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_reuters",
+     "t": [
+      6.091,
+      null
+     ],
+     "push": 0.04
+    }
+   ],
+   "info": "i_reuters_s1",
+   "end": 85.022
+  },
+  {
+   "id": "plan_014",
+   "chapter": "plan",
+   "start": 85.022,
+   "dur": 3.773,
+   "family": "g_reports_plan",
+   "claims": [
+    "C1",
+    "C2",
+    "C3",
+    "C4"
+   ],
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g_reports",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    }
+   ],
+   "info": "g_reports",
+   "end": 88.795
+  },
+  {
+   "id": "plan_015",
+   "chapter": "plan",
+   "start": 88.795,
+   "dur": 8.568,
+   "family": "i_opened_s1_plan",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_opened_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_opened",
+     "t": [
+      6.857,
+      null
+     ],
+     "push": 0.04
+    }
+   ],
+   "info": "i_opened_s1",
+   "end": 97.363
+  },
+  {
+   "id": "plan_016",
+   "chapter": "plan",
+   "start": 97.363,
+   "dur": 4.562,
    "family": "y2026_plan",
    "camera": {
     "from": {
@@ -780,157 +941,6 @@
      ]
     }
    ],
-   "end": 54.536
-  },
-  {
-   "id": "plan_012",
-   "chapter": "plan",
-   "start": 54.536,
-   "dur": 10.435,
-   "family": "i_bloomberg_s1_plan",
-   "claims": [
-    "C2"
-   ],
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "i_bloomberg_s1",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    },
-    {
-     "type": "graphic",
-     "asset": "i_bloomberg",
-     "t": [
-      7.528,
-      null
-     ],
-     "push": 0.04
-    }
-   ],
-   "info": "i_bloomberg_s1",
-   "end": 64.971
-  },
-  {
-   "id": "plan_013",
-   "chapter": "plan",
-   "start": 64.971,
-   "dur": 11.854,
-   "family": "i_semafor_s1_plan",
-   "claims": [
-    "C3"
-   ],
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "i_semafor_s1",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    },
-    {
-     "type": "graphic",
-     "asset": "i_semafor",
-     "t": [
-      9.609,
-      null
-     ],
-     "push": 0.04
-    }
-   ],
-   "info": "i_semafor_s1",
-   "end": 76.825
-  },
-  {
-   "id": "plan_014",
-   "chapter": "plan",
-   "start": 76.825,
-   "dur": 8.197,
-   "family": "i_reuters_s1_plan",
-   "claims": [
-    "C4"
-   ],
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "i_reuters_s1",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    },
-    {
-     "type": "graphic",
-     "asset": "i_reuters",
-     "t": [
-      6.091,
-      null
-     ],
-     "push": 0.04
-    }
-   ],
-   "info": "i_reuters_s1",
-   "end": 85.022
-  },
-  {
-   "id": "plan_015",
-   "chapter": "plan",
-   "start": 85.022,
-   "dur": 3.773,
-   "family": "g_reports_plan",
-   "claims": [
-    "C1",
-    "C2",
-    "C3",
-    "C4"
-   ],
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "g_reports",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    }
-   ],
-   "info": "g_reports",
-   "end": 88.795
-  },
-  {
-   "id": "plan_016",
-   "chapter": "plan",
-   "start": 88.795,
-   "dur": 13.13,
-   "family": "i_opened_s1_plan",
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "i_opened_s1",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    },
-    {
-     "type": "graphic",
-     "asset": "i_opened",
-     "t": [
-      6.857,
-      null
-     ],
-     "push": 0.04
-    }
-   ],
-   "info": "i_opened_s1",
    "end": 101.925
   },
   {
@@ -1002,22 +1012,44 @@
    "chapter": "method",
    "start": 111.389,
    "dur": 3.576,
-   "family": "i_pixel_method",
+   "family": "y2026_method",
    "claims": [
     "C15"
    ],
+   "camera": {
+    "from": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 3.2
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 0.55
+    }
+   },
+   "scene": true,
+   "info": "y2026",
    "layers": [
     {
-     "type": "graphic",
-     "asset": "i_pixel",
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "1 PIXEL = 10 M OF GROUND",
+     "style": "tag",
+     "slot": "upper",
      "t": [
-      0,
+      0.6,
       null
-     ],
-     "push": 0.04
+     ]
     }
    ],
-   "info": "i_pixel",
    "end": 114.965
   },
   {
@@ -1025,31 +1057,68 @@
    "chapter": "method",
    "start": 114.965,
    "dur": 6.606,
-   "family": "i_visible_s1_method",
+   "family": "y2026_method",
    "claims": [
     "C15"
    ],
+   "camera": {
+    "from": {
+     "center": [
+      35.15066,
+      28.09505
+     ],
+     "width_km": 10
+    },
+    "to": {
+     "center": [
+      35.14964,
+      28.09507
+     ],
+     "width_km": 7
+    }
+   },
+   "scene": true,
+   "info": "y2026",
    "layers": [
     {
-     "type": "graphic",
-     "asset": "i_visible_s1",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
+     "type": "image",
+     "asset": "y2026"
     },
     {
-     "type": "graphic",
-     "asset": "i_visible",
+     "type": "pin",
+     "t": [
+      1.006,
+      4.206
+     ],
+     "at": [
+      35.16014,
+      28.11151
+     ],
+     "text": "A LONG CLEARED STRIP"
+    },
+    {
+     "type": "pin",
+     "t": [
+      2.329,
+      5.329000000000001
+     ],
+     "at": [
+      35.13911,
+      28.07719
+     ],
+     "text": "A ROAD"
+    },
+    {
+     "type": "label",
      "t": [
       3.246,
       null
      ],
-     "push": 0.04
+     "text": "NOT VISIBLE: PERSON, CRANE, WINDOW",
+     "style": "tag",
+     "slot": "upper"
     }
    ],
-   "info": "i_visible_s1",
    "end": 121.571
   },
   {
@@ -1057,22 +1126,43 @@
    "chapter": "method",
    "start": 121.571,
    "dur": 8.731,
-   "family": "i_scenes_method",
+   "family": "y2020_method",
    "claims": [
     "C16"
    ],
+   "camera": {
+    "from": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 11
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 8
+    }
+   },
+   "scene": true,
+   "info": "flip y2020,y2021,y2022,y2023,y2024,y2025,y2026",
    "layers": [
     {
-     "type": "graphic",
-     "asset": "i_scenes",
-     "t": [
-      0,
-      null
+     "type": "flip",
+     "assets": [
+      "y2020",
+      "y2021",
+      "y2022",
+      "y2023",
+      "y2024",
+      "y2025",
+      "y2026"
      ],
-     "push": 0.04
+     "step": 1.15
     }
    ],
-   "info": "i_scenes",
    "end": 130.302
   },
   {
@@ -1688,7 +1778,7 @@
    "id": "segment_039",
    "chapter": "segment",
    "start": 207.786,
-   "dur": 16,
+   "dur": 9.497,
    "family": "i_ndwi_s1_segment",
    "claims": [
     "C11"
@@ -1707,20 +1797,78 @@
      "type": "graphic",
      "asset": "i_ndwi",
      "t": [
-      9.597,
+      4.082,
       null
      ],
      "push": 0.04
     }
    ],
    "info": "i_ndwi_s1",
-   "end": 223.786
+   "end": 217.283
   },
   {
    "id": "segment_040",
    "chapter": "segment",
-   "start": 223.786,
-   "dur": 5.433,
+   "start": 217.283,
+   "dur": 6.2,
+   "family": "y2026_segment",
+   "claims": [
+    "C11"
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 2.6
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 1.3
+    }
+   },
+   "scene": true,
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "pin",
+     "t": [
+      0.6,
+      null
+     ],
+     "at": [
+      35.2165,
+      28.1062
+     ],
+     "text": "DARK SEGMENT"
+    },
+    {
+     "type": "label",
+     "t": [
+      3.386,
+      null
+     ],
+     "text": "FITS WATER, NOT PROOF",
+     "style": "tag",
+     "slot": "upper",
+     "sub": "A SHADOW CAN FOOL IT"
+    }
+   ],
+   "end": 223.483
+  },
+  {
+   "id": "segment_041",
+   "chapter": "segment",
+   "start": 223.483,
+   "dur": 5.526,
    "family": "wipe_2022_2026",
    "claims": [
     "C10"
@@ -1757,13 +1905,13 @@
      ]
     }
    ],
-   "end": 229.219
+   "end": 229.009
   },
   {
-   "id": "segment_041",
+   "id": "segment_042",
    "chapter": "segment",
-   "start": 229.219,
-   "dur": 5.433,
+   "start": 229.009,
+   "dur": 5.526,
    "family": "wipe_2022_2026",
    "claims": [
     "C10"
@@ -1791,13 +1939,13 @@
      "asset": "y2026"
     }
    ],
-   "end": 234.651
+   "end": 234.535
   },
   {
-   "id": "segment_042",
+   "id": "segment_043",
    "chapter": "segment",
-   "start": 234.651,
-   "dur": 6.791,
+   "start": 234.535,
+   "dur": 6.907,
    "family": "y2026_segment",
    "claims": [
     "C11"
@@ -1838,10 +1986,10 @@
    "end": 241.442
   },
   {
-   "id": "checks_043",
+   "id": "checks_044",
    "chapter": "checks",
    "start": 241.442,
-   "dur": 2.5,
+   "dur": 15.429,
    "family": "y2024_checks",
    "claims": [
     "C14"
@@ -1849,100 +1997,126 @@
    "camera": {
     "from": {
      "center": [
-      35.21651,
-      28.10684
+      35.2165,
+      28.1062
      ],
-     "width_km": 15
+     "width_km": 4.2
     },
     "to": {
      "center": [
       35.2165,
       28.1062
      ],
-     "width_km": 9
+     "width_km": 3.0
     }
    },
-   "info": "y2024",
+   "scene": true,
+   "info": "flip y2024,y2025,y2026",
+   "layers": [
+    {
+     "type": "flip",
+     "assets": [
+      "y2024",
+      "y2025",
+      "y2026"
+     ],
+     "step": 4.6
+    },
+    {
+     "type": "label",
+     "t": [
+      2.3,
+      4.5
+     ],
+     "text": "SENTINEL-2A - 8 OCT 2024",
+     "style": "tag",
+     "slot": "middle"
+    },
+    {
+     "type": "label",
+     "t": [
+      4.8,
+      9.1
+     ],
+     "text": "SENTINEL-2B - 8 OCT 2025",
+     "style": "tag",
+     "slot": "middle"
+    },
+    {
+     "type": "label",
+     "t": [
+      9.3,
+      null
+     ],
+     "text": "SENTINEL-2C - 18 OCT 2026",
+     "style": "tag",
+     "slot": "middle"
+    }
+   ],
+   "end": 256.871
+  },
+  {
+   "id": "checks_045",
+   "chapter": "checks",
+   "start": 256.871,
+   "dur": 9.023,
+   "family": "y2024_checks",
+   "claims": [
+    "C13"
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 4.4
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 2.6
+    }
+   },
+   "scene": true,
+   "info": "wipe y2024->l2024",
    "layers": [
     {
      "type": "image",
      "asset": "y2024"
     },
     {
+     "type": "wipe",
+     "from": "y2024",
+     "to": "l2024",
+     "t": [
+      3.144,
+      4.944
+     ]
+    },
+    {
      "type": "label",
-     "text": "OCT 2024",
-     "style": "year",
+     "text": "SENTINEL-2 - 10 M",
+     "style": "tag",
      "slot": "upper",
      "t": [
-      0.8,
+      0.6,
       null
      ]
-    }
-   ],
-   "end": 243.942
-  },
-  {
-   "id": "checks_044",
-   "chapter": "checks",
-   "start": 243.942,
-   "dur": 13.129,
-   "family": "i_dates_s1_checks",
-   "claims": [
-    "C14"
-   ],
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "i_dates_s1",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
     },
     {
-     "type": "graphic",
-     "asset": "i_dates_s2",
+     "type": "label",
      "t": [
-      2.536,
+      3.144,
       null
      ],
-     "push": 0.04
-    },
-    {
-     "type": "graphic",
-     "asset": "i_dates",
-     "t": [
-      6.588,
-      null
-     ],
-     "push": 0.04
+     "text": "LANDSAT 8 - 30 M, SAME PLACE",
+     "style": "tag",
+     "slot": "upper"
     }
    ],
-   "info": "i_dates_s1",
-   "end": 257.071
-  },
-  {
-   "id": "checks_045",
-   "chapter": "checks",
-   "start": 257.071,
-   "dur": 8.823,
-   "family": "i_l8_checks",
-   "claims": [
-    "C13"
-   ],
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "i_l8",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    }
-   ],
-   "info": "i_l8",
    "end": 265.894
   },
   {
@@ -1996,7 +2170,7 @@
    "id": "checks_048",
    "chapter": "checks",
    "start": 279.582,
-   "dur": 6.537,
+   "dur": 6.337,
    "family": "i_apart_s1_checks",
    "claims": [
     "C13"
@@ -2022,29 +2196,104 @@
     }
    ],
    "info": "i_apart_s1",
-   "end": 286.119
+   "end": 285.919
   },
   {
    "id": "checks_049",
    "chapter": "checks",
-   "start": 286.119,
-   "dur": 10.971,
-   "family": "g_cmp_2025_2026_c12_checks",
+   "start": 285.919,
+   "dur": 11.171,
+   "family": "y2025_checks",
    "claims": [
     "C12"
    ],
+   "camera": {
+    "from": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 3.4
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 2.6
+    }
+   },
+   "scene": true,
+   "info": "wipe y2025->y2026",
    "layers": [
     {
-     "type": "graphic",
-     "asset": "g_cmp_2025_2026_c12",
+     "type": "image",
+     "asset": "y2025"
+    },
+    {
+     "type": "wipe",
+     "from": "y2025",
+     "to": "y2026",
      "t": [
-      0,
+      7.359,
+      9.159
+     ]
+    },
+    {
+     "type": "arrow",
+     "t": [
+      3.028,
       null
      ],
-     "push": 0.04
+     "from": [
+      35.20855,
+      28.10618
+     ],
+     "to": [
+      35.22482,
+      28.10618
+     ],
+     "width": 9,
+     "color": "#FFD23F"
+    },
+    {
+     "type": "label",
+     "t": [
+      3.028,
+      null
+     ],
+     "text": "OCT 2025: ABOUT 1.6 KM",
+     "style": "tag",
+     "slot": "upper"
+    },
+    {
+     "type": "arrow",
+     "t": [
+      7.359,
+      null
+     ],
+     "from": [
+      35.20527,
+      28.10627
+     ],
+     "to": [
+      35.22482,
+      28.10627
+     ],
+     "width": 9,
+     "color": "#FFD23F"
+    },
+    {
+     "type": "label",
+     "t": [
+      7.359,
+      null
+     ],
+     "text": "OCT 2026: ABOUT 1.9 KM",
+     "style": "tag",
+     "slot": "middle"
     }
    ],
-   "info": "g_cmp_2025_2026_c12",
    "end": 297.09
   },
   {
@@ -2101,7 +2350,7 @@
    "id": "checks_051",
    "chapter": "checks",
    "start": 309.083,
-   "dur": 6.569,
+   "dur": 4.417,
    "family": "i_verdict_s1_checks",
    "claims": [
     "C14",
@@ -2122,17 +2371,61 @@
      "type": "graphic",
      "asset": "i_verdict",
      "t": [
-      4.419,
+      3.9171950048030926,
       null
      ],
      "push": 0.04
     }
    ],
    "info": "i_verdict_s1",
+   "end": 313.5
+  },
+  {
+   "id": "checks_052",
+   "chapter": "checks",
+   "start": 313.5,
+   "dur": 2.152,
+   "family": "y2024_checks",
+   "claims": [
+    "C14"
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.21651,
+      28.10684
+     ],
+     "width_km": 15
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 9
+    }
+   },
+   "info": "y2024",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2024"
+    },
+    {
+     "type": "label",
+     "text": "OCT 2024",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.7172683317323081,
+      null
+     ]
+    }
+   ],
    "end": 315.652
   },
   {
-   "id": "limits_052",
+   "id": "limits_053",
    "chapter": "limits",
    "start": 315.652,
    "dur": 3.752,
@@ -2173,27 +2466,49 @@
    "end": 319.404
   },
   {
-   "id": "limits_053",
+   "id": "limits_054",
    "chapter": "limits",
    "start": 319.404,
    "dur": 4.319,
-   "family": "i_nobuilding_limits",
+   "family": "y2026_limits",
+   "camera": {
+    "from": {
+     "center": [
+      35.17029,
+      28.11008
+     ],
+     "width_km": 5
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 1.8
+    }
+   },
+   "scene": true,
+   "info": "y2026",
    "layers": [
     {
-     "type": "graphic",
-     "asset": "i_nobuilding",
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AT THIS RESOLUTION: NO BUILDING",
+     "style": "tag",
+     "slot": "upper",
      "t": [
-      0,
+      0.6,
       null
-     ],
-     "push": 0.04
+     ]
     }
    ],
-   "info": "i_nobuilding",
    "end": 323.723
   },
   {
-   "id": "limits_054",
+   "id": "limits_055",
    "chapter": "limits",
    "start": 323.723,
    "dur": 6.989,
@@ -2222,7 +2537,7 @@
    "end": 330.712
   },
   {
-   "id": "limits_055",
+   "id": "limits_056",
    "chapter": "limits",
    "start": 330.712,
    "dur": 10,
@@ -2251,7 +2566,7 @@
    "end": 340.712
   },
   {
-   "id": "limits_056",
+   "id": "limits_057",
    "chapter": "limits",
    "start": 340.712,
    "dur": 5.489,
@@ -2292,7 +2607,7 @@
    "end": 346.201
   },
   {
-   "id": "limits_057",
+   "id": "limits_058",
    "chapter": "limits",
    "start": 346.201,
    "dur": 5.489,
@@ -2323,7 +2638,7 @@
    "end": 351.689
   },
   {
-   "id": "close_058",
+   "id": "close_059",
    "chapter": "close",
    "start": 351.689,
    "dur": 4.797,
@@ -2366,7 +2681,7 @@
    "end": 356.486
   },
   {
-   "id": "close_059",
+   "id": "close_060",
    "chapter": "close",
    "start": 356.486,
    "dur": 4.284,
@@ -2389,7 +2704,7 @@
    "end": 360.77
   },
   {
-   "id": "close_060",
+   "id": "close_061",
    "chapter": "close",
    "start": 360.77,
    "dur": 7.523,
@@ -2415,7 +2730,7 @@
    "end": 368.293
   },
   {
-   "id": "close_061",
+   "id": "close_062",
    "chapter": "close",
    "start": 368.293,
    "dur": 5,
@@ -2438,7 +2753,7 @@
    "end": 373.293
   },
   {
-   "id": "close_062",
+   "id": "close_063",
    "chapter": "close",
    "start": 373.293,
    "dur": 6.01,
@@ -2479,7 +2794,7 @@
    "end": 379.303
   },
   {
-   "id": "close_063",
+   "id": "close_064",
    "chapter": "close",
    "start": 379.303,
    "dur": 6.01,

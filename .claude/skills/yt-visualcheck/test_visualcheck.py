@@ -147,6 +147,21 @@ class Cards(unittest.TestCase):
         self.assertEqual(status(self.d)[1]["s1:graphic:card_s1"], "NEEDS_VISUAL_REVIEW")
 
 
+class Scenes(unittest.TestCase):
+    """EP005 rev. 2: annotated map scenes (flip / wipe with pins, arrows and labels)."""
+    def test_flip_scene_is_framed_and_labels_need_a_claim_unless_they_state_a_limit(self):
+        d = tempfile.mkdtemp()
+        make(d, shots=[{"id": "s1", "info": "flip", "claims": ["C2"], "camera": {"to": {"center": MID, "width_km": 3}}, "layers": [{"type": "flip", "assets": ["y2022", "y2024", "y2026"], "step": 1}]}],
+             labels=[{"text": "OUR LABEL", "claim": "C2", "exempt": False, "shot": "s1"}, {"text": "NO CLAIM LABEL", "claim": None, "exempt": False, "shot": "s1"},
+                     {"text": "LIMIT LABEL", "claim": None, "exempt": False, "limit": True, "shot": "s1"}])
+        r, st = status(d)
+        self.assertEqual(st["s1:shot"], "NEEDS_VISUAL_REVIEW")
+        self.assertEqual(len(next(i for i in r["items"] if i["id"] == "s1:shot")["frames"]), 3)      # one frame per date of the flip
+        self.assertEqual(st["s1:label:NO CLAIM LABEL"], "FAIL")
+        self.assertEqual(st["s1:label:LIMIT LABEL"], "NEEDS_VISUAL_REVIEW")
+        self.assertEqual(st["s1:label:OUR LABEL"], "NEEDS_VISUAL_REVIEW")
+
+
 class Reviews(unittest.TestCase):
     def setUp(self):
         self.d = tempfile.mkdtemp()

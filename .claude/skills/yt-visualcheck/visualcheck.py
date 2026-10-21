@@ -199,10 +199,18 @@ def run(root, stage_review=True):
                 ok = bool(s) and MON[int(s["datetime"][5:7]) - 1] == m.group(1) and s["datetime"][:4] == m.group(2)
                 it.update(status="VERIFIED_DATA" if ok else "FAIL", why=f"scene {s and s['itemId']} acquired {s and s['datetime'][:10]}" if s else "no scene for that year", frame={"asset": f"y{m.group(2)}"})
                 finish(it); continue
-            if not it["claims"]:
+            if not it["claims"] and not lab.get("limit"):
                 it.update(status="FAIL", why="text without a claim id"); finish(it); continue
+            if not it["claims"]:                                     # a limitation the script states ({L}): no claim to match, so a person reads the frame
+                cam = shot.get("camera", {}).get("to")
+                lay = next((dict(l, asset=l.get("asset") or l.get("from") or (l.get("assets") or [None])[0]) for l in shot["layers"] if l["type"] in ("image", "wipe", "flip")), None)
+                if cam and lay:
+                    image_assertion(it, [(ep["assets"][lay["asset"]]["src"], cam["center"], cam["width_km"])])
+                else:
+                    it.update(status="NEEDS_VISUAL_REVIEW", why="no frame available")
+                finish(it); continue
             cam = shot.get("camera", {}).get("to")
-            lay = next((l for l in shot["layers"] if l["type"] == "image"), None)
+            lay = next((dict(l, asset=l.get("asset") or l.get("from") or (l.get("assets") or [None])[0]) for l in shot["layers"] if l["type"] in ("image", "wipe", "flip")), None)
             if claims.get(it["claims"][0], {}).get("tier") in SRC_TIERS:
                 it.update(status="VERIFIED_SOURCE", why="attributed statement; wording checked by yt-facts"); finish(it); continue
             if cam and lay:
@@ -283,7 +291,7 @@ def run(root, stage_review=True):
             cam = shot.get("camera", {}).get("to")
             assets_ = []
             for l in shot["layers"]:
-                for a_ in ([l.get("asset")] if l["type"] == "image" else [l.get("from"), l.get("to")] if l["type"] == "wipe" else []):
+                for a_ in ([l.get("asset")] if l["type"] == "image" else [l.get("from"), l.get("to")] if l["type"] == "wipe" else list(l.get("assets") or []) if l["type"] == "flip" else []):
                     if a_ and a_ not in assets_:
                         assets_.append(a_)
             if cam and assets_:

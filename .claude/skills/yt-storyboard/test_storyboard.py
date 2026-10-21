@@ -200,6 +200,25 @@ class Anchors(unittest.TestCase):
         extra = next(L for L in g["layers"] if L.get("asset") == "g")
         self.assertAlmostEqual(g["start"] + extra["t"][0], 25 * 0.5 - 0.2, places=1)       # "gamma" is word 25 (12.5 s), inside the same sentence
 
+    def test_map_scene_marks_and_wipe_arrive_on_their_words_and_the_scene_keeps_its_time(self):
+        """EP005 rev. 2: an annotated, animated map scene (camera move, wipe between instruments, pins, arrows, labels) instead of a static card."""
+        self.assets["l2022"] = {"src": "l.png"}
+        text = "## one: One\n" + " ".join(["w"] * 19) + " end.\nAlpha beta " + " ".join(["w"] * 5) + " gamma delta " + " ".join(["x"] * 14) + ".\n"
+        open(os.path.join(self.d, "script.md"), "w").write(text)
+        words = [{"text": "w", "start": i / 2, "end": i / 2 + .4} for i in range(20 + 2 + 5 + 2 + 14)]
+        scene = {"kind": "scene", "asset": "y2022", "wipe": ["y2022", "l2022"], "min_s": 7, "claims": ["C1"], "anchor": "claim", "anchor_text": "alpha beta", "zoom": [6, 3], "focus": [35.215, 28.11],
+                 "wipe_at": "gamma delta", "label": {"text": "FIRST", "style": "tag"},
+                 "marks": [{"type": "pin", "at": [35.2165, 28.1062], "text": "HERE", "anchor_text": "gamma delta"}, {"type": "arrow", "from": [35.21, 28.1], "to": [35.22, 28.1], "anchor_text": "gamma delta"}]}
+        vis = [{"asset": "y2020", "zoom": [20, 12]}, scene, {"asset": "y2026", "zoom": [15, 8]}]
+        plan, labels = sb.build(self.ep(vis), self.d, {"words": words})
+        s = next(x for x in plan["shots"] if x.get("scene"))
+        self.assertAlmostEqual(s["start"], 20 * 0.5 - 0.3, places=1)
+        t = {L["type"]: L["t"][0] for L in s["layers"] if L["type"] in ("pin", "arrow", "wipe")}
+        self.assertAlmostEqual(s["start"] + t["pin"], 27 * 0.5 - 0.2, places=1)          # two marks on the SAME words both arrive there
+        self.assertAlmostEqual(s["start"] + t["arrow"], 27 * 0.5 - 0.2, places=1)
+        self.assertGreaterEqual(s["dur"], 6.0)
+        self.assertTrue(any(l["text"] == "FIRST" and l["claim"] == "C1" for l in labels))       # words on screen carry the scene's claim
+
     def test_anchor_text_places_a_graphic_and_each_build_step_at_its_own_words(self):
         """EP005 visual revision: scenes written in notes.json are tied to the sentence they illustrate, and a stepped card builds as the narrator speaks."""
         self.assets["g_s1"] = {"src": "g.s1.png", "kind": "graphic", "claims": [], "exempt": True}

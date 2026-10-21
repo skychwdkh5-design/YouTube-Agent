@@ -1,12 +1,13 @@
 {
  "schema": "yt-visualcheck/1",
- "total": 73,
- "orphan_reviews": 7,
- "overall": "OK",
+ "total": 84,
+ "orphan_reviews": 15,
+ "overall": "NEEDS_VISUAL_REVIEW",
  "counts": {
   "VERIFIED_SOURCE": 6,
-  "VERIFIED_DATA": 33,
-  "REVIEWED": 34
+  "VERIFIED_DATA": 41,
+  "NEEDS_VISUAL_REVIEW": 11,
+  "REVIEWED": 26
  },
  "items": [
   {
@@ -165,45 +166,28 @@
    }
   },
   {
-   "id": "promise_006:label:OCT 2026",
-   "kind": "label",
-   "text": "OCT 2026",
+   "id": "promise_006:shot",
+   "kind": "shot",
+   "text": "y2026",
    "shot": "promise_006",
-   "claims": [],
-   "status": "VERIFIED_DATA",
-   "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
-   "frame": {
-    "asset": "y2026"
-   },
-   "source": [],
-   "allowed": {
-    "wording": [],
-    "forbid": []
-   }
-  },
-  {
-   "id": "promise_007:graphic:i_coast",
-   "kind": "graphic",
-   "text": "i_coast",
-   "shot": "promise_007",
    "claims": [
     "C20"
    ],
-   "texts": [
-    "Saudi Arabia's Red Sea coast"
-   ],
    "frames": [
     {
-     "file": "qa/frames/promise_007_graphic_i_coast_0.png",
-     "sha256": "905f9c0e819388c6e7a0003a115382c9f518c6a9a2a18992e36fe0b4e0ac588f",
-     "stack": "graphics/i_coast.png",
-     "center": null,
-     "width_km": null,
-     "review": "supports"
+     "file": "qa/frames/promise_006_shot_0.png",
+     "sha256": "967809e4f278ca59da9da8503dd6e54d79808bdd9de78d63d98a0f18b465184b",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      35.17005,
+      28.10241
+     ],
+     "width_km": 13,
+     "review": null
     }
    ],
-   "status": "REVIEWED_BY_AGENT",
-   "why": "Two panels: left NASA ISS photo of Red Sea coast labelled \"ISS PHOTO - NOT THE NEOM SITE\", credit NASA/ISS 30 Nov 2021; right Sentinel-2 NEOM area with 10 km scale bar. Supports C20 (Red Sea coast) without claiming the ISS photo is NEOM.",
+   "status": "NEEDS_VISUAL_REVIEW",
+   "why": "1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
    "source": [
     {
      "claim": "C20",
@@ -220,10 +204,10 @@
    }
   },
   {
-   "id": "promise_008:graphic:g_scale",
+   "id": "promise_007:graphic:g_scale",
    "kind": "graphic",
    "text": "g_scale",
-   "shot": "promise_008",
+   "shot": "promise_007",
    "claims": [
     "C1"
    ],
@@ -249,10 +233,10 @@
    }
   },
   {
-   "id": "promise_009:graphic:g_tiers",
+   "id": "promise_008:graphic:g_tiers",
    "kind": "graphic",
    "text": "g_tiers",
-   "shot": "promise_009",
+   "shot": "promise_008",
    "claims": [
     "C1",
     "C4",
@@ -300,6 +284,23 @@
    }
   },
   {
+   "id": "promise_009:label:OCT 2026",
+   "kind": "label",
+   "text": "OCT 2026",
+   "shot": "promise_009",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
    "id": "promise_010:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
@@ -317,27 +318,10 @@
    }
   },
   {
-   "id": "plan_011:label:OCT 2026",
-   "kind": "label",
-   "text": "OCT 2026",
-   "shot": "plan_011",
-   "claims": [],
-   "status": "VERIFIED_DATA",
-   "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
-   "frame": {
-    "asset": "y2026"
-   },
-   "source": [],
-   "allowed": {
-    "wording": [],
-    "forbid": []
-   }
-  },
-  {
-   "id": "plan_012:graphic:i_bloomberg_s1",
+   "id": "plan_011:graphic:i_bloomberg_s1",
    "kind": "graphic",
    "text": "i_bloomberg_s1",
-   "shot": "plan_012",
+   "shot": "plan_011",
    "claims": [
     "C2"
    ],
@@ -346,7 +330,7 @@
    ],
    "frames": [
     {
-     "file": "qa/frames/plan_012_graphic_i_bloomberg_s1_0.png",
+     "file": "qa/frames/plan_011_graphic_i_bloomberg_s1_0.png",
      "sha256": "2047593942dc9a513b46325e6df718ddd0e4b4c8d4f909ca4104a96617cce382",
      "stack": "graphics/i_bloomberg.png",
      "center": null,
@@ -374,10 +358,10 @@
    }
   },
   {
-   "id": "plan_013:graphic:i_semafor_s1",
+   "id": "plan_012:graphic:i_semafor_s1",
    "kind": "graphic",
    "text": "i_semafor_s1",
-   "shot": "plan_013",
+   "shot": "plan_012",
    "claims": [
     "C3"
    ],
@@ -386,7 +370,7 @@
    ],
    "frames": [
     {
-     "file": "qa/frames/plan_013_graphic_i_semafor_s1_0.png",
+     "file": "qa/frames/plan_012_graphic_i_semafor_s1_0.png",
      "sha256": "4f2009e3a5ab1727b98679f6363b9495ec6962bce04cb5ae51c76225e845576d",
      "stack": "graphics/i_semafor.png",
      "center": null,
@@ -418,10 +402,10 @@
    }
   },
   {
-   "id": "plan_014:graphic:i_reuters_s1",
+   "id": "plan_013:graphic:i_reuters_s1",
    "kind": "graphic",
    "text": "i_reuters_s1",
-   "shot": "plan_014",
+   "shot": "plan_013",
    "claims": [
     "C4"
    ],
@@ -430,7 +414,7 @@
    ],
    "frames": [
     {
-     "file": "qa/frames/plan_014_graphic_i_reuters_s1_0.png",
+     "file": "qa/frames/plan_013_graphic_i_reuters_s1_0.png",
      "sha256": "d04b90a0c44673cf2b3d1aa29312bfdd2843b34e2787683437d84b5bff3c84c2",
      "stack": "graphics/i_reuters.png",
      "center": null,
@@ -458,10 +442,10 @@
    }
   },
   {
-   "id": "plan_015:graphic:g_reports",
+   "id": "plan_014:graphic:g_reports",
    "kind": "graphic",
    "text": "g_reports",
-   "shot": "plan_015",
+   "shot": "plan_014",
    "claims": [
     "C1",
     "C2",
@@ -523,10 +507,10 @@
    }
   },
   {
-   "id": "plan_016:graphic:i_opened_s1",
+   "id": "plan_015:graphic:i_opened_s1",
    "kind": "graphic",
    "text": "i_opened_s1",
-   "shot": "plan_016",
+   "shot": "plan_015",
    "claims": [],
    "texts": [
     "How we handled the reports",
@@ -535,7 +519,7 @@
    ],
    "frames": [
     {
-     "file": "qa/frames/plan_016_graphic_i_opened_s1_0.png",
+     "file": "qa/frames/plan_015_graphic_i_opened_s1_0.png",
      "sha256": "899dc05274a7ec995bd9ad603785d699c2a87d472876c449d69fde4499166f72",
      "stack": "graphics/i_opened.png",
      "center": null,
@@ -545,6 +529,23 @@
    ],
    "status": "REVIEWED_BY_AGENT",
    "why": "Process diagram: original article NOT OPENED BY US -> described by Outlet A/B -> who reported what, and nothing more. States our own method; no external claim.",
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "plan_016:label:OCT 2026",
+   "kind": "label",
+   "text": "OCT 2026",
+   "shot": "plan_016",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
+   "frame": {
+    "asset": "y2026"
+   },
    "source": [],
    "allowed": {
     "wording": [],
@@ -607,31 +608,28 @@
    }
   },
   {
-   "id": "method_019:graphic:i_pixel",
-   "kind": "graphic",
-   "text": "i_pixel",
+   "id": "method_019:label:1 PIXEL = 10 M OF GROUND",
+   "kind": "label",
+   "text": "1 PIXEL = 10 M OF GROUND",
    "shot": "method_019",
    "claims": [
     "C15"
    ],
-   "texts": [
-    "One pixel = 10 m of ground"
-   ],
    "frames": [
     {
-     "file": "qa/frames/method_019_graphic_i_pixel_0.png",
-     "sha256": "f545a3700526bce19f7f32dcbd4c54810badb31d715177780c46872abde0c0c1",
+     "file": "qa/frames/method_019_label_1_PIXEL___10_M_OF_GROUND_0.png",
+     "sha256": "782b06c1bc96e337c97b59f8154ca09a0290b61920ce4e3d5b90871ae49a0f11",
      "stack": "evidence/stack/y2026.png",
      "center": [
       35.2165,
       28.1062
      ],
-     "width_km": 0.6,
-     "review": "supports"
+     "width_km": 0.55,
+     "review": null
     }
    ],
-   "status": "REVIEWED_BY_AGENT",
-   "why": "Nearest-neighbour zoom of Sentinel-2 Oct 2026 showing visible 10 m pixels, title \"One pixel = 10 m of ground\", 100 m scale bar. Supports C15.",
+   "status": "NEEDS_VISUAL_REVIEW",
+   "why": "1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
    "source": [
     {
      "claim": "C15",
@@ -648,28 +646,66 @@
    }
   },
   {
-   "id": "method_020:graphic:i_visible_s1",
-   "kind": "graphic",
-   "text": "i_visible_s1",
+   "id": "method_019:shot",
+   "kind": "shot",
+   "text": "y2026",
+   "shot": "method_019",
+   "claims": [
+    "C15"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/method_019_shot_0.png",
+     "sha256": "782b06c1bc96e337c97b59f8154ca09a0290b61920ce4e3d5b90871ae49a0f11",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 0.55,
+     "review": null
+    }
+   ],
+   "status": "NEEDS_VISUAL_REVIEW",
+   "why": "1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
+   "source": [
+    {
+     "claim": "C15",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/stack/grid.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "method_020:label:NOT VISIBLE: PERSON, CRANE, WINDOW",
+   "kind": "label",
+   "text": "NOT VISIBLE: PERSON, CRANE, WINDOW",
    "shot": "method_020",
    "claims": [
     "C15"
    ],
-   "texts": [
-    "What 10 m can and cannot show"
-   ],
    "frames": [
     {
-     "file": "qa/frames/method_020_graphic_i_visible_s1_0.png",
-     "sha256": "788735aaf9b6a073cd84d531413b639f12fffb977da16e63639aeaea1ab7da81",
-     "stack": "graphics/i_visible.png",
-     "center": null,
-     "width_km": null,
-     "review": "supports"
+     "file": "qa/frames/method_020_label_NOT_VISIBLE__PERSON__CRANE__WINDOW_0.png",
+     "sha256": "3be74e0d09e4e18a4b2df58869cf00def37d7bb8583c37c33b13fd5b6219af51",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      35.14964,
+      28.09507
+     ],
+     "width_km": 7,
+     "review": null
     }
    ],
-   "status": "REVIEWED_BY_AGENT",
-   "why": "Two columns: CAN SEE long cleared strip, road; CANNOT SEE person, crane, window. Matches script wording about 10 m resolution (C15).",
+   "status": "NEEDS_VISUAL_REVIEW",
+   "why": "1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
    "source": [
     {
      "claim": "C15",
@@ -686,28 +722,132 @@
    }
   },
   {
-   "id": "method_021:graphic:i_scenes",
-   "kind": "graphic",
-   "text": "i_scenes",
+   "id": "method_020:shot",
+   "kind": "shot",
+   "text": "y2026",
+   "shot": "method_020",
+   "claims": [
+    "C15"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/method_020_shot_0.png",
+     "sha256": "3be74e0d09e4e18a4b2df58869cf00def37d7bb8583c37c33b13fd5b6219af51",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      35.14964,
+      28.09507
+     ],
+     "width_km": 7,
+     "review": null
+    }
+   ],
+   "status": "NEEDS_VISUAL_REVIEW",
+   "why": "1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
+   "source": [
+    {
+     "claim": "C15",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/stack/grid.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "method_021:shot",
+   "kind": "shot",
+   "text": "flip y2020,y2021,y2022,y2023,y2024,y2025,y2026",
    "shot": "method_021",
    "claims": [
     "C16"
    ],
-   "texts": [
-    "Seven scenes, 2020 to 2026"
-   ],
    "frames": [
     {
-     "file": "qa/frames/method_021_graphic_i_scenes_0.png",
-     "sha256": "42c6727b15fafe41a09d00ba9dff45440dda904352e3b6e10e1e2d897942baf0",
-     "stack": "graphics/i_scenes.png",
-     "center": null,
-     "width_km": null,
-     "review": "supports"
+     "file": "qa/frames/method_021_shot_0.png",
+     "sha256": "b56f16cc4bb8192b1777536e7defb4a74901ba46b40f54ba646c5bbfd873f888",
+     "stack": "evidence/stack/y2020.png",
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 8,
+     "review": null
+    },
+    {
+     "file": "qa/frames/method_021_shot_1.png",
+     "sha256": "356f3365d3ca55ebc8eaaab2d3c5b650b919ad242f2aaa6d802c6fbcf269ec5c",
+     "stack": "evidence/stack/y2021.png",
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 8,
+     "review": null
+    },
+    {
+     "file": "qa/frames/method_021_shot_2.png",
+     "sha256": "72ec6532c94223da1ea02106d5651f1577f87b114e0ce4bc7be95e1305735337",
+     "stack": "evidence/stack/y2022.png",
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 8,
+     "review": null
+    },
+    {
+     "file": "qa/frames/method_021_shot_3.png",
+     "sha256": "4e501044412eee7ae8b320fdd52a8df775226d4971e92de8f75be1f02ec20036",
+     "stack": "evidence/stack/y2023.png",
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 8,
+     "review": null
+    },
+    {
+     "file": "qa/frames/method_021_shot_4.png",
+     "sha256": "7376bd7a49e105c716b41a776b70281dd0b5c2e5d935e13838f5de7cce255fef",
+     "stack": "evidence/stack/y2024.png",
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 8,
+     "review": null
+    },
+    {
+     "file": "qa/frames/method_021_shot_5.png",
+     "sha256": "10319656a99effeeac3248c35a90bd92d3e9df1dde895b8cafb4eeb5b4ccc627",
+     "stack": "evidence/stack/y2025.png",
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 8,
+     "review": null
+    },
+    {
+     "file": "qa/frames/method_021_shot_6.png",
+     "sha256": "3fc3ffee6b9b6dc27699fe22c47d3b539e75da34ec37dd060fcb42b4dc605035",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 8,
+     "review": null
     }
    ],
-   "status": "REVIEWED_BY_AGENT",
-   "why": "Seven year chips 2020-2026 with scene dates 29 SEP, 29 SEP, 9 OCT, 14 OCT, 8 OCT, 8 OCT, 18 OCT; match stack provenance datetimes (C16).",
+   "status": "NEEDS_VISUAL_REVIEW",
+   "why": "7 of 7 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
    "source": [
     {
      "claim": "C16",
@@ -1521,15 +1661,40 @@
    "frames": [
     {
      "file": "qa/frames/segment_039_graphic_i_ndwi_s1_0.png",
-     "sha256": "f304c8ec02cfbb462f4d500eaeb68643b14824a8ee22b09fae575e179ae674a0",
+     "sha256": "5ae5ab60440c65885dacef9543da9fb0d922c07312b31923b9b83eb065495212",
      "stack": "graphics/i_ndwi.png",
      "center": null,
      "width_km": null,
-     "review": "supports"
+     "review": null
     }
    ],
-   "status": "REVIEWED_BY_AGENT",
-   "why": "Cards: near-infrared signal very low; water index NDWI above zero; 2024, 2025, 2026 water-like; red 'fits water - not proof, a shadow can fool it'. Matches C11 and its hedge.",
+   "status": "NEEDS_VISUAL_REVIEW",
+   "why": "a chart / card / diagram: a reviewer must compare its numbers and wording with the claims",
+   "source": [
+    {
+     "claim": "C11",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/ndwi.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "segment_040:label:FITS WATER, NOT PROOF",
+   "kind": "label",
+   "text": "FITS WATER, NOT PROOF",
+   "shot": "segment_040",
+   "claims": [
+    "C11"
+   ],
+   "status": "VERIFIED_DATA",
+   "why": "present [2024, 2025, 2026], absent [2022, 2023] confirmed by NDWI counts [data check + the view contains the location; what the image looks like is not machine-judged]",
    "source": [
     {
      "claim": "C11",
@@ -1548,16 +1713,16 @@
   {
    "id": "segment_040:shot",
    "kind": "shot",
-   "text": "wipe y2022->y2026",
+   "text": "y2026",
    "shot": "segment_040",
    "claims": [
-    "C10"
+    "C11"
    ],
    "status": "VERIFIED_DATA",
    "why": "present [2024, 2025, 2026], absent [2022, 2023] confirmed by NDWI counts [data check + the view contains the location; what the image looks like is not machine-judged]",
    "source": [
     {
-     "claim": "C10",
+     "claim": "C11",
      "tier": "observation",
      "attribution": null,
      "url": null,
@@ -1573,7 +1738,7 @@
   {
    "id": "segment_041:shot",
    "kind": "shot",
-   "text": "y2026",
+   "text": "wipe y2022->y2026",
    "shot": "segment_041",
    "claims": [
     "C10"
@@ -1596,10 +1761,35 @@
    }
   },
   {
-   "id": "segment_042:label:OCT 2026",
+   "id": "segment_042:shot",
+   "kind": "shot",
+   "text": "y2026",
+   "shot": "segment_042",
+   "claims": [
+    "C10"
+   ],
+   "status": "VERIFIED_DATA",
+   "why": "present [2024, 2025, 2026], absent [2022, 2023] confirmed by NDWI counts [data check + the view contains the location; what the image looks like is not machine-judged]",
+   "source": [
+    {
+     "claim": "C10",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/ndwi.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "segment_043:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "segment_042",
+   "shot": "segment_043",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
@@ -1613,10 +1803,10 @@
    }
   },
   {
-   "id": "segment_042:shot",
+   "id": "segment_043:shot",
    "kind": "shot",
    "text": "y2026",
-   "shot": "segment_042",
+   "shot": "segment_043",
    "claims": [
     "C11"
    ],
@@ -1638,27 +1828,10 @@
    }
   },
   {
-   "id": "checks_043:label:OCT 2024",
+   "id": "checks_044:label:SENTINEL-2A - 8 OCT 2024",
    "kind": "label",
-   "text": "OCT 2024",
-   "shot": "checks_043",
-   "claims": [],
-   "status": "VERIFIED_DATA",
-   "why": "scene S2A_MSIL2A_20241008T080831_R078_T36RYS_20241008T112248 acquired 2024-10-08",
-   "frame": {
-    "asset": "y2024"
-   },
-   "source": [],
-   "allowed": {
-    "wording": [],
-    "forbid": []
-   }
-  },
-  {
-   "id": "checks_043:shot",
-   "kind": "shot",
-   "text": "y2024",
-   "shot": "checks_043",
+   "text": "SENTINEL-2A - 8 OCT 2024",
+   "shot": "checks_044",
    "claims": [
     "C14"
    ],
@@ -1680,28 +1853,15 @@
    }
   },
   {
-   "id": "checks_044:graphic:i_dates_s1",
-   "kind": "graphic",
-   "text": "i_dates_s1",
+   "id": "checks_044:label:SENTINEL-2B - 8 OCT 2025",
+   "kind": "label",
+   "text": "SENTINEL-2B - 8 OCT 2025",
    "shot": "checks_044",
    "claims": [
     "C14"
    ],
-   "texts": [
-    "Check 1 of 3: is it repeatable?"
-   ],
-   "frames": [
-    {
-     "file": "qa/frames/checks_044_graphic_i_dates_s1_0.png",
-     "sha256": "a42d0ba115c6acd13dfb93c18cfed93b472757160f9a51de65f2e1bb47694504",
-     "stack": "graphics/i_dates.png",
-     "center": null,
-     "width_km": null,
-     "review": "supports"
-    }
-   ],
-   "status": "REVIEWED_BY_AGENT",
-   "why": "Dates 8 OCT 2024, 8 OCT 2025, 18 OCT 2026; segment present in all three; Sentinel-2A, 2B, 2C. Matches provenance platforms/dates and C14.",
+   "status": "VERIFIED_DATA",
+   "why": "3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view contains the location; what the image looks like is not machine-judged]",
    "source": [
     {
      "claim": "C14",
@@ -1718,32 +1878,165 @@
    }
   },
   {
-   "id": "checks_045:graphic:i_l8",
-   "kind": "graphic",
-   "text": "i_l8",
+   "id": "checks_044:label:SENTINEL-2C - 18 OCT 2026",
+   "kind": "label",
+   "text": "SENTINEL-2C - 18 OCT 2026",
+   "shot": "checks_044",
+   "claims": [
+    "C14"
+   ],
+   "status": "VERIFIED_DATA",
+   "why": "3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view contains the location; what the image looks like is not machine-judged]",
+   "source": [
+    {
+     "claim": "C14",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/stack/provenance.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "checks_044:shot",
+   "kind": "shot",
+   "text": "flip y2024,y2025,y2026",
+   "shot": "checks_044",
+   "claims": [
+    "C14"
+   ],
+   "status": "VERIFIED_DATA",
+   "why": "3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view contains the location; what the image looks like is not machine-judged]",
+   "source": [
+    {
+     "claim": "C14",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/stack/provenance.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "checks_045:label:SENTINEL-2 - 10 M",
+   "kind": "label",
+   "text": "SENTINEL-2 - 10 M",
    "shot": "checks_045",
    "claims": [
     "C13"
    ],
-   "texts": [
-    "Check 2 of 3: Landsat 8, 30 m per pixel",
-    "DARK SEGMENT: ABOUT 0.7 KM"
-   ],
    "frames": [
     {
-     "file": "qa/frames/checks_045_graphic_i_l8_0.png",
-     "sha256": "1a221688a737d7753a5d346a28b3ee5239a81be05482f9a53860ceda9d539473",
-     "stack": "evidence/landsat/y2024.png",
+     "file": "qa/frames/checks_045_label_SENTINEL-2_-_10_M_0.png",
+     "sha256": "494b5511d1e689ab16d8927543f3fbd979e5dcd8c1e52fc13072a2f5c02c6c93",
+     "stack": "evidence/stack/y2024.png",
      "center": [
       35.2165,
       28.1062
      ],
-     "width_km": 6,
-     "review": "supports"
+     "width_km": 2.6,
+     "review": null
     }
    ],
-   "status": "REVIEWED_BY_AGENT",
-   "why": "Landsat 8 22 Oct 2024 at 30 m, 6 km wide view, 1 km scale bar; callout dot sits on the short dark streak, text 'DARK SEGMENT: ABOUT 0.7 KM' matches C13. Image is hazy (real low contrast).",
+   "status": "NEEDS_VISUAL_REVIEW",
+   "why": "1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
+   "source": [
+    {
+     "claim": "C13",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "research/evidence/landsat_measure.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "checks_045:label:LANDSAT 8 - 30 M, SAME PLACE",
+   "kind": "label",
+   "text": "LANDSAT 8 - 30 M, SAME PLACE",
+   "shot": "checks_045",
+   "claims": [
+    "C13"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/checks_045_label_LANDSAT_8_-_30_M__SAME_PLACE_0.png",
+     "sha256": "494b5511d1e689ab16d8927543f3fbd979e5dcd8c1e52fc13072a2f5c02c6c93",
+     "stack": "evidence/stack/y2024.png",
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 2.6,
+     "review": null
+    }
+   ],
+   "status": "NEEDS_VISUAL_REVIEW",
+   "why": "1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
+   "source": [
+    {
+     "claim": "C13",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "research/evidence/landsat_measure.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "checks_045:shot",
+   "kind": "shot",
+   "text": "wipe y2024->l2024",
+   "shot": "checks_045",
+   "claims": [
+    "C13"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/checks_045_shot_0.png",
+     "sha256": "494b5511d1e689ab16d8927543f3fbd979e5dcd8c1e52fc13072a2f5c02c6c93",
+     "stack": "evidence/stack/y2024.png",
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 2.6,
+     "review": null
+    },
+    {
+     "file": "qa/frames/checks_045_shot_1.png",
+     "sha256": "451bb8299d647acbbece7dd9a900c464aaf2d12a3322326a506e75303ea58526",
+     "stack": "evidence/landsat10/y2024.png",
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 2.6,
+     "review": null
+    }
+   ],
+   "status": "NEEDS_VISUAL_REVIEW",
+   "why": "2 of 2 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
    "source": [
     {
      "claim": "C13",
@@ -1897,15 +2190,62 @@
    }
   },
   {
-   "id": "checks_049:graphic:g_cmp_2025_2026_c12",
-   "kind": "graphic",
-   "text": "g_cmp_2025_2026_c12",
+   "id": "checks_049:label:OCT 2025: ABOUT 1.6 KM",
+   "kind": "label",
+   "text": "OCT 2025: ABOUT 1.6 KM",
    "shot": "checks_049",
    "claims": [
     "C12"
    ],
-   "texts": [
-    "1.6 km (2025), 1.9 km (2026)"
+   "status": "VERIFIED_DATA",
+   "why": "measured extents inside the claimed ranges: 2025: 1.6 km, 2026: 1.92 km [data check + the view contains the location; what the image looks like is not machine-judged]",
+   "source": [
+    {
+     "claim": "C12",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/ndwi.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "checks_049:label:OCT 2026: ABOUT 1.9 KM",
+   "kind": "label",
+   "text": "OCT 2026: ABOUT 1.9 KM",
+   "shot": "checks_049",
+   "claims": [
+    "C12"
+   ],
+   "status": "VERIFIED_DATA",
+   "why": "measured extents inside the claimed ranges: 2025: 1.6 km, 2026: 1.92 km [data check + the view contains the location; what the image looks like is not machine-judged]",
+   "source": [
+    {
+     "claim": "C12",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/ndwi.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "checks_049:shot",
+   "kind": "shot",
+   "text": "wipe y2025->y2026",
+   "shot": "checks_049",
+   "claims": [
+    "C12"
    ],
    "status": "VERIFIED_DATA",
    "why": "measured extents inside the claimed ranges: 2025: 1.6 km, 2026: 1.92 km [data check + the view contains the location; what the image looks like is not machine-judged]",
@@ -2019,10 +2359,52 @@
    }
   },
   {
-   "id": "limits_052:label:OCT 2026",
+   "id": "checks_052:label:OCT 2024",
+   "kind": "label",
+   "text": "OCT 2024",
+   "shot": "checks_052",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2A_MSIL2A_20241008T080831_R078_T36RYS_20241008T112248 acquired 2024-10-08",
+   "frame": {
+    "asset": "y2024"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "checks_052:shot",
+   "kind": "shot",
+   "text": "y2024",
+   "shot": "checks_052",
+   "claims": [
+    "C14"
+   ],
+   "status": "VERIFIED_DATA",
+   "why": "3 dates, platforms ['Sentinel-2A', 'Sentinel-2B', 'Sentinel-2C'] from provenance.json [data check + the view contains the location; what the image looks like is not machine-judged]",
+   "source": [
+    {
+     "claim": "C14",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/stack/provenance.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "limits_053:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "limits_052",
+   "shot": "limits_053",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
@@ -2036,30 +2418,26 @@
    }
   },
   {
-   "id": "limits_053:graphic:i_nobuilding",
-   "kind": "graphic",
-   "text": "i_nobuilding",
-   "shot": "limits_053",
+   "id": "limits_054:label:AT THIS RESOLUTION: NO BUILDING",
+   "kind": "label",
+   "text": "AT THIS RESOLUTION: NO BUILDING",
+   "shot": "limits_054",
    "claims": [],
-   "texts": [
-    "At 10 m: no building can be identified here",
-    "DARK SEGMENT"
-   ],
    "frames": [
     {
-     "file": "qa/frames/limits_053_graphic_i_nobuilding_0.png",
-     "sha256": "6bb435b6990660ddf91b49536d171c4581910a746ae387a922c0a35e8f9a1255",
+     "file": "qa/frames/limits_054_label_AT_THIS_RESOLUTION__NO_BUILDING_0.png",
+     "sha256": "1bf0297f31f26414f457144f3b20ba258727b02885d31ea2a56771e47159007c",
      "stack": "evidence/stack/y2026.png",
      "center": [
       35.2165,
       28.1062
      ],
-     "width_km": 2.5,
-     "review": "supports"
+     "width_km": 1.8,
+     "review": null
     }
    ],
-   "status": "REVIEWED_BY_AGENT",
-   "why": "Sentinel-2 Oct 2026 zoom, 2.5 km wide, callout DARK SEGMENT, 200 m scale bar; title says no building can be identified at 10 m. Limitation statement, no new claim.",
+   "status": "NEEDS_VISUAL_REVIEW",
+   "why": "1 of 1 frames not reviewed (or review unclear/stale); a reviewer must look at each frame",
    "source": [],
    "allowed": {
     "wording": [],
@@ -2067,17 +2445,17 @@
    }
   },
   {
-   "id": "limits_054:graphic:i_cannot_s1",
+   "id": "limits_055:graphic:i_cannot_s1",
    "kind": "graphic",
    "text": "i_cannot_s1",
-   "shot": "limits_054",
+   "shot": "limits_055",
    "claims": [],
    "texts": [
     "What we cannot say"
    ],
    "frames": [
     {
-     "file": "qa/frames/limits_054_graphic_i_cannot_s1_0.png",
+     "file": "qa/frames/limits_055_graphic_i_cannot_s1_0.png",
      "sha256": "aa855d56d348ad5c3d27213e3f2bb1c698a1a678ad404665dcc7a55bb22c6eb4",
      "stack": "graphics/i_cannot.png",
      "center": null,
@@ -2094,17 +2472,17 @@
    }
   },
   {
-   "id": "limits_055:graphic:i_nomatch_s1",
+   "id": "limits_056:graphic:i_nomatch_s1",
    "kind": "graphic",
    "text": "i_nomatch_s1",
-   "shot": "limits_055",
+   "shot": "limits_056",
    "claims": [],
    "texts": [
     "Why we stop here"
    ],
    "frames": [
     {
-     "file": "qa/frames/limits_055_graphic_i_nomatch_s1_0.png",
+     "file": "qa/frames/limits_056_graphic_i_nomatch_s1_0.png",
      "sha256": "21e33df771574e4b1c46c117129be93aa2ec5f21b9fa5d259bb49638ac56c437",
      "stack": "graphics/i_nomatch.png",
      "center": null,
@@ -2121,10 +2499,10 @@
    }
   },
   {
-   "id": "limits_056:label:OCT 2026",
+   "id": "limits_057:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "limits_056",
+   "shot": "limits_057",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
@@ -2138,10 +2516,10 @@
    }
   },
   {
-   "id": "close_058:shot",
+   "id": "close_059:shot",
    "kind": "shot",
    "text": "wipe y2020->y2026",
-   "shot": "close_058",
+   "shot": "close_059",
    "claims": [
     "C10"
    ],
@@ -2163,10 +2541,10 @@
    }
   },
   {
-   "id": "close_059:graphic:g_scale",
+   "id": "close_060:graphic:g_scale",
    "kind": "graphic",
    "text": "g_scale",
-   "shot": "close_059",
+   "shot": "close_060",
    "claims": [
     "C1"
    ],
@@ -2192,10 +2570,10 @@
    }
   },
   {
-   "id": "close_060:graphic:g_reports",
+   "id": "close_061:graphic:g_reports",
    "kind": "graphic",
    "text": "g_reports",
-   "shot": "close_060",
+   "shot": "close_061",
    "claims": [
     "C1",
     "C2",
@@ -2257,10 +2635,10 @@
    }
   },
   {
-   "id": "close_061:graphic:g_hero_c10",
+   "id": "close_062:graphic:g_hero_c10",
    "kind": "graphic",
    "text": "g_hero_c10",
-   "shot": "close_061",
+   "shot": "close_062",
    "claims": [
     "C10"
    ],
@@ -2287,10 +2665,10 @@
    }
   },
   {
-   "id": "close_062:label:OCT 2026",
+   "id": "close_063:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "close_062",
+   "shot": "close_063",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
@@ -2304,10 +2682,10 @@
    }
   },
   {
-   "id": "close_063:label:OCT 2026",
+   "id": "close_064:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "close_063",
+   "shot": "close_064",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
