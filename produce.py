@@ -14,7 +14,7 @@ Chain (existing modules, nothing re-invented):
 Writes productions/<slug>/produce.config.json (topic, sources, scenes, voice, timestamps) and produce_log.json (seconds per step, agent steps, what needs the owner).
 Model calls and tokens are NOT measurable from this process: the log says so.
 """
-import argparse, hashlib, json, os, re, subprocess, sys, time
+import argparse, calendar, hashlib, json, os, re, subprocess, sys, time
 
 REPO = os.path.dirname(os.path.abspath(__file__))
 SK = os.path.join(REPO, ".claude", "skills")
@@ -55,7 +55,7 @@ def config(root, topic, slug, args):
                 "budget_chars": args.budget_chars, "paid_allowed": bool(args.budget_chars),
                 "sources": {"claims": "claims.json", "ledger": "media/ledger.json", "licence_cache": "media_cache/index.json", "exceptions": "media/exceptions.json"},
                 "scenes": {"infographics": len(notes.get("infographics") or []), "maps": len(notes.get("maps") or []), "templates": len(notes.get("scenes") or [])},
-                "voice": "voice/narration.voice.json", "timeline": "timeline.json", "preview": f"render/{slug}_preview_720p.mp4"})
+                "voice": "voice/narration.voice.json", "timeline": "timeline.json", "preview": f"render/{slug}_preview_720p" + ("" if args.fps == 30 else f"_{args.fps}fps") + ".mp4", "preview_fps": args.fps, "final_master": "1080p/30 (owner permission required)"})
     json.dump(cfg, open(p, "w"), indent=1)
     return cfg
 
@@ -77,11 +77,47 @@ def grant_voice_budget(root, budget):
     return "approval written inside the pre-approved budget"
 
 
+def measure(root, slug, L, stop, argv_t0):
+    """Real timings from the orchestrator state (started/finished per stage), the voice spend, and what is measurable about model work. Appends one record to produce_runs.json (history across runs)."""
+    def ts(x):
+        try:
+            return calendar.timegm(time.strptime(x[:19], "%Y-%m-%dT%H:%M:%S")) if x else None
+        except ValueError:
+            return None
+    st = json.load(open(os.path.join(root, "state.json"))) if os.path.exists(os.path.join(root, "state.json")) else {"stages": {}, "costs": []}
+    stages = {}
+    for k, v in st.get("stages", {}).items():
+        a, b = ts(v.get("started")), ts(v.get("finished"))
+        stages[k] = {"status": v.get("status"), "attempts": v.get("attempts"), "seconds": round(b - a, 1) if a and b and b >= a else None}
+    voice = {"elevenlabs_chars_spent": sum(c.get("chars", 0) for c in st.get("costs", []) if c.get("stage") == "voice"), "calls": [c for c in st.get("costs", []) if c.get("stage") == "voice"]}
+    vm = os.path.join(root, "voice", "narration.voice.json")
+    if os.path.exists(vm):
+        m = json.load(open(vm)); voice["audio_seconds"] = m.get("duration"); voice["characters_billed"] = m.get("characters")
+    plan = os.path.join(root, "voice", "plan.json")
+    if os.path.exists(plan):
+        pl = json.load(open(plan)); voice["planned_chars"] = pl.get("chars"); voice["max_credits"] = pl.get("max_credits")
+    agent_art = {}                         # the only model-side indicators the repo holds: size of what the agent wrote
+    for f in ("research/notes.json", "claims.json", "script.md", "research/journal.json"):
+        fp = os.path.join(root, f)
+        if os.path.exists(fp):
+            agent_art[f] = os.path.getsize(fp)
+    rec = {"at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "invocation_seconds": round(time.time() - argv_t0, 1), "steps": L.steps, "stopped": stop}
+    hp = os.path.join(root, "produce_runs.json")
+    hist = json.load(open(hp)) if os.path.exists(hp) else {"runs": []}
+    hist["runs"].append(rec)
+    first = hist["runs"][0]["at"]
+    out = {"schema": "produce-runs/1", "first_run": first, "wall_clock_since_first_run_min": round((time.time() - calendar.timegm(time.strptime(first, "%Y-%m-%dT%H:%M:%SZ"))) / 60, 1),
+           "stage_seconds": stages, "voice_elevenlabs": voice, "agent_artifact_bytes": agent_art,
+           "model_calls": "not measurable from this repo: record by hand from the session usage panel (calls, tokens) at the end of the run", "runs": hist["runs"]}
+    json.dump(out, open(hp, "w"), indent=1)
+    return out
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--topic", required=True); ap.add_argument("--slug"); ap.add_argument("--preview", action="store_true")
     ap.add_argument("--jobs", type=int, default=3); ap.add_argument("--budget-chars", type=int, default=0); ap.add_argument("--force-preview", action="store_true")
-    ap.add_argument("--fast", action="store_true", help="fast preview: 15 fps (about 2x quicker, previews only; finals stay 1080p/30)")
+    ap.add_argument("--fps", type=int, default=15, help="preview frame rate: 15 (default, about 2x quicker) or 30; the final master is always 1080p/30")
     a = ap.parse_args(argv)
     slug = a.slug or slugify(a.topic)
     root = os.path.join(REPO, "productions", slug)
@@ -112,7 +148,7 @@ def main(argv=None):
     elif a.preview and all(st.get(s) in ("done", "cached") for s in ("visualcheck", "voice", "voicecheck", "captions")):
         sys.path.insert(0, os.path.join(SK, "yt-orchestrate"))
         import preview
-        rep = L.step("preview_render_qc", lambda: preview.build(slug, a.jobs, a.force_preview, 15 if a.fast else None))
+        rep = L.step("preview_render_qc", lambda: preview.build(slug, a.jobs, a.force_preview, None if a.fps == 30 else a.fps))
         out["preview"] = rep
     elif a.preview:
         stop = {"waiting_for": [k for k in ("visualcheck", "voice", "voicecheck", "captions") if st.get(k) not in ("done", "cached")], "voice": voice_msg or "voice stays behind the owner's approval (no --budget-chars)"}
@@ -121,7 +157,8 @@ def main(argv=None):
     ep = os.path.join(root, "media", "exceptions.json")
     if os.path.exists(ep):
         exc = [x["chapter"] for x in json.load(open(ep)).get("exceptions", [])]
-    log = {"slug": slug, "total_seconds": total, "steps": L.steps, "media": media, "stopped": stop, "visual_standard_exceptions": exc,
+    meas = measure(root, slug, L, stop, L.t0)
+    log = {"slug": slug, "total_seconds": total, "elevenlabs_chars_spent": meas["voice_elevenlabs"]["elevenlabs_chars_spent"], "steps": L.steps, "media": media, "stopped": stop, "visual_standard_exceptions": exc,
            "claude_model_calls": "not measurable from code (this process makes none; agent steps are listed under 'stopped')", "tokens": "not available",
            "owner_needed": ["final render (--allow-render)", "publish (never automatic)"] + (["voice approval"] if not a.budget_chars and st.get("voice") not in ("done", "cached") else [])}
     json.dump(log, open(os.path.join(root, "produce_log.json"), "w"), indent=1)
