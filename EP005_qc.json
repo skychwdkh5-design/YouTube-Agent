@@ -1,0 +1,406 @@
+{
+ "result": "PASS",
+ "file": "/home/user/YouTube-Agent/productions/neom-line/render/final.mp4",
+ "summary": {
+  "bytes": 297138555,
+  "duration": 386.8,
+  "resolution": "1920x1080",
+  "fps": 30.0,
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "expected_duration": 386.8,
+  "profile": "long"
+ },
+ "checks": [
+  {
+   "id": "file_exists",
+   "status": "pass",
+   "expected": "exists",
+   "actual": "exists"
+  },
+  {
+   "id": "container_readable",
+   "status": "pass",
+   "expected": "ffprobe reads the file",
+   "actual": "ok"
+  },
+  {
+   "id": "file_size",
+   "status": "pass",
+   "expected": "> 0 and <= 2000.0 MB",
+   "actual": 297138555
+  },
+  {
+   "id": "container",
+   "status": "pass",
+   "expected": "mp4",
+   "actual": "mov,mp4,m4a,3gp,3g2,mj2"
+  },
+  {
+   "id": "video_stream",
+   "status": "pass",
+   "expected": "1 video stream",
+   "actual": 1
+  },
+  {
+   "id": "audio_stream",
+   "status": "pass",
+   "expected": "1 audio stream",
+   "actual": 1
+  },
+  {
+   "id": "resolution",
+   "status": "pass",
+   "expected": "1920x1080",
+   "actual": "1920x1080"
+  },
+  {
+   "id": "frame_rate",
+   "status": "pass",
+   "expected": 30.0,
+   "actual": 30.0
+  },
+  {
+   "id": "video_codec",
+   "status": "pass",
+   "expected": "h264",
+   "actual": "h264"
+  },
+  {
+   "id": "pixel_format",
+   "status": "pass",
+   "expected": "yuv420p",
+   "actual": "yuv420p",
+   "detail": "other pixel formats play badly on some devices"
+  },
+  {
+   "id": "audio_codec",
+   "status": "pass",
+   "expected": "aac",
+   "actual": "aac"
+  },
+  {
+   "id": "duration_readable",
+   "status": "pass",
+   "expected": "> 0 s",
+   "actual": 386.8
+  },
+  {
+   "id": "duration_matches_timeline",
+   "status": "pass",
+   "expected": "386.8 s ± 0.25",
+   "actual": 386.8
+  },
+  {
+   "id": "streams_aligned",
+   "status": "pass",
+   "expected": "video, audio and container end together",
+   "actual": {
+    "container": 386.8,
+    "video": 386.8,
+    "audio": 386.8
+   }
+  },
+  {
+   "id": "frame_count",
+   "status": "pass",
+   "expected": 11604,
+   "actual": 11604
+  },
+  {
+   "id": "full_decode",
+   "status": "pass",
+   "expected": "decodes with no errors",
+   "actual": "ok"
+  },
+  {
+   "id": "long_duration",
+   "status": "pass",
+   "expected": "60.0-900.0 s",
+   "actual": 386.8
+  },
+  {
+   "id": "long_target_window",
+   "status": "warn",
+   "expected": "480.0-720.0 s",
+   "actual": 386.8
+  },
+  {
+   "id": "black_frames",
+   "status": "pass",
+   "expected": "none",
+   "actual": 0
+  },
+  {
+   "id": "freezes",
+   "status": "pass",
+   "expected": "< 2.5 s static",
+   "actual": 0
+  },
+  {
+   "id": "loudness",
+   "status": "warn",
+   "expected": "-16.0 to -12.0 LUFS",
+   "actual": -17.9,
+   "detail": "levelling to the Shorts target needs a timing-safe limiter (not built yet)"
+  },
+  {
+   "id": "audio_starts",
+   "status": "pass",
+   "expected": "<= 1.0 s",
+   "actual": 0.0
+  },
+  {
+   "id": "info_events_first_10s",
+   "status": "pass",
+   "expected": ">= 3",
+   "actual": 3
+  },
+  {
+   "id": "captions_in_safe_zone",
+   "status": "pass",
+   "expected": "every caption inside the 16:9 safe area",
+   "actual": "ok"
+  },
+  {
+   "id": "shot_credits",
+   "status": "pass",
+   "expected": "a source credit on every shot",
+   "actual": "ok"
+  },
+  {
+   "id": "manifest_matches",
+   "status": "pass",
+   "expected": 386.8,
+   "actual": 386.8
+  },
+  {
+   "id": "compositions_first_10s",
+   "status": "pass",
+   "expected": ">= 3 distinct compositions",
+   "actual": 4
+  },
+  {
+   "id": "composition_resets",
+   "status": "pass",
+   "expected": ">= 5.0 per minute",
+   "actual": 17.06,
+   "detail": [
+    "3.5s hook_001: cut",
+    "7.445s hook_002: cut",
+    "9.645s hook_002: camera_move",
+    "12.79s hook_003: camera_move",
+    "14.39s hook_004: wipe",
+    "22.211s hook_005: camera_move",
+    "25.136s promise_006: graphic",
+    "30.136s promise_007: cut",
+    "34.036s promise_007: camera_move",
+    "35.611s promise_008: cut",
+    "38.911s promise_008: camera_move",
+    "44.386s promise_009: camera_move",
+    "49.861s promise_010: camera_move",
+    "52.036s plan_011: graphic",
+    "58.036s plan_012: cut",
+    "60.436s plan_012: camera_move",
+    "61.693s plan_013: cut",
+    "64.093s plan_013: camera_move",
+    "68.051s plan_014: camera_move",
+    "69.008s plan_015: cut",
+    "71.408s plan_015: camera_move",
+    "72.666s plan_016: cut",
+    "74.866s plan_016: camera_move",
+    "76.323s plan_017: cut",
+    "78.523s plan_017: camera_move",
+    "82.78s plan_018: camera_move",
+    "83.638s plan_019: cut",
+    "85.838s plan_019: camera_move",
+    "87.295s plan_020: cut",
+    "89.495s plan_020: camera_move",
+    "90.953s plan_021: cut",
+    "93.153s plan_021: camera_move",
+    "97.41s plan_022: camera_move",
+    "98.268s plan_023: cut",
+    "100.468s plan_023: camera_move",
+    "101.925s method_024: cut",
+    "106.825s method_024: camera_move",
+    "108.783s method_025: cut",
+    "113.683s method_025: camera_move",
+    "115.641s method_026: cut",
+    "119.841s method_026: camera_move",
+    "126.699s method_027: camera_move",
+    "133.558s method_028: camera_move",
+    "140.416s method_029: camera_move",
+    "147.274s method_030: camera_move",
+    "149.932s shows_031: cut",
+    "154.332s shows_031: camera_move",
+    "158.563s shows_032: camera_move",
+    "162.757s shows_033: camera_move",
+    "163.963s shows_034: cut",
+    "167.163s shows_034: camera_move",
+    "171.069s shows_035: camera_move",
+    "172.16s shows_036: cut",
+    "174.86s shows_036: camera_move",
+    "175.951s shows_037: cut",
+    "177.483s shows_038: graphic",
+    "180.5s shows_039: graphic",
+    "183.518s shows_040: cut",
+    "185.969s shows_041: cut",
+    "188.0s shows_042: wipe",
+    "189.951s segment_043: cut",
+    "193.704s segment_044: graphic",
+    "200.704s segment_045: graphic",
+    "206.704s segment_046: cut",
+    "212.306s segment_047: cut",
+    "217.908s segment_048: cut",
+    "220.408s segment_048: camera_move",
+    "221.409s segment_049: cut",
+    "223.909s segment_049: camera_move",
+    "224.91s segment_050: cut",
+    "227.01s segment_050: camera_move",
+    "228.411s segment_051: cut",
+    "230.511s segment_051: camera_move",
+    "231.912s segment_052: graphic",
+    "236.912s segment_053: cut",
+    "239.712s segment_053: camera_move",
+    "245.942s checks_054: camera_move",
+    "247.793s checks_055: cut",
+    "252.293s checks_055: camera_move",
+    "256.844s checks_056: camera_move",
+    "257.855s checks_057: cut",
+    "260.555s checks_057: camera_move",
+    "261.567s checks_058: cut",
+    "264.267s checks_058: camera_move",
+    "265.278s checks_059: cut",
+    "267.978s checks_059: camera_move",
+    "272.701s checks_061: cut",
+    "275.401s checks_061: camera_move",
+    "282.437s checks_063: cut",
+    "288.462s checks_064: graphic",
+    "295.462s checks_065: cut",
+    "299.949s checks_066: cut",
+    "304.435s checks_067: cut",
+    "307.835s checks_067: camera_move",
+    "313.444s checks_068: camera_move",
+    "319.652s limits_069: camera_move",
+    "327.134s limits_070: camera_move",
+    "334.117s limits_071: camera_move",
+    "340.499s limits_072: camera_move",
+    "343.182s limits_073: graphic",
+    "349.182s limits_074: cut",
+    "350.682s limits_074: camera_move",
+    "351.689s close_075: cut",
+    "355.389s close_075: camera_move",
+    "356.486s close_076: graphic",
+    "360.77s close_077: graphic",
+    "368.293s close_078: graphic",
+    "373.293s close_079: cut",
+    "377.593s close_079: camera_move",
+    "381.303s close_080: camera_move"
+   ]
+  },
+  {
+   "id": "composition_hold",
+   "status": "pass",
+   "expected": "<= 8.0 s on one composition",
+   "actual": 7.523,
+   "detail": "360.77-368.293 s"
+  },
+  {
+   "id": "visual_families_first_10s",
+   "status": "pass",
+   "expected": ">= 3",
+   "actual": 3
+  },
+  {
+   "id": "visual_family_transitions",
+   "status": "pass",
+   "expected": ">= 2.0 per minute",
+   "actual": 9.77,
+   "detail": [
+    "0.0s g_scale_hook",
+    "3.5s y2020_hook",
+    "7.445s y2021_hook",
+    "11.39s y2022_hook",
+    "13.89s wipe_2022_2026",
+    "20.811s y2026_hook",
+    "25.136s g_scale_promise",
+    "30.136s y2026_promise",
+    "35.611s y2020_promise",
+    "41.086s y2021_promise",
+    "46.561s y2022_promise",
+    "52.036s g_reports_plan",
+    "58.036s y2023_plan",
+    "65.351s y2024_plan",
+    "72.666s y2025_plan",
+    "79.98s y2026_plan",
+    "87.295s y2020_plan",
+    "94.61s y2021_plan",
+    "101.925s y2022_method",
+    "108.783s y2023_method",
+    "115.641s y2024_method",
+    "122.499s y2025_method",
+    "129.358s y2026_method",
+    "136.216s y2020_method",
+    "143.074s y2021_method",
+    "149.932s y2020_shows",
+    "156.063s y2022_shows",
+    "159.557s y2023_shows",
+    "168.369s y2026_shows",
+    "175.951s y2020_shows",
+    "177.483s g_cmp_2020_2024_c19_shows",
+    "180.5s g_cmp_2020_2024_c17_shows",
+    "183.518s wipe_2020_2024",
+    "185.969s y2020_shows",
+    "187.5s wipe_2020_2024",
+    "189.951s y2022_segment",
+    "193.704s g_cmp_2022_2026_c10_segment",
+    "200.704s g_hero_c10_segment",
+    "206.704s wipe_2022_2026",
+    "217.908s y2026_segment",
+    "224.91s y2022_segment",
+    "231.912s g_tiers_segment",
+    "236.912s y2023_segment",
+    "241.442s y2024_checks",
+    "254.144s y2025_checks",
+    "261.567s y2026_checks",
+    "268.989s y2024_checks",
+    "276.412s y2025_checks",
+    "288.462s g_cmp_2025_2026_c12_checks",
+    "295.462s wipe_2025_2026",
+    "304.435s y2025_checks",
+    "310.044s y2026_checks",
+    "315.652s y2020_limits",
+    "322.534s y2021_limits",
+    "329.417s y2022_limits",
+    "336.299s y2023_limits",
+    "343.182s g_reports_limits",
+    "349.182s y2024_limits",
+    "351.689s wipe_recap",
+    "356.486s g_scale_close",
+    "360.77s g_reports_close",
+    "368.293s g_hero_c10_close",
+    "373.293s close_view",
+    "379.303s close_wide"
+   ]
+  },
+  {
+   "id": "visual_family_dominance",
+   "status": "pass",
+   "expected": "<= 30.0 s of one family unless it is transforming",
+   "actual": 12.702,
+   "detail": "y2024_checks 241.442-254.144 s"
+  },
+  {
+   "id": "segments_tile_video",
+   "status": "pass",
+   "expected": "11604 frames, contiguous",
+   "actual": 11604
+  },
+  {
+   "id": "segment_boundaries_keyframes",
+   "status": "pass",
+   "expected": "a keyframe at every segment start",
+   "actual": "ok"
+  }
+ ]
+}
