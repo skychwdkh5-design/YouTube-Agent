@@ -1,91 +1,87 @@
 # Storyboard report
 
-- timing: estimate; duration 384.898 s; shots 84; plan hash 46ddbe3dce3a287a
+- timing: voice; duration 385.312 s; shots 79; plan hash 3e7094b59287eb6a
 - renderer plan: confirm_required rendering needs --confirm; the timeline is valid, plan attached
-- chapters: hook 0.0-24.08s, promise 24.08-57.55s, plan 57.55-105.31s, method 105.31-161.63s, shows 161.63-202.86s, segment 202.86-250.61s, checks 250.61-320.0s, limits 320.0-356.33s, close 356.33-384.9s
+- chapters: hook 0.0-25.14s, promise 25.14-52.04s, plan 52.04-101.92s, method 101.92-149.93s, shows 149.93-189.95s, segment 189.95-241.44s, checks 241.44-315.65s, limits 315.65-351.69s, close 351.69-385.31s
+- warning: visual family 'y2026_close' holds 30.1s (356.7-386.8s, target <= 30s unless it is transforming)
 
 Shots:
 -    0.00s +3.5s hook: g_scale
--    3.50s +5.7s hook: y2022
--    9.22s +4.6s hook: wipe y2022->y2026
--   13.79s +4.6s hook: wipe y2022->y2026
--   18.36s +5.7s hook: y2026
--   24.08s +5.0s promise: g_scale
--   29.08s +3.6s promise: y2026
--   32.64s +3.6s promise: y2026
--   36.20s +3.6s promise: y2020
--   39.76s +3.6s promise: y2020
--   43.32s +3.6s promise: y2021
--   46.88s +3.6s promise: y2021
--   50.43s +3.6s promise: y2022
--   53.99s +3.6s promise: y2022
--   57.55s +6.0s plan: g_reports
--   63.55s +7.0s plan: y2023
--   70.51s +7.0s plan: y2024
--   77.47s +7.0s plan: y2025
--   84.43s +7.0s plan: y2026
--   91.39s +7.0s plan: y2020
--   98.35s +7.0s plan: y2021
--  105.31s +4.0s method: y2022
--  109.33s +4.0s method: y2022
--  113.35s +4.0s method: y2023
--  117.38s +4.0s method: y2023
--  121.40s +4.0s method: y2024
--  125.42s +4.0s method: y2024
--  129.45s +4.0s method: y2025
--  133.47s +4.0s method: y2025
--  137.49s +4.0s method: y2026
--  141.52s +4.0s method: y2026
--  145.54s +4.0s method: y2020
--  149.56s +4.0s method: y2020
--  153.59s +4.0s method: y2021
--  157.61s +4.0s method: y2021
--  161.63s +3.2s shows: y2020
--  164.81s +3.2s shows: y2022
--  167.99s +3.2s shows: y2023
--  171.16s +3.2s shows: y2026
--  174.34s +3.2s shows: y2020
--  177.52s +6.0s shows: g_cmp_2020_2024_c17
--  183.52s +5.1s shows: wipe y2020->y2024
--  188.60s +3.2s shows: y2020
--  191.78s +6.0s shows: g_cmp_2020_2024_c19
--  197.78s +5.1s shows: wipe y2020->y2024
--  202.86s +5.5s segment: y2022
--  208.35s +6.0s segment: g_cmp_2022_2026_c10
--  214.35s +4.4s segment: wipe y2022->y2026
--  218.74s +4.4s segment: wipe y2022->y2026
--  223.14s +6.0s segment: g_hero_c10
--  229.14s +5.5s segment: y2026
--  234.63s +5.0s segment: g_tiers
--  239.63s +5.5s segment: y2022
--  245.12s +5.5s segment: y2023
--  250.61s +3.7s checks: y2024
--  254.30s +3.7s checks: y2024
--  257.98s +3.7s checks: y2025
--  261.67s +3.7s checks: y2025
--  265.35s +3.7s checks: y2026
--  269.04s +3.7s checks: y2026
--  272.72s +3.7s checks: y2024
--  276.41s +3.7s checks: y2024
--  280.10s +3.7s checks: y2025
--  283.78s +3.7s checks: y2025
--  287.47s +6.0s checks: g_cmp_2025_2026_c12
--  293.47s +5.9s checks: wipe y2025->y2026
--  299.36s +5.9s checks: wipe y2025->y2026
--  305.26s +3.7s checks: y2025
--  308.94s +3.7s checks: y2025
--  312.63s +3.7s checks: y2026
--  316.31s +3.7s checks: y2026
--  320.00s +6.0s limits: g_reports
--  326.00s +5.0s limits: g_tiers
--  331.00s +6.3s limits: y2020
--  337.33s +6.3s limits: y2021
--  343.66s +6.3s limits: y2022
--  350.00s +6.3s limits: y2023
--  356.33s +5.0s close: g_tiers
--  361.33s +3.9s close: y2026
--  365.25s +3.9s close: y2026
--  369.18s +3.9s close: y2026
--  373.11s +3.9s close: y2026
--  377.04s +3.9s close: y2026
--  380.97s +3.9s close: y2026
+-    3.50s +6.0s hook: y2022
+-    9.51s +4.8s hook: wipe y2022->y2026
+-   14.32s +4.8s hook: wipe y2022->y2026
+-   19.13s +6.0s hook: y2026
+-   25.14s +5.0s promise: g_scale
+-   30.14s +5.5s promise: y2026
+-   35.61s +5.5s promise: y2020
+-   41.09s +5.5s promise: y2021
+-   46.56s +5.5s promise: y2022
+-   52.04s +6.0s plan: g_reports
+-   58.04s +3.7s plan: y2023
+-   61.69s +3.7s plan: y2023
+-   65.35s +3.7s plan: y2024
+-   69.01s +3.7s plan: y2024
+-   72.67s +3.7s plan: y2025
+-   76.32s +3.7s plan: y2025
+-   79.98s +3.7s plan: y2026
+-   83.64s +3.7s plan: y2026
+-   87.30s +3.7s plan: y2020
+-   90.95s +3.7s plan: y2020
+-   94.61s +3.7s plan: y2021
+-   98.27s +3.7s plan: y2021
+-  101.92s +6.9s method: y2022
+-  108.78s +6.9s method: y2023
+-  115.64s +6.9s method: y2024
+-  122.50s +6.9s method: y2025
+-  129.36s +6.9s method: y2026
+-  136.22s +6.9s method: y2020
+-  143.07s +6.9s method: y2021
+-  149.93s +3.0s shows: y2020
+-  152.98s +3.0s shows: y2022
+-  156.02s +3.0s shows: y2023
+-  159.07s +3.0s shows: y2026
+-  162.11s +3.0s shows: y2020
+-  165.16s +6.0s shows: g_cmp_2020_2024_c17
+-  171.16s +4.9s shows: wipe y2020->y2024
+-  176.03s +3.0s shows: y2020
+-  179.08s +6.0s shows: g_cmp_2020_2024_c19
+-  185.08s +4.9s shows: wipe y2020->y2024
+-  189.95s +6.2s segment: y2022
+-  196.11s +6.0s segment: g_cmp_2022_2026_c10
+-  202.11s +4.9s segment: wipe y2022->y2026
+-  207.04s +4.9s segment: wipe y2022->y2026
+-  211.97s +6.0s segment: g_hero_c10
+-  217.97s +6.2s segment: y2026
+-  224.12s +5.0s segment: g_tiers
+-  229.12s +6.2s segment: y2022
+-  235.28s +6.2s segment: y2023
+-  241.44s +4.0s checks: y2024
+-  245.41s +4.0s checks: y2024
+-  249.37s +4.0s checks: y2025
+-  253.34s +4.0s checks: y2025
+-  257.31s +4.0s checks: y2026
+-  261.27s +4.0s checks: y2026
+-  265.24s +4.0s checks: y2024
+-  269.20s +4.0s checks: y2024
+-  273.17s +4.0s checks: y2025
+-  277.13s +4.0s checks: y2025
+-  281.10s +6.0s checks: g_cmp_2025_2026_c12
+-  287.10s +6.3s checks: wipe y2025->y2026
+-  293.44s +6.3s checks: wipe y2025->y2026
+-  299.79s +4.0s checks: y2025
+-  303.75s +4.0s checks: y2025
+-  307.72s +4.0s checks: y2026
+-  311.69s +4.0s checks: y2026
+-  315.65s +6.0s limits: g_reports
+-  321.65s +5.0s limits: g_tiers
+-  326.65s +6.3s limits: y2020
+-  332.91s +6.3s limits: y2021
+-  339.17s +6.3s limits: y2022
+-  345.43s +6.3s limits: y2023
+-  351.69s +5.0s close: g_tiers
+-  356.69s +4.8s close: y2026
+-  361.46s +4.8s close: y2026
+-  366.23s +4.8s close: y2026
+-  371.00s +4.8s close: y2026
+-  375.77s +4.8s close: y2026
+-  380.54s +4.8s close: y2026

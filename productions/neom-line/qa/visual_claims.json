@@ -202,10 +202,10 @@
    }
   },
   {
-   "id": "promise_008:label:SEP 2020",
+   "id": "promise_007:label:SEP 2020",
    "kind": "label",
    "text": "SEP 2020",
-   "shot": "promise_008",
+   "shot": "promise_007",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20200929T080731_R078_T36RYS_20201001T154846 acquired 2020-09-29",
@@ -219,10 +219,10 @@
    }
   },
   {
-   "id": "promise_010:label:SEP 2021",
+   "id": "promise_008:label:SEP 2021",
    "kind": "label",
    "text": "SEP 2021",
-   "shot": "promise_010",
+   "shot": "promise_008",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2B_MSIL2A_20210929T080719_R078_T36RYS_20210929T211810 acquired 2021-09-29",
@@ -236,10 +236,10 @@
    }
   },
   {
-   "id": "promise_012:label:OCT 2022",
+   "id": "promise_009:label:OCT 2022",
    "kind": "label",
    "text": "OCT 2022",
-   "shot": "promise_012",
+   "shot": "promise_009",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20221009T080841_R078_T36RYS_20240725T054556 acquired 2022-10-09",
@@ -253,10 +253,10 @@
    }
   },
   {
-   "id": "plan_014:graphic:g_reports",
+   "id": "plan_010:graphic:g_reports",
    "kind": "graphic",
    "text": "g_reports",
-   "shot": "plan_014",
+   "shot": "plan_010",
    "claims": [
     "C1",
     "C2",
@@ -318,10 +318,10 @@
    }
   },
   {
-   "id": "plan_015:label:OCT 2023",
+   "id": "plan_011:label:OCT 2023",
    "kind": "label",
    "text": "OCT 2023",
-   "shot": "plan_015",
+   "shot": "plan_011",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051 acquired 2023-10-14",
@@ -335,10 +335,10 @@
    }
   },
   {
-   "id": "plan_016:label:OCT 2024",
+   "id": "plan_013:label:OCT 2024",
    "kind": "label",
    "text": "OCT 2024",
-   "shot": "plan_016",
+   "shot": "plan_013",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20241008T080831_R078_T36RYS_20241008T112248 acquired 2024-10-08",
@@ -352,10 +352,10 @@
    }
   },
   {
-   "id": "plan_017:label:OCT 2025",
+   "id": "plan_015:label:OCT 2025",
    "kind": "label",
    "text": "OCT 2025",
-   "shot": "plan_017",
+   "shot": "plan_015",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08",
@@ -369,10 +369,10 @@
    }
   },
   {
-   "id": "plan_018:label:OCT 2026",
+   "id": "plan_017:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "plan_018",
+   "shot": "plan_017",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
@@ -403,10 +403,10 @@
    }
   },
   {
-   "id": "plan_020:label:SEP 2021",
+   "id": "plan_021:label:SEP 2021",
    "kind": "label",
    "text": "SEP 2021",
-   "shot": "plan_020",
+   "shot": "plan_021",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2B_MSIL2A_20210929T080719_R078_T36RYS_20210929T211810 acquired 2021-09-29",
@@ -420,10 +420,10 @@
    }
   },
   {
-   "id": "method_021:label:OCT 2022",
+   "id": "method_023:label:OCT 2022",
    "kind": "label",
    "text": "OCT 2022",
-   "shot": "method_021",
+   "shot": "method_023",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20221009T080841_R078_T36RYS_20240725T054556 acquired 2022-10-09",
@@ -437,10 +437,10 @@
    }
   },
   {
-   "id": "method_023:label:OCT 2023",
+   "id": "method_024:label:OCT 2023",
    "kind": "label",
    "text": "OCT 2023",
-   "shot": "method_023",
+   "shot": "method_024",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051 acquired 2023-10-14",
@@ -471,10 +471,10 @@
    }
   },
   {
-   "id": "method_027:label:OCT 2025",
+   "id": "method_026:label:OCT 2025",
    "kind": "label",
    "text": "OCT 2025",
-   "shot": "method_027",
+   "shot": "method_026",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08",
@@ -488,10 +488,10 @@
    }
   },
   {
-   "id": "method_029:label:OCT 2026",
+   "id": "method_027:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "method_029",
+   "shot": "method_027",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
@@ -505,10 +505,10 @@
    }
   },
   {
-   "id": "method_031:label:SEP 2020",
+   "id": "method_028:label:SEP 2020",
    "kind": "label",
    "text": "SEP 2020",
-   "shot": "method_031",
+   "shot": "method_028",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20200929T080731_R078_T36RYS_20201001T154846 acquired 2020-09-29",
@@ -522,10 +522,10 @@
    }
   },
   {
-   "id": "method_033:label:SEP 2021",
+   "id": "method_029:label:SEP 2021",
    "kind": "label",
    "text": "SEP 2021",
-   "shot": "method_033",
+   "shot": "method_029",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2B_MSIL2A_20210929T080719_R078_T36RYS_20210929T211810 acquired 2021-09-29",
@@ -539,10 +539,10 @@
    }
   },
   {
-   "id": "shows_035:label:SEP 2020",
+   "id": "shows_030:label:SEP 2020",
    "kind": "label",
    "text": "SEP 2020",
-   "shot": "shows_035",
+   "shot": "shows_030",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20200929T080731_R078_T36RYS_20201001T154846 acquired 2020-09-29",
@@ -556,16 +556,16 @@
    }
   },
   {
-   "id": "shows_035:shot",
+   "id": "shows_030:shot",
    "kind": "shot",
    "text": "y2020",
-   "shot": "shows_035",
+   "shot": "shows_030",
    "claims": [
     "C9"
    ],
    "frames": [
     {
-     "file": "qa/frames/shows_035_shot_0.png",
+     "file": "qa/frames/shows_030_shot_0.png",
      "sha256": "92303c862444bc6ee7c4e4b9785655dd785bd79bee2f2ef53028aa5ae802a671",
      "stack": "evidence/stack/y2020.png",
      "center": [
@@ -594,10 +594,10 @@
    }
   },
   {
-   "id": "shows_036:label:OCT 2022",
+   "id": "shows_031:label:OCT 2022",
    "kind": "label",
    "text": "OCT 2022",
-   "shot": "shows_036",
+   "shot": "shows_031",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20221009T080841_R078_T36RYS_20240725T054556 acquired 2022-10-09",
@@ -611,16 +611,16 @@
    }
   },
   {
-   "id": "shows_036:shot",
+   "id": "shows_031:shot",
    "kind": "shot",
    "text": "y2022",
-   "shot": "shows_036",
+   "shot": "shows_031",
    "claims": [
     "C9"
    ],
    "frames": [
     {
-     "file": "qa/frames/shows_036_shot_0.png",
+     "file": "qa/frames/shows_031_shot_0.png",
      "sha256": "2bb71121c93618daba1531a8f005276a7a05f197f8ec0e78f6a504e254d87771",
      "stack": "evidence/stack/y2022.png",
      "center": [
@@ -649,10 +649,10 @@
    }
   },
   {
-   "id": "shows_037:label:OCT 2023",
+   "id": "shows_032:label:OCT 2023",
    "kind": "label",
    "text": "OCT 2023",
-   "shot": "shows_037",
+   "shot": "shows_032",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051 acquired 2023-10-14",
@@ -666,16 +666,16 @@
    }
   },
   {
-   "id": "shows_037:shot",
+   "id": "shows_032:shot",
    "kind": "shot",
    "text": "y2023",
-   "shot": "shows_037",
+   "shot": "shows_032",
    "claims": [
     "C9"
    ],
    "frames": [
     {
-     "file": "qa/frames/shows_037_shot_0.png",
+     "file": "qa/frames/shows_032_shot_0.png",
      "sha256": "0a00412d396a19345d5381f10591a7516e7ef05bb9cb1b74cc5184a6faf5fab8",
      "stack": "evidence/stack/y2023.png",
      "center": [
@@ -704,10 +704,10 @@
    }
   },
   {
-   "id": "shows_038:label:OCT 2026",
+   "id": "shows_033:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "shows_038",
+   "shot": "shows_033",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
@@ -721,16 +721,16 @@
    }
   },
   {
-   "id": "shows_038:shot",
+   "id": "shows_033:shot",
    "kind": "shot",
    "text": "y2026",
-   "shot": "shows_038",
+   "shot": "shows_033",
    "claims": [
     "C9"
    ],
    "frames": [
     {
-     "file": "qa/frames/shows_038_shot_0.png",
+     "file": "qa/frames/shows_033_shot_0.png",
      "sha256": "03a75a0023f80572460e65a011ad3c1f036cace3e93924b2824fdea947bc5413",
      "stack": "evidence/stack/y2026.png",
      "center": [
@@ -759,10 +759,10 @@
    }
   },
   {
-   "id": "shows_039:label:SEP 2020",
+   "id": "shows_034:label:SEP 2020",
    "kind": "label",
    "text": "SEP 2020",
-   "shot": "shows_039",
+   "shot": "shows_034",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20200929T080731_R078_T36RYS_20201001T154846 acquired 2020-09-29",
@@ -776,16 +776,16 @@
    }
   },
   {
-   "id": "shows_039:shot",
+   "id": "shows_034:shot",
    "kind": "shot",
    "text": "y2020",
-   "shot": "shows_039",
+   "shot": "shows_034",
    "claims": [
     "C17"
    ],
    "frames": [
     {
-     "file": "qa/frames/shows_039_shot_0.png",
+     "file": "qa/frames/shows_034_shot_0.png",
      "sha256": "3b97773d8958740820d44edb38af5bf8504c41595221022ae93cb9eef9a723bc",
      "stack": "evidence/stack/y2020.png",
      "center": [
@@ -814,10 +814,10 @@
    }
   },
   {
-   "id": "shows_040:graphic:g_cmp_2020_2024_c17",
+   "id": "shows_035:graphic:g_cmp_2020_2024_c17",
    "kind": "graphic",
    "text": "g_cmp_2020_2024_c17",
-   "shot": "shows_040",
+   "shot": "shows_035",
    "claims": [
     "C17"
    ],
@@ -826,7 +826,7 @@
    ],
    "frames": [
     {
-     "file": "qa/frames/shows_040_graphic_g_cmp_2020_2024_c17_0.png",
+     "file": "qa/frames/shows_035_graphic_g_cmp_2020_2024_c17_0.png",
      "sha256": "4a927a440d76395da3d33d2e7842f23ccf1cd54a5d52a960a21deae89da3c7c3",
      "stack": "evidence/stack/y2020.png",
      "center": [
@@ -837,7 +837,7 @@
      "review": "supports"
     },
     {
-     "file": "qa/frames/shows_040_graphic_g_cmp_2020_2024_c17_1.png",
+     "file": "qa/frames/shows_035_graphic_g_cmp_2020_2024_c17_1.png",
      "sha256": "8d70540138535b8cb3f35048070e74366a6db4fa1109c72f659eb277bff58c81",
      "stack": "evidence/stack/y2024.png",
      "center": [
@@ -866,16 +866,16 @@
    }
   },
   {
-   "id": "shows_041:shot",
+   "id": "shows_036:shot",
    "kind": "shot",
    "text": "wipe y2020->y2024",
-   "shot": "shows_041",
+   "shot": "shows_036",
    "claims": [
     "C17"
    ],
    "frames": [
     {
-     "file": "qa/frames/shows_041_shot_0.png",
+     "file": "qa/frames/shows_036_shot_0.png",
      "sha256": "9c7d8344bb165571a3de634f2df45e7c8ad3d8d52f5de1d80021cbdc9b61ce73",
      "stack": "evidence/stack/y2020.png",
      "center": [
@@ -886,7 +886,7 @@
      "review": "supports"
     },
     {
-     "file": "qa/frames/shows_041_shot_1.png",
+     "file": "qa/frames/shows_036_shot_1.png",
      "sha256": "dd25dcf86afcde937a8d600e910a8797a17147daa0f55b8e1940d399be3a284a",
      "stack": "evidence/stack/y2024.png",
      "center": [
@@ -915,10 +915,10 @@
    }
   },
   {
-   "id": "shows_042:label:SEP 2020",
+   "id": "shows_037:label:SEP 2020",
    "kind": "label",
    "text": "SEP 2020",
-   "shot": "shows_042",
+   "shot": "shows_037",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20200929T080731_R078_T36RYS_20201001T154846 acquired 2020-09-29",
@@ -932,16 +932,16 @@
    }
   },
   {
-   "id": "shows_042:shot",
+   "id": "shows_037:shot",
    "kind": "shot",
    "text": "y2020",
-   "shot": "shows_042",
+   "shot": "shows_037",
    "claims": [
     "C19"
    ],
    "frames": [
     {
-     "file": "qa/frames/shows_042_shot_0.png",
+     "file": "qa/frames/shows_037_shot_0.png",
      "sha256": "ee0af452fbd87483037abe9ee5bc48578f4cb4d147fd0aa5e75e705d3c25861b",
      "stack": "evidence/stack/y2020.png",
      "center": [
@@ -970,10 +970,10 @@
    }
   },
   {
-   "id": "shows_043:graphic:g_cmp_2020_2024_c19",
+   "id": "shows_038:graphic:g_cmp_2020_2024_c19",
    "kind": "graphic",
    "text": "g_cmp_2020_2024_c19",
-   "shot": "shows_043",
+   "shot": "shows_038",
    "claims": [
     "C19"
    ],
@@ -982,7 +982,7 @@
    ],
    "frames": [
     {
-     "file": "qa/frames/shows_043_graphic_g_cmp_2020_2024_c19_0.png",
+     "file": "qa/frames/shows_038_graphic_g_cmp_2020_2024_c19_0.png",
      "sha256": "ab51f179c7298490de3f8fe09b47ca10293910a35cd19eb6ad28d02af5f01b71",
      "stack": "evidence/stack/y2020.png",
      "center": [
@@ -993,7 +993,7 @@
      "review": "supports"
     },
     {
-     "file": "qa/frames/shows_043_graphic_g_cmp_2020_2024_c19_1.png",
+     "file": "qa/frames/shows_038_graphic_g_cmp_2020_2024_c19_1.png",
      "sha256": "206440b95d5fd68ba196b2ef5745b9d9bc048606af61b32e2a97a7e466bccfbe",
      "stack": "evidence/stack/y2024.png",
      "center": [
@@ -1022,16 +1022,16 @@
    }
   },
   {
-   "id": "shows_044:shot",
+   "id": "shows_039:shot",
    "kind": "shot",
    "text": "wipe y2020->y2024",
-   "shot": "shows_044",
+   "shot": "shows_039",
    "claims": [
     "C19"
    ],
    "frames": [
     {
-     "file": "qa/frames/shows_044_shot_0.png",
+     "file": "qa/frames/shows_039_shot_0.png",
      "sha256": "b8617e46dbba7d286424baee6097667486a9ba530f2557c8ee7e16ef7e0a0be8",
      "stack": "evidence/stack/y2020.png",
      "center": [
@@ -1042,7 +1042,7 @@
      "review": "supports"
     },
     {
-     "file": "qa/frames/shows_044_shot_1.png",
+     "file": "qa/frames/shows_039_shot_1.png",
      "sha256": "ceeb324ca9bb706d398b80fbdb8175e1ae88a7231dbcdbf6a04904008f9f00df",
      "stack": "evidence/stack/y2024.png",
      "center": [
@@ -1071,10 +1071,10 @@
    }
   },
   {
-   "id": "segment_045:label:OCT 2022",
+   "id": "segment_040:label:OCT 2022",
    "kind": "label",
    "text": "OCT 2022",
-   "shot": "segment_045",
+   "shot": "segment_040",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20221009T080841_R078_T36RYS_20240725T054556 acquired 2022-10-09",
@@ -1088,10 +1088,10 @@
    }
   },
   {
-   "id": "segment_045:shot",
+   "id": "segment_040:shot",
    "kind": "shot",
    "text": "y2022",
-   "shot": "segment_045",
+   "shot": "segment_040",
    "claims": [
     "C10"
    ],
@@ -1113,10 +1113,10 @@
    }
   },
   {
-   "id": "segment_046:graphic:g_cmp_2022_2026_c10",
+   "id": "segment_041:graphic:g_cmp_2022_2026_c10",
    "kind": "graphic",
    "text": "g_cmp_2022_2026_c10",
-   "shot": "segment_046",
+   "shot": "segment_041",
    "claims": [
     "C10"
    ],
@@ -1141,10 +1141,10 @@
    }
   },
   {
-   "id": "segment_047:shot",
+   "id": "segment_042:shot",
    "kind": "shot",
    "text": "wipe y2022->y2026",
-   "shot": "segment_047",
+   "shot": "segment_042",
    "claims": [
     "C10"
    ],
@@ -1166,10 +1166,10 @@
    }
   },
   {
-   "id": "segment_048:shot",
+   "id": "segment_043:shot",
    "kind": "shot",
    "text": "wipe y2022->y2026",
-   "shot": "segment_048",
+   "shot": "segment_043",
    "claims": [
     "C10"
    ],
@@ -1191,10 +1191,10 @@
    }
   },
   {
-   "id": "segment_049:graphic:g_hero_c10",
+   "id": "segment_044:graphic:g_hero_c10",
    "kind": "graphic",
    "text": "g_hero_c10",
-   "shot": "segment_049",
+   "shot": "segment_044",
    "claims": [
     "C10"
    ],
@@ -1221,10 +1221,10 @@
    }
   },
   {
-   "id": "segment_050:label:OCT 2026",
+   "id": "segment_045:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "segment_050",
+   "shot": "segment_045",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
@@ -1238,10 +1238,10 @@
    }
   },
   {
-   "id": "segment_050:shot",
+   "id": "segment_045:shot",
    "kind": "shot",
    "text": "y2026",
-   "shot": "segment_050",
+   "shot": "segment_045",
    "claims": [
     "C11"
    ],
@@ -1263,10 +1263,10 @@
    }
   },
   {
-   "id": "segment_051:graphic:g_tiers",
+   "id": "segment_046:graphic:g_tiers",
    "kind": "graphic",
    "text": "g_tiers",
-   "shot": "segment_051",
+   "shot": "segment_046",
    "claims": [
     "C1",
     "C4",
@@ -1314,10 +1314,10 @@
    }
   },
   {
-   "id": "segment_052:label:OCT 2022",
+   "id": "segment_047:label:OCT 2022",
    "kind": "label",
    "text": "OCT 2022",
-   "shot": "segment_052",
+   "shot": "segment_047",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20221009T080841_R078_T36RYS_20240725T054556 acquired 2022-10-09",
@@ -1331,10 +1331,10 @@
    }
   },
   {
-   "id": "segment_053:label:OCT 2023",
+   "id": "segment_048:label:OCT 2023",
    "kind": "label",
    "text": "OCT 2023",
-   "shot": "segment_053",
+   "shot": "segment_048",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051 acquired 2023-10-14",
@@ -1348,10 +1348,10 @@
    }
   },
   {
-   "id": "checks_054:label:OCT 2024",
+   "id": "checks_049:label:OCT 2024",
    "kind": "label",
    "text": "OCT 2024",
-   "shot": "checks_054",
+   "shot": "checks_049",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20241008T080831_R078_T36RYS_20241008T112248 acquired 2024-10-08",
@@ -1365,10 +1365,10 @@
    }
   },
   {
-   "id": "checks_054:shot",
+   "id": "checks_049:shot",
    "kind": "shot",
    "text": "y2024",
-   "shot": "checks_054",
+   "shot": "checks_049",
    "claims": [
     "C14"
    ],
@@ -1390,10 +1390,10 @@
    }
   },
   {
-   "id": "checks_055:shot",
+   "id": "checks_050:shot",
    "kind": "shot",
    "text": "y2024",
-   "shot": "checks_055",
+   "shot": "checks_050",
    "claims": [
     "C14"
    ],
@@ -1415,10 +1415,10 @@
    }
   },
   {
-   "id": "checks_056:label:OCT 2025",
+   "id": "checks_051:label:OCT 2025",
    "kind": "label",
    "text": "OCT 2025",
-   "shot": "checks_056",
+   "shot": "checks_051",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08",
@@ -1432,10 +1432,10 @@
    }
   },
   {
-   "id": "checks_056:shot",
+   "id": "checks_051:shot",
    "kind": "shot",
    "text": "y2025",
-   "shot": "checks_056",
+   "shot": "checks_051",
    "claims": [
     "C14"
    ],
@@ -1457,10 +1457,10 @@
    }
   },
   {
-   "id": "checks_057:shot",
+   "id": "checks_052:shot",
    "kind": "shot",
    "text": "y2025",
-   "shot": "checks_057",
+   "shot": "checks_052",
    "claims": [
     "C14"
    ],
@@ -1482,10 +1482,10 @@
    }
   },
   {
-   "id": "checks_058:label:OCT 2026",
+   "id": "checks_053:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "checks_058",
+   "shot": "checks_053",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
@@ -1499,10 +1499,10 @@
    }
   },
   {
-   "id": "checks_058:shot",
+   "id": "checks_053:shot",
    "kind": "shot",
    "text": "y2026",
-   "shot": "checks_058",
+   "shot": "checks_053",
    "claims": [
     "C14"
    ],
@@ -1524,10 +1524,10 @@
    }
   },
   {
-   "id": "checks_059:shot",
+   "id": "checks_054:shot",
    "kind": "shot",
    "text": "y2026",
-   "shot": "checks_059",
+   "shot": "checks_054",
    "claims": [
     "C14"
    ],
@@ -1549,10 +1549,10 @@
    }
   },
   {
-   "id": "checks_060:label:OCT 2024",
+   "id": "checks_055:label:OCT 2024",
    "kind": "label",
    "text": "OCT 2024",
-   "shot": "checks_060",
+   "shot": "checks_055",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20241008T080831_R078_T36RYS_20241008T112248 acquired 2024-10-08",
@@ -1566,10 +1566,10 @@
    }
   },
   {
-   "id": "checks_062:label:OCT 2025",
+   "id": "checks_057:label:OCT 2025",
    "kind": "label",
    "text": "OCT 2025",
-   "shot": "checks_062",
+   "shot": "checks_057",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08",
@@ -1583,10 +1583,10 @@
    }
   },
   {
-   "id": "checks_062:shot",
+   "id": "checks_057:shot",
    "kind": "shot",
    "text": "y2025",
-   "shot": "checks_062",
+   "shot": "checks_057",
    "claims": [
     "C12"
    ],
@@ -1608,10 +1608,10 @@
    }
   },
   {
-   "id": "checks_063:shot",
+   "id": "checks_058:shot",
    "kind": "shot",
    "text": "y2025",
-   "shot": "checks_063",
+   "shot": "checks_058",
    "claims": [
     "C12"
    ],
@@ -1633,10 +1633,10 @@
    }
   },
   {
-   "id": "checks_064:graphic:g_cmp_2025_2026_c12",
+   "id": "checks_059:graphic:g_cmp_2025_2026_c12",
    "kind": "graphic",
    "text": "g_cmp_2025_2026_c12",
-   "shot": "checks_064",
+   "shot": "checks_059",
    "claims": [
     "C12"
    ],
@@ -1661,10 +1661,10 @@
    }
   },
   {
-   "id": "checks_065:shot",
+   "id": "checks_060:shot",
    "kind": "shot",
    "text": "wipe y2025->y2026",
-   "shot": "checks_065",
+   "shot": "checks_060",
    "claims": [
     "C12"
    ],
@@ -1686,10 +1686,10 @@
    }
   },
   {
-   "id": "checks_066:shot",
+   "id": "checks_061:shot",
    "kind": "shot",
    "text": "wipe y2025->y2026",
-   "shot": "checks_066",
+   "shot": "checks_061",
    "claims": [
     "C12"
    ],
@@ -1711,10 +1711,10 @@
    }
   },
   {
-   "id": "checks_067:label:OCT 2025",
+   "id": "checks_062:label:OCT 2025",
    "kind": "label",
    "text": "OCT 2025",
-   "shot": "checks_067",
+   "shot": "checks_062",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527 acquired 2025-10-08",
@@ -1728,10 +1728,10 @@
    }
   },
   {
-   "id": "checks_069:label:OCT 2026",
+   "id": "checks_064:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "checks_069",
+   "shot": "checks_064",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
@@ -1745,10 +1745,10 @@
    }
   },
   {
-   "id": "limits_071:graphic:g_reports",
+   "id": "limits_066:graphic:g_reports",
    "kind": "graphic",
    "text": "g_reports",
-   "shot": "limits_071",
+   "shot": "limits_066",
    "claims": [
     "C1",
     "C2",
@@ -1810,10 +1810,10 @@
    }
   },
   {
-   "id": "limits_072:graphic:g_tiers",
+   "id": "limits_067:graphic:g_tiers",
    "kind": "graphic",
    "text": "g_tiers",
-   "shot": "limits_072",
+   "shot": "limits_067",
    "claims": [
     "C1",
     "C4",
@@ -1861,10 +1861,10 @@
    }
   },
   {
-   "id": "limits_073:label:SEP 2020",
+   "id": "limits_068:label:SEP 2020",
    "kind": "label",
    "text": "SEP 2020",
-   "shot": "limits_073",
+   "shot": "limits_068",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20200929T080731_R078_T36RYS_20201001T154846 acquired 2020-09-29",
@@ -1878,10 +1878,10 @@
    }
   },
   {
-   "id": "limits_074:label:SEP 2021",
+   "id": "limits_069:label:SEP 2021",
    "kind": "label",
    "text": "SEP 2021",
-   "shot": "limits_074",
+   "shot": "limits_069",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2B_MSIL2A_20210929T080719_R078_T36RYS_20210929T211810 acquired 2021-09-29",
@@ -1895,10 +1895,10 @@
    }
   },
   {
-   "id": "limits_075:label:OCT 2022",
+   "id": "limits_070:label:OCT 2022",
    "kind": "label",
    "text": "OCT 2022",
-   "shot": "limits_075",
+   "shot": "limits_070",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20221009T080841_R078_T36RYS_20240725T054556 acquired 2022-10-09",
@@ -1912,10 +1912,10 @@
    }
   },
   {
-   "id": "limits_076:label:OCT 2023",
+   "id": "limits_071:label:OCT 2023",
    "kind": "label",
    "text": "OCT 2023",
-   "shot": "limits_076",
+   "shot": "limits_071",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051 acquired 2023-10-14",
@@ -1929,10 +1929,10 @@
    }
   },
   {
-   "id": "close_077:graphic:g_tiers",
+   "id": "close_072:graphic:g_tiers",
    "kind": "graphic",
    "text": "g_tiers",
-   "shot": "close_077",
+   "shot": "close_072",
    "claims": [
     "C1",
     "C4",
@@ -1980,10 +1980,10 @@
    }
   },
   {
-   "id": "close_078:label:OCT 2026",
+   "id": "close_073:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "close_078",
+   "shot": "close_073",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
@@ -1997,10 +1997,10 @@
    }
   },
   {
-   "id": "close_080:label:OCT 2026",
+   "id": "close_075:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "close_080",
+   "shot": "close_075",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",
@@ -2014,10 +2014,10 @@
    }
   },
   {
-   "id": "close_082:label:OCT 2026",
+   "id": "close_077:label:OCT 2026",
    "kind": "label",
    "text": "OCT 2026",
-   "shot": "close_082",
+   "shot": "close_077",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002 acquired 2026-10-18",

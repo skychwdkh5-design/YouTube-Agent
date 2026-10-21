@@ -144,7 +144,7 @@
   },
   {
    "id": "hook_002",
-   "start": 9.217,
+   "start": 9.51,
    "visual_family": "wipe_2022_2026",
    "info": "wipe y2022->y2026",
    "layers": [
@@ -181,7 +181,7 @@
   },
   {
    "id": "hook_003",
-   "start": 13.791,
+   "start": 14.318,
    "visual_family": "wipe_2022_2026",
    "info": "wipe y2022->y2026",
    "layers": [
@@ -218,7 +218,7 @@
   },
   {
    "id": "hook_004",
-   "start": 18.365,
+   "start": 19.126,
    "visual_family": "y2026_hook",
    "info": "y2026",
    "layers": [
@@ -256,7 +256,7 @@
   },
   {
    "id": "promise_005",
-   "start": 24.082,
+   "start": 25.136,
    "visual_family": "g_scale_promise",
    "info": "g_scale",
    "layers": [
@@ -272,7 +272,7 @@
   },
   {
    "id": "promise_006",
-   "start": 29.082,
+   "start": 30.136,
    "visual_family": "y2026_promise",
    "info": "y2026",
    "layers": [
@@ -297,48 +297,20 @@
       35.215,
       28.11
      ],
-     "width_km": 15.0
+     "width_km": 15
     },
     "to": {
      "center": [
       35.215,
       28.11
      ],
-     "width_km": 9.0
+     "width_km": 9
     }
    }
   },
   {
    "id": "promise_007",
-   "start": 32.64,
-   "visual_family": "y2026_promise",
-   "info": "y2026",
-   "layers": [
-    {
-     "type": "image",
-     "asset": "y2026"
-    }
-   ],
-   "camera": {
-    "from": {
-     "center": [
-      35.215,
-      28.11
-     ],
-     "width_km": 11.25
-    },
-    "to": {
-     "center": [
-      35.215,
-      28.10993
-     ],
-     "width_km": 16.168
-    }
-   }
-  },
-  {
-   "id": "promise_008",
-   "start": 36.199,
+   "start": 35.611,
    "visual_family": "y2020_promise",
    "info": "y2020",
    "layers": [
@@ -363,48 +335,20 @@
       35.215,
       28.11
      ],
-     "width_km": 15.0
+     "width_km": 15
     },
     "to": {
      "center": [
       35.215,
       28.11
      ],
-     "width_km": 8.0
+     "width_km": 8
     }
    }
   },
   {
-   "id": "promise_009",
-   "start": 39.758,
-   "visual_family": "y2020_promise",
-   "info": "y2020",
-   "layers": [
-    {
-     "type": "image",
-     "asset": "y2020"
-    }
-   ],
-   "camera": {
-    "from": {
-     "center": [
-      35.215,
-      28.11
-     ],
-     "width_km": 10.0
-    },
-    "to": {
-     "center": [
-      35.215,
-      28.10993
-     ],
-     "width_km": 16.168
-    }
-   }
-  },
-  {
-   "id": "promise_010",
-   "start": 43.316,
+   "id": "promise_008",
+   "start": 41.086,
    "visual_family": "y2021_promise",
    "info": "y2021",
    "layers": [
@@ -429,48 +373,20 @@
       35.2165,
       28.1062
      ],
-     "width_km": 8.0
+     "width_km": 8
     },
     "to": {
      "center": [
       35.21651,
       28.10684
      ],
-     "width_km": 15.0
+     "width_km": 15
     }
    }
   },
   {
-   "id": "promise_011",
-   "start": 46.875,
-   "visual_family": "y2021_promise",
-   "info": "y2021",
-   "layers": [
-    {
-     "type": "image",
-     "asset": "y2021"
-    }
-   ],
-   "camera": {
-    "from": {
-     "center": [
-      35.21658,
-      28.10987
-     ],
-     "width_km": 16.168
-    },
-    "to": {
-     "center": [
-      35.2165,
-      28.1062
-     ],
-     "width_km": 10.0
-    }
-   }
-  },
-  {
-   "id": "promise_012",
-   "start": 50.434,
+   "id": "promise_009",
+   "start": 46.561,
    "visual_family": "y2022_promise",
    "info": "y2022",
    "layers": [
@@ -495,48 +411,20 @@
       35.215,
       28.11
      ],
-     "width_km": 15.0
+     "width_km": 15
     },
     "to": {
      "center": [
       35.215,
       28.11
      ],
-     "width_km": 8.0
+     "width_km": 8
     }
    }
   },
   {
-   "id": "promise_013",
-   "start": 53.992,
-   "visual_family": "y2022_promise",
-   "info": "y2022",
-   "layers": [
-    {
-     "type": "image",
-     "asset": "y2022"
-    }
-   ],
-   "camera": {
-    "from": {
-     "center": [
-      35.215,
-      28.11
-     ],
-     "width_km": 10.0
-    },
-    "to": {
-     "center": [
-      35.215,
-      28.10993
-     ],
-     "width_km": 16.168
-    }
-   }
-  },
-  {
-   "id": "plan_014",
-   "start": 57.551,
+   "id": "plan_010",
+   "start": 52.036,
    "visual_family": "g_reports_plan",
    "info": "g_reports",
    "layers": [
@@ -551,8 +439,8 @@
    ]
   },
   {
-   "id": "plan_015",
-   "start": 63.551,
+   "id": "plan_011",
+   "start": 58.036,
    "visual_family": "y2023_plan",
    "info": "y2023",
    "layers": [
@@ -577,20 +465,48 @@
       35.215,
       28.11
      ],
-     "width_km": 14
+     "width_km": 14.0
     },
     "to": {
      "center": [
       35.215,
       28.11
      ],
-     "width_km": 8
+     "width_km": 8.0
     }
    }
   },
   {
-   "id": "plan_016",
-   "start": 70.51,
+   "id": "plan_012",
+   "start": 61.693,
+   "visual_family": "y2023_plan",
+   "info": "y2023",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2023"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.215,
+      28.11
+     ],
+     "width_km": 10.0
+    },
+    "to": {
+     "center": [
+      35.215,
+      28.10993
+     ],
+     "width_km": 16.168
+    }
+   }
+  },
+  {
+   "id": "plan_013",
+   "start": 65.351,
    "visual_family": "y2024_plan",
    "info": "y2024",
    "layers": [
@@ -615,20 +531,48 @@
       35.2165,
       28.1062
      ],
-     "width_km": 8
+     "width_km": 8.0
     },
     "to": {
      "center": [
       35.2165,
       28.1062
      ],
-     "width_km": 14
+     "width_km": 14.0
     }
    }
   },
   {
-   "id": "plan_017",
-   "start": 77.469,
+   "id": "plan_014",
+   "start": 69.008,
+   "visual_family": "y2024_plan",
+   "info": "y2024",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2024"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.21658,
+      28.10987
+     ],
+     "width_km": 16.168
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 10.0
+    }
+   }
+  },
+  {
+   "id": "plan_015",
+   "start": 72.666,
    "visual_family": "y2025_plan",
    "info": "y2025",
    "layers": [
@@ -653,20 +597,48 @@
       35.215,
       28.11
      ],
-     "width_km": 15
+     "width_km": 15.0
     },
     "to": {
      "center": [
       35.215,
       28.11
      ],
-     "width_km": 8
+     "width_km": 8.0
     }
    }
   },
   {
-   "id": "plan_018",
-   "start": 84.429,
+   "id": "plan_016",
+   "start": 76.323,
+   "visual_family": "y2025_plan",
+   "info": "y2025",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2025"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.215,
+      28.11
+     ],
+     "width_km": 10.0
+    },
+    "to": {
+     "center": [
+      35.215,
+      28.10993
+     ],
+     "width_km": 16.168
+    }
+   }
+  },
+  {
+   "id": "plan_017",
+   "start": 79.98,
    "visual_family": "y2026_plan",
    "info": "y2026",
    "layers": [
@@ -691,20 +663,48 @@
       35.2165,
       28.1062
      ],
-     "width_km": 8
+     "width_km": 8.0
     },
     "to": {
      "center": [
       35.21651,
       28.10684
      ],
-     "width_km": 15
+     "width_km": 15.0
+    }
+   }
+  },
+  {
+   "id": "plan_018",
+   "start": 83.638,
+   "visual_family": "y2026_plan",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.21658,
+      28.10987
+     ],
+     "width_km": 16.168
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 10.0
     }
    }
   },
   {
    "id": "plan_019",
-   "start": 91.388,
+   "start": 87.295,
    "visual_family": "y2020_plan",
    "info": "y2020",
    "layers": [
@@ -729,20 +729,48 @@
       35.215,
       28.11
      ],
-     "width_km": 15
+     "width_km": 15.0
     },
     "to": {
      "center": [
       35.215,
       28.11
      ],
-     "width_km": 8
+     "width_km": 8.0
     }
    }
   },
   {
    "id": "plan_020",
-   "start": 98.347,
+   "start": 90.953,
+   "visual_family": "y2020_plan",
+   "info": "y2020",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2020"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.215,
+      28.11
+     ],
+     "width_km": 10.0
+    },
+    "to": {
+     "center": [
+      35.215,
+      28.10993
+     ],
+     "width_km": 16.168
+    }
+   }
+  },
+  {
+   "id": "plan_021",
+   "start": 94.61,
    "visual_family": "y2021_plan",
    "info": "y2021",
    "layers": [
@@ -767,20 +795,48 @@
       35.2165,
       28.1062
      ],
-     "width_km": 8
+     "width_km": 8.0
     },
     "to": {
      "center": [
       35.21651,
       28.10684
      ],
-     "width_km": 15
+     "width_km": 15.0
     }
    }
   },
   {
-   "id": "method_021",
-   "start": 105.306,
+   "id": "plan_022",
+   "start": 98.268,
+   "visual_family": "y2021_plan",
+   "info": "y2021",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2021"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      35.21658,
+      28.10987
+     ],
+     "width_km": 16.168
+    },
+    "to": {
+     "center": [
+      35.2165,
+      28.1062
+     ],
+     "width_km": 10.0
+    }
+   }
+  },
+  {
+   "id": "method_023",
+   "start": 101.925,
    "visual_family": "y2022_method",
    "info": "y2022",
    "layers": [
@@ -805,48 +861,20 @@
       35.2165,
       28.1062
      ],
-     "width_km": 10.0
+     "width_km": 10
     },
     "to": {
      "center": [
       35.2165,
       28.1062
      ],
-     "width_km": 6.0
+     "width_km": 6
     }
    }
   },
   {
-   "id": "method_022",
-   "start": 109.329,
-   "visual_family": "y2022_method",
-   "info": "y2022",
-   "layers": [
-    {
-     "type": "image",
-     "asset": "y2022"
-    }
-   ],
-   "camera": {
-    "from": {
-     "center": [
-      35.2165,
-      28.1062
-     ],
-     "width_km": 7.5
-    },
-    "to": {
-     "center": [
-      35.2165,
-      28.1062
-     ],
-     "width_km": 12.5
-    }
-   }
-  },
-  {
-   "id": "method_023",
-   "start": 113.353,
+   "id": "method_024",
+   "start": 108.783,
    "visual_family": "y2023_method",
    "info": "y2023",
    "layers": [
@@ -871,48 +899,20 @@
       35.2165,
       28.1062
      ],
-     "width_km": 10.0
+     "width_km": 10
     },
     "to": {
      "center": [
       35.2165,
       28.1062
      ],
-     "width_km": 6.0
-    }
-   }
-  },
-  {
-   "id": "method_024",
-   "start": 117.376,
-   "visual_family": "y2023_method",
-   "info": "y2023",
-   "layers": [
-    {
-     "type": "image",
-     "asset": "y2023"
-    }
-   ],
-   "camera": {
-    "from": {
-     "center": [
-      35.2165,
-      28.1062
-     ],
-     "width_km": 7.5
-    },
-    "to": {
-     "center": [
-      35.2165,
-      28.1062
-     ],
-     "width_km": 12.5
+     "width_km": 6
     }
    }
   },
   {
    "id": "method_025",
-   "start": 121.399,
+   "start": 115.641,
    "visual_family": "y2024_method",
    "info": "y2024",
    "layers": [
@@ -937,48 +937,20 @@
       35.215,
       28.11
      ],
-     "width_km": 15.0
+     "width_km": 15
     },
     "to": {
      "center": [
       35.215,
       28.11
      ],
-     "width_km": 8.0
+     "width_km": 8
     }
    }
   },
   {
    "id": "method_026",
-   "start": 125.423,
-   "visual_family": "y2024_method",
-   "info": "y2024",
-   "layers": [
-    {
-     "type": "image",
-     "asset": "y2024"
-    }
-   ],
-   "camera": {
-    "from": {
-     "center": [
-      35.215,
-      28.11
-     ],
-     "width_km": 10.0
-    },
-    "to": {
-     "center": [
-      35.215,
-      28.10993
-     ],
-     "width_km": 16.168
-    }
-   }
-  },
-  {
-   "id": "method_027",
-   "start": 129.446,
+   "start": 122.499,
    "visual_family": "y2025_method",
    "info": "y2025",
    "layers": [
@@ -1003,48 +975,20 @@
       35.2165,
       28.1062
      ],
-     "width_km": 8.0
+     "width_km": 8
     },
     "to": {
      "center": [
       35.21651,
       28.10684
      ],
-     "width_km": 15.0
+     "width_km": 15
     }
    }
   },
   {
-   "id": "method_028",
-   "start": 133.469,
-   "visual_family": "y2025_method",
-   "info": "y2025",
-   "layers": [
-    {
-     "type": "image",
-     "asset": "y2025"
-    }
-   ],
-   "camera": {
-    "from": {
-     "center": [
-      35.21658,
-      28.10987
-     ],
-     "width_km": 16.168
-    },
-    "to": {
-     "center": [
-      35.2165,
-      28.1062
-     ],
-     "width_km": 10.0
-    }
-   }
-  },
-  {
-   "id": "method_029",
-   "start": 137.493,
+   "id": "method_027",
+   "start": 129.358,
    "visual_family": "y2026_method",
    "info": "y2026",
    "layers": [
@@ -1069,48 +1013,20 @@
       35.215,
       28.11
      ],
-     "width_km": 15.0
+     "width_km": 15
     },
     "to": {
      "center": [
       35.215,
       28.11
      ],
-     "width_km": 8.0
+     "width_km": 8
     }
    }
   },
   {
-   "id": "method_030",
-   "start": 141.516,
-   "visual_family": "y2026_method",
-   "info": "y2026",
-   "layers": [
-    {
-     "type": "image",
-     "asset": "y2026"
-    }
-   ],
-   "camera": {
-    "from": {
-     "center": [
-      35.215,
-      28.11
-     ],
-     "width_km": 10.0
-    },
-    "to": {
-     "center": [
-      35.215,
-      28.10993
-     ],
-     "width_km": 16.168
-    }
-   }
-  },
-  {
-   "id": "method_031",
-   "start": 145.539,
+   "id": "method_028",
+   "start": 136.216,
    "visual_family": "y2020_method",
    "info": "y2020",
    "layers": [
@@ -1135,48 +1051,20 @@
       35.2165,
       28.1062
      ],
-     "width_km": 8.0
+     "width_km": 8
     },
     "to": {
      "center": [
       35.21651,
       28.10684
      ],
-     "width_km": 15.0
+     "width_km": 15
     }
    }
   },
   {
-   "id": "method_032",
-   "start": 149.563,
-   "visual_family": "y2020_method",
-   "info": "y2020",
-   "layers": [
-    {
-     "type": "image",
-     "asset": "y2020"
-    }
-   ],
-   "camera": {
-    "from": {
-     "center": [
-      35.21658,
-      28.10987
-     ],
-     "width_km": 16.168
-    },
-    "to": {
-     "center": [
-      35.2165,
-      28.1062
-     ],
-     "width_km": 10.0
-    }
-   }
-  },
-  {
-   "id": "method_033",
-   "start": 153.586,
+   "id": "method_029",
+   "start": 143.074,
    "visual_family": "y2021_method",
    "info": "y2021",
    "layers": [
@@ -1201,48 +1089,20 @@
       35.215,
       28.11
      ],
-     "width_km": 15.0
+     "width_km": 15
     },
     "to": {
      "center": [
       35.215,
       28.11
      ],
-     "width_km": 8.0
+     "width_km": 8
     }
    }
   },
   {
-   "id": "method_034",
-   "start": 157.609,
-   "visual_family": "y2021_method",
-   "info": "y2021",
-   "layers": [
-    {
-     "type": "image",
-     "asset": "y2021"
-    }
-   ],
-   "camera": {
-    "from": {
-     "center": [
-      35.215,
-      28.11
-     ],
-     "width_km": 10.0
-    },
-    "to": {
-     "center": [
-      35.215,
-      28.10993
-     ],
-     "width_km": 16.168
-    }
-   }
-  },
-  {
-   "id": "shows_035",
-   "start": 161.633,
+   "id": "shows_030",
+   "start": 149.932,
    "visual_family": "y2020_shows",
    "info": "y2020",
    "layers": [
@@ -1279,8 +1139,8 @@
    }
   },
   {
-   "id": "shows_036",
-   "start": 164.809,
+   "id": "shows_031",
+   "start": 152.978,
    "visual_family": "y2022_shows",
    "info": "y2022",
    "layers": [
@@ -1317,8 +1177,8 @@
    }
   },
   {
-   "id": "shows_037",
-   "start": 167.986,
+   "id": "shows_032",
+   "start": 156.023,
    "visual_family": "y2023_shows",
    "info": "y2023",
    "layers": [
@@ -1355,8 +1215,8 @@
    }
   },
   {
-   "id": "shows_038",
-   "start": 171.162,
+   "id": "shows_033",
+   "start": 159.069,
    "visual_family": "y2026_shows",
    "info": "y2026",
    "layers": [
@@ -1393,8 +1253,8 @@
    }
   },
   {
-   "id": "shows_039",
-   "start": 174.339,
+   "id": "shows_034",
+   "start": 162.114,
    "visual_family": "y2020_shows",
    "info": "y2020",
    "layers": [
@@ -1431,8 +1291,8 @@
    }
   },
   {
-   "id": "shows_040",
-   "start": 177.516,
+   "id": "shows_035",
+   "start": 165.16,
    "visual_family": "g_cmp_2020_2024_c17_shows",
    "info": "g_cmp_2020_2024_c17",
    "layers": [
@@ -1447,8 +1307,8 @@
    ]
   },
   {
-   "id": "shows_041",
-   "start": 183.516,
+   "id": "shows_036",
+   "start": 171.16,
    "visual_family": "wipe_2020_2024",
    "info": "wipe y2020->y2024",
    "layers": [
@@ -1484,8 +1344,8 @@
    }
   },
   {
-   "id": "shows_042",
-   "start": 188.598,
+   "id": "shows_037",
+   "start": 176.033,
    "visual_family": "y2020_shows",
    "info": "y2020",
    "layers": [
@@ -1522,8 +1382,8 @@
    }
   },
   {
-   "id": "shows_043",
-   "start": 191.775,
+   "id": "shows_038",
+   "start": 179.078,
    "visual_family": "g_cmp_2020_2024_c19_shows",
    "info": "g_cmp_2020_2024_c19",
    "layers": [
@@ -1538,8 +1398,8 @@
    ]
   },
   {
-   "id": "shows_044",
-   "start": 197.775,
+   "id": "shows_039",
+   "start": 185.078,
    "visual_family": "wipe_2020_2024",
    "info": "wipe y2020->y2024",
    "layers": [
@@ -1575,8 +1435,8 @@
    }
   },
   {
-   "id": "segment_045",
-   "start": 202.857,
+   "id": "segment_040",
+   "start": 189.951,
    "visual_family": "y2022_segment",
    "info": "y2022",
    "layers": [
@@ -1613,8 +1473,8 @@
    }
   },
   {
-   "id": "segment_046",
-   "start": 208.349,
+   "id": "segment_041",
+   "start": 196.11,
    "visual_family": "g_cmp_2022_2026_c10_segment",
    "info": "g_cmp_2022_2026_c10",
    "layers": [
@@ -1629,8 +1489,8 @@
    ]
   },
   {
-   "id": "segment_047",
-   "start": 214.349,
+   "id": "segment_042",
+   "start": 202.11,
    "visual_family": "wipe_2022_2026",
    "info": "wipe y2022->y2026",
    "layers": [
@@ -1666,8 +1526,8 @@
    }
   },
   {
-   "id": "segment_048",
-   "start": 218.743,
+   "id": "segment_043",
+   "start": 207.037,
    "visual_family": "wipe_2022_2026",
    "info": "wipe y2022->y2026",
    "layers": [
@@ -1703,8 +1563,8 @@
    }
   },
   {
-   "id": "segment_049",
-   "start": 223.136,
+   "id": "segment_044",
+   "start": 211.965,
    "visual_family": "g_hero_c10_segment",
    "info": "g_hero_c10",
    "layers": [
@@ -1719,8 +1579,8 @@
    ]
   },
   {
-   "id": "segment_050",
-   "start": 229.136,
+   "id": "segment_045",
+   "start": 217.965,
    "visual_family": "y2026_segment",
    "info": "y2026",
    "layers": [
@@ -1757,8 +1617,8 @@
    }
   },
   {
-   "id": "segment_051",
-   "start": 234.628,
+   "id": "segment_046",
+   "start": 224.124,
    "visual_family": "g_tiers_segment",
    "info": "g_tiers",
    "layers": [
@@ -1773,8 +1633,8 @@
    ]
   },
   {
-   "id": "segment_052",
-   "start": 239.628,
+   "id": "segment_047",
+   "start": 229.124,
    "visual_family": "y2022_segment",
    "info": "y2022",
    "layers": [
@@ -1811,8 +1671,8 @@
    }
   },
   {
-   "id": "segment_053",
-   "start": 245.12,
+   "id": "segment_048",
+   "start": 235.283,
    "visual_family": "y2023_segment",
    "info": "y2023",
    "layers": [
@@ -1849,8 +1709,8 @@
    }
   },
   {
-   "id": "checks_054",
-   "start": 250.612,
+   "id": "checks_049",
+   "start": 241.442,
    "visual_family": "y2024_checks",
    "info": "y2024",
    "layers": [
@@ -1887,8 +1747,8 @@
    }
   },
   {
-   "id": "checks_055",
-   "start": 254.298,
+   "id": "checks_050",
+   "start": 245.408,
    "visual_family": "y2024_checks",
    "info": "y2024",
    "layers": [
@@ -1915,8 +1775,8 @@
    }
   },
   {
-   "id": "checks_056",
-   "start": 257.983,
+   "id": "checks_051",
+   "start": 249.373,
    "visual_family": "y2025_checks",
    "info": "y2025",
    "layers": [
@@ -1953,8 +1813,8 @@
    }
   },
   {
-   "id": "checks_057",
-   "start": 261.668,
+   "id": "checks_052",
+   "start": 253.339,
    "visual_family": "y2025_checks",
    "info": "y2025",
    "layers": [
@@ -1981,8 +1841,8 @@
    }
   },
   {
-   "id": "checks_058",
-   "start": 265.354,
+   "id": "checks_053",
+   "start": 257.305,
    "visual_family": "y2026_checks",
    "info": "y2026",
    "layers": [
@@ -2019,8 +1879,8 @@
    }
   },
   {
-   "id": "checks_059",
-   "start": 269.039,
+   "id": "checks_054",
+   "start": 261.27,
    "visual_family": "y2026_checks",
    "info": "y2026",
    "layers": [
@@ -2047,8 +1907,8 @@
    }
   },
   {
-   "id": "checks_060",
-   "start": 272.724,
+   "id": "checks_055",
+   "start": 265.236,
    "visual_family": "y2024_checks",
    "info": "y2024",
    "layers": [
@@ -2085,8 +1945,8 @@
    }
   },
   {
-   "id": "checks_061",
-   "start": 276.41,
+   "id": "checks_056",
+   "start": 269.202,
    "visual_family": "y2024_checks",
    "info": "y2024",
    "layers": [
@@ -2113,8 +1973,8 @@
    }
   },
   {
-   "id": "checks_062",
-   "start": 280.095,
+   "id": "checks_057",
+   "start": 273.168,
    "visual_family": "y2025_checks",
    "info": "y2025",
    "layers": [
@@ -2151,8 +2011,8 @@
    }
   },
   {
-   "id": "checks_063",
-   "start": 283.78,
+   "id": "checks_058",
+   "start": 277.133,
    "visual_family": "y2025_checks",
    "info": "y2025",
    "layers": [
@@ -2179,8 +2039,8 @@
    }
   },
   {
-   "id": "checks_064",
-   "start": 287.466,
+   "id": "checks_059",
+   "start": 281.099,
    "visual_family": "g_cmp_2025_2026_c12_checks",
    "info": "g_cmp_2025_2026_c12",
    "layers": [
@@ -2195,8 +2055,8 @@
    ]
   },
   {
-   "id": "checks_065",
-   "start": 293.466,
+   "id": "checks_060",
+   "start": 287.099,
    "visual_family": "wipe_2025_2026",
    "info": "wipe y2025->y2026",
    "layers": [
@@ -2232,8 +2092,8 @@
    }
   },
   {
-   "id": "checks_066",
-   "start": 299.362,
+   "id": "checks_061",
+   "start": 293.444,
    "visual_family": "wipe_2025_2026",
    "info": "wipe y2025->y2026",
    "layers": [
@@ -2269,8 +2129,8 @@
    }
   },
   {
-   "id": "checks_067",
-   "start": 305.259,
+   "id": "checks_062",
+   "start": 299.789,
    "visual_family": "y2025_checks",
    "info": "y2025",
    "layers": [
@@ -2307,8 +2167,8 @@
    }
   },
   {
-   "id": "checks_068",
-   "start": 308.944,
+   "id": "checks_063",
+   "start": 303.755,
    "visual_family": "y2025_checks",
    "info": "y2025",
    "layers": [
@@ -2335,8 +2195,8 @@
    }
   },
   {
-   "id": "checks_069",
-   "start": 312.629,
+   "id": "checks_064",
+   "start": 307.721,
    "visual_family": "y2026_checks",
    "info": "y2026",
    "layers": [
@@ -2373,8 +2233,8 @@
    }
   },
   {
-   "id": "checks_070",
-   "start": 316.315,
+   "id": "checks_065",
+   "start": 311.686,
    "visual_family": "y2026_checks",
    "info": "y2026",
    "layers": [
@@ -2401,8 +2261,8 @@
    }
   },
   {
-   "id": "limits_071",
-   "start": 320.0,
+   "id": "limits_066",
+   "start": 315.652,
    "visual_family": "g_reports_limits",
    "info": "g_reports",
    "layers": [
@@ -2417,8 +2277,8 @@
    ]
   },
   {
-   "id": "limits_072",
-   "start": 326.0,
+   "id": "limits_067",
+   "start": 321.652,
    "visual_family": "g_tiers_limits",
    "info": "g_tiers",
    "layers": [
@@ -2433,8 +2293,8 @@
    ]
   },
   {
-   "id": "limits_073",
-   "start": 331.0,
+   "id": "limits_068",
+   "start": 326.652,
    "visual_family": "y2020_limits",
    "info": "y2020",
    "layers": [
@@ -2471,8 +2331,8 @@
    }
   },
   {
-   "id": "limits_074",
-   "start": 337.332,
+   "id": "limits_069",
+   "start": 332.911,
    "visual_family": "y2021_limits",
    "info": "y2021",
    "layers": [
@@ -2509,8 +2369,8 @@
    }
   },
   {
-   "id": "limits_075",
-   "start": 343.663,
+   "id": "limits_070",
+   "start": 339.171,
    "visual_family": "y2022_limits",
    "info": "y2022",
    "layers": [
@@ -2547,8 +2407,8 @@
    }
   },
   {
-   "id": "limits_076",
-   "start": 349.995,
+   "id": "limits_071",
+   "start": 345.43,
    "visual_family": "y2023_limits",
    "info": "y2023",
    "layers": [
@@ -2585,8 +2445,8 @@
    }
   },
   {
-   "id": "close_077",
-   "start": 356.327,
+   "id": "close_072",
+   "start": 351.689,
    "visual_family": "g_tiers_close",
    "info": "g_tiers",
    "layers": [
@@ -2601,8 +2461,8 @@
    ]
   },
   {
-   "id": "close_078",
-   "start": 361.327,
+   "id": "close_073",
+   "start": 356.689,
    "visual_family": "y2026_close",
    "info": "y2026",
    "layers": [
@@ -2639,8 +2499,8 @@
    }
   },
   {
-   "id": "close_079",
-   "start": 365.255,
+   "id": "close_074",
+   "start": 361.46,
    "visual_family": "y2026_close",
    "info": "y2026",
    "layers": [
@@ -2667,8 +2527,8 @@
    }
   },
   {
-   "id": "close_080",
-   "start": 369.184,
+   "id": "close_075",
+   "start": 366.23,
    "visual_family": "y2026_close",
    "info": "y2026",
    "layers": [
@@ -2705,8 +2565,8 @@
    }
   },
   {
-   "id": "close_081",
-   "start": 373.112,
+   "id": "close_076",
+   "start": 371.0,
    "visual_family": "y2026_close",
    "info": "y2026",
    "layers": [
@@ -2733,8 +2593,8 @@
    }
   },
   {
-   "id": "close_082",
-   "start": 377.041,
+   "id": "close_077",
+   "start": 375.771,
    "visual_family": "y2026_close",
    "info": "y2026",
    "layers": [
@@ -2771,8 +2631,8 @@
    }
   },
   {
-   "id": "close_083",
-   "start": 380.969,
+   "id": "close_078",
+   "start": 380.541,
    "visual_family": "y2026_close",
    "info": "y2026",
    "layers": [
@@ -2799,7 +2659,15 @@
    }
   }
  ],
+ "voice": {
+  "src": "voice/narration.wav",
+  "meta": "voice/narration.voice.json"
+ },
+ "captions": {
+  "src": "captions/captions.srt",
+  "preset": "default"
+ },
  "end": {
-  "seconds": 385.9
+  "after_last_word": 1.5
  }
 }

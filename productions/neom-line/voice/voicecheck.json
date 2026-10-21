@@ -1,0 +1,155 @@
+{
+ "result": "NEEDS_HUMAN_LISTEN",
+ "checks": [
+  {
+   "id": "audio",
+   "status": "pass",
+   "detail": "pcm_s16le 44100 Hz, 1 ch, 385.3s"
+  },
+  {
+   "id": "duration",
+   "status": "pass",
+   "detail": "943 script words / 385.3s = 2.45 words/s (accepted 2.0-3.2)"
+  },
+  {
+   "id": "coverage",
+   "status": "pass",
+   "detail": "943 timed words vs 943 script words (diff 0)"
+  },
+  {
+   "id": "order",
+   "status": "pass",
+   "detail": "0 out-of-order, 0 out-of-range timings"
+  },
+  {
+   "id": "tail",
+   "status": "pass",
+   "detail": "last word ends -0.0s before the end of the file"
+  },
+  {
+   "id": "pauses",
+   "status": "pass",
+   "detail": "no pause over 2.5s"
+  },
+  {
+   "id": "silence",
+   "status": "pass",
+   "detail": "no silence of 3s or more"
+  },
+  {
+   "id": "loudness",
+   "status": "pass",
+   "detail": "mean -17.7 dB, peak -1.0 dB (silent file or clipping would fail)"
+  }
+ ],
+ "risky": [
+  {
+   "at": 2.73,
+   "word": "kilometers",
+   "note": "unit"
+  },
+  {
+   "at": 21.32,
+   "word": "kilometers",
+   "note": "unit"
+  },
+  {
+   "at": 27.76,
+   "word": "NEOM,",
+   "note": "NEOM (say: NEE-om)"
+  },
+  {
+   "at": 34.16,
+   "word": "kilometers",
+   "note": "unit"
+  },
+  {
+   "at": 57.97,
+   "word": "kilometers",
+   "note": "unit"
+  },
+  {
+   "at": 68.39,
+   "word": "NEOM",
+   "note": "NEOM (say: NEE-om)"
+  },
+  {
+   "at": 80.61,
+   "word": "NEOM",
+   "note": "NEOM (say: NEE-om)"
+  },
+  {
+   "at": 110.0,
+   "word": "Copernicus",
+   "note": "Copernicus"
+  },
+  {
+   "at": 166.39,
+   "word": "kilometers.",
+   "note": "unit"
+  },
+  {
+   "at": 206.54,
+   "word": "kilometers",
+   "note": "unit"
+  },
+  {
+   "at": 260.21,
+   "word": "Landsat",
+   "note": "Landsat"
+  },
+  {
+   "at": 267.88,
+   "word": "kilometers",
+   "note": "unit"
+  },
+  {
+   "at": 275.3,
+   "word": "kilometers",
+   "note": "unit"
+  },
+  {
+   "at": 290.49,
+   "word": "kilometers",
+   "note": "unit"
+  },
+  {
+   "at": 294.67,
+   "word": "kilometers",
+   "note": "unit"
+  },
+  {
+   "at": 299.11,
+   "word": "kilometers",
+   "note": "unit"
+  },
+  {
+   "at": 332.09,
+   "word": "NEOM",
+   "note": "NEOM (say: NEE-om)"
+  },
+  {
+   "at": 359.72,
+   "word": "kilometers",
+   "note": "unit"
+  },
+  {
+   "at": 363.32,
+   "word": "kilometers",
+   "note": "unit"
+  },
+  {
+   "at": 374.2,
+   "word": "kilometers",
+   "note": "unit"
+  },
+  {
+   "at": 382.54,
+   "word": "NEOM,",
+   "note": "NEOM (say: NEE-om)"
+  }
+ ],
+ "listen": "Automatic checks cannot hear mispronunciation. Listen to the moments in `risky` (and the first 30 seconds) before the paid render.",
+ "words": 943,
+ "duration": 385.31
+}

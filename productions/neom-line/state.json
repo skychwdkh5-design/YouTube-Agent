@@ -161,12 +161,13 @@
   },
   "storyboard": {
    "status": "done",
-   "attempts": 15,
-   "started": "2026-10-21T04:25:49Z",
+   "attempts": 17,
+   "started": "2026-10-21T05:05:37Z",
    "error": null,
-   "finished": "2026-10-21T04:25:50Z",
-   "note": "84 shots, 384.898s, timing from estimate",
+   "finished": "2026-10-21T05:05:41Z",
+   "note": "79 shots, 385.312s, timing from voice",
    "inputs": {
+    "captions/captions.srt": "d9f857ee8b3f20fe9be700f3dbe26f54e8bfb5517e6ad72b8f466f500dad2d5e",
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
     "episode.json": "f10fcc693eb6c8f9996fe04ad6e89b7336b4f84e9783856952ae54e47fc898a9",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
@@ -184,26 +185,27 @@
     "graphics/g_tiers.png": "33e42d6b0494a87988831d6360a96e8a57f6537fe4599f62556c5efea1e2324d",
     "research/brief.json": "c149b15f762a9b43f5757664c3cdba1fcf5dddd27ceef29c486be4c1de1641b0",
     "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
+    "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441",
     "_tool": "a0eb3092a4fad6ea"
    },
    "outputs": {
-    "story/storyboard.json": "d72cfdd990465ff2de6b313543f4f592ff4b3128faba11c86ec350e8c11570d0",
-    "timeline.json": "d136ef499413cc3e45f50bbf0114ab37dd757b57dab4063239aeef8353fdb5b7",
-    "story/labels.json": "04696a6a4c704bca8bb40c84464723ee6c761d61179f5899fa4643997935134a",
-    "story/report.md": "9aa4d6313d13df2c07f6889b05e646cd7c7ce481224873ebf35dc5b9c3430f35"
+    "story/storyboard.json": "998bf959a395c4222856417a838e9949c1a330368fe49b14bc7ebae292fbc8c4",
+    "timeline.json": "bdfcc31654629192ff4aa34eb7505ec2aedd8635c03e8e481e9dfaa498427d29",
+    "story/labels.json": "38504b92ce0df97d124737fc76e0db63f372b3b4e0965b8a43c434c5fb37be68",
+    "story/report.md": "9c4b16d98ffb59229f864ba963d81dac73e879e4cfe35c927c9ac34a3b6e769d"
    },
    "agent_artifacts": {}
   },
   "visualcheck": {
    "status": "done",
-   "attempts": 32,
-   "started": "2026-10-21T04:25:50Z",
+   "attempts": 34,
+   "started": "2026-10-21T05:05:41Z",
    "error": null,
-   "finished": "2026-10-21T04:25:54Z",
+   "finished": "2026-10-21T05:05:46Z",
    "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 63, 'REVIEWED': 10} of 80 items",
    "outputs": {
-    "qa/visual_claims.json": "198f3f0089229ea32f45216a23550eec274ca8ca1212e4e92c551a1309ead5d9",
-    "qa/visual_claims.md": "ef59786d838e9dc70e05975080e7586f0507a348668305a24b5ccf8b39f19a4a"
+    "qa/visual_claims.json": "660f5154f5a7e355dcca72950951425c4af1eccb876c2d515365bb1ae3fa93cb",
+    "qa/visual_claims.md": "c2372a0fa9b5d09e516304db7e8da8a1be85f8a285620137b90134e466c6dd02"
    },
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
@@ -213,10 +215,10 @@
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
     "graphics_spec.json": "1125cdb23f932c4c9e43325269c1b66cba6909432c045e50748fcff16adde4ee",
     "qa/visual_review.json": "3d68912ee7eb757d738fc57208672439442663e543f6fcde2f2a57b696e5645c",
-    "story/labels.json": "04696a6a4c704bca8bb40c84464723ee6c761d61179f5899fa4643997935134a",
-    "story/report.md": "9aa4d6313d13df2c07f6889b05e646cd7c7ce481224873ebf35dc5b9c3430f35",
-    "story/storyboard.json": "d72cfdd990465ff2de6b313543f4f592ff4b3128faba11c86ec350e8c11570d0",
-    "timeline.json": "d136ef499413cc3e45f50bbf0114ab37dd757b57dab4063239aeef8353fdb5b7",
+    "story/labels.json": "38504b92ce0df97d124737fc76e0db63f372b3b4e0965b8a43c434c5fb37be68",
+    "story/report.md": "9c4b16d98ffb59229f864ba963d81dac73e879e4cfe35c927c9ac34a3b6e769d",
+    "story/storyboard.json": "998bf959a395c4222856417a838e9949c1a330368fe49b14bc7ebae292fbc8c4",
+    "timeline.json": "bdfcc31654629192ff4aa34eb7505ec2aedd8635c03e8e481e9dfaa498427d29",
     "_tool": "0cf98cf174e3abf3"
    },
    "agent_artifacts": {
@@ -224,25 +226,59 @@
    }
   },
   "voice": {
-   "status": "awaiting_approval",
-   "attempts": 22,
-   "note": "approvals/voice.json: approved is not true; plan: 5280 characters",
-   "started": "2026-10-21T04:26:11Z",
+   "status": "done",
+   "attempts": 25,
+   "note": "narration already generated (not regenerated)",
+   "started": "2026-10-21T05:05:46Z",
    "error": null,
-   "finished": "2026-10-21T04:26:11Z",
+   "finished": "2026-10-21T05:05:46Z",
    "outputs": {
-    "voice/plan.json": "16697ee20f95ebd97ef79ed4e47e9618086c855364de9666f9e2a3795553a35f"
-   }
+    "voice/narration.wav": "2b4e32ad400affa806b3731a8701178dfda2401a1591d7d0f7981a7abc866479",
+    "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441"
+   },
+   "inputs": {
+    "approvals/voice.json": "c896fb94c2cefc63b790bdc06478b51f0d354d30163db640e76e8e1d92d9f7f2",
+    "qa/visual_claims.json": "660f5154f5a7e355dcca72950951425c4af1eccb876c2d515365bb1ae3fa93cb",
+    "qa/visual_claims.md": "c2372a0fa9b5d09e516304db7e8da8a1be85f8a285620137b90134e466c6dd02",
+    "research/brief.json": "c149b15f762a9b43f5757664c3cdba1fcf5dddd27ceef29c486be4c1de1641b0",
+    "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
+    "story/labels.json": "38504b92ce0df97d124737fc76e0db63f372b3b4e0965b8a43c434c5fb37be68",
+    "story/report.md": "9c4b16d98ffb59229f864ba963d81dac73e879e4cfe35c927c9ac34a3b6e769d",
+    "story/storyboard.json": "998bf959a395c4222856417a838e9949c1a330368fe49b14bc7ebae292fbc8c4",
+    "timeline.json": "bdfcc31654629192ff4aa34eb7505ec2aedd8635c03e8e481e9dfaa498427d29",
+    "_tool": "e3b0c44298fc1c14"
+   },
+   "agent_artifacts": {}
   },
   "captions": {
-   "status": "waiting",
-   "attempts": 0,
-   "note": "waiting for ['voicecheck']"
+   "status": "done",
+   "attempts": 1,
+   "note": "captions built from real word timings",
+   "started": "2026-10-21T05:05:34Z",
+   "error": null,
+   "finished": "2026-10-21T05:05:34Z",
+   "inputs": {
+    "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441",
+    "voice/voicecheck.json": "409a69b6b523bfc7e0d7336a9e7b7aafd38f2e3d8bea079150fad96c6773c522",
+    "_tool": "0ea5d9ab1f32c208"
+   },
+   "outputs": {
+    "captions/captions.srt": "d9f857ee8b3f20fe9be700f3dbe26f54e8bfb5517e6ad72b8f466f500dad2d5e",
+    "captions/captions.vtt": "9a9fefb41c2260a8b23eedb8869404f00898dfb2f955c3033dfbe8923bc99947",
+    "captions/captions.json": "5748200b60cce7a500775375299ec7ac8797aef18cfee94901f26d20521906a8"
+   },
+   "agent_artifacts": {}
   },
   "render": {
-   "status": "waiting",
-   "attempts": 0,
-   "note": "waiting for ['voice', 'voicecheck', 'captions']"
+   "status": "awaiting_approval",
+   "attempts": 3,
+   "note": "no approvals/render.json; plan validated",
+   "started": "2026-10-21T05:05:50Z",
+   "error": null,
+   "finished": "2026-10-21T05:05:54Z",
+   "outputs": {
+    "render/plan.json": "12c6b0a2bf2b377c0940ef6c789b6a16ec7fd58845b97f06c331ecbd420a2e1a"
+   }
   },
   "qc": {
    "status": "waiting",
@@ -251,33 +287,54 @@
   },
   "release": {
    "status": "done",
-   "attempts": 45,
-   "started": "2026-10-21T04:26:11Z",
+   "attempts": 48,
+   "started": "2026-10-21T05:05:54Z",
    "error": null,
-   "finished": "2026-10-21T04:26:11Z",
+   "finished": "2026-10-21T05:05:54Z",
    "note": "incomplete",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "qa/visual_claims.json": "198f3f0089229ea32f45216a23550eec274ca8ca1212e4e92c551a1309ead5d9",
-    "story/labels.json": "04696a6a4c704bca8bb40c84464723ee6c761d61179f5899fa4643997935134a",
-    "story/report.md": "9aa4d6313d13df2c07f6889b05e646cd7c7ce481224873ebf35dc5b9c3430f35",
-    "story/storyboard.json": "d72cfdd990465ff2de6b313543f4f592ff4b3128faba11c86ec350e8c11570d0",
-    "timeline.json": "d136ef499413cc3e45f50bbf0114ab37dd757b57dab4063239aeef8353fdb5b7",
+    "qa/visual_claims.json": "660f5154f5a7e355dcca72950951425c4af1eccb876c2d515365bb1ae3fa93cb",
+    "story/labels.json": "38504b92ce0df97d124737fc76e0db63f372b3b4e0965b8a43c434c5fb37be68",
+    "story/report.md": "9c4b16d98ffb59229f864ba963d81dac73e879e4cfe35c927c9ac34a3b6e769d",
+    "story/storyboard.json": "998bf959a395c4222856417a838e9949c1a330368fe49b14bc7ebae292fbc8c4",
+    "timeline.json": "bdfcc31654629192ff4aa34eb7505ec2aedd8635c03e8e481e9dfaa498427d29",
     "_tool": "e3b0c44298fc1c14"
    },
    "outputs": {
-    "release/REVIEW.md": "2f658e5b6b50929e0af23996470e6c9b2a0ccb2f848b322f5b8fc81b2f204422",
-    "story/report.md": "9aa4d6313d13df2c07f6889b05e646cd7c7ce481224873ebf35dc5b9c3430f35"
+    "release/REVIEW.md": "aa97787ecf6acde3b8c2460f532400474d161ccebebef5c2fdd20b3cc1975605",
+    "story/report.md": "9c4b16d98ffb59229f864ba963d81dac73e879e4cfe35c927c9ac34a3b6e769d"
    },
    "agent_artifacts": {}
   },
   "voicecheck": {
-   "status": "waiting",
-   "attempts": 0,
-   "note": "waiting for ['voice']"
+   "status": "done",
+   "attempts": 1,
+   "note": "NEEDS_HUMAN_LISTEN: 21 risky words to listen to; storyboard re-timed from real word timings",
+   "started": "2026-10-21T05:05:33Z",
+   "error": null,
+   "finished": "2026-10-21T05:05:34Z",
+   "inputs": {
+    "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441",
+    "voice/narration.wav": "2b4e32ad400affa806b3731a8701178dfda2401a1591d7d0f7981a7abc866479",
+    "voice/spoken.md": "7c9d969f2af5e4b0b96136644da2f14e3d7ebc9ee40a3a8ba83310412cc4082e",
+    "_tool": "f7b7409c4249b329"
+   },
+   "outputs": {
+    "voice/voicecheck.json": "409a69b6b523bfc7e0d7336a9e7b7aafd38f2e3d8bea079150fad96c6773c522"
+   },
+   "agent_artifacts": {}
   }
  },
- "costs": [],
+ "costs": [
+  {
+   "stage": "voice",
+   "chars": 5280,
+   "provider": "elevenlabs",
+   "at": "2026-10-21T05:05:17Z",
+   "note": "approved by owner"
+  }
+ ],
  "log": [
   {
    "at": "2026-10-20T13:48:16Z",
@@ -1816,7 +1873,142 @@
    "stage": "release",
    "event": "done",
    "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T05:05:18Z",
+   "stage": "voice",
+   "event": "done",
+   "note": "generated 5280 chars"
+  },
+  {
+   "at": "2026-10-21T05:05:24Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T05:05:28Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "79 shots, 385.312s, timing from voice"
+  },
+  {
+   "at": "2026-10-21T05:05:28Z",
+   "stage": "visualcheck",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T05:05:32Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 63, 'REVIEWED': 10} of 80 items"
+  },
+  {
+   "at": "2026-10-21T05:05:32Z",
+   "stage": "voice",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T05:05:32Z",
+   "stage": "voice",
+   "event": "done",
+   "note": "narration already generated (not regenerated)"
+  },
+  {
+   "at": "2026-10-21T05:05:34Z",
+   "stage": "voicecheck",
+   "event": "done",
+   "note": "NEEDS_HUMAN_LISTEN: 21 risky words to listen to; storyboard re-timed from real word timings"
+  },
+  {
+   "at": "2026-10-21T05:05:34Z",
+   "stage": "captions",
+   "event": "done",
+   "note": "captions built from real word timings"
+  },
+  {
+   "at": "2026-10-21T05:05:37Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "no approvals/render.json; plan validated"
+  },
+  {
+   "at": "2026-10-21T05:05:37Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T05:05:37Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T05:05:37Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T05:05:41Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "79 shots, 385.312s, timing from voice"
+  },
+  {
+   "at": "2026-10-21T05:05:41Z",
+   "stage": "visualcheck",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T05:05:46Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 63, 'REVIEWED': 10} of 80 items"
+  },
+  {
+   "at": "2026-10-21T05:05:46Z",
+   "stage": "voice",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T05:05:46Z",
+   "stage": "voice",
+   "event": "done",
+   "note": "narration already generated (not regenerated)"
+  },
+  {
+   "at": "2026-10-21T05:05:50Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "no approvals/render.json; plan validated"
+  },
+  {
+   "at": "2026-10-21T05:05:50Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T05:05:50Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T05:05:54Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "no approvals/render.json; plan validated"
+  },
+  {
+   "at": "2026-10-21T05:05:54Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T05:05:54Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
   }
  ],
- "updated": "2026-10-21T04:26:11Z"
+ "updated": "2026-10-21T05:05:54Z"
 }

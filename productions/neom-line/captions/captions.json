@@ -1,0 +1,663 @@
+{
+ "schema": "yt-captions/1",
+ "language": "en",
+ "source": "narration.voice.json",
+ "settings": {
+  "max_chars": 84,
+  "max_lines": 2,
+  "max_duration": 6.0,
+  "min_duration": 0.8,
+  "pause": 0.6
+ },
+ "cue_count": 106,
+ "duration": 385.312,
+ "validation": {
+  "wording_preserved": true,
+  "no_overlaps": true,
+  "timestamps_valid": true,
+  "problems": [],
+  "warnings": []
+ },
+ "cues": [
+  {
+   "index": 1,
+   "start": 0.0,
+   "end": 3.727,
+   "text": "Saudi Arabia announced a city 170 kilometers long."
+  },
+  {
+   "index": 2,
+   "start": 4.04,
+   "end": 6.246,
+   "text": "That is about 105 miles."
+  },
+  {
+   "index": 3,
+   "start": 6.513,
+   "end": 11.122,
+   "text": "So we pointed free satellite images at the same stretch of desert, year after year."
+  },
+  {
+   "index": 4,
+   "start": 11.32,
+   "end": 13.769,
+   "text": "In 2022, a faint line."
+  },
+  {
+   "index": 5,
+   "start": 14.083,
+   "end": 17.334,
+   "text": "By 2026, a long straight corridor,"
+  },
+  {
+   "index": 6,
+   "start": 17.485,
+   "end": 22.384,
+   "text": "and one dark segment between 1.6 and 1.9 kilometers long."
+  },
+  {
+   "index": 7,
+   "start": 22.709,
+   "end": 25.136,
+   "text": "Here is what that is, and what it is not."
+  },
+  {
+   "index": 8,
+   "start": 25.414,
+   "end": 30.65,
+   "text": "The project is called The Line, part of NEOM, on Saudi Arabia's Red Sea coast."
+  },
+  {
+   "index": 9,
+   "start": 30.975,
+   "end": 35.271,
+   "text": "It was announced as one straight city, 170 kilometers long."
+  },
+  {
+   "index": 10,
+   "start": 35.515,
+   "end": 38.348,
+   "text": "The frame on screen is only a fraction of that length."
+  },
+  {
+   "index": 11,
+   "start": 38.627,
+   "end": 41.413,
+   "text": "The full line would run far past both edges."
+  },
+  {
+   "index": 12,
+   "start": 41.796,
+   "end": 45.628,
+   "text": "That promise is the first of three things we will keep apart in this video."
+  },
+  {
+   "index": 13,
+   "start": 45.953,
+   "end": 48.112,
+   "text": "The second is what the news has reported."
+  },
+  {
+   "index": 14,
+   "start": 48.356,
+   "end": 50.77,
+   "text": "The third is what a satellite can actually see."
+  },
+  {
+   "index": 15,
+   "start": 50.887,
+   "end": 52.036,
+   "text": "We will not mix them."
+  },
+  {
+   "index": 16,
+   "start": 52.419,
+   "end": 53.719,
+   "text": "First, the plans."
+  },
+  {
+   "index": 17,
+   "start": 54.044,
+   "end": 59.106,
+   "text": "In April 2024, Bloomberg reported that only about 2.4 kilometers of The Line"
+  },
+  {
+   "index": 18,
+   "start": 59.141,
+   "end": 60.906,
+   "text": "was expected by 2030."
+  },
+  {
+   "index": 19,
+   "start": 61.289,
+   "end": 64.888,
+   "text": "It also reported fewer than 300,000 residents by then."
+  },
+  {
+   "index": 20,
+   "start": 65.271,
+   "end": 70.96,
+   "text": "In May 2026, Semafor reported that NEOM had halted work on The Line until"
+  },
+  {
+   "index": 21,
+   "start": 71.018,
+   "end": 74.571,
+   "text": "at least after 2030, citing unnamed sources."
+  },
+  {
+   "index": 22,
+   "start": 74.78,
+   "end": 76.8,
+   "text": "It has not been officially confirmed."
+  },
+  {
+   "index": 23,
+   "start": 77.125,
+   "end": 82.988,
+   "text": "In October 2026, Reuters reported that the NEOM stadium was shelved indefinitely,"
+  },
+  {
+   "index": 24,
+   "start": 83.116,
+   "end": 84.718,
+   "text": "with no official announcement."
+  },
+  {
+   "index": 25,
+   "start": 85.322,
+   "end": 88.283,
+   "text": "These are news reports, not official statements."
+  },
+  {
+   "index": 26,
+   "start": 89.095,
+   "end": 92.276,
+   "text": "We could not open the original articles from our research setup,"
+  },
+  {
+   "index": 27,
+   "start": 92.427,
+   "end": 95.411,
+   "text": "so we rely on how other outlets described them."
+  },
+  {
+   "index": 28,
+   "start": 95.852,
+   "end": 98.976,
+   "text": "Each report was described by at least two other outlets."
+  },
+  {
+   "index": 29,
+   "start": 99.254,
+   "end": 101.925,
+   "text": "We say who reported what, and nothing more."
+  },
+  {
+   "index": 30,
+   "start": 102.25,
+   "end": 103.933,
+   "text": "So what can a satellite add?"
+  },
+  {
+   "index": 31,
+   "start": 104.258,
+   "end": 105.28,
+   "text": "Not opinions."
+  },
+  {
+   "index": 32,
+   "start": 105.663,
+   "end": 106.696,
+   "text": "Just pixels."
+  },
+  {
+   "index": 33,
+   "start": 107.08,
+   "end": 111.364,
+   "text": "We used free Sentinel-2 images from the European Copernicus program."
+  },
+  {
+   "index": 34,
+   "start": 111.689,
+   "end": 114.754,
+   "text": "Each pixel in our frames covers 10 meters of ground."
+  },
+  {
+   "index": 35,
+   "start": 114.928,
+   "end": 119.479,
+   "text": "That is sharp enough to see a long cleared strip or a road, but not a person,"
+  },
+  {
+   "index": 36,
+   "start": 119.654,
+   "end": 121.488,
+   "text": "a crane, or a window."
+  },
+  {
+   "index": 37,
+   "start": 121.871,
+   "end": 124.367,
+   "text": "We picked seven scenes from the same orbit,"
+  },
+  {
+   "index": 38,
+   "start": 124.576,
+   "end": 130.16,
+   "text": "taken in late September or October of each year from 2020 to 2026."
+  },
+  {
+   "index": 39,
+   "start": 130.602,
+   "end": 135.095,
+   "text": "Same orbit means the satellite passes over on the same track at nearly the same time"
+  },
+  {
+   "index": 40,
+   "start": 135.129,
+   "end": 138.798,
+   "text": "of day, so the views can be compared from year to year."
+  },
+  {
+   "index": 41,
+   "start": 139.181,
+   "end": 142.421,
+   "text": "Same season means the light and the sand look more alike,"
+  },
+  {
+   "index": 42,
+   "start": 142.63,
+   "end": 145.415,
+   "text": "so a change is less likely to be a trick of the light."
+  },
+  {
+   "index": 43,
+   "start": 145.694,
+   "end": 149.932,
+   "text": "The scenes report almost no cloud cover, and we looked at every frame."
+  },
+  {
+   "index": 44,
+   "start": 150.257,
+   "end": 155.145,
+   "text": "Start with 2020 and 2021, when the ground here is empty desert."
+  },
+  {
+   "index": 45,
+   "start": 155.47,
+   "end": 159.254,
+   "text": "In October 2022, a faint, straight line appears."
+  },
+  {
+   "index": 46,
+   "start": 159.463,
+   "end": 164.084,
+   "text": "By 2023, the line is a clear, narrow corridor, and very straight."
+  },
+  {
+   "index": 47,
+   "start": 164.258,
+   "end": 167.161,
+   "text": "It crosses our frame for at least 15 kilometers."
+  },
+  {
+   "index": 48,
+   "start": 167.37,
+   "end": 169.924,
+   "text": "And it is still there in 2026."
+  },
+  {
+   "index": 49,
+   "start": 169.924,
+   "end": 175.497,
+   "text": "Along the way, two large settlement-like complexes, one at each end of our frame,"
+  },
+  {
+   "index": 50,
+   "start": 175.671,
+   "end": 178.817,
+   "text": "grow between 2020 and 2024."
+  },
+  {
+   "index": 51,
+   "start": 179.142,
+   "end": 181.755,
+   "text": "From orbit, we cannot tell what they are."
+  },
+  {
+   "index": 52,
+   "start": 182.08,
+   "end": 187.072,
+   "text": "What we can say is that something large changed on this ground, in a straight line."
+  },
+  {
+   "index": 53,
+   "start": 187.397,
+   "end": 189.951,
+   "text": "What we cannot say is what the corridor is for."
+  },
+  {
+   "index": 54,
+   "start": 190.242,
+   "end": 192.726,
+   "text": "Now zoom in on one stretch of that corridor."
+  },
+  {
+   "index": 55,
+   "start": 192.947,
+   "end": 197.196,
+   "text": "In October 2022 and 2023, nothing dark is here."
+  },
+  {
+   "index": 56,
+   "start": 197.451,
+   "end": 200.853,
+   "text": "In October 2024, a dark segment appears."
+  },
+  {
+   "index": 57,
+   "start": 201.004,
+   "end": 204.382,
+   "text": "In 2025 and 2026, it is still there,"
+  },
+  {
+   "index": 58,
+   "start": 204.498,
+   "end": 207.645,
+   "text": "about 1.6 to 1.9 kilometers long."
+  },
+  {
+   "index": 59,
+   "start": 208.086,
+   "end": 211.557,
+   "text": "In near-infrared light, the segment reads like water:"
+  },
+  {
+   "index": 60,
+   "start": 212.068,
+   "end": 217.258,
+   "text": "our water index is above zero, and the near-infrared signal is very low."
+  },
+  {
+   "index": 61,
+   "start": 217.583,
+   "end": 220.358,
+   "text": "That fits water, but it is not proof."
+  },
+  {
+   "index": 62,
+   "start": 220.869,
+   "end": 223.493,
+   "text": "A shadow can also fool a water index,"
+  },
+  {
+   "index": 63,
+   "start": 223.609,
+   "end": 226.581,
+   "text": "and we cannot rule that out from these images alone."
+  },
+  {
+   "index": 64,
+   "start": 227.092,
+   "end": 231.887,
+   "text": "In 2022 and 2023, no pixel here qualifies."
+  },
+  {
+   "index": 65,
+   "start": 232.212,
+   "end": 238.168,
+   "text": "That is consistent with one idea: standing water in a long, narrow excavation."
+  },
+  {
+   "index": 66,
+   "start": 238.493,
+   "end": 241.442,
+   "text": "But that is a hypothesis, and it could be wrong."
+  },
+  {
+   "index": 67,
+   "start": 241.825,
+   "end": 243.601,
+   "text": "We tried to break our own result."
+  },
+  {
+   "index": 68,
+   "start": 243.984,
+   "end": 246.295,
+   "text": "First, was it a one-day accident?"
+  },
+  {
+   "index": 69,
+   "start": 246.678,
+   "end": 252.123,
+   "text": "No. The segment appears on three different dates and on three different Sentinel-2"
+  },
+  {
+   "index": 70,
+   "start": 252.204,
+   "end": 256.987,
+   "text": "satellites in 2024, 2025 and 2026."
+  },
+  {
+   "index": 71,
+   "start": 257.371,
+   "end": 259.89,
+   "text": "Second, does a different satellite agree?"
+  },
+  {
+   "index": 72,
+   "start": 260.215,
+   "end": 264.418,
+   "text": "Landsat 8, at 30 meters per pixel, shows the same segment,"
+  },
+  {
+   "index": 73,
+   "start": 264.581,
+   "end": 265.962,
+   "text": "but measures it differently."
+  },
+  {
+   "index": 74,
+   "start": 266.194,
+   "end": 270.165,
+   "text": "It gives about 0.7 kilometers in October 2024,"
+  },
+  {
+   "index": 75,
+   "start": 270.339,
+   "end": 272.986,
+   "text": "where Sentinel-2 says 1.6."
+  },
+  {
+   "index": 76,
+   "start": 273.218,
+   "end": 275.889,
+   "text": "It gives about 1.65 kilometers"
+  },
+  {
+   "index": 77,
+   "start": 275.935,
+   "end": 279.615,
+   "text": "in October 2025 and September 2026."
+  },
+  {
+   "index": 78,
+   "start": 279.882,
+   "end": 282.483,
+   "text": "The two sets of scenes are two to three weeks apart,"
+  },
+  {
+   "index": 79,
+   "start": 282.634,
+   "end": 286.14,
+   "text": "so we cannot tell whether the gap is resolution or timing."
+  },
+  {
+   "index": 80,
+   "start": 286.419,
+   "end": 287.951,
+   "text": "Third, how long is it?"
+  },
+  {
+   "index": 81,
+   "start": 288.16,
+   "end": 293.083,
+   "text": "At 10 meters, about 1.6 kilometers in October 2025,"
+  },
+  {
+   "index": 82,
+   "start": 293.257,
+   "end": 297.146,
+   "text": "and about 1.9 kilometers in October 2026."
+  },
+  {
+   "index": 83,
+   "start": 297.39,
+   "end": 300.664,
+   "text": "That difference of 0.3 kilometers could be growth."
+  },
+  {
+   "index": 84,
+   "start": 300.815,
+   "end": 305.238,
+   "text": "It could also be a different water level, or just where our threshold falls."
+  },
+  {
+   "index": 85,
+   "start": 305.447,
+   "end": 307.909,
+   "text": "So we do not claim that the segment grew."
+  },
+  {
+   "index": 86,
+   "start": 308.118,
+   "end": 309.209,
+   "text": "We cannot tell."
+  },
+  {
+   "index": 87,
+   "start": 309.383,
+   "end": 313.191,
+   "text": "That is the honest result: three checks agree it is real,"
+  },
+  {
+   "index": 88,
+   "start": 313.4,
+   "end": 315.652,
+   "text": "and one number refuses to settle."
+  },
+  {
+   "index": 89,
+   "start": 315.803,
+   "end": 317.463,
+   "text": "So what can we not say?"
+  },
+  {
+   "index": 90,
+   "start": 318.16,
+   "end": 323.419,
+   "text": "At this resolution, we cannot identify any building along the corridor itself."
+  },
+  {
+   "index": 91,
+   "start": 324.023,
+   "end": 327.216,
+   "text": "We also cannot say this is a finished city."
+  },
+  {
+   "index": 92,
+   "start": 327.657,
+   "end": 330.571,
+   "text": "We cannot prove that this corridor is The Line."
+  },
+  {
+   "index": 93,
+   "start": 331.012,
+   "end": 334.228,
+   "text": "We had no official NEOM map to match it against,"
+  },
+  {
+   "index": 94,
+   "start": 334.437,
+   "end": 337.375,
+   "text": "and matching would take sources we could not open."
+  },
+  {
+   "index": 95,
+   "start": 337.886,
+   "end": 343.156,
+   "text": "A similar picture in 2025 and 2026 does not prove a pause."
+  },
+  {
+   "index": 96,
+   "start": 343.482,
+   "end": 346.36,
+   "text": "It is only compatible with what Semafor reported."
+  },
+  {
+   "index": 97,
+   "start": 347.057,
+   "end": 351.689,
+   "text": "Official figures and the full original reports would change how sure we can be."
+  },
+  {
+   "index": 98,
+   "start": 352.131,
+   "end": 356.635,
+   "text": "Keep three words in your head: promised, reported, observed."
+  },
+  {
+   "index": 99,
+   "start": 356.786,
+   "end": 361.07,
+   "text": "Promised: a city 170 kilometers long."
+  },
+  {
+   "index": 100,
+   "start": 361.07,
+   "end": 364.983,
+   "text": "Reported: about 2.4 kilometers by 2030,"
+  },
+  {
+   "index": 101,
+   "start": 365.192,
+   "end": 368.315,
+   "text": "and work halted until at least after 2030."
+  },
+  {
+   "index": 102,
+   "start": 368.593,
+   "end": 370.683,
+   "text": "Observed: one straight corridor,"
+  },
+  {
+   "index": 103,
+   "start": 370.706,
+   "end": 375.315,
+   "text": "and one dark segment between 1.6 and 1.9 kilometers long."
+  },
+  {
+   "index": 104,
+   "start": 375.699,
+   "end": 379.077,
+   "text": "The satellites keep passing, so the picture keeps updating,"
+  },
+  {
+   "index": 105,
+   "start": 379.193,
+   "end": 380.703,
+   "text": "whatever anyone announces."
+  },
+  {
+   "index": 106,
+   "start": 381.086,
+   "end": 385.312,
+   "text": "Next time you see a number about NEOM, ask which of the three it is."
+  }
+ ],
+ "files": {
+  "srt": "captions.srt",
+  "vtt": "captions.vtt"
+ }
+}

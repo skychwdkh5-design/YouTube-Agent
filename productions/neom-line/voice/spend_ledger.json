@@ -1,0 +1,12 @@
+[
+ {
+  "approval_id": "EP005-VOICE-001",
+  "script_sha256": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
+  "chars": 5280,
+  "max_chars": 5280,
+  "model_id": "eleven_multilingual_v2",
+  "started": "2026-10-21T05:04:12Z",
+  "status": "ok",
+  "finished": "2026-10-21T05:05:17Z"
+ }
+]

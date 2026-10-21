@@ -1,0 +1,4765 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "narration.wav",
+ "audio_format": "wav",
+ "audio_sha256": "2b4e32ad400affa806b3731a8701178dfda2401a1591d7d0f7981a7abc866479",
+ "duration": 385.312,
+ "characters": 5280,
+ "text": "Saudi Arabia announced a city 170 kilometers long. That is about 105 miles.\n\nSo we pointed free satellite images at the same stretch of desert, year after year.\n\nIn 2022, a faint line.\n\nBy 2026, a long straight corridor, and one dark segment between 1.6 and 1.9 kilometers long.\n\nHere is what that is, and what it is not.\n\nThe project is called The Line, part of NEOM, on Saudi Arabia's Red Sea coast.\n\nIt was announced as one straight city, 170 kilometers long.\n\nThe frame on screen is only a fraction of that length. The full line would run far past both edges.\n\nThat promise is the first of three things we will keep apart in this video.\n\nThe second is what the news has reported. The third is what a satellite can actually see.\n\nWe will not mix them.\n\nFirst, the plans. In April 2024, Bloomberg reported that only about 2.4 kilometers of The Line was expected by 2030.\n\nIt also reported fewer than 300,000 residents by then.\n\nIn May 2026, Semafor reported that NEOM had halted work on The Line until at least after 2030, citing unnamed sources.\n\nIt has not been officially confirmed.\n\nIn October 2026, Reuters reported that the NEOM stadium was shelved indefinitely, with no official announcement.\n\nThese are news reports, not official statements.\n\nWe could not open the original articles from our research setup, so we rely on how other outlets described them.\n\nEach report was described by at least two other outlets. We say who reported what, and nothing more.\n\nSo what can a satellite add? Not opinions. Just pixels.\n\nWe used free Sentinel-2 images from the European Copernicus program.\n\nEach pixel in our frames covers 10 meters of ground.\n\nThat is sharp enough to see a long cleared strip or a road, but not a person, a crane, or a window.\n\nWe picked seven scenes from the same orbit, taken in late September or October of each year from 2020 to 2026.\n\nSame orbit means the satellite passes over on the same track at nearly the same time of day, so the views can be compared from year to year.\n\nSame season means the light and the sand look more alike, so a change is less likely to be a trick of the light.\n\nThe scenes report almost no cloud cover, and we looked at every frame.\n\nStart with 2020 and 2021, when the ground here is empty desert.\n\nIn October 2022, a faint, straight line appears.\n\nBy 2023, the line is a clear, narrow corridor, and very straight.\n\nIt crosses our frame for at least 15 kilometers.\n\nAnd it is still there in 2026.\n\nAlong the way, two large settlement-like complexes, one at each end of our frame, grow between 2020 and 2024.\n\nFrom orbit, we cannot tell what they are.\n\nWhat we can say is that something large changed on this ground, in a straight line.\n\nWhat we cannot say is what the corridor is for.\n\nNow zoom in on one stretch of that corridor.\n\nIn October 2022 and 2023, nothing dark is here.\n\nIn October 2024, a dark segment appears.\n\nIn 2025 and 2026, it is still there, about 1.6 to 1.9 kilometers long.\n\nIn near-infrared light, the segment reads like water: our water index is above zero, and the near-infrared signal is very low.\n\nThat fits water, but it is not proof.\n\nA shadow can also fool a water index, and we cannot rule that out from these images alone.\n\nIn 2022 and 2023, no pixel here qualifies.\n\nThat is consistent with one idea: standing water in a long, narrow excavation.\n\nBut that is a hypothesis, and it could be wrong.\n\nWe tried to break our own result.\n\nFirst, was it a one-day accident? No. The segment appears on three different dates and on three different Sentinel-2 satellites in 2024, 2025 and 2026.\n\nSecond, does a different satellite agree? Landsat 8, at 30 meters per pixel, shows the same segment, but measures it differently.\n\nIt gives about 0.7 kilometers in October 2024, where Sentinel-2 says 1.6.\n\nIt gives about 1.65 kilometers in October 2025 and September 2026.\n\nThe two sets of scenes are two to three weeks apart, so we cannot tell whether the gap is resolution or timing.\n\nThird, how long is it? At 10 meters, about 1.6 kilometers in October 2025, and about 1.9 kilometers in October 2026.\n\nThat difference of 0.3 kilometers could be growth. It could also be a different water level, or just where our threshold falls.\n\nSo we do not claim that the segment grew. We cannot tell.\n\nThat is the honest result: three checks agree it is real, and one number refuses to settle.\n\nSo what can we not say?\n\nAt this resolution, we cannot identify any building along the corridor itself.\n\nWe also cannot say this is a finished city.\n\nWe cannot prove that this corridor is The Line.\n\nWe had no official NEOM map to match it against, and matching would take sources we could not open.\n\nA similar picture in 2025 and 2026 does not prove a pause.\n\nIt is only compatible with what Semafor reported.\n\nOfficial figures and the full original reports would change how sure we can be.\n\nKeep three words in your head: promised, reported, observed.\n\nPromised: a city 170 kilometers long.\n\nReported: about 2.4 kilometers by 2030, and work halted until at least after 2030.\n\nObserved: one straight corridor, and one dark segment between 1.6 and 1.9 kilometers long.\n\nThe satellites keep passing, so the picture keeps updating, whatever anyone announces.\n\nNext time you see a number about NEOM, ask which of the three it is.",
+ "text_sha256": "42a77badd744f9dd25ebc9aa90f7b477a75b76be13dc6b301a5100f74fca57ca",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 2453,
+   "offset": 0.0,
+   "duration": 169.924,
+   "timing": true
+  },
+  {
+   "index": 1,
+   "characters": 2495,
+   "offset": 169.924,
+   "duration": 191.147,
+   "timing": true
+  },
+  {
+   "index": 2,
+   "characters": 332,
+   "offset": 361.07,
+   "duration": 24.242,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "Saudi",
+   "start": 0.0,
+   "end": 0.36
+  },
+  {
+   "text": "Arabia",
+   "start": 0.43,
+   "end": 0.836
+  },
+  {
+   "text": "announced",
+   "start": 0.894,
+   "end": 1.289
+  },
+  {
+   "text": "a",
+   "start": 1.324,
+   "end": 1.358
+  },
+  {
+   "text": "city",
+   "start": 1.44,
+   "end": 1.753
+  },
+  {
+   "text": "170",
+   "start": 1.927,
+   "end": 2.67
+  },
+  {
+   "text": "kilometers",
+   "start": 2.728,
+   "end": 3.193
+  },
+  {
+   "text": "long.",
+   "start": 3.251,
+   "end": 3.727
+  },
+  {
+   "text": "That",
+   "start": 4.04,
+   "end": 4.238
+  },
+  {
+   "text": "is",
+   "start": 4.261,
+   "end": 4.342
+  },
+  {
+   "text": "about",
+   "start": 4.389,
+   "end": 4.656
+  },
+  {
+   "text": "105",
+   "start": 4.737,
+   "end": 5.584
+  },
+  {
+   "text": "miles.",
+   "start": 5.666,
+   "end": 6.246
+  },
+  {
+   "text": "So",
+   "start": 6.513,
+   "end": 6.641
+  },
+  {
+   "text": "we",
+   "start": 6.699,
+   "end": 6.769
+  },
+  {
+   "text": "pointed",
+   "start": 6.827,
+   "end": 7.117
+  },
+  {
+   "text": "free",
+   "start": 7.187,
+   "end": 7.396
+  },
+  {
+   "text": "satellite",
+   "start": 7.442,
+   "end": 7.918
+  },
+  {
+   "text": "images",
+   "start": 7.941,
+   "end": 8.301
+  },
+  {
+   "text": "at",
+   "start": 8.348,
+   "end": 8.417
+  },
+  {
+   "text": "the",
+   "start": 8.464,
+   "end": 8.533
+  },
+  {
+   "text": "same",
+   "start": 8.591,
+   "end": 8.858
+  },
+  {
+   "text": "stretch",
+   "start": 8.905,
+   "end": 9.195
+  },
+  {
+   "text": "of",
+   "start": 9.242,
+   "end": 9.288
+  },
+  {
+   "text": "desert,",
+   "start": 9.358,
+   "end": 9.787
+  },
+  {
+   "text": "year",
+   "start": 9.985,
+   "end": 10.252
+  },
+  {
+   "text": "after",
+   "start": 10.321,
+   "end": 10.588
+  },
+  {
+   "text": "year.",
+   "start": 10.681,
+   "end": 11.122
+  },
+  {
+   "text": "In",
+   "start": 11.32,
+   "end": 11.471
+  },
+  {
+   "text": "2022,",
+   "start": 11.54,
+   "end": 12.55
+  },
+  {
+   "text": "a",
+   "start": 12.701,
+   "end": 12.771
+  },
+  {
+   "text": "faint",
+   "start": 12.875,
+   "end": 13.142
+  },
+  {
+   "text": "line.",
+   "start": 13.224,
+   "end": 13.769
+  },
+  {
+   "text": "By",
+   "start": 14.083,
+   "end": 14.234
+  },
+  {
+   "text": "2026,",
+   "start": 14.303,
+   "end": 15.453
+  },
+  {
+   "text": "a",
+   "start": 15.604,
+   "end": 15.685
+  },
+  {
+   "text": "long",
+   "start": 15.79,
+   "end": 16.173
+  },
+  {
+   "text": "straight",
+   "start": 16.289,
+   "end": 16.637
+  },
+  {
+   "text": "corridor,",
+   "start": 16.707,
+   "end": 17.334
+  },
+  {
+   "text": "and",
+   "start": 17.485,
+   "end": 17.636
+  },
+  {
+   "text": "one",
+   "start": 17.717,
+   "end": 17.949
+  },
+  {
+   "text": "dark",
+   "start": 17.995,
+   "end": 18.263
+  },
+  {
+   "text": "segment",
+   "start": 18.321,
+   "end": 18.704
+  },
+  {
+   "text": "between",
+   "start": 18.75,
+   "end": 19.075
+  },
+  {
+   "text": "1.6",
+   "start": 19.145,
+   "end": 19.969
+  },
+  {
+   "text": "and",
+   "start": 20.201,
+   "end": 20.41
+  },
+  {
+   "text": "1.9",
+   "start": 20.492,
+   "end": 21.27
+  },
+  {
+   "text": "kilometers",
+   "start": 21.316,
+   "end": 21.804
+  },
+  {
+   "text": "long.",
+   "start": 21.862,
+   "end": 22.384
+  },
+  {
+   "text": "Here",
+   "start": 22.709,
+   "end": 22.918
+  },
+  {
+   "text": "is",
+   "start": 22.953,
+   "end": 23.023
+  },
+  {
+   "text": "what",
+   "start": 23.057,
+   "end": 23.208
+  },
+  {
+   "text": "that",
+   "start": 23.255,
+   "end": 23.441
+  },
+  {
+   "text": "is,",
+   "start": 23.51,
+   "end": 23.893
+  },
+  {
+   "text": "and",
+   "start": 24.009,
+   "end": 24.16
+  },
+  {
+   "text": "what",
+   "start": 24.218,
+   "end": 24.358
+  },
+  {
+   "text": "it",
+   "start": 24.404,
+   "end": 24.462
+  },
+  {
+   "text": "is",
+   "start": 24.509,
+   "end": 24.602
+  },
+  {
+   "text": "not.",
+   "start": 24.671,
+   "end": 25.136
+  },
+  {
+   "text": "The",
+   "start": 25.414,
+   "end": 25.53
+  },
+  {
+   "text": "project",
+   "start": 25.577,
+   "end": 25.995
+  },
+  {
+   "text": "is",
+   "start": 26.041,
+   "end": 26.111
+  },
+  {
+   "text": "called",
+   "start": 26.157,
+   "end": 26.436
+  },
+  {
+   "text": "The",
+   "start": 26.471,
+   "end": 26.54
+  },
+  {
+   "text": "Line,",
+   "start": 26.622,
+   "end": 27.156
+  },
+  {
+   "text": "part",
+   "start": 27.307,
+   "end": 27.562
+  },
+  {
+   "text": "of",
+   "start": 27.609,
+   "end": 27.667
+  },
+  {
+   "text": "NEOM,",
+   "start": 27.759,
+   "end": 28.34
+  },
+  {
+   "text": "on",
+   "start": 28.491,
+   "end": 28.665
+  },
+  {
+   "text": "Saudi",
+   "start": 28.735,
+   "end": 29.06
+  },
+  {
+   "text": "Arabia's",
+   "start": 29.118,
+   "end": 29.64
+  },
+  {
+   "text": "Red",
+   "start": 29.71,
+   "end": 29.872
+  },
+  {
+   "text": "Sea",
+   "start": 29.919,
+   "end": 30.081
+  },
+  {
+   "text": "coast.",
+   "start": 30.128,
+   "end": 30.65
+  },
+  {
+   "text": "It",
+   "start": 30.975,
+   "end": 31.103
+  },
+  {
+   "text": "was",
+   "start": 31.138,
+   "end": 31.254
+  },
+  {
+   "text": "announced",
+   "start": 31.301,
+   "end": 31.73
+  },
+  {
+   "text": "as",
+   "start": 31.777,
+   "end": 31.881
+  },
+  {
+   "text": "one",
+   "start": 31.962,
+   "end": 32.194
+  },
+  {
+   "text": "straight",
+   "start": 32.253,
+   "end": 32.612
+  },
+  {
+   "text": "city,",
+   "start": 32.67,
+   "end": 33.17
+  },
+  {
+   "text": "170",
+   "start": 33.321,
+   "end": 34.099
+  },
+  {
+   "text": "kilometers",
+   "start": 34.157,
+   "end": 34.691
+  },
+  {
+   "text": "long.",
+   "start": 34.749,
+   "end": 35.271
+  },
+  {
+   "text": "The",
+   "start": 35.515,
+   "end": 35.631
+  },
+  {
+   "text": "frame",
+   "start": 35.689,
+   "end": 35.98
+  },
+  {
+   "text": "on",
+   "start": 36.026,
+   "end": 36.131
+  },
+  {
+   "text": "screen",
+   "start": 36.2,
+   "end": 36.549
+  },
+  {
+   "text": "is",
+   "start": 36.607,
+   "end": 36.688
+  },
+  {
+   "text": "only",
+   "start": 36.746,
+   "end": 36.955
+  },
+  {
+   "text": "a",
+   "start": 37.001,
+   "end": 37.025
+  },
+  {
+   "text": "fraction",
+   "start": 37.083,
+   "end": 37.477
+  },
+  {
+   "text": "of",
+   "start": 37.512,
+   "end": 37.57
+  },
+  {
+   "text": "that",
+   "start": 37.617,
+   "end": 37.756
+  },
+  {
+   "text": "length.",
+   "start": 37.837,
+   "end": 38.348
+  },
+  {
+   "text": "The",
+   "start": 38.627,
+   "end": 38.743
+  },
+  {
+   "text": "full",
+   "start": 38.801,
+   "end": 39.01
+  },
+  {
+   "text": "line",
+   "start": 39.08,
+   "end": 39.381
+  },
+  {
+   "text": "would",
+   "start": 39.405,
+   "end": 39.556
+  },
+  {
+   "text": "run",
+   "start": 39.59,
+   "end": 39.765
+  },
+  {
+   "text": "far",
+   "start": 39.857,
+   "end": 40.113
+  },
+  {
+   "text": "past",
+   "start": 40.194,
+   "end": 40.508
+  },
+  {
+   "text": "both",
+   "start": 40.577,
+   "end": 40.798
+  },
+  {
+   "text": "edges.",
+   "start": 40.868,
+   "end": 41.413
+  },
+  {
+   "text": "That",
+   "start": 41.796,
+   "end": 41.994
+  },
+  {
+   "text": "promise",
+   "start": 42.052,
+   "end": 42.47
+  },
+  {
+   "text": "is",
+   "start": 42.516,
+   "end": 42.609
+  },
+  {
+   "text": "the",
+   "start": 42.667,
+   "end": 42.737
+  },
+  {
+   "text": "first",
+   "start": 42.806,
+   "end": 43.085
+  },
+  {
+   "text": "of",
+   "start": 43.143,
+   "end": 43.201
+  },
+  {
+   "text": "three",
+   "start": 43.259,
+   "end": 43.491
+  },
+  {
+   "text": "things",
+   "start": 43.538,
+   "end": 43.793
+  },
+  {
+   "text": "we",
+   "start": 43.84,
+   "end": 43.921
+  },
+  {
+   "text": "will",
+   "start": 43.967,
+   "end": 44.107
+  },
+  {
+   "text": "keep",
+   "start": 44.153,
+   "end": 44.304
+  },
+  {
+   "text": "apart",
+   "start": 44.362,
+   "end": 44.664
+  },
+  {
+   "text": "in",
+   "start": 44.71,
+   "end": 44.768
+  },
+  {
+   "text": "this",
+   "start": 44.803,
+   "end": 44.931
+  },
+  {
+   "text": "video.",
+   "start": 45.001,
+   "end": 45.628
+  },
+  {
+   "text": "The",
+   "start": 45.953,
+   "end": 46.069
+  },
+  {
+   "text": "second",
+   "start": 46.138,
+   "end": 46.475
+  },
+  {
+   "text": "is",
+   "start": 46.545,
+   "end": 46.626
+  },
+  {
+   "text": "what",
+   "start": 46.684,
+   "end": 46.835
+  },
+  {
+   "text": "the",
+   "start": 46.87,
+   "end": 46.94
+  },
+  {
+   "text": "news",
+   "start": 46.998,
+   "end": 47.241
+  },
+  {
+   "text": "has",
+   "start": 47.288,
+   "end": 47.404
+  },
+  {
+   "text": "reported.",
+   "start": 47.474,
+   "end": 48.112
+  },
+  {
+   "text": "The",
+   "start": 48.356,
+   "end": 48.472
+  },
+  {
+   "text": "third",
+   "start": 48.541,
+   "end": 48.832
+  },
+  {
+   "text": "is",
+   "start": 48.878,
+   "end": 48.959
+  },
+  {
+   "text": "what",
+   "start": 49.017,
+   "end": 49.157
+  },
+  {
+   "text": "a",
+   "start": 49.191,
+   "end": 49.215
+  },
+  {
+   "text": "satellite",
+   "start": 49.284,
+   "end": 49.795
+  },
+  {
+   "text": "can",
+   "start": 49.818,
+   "end": 49.935
+  },
+  {
+   "text": "actually",
+   "start": 49.981,
+   "end": 50.318
+  },
+  {
+   "text": "see.",
+   "start": 50.376,
+   "end": 50.77
+  },
+  {
+   "text": "We",
+   "start": 50.887,
+   "end": 51.014
+  },
+  {
+   "text": "will",
+   "start": 51.061,
+   "end": 51.212
+  },
+  {
+   "text": "not",
+   "start": 51.258,
+   "end": 51.397
+  },
+  {
+   "text": "mix",
+   "start": 51.444,
+   "end": 51.63
+  },
+  {
+   "text": "them.",
+   "start": 51.699,
+   "end": 52.036
+  },
+  {
+   "text": "First,",
+   "start": 52.419,
+   "end": 52.849
+  },
+  {
+   "text": "the",
+   "start": 52.883,
+   "end": 53.0
+  },
+  {
+   "text": "plans.",
+   "start": 53.046,
+   "end": 53.719
+  },
+  {
+   "text": "In",
+   "start": 54.044,
+   "end": 54.207
+  },
+  {
+   "text": "April",
+   "start": 54.265,
+   "end": 54.567
+  },
+  {
+   "text": "2024,",
+   "start": 54.625,
+   "end": 55.554
+  },
+  {
+   "text": "Bloomberg",
+   "start": 55.589,
+   "end": 56.076
+  },
+  {
+   "text": "reported",
+   "start": 56.134,
+   "end": 56.552
+  },
+  {
+   "text": "that",
+   "start": 56.587,
+   "end": 56.715
+  },
+  {
+   "text": "only",
+   "start": 56.761,
+   "end": 56.97
+  },
+  {
+   "text": "about",
+   "start": 57.017,
+   "end": 57.249
+  },
+  {
+   "text": "2.4",
+   "start": 57.295,
+   "end": 57.911
+  },
+  {
+   "text": "kilometers",
+   "start": 57.969,
+   "end": 58.549
+  },
+  {
+   "text": "of",
+   "start": 58.596,
+   "end": 58.665
+  },
+  {
+   "text": "The",
+   "start": 58.712,
+   "end": 58.781
+  },
+  {
+   "text": "Line",
+   "start": 58.851,
+   "end": 59.106
+  },
+  {
+   "text": "was",
+   "start": 59.141,
+   "end": 59.257
+  },
+  {
+   "text": "expected",
+   "start": 59.315,
+   "end": 59.78
+  },
+  {
+   "text": "by",
+   "start": 59.826,
+   "end": 59.966
+  },
+  {
+   "text": "2030.",
+   "start": 60.047,
+   "end": 60.906
+  },
+  {
+   "text": "It",
+   "start": 61.289,
+   "end": 61.417
+  },
+  {
+   "text": "also",
+   "start": 61.463,
+   "end": 61.695
+  },
+  {
+   "text": "reported",
+   "start": 61.777,
+   "end": 62.195
+  },
+  {
+   "text": "fewer",
+   "start": 62.264,
+   "end": 62.52
+  },
+  {
+   "text": "than",
+   "start": 62.566,
+   "end": 62.694
+  },
+  {
+   "text": "300,000",
+   "start": 62.764,
+   "end": 63.646
+  },
+  {
+   "text": "residents",
+   "start": 63.716,
+   "end": 64.157
+  },
+  {
+   "text": "by",
+   "start": 64.203,
+   "end": 64.343
+  },
+  {
+   "text": "then.",
+   "start": 64.401,
+   "end": 64.888
+  },
+  {
+   "text": "In",
+   "start": 65.271,
+   "end": 65.434
+  },
+  {
+   "text": "May",
+   "start": 65.504,
+   "end": 65.689
+  },
+  {
+   "text": "2026,",
+   "start": 65.759,
+   "end": 67.013
+  },
+  {
+   "text": "Semafor",
+   "start": 67.187,
+   "end": 67.709
+  },
+  {
+   "text": "reported",
+   "start": 67.768,
+   "end": 68.174
+  },
+  {
+   "text": "that",
+   "start": 68.209,
+   "end": 68.325
+  },
+  {
+   "text": "NEOM",
+   "start": 68.394,
+   "end": 68.812
+  },
+  {
+   "text": "had",
+   "start": 68.882,
+   "end": 68.987
+  },
+  {
+   "text": "halted",
+   "start": 69.056,
+   "end": 69.416
+  },
+  {
+   "text": "work",
+   "start": 69.474,
+   "end": 69.706
+  },
+  {
+   "text": "on",
+   "start": 69.776,
+   "end": 69.869
+  },
+  {
+   "text": "The",
+   "start": 69.904,
+   "end": 69.973
+  },
+  {
+   "text": "Line",
+   "start": 70.043,
+   "end": 70.542
+  },
+  {
+   "text": "until",
+   "start": 70.693,
+   "end": 70.96
+  },
+  {
+   "text": "at",
+   "start": 71.018,
+   "end": 71.076
+  },
+  {
+   "text": "least",
+   "start": 71.123,
+   "end": 71.343
+  },
+  {
+   "text": "after",
+   "start": 71.39,
+   "end": 71.622
+  },
+  {
+   "text": "2030,",
+   "start": 71.68,
+   "end": 72.516
+  },
+  {
+   "text": "citing",
+   "start": 72.667,
+   "end": 73.05
+  },
+  {
+   "text": "unnamed",
+   "start": 73.166,
+   "end": 73.747
+  },
+  {
+   "text": "sources.",
+   "start": 73.816,
+   "end": 74.571
+  },
+  {
+   "text": "It",
+   "start": 74.78,
+   "end": 74.919
+  },
+  {
+   "text": "has",
+   "start": 74.966,
+   "end": 75.082
+  },
+  {
+   "text": "not",
+   "start": 75.151,
+   "end": 75.302
+  },
+  {
+   "text": "been",
+   "start": 75.349,
+   "end": 75.511
+  },
+  {
+   "text": "officially",
+   "start": 75.535,
+   "end": 75.976
+  },
+  {
+   "text": "confirmed.",
+   "start": 76.022,
+   "end": 76.8
+  },
+  {
+   "text": "In",
+   "start": 77.125,
+   "end": 77.264
+  },
+  {
+   "text": "October",
+   "start": 77.334,
+   "end": 77.81
+  },
+  {
+   "text": "2026,",
+   "start": 77.88,
+   "end": 79.169
+  },
+  {
+   "text": "Reuters",
+   "start": 79.378,
+   "end": 79.737
+  },
+  {
+   "text": "reported",
+   "start": 79.795,
+   "end": 80.237
+  },
+  {
+   "text": "that",
+   "start": 80.283,
+   "end": 80.422
+  },
+  {
+   "text": "the",
+   "start": 80.457,
+   "end": 80.527
+  },
+  {
+   "text": "NEOM",
+   "start": 80.608,
+   "end": 80.945
+  },
+  {
+   "text": "stadium",
+   "start": 81.015,
+   "end": 81.444
+  },
+  {
+   "text": "was",
+   "start": 81.491,
+   "end": 81.607
+  },
+  {
+   "text": "shelved",
+   "start": 81.665,
+   "end": 82.06
+  },
+  {
+   "text": "indefinitely,",
+   "start": 82.106,
+   "end": 82.988
+  },
+  {
+   "text": "with",
+   "start": 83.116,
+   "end": 83.302
+  },
+  {
+   "text": "no",
+   "start": 83.372,
+   "end": 83.511
+  },
+  {
+   "text": "official",
+   "start": 83.581,
+   "end": 83.929
+  },
+  {
+   "text": "announcement.",
+   "start": 83.975,
+   "end": 84.718
+  },
+  {
+   "text": "These",
+   "start": 85.322,
+   "end": 85.554
+  },
+  {
+   "text": "are",
+   "start": 85.589,
+   "end": 85.717
+  },
+  {
+   "text": "news",
+   "start": 85.798,
+   "end": 86.042
+  },
+  {
+   "text": "reports,",
+   "start": 86.1,
+   "end": 86.762
+  },
+  {
+   "text": "not",
+   "start": 86.913,
+   "end": 87.087
+  },
+  {
+   "text": "official",
+   "start": 87.122,
+   "end": 87.481
+  },
+  {
+   "text": "statements.",
+   "start": 87.54,
+   "end": 88.283
+  },
+  {
+   "text": "We",
+   "start": 89.095,
+   "end": 89.211
+  },
+  {
+   "text": "could",
+   "start": 89.246,
+   "end": 89.397
+  },
+  {
+   "text": "not",
+   "start": 89.432,
+   "end": 89.571
+  },
+  {
+   "text": "open",
+   "start": 89.629,
+   "end": 89.838
+  },
+  {
+   "text": "the",
+   "start": 89.885,
+   "end": 89.954
+  },
+  {
+   "text": "original",
+   "start": 90.012,
+   "end": 90.419
+  },
+  {
+   "text": "articles",
+   "start": 90.477,
+   "end": 90.872
+  },
+  {
+   "text": "from",
+   "start": 90.918,
+   "end": 91.057
+  },
+  {
+   "text": "our",
+   "start": 91.115,
+   "end": 91.22
+  },
+  {
+   "text": "research",
+   "start": 91.29,
+   "end": 91.708
+  },
+  {
+   "text": "setup,",
+   "start": 91.742,
+   "end": 92.276
+  },
+  {
+   "text": "so",
+   "start": 92.427,
+   "end": 92.578
+  },
+  {
+   "text": "we",
+   "start": 92.636,
+   "end": 92.729
+  },
+  {
+   "text": "rely",
+   "start": 92.81,
+   "end": 93.205
+  },
+  {
+   "text": "on",
+   "start": 93.286,
+   "end": 93.403
+  },
+  {
+   "text": "how",
+   "start": 93.461,
+   "end": 93.612
+  },
+  {
+   "text": "other",
+   "start": 93.693,
+   "end": 93.925
+  },
+  {
+   "text": "outlets",
+   "start": 93.995,
+   "end": 94.413
+  },
+  {
+   "text": "described",
+   "start": 94.482,
+   "end": 95.005
+  },
+  {
+   "text": "them.",
+   "start": 95.04,
+   "end": 95.411
+  },
+  {
+   "text": "Each",
+   "start": 95.852,
+   "end": 96.061
+  },
+  {
+   "text": "report",
+   "start": 96.119,
+   "end": 96.468
+  },
+  {
+   "text": "was",
+   "start": 96.503,
+   "end": 96.619
+  },
+  {
+   "text": "described",
+   "start": 96.677,
+   "end": 97.246
+  },
+  {
+   "text": "by",
+   "start": 97.304,
+   "end": 97.432
+  },
+  {
+   "text": "at",
+   "start": 97.49,
+   "end": 97.548
+  },
+  {
+   "text": "least",
+   "start": 97.594,
+   "end": 97.792
+  },
+  {
+   "text": "two",
+   "start": 97.838,
+   "end": 98.012
+  },
+  {
+   "text": "other",
+   "start": 98.093,
+   "end": 98.291
+  },
+  {
+   "text": "outlets.",
+   "start": 98.349,
+   "end": 98.976
+  },
+  {
+   "text": "We",
+   "start": 99.254,
+   "end": 99.394
+  },
+  {
+   "text": "say",
+   "start": 99.452,
+   "end": 99.649
+  },
+  {
+   "text": "who",
+   "start": 99.696,
+   "end": 99.835
+  },
+  {
+   "text": "reported",
+   "start": 99.905,
+   "end": 100.346
+  },
+  {
+   "text": "what,",
+   "start": 100.404,
+   "end": 100.764
+  },
+  {
+   "text": "and",
+   "start": 100.822,
+   "end": 100.984
+  },
+  {
+   "text": "nothing",
+   "start": 101.054,
+   "end": 101.321
+  },
+  {
+   "text": "more.",
+   "start": 101.391,
+   "end": 101.925
+  },
+  {
+   "text": "So",
+   "start": 102.25,
+   "end": 102.401
+  },
+  {
+   "text": "what",
+   "start": 102.447,
+   "end": 102.575
+  },
+  {
+   "text": "can",
+   "start": 102.621,
+   "end": 102.726
+  },
+  {
+   "text": "a",
+   "start": 102.784,
+   "end": 102.807
+  },
+  {
+   "text": "satellite",
+   "start": 102.865,
+   "end": 103.364
+  },
+  {
+   "text": "add?",
+   "start": 103.411,
+   "end": 103.933
+  },
+  {
+   "text": "Not",
+   "start": 104.258,
+   "end": 104.444
+  },
+  {
+   "text": "opinions.",
+   "start": 104.491,
+   "end": 105.28
+  },
+  {
+   "text": "Just",
+   "start": 105.663,
+   "end": 105.872
+  },
+  {
+   "text": "pixels.",
+   "start": 105.93,
+   "end": 106.696
+  },
+  {
+   "text": "We",
+   "start": 107.08,
+   "end": 107.219
+  },
+  {
+   "text": "used",
+   "start": 107.3,
+   "end": 107.59
+  },
+  {
+   "text": "free",
+   "start": 107.672,
+   "end": 107.939
+  },
+  {
+   "text": "Sentinel-2",
+   "start": 107.985,
+   "end": 108.6
+  },
+  {
+   "text": "images",
+   "start": 108.693,
+   "end": 109.1
+  },
+  {
+   "text": "from",
+   "start": 109.158,
+   "end": 109.309
+  },
+  {
+   "text": "the",
+   "start": 109.344,
+   "end": 109.413
+  },
+  {
+   "text": "European",
+   "start": 109.471,
+   "end": 109.947
+  },
+  {
+   "text": "Copernicus",
+   "start": 110.005,
+   "end": 110.597
+  },
+  {
+   "text": "program.",
+   "start": 110.655,
+   "end": 111.364
+  },
+  {
+   "text": "Each",
+   "start": 111.689,
+   "end": 111.909
+  },
+  {
+   "text": "pixel",
+   "start": 111.979,
+   "end": 112.339
+  },
+  {
+   "text": "in",
+   "start": 112.409,
+   "end": 112.467
+  },
+  {
+   "text": "our",
+   "start": 112.525,
+   "end": 112.63
+  },
+  {
+   "text": "frames",
+   "start": 112.688,
+   "end": 113.071
+  },
+  {
+   "text": "covers",
+   "start": 113.129,
+   "end": 113.419
+  },
+  {
+   "text": "10",
+   "start": 113.477,
+   "end": 113.686
+  },
+  {
+   "text": "meters",
+   "start": 113.756,
+   "end": 114.058
+  },
+  {
+   "text": "of",
+   "start": 114.104,
+   "end": 114.15
+  },
+  {
+   "text": "ground.",
+   "start": 114.22,
+   "end": 114.754
+  },
+  {
+   "text": "That",
+   "start": 114.928,
+   "end": 115.103
+  },
+  {
+   "text": "is",
+   "start": 115.149,
+   "end": 115.219
+  },
+  {
+   "text": "sharp",
+   "start": 115.265,
+   "end": 115.52
+  },
+  {
+   "text": "enough",
+   "start": 115.579,
+   "end": 115.799
+  },
+  {
+   "text": "to",
+   "start": 115.834,
+   "end": 115.88
+  },
+  {
+   "text": "see",
+   "start": 115.95,
+   "end": 116.124
+  },
+  {
+   "text": "a",
+   "start": 116.171,
+   "end": 116.194
+  },
+  {
+   "text": "long",
+   "start": 116.264,
+   "end": 116.565
+  },
+  {
+   "text": "cleared",
+   "start": 116.681,
+   "end": 117.03
+  },
+  {
+   "text": "strip",
+   "start": 117.076,
+   "end": 117.413
+  },
+  {
+   "text": "or",
+   "start": 117.494,
+   "end": 117.622
+  },
+  {
+   "text": "a",
+   "start": 117.68,
+   "end": 117.703
+  },
+  {
+   "text": "road,",
+   "start": 117.784,
+   "end": 118.26
+  },
+  {
+   "text": "but",
+   "start": 118.411,
+   "end": 118.586
+  },
+  {
+   "text": "not",
+   "start": 118.644,
+   "end": 118.818
+  },
+  {
+   "text": "a",
+   "start": 118.853,
+   "end": 118.876
+  },
+  {
+   "text": "person,",
+   "start": 118.945,
+   "end": 119.479
+  },
+  {
+   "text": "a",
+   "start": 119.654,
+   "end": 119.735
+  },
+  {
+   "text": "crane,",
+   "start": 119.828,
+   "end": 120.397
+  },
+  {
+   "text": "or",
+   "start": 120.606,
+   "end": 120.768
+  },
+  {
+   "text": "a",
+   "start": 120.838,
+   "end": 120.861
+  },
+  {
+   "text": "window.",
+   "start": 120.931,
+   "end": 121.488
+  },
+  {
+   "text": "We",
+   "start": 121.871,
+   "end": 122.022
+  },
+  {
+   "text": "picked",
+   "start": 122.092,
+   "end": 122.336
+  },
+  {
+   "text": "seven",
+   "start": 122.417,
+   "end": 122.777
+  },
+  {
+   "text": "scenes",
+   "start": 122.858,
+   "end": 123.218
+  },
+  {
+   "text": "from",
+   "start": 123.253,
+   "end": 123.392
+  },
+  {
+   "text": "the",
+   "start": 123.438,
+   "end": 123.508
+  },
+  {
+   "text": "same",
+   "start": 123.566,
+   "end": 123.845
+  },
+  {
+   "text": "orbit,",
+   "start": 123.903,
+   "end": 124.367
+  },
+  {
+   "text": "taken",
+   "start": 124.576,
+   "end": 124.901
+  },
+  {
+   "text": "in",
+   "start": 124.948,
+   "end": 125.017
+  },
+  {
+   "text": "late",
+   "start": 125.087,
+   "end": 125.296
+  },
+  {
+   "text": "September",
+   "start": 125.343,
+   "end": 125.911
+  },
+  {
+   "text": "or",
+   "start": 125.993,
+   "end": 126.132
+  },
+  {
+   "text": "October",
+   "start": 126.213,
+   "end": 126.724
+  },
+  {
+   "text": "of",
+   "start": 126.794,
+   "end": 126.863
+  },
+  {
+   "text": "each",
+   "start": 126.933,
+   "end": 127.107
+  },
+  {
+   "text": "year",
+   "start": 127.165,
+   "end": 127.444
+  },
+  {
+   "text": "from",
+   "start": 127.618,
+   "end": 127.804
+  },
+  {
+   "text": "2020",
+   "start": 127.885,
+   "end": 128.698
+  },
+  {
+   "text": "to",
+   "start": 128.814,
+   "end": 128.895
+  },
+  {
+   "text": "2026.",
+   "start": 128.988,
+   "end": 130.16
+  },
+  {
+   "text": "Same",
+   "start": 130.602,
+   "end": 130.915
+  },
+  {
+   "text": "orbit",
+   "start": 130.962,
+   "end": 131.252
+  },
+  {
+   "text": "means",
+   "start": 131.298,
+   "end": 131.519
+  },
+  {
+   "text": "the",
+   "start": 131.577,
+   "end": 131.647
+  },
+  {
+   "text": "satellite",
+   "start": 131.705,
+   "end": 132.192
+  },
+  {
+   "text": "passes",
+   "start": 132.227,
+   "end": 132.61
+  },
+  {
+   "text": "over",
+   "start": 132.68,
+   "end": 132.924
+  },
+  {
+   "text": "on",
+   "start": 132.993,
+   "end": 133.063
+  },
+  {
+   "text": "the",
+   "start": 133.109,
+   "end": 133.179
+  },
+  {
+   "text": "same",
+   "start": 133.237,
+   "end": 133.504
+  },
+  {
+   "text": "track",
+   "start": 133.551,
+   "end": 133.818
+  },
+  {
+   "text": "at",
+   "start": 133.887,
+   "end": 133.957
+  },
+  {
+   "text": "nearly",
+   "start": 134.027,
+   "end": 134.328
+  },
+  {
+   "text": "the",
+   "start": 134.386,
+   "end": 134.456
+  },
+  {
+   "text": "same",
+   "start": 134.514,
+   "end": 134.793
+  },
+  {
+   "text": "time",
+   "start": 134.828,
+   "end": 135.095
+  },
+  {
+   "text": "of",
+   "start": 135.129,
+   "end": 135.199
+  },
+  {
+   "text": "day,",
+   "start": 135.28,
+   "end": 135.756
+  },
+  {
+   "text": "so",
+   "start": 136.035,
+   "end": 136.174
+  },
+  {
+   "text": "the",
+   "start": 136.244,
+   "end": 136.314
+  },
+  {
+   "text": "views",
+   "start": 136.372,
+   "end": 136.708
+  },
+  {
+   "text": "can",
+   "start": 136.766,
+   "end": 136.894
+  },
+  {
+   "text": "be",
+   "start": 136.941,
+   "end": 137.022
+  },
+  {
+   "text": "compared",
+   "start": 137.068,
+   "end": 137.591
+  },
+  {
+   "text": "from",
+   "start": 137.637,
+   "end": 137.788
+  },
+  {
+   "text": "year",
+   "start": 137.881,
+   "end": 138.102
+  },
+  {
+   "text": "to",
+   "start": 138.16,
+   "end": 138.218
+  },
+  {
+   "text": "year.",
+   "start": 138.311,
+   "end": 138.798
+  },
+  {
+   "text": "Same",
+   "start": 139.181,
+   "end": 139.495
+  },
+  {
+   "text": "season",
+   "start": 139.541,
+   "end": 139.948
+  },
+  {
+   "text": "means",
+   "start": 140.017,
+   "end": 140.296
+  },
+  {
+   "text": "the",
+   "start": 140.366,
+   "end": 140.447
+  },
+  {
+   "text": "light",
+   "start": 140.517,
+   "end": 140.76
+  },
+  {
+   "text": "and",
+   "start": 140.807,
+   "end": 140.888
+  },
+  {
+   "text": "the",
+   "start": 140.946,
+   "end": 141.016
+  },
+  {
+   "text": "sand",
+   "start": 141.062,
+   "end": 141.387
+  },
+  {
+   "text": "look",
+   "start": 141.445,
+   "end": 141.631
+  },
+  {
+   "text": "more",
+   "start": 141.701,
+   "end": 141.886
+  },
+  {
+   "text": "alike,",
+   "start": 141.921,
+   "end": 142.421
+  },
+  {
+   "text": "so",
+   "start": 142.63,
+   "end": 142.78
+  },
+  {
+   "text": "a",
+   "start": 142.861,
+   "end": 142.884
+  },
+  {
+   "text": "change",
+   "start": 142.954,
+   "end": 143.372
+  },
+  {
+   "text": "is",
+   "start": 143.407,
+   "end": 143.5
+  },
+  {
+   "text": "less",
+   "start": 143.569,
+   "end": 143.778
+  },
+  {
+   "text": "likely",
+   "start": 143.837,
+   "end": 144.15
+  },
+  {
+   "text": "to",
+   "start": 144.196,
+   "end": 144.243
+  },
+  {
+   "text": "be",
+   "start": 144.301,
+   "end": 144.394
+  },
+  {
+   "text": "a",
+   "start": 144.44,
+   "end": 144.463
+  },
+  {
+   "text": "trick",
+   "start": 144.51,
+   "end": 144.707
+  },
+  {
+   "text": "of",
+   "start": 144.742,
+   "end": 144.789
+  },
+  {
+   "text": "the",
+   "start": 144.835,
+   "end": 144.905
+  },
+  {
+   "text": "light.",
+   "start": 144.951,
+   "end": 145.415
+  },
+  {
+   "text": "The",
+   "start": 145.694,
+   "end": 145.81
+  },
+  {
+   "text": "scenes",
+   "start": 145.868,
+   "end": 146.251
+  },
+  {
+   "text": "report",
+   "start": 146.321,
+   "end": 146.727
+  },
+  {
+   "text": "almost",
+   "start": 146.774,
+   "end": 147.122
+  },
+  {
+   "text": "no",
+   "start": 147.192,
+   "end": 147.343
+  },
+  {
+   "text": "cloud",
+   "start": 147.412,
+   "end": 147.737
+  },
+  {
+   "text": "cover,",
+   "start": 147.796,
+   "end": 148.272
+  },
+  {
+   "text": "and",
+   "start": 148.33,
+   "end": 148.469
+  },
+  {
+   "text": "we",
+   "start": 148.515,
+   "end": 148.597
+  },
+  {
+   "text": "looked",
+   "start": 148.643,
+   "end": 148.875
+  },
+  {
+   "text": "at",
+   "start": 148.91,
+   "end": 148.968
+  },
+  {
+   "text": "every",
+   "start": 149.015,
+   "end": 149.235
+  },
+  {
+   "text": "frame.",
+   "start": 149.293,
+   "end": 149.932
+  },
+  {
+   "text": "Start",
+   "start": 150.257,
+   "end": 150.605
+  },
+  {
+   "text": "with",
+   "start": 150.652,
+   "end": 150.802
+  },
+  {
+   "text": "2020",
+   "start": 150.884,
+   "end": 151.662
+  },
+  {
+   "text": "and",
+   "start": 151.743,
+   "end": 151.836
+  },
+  {
+   "text": "2021,",
+   "start": 151.917,
+   "end": 152.997
+  },
+  {
+   "text": "when",
+   "start": 153.055,
+   "end": 153.241
+  },
+  {
+   "text": "the",
+   "start": 153.275,
+   "end": 153.345
+  },
+  {
+   "text": "ground",
+   "start": 153.392,
+   "end": 153.728
+  },
+  {
+   "text": "here",
+   "start": 153.798,
+   "end": 153.995
+  },
+  {
+   "text": "is",
+   "start": 154.042,
+   "end": 154.135
+  },
+  {
+   "text": "empty",
+   "start": 154.204,
+   "end": 154.483
+  },
+  {
+   "text": "desert.",
+   "start": 154.553,
+   "end": 155.145
+  },
+  {
+   "text": "In",
+   "start": 155.47,
+   "end": 155.621
+  },
+  {
+   "text": "October",
+   "start": 155.69,
+   "end": 156.143
+  },
+  {
+   "text": "2022,",
+   "start": 156.213,
+   "end": 157.281
+  },
+  {
+   "text": "a",
+   "start": 157.374,
+   "end": 157.432
+  },
+  {
+   "text": "faint,",
+   "start": 157.548,
+   "end": 157.838
+  },
+  {
+   "text": "straight",
+   "start": 157.885,
+   "end": 158.221
+  },
+  {
+   "text": "line",
+   "start": 158.279,
+   "end": 158.581
+  },
+  {
+   "text": "appears.",
+   "start": 158.604,
+   "end": 159.254
+  },
+  {
+   "text": "By",
+   "start": 159.463,
+   "end": 159.626
+  },
+  {
+   "text": "2023,",
+   "start": 159.707,
+   "end": 160.752
+  },
+  {
+   "text": "the",
+   "start": 160.787,
+   "end": 160.868
+  },
+  {
+   "text": "line",
+   "start": 160.938,
+   "end": 161.251
+  },
+  {
+   "text": "is",
+   "start": 161.286,
+   "end": 161.367
+  },
+  {
+   "text": "a",
+   "start": 161.425,
+   "end": 161.46
+  },
+  {
+   "text": "clear,",
+   "start": 161.53,
+   "end": 161.878
+  },
+  {
+   "text": "narrow",
+   "start": 161.925,
+   "end": 162.226
+  },
+  {
+   "text": "corridor,",
+   "start": 162.296,
+   "end": 162.993
+  },
+  {
+   "text": "and",
+   "start": 163.016,
+   "end": 163.202
+  },
+  {
+   "text": "very",
+   "start": 163.283,
+   "end": 163.55
+  },
+  {
+   "text": "straight.",
+   "start": 163.608,
+   "end": 164.084
+  },
+  {
+   "text": "It",
+   "start": 164.258,
+   "end": 164.386
+  },
+  {
+   "text": "crosses",
+   "start": 164.421,
+   "end": 164.804
+  },
+  {
+   "text": "our",
+   "start": 164.862,
+   "end": 164.978
+  },
+  {
+   "text": "frame",
+   "start": 165.048,
+   "end": 165.338
+  },
+  {
+   "text": "for",
+   "start": 165.373,
+   "end": 165.477
+  },
+  {
+   "text": "at",
+   "start": 165.524,
+   "end": 165.593
+  },
+  {
+   "text": "least",
+   "start": 165.64,
+   "end": 165.837
+  },
+  {
+   "text": "15",
+   "start": 165.884,
+   "end": 166.325
+  },
+  {
+   "text": "kilometers.",
+   "start": 166.394,
+   "end": 167.161
+  },
+  {
+   "text": "And",
+   "start": 167.37,
+   "end": 167.532
+  },
+  {
+   "text": "it",
+   "start": 167.59,
+   "end": 167.66
+  },
+  {
+   "text": "is",
+   "start": 167.706,
+   "end": 167.776
+  },
+  {
+   "text": "still",
+   "start": 167.811,
+   "end": 168.02
+  },
+  {
+   "text": "there",
+   "start": 168.078,
+   "end": 168.333
+  },
+  {
+   "text": "in",
+   "start": 168.38,
+   "end": 168.449
+  },
+  {
+   "text": "2026.",
+   "start": 168.519,
+   "end": 169.924
+  },
+  {
+   "text": "Along",
+   "start": 169.924,
+   "end": 170.261
+  },
+  {
+   "text": "the",
+   "start": 170.307,
+   "end": 170.377
+  },
+  {
+   "text": "way,",
+   "start": 170.435,
+   "end": 170.876
+  },
+  {
+   "text": "two",
+   "start": 171.05,
+   "end": 171.294
+  },
+  {
+   "text": "large",
+   "start": 171.445,
+   "end": 171.886
+  },
+  {
+   "text": "settlement-like",
+   "start": 171.979,
+   "end": 172.664
+  },
+  {
+   "text": "complexes,",
+   "start": 172.71,
+   "end": 173.581
+  },
+  {
+   "text": "one",
+   "start": 173.79,
+   "end": 174.057
+  },
+  {
+   "text": "at",
+   "start": 174.092,
+   "end": 174.173
+  },
+  {
+   "text": "each",
+   "start": 174.231,
+   "end": 174.405
+  },
+  {
+   "text": "end",
+   "start": 174.452,
+   "end": 174.614
+  },
+  {
+   "text": "of",
+   "start": 174.672,
+   "end": 174.731
+  },
+  {
+   "text": "our",
+   "start": 174.789,
+   "end": 174.905
+  },
+  {
+   "text": "frame,",
+   "start": 174.974,
+   "end": 175.497
+  },
+  {
+   "text": "grow",
+   "start": 175.671,
+   "end": 175.938
+  },
+  {
+   "text": "between",
+   "start": 176.008,
+   "end": 176.356
+  },
+  {
+   "text": "2020",
+   "start": 176.449,
+   "end": 177.296
+  },
+  {
+   "text": "and",
+   "start": 177.366,
+   "end": 177.459
+  },
+  {
+   "text": "2024.",
+   "start": 177.552,
+   "end": 178.817
+  },
+  {
+   "text": "From",
+   "start": 179.142,
+   "end": 179.351
+  },
+  {
+   "text": "orbit,",
+   "start": 179.444,
+   "end": 179.92
+  },
+  {
+   "text": "we",
+   "start": 180.071,
+   "end": 180.21
+  },
+  {
+   "text": "cannot",
+   "start": 180.28,
+   "end": 180.652
+  },
+  {
+   "text": "tell",
+   "start": 180.698,
+   "end": 180.942
+  },
+  {
+   "text": "what",
+   "start": 181.0,
+   "end": 181.139
+  },
+  {
+   "text": "they",
+   "start": 181.174,
+   "end": 181.313
+  },
+  {
+   "text": "are.",
+   "start": 181.371,
+   "end": 181.755
+  },
+  {
+   "text": "What",
+   "start": 182.08,
+   "end": 182.277
+  },
+  {
+   "text": "we",
+   "start": 182.323,
+   "end": 182.405
+  },
+  {
+   "text": "can",
+   "start": 182.463,
+   "end": 182.602
+  },
+  {
+   "text": "say",
+   "start": 182.672,
+   "end": 182.904
+  },
+  {
+   "text": "is",
+   "start": 182.95,
+   "end": 183.032
+  },
+  {
+   "text": "that",
+   "start": 183.078,
+   "end": 183.206
+  },
+  {
+   "text": "something",
+   "start": 183.275,
+   "end": 183.693
+  },
+  {
+   "text": "large",
+   "start": 183.786,
+   "end": 184.239
+  },
+  {
+   "text": "changed",
+   "start": 184.297,
+   "end": 184.82
+  },
+  {
+   "text": "on",
+   "start": 184.878,
+   "end": 184.982
+  },
+  {
+   "text": "this",
+   "start": 185.029,
+   "end": 185.18
+  },
+  {
+   "text": "ground,",
+   "start": 185.261,
+   "end": 185.818
+  },
+  {
+   "text": "in",
+   "start": 185.934,
+   "end": 186.073
+  },
+  {
+   "text": "a",
+   "start": 186.12,
+   "end": 186.143
+  },
+  {
+   "text": "straight",
+   "start": 186.201,
+   "end": 186.538
+  },
+  {
+   "text": "line.",
+   "start": 186.596,
+   "end": 187.072
+  },
+  {
+   "text": "What",
+   "start": 187.397,
+   "end": 187.583
+  },
+  {
+   "text": "we",
+   "start": 187.629,
+   "end": 187.722
+  },
+  {
+   "text": "cannot",
+   "start": 187.78,
+   "end": 188.117
+  },
+  {
+   "text": "say",
+   "start": 188.175,
+   "end": 188.407
+  },
+  {
+   "text": "is",
+   "start": 188.465,
+   "end": 188.546
+  },
+  {
+   "text": "what",
+   "start": 188.581,
+   "end": 188.697
+  },
+  {
+   "text": "the",
+   "start": 188.732,
+   "end": 188.802
+  },
+  {
+   "text": "corridor",
+   "start": 188.848,
+   "end": 189.29
+  },
+  {
+   "text": "is",
+   "start": 189.348,
+   "end": 189.417
+  },
+  {
+   "text": "for.",
+   "start": 189.487,
+   "end": 189.951
+  },
+  {
+   "text": "Now",
+   "start": 190.242,
+   "end": 190.427
+  },
+  {
+   "text": "zoom",
+   "start": 190.509,
+   "end": 190.776
+  },
+  {
+   "text": "in",
+   "start": 190.857,
+   "end": 190.961
+  },
+  {
+   "text": "on",
+   "start": 191.043,
+   "end": 191.159
+  },
+  {
+   "text": "one",
+   "start": 191.24,
+   "end": 191.414
+  },
+  {
+   "text": "stretch",
+   "start": 191.461,
+   "end": 191.739
+  },
+  {
+   "text": "of",
+   "start": 191.786,
+   "end": 191.832
+  },
+  {
+   "text": "that",
+   "start": 191.867,
+   "end": 192.006
+  },
+  {
+   "text": "corridor.",
+   "start": 192.076,
+   "end": 192.726
+  },
+  {
+   "text": "In",
+   "start": 192.947,
+   "end": 193.074
+  },
+  {
+   "text": "October",
+   "start": 193.144,
+   "end": 193.574
+  },
+  {
+   "text": "2022",
+   "start": 193.632,
+   "end": 194.456
+  },
+  {
+   "text": "and",
+   "start": 194.537,
+   "end": 194.63
+  },
+  {
+   "text": "2023,",
+   "start": 194.7,
+   "end": 195.814
+  },
+  {
+   "text": "nothing",
+   "start": 195.965,
+   "end": 196.29
+  },
+  {
+   "text": "dark",
+   "start": 196.348,
+   "end": 196.627
+  },
+  {
+   "text": "is",
+   "start": 196.673,
+   "end": 196.766
+  },
+  {
+   "text": "here.",
+   "start": 196.824,
+   "end": 197.196
+  },
+  {
+   "text": "In",
+   "start": 197.451,
+   "end": 197.579
+  },
+  {
+   "text": "October",
+   "start": 197.637,
+   "end": 198.055
+  },
+  {
+   "text": "2024,",
+   "start": 198.125,
+   "end": 199.146
+  },
+  {
+   "text": "a",
+   "start": 199.251,
+   "end": 199.344
+  },
+  {
+   "text": "dark",
+   "start": 199.448,
+   "end": 199.739
+  },
+  {
+   "text": "segment",
+   "start": 199.808,
+   "end": 200.249
+  },
+  {
+   "text": "appears.",
+   "start": 200.284,
+   "end": 200.853
+  },
+  {
+   "text": "In",
+   "start": 201.004,
+   "end": 201.155
+  },
+  {
+   "text": "2025",
+   "start": 201.225,
+   "end": 202.188
+  },
+  {
+   "text": "and",
+   "start": 202.258,
+   "end": 202.339
+  },
+  {
+   "text": "2026,",
+   "start": 202.397,
+   "end": 203.372
+  },
+  {
+   "text": "it",
+   "start": 203.43,
+   "end": 203.547
+  },
+  {
+   "text": "is",
+   "start": 203.581,
+   "end": 203.663
+  },
+  {
+   "text": "still",
+   "start": 203.686,
+   "end": 203.918
+  },
+  {
+   "text": "there,",
+   "start": 203.988,
+   "end": 204.382
+  },
+  {
+   "text": "about",
+   "start": 204.498,
+   "end": 204.777
+  },
+  {
+   "text": "1.6",
+   "start": 204.847,
+   "end": 205.613
+  },
+  {
+   "text": "to",
+   "start": 205.683,
+   "end": 205.752
+  },
+  {
+   "text": "1.9",
+   "start": 205.834,
+   "end": 206.484
+  },
+  {
+   "text": "kilometers",
+   "start": 206.542,
+   "end": 207.053
+  },
+  {
+   "text": "long.",
+   "start": 207.122,
+   "end": 207.645
+  },
+  {
+   "text": "In",
+   "start": 208.086,
+   "end": 208.237
+  },
+  {
+   "text": "near-infrared",
+   "start": 208.307,
+   "end": 209.177
+  },
+  {
+   "text": "light,",
+   "start": 209.259,
+   "end": 209.653
+  },
+  {
+   "text": "the",
+   "start": 209.769,
+   "end": 209.874
+  },
+  {
+   "text": "segment",
+   "start": 209.932,
+   "end": 210.315
+  },
+  {
+   "text": "reads",
+   "start": 210.396,
+   "end": 210.663
+  },
+  {
+   "text": "like",
+   "start": 210.721,
+   "end": 210.93
+  },
+  {
+   "text": "water:",
+   "start": 211.0,
+   "end": 211.557
+  },
+  {
+   "text": "our",
+   "start": 212.068,
+   "end": 212.242
+  },
+  {
+   "text": "water",
+   "start": 212.312,
+   "end": 212.602
+  },
+  {
+   "text": "index",
+   "start": 212.672,
+   "end": 213.101
+  },
+  {
+   "text": "is",
+   "start": 213.183,
+   "end": 213.287
+  },
+  {
+   "text": "above",
+   "start": 213.345,
+   "end": 213.624
+  },
+  {
+   "text": "zero,",
+   "start": 213.67,
+   "end": 214.274
+  },
+  {
+   "text": "and",
+   "start": 214.448,
+   "end": 214.611
+  },
+  {
+   "text": "the",
+   "start": 214.669,
+   "end": 214.738
+  },
+  {
+   "text": "near-infrared",
+   "start": 214.797,
+   "end": 215.621
+  },
+  {
+   "text": "signal",
+   "start": 215.691,
+   "end": 216.085
+  },
+  {
+   "text": "is",
+   "start": 216.178,
+   "end": 216.329
+  },
+  {
+   "text": "very",
+   "start": 216.41,
+   "end": 216.701
+  },
+  {
+   "text": "low.",
+   "start": 216.77,
+   "end": 217.258
+  },
+  {
+   "text": "That",
+   "start": 217.583,
+   "end": 217.78
+  },
+  {
+   "text": "fits",
+   "start": 217.85,
+   "end": 218.129
+  },
+  {
+   "text": "water,",
+   "start": 218.221,
+   "end": 218.802
+  },
+  {
+   "text": "but",
+   "start": 219.046,
+   "end": 219.22
+  },
+  {
+   "text": "it",
+   "start": 219.278,
+   "end": 219.348
+  },
+  {
+   "text": "is",
+   "start": 219.394,
+   "end": 219.487
+  },
+  {
+   "text": "not",
+   "start": 219.557,
+   "end": 219.719
+  },
+  {
+   "text": "proof.",
+   "start": 219.789,
+   "end": 220.358
+  },
+  {
+   "text": "A",
+   "start": 220.869,
+   "end": 220.95
+  },
+  {
+   "text": "shadow",
+   "start": 221.066,
+   "end": 221.461
+  },
+  {
+   "text": "can",
+   "start": 221.542,
+   "end": 221.67
+  },
+  {
+   "text": "also",
+   "start": 221.728,
+   "end": 221.995
+  },
+  {
+   "text": "fool",
+   "start": 222.088,
+   "end": 222.367
+  },
+  {
+   "text": "a",
+   "start": 222.425,
+   "end": 222.448
+  },
+  {
+   "text": "water",
+   "start": 222.506,
+   "end": 222.796
+  },
+  {
+   "text": "index,",
+   "start": 222.866,
+   "end": 223.493
+  },
+  {
+   "text": "and",
+   "start": 223.609,
+   "end": 223.748
+  },
+  {
+   "text": "we",
+   "start": 223.795,
+   "end": 223.864
+  },
+  {
+   "text": "cannot",
+   "start": 223.911,
+   "end": 224.213
+  },
+  {
+   "text": "rule",
+   "start": 224.294,
+   "end": 224.607
+  },
+  {
+   "text": "that",
+   "start": 224.642,
+   "end": 224.805
+  },
+  {
+   "text": "out",
+   "start": 224.851,
+   "end": 225.014
+  },
+  {
+   "text": "from",
+   "start": 225.06,
+   "end": 225.199
+  },
+  {
+   "text": "these",
+   "start": 225.258,
+   "end": 225.455
+  },
+  {
+   "text": "images",
+   "start": 225.49,
+   "end": 225.838
+  },
+  {
+   "text": "alone.",
+   "start": 225.896,
+   "end": 226.581
+  },
+  {
+   "text": "In",
+   "start": 227.092,
+   "end": 227.243
+  },
+  {
+   "text": "2022",
+   "start": 227.313,
+   "end": 228.206
+  },
+  {
+   "text": "and",
+   "start": 228.299,
+   "end": 228.45
+  },
+  {
+   "text": "2023,",
+   "start": 228.52,
+   "end": 229.739
+  },
+  {
+   "text": "no",
+   "start": 229.948,
+   "end": 230.111
+  },
+  {
+   "text": "pixel",
+   "start": 230.192,
+   "end": 230.563
+  },
+  {
+   "text": "here",
+   "start": 230.645,
+   "end": 230.865
+  },
+  {
+   "text": "qualifies.",
+   "start": 230.923,
+   "end": 231.887
+  },
+  {
+   "text": "That",
+   "start": 232.212,
+   "end": 232.409
+  },
+  {
+   "text": "is",
+   "start": 232.456,
+   "end": 232.525
+  },
+  {
+   "text": "consistent",
+   "start": 232.583,
+   "end": 233.222
+  },
+  {
+   "text": "with",
+   "start": 233.292,
+   "end": 233.466
+  },
+  {
+   "text": "one",
+   "start": 233.535,
+   "end": 233.768
+  },
+  {
+   "text": "idea:",
+   "start": 233.814,
+   "end": 234.58
+  },
+  {
+   "text": "standing",
+   "start": 234.905,
+   "end": 235.381
+  },
+  {
+   "text": "water",
+   "start": 235.463,
+   "end": 235.811
+  },
+  {
+   "text": "in",
+   "start": 235.904,
+   "end": 236.02
+  },
+  {
+   "text": "a",
+   "start": 236.066,
+   "end": 236.09
+  },
+  {
+   "text": "long,",
+   "start": 236.171,
+   "end": 236.589
+  },
+  {
+   "text": "narrow",
+   "start": 236.647,
+   "end": 237.018
+  },
+  {
+   "text": "excavation.",
+   "start": 237.135,
+   "end": 238.168
+  },
+  {
+   "text": "But",
+   "start": 238.493,
+   "end": 238.644
+  },
+  {
+   "text": "that",
+   "start": 238.667,
+   "end": 238.795
+  },
+  {
+   "text": "is",
+   "start": 238.841,
+   "end": 238.922
+  },
+  {
+   "text": "a",
+   "start": 238.969,
+   "end": 238.992
+  },
+  {
+   "text": "hypothesis,",
+   "start": 239.05,
+   "end": 240.095
+  },
+  {
+   "text": "and",
+   "start": 240.246,
+   "end": 240.409
+  },
+  {
+   "text": "it",
+   "start": 240.467,
+   "end": 240.525
+  },
+  {
+   "text": "could",
+   "start": 240.559,
+   "end": 240.722
+  },
+  {
+   "text": "be",
+   "start": 240.757,
+   "end": 240.838
+  },
+  {
+   "text": "wrong.",
+   "start": 240.884,
+   "end": 241.442
+  },
+  {
+   "text": "We",
+   "start": 241.825,
+   "end": 241.964
+  },
+  {
+   "text": "tried",
+   "start": 242.022,
+   "end": 242.278
+  },
+  {
+   "text": "to",
+   "start": 242.301,
+   "end": 242.347
+  },
+  {
+   "text": "break",
+   "start": 242.394,
+   "end": 242.603
+  },
+  {
+   "text": "our",
+   "start": 242.661,
+   "end": 242.8
+  },
+  {
+   "text": "own",
+   "start": 242.858,
+   "end": 242.986
+  },
+  {
+   "text": "result.",
+   "start": 243.044,
+   "end": 243.601
+  },
+  {
+   "text": "First,",
+   "start": 243.984,
+   "end": 244.623
+  },
+  {
+   "text": "was",
+   "start": 244.739,
+   "end": 244.913
+  },
+  {
+   "text": "it",
+   "start": 244.959,
+   "end": 245.029
+  },
+  {
+   "text": "a",
+   "start": 245.064,
+   "end": 245.087
+  },
+  {
+   "text": "one-day",
+   "start": 245.157,
+   "end": 245.528
+  },
+  {
+   "text": "accident?",
+   "start": 245.598,
+   "end": 246.295
+  },
+  {
+   "text": "No.",
+   "start": 246.678,
+   "end": 247.142
+  },
+  {
+   "text": "The",
+   "start": 247.583,
+   "end": 247.711
+  },
+  {
+   "text": "segment",
+   "start": 247.769,
+   "end": 248.129
+  },
+  {
+   "text": "appears",
+   "start": 248.152,
+   "end": 248.524
+  },
+  {
+   "text": "on",
+   "start": 248.593,
+   "end": 248.733
+  },
+  {
+   "text": "three",
+   "start": 248.802,
+   "end": 249.058
+  },
+  {
+   "text": "different",
+   "start": 249.116,
+   "end": 249.441
+  },
+  {
+   "text": "dates",
+   "start": 249.487,
+   "end": 249.882
+  },
+  {
+   "text": "and",
+   "start": 250.207,
+   "end": 250.474
+  },
+  {
+   "text": "on",
+   "start": 250.555,
+   "end": 250.672
+  },
+  {
+   "text": "three",
+   "start": 250.73,
+   "end": 250.985
+  },
+  {
+   "text": "different",
+   "start": 251.043,
+   "end": 251.415
+  },
+  {
+   "text": "Sentinel-2",
+   "start": 251.473,
+   "end": 252.123
+  },
+  {
+   "text": "satellites",
+   "start": 252.204,
+   "end": 252.761
+  },
+  {
+   "text": "in",
+   "start": 252.796,
+   "end": 252.866
+  },
+  {
+   "text": "2024,",
+   "start": 252.947,
+   "end": 254.12
+  },
+  {
+   "text": "2025",
+   "start": 254.294,
+   "end": 255.42
+  },
+  {
+   "text": "and",
+   "start": 255.513,
+   "end": 255.699
+  },
+  {
+   "text": "2026.",
+   "start": 255.792,
+   "end": 256.987
+  },
+  {
+   "text": "Second,",
+   "start": 257.371,
+   "end": 257.974
+  },
+  {
+   "text": "does",
+   "start": 258.148,
+   "end": 258.346
+  },
+  {
+   "text": "a",
+   "start": 258.381,
+   "end": 258.404
+  },
+  {
+   "text": "different",
+   "start": 258.462,
+   "end": 258.799
+  },
+  {
+   "text": "satellite",
+   "start": 258.845,
+   "end": 259.321
+  },
+  {
+   "text": "agree?",
+   "start": 259.344,
+   "end": 259.89
+  },
+  {
+   "text": "Landsat",
+   "start": 260.215,
+   "end": 260.865
+  },
+  {
+   "text": "8,",
+   "start": 260.958,
+   "end": 261.353
+  },
+  {
+   "text": "at",
+   "start": 261.399,
+   "end": 261.562
+  },
+  {
+   "text": "30",
+   "start": 261.62,
+   "end": 261.875
+  },
+  {
+   "text": "meters",
+   "start": 261.957,
+   "end": 262.224
+  },
+  {
+   "text": "per",
+   "start": 262.282,
+   "end": 262.375
+  },
+  {
+   "text": "pixel,",
+   "start": 262.433,
+   "end": 262.944
+  },
+  {
+   "text": "shows",
+   "start": 263.118,
+   "end": 263.396
+  },
+  {
+   "text": "the",
+   "start": 263.443,
+   "end": 263.512
+  },
+  {
+   "text": "same",
+   "start": 263.571,
+   "end": 263.838
+  },
+  {
+   "text": "segment,",
+   "start": 263.896,
+   "end": 264.418
+  },
+  {
+   "text": "but",
+   "start": 264.581,
+   "end": 264.743
+  },
+  {
+   "text": "measures",
+   "start": 264.79,
+   "end": 265.115
+  },
+  {
+   "text": "it",
+   "start": 265.161,
+   "end": 265.242
+  },
+  {
+   "text": "differently.",
+   "start": 265.289,
+   "end": 265.962
+  },
+  {
+   "text": "It",
+   "start": 266.194,
+   "end": 266.334
+  },
+  {
+   "text": "gives",
+   "start": 266.38,
+   "end": 266.589
+  },
+  {
+   "text": "about",
+   "start": 266.636,
+   "end": 266.868
+  },
+  {
+   "text": "0.7",
+   "start": 266.937,
+   "end": 267.797
+  },
+  {
+   "text": "kilometers",
+   "start": 267.878,
+   "end": 268.493
+  },
+  {
+   "text": "in",
+   "start": 268.54,
+   "end": 268.609
+  },
+  {
+   "text": "October",
+   "start": 268.667,
+   "end": 269.097
+  },
+  {
+   "text": "2024,",
+   "start": 269.178,
+   "end": 270.165
+  },
+  {
+   "text": "where",
+   "start": 270.339,
+   "end": 270.548
+  },
+  {
+   "text": "Sentinel-2",
+   "start": 270.606,
+   "end": 271.28
+  },
+  {
+   "text": "says",
+   "start": 271.372,
+   "end": 271.639
+  },
+  {
+   "text": "1.6.",
+   "start": 271.744,
+   "end": 272.986
+  },
+  {
+   "text": "It",
+   "start": 273.218,
+   "end": 273.358
+  },
+  {
+   "text": "gives",
+   "start": 273.416,
+   "end": 273.66
+  },
+  {
+   "text": "about",
+   "start": 273.694,
+   "end": 273.961
+  },
+  {
+   "text": "1.65",
+   "start": 274.02,
+   "end": 275.215
+  },
+  {
+   "text": "kilometers",
+   "start": 275.297,
+   "end": 275.889
+  },
+  {
+   "text": "in",
+   "start": 275.935,
+   "end": 276.005
+  },
+  {
+   "text": "October",
+   "start": 276.074,
+   "end": 276.492
+  },
+  {
+   "text": "2025",
+   "start": 276.562,
+   "end": 277.468
+  },
+  {
+   "text": "and",
+   "start": 277.665,
+   "end": 277.874
+  },
+  {
+   "text": "September",
+   "start": 277.944,
+   "end": 278.408
+  },
+  {
+   "text": "2026.",
+   "start": 278.478,
+   "end": 279.615
+  },
+  {
+   "text": "The",
+   "start": 279.882,
+   "end": 279.987
+  },
+  {
+   "text": "two",
+   "start": 280.033,
+   "end": 280.161
+  },
+  {
+   "text": "sets",
+   "start": 280.231,
+   "end": 280.475
+  },
+  {
+   "text": "of",
+   "start": 280.509,
+   "end": 280.556
+  },
+  {
+   "text": "scenes",
+   "start": 280.614,
+   "end": 280.939
+  },
+  {
+   "text": "are",
+   "start": 280.974,
+   "end": 281.09
+  },
+  {
+   "text": "two",
+   "start": 281.125,
+   "end": 281.31
+  },
+  {
+   "text": "to",
+   "start": 281.368,
+   "end": 281.427
+  },
+  {
+   "text": "three",
+   "start": 281.473,
+   "end": 281.682
+  },
+  {
+   "text": "weeks",
+   "start": 281.717,
+   "end": 281.937
+  },
+  {
+   "text": "apart,",
+   "start": 281.984,
+   "end": 282.483
+  },
+  {
+   "text": "so",
+   "start": 282.634,
+   "end": 282.75
+  },
+  {
+   "text": "we",
+   "start": 282.82,
+   "end": 282.901
+  },
+  {
+   "text": "cannot",
+   "start": 282.947,
+   "end": 283.273
+  },
+  {
+   "text": "tell",
+   "start": 283.319,
+   "end": 283.54
+  },
+  {
+   "text": "whether",
+   "start": 283.598,
+   "end": 283.853
+  },
+  {
+   "text": "the",
+   "start": 283.911,
+   "end": 283.981
+  },
+  {
+   "text": "gap",
+   "start": 284.05,
+   "end": 284.329
+  },
+  {
+   "text": "is",
+   "start": 284.41,
+   "end": 284.515
+  },
+  {
+   "text": "resolution",
+   "start": 284.596,
+   "end": 285.211
+  },
+  {
+   "text": "or",
+   "start": 285.269,
+   "end": 285.362
+  },
+  {
+   "text": "timing.",
+   "start": 285.432,
+   "end": 286.14
+  },
+  {
+   "text": "Third,",
+   "start": 286.419,
+   "end": 286.883
+  },
+  {
+   "text": "how",
+   "start": 286.918,
+   "end": 287.081
+  },
+  {
+   "text": "long",
+   "start": 287.173,
+   "end": 287.429
+  },
+  {
+   "text": "is",
+   "start": 287.499,
+   "end": 287.603
+  },
+  {
+   "text": "it?",
+   "start": 287.661,
+   "end": 287.951
+  },
+  {
+   "text": "At",
+   "start": 288.16,
+   "end": 288.323
+  },
+  {
+   "text": "10",
+   "start": 288.381,
+   "end": 288.613
+  },
+  {
+   "text": "meters,",
+   "start": 288.683,
+   "end": 289.112
+  },
+  {
+   "text": "about",
+   "start": 289.147,
+   "end": 289.437
+  },
+  {
+   "text": "1.6",
+   "start": 289.507,
+   "end": 290.413
+  },
+  {
+   "text": "kilometers",
+   "start": 290.494,
+   "end": 291.179
+  },
+  {
+   "text": "in",
+   "start": 291.249,
+   "end": 291.33
+  },
+  {
+   "text": "October",
+   "start": 291.411,
+   "end": 291.864
+  },
+  {
+   "text": "2025,",
+   "start": 291.934,
+   "end": 293.083
+  },
+  {
+   "text": "and",
+   "start": 293.257,
+   "end": 293.42
+  },
+  {
+   "text": "about",
+   "start": 293.478,
+   "end": 293.733
+  },
+  {
+   "text": "1.9",
+   "start": 293.814,
+   "end": 294.592
+  },
+  {
+   "text": "kilometers",
+   "start": 294.673,
+   "end": 295.254
+  },
+  {
+   "text": "in",
+   "start": 295.312,
+   "end": 295.381
+  },
+  {
+   "text": "October",
+   "start": 295.451,
+   "end": 295.892
+  },
+  {
+   "text": "2026.",
+   "start": 295.962,
+   "end": 297.146
+  },
+  {
+   "text": "That",
+   "start": 297.39,
+   "end": 297.576
+  },
+  {
+   "text": "difference",
+   "start": 297.634,
+   "end": 297.982
+  },
+  {
+   "text": "of",
+   "start": 298.017,
+   "end": 298.087
+  },
+  {
+   "text": "0.3",
+   "start": 298.168,
+   "end": 299.039
+  },
+  {
+   "text": "kilometers",
+   "start": 299.108,
+   "end": 299.666
+  },
+  {
+   "text": "could",
+   "start": 299.724,
+   "end": 299.921
+  },
+  {
+   "text": "be",
+   "start": 299.967,
+   "end": 300.072
+  },
+  {
+   "text": "growth.",
+   "start": 300.13,
+   "end": 300.664
+  },
+  {
+   "text": "It",
+   "start": 300.815,
+   "end": 300.931
+  },
+  {
+   "text": "could",
+   "start": 300.966,
+   "end": 301.105
+  },
+  {
+   "text": "also",
+   "start": 301.152,
+   "end": 301.395
+  },
+  {
+   "text": "be",
+   "start": 301.477,
+   "end": 301.593
+  },
+  {
+   "text": "a",
+   "start": 301.639,
+   "end": 301.674
+  },
+  {
+   "text": "different",
+   "start": 301.755,
+   "end": 302.092
+  },
+  {
+   "text": "water",
+   "start": 302.138,
+   "end": 302.452
+  },
+  {
+   "text": "level,",
+   "start": 302.51,
+   "end": 302.94
+  },
+  {
+   "text": "or",
+   "start": 303.032,
+   "end": 303.195
+  },
+  {
+   "text": "just",
+   "start": 303.276,
+   "end": 303.508
+  },
+  {
+   "text": "where",
+   "start": 303.555,
+   "end": 303.764
+  },
+  {
+   "text": "our",
+   "start": 303.799,
+   "end": 303.926
+  },
+  {
+   "text": "threshold",
+   "start": 303.984,
+   "end": 304.542
+  },
+  {
+   "text": "falls.",
+   "start": 304.611,
+   "end": 305.238
+  },
+  {
+   "text": "So",
+   "start": 305.447,
+   "end": 305.587
+  },
+  {
+   "text": "we",
+   "start": 305.645,
+   "end": 305.738
+  },
+  {
+   "text": "do",
+   "start": 305.796,
+   "end": 305.865
+  },
+  {
+   "text": "not",
+   "start": 305.947,
+   "end": 306.086
+  },
+  {
+   "text": "claim",
+   "start": 306.144,
+   "end": 306.457
+  },
+  {
+   "text": "that",
+   "start": 306.527,
+   "end": 306.678
+  },
+  {
+   "text": "the",
+   "start": 306.724,
+   "end": 306.817
+  },
+  {
+   "text": "segment",
+   "start": 306.887,
+   "end": 307.34
+  },
+  {
+   "text": "grew.",
+   "start": 307.398,
+   "end": 307.909
+  },
+  {
+   "text": "We",
+   "start": 308.118,
+   "end": 308.257
+  },
+  {
+   "text": "cannot",
+   "start": 308.315,
+   "end": 308.64
+  },
+  {
+   "text": "tell.",
+   "start": 308.698,
+   "end": 309.209
+  },
+  {
+   "text": "That",
+   "start": 309.383,
+   "end": 309.58
+  },
+  {
+   "text": "is",
+   "start": 309.639,
+   "end": 309.72
+  },
+  {
+   "text": "the",
+   "start": 309.766,
+   "end": 309.847
+  },
+  {
+   "text": "honest",
+   "start": 309.917,
+   "end": 310.265
+  },
+  {
+   "text": "result:",
+   "start": 310.335,
+   "end": 310.915
+  },
+  {
+   "text": "three",
+   "start": 311.124,
+   "end": 311.391
+  },
+  {
+   "text": "checks",
+   "start": 311.438,
+   "end": 311.728
+  },
+  {
+   "text": "agree",
+   "start": 311.774,
+   "end": 312.157
+  },
+  {
+   "text": "it",
+   "start": 312.239,
+   "end": 312.366
+  },
+  {
+   "text": "is",
+   "start": 312.424,
+   "end": 312.506
+  },
+  {
+   "text": "real,",
+   "start": 312.622,
+   "end": 313.191
+  },
+  {
+   "text": "and",
+   "start": 313.4,
+   "end": 313.585
+  },
+  {
+   "text": "one",
+   "start": 313.702,
+   "end": 313.922
+  },
+  {
+   "text": "number",
+   "start": 313.969,
+   "end": 314.247
+  },
+  {
+   "text": "refuses",
+   "start": 314.328,
+   "end": 314.932
+  },
+  {
+   "text": "to",
+   "start": 315.002,
+   "end": 315.095
+  },
+  {
+   "text": "settle.",
+   "start": 315.176,
+   "end": 315.652
+  },
+  {
+   "text": "So",
+   "start": 315.803,
+   "end": 315.965
+  },
+  {
+   "text": "what",
+   "start": 316.024,
+   "end": 316.186
+  },
+  {
+   "text": "can",
+   "start": 316.244,
+   "end": 316.383
+  },
+  {
+   "text": "we",
+   "start": 316.43,
+   "end": 316.523
+  },
+  {
+   "text": "not",
+   "start": 316.616,
+   "end": 316.848
+  },
+  {
+   "text": "say?",
+   "start": 316.929,
+   "end": 317.463
+  },
+  {
+   "text": "At",
+   "start": 318.16,
+   "end": 318.322
+  },
+  {
+   "text": "this",
+   "start": 318.369,
+   "end": 318.52
+  },
+  {
+   "text": "resolution,",
+   "start": 318.589,
+   "end": 319.332
+  },
+  {
+   "text": "we",
+   "start": 319.507,
+   "end": 319.634
+  },
+  {
+   "text": "cannot",
+   "start": 319.704,
+   "end": 320.099
+  },
+  {
+   "text": "identify",
+   "start": 320.157,
+   "end": 320.749
+  },
+  {
+   "text": "any",
+   "start": 320.865,
+   "end": 321.155
+  },
+  {
+   "text": "building",
+   "start": 321.213,
+   "end": 321.55
+  },
+  {
+   "text": "along",
+   "start": 321.608,
+   "end": 321.875
+  },
+  {
+   "text": "the",
+   "start": 321.933,
+   "end": 322.003
+  },
+  {
+   "text": "corridor",
+   "start": 322.061,
+   "end": 322.537
+  },
+  {
+   "text": "itself.",
+   "start": 322.63,
+   "end": 323.419
+  },
+  {
+   "text": "We",
+   "start": 324.023,
+   "end": 324.174
+  },
+  {
+   "text": "also",
+   "start": 324.232,
+   "end": 324.568
+  },
+  {
+   "text": "cannot",
+   "start": 324.638,
+   "end": 325.01
+  },
+  {
+   "text": "say",
+   "start": 325.079,
+   "end": 325.381
+  },
+  {
+   "text": "this",
+   "start": 325.59,
+   "end": 325.799
+  },
+  {
+   "text": "is",
+   "start": 325.857,
+   "end": 325.95
+  },
+  {
+   "text": "a",
+   "start": 326.008,
+   "end": 326.043
+  },
+  {
+   "text": "finished",
+   "start": 326.113,
+   "end": 326.531
+  },
+  {
+   "text": "city.",
+   "start": 326.647,
+   "end": 327.216
+  },
+  {
+   "text": "We",
+   "start": 327.657,
+   "end": 327.796
+  },
+  {
+   "text": "cannot",
+   "start": 327.843,
+   "end": 328.156
+  },
+  {
+   "text": "prove",
+   "start": 328.214,
+   "end": 328.551
+  },
+  {
+   "text": "that",
+   "start": 328.586,
+   "end": 328.714
+  },
+  {
+   "text": "this",
+   "start": 328.749,
+   "end": 328.888
+  },
+  {
+   "text": "corridor",
+   "start": 328.957,
+   "end": 329.526
+  },
+  {
+   "text": "is",
+   "start": 329.619,
+   "end": 329.747
+  },
+  {
+   "text": "The",
+   "start": 329.817,
+   "end": 329.886
+  },
+  {
+   "text": "Line.",
+   "start": 329.956,
+   "end": 330.571
+  },
+  {
+   "text": "We",
+   "start": 331.012,
+   "end": 331.152
+  },
+  {
+   "text": "had",
+   "start": 331.198,
+   "end": 331.326
+  },
+  {
+   "text": "no",
+   "start": 331.384,
+   "end": 331.488
+  },
+  {
+   "text": "official",
+   "start": 331.558,
+   "end": 331.976
+  },
+  {
+   "text": "NEOM",
+   "start": 332.092,
+   "end": 332.661
+  },
+  {
+   "text": "map",
+   "start": 332.742,
+   "end": 333.009
+  },
+  {
+   "text": "to",
+   "start": 333.079,
+   "end": 333.16
+  },
+  {
+   "text": "match",
+   "start": 333.23,
+   "end": 333.462
+  },
+  {
+   "text": "it",
+   "start": 333.509,
+   "end": 333.567
+  },
+  {
+   "text": "against,",
+   "start": 333.601,
+   "end": 334.228
+  },
+  {
+   "text": "and",
+   "start": 334.437,
+   "end": 334.612
+  },
+  {
+   "text": "matching",
+   "start": 334.681,
+   "end": 335.088
+  },
+  {
+   "text": "would",
+   "start": 335.146,
+   "end": 335.32
+  },
+  {
+   "text": "take",
+   "start": 335.355,
+   "end": 335.552
+  },
+  {
+   "text": "sources",
+   "start": 335.598,
+   "end": 336.109
+  },
+  {
+   "text": "we",
+   "start": 336.191,
+   "end": 336.33
+  },
+  {
+   "text": "could",
+   "start": 336.388,
+   "end": 336.574
+  },
+  {
+   "text": "not",
+   "start": 336.62,
+   "end": 336.783
+  },
+  {
+   "text": "open.",
+   "start": 336.841,
+   "end": 337.375
+  },
+  {
+   "text": "A",
+   "start": 337.886,
+   "end": 337.955
+  },
+  {
+   "text": "similar",
+   "start": 338.036,
+   "end": 338.373
+  },
+  {
+   "text": "picture",
+   "start": 338.431,
+   "end": 338.78
+  },
+  {
+   "text": "in",
+   "start": 338.814,
+   "end": 338.872
+  },
+  {
+   "text": "2025",
+   "start": 338.942,
+   "end": 339.882
+  },
+  {
+   "text": "and",
+   "start": 339.964,
+   "end": 340.08
+  },
+  {
+   "text": "2026",
+   "start": 340.173,
+   "end": 341.136
+  },
+  {
+   "text": "does",
+   "start": 341.578,
+   "end": 341.775
+  },
+  {
+   "text": "not",
+   "start": 341.821,
+   "end": 341.972
+  },
+  {
+   "text": "prove",
+   "start": 342.03,
+   "end": 342.332
+  },
+  {
+   "text": "a",
+   "start": 342.367,
+   "end": 342.39
+  },
+  {
+   "text": "pause.",
+   "start": 342.46,
+   "end": 343.156
+  },
+  {
+   "text": "It",
+   "start": 343.482,
+   "end": 343.609
+  },
+  {
+   "text": "is",
+   "start": 343.656,
+   "end": 343.737
+  },
+  {
+   "text": "only",
+   "start": 343.795,
+   "end": 344.016
+  },
+  {
+   "text": "compatible",
+   "start": 344.062,
+   "end": 344.677
+  },
+  {
+   "text": "with",
+   "start": 344.712,
+   "end": 344.851
+  },
+  {
+   "text": "what",
+   "start": 344.886,
+   "end": 345.025
+  },
+  {
+   "text": "Semafor",
+   "start": 345.095,
+   "end": 345.617
+  },
+  {
+   "text": "reported.",
+   "start": 345.687,
+   "end": 346.36
+  },
+  {
+   "text": "Official",
+   "start": 347.057,
+   "end": 347.498
+  },
+  {
+   "text": "figures",
+   "start": 347.568,
+   "end": 348.009
+  },
+  {
+   "text": "and",
+   "start": 348.067,
+   "end": 348.195
+  },
+  {
+   "text": "the",
+   "start": 348.253,
+   "end": 348.323
+  },
+  {
+   "text": "full",
+   "start": 348.381,
+   "end": 348.578
+  },
+  {
+   "text": "original",
+   "start": 348.636,
+   "end": 349.042
+  },
+  {
+   "text": "reports",
+   "start": 349.112,
+   "end": 349.542
+  },
+  {
+   "text": "would",
+   "start": 349.576,
+   "end": 349.739
+  },
+  {
+   "text": "change",
+   "start": 349.785,
+   "end": 350.192
+  },
+  {
+   "text": "how",
+   "start": 350.238,
+   "end": 350.377
+  },
+  {
+   "text": "sure",
+   "start": 350.459,
+   "end": 350.761
+  },
+  {
+   "text": "we",
+   "start": 350.807,
+   "end": 350.912
+  },
+  {
+   "text": "can",
+   "start": 350.958,
+   "end": 351.097
+  },
+  {
+   "text": "be.",
+   "start": 351.167,
+   "end": 351.689
+  },
+  {
+   "text": "Keep",
+   "start": 352.131,
+   "end": 352.363
+  },
+  {
+   "text": "three",
+   "start": 352.432,
+   "end": 352.711
+  },
+  {
+   "text": "words",
+   "start": 352.758,
+   "end": 353.106
+  },
+  {
+   "text": "in",
+   "start": 353.152,
+   "end": 353.234
+  },
+  {
+   "text": "your",
+   "start": 353.292,
+   "end": 353.466
+  },
+  {
+   "text": "head:",
+   "start": 353.535,
+   "end": 353.988
+  },
+  {
+   "text": "promised,",
+   "start": 354.197,
+   "end": 354.905
+  },
+  {
+   "text": "reported,",
+   "start": 355.021,
+   "end": 355.718
+  },
+  {
+   "text": "observed.",
+   "start": 355.834,
+   "end": 356.635
+  },
+  {
+   "text": "Promised:",
+   "start": 356.786,
+   "end": 357.587
+  },
+  {
+   "text": "a",
+   "start": 357.761,
+   "end": 357.843
+  },
+  {
+   "text": "city",
+   "start": 357.959,
+   "end": 358.342
+  },
+  {
+   "text": "170",
+   "start": 358.551,
+   "end": 359.654
+  },
+  {
+   "text": "kilometers",
+   "start": 359.724,
+   "end": 360.304
+  },
+  {
+   "text": "long.",
+   "start": 360.374,
+   "end": 361.07
+  },
+  {
+   "text": "Reported:",
+   "start": 361.07,
+   "end": 361.918
+  },
+  {
+   "text": "about",
+   "start": 362.127,
+   "end": 362.417
+  },
+  {
+   "text": "2.4",
+   "start": 362.475,
+   "end": 363.253
+  },
+  {
+   "text": "kilometers",
+   "start": 363.322,
+   "end": 363.891
+  },
+  {
+   "text": "by",
+   "start": 363.949,
+   "end": 364.089
+  },
+  {
+   "text": "2030,",
+   "start": 364.158,
+   "end": 364.983
+  },
+  {
+   "text": "and",
+   "start": 365.192,
+   "end": 365.354
+  },
+  {
+   "text": "work",
+   "start": 365.424,
+   "end": 365.644
+  },
+  {
+   "text": "halted",
+   "start": 365.714,
+   "end": 366.144
+  },
+  {
+   "text": "until",
+   "start": 366.202,
+   "end": 366.445
+  },
+  {
+   "text": "at",
+   "start": 366.492,
+   "end": 366.55
+  },
+  {
+   "text": "least",
+   "start": 366.608,
+   "end": 366.84
+  },
+  {
+   "text": "after",
+   "start": 366.921,
+   "end": 367.339
+  },
+  {
+   "text": "2030.",
+   "start": 367.455,
+   "end": 368.315
+  },
+  {
+   "text": "Observed:",
+   "start": 368.593,
+   "end": 369.313
+  },
+  {
+   "text": "one",
+   "start": 369.522,
+   "end": 369.777
+  },
+  {
+   "text": "straight",
+   "start": 369.824,
+   "end": 370.126
+  },
+  {
+   "text": "corridor,",
+   "start": 370.184,
+   "end": 370.683
+  },
+  {
+   "text": "and",
+   "start": 370.706,
+   "end": 370.822
+  },
+  {
+   "text": "one",
+   "start": 370.904,
+   "end": 371.124
+  },
+  {
+   "text": "dark",
+   "start": 371.171,
+   "end": 371.414
+  },
+  {
+   "text": "segment",
+   "start": 371.484,
+   "end": 371.902
+  },
+  {
+   "text": "between",
+   "start": 371.949,
+   "end": 372.262
+  },
+  {
+   "text": "1.6",
+   "start": 372.32,
+   "end": 373.063
+  },
+  {
+   "text": "and",
+   "start": 373.179,
+   "end": 373.319
+  },
+  {
+   "text": "1.9",
+   "start": 373.411,
+   "end": 374.131
+  },
+  {
+   "text": "kilometers",
+   "start": 374.201,
+   "end": 374.735
+  },
+  {
+   "text": "long.",
+   "start": 374.805,
+   "end": 375.315
+  },
+  {
+   "text": "The",
+   "start": 375.699,
+   "end": 375.815
+  },
+  {
+   "text": "satellites",
+   "start": 375.861,
+   "end": 376.349
+  },
+  {
+   "text": "keep",
+   "start": 376.407,
+   "end": 376.593
+  },
+  {
+   "text": "passing,",
+   "start": 376.662,
+   "end": 377.231
+  },
+  {
+   "text": "so",
+   "start": 377.359,
+   "end": 377.486
+  },
+  {
+   "text": "the",
+   "start": 377.545,
+   "end": 377.614
+  },
+  {
+   "text": "picture",
+   "start": 377.661,
+   "end": 377.997
+  },
+  {
+   "text": "keeps",
+   "start": 378.044,
+   "end": 378.311
+  },
+  {
+   "text": "updating,",
+   "start": 378.381,
+   "end": 379.077
+  },
+  {
+   "text": "whatever",
+   "start": 379.193,
+   "end": 379.565
+  },
+  {
+   "text": "anyone",
+   "start": 379.623,
+   "end": 379.983
+  },
+  {
+   "text": "announces.",
+   "start": 380.006,
+   "end": 380.703
+  },
+  {
+   "text": "Next",
+   "start": 381.086,
+   "end": 381.318
+  },
+  {
+   "text": "time",
+   "start": 381.341,
+   "end": 381.515
+  },
+  {
+   "text": "you",
+   "start": 381.55,
+   "end": 381.62
+  },
+  {
+   "text": "see",
+   "start": 381.69,
+   "end": 381.84
+  },
+  {
+   "text": "a",
+   "start": 381.875,
+   "end": 381.899
+  },
+  {
+   "text": "number",
+   "start": 381.968,
+   "end": 382.189
+  },
+  {
+   "text": "about",
+   "start": 382.235,
+   "end": 382.467
+  },
+  {
+   "text": "NEOM,",
+   "start": 382.537,
+   "end": 383.141
+  },
+  {
+   "text": "ask",
+   "start": 383.419,
+   "end": 383.803
+  },
+  {
+   "text": "which",
+   "start": 383.872,
+   "end": 384.093
+  },
+  {
+   "text": "of",
+   "start": 384.128,
+   "end": 384.186
+  },
+  {
+   "text": "the",
+   "start": 384.232,
+   "end": 384.302
+  },
+  {
+   "text": "three",
+   "start": 384.348,
+   "end": 384.58
+  },
+  {
+   "text": "it",
+   "start": 384.627,
+   "end": 384.697
+  },
+  {
+   "text": "is.",
+   "start": 384.755,
+   "end": 385.312
+  }
+ ],
+ "created": "2026-10-21T05:05:17Z",
+ "warnings": []
+}

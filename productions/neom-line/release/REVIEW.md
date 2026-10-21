@@ -1,6 +1,6 @@
 # Release package - Here's What Satellites Show Near the Construction Site (working title, not final)
 
-Generated 2026-10-21T04:26:11Z. Nothing is published.
+Generated 2026-10-21T05:05:54Z. Nothing is published.
 
 ## Status
 - topic: done owner-approved topic
@@ -10,12 +10,12 @@ Generated 2026-10-21T04:26:11Z. Nothing is published.
 - script: done 943 words = 6.4 min, 16 claims used
 - visualplan: done 60 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']
 - visuals: done 8 graphics
-- storyboard: done 84 shots, 384.898s, timing from estimate
+- storyboard: done 79 shots, 385.312s, timing from voice
 - visualcheck: done visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 63, 'REVIEWED': 10} of 80 items
-- voice: awaiting_approval approvals/voice.json: approved is not true; plan: 5280 characters
-- voicecheck: waiting waiting for ['voice']
-- captions: waiting waiting for ['voicecheck']
-- render: waiting waiting for ['voice', 'voicecheck', 'captions']
+- voice: done narration already generated (not regenerated)
+- voicecheck: done NEEDS_HUMAN_LISTEN: 21 risky words to listen to; storyboard re-timed from real word timings
+- captions: done captions built from real word timings
+- render: awaiting_approval no approvals/render.json; plan validated
 - qc: waiting waiting for ['render']
 
 ## Autonomy (what was automated)
@@ -28,9 +28,9 @@ Generated 2026-10-21T04:26:11Z. Nothing is published.
 - visuals: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - storyboard: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - visualcheck: FULLY_AUTOMATED / now FULLY_AUTOMATED / agent artifact, then code
-- voice: OWNER_REQUIRED / now OWNER_REQUIRED / -
-- voicecheck: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
-- captions: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
+- voice: OWNER_REQUIRED / now OWNER_REQUIRED / code
+- voicecheck: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
+- captions: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - render: OWNER_REQUIRED / now OWNER_REQUIRED / -
 - qc: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
 - release: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
@@ -63,9 +63,9 @@ Generated 2026-10-21T04:26:11Z. Nothing is published.
 - C20 [original/medium] The Line is part of NEOM, on Saudi Arabia's Red Sea coast. (Gulf News and Dezeen on the Hidden Marina, 2025-02-17, https://gulfnews.com/business/property/saudi-arabia-neom-unveils-hidden-marina-as-first-phase-of-the-line-1.500037889)
 
 ## Costs
-- none (no paid action taken)
+- {'stage': 'voice', 'chars': 5280, 'provider': 'elevenlabs', 'at': '2026-10-21T05:05:17Z', 'note': 'approved by owner'}
 
 ## Package is INCOMPLETE
-Pending: voice, voicecheck, captions, render, qc
+Pending: render, qc
 
 **Owner question: approve the paid step(s) listed as awaiting_approval, or change?**

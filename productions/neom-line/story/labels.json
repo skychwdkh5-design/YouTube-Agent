@@ -37,19 +37,19 @@
   "text": "SEP 2020",
   "claim": null,
   "exempt": true,
-  "shot": "promise_008"
+  "shot": "promise_007"
  },
  {
   "text": "SEP 2021",
   "claim": null,
   "exempt": true,
-  "shot": "promise_010"
+  "shot": "promise_008"
  },
  {
   "text": "OCT 2022",
   "claim": null,
   "exempt": true,
-  "shot": "promise_012"
+  "shot": "promise_009"
  },
  {
   "text": "graphic:g_reports",
@@ -60,31 +60,31 @@
    "C4"
   ],
   "exempt": false,
-  "shot": "plan_014"
+  "shot": "plan_010"
  },
  {
   "text": "OCT 2023",
   "claim": null,
   "exempt": true,
-  "shot": "plan_015"
+  "shot": "plan_011"
  },
  {
   "text": "OCT 2024",
   "claim": null,
   "exempt": true,
-  "shot": "plan_016"
+  "shot": "plan_013"
  },
  {
   "text": "OCT 2025",
   "claim": null,
   "exempt": true,
-  "shot": "plan_017"
+  "shot": "plan_015"
  },
  {
   "text": "OCT 2026",
   "claim": null,
   "exempt": true,
-  "shot": "plan_018"
+  "shot": "plan_017"
  },
  {
   "text": "SEP 2020",
@@ -96,19 +96,19 @@
   "text": "SEP 2021",
   "claim": null,
   "exempt": true,
-  "shot": "plan_020"
+  "shot": "plan_021"
  },
  {
   "text": "OCT 2022",
   "claim": null,
   "exempt": true,
-  "shot": "method_021"
+  "shot": "method_023"
  },
  {
   "text": "OCT 2023",
   "claim": null,
   "exempt": true,
-  "shot": "method_023"
+  "shot": "method_024"
  },
  {
   "text": "OCT 2024",
@@ -120,10 +120,22 @@
   "text": "OCT 2025",
   "claim": null,
   "exempt": true,
-  "shot": "method_027"
+  "shot": "method_026"
  },
  {
   "text": "OCT 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "method_027"
+ },
+ {
+  "text": "SEP 2020",
+  "claim": null,
+  "exempt": true,
+  "shot": "method_028"
+ },
+ {
+  "text": "SEP 2021",
   "claim": null,
   "exempt": true,
   "shot": "method_029"
@@ -132,43 +144,31 @@
   "text": "SEP 2020",
   "claim": null,
   "exempt": true,
-  "shot": "method_031"
- },
- {
-  "text": "SEP 2021",
-  "claim": null,
-  "exempt": true,
-  "shot": "method_033"
- },
- {
-  "text": "SEP 2020",
-  "claim": null,
-  "exempt": true,
-  "shot": "shows_035"
+  "shot": "shows_030"
  },
  {
   "text": "OCT 2022",
   "claim": null,
   "exempt": true,
-  "shot": "shows_036"
+  "shot": "shows_031"
  },
  {
   "text": "OCT 2023",
   "claim": null,
   "exempt": true,
-  "shot": "shows_037"
+  "shot": "shows_032"
  },
  {
   "text": "OCT 2026",
   "claim": null,
   "exempt": true,
-  "shot": "shows_038"
+  "shot": "shows_033"
  },
  {
   "text": "SEP 2020",
   "claim": null,
   "exempt": true,
-  "shot": "shows_039"
+  "shot": "shows_034"
  },
  {
   "text": "graphic:g_cmp_2020_2024_c17",
@@ -176,13 +176,13 @@
    "C17"
   ],
   "exempt": false,
-  "shot": "shows_040"
+  "shot": "shows_035"
  },
  {
   "text": "SEP 2020",
   "claim": null,
   "exempt": true,
-  "shot": "shows_042"
+  "shot": "shows_037"
  },
  {
   "text": "graphic:g_cmp_2020_2024_c19",
@@ -190,13 +190,13 @@
    "C19"
   ],
   "exempt": false,
-  "shot": "shows_043"
+  "shot": "shows_038"
  },
  {
   "text": "OCT 2022",
   "claim": null,
   "exempt": true,
-  "shot": "segment_045"
+  "shot": "segment_040"
  },
  {
   "text": "graphic:g_cmp_2022_2026_c10",
@@ -204,7 +204,7 @@
    "C10"
   ],
   "exempt": false,
-  "shot": "segment_046"
+  "shot": "segment_041"
  },
  {
   "text": "graphic:g_hero_c10",
@@ -212,13 +212,13 @@
    "C10"
   ],
   "exempt": false,
-  "shot": "segment_049"
+  "shot": "segment_044"
  },
  {
   "text": "OCT 2026",
   "claim": null,
   "exempt": true,
-  "shot": "segment_050"
+  "shot": "segment_045"
  },
  {
   "text": "graphic:g_tiers",
@@ -228,43 +228,57 @@
    "C9"
   ],
   "exempt": false,
-  "shot": "segment_051"
+  "shot": "segment_046"
  },
  {
   "text": "OCT 2022",
   "claim": null,
   "exempt": true,
-  "shot": "segment_052"
+  "shot": "segment_047"
  },
  {
   "text": "OCT 2023",
   "claim": null,
   "exempt": true,
-  "shot": "segment_053"
+  "shot": "segment_048"
  },
  {
   "text": "OCT 2024",
   "claim": null,
   "exempt": true,
-  "shot": "checks_054"
+  "shot": "checks_049"
  },
  {
   "text": "OCT 2025",
   "claim": null,
   "exempt": true,
-  "shot": "checks_056"
+  "shot": "checks_051"
  },
  {
   "text": "OCT 2026",
   "claim": null,
   "exempt": true,
-  "shot": "checks_058"
+  "shot": "checks_053"
  },
  {
   "text": "OCT 2024",
   "claim": null,
   "exempt": true,
-  "shot": "checks_060"
+  "shot": "checks_055"
+ },
+ {
+  "text": "OCT 2025",
+  "claim": null,
+  "exempt": true,
+  "shot": "checks_057"
+ },
+ {
+  "text": "graphic:g_cmp_2025_2026_c12",
+  "claims": [
+   "C12"
+  ],
+  "exempt": false,
+  "shot": "checks_059"
  },
  {
   "text": "OCT 2025",
@@ -273,24 +287,10 @@
   "shot": "checks_062"
  },
  {
-  "text": "graphic:g_cmp_2025_2026_c12",
-  "claims": [
-   "C12"
-  ],
-  "exempt": false,
-  "shot": "checks_064"
- },
- {
-  "text": "OCT 2025",
-  "claim": null,
-  "exempt": true,
-  "shot": "checks_067"
- },
- {
   "text": "OCT 2026",
   "claim": null,
   "exempt": true,
-  "shot": "checks_069"
+  "shot": "checks_064"
  },
  {
   "text": "graphic:g_reports",
@@ -301,6 +301,40 @@
    "C4"
   ],
   "exempt": false,
+  "shot": "limits_066"
+ },
+ {
+  "text": "graphic:g_tiers",
+  "claims": [
+   "C1",
+   "C4",
+   "C9"
+  ],
+  "exempt": false,
+  "shot": "limits_067"
+ },
+ {
+  "text": "SEP 2020",
+  "claim": null,
+  "exempt": true,
+  "shot": "limits_068"
+ },
+ {
+  "text": "SEP 2021",
+  "claim": null,
+  "exempt": true,
+  "shot": "limits_069"
+ },
+ {
+  "text": "OCT 2022",
+  "claim": null,
+  "exempt": true,
+  "shot": "limits_070"
+ },
+ {
+  "text": "OCT 2023",
+  "claim": null,
+  "exempt": true,
   "shot": "limits_071"
  },
  {
@@ -311,58 +345,24 @@
    "C9"
   ],
   "exempt": false,
-  "shot": "limits_072"
+  "shot": "close_072"
  },
  {
-  "text": "SEP 2020",
+  "text": "OCT 2026",
   "claim": null,
   "exempt": true,
-  "shot": "limits_073"
+  "shot": "close_073"
  },
  {
-  "text": "SEP 2021",
+  "text": "OCT 2026",
   "claim": null,
   "exempt": true,
-  "shot": "limits_074"
+  "shot": "close_075"
  },
  {
-  "text": "OCT 2022",
+  "text": "OCT 2026",
   "claim": null,
   "exempt": true,
-  "shot": "limits_075"
- },
- {
-  "text": "OCT 2023",
-  "claim": null,
-  "exempt": true,
-  "shot": "limits_076"
- },
- {
-  "text": "graphic:g_tiers",
-  "claims": [
-   "C1",
-   "C4",
-   "C9"
-  ],
-  "exempt": false,
   "shot": "close_077"
- },
- {
-  "text": "OCT 2026",
-  "claim": null,
-  "exempt": true,
-  "shot": "close_078"
- },
- {
-  "text": "OCT 2026",
-  "claim": null,
-  "exempt": true,
-  "shot": "close_080"
- },
- {
-  "text": "OCT 2026",
-  "claim": null,
-  "exempt": true,
-  "shot": "close_082"
  }
 ]
