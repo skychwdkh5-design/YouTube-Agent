@@ -83,7 +83,13 @@ def _visual_year(v):
 def _claim_sentence(v, sents, after):
     """Index of the first sentence after word index `after` that cites any claim of graphic v, else None."""
     ids = set(v.get("anchor_claims") or v.get("claims") or [])
-    return next((k for k, x in enumerate(sents) if x["w0"] > after and ids & set(x["claims"])), None)
+    cand = [k for k, x in enumerate(sents) if x["w0"] > after and ids & set(x["claims"])]
+    y = v.get("anchor_year")
+    if y:                                    # prefer the sentence of that claim that names the year the graphic is about
+        named = [k for k in cand if re.search(rf"(?<!\d){y}(?!\d)", sents[k]["text"])]
+        if named:
+            return named[0]
+    return cand[0] if cand else None
 
 
 def place_by_claims(vis, durs, sents, word_time, t0):

@@ -57,15 +57,6 @@
     "now": 13.89
    }
   ],
-  "promise": [
-   {
-    "visual": 1,
-    "year": "claim",
-    "target": 30.68,
-    "was": 30.61,
-    "now": 30.68
-   }
-  ],
   "shows": [
    {
     "visual": 1,
@@ -132,21 +123,23 @@
    {
     "visual": 2,
     "year": "claim",
-    "target": 197.15,
+    "target": 200.7,
     "was": 202.11,
-    "now": 197.15
+    "now": 200.7
    },
    {
     "visual": 3,
     "year": "2026",
     "target": 201.9,
     "was": 208.11,
-    "now": 201.9
+    "now": 202.7
    },
    {
-    "visual": 5,
+    "visual": 6,
     "year": "claim",
-    "status": "the narrator does not say this year after the previous anchor"
+    "target": 231.91,
+    "was": 230.28,
+    "now": 231.91
    }
   ],
   "checks": [
@@ -455,7 +448,30 @@
    "id": "promise_006",
    "chapter": "promise",
    "start": 25.136,
-   "dur": 5.539,
+   "dur": 5,
+   "family": "g_scale_promise",
+   "claims": [
+    "C1"
+   ],
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g_scale",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    }
+   ],
+   "info": "g_scale",
+   "end": 30.136
+  },
+  {
+   "id": "promise_007",
+   "chapter": "promise",
+   "start": 30.136,
+   "dur": 5.475,
    "family": "y2026_promise",
    "camera": {
     "from": {
@@ -490,36 +506,13 @@
      ]
     }
    ],
-   "end": 30.675
-  },
-  {
-   "id": "promise_007",
-   "chapter": "promise",
-   "start": 30.675,
-   "dur": 5,
-   "family": "g_scale_promise",
-   "claims": [
-    "C1"
-   ],
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "g_scale",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    }
-   ],
-   "info": "g_scale",
-   "end": 35.675
+   "end": 35.611
   },
   {
    "id": "promise_008",
    "chapter": "promise",
-   "start": 35.675,
-   "dur": 5.454,
+   "start": 35.611,
+   "dur": 5.475,
    "family": "y2020_promise",
    "camera": {
     "from": {
@@ -554,13 +547,13 @@
      ]
     }
    ],
-   "end": 41.129
+   "end": 41.086
   },
   {
    "id": "promise_009",
    "chapter": "promise",
-   "start": 41.129,
-   "dur": 5.454,
+   "start": 41.086,
+   "dur": 5.475,
    "family": "y2021_promise",
    "camera": {
     "from": {
@@ -595,13 +588,13 @@
      ]
     }
    ],
-   "end": 46.582
+   "end": 46.561
   },
   {
    "id": "promise_010",
    "chapter": "promise",
-   "start": 46.582,
-   "dur": 5.454,
+   "start": 46.561,
+   "dur": 5.475,
    "family": "y2022_promise",
    "camera": {
     "from": {
@@ -1851,7 +1844,7 @@
    "id": "segment_043",
    "chapter": "segment",
    "start": 189.951,
-   "dur": 2.696,
+   "dur": 3.753,
    "family": "y2022_segment",
    "claims": [
     "C10"
@@ -1889,36 +1882,13 @@
      ]
     }
    ],
-   "end": 192.647
+   "end": 193.704
   },
   {
    "id": "segment_044",
    "chapter": "segment",
-   "start": 192.647,
-   "dur": 4.504,
-   "family": "g_hero_c10_segment",
-   "claims": [
-    "C10"
-   ],
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "g_hero_c10",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    }
-   ],
-   "info": "g_hero_c10",
-   "end": 197.151
-  },
-  {
-   "id": "segment_045",
-   "chapter": "segment",
-   "start": 197.151,
-   "dur": 4.746,
+   "start": 193.704,
+   "dur": 7.0,
    "family": "g_cmp_2022_2026_c10_segment",
    "claims": [
     "C10"
@@ -1935,13 +1905,36 @@
     }
    ],
    "info": "g_cmp_2022_2026_c10",
-   "end": 201.897
+   "end": 200.704
+  },
+  {
+   "id": "segment_045",
+   "chapter": "segment",
+   "start": 200.704,
+   "dur": 2.0,
+   "family": "g_hero_c10_segment",
+   "claims": [
+    "C10"
+   ],
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g_hero_c10",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    }
+   ],
+   "info": "g_hero_c10",
+   "end": 202.704
   },
   {
    "id": "segment_046",
    "chapter": "segment",
-   "start": 201.897,
-   "dur": 6.008,
+   "start": 202.704,
+   "dur": 6.491,
    "family": "wipe_2022_2026",
    "claims": [
     "C10"
@@ -1978,13 +1971,13 @@
      ]
     }
    ],
-   "end": 207.905
+   "end": 209.195
   },
   {
    "id": "segment_047",
    "chapter": "segment",
-   "start": 207.905,
-   "dur": 6.008,
+   "start": 209.195,
+   "dur": 6.491,
    "family": "wipe_2022_2026",
    "claims": [
     "C10"
@@ -2012,13 +2005,13 @@
      "asset": "y2026"
     }
    ],
-   "end": 213.913
+   "end": 215.685
   },
   {
    "id": "segment_048",
    "chapter": "segment",
-   "start": 213.913,
-   "dur": 3.755,
+   "start": 215.685,
+   "dur": 4.057,
    "family": "y2026_segment",
    "claims": [
     "C11"
@@ -2056,13 +2049,13 @@
      ]
     }
    ],
-   "end": 217.668
+   "end": 219.742
   },
   {
    "id": "segment_049",
    "chapter": "segment",
-   "start": 217.668,
-   "dur": 3.755,
+   "start": 219.742,
+   "dur": 4.057,
    "family": "y2026_segment",
    "claims": [
     "C11"
@@ -2090,38 +2083,13 @@
      "asset": "y2026"
     }
    ],
-   "end": 221.422
+   "end": 223.799
   },
   {
    "id": "segment_050",
    "chapter": "segment",
-   "start": 221.422,
-   "dur": 5,
-   "family": "g_tiers_segment",
-   "claims": [
-    "C1",
-    "C4",
-    "C9"
-   ],
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "g_tiers",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    }
-   ],
-   "info": "g_tiers",
-   "end": 226.422
-  },
-  {
-   "id": "segment_051",
-   "chapter": "segment",
-   "start": 226.422,
-   "dur": 3.755,
+   "start": 223.799,
+   "dur": 4.057,
    "family": "y2022_segment",
    "camera": {
     "from": {
@@ -2156,13 +2124,13 @@
      ]
     }
    ],
-   "end": 230.177
+   "end": 227.855
   },
   {
-   "id": "segment_052",
+   "id": "segment_051",
    "chapter": "segment",
-   "start": 230.177,
-   "dur": 3.755,
+   "start": 227.855,
+   "dur": 4.057,
    "family": "y2022_segment",
    "camera": {
     "from": {
@@ -2187,13 +2155,38 @@
      "asset": "y2022"
     }
    ],
-   "end": 233.932
+   "end": 231.912
+  },
+  {
+   "id": "segment_052",
+   "chapter": "segment",
+   "start": 231.912,
+   "dur": 5,
+   "family": "g_tiers_segment",
+   "claims": [
+    "C1",
+    "C4",
+    "C9"
+   ],
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g_tiers",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    }
+   ],
+   "info": "g_tiers",
+   "end": 236.912
   },
   {
    "id": "segment_053",
    "chapter": "segment",
-   "start": 233.932,
-   "dur": 3.755,
+   "start": 236.912,
+   "dur": 4.53,
    "family": "y2023_segment",
    "camera": {
     "from": {
@@ -2228,41 +2221,10 @@
      ]
     }
    ],
-   "end": 237.687
-  },
-  {
-   "id": "segment_054",
-   "chapter": "segment",
-   "start": 237.687,
-   "dur": 3.755,
-   "family": "y2023_segment",
-   "camera": {
-    "from": {
-     "center": [
-      35.2165,
-      28.1062
-     ],
-     "width_km": 9.0
-    },
-    "to": {
-     "center": [
-      35.2165,
-      28.1062
-     ],
-     "width_km": 4.8
-    }
-   },
-   "info": "y2023",
-   "layers": [
-    {
-     "type": "image",
-     "asset": "y2023"
-    }
-   ],
    "end": 241.442
   },
   {
-   "id": "checks_055",
+   "id": "checks_054",
    "chapter": "checks",
    "start": 241.442,
    "dur": 6.351,
@@ -2306,7 +2268,7 @@
    "end": 247.793
   },
   {
-   "id": "checks_056",
+   "id": "checks_055",
    "chapter": "checks",
    "start": 247.793,
    "dur": 6.351,
@@ -2340,7 +2302,7 @@
    "end": 254.144
   },
   {
-   "id": "checks_057",
+   "id": "checks_056",
    "chapter": "checks",
    "start": 254.144,
    "dur": 3.711,
@@ -2384,7 +2346,7 @@
    "end": 257.855
   },
   {
-   "id": "checks_058",
+   "id": "checks_057",
    "chapter": "checks",
    "start": 257.855,
    "dur": 3.711,
@@ -2418,7 +2380,7 @@
    "end": 261.567
   },
   {
-   "id": "checks_059",
+   "id": "checks_058",
    "chapter": "checks",
    "start": 261.567,
    "dur": 3.711,
@@ -2462,7 +2424,7 @@
    "end": 265.278
   },
   {
-   "id": "checks_060",
+   "id": "checks_059",
    "chapter": "checks",
    "start": 265.278,
    "dur": 3.711,
@@ -2496,7 +2458,7 @@
    "end": 268.989
   },
   {
-   "id": "checks_061",
+   "id": "checks_060",
    "chapter": "checks",
    "start": 268.989,
    "dur": 3.711,
@@ -2537,7 +2499,7 @@
    "end": 272.701
   },
   {
-   "id": "checks_062",
+   "id": "checks_061",
    "chapter": "checks",
    "start": 272.701,
    "dur": 3.711,
@@ -2568,7 +2530,7 @@
    "end": 276.412
   },
   {
-   "id": "checks_063",
+   "id": "checks_062",
    "chapter": "checks",
    "start": 276.412,
    "dur": 6.025,
@@ -2612,7 +2574,7 @@
    "end": 282.437
   },
   {
-   "id": "checks_064",
+   "id": "checks_063",
    "chapter": "checks",
    "start": 282.437,
    "dur": 6.025,
@@ -2646,7 +2608,7 @@
    "end": 288.462
   },
   {
-   "id": "checks_065",
+   "id": "checks_064",
    "chapter": "checks",
    "start": 288.462,
    "dur": 7.0,
@@ -2669,7 +2631,7 @@
    "end": 295.462
   },
   {
-   "id": "checks_066",
+   "id": "checks_065",
    "chapter": "checks",
    "start": 295.462,
    "dur": 4.487,
@@ -2712,7 +2674,7 @@
    "end": 299.949
   },
   {
-   "id": "checks_067",
+   "id": "checks_066",
    "chapter": "checks",
    "start": 299.949,
    "dur": 4.487,
@@ -2746,7 +2708,7 @@
    "end": 304.435
   },
   {
-   "id": "checks_068",
+   "id": "checks_067",
    "chapter": "checks",
    "start": 304.435,
    "dur": 5.608,
@@ -2787,7 +2749,7 @@
    "end": 310.044
   },
   {
-   "id": "checks_069",
+   "id": "checks_068",
    "chapter": "checks",
    "start": 310.044,
    "dur": 5.608,
@@ -2828,7 +2790,7 @@
    "end": 315.652
   },
   {
-   "id": "limits_070",
+   "id": "limits_069",
    "chapter": "limits",
    "start": 315.652,
    "dur": 6.883,
@@ -2869,7 +2831,7 @@
    "end": 322.534
   },
   {
-   "id": "limits_071",
+   "id": "limits_070",
    "chapter": "limits",
    "start": 322.534,
    "dur": 6.883,
@@ -2910,7 +2872,7 @@
    "end": 329.417
   },
   {
-   "id": "limits_072",
+   "id": "limits_071",
    "chapter": "limits",
    "start": 329.417,
    "dur": 6.883,
@@ -2951,7 +2913,7 @@
    "end": 336.299
   },
   {
-   "id": "limits_073",
+   "id": "limits_072",
    "chapter": "limits",
    "start": 336.299,
    "dur": 6.883,
@@ -2992,7 +2954,7 @@
    "end": 343.182
   },
   {
-   "id": "limits_074",
+   "id": "limits_073",
    "chapter": "limits",
    "start": 343.182,
    "dur": 6,
@@ -3018,7 +2980,7 @@
    "end": 349.182
   },
   {
-   "id": "limits_075",
+   "id": "limits_074",
    "chapter": "limits",
    "start": 349.182,
    "dur": 2.507,
@@ -3059,7 +3021,7 @@
    "end": 351.689
   },
   {
-   "id": "close_076",
+   "id": "close_075",
    "chapter": "close",
    "start": 351.689,
    "dur": 4.797,
@@ -3102,7 +3064,7 @@
    "end": 356.486
   },
   {
-   "id": "close_077",
+   "id": "close_076",
    "chapter": "close",
    "start": 356.486,
    "dur": 4.284,
@@ -3125,7 +3087,7 @@
    "end": 360.77
   },
   {
-   "id": "close_078",
+   "id": "close_077",
    "chapter": "close",
    "start": 360.77,
    "dur": 7.523,
@@ -3151,7 +3113,7 @@
    "end": 368.293
   },
   {
-   "id": "close_079",
+   "id": "close_078",
    "chapter": "close",
    "start": 368.293,
    "dur": 5,
@@ -3174,7 +3136,7 @@
    "end": 373.293
   },
   {
-   "id": "close_080",
+   "id": "close_079",
    "chapter": "close",
    "start": 373.293,
    "dur": 6.01,
@@ -3215,7 +3177,7 @@
    "end": 379.303
   },
   {
-   "id": "close_081",
+   "id": "close_080",
    "chapter": "close",
    "start": 379.303,
    "dur": 6.01,

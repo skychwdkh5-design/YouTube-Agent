@@ -195,10 +195,15 @@ def plan(root):
         d.update(k)
         return d
 
-    def gr(name, ids, m=5):
+    def gr(name, ids, m=5, anchor_claims=None, anchor_year=None):
+        """A full-frame graphic. It appears when the narrator makes the claim that triggered it (anchor_claims), preferring the sentence that names anchor_year."""
         d = {"asset": name, "kind": "graphic", "min_s": m, "claims": ids, "anchor": "claim"}
-        if name == "g_reports" and orig:
-            d["anchor_claims"] = [i for i in ids if i != orig[0]["id"]]       # the graphic opens with the promise, but it belongs where the REPORTS are spoken
+        if anchor_claims is None and name == "g_reports" and orig:
+            anchor_claims = [i for i in ids if i != orig[0]["id"]]            # the graphic opens with the promise, but it belongs where the REPORTS are spoken
+        if anchor_claims:
+            d["anchor_claims"] = list(anchor_claims)
+        if anchor_year:
+            d["anchor_year"] = str(anchor_year)
         return d
 
     import itertools
@@ -232,10 +237,10 @@ def plan(root):
         for c in cl:
             t = c["tier"]
             if t == "original" and "g_scale" in gid and "g_scale" not in seen:
-                vis.append(gr("g_scale", gid["g_scale"]["claims"], 5)); seen.add("g_scale")
+                vis.append(gr("g_scale", gid["g_scale"]["claims"], 5, [c["id"]])); seen.add("g_scale")
                 vis.append(img(last, [15, 9]))
             elif t in ("media", "org") and "g_reports" in gid and "g_reports" not in seen:
-                vis.append(gr("g_reports", gid["g_reports"]["claims"], 6)); seen.add("g_reports")
+                vis.append(gr("g_reports", gid["g_reports"]["claims"], 6, [c["id"]])); seen.add("g_reports")
                 vis.append(img(next(cyc), [14, 8]))
                 vis.append(img(next(cyc), [8, 14], seg))
             elif t == "science" and "sci" not in seen:
@@ -249,7 +254,7 @@ def plan(root):
                     vis.append(img(ys[0], z, c.get("focus"), claims_=[c["id"]], anchor="year"))
                     gn = next((k for k in gid if k.startswith(f"g_cmp_{ys[0]}_{ys[1]}_{c['id'].lower()}")), None)
                     if gn:
-                        vis.append(gr(gn, [c["id"]], 6))
+                        vis.append(gr(gn, [c["id"]], 6, anchor_year=ys[0]))
                     vis.append({"wipe": [f"y{ys[0]}", f"y{ys[1]}"], "zoom": [ck * 1.2, ck * 0.9] if ck else [10, 7], "focus": c.get("focus"), "family": f"wipe_{ys[0]}_{ys[1]}", "min_s": 4, "claims": [c["id"]], "anchor": "year"})
                 elif len(ys) > 2 and f"obs{c['id']}" not in seen:
                     seen.add(f"obs{c['id']}")
@@ -260,9 +265,9 @@ def plan(root):
                     vis.append(img(next(cyc) if not c.get("visual", True) else last, [10, 6], c.get("focus") or seg, claims_=[c["id"]]))
                 hn = next((k for k in gid if k.startswith(f"g_hero_{c['id'].lower()}")), None)
                 if hn:
-                    vis.append(gr(hn, [c["id"]], 6))
+                    vis.append(gr(hn, [c["id"]], 6, anchor_year=years[-1]))
             elif t == "hypothesis" and "g_tiers" in gid and "g_tiers" not in seen:
-                vis.append(gr("g_tiers", gid["g_tiers"]["claims"], 5)); seen.add("g_tiers")
+                vis.append(gr("g_tiers", gid["g_tiers"]["claims"], 5, [c["id"]])); seen.add("g_tiers")
         if cid == "close":                       # closing recap in the order the narrator says it: time-lapse, PROMISED, REPORTED, OBSERVED, then pull back (distinct families: no long holds)
             o2 = next((c for c in obs if len(c.get("years") or []) == 2), None)
             vis = []

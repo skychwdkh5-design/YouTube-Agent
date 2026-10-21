@@ -151,6 +151,17 @@ class Anchors(unittest.TestCase):
         self.assertAlmostEqual(g["start"], 21 * 0.5 - 0.3, places=1)               # the C3 sentence begins at word 21 (10.5 s); the graphic leads it by 0.3 s
         self.assertNotEqual(plan["shots"][0]["info"], "g")
 
+    def test_graphic_prefers_the_claim_sentence_that_names_its_year(self):
+        """EP005 final review: the annotated 2026 hero graphic appeared under 'In October 2022 and 2023, nothing dark is here' because both sentences cite the same claim."""
+        self.assets["g"] = {"src": "g.png", "kind": "graphic", "claims": ["C10"]}
+        text = "## one: One\n" + " ".join(["w"] * 10) + " In 2022 nothing dark here. {C10}\n" + " ".join(["x"] * 10) + " By 2026 it is still there. {C10}\n"
+        open(os.path.join(self.d, "script.md"), "w").write(text)
+        words = [{"text": "w", "start": i / 2, "end": i / 2 + .4} for i in range(10 + 5 + 10 + 6)]
+        vis = [{"asset": "y2020", "zoom": [20, 12]}, {"asset": "g", "kind": "graphic", "min_s": 4, "claims": ["C10"], "anchor": "claim", "anchor_year": "2026"}, {"asset": "y2022", "zoom": [15, 8]}]
+        plan, _ = sb.build(self.ep(vis), self.d, {"words": words})
+        g = next(x for x in plan["shots"] if x["info"] == "g")
+        self.assertAlmostEqual(g["start"], 15 * 0.5 - 0.3, places=1)           # the 2026 sentence begins at word 15 (7.5 s); the 2022 sentence (word 0) was not chosen
+
     def test_graphics_get_push_and_captions_are_kinetic(self):
         import json
         vis = [{"asset": "g", "kind": "graphic", "min_s": 4}, {"asset": "y2020", "zoom": [12, 6]}]

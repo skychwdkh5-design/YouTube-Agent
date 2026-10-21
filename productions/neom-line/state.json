@@ -107,10 +107,10 @@
   },
   "visualplan": {
    "status": "done",
-   "attempts": 27,
-   "started": "2026-10-21T07:29:21Z",
+   "attempts": 28,
+   "started": "2026-10-21T08:20:45Z",
    "error": null,
-   "finished": "2026-10-21T07:29:21Z",
+   "finished": "2026-10-21T08:20:45Z",
    "note": "64 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
@@ -119,26 +119,27 @@
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
     "evidence/wide/grid.json": "05712013a4f1e8392ac4dc5d89764d12edc4e0fd2ab3524b5e91234b0758eec6",
     "evidence/wide/provenance.json": "750ff4d10aefbed69576ae50968dc4b974fa73beba4be73bb84c98a649ea4be4",
+    "media/report.json": "0484963e9ccaa461e982572363262369c1d842648c338ffe26ec300202428be8",
     "research/brief.json": "c149b15f762a9b43f5757664c3cdba1fcf5dddd27ceef29c486be4c1de1641b0",
     "research/notes.json": "be39d2dd9823f95372bcf80b7c3ebf5711ea079d35e4e19ddae3e1df96f9ea53",
     "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
-    "_tool": "fe49bf8ee3115470"
+    "_tool": "f4a1baed584d7b2e"
    },
    "outputs": {
-    "episode.json": "3ef5783671462dd36ba56cfb91935edcab1a19b3dbcf43b15a087b11295baf3a",
+    "episode.json": "43f23de3d3dec24a74338094152e126a08076cd9375aafe2585dd8bb3252482d",
     "graphics_spec.json": "2c1e09b2b070f65d7da32391d8efe32e3e8850c0db24f8f97ffdfd4abc19b4c4"
    },
    "agent_artifacts": {}
   },
   "visuals": {
    "status": "done",
-   "attempts": 24,
-   "started": "2026-10-21T06:52:47Z",
+   "attempts": 25,
+   "started": "2026-10-21T08:20:45Z",
    "error": null,
-   "finished": "2026-10-21T06:52:54Z",
+   "finished": "2026-10-21T08:20:53Z",
    "note": "8 graphics",
    "inputs": {
-    "episode.json": "3ef5783671462dd36ba56cfb91935edcab1a19b3dbcf43b15a087b11295baf3a",
+    "episode.json": "43f23de3d3dec24a74338094152e126a08076cd9375aafe2585dd8bb3252482d",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
@@ -161,15 +162,15 @@
   },
   "storyboard": {
    "status": "done",
-   "attempts": 31,
-   "started": "2026-10-21T06:53:59Z",
+   "attempts": 32,
+   "started": "2026-10-21T08:20:53Z",
    "error": null,
-   "finished": "2026-10-21T06:54:03Z",
-   "note": "82 shots, 385.312s, timing from voice",
+   "finished": "2026-10-21T08:20:57Z",
+   "note": "81 shots, 385.312s, timing from voice",
    "inputs": {
     "captions/captions.srt": "d9f857ee8b3f20fe9be700f3dbe26f54e8bfb5517e6ad72b8f466f500dad2d5e",
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "episode.json": "3ef5783671462dd36ba56cfb91935edcab1a19b3dbcf43b15a087b11295baf3a",
+    "episode.json": "43f23de3d3dec24a74338094152e126a08076cd9375aafe2585dd8bb3252482d",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
@@ -186,40 +187,42 @@
     "research/brief.json": "c149b15f762a9b43f5757664c3cdba1fcf5dddd27ceef29c486be4c1de1641b0",
     "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
     "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441",
-    "_tool": "4cdabf3539417912"
+    "_tool": "48151b4304949432"
    },
    "outputs": {
-    "story/storyboard.json": "4a7c2b08d9f5645df578d573702d5a4e777ccc43073d6656e5fb36d15a85719d",
-    "timeline.json": "d6528b8aa0b197c1131fca9e724fbf0bd0355eaf92c73cbb86679bb51449a7b9",
-    "story/labels.json": "6ed23d29f6c766100b389c6854e82fac738a0ff375429d3329f87c9e74919e62",
-    "story/report.md": "ed83c9ae4c768b321683ec6533671b401a4c2ae34b1bd8615326acf23d001c15"
+    "story/storyboard.json": "1839e67629705ae5af785d87ff6816d5a4ccdf2bc0bc97c7059d789bb861886e",
+    "timeline.json": "a7a859ee7ef8889970818e71c8569b35f1c0991737f5dab3b5feb870441d79e1",
+    "story/labels.json": "7f82d2172563f96bff078702157bba284e1648d580418c4c1c2cb0c090b42f74",
+    "story/report.md": "583774240be4b10bfbce7e79ddf6df853f0b2e1cabab5a2b55759ed0018ad150",
+    "story/diversity.json": "09708aba49926f76ba91ce63f4e7a01024ee1e3d69c662a79e28710cc0c9b677"
    },
    "agent_artifacts": {}
   },
   "visualcheck": {
    "status": "done",
-   "attempts": 53,
-   "started": "2026-10-21T06:54:29Z",
+   "attempts": 54,
+   "started": "2026-10-21T08:20:57Z",
    "error": null,
-   "finished": "2026-10-21T06:54:34Z",
+   "finished": "2026-10-21T08:21:02Z",
    "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 67, 'REVIEWED': 12} of 86 items; 2 orphan reviews (run `visualcheck.py prune`)",
    "outputs": {
-    "qa/visual_claims.json": "3e4bed3bf1bad732a8d077473e1266a6513218da1d8439c256d1c7884d033857",
-    "qa/visual_claims.md": "633383ba727000d17b94374218b127097ab3846e5df1bb7f0b9b7af7963e13bd"
+    "qa/visual_claims.json": "2ef84b39c0e9e899a1672f0df91f8bd41c049df39a8a15961df7dbb085b88c32",
+    "qa/visual_claims.md": "f790f3f4dd6952f16b1b6aeda4e2f07b24693901956787b6845b3723cd84155f"
    },
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "episode.json": "3ef5783671462dd36ba56cfb91935edcab1a19b3dbcf43b15a087b11295baf3a",
+    "episode.json": "43f23de3d3dec24a74338094152e126a08076cd9375aafe2585dd8bb3252482d",
     "evidence/ndwi.json": "8ad422203b574bb04d8789cd9a38cc61f408b80687ed487f594e86d9823e1991",
     "evidence/stack/grid.json": "1bcf699a5cfe673843ae758387e73b7c431e799f087efd7cfcea1d58111f444d",
     "evidence/stack/provenance.json": "950539c32cde8ffd4f4b94aadec7170db8e6164ba7a7e2bccf320db70b158bc1",
     "graphics_spec.json": "2c1e09b2b070f65d7da32391d8efe32e3e8850c0db24f8f97ffdfd4abc19b4c4",
     "qa/visual_review.json": "2f845075ff05db1022ae22fc55b5e37cf96bb553bfa2efee3c1d3bd61440d0bb",
-    "story/labels.json": "6ed23d29f6c766100b389c6854e82fac738a0ff375429d3329f87c9e74919e62",
-    "story/report.md": "ed83c9ae4c768b321683ec6533671b401a4c2ae34b1bd8615326acf23d001c15",
-    "story/storyboard.json": "4a7c2b08d9f5645df578d573702d5a4e777ccc43073d6656e5fb36d15a85719d",
-    "timeline.json": "d6528b8aa0b197c1131fca9e724fbf0bd0355eaf92c73cbb86679bb51449a7b9",
-    "_tool": "0cf98cf174e3abf3"
+    "story/diversity.json": "09708aba49926f76ba91ce63f4e7a01024ee1e3d69c662a79e28710cc0c9b677",
+    "story/labels.json": "7f82d2172563f96bff078702157bba284e1648d580418c4c1c2cb0c090b42f74",
+    "story/report.md": "583774240be4b10bfbce7e79ddf6df853f0b2e1cabab5a2b55759ed0018ad150",
+    "story/storyboard.json": "1839e67629705ae5af785d87ff6816d5a4ccdf2bc0bc97c7059d789bb861886e",
+    "timeline.json": "a7a859ee7ef8889970818e71c8569b35f1c0991737f5dab3b5feb870441d79e1",
+    "_tool": "d013157b54750660"
    },
    "agent_artifacts": {
     "qa/visual_review.json": "2f845075ff05db1022ae22fc55b5e37cf96bb553bfa2efee3c1d3bd61440d0bb"
@@ -227,25 +230,26 @@
   },
   "voice": {
    "status": "done",
-   "attempts": 38,
+   "attempts": 39,
    "note": "narration already generated (not regenerated)",
-   "started": "2026-10-21T06:54:34Z",
+   "started": "2026-10-21T08:21:02Z",
    "error": null,
-   "finished": "2026-10-21T06:54:34Z",
+   "finished": "2026-10-21T08:21:03Z",
    "outputs": {
     "voice/narration.wav": "2b4e32ad400affa806b3731a8701178dfda2401a1591d7d0f7981a7abc866479",
     "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441"
    },
    "inputs": {
     "approvals/voice.json": "c896fb94c2cefc63b790bdc06478b51f0d354d30163db640e76e8e1d92d9f7f2",
-    "qa/visual_claims.json": "3e4bed3bf1bad732a8d077473e1266a6513218da1d8439c256d1c7884d033857",
-    "qa/visual_claims.md": "633383ba727000d17b94374218b127097ab3846e5df1bb7f0b9b7af7963e13bd",
+    "qa/visual_claims.json": "2ef84b39c0e9e899a1672f0df91f8bd41c049df39a8a15961df7dbb085b88c32",
+    "qa/visual_claims.md": "f790f3f4dd6952f16b1b6aeda4e2f07b24693901956787b6845b3723cd84155f",
     "research/brief.json": "c149b15f762a9b43f5757664c3cdba1fcf5dddd27ceef29c486be4c1de1641b0",
     "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
-    "story/labels.json": "6ed23d29f6c766100b389c6854e82fac738a0ff375429d3329f87c9e74919e62",
-    "story/report.md": "ed83c9ae4c768b321683ec6533671b401a4c2ae34b1bd8615326acf23d001c15",
-    "story/storyboard.json": "4a7c2b08d9f5645df578d573702d5a4e777ccc43073d6656e5fb36d15a85719d",
-    "timeline.json": "d6528b8aa0b197c1131fca9e724fbf0bd0355eaf92c73cbb86679bb51449a7b9",
+    "story/diversity.json": "09708aba49926f76ba91ce63f4e7a01024ee1e3d69c662a79e28710cc0c9b677",
+    "story/labels.json": "7f82d2172563f96bff078702157bba284e1648d580418c4c1c2cb0c090b42f74",
+    "story/report.md": "583774240be4b10bfbce7e79ddf6df853f0b2e1cabab5a2b55759ed0018ad150",
+    "story/storyboard.json": "1839e67629705ae5af785d87ff6816d5a4ccdf2bc0bc97c7059d789bb861886e",
+    "timeline.json": "a7a859ee7ef8889970818e71c8569b35f1c0991737f5dab3b5feb870441d79e1",
     "_tool": "e3b0c44298fc1c14"
    },
    "agent_artifacts": {}
@@ -271,14 +275,14 @@
   },
   "render": {
    "status": "done",
-   "attempts": 32,
+   "attempts": 35,
    "note": "rendered",
-   "started": "2026-10-21T06:54:49Z",
+   "started": "2026-10-21T08:21:18Z",
    "error": null,
-   "finished": "2026-10-21T07:12:08Z",
+   "finished": "2026-10-21T08:39:26Z",
    "outputs": {
-    "render/final.mp4": "759bbd20176c7a08a00d154b140c1a729decf70f857dbb568f04f4ef263c7e37",
-    "render/final.manifest.json": "4d95875e04bb51ddc36f62819ebccf86b7df5c8710036054b597e73ba112bca7"
+    "render/final.mp4": "082d27182952f67ff67f715ad0058d13f6a43d01c1cb658abb179af9de6771ef",
+    "render/final.manifest.json": "0fee5dba814c0e6ec3601406013d04492d21f0461aa33d17882528f381c4a07b"
    },
    "inputs": {
     "approvals/render.json": "0641d44303f11aea7d9af9ec6b8b10639a90fa832fb948da51f440bb606fee24",
@@ -293,10 +297,11 @@
     "graphics/g_reports.png": "3858179cfc7e0506cf330a3655330f39a5b1e7b2e139e20c52d34e7f98a4a6cf",
     "graphics/g_scale.png": "d1766f60296fc33efd9778897ed04d0eb002d8a85e555c96e08268ee0bb3e05b",
     "graphics/g_tiers.png": "33e42d6b0494a87988831d6360a96e8a57f6537fe4599f62556c5efea1e2324d",
-    "story/labels.json": "6ed23d29f6c766100b389c6854e82fac738a0ff375429d3329f87c9e74919e62",
-    "story/report.md": "ed83c9ae4c768b321683ec6533671b401a4c2ae34b1bd8615326acf23d001c15",
-    "story/storyboard.json": "4a7c2b08d9f5645df578d573702d5a4e777ccc43073d6656e5fb36d15a85719d",
-    "timeline.json": "d6528b8aa0b197c1131fca9e724fbf0bd0355eaf92c73cbb86679bb51449a7b9",
+    "story/diversity.json": "09708aba49926f76ba91ce63f4e7a01024ee1e3d69c662a79e28710cc0c9b677",
+    "story/labels.json": "7f82d2172563f96bff078702157bba284e1648d580418c4c1c2cb0c090b42f74",
+    "story/report.md": "583774240be4b10bfbce7e79ddf6df853f0b2e1cabab5a2b55759ed0018ad150",
+    "story/storyboard.json": "1839e67629705ae5af785d87ff6816d5a4ccdf2bc0bc97c7059d789bb861886e",
+    "timeline.json": "a7a859ee7ef8889970818e71c8569b35f1c0991737f5dab3b5feb870441d79e1",
     "voice/narration.voice.json": "d623b8695c195433b5b2436b9858fbadd40b19fc4d8b58fc0bc9dc970e42b441",
     "voice/narration.wav": "2b4e32ad400affa806b3731a8701178dfda2401a1591d7d0f7981a7abc866479",
     "voice/voicecheck.json": "409a69b6b523bfc7e0d7336a9e7b7aafd38f2e3d8bea079150fad96c6773c522",
@@ -306,41 +311,42 @@
   },
   "qc": {
    "status": "done",
-   "attempts": 2,
+   "attempts": 3,
    "note": "QC PASS",
-   "started": "2026-10-21T07:12:09Z",
+   "started": "2026-10-21T08:39:28Z",
    "error": null,
-   "finished": "2026-10-21T07:15:15Z",
+   "finished": "2026-10-21T08:42:34Z",
    "inputs": {
-    "render/final.manifest.json": "4d95875e04bb51ddc36f62819ebccf86b7df5c8710036054b597e73ba112bca7",
-    "render/final.mp4": "759bbd20176c7a08a00d154b140c1a729decf70f857dbb568f04f4ef263c7e37",
-    "timeline.json": "d6528b8aa0b197c1131fca9e724fbf0bd0355eaf92c73cbb86679bb51449a7b9",
+    "render/final.manifest.json": "0fee5dba814c0e6ec3601406013d04492d21f0461aa33d17882528f381c4a07b",
+    "render/final.mp4": "082d27182952f67ff67f715ad0058d13f6a43d01c1cb658abb179af9de6771ef",
+    "timeline.json": "a7a859ee7ef8889970818e71c8569b35f1c0991737f5dab3b5feb870441d79e1",
     "_tool": "d42f30ea200b1d86"
    },
    "outputs": {
-    "render/qc.json": "229b41d8f096d337ac68de6665a13e7b5416fb37d03a807b3853c2d89ec058a6"
+    "render/qc.json": "08ffac487eed0084452c307958b272e0d8d3e731bfc86389720a4acae09abbae"
    },
    "agent_artifacts": {}
   },
   "release": {
    "status": "done",
-   "attempts": 87,
-   "started": "2026-10-21T07:29:25Z",
+   "attempts": 91,
+   "started": "2026-10-21T08:42:37Z",
    "error": null,
-   "finished": "2026-10-21T07:29:25Z",
+   "finished": "2026-10-21T08:42:37Z",
    "note": "complete",
    "inputs": {
     "claims.json": "d201c6aaa41bf00cdb47a1f3256d4075054ab044449448d7a20494750e7b0c6c",
-    "qa/visual_claims.json": "3e4bed3bf1bad732a8d077473e1266a6513218da1d8439c256d1c7884d033857",
-    "story/labels.json": "6ed23d29f6c766100b389c6854e82fac738a0ff375429d3329f87c9e74919e62",
-    "story/report.md": "ed83c9ae4c768b321683ec6533671b401a4c2ae34b1bd8615326acf23d001c15",
-    "story/storyboard.json": "4a7c2b08d9f5645df578d573702d5a4e777ccc43073d6656e5fb36d15a85719d",
-    "timeline.json": "d6528b8aa0b197c1131fca9e724fbf0bd0355eaf92c73cbb86679bb51449a7b9",
+    "qa/visual_claims.json": "2ef84b39c0e9e899a1672f0df91f8bd41c049df39a8a15961df7dbb085b88c32",
+    "story/diversity.json": "09708aba49926f76ba91ce63f4e7a01024ee1e3d69c662a79e28710cc0c9b677",
+    "story/labels.json": "7f82d2172563f96bff078702157bba284e1648d580418c4c1c2cb0c090b42f74",
+    "story/report.md": "583774240be4b10bfbce7e79ddf6df853f0b2e1cabab5a2b55759ed0018ad150",
+    "story/storyboard.json": "1839e67629705ae5af785d87ff6816d5a4ccdf2bc0bc97c7059d789bb861886e",
+    "timeline.json": "a7a859ee7ef8889970818e71c8569b35f1c0991737f5dab3b5feb870441d79e1",
     "_tool": "e3b0c44298fc1c14"
    },
    "outputs": {
-    "release/REVIEW.md": "69fb8629ad1c5328d8965af09d2e87ae19f4560795eff6efa66546f5b4802b0c",
-    "story/report.md": "ed83c9ae4c768b321683ec6533671b401a4c2ae34b1bd8615326acf23d001c15"
+    "release/REVIEW.md": "65d46c3b5ae83523a9a4ee8d52a94d9a48a031f4c17ed8300b71fc3bd276dbf0",
+    "story/report.md": "583774240be4b10bfbce7e79ddf6df853f0b2e1cabab5a2b55759ed0018ad150"
    },
    "agent_artifacts": {}
   },
@@ -359,6 +365,24 @@
    },
    "outputs": {
     "voice/voicecheck.json": "409a69b6b523bfc7e0d7336a9e7b7aafd38f2e3d8bea079150fad96c6773c522"
+   },
+   "agent_artifacts": {}
+  },
+  "media": {
+   "status": "done",
+   "attempts": 1,
+   "started": "2026-10-21T08:20:45Z",
+   "error": null,
+   "finished": "2026-10-21T08:20:45Z",
+   "note": "0 verified of 0 media entries (style v2: media optional)",
+   "inputs": {
+    "research/brief.json": "c149b15f762a9b43f5757664c3cdba1fcf5dddd27ceef29c486be4c1de1641b0",
+    "research/notes.json": "be39d2dd9823f95372bcf80b7c3ebf5711ea079d35e4e19ddae3e1df96f9ea53",
+    "script.md": "611abeb324664e93887085dadd7ce231a32c30ce14af6e85f0124c9b07de8344",
+    "_tool": "bd899513ebffabdd"
+   },
+   "outputs": {
+    "media/report.json": "0484963e9ccaa461e982572363262369c1d842648c338ffe26ec300202428be8"
    },
    "agent_artifacts": {}
   }
@@ -3454,7 +3478,146 @@
    "stage": "release",
    "event": "done",
    "note": "complete"
+  },
+  {
+   "at": "2026-10-21T08:20:45Z",
+   "stage": "media",
+   "event": "done",
+   "note": "0 verified of 0 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-21T08:20:45Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T08:20:45Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "64 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']"
+  },
+  {
+   "at": "2026-10-21T08:20:45Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T08:20:53Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "8 graphics"
+  },
+  {
+   "at": "2026-10-21T08:20:53Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T08:20:57Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "81 shots, 385.312s, timing from voice"
+  },
+  {
+   "at": "2026-10-21T08:20:57Z",
+   "stage": "visualcheck",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T08:21:02Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 67, 'REVIEWED': 12} of 86 items; 2 orphan reviews (run `visualcheck.py prune`)"
+  },
+  {
+   "at": "2026-10-21T08:21:02Z",
+   "stage": "voice",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T08:21:03Z",
+   "stage": "voice",
+   "event": "done",
+   "note": "narration already generated (not regenerated)"
+  },
+  {
+   "at": "2026-10-21T08:21:03Z",
+   "stage": "render",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T08:21:07Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "approval present but --allow-render not given; plan validated"
+  },
+  {
+   "at": "2026-10-21T08:21:07Z",
+   "stage": "qc",
+   "event": "invalidated: upstream ['render'] not done"
+  },
+  {
+   "at": "2026-10-21T08:21:07Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T08:21:07Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T08:21:11Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "approval present but --allow-render not given; plan validated"
+  },
+  {
+   "at": "2026-10-21T08:21:11Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T08:21:11Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-21T08:39:27Z",
+   "stage": "render",
+   "event": "done",
+   "note": "rendered"
+  },
+  {
+   "at": "2026-10-21T08:42:34Z",
+   "stage": "qc",
+   "event": "done",
+   "note": "QC PASS"
+  },
+  {
+   "at": "2026-10-21T08:42:34Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T08:42:34Z",
+   "stage": "release",
+   "event": "done",
+   "note": "complete"
+  },
+  {
+   "at": "2026-10-21T08:42:37Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-21T08:42:37Z",
+   "stage": "release",
+   "event": "done",
+   "note": "complete"
   }
  ],
- "updated": "2026-10-21T07:29:25Z"
+ "updated": "2026-10-21T08:42:37Z"
 }

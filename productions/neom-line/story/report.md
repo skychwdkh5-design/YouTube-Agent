@@ -1,8 +1,12 @@
 # Storyboard report
 
-- timing: voice; duration 385.312 s; shots 82; plan hash 38e08088670a0ecf
+- timing: voice; duration 385.312 s; shots 81; plan hash b8f0175ffdc0e5ae
 - renderer plan: confirm_required rendering needs --confirm; the timeline is valid, plan attached
 - chapters: hook 0.0-25.14s, promise 25.14-52.04s, plan 52.04-101.92s, method 101.92-149.93s, shows 149.93-189.95s, segment 189.95-241.44s, checks 241.44-315.65s, limits 315.65-351.69s, close 351.69-385.31s
+- diversity WARN: map 84% / graphic 16% / photo 0% / video 0%; longest satellite-map run 26 shots
+- diversity warning: 26 satellite-map shots in a row (58-177 s, 119 s): more than 4; add a photo, video, graphic or map of a different kind
+- diversity warning: 26 neighbouring map shots end at the same scale class; alternate wide / mid / tight
+- diversity warning: no photo or video at all: the film is satellite maps and graphics only
 
 Shots:
 -    0.00s +3.5s hook: g_scale
@@ -11,11 +15,11 @@ Shots:
 -   11.39s +2.5s hook: y2022
 -   13.89s +6.9s hook: wipe y2022->y2026
 -   20.81s +4.3s hook: y2026
--   25.14s +5.5s promise: y2026
--   30.68s +5.0s promise: g_scale
--   35.67s +5.5s promise: y2020
--   41.13s +5.5s promise: y2021
--   46.58s +5.5s promise: y2022
+-   25.14s +5.0s promise: g_scale
+-   30.14s +5.5s promise: y2026
+-   35.61s +5.5s promise: y2020
+-   41.09s +5.5s promise: y2021
+-   46.56s +5.5s promise: y2022
 -   52.04s +6.0s plan: g_reports
 -   58.04s +3.7s plan: y2023
 -   61.69s +3.7s plan: y2023
@@ -48,18 +52,17 @@ Shots:
 -  183.52s +2.5s shows: wipe y2020->y2024
 -  185.97s +1.5s shows: y2020
 -  187.50s +2.5s shows: wipe y2020->y2024
--  189.95s +2.7s segment: y2022
--  192.65s +4.5s segment: g_hero_c10
--  197.15s +4.7s segment: g_cmp_2022_2026_c10
--  201.90s +6.0s segment: wipe y2022->y2026
--  207.91s +6.0s segment: y2026
--  213.91s +3.8s segment: y2026
--  217.67s +3.8s segment: y2026
--  221.42s +5.0s segment: g_tiers
--  226.42s +3.8s segment: y2022
--  230.18s +3.8s segment: y2022
--  233.93s +3.8s segment: y2023
--  237.69s +3.8s segment: y2023
+-  189.95s +3.8s segment: y2022
+-  193.70s +7.0s segment: g_cmp_2022_2026_c10
+-  200.70s +2.0s segment: g_hero_c10
+-  202.70s +6.5s segment: wipe y2022->y2026
+-  209.19s +6.5s segment: y2026
+-  215.69s +4.1s segment: y2026
+-  219.74s +4.1s segment: y2026
+-  223.80s +4.1s segment: y2022
+-  227.85s +4.1s segment: y2022
+-  231.91s +5.0s segment: g_tiers
+-  236.91s +4.5s segment: y2023
 -  241.44s +6.4s checks: y2024
 -  247.79s +6.4s checks: y2024
 -  254.14s +3.7s checks: y2025

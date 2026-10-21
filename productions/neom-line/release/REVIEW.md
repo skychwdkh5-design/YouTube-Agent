@@ -1,6 +1,6 @@
 # Release package - Here's What Satellites Show Near the Construction Site (working title, not final)
 
-Generated 2026-10-21T07:29:25Z. Nothing is published.
+Generated 2026-10-21T08:42:37Z. Nothing is published.
 
 ## Status
 - topic: done owner-approved topic
@@ -8,9 +8,10 @@ Generated 2026-10-21T07:29:25Z. Nothing is published.
 - facts: done 20 claims, registry ok
 - evidence: done 2 stacks + NDWI series
 - script: done 943 words = 6.4 min, 16 claims used
+- media: done 0 verified of 0 media entries (style v2: media optional)
 - visualplan: done 64 visuals in 9 chapters, graphics ['g_scale', 'g_reports', 'g_tiers', 'g_cmp_2022_2026_c10', 'g_hero_c10', 'g_cmp_2025_2026_c12', 'g_cmp_2020_2024_c17', 'g_cmp_2020_2024_c19']
 - visuals: done 8 graphics
-- storyboard: done 82 shots, 385.312s, timing from voice
+- storyboard: done 81 shots, 385.312s, timing from voice
 - visualcheck: done visual claims OK {'VERIFIED_SOURCE': 7, 'VERIFIED_DATA': 67, 'REVIEWED': 12} of 86 items; 2 orphan reviews (run `visualcheck.py prune`)
 - voice: done narration already generated (not regenerated)
 - voicecheck: done NEEDS_HUMAN_LISTEN: 21 risky words to listen to; storyboard re-timed from real word timings
@@ -24,6 +25,7 @@ Generated 2026-10-21T07:29:25Z. Nothing is published.
 - facts: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - evidence: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - script: AGENT_REQUIRED / now AGENT_REQUIRED / agent artifact, then code
+- media: AGENT_REQUIRED / now AGENT_REQUIRED / code
 - visualplan: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - visuals: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - storyboard: FULLY_AUTOMATED / now FULLY_AUTOMATED / code

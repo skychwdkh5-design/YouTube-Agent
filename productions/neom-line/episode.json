@@ -266,7 +266,10 @@
      "claims": [
       "C1"
      ],
-     "anchor": "claim"
+     "anchor": "claim",
+     "anchor_claims": [
+      "C20"
+     ]
     },
     {
      "asset": "y2026",
@@ -341,9 +344,7 @@
      ],
      "anchor": "claim",
      "anchor_claims": [
-      "C2",
-      "C3",
-      "C4"
+      "C2"
      ]
     },
     {
@@ -649,7 +650,8 @@
      "claims": [
       "C17"
      ],
-     "anchor": "claim"
+     "anchor": "claim",
+     "anchor_year": "2020"
     },
     {
      "wipe": [
@@ -699,7 +701,8 @@
      "claims": [
       "C19"
      ],
-     "anchor": "claim"
+     "anchor": "claim",
+     "anchor_year": "2020"
     },
     {
      "wipe": [
@@ -750,7 +753,8 @@
      "claims": [
       "C10"
      ],
-     "anchor": "claim"
+     "anchor": "claim",
+     "anchor_year": "2022"
     },
     {
      "wipe": [
@@ -776,7 +780,8 @@
      "claims": [
       "C10"
      ],
-     "anchor": "claim"
+     "anchor": "claim",
+     "anchor_year": "2026"
     },
     {
      "asset": "y2026",
@@ -807,7 +812,10 @@
       "C4",
       "C9"
      ],
-     "anchor": "claim"
+     "anchor": "claim",
+     "anchor_claims": [
+      "C18"
+     ]
     },
     {
      "asset": "y2022",
@@ -952,7 +960,8 @@
      "claims": [
       "C12"
      ],
-     "anchor": "claim"
+     "anchor": "claim",
+     "anchor_year": "2025"
     },
     {
      "wipe": [
@@ -1021,9 +1030,7 @@
      ],
      "anchor": "claim",
      "anchor_claims": [
-      "C2",
-      "C3",
-      "C4"
+      "C3"
      ]
     },
     {
@@ -1192,5 +1199,43 @@
   }
  ],
  "generated_by": "yt-visual-planner",
- "planner_dropped": []
+ "planner_dropped": [],
+ "media_pending": [],
+ "media_gaps": [
+  {
+   "chapter": "hook",
+   "map_beats_in_a_row": 5,
+   "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"
+  },
+  {
+   "chapter": "promise",
+   "map_beats_in_a_row": 4,
+   "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"
+  },
+  {
+   "chapter": "plan",
+   "map_beats_in_a_row": 6,
+   "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"
+  },
+  {
+   "chapter": "method",
+   "map_beats_in_a_row": 7,
+   "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"
+  },
+  {
+   "chapter": "shows",
+   "map_beats_in_a_row": 5,
+   "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"
+  },
+  {
+   "chapter": "checks",
+   "map_beats_in_a_row": 5,
+   "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"
+  },
+  {
+   "chapter": "limits",
+   "map_beats_in_a_row": 5,
+   "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"
+  }
+ ]
 }

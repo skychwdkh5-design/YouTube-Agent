@@ -297,6 +297,23 @@
   {
    "id": "promise_006",
    "start": 25.136,
+   "visual_family": "g_scale_promise",
+   "info": "g_scale",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g_scale",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "promise_007",
+   "start": 30.136,
    "visual_family": "y2026_promise",
    "info": "y2026",
    "layers": [
@@ -333,25 +350,8 @@
    }
   },
   {
-   "id": "promise_007",
-   "start": 30.675,
-   "visual_family": "g_scale_promise",
-   "info": "g_scale",
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "g_scale",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    }
-   ]
-  },
-  {
    "id": "promise_008",
-   "start": 35.675,
+   "start": 35.611,
    "visual_family": "y2020_promise",
    "info": "y2020",
    "layers": [
@@ -389,7 +389,7 @@
   },
   {
    "id": "promise_009",
-   "start": 41.129,
+   "start": 41.086,
    "visual_family": "y2021_promise",
    "info": "y2021",
    "layers": [
@@ -427,7 +427,7 @@
   },
   {
    "id": "promise_010",
-   "start": 46.582,
+   "start": 46.561,
    "visual_family": "y2022_promise",
    "info": "y2022",
    "layers": [
@@ -1574,24 +1574,7 @@
   },
   {
    "id": "segment_044",
-   "start": 192.647,
-   "visual_family": "g_hero_c10_segment",
-   "info": "g_hero_c10",
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "g_hero_c10",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    }
-   ]
-  },
-  {
-   "id": "segment_045",
-   "start": 197.151,
+   "start": 193.704,
    "visual_family": "g_cmp_2022_2026_c10_segment",
    "info": "g_cmp_2022_2026_c10",
    "layers": [
@@ -1607,8 +1590,25 @@
    ]
   },
   {
+   "id": "segment_045",
+   "start": 200.704,
+   "visual_family": "g_hero_c10_segment",
+   "info": "g_hero_c10",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g_hero_c10",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
    "id": "segment_046",
-   "start": 201.897,
+   "start": 202.704,
    "visual_family": "wipe_2022_2026",
    "info": "wipe y2022->y2026",
    "layers": [
@@ -1645,7 +1645,7 @@
   },
   {
    "id": "segment_047",
-   "start": 207.905,
+   "start": 209.195,
    "visual_family": "wipe_2022_2026",
    "info": "y2026",
    "layers": [
@@ -1673,7 +1673,7 @@
   },
   {
    "id": "segment_048",
-   "start": 213.913,
+   "start": 215.685,
    "visual_family": "y2026_segment",
    "info": "y2026",
    "layers": [
@@ -1711,7 +1711,7 @@
   },
   {
    "id": "segment_049",
-   "start": 217.668,
+   "start": 219.742,
    "visual_family": "y2026_segment",
    "info": "y2026",
    "layers": [
@@ -1739,24 +1739,7 @@
   },
   {
    "id": "segment_050",
-   "start": 221.422,
-   "visual_family": "g_tiers_segment",
-   "info": "g_tiers",
-   "layers": [
-    {
-     "type": "graphic",
-     "asset": "g_tiers",
-     "t": [
-      0,
-      null
-     ],
-     "push": 0.04
-    }
-   ]
-  },
-  {
-   "id": "segment_051",
-   "start": 226.422,
+   "start": 223.799,
    "visual_family": "y2022_segment",
    "info": "y2022",
    "layers": [
@@ -1793,8 +1776,8 @@
    }
   },
   {
-   "id": "segment_052",
-   "start": 230.177,
+   "id": "segment_051",
+   "start": 227.855,
    "visual_family": "y2022_segment",
    "info": "y2022",
    "layers": [
@@ -1821,8 +1804,25 @@
    }
   },
   {
+   "id": "segment_052",
+   "start": 231.912,
+   "visual_family": "g_tiers_segment",
+   "info": "g_tiers",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "g_tiers",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
    "id": "segment_053",
-   "start": 233.932,
+   "start": 236.912,
    "visual_family": "y2023_segment",
    "info": "y2023",
    "layers": [
@@ -1859,35 +1859,7 @@
    }
   },
   {
-   "id": "segment_054",
-   "start": 237.687,
-   "visual_family": "y2023_segment",
-   "info": "y2023",
-   "layers": [
-    {
-     "type": "image",
-     "asset": "y2023"
-    }
-   ],
-   "camera": {
-    "from": {
-     "center": [
-      35.2165,
-      28.1062
-     ],
-     "width_km": 9.0
-    },
-    "to": {
-     "center": [
-      35.2165,
-      28.1062
-     ],
-     "width_km": 4.8
-    }
-   }
-  },
-  {
-   "id": "checks_055",
+   "id": "checks_054",
    "start": 241.442,
    "visual_family": "y2024_checks",
    "info": "y2024",
@@ -1925,7 +1897,7 @@
    }
   },
   {
-   "id": "checks_056",
+   "id": "checks_055",
    "start": 247.793,
    "visual_family": "y2024_checks",
    "info": "y2024",
@@ -1953,7 +1925,7 @@
    }
   },
   {
-   "id": "checks_057",
+   "id": "checks_056",
    "start": 254.144,
    "visual_family": "y2025_checks",
    "info": "y2025",
@@ -1991,7 +1963,7 @@
    }
   },
   {
-   "id": "checks_058",
+   "id": "checks_057",
    "start": 257.855,
    "visual_family": "y2025_checks",
    "info": "y2025",
@@ -2019,7 +1991,7 @@
    }
   },
   {
-   "id": "checks_059",
+   "id": "checks_058",
    "start": 261.567,
    "visual_family": "y2026_checks",
    "info": "y2026",
@@ -2057,7 +2029,7 @@
    }
   },
   {
-   "id": "checks_060",
+   "id": "checks_059",
    "start": 265.278,
    "visual_family": "y2026_checks",
    "info": "y2026",
@@ -2085,7 +2057,7 @@
    }
   },
   {
-   "id": "checks_061",
+   "id": "checks_060",
    "start": 268.989,
    "visual_family": "y2024_checks",
    "info": "y2024",
@@ -2123,7 +2095,7 @@
    }
   },
   {
-   "id": "checks_062",
+   "id": "checks_061",
    "start": 272.701,
    "visual_family": "y2024_checks",
    "info": "y2024",
@@ -2151,7 +2123,7 @@
    }
   },
   {
-   "id": "checks_063",
+   "id": "checks_062",
    "start": 276.412,
    "visual_family": "y2025_checks",
    "info": "y2025",
@@ -2189,7 +2161,7 @@
    }
   },
   {
-   "id": "checks_064",
+   "id": "checks_063",
    "start": 282.437,
    "visual_family": "y2025_checks",
    "info": "y2025",
@@ -2217,7 +2189,7 @@
    }
   },
   {
-   "id": "checks_065",
+   "id": "checks_064",
    "start": 288.462,
    "visual_family": "g_cmp_2025_2026_c12_checks",
    "info": "g_cmp_2025_2026_c12",
@@ -2234,7 +2206,7 @@
    ]
   },
   {
-   "id": "checks_066",
+   "id": "checks_065",
    "start": 295.462,
    "visual_family": "wipe_2025_2026",
    "info": "wipe y2025->y2026",
@@ -2271,7 +2243,7 @@
    }
   },
   {
-   "id": "checks_067",
+   "id": "checks_066",
    "start": 299.949,
    "visual_family": "wipe_2025_2026",
    "info": "y2026",
@@ -2299,7 +2271,7 @@
    }
   },
   {
-   "id": "checks_068",
+   "id": "checks_067",
    "start": 304.435,
    "visual_family": "y2025_checks",
    "info": "y2025",
@@ -2337,7 +2309,7 @@
    }
   },
   {
-   "id": "checks_069",
+   "id": "checks_068",
    "start": 310.044,
    "visual_family": "y2026_checks",
    "info": "y2026",
@@ -2375,7 +2347,7 @@
    }
   },
   {
-   "id": "limits_070",
+   "id": "limits_069",
    "start": 315.652,
    "visual_family": "y2020_limits",
    "info": "y2020",
@@ -2413,7 +2385,7 @@
    }
   },
   {
-   "id": "limits_071",
+   "id": "limits_070",
    "start": 322.534,
    "visual_family": "y2021_limits",
    "info": "y2021",
@@ -2451,7 +2423,7 @@
    }
   },
   {
-   "id": "limits_072",
+   "id": "limits_071",
    "start": 329.417,
    "visual_family": "y2022_limits",
    "info": "y2022",
@@ -2489,7 +2461,7 @@
    }
   },
   {
-   "id": "limits_073",
+   "id": "limits_072",
    "start": 336.299,
    "visual_family": "y2023_limits",
    "info": "y2023",
@@ -2527,7 +2499,7 @@
    }
   },
   {
-   "id": "limits_074",
+   "id": "limits_073",
    "start": 343.182,
    "visual_family": "g_reports_limits",
    "info": "g_reports",
@@ -2544,7 +2516,7 @@
    ]
   },
   {
-   "id": "limits_075",
+   "id": "limits_074",
    "start": 349.182,
    "visual_family": "y2024_limits",
    "info": "y2024",
@@ -2582,7 +2554,7 @@
    }
   },
   {
-   "id": "close_076",
+   "id": "close_075",
    "start": 351.689,
    "visual_family": "wipe_recap",
    "info": "wipe y2020->y2026",
@@ -2619,7 +2591,7 @@
    }
   },
   {
-   "id": "close_077",
+   "id": "close_076",
    "start": 356.486,
    "visual_family": "g_scale_close",
    "info": "g_scale",
@@ -2636,7 +2608,7 @@
    ]
   },
   {
-   "id": "close_078",
+   "id": "close_077",
    "start": 360.77,
    "visual_family": "g_reports_close",
    "info": "g_reports",
@@ -2653,7 +2625,7 @@
    ]
   },
   {
-   "id": "close_079",
+   "id": "close_078",
    "start": 368.293,
    "visual_family": "g_hero_c10_close",
    "info": "g_hero_c10",
@@ -2670,7 +2642,7 @@
    ]
   },
   {
-   "id": "close_080",
+   "id": "close_079",
    "start": 373.293,
    "visual_family": "close_view",
    "info": "y2026",
@@ -2708,7 +2680,7 @@
    }
   },
   {
-   "id": "close_081",
+   "id": "close_080",
    "start": 379.303,
    "visual_family": "close_wide",
    "info": "y2026",
