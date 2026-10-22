@@ -22,13 +22,14 @@ class Base(unittest.TestCase):
                   "thumbnail": "thumb.jpg", "captions": {"file": "cap.srt", "language": "en", "name": "English"}, "related": None, "publish_at": WHEN}
         self.e["thumbnail_review"] = {"result": "PASS", "sha256": A.sha_file(os.path.join(self.d, "thumb.jpg"))}
         self.manifest = {"files": [{"asset": "EP006.mp4", "sha256": self.e["media"]["sha256"], "size": 11}]}
+        self.cards = [A.card_record(self.e, self.d, now=NOW - timedelta(minutes=5))]      # the card the owner saw, before consenting
 
     def record(self, **kw):
         r = A.make_record([self.e], "EP006", kw.pop("quote", QUOTE), kw.pop("scope", "single_release"), "abc123", self.d, now=NOW)
         r.update(kw); return r
 
-    def verify(self, rec, entries=None, ledger=(), now=NOW, manifest=None):
-        return A.verify_record(rec, entries or [self.e], manifest or self.manifest, self.d, list(ledger), now)
+    def verify(self, rec, entries=None, ledger=(), now=NOW, manifest=None, cards=None, real=False):
+        return A.verify_record(rec, entries or [self.e], manifest or self.manifest, self.d, list(ledger), now, cards=self.cards if cards is None else cards, real=real)
 
 
 class Binding(Base):
@@ -81,7 +82,8 @@ class Rules(Base):
         for i in range(3):
             s = copy.deepcopy(self.e); s.update(id=f"EP006-S{i}", kind="short", publish_at=f"2026-10-{26 + i}T01:00:00Z"); shorts.append(s)
         rec = A.make_record(shorts, "EP006 Shorts", "Одобряю EP006 Shorts, список из 3", "short_list", "abc", self.d, now=NOW)
-        self.assertEqual(self.verify(rec, shorts), [])
+        cards = [A.card_record(x, self.d, now=NOW - timedelta(minutes=5)) for x in shorts]
+        self.assertEqual(self.verify(rec, shorts, cards=cards), [])
         self.assertTrue(self.verify(self.record(scope="short_list")))          # a long video cannot ride a Shorts list
 
     def test_time_window_expiry_replay_and_cap(self):
@@ -109,6 +111,42 @@ class Rules(Base):
         self.assertNotEqual(A.card(e2, self.d)["code"], c["code"])
 
 
+class LastCard(Base):
+    def test_no_card_shown_means_no_approval(self):
+        self.assertTrue(any("no approval card" in x for x in self.verify(self.record(), cards=[])))
+        other = [A.card_record({**self.e, "id": "EP007"}, self.d, now=NOW - timedelta(minutes=5))]
+        self.assertTrue(any("no approval card" in x for x in self.verify(self.record(), cards=other)))
+
+    def test_approval_must_match_the_last_card_shown(self):
+        rec = self.record()
+        newer = dict(self.cards[0], code="FFFF-0000", entry_hash="f" * 64, shown_at=(NOW - timedelta(minutes=1)).isoformat(timespec="seconds"))
+        self.assertTrue(any("LAST card" in x for x in self.verify(rec, cards=self.cards + [newer])))      # owner has since seen a different card
+        late = dict(self.cards[0], shown_at=(NOW + timedelta(minutes=1)).isoformat(timespec="seconds"))
+        self.assertTrue(any("newer card" in x for x in self.verify(rec, cards=self.cards + [late])))      # card re-shown after the approval was written
+
+    def test_record_without_the_card_code_is_refused(self):
+        rec = self.record(); rec["card_codes"] = {}
+        self.assertTrue(any("card code" in x for x in self.verify(rec)))
+
+
+class StrictConsent(Base):
+    def test_label_rules(self):
+        self.assertTrue(any("own id" in x for x in self.verify(self.record(label="EP005", quote="Одобряю EP005, публикуй"))))
+        self.assertTrue(self.verify(self.record(label="", quote="Одобряю, публикуй")))             # empty label would match any text
+        self.assertTrue(any("needs a name" in x for x in self.verify(self.record(label="x", scope="short_list"))))
+
+    def test_text_that_looks_like_a_document_or_tool_output_is_not_consent(self):
+        for q in ("Одобряю EP006, публикуй " + "x" * 300, "Одобряю EP006\nпубликуй", "`Одобряю EP006`", "Одобряю EP006 http://evil.example", "```Одобряю EP006```"):
+            self.assertFalse(A.consent_ok(q, "EP006"), q[:40])
+
+    def test_channel_and_dry_run_only(self):
+        self.assertTrue(any("chat message" in x for x in self.verify(self.record(consent_channel="tool-output"))))
+        self.assertTrue(any("chat message" in x for x in self.verify(self.record(consent_channel="e2e-test"))))           # e2e channel only with dry_run_only
+        t = self.record(consent_channel="e2e-test", dry_run_only=True)
+        self.assertEqual(self.verify(t, real=False), [])
+        self.assertTrue(any("dry runs only" in x for x in self.verify(t, real=True)))
+
+
 class Totp(unittest.TestCase):
     SECRET = "GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ"      # RFC 6238 test key "12345678901234567890"
 
@@ -130,7 +168,11 @@ class ChatRun(Base):
 
     def setup_files(self, rec):
         json.dump({"expected_channel_id": "UC1", "items": [self.e]}, open(os.path.join(self.d, "queue.json"), "w"))
-        json.dump(self.manifest, open(os.path.join(self.d, "media.json"), "w")); path = os.path.join(self.d, "rec.json"); json.dump(rec, open(path, "w")); return path
+        json.dump(self.manifest, open(os.path.join(self.d, "media.json"), "w"))
+        os.makedirs(os.path.join(self.d, "publish"), exist_ok=True)
+        with open(os.path.join(self.d, "publish", "cards.jsonl"), "w") as cf:
+            cf.write("".join(json.dumps(c) + "\n" for c in self.cards))
+        path = os.path.join(self.d, "rec.json"); json.dump(rec, open(path, "w")); return path
 
     def run_it(self, rec, confirm=True, now=NOW):
         path = self.setup_files(rec)
@@ -174,6 +216,28 @@ class ChatRun(Base):
             os.environ.pop("APPROVAL_TOTP_SECRET"); os.environ.pop("APPROVAL_TOTP_CODE")
 
 
+class ChatVerify(ChatRun):
+    def test_chat_verify_lists_assets_and_refuses_bad_approvals_without_side_effects(self):
+        path = self.setup_files(self.record())
+        ns = argparse.Namespace(queue=os.path.join(self.d, "queue.json"), approval=path, manifest=os.path.join(self.d, "media.json"), real=False)
+        with mock.patch.object(P, "DATA_ROOT", self.d), mock.patch.object(P, "datetime") as pdt, mock.patch.object(A, "datetime") as adt:
+            pdt.now.return_value = NOW; adt.now.return_value = NOW; adt.fromisoformat = datetime.fromisoformat
+            out = P.cmd_chat_verify(ns)
+        self.assertEqual(out["assets"], ["EP006.mp4"]); self.assertEqual(P.ledger_read(), [])
+        bad = self.record(quote="ок"); path = self.setup_files(bad); ns.approval = path
+        with mock.patch.object(P, "DATA_ROOT", self.d), mock.patch.object(A, "datetime") as adt:
+            adt.now.return_value = NOW; adt.fromisoformat = datetime.fromisoformat
+            with self.assertRaises(P.PublishError):
+                P.cmd_chat_verify(ns)
+
+    def test_test_approval_can_never_run_for_real(self):
+        rec = self.record(consent_channel="e2e-test", dry_run_only=True)
+        out, up = self.run_it(rec, confirm=False); self.assertEqual(out["items"][0]["status"], "ready (dry run)")
+        with self.assertRaises(P.PublishError) as cm:
+            self.run_it(rec, confirm=True)
+        self.assertIn("dry runs only", str(cm.exception)); up.assert_not_called()
+
+
 class Workflows(unittest.TestCase):
     ROOT = P.ROOT
 
@@ -186,7 +250,9 @@ class Workflows(unittest.TestCase):
 
     def test_chat_workflow_is_gated_serialised_and_injection_safe(self):
         t = self.read("publish-approved.yml")
-        self.assertIn("vars.CHAT_PUBLISH_ENABLED == 'true'", t); self.assertIn("group: youtube-publish", t)
+        self.assertIn("vars.CHAT_PUBLISH_ENABLED == 'true' || inputs.dry_run", t); self.assertIn('test "$ENABLED" = "true"', t); self.assertIn("group: youtube-publish", t)
+        self.assertLess(t.index("chat-verify"), t.index("media.py fetch")); self.assertIn('--names "$(cat assets.txt)"', t)
+        self.assertIn("shell: bash", t)                                        # pipefail, so `| tee` cannot hide a failure
         self.assertIn("github.repository_owner", t); self.assertIn("merge-base --is-ancestor", t)
         for line in t.splitlines():
             if line.strip().startswith(("run:", "python3", "git ", "test ")) or (line.startswith("          ") and "${{ inputs." in line and "env" not in line):

@@ -62,9 +62,12 @@ def parse_utc(s):
 
 
 def consent_ok(quote, label):
-    """The owner's own words must name the release and affirm it; questions, negations and other releases do not count."""
+    """The owner's own words must name the release and affirm it. Questions, negations, other releases, empty labels and long or
+    formatted text (what a document, log or tool result looks like) do not count."""
     q = (quote or "").strip()
-    return bool(q) and label.lower() in q.lower() and bool(AFFIRM.search(q)) and not NEGATE.search(q) and not q.endswith("?")
+    if not q or not (label or "").strip() or len(q) > 280 or "\n" in q or "`" in q or "http" in q.lower():
+        return False
+    return label.lower() in q.lower() and bool(AFFIRM.search(q)) and not NEGATE.search(q) and not q.endswith("?")
 
 
 def local_time(utc, tz="Asia/Ho_Chi_Minh"):
@@ -88,7 +91,14 @@ def card(e, root, tz="Asia/Ho_Chi_Minh"):
     return {"card_text": text, "code": code, "content_hash": ch, "entry_hash": eh}
 
 
-def make_record(entries, label, quote, scope, queue_commit, root, now=None, created_by="claude-chat"):
+def card_record(e, root, now=None):
+    """One line of the card registry (publish/cards.jsonl): written every time a card is shown to the owner."""
+    c = card(e, root); now = now or datetime.now(timezone.utc)
+    return {"id": e["id"], "code": c["code"], "entry_hash": c["entry_hash"], "content_hash": c["content_hash"], "publish_at": e["publish_at"],
+            "shown_at": now.isoformat(timespec="seconds")}
+
+
+def make_record(entries, label, quote, scope, queue_commit, root, now=None, created_by="claude-chat", channel="owner-chat-message", dry_run_only=False):
     now = now or datetime.now(timezone.utc)
     items = []
     for e in entries:
@@ -97,7 +107,8 @@ def make_record(entries, label, quote, scope, queue_commit, root, now=None, crea
                       "content_hash": ch, "entry_hash": entry_hash(ch, e["publish_at"])})
     return {"schema": SCHEMA, "approval_id": uuid.uuid4().hex, "scope": scope, "label": label, "items": items, "queue_commit": queue_commit,
             "owner_quote": quote, "created_at": now.isoformat(timespec="seconds"), "expires_at": (now + TTL).isoformat(timespec="seconds"),
-            "created_by": created_by}
+            "created_by": created_by, "consent_channel": channel, "dry_run_only": dry_run_only,
+            "card_codes": {i["id"]: f"{i['entry_hash'][:4].upper()}-{i['entry_hash'][4:8].upper()}" for i in items}}
 
 
 def totp(secret_b32, t, step=30, digits=6):
@@ -127,7 +138,7 @@ def _state(ledger, digest):
     return st
 
 
-def verify_record(rec, queue_items, manifest, root, ledger, now=None):
+def verify_record(rec, queue_items, manifest, root, ledger, now=None, *, cards=None, real=False):
     now, pr = now or datetime.now(timezone.utc), []
     if rec.get("schema") != SCHEMA:
         return ["unknown approval schema"]
@@ -150,6 +161,15 @@ def verify_record(rec, queue_items, manifest, root, ledger, now=None):
             pr.append("a Shorts list approval cannot include long videos")
     else:
         pr.append("unknown approval scope")
+    if rec.get("dry_run_only") and real:
+        pr.append("this is a test approval - dry runs only")
+    chan = rec.get("consent_channel")
+    if chan != "owner-chat-message" and not (chan == "e2e-test" and rec.get("dry_run_only")):
+        pr.append("consent must come from the owner's chat message (consent_channel)")
+    if scope == "single_release" and len(items) == 1 and (rec.get("label") or "").lower() != str(items[0].get("id", "")).lower():
+        pr.append("a long video's approval must be labelled with its own id")
+    if scope == "short_list" and len((rec.get("label") or "").strip()) < 3:
+        pr.append("a Shorts list approval needs a name")
     if not consent_ok(rec.get("owner_quote"), rec.get("label", "")):
         pr.append("owner quote does not clearly approve this release (needs the release name, an approval, no negation or question)")
     if any(r.get("event") == "approval_done" and r.get("approval_id") == rec.get("approval_id") for r in ledger):
@@ -175,6 +195,17 @@ def verify_record(rec, queue_items, manifest, root, ledger, now=None):
             pr.append(f"{e['id']}: asset unreadable ({ex.filename})"); continue
         if ch != it.get("content_hash") or entry_hash(ch, e["publish_at"]) != it.get("entry_hash"):
             pr.append(f"{e['id']}: content or time changed since the approval")
+        shown = sorted((c for c in (cards or []) if c.get("id") == e["id"]), key=lambda c: c.get("shown_at", ""))
+        code = f"{entry_hash(ch, e['publish_at'])[:4].upper()}-{entry_hash(ch, e['publish_at'])[4:8].upper()}"
+        if not shown:
+            pr.append(f"{e['id']}: no approval card was shown for this release")
+        else:
+            if shown[-1].get("entry_hash") != it.get("entry_hash") or shown[-1].get("code") != code:
+                pr.append(f"{e['id']}: the approval does not match the LAST card shown to the owner")
+            if shown[-1].get("shown_at", "") > rec["created_at"]:
+                pr.append(f"{e['id']}: a newer card was shown after this approval was written")
+            if (rec.get("card_codes") or {}).get(e["id"]) != code:
+                pr.append(f"{e['id']}: approval does not reference the shown card code")
         if e["title"] != it.get("title") or e["publish_at"] != it.get("publish_at"):
             pr.append(f"{e['id']}: title or publish time differs from the approval")
         if sums.get(e["media"]["asset"]) != e["media"]["sha256"] or e["media"]["sha256"] != it.get("media_sha256"):
@@ -196,22 +227,30 @@ def main(argv=None):
     for n in ("card", "make", "verify"):
         s = sub.add_parser(n); s.add_argument("--queue", required=True); s.add_argument("--root", required=True)
     sub.choices["card"].add_argument("--id", required=True)
+    sub.choices["card"].add_argument("--log", help="append the shown-card record to this cards.jsonl (the registry the workflow checks)")
     m = sub.choices["make"]
     for k in ("ids", "label", "quote", "scope", "queue-commit", "out"):
         m.add_argument("--" + k, required=True)
+    m.add_argument("--channel", default="owner-chat-message"); m.add_argument("--dry-run-only", action="store_true")
     v = sub.choices["verify"]
-    for k in ("approval", "manifest", "ledger"):
+    for k in ("approval", "manifest", "ledger", "cards"):
         v.add_argument("--" + k, required=True)
+    v.add_argument("--real", action="store_true")
     a = p.parse_args(argv)
     items = json.load(open(a.queue))["items"]
     if a.cmd == "card":
-        print(json.dumps(card(next(e for e in items if e["id"] == a.id), a.root), indent=1, ensure_ascii=False)); return 0
+        e = next(e for e in items if e["id"] == a.id)
+        if a.log:
+            with open(a.log, "a") as f:
+                f.write(json.dumps(card_record(e, a.root), ensure_ascii=False) + "\n")
+        print(json.dumps(card(e, a.root), indent=1, ensure_ascii=False)); return 0
     if a.cmd == "make":
         want = a.ids.split(","); ents = [e for e in items if e["id"] in want]
-        rec = make_record(ents, a.label, a.quote, a.scope, a.queue_commit, a.root)
+        rec = make_record(ents, a.label, a.quote, a.scope, a.queue_commit, a.root, channel=a.channel, dry_run_only=a.dry_run_only)
         json.dump(rec, open(a.out, "w"), indent=1, ensure_ascii=False); print(json.dumps({"approval_id": rec["approval_id"], "out": a.out})); return 0
     led = [json.loads(x) for x in open(a.ledger) if x.strip()] if os.path.exists(a.ledger) else []
-    probs = verify_record(json.load(open(a.approval)), items, json.load(open(a.manifest)), a.root, led)
+    cards = [json.loads(x) for x in open(a.cards) if x.strip()] if os.path.exists(a.cards) else []
+    probs = verify_record(json.load(open(a.approval)), items, json.load(open(a.manifest)), a.root, led, cards=cards, real=a.real)
     print(json.dumps({"ok": not probs, "problems": probs}, indent=1)); return 0 if not probs else 1
 
 

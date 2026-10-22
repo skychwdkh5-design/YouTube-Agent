@@ -23,9 +23,13 @@ permissions:
 concurrency:
   group: youtube-publish   # shared with the gated workflow: one upload run at a time
   cancel-in-progress: false
+defaults:
+  run:
+    shell: bash        # bash -eo pipefail: a failing python step must not be masked by `| tee`
 jobs:
   publish:
-    if: ${{ vars.CHAT_PUBLISH_ENABLED == 'true' }}      # kill switch: set the repository variable to anything else to stop
+    # kill switch: real runs need the repository variable CHAT_PUBLISH_ENABLED=true; dry runs (verify only, nothing sent to YouTube) always run
+    if: ${{ vars.CHAT_PUBLISH_ENABLED == 'true' || inputs.dry_run }}
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -40,6 +44,7 @@ jobs:
       DATA_COMMIT: ${{ inputs.data_commit }}
       APPROVAL_ID: ${{ inputs.approval_id }}
       DRY: ${{ inputs.dry_run }}
+      ENABLED: ${{ vars.CHAT_PUBLISH_ENABLED }}
     steps:
       - uses: actions/checkout@v4                       # trusted code from the default branch
       - name: Only the repository owner's token may dispatch this
@@ -66,10 +71,18 @@ jobs:
           touch ledger.jsonl
       - name: Tests
         run: python3 -m unittest discover -s .claude/skills/yt-publish
-      - name: Fetch media from the draft release (sha256 checked)
+      - name: Real runs need the kill switch on (second check)
         if: ${{ !inputs.dry_run }}
-        run: python3 .claude/skills/yt-publish/media.py fetch --manifest data/publish/media.json --dest media
-      - name: Verify the approval and run it
+        run: test "$ENABLED" = "true"
+      - name: Verify the approval offline (hashes, card, consent, expiry) and list the files it needs
+        run: |
+          ARGS="--queue data/publish/queue.json --manifest data/publish/media.json --approval data/publish/approvals/${APPROVAL_ID}.json"
+          if [ "$DRY" != "true" ]; then ARGS="$ARGS --real"; fi
+          python3 .claude/skills/yt-publish/publish.py chat-verify $ARGS | tee verify.json
+          python3 -c "import json; print(','.join(json.load(open('verify.json'))['assets']))" > assets.txt
+      - name: Fetch only the approved media from the draft release (sha256 checked, also in dry runs)
+        run: python3 .claude/skills/yt-publish/media.py fetch --manifest data/publish/media.json --dest media --names "$(cat assets.txt)"
+      - name: Run the approved release (dry run = checks only)
         run: |
           ARGS="--mode chat --ids all --media-dir media --queue data/publish/queue.json --manifest data/publish/media.json --approval data/publish/approvals/${APPROVAL_ID}.json"
           if [ "$DRY" != "true" ]; then ARGS="$ARGS --confirm"; fi
@@ -87,6 +100,7 @@ jobs:
       - name: Save ledger (also after failures)
         if: always()
         run: |
+          [ -d ledger/.git ] || exit 0        # the run stopped before the ledger was checked out
           cd ledger
           git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add ledger.jsonl
