@@ -19,6 +19,7 @@ jobs:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          VIDEO_ID: ${{ inputs.video_id }}
         run: |
           python3 .claude/skills/yt-publish/publish.py channel
-          if [ -n "${{ inputs.video_id }}" ]; then python3 .claude/skills/yt-publish/publish.py status --video-id "${{ inputs.video_id }}"; fi
+          if [ -n "$VIDEO_ID" ]; then python3 .claude/skills/yt-publish/publish.py status --video-id "$VIDEO_ID"; fi
