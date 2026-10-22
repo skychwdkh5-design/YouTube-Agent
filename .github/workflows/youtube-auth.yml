@@ -1,0 +1,17 @@
+name: YouTube auth (one-time)
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  auth:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install pynacl
+      - name: Device-flow login (open the code shown in this log at google.com/device)
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          GH_SECRETS_TOKEN: ${{ secrets.GH_SECRETS_TOKEN }}
+        run: python3 .claude/skills/yt-publish/publish.py auth
