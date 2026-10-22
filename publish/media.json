@@ -3,7 +3,7 @@
  "files": [
   {
    "asset": "EP005_FINAL_1080p_master.mp4",
-   "sha256": "99cfcd5cd7af214d2c2ab0785ee6f916490bcd87a46b68fbe739fc881ae33ebb",
+   "sha256": "09cfcd5cd7af214d2c2ab0785ee6f916490bcd87a46b68fbe739fc881ae33ebb",
    "size": 297166352,
    "source": {
     "branch": "media/ep005-neom-final",
@@ -17,51 +17,6 @@
    "source": {
     "branch": "media/shorts-v1",
     "path": "EP002_Dubai_Short_01_JUST_SEA.mp4"
-   }
-  },
-  {
-   "asset": "EP002_Dubai_Short_02_FOUR_PROJECTS.mp4",
-   "sha256": "c4bff3eeb4c7e13d0b9e4f8e2ae1147710588a47ac388adc638a8e03639b3328",
-   "size": 19099875,
-   "source": {
-    "branch": "media/shorts-v1",
-    "path": "EP002_Dubai_Short_02_FOUR_PROJECTS.mp4"
-   }
-  },
-  {
-   "asset": "EP003_GreatSaltLake_Short_01_20_FEET.mp4",
-   "sha256": "9bff662fb8edfbcf8af6aa89fa03e9118fa819cbc1a77f067b99cc21604ce2fd",
-   "size": 18567525,
-   "source": {
-    "branch": "media/shorts-v1",
-    "path": "EP003_GreatSaltLake_Short_01_20_FEET.mp4"
-   }
-  },
-  {
-   "asset": "EP003_GreatSaltLake_Short_02_WHAT_THE_WATER_LEFT.mp4",
-   "sha256": "514f3980a6b86ff15fd1bdcdad15e146f46be627daa580caa9a65b5e6b2559da",
-   "size": 23425610,
-   "source": {
-    "branch": "media/shorts-v1",
-    "path": "EP003_GreatSaltLake_Short_02_WHAT_THE_WATER_LEFT.mp4"
-   }
-  },
-  {
-   "asset": "EP004_Jakarta_Short_01_SIX_BOWLS.mp4",
-   "sha256": "468fb8ddbbc5669644c3e356746e8ba97a35f2b839407052f3792c34141aa045",
-   "size": 5940341,
-   "source": {
-    "branch": "media/shorts-v1",
-    "path": "EP004_Jakarta_Short_01_SIX_BOWLS.mp4"
-   }
-  },
-  {
-   "asset": "EP004_Jakarta_Short_02_DISTRICT_BY_DISTRICT.mp4",
-   "sha256": "795a9f0fd85c764f2dd23f2a572b953c5faa4f0ca1591ebf5b36ea20d773e55c",
-   "size": 7320649,
-   "source": {
-    "branch": "media/shorts-v1",
-    "path": "EP004_Jakarta_Short_02_DISTRICT_BY_DISTRICT.mp4"
    }
   }
  ]
