@@ -235,8 +235,8 @@ def validate(spec, now=None):
 def build_body(spec):
     desc = spec["description"].rstrip()
     if spec["kind"] == "short":
-        if spec.get("related_long_url"):
-            desc += f"\n\nFull video: {spec['related_long_url']}"
+        if spec.get("related_long_url") and spec["related_long_url"] not in desc:
+            desc += f"\n\nFull video: {spec.get('related_long_title') or 'on this channel'}\n{spec['related_long_url']}"
         if "#shorts" not in desc.lower():
             desc += "\n\n#Shorts"
     snip = {"title": spec["title"].strip(), "description": desc, "tags": spec.get("tags", []),
@@ -510,16 +510,28 @@ def find_conflicts(entry, inv, state):
     return out
 
 
-def find_related(entry, inv):
+def resolve_related(entry, inv):
+    """Short -> its long video. An explicit video_id must exist on the channel, be public, longer than 3 min and carry the
+    exact title recorded in the queue; otherwise the long video must be found by title words exactly once."""
     r = entry.get("related")
     if not r:
-        return None, None
+        return None, None, None
     if r.get("video_id"):
-        return f"https://youtu.be/{r['video_id']}", None
+        v = next((x for x in inv if x["video_id"] == r["video_id"]), None)
+        if not v or v["seconds"] <= 180 or v["privacy"] != "public":
+            return None, None, f"related video {r['video_id']} is not a public long video on the channel"
+        if r.get("title") and v["title"] != r["title"]:
+            return None, None, f"related video {r['video_id']} is titled '{v['title']}' on YouTube, queue says '{r['title']}'"
+        return f"https://youtu.be/{v['video_id']}", v["title"], None
     hits = [v for v in inv if v["seconds"] > 180 and r["title_contains"].lower() in v["title"].lower() and v["privacy"] in ("public", "unlisted")]
     if len(hits) != 1:
-        return None, f"related long video '{r['title_contains']}': {len(hits)} matches on the channel (need exactly 1, or set related.video_id)"
-    return f"https://youtu.be/{hits[0]['video_id']}", None
+        return None, None, f"related long video '{r['title_contains']}': {len(hits)} matches on the channel (need exactly 1, or set related.video_id)"
+    return f"https://youtu.be/{hits[0]['video_id']}", hits[0]["title"], None
+
+
+def find_related(entry, inv):
+    url, _, why = resolve_related(entry, inv)
+    return url, why
 
 
 def check_entry(e, mode, media_dir, inv, now=None, hash_media=True):
@@ -546,6 +558,8 @@ def check_entry(e, mode, media_dir, inv, now=None, hash_media=True):
         tf, rv = os.path.join(ROOT, e["thumbnail"]), e.get("thumbnail_review") or {}
         if not (rv.get("result") == "PASS" and os.path.isfile(tf) and rv.get("sha256") == sha256(tf)):
             pr.append("thumbnail has no PASS review for this exact file (docs/THUMBNAIL_STYLE_GUIDE.md section 5)")
+        elif rv.get("owner_approved") is not True:
+            pr.append("owner has not visually approved the thumbnail yet")
     for k in ("thumbnail", "captions"):
         f = (e.get(k) or {}).get("file") if k == "captions" else e.get(k)
         if f and not os.path.isfile(os.path.join(ROOT, f)):
@@ -553,7 +567,7 @@ def check_entry(e, mode, media_dir, inv, now=None, hash_media=True):
     if inv is not None:
         st = ledger_state(med["sha256"])
         pr += find_conflicts(e, inv, st["state"])
-    url, why = find_related(e, inv or []) if (e.get("related") and inv is not None) else (None, None)
+    url, rtitle, why = resolve_related(e, inv) if (e.get("related") and inv is not None) else (None, None, None)
     if why:
         pr.append(why)
     if e.get("related") and inv is None:
@@ -563,7 +577,7 @@ def check_entry(e, mode, media_dir, inv, now=None, hash_media=True):
     spec = {"file": path, "kind": e["kind"], "title": e["title"], "description": e["description"], "tags": e.get("tags", []),
             "category_id": e.get("category_id", "27"), "made_for_kids": e["made_for_kids"],
             "contains_synthetic_media": e["contains_synthetic_media"], "privacy": "public", "publish_at": e["publish_at"],
-            "default_language": e.get("default_language", "en"), "related_long_url": url}
+            "default_language": e.get("default_language", "en"), "related_long_url": url, "related_long_title": rtitle}
     try:
         validate(spec, now)
     except PublishError as ex:

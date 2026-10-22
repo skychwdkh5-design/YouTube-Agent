@@ -28,7 +28,7 @@ class T(unittest.TestCase):
 
     def test_short_gets_hashtag_and_related_link(self):
         b = P.build_body(spec(self.d, kind="short", related_long_url="https://youtu.be/abc"))
-        self.assertIn("Full video: https://youtu.be/abc", b["snippet"]["description"])
+        self.assertIn("Full video: on this channel\nhttps://youtu.be/abc", b["snippet"]["description"])
         self.assertIn("#Shorts", b["snippet"]["description"])
         self.assertEqual(P.build_body(spec(self.d))["status"]["privacyStatus"], "private")
 
@@ -84,7 +84,7 @@ class Q(unittest.TestCase):
             self.assertTrue(e["publish_at"].endswith("Z"))
         self.assertEqual([e["publish_at"] for e in QUEUE[1:]], [f"2026-10-{d}T01:00:00Z" for d in range(24, 30)])
         self.assertEqual(QUEUE[0]["publish_at"], "2026-10-23T12:00:00Z")   # 19:00 Vietnam
-        self.assertEqual(QUEUE[0]["title_status"], "pending_owner_choice")
+        self.assertEqual(QUEUE[0]["title_status"], "final")
         pr, spec = P.check_entry(QUEUE[1], "autopilot", self.d, [], NOW, hash_media=False)
         self.assertIsNone(spec); self.assertTrue(any("owner approval" in x for x in pr))
 
@@ -170,6 +170,8 @@ class Thumb(Q):
         e["thumbnail_review"] = {"result": "FAIL", "sha256": e["thumbnail_review"]["sha256"]}
         self.assertTrue(any("thumbnail has no PASS" in x for x in P.check_entry(e, "approval", self.d, [], NOW, hash_media=False)[0]))
         e["thumbnail_review"] = {"result": "PASS", "sha256": P.sha256(os.path.join(P.ROOT, e["thumbnail"]))}
+        self.assertTrue(any("not visually approved" in x for x in P.check_entry(e, "approval", self.d, [], NOW, hash_media=False)[0]))
+        e["thumbnail_review"]["owner_approved"] = True
         self.assertFalse(any("thumbnail has no PASS" in x for x in P.check_entry(e, "approval", self.d, [], NOW, hash_media=False)[0]))
         e["thumbnail_review"]["sha256"] = "0" * 64
         self.assertTrue(any("thumbnail has no PASS" in x for x in P.check_entry(e, "approval", self.d, [], NOW, hash_media=False)[0]))
@@ -203,6 +205,45 @@ class RealChannel(unittest.TestCase):
         self.assertTrue(P.find_conflicts(e, same_clip, "none"))                    # same length + overlapping words
         self.assertEqual(P.find_conflicts(e, same_clip, "uploaded"), [])           # our own upload is fine
 
-    def test_open_issues_block_ep005(self):
-        pr = P.check_entry(copy.deepcopy(QUEUE[0]), "approval", tempfile.mkdtemp(), [], NOW, hash_media=False)[0]
+    def test_ep005_is_still_blocked_by_owner_gates(self):
+        pr = P.check_entry(copy.deepcopy(QUEUE[0]), "approval", tempfile.mkdtemp(), INV, NOW, hash_media=False)[0]
+        self.assertTrue(any("owner approval" in x for x in pr)); self.assertTrue(any("not visually approved" in x for x in pr))
+        self.assertTrue(any("media not staged" in x for x in pr)); self.assertFalse(any("open issue" in x for x in pr))
+
+
+class Decisions(unittest.TestCase):
+    def test_ep005_title_is_the_owner_choice_and_final(self):
+        e = QUEUE[0]
+        self.assertEqual(e["title"], "Saudi Arabia Promised a 170 km City. Here's What Satellites Show.")
+        self.assertEqual(e["title_status"], "final"); self.assertTrue(e["description"].startswith(e["title"]))
+        meta = json.load(open(os.path.join(P.ROOT, "publish", "assets", "ep005", "metadata.json")))
+        self.assertEqual(meta["title"], e["title"])
+        self.assertEqual(open(os.path.join(P.ROOT, "publish", "assets", "ep005", "description.txt")).read().strip(), e["description"])
+
+    def test_ep005_scene_ids_match_the_verified_provenance(self):
+        ids = json.load(open(os.path.join(P.ROOT, "publish", "assets", "ep005", "metadata.json")))["sentinel2_scenes"]
+        self.assertEqual(len(ids), 7)
+        for i in ids:
+            self.assertIn(i, QUEUE[0]["description"])
+        self.assertNotIn("20221009", QUEUE[0]["description"]); self.assertNotIn("20261018", QUEUE[0]["description"])
+
+    def test_ai_decision_for_ep002_short02_stays_open(self):
+        e = next(x for x in QUEUE if x["id"] == "short-02-ep002")
+        self.assertIsNone(e["contains_synthetic_media"]); self.assertEqual(e["ai_disclosure_status"], "PENDING_OWNER_REVIEW")
+        e2 = copy.deepcopy(e); e2["owner_approval"] = {"approved": True, "sha256": e2["media"]["sha256"], "publish_at": e2["publish_at"]}
+        pr = P.check_entry(e2, "autopilot", tempfile.mkdtemp(), INV, NOW, hash_media=False)[0]
         self.assertTrue(any("open issue" in x for x in pr))
+
+    def test_shorts_link_to_verified_long_videos_with_real_titles(self):
+        for e in QUEUE[1:]:
+            url, title, why = P.resolve_related(e, INV)
+            self.assertIsNone(why, e["id"]); self.assertNotIn("Dubai Islands'", e["description"]); self.assertNotIn("Satellites Reveal Why", e["description"])
+            b = P.build_body({"kind": "short", "title": "t", "description": e["description"], "made_for_kids": False, "contains_synthetic_media": False,
+                              "related_long_url": url, "related_long_title": title})
+            self.assertIn(title, b["snippet"]["description"]); self.assertEqual(b["snippet"]["description"].count(url), 1)
+
+    def test_wrong_related_id_or_title_is_refused(self):
+        e = copy.deepcopy(QUEUE[1]); e["related"]["title"] = "Some other title"
+        self.assertIsNotNone(P.resolve_related(e, INV)[2])
+        e["related"] = {"video_id": "Si5BEK3aQDw"}                      # a Short, not a long video
+        self.assertIsNotNone(P.resolve_related(e, INV)[2])
