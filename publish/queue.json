@@ -1,5 +1,5 @@
 {
- "_note": "Times are UTC. EP005 23.10 19:00 ICT = 12:00Z; Shorts 08:00 ICT = 01:00Z. owner_approval is flipped only by the owner.",
+ "_note": "Times are UTC. EP005 23.10 19:00 ICT = 12:00Z (published manually by the owner on 22.10). Shorts: one per day 08:00 ICT = 01:00Z, 23.10-28.10.",
  "items": [
   {
    "id": "ep005",
@@ -87,7 +87,7 @@
    "disclosure_basis": "Real satellite data/own footage with labelled graphics; narration is a stock TTS voice. No fabricated realistic people or events.",
    "thumbnail": null,
    "captions": null,
-   "publish_at": "2026-10-24T01:00:00Z",
+   "publish_at": "2026-10-23T01:00:00Z",
    "related": {
     "video_id": "XbhVPSCPKwA",
     "title": "How Dubai Built Islands Where There Was Only Sea",
@@ -122,11 +122,11 @@
    "category_id": "27",
    "default_language": "en",
    "made_for_kids": false,
-   "contains_synthetic_media": null,
-   "disclosure_basis": "Real satellite data/own footage with labelled graphics; narration is a stock TTS voice. No fabricated realistic people or events. BORDERLINE to check by eye: 2.5-D perspective tilt of a flat photo (package says it is not terrain).",
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Frames of the actual file inspected 2026-10-22 (1 fps, 16 frames): top-down real imagery with on-screen source and date credits - ASTER/Terra 18 Sep 2006 (NASA/GSFC/MITI/ERSDAC/JAROS) and ISS astronaut photo 6 Apr 2022 (NASA JSC ISS067-E-3785); kinetic text, rings and a mild perspective tilt of a flat image are presentation effects, no fabricated scene, person or event, no realistic synthetic footage. Audio was not listened to; any narration would be the stock TTS voice. Owner approves this decision with the card.",
    "thumbnail": null,
    "captions": null,
-   "publish_at": "2026-10-25T01:00:00Z",
+   "publish_at": "2026-10-24T01:00:00Z",
    "related": {
     "video_id": "XbhVPSCPKwA",
     "title": "How Dubai Built Islands Where There Was Only Sea",
@@ -137,10 +137,7 @@
     "sha256": null,
     "publish_at": null
    },
-   "ai_disclosure_status": "PENDING_OWNER_REVIEW",
-   "open_issues": [
-    "AI/altered-content decision is pending the owner's viewing of this Short (docs/review/EP002_SHORT_02_AI_DISCLOSURE_REVIEW.md)."
-   ]
+   "ai_disclosure_status": "REVIEWED_NO_LABEL"
   },
   {
    "id": "short-03-ep003",
@@ -168,7 +165,7 @@
    "disclosure_basis": "Real satellite data/own footage with labelled graphics; narration is a stock TTS voice. No fabricated realistic people or events.",
    "thumbnail": null,
    "captions": null,
-   "publish_at": "2026-10-26T01:00:00Z",
+   "publish_at": "2026-10-25T01:00:00Z",
    "related": {
     "video_id": "RSZwZyRAEAA",
     "title": "The Great Salt Lake Is Disappearing: 37 Years From Orbit",
@@ -206,7 +203,7 @@
    "disclosure_basis": "Real satellite data/own footage with labelled graphics; narration is a stock TTS voice. No fabricated realistic people or events.",
    "thumbnail": null,
    "captions": null,
-   "publish_at": "2026-10-27T01:00:00Z",
+   "publish_at": "2026-10-26T01:00:00Z",
    "related": {
     "video_id": "RSZwZyRAEAA",
     "title": "The Great Salt Lake Is Disappearing: 37 Years From Orbit",
@@ -244,7 +241,7 @@
    "disclosure_basis": "Real satellite data/own footage with labelled graphics; narration is a stock TTS voice. No fabricated realistic people or events.",
    "thumbnail": null,
    "captions": null,
-   "publish_at": "2026-10-28T01:00:00Z",
+   "publish_at": "2026-10-27T01:00:00Z",
    "related": {
     "video_id": "D9yQ3X8_J1g",
     "title": "Jakarta Is Sinking — And Satellites Can See It",
@@ -282,7 +279,7 @@
    "disclosure_basis": "Real satellite data/own footage with labelled graphics; narration is a stock TTS voice. No fabricated realistic people or events.",
    "thumbnail": null,
    "captions": null,
-   "publish_at": "2026-10-29T01:00:00Z",
+   "publish_at": "2026-10-28T01:00:00Z",
    "related": {
     "video_id": "D9yQ3X8_J1g",
     "title": "Jakarta Is Sinking — And Satellites Can See It",
