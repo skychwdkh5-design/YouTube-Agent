@@ -1,5 +1,10 @@
 name: Stage media (LFS -> draft release)
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      data_commit:
+        description: Optional full sha on publish-data whose publish/media.json should be staged (default - this repository's main)
+        required: false
 permissions:
   contents: write          # create/edit the DRAFT release; nothing is published
 concurrency:
@@ -11,7 +16,17 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
-      - name: Stage files listed in publish/media.json (skips what is already in the release)
+      - name: Stage files listed in the media manifest (skips what is already in the release)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 .claude/skills/yt-publish/media.py stage --manifest publish/media.json
+          DATA_COMMIT: ${{ inputs.data_commit }}
+        run: |
+          MANIFEST=publish/media.json
+          if [ -n "$DATA_COMMIT" ]; then
+            case "$DATA_COMMIT" in (*[!0-9a-f]*) echo "bad commit"; exit 1;; esac
+            git fetch -q origin publish-data:refs/remotes/origin/publish-data
+            git fetch -q origin "$DATA_COMMIT"
+            git merge-base --is-ancestor "$DATA_COMMIT" refs/remotes/origin/publish-data
+            git show "$DATA_COMMIT:publish/media.json" > /tmp/media.json; MANIFEST=/tmp/media.json
+          fi
+          python3 .claude/skills/yt-publish/media.py stage --manifest "$MANIFEST"

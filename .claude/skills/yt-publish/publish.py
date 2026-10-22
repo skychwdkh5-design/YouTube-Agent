@@ -30,9 +30,13 @@ TOKEN_URL = "https://oauth2.googleapis.com/token"
 DEVICE_URL = "https://oauth2.googleapis.com/device/code"
 API = "https://www.googleapis.com/youtube/v3"
 UPLOAD = "https://www.googleapis.com/upload/youtube/v3/videos"
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import approval as A  # noqa: E402
+
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+DATA_ROOT = os.environ.get("YT_DATA_ROOT", ROOT)      # queue, assets and approvals may live on a separate data branch
 LEDGER = os.environ.get("YT_LEDGER", os.path.join(ROOT, "publish", "ledger.jsonl"))
-QUEUE = os.path.join(ROOT, "publish", "queue.json")
+QUEUE = os.path.join(DATA_ROOT, "publish", "queue.json")
 UP = "https://www.googleapis.com/upload/youtube/v3"
 CHUNK = 8 * 1024 * 1024                              # multiple of 256 KiB, as the resumable protocol requires
 UA = "YouTube-Agent-yt-publish/1.0"
@@ -478,7 +482,7 @@ def cmd_upload(a):
 TEST_PREFIX = "[PRIVATE TEST] "
 
 REQUIRED = ("id", "mode", "kind", "media", "title", "title_status", "description", "made_for_kids",
-            "contains_synthetic_media", "publish_at", "owner_approval")
+            "contains_synthetic_media", "publish_at")
 
 
 def load_queue(path=None):
@@ -548,18 +552,19 @@ def check_entry(e, mode, media_dir, inv, now=None, hash_media=True):
     miss = [k for k in REQUIRED if k not in e]
     if miss:
         return [f"missing fields: {miss}"], None
+    chat = mode == "chat"                # chat-approved: the verified approval record replaces owner_approval; the caller has verified it
     test = mode == "private_test"        # PRIVATE_TEST: private, no schedule, only entries the owner flagged; owner_approval is not used or changed
     if e.get("open_issues"):
         pr += [f"open issue: {x}" for x in e["open_issues"]]
     if test:
         if e.get("private_test_allowed") is not True:
             pr.append("this entry is not cleared for a private test upload (private_test_allowed)")
-    elif e["mode"] != mode:
+    elif e["mode"] != mode and not chat:
         pr.append(f"entry is mode '{e['mode']}', this run is '{mode}'")
     if e["title_status"] != "final" and not test:
         pr.append("title is not final (owner has not chosen it)")
-    ap, med = e["owner_approval"], e["media"]
-    if not test and not (ap.get("approved") is True and ap.get("sha256") == med["sha256"] and ap.get("publish_at") == e["publish_at"]):
+    ap, med = e.get("owner_approval") or {}, e["media"]
+    if not test and not chat and not (ap.get("approved") is True and ap.get("sha256") == med["sha256"] and ap.get("publish_at") == e["publish_at"]):
         pr.append("no matching owner approval (approved=true with this file's sha256 and this publish_at)")
     path = os.path.join(media_dir, med["asset"])
     if not os.path.isfile(path):
@@ -567,14 +572,14 @@ def check_entry(e, mode, media_dir, inv, now=None, hash_media=True):
     elif hash_media and sha256(path) != med["sha256"]:
         pr.append("media sha256 differs from the approved one")
     if e["kind"] == "long" and e.get("thumbnail") and not test:
-        tf, rv = os.path.join(ROOT, e["thumbnail"]), e.get("thumbnail_review") or {}
+        tf, rv = os.path.join(DATA_ROOT, e["thumbnail"]), e.get("thumbnail_review") or {}
         if not (rv.get("result") == "PASS" and os.path.isfile(tf) and rv.get("sha256") == sha256(tf)):
             pr.append("thumbnail has no PASS review for this exact file (docs/THUMBNAIL_STYLE_GUIDE.md section 5)")
-        elif rv.get("owner_approved") is not True:
+        elif rv.get("owner_approved") is not True and not chat:
             pr.append("owner has not visually approved the thumbnail yet")
     for k in ("thumbnail", "captions"):
         f = (e.get(k) or {}).get("file") if k == "captions" else e.get(k)
-        if f and not os.path.isfile(os.path.join(ROOT, f)):
+        if f and not os.path.isfile(os.path.join(DATA_ROOT, f)):
             pr.append(f"{k} file missing: {f}")
     if inv is not None:
         key = "private_test:" + med["sha256"] if test else med["sha256"]
@@ -617,12 +622,12 @@ def run_entry(e, spec, inv, token):
         raise PublishError("an earlier upload of this file was interrupted - reconcile first")
     vid = st["video_id"]
     if e.get("thumbnail") and "thumbnail_set" not in st["done"]:
-        set_thumbnail(vid, os.path.join(ROOT, e["thumbnail"]), token)
+        set_thumbnail(vid, os.path.join(DATA_ROOT, e["thumbnail"]), token)
         ledger_add({"event": "thumbnail_set", "sha256": sha, "id": e["id"], "video_id": vid})
         steps.append("thumbnail")
     cap = e.get("captions")
     if cap and "captions_set" not in st["done"]:
-        insert_caption(vid, os.path.join(ROOT, cap["file"]), cap.get("language", "en"), cap.get("name", "English"), token)
+        insert_caption(vid, os.path.join(DATA_ROOT, cap["file"]), cap.get("language", "en"), cap.get("name", "English"), token)
         ledger_add({"event": "captions_set", "sha256": sha, "id": e["id"], "video_id": vid})
         steps.append("captions")
     real = video_status(vid, token)
@@ -690,6 +695,10 @@ def auto_reconcile(inv, abandon_after_s=7200):
 
 def cmd_queue_run(a):
     items = load_queue(a.queue)
+    rec = None
+    if a.mode == "chat":
+        rec = _verify_chat_approval(a, items)
+        a.ids = ",".join(i["id"] for i in rec["items"])
     want = None if a.ids == "all" else set(a.ids.split(","))
     if a.mode == "private_test" and (want is None or len(want) != 1):
         raise PublishError("private_test uploads exactly one named entry: --ids <id>")
@@ -702,13 +711,13 @@ def cmd_queue_run(a):
         if ch["id"] != doc.get("expected_channel_id"):
             raise PublishError(f"token belongs to channel {ch['id']} ({ch['snippet'].get('customUrl')}), queue expects {doc.get('expected_channel_id')} - nothing was sent")
     inv = None if a.offline else inventory()
-    if a.mode == "private_test" and inv is None:
-        raise PublishError("private_test needs the live channel inventory (do not use --offline)")
+    if a.mode in ("private_test", "chat") and inv is None:
+        raise PublishError(f"{a.mode} needs the live channel inventory (do not use --offline)")
     actions = auto_reconcile(inv) if (inv is not None and a.confirm and a.mode != "private_test") else []
     token = access_token() if a.confirm else None
     out = []
     for e in sorted(items, key=lambda x: x.get("publish_at", "")):
-        if a.mode != "private_test" and e.get("mode") != a.mode:
+        if a.mode not in ("private_test", "chat") and e.get("mode") != a.mode:
             out.append({"id": e["id"], "status": "skipped", "why": f"mode {e.get('mode')} != {a.mode}"})
             continue
         problems, spec = check_entry(e, a.mode, a.media_dir, inv, hash_media=True)
@@ -723,7 +732,29 @@ def cmd_queue_run(a):
             except PublishError as ex:
                 ledger_add({"event": "error", "sha256": ("private_test:" if a.mode == "private_test" else "") + e["media"]["sha256"], "id": e["id"], "message": redact(ex)[:300]})
                 out.append({"id": e["id"], "status": "error", "error": redact(ex)})
-    return {"dry_run": not a.confirm, "reconcile": actions, "items": out}
+    if rec and a.confirm and out and all(o.get("status") == "done" and o.get("verified_scheduled") for o in out) and len(out) == len(rec["items"]):
+        ledger_add({"event": "approval_done", "approval_id": rec["approval_id"], "ids": [i["id"] for i in rec["items"]]})
+    return {"dry_run": not a.confirm, "approval_id": rec["approval_id"] if rec else None, "reconcile": actions, "items": out}
+
+
+def _verify_chat_approval(a, items):
+    if not a.approval or not a.manifest:
+        raise PublishError("chat mode needs --approval and --manifest")
+    rec = json.load(open(a.approval))
+    ledger = ledger_read()
+    probs = A.verify_record(rec, items, json.load(open(a.manifest)), DATA_ROOT, ledger)
+    secret = os.environ.get("APPROVAL_TOTP_SECRET")
+    if secret and a.confirm:                      # optional proof that the owner was present (opt-in by setting the secret)
+        step, why = A.totp_check(secret, os.environ.get("APPROVAL_TOTP_CODE", ""), datetime.now(timezone.utc), ledger)
+        if why:
+            probs.append(why)
+        else:
+            ledger_add({"event": "totp_used", "step": step, "approval_id": rec.get("approval_id")})
+    if probs:
+        raise PublishError("approval refused: " + "; ".join(probs))
+    if a.confirm:
+        ledger_add({"event": "approval_started", "approval_id": rec["approval_id"], "ids": [i["id"] for i in rec["items"]]})
+    return rec
 
 
 def cmd_reconcile(a):
@@ -748,9 +779,10 @@ def main(argv=None):
     sub.add_parser("inventory")
     sub.add_parser("reconcile").add_argument("--abandon", action="store_true", help="abandon stale 'started' records at once")
     q = sub.add_parser("queue-run")
-    q.add_argument("--queue", default=QUEUE); q.add_argument("--mode", required=True, choices=["approval", "autopilot", "private_test"])
+    q.add_argument("--queue", default=QUEUE); q.add_argument("--mode", required=True, choices=["approval", "autopilot", "private_test", "chat"])
     q.add_argument("--ids", required=True); q.add_argument("--media-dir", required=True)
     q.add_argument("--confirm", action="store_true"); q.add_argument("--offline", action="store_true")
+    q.add_argument("--approval"); q.add_argument("--manifest")
     a = p.parse_args(argv)
     try:
         out = {"auth": cmd_auth, "channel": cmd_channel, "plan": cmd_plan, "upload": cmd_upload, "status": cmd_status, "ledger": cmd_ledger,

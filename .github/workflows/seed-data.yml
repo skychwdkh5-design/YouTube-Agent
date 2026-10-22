@@ -1,0 +1,22 @@
+name: Seed publish-data branch (one-time)
+# Creates the data branch (queue, media manifest, assets, approvals) from main's publish/ folder. Does nothing if it already exists.
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create publish-data from publish/
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if git ls-remote --exit-code --heads origin publish-data >/dev/null 2>&1; then echo "publish-data already exists - nothing to do"; exit 0; fi
+          mkdir /tmp/seed && cp -r publish /tmp/seed/publish && rm -f /tmp/seed/publish/ledger.jsonl
+          mkdir -p /tmp/seed/publish/approvals && touch /tmp/seed/publish/approvals/.gitkeep
+          cd /tmp/seed && git init -q -b publish-data
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "seed publish-data from main"
+          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push -q origin publish-data
