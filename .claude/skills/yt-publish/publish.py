@@ -514,6 +514,10 @@ def check_entry(e, mode, media_dir, inv, now=None, hash_media=True):
         pr.append(f"media not staged: {med['asset']}")
     elif hash_media and sha256(path) != med["sha256"]:
         pr.append("media sha256 differs from the approved one")
+    if e["kind"] == "long" and e.get("thumbnail"):
+        tf, rv = os.path.join(ROOT, e["thumbnail"]), e.get("thumbnail_review") or {}
+        if not (rv.get("result") == "PASS" and os.path.isfile(tf) and rv.get("sha256") == sha256(tf)):
+            pr.append("thumbnail has no PASS review for this exact file (docs/THUMBNAIL_STYLE_GUIDE.md section 5)")
     for k in ("thumbnail", "captions"):
         f = (e.get(k) or {}).get("file") if k == "captions" else e.get(k)
         if f and not os.path.isfile(os.path.join(ROOT, f)):

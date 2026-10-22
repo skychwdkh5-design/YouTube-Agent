@@ -191,3 +191,6 @@ productions keep their manifests and QC results.
   without `--overwrite`.
 - Credentials come from the environment only and are never printed.
 - No fabricated evidence or timings: missing data is reported, not guessed.
+
+## Thumbnail gate (long-form)
+No long episode is approved or uploaded with a cover that has not passed `docs/THUMBNAIL_STYLE_GUIDE.md` section 5: `thumbcheck.py` plus a visual comparison with the approved EP002/EP003/EP004 covers. A deviating cover is FAIL and is redone first. `publish/queue.json` enforces it through `thumbnail_review`.

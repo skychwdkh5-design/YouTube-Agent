@@ -35,7 +35,7 @@ python3 title.py titles.txt            # one per line, ranked
   reported because they fail differently: a desktop cut loses the tail, a mobile cut can lose the
   subject.
 - **The thumbnail must not repeat the title.** Different words, same promise.
-- **Three words maximum on the thumbnail.** At feed size a fourth word is a grey smear.
+- **3-7 words, uppercase, on the thumbnail** (channel standard, `docs/THUMBNAIL_STYLE_GUIDE.md`; it overrides any shorter limit). Style, contrast and the pre-publish gate come from that guide; run `thumbcheck.py`.
 - **A number, a name or a date** beats every adjective available to you.
 - **Two all-caps words is the ceiling** before a title reads as spam.
 

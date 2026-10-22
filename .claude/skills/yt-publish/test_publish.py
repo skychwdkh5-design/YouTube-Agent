@@ -161,3 +161,14 @@ class Q(unittest.TestCase):
         a = {"state": "uploaded", "size": 5, "digest": "sha256:ab"}
         self.assertTrue(M.asset_ok(a, 5, "ab")); self.assertFalse(M.asset_ok(a, 6, "ab")); self.assertFalse(M.asset_ok({**a, "state": "starter"}, 5, "ab"))
         self.assertTrue(all(f["size"] > 0 and len(f["sha256"]) == 64 for f in MEDIA["files"]))
+
+
+class Thumb(Q):
+    def test_long_cover_needs_pass_review_for_exact_file(self):
+        e = copy.deepcopy(QUEUE[0]); self.assertEqual(e["thumbnail_review"]["result"], "FAIL")
+        pr = P.check_entry(e, "approval", self.d, [], NOW, hash_media=False)[0]
+        self.assertTrue(any("thumbnail has no PASS" in x for x in pr))
+        e["thumbnail_review"] = {"result": "PASS", "sha256": P.sha256(os.path.join(P.ROOT, e["thumbnail"]))}
+        self.assertFalse(any("thumbnail has no PASS" in x for x in P.check_entry(e, "approval", self.d, [], NOW, hash_media=False)[0]))
+        e["thumbnail_review"]["sha256"] = "0" * 64
+        self.assertTrue(any("thumbnail has no PASS" in x for x in P.check_entry(e, "approval", self.d, [], NOW, hash_media=False)[0]))

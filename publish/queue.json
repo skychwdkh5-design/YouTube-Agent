@@ -50,6 +50,11 @@
     "approved": false,
     "sha256": null,
     "publish_at": null
+   },
+   "thumbnail_review": {
+    "result": "FAIL",
+    "sha256": "37f2274b5cd05ec59b157539841954eadd8eedf743818c9550cb21febcd0d9ad",
+    "note": "First EP005 cover: beige/low contrast (luma std 44.5 < 50), tiny subject. Replace with a new cover in the channel style."
    }
   },
   {
