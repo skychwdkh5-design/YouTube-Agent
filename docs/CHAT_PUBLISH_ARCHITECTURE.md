@@ -48,6 +48,13 @@ captions sha256) and `entry_hash` (= content + time). The workflow recomputes th
 
 Existing videos are never edited; no step makes anything public immediately.
 
+### Binding to the last card, test approvals
+
+Every card Claude shows is logged to `publish/cards.jsonl` on `publish-data` (id, code, entry hash, time shown). An approval is accepted only if the **last** card logged for that release carries the same
+code and hash, was shown before the approval was written, and the approval names that card code. The label of a long video's approval must be its own id; quotes that are long, multi-line, formatted or contain links are
+refused (that is what pasted documents, logs and tool output look like). Test approvals (`consent_channel: e2e-test`, `dry_run_only: true`) verify in dry runs and are refused by any real run.
+Dry runs run even with the kill switch off (they send nothing to YouTube); real runs need `CHAT_PUBLISH_ENABLED=true`, checked twice.
+
 ## 4. The honest limit and how it is contained
 
 Chat messages are not signed. Without an Environment review nothing *technical* separates "the owner said yes" from "Claude says the owner said yes":

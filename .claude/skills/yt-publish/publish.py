@@ -737,12 +737,14 @@ def cmd_queue_run(a):
     return {"dry_run": not a.confirm, "approval_id": rec["approval_id"] if rec else None, "reconcile": actions, "items": out}
 
 
-def _verify_chat_approval(a, items):
+def _verify_chat_approval(a, items, real=None):
     if not a.approval or not a.manifest:
         raise PublishError("chat mode needs --approval and --manifest")
     rec = json.load(open(a.approval))
     ledger = ledger_read()
-    probs = A.verify_record(rec, items, json.load(open(a.manifest)), DATA_ROOT, ledger)
+    cp = os.path.join(DATA_ROOT, "publish", "cards.jsonl")
+    cards = [json.loads(x) for x in open(cp) if x.strip()] if os.path.exists(cp) else []
+    probs = A.verify_record(rec, items, json.load(open(a.manifest)), DATA_ROOT, ledger, cards=cards, real=a.confirm if real is None else real)
     secret = os.environ.get("APPROVAL_TOTP_SECRET")
     if secret and a.confirm:                      # optional proof that the owner was present (opt-in by setting the secret)
         step, why = A.totp_check(secret, os.environ.get("APPROVAL_TOTP_CODE", ""), datetime.now(timezone.utc), ledger)
@@ -755,6 +757,20 @@ def _verify_chat_approval(a, items):
     if a.confirm:
         ledger_add({"event": "approval_started", "approval_id": rec["approval_id"], "ids": [i["id"] for i in rec["items"]]})
     return rec
+
+
+def cmd_chat_verify(a):
+    """Offline check of an approval record against the pinned data (no network, no ledger writes). Prints the files to fetch."""
+    items = load_queue(a.queue)
+    rec = _verify_chat_approval(argparse_ns(a, confirm=False), items, real=a.real)
+    by_id = {e["id"]: e for e in items}
+    return {"ok": True, "approval_id": rec["approval_id"], "scope": rec["scope"], "dry_run_only": rec.get("dry_run_only", False),
+            "ids": [i["id"] for i in rec["items"]], "assets": [by_id[i["id"]]["media"]["asset"] for i in rec["items"]]}
+
+
+def argparse_ns(a, **kw):
+    import argparse as _ap
+    return _ap.Namespace(**{**vars(a), **kw})
 
 
 def cmd_reconcile(a):
@@ -777,6 +793,8 @@ def main(argv=None):
             s.add_argument("--confirm", action="store_true"); s.add_argument("--approve-visibility", action="store_true"); s.add_argument("--force-duplicate", action="store_true")
     sub.add_parser("status").add_argument("--video-id", required=True)
     sub.add_parser("inventory")
+    cv = sub.add_parser("chat-verify")
+    cv.add_argument("--queue", default=QUEUE); cv.add_argument("--approval", required=True); cv.add_argument("--manifest", required=True); cv.add_argument("--real", action="store_true")
     sub.add_parser("reconcile").add_argument("--abandon", action="store_true", help="abandon stale 'started' records at once")
     q = sub.add_parser("queue-run")
     q.add_argument("--queue", default=QUEUE); q.add_argument("--mode", required=True, choices=["approval", "autopilot", "private_test", "chat"])
@@ -786,7 +804,7 @@ def main(argv=None):
     a = p.parse_args(argv)
     try:
         out = {"auth": cmd_auth, "channel": cmd_channel, "plan": cmd_plan, "upload": cmd_upload, "status": cmd_status, "ledger": cmd_ledger,
-               "inventory": cmd_inventory, "queue-run": cmd_queue_run, "reconcile": cmd_reconcile}[a.cmd](a)
+               "inventory": cmd_inventory, "queue-run": cmd_queue_run, "reconcile": cmd_reconcile, "chat-verify": cmd_chat_verify}[a.cmd](a)
         print(json.dumps(out, indent=2, ensure_ascii=False))
         return 0
     except PublishError as e:
