@@ -6,7 +6,8 @@
 Prints JSON per file: metrics, rule results and PASS/FAIL. It checks only what a script can measure (size, saturation, contrast,
 white headline mass, yellow accent). Similarity to the approved covers, one focus, true-to-content and phone legibility are
 judged by Claude against the guide and recorded in the review - a script PASS is necessary, never sufficient.
-Thresholds were calibrated on the approved covers EP002, EP003, EP004 (see the guide).
+Thresholds were calibrated on the four PUBLISHED covers (Sahara, Dubai, Great Salt Lake, Jakarta; docs/assets/thumbnail-reference/):
+saturation 0.46-0.58, luma std 64-73, white 3.3-6.8%, yellow 4.1-7.7%.
 """
 import colorsys, json, os, sys
 from PIL import Image, ImageStat
@@ -29,11 +30,11 @@ def metrics(path):
 
 
 def check(m):
-    r = {"is_1280x720": m["size"] == (1280, 720), "under_2MB": m["bytes"] <= MAX_BYTES,
-         "strong_contrast(luma_std>=50)": m["luma_std"] >= 50,
-         "not_washed_out(sat>=0.25 or luma_std>=55)": m["mean_saturation"] >= 0.25 or m["luma_std"] >= 55,
-         "white_headline_mass(>=3%)": m["white_share"] >= 0.03, "yellow_accent(>=0.4%)": m["yellow_share"] >= 0.004}
-    return r
+    return {"is_1280x720": m["size"] == (1280, 720), "under_2MB": m["bytes"] <= MAX_BYTES,
+            "strong_contrast(luma_std>=58)": m["luma_std"] >= 58,
+            "saturated(mean_saturation>=0.40)": m["mean_saturation"] >= 0.40,
+            "white_headline_mass(>=2.5%)": m["white_share"] >= 0.025,
+            "yellow_accent(>=2.5%)": m["yellow_share"] >= 0.025}
 
 
 def main(argv):

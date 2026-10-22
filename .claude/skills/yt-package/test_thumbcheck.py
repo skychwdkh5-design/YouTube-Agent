@@ -23,3 +23,12 @@ class TC(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Calibration(unittest.TestCase):
+    def test_published_references_pass_everything_but_size(self):
+        ref = os.path.join(os.path.dirname(__file__), "..", "..", "..", "docs", "assets", "thumbnail-reference")
+        names = sorted(os.listdir(ref)); self.assertEqual(len(names), 4)
+        for n in names:
+            r = T.check(T.metrics(os.path.join(ref, n))); r.pop("is_1280x720")
+            self.assertTrue(all(r.values()), (n, r))

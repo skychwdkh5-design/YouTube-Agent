@@ -1,53 +1,55 @@
 # OrbitalAtlas thumbnail style guide (standard for every long-form episode)
 
 Status: permanent. A cover that visibly departs from this guide is **FAIL** and is revised before approval.
-Reference covers (approved): **EP002 Dubai**, **EP003 Great Salt Lake**, **EP004 Jakarta**.
-Counter-example: the first EP005 cover (beige, low contrast, tiny subject) - it is what we do NOT make.
+Reference set = the four covers published on the channel (screenshots in `docs/assets/thumbnail-reference/`):
+**EP001 The Sahara Is Changing**, **EP002 Built From Nothing (Dubai)**, **EP003 20 Feet Lower (Great Salt Lake)**, **EP004 Jakarta Is Sinking**.
+The earlier flat, dark draft covers kept in some branches are NOT the style. The first EP005 cover (beige, low contrast, tiny subject) is the counter-example.
 
-## 1. What the approved covers share
+## 1. What the four published covers share
 
-| | EP002 Dubai | EP003 Great Salt Lake | EP004 Jakarta |
-|---|---|---|---|
-| Layout | split screen, amber divider | diagonal split, white divider | one frame, headline stacked left |
-| Hook | **3 YEARS** | **20 FEET LOWER** | **JAKARTA IS SINKING** |
-| Years / sub | NOV 2000 (white) / NOV 2003 (amber) | 1986 (white) / 2022 (amber) | WHAT RADAR CAN'T SEE (dark strip) |
-| Image | dark blue sea, false-colour red vegetation, white island | dark teal lake vs pale lake bed | dark blue sea, grey port city |
-| Extra | - | amber outline of the lost area | - |
-| Credit | small bottom strip | small bottom-right | small bottom strip |
+| | Sahara | Dubai | Great Salt Lake | Jakarta |
+|---|---|---|---|---|
+| Headline | THE **SAHARA** / IS CHANGING | BUILT FROM **NOTHING** | 20 FEET **LOWER** | JAKARTA / **IS SINKING** |
+| Image | Earth from orbit, gold desert, green circles | before beach | after island | glowing flooded skyline |
+| Change device | 1984 -> 2024 badges + white curved arrow | thin white divider + yellow arrow | white divider + red arrow | red/yellow subsidence heat map |
+| Extra | satellite in corner | red DUBAI ribbon, "3 YEARS" badge | red underline stroke | satellite + radar beam |
 
-The DNA: real satellite imagery, **dark and saturated** backdrop so white text pops, a heavy sans-serif headline in capitals with a thick black
-outline, **one amber accent** (#FFC245), one focal object, a tiny credit line. Measured: luma contrast (std) 56-68, mean saturation 0.17-0.44.
+The DNA (measured on the four: saturation 0.46-0.58, luma contrast 64-73, white 3-7%, yellow 4-8% of the frame):
+- **Big YouTube documentary look**: glossy, hyper-saturated, high-contrast, golden-hour or deep-ocean colour, a glow around the hero.
+- **Headline on top 25-35%**, two lines or one, condensed heavy display capitals (Anton / Impact family), **white + yellow/gold** (the key word is yellow), thick black outline and drop shadow.
+- **One hero visual** from real satellite/aerial data, enhanced: Earth-from-orbit view, before | after split, or a data overlay (heat map). One clear arrow or divider shows the change.
+- Small support badges only: years (dark rounded badge), one short label, one ribbon, a satellite icon.
+- Reads in one glance at phone size; the picture explains the hook even without the title.
 
 ## 2. Specification
 
-- 1280x720 PNG/JPG, under 2 MB. Safe margin 48 px. Must read at 168x94 px (phone feed) in one glance.
-- Headline: **3-7 words, uppercase**, heavy/black sans-serif (Inter Black / DejaVu Sans Bold or heavier), 90-170 px cap height, black outline 6-8 px plus soft shadow.
-- Colours: white #FFFFFF = main words; amber #FFC245 = the one key accent (a number, a year, the key word); red #E5322D only for a real warning accent, at most one element; dark sub-strip #050A10 at ~85% for a secondary line; never grey text.
-- One focus: one object or one change (island, lake edge, port, the dark segment). One message, readable without the title.
-- Allowed helpers: before/after split with year labels, amber outline of the changed area, one arrow, one scale/number marker, one dark strip subline.
-- Imagery: real satellite/aerial data only, graded darker and more saturated (never inventing detail); credit line stays small but present.
-- Must not: grey or beige washed-out frames, low contrast, long phrases, small text, clutter (more than one focus), news-banner look, infographic look, film-poster look, clean minimalism, stock "shocked face", any claim the video does not support.
+- 1280x720, under 2 MB, safe margin 48 px; must read at 168x94 px.
+- Headline 2-7 words (3-7 incl. badges), UPPERCASE, heavy condensed sans, cap height at least 110 px, outline 6-10 px + shadow. White main, **yellow/gold #FFC245-#FFD21E accent on the key word**. Red (#E5322D) only for an alarm accent: arrow, underline or ribbon, never body text. Never grey text.
+- Grade: saturated and bright-contrasty (target saturation >= 0.45, luma std >= 60). No grey, beige, washed-out or hazy frames.
+- One focus + one message. Max one arrow, one divider/split, up to two small badges.
+- Real data only: enhancement (grade, glow, 3D globe, heat-map styling, framing) is allowed; **inventing structures, events or numbers is not**. The hero must be the real pixels the video shows, and the headline must not claim more than the video's evidence (e.g. never "built" or "failed" if the video says "cannot tell").
+- Must not: grey/beige, low contrast, long phrases, small text, clutter, news-banner, infographic, film-poster, clean minimalism, shocked faces, stock art.
 
-## 3. Archetypes (pick one, stay inside it)
+## 3. Archetypes (stay inside one)
 
-- **A. Split change** - before | after, years top, 2-4 word headline bottom, amber outline of what changed. (EP002, EP003)
-- **B. Hero frame** - one dramatic frame, 2-line headline (white line + amber line) on the left, optional dark subline strip. (EP004)
-- **C. Zoom call-out** - dramatic frame with one amber ring/arrow on the single thing to look at, 3-5 word headline. (EP003 outline logic)
+- **A. Before | After split** - divider + arrow, two year badges, 2-4 word headline on top. (Dubai, Great Salt Lake)
+- **B. Orbit hero** - Earth/limb view or aerial hero with satellite, two-line headline on top, year badges, one arrow. (Sahara, Jakarta)
+- **C. Data overlay** - real image + styled overlay on the one thing that matters (heat map, ring, arrow), headline on top. (Jakarta)
 
-## 4. Per-cover checklist (every item must be YES)
+## 4. Per-cover checklist (all YES)
 
-1. Same family as EP002-EP004 (side by side they look like one channel)?
-2. States the hook at once, without the title?
-3. One focus?
+1. Side by side with the four published covers it looks like the same channel?
+2. States the hook at once without the title?
+3. One focus, one message?
 4. Legible at 168x94 px?
-5. Dark, saturated, high contrast (no grey/beige)?
-6. 3-7 words, uppercase, white + one amber accent?
-7. True to the video and its evidence (no implied "built/finished" that the video does not claim)?
+5. Saturated, glossy, high contrast (no grey/beige)?
+6. UPPERCASE heavy headline, white + one yellow word, outlined?
+7. True to the video's evidence (no invented content)?
 
 ## 5. Gate (pipeline rule)
 
 Before any long-form cover is approved or uploaded Claude must:
-1. Run `python3 .claude/skills/yt-package/thumbcheck.py cover.jpg` (size, contrast, saturation, white headline, amber accent). It is necessary, not sufficient.
-2. Look at the cover next to the EP002/EP003/EP004 covers and the phone-size crop, answer the checklist in section 4, and write the verdict in the episode's review file.
-3. Anything that fails either step is **FAIL**: revise, do not argue it through.
-4. In `publish/queue.json` a long episode carries `thumbnail_review: {"result": "PASS", "sha256": <sha256 of the thumbnail file>}`. `queue-run` refuses the upload when it is missing, not PASS, or the file changed after review. Only the owner approves; Claude's PASS is a precondition, not approval.
+1. Run `python3 .claude/skills/yt-package/thumbcheck.py cover.jpg` (1280x720, <2 MB, contrast, saturation, white headline, yellow accent). Necessary, not sufficient.
+2. View the cover next to the four reference covers and at phone size, answer section 4 and record the verdict in the episode review file.
+3. Any failure of either step is **FAIL**: revise, never argue it through.
+4. `publish/queue.json` carries `thumbnail_review: {"result": "PASS", "sha256": <sha256 of the cover file>}` for every long episode; `queue-run` refuses the upload otherwise or when the file changed after review. Claude's PASS is a precondition, not the owner's approval.
