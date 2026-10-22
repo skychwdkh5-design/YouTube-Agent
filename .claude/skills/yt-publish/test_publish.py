@@ -256,3 +256,68 @@ class CoverApproval(unittest.TestCase):
         self.assertEqual(rv["sha256"], P.sha256(os.path.join(P.ROOT, e["thumbnail"])))
         e["thumbnail_review"]["sha256"] = "0" * 64                      # file changed after approval -> blocked again
         self.assertTrue(any("thumbnail has no PASS" in x for x in P.check_entry(e, "approval", tempfile.mkdtemp(), [], NOW, hash_media=False)[0]))
+
+
+class PrivateTest(Q):
+    def pt_entry(self):
+        e = copy.deepcopy(next(x for x in QUEUE if x["id"] == "short-01-ep002"))
+        f = os.path.join(self.d, e["media"]["asset"])
+        with open(f, "wb") as fh:
+            fh.write(b"x")
+        e["media"]["sha256"] = P.sha256(f); e["related"] = None
+        return e
+
+    def test_only_short_01_is_cleared_and_owner_approval_is_untouched(self):
+        self.assertEqual([x["id"] for x in QUEUE if x.get("private_test_allowed")], ["short-01-ep002"])
+        for x in QUEUE:
+            if x["id"] != "short-01-ep002":
+                pr = P.check_entry(copy.deepcopy(x), "private_test", self.d, [], NOW, hash_media=False)[0]
+                self.assertTrue(any("not cleared" in y for y in pr), x["id"])
+        e = self.pt_entry(); before = copy.deepcopy(e["owner_approval"])
+        pr, spec = P.check_entry(e, "private_test", self.d, [], NOW)
+        self.assertEqual(pr, []); self.assertEqual(e["owner_approval"], before); self.assertIs(before["approved"], False)
+
+    def test_spec_is_private_unscheduled_and_marked_test(self):
+        pr, spec = P.check_entry(self.pt_entry(), "private_test", self.d, [], NOW)
+        body = P.build_body(spec)
+        self.assertEqual(body["status"]["privacyStatus"], "private"); self.assertNotIn("publishAt", body["status"])
+        self.assertTrue(body["snippet"]["title"].startswith("[PRIVATE TEST] ")); self.assertIs(body["status"]["selfDeclaredMadeForKids"], False)
+
+    def test_run_uploads_once_verifies_and_logs(self):
+        e = self.pt_entry(); spec = P.check_entry(e, "private_test", self.d, [], NOW)[1]
+        real = {"privacyStatus": "private", "publishAt": None, "uploadStatus": "uploaded", "processing": "processing", "madeForKids": False, "title": spec["title"]}
+        with mock.patch.object(P, "resumable_upload", return_value={"id": "TESTVID"}) as up, mock.patch.object(P, "video_status", return_value=real):
+            r1 = P.run_private_test(e, spec, [], "tok"); r2 = P.run_private_test(e, spec, [], "tok")
+        self.assertEqual(up.call_count, 1); self.assertTrue(r1["verified_private"]); self.assertEqual(r1["private_url"], "https://youtu.be/TESTVID")
+        ev = [r for r in P.ledger_read() if r.get("event") == "verified"][0]
+        for k in ("video_id", "file_sha256", "uploadStatus", "processingStatus", "privacyStatus", "notes"):
+            self.assertIn(k, ev)
+        self.assertEqual(ev["file_sha256"], e["media"]["sha256"]); self.assertEqual(P.ledger_state(e["media"]["sha256"])["state"], "none")   # real upload is not blocked
+
+    def test_undetermined_attempt_never_reuploads(self):
+        e = self.pt_entry(); spec = P.check_entry(e, "private_test", self.d, [], NOW)[1]
+        P.ledger_add({"event": "started", "sha256": "private_test:" + e["media"]["sha256"], "file_sha256": e["media"]["sha256"], "kind": "private_test"}, self.lp)
+        real = {"privacyStatus": "private", "publishAt": None, "uploadStatus": "processed", "processing": "succeeded"}
+        with mock.patch.object(P, "resumable_upload") as up, mock.patch.object(P, "video_status", return_value=real):
+            with self.assertRaises(P.PublishError):
+                P.run_private_test(e, spec, [], "tok")                                            # not on the channel: stop, do not upload
+            r = P.run_private_test(e, spec, [{"video_id": "FOUND", "title": spec["title"], "privacy": "private", "seconds": 15}], "tok")
+        up.assert_not_called(); self.assertEqual(r["video_id"], "FOUND")                          # found it first, adopted it
+
+    def test_visible_result_is_flagged(self):
+        e = self.pt_entry(); spec = P.check_entry(e, "private_test", self.d, [], NOW)[1]
+        with mock.patch.object(P, "resumable_upload", return_value={"id": "V"}), mock.patch.object(P, "video_status", return_value={"privacyStatus": "public", "uploadStatus": "uploaded"}):
+            self.assertFalse(P.run_private_test(e, spec, [], "tok")["verified_private"])
+
+    def test_needs_exactly_one_id_and_live_inventory(self):
+        import argparse
+        for ids in ("all", "short-01-ep002,short-02-ep002"):
+            with self.assertRaises(P.PublishError):
+                P.cmd_queue_run(argparse.Namespace(queue=P.QUEUE, mode="private_test", ids=ids, media_dir=self.d, confirm=False, offline=True))
+
+    def test_recorded_test_video_does_not_block_the_real_upload_later(self):
+        real_entry = copy.deepcopy(QUEUE[1])
+        twin = [{"video_id": "TESTVID", "title": "[PRIVATE TEST] " + real_entry["title"], "seconds": 15.0, "privacy": "private"}]
+        self.assertTrue(P.find_conflicts(real_entry, twin, "none"))
+        P.ledger_add({"event": "uploaded", "kind": "private_test", "video_id": "TESTVID", "sha256": "private_test:abc"}, self.lp)
+        self.assertEqual(P.find_conflicts(real_entry, twin, "none", P.test_video_ids()), [])

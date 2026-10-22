@@ -3,9 +3,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: approval (long episodes) or autopilot (pre-approved Shorts)
+        description: approval (long episodes), autopilot (pre-approved Shorts) or private_test (one private upload, no schedule)
         type: choice
-        options: [approval, autopilot]
+        options: [approval, autopilot, private_test]
         required: true
       ids:
         description: Queue ids, comma separated, or all
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     # Real runs wait for a required reviewer on the environment (create it in Settings -> Environments).
-    environment: ${{ inputs.dry_run && 'youtube-dryrun' || format('youtube-{0}', inputs.mode) }}
+    environment: ${{ inputs.dry_run && 'youtube-dryrun' || (inputs.mode == 'autopilot' && 'youtube-autopilot' || 'youtube-approval') }}
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
