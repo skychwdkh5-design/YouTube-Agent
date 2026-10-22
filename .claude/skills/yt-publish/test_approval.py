@@ -252,6 +252,7 @@ class Workflows(unittest.TestCase):
         t = self.read("publish-approved.yml")
         self.assertIn("vars.CHAT_PUBLISH_ENABLED == 'true' || inputs.dry_run", t); self.assertIn('test "$ENABLED" = "true"', t); self.assertIn("group: youtube-publish", t)
         self.assertLess(t.index("chat-verify"), t.index("media.py fetch")); self.assertIn('--names "$(cat assets.txt)"', t)
+        self.assertIn("shell: bash", t)                                        # pipefail, so `| tee` cannot hide a failure
         self.assertIn("github.repository_owner", t); self.assertIn("merge-base --is-ancestor", t)
         for line in t.splitlines():
             if line.strip().startswith(("run:", "python3", "git ", "test ")) or (line.startswith("          ") and "${{ inputs." in line and "env" not in line):

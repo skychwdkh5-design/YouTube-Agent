@@ -23,6 +23,9 @@ permissions:
 concurrency:
   group: youtube-publish   # shared with the gated workflow: one upload run at a time
   cancel-in-progress: false
+defaults:
+  run:
+    shell: bash        # bash -eo pipefail: a failing python step must not be masked by `| tee`
 jobs:
   publish:
     # kill switch: real runs need the repository variable CHAT_PUBLISH_ENABLED=true; dry runs (verify only, nothing sent to YouTube) always run
