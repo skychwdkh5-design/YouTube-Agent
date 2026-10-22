@@ -22,4 +22,5 @@ jobs:
           VIDEO_ID: ${{ inputs.video_id }}
         run: |
           python3 .claude/skills/yt-publish/publish.py channel
+          python3 .claude/skills/yt-publish/publish.py inventory
           if [ -n "$VIDEO_ID" ]; then python3 .claude/skills/yt-publish/publish.py status --video-id "$VIDEO_ID"; fi

@@ -28,8 +28,24 @@ The public API has no field for the Shorts "Related video" link. Tool-side subst
 in a Short's spec adds "Full video: <url>" to its description. The real Related-video link is set by hand in
 YouTube Studio: Content -> Shorts -> the Short -> Details -> Related video -> pick the long video.
 
+## Automation (queue)
+`publish/queue.json` lists every planned video (7 now); `publish/media.json` lists the MP4s and their sha256.
+- `stage-media` workflow: LFS branch -> DRAFT release (public repo: drafts are not public), sha256 checked.
+- `publish` workflow (manual only, no schedule): `mode` approval (long episodes) or autopilot (pre-approved Shorts);
+  dry run by default; a real run needs `UPLOAD <mode>` typed in, the repo owner as actor, and the
+  environment reviewer (`youtube-approval` / `youtube-autopilot`) to approve.
+- An item runs only if `owner_approval` = approved + this file's sha256 + this publish_at, `title_status` = final,
+  its title is not already on the channel, and (Shorts) the long video it points to is found exactly once.
+  Edit these fields only when the owner has approved; never flip them on your own.
+- Upload = private + `publishAt` (YouTube itself releases it on time), then thumbnail, captions, and a read-back of
+  the real status (`verified.ok` in the ledger). The ledger lives on branch `publish-ledger`.
+- No command changes, replaces or deletes a video that already exists.
+
 ## Limits to know
-- Quota: 10,000 units/day; one upload costs ~1,600 (about 6 uploads/day).
+- Quota (Google docs, checked 2026-10-22): `videos.insert` has its own bucket, 100 calls/day at 1 unit each;
+  everything else shares 10,000 units/day (thumbnails.set 50, captions.insert 400, list calls 1). The old
+  "1,600 units per upload" figure is outdated. Your project's real numbers: Cloud Console -> IAM & Admin -> Quotas.
 - API projects not yet audited by YouTube get every upload locked to private (checked and reported after
   upload). Audit form: https://support.google.com/youtube/contact/yt_api_form
 - Google app left in "Testing" => refresh token dies after 7 days. Publish the app to "In production".
+- Custom thumbnails need a phone-verified channel.

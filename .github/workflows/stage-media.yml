@@ -1,0 +1,17 @@
+name: Stage media (LFS -> draft release)
+on: workflow_dispatch
+permissions:
+  contents: write          # create/edit the DRAFT release; nothing is published
+concurrency:
+  group: stage-media
+  cancel-in-progress: false
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stage files listed in publish/media.json (skips what is already in the release)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .claude/skills/yt-publish/media.py stage --manifest publish/media.json

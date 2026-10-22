@@ -1,0 +1,487 @@
+1
+00:00:00,000 --> 00:00:03,727
+Saudi Arabia announced
+a city 170 kilometers long.
+
+2
+00:00:04,040 --> 00:00:06,246
+That is about 105 miles.
+
+3
+00:00:06,513 --> 00:00:11,122
+So we pointed free satellite images
+at the same stretch of desert, year after year.
+
+4
+00:00:11,320 --> 00:00:13,769
+In 2022, a faint line.
+
+5
+00:00:14,083 --> 00:00:17,334
+By 2026, a long straight corridor,
+
+6
+00:00:17,485 --> 00:00:22,384
+and one dark segment between 1.6
+and 1.9 kilometers long.
+
+7
+00:00:22,709 --> 00:00:25,136
+Here is what that is, and what it is not.
+
+8
+00:00:25,414 --> 00:00:30,650
+The project is called The Line, part
+of NEOM, on Saudi Arabia's Red Sea coast.
+
+9
+00:00:30,975 --> 00:00:35,271
+It was announced as one straight
+city, 170 kilometers long.
+
+10
+00:00:35,515 --> 00:00:38,348
+The frame on screen is only
+a fraction of that length.
+
+11
+00:00:38,627 --> 00:00:41,413
+The full line would run
+far past both edges.
+
+12
+00:00:41,796 --> 00:00:45,628
+That promise is the first of three
+things we will keep apart in this video.
+
+13
+00:00:45,953 --> 00:00:48,112
+The second is what the news has reported.
+
+14
+00:00:48,356 --> 00:00:50,770
+The third is what
+a satellite can actually see.
+
+15
+00:00:50,887 --> 00:00:52,036
+We will not mix them.
+
+16
+00:00:52,419 --> 00:00:53,719
+First, the plans.
+
+17
+00:00:54,044 --> 00:00:59,106
+In April 2024, Bloomberg reported
+that only about 2.4 kilometers of The Line
+
+18
+00:00:59,141 --> 00:01:00,906
+was expected by 2030.
+
+19
+00:01:01,289 --> 00:01:04,888
+It also reported fewer
+than 300,000 residents by then.
+
+20
+00:01:05,271 --> 00:01:10,960
+In May 2026, Semafor reported that NEOM
+had halted work on The Line until
+
+21
+00:01:11,018 --> 00:01:14,571
+at least after 2030,
+citing unnamed sources.
+
+22
+00:01:14,780 --> 00:01:16,800
+It has not been officially confirmed.
+
+23
+00:01:17,125 --> 00:01:22,988
+In October 2026, Reuters reported
+that the NEOM stadium was shelved indefinitely,
+
+24
+00:01:23,116 --> 00:01:24,718
+with no official announcement.
+
+25
+00:01:25,322 --> 00:01:28,283
+These are news reports,
+not official statements.
+
+26
+00:01:29,095 --> 00:01:32,276
+We could not open the original
+articles from our research setup,
+
+27
+00:01:32,427 --> 00:01:35,411
+so we rely on how other
+outlets described them.
+
+28
+00:01:35,852 --> 00:01:38,976
+Each report was described
+by at least two other outlets.
+
+29
+00:01:39,254 --> 00:01:41,925
+We say who reported what,
+and nothing more.
+
+30
+00:01:42,250 --> 00:01:43,933
+So what can a satellite add?
+
+31
+00:01:44,258 --> 00:01:45,280
+Not opinions.
+
+32
+00:01:45,663 --> 00:01:46,696
+Just pixels.
+
+33
+00:01:47,080 --> 00:01:51,364
+We used free Sentinel-2 images
+from the European Copernicus program.
+
+34
+00:01:51,689 --> 00:01:54,754
+Each pixel in our frames
+covers 10 meters of ground.
+
+35
+00:01:54,928 --> 00:01:59,479
+That is sharp enough to see a long
+cleared strip or a road, but not a person,
+
+36
+00:01:59,654 --> 00:02:01,488
+a crane, or a window.
+
+37
+00:02:01,871 --> 00:02:04,367
+We picked seven scenes
+from the same orbit,
+
+38
+00:02:04,576 --> 00:02:10,160
+taken in late September or October
+of each year from 2020 to 2026.
+
+39
+00:02:10,602 --> 00:02:15,095
+Same orbit means the satellite passes
+over on the same track at nearly the same time
+
+40
+00:02:15,129 --> 00:02:18,798
+of day, so the views
+can be compared from year to year.
+
+41
+00:02:19,181 --> 00:02:22,421
+Same season means the light
+and the sand look more alike,
+
+42
+00:02:22,630 --> 00:02:25,415
+so a change is less likely
+to be a trick of the light.
+
+43
+00:02:25,694 --> 00:02:29,932
+The scenes report almost no cloud
+cover, and we looked at every frame.
+
+44
+00:02:30,257 --> 00:02:35,145
+Start with 2020 and 2021,
+when the ground here is empty desert.
+
+45
+00:02:35,470 --> 00:02:39,254
+In October 2022, a faint,
+straight line appears.
+
+46
+00:02:39,463 --> 00:02:44,084
+By 2023, the line is a clear,
+narrow corridor, and very straight.
+
+47
+00:02:44,258 --> 00:02:47,161
+It crosses our frame
+for at least 15 kilometers.
+
+48
+00:02:47,370 --> 00:02:49,924
+And it is still there in 2026.
+
+49
+00:02:49,924 --> 00:02:55,497
+Along the way, two large settlement-like
+complexes, one at each end of our frame,
+
+50
+00:02:55,671 --> 00:02:58,817
+grow between 2020 and 2024.
+
+51
+00:02:59,142 --> 00:03:01,755
+From orbit, we cannot tell what they are.
+
+52
+00:03:02,080 --> 00:03:07,072
+What we can say is that something large
+changed on this ground, in a straight line.
+
+53
+00:03:07,397 --> 00:03:09,951
+What we cannot say is what
+the corridor is for.
+
+54
+00:03:10,242 --> 00:03:12,726
+Now zoom in on one stretch
+of that corridor.
+
+55
+00:03:12,947 --> 00:03:17,196
+In October 2022 and 2023,
+nothing dark is here.
+
+56
+00:03:17,451 --> 00:03:20,853
+In October 2024, a dark segment appears.
+
+57
+00:03:21,004 --> 00:03:24,382
+In 2025 and 2026, it is still there,
+
+58
+00:03:24,498 --> 00:03:27,645
+about 1.6 to 1.9 kilometers long.
+
+59
+00:03:28,086 --> 00:03:31,557
+In near-infrared light,
+the segment reads like water:
+
+60
+00:03:32,068 --> 00:03:37,258
+our water index is above zero,
+and the near-infrared signal is very low.
+
+61
+00:03:37,583 --> 00:03:40,358
+That fits water, but it is not proof.
+
+62
+00:03:40,869 --> 00:03:43,493
+A shadow can also fool a water index,
+
+63
+00:03:43,609 --> 00:03:46,581
+and we cannot rule that out
+from these images alone.
+
+64
+00:03:47,092 --> 00:03:51,887
+In 2022 and 2023, no pixel here qualifies.
+
+65
+00:03:52,212 --> 00:03:58,168
+That is consistent with one idea:
+standing water in a long, narrow excavation.
+
+66
+00:03:58,493 --> 00:04:01,442
+But that is a hypothesis,
+and it could be wrong.
+
+67
+00:04:01,825 --> 00:04:03,601
+We tried to break our own result.
+
+68
+00:04:03,984 --> 00:04:06,295
+First, was it a one-day accident?
+
+69
+00:04:06,678 --> 00:04:12,123
+No. The segment appears on three different
+dates and on three different Sentinel-2
+
+70
+00:04:12,204 --> 00:04:16,987
+satellites in 2024, 2025 and 2026.
+
+71
+00:04:17,371 --> 00:04:19,890
+Second, does a different satellite agree?
+
+72
+00:04:20,215 --> 00:04:24,418
+Landsat 8, at 30 meters per
+pixel, shows the same segment,
+
+73
+00:04:24,581 --> 00:04:25,962
+but measures it differently.
+
+74
+00:04:26,194 --> 00:04:30,165
+It gives about 0.7
+kilometers in October 2024,
+
+75
+00:04:30,339 --> 00:04:32,986
+where Sentinel-2 says 1.6.
+
+76
+00:04:33,218 --> 00:04:35,889
+It gives about 1.65 kilometers
+
+77
+00:04:35,935 --> 00:04:39,615
+in October 2025 and September 2026.
+
+78
+00:04:39,882 --> 00:04:42,483
+The two sets of scenes
+are two to three weeks apart,
+
+79
+00:04:42,634 --> 00:04:46,140
+so we cannot tell whether the gap
+is resolution or timing.
+
+80
+00:04:46,419 --> 00:04:47,951
+Third, how long is it?
+
+81
+00:04:48,160 --> 00:04:53,083
+At 10 meters, about 1.6
+kilometers in October 2025,
+
+82
+00:04:53,257 --> 00:04:57,146
+and about 1.9 kilometers in October 2026.
+
+83
+00:04:57,390 --> 00:05:00,664
+That difference of 0.3
+kilometers could be growth.
+
+84
+00:05:00,815 --> 00:05:05,238
+It could also be a different water level,
+or just where our threshold falls.
+
+85
+00:05:05,447 --> 00:05:07,909
+So we do not claim that the segment grew.
+
+86
+00:05:08,118 --> 00:05:09,209
+We cannot tell.
+
+87
+00:05:09,383 --> 00:05:13,191
+That is the honest result:
+three checks agree it is real,
+
+88
+00:05:13,400 --> 00:05:15,652
+and one number refuses to settle.
+
+89
+00:05:15,803 --> 00:05:17,463
+So what can we not say?
+
+90
+00:05:18,160 --> 00:05:23,419
+At this resolution, we cannot identify
+any building along the corridor itself.
+
+91
+00:05:24,023 --> 00:05:27,216
+We also cannot say
+this is a finished city.
+
+92
+00:05:27,657 --> 00:05:30,571
+We cannot prove
+that this corridor is The Line.
+
+93
+00:05:31,012 --> 00:05:34,228
+We had no official NEOM
+map to match it against,
+
+94
+00:05:34,437 --> 00:05:37,375
+and matching would take
+sources we could not open.
+
+95
+00:05:37,886 --> 00:05:43,156
+A similar picture in 2025
+and 2026 does not prove a pause.
+
+96
+00:05:43,482 --> 00:05:46,360
+It is only compatible
+with what Semafor reported.
+
+97
+00:05:47,057 --> 00:05:51,689
+Official figures and the full original
+reports would change how sure we can be.
+
+98
+00:05:52,131 --> 00:05:56,635
+Keep three words in your head:
+promised, reported, observed.
+
+99
+00:05:56,786 --> 00:06:01,070
+Promised: a city 170 kilometers long.
+
+100
+00:06:01,070 --> 00:06:04,983
+Reported: about 2.4 kilometers by 2030,
+
+101
+00:06:05,192 --> 00:06:08,315
+and work halted until at least after 2030.
+
+102
+00:06:08,593 --> 00:06:10,683
+Observed: one straight corridor,
+
+103
+00:06:10,706 --> 00:06:15,315
+and one dark segment between 1.6
+and 1.9 kilometers long.
+
+104
+00:06:15,699 --> 00:06:19,077
+The satellites keep passing,
+so the picture keeps updating,
+
+105
+00:06:19,193 --> 00:06:20,703
+whatever anyone announces.
+
+106
+00:06:21,086 --> 00:06:25,312
+Next time you see a number about NEOM,
+ask which of the three it is.

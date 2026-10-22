@@ -1,0 +1,73 @@
+name: YouTube publish (manual, gated)
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: approval (long episodes) or autopilot (pre-approved Shorts)
+        type: choice
+        options: [approval, autopilot]
+        required: true
+      ids:
+        description: Queue ids, comma separated, or all
+        required: true
+        default: all
+      dry_run:
+        description: Dry run (checks only, nothing is sent to YouTube)
+        type: boolean
+        default: true
+      confirm:
+        description: "For a real run type exactly: UPLOAD <mode>"
+        required: false
+permissions:
+  contents: write          # media release (read) + the publish-ledger branch (write)
+concurrency:
+  group: youtube-publish   # one run at a time: the first line of duplicate protection
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    # Real runs wait for a required reviewer on the environment (create it in Settings -> Environments).
+    environment: ${{ inputs.dry_run && 'youtube-dryrun' || format('youtube-{0}', inputs.mode) }}
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+      YT_LEDGER: ${{ github.workspace }}/ledger/ledger.jsonl
+      MODE: ${{ inputs.mode }}
+      IDS: ${{ inputs.ids }}
+      DRY: ${{ inputs.dry_run }}
+      CONFIRM: ${{ inputs.confirm }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Only the repository owner may run this
+        run: test "${{ github.actor }}" = "${{ github.repository_owner }}"
+      - name: Real run needs the exact confirmation phrase
+        if: ${{ !inputs.dry_run }}
+        run: test "$CONFIRM" = "UPLOAD $MODE"
+      - name: Ledger branch (persistent duplicate protection)
+        run: |
+          mkdir ledger && cd ledger && git init -q -b publish-ledger
+          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git fetch -q origin publish-ledger; then git checkout -q -f FETCH_HEAD -B publish-ledger; fi
+          touch ledger.jsonl
+      - name: Fetch media from the draft release (sha256 checked)
+        run: python3 .claude/skills/yt-publish/media.py fetch --manifest publish/media.json --dest media
+      - name: Tests
+        run: python3 -m unittest discover -s .claude/skills/yt-publish
+      - name: Run the queue
+        run: |
+          ARGS="--mode $MODE --ids $IDS --media-dir media"
+          if [ "$DRY" != "true" ]; then ARGS="$ARGS --confirm"; fi
+          python3 .claude/skills/yt-publish/publish.py queue-run $ARGS
+      - name: Save ledger (also after failures)
+        if: always()
+        run: |
+          cd ledger
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ledger.jsonl
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -q -m "ledger: run ${GITHUB_RUN_ID}"
+          for i in 1 2 3 4 5; do git push -q origin HEAD:publish-ledger && exit 0; git pull -q --rebase origin publish-ledger || true; sleep $((i*3)); done
+          exit 1

@@ -54,3 +54,9 @@ Decision rules:
 `/yt-satellite` works worldwide - Landsat covers the whole globe. Stories in Sweden, Norway, Denmark
 or anywhere else may use it when satellite evidence materially improves the story. The no-
 fabrication rules in that skill apply everywhere: no scene, no satellite claim.
+
+## Thumbnail standard
+
+For all OrbitalAtlas long-form videos, thumbnails must follow the established channel style from previously approved covers. No gray, low-contrast, weak, minimal, or off-brand thumbnails are allowed. New thumbnails must visually match the existing style: large uppercase headline, bold white/yellow emphasis, dramatic satellite/aerial imagery, strong contrast, simple high-impact composition, and mobile-first readability. Any thumbnail that visually deviates from the approved style must be treated as FAIL and revised before approval.
+
+Full specification and the pre-publish gate: `docs/THUMBNAIL_STYLE_GUIDE.md`. Before any publication Claude checks the new cover against the four published covers (docs/assets/thumbnail-reference/) (and runs `.claude/skills/yt-package/thumbcheck.py`).
