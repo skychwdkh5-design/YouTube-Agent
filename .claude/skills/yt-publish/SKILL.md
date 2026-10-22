@@ -51,3 +51,4 @@ YouTube Studio: Content -> Shorts -> the Short -> Details -> Related video -> pi
   upload). Audit form: https://support.google.com/youtube/contact/yt_api_form
 - Google app left in "Testing" => refresh token dies after 7 days. Publish the app to "In production".
 - Custom thumbnails need a phone-verified channel.
+- Captions through the API need the `youtube.force-ssl` scope, which OAuth device flow cannot grant (only `youtube`): uploads treat captions as best-effort and report a warning; add the SRT in Studio.

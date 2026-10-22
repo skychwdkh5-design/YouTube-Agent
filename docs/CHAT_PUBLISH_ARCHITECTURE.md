@@ -91,3 +91,11 @@ Until step 4 the new workflow does nothing; the gated workflows keep working.
   consent rules, TOTP vectors, idempotency, workflow lint).
 - Cancel from chat (`cancel`) is not implemented (it would edit a video we uploaded); until then cancel in Studio. It can be added and tested on the private test video.
 - Public-publish capability of this API project is still unproven (an unaudited project may force private); the first scheduled release will show it.
+
+## 8. First real run (EP005, 2026-10-22) - what it taught
+
+Upload, thumbnail and schedule worked from one chat approval (approval record `e29ba02e`, card `6268-0C45`): video `J1WzDfYsAG0`, private, `publishAt 2026-10-23T12:00:00Z`, processing succeeded.
+`captions.insert` failed with 403 `insufficientPermissions`: it needs the `youtube.force-ssl` scope, and OAuth device flow can only grant `youtube`. Dry runs could not show this because they send nothing to YouTube.
+Two defects surfaced: the step exited 0 although an item had errored, and a failed caption upload left the release unverified. Fixed: captions are best-effort (event `captions_unavailable`, warning in the result, upload the SRT in Studio),
+item errors now fail the step (in chat mode a blocked item fails too). To get API captions later the client must be re-authorised with a flow that allows `youtube.force-ssl` (not available through device flow).
+
