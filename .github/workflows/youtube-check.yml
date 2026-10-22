@@ -1,0 +1,25 @@
+name: YouTube channel check (read-only)
+on:
+  workflow_dispatch:
+    inputs:
+      video_id:
+        description: Optional video ID to read the real status of
+        required: false
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tests
+        run: python3 -m unittest discover -s .claude/skills/yt-publish
+      - name: Read channel
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          VIDEO_ID: ${{ inputs.video_id }}
+        run: |
+          python3 .claude/skills/yt-publish/publish.py channel
+          if [ -n "$VIDEO_ID" ]; then python3 .claude/skills/yt-publish/publish.py status --video-id "$VIDEO_ID"; fi
