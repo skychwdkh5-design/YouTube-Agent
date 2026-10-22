@@ -8,7 +8,7 @@ class TC(unittest.TestCase):
     def img(self, bg, name):
         im = Image.new("RGB", (1280, 720), bg)
         d = ImageDraw.Draw(im)
-        d.rectangle((60, 500, 1100, 680), fill=(255, 255, 255)); d.rectangle((60, 60, 700, 200), fill=(255, 194, 69))
+        d.rectangle((60, 500, 1100, 680), fill=(255, 255, 255)); d.rectangle((60, 60, 700, 200), fill=(255, 210, 30))
         p = os.path.join(tempfile.mkdtemp(), name); im.save(p); return p
 
     def test_gray_low_contrast_fails_and_dark_saturated_passes(self):

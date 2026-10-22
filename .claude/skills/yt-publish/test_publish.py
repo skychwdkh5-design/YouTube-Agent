@@ -103,7 +103,7 @@ class Q(unittest.TestCase):
     def test_existing_title_on_channel_blocks(self):
         e = self.entry()
         inv = [{"video_id": "abc", "title": e["title"].upper(), "privacy": "public", "seconds": 20}]
-        self.assertTrue(any("already exists" in x for x in P.check_entry(e, "autopilot", self.d, inv, NOW)[0]))
+        self.assertTrue(any("possible duplicate" in x for x in P.check_entry(e, "autopilot", self.d, inv, NOW)[0]))
 
     def test_related_resolution(self):
         e = self.entry(related={"title_contains": "Dubai"})
@@ -165,10 +165,44 @@ class Q(unittest.TestCase):
 
 class Thumb(Q):
     def test_long_cover_needs_pass_review_for_exact_file(self):
-        e = copy.deepcopy(QUEUE[0]); self.assertEqual(e["thumbnail_review"]["result"], "FAIL")
-        pr = P.check_entry(e, "approval", self.d, [], NOW, hash_media=False)[0]
-        self.assertTrue(any("thumbnail has no PASS" in x for x in pr))
+        e = copy.deepcopy(QUEUE[0])
+        self.assertFalse(any("thumbnail has no PASS" in x for x in P.check_entry(e, "approval", self.d, [], NOW, hash_media=False)[0]))   # committed review is valid
+        e["thumbnail_review"] = {"result": "FAIL", "sha256": e["thumbnail_review"]["sha256"]}
+        self.assertTrue(any("thumbnail has no PASS" in x for x in P.check_entry(e, "approval", self.d, [], NOW, hash_media=False)[0]))
         e["thumbnail_review"] = {"result": "PASS", "sha256": P.sha256(os.path.join(P.ROOT, e["thumbnail"]))}
         self.assertFalse(any("thumbnail has no PASS" in x for x in P.check_entry(e, "approval", self.d, [], NOW, hash_media=False)[0]))
         e["thumbnail_review"]["sha256"] = "0" * 64
         self.assertTrue(any("thumbnail has no PASS" in x for x in P.check_entry(e, "approval", self.d, [], NOW, hash_media=False)[0]))
+
+
+FIX = json.load(open(os.path.join(os.path.dirname(__file__), "fixtures", "channel_inventory_2026-10-22.json")))
+INV = FIX["videos"]
+
+
+class RealChannel(unittest.TestCase):
+    def test_queue_expects_the_real_channel(self):
+        doc = json.load(open(os.path.join(P.ROOT, "publish", "queue.json")))
+        self.assertEqual(doc["expected_channel_id"], FIX["channel"]["id"]); self.assertEqual(doc["expected_handle"], "@orbital_atlas")
+
+    def test_every_short_finds_exactly_one_long_video(self):
+        want = {"EP002": "XbhVPSCPKwA", "EP003": "RSZwZyRAEAA", "EP004": "D9yQ3X8_J1g"}
+        for e in QUEUE:
+            if e["kind"] == "short":
+                url, why = P.find_related(e, INV)
+                self.assertIsNone(why, e["id"]); self.assertEqual(url, "https://youtu.be/" + want[e["id"].split("-")[-1].upper()])
+
+    def test_no_queue_item_conflicts_with_the_channel_today(self):
+        for e in QUEUE:
+            self.assertEqual(P.find_conflicts(e, INV, "none"), [], e["id"])
+
+    def test_conflict_detection_is_not_title_only(self):
+        e = copy.deepcopy(QUEUE[1])
+        dup_title = [{"video_id": "x", "title": e["title"] + "!", "seconds": 99, "privacy": "public"}]
+        self.assertTrue(P.find_conflicts(e, dup_title, "none"))                    # near-identical title
+        same_clip = [{"video_id": "y", "title": "Dubai: no island, only sea (2000 vs 2003)", "seconds": 15.4, "privacy": "public"}]
+        self.assertTrue(P.find_conflicts(e, same_clip, "none"))                    # same length + overlapping words
+        self.assertEqual(P.find_conflicts(e, same_clip, "uploaded"), [])           # our own upload is fine
+
+    def test_open_issues_block_ep005(self):
+        pr = P.check_entry(copy.deepcopy(QUEUE[0]), "approval", tempfile.mkdtemp(), [], NOW, hash_media=False)[0]
+        self.assertTrue(any("open issue" in x for x in pr))

@@ -7,7 +7,7 @@ Prints JSON per file: metrics, rule results and PASS/FAIL. It checks only what a
 white headline mass, yellow accent). Similarity to the approved covers, one focus, true-to-content and phone legibility are
 judged by Claude against the guide and recorded in the review - a script PASS is necessary, never sufficient.
 Thresholds were calibrated on the four PUBLISHED covers (Sahara, Dubai, Great Salt Lake, Jakarta; docs/assets/thumbnail-reference/):
-saturation 0.46-0.58, luma std 64-73, white 3.3-6.8%, yellow 4.1-7.7%.
+saturation 0.46-0.58, luma std 64-73, white 3.3-6.8%, yellow 1.6-5.7% (gold, hue 41-61 deg).
 """
 import colorsys, json, os, sys
 from PIL import Image, ImageStat
@@ -23,7 +23,7 @@ def metrics(path):
     n = len(px)
     luma = ImageStat.Stat(small.convert("L"))
     white = sum(1 for r, g, b in px if min(r, g, b) > 235) / n
-    yellow = sum(1 for h, s, v in hsv if 0.09 < h < 0.17 and s > 0.6 and v > 0.85) / n
+    yellow = sum(1 for h, s, v in hsv if 0.115 < h < 0.17 and s > 0.6 and v > 0.85) / n
     dark = sum(1 for v in (c[2] for c in hsv) if v < 0.25) / n
     return {"size": im.size, "bytes": os.path.getsize(path), "mean_saturation": round(sum(c[1] for c in hsv) / n, 2),
             "luma_std": round(luma.stddev[0], 1), "white_share": round(white, 3), "yellow_share": round(yellow, 3), "dark_share": round(dark, 3)}
@@ -34,7 +34,7 @@ def check(m):
             "strong_contrast(luma_std>=58)": m["luma_std"] >= 58,
             "saturated(mean_saturation>=0.40)": m["mean_saturation"] >= 0.40,
             "white_headline_mass(>=2.5%)": m["white_share"] >= 0.025,
-            "yellow_accent(>=2.5%)": m["yellow_share"] >= 0.025}
+            "yellow_accent(>=1.2%)": m["yellow_share"] >= 0.012}
 
 
 def main(argv):

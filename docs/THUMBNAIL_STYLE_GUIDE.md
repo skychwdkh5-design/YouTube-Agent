@@ -14,7 +14,7 @@ The earlier flat, dark draft covers kept in some branches are NOT the style. The
 | Change device | 1984 -> 2024 badges + white curved arrow | thin white divider + yellow arrow | white divider + red arrow | red/yellow subsidence heat map |
 | Extra | satellite in corner | red DUBAI ribbon, "3 YEARS" badge | red underline stroke | satellite + radar beam |
 
-The DNA (measured on the four: saturation 0.46-0.58, luma contrast 64-73, white 3-7%, yellow 4-8% of the frame):
+The DNA (measured on the four: saturation 0.46-0.58, luma contrast 64-73, white 3-7%, gold text and accents 1.5-6% of the frame):
 - **Big YouTube documentary look**: glossy, hyper-saturated, high-contrast, golden-hour or deep-ocean colour, a glow around the hero.
 - **Headline on top 25-35%**, two lines or one, condensed heavy display capitals (Anton / Impact family), **white + yellow/gold** (the key word is yellow), thick black outline and drop shadow.
 - **One hero visual** from real satellite/aerial data, enhanced: Earth-from-orbit view, before | after split, or a data overlay (heat map). One clear arrow or divider shows the change.

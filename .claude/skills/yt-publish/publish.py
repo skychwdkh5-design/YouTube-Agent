@@ -22,7 +22,7 @@ contains_synthetic_media (bool), privacy (private|unlisted|public, default priva
 publish_at (RFC 3339, future - schedules a private video to go public), default_language,
 related_long_url (shorts only - appended to the description; the API has no Related-video field).
 """
-import contextlib, fcntl, hashlib, json, os, re, shutil, subprocess, sys, time, urllib.error, urllib.parse, urllib.request, uuid
+import contextlib, difflib, fcntl, hashlib, json, os, re, shutil, subprocess, sys, time, urllib.error, urllib.parse, urllib.request, uuid
 from datetime import datetime, timezone
 
 SCOPE = "https://www.googleapis.com/auth/youtube"   # device flow does not offer youtube.upload
@@ -484,6 +484,32 @@ def load_queue(path=None):
         return json.load(f)["items"]
 
 
+def load_queue_doc(path=None):
+    with open(path or QUEUE) as f:
+        return json.load(f)
+
+
+def _tokens(t):
+    return {w for w in re.findall(r"[a-z0-9]+", t.lower()) if len(w) > 2}
+
+
+def find_conflicts(entry, inv, state):
+    """Beyond an exact title: near-identical title, or same kind + (almost) same duration + overlapping title words.
+    A video we already uploaded ourselves (ledger state 'uploaded') is not a conflict."""
+    if state == "uploaded" or not inv:
+        return []
+    out, t = [], entry["title"].strip().lower()
+    sec, short = entry["media"].get("seconds"), entry["kind"] == "short"
+    for v in inv:
+        vt = re.sub(r"\s*#shorts\s*$", "", v["title"].strip().lower())
+        ratio = difflib.SequenceMatcher(None, t, vt).ratio()
+        both = _tokens(t) & _tokens(vt)
+        close = sec is not None and abs(v["seconds"] - sec) <= 1.5 and len(both) / max(1, len(_tokens(t) | _tokens(vt))) >= 0.4
+        if ratio >= 0.8 or close:
+            out.append(f"possible duplicate of {v['video_id']} (title similarity {ratio:.2f}{', same duration' if close else ''})")
+    return out
+
+
 def find_related(entry, inv):
     r = entry.get("related")
     if not r:
@@ -502,6 +528,8 @@ def check_entry(e, mode, media_dir, inv, now=None, hash_media=True):
     miss = [k for k in REQUIRED if k not in e]
     if miss:
         return [f"missing fields: {miss}"], None
+    if e.get("open_issues"):
+        pr += [f"open issue: {x}" for x in e["open_issues"]]
     if e["mode"] != mode:
         pr.append(f"entry is mode '{e['mode']}', this run is '{mode}'")
     if e["title_status"] != "final":
@@ -524,9 +552,7 @@ def check_entry(e, mode, media_dir, inv, now=None, hash_media=True):
             pr.append(f"{k} file missing: {f}")
     if inv is not None:
         st = ledger_state(med["sha256"])
-        same = [v for v in inv if v["title"].strip().lower() == e["title"].strip().lower()]
-        if same and st["state"] != "uploaded":
-            pr.append("a video with this title already exists on the channel")
+        pr += find_conflicts(e, inv, st["state"])
     url, why = find_related(e, inv or []) if (e.get("related") and inv is not None) else (None, None)
     if why:
         pr.append(why)
@@ -605,6 +631,11 @@ def cmd_queue_run(a):
     items = [e for e in items if want is None or e["id"] in want]
     if want and len(items) != len(want):
         raise PublishError(f"unknown ids: {want - {e['id'] for e in items}}")
+    doc = load_queue_doc(a.queue)
+    if not a.offline:
+        ch = api("GET", "channels", {"part": "id,snippet", "mine": "true"})["items"][0]
+        if ch["id"] != doc.get("expected_channel_id"):
+            raise PublishError(f"token belongs to channel {ch['id']} ({ch['snippet'].get('customUrl')}), queue expects {doc.get('expected_channel_id')} - nothing was sent")
     inv = None if a.offline else inventory()
     actions = auto_reconcile(inv) if (inv is not None and a.confirm) else []
     token = access_token() if a.confirm else None
