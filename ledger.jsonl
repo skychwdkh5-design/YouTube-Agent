@@ -6,3 +6,7 @@
 {"at": "2026-10-22T09:43:46+00:00", "event": "uploaded", "sha256": "99cfcd5cd7af214d2c2ab0785ee6f916490bcd87a46b68fbe739fc881ae33ebb", "id": "ep005", "video_id": "J1WzDfYsAG0", "publish_at": "2026-10-23T12:00:00Z"}
 {"at": "2026-10-22T09:43:48+00:00", "event": "thumbnail_set", "sha256": "99cfcd5cd7af214d2c2ab0785ee6f916490bcd87a46b68fbe739fc881ae33ebb", "id": "ep005", "video_id": "J1WzDfYsAG0"}
 {"at": "2026-10-22T09:43:48+00:00", "event": "error", "sha256": "99cfcd5cd7af214d2c2ab0785ee6f916490bcd87a46b68fbe739fc881ae33ebb", "id": "ep005", "message": "YouTube API 403: Request had insufficient authentication scopes. ['insufficientPermissions']"}
+{"at": "2026-10-22T10:06:43+00:00", "event": "approval_started", "approval_id": "e29ba02e36244b9d8847d4fb2560f6ac", "ids": ["ep005"]}
+{"at": "2026-10-22T10:06:45+00:00", "event": "captions_unavailable", "sha256": "99cfcd5cd7af214d2c2ab0785ee6f916490bcd87a46b68fbe739fc881ae33ebb", "id": "ep005", "video_id": "J1WzDfYsAG0", "message": "YouTube API 403: Request had insufficient authentication scopes. ['insufficientPermissions']"}
+{"at": "2026-10-22T10:06:45+00:00", "event": "verified", "sha256": "99cfcd5cd7af214d2c2ab0785ee6f916490bcd87a46b68fbe739fc881ae33ebb", "id": "ep005", "video_id": "J1WzDfYsAG0", "ok": true, "privacyStatus": "private", "publishAt": "2026-10-23T12:00:00Z", "uploadStatus": "processed"}
+{"at": "2026-10-22T10:06:45+00:00", "event": "approval_done", "approval_id": "e29ba02e36244b9d8847d4fb2560f6ac", "ids": ["ep005"]}
