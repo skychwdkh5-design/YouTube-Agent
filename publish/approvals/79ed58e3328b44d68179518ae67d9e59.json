@@ -1,0 +1,77 @@
+{
+ "schema": "yt-approval/1",
+ "approval_id": "79ed58e3328b44d68179518ae67d9e59",
+ "scope": "short_list",
+ "label": "Shorts",
+ "items": [
+  {
+   "id": "short-01-ep002",
+   "kind": "short",
+   "title": "There Was No Island Here. Just Sea. (Dubai, 2000-2003)",
+   "publish_at": "2026-10-23T01:00:00Z",
+   "media_sha256": "98f8dda92304f88d0a6bc865c681b5146ff487d407bc05cd178117c8530078e7",
+   "content_hash": "f28ff4d275169f05706fc07ef50caf0ef429c0d685bf09a4006a0c1c6c75c799",
+   "entry_hash": "93621a28ad781f076f7681daaee39736481677465c94ed47aa1fedba1356ac7a"
+  },
+  {
+   "id": "short-02-ep002",
+   "kind": "short",
+   "title": "4 Projects. One Picture. Dubai From Space, 2006",
+   "publish_at": "2026-10-24T01:00:00Z",
+   "media_sha256": "c4bff3eeb4c7e13d0b9e4f8e2ae1147710588a47ac388adc638a8e03639b3328",
+   "content_hash": "ee4ffc1454711d233386954871c86e62ddbd3ace8ee9c6f221f296d92e20271e",
+   "entry_hash": "9ce83a382e1b919bc2ac5affb5f7d779699f4e54aebebd1150eab7a8c1b07816"
+  },
+  {
+   "id": "short-03-ep003",
+   "kind": "short",
+   "title": "Great Salt Lake: 20+ Feet Below Its 1986 Record High",
+   "publish_at": "2026-10-25T01:00:00Z",
+   "media_sha256": "9bff662fb8edfbcf8af6aa89fa03e9118fa819cbc1a77f067b99cc21604ce2fd",
+   "content_hash": "7b5c0b15dd8e56b3aeb78d653a73f96180ba4060be89b51cb31c36c505b4c68c",
+   "entry_hash": "ed32467e9403c608099fa7061dcd4e0801e2404b2748a82fa10a995886fce7e2"
+  },
+  {
+   "id": "short-04-ep003",
+   "kind": "short",
+   "title": "What the Great Salt Lake Left Behind",
+   "publish_at": "2026-10-26T01:00:00Z",
+   "media_sha256": "514f3980a6b86ff15fd1bdcdad15e146f46be627daa580caa9a65b5e6b2559da",
+   "content_hash": "582c9cf7858c6f26036b46241617b4a8dd288b3019fe0cbfd124524bdb381f0f",
+   "entry_hash": "0a34f671c4f8b1215a9d7b635ae47cf6b5d753ad0135757d364a413eaa09caf6"
+  },
+  {
+   "id": "short-05-ep004",
+   "kind": "short",
+   "title": "Jakarta Is Sinking: Six Bowls, One at 7.7 cm a Year (Preprint)",
+   "publish_at": "2026-10-27T01:00:00Z",
+   "media_sha256": "468fb8ddbbc5669644c3e356746e8ba97a35f2b839407052f3792c34141aa045",
+   "content_hash": "28deb89ffc6a4b458893220f126fdd22a580e00a32325fc9cb26ddada2023f23",
+   "entry_hash": "d4fa0a0135ce156cb59bea6c947630c6162e99726a404a6d17b0baf8c2101153"
+  },
+  {
+   "id": "short-06-ep004",
+   "kind": "short",
+   "title": "How Fast Is Each Part of Jakarta Sinking? One Radar Study",
+   "publish_at": "2026-10-28T01:00:00Z",
+   "media_sha256": "795a9f0fd85c764f2dd23f2a572b953c5faa4f0ca1591ebf5b36ea20d773e55c",
+   "content_hash": "e551416b0ecc0682986b54ffffab759b404f60f0ba560388ebc49b2733dd745b",
+   "entry_hash": "0a36144b266bb7f397da9d81946f7f9a80d1a93a2e8a1287ab5a8bba8fbb0a48"
+  }
+ ],
+ "queue_commit": "b569ee9017c1bae5467006a998dd14beaa919fa9",
+ "owner_quote": "Одобряю Shorts, публикуй список по расписанию",
+ "created_at": "2026-10-22T12:23:57+00:00",
+ "expires_at": "2026-10-23T12:23:57+00:00",
+ "created_by": "claude-chat",
+ "consent_channel": "owner-chat-message",
+ "dry_run_only": false,
+ "card_codes": {
+  "short-01-ep002": "9362-1A28",
+  "short-02-ep002": "9CE8-3A38",
+  "short-03-ep003": "ED32-467E",
+  "short-04-ep003": "0A34-F671",
+  "short-05-ep004": "D4FA-0A01",
+  "short-06-ep004": "0A36-144B"
+ }
+}
