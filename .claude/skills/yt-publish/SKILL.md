@@ -41,6 +41,7 @@ YouTube Studio: Content -> Shorts -> the Short -> Details -> Related video -> pi
   the real status (`verified.ok` in the ledger). The ledger lives on branch `publish-ledger`.
 - `private_test` mode (docs/PRIVATE_TEST_UPLOAD.md): one private, unscheduled upload of an entry flagged `private_test_allowed`; ignores `owner_approval`, never re-uploads after an undetermined attempt.
 - `chat` mode (docs/CHAT_PUBLISH_ARCHITECTURE.md, `approval.py`): the verified approval record replaces `owner_approval`; inactive until the owner enables it.
+- `release_check.py` + workflow `Verify scheduled releases`: independent read-only confirmation (every 15 min) that scheduled videos became public; opens one issue if not (docs/RELEASE_CHECK.md).
 - No command changes, replaces or deletes a video that already exists.
 
 ## Limits to know

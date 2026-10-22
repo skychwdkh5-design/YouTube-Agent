@@ -1,0 +1,60 @@
+name: Verify scheduled releases (read-only)
+# Independent of any Claude session: every 15 minutes it reads the publish-ledger, and for videos whose publishAt has passed it asks YouTube
+# (videos.list, read-only) whether they are public. Public -> ledger `release_confirmed`; still private -> retries, then ONE GitHub issue (notifies the owner).
+# It never uploads, never edits a video, never changes visibility or time.
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Report only (no ledger writes, no issues)
+        type: boolean
+        default: true
+permissions:
+  contents: write        # ledger branch only
+  issues: write          # failure issue / recovery comment
+concurrency:
+  group: youtube-publish   # same group as the upload workflows: one ledger writer at a time
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+      YT_LEDGER: ${{ github.workspace }}/ledger/ledger.jsonl
+      DRY: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ledger branch
+        run: |
+          mkdir ledger && cd ledger && git init -q -b publish-ledger
+          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git fetch -q origin publish-ledger; then git checkout -q -f FETCH_HEAD -B publish-ledger; fi
+          touch ledger.jsonl
+      - name: Videos waiting for their release (ledger only, no network)
+        run: python3 .claude/skills/yt-publish/release_check.py status
+      - name: Check the releases that are due
+        run: |
+          ARGS=run
+          if [ "$DRY" = "true" ]; then ARGS="run --dry-run"; fi
+          python3 .claude/skills/yt-publish/release_check.py $ARGS
+      - name: Save ledger
+        if: always()
+        run: |
+          [ -d ledger/.git ] || exit 0
+          cd ledger
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ledger.jsonl
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -q -m "ledger: release check ${GITHUB_RUN_ID}"
+          for i in 1 2 3 4 5; do git push -q origin HEAD:publish-ledger && exit 0; git pull -q --rebase origin publish-ledger || true; sleep $((i*3)); done
+          exit 1
