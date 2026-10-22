@@ -1,0 +1,96 @@
+name: YouTube publish (chat-approved)
+# Dispatched by Claude after the owner's explicit chat approval. Uploads PRIVATE + publishAt (YouTube releases it on time).
+# No Environment review here: the gate is the verified approval record (see docs/CHAT_PUBLISH_ARCHITECTURE.md).
+on:
+  workflow_dispatch:
+    inputs:
+      data_commit:
+        description: Full sha of the publish-data commit holding queue.json, assets and the approval record
+        required: true
+      approval_id:
+        description: Approval id (file publish/approvals/<id>.json in that commit)
+        required: true
+      totp:
+        description: One-time code (only if the APPROVAL_TOTP_SECRET secret exists)
+        required: false
+      dry_run:
+        description: Verify only; nothing is sent to YouTube
+        type: boolean
+        default: true
+permissions:
+  contents: write        # ledger branch
+  issues: write          # audit issue that notifies the owner
+concurrency:
+  group: youtube-publish   # shared with the gated workflow: one upload run at a time
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: ${{ vars.CHAT_PUBLISH_ENABLED == 'true' }}      # kill switch: set the repository variable to anything else to stop
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+      APPROVAL_TOTP_SECRET: ${{ secrets.APPROVAL_TOTP_SECRET }}
+      APPROVAL_TOTP_CODE: ${{ inputs.totp }}
+      YT_LEDGER: ${{ github.workspace }}/ledger/ledger.jsonl
+      YT_DATA_ROOT: ${{ github.workspace }}/data
+      DATA_COMMIT: ${{ inputs.data_commit }}
+      APPROVAL_ID: ${{ inputs.approval_id }}
+      DRY: ${{ inputs.dry_run }}
+    steps:
+      - uses: actions/checkout@v4                       # trusted code from the default branch
+      - name: Only the repository owner's token may dispatch this
+        run: test "${{ github.actor }}" = "${{ github.repository_owner }}"
+      - name: Mask the one-time code
+        run: if [ -n "$APPROVAL_TOTP_CODE" ]; then echo "::add-mask::$APPROVAL_TOTP_CODE"; fi
+      - name: Data commit must be a real publish-data commit
+        run: |
+          case "$DATA_COMMIT" in (*[!0-9a-f]*|"") echo "bad commit"; exit 1;; esac
+          test ${#DATA_COMMIT} -eq 40
+          mkdir data && cd data && git init -q
+          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git fetch -q origin publish-data:refs/remotes/origin/publish-data
+          git fetch -q origin "$DATA_COMMIT"
+          git merge-base --is-ancestor "$DATA_COMMIT" refs/remotes/origin/publish-data      # reachable from the publish-data branch only
+          git checkout -q "$DATA_COMMIT"
+          case "$APPROVAL_ID" in (*[!0-9a-f]*|"") echo "bad approval id"; exit 1;; esac
+          test -f "publish/approvals/${APPROVAL_ID}.json"
+      - name: Ledger branch (persistent duplicate protection)
+        run: |
+          mkdir ledger && cd ledger && git init -q -b publish-ledger
+          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git fetch -q origin publish-ledger; then git checkout -q -f FETCH_HEAD -B publish-ledger; fi
+          touch ledger.jsonl
+      - name: Tests
+        run: python3 -m unittest discover -s .claude/skills/yt-publish
+      - name: Fetch media from the draft release (sha256 checked)
+        if: ${{ !inputs.dry_run }}
+        run: python3 .claude/skills/yt-publish/media.py fetch --manifest data/publish/media.json --dest media
+      - name: Verify the approval and run it
+        run: |
+          ARGS="--mode chat --ids all --media-dir media --queue data/publish/queue.json --manifest data/publish/media.json --approval data/publish/approvals/${APPROVAL_ID}.json"
+          if [ "$DRY" != "true" ]; then ARGS="$ARGS --confirm"; fi
+          python3 .claude/skills/yt-publish/publish.py queue-run $ARGS | tee result.json
+      - name: Audit issue (notifies the owner; shows what was scheduled)
+        if: ${{ always() && !inputs.dry_run }}
+        run: |
+          {
+            echo "Chat-approved publish run ${GITHUB_RUN_ID} for approval ${APPROVAL_ID}."
+            echo "Cancel a scheduled release in YouTube Studio (Content -> the video -> Visibility) or tell Claude."
+            echo; echo '```json'; (cat result.json 2>/dev/null || echo '{"result":"no output - see the run log"}'); echo '```'
+            echo; echo "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          } > issue.md
+          gh issue create --title "Publish run ${GITHUB_RUN_ID}: approval ${APPROVAL_ID:0:8}" --body-file issue.md
+      - name: Save ledger (also after failures)
+        if: always()
+        run: |
+          cd ledger
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ledger.jsonl
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -q -m "ledger: chat run ${GITHUB_RUN_ID}"
+          for i in 1 2 3 4 5; do git push -q origin HEAD:publish-ledger && exit 0; git pull -q --rebase origin publish-ledger || true; sleep $((i*3)); done
+          exit 1
