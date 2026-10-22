@@ -1,0 +1,67 @@
+{
+ "schema": "yt-approval/1",
+ "approval_id": "a708c5c8fff942d1aea235bf7a6a5a09",
+ "scope": "short_list",
+ "label": "Shorts",
+ "items": [
+  {
+   "id": "short-01-ep002",
+   "kind": "short",
+   "title": "There Was No Island Here. Just Sea. (Dubai, 2000-2003)",
+   "publish_at": "2026-10-24T01:00:00Z",
+   "media_sha256": "98f8dda92304f88d0a6bc865c681b5146ff487d407bc05cd178117c8530078e7",
+   "content_hash": "f28ff4d275169f05706fc07ef50caf0ef429c0d685bf09a4006a0c1c6c75c799",
+   "entry_hash": "e47694f5e7efc34256ad3055a094ce1078db844a9de86f3c40d885e8350d328d"
+  },
+  {
+   "id": "short-03-ep003",
+   "kind": "short",
+   "title": "Great Salt Lake: 20+ Feet Below Its 1986 Record High",
+   "publish_at": "2026-10-26T01:00:00Z",
+   "media_sha256": "9bff662fb8edfbcf8af6aa89fa03e9118fa819cbc1a77f067b99cc21604ce2fd",
+   "content_hash": "7b5c0b15dd8e56b3aeb78d653a73f96180ba4060be89b51cb31c36c505b4c68c",
+   "entry_hash": "ce0c80ad2137e6aad521055f0c06be458887eb402b3427961202fcb255150b00"
+  },
+  {
+   "id": "short-04-ep003",
+   "kind": "short",
+   "title": "What the Great Salt Lake Left Behind",
+   "publish_at": "2026-10-27T01:00:00Z",
+   "media_sha256": "514f3980a6b86ff15fd1bdcdad15e146f46be627daa580caa9a65b5e6b2559da",
+   "content_hash": "582c9cf7858c6f26036b46241617b4a8dd288b3019fe0cbfd124524bdb381f0f",
+   "entry_hash": "b2ecb3b75dc04ca786816c13a89278560c37708f3fb150f9f361b50fd3bd6922"
+  },
+  {
+   "id": "short-05-ep004",
+   "kind": "short",
+   "title": "Jakarta Is Sinking: Six Bowls, One at 7.7 cm a Year (Preprint)",
+   "publish_at": "2026-10-28T01:00:00Z",
+   "media_sha256": "468fb8ddbbc5669644c3e356746e8ba97a35f2b839407052f3792c34141aa045",
+   "content_hash": "28deb89ffc6a4b458893220f126fdd22a580e00a32325fc9cb26ddada2023f23",
+   "entry_hash": "00ed8053765f49584bf01aae098eb59163454784288e798e4dca49384e6c60b1"
+  },
+  {
+   "id": "short-06-ep004",
+   "kind": "short",
+   "title": "How Fast Is Each Part of Jakarta Sinking? One Radar Study",
+   "publish_at": "2026-10-29T01:00:00Z",
+   "media_sha256": "795a9f0fd85c764f2dd23f2a572b953c5faa4f0ca1591ebf5b36ea20d773e55c",
+   "content_hash": "e551416b0ecc0682986b54ffffab759b404f60f0ba560388ebc49b2733dd745b",
+   "entry_hash": "ed2ed88e0323a474907e155a252197a14e472fa33d670d0212e2e0a2f4ecfd55"
+  }
+ ],
+ "queue_commit": "5e6922dfbc0be665211f19c2a2aae132a91aeff8",
+ "owner_quote": "TEST ONLY (synthetic, dry run): Одобряю Shorts, публикуй",
+ "created_at": "2026-10-22T10:06:53+00:00",
+ "expires_at": "2026-10-23T10:06:53+00:00",
+ "created_by": "claude-chat",
+ "consent_channel": "e2e-test",
+ "dry_run_only": true,
+ "card_codes": {
+  "short-01-ep002": "E476-94F5",
+  "short-03-ep003": "CE0C-80AD",
+  "short-04-ep003": "B2EC-B3B7",
+  "short-05-ep004": "00ED-8053",
+  "short-06-ep004": "ED2E-D88E"
+ }
+}
