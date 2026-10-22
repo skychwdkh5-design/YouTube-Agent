@@ -307,7 +307,7 @@ def ledger_state(digest, path=None):
             st.update(state="uploaded", video_id=r["video_id"])
         elif e == "abandoned":
             st.update(state="none", video_id=None, done=[], started_at=None)
-        elif e in ("thumbnail_set", "captions_set", "verified"):
+        elif e in ("thumbnail_set", "captions_set", "captions_unavailable", "verified"):
             st["done"].append(e)
     return st
 
@@ -625,17 +625,23 @@ def run_entry(e, spec, inv, token):
         set_thumbnail(vid, os.path.join(DATA_ROOT, e["thumbnail"]), token)
         ledger_add({"event": "thumbnail_set", "sha256": sha, "id": e["id"], "video_id": vid})
         steps.append("thumbnail")
-    cap = e.get("captions")
-    if cap and "captions_set" not in st["done"]:
-        insert_caption(vid, os.path.join(DATA_ROOT, cap["file"]), cap.get("language", "en"), cap.get("name", "English"), token)
-        ledger_add({"event": "captions_set", "sha256": sha, "id": e["id"], "video_id": vid})
-        steps.append("captions")
+    cap, warnings = e.get("captions"), []
+    if cap and "captions_set" not in st["done"] and "captions_unavailable" not in st["done"]:
+        try:
+            insert_caption(vid, os.path.join(DATA_ROOT, cap["file"]), cap.get("language", "en"), cap.get("name", "English"), token)
+            ledger_add({"event": "captions_set", "sha256": sha, "id": e["id"], "video_id": vid})
+            steps.append("captions")
+        except PublishError as ex:
+            # captions.insert needs the youtube.force-ssl scope, which OAuth device flow cannot grant (only 'youtube' is allowed there).
+            # A missing caption track must not leave a scheduled release unverified: record it, warn, upload the SRT in Studio.
+            ledger_add({"event": "captions_unavailable", "sha256": sha, "id": e["id"], "video_id": vid, "message": redact(ex)[:200]})
+            warnings.append("captions were NOT uploaded (" + redact(ex)[:120] + "): add the SRT in YouTube Studio -> Subtitles")
     real = video_status(vid, token)
     want = e["publish_at"]
     ok = real.get("privacyStatus") == "private" and real.get("publishAt") == want and real.get("uploadStatus") in ("uploaded", "processed")
     ledger_add({"event": "verified", "sha256": sha, "id": e["id"], "video_id": vid, "ok": ok, "privacyStatus": real.get("privacyStatus"),
                 "publishAt": real.get("publishAt"), "uploadStatus": real.get("uploadStatus")})
-    return {"video_id": vid, "steps": steps, "verified_scheduled": ok, "reported": {k: real.get(k) for k in ("privacyStatus", "publishAt", "uploadStatus", "rejectionReason", "failureReason")}}
+    return {"video_id": vid, "steps": steps, "warnings": warnings, "verified_scheduled": ok, "reported": {k: real.get(k) for k in ("privacyStatus", "publishAt", "uploadStatus", "rejectionReason", "failureReason")}}
 
 
 def run_private_test(e, spec, inv, token):
@@ -782,6 +788,15 @@ def cmd_ledger(_):
     return {"records": ledger_read()}
 
 
+def exit_code(out, mode=None):
+    """A queue run with an item error must fail the workflow step (it used to exit 0 and look green); in chat mode a blocked item fails too."""
+    items = out.get("items") if isinstance(out, dict) else None
+    if not items:
+        return 0
+    bad = {"error"} | ({"blocked"} if mode == "chat" else set())
+    return 1 if any(i.get("status") in bad for i in items) else 0
+
+
 def main(argv=None):
     import argparse
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -806,7 +821,7 @@ def main(argv=None):
         out = {"auth": cmd_auth, "channel": cmd_channel, "plan": cmd_plan, "upload": cmd_upload, "status": cmd_status, "ledger": cmd_ledger,
                "inventory": cmd_inventory, "queue-run": cmd_queue_run, "reconcile": cmd_reconcile, "chat-verify": cmd_chat_verify}[a.cmd](a)
         print(json.dumps(out, indent=2, ensure_ascii=False))
-        return 0
+        return exit_code(out, getattr(a, "mode", None))
     except PublishError as e:
         print(json.dumps({"status": "error", "error": redact(e)}, ensure_ascii=False))
         return 1

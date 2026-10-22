@@ -261,3 +261,41 @@ class Workflows(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class CaptionsScope(ChatRun):
+    """Real incident 2026-10-22: captions.insert answered 403 insufficientPermissions (device-flow token has only the 'youtube' scope)."""
+
+    def run_with_failing_captions(self, rec, now=NOW):
+        path = self.setup_files(rec)
+        real = {"privacyStatus": "private", "publishAt": self.e["publish_at"], "uploadStatus": "processed"}
+        boom = P.PublishError("YouTube API 403: Request had insufficient authentication scopes. ['insufficientPermissions']")
+        with mock.patch.object(P, "DATA_ROOT", self.d), mock.patch.object(A, "datetime") as adt, mock.patch.object(P, "datetime") as pdt, \
+             mock.patch.object(P, "api", return_value={"items": [{"id": "UC1", "snippet": {}}]}), mock.patch.object(P, "inventory", return_value=[]), \
+             mock.patch.object(P, "access_token", return_value="t"), mock.patch.object(P, "resumable_upload", return_value={"id": "VID"}) as up, \
+             mock.patch.object(P, "set_thumbnail") as th, mock.patch.object(P, "insert_caption", side_effect=boom) as cap, \
+             mock.patch.object(P, "video_status", return_value=real), mock.patch.object(P, "validate", return_value=[]):
+            adt.now.return_value = pdt.now.return_value = now; adt.fromisoformat = pdt.fromisoformat = datetime.fromisoformat
+            return P.cmd_queue_run(self.args(True, path)), up, th, cap
+
+    def test_failed_captions_do_not_leave_the_release_unverified(self):
+        out, up, th, cap = self.run_with_failing_captions(self.record())
+        it = out["items"][0]
+        self.assertEqual(it["status"], "done"); self.assertTrue(it["verified_scheduled"]); self.assertTrue(any("NOT uploaded" in w for w in it["warnings"]))
+        ev = [r["event"] for r in P.ledger_read()]
+        self.assertIn("captions_unavailable", ev); self.assertIn("verified", ev); self.assertIn("approval_done", ev)
+        self.assertEqual(P.exit_code(out, "chat"), 0)
+
+    def test_captions_are_not_retried_on_a_rerun(self):
+        sha = self.e["media"]["sha256"]
+        P.ledger_add({"event": "started", "sha256": sha}, self.lp); P.ledger_add({"event": "uploaded", "sha256": sha, "video_id": "VID"}, self.lp)
+        P.ledger_add({"event": "thumbnail_set", "sha256": sha}, self.lp); P.ledger_add({"event": "captions_unavailable", "sha256": sha}, self.lp)
+        out, up, th, cap = self.run_with_failing_captions(self.record())
+        up.assert_not_called(); th.assert_not_called(); cap.assert_not_called(); self.assertTrue(out["items"][0]["verified_scheduled"])
+
+    def test_item_errors_fail_the_step(self):
+        self.assertEqual(P.exit_code({"items": [{"status": "error"}]}), 1)
+        self.assertEqual(P.exit_code({"items": [{"status": "blocked"}]}, "chat"), 1)
+        self.assertEqual(P.exit_code({"items": [{"status": "blocked"}]}, "autopilot"), 0)     # legacy dry runs keep reporting blocked items without failing
+        self.assertEqual(P.exit_code({"items": [{"status": "done"}, {"status": "ready (dry run)"}]}, "chat"), 0)
+        self.assertEqual(P.exit_code({"channels": []}), 0)
