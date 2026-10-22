@@ -18,3 +18,12 @@ Nothing secret goes into chat. Each value is copied from Google straight into Gi
 8. Actions -> **YouTube auth (one-time)** -> Run workflow. Open the run log: it prints a code. Go to
    https://www.google.com/device, enter the code, choose the OrbitalAtlas channel account. The job stores `YT_REFRESH_TOKEN` itself.
 9. Actions -> **YouTube channel check (read-only)** -> Run workflow: prints the channel title and counts.
+
+## Publishing workflows (after the PR is merged)
+10. Settings -> Environments (https://github.com/skychwdkh5-design/YouTube-Agent/settings/environments): create
+    `youtube-approval` and `youtube-autopilot`, tick **Required reviewers**, add yourself, leave
+    "Prevent self-review" OFF (you are the only user). Environments with reviewers work for public repos on every plan;
+    a private repo on the Free plan would not support them.
+11. Actions -> **Stage media** -> Run (once; it copies 7 MP4s, 379 MB, from LFS into a draft release).
+12. Actions -> **YouTube channel check** -> Run: lists all videos on the channel, including EP002-EP004 if they are there.
+13. Actions -> **YouTube publish** -> dry run first (default). A real run is separate and needs your explicit go-ahead.

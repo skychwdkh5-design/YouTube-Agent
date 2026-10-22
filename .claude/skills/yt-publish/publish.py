@@ -6,6 +6,10 @@
     python3 publish.py plan   --spec ep.json     # validate + duplicate check, sends nothing
     python3 publish.py upload --spec ep.json --confirm [--approve-visibility]
     python3 publish.py status --video-id ID      # real status as YouTube reports it
+    python3 publish.py inventory                 # read-only list of every video on the channel
+    python3 publish.py queue-run --mode autopilot --ids all --media-dir media   # dry run
+    python3 publish.py queue-run ... --confirm   # real: upload private + publishAt, thumbnail, captions, verify
+    python3 publish.py reconcile [--abandon]     # fix interrupted ('started') uploads
     python3 publish.py ledger
 
 Credentials come from the environment only (YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN) and
@@ -18,7 +22,7 @@ contains_synthetic_media (bool), privacy (private|unlisted|public, default priva
 publish_at (RFC 3339, future - schedules a private video to go public), default_language,
 related_long_url (shorts only - appended to the description; the API has no Related-video field).
 """
-import hashlib, json, os, re, shutil, subprocess, sys, time, urllib.error, urllib.parse, urllib.request
+import contextlib, fcntl, hashlib, json, os, re, shutil, subprocess, sys, time, urllib.error, urllib.parse, urllib.request, uuid
 from datetime import datetime, timezone
 
 SCOPE = "https://www.googleapis.com/auth/youtube"   # device flow does not offer youtube.upload
@@ -26,10 +30,13 @@ TOKEN_URL = "https://oauth2.googleapis.com/token"
 DEVICE_URL = "https://oauth2.googleapis.com/device/code"
 API = "https://www.googleapis.com/youtube/v3"
 UPLOAD = "https://www.googleapis.com/upload/youtube/v3/videos"
-LEDGER = os.environ.get("YT_LEDGER", os.path.join(os.path.dirname(__file__), "..", "..", "..", "publish", "ledger.jsonl"))
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+LEDGER = os.environ.get("YT_LEDGER", os.path.join(ROOT, "publish", "ledger.jsonl"))
+QUEUE = os.path.join(ROOT, "publish", "queue.json")
+UP = "https://www.googleapis.com/upload/youtube/v3"
 CHUNK = 8 * 1024 * 1024                              # multiple of 256 KiB, as the resumable protocol requires
 UA = "YouTube-Agent-yt-publish/1.0"
-SECRETS = ("YT_CLIENT_SECRET", "YT_REFRESH_TOKEN", "GH_SECRETS_TOKEN")
+SECRETS = ("YT_CLIENT_SECRET", "YT_REFRESH_TOKEN", "GH_SECRETS_TOKEN", "GITHUB_TOKEN")
 
 
 class PublishError(Exception):
@@ -271,15 +278,57 @@ def ledger_add(rec, path=None):
         os.fsync(f.fileno())
 
 
+@contextlib.contextmanager
+def ledger_lock(path=None):
+    path = path or LEDGER
+    os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
+    with open(path + ".lock", "w") as lf:
+        fcntl.flock(lf, fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(lf, fcntl.LOCK_UN)
+
+
+def ledger_state(digest, path=None):
+    """Fold the ledger for one file: none | started | uploaded, plus which post-upload steps are done."""
+    st = {"state": "none", "video_id": None, "done": [], "started_at": None, "title": None}
+    for r in ledger_read(path):
+        if r.get("sha256") != digest:
+            continue
+        e = r.get("event")
+        if e == "started":
+            st.update(state="started", video_id=None, done=[], started_at=r["at"], title=r.get("title"))
+        elif e == "uploaded":
+            st.update(state="uploaded", video_id=r["video_id"])
+        elif e == "abandoned":
+            st.update(state="none", video_id=None, done=[], started_at=None)
+        elif e in ("thumbnail_set", "captions_set", "verified"):
+            st["done"].append(e)
+    return st
+
+
 def duplicate_of(digest, path=None):
     """Any earlier record for this file, including an interrupted 'started' one, blocks a re-upload."""
-    for r in ledger_read(path):
-        if r.get("sha256") == digest and r.get("event") in ("started", "uploaded"):
-            return r
-    return None
+    st = ledger_state(digest, path)
+    return st if st["state"] != "none" else None
 
 
 # --- upload ----------------------------------------------------------------------------------------
+
+def _query_offset(loc, size):
+    """Ask the resumable session how many bytes it has: ('done', json) | ('offset', n) | (None, None)."""
+    try:
+        s, rh, raw = http("PUT", loc, {"Content-Length": "0", "Content-Range": f"bytes */{size}"}, b"", timeout=60)
+    except OSError:
+        return None, None
+    if s in (200, 201):
+        return "done", json.loads(raw)
+    if s == 308:
+        rng = {k.lower(): v for k, v in rh.items()}.get("range")
+        return "offset", int(rng.split("-")[1]) + 1 if rng else 0
+    return None, None
+
 
 def resumable_upload(path, body, token):
     size = os.path.getsize(path)
@@ -288,23 +337,104 @@ def resumable_upload(path, body, token):
     h = {k.lower(): v for k, v in h.items()}
     if s != 200 or "location" not in h:
         raise PublishError(f"upload session refused ({s}): {j.get('error', j)}")
-    loc, sent = h["location"], 0
+    loc, sent, fails = h["location"], 0, 0       # the session URL is a bearer capability: never logged or stored
     with open(path, "rb") as f:
-        while sent < size:
+        while True:
+            f.seek(sent)
             chunk = f.read(CHUNK)
-            end = sent + len(chunk) - 1
-            for attempt in range(5):
-                s, rh, raw = http("PUT", loc, {"Content-Length": str(len(chunk)), "Content-Range": f"bytes {sent}-{end}/{size}"}, chunk, timeout=300)
-                if s in (200, 201, 308):
-                    break
-                if s < 500:
-                    raise PublishError(f"upload failed ({s}): {raw[:200]!r}")
-                time.sleep(2 ** attempt)
-            else:
-                raise PublishError("upload kept failing with 5xx; nothing is lost - see ledger for the 'started' record")
-            sent = end + 1
-            print(f"  uploaded {sent * 100 // size}%", file=sys.stderr, flush=True)
-    return json.loads(raw)
+            try:
+                s, rh, raw = http("PUT", loc, {"Content-Length": str(len(chunk)), "Content-Range": f"bytes {sent}-{sent + len(chunk) - 1}/{size}"}, chunk, timeout=300)
+            except OSError:
+                s, rh, raw = 0, {}, b""
+            if s in (200, 201):
+                return json.loads(raw)
+            if s == 308:
+                rng = {k.lower(): v for k, v in rh.items()}.get("range")
+                sent, fails = (int(rng.split("-")[1]) + 1 if rng else 0), 0
+                print(f"  uploaded {sent * 100 // size}%", file=sys.stderr, flush=True)
+                continue
+            if s == 0 or s >= 500:
+                fails += 1
+                if fails > 6:
+                    raise PublishError("upload kept failing; the ledger keeps a 'started' record - run reconcile")
+                time.sleep(min(2 ** fails, 60))
+                kind, val = _query_offset(loc, size)
+                if kind == "done":
+                    return val
+                if kind == "offset":
+                    sent = val
+                continue
+            raise PublishError(f"upload failed ({s}): {raw[:200]!r}")
+
+
+def multipart(meta, data, ctype):
+    b = "yt" + uuid.uuid4().hex
+    head = f"--{b}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n{json.dumps(meta)}\r\n--{b}\r\nContent-Type: {ctype}\r\n\r\n".encode()
+    return head + data + f"\r\n--{b}--\r\n".encode(), f"multipart/related; boundary={b}"
+
+
+def _post_raw(url, token, data, ctype):
+    s, _, raw = http("POST", url, {"Authorization": f"Bearer {token}", "Content-Type": ctype, "Content-Length": str(len(data))}, data, timeout=120)
+    j = json.loads(raw) if raw else {}
+    if s >= 400:
+        err = j.get("error", {})
+        raise PublishError(f"YouTube API {s}: {err.get('message', j)} {[e.get('reason') for e in err.get('errors', [])]}")
+    return j
+
+
+def set_thumbnail(vid, path, token):
+    data = open(path, "rb").read()
+    if len(data) > 2 * 1024 * 1024:
+        raise PublishError("thumbnail over 2 MB")
+    if data[:3] == b"\xff\xd8\xff":
+        ctype = "image/jpeg"
+    elif data[:8] == b"\x89PNG\r\n\x1a\n":
+        ctype = "image/png"
+    else:
+        raise PublishError("thumbnail must be JPEG or PNG")
+    return _post_raw(f"{UP}/thumbnails/set?videoId={vid}&uploadType=media", token, data, ctype)
+
+
+def insert_caption(vid, path, language, name, token):
+    meta = {"snippet": {"videoId": vid, "language": language, "name": name, "isDraft": False}}
+    body, ctype = multipart(meta, open(path, "rb").read(), "application/octet-stream")
+    return _post_raw(f"{UP}/captions?uploadType=multipart&part=snippet", token, body, ctype)
+
+
+def parse_duration(iso):
+    m = re.fullmatch(r"P(?:(\d+)D)?T?(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", iso or "")
+    d, h, mi, sec = (int(x or 0) for x in m.groups()) if m else (0, 0, 0, 0)
+    return d * 86400 + h * 3600 + mi * 60 + sec
+
+
+def inventory(token=None):
+    """Every video on the channel (uploads playlist), with real status. Read-only; ~3-6 quota units."""
+    token = token or access_token()
+    ch = api("GET", "channels", {"part": "contentDetails", "mine": "true"}, token=token)
+    if not ch.get("items"):
+        raise PublishError("no channel for this token")
+    pl, ids, page = ch["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"], [], None
+    while True:
+        p = {"part": "contentDetails", "playlistId": pl, "maxResults": 50, **({"pageToken": page} if page else {})}
+        j = api("GET", "playlistItems", p, token=token)
+        ids += [i["contentDetails"]["videoId"] for i in j.get("items", [])]
+        page = j.get("nextPageToken")
+        if not page:
+            break
+    out = []
+    for i in range(0, len(ids), 50):
+        j = api("GET", "videos", {"part": "snippet,status,contentDetails", "id": ",".join(ids[i:i + 50])}, token=token)
+        for v in j.get("items", []):
+            out.append({"video_id": v["id"], "title": v["snippet"]["title"], "privacy": v["status"]["privacyStatus"],
+                        "publishAt": v["status"].get("publishAt"), "uploadStatus": v["status"].get("uploadStatus"),
+                        "seconds": parse_duration(v["contentDetails"].get("duration")), "publishedAt": v["snippet"].get("publishedAt")})
+    return out
+
+
+def cmd_inventory(_):
+    inv = inventory()
+    # the repo and its logs are public: show titles only for already-public videos
+    return {"count": len(inv), "videos": [{**v, "title": v["title"] if v["privacy"] == "public" else "[non-public]"} for v in inv]}
 
 
 def cmd_plan(a):
@@ -327,7 +457,10 @@ def cmd_upload(a):
         raise PublishError("spec would make the video visible (unlisted/public/scheduled) - upload it as private, or pass --approve-visibility after the owner agrees")
     digest, body = sha256(spec["file"]), plan["request_body"]
     token = access_token()
-    ledger_add({"event": "started", "sha256": digest, "file": os.path.basename(spec["file"]), "kind": spec["kind"], "title": body["snippet"]["title"]})
+    with ledger_lock():
+        if duplicate_of(digest) and not a.force_duplicate:
+            raise PublishError("a parallel run already started this file")
+        ledger_add({"event": "started", "sha256": digest, "file": os.path.basename(spec["file"]), "kind": spec["kind"], "title": body["snippet"]["title"]})
     res = resumable_upload(spec["file"], body, token)
     vid = res["id"]
     ledger_add({"event": "uploaded", "sha256": digest, "video_id": vid, "kind": spec["kind"], "title": body["snippet"]["title"],
@@ -338,6 +471,161 @@ def cmd_upload(a):
     if st["privacyStatus"] != body["status"]["privacyStatus"]:
         note = "YouTube forced a different visibility than requested (unverified API projects are locked to private until the API audit is passed)"
     return {"status": "uploaded", "video_id": vid, "studio_url": f"https://studio.youtube.com/video/{vid}/edit", "reported": st, "note": note}
+
+
+# --- queue: the only path used by automation --------------------------------------------------------
+
+REQUIRED = ("id", "mode", "kind", "media", "title", "title_status", "description", "made_for_kids",
+            "contains_synthetic_media", "publish_at", "owner_approval")
+
+
+def load_queue(path=None):
+    with open(path or QUEUE) as f:
+        return json.load(f)["items"]
+
+
+def find_related(entry, inv):
+    r = entry.get("related")
+    if not r:
+        return None, None
+    if r.get("video_id"):
+        return f"https://youtu.be/{r['video_id']}", None
+    hits = [v for v in inv if v["seconds"] > 180 and r["title_contains"].lower() in v["title"].lower() and v["privacy"] in ("public", "unlisted")]
+    if len(hits) != 1:
+        return None, f"related long video '{r['title_contains']}': {len(hits)} matches on the channel (need exactly 1, or set related.video_id)"
+    return f"https://youtu.be/{hits[0]['video_id']}", None
+
+
+def check_entry(e, mode, media_dir, inv, now=None, hash_media=True):
+    """Everything that must be true before this entry may touch YouTube. Returns (problems, spec)."""
+    now, pr = now or datetime.now(timezone.utc), []
+    miss = [k for k in REQUIRED if k not in e]
+    if miss:
+        return [f"missing fields: {miss}"], None
+    if e["mode"] != mode:
+        pr.append(f"entry is mode '{e['mode']}', this run is '{mode}'")
+    if e["title_status"] != "final":
+        pr.append("title is not final (owner has not chosen it)")
+    ap, med = e["owner_approval"], e["media"]
+    if not (ap.get("approved") is True and ap.get("sha256") == med["sha256"] and ap.get("publish_at") == e["publish_at"]):
+        pr.append("no matching owner approval (approved=true with this file's sha256 and this publish_at)")
+    path = os.path.join(media_dir, med["asset"])
+    if not os.path.isfile(path):
+        pr.append(f"media not staged: {med['asset']}")
+    elif hash_media and sha256(path) != med["sha256"]:
+        pr.append("media sha256 differs from the approved one")
+    for k in ("thumbnail", "captions"):
+        f = (e.get(k) or {}).get("file") if k == "captions" else e.get(k)
+        if f and not os.path.isfile(os.path.join(ROOT, f)):
+            pr.append(f"{k} file missing: {f}")
+    if inv is not None:
+        st = ledger_state(med["sha256"])
+        same = [v for v in inv if v["title"].strip().lower() == e["title"].strip().lower()]
+        if same and st["state"] != "uploaded":
+            pr.append("a video with this title already exists on the channel")
+    url, why = find_related(e, inv or []) if (e.get("related") and inv is not None) else (None, None)
+    if why:
+        pr.append(why)
+    if e.get("related") and inv is None:
+        pr.append("related video cannot be resolved offline")
+    if pr:
+        return pr, None
+    spec = {"file": path, "kind": e["kind"], "title": e["title"], "description": e["description"], "tags": e.get("tags", []),
+            "category_id": e.get("category_id", "27"), "made_for_kids": e["made_for_kids"],
+            "contains_synthetic_media": e["contains_synthetic_media"], "privacy": "public", "publish_at": e["publish_at"],
+            "default_language": e.get("default_language", "en"), "related_long_url": url}
+    try:
+        validate(spec, now)
+    except PublishError as ex:
+        return [str(ex)], None
+    return [], spec
+
+
+def run_entry(e, spec, inv, token):
+    sha, steps = e["media"]["sha256"], []
+    st = ledger_state(sha)
+    if st["state"] == "none":
+        with ledger_lock():
+            if ledger_state(sha)["state"] != "none":
+                raise PublishError("a parallel run already started this file")
+            ledger_add({"event": "started", "sha256": sha, "id": e["id"], "file": e["media"]["asset"], "kind": e["kind"]})
+        body = build_body(spec)
+        res = resumable_upload(spec["file"], body, token)
+        ledger_add({"event": "uploaded", "sha256": sha, "id": e["id"], "video_id": res["id"], "publish_at": body["status"].get("publishAt")})
+        st = ledger_state(sha)
+        steps.append("uploaded")
+    if st["state"] == "started":
+        raise PublishError("an earlier upload of this file was interrupted - reconcile first")
+    vid = st["video_id"]
+    if e.get("thumbnail") and "thumbnail_set" not in st["done"]:
+        set_thumbnail(vid, os.path.join(ROOT, e["thumbnail"]), token)
+        ledger_add({"event": "thumbnail_set", "sha256": sha, "id": e["id"], "video_id": vid})
+        steps.append("thumbnail")
+    cap = e.get("captions")
+    if cap and "captions_set" not in st["done"]:
+        insert_caption(vid, os.path.join(ROOT, cap["file"]), cap.get("language", "en"), cap.get("name", "English"), token)
+        ledger_add({"event": "captions_set", "sha256": sha, "id": e["id"], "video_id": vid})
+        steps.append("captions")
+    real = video_status(vid, token)
+    want = e["publish_at"]
+    ok = real.get("privacyStatus") == "private" and real.get("publishAt") == want and real.get("uploadStatus") in ("uploaded", "processed")
+    ledger_add({"event": "verified", "sha256": sha, "id": e["id"], "video_id": vid, "ok": ok, "privacyStatus": real.get("privacyStatus"),
+                "publishAt": real.get("publishAt"), "uploadStatus": real.get("uploadStatus")})
+    return {"video_id": vid, "steps": steps, "verified_scheduled": ok, "reported": {k: real.get(k) for k in ("privacyStatus", "publishAt", "uploadStatus", "rejectionReason", "failureReason")}}
+
+
+def auto_reconcile(inv, abandon_after_s=7200):
+    """Interrupted uploads: adopt the video if YouTube has it, abandon the record if it is old and absent."""
+    acts, seen = [], {}
+    for r in ledger_read():
+        if r.get("event") == "started":
+            seen[r["sha256"]] = r
+    for sha, r in seen.items():
+        st = ledger_state(sha)
+        if st["state"] != "started":
+            continue
+        e = next((x for x in load_queue() if x["media"]["sha256"] == sha), None)
+        hit = next((v for v in inv if e and v["title"].strip().lower() == e["title"].strip().lower()), None)
+        if hit:
+            ledger_add({"event": "uploaded", "sha256": sha, "id": r.get("id"), "video_id": hit["video_id"], "adopted": True})
+            acts.append({"id": r.get("id"), "action": "adopted existing video"})
+        elif (datetime.now(timezone.utc) - datetime.fromisoformat(st["started_at"])).total_seconds() > abandon_after_s:
+            ledger_add({"event": "abandoned", "sha256": sha, "id": r.get("id"), "reason": "not on channel after 2h"})
+            acts.append({"id": r.get("id"), "action": "abandoned stale record"})
+    return acts
+
+
+def cmd_queue_run(a):
+    items = load_queue(a.queue)
+    want = None if a.ids == "all" else set(a.ids.split(","))
+    items = [e for e in items if want is None or e["id"] in want]
+    if want and len(items) != len(want):
+        raise PublishError(f"unknown ids: {want - {e['id'] for e in items}}")
+    inv = None if a.offline else inventory()
+    actions = auto_reconcile(inv) if (inv is not None and a.confirm) else []
+    token = access_token() if a.confirm else None
+    out = []
+    for e in sorted(items, key=lambda x: x.get("publish_at", "")):
+        if e.get("mode") != a.mode:
+            out.append({"id": e["id"], "status": "skipped", "why": f"mode {e.get('mode')} != {a.mode}"})
+            continue
+        problems, spec = check_entry(e, a.mode, a.media_dir, inv, hash_media=True)
+        if problems:
+            out.append({"id": e["id"], "status": "blocked", "problems": problems})
+        elif not a.confirm:
+            out.append({"id": e["id"], "status": "ready (dry run)", "publish_at": e["publish_at"]})
+        else:
+            try:
+                out.append({"id": e["id"], "status": "done", **run_entry(e, spec, inv, token)})
+            except PublishError as ex:
+                ledger_add({"event": "error", "sha256": e["media"]["sha256"], "id": e["id"], "message": redact(ex)[:300]})
+                out.append({"id": e["id"], "status": "error", "error": redact(ex)})
+    return {"dry_run": not a.confirm, "reconcile": actions, "items": out}
+
+
+def cmd_reconcile(a):
+    acts = auto_reconcile(inventory(), abandon_after_s=0 if a.abandon else 7200)
+    return {"actions": acts}
 
 
 def cmd_ledger(_):
@@ -354,9 +642,16 @@ def main(argv=None):
         if n == "upload":
             s.add_argument("--confirm", action="store_true"); s.add_argument("--approve-visibility", action="store_true"); s.add_argument("--force-duplicate", action="store_true")
     sub.add_parser("status").add_argument("--video-id", required=True)
+    sub.add_parser("inventory")
+    sub.add_parser("reconcile").add_argument("--abandon", action="store_true", help="abandon stale 'started' records at once")
+    q = sub.add_parser("queue-run")
+    q.add_argument("--queue", default=QUEUE); q.add_argument("--mode", required=True, choices=["approval", "autopilot"])
+    q.add_argument("--ids", required=True); q.add_argument("--media-dir", required=True)
+    q.add_argument("--confirm", action="store_true"); q.add_argument("--offline", action="store_true")
     a = p.parse_args(argv)
     try:
-        out = {"auth": cmd_auth, "channel": cmd_channel, "plan": cmd_plan, "upload": cmd_upload, "status": cmd_status, "ledger": cmd_ledger}[a.cmd](a)
+        out = {"auth": cmd_auth, "channel": cmd_channel, "plan": cmd_plan, "upload": cmd_upload, "status": cmd_status, "ledger": cmd_ledger,
+               "inventory": cmd_inventory, "queue-run": cmd_queue_run, "reconcile": cmd_reconcile}[a.cmd](a)
         print(json.dumps(out, indent=2, ensure_ascii=False))
         return 0
     except PublishError as e:

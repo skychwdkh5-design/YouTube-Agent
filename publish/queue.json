@@ -1,0 +1,266 @@
+{
+ "_note": "Times are UTC. EP005 23.10 19:00 ICT = 12:00Z; Shorts 08:00 ICT = 01:00Z. owner_approval is flipped only by the owner.",
+ "items": [
+  {
+   "id": "ep005",
+   "mode": "approval",
+   "kind": "long",
+   "media": {
+    "asset": "EP005_FINAL_1080p_master.mp4",
+    "sha256": "99cfcd5cd7af214d2c2ab0785ee6f916490bcd87a46b68fbe739fc881ae33ebb"
+   },
+   "title": "Here's What Satellites Show Near the Construction Site",
+   "title_status": "pending_owner_choice",
+   "title_options": [
+    "Here's What Satellites Show Near the Construction Site",
+    "Saudi Arabia Promised a 170 km City. Here's What Satellites Show.",
+    "We Checked The Line From Space: 170 km Promised, This Is What's There"
+   ],
+   "description": "Here's What Satellites Show Near the Construction Site\n\nSaudi Arabia announced a 170 km linear city. We pointed free Sentinel-2 satellite images at the same stretch of desert, year after year (2020-2026), and kept three things apart: what was PROMISED, what was REPORTED, and what we OBSERVED.\n\nCHAPTERS\n0:00 170 km promised\n0:25 The promise\n0:52 What was reported\n1:41 How we looked\n2:29 What the satellites show\n3:09 The dark segment\n4:01 Trying to break our own result\n5:15 What we cannot say\n5:51 Promised, reported, observed\n\nWHAT WE CLAIM, AND HOW SURE WE ARE\n- Observed: a straight corridor and a dark segment of about 1.6-1.9 km, measured at 10 m per pixel. A water index reads it as water-like, which is a clue, not proof.\n- Not claimed: that the corridor is The Line, that it is a finished city, that the segment grew, or what the segment is.\n- Reported items are attributed to the outlets named. We could not open the original Bloomberg, Semafor and Reuters articles from our research setup, so those lines rest on how other outlets described them.\n\nSOURCES (as reported; links are to the pages we actually read)\n- C1 Construction Briefing (with Dezeen, AGBI) (2024-04-09): https://www.constructionbriefing.com/8036596.article\n- C2 Bloomberg via Dezeen (2024-04-09): https://www.dezeen.com/2024/04/09/the-line-neom-scaled-back-dezeen-agenda/\n- C3 Semafor (2026-05-22): https://www.semafor.com/article/05/22/2026/saudis-neom-halts-work-on-the-line-until-after-2030\n- C4 Reuters via Seoul Economic Daily (2026-10-13): https://en.sedaily.com/international/2026/10/13/saudi-arabia-shelves-neom-stadium-as-megaproject-unravels\n- C20 Gulf News and Dezeen on the Hidden Marina (2025-02-17): https://gulfnews.com/business/property/saudi-arabia-neom-unveils-hidden-marina-as-first-phase-of-the-line-1.500037889\n\nSATELLITE DATA\nContains modified Copernicus Sentinel data 2020, 2021, 2022, 2023, 2024, 2025, 2026. Sentinel-2 L2A via Microsoft Planetary Computer; scenes from relative orbit 78, tile T36RYS, late September-October each year.\nScene IDs: S2A_MSIL2A_20200929T080731_R078_T36RYS_20201001T154846; S2B_MSIL2A_20210929T080719_R078_T36RYS_20210929T211810; S2A_MSIL2A_20221009T080841_R078_T36RYS_20240725T054556; S2A_MSIL2A_20231014T080901_R078_T36RYS_20231014T131051; S2A_MSIL2A_20241008T080831_R078_T36RYS_20241008T112248; S2B_MSIL2A_20251008T080729_R078_T36RYS_20251008T103527; S2C_MSIL2A_20261018T080931_R078_T36RYS_20261018T111002\n\nNarration: ElevenLabs synthetic voice (Adam). Runtime 6:25.\nMade by OrbitalAtlas.",
+   "tags": [
+    "NEOM",
+    "The Line",
+    "Saudi Arabia",
+    "satellite imagery",
+    "Sentinel-2",
+    "Copernicus",
+    "Landsat",
+    "megaproject",
+    "mega projects",
+    "documentary",
+    "satellite images",
+    "NEOM The Line",
+    "Saudi Vision 2030",
+    "OrbitalAtlas"
+   ],
+   "category_id": "27",
+   "default_language": "en",
+   "made_for_kids": false,
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Narration is a stock text-to-speech voice (not a real person's voice); imagery is real satellite data with labelled graphics. Not realistic fabricated people/events, so YouTube's altered-or-synthetic label is not required. The description already states the voice.",
+   "thumbnail": "publish/assets/ep005/thumbnail.jpg",
+   "captions": {
+    "file": "publish/assets/ep005/captions.srt",
+    "language": "en",
+    "name": "English"
+   },
+   "publish_at": "2026-10-23T12:00:00Z",
+   "related": null,
+   "owner_approval": {
+    "approved": false,
+    "sha256": null,
+    "publish_at": null
+   }
+  },
+  {
+   "id": "short-01-ep002",
+   "mode": "autopilot",
+   "kind": "short",
+   "media": {
+    "asset": "EP002_Dubai_Short_01_JUST_SEA.mp4",
+    "sha256": "98f8dda92304f88d0a6bc865c681b5146ff487d407bc05cd178117c8530078e7"
+   },
+   "title": "There Was No Island Here. Just Sea. (Dubai, 2000-2003)",
+   "title_status": "final",
+   "description": "Between these two pictures: three years. NASA's ASTER satellite shows the same place off Dubai in 2000 and in 2003.\nImages are false colour (plants appear red). Narration excerpt from our full video 'Dubai Islands'.\n\nCredit: NASA Earth Observatory, World of Change (ASTER / Terra).\n#Shorts #satellite #earth #dubai",
+   "tags": [
+    "Dubai",
+    "Palm Jumeirah",
+    "satellite imagery",
+    "NASA ASTER",
+    "OrbitalAtlas"
+   ],
+   "category_id": "27",
+   "default_language": "en",
+   "made_for_kids": false,
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Real satellite data/own footage with labelled graphics; narration is a stock TTS voice. No fabricated realistic people or events.",
+   "thumbnail": null,
+   "captions": null,
+   "publish_at": "2026-10-24T01:00:00Z",
+   "related": {
+    "title_contains": "Dubai"
+   },
+   "owner_approval": {
+    "approved": false,
+    "sha256": null,
+    "publish_at": null
+   }
+  },
+  {
+   "id": "short-02-ep002",
+   "mode": "autopilot",
+   "kind": "short",
+   "media": {
+    "asset": "EP002_Dubai_Short_02_FOUR_PROJECTS.mp4",
+    "sha256": "c4bff3eeb4c7e13d0b9e4f8e2ae1147710588a47ac388adc638a8e03639b3328"
+   },
+   "title": "4 Projects. One Picture. Dubai From Space, 2006",
+   "title_status": "final",
+   "description": "One 2006 satellite image shows four projects in a row, from south to north: Palm Jebel Ali, Palm Jumeirah, The World and Palm Deira.\nThen an astronaut's photograph from the International Space Station (6 April 2022).\n\nCredit: NASA/GSFC/METI/ERSDAC/JAROS and U.S./Japan ASTER Science Team; ISS067-E-3785, NASA Johnson Space Center.\n#Shorts #satellite #earth #dubai",
+   "tags": [
+    "Dubai",
+    "Palm Jumeirah",
+    "satellite imagery",
+    "NASA ASTER",
+    "OrbitalAtlas"
+   ],
+   "category_id": "27",
+   "default_language": "en",
+   "made_for_kids": false,
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Real satellite data/own footage with labelled graphics; narration is a stock TTS voice. No fabricated realistic people or events. BORDERLINE to check by eye: 2.5-D perspective tilt of a flat photo (package says it is not terrain).",
+   "thumbnail": null,
+   "captions": null,
+   "publish_at": "2026-10-25T01:00:00Z",
+   "related": {
+    "title_contains": "Dubai"
+   },
+   "owner_approval": {
+    "approved": false,
+    "sha256": null,
+    "publish_at": null
+   }
+  },
+  {
+   "id": "short-03-ep003",
+   "mode": "autopilot",
+   "kind": "short",
+   "media": {
+    "asset": "EP003_GreatSaltLake_Short_01_20_FEET.mp4",
+    "sha256": "9bff662fb8edfbcf8af6aa89fa03e9118fa819cbc1a77f067b99cc21604ce2fd"
+   },
+   "title": "Great Salt Lake: 20+ Feet Below Its 1986 Record High",
+   "title_status": "final",
+   "description": "The lake's record high came in 1986, at 4,211.6 feet. By July 2022 it sat more than 20 feet lower.\nLandsat images on the same grid, so the wipe compares like with like. The amber line is the 1986 shoreline, traced from the same data.\n\nCredit: Landsat imagery courtesy of the U.S. Geological Survey.\n#Shorts #satellite #earth #greatsaltlake",
+   "tags": [
+    "Great Salt Lake",
+    "Utah",
+    "satellite imagery",
+    "drought",
+    "OrbitalAtlas"
+   ],
+   "category_id": "27",
+   "default_language": "en",
+   "made_for_kids": false,
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Real satellite data/own footage with labelled graphics; narration is a stock TTS voice. No fabricated realistic people or events.",
+   "thumbnail": null,
+   "captions": null,
+   "publish_at": "2026-10-26T01:00:00Z",
+   "related": {
+    "title_contains": "Great Salt Lake"
+   },
+   "owner_approval": {
+    "approved": false,
+    "sha256": null,
+    "publish_at": null
+   }
+  },
+  {
+   "id": "short-04-ep003",
+   "mode": "autopilot",
+   "kind": "short",
+   "media": {
+    "asset": "EP003_GreatSaltLake_Short_02_WHAT_THE_WATER_LEFT.mp4",
+    "sha256": "514f3980a6b86ff15fd1bdcdad15e146f46be627daa580caa9a65b5e6b2559da"
+   },
+   "title": "What the Great Salt Lake Left Behind",
+   "title_status": "final",
+   "description": "When the water pulls back, it leaves lake bed. NASA reports that dust from the drying Great Salt Lake worsens regional air pollution.\nUSGS measured arsenic, lead and cadmium in dust at 17 sites; health effects have not yet been formally evaluated (USGS).\nThe dust in the animation is an illustration, not a measured plume.\n\nCredit: Landsat imagery courtesy of the U.S. Geological Survey; NASA; USGS.\n#Shorts #satellite #earth #greatsaltlake",
+   "tags": [
+    "Great Salt Lake",
+    "Utah",
+    "satellite imagery",
+    "drought",
+    "OrbitalAtlas"
+   ],
+   "category_id": "27",
+   "default_language": "en",
+   "made_for_kids": false,
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Real satellite data/own footage with labelled graphics; narration is a stock TTS voice. No fabricated realistic people or events.",
+   "thumbnail": null,
+   "captions": null,
+   "publish_at": "2026-10-27T01:00:00Z",
+   "related": {
+    "title_contains": "Great Salt Lake"
+   },
+   "owner_approval": {
+    "approved": false,
+    "sha256": null,
+    "publish_at": null
+   }
+  },
+  {
+   "id": "short-05-ep004",
+   "mode": "autopilot",
+   "kind": "short",
+   "media": {
+    "asset": "EP004_Jakarta_Short_01_SIX_BOWLS.mp4",
+    "sha256": "468fb8ddbbc5669644c3e356746e8ba97a35f2b839407052f3792c34141aa045"
+   },
+   "title": "Jakarta Is Sinking: Six Bowls, One at 7.7 cm a Year (Preprint)",
+   "title_status": "final",
+   "description": "A separate study, still a preprint, combined radar and GPS from 2014 to 2025 and counted six main subsidence bowls. In the worst one, the vertical drop reached up to 7.7 centimeters a year, about three inches.\nThis is one study and it is not peer reviewed yet. The graphics are schematic illustrations, not map positions.\n\nFull video: Jakarta Is Sinking: Satellites Reveal Why (OrbitalAtlas EP004).\nBackground: Landsat 8 imagery courtesy of the U.S. Geological Survey.\n#Shorts #satellite #earth #jakarta",
+   "tags": [
+    "Jakarta",
+    "land subsidence",
+    "satellite imagery",
+    "sinking city",
+    "OrbitalAtlas"
+   ],
+   "category_id": "27",
+   "default_language": "en",
+   "made_for_kids": false,
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Real satellite data/own footage with labelled graphics; narration is a stock TTS voice. No fabricated realistic people or events.",
+   "thumbnail": null,
+   "captions": null,
+   "publish_at": "2026-10-28T01:00:00Z",
+   "related": {
+    "title_contains": "Jakarta"
+   },
+   "owner_approval": {
+    "approved": false,
+    "sha256": null,
+    "publish_at": null
+   }
+  },
+  {
+   "id": "short-06-ep004",
+   "mode": "autopilot",
+   "kind": "short",
+   "media": {
+    "asset": "EP004_Jakarta_Short_02_DISTRICT_BY_DISTRICT.mp4",
+    "sha256": "795a9f0fd85c764f2dd23f2a572b953c5faa4f0ca1591ebf5b36ea20d773e55c"
+   },
+   "title": "How Fast Is Each Part of Jakarta Sinking? One Radar Study",
+   "title_status": "final",
+   "description": "A radar study of 2019 to 2020 reported average sinking rates of 4.9 centimeters a year in North Jakarta, 4.8 in West Jakarta, 3.1 in Central, 2.8 in the South and 2.5 in the East.\nThe abstract does not say whether these are line of sight or vertical. The sinking was mostly near the coast and river mouths, on soft river deposits.\n\nFull video: Jakarta Is Sinking: Satellites Reveal Why (OrbitalAtlas EP004).\nBackground: Landsat 8 imagery courtesy of the U.S. Geological Survey.\n#Shorts #satellite #earth #jakarta",
+   "tags": [
+    "Jakarta",
+    "land subsidence",
+    "satellite imagery",
+    "sinking city",
+    "OrbitalAtlas"
+   ],
+   "category_id": "27",
+   "default_language": "en",
+   "made_for_kids": false,
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Real satellite data/own footage with labelled graphics; narration is a stock TTS voice. No fabricated realistic people or events.",
+   "thumbnail": null,
+   "captions": null,
+   "publish_at": "2026-10-29T01:00:00Z",
+   "related": {
+    "title_contains": "Jakarta"
+   },
+   "owner_approval": {
+    "approved": false,
+    "sha256": null,
+    "publish_at": null
+   }
+  }
+ ]
+}
