@@ -97,7 +97,8 @@
     "approved": false,
     "sha256": null,
     "publish_at": null
-   }
+   },
+   "private_test_allowed": true
   },
   {
    "id": "short-02-ep002",

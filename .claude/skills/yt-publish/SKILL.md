@@ -39,6 +39,7 @@ YouTube Studio: Content -> Shorts -> the Short -> Details -> Related video -> pi
   Edit these fields only when the owner has approved; never flip them on your own.
 - Upload = private + `publishAt` (YouTube itself releases it on time), then thumbnail, captions, and a read-back of
   the real status (`verified.ok` in the ledger). The ledger lives on branch `publish-ledger`.
+- `private_test` mode (docs/PRIVATE_TEST_UPLOAD.md): one private, unscheduled upload of an entry flagged `private_test_allowed`; ignores `owner_approval`, never re-uploads after an undetermined attempt.
 - No command changes, replaces or deletes a video that already exists.
 
 ## Limits to know

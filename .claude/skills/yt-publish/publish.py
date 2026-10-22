@@ -475,6 +475,8 @@ def cmd_upload(a):
 
 # --- queue: the only path used by automation --------------------------------------------------------
 
+TEST_PREFIX = "[PRIVATE TEST] "
+
 REQUIRED = ("id", "mode", "kind", "media", "title", "title_status", "description", "made_for_kids",
             "contains_synthetic_media", "publish_at", "owner_approval")
 
@@ -493,7 +495,11 @@ def _tokens(t):
     return {w for w in re.findall(r"[a-z0-9]+", t.lower()) if len(w) > 2}
 
 
-def find_conflicts(entry, inv, state):
+def test_video_ids(path=None):
+    return {r["video_id"] for r in ledger_read(path) if r.get("kind") == "private_test" and r.get("video_id")}
+
+
+def find_conflicts(entry, inv, state, ignore_ids=()):
     """Beyond an exact title: near-identical title, or same kind + (almost) same duration + overlapping title words.
     A video we already uploaded ourselves (ledger state 'uploaded') is not a conflict."""
     if state == "uploaded" or not inv:
@@ -501,6 +507,8 @@ def find_conflicts(entry, inv, state):
     out, t = [], entry["title"].strip().lower()
     sec, short = entry["media"].get("seconds"), entry["kind"] == "short"
     for v in inv:
+        if v["video_id"] in ignore_ids:
+            continue
         vt = re.sub(r"\s*#shorts\s*$", "", v["title"].strip().lower())
         ratio = difflib.SequenceMatcher(None, t, vt).ratio()
         both = _tokens(t) & _tokens(vt)
@@ -540,21 +548,25 @@ def check_entry(e, mode, media_dir, inv, now=None, hash_media=True):
     miss = [k for k in REQUIRED if k not in e]
     if miss:
         return [f"missing fields: {miss}"], None
+    test = mode == "private_test"        # PRIVATE_TEST: private, no schedule, only entries the owner flagged; owner_approval is not used or changed
     if e.get("open_issues"):
         pr += [f"open issue: {x}" for x in e["open_issues"]]
-    if e["mode"] != mode:
+    if test:
+        if e.get("private_test_allowed") is not True:
+            pr.append("this entry is not cleared for a private test upload (private_test_allowed)")
+    elif e["mode"] != mode:
         pr.append(f"entry is mode '{e['mode']}', this run is '{mode}'")
-    if e["title_status"] != "final":
+    if e["title_status"] != "final" and not test:
         pr.append("title is not final (owner has not chosen it)")
     ap, med = e["owner_approval"], e["media"]
-    if not (ap.get("approved") is True and ap.get("sha256") == med["sha256"] and ap.get("publish_at") == e["publish_at"]):
+    if not test and not (ap.get("approved") is True and ap.get("sha256") == med["sha256"] and ap.get("publish_at") == e["publish_at"]):
         pr.append("no matching owner approval (approved=true with this file's sha256 and this publish_at)")
     path = os.path.join(media_dir, med["asset"])
     if not os.path.isfile(path):
         pr.append(f"media not staged: {med['asset']}")
     elif hash_media and sha256(path) != med["sha256"]:
         pr.append("media sha256 differs from the approved one")
-    if e["kind"] == "long" and e.get("thumbnail"):
+    if e["kind"] == "long" and e.get("thumbnail") and not test:
         tf, rv = os.path.join(ROOT, e["thumbnail"]), e.get("thumbnail_review") or {}
         if not (rv.get("result") == "PASS" and os.path.isfile(tf) and rv.get("sha256") == sha256(tf)):
             pr.append("thumbnail has no PASS review for this exact file (docs/THUMBNAIL_STYLE_GUIDE.md section 5)")
@@ -565,8 +577,10 @@ def check_entry(e, mode, media_dir, inv, now=None, hash_media=True):
         if f and not os.path.isfile(os.path.join(ROOT, f)):
             pr.append(f"{k} file missing: {f}")
     if inv is not None:
-        st = ledger_state(med["sha256"])
-        pr += find_conflicts(e, inv, st["state"])
+        key = "private_test:" + med["sha256"] if test else med["sha256"]
+        st = ledger_state(key)
+        cand = {**e, "title": TEST_PREFIX + e["title"]} if test else e
+        pr += find_conflicts(cand, inv, st["state"], test_video_ids())
     url, rtitle, why = resolve_related(e, inv) if (e.get("related") and inv is not None) else (None, None, None)
     if why:
         pr.append(why)
@@ -574,9 +588,10 @@ def check_entry(e, mode, media_dir, inv, now=None, hash_media=True):
         pr.append("related video cannot be resolved offline")
     if pr:
         return pr, None
-    spec = {"file": path, "kind": e["kind"], "title": e["title"], "description": e["description"], "tags": e.get("tags", []),
+    spec = {"file": path, "kind": e["kind"], "title": (TEST_PREFIX + e["title"]) if test else e["title"], "description": e["description"], "tags": e.get("tags", []),
             "category_id": e.get("category_id", "27"), "made_for_kids": e["made_for_kids"],
-            "contains_synthetic_media": e["contains_synthetic_media"], "privacy": "public", "publish_at": e["publish_at"],
+            "contains_synthetic_media": e["contains_synthetic_media"], "privacy": "private" if test else "public",
+            **({} if test else {"publish_at": e["publish_at"]}),
             "default_language": e.get("default_language", "en"), "related_long_url": url, "related_long_title": rtitle}
     try:
         validate(spec, now)
@@ -618,6 +633,40 @@ def run_entry(e, spec, inv, token):
     return {"video_id": vid, "steps": steps, "verified_scheduled": ok, "reported": {k: real.get(k) for k in ("privacyStatus", "publishAt", "uploadStatus", "rejectionReason", "failureReason")}}
 
 
+def run_private_test(e, spec, inv, token):
+    """One private upload: no publishAt, privacy private. Never re-uploads after an undetermined attempt - it looks the video up first."""
+    sha = e["media"]["sha256"]; key = "private_test:" + sha
+    st = ledger_state(key)
+    if st["state"] == "started":
+        hit = next((v for v in inv if v["title"].strip() == spec["title"].strip()), None)
+        if not hit:
+            raise PublishError("an earlier private test upload has an undetermined result and the video is not on the channel (yet) - NOT re-uploading; check YouTube Studio, then run reconcile --abandon only if it is really absent")
+        ledger_add({"event": "uploaded", "sha256": key, "file_sha256": sha, "kind": "private_test", "id": e["id"], "video_id": hit["video_id"], "adopted": True})
+        st = ledger_state(key)
+    elif st["state"] == "none":
+        with ledger_lock():
+            if ledger_state(key)["state"] != "none":
+                raise PublishError("a parallel run already started this private test")
+            ledger_add({"event": "started", "sha256": key, "file_sha256": sha, "kind": "private_test", "id": e["id"], "file": e["media"]["asset"]})
+        body = build_body(spec)
+        assert body["status"]["privacyStatus"] == "private" and "publishAt" not in body["status"]
+        res = resumable_upload(spec["file"], body, token)
+        ledger_add({"event": "uploaded", "sha256": key, "file_sha256": sha, "kind": "private_test", "id": e["id"], "video_id": res["id"]})
+        st = ledger_state(key)
+    vid = st["video_id"]
+    real = video_status(vid, token)
+    ok = real.get("privacyStatus") == "private" and not real.get("publishAt") and real.get("uploadStatus") in ("uploaded", "processed")
+    notes = ["A private upload proves auth, upload, metadata and status read-back only. It cannot show whether this API project may publish publicly or on a schedule "
+             "(unaudited projects are locked to private)."]
+    ledger_add({"event": "verified", "sha256": key, "file_sha256": sha, "kind": "private_test", "id": e["id"], "video_id": vid, "ok": ok,
+                "privacyStatus": real.get("privacyStatus"), "publishAt": real.get("publishAt"), "uploadStatus": real.get("uploadStatus"),
+                "processingStatus": real.get("processing"), "madeForKids": real.get("madeForKids"),
+                "rejectionReason": real.get("rejectionReason"), "failureReason": real.get("failureReason"), "notes": notes})
+    return {"video_id": vid, "private_url": f"https://youtu.be/{vid}", "studio_url": f"https://studio.youtube.com/video/{vid}/edit", "sha256": sha,
+            "verified_private": ok, "reported": {k: real.get(k) for k in ("title", "privacyStatus", "publishAt", "uploadStatus", "processing", "madeForKids", "rejectionReason", "failureReason")},
+            "limits": notes}
+
+
 def auto_reconcile(inv, abandon_after_s=7200):
     """Interrupted uploads: adopt the video if YouTube has it, abandon the record if it is old and absent."""
     acts, seen = [], {}
@@ -626,7 +675,7 @@ def auto_reconcile(inv, abandon_after_s=7200):
             seen[r["sha256"]] = r
     for sha, r in seen.items():
         st = ledger_state(sha)
-        if st["state"] != "started":
+        if st["state"] != "started" or sha.startswith("private_test:"):
             continue
         e = next((x for x in load_queue() if x["media"]["sha256"] == sha), None)
         hit = next((v for v in inv if e and v["title"].strip().lower() == e["title"].strip().lower()), None)
@@ -642,6 +691,8 @@ def auto_reconcile(inv, abandon_after_s=7200):
 def cmd_queue_run(a):
     items = load_queue(a.queue)
     want = None if a.ids == "all" else set(a.ids.split(","))
+    if a.mode == "private_test" and (want is None or len(want) != 1):
+        raise PublishError("private_test uploads exactly one named entry: --ids <id>")
     items = [e for e in items if want is None or e["id"] in want]
     if want and len(items) != len(want):
         raise PublishError(f"unknown ids: {want - {e['id'] for e in items}}")
@@ -651,23 +702,26 @@ def cmd_queue_run(a):
         if ch["id"] != doc.get("expected_channel_id"):
             raise PublishError(f"token belongs to channel {ch['id']} ({ch['snippet'].get('customUrl')}), queue expects {doc.get('expected_channel_id')} - nothing was sent")
     inv = None if a.offline else inventory()
-    actions = auto_reconcile(inv) if (inv is not None and a.confirm) else []
+    if a.mode == "private_test" and inv is None:
+        raise PublishError("private_test needs the live channel inventory (do not use --offline)")
+    actions = auto_reconcile(inv) if (inv is not None and a.confirm and a.mode != "private_test") else []
     token = access_token() if a.confirm else None
     out = []
     for e in sorted(items, key=lambda x: x.get("publish_at", "")):
-        if e.get("mode") != a.mode:
+        if a.mode != "private_test" and e.get("mode") != a.mode:
             out.append({"id": e["id"], "status": "skipped", "why": f"mode {e.get('mode')} != {a.mode}"})
             continue
         problems, spec = check_entry(e, a.mode, a.media_dir, inv, hash_media=True)
         if problems:
             out.append({"id": e["id"], "status": "blocked", "problems": problems})
         elif not a.confirm:
-            out.append({"id": e["id"], "status": "ready (dry run)", "publish_at": e["publish_at"]})
+            out.append({"id": e["id"], "status": "ready (dry run)", **({"private_test": True, "would_upload_as": spec["title"], "privacy": "private", "publishAt": None} if a.mode == "private_test" else {"publish_at": e["publish_at"]})})
         else:
             try:
-                out.append({"id": e["id"], "status": "done", **run_entry(e, spec, inv, token)})
+                res = run_private_test(e, spec, inv, token) if a.mode == "private_test" else run_entry(e, spec, inv, token)
+                out.append({"id": e["id"], "status": "done", **res})
             except PublishError as ex:
-                ledger_add({"event": "error", "sha256": e["media"]["sha256"], "id": e["id"], "message": redact(ex)[:300]})
+                ledger_add({"event": "error", "sha256": ("private_test:" if a.mode == "private_test" else "") + e["media"]["sha256"], "id": e["id"], "message": redact(ex)[:300]})
                 out.append({"id": e["id"], "status": "error", "error": redact(ex)})
     return {"dry_run": not a.confirm, "reconcile": actions, "items": out}
 
@@ -694,7 +748,7 @@ def main(argv=None):
     sub.add_parser("inventory")
     sub.add_parser("reconcile").add_argument("--abandon", action="store_true", help="abandon stale 'started' records at once")
     q = sub.add_parser("queue-run")
-    q.add_argument("--queue", default=QUEUE); q.add_argument("--mode", required=True, choices=["approval", "autopilot"])
+    q.add_argument("--queue", default=QUEUE); q.add_argument("--mode", required=True, choices=["approval", "autopilot", "private_test"])
     q.add_argument("--ids", required=True); q.add_argument("--media-dir", required=True)
     q.add_argument("--confirm", action="store_true"); q.add_argument("--offline", action="store_true")
     a = p.parse_args(argv)
