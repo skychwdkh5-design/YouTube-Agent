@@ -166,7 +166,7 @@ class Q(unittest.TestCase):
 class Thumb(Q):
     def test_long_cover_needs_pass_review_for_exact_file(self):
         e = copy.deepcopy(QUEUE[0])
-        self.assertFalse(any("thumbnail has no PASS" in x for x in P.check_entry(e, "approval", self.d, [], NOW, hash_media=False)[0]))   # committed review is valid
+        self.assertFalse(any("thumbnail" in x for x in P.check_entry(e, "approval", self.d, [], NOW, hash_media=False)[0]))   # committed review is valid and owner-approved
         e["thumbnail_review"] = {"result": "FAIL", "sha256": e["thumbnail_review"]["sha256"]}
         self.assertTrue(any("thumbnail has no PASS" in x for x in P.check_entry(e, "approval", self.d, [], NOW, hash_media=False)[0]))
         e["thumbnail_review"] = {"result": "PASS", "sha256": P.sha256(os.path.join(P.ROOT, e["thumbnail"]))}
@@ -207,7 +207,7 @@ class RealChannel(unittest.TestCase):
 
     def test_ep005_is_still_blocked_by_owner_gates(self):
         pr = P.check_entry(copy.deepcopy(QUEUE[0]), "approval", tempfile.mkdtemp(), INV, NOW, hash_media=False)[0]
-        self.assertTrue(any("owner approval" in x for x in pr)); self.assertTrue(any("not visually approved" in x for x in pr))
+        self.assertTrue(any("owner approval" in x for x in pr)); self.assertFalse(any("thumbnail" in x for x in pr))   # cover approved by the owner
         self.assertTrue(any("media not staged" in x for x in pr)); self.assertFalse(any("open issue" in x for x in pr))
 
 
@@ -247,3 +247,12 @@ class Decisions(unittest.TestCase):
         self.assertIsNotNone(P.resolve_related(e, INV)[2])
         e["related"] = {"video_id": "Si5BEK3aQDw"}                      # a Short, not a long video
         self.assertIsNotNone(P.resolve_related(e, INV)[2])
+
+
+class CoverApproval(unittest.TestCase):
+    def test_owner_approval_is_bound_to_the_exact_file(self):
+        e = copy.deepcopy(QUEUE[0]); rv = e["thumbnail_review"]
+        self.assertIs(rv["owner_approved"], True)
+        self.assertEqual(rv["sha256"], P.sha256(os.path.join(P.ROOT, e["thumbnail"])))
+        e["thumbnail_review"]["sha256"] = "0" * 64                      # file changed after approval -> blocked again
+        self.assertTrue(any("thumbnail has no PASS" in x for x in P.check_entry(e, "approval", tempfile.mkdtemp(), [], NOW, hash_media=False)[0]))

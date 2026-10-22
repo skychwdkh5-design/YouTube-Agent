@@ -56,7 +56,8 @@
     "result": "PASS",
     "sha256": "1332b42b4e0afe2d0d33b213f750b2c1bd013b1ff382a221bc1c376d81128140",
     "note": "Concept #1 chosen by owner; thumbcheck objective PASS; visual check against the four published covers by Claude. Owner approval still required.",
-    "owner_approved": false
+    "owner_approved": true,
+    "owner_approved_note": "Owner approved thumbnail_v2.jpg visually in chat (2026-10-22). Applies to this exact file (sha256 above); a changed file needs a new review."
    },
    "scene_verification": "docs/EP005_SCENE_VERIFICATION.md"
   },
