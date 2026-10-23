@@ -31,3 +31,4 @@
 {"at": "2026-10-22T12:25:14+00:00", "event": "verified", "sha256": "795a9f0fd85c764f2dd23f2a572b953c5faa4f0ca1591ebf5b36ea20d773e55c", "id": "short-06-ep004", "video_id": "tTKTflKxWkM", "ok": true, "privacyStatus": "private", "publishAt": "2026-10-28T01:00:00Z", "uploadStatus": "uploaded"}
 {"at": "2026-10-22T12:25:14+00:00", "event": "approval_done", "approval_id": "79ed58e3328b44d68179518ae67d9e59", "ids": ["short-01-ep002", "short-02-ep002", "short-03-ep003", "short-04-ep003", "short-05-ep004", "short-06-ep004"]}
 {"at": "2026-10-23T01:29:13+00:00", "event": "release_confirmed", "video_id": "_mqNSG4Ogxw", "id": "short-01-ep002", "publishAt": "2026-10-23T01:00:00Z", "privacyStatus": "public", "delay_s": 1753}
+{"at": "2026-10-23T12:06:52+00:00", "event": "release_confirmed", "video_id": "J1WzDfYsAG0", "id": "ep005", "publishAt": "2026-10-23T12:00:00Z", "privacyStatus": "public", "delay_s": 412}
