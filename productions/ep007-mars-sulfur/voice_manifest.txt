@@ -1,1 +1,7 @@
-ELEVENLABS_API_KEY: NOT SET in repository secrets
+ffmpeg: missing
+ELEVENLABS_API_KEY: set
+short1 exit 2 {  "status": "error",  "error": "ffmpeg is not installed or not on PATH" } 
+total 12
+drwxr-xr-x 2 runner runner 4096 Oct 28 09:45 .
+drwxr-xr-x 9 runner runner 4096 Oct 28 09:45 ..
+-rw-r--r-- 1 runner runner   75 Oct 28 09:45 adam_short1.result.json
