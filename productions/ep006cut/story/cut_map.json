@@ -1,0 +1,415 @@
+[
+ {
+  "sentence": 0,
+  "old_start": 0.0,
+  "new_start": 0.0,
+  "new_end": 6.92,
+  "text": "On 12 August 2026, this valley in northern Nepal, high in the Himalaya, looks quiet."
+ },
+ {
+  "sentence": 1,
+  "old_start": 7.523,
+  "new_start": 7.523,
+  "new_end": 12.086,
+  "text": "Fourteen days later, a dark swath runs through the same valley."
+ },
+ {
+  "sentence": 2,
+  "old_start": 12.411,
+  "new_start": 12.411,
+  "new_end": 19.203,
+  "text": "For seven weeks before that, a radar satellite had been picking up movement in a mountain slope in northern Nepal."
+ },
+ {
+  "sentence": 3,
+  "old_start": 20.016,
+  "new_start": 20.016,
+  "new_end": 21.769,
+  "text": "What had the satellites seen?"
+ },
+ {
+  "sentence": 4,
+  "old_start": 22.21,
+  "new_start": 22.21,
+  "new_end": 23.963,
+  "text": "And what does it not prove?"
+ },
+ {
+  "sentence": 6,
+  "old_start": 27.679,
+  "new_start": 24.463,
+  "new_end": 37.361,
+  "text": "The US Geological Survey said a rapid slope failure involving a glacier struck Langtang National Park in Nepal, near the Chinese border, on the morning of 26 August 2026."
+ },
+ {
+  "sentence": 7,
+  "old_start": 41.181,
+  "new_start": 37.965,
+  "new_end": 48.333,
+  "text": "It said the debris flow and flood traveled about 100 kilometers, roughly 62 miles, along two rivers, the Lende Khola and the Trishuli Khola."
+ },
+ {
+  "sentence": 8,
+  "old_start": 52.153,
+  "new_start": 48.937,
+  "new_end": 55.02,
+  "text": "It said the flood hit populated areas downstream, including the Rasuwagadhi border post."
+ },
+ {
+  "sentence": 9,
+  "old_start": 58.747,
+  "new_start": 55.531,
+  "new_end": 59.246,
+  "text": "Its summary does not say where along that route the water stopped."
+ },
+ {
+  "sentence": 11,
+  "old_start": 65.643,
+  "new_start": 59.746,
+  "new_end": 65.888,
+  "text": "USGS said it released seismic energy equal to a magnitude 5.2 earthquake."
+ },
+ {
+  "sentence": 12,
+  "old_start": 72.389,
+  "new_start": 66.492,
+  "new_end": 72.668,
+  "text": "USGS said a second signal, about three hours later, was equal to magnitude 4.2."
+ },
+ {
+  "sentence": 13,
+  "old_start": 79.169,
+  "new_start": 73.272,
+  "new_end": 79.716,
+  "text": "USGS said those are energy comparisons: the slope failure itself produced the signals."
+ },
+ {
+  "sentence": 14,
+  "old_start": 86.216,
+  "new_start": 80.319,
+  "new_end": 89.607,
+  "text": "USGS also said it has not yet determined whether this began as a landslide that picked up part of a glacier, or as a failure of the glacier itself."
+ },
+ {
+  "sentence": 15,
+  "old_start": 95.887,
+  "new_start": 89.99,
+  "new_end": 93.299,
+  "text": "And it said everything it has published is preliminary."
+ },
+ {
+  "sentence": 16,
+  "old_start": 99.579,
+  "new_start": 93.682,
+  "new_end": 96.272,
+  "text": "This mountain has done something like this before."
+ },
+ {
+  "sentence": 17,
+  "old_start": 102.772,
+  "new_start": 96.875,
+  "new_end": 104.561,
+  "text": "In 2015, USGS said, a magnitude 7.8 earthquake set off a debris avalanche on the same mountain."
+ },
+ {
+  "sentence": 18,
+  "old_start": 110.865,
+  "new_start": 104.968,
+  "new_end": 111.318,
+  "text": "USGS said it fell nearly 1,900 meters, buried a village, and killed more than 200 people."
+ },
+ {
+  "sentence": 19,
+  "old_start": 117.981,
+  "new_start": 112.084,
+  "new_end": 113.513,
+  "text": "Now the human cost."
+ },
+ {
+  "sentence": 20,
+  "old_start": 119.978,
+  "new_start": 114.081,
+  "new_end": 125.622,
+  "text": "In its 13 October release, ICIMOD reported figures from Nepal's disaster authority: 1,451 people dead and 5,745 missing in Nepal."
+ },
+ {
+  "sentence": 21,
+  "old_start": 132.018,
+  "new_start": 126.121,
+  "new_end": 130.649,
+  "text": "Other lists differ slightly and keep changing, so these numbers are not final."
+ },
+ {
+  "sentence": 22,
+  "old_start": 136.778,
+  "new_start": 130.881,
+  "new_end": 133.539,
+  "text": "China counts its own side of the border separately."
+ },
+ {
+  "sentence": 23,
+  "old_start": 139.82,
+  "new_start": 133.923,
+  "new_end": 140.575,
+  "text": "Xinhua reported 43 dead and 519 missing at Gyirong Port as of 5 September."
+ },
+ {
+  "sentence": 24,
+  "old_start": 146.855,
+  "new_start": 140.958,
+  "new_end": 146.601,
+  "text": "It was not clear whether some people appear in both countries' counts, so we do not add the two together."
+ },
+ {
+  "sentence": 27,
+  "old_start": 161.089,
+  "new_start": 147.101,
+  "new_end": 153.371,
+  "text": "The mountain research organization ICIMOD published a preliminary analysis on 13 October."
+ },
+ {
+  "sentence": 28,
+  "old_start": 167.637,
+  "new_start": 153.649,
+  "new_end": 157.828,
+  "text": "It said the disaster was not a conventional glacial lake outburst flood."
+ },
+ {
+  "sentence": 29,
+  "old_start": 172.142,
+  "new_start": 158.154,
+  "new_end": 162.902,
+  "text": "It said a failure in the bedrock sheared away part of the glacier lying on top of it."
+ },
+ {
+  "sentence": 30,
+  "old_start": 176.89,
+  "new_start": 162.902,
+  "new_end": 172.945,
+  "text": "ICIMOD also said that radar satellites, Sentinel-1, detected up to 40 centimeters of ground movement between 7 July and 24 August."
+ },
+ {
+  "sentence": 31,
+  "old_start": 187.316,
+  "new_start": 173.328,
+  "new_end": 178.425,
+  "text": "That is movement along the satellite's line of sight, not the full motion of the slope."
+ },
+ {
+  "sentence": 32,
+  "old_start": 192.796,
+  "new_start": 178.808,
+  "new_end": 181.582,
+  "text": "And the period ended two days before the failure."
+ },
+ {
+  "sentence": 33,
+  "old_start": 195.953,
+  "new_start": 181.965,
+  "new_end": 185.286,
+  "text": "We do not claim this was a warning anyone could have acted on."
+ },
+ {
+  "sentence": 34,
+  "old_start": 199.518,
+  "new_start": 185.53,
+  "new_end": 187.48,
+  "text": "No source we found shows that."
+ },
+ {
+  "sentence": 35,
+  "old_start": 201.793,
+  "new_start": 187.805,
+  "new_end": 194.794,
+  "text": "ICIMOD's early estimate of the volume was about 132 million cubic meters of rock and ice."
+ },
+ {
+  "sentence": 36,
+  "old_start": 209.224,
+  "new_start": 195.236,
+  "new_end": 198.893,
+  "text": "Another early analysis suggested a much smaller volume."
+ },
+ {
+  "sentence": 37,
+  "old_start": 213.055,
+  "new_start": 199.067,
+  "new_end": 203.165,
+  "text": "So the size is not settled, and we do not rely on one number."
+ },
+ {
+  "sentence": 40,
+  "old_start": 221.623,
+  "new_start": 203.665,
+  "new_end": 206.567,
+  "text": "First we looked for the clearest view before the event."
+ },
+ {
+  "sentence": 41,
+  "old_start": 224.85,
+  "new_start": 206.892,
+  "new_end": 211.409,
+  "text": "The best was 12 August, with 19 percent cloud cover over the scene."
+ },
+ {
+  "sentence": 42,
+  "old_start": 229.692,
+  "new_start": 211.734,
+  "new_end": 219.524,
+  "text": "But between 14 and 27 August, every Sentinel-2 pass had between 39 and 97 percent cloud cover."
+ },
+ {
+  "sentence": 44,
+  "old_start": 245.028,
+  "new_start": 220.024,
+  "new_end": 224.576,
+  "text": "So for 26 August we used a different satellite, Landsat 9."
+ },
+ {
+  "sentence": 45,
+  "old_start": 249.963,
+  "new_start": 224.959,
+  "new_end": 232.354,
+  "text": "Its pixels are 30 meters wide, three times coarser than Sentinel-2, and we show them as blocks, without sharpening."
+ },
+ {
+  "sentence": 46,
+  "old_start": 257.962,
+  "new_start": 232.958,
+  "new_end": 237.057,
+  "text": "In the 12 August image, the river is a narrow pale line."
+ },
+ {
+  "sentence": 47,
+  "old_start": 262.386,
+  "new_start": 237.382,
+  "new_end": 242.745,
+  "text": "In the 26 August image, a dark grey-brown swath follows the same valley."
+ },
+ {
+  "sentence": 48,
+  "old_start": 268.075,
+  "new_start": 243.071,
+  "new_end": 246.762,
+  "text": "From the image alone, we cannot tell what the swath is made of."
+ },
+ {
+  "sentence": 49,
+  "old_start": 272.045,
+  "new_start": 247.041,
+  "new_end": 248.527,
+  "text": "We traced it by eye."
+ },
+ {
+  "sentence": 50,
+  "old_start": 273.81,
+  "new_start": 248.806,
+  "new_end": 251.43,
+  "text": "On our grid it runs about 30 kilometers."
+ },
+ {
+  "sentence": 51,
+  "old_start": 276.713,
+  "new_start": 251.709,
+  "new_end": 258.884,
+  "text": "About 20 of them lie between the glacier and the point where the river turns south, near the Rasuwagadhi border post."
+ },
+ {
+  "sentence": 52,
+  "old_start": 284.329,
+  "new_start": 259.325,
+  "new_end": 264.77,
+  "text": "Clouds hide other stretches, so this is the least we can follow, not the full length."
+ },
+ {
+  "sentence": 55,
+  "old_start": 297.425,
+  "new_start": 265.27,
+  "new_end": 270.959,
+  "text": "USGS said it is mapping the full extent by comparing satellite images from before and after."
+ },
+ {
+  "sentence": 56,
+  "old_start": 303.439,
+  "new_start": 271.284,
+  "new_end": 274.198,
+  "text": "Our trace is not a substitute for that official map."
+ },
+ {
+  "sentence": 57,
+  "old_start": 306.864,
+  "new_start": 274.709,
+  "new_end": 276.114,
+  "text": "What can we not say?"
+ },
+ {
+  "sentence": 58,
+  "old_start": 308.71,
+  "new_start": 276.555,
+  "new_end": 279.91,
+  "text": "These images show what the ground looked like on two days."
+ },
+ {
+  "sentence": 59,
+  "old_start": 312.39,
+  "new_start": 280.235,
+  "new_end": 282.488,
+  "text": "They are not a measurement of the flood itself."
+ },
+ {
+  "sentence": 62,
+  "old_start": 323.536,
+  "new_start": 282.988,
+  "new_end": 287.597,
+  "text": "We cannot say why the slope failed, because that work is not finished."
+ },
+ {
+  "sentence": 63,
+  "old_start": 328.32,
+  "new_start": 287.772,
+  "new_end": 290.976,
+  "text": "We cannot say anyone could have been warned in time."
+ },
+ {
+  "sentence": 64,
+  "old_start": 331.768,
+  "new_start": 291.22,
+  "new_end": 295.724,
+  "text": "And we cannot say how many people died, because the lists are not final."
+ },
+ {
+  "sentence": 65,
+  "old_start": 336.714,
+  "new_start": 296.166,
+  "new_end": 298.267,
+  "text": "Two things will settle more of this."
+ },
+ {
+  "sentence": 66,
+  "old_start": 339.058,
+  "new_start": 298.51,
+  "new_end": 305.569,
+  "text": "The final findings from USGS and ICIMOD, on the type and size of the failure, are not out yet."
+ },
+ {
+  "sentence": 67,
+  "old_start": 346.117,
+  "new_start": 305.569,
+  "new_end": 310.828,
+  "text": "And the official counts of the dead and missing, on both sides of the border, are not final."
+ },
+ {
+  "sentence": 68,
+  "old_start": 351.887,
+  "new_start": 311.339,
+  "new_end": 316.285,
+  "text": "Every satellite frame here comes from free public data, with the credits on screen."
+ },
+ {
+  "sentence": 69,
+  "old_start": 357.077,
+  "new_start": 316.529,
+  "new_end": 318.294,
+  "text": "The sources are in the description."
+ }
+]

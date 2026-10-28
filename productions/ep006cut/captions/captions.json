@@ -1,0 +1,543 @@
+{
+ "schema": "yt-captions/1",
+ "language": "en",
+ "source": "narration.voice.json",
+ "settings": {
+  "max_chars": 84,
+  "max_lines": 2,
+  "max_duration": 6.0,
+  "min_duration": 0.8,
+  "pause": 0.6
+ },
+ "cue_count": 86,
+ "duration": 318.294,
+ "validation": {
+  "wording_preserved": true,
+  "no_overlaps": true,
+  "timestamps_valid": true,
+  "problems": [],
+  "warnings": []
+ },
+ "cues": [
+  {
+   "index": 1,
+   "start": 0.0,
+   "end": 4.226,
+   "text": "On 12 August 2026, this valley in northern Nepal,"
+  },
+  {
+   "index": 2,
+   "start": 4.354,
+   "end": 6.92,
+   "text": "high in the Himalaya, looks quiet."
+  },
+  {
+   "index": 3,
+   "start": 7.523,
+   "end": 12.086,
+   "text": "Fourteen days later, a dark swath runs through the same valley."
+  },
+  {
+   "index": 4,
+   "start": 12.411,
+   "end": 16.591,
+   "text": "For seven weeks before that, a radar satellite had been picking up movement"
+  },
+  {
+   "index": 5,
+   "start": 16.649,
+   "end": 19.203,
+   "text": "in a mountain slope in northern Nepal."
+  },
+  {
+   "index": 6,
+   "start": 20.016,
+   "end": 21.769,
+   "text": "What had the satellites seen?"
+  },
+  {
+   "index": 7,
+   "start": 22.21,
+   "end": 23.963,
+   "text": "And what does it not prove?"
+  },
+  {
+   "index": 8,
+   "start": 24.463,
+   "end": 28.491,
+   "text": "The US Geological Survey said a rapid slope failure involving"
+  },
+  {
+   "index": 9,
+   "start": 28.549,
+   "end": 33.786,
+   "text": "a glacier struck Langtang National Park in Nepal, near the Chinese border,"
+  },
+  {
+   "index": 10,
+   "start": 34.029,
+   "end": 37.361,
+   "text": "on the morning of 26 August 2026."
+  },
+  {
+   "index": 11,
+   "start": 37.965,
+   "end": 42.574,
+   "text": "It said the debris flow and flood traveled about 100 kilometers, roughly"
+  },
+  {
+   "index": 12,
+   "start": 42.644,
+   "end": 48.333,
+   "text": "62 miles, along two rivers, the Lende Khola and the Trishuli Khola."
+  },
+  {
+   "index": 13,
+   "start": 48.937,
+   "end": 52.152,
+   "text": "It said the flood hit populated areas downstream,"
+  },
+  {
+   "index": 14,
+   "start": 52.361,
+   "end": 55.02,
+   "text": "including the Rasuwagadhi border post."
+  },
+  {
+   "index": 15,
+   "start": 55.531,
+   "end": 59.246,
+   "text": "Its summary does not say where along that route the water stopped."
+  },
+  {
+   "index": 16,
+   "start": 59.746,
+   "end": 63.044,
+   "text": "USGS said it released seismic energy equal"
+  },
+  {
+   "index": 17,
+   "start": 63.102,
+   "end": 65.888,
+   "text": "to a magnitude 5.2 earthquake."
+  },
+  {
+   "index": 18,
+   "start": 66.492,
+   "end": 70.114,
+   "text": "USGS said a second signal, about three hours later,"
+  },
+  {
+   "index": 19,
+   "start": 70.23,
+   "end": 72.668,
+   "text": "was equal to magnitude 4.2."
+  },
+  {
+   "index": 20,
+   "start": 73.272,
+   "end": 76.418,
+   "text": "USGS said those are energy comparisons:"
+  },
+  {
+   "index": 21,
+   "start": 76.743,
+   "end": 79.716,
+   "text": "the slope failure itself produced the signals."
+  },
+  {
+   "index": 22,
+   "start": 80.319,
+   "end": 85.277,
+   "text": "USGS also said it has not yet determined whether this began as a landslide"
+  },
+  {
+   "index": 23,
+   "start": 85.311,
+   "end": 89.607,
+   "text": "that picked up part of a glacier, or as a failure of the glacier itself."
+  },
+  {
+   "index": 24,
+   "start": 89.99,
+   "end": 93.299,
+   "text": "And it said everything it has published is preliminary."
+  },
+  {
+   "index": 25,
+   "start": 93.682,
+   "end": 96.272,
+   "text": "This mountain has done something like this before."
+  },
+  {
+   "index": 26,
+   "start": 96.875,
+   "end": 99.615,
+   "text": "In 2015, USGS said,"
+  },
+  {
+   "index": 27,
+   "start": 99.766,
+   "end": 104.561,
+   "text": "a magnitude 7.8 earthquake set off a debris avalanche on the same mountain."
+  },
+  {
+   "index": 28,
+   "start": 104.968,
+   "end": 109.182,
+   "text": "USGS said it fell nearly 1,900 meters, buried a village,"
+  },
+  {
+   "index": 29,
+   "start": 109.321,
+   "end": 111.318,
+   "text": "and killed more than 200 people."
+  },
+  {
+   "index": 30,
+   "start": 112.084,
+   "end": 113.513,
+   "text": "Now the human cost."
+  },
+  {
+   "index": 31,
+   "start": 114.081,
+   "end": 119.584,
+   "text": "In its 13 October release, ICIMOD reported figures from Nepal's disaster authority:"
+  },
+  {
+   "index": 32,
+   "start": 119.863,
+   "end": 125.622,
+   "text": "1,451 people dead and 5,745 missing in Nepal."
+  },
+  {
+   "index": 33,
+   "start": 126.121,
+   "end": 130.649,
+   "text": "Other lists differ slightly and keep changing, so these numbers are not final."
+  },
+  {
+   "index": 34,
+   "start": 130.881,
+   "end": 133.539,
+   "text": "China counts its own side of the border separately."
+  },
+  {
+   "index": 35,
+   "start": 133.923,
+   "end": 138.671,
+   "text": "Xinhua reported 43 dead and 519 missing at Gyirong Port"
+  },
+  {
+   "index": 36,
+   "start": 138.915,
+   "end": 140.575,
+   "text": "as of 5 September."
+  },
+  {
+   "index": 37,
+   "start": 140.958,
+   "end": 144.453,
+   "text": "It was not clear whether some people appear in both countries' counts,"
+  },
+  {
+   "index": 38,
+   "start": 144.604,
+   "end": 146.601,
+   "text": "so we do not add the two together."
+  },
+  {
+   "index": 39,
+   "start": 147.101,
+   "end": 150.317,
+   "text": "The mountain research organization ICIMOD published"
+  },
+  {
+   "index": 40,
+   "start": 150.352,
+   "end": 153.371,
+   "text": "a preliminary analysis on 13 October."
+  },
+  {
+   "index": 41,
+   "start": 153.649,
+   "end": 157.828,
+   "text": "It said the disaster was not a conventional glacial lake outburst flood."
+  },
+  {
+   "index": 42,
+   "start": 158.154,
+   "end": 160.847,
+   "text": "It said a failure in the bedrock sheared away part"
+  },
+  {
+   "index": 43,
+   "start": 160.882,
+   "end": 162.902,
+   "text": "of the glacier lying on top of it."
+  },
+  {
+   "index": 44,
+   "start": 162.902,
+   "end": 167.035,
+   "text": "ICIMOD also said that radar satellites, Sentinel-1,"
+  },
+  {
+   "index": 45,
+   "start": 167.209,
+   "end": 172.945,
+   "text": "detected up to 40 centimeters of ground movement between 7 July and 24 August."
+  },
+  {
+   "index": 46,
+   "start": 173.328,
+   "end": 176.532,
+   "text": "That is movement along the satellite's line of sight,"
+  },
+  {
+   "index": 47,
+   "start": 176.706,
+   "end": 178.425,
+   "text": "not the full motion of the slope."
+  },
+  {
+   "index": 48,
+   "start": 178.808,
+   "end": 181.582,
+   "text": "And the period ended two days before the failure."
+  },
+  {
+   "index": 49,
+   "start": 181.965,
+   "end": 185.286,
+   "text": "We do not claim this was a warning anyone could have acted on."
+  },
+  {
+   "index": 50,
+   "start": 185.53,
+   "end": 187.48,
+   "text": "No source we found shows that."
+  },
+  {
+   "index": 51,
+   "start": 187.805,
+   "end": 190.069,
+   "text": "ICIMOD's early estimate of the volume"
+  },
+  {
+   "index": 52,
+   "start": 190.104,
+   "end": 194.794,
+   "text": "was about 132 million cubic meters of rock and ice."
+  },
+  {
+   "index": 53,
+   "start": 195.236,
+   "end": 198.893,
+   "text": "Another early analysis suggested a much smaller volume."
+  },
+  {
+   "index": 54,
+   "start": 199.067,
+   "end": 203.165,
+   "text": "So the size is not settled, and we do not rely on one number."
+  },
+  {
+   "index": 55,
+   "start": 203.665,
+   "end": 206.567,
+   "text": "First we looked for the clearest view before the event."
+  },
+  {
+   "index": 56,
+   "start": 206.892,
+   "end": 211.409,
+   "text": "The best was 12 August, with 19 percent cloud cover over the scene."
+  },
+  {
+   "index": 57,
+   "start": 211.734,
+   "end": 214.172,
+   "text": "But between 14 and 27 August,"
+  },
+  {
+   "index": 58,
+   "start": 214.381,
+   "end": 219.524,
+   "text": "every Sentinel-2 pass had between 39 and 97 percent cloud cover."
+  },
+  {
+   "index": 59,
+   "start": 220.024,
+   "end": 224.576,
+   "text": "So for 26 August we used a different satellite, Landsat 9."
+  },
+  {
+   "index": 60,
+   "start": 224.959,
+   "end": 229.533,
+   "text": "Its pixels are 30 meters wide, three times coarser than Sentinel-2,"
+  },
+  {
+   "index": 61,
+   "start": 229.684,
+   "end": 232.354,
+   "text": "and we show them as blocks, without sharpening."
+  },
+  {
+   "index": 62,
+   "start": 232.958,
+   "end": 237.057,
+   "text": "In the 12 August image, the river is a narrow pale line."
+  },
+  {
+   "index": 63,
+   "start": 237.382,
+   "end": 242.745,
+   "text": "In the 26 August image, a dark grey-brown swath follows the same valley."
+  },
+  {
+   "index": 64,
+   "start": 243.071,
+   "end": 246.762,
+   "text": "From the image alone, we cannot tell what the swath is made of."
+  },
+  {
+   "index": 65,
+   "start": 247.041,
+   "end": 248.527,
+   "text": "We traced it by eye."
+  },
+  {
+   "index": 66,
+   "start": 248.806,
+   "end": 251.43,
+   "text": "On our grid it runs about 30 kilometers."
+  },
+  {
+   "index": 67,
+   "start": 251.709,
+   "end": 256.353,
+   "text": "About 20 of them lie between the glacier and the point where the river turns south,"
+  },
+  {
+   "index": 68,
+   "start": 256.597,
+   "end": 258.884,
+   "text": "near the Rasuwagadhi border post."
+  },
+  {
+   "index": 69,
+   "start": 259.325,
+   "end": 263.261,
+   "text": "Clouds hide other stretches, so this is the least we can follow,"
+  },
+  {
+   "index": 70,
+   "start": 263.586,
+   "end": 264.77,
+   "text": "not the full length."
+  },
+  {
+   "index": 71,
+   "start": 265.27,
+   "end": 269.357,
+   "text": "USGS said it is mapping the full extent by comparing satellite images"
+  },
+  {
+   "index": 72,
+   "start": 269.404,
+   "end": 270.959,
+   "text": "from before and after."
+  },
+  {
+   "index": 73,
+   "start": 271.284,
+   "end": 274.198,
+   "text": "Our trace is not a substitute for that official map."
+  },
+  {
+   "index": 74,
+   "start": 274.709,
+   "end": 276.114,
+   "text": "What can we not say?"
+  },
+  {
+   "index": 75,
+   "start": 276.555,
+   "end": 279.91,
+   "text": "These images show what the ground looked like on two days."
+  },
+  {
+   "index": 76,
+   "start": 280.235,
+   "end": 282.488,
+   "text": "They are not a measurement of the flood itself."
+  },
+  {
+   "index": 77,
+   "start": 282.988,
+   "end": 287.597,
+   "text": "We cannot say why the slope failed, because that work is not finished."
+  },
+  {
+   "index": 78,
+   "start": 287.772,
+   "end": 290.976,
+   "text": "We cannot say anyone could have been warned in time."
+  },
+  {
+   "index": 79,
+   "start": 291.22,
+   "end": 295.724,
+   "text": "And we cannot say how many people died, because the lists are not final."
+  },
+  {
+   "index": 80,
+   "start": 296.166,
+   "end": 298.267,
+   "text": "Two things will settle more of this."
+  },
+  {
+   "index": 81,
+   "start": 298.51,
+   "end": 301.703,
+   "text": "The final findings from USGS and ICIMOD,"
+  },
+  {
+   "index": 82,
+   "start": 301.877,
+   "end": 305.569,
+   "text": "on the type and size of the failure, are not out yet."
+  },
+  {
+   "index": 83,
+   "start": 305.569,
+   "end": 307.752,
+   "text": "And the official counts of the dead and missing,"
+  },
+  {
+   "index": 84,
+   "start": 307.926,
+   "end": 310.828,
+   "text": "on both sides of the border, are not final."
+  },
+  {
+   "index": 85,
+   "start": 311.339,
+   "end": 316.285,
+   "text": "Every satellite frame here comes from free public data, with the credits on screen."
+  },
+  {
+   "index": 86,
+   "start": 316.529,
+   "end": 318.294,
+   "text": "The sources are in the description."
+  }
+ ],
+ "files": {
+  "srt": "captions.srt",
+  "vtt": "captions.vtt"
+ }
+}

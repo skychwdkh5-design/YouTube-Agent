@@ -1,0 +1,1773 @@
+{
+ "version": 3,
+ "profile": "long",
+ "grid": "evidence/stack/grid.json",
+ "assets": {
+  "y2026": {
+   "src": "evidence/stack/y2026.png",
+   "label": "12 AUG",
+   "credit": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "l2026": {
+   "src": "evidence/landsat10/y2026.png",
+   "label": "26 AUG",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
+  "i_seismic_s1": {
+   "src": "graphics/i_seismic.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_seismic"
+  },
+  "i_seismic_s2": {
+   "src": "graphics/i_seismic.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_seismic"
+  },
+  "i_seismic": {
+   "src": "graphics/i_seismic.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_seismic"
+  },
+  "i_cause_s1": {
+   "src": "graphics/i_cause.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_cause"
+  },
+  "i_cause": {
+   "src": "graphics/i_cause.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_cause"
+  },
+  "i_2015_s1": {
+   "src": "graphics/i_2015.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_2015"
+  },
+  "i_2015_s2": {
+   "src": "graphics/i_2015.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_2015"
+  },
+  "i_2015": {
+   "src": "graphics/i_2015.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_2015"
+  },
+  "i_toll_s1": {
+   "src": "graphics/i_toll.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_toll"
+  },
+  "i_toll_s2": {
+   "src": "graphics/i_toll.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_toll"
+  },
+  "i_toll": {
+   "src": "graphics/i_toll.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_toll"
+  },
+  "i_clouds": {
+   "src": "graphics/i_clouds.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_clouds"
+  },
+  "d0827": {
+   "src": "evidence/s2post/d0827.png",
+   "label": "27 AUG",
+   "credit": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "d0908": {
+   "src": "evidence/s2post/d0908.png",
+   "label": "8 SEP",
+   "credit": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "esa_l9": {
+   "src": "evidence/esa_landsat9_after_1280.jpg",
+   "kind": "external_still",
+   "label": "ESA LANDSAT-9 26 AUG",
+   "credit": "ESA - Landsat-9 (USGS), 26 Aug 2026, CC BY 4.0",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Nepal_glacier_collapse_and_flood_(after)_(55504451912).jpg",
+   "license": "CC BY 4.0",
+   "retrieved": "2026-10-28",
+   "image_date": "2026-08-26"
+  }
+ },
+ "shots": [
+  {
+   "id": "v4_000",
+   "start": 0.0,
+   "visual_family": "v4_000",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "12 AUG 2026 - SENTINEL-2",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.4,
+      null
+     ],
+     "sub": "BEFORE - 10 M"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 27
+    },
+    "to": {
+     "center": [
+      85.47,
+      28.32
+     ],
+     "width_km": 14
+    }
+   }
+  },
+  {
+   "id": "v4_001",
+   "start": 3.76,
+   "visual_family": "v4_001",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.47,
+      28.32
+     ],
+     "width_km": 14
+    },
+    "to": {
+     "center": [
+      85.5,
+      28.295
+     ],
+     "width_km": 9
+    }
+   }
+  },
+  {
+   "id": "v4_002",
+   "start": 7.523,
+   "visual_family": "v4_002",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "wipe",
+     "from": "y2026",
+     "to": "l2026",
+     "t": [
+      0.2,
+      2.6
+     ]
+    },
+    {
+     "type": "label",
+     "text": "26 AUG 2026 - LANDSAT 9",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      2.0,
+      null
+     ],
+     "sub": "30 M, SHOWN WIDE, NOT SHARPENED"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 26
+    },
+    "to": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 24
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v4_003",
+   "start": 12.411,
+   "visual_family": "v4_003",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "RADAR 7 JUL - 24 AUG",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      2.0,
+      null
+     ],
+     "sub": "UP TO 40 CM, LINE OF SIGHT (ICIMOD)"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.5,
+      28.29
+     ],
+     "width_km": 10
+    },
+    "to": {
+     "center": [
+      85.47,
+      28.31
+     ],
+     "width_km": 8
+    }
+   }
+  },
+  {
+   "id": "v4_004",
+   "start": 20.016,
+   "visual_family": "v4_004",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "d0908"
+    },
+    {
+     "type": "label",
+     "text": "8 SEP 2026 - SENTINEL-2",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.3,
+      null
+     ],
+     "sub": "13 DAYS AFTER THE EVENT, 10 M"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.47,
+      28.32
+     ],
+     "width_km": 14
+    },
+    "to": {
+     "center": [
+      85.45,
+      28.325
+     ],
+     "width_km": 10
+    }
+   }
+  },
+  {
+   "id": "v4_005",
+   "start": 24.463,
+   "visual_family": "v4_005",
+   "layers": [
+    {
+     "type": "still",
+     "asset": "esa_l9",
+     "view": {
+      "from": {
+       "center": [
+        0.5,
+        0.77
+       ],
+       "width": 1.0
+      },
+      "to": {
+       "center": [
+        0.5,
+        0.56
+       ],
+       "width": 1.0
+      },
+      "ease": "linear"
+     }
+    },
+    {
+     "type": "label",
+     "text": "ESA - LANDSAT-9, 26 AUG 2026",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      3.5,
+      9.0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "v4_006",
+   "start": 37.965,
+   "visual_family": "v4_006",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    },
+    {
+     "type": "arrow",
+     "from": [
+      85.5126,
+      28.2872
+     ],
+     "to": [
+      85.4141,
+      28.3155
+     ],
+     "color": "#FFD23F",
+     "width": 9,
+     "t": [
+      1.2,
+      null
+     ]
+    },
+    {
+     "type": "arrow",
+     "from": [
+      85.4141,
+      28.3155
+     ],
+     "to": [
+      85.3852,
+      28.2858
+     ],
+     "color": "#FFD23F",
+     "width": 9,
+     "t": [
+      3.0,
+      null
+     ]
+    },
+    {
+     "type": "label",
+     "text": "USGS: ABOUT 100 KM (62 MI)",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      2.3,
+      null
+     ]
+    },
+    {
+     "type": "label",
+     "text": "OUR TRACE (APPROX.): ~30 KM",
+     "style": "tag",
+     "slot": "middle",
+     "plate": true,
+     "t": [
+      4.6,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.45,
+      28.29
+     ],
+     "width_km": 24
+    },
+    "to": {
+     "center": [
+      85.43,
+      28.29
+     ],
+     "width_km": 22
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v4_007",
+   "start": 44.16,
+   "visual_family": "v4_007",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "12 AUG 2026 - BEFORE",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.2,
+      1.2
+     ]
+    },
+    {
+     "type": "arrow",
+     "from": [
+      85.3852,
+      28.2858
+     ],
+     "to": [
+      85.3586,
+      28.2268
+     ],
+     "color": "#FFD23F",
+     "width": 9,
+     "t": [
+      1.0,
+      null
+     ]
+    },
+    {
+     "type": "pin",
+     "at": [
+      85.4456,
+      28.3379
+     ],
+     "text": "LENDE KHOLA",
+     "plate": true,
+     "t": [
+      0.3,
+      2.0
+     ]
+    },
+    {
+     "type": "pin",
+     "at": [
+      85.3586,
+      28.2268
+     ],
+     "text": "TRISHULI KHOLA",
+     "plate": true,
+     "t": [
+      1.6,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.43,
+      28.32
+     ],
+     "width_km": 16
+    },
+    "to": {
+     "center": [
+      85.38,
+      28.24
+     ],
+     "width_km": 14
+    }
+   }
+  },
+  {
+   "id": "v4_008",
+   "start": 48.937,
+   "visual_family": "v4_008",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "wipe",
+     "from": "y2026",
+     "to": "d0827",
+     "t": [
+      1.8,
+      3.6
+     ]
+    },
+    {
+     "type": "label",
+     "text": "USGS: FLOOD HIT POPULATED AREAS",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.4,
+      3.0
+     ]
+    },
+    {
+     "type": "label",
+     "text": "27 AUG 2026 - PARTLY CLOUDED",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      3.2,
+      null
+     ]
+    },
+    {
+     "type": "pin",
+     "at": [
+      85.3778,
+      28.2788
+     ],
+     "text": "RASUWAGADHI (APPROX.)",
+     "plate": true,
+     "t": [
+      4.2,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.395,
+      28.29
+     ],
+     "width_km": 14
+    },
+    "to": {
+     "center": [
+      85.3778,
+      28.2788
+     ],
+     "width_km": 8
+    }
+   }
+  },
+  {
+   "id": "v4_009",
+   "start": 55.531,
+   "visual_family": "v4_009",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    },
+    {
+     "type": "label",
+     "text": "STOP POINT: NOT IN USGS TEXT",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.4,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.42,
+      28.28
+     ],
+     "width_km": 22
+    },
+    "to": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 26
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v4_010",
+   "start": 59.746,
+   "visual_family": "v4_010",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_seismic_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_seismic_s2",
+     "t": [
+      6.7,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "v4_011",
+   "start": 73.272,
+   "visual_family": "v4_011",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "USGS: ENERGY COMPARISON ONLY",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.6,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.5,
+      28.3
+     ],
+     "width_km": 14
+    },
+    "to": {
+     "center": [
+      85.49,
+      28.3
+     ],
+     "width_km": 10
+    }
+   }
+  },
+  {
+   "id": "v4_012",
+   "start": 80.319,
+   "visual_family": "v4_012",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "d0908"
+    },
+    {
+     "type": "label",
+     "text": "8 SEP 2026 - SENTINEL-2",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.3,
+      null
+     ],
+     "sub": "CAUSE: NOT YET DETERMINED (USGS)"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.48,
+      28.32
+     ],
+     "width_km": 11
+    },
+    "to": {
+     "center": [
+      85.5,
+      28.3
+     ],
+     "width_km": 8
+    }
+   }
+  },
+  {
+   "id": "v4_013",
+   "start": 93.682,
+   "visual_family": "v4_013",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "2015: SAME MOUNTAIN (USGS)",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      3.2,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.5,
+      28.3
+     ],
+     "width_km": 16
+    },
+    "to": {
+     "center": [
+      85.49,
+      28.29
+     ],
+     "width_km": 9
+    }
+   }
+  },
+  {
+   "id": "v4_014",
+   "start": 104.968,
+   "visual_family": "v4_014",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_2015",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "v4_015",
+   "start": 112.084,
+   "visual_family": "v4_015",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_toll_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_toll_s2",
+     "t": [
+      8.5,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "v4_016",
+   "start": 124.0,
+   "visual_family": "v4_016",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 26
+    },
+    "to": {
+     "center": [
+      85.45,
+      28.31
+     ],
+     "width_km": 24
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v4_017",
+   "start": 130.881,
+   "visual_family": "v4_017",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "pin",
+     "at": [
+      85.3778,
+      28.2788
+     ],
+     "text": "GYIRONG PORT (APPROX.)",
+     "plate": true,
+     "t": [
+      4.0,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.4,
+      28.29
+     ],
+     "width_km": 12
+    },
+    "to": {
+     "center": [
+      85.3778,
+      28.2788
+     ],
+     "width_km": 8
+    }
+   }
+  },
+  {
+   "id": "v4_018",
+   "start": 140.958,
+   "visual_family": "v4_018",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "d0827"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.43,
+      28.32
+     ],
+     "width_km": 16
+    },
+    "to": {
+     "center": [
+      85.4,
+      28.3
+     ],
+     "width_km": 12
+    }
+   }
+  },
+  {
+   "id": "v4_019",
+   "start": 147.101,
+   "visual_family": "v4_019",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "ICIMOD - 13 OCT 2026",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.5,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 27
+    },
+    "to": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 20
+    }
+   }
+  },
+  {
+   "id": "v4_020",
+   "start": 153.649,
+   "visual_family": "v4_020",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "d0908"
+    },
+    {
+     "type": "label",
+     "text": "ICIMOD: NOT A LAKE OUTBURST",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.6,
+      null
+     ],
+     "sub": "8 SEP 2026 IMAGE, 10 M"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.48,
+      28.32
+     ],
+     "width_km": 11
+    },
+    "to": {
+     "center": [
+      85.5,
+      28.3
+     ],
+     "width_km": 8
+    }
+   }
+  },
+  {
+   "id": "v4_021",
+   "start": 162.902,
+   "visual_family": "v4_021",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "RADAR 7 JUL - 24 AUG",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      2.0,
+      null
+     ],
+     "sub": "UP TO 40 CM, LINE OF SIGHT (ICIMOD)"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.5,
+      28.29
+     ],
+     "width_km": 10
+    },
+    "to": {
+     "center": [
+      85.47,
+      28.31
+     ],
+     "width_km": 8
+    }
+   }
+  },
+  {
+   "id": "v4_022",
+   "start": 173.328,
+   "visual_family": "v4_022",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "LINE OF SIGHT, NOT FULL MOTION",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.52,
+      28.3
+     ],
+     "width_km": 8
+    },
+    "to": {
+     "center": [
+      85.5,
+      28.29
+     ],
+     "width_km": 12
+    }
+   }
+  },
+  {
+   "id": "v4_023",
+   "start": 181.965,
+   "visual_family": "v4_023",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "NOT SHOWN TO BE PREDICTABLE",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.5,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.47,
+      28.32
+     ],
+     "width_km": 18
+    },
+    "to": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 27
+    }
+   }
+  },
+  {
+   "id": "v4_024",
+   "start": 187.805,
+   "visual_family": "v4_024",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    },
+    {
+     "type": "label",
+     "text": "ICIMOD: ~132 MILLION M3",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.8,
+      null
+     ],
+     "sub": "EARLY ESTIMATE; OTHERS SMALLER"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 26
+    },
+    "to": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 22
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v4_025",
+   "start": 199.067,
+   "visual_family": "v4_025",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 22
+    },
+    "to": {
+     "center": [
+      85.47,
+      28.32
+     ],
+     "width_km": 14
+    }
+   }
+  },
+  {
+   "id": "v4_026",
+   "start": 203.665,
+   "visual_family": "v4_026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "12 AUG: 19% SCENE CLOUD",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.5,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 26
+    },
+    "to": {
+     "center": [
+      85.47,
+      28.32
+     ],
+     "width_km": 14
+    }
+   }
+  },
+  {
+   "id": "v4_027",
+   "start": 211.734,
+   "visual_family": "v4_027",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_clouds",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "v4_028",
+   "start": 220.024,
+   "visual_family": "v4_028",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    },
+    {
+     "type": "label",
+     "text": "26 AUG 2026 - LANDSAT 9",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.4,
+      null
+     ],
+     "sub": "30 M PIXELS, NOT SHARPENED"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 26
+    },
+    "to": {
+     "center": [
+      85.45,
+      28.31
+     ],
+     "width_km": 22
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v4_029",
+   "start": 232.958,
+   "visual_family": "v4_029",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "12 AUG 2026 - BEFORE",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.3,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.43,
+      28.335
+     ],
+     "width_km": 9
+    },
+    "to": {
+     "center": [
+      85.4,
+      28.31
+     ],
+     "width_km": 8
+    }
+   }
+  },
+  {
+   "id": "v4_030",
+   "start": 237.382,
+   "visual_family": "v4_030",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    },
+    {
+     "type": "label",
+     "text": "26 AUG 2026 - LANDSAT 9",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.3,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.44,
+      28.31
+     ],
+     "width_km": 22
+    },
+    "to": {
+     "center": [
+      85.45,
+      28.32
+     ],
+     "width_km": 24
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v4_031",
+   "start": 243.071,
+   "visual_family": "v4_031",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "d0908"
+    },
+    {
+     "type": "label",
+     "text": "COMPOSITION: CANNOT TELL",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.5,
+      null
+     ],
+     "sub": "SHOWN: 8 SEP 2026 IMAGE, 10 M"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.48,
+      28.32
+     ],
+     "width_km": 12
+    },
+    "to": {
+     "center": [
+      85.5,
+      28.3
+     ],
+     "width_km": 9
+    }
+   }
+  },
+  {
+   "id": "v4_032",
+   "start": 247.041,
+   "visual_family": "v4_032",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    },
+    {
+     "type": "arrow",
+     "from": [
+      85.5126,
+      28.2872
+     ],
+     "to": [
+      85.4141,
+      28.3155
+     ],
+     "color": "#FFD23F",
+     "width": 9,
+     "t": [
+      0.3,
+      null
+     ]
+    },
+    {
+     "type": "arrow",
+     "from": [
+      85.4141,
+      28.3155
+     ],
+     "to": [
+      85.3852,
+      28.2858
+     ],
+     "color": "#FFD23F",
+     "width": 9,
+     "t": [
+      1.9,
+      null
+     ]
+    },
+    {
+     "type": "arrow",
+     "from": [
+      85.3852,
+      28.2858
+     ],
+     "to": [
+      85.3586,
+      28.2268
+     ],
+     "color": "#FFD23F",
+     "width": 9,
+     "t": [
+      4.0,
+      null
+     ]
+    },
+    {
+     "type": "label",
+     "text": "TRACED BY EYE, APPROX. 30 KM",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      1.4,
+      null
+     ]
+    },
+    {
+     "type": "label",
+     "text": "~20 KM TO RIVER TURN",
+     "style": "tag",
+     "slot": "middle",
+     "plate": true,
+     "t": [
+      7.2,
+      null
+     ]
+    },
+    {
+     "type": "pin",
+     "at": [
+      85.3778,
+      28.2788
+     ],
+     "text": "RASUWAGADHI (APPROX.)",
+     "plate": true,
+     "t": [
+      8.6,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.45,
+      28.3
+     ],
+     "width_km": 26
+    },
+    "to": {
+     "center": [
+      85.44,
+      28.29
+     ],
+     "width_km": 22
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v4_033",
+   "start": 259.325,
+   "visual_family": "v4_033",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "d0827"
+    },
+    {
+     "type": "label",
+     "text": "CLOUDS HIDE PARTS OF THE VALLEY",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.4,
+      null
+     ],
+     "sub": "27 AUG 2026, SENTINEL-2"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.43,
+      28.32
+     ],
+     "width_km": 16
+    },
+    "to": {
+     "center": [
+      85.42,
+      28.31
+     ],
+     "width_km": 20
+    }
+   }
+  },
+  {
+   "id": "v4_034",
+   "start": 265.27,
+   "visual_family": "v4_034",
+   "layers": [
+    {
+     "type": "still",
+     "asset": "esa_l9",
+     "view": {
+      "from": {
+       "center": [
+        0.5,
+        0.5
+       ],
+       "width": 1.0
+      },
+      "to": {
+       "center": [
+        0.5,
+        0.3
+       ],
+       "width": 1.0
+      },
+      "ease": "linear"
+     }
+    },
+    {
+     "type": "label",
+     "text": "ESA - LANDSAT-9, 26 AUG 2026",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.5,
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "id": "v4_035",
+   "start": 274.709,
+   "visual_family": "v4_035",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "wipe",
+     "from": "y2026",
+     "to": "l2026",
+     "t": [
+      1.2,
+      3.8
+     ]
+    },
+    {
+     "type": "label",
+     "text": "TWO DAYS: 12 AUG AND 26 AUG",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.5,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 26
+    },
+    "to": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 24
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v4_036",
+   "start": 282.988,
+   "visual_family": "v4_036",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.5,
+      28.3
+     ],
+     "width_km": 16
+    },
+    "to": {
+     "center": [
+      85.48,
+      28.3
+     ],
+     "width_km": 10
+    }
+   }
+  },
+  {
+   "id": "v4_037",
+   "start": 291.22,
+   "visual_family": "v4_037",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.45,
+      28.31
+     ],
+     "width_km": 22
+    },
+    "to": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 26
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v4_038",
+   "start": 296.166,
+   "visual_family": "v4_038",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 27
+    },
+    "to": {
+     "center": [
+      85.47,
+      28.32
+     ],
+     "width_km": 16
+    }
+   }
+  },
+  {
+   "id": "v4_039",
+   "start": 305.569,
+   "visual_family": "v4_039",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "d0827"
+    },
+    {
+     "type": "label",
+     "text": "27 AUG 2026 - PARTLY CLOUDED",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.5,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.43,
+      28.32
+     ],
+     "width_km": 18
+    },
+    "to": {
+     "center": [
+      85.41,
+      28.31
+     ],
+     "width_km": 12
+    }
+   }
+  },
+  {
+   "id": "v4_040",
+   "start": 311.339,
+   "visual_family": "v4_040",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "SENTINEL-2 - LANDSAT 9 - ESA",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.47,
+      28.32
+     ],
+     "width_km": 14
+    },
+    "to": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 27
+    }
+   }
+  }
+ ],
+ "voice": {
+  "src": "voice/narration.wav",
+  "meta": "voice/narration.voice.json"
+ },
+ "captions": {
+  "src": "captions/captions.srt",
+  "preset": "default",
+  "style": "kinetic"
+ },
+ "end": {
+  "seconds": 318.9
+ }
+}

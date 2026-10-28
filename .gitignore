@@ -48,3 +48,8 @@ productions/*/voice/*.mp3
 productions/*/.lock
 productions/*/*.part
 media_cache/assets/
+
+# EP006 short-cut working copies (derived from productions/ep006)
+productions/ep006cut/evidence/
+productions/ep006cut/graphics/
+productions/ep006cut/voice/*.wav
