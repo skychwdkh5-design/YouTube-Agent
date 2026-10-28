@@ -3,8 +3,8 @@
  "max_map_run": 4,
  "longest_map_run": {
   "shots": 7,
-  "from": 330.2,
-  "to": 361.2,
+  "from": 329.3,
+  "to": 360.4,
   "chapter": "close"
  },
  "kind_share_info_only": {
@@ -29,7 +29,7 @@
   "plan"
  ],
  "warnings": [
-  "7 satellite-map shots in a row (330-361 s, chapter close): say in research/notes.json visual_choices['close'] why maps are the best evidence here, or use the material that proves or explains the claim better"
+  "7 satellite-map shots in a row (329-360 s, chapter close): say in research/notes.json visual_choices['close'] why maps are the best evidence here, or use the material that proves or explains the claim better"
  ],
  "status": "WARN",
  "media_pending": [

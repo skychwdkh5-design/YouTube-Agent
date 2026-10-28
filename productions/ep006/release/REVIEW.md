@@ -1,19 +1,19 @@
 # Release package - The Mountain That Fell
 
-Generated 2026-10-28T01:54:35Z. Nothing is published.
+Generated 2026-10-28T01:54:57Z. Nothing is published.
 
 ## Status
 - topic: done owner-approved topic
 - research: done 16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN
 - facts: done 16 claims, registry ok
 - evidence: done 2 stacks + Landsat stack(s)
-- script: done 885 words = 6.0 min, 15 claims used
+- script: done 883 words = 6.0 min, 15 claims used
 - media: done 3 verified of 5 media entries (style v2: media optional)
 - visualplan: done 41 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']
 - visuals: done 39 graphics
-- storyboard: done 49 shots, 361.224s, timing from estimate
+- storyboard: done 49 shots, 360.408s, timing from estimate
 - visualcheck: done visual claims OK {'VERIFIED_DATA': 17, 'REVIEWED': 34} of 51 items; 1 orphan reviews (run `visualcheck.py prune`)
-- voice: awaiting_approval no approvals/voice.json; plan: 5001 characters
+- voice: awaiting_approval no approvals/voice.json; plan: 4993 characters
 - voicecheck: waiting waiting for ['voice']
 - captions: waiting waiting for ['voicecheck']
 - render: waiting waiting for ['voice', 'voicecheck', 'captions']

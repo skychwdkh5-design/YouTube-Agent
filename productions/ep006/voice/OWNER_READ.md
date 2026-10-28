@@ -1,6 +1,6 @@
 # Narration text - exactly what will be sent to the voice provider
 
-Words: 885 | script sha256: `6bcc176ad9027b4f0b696166735d93f0e3f2a8a1d72d58f40d13a9c8626572dc`
+Words: 883 | script sha256: `2d78409a00fd1437a93c2bd0252409813c4cc422ce3eba93da3ce7a6a3dfba57`
 
 Chapter titles and claim tags are not spoken.
 
@@ -36,7 +36,7 @@ Chapter titles and claim tags are not spoken.
 25. ICIMOD also said that radar satellites, Sentinel-1, detected up to 40 centimeters of ground movement between 7 July and 24 August.
 26. That is movement along the satellite's line of sight, not the full motion of the slope.
 27. And the period ended two days before the failure.
-28. We do not claim this was a warning anyone could have acted on. The analysis we read does not show that.
+28. We do not claim this was a warning anyone could have acted on. No source we found shows that.
 29. ICIMOD's early estimate of the volume was about 132 million cubic meters of rock and ice.
 30. Another early analysis suggested a much smaller volume.
 31. So the size is not settled, and we do not rely on one number.

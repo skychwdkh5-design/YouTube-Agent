@@ -52,7 +52,7 @@ That is movement along the satellite's line of sight, not the full motion of the
 
 And the period ended two days before the failure.
 
-We do not claim this was a warning anyone could have acted on. The analysis we read does not show that.
+We do not claim this was a warning anyone could have acted on. No source we found shows that.
 
 ICIMOD's early estimate of the volume was about 132 million cubic meters of rock and ice.
 

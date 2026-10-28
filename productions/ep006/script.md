@@ -32,7 +32,7 @@ It said a failure in the bedrock sheared away part of the glacier lying on top o
 ICIMOD also said that radar satellites, Sentinel-1, detected up to 40 centimeters of ground movement between 7 July and 24 August. {C8}
 That is movement along the satellite's line of sight, not the full motion of the slope. {C8}
 And the period ended two days before the failure. {C8}
-We do not claim this was a warning anyone could have acted on. The analysis we read does not show that. {L}
+We do not claim this was a warning anyone could have acted on. No source we found shows that. {L}
 ICIMOD's early estimate of the volume was about 132 million cubic meters of rock and ice. {C9}
 Another early analysis suggested a much smaller volume. {C9}
 So the size is not settled, and we do not rely on one number. {L}

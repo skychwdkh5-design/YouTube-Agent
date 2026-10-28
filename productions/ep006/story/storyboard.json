@@ -1,7 +1,7 @@
 {
  "schema": "yt-storyboard/1",
  "timing": "estimate",
- "duration": 361.224,
+ "duration": 360.408,
  "chapters": {
   "hook": [
    0.0,
@@ -13,19 +13,19 @@
   ],
   "method": [
    140.41,
-   207.35
+   206.53
   ],
   "obs": [
-   207.35,
-   300.0
+   206.53,
+   299.18
   ],
   "limits": [
-   300.0,
-   335.1
+   299.18,
+   334.29
   ],
   "close": [
-   335.1,
-   361.22
+   334.29,
+   360.41
   ]
  },
  "anchors": {
@@ -116,89 +116,89 @@
     "visual": 1,
     "year": "claim",
     "target": 149.09,
-    "was": 144.39,
+    "was": 144.19,
     "now": 149.09
    },
    {
     "visual": 2,
     "year": "claim",
     "target": 165.82,
-    "was": 159.39,
+    "was": 159.19,
     "now": 165.82
    },
    {
     "visual": 3,
     "year": "claim",
-    "target": 192.35,
-    "was": 181.39,
-    "now": 192.35
+    "target": 191.54,
+    "was": 181.19,
+    "now": 191.54
    }
   ],
   "obs": [
    {
     "visual": 1,
     "year": "claim",
-    "target": 211.13,
-    "was": 212.68,
-    "now": 211.13
+    "target": 210.31,
+    "was": 211.86,
+    "now": 210.31
    },
    {
     "visual": 2,
     "year": "claim",
-    "target": 239.29,
-    "was": 219.68,
-    "now": 239.29
+    "target": 238.48,
+    "was": 218.86,
+    "now": 238.48
    },
    {
     "visual": 3,
     "year": "claim",
-    "target": 247.05,
-    "was": 224.68,
-    "now": 247.05
+    "target": 246.23,
+    "was": 223.86,
+    "now": 246.23
    },
    {
     "visual": 4,
     "year": "claim",
-    "target": 251.94,
-    "was": 231.68,
-    "now": 251.94
+    "target": 251.13,
+    "was": 230.86,
+    "now": 251.13
    },
    {
     "visual": 5,
     "year": "claim",
-    "target": 262.56,
-    "was": 240.68,
-    "now": 262.56
+    "target": 261.74,
+    "was": 239.86,
+    "now": 261.74
    },
    {
     "visual": 6,
     "year": "claim",
-    "target": 276.43,
-    "was": 252.68,
-    "now": 276.43
+    "target": 275.62,
+    "was": 251.86,
+    "now": 275.62
    },
    {
     "visual": 8,
     "year": "claim",
-    "target": 282.97,
-    "was": 263.01,
-    "now": 282.97
+    "target": 282.15,
+    "was": 262.19,
+    "now": 282.15
    },
    {
     "visual": 11,
     "year": "claim",
-    "target": 290.72,
-    "was": 284.67,
-    "now": 290.72
+    "target": 289.9,
+    "was": 283.85,
+    "now": 289.9
    }
   ],
   "limits": [
    {
     "visual": 1,
     "year": "claim",
-    "target": 313.58,
-    "was": 306.55,
-    "now": 313.58
+    "target": 312.76,
+    "was": 305.73,
+    "now": 312.76
    }
   ]
  },
@@ -952,7 +952,7 @@
    "id": "method_018",
    "chapter": "method",
    "start": 165.822,
-   "dur": 26.531,
+   "dur": 25.714,
    "family": "i_radar_s1_method",
    "claims": [
     "C8"
@@ -989,20 +989,20 @@
      "type": "graphic",
      "asset": "i_radar",
      "t": [
-      24.182,
+      19.286,
       null
      ],
      "push": 0.04
     }
    ],
    "info": "i_radar_s1",
-   "end": 192.353
+   "end": 191.537
   },
   {
    "id": "method_019",
    "chapter": "method",
-   "start": 192.353,
-   "dur": 8.088,
+   "start": 191.537,
+   "dur": 8.283,
    "family": "i_volume_s1_method",
    "claims": [
     "C9"
@@ -1021,7 +1021,7 @@
      "type": "graphic",
      "asset": "i_volume_s2",
      "t": [
-      7.5879103597405315,
+      7.783309844976861,
       null
      ],
      "push": 0.04
@@ -1030,20 +1030,20 @@
      "type": "graphic",
      "asset": "i_volume",
      "t": [
-      7.5879103597405315,
+      7.783309844976861,
       null
      ],
      "push": 0.04
     }
    ],
    "info": "i_volume_s1",
-   "end": 200.441
+   "end": 199.82
   },
   {
    "id": "method_020",
    "chapter": "method",
-   "start": 200.441,
-   "dur": 2.302,
+   "start": 199.82,
+   "dur": 2.237,
    "family": "y2026_method",
    "camera": {
     "from": {
@@ -1073,18 +1073,18 @@
      "style": "year",
      "slot": "upper",
      "t": [
-      0.767329687919989,
+      0.7456186340048413,
       null
      ]
     }
    ],
-   "end": 202.743
+   "end": 202.057
   },
   {
    "id": "method_021",
    "chapter": "method",
-   "start": 202.743,
-   "dur": 2.302,
+   "start": 202.057,
+   "dur": 2.237,
    "family": "y2026_method",
    "camera": {
     "from": {
@@ -1114,18 +1114,18 @@
      "style": "year",
      "slot": "upper",
      "t": [
-      0.767329687919989,
+      0.7456186340048413,
       null
      ]
     }
    ],
-   "end": 205.045
+   "end": 204.294
   },
   {
    "id": "method_022",
    "chapter": "method",
-   "start": 205.045,
-   "dur": 2.302,
+   "start": 204.294,
+   "dur": 2.237,
    "family": "y2026_method",
    "camera": {
     "from": {
@@ -1155,17 +1155,17 @@
      "style": "year",
      "slot": "upper",
      "t": [
-      0.767329687919989,
+      0.7456186340048413,
       null
      ]
     }
    ],
-   "end": 207.347
+   "end": 206.531
   },
   {
    "id": "obs_023",
    "chapter": "obs",
-   "start": 207.347,
+   "start": 206.531,
    "dur": 6.236,
    "family": "y2026_obs",
    "camera": {
@@ -1201,12 +1201,12 @@
      ]
     }
    ],
-   "end": 213.583
+   "end": 212.767
   },
   {
    "id": "obs_024",
    "chapter": "obs",
-   "start": 213.583,
+   "start": 212.767,
    "dur": 6.236,
    "family": "y2026_obs",
    "camera": {
@@ -1232,12 +1232,12 @@
      "asset": "y2026"
     }
    ],
-   "end": 219.819
+   "end": 219.003
   },
   {
    "id": "obs_025",
    "chapter": "obs",
-   "start": 219.819,
+   "start": 219.003,
    "dur": 6.236,
    "family": "y2026_obs",
    "camera": {
@@ -1263,12 +1263,12 @@
      "asset": "y2026"
     }
    ],
-   "end": 226.056
+   "end": 225.239
   },
   {
    "id": "obs_026",
    "chapter": "obs",
-   "start": 226.056,
+   "start": 225.239,
    "dur": 6.236,
    "family": "y2026_obs",
    "camera": {
@@ -1294,12 +1294,12 @@
      "asset": "y2026"
     }
    ],
-   "end": 232.292
+   "end": 231.476
   },
   {
    "id": "obs_027",
    "chapter": "obs",
-   "start": 232.292,
+   "start": 231.476,
    "dur": 7.0,
    "family": "i_clouds_obs",
    "claims": [
@@ -1317,12 +1317,12 @@
     }
    ],
    "info": "i_clouds",
-   "end": 239.292
+   "end": 238.476
   },
   {
    "id": "obs_028",
    "chapter": "obs",
-   "start": 239.292,
+   "start": 238.476,
    "dur": 7.755,
    "family": "l2026_obs",
    "claims": [
@@ -1365,12 +1365,12 @@
      ]
     }
    ],
-   "end": 247.047
+   "end": 246.231
   },
   {
    "id": "obs_029",
    "chapter": "obs",
-   "start": 247.047,
+   "start": 246.231,
    "dur": 4.898,
    "family": "y2026_obs",
    "claims": [
@@ -1425,12 +1425,12 @@
      "plate": true
     }
    ],
-   "end": 251.945
+   "end": 251.129
   },
   {
    "id": "obs_030",
    "chapter": "obs",
-   "start": 251.945,
+   "start": 251.129,
    "dur": 10.612,
    "family": "y2026_obs",
    "claims": [
@@ -1494,12 +1494,12 @@
      "sub": "NOT SHARPENED"
     }
    ],
-   "end": 262.557
+   "end": 261.741
   },
   {
    "id": "obs_031",
    "chapter": "obs",
-   "start": 262.557,
+   "start": 261.741,
    "dur": 13.878,
    "family": "y2026_obs",
    "claims": [
@@ -1626,12 +1626,12 @@
      "plate": true
     }
    ],
-   "end": 276.435
+   "end": 275.618
   },
   {
    "id": "obs_032",
    "chapter": "obs",
-   "start": 276.435,
+   "start": 275.618,
    "dur": 3.161,
    "family": "l2026_obs",
    "camera": {
@@ -1670,12 +1670,12 @@
      ]
     }
    ],
-   "end": 279.595
+   "end": 278.779
   },
   {
    "id": "obs_033",
    "chapter": "obs",
-   "start": 279.595,
+   "start": 278.779,
    "dur": 3.37,
    "family": "y2026_obs",
    "camera": {
@@ -1711,12 +1711,12 @@
      ]
     }
    ],
-   "end": 282.965
+   "end": 282.149
   },
   {
    "id": "obs_034",
    "chapter": "obs",
-   "start": 282.965,
+   "start": 282.149,
    "dur": 3.938,
    "family": "i_flow_scale_s1_obs",
    "claims": [
@@ -1744,12 +1744,12 @@
     }
    ],
    "info": "i_flow_scale_s1",
-   "end": 286.904
+   "end": 286.087
   },
   {
    "id": "obs_035",
    "chapter": "obs",
-   "start": 286.904,
+   "start": 286.087,
    "dur": 1.908,
    "family": "y2026_obs",
    "claims": [
@@ -1783,17 +1783,17 @@
      "style": "year",
      "slot": "upper",
      "t": [
-      0.636151200634767,
+      0.6361512006347663,
       null
      ]
     }
    ],
-   "end": 288.812
+   "end": 287.996
   },
   {
    "id": "obs_036",
    "chapter": "obs",
-   "start": 288.812,
+   "start": 287.996,
    "dur": 1.908,
    "family": "y2026_obs",
    "claims": [
@@ -1827,17 +1827,17 @@
      "style": "year",
      "slot": "upper",
      "t": [
-      0.636151200634767,
+      0.6361512006347663,
       null
      ]
     }
    ],
-   "end": 290.72
+   "end": 289.904
   },
   {
    "id": "obs_037",
    "chapter": "obs",
-   "start": 290.72,
+   "start": 289.904,
    "dur": 6.053,
    "family": "i_official_s1_obs",
    "claims": [
@@ -1857,19 +1857,19 @@
      "type": "graphic",
      "asset": "i_official",
      "t": [
-      5.552981895633661,
+      5.552981895633666,
       null
      ],
      "push": 0.04
     }
    ],
    "info": "i_official_s1",
-   "end": 296.773
+   "end": 295.957
   },
   {
    "id": "obs_038",
    "chapter": "obs",
-   "start": 296.773,
+   "start": 295.957,
    "dur": 3.227,
    "family": "y2026_obs",
    "camera": {
@@ -1905,12 +1905,12 @@
      ]
     }
    ],
-   "end": 300.0
+   "end": 299.184
   },
   {
    "id": "limits_039",
    "chapter": "limits",
-   "start": 300.0,
+   "start": 299.184,
    "dur": 6.789,
    "family": "y2026_limits",
    "camera": {
@@ -1946,12 +1946,12 @@
      ]
     }
    ],
-   "end": 306.789
+   "end": 305.972
   },
   {
    "id": "limits_040",
    "chapter": "limits",
-   "start": 306.789,
+   "start": 305.972,
    "dur": 6.789,
    "family": "y2026_limits",
    "camera": {
@@ -1977,12 +1977,12 @@
      "asset": "y2026"
     }
    ],
-   "end": 313.578
+   "end": 312.761
   },
   {
    "id": "limits_041",
    "chapter": "limits",
-   "start": 313.578,
+   "start": 312.761,
    "dur": 16.586,
    "family": "i_cannot_s1_limits",
    "layers": [
@@ -2024,12 +2024,12 @@
     }
    ],
    "info": "i_cannot_s1",
-   "end": 330.163
+   "end": 329.347
   },
   {
    "id": "limits_042",
    "chapter": "limits",
-   "start": 330.163,
+   "start": 329.347,
    "dur": 4.939,
    "family": "y2026_limits",
    "camera": {
@@ -2065,12 +2065,12 @@
      ]
     }
    ],
-   "end": 335.102
+   "end": 334.286
   },
   {
    "id": "close_043",
    "chapter": "close",
-   "start": 335.102,
+   "start": 334.286,
    "dur": 4.61,
    "family": "close_view",
    "camera": {
@@ -2106,12 +2106,12 @@
      ]
     }
    ],
-   "end": 339.712
+   "end": 338.896
   },
   {
    "id": "close_044",
    "chapter": "close",
-   "start": 339.712,
+   "start": 338.896,
    "dur": 4.61,
    "family": "close_view",
    "camera": {
@@ -2137,12 +2137,12 @@
      "asset": "y2026"
     }
    ],
-   "end": 344.322
+   "end": 343.505
   },
   {
    "id": "close_045",
    "chapter": "close",
-   "start": 344.322,
+   "start": 343.505,
    "dur": 4.61,
    "family": "close_wide",
    "camera": {
@@ -2178,12 +2178,12 @@
      ]
     }
    ],
-   "end": 348.932
+   "end": 348.115
   },
   {
    "id": "close_046",
    "chapter": "close",
-   "start": 348.932,
+   "start": 348.115,
    "dur": 4.61,
    "family": "close_wide",
    "camera": {
@@ -2209,12 +2209,12 @@
      "asset": "y2026"
     }
    ],
-   "end": 353.541
+   "end": 352.725
   },
   {
    "id": "close_047",
    "chapter": "close",
-   "start": 353.541,
+   "start": 352.725,
    "dur": 3.842,
    "family": "y2026_close",
    "camera": {
@@ -2250,12 +2250,12 @@
      ]
     }
    ],
-   "end": 357.383
+   "end": 356.567
   },
   {
    "id": "close_048",
    "chapter": "close",
-   "start": 357.383,
+   "start": 356.567,
    "dur": 3.842,
    "family": "y2026_close",
    "camera": {
@@ -2281,7 +2281,7 @@
      "asset": "y2026"
     }
    ],
-   "end": 361.224
+   "end": 360.408
   }
  ]
 }
