@@ -2,7 +2,7 @@
  "result": "PASS",
  "file": "/home/runner/work/YouTube-Agent/YouTube-Agent/productions/ep007-mars-sulfur/EP007_final_short2.mp4",
  "summary": {
-  "bytes": 32284681,
+  "bytes": 32055543,
   "duration": 28.7,
   "resolution": "1080x1920",
   "fps": 30.0,
@@ -28,7 +28,7 @@
    "id": "file_size",
    "status": "pass",
    "expected": "> 0 and <= 2000.0 MB",
-   "actual": 32284681
+   "actual": 32055543
   },
   {
    "id": "container",

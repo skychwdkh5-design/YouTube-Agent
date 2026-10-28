@@ -1,35 +1,8 @@
-long captions 0 {  "status": "ok",  "files": {   "srt": "/home/runner/work/YouTube-Agent/YouTube-Agent/productions/ep007-mars-sulfur/adam_long/captions.srt",   "vtt": "/home/runner/work/YouTube-Agent/YouTube-Agent/productions/ep007-mars-sulfur/adam_long/captions.vtt",   "json": "/home/runner/work/YouTube-Agent/YouT
-{"status": "ok", "beats": 57, "duration": 377.581, "last_word_end": 376.581}
-{"clips": 65, "narration": 377.581, "timeline": "final_long.timeline.json"}
-long render 0 ok 377.733 d966db6c2e55ab20e4ae26d9521a047b49a45028a128713293866e3d3b9eb484 None
-long qc PASS []
-short1 captions 0 {  "status": "ok",  "files": {   "srt": "/home/runner/work/YouTube-Agent/YouTube-Agent/productions/ep007-mars-sulfur/adam_short1/captions.srt",   "vtt": "/home/runner/work/YouTube-Agent/YouTube-Agent/productions/ep007-mars-sulfur/adam_short1/captions.vtt",   "json": "/home/runner/work/YouTube-Agent/
-{"status": "ok", "beats": 6, "duration": 33.833, "last_word_end": 32.833}
-{"clips": 8, "narration": 33.833, "timeline": "final_short1.timeline.json"}
-short1 render 0 ok 34.033 17042d093962cb4ee9080f8461b59301cbf7a7d75a95b6d712b9306a552c5686 None
-short1 qc PASS []
 short2 captions 0 {  "status": "ok",  "files": {   "srt": "/home/runner/work/YouTube-Agent/YouTube-Agent/productions/ep007-mars-sulfur/adam_short2/captions.srt",   "vtt": "/home/runner/work/YouTube-Agent/YouTube-Agent/productions/ep007-mars-sulfur/adam_short2/captions.vtt",   "json": "/home/runner/work/YouTube-Agent/
 {"status": "ok", "beats": 6, "duration": 28.539, "last_word_end": 27.539}
 {"clips": 8, "narration": 28.539, "timeline": "final_short2.timeline.json"}
-short2 render 0 ok 28.7 c7ce992690dfe5486783da47eb05803fafa941a3fa7ad89cdd697aef9f6a4bb7 None
+short2 render 0 ok 28.7 200a576acb744b41721952dfda95b5617bd676d736427f75ad2f89f300456e2a None
 short2 qc PASS []
-0:00 Yellow crystals on Mars
-0:24 The accident
-1:25 How they knew it was sulfur
-2:01 Why it shouldn't be there
-2:45 A whole field, invisible from orbit
-3:19 Gediz Vallis channel
-3:45 Drill hole #41 at Mammoth Lakes
-4:25 What scientists think now
-5:30 Not evidence of life
-5:57 Where it stands
-2728 chars
-d966db6c2e55ab20e4ae26d9521a047b49a45028a128713293866e3d3b9eb484  EP007_final_long.mp4
-17042d093962cb4ee9080f8461b59301cbf7a7d75a95b6d712b9306a552c5686  EP007_final_short1.mp4
-c7ce992690dfe5486783da47eb05803fafa941a3fa7ad89cdd697aef9f6a4bb7  EP007_final_short2.mp4
--rw-r--r-- 1 runner runner 383568387 Oct 28 10:19 EP007_final_long.mp4
--rw-r--r-- 1 runner runner  32549008 Oct 28 10:20 EP007_final_short1.mp4
--rw-r--r-- 1 runner runner  32284681 Oct 28 10:21 EP007_final_short2.mp4
-EP007_final_long.mp4 377.733333
-EP007_final_short1.mp4 34.033333
+200a576acb744b41721952dfda95b5617bd676d736427f75ad2f89f300456e2a  EP007_final_short2.mp4
+-rw-r--r-- 1 runner runner 32055543 Oct 28 10:24 EP007_final_short2.mp4
 EP007_final_short2.mp4 28.700000
