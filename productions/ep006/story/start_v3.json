@@ -1,0 +1,519 @@
+{
+ "version": 3,
+ "profile": "long",
+ "grid": "evidence/stack/grid.json",
+ "assets": {
+  "y2026": {
+   "src": "evidence/stack/y2026.png",
+   "label": "12 AUG",
+   "credit": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "l2026": {
+   "src": "evidence/landsat10/y2026.png",
+   "label": "26 AUG",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
+  "d0827": {
+   "src": "evidence/s2post/d0827.png",
+   "label": "27 AUG",
+   "credit": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "d0908": {
+   "src": "evidence/s2post/d0908.png",
+   "label": "8 SEP",
+   "credit": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "esa_l9": {
+   "src": "evidence/esa_landsat9_after_1280.jpg",
+   "kind": "external_still",
+   "label": "ESA LANDSAT-9 26 AUG",
+   "credit": "ESA - Landsat-9 (USGS), 26 Aug 2026, CC BY 4.0",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Nepal_glacier_collapse_and_flood_(after)_(55504451912).jpg",
+   "license": "CC BY 4.0",
+   "retrieved": "2026-10-28",
+   "image_date": "2026-08-26"
+  }
+ },
+ "shots": [
+  {
+   "id": "v3_000",
+   "start": 0.0,
+   "visual_family": "v3_000",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "12 AUG 2026 - SENTINEL-2",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.4,
+      null
+     ],
+     "sub": "BEFORE - 10 M"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 27
+    },
+    "to": {
+     "center": [
+      85.47,
+      28.32
+     ],
+     "width_km": 14
+    }
+   }
+  },
+  {
+   "id": "v3_001",
+   "start": 3.76,
+   "visual_family": "v3_001",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.47,
+      28.32
+     ],
+     "width_km": 14
+    },
+    "to": {
+     "center": [
+      85.5,
+      28.295
+     ],
+     "width_km": 9
+    }
+   }
+  },
+  {
+   "id": "v3_002",
+   "start": 7.52,
+   "visual_family": "v3_002",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "wipe",
+     "from": "y2026",
+     "to": "l2026",
+     "t": [
+      0.2,
+      2.6
+     ]
+    },
+    {
+     "type": "label",
+     "text": "26 AUG 2026 - LANDSAT 9",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      2.0,
+      null
+     ],
+     "sub": "30 M, SHOWN WIDE, NOT SHARPENED"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 26
+    },
+    "to": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 24
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v3_003",
+   "start": 12.4,
+   "visual_family": "v3_003",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "RADAR 7 JUL - 24 AUG",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      2.0,
+      null
+     ],
+     "sub": "UP TO 40 CM, LINE OF SIGHT (ICIMOD)"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.5,
+      28.29
+     ],
+     "width_km": 10
+    },
+    "to": {
+     "center": [
+      85.47,
+      28.31
+     ],
+     "width_km": 8
+    }
+   }
+  },
+  {
+   "id": "v3_004",
+   "start": 20.02,
+   "visual_family": "v3_004",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "d0908"
+    },
+    {
+     "type": "label",
+     "text": "8 SEP 2026 - SENTINEL-2",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.3,
+      null
+     ],
+     "sub": "13 DAYS AFTER THE EVENT, 10 M"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.47,
+      28.32
+     ],
+     "width_km": 14
+    },
+    "to": {
+     "center": [
+      85.45,
+      28.325
+     ],
+     "width_km": 10
+    }
+   }
+  },
+  {
+   "id": "v3_005",
+   "start": 24.47,
+   "visual_family": "v3_005",
+   "layers": [
+    {
+     "type": "still",
+     "asset": "esa_l9",
+     "view": {
+      "from": {
+       "center": [
+        0.5,
+        0.77
+       ],
+       "width": 1.0
+      },
+      "to": {
+       "center": [
+        0.5,
+        0.56
+       ],
+       "width": 1.0
+      },
+      "ease": "linear"
+     }
+    },
+    {
+     "type": "label",
+     "text": "ESA - LANDSAT-9, 26 AUG 2026",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      3.5,
+      9.0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "v3_006",
+   "start": 41.18,
+   "visual_family": "v3_006",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    },
+    {
+     "type": "arrow",
+     "from": [
+      85.5126,
+      28.2872
+     ],
+     "to": [
+      85.4141,
+      28.3155
+     ],
+     "color": "#FFD23F",
+     "width": 9,
+     "t": [
+      1.2,
+      null
+     ]
+    },
+    {
+     "type": "arrow",
+     "from": [
+      85.4141,
+      28.3155
+     ],
+     "to": [
+      85.3852,
+      28.2858
+     ],
+     "color": "#FFD23F",
+     "width": 9,
+     "t": [
+      3.0,
+      null
+     ]
+    },
+    {
+     "type": "label",
+     "text": "USGS: ABOUT 100 KM (62 MI)",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      2.3,
+      null
+     ]
+    },
+    {
+     "type": "label",
+     "text": "OUR TRACE (APPROX.): ~30 KM",
+     "style": "tag",
+     "slot": "middle",
+     "plate": true,
+     "t": [
+      4.6,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.45,
+      28.29
+     ],
+     "width_km": 24
+    },
+    "to": {
+     "center": [
+      85.43,
+      28.29
+     ],
+     "width_km": 22
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v3_007",
+   "start": 47.37,
+   "visual_family": "v3_007",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "12 AUG 2026 - BEFORE",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.2,
+      1.2
+     ]
+    },
+    {
+     "type": "arrow",
+     "from": [
+      85.3852,
+      28.2858
+     ],
+     "to": [
+      85.3586,
+      28.2268
+     ],
+     "color": "#FFD23F",
+     "width": 9,
+     "t": [
+      2.6,
+      null
+     ]
+    },
+    {
+     "type": "pin",
+     "at": [
+      85.4456,
+      28.3379
+     ],
+     "text": "LENDE KHOLA",
+     "plate": true,
+     "t": [
+      1.6,
+      2.6
+     ]
+    },
+    {
+     "type": "pin",
+     "at": [
+      85.3586,
+      28.2268
+     ],
+     "text": "TRISHULI KHOLA",
+     "plate": true,
+     "t": [
+      2.9,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.43,
+      28.32
+     ],
+     "width_km": 16
+    },
+    "to": {
+     "center": [
+      85.38,
+      28.24
+     ],
+     "width_km": 14
+    }
+   }
+  },
+  {
+   "id": "v3_008",
+   "start": 52.15,
+   "visual_family": "v3_008",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "wipe",
+     "from": "y2026",
+     "to": "d0827",
+     "t": [
+      1.8,
+      3.6
+     ]
+    },
+    {
+     "type": "label",
+     "text": "USGS: FLOOD HIT POPULATED AREAS",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.4,
+      3.0
+     ]
+    },
+    {
+     "type": "label",
+     "text": "27 AUG 2026 - PARTLY CLOUDED",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      3.2,
+      null
+     ]
+    },
+    {
+     "type": "pin",
+     "at": [
+      85.3778,
+      28.2788
+     ],
+     "text": "RASUWAGADHI (APPROX.)",
+     "plate": true,
+     "t": [
+      4.2,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.395,
+      28.29
+     ],
+     "width_km": 14
+    },
+    "to": {
+     "center": [
+      85.3778,
+      28.2788
+     ],
+     "width_km": 8
+    }
+   }
+  }
+ ],
+ "voice": {
+  "src": "voice/narration.wav",
+  "meta": "voice/narration.voice.json"
+ },
+ "captions": {
+  "src": "captions/captions.srt",
+  "preset": "default",
+  "style": "kinetic"
+ },
+ "end": {
+  "seconds": 59.5
+ }
+}
