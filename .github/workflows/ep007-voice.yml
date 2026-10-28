@@ -17,20 +17,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Generate (only if the key exists)
+        shell: bash {0}
         run: |
+          set +e
           P=productions/ep007-mars-sulfur; : > /tmp/m.txt
+          echo "ffmpeg: $(command -v ffmpeg || echo missing)" >> /tmp/m.txt
           if [ -z "$ELEVENLABS_API_KEY" ]; then echo "ELEVENLABS_API_KEY: NOT SET in repository secrets" | tee /tmp/m.txt; exit 0; fi
           echo "ELEVENLABS_API_KEY: set" >> /tmp/m.txt
           mkdir -p out
-          for m in beats short1 short2; do
+          for m in short1 short2 beats; do
+            if [ -s out/adam_$m.wav ]; then continue; fi
             max=$([ $m = beats ] && echo 6000 || echo 700)
             python3 .claude/skills/yt-voice/voice.py --script $P/adam_$m.md --output out/adam_$m.wav --max-chars $max --confirm > out/adam_$m.result.json 2>&1
-            echo "$m exit $? $(head -c 600 out/adam_$m.result.json | tr '\n' ' ')" >> /tmp/m.txt
+            rc=$?; echo "$m exit $rc $(grep -v -i 'key\|token\|authoriz' out/adam_$m.result.json | head -c 900 | tr '\n' ' ')" >> /tmp/m.txt
+            if [ $rc -ne 0 ]; then break; fi
           done
           T=ep007-originals
           for f in out/*; do [ -s "$f" ] && gh release upload "$T" "$f" --clobber; done
           ls -la out >> /tmp/m.txt
       - name: Commit manifest only
+        if: always()
         run: |
           cp /tmp/m.txt productions/ep007-mars-sulfur/voice_manifest.txt
           git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
