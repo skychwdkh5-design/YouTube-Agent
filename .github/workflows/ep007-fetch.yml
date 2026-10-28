@@ -38,14 +38,16 @@ jobs:
           )
             printf '%s\t%s\t%s\t%s\n' "$name" "$code" "$info" "$url" | tee -a manifest.tsv
           done < productions/ep007-mars-sulfur/fetch_list.txt
-      - uses: actions/upload-artifact@v4
-        with:
-          name: ep007-originals
-          path: out/
-          retention-days: 14
+      - name: Upload to a DRAFT release (not in Git, not public)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          T=ep007-originals
+          gh release view "$T" >/dev/null 2>&1 || gh release create "$T" --draft --title "EP007 NASA originals (draft, not for publication)" --notes "Working sources for EP007. Draft only."
+          for f in out/*; do [ -s "$f" ] && gh release upload "$T" "$f" --clobber; done
       - name: Commit manifest only
         run: |
           cp manifest.tsv productions/ep007-mars-sulfur/fetch_manifest.tsv
           git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add productions/ep007-mars-sulfur/fetch_manifest.tsv
+          git add -f productions/ep007-mars-sulfur/fetch_manifest.tsv
           git commit -qm "EP007 fetch manifest (run ${{ github.run_id }})" && git push -q origin HEAD:production/ep007-mars-sulfur
