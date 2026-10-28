@@ -1,7 +1,7 @@
 {
  "schema": "produce-runs/1",
  "first_run": "2026-10-27T10:57:17Z",
- "wall_clock_since_first_run_min": 903.6,
+ "wall_clock_since_first_run_min": 911.5,
  "stage_seconds": {
   "topic": {
    "status": "done",
@@ -10,17 +10,17 @@
   },
   "research": {
    "status": "done",
-   "attempts": 23,
+   "attempts": 24,
    "seconds": 0
   },
   "facts": {
    "status": "done",
-   "attempts": 21,
+   "attempts": 22,
    "seconds": 0
   },
   "evidence": {
    "status": "done",
-   "attempts": 22,
+   "attempts": 23,
    "seconds": 0
   },
   "script": {
@@ -30,48 +30,48 @@
   },
   "media": {
    "status": "done",
-   "attempts": 19,
+   "attempts": 20,
    "seconds": 0
   },
   "visualplan": {
    "status": "done",
-   "attempts": 19,
+   "attempts": 20,
    "seconds": 0
   },
   "visuals": {
    "status": "done",
-   "attempts": 28,
-   "seconds": 11
+   "attempts": 29,
+   "seconds": 10
   },
   "storyboard": {
    "status": "done",
-   "attempts": 11,
-   "seconds": 0
+   "attempts": 13,
+   "seconds": 3
   },
   "visualcheck": {
    "status": "done",
-   "attempts": 17,
-   "seconds": 10
+   "attempts": 19,
+   "seconds": 9
   },
   "voice": {
-   "status": "awaiting_approval",
-   "attempts": 9,
+   "status": "done",
+   "attempts": 12,
    "seconds": 0
   },
   "voicecheck": {
-   "status": "waiting",
-   "attempts": 0,
-   "seconds": null
+   "status": "done",
+   "attempts": 1,
+   "seconds": 0
   },
   "captions": {
-   "status": "waiting",
-   "attempts": 0,
-   "seconds": null
+   "status": "done",
+   "attempts": 1,
+   "seconds": 0
   },
   "render": {
-   "status": "waiting",
-   "attempts": 0,
-   "seconds": null
+   "status": "awaiting_approval",
+   "attempts": 5,
+   "seconds": 2
   },
   "qc": {
    "status": "waiting",
@@ -80,13 +80,23 @@
   },
   "release": {
    "status": "done",
-   "attempts": 22,
+   "attempts": 27,
    "seconds": 0
   }
  },
  "voice_elevenlabs": {
-  "elevenlabs_chars_spent": 0,
-  "calls": [],
+  "elevenlabs_chars_spent": 5029,
+  "calls": [
+   {
+    "stage": "voice",
+    "chars": 5029,
+    "provider": "elevenlabs",
+    "at": "2026-10-28T02:01:59Z",
+    "note": "approved by owner"
+   }
+  ],
+  "audio_seconds": 358.841,
+  "characters_billed": 5029,
   "planned_chars": 5029,
   "max_credits": 5029.0
  },
@@ -684,6 +694,36 @@
     {
      "step": "pipeline",
      "seconds": 9.6
+    }
+   ],
+   "stopped": null
+  },
+  {
+   "at": "2026-10-28T02:05:59Z",
+   "invocation_seconds": 297.9,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 75.8
+    },
+    {
+     "step": "preview_render_qc",
+     "seconds": 221.9
+    }
+   ],
+   "stopped": null
+  },
+  {
+   "at": "2026-10-28T02:08:45Z",
+   "invocation_seconds": 122.1,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 26.6
+    },
+    {
+     "step": "preview_render_qc",
+     "seconds": 95.5
     }
    ],
    "stopped": null

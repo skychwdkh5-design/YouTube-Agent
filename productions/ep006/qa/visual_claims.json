@@ -493,52 +493,10 @@
    }
   },
   {
-   "id": "plan_013:graphic:i_china_s1",
-   "kind": "graphic",
-   "text": "i_china_s1",
-   "shot": "plan_013",
-   "claims": [
-    "C11"
-   ],
-   "texts": [
-    "Counts in Tibet"
-   ],
-   "frames": [
-    {
-     "file": "qa/frames/plan_013_graphic_i_china_s1_0.png",
-     "sha256": "b6b6fe945c1cc6a4a9e0aca0fc58eb92387232223485732471197172c00f1139",
-     "stack": "graphics/i_china.png",
-     "center": null,
-     "width_km": null,
-     "review": "supports"
-    }
-   ],
-   "status": "REVIEWED_BY_AGENT",
-   "why": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people.",
-   "source": [
-    {
-     "claim": "C11",
-     "tier": "media",
-     "attribution": "Xinhua (via The Star, NST) and NBC News",
-     "url": "https://english.news.cn/20260906/c7070ebe266b4338bf2206805140c36c/c.html",
-     "date": "2026-09-06",
-     "evidence": null
-    }
-   ],
-   "allowed": {
-    "wording": [
-     "reported"
-    ],
-    "forbid": [
-     "total of"
-    ]
-   }
-  },
-  {
-   "id": "plan_014:label:AUG 2026",
+   "id": "plan_013:label:AUG 2026",
    "kind": "label",
    "text": "AUG 2026",
-   "shot": "plan_014",
+   "shot": "plan_013",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
@@ -552,16 +510,16 @@
    }
   },
   {
-   "id": "plan_014:shot",
+   "id": "plan_013:shot",
    "kind": "shot",
    "text": "y2026",
-   "shot": "plan_014",
+   "shot": "plan_013",
    "claims": [
     "C13"
    ],
    "frames": [
     {
-     "file": "qa/frames/plan_014_shot_0.png",
+     "file": "qa/frames/plan_013_shot_0.png",
      "sha256": "a85b408138d6a0f4a0847d6e8053f74fb419529f89917cbf578a69a3841a91cd",
      "stack": "evidence/stack/y2026.png",
      "center": [
@@ -590,10 +548,10 @@
    }
   },
   {
-   "id": "plan_015:label:AUG 2026",
+   "id": "plan_014:label:AUG 2026",
    "kind": "label",
    "text": "AUG 2026",
-   "shot": "plan_015",
+   "shot": "plan_014",
    "claims": [],
    "status": "VERIFIED_DATA",
    "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
@@ -604,6 +562,48 @@
    "allowed": {
     "wording": [],
     "forbid": []
+   }
+  },
+  {
+   "id": "plan_015:graphic:i_china_s1",
+   "kind": "graphic",
+   "text": "i_china_s1",
+   "shot": "plan_015",
+   "claims": [
+    "C11"
+   ],
+   "texts": [
+    "Counts in Tibet"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/plan_015_graphic_i_china_s1_0.png",
+     "sha256": "b6b6fe945c1cc6a4a9e0aca0fc58eb92387232223485732471197172c00f1139",
+     "stack": "graphics/i_china.png",
+     "center": null,
+     "width_km": null,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people.",
+   "source": [
+    {
+     "claim": "C11",
+     "tier": "media",
+     "attribution": "Xinhua (via The Star, NST) and NBC News",
+     "url": "https://english.news.cn/20260906/c7070ebe266b4338bf2206805140c36c/c.html",
+     "date": "2026-09-06",
+     "evidence": null
+    }
+   ],
+   "allowed": {
+    "wording": [
+     "reported"
+    ],
+    "forbid": [
+     "total of"
+    ]
    }
   },
   {

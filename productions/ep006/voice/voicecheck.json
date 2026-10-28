@@ -1,0 +1,70 @@
+{
+ "result": "NEEDS_HUMAN_LISTEN",
+ "checks": [
+  {
+   "id": "audio",
+   "status": "pass",
+   "detail": "pcm_s16le 44100 Hz, 1 ch, 358.8s"
+  },
+  {
+   "id": "duration",
+   "status": "pass",
+   "detail": "888 script words / 358.8s = 2.47 words/s (accepted 2.0-3.2)"
+  },
+  {
+   "id": "coverage",
+   "status": "pass",
+   "detail": "888 timed words vs 888 script words (diff 0)"
+  },
+  {
+   "id": "order",
+   "status": "pass",
+   "detail": "0 out-of-order, 0 out-of-range timings"
+  },
+  {
+   "id": "tail",
+   "status": "pass",
+   "detail": "last word ends -0.0s before the end of the file"
+  },
+  {
+   "id": "pauses",
+   "status": "pass",
+   "detail": "no pause over 2.5s"
+  },
+  {
+   "id": "silence",
+   "status": "pass",
+   "detail": "no silence of 3s or more"
+  },
+  {
+   "id": "loudness",
+   "status": "pass",
+   "detail": "mean -17.3 dB, peak -0.9 dB (silent file or clipping would fail)"
+  }
+ ],
+ "risky": [
+  {
+   "at": 44.38,
+   "word": "kilometers,",
+   "note": "unit"
+  },
+  {
+   "at": 248.26,
+   "word": "Landsat",
+   "note": "Landsat"
+  },
+  {
+   "at": 275.63,
+   "word": "kilometers.",
+   "note": "unit"
+  },
+  {
+   "at": 293.66,
+   "word": "kilometers.",
+   "note": "unit"
+  }
+ ],
+ "listen": "Automatic checks cannot hear mispronunciation. Listen to the moments in `risky` (and the first 30 seconds) before the paid render.",
+ "words": 888,
+ "duration": 358.84
+}

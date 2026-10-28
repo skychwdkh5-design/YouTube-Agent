@@ -79,8 +79,7 @@ MAPS = [
   "marks": [{"type": "pin", "at": [85.4253, 28.3314], "text": "NARROW PALE RIVER BED", "t": 1.0, "dur": None, "plate": True},
             {"type": "label", "text": "12 AUG 2026 - SENTINEL-2, 10 M", "style": "tag", "slot": "upper", "t": 0.3, "plate": True}]},
  {"id": "m_after", "chapter": "obs", "claims": ["C13"], "anchor_text": "In the 26 August image", "min_s": 8, "asset": "l2026", "zoom": [12, 7], "focus": [85.43, 28.335], "focus_to": [85.39, 28.30], "resample": "nearest",
-  "marks": [{"type": "label", "text": "26 AUG 2026 - LANDSAT 9 (30 M)", "sub": "NOT SHARPENED", "style": "tag", "slot": "upper", "t": 0.4, "dur": None, "plate": True},
-            {"type": "pin", "at": [85.4253, 28.3314], "text": "DARK GREY-BROWN SWATH", "anchor_text": "a dark grey-brown swath", "dur": None, "plate": True}]},
+  "marks": [{"type": "label", "text": "26 AUG 2026 - LANDSAT 9 (30 M)", "sub": "NOT SHARPENED", "style": "tag", "slot": "upper", "t": 0.4, "dur": None, "plate": True}]},
  {"id": "m_pixel", "chapter": "obs", "claims": ["C16"], "anchor_text": "Its pixels are 30 meters wide", "min_s": 5, "asset": "l2026", "zoom": [1.5, 0.5], "focus": BEND, "resample": "nearest",
   "label": {"text": "1 PIXEL = 30 M OF GROUND", "style": "tag", "slot": "upper", "plate": True}},
  {"id": "m_trace", "chapter": "obs", "claims": ["C14"], "anchor_text": "We traced it by eye", "min_s": 15, "asset": "l2026", "zoom": [32, 26], "focus": [85.43, 28.30], "resample": "nearest",
@@ -90,7 +89,7 @@ MAPS = [
             {"type": "label", "text": "TRACED BY EYE, APPROX. 30 KM", "style": "tag", "slot": "upper", "anchor_text": "On our grid it runs about 30 kilometers", "dur": None, "plate": True},
             {"type": "pin", "at": JUNC, "text": "RASUWAGADHI (APPROX.)", "anchor_text": "near the Rasuwagadhi border post", "dur": None, "plate": True},
             {"type": "label", "text": "~20 KM FROM GLACIER FOOT TO HERE", "style": "tag", "slot": "middle", "anchor_text": "About 20 of them", "dur": None, "plate": True}]},
- {"id": "m_clouds_hide", "chapter": "obs", "claims": [], "limit": True, "anchor_text": "Clouds hide other stretches", "min_s": 5, "asset": "l2026", "zoom": [20, 14], "focus": [85.5, 28.30], "focus_to": [85.45, 28.32],
+ {"id": "m_clouds_hide", "chapter": "obs", "claims": [], "limit": True, "anchor_text": "Clouds hide other stretches", "min_s": 8, "asset": "l2026", "zoom": [20, 14], "focus": [85.5, 28.30], "focus_to": [85.45, 28.32],
   "label": {"text": "CLOUDS HIDE PARTS OF THE VALLEY", "style": "tag", "slot": "upper", "plate": True}},
 ]
 n["infographics"] = inf

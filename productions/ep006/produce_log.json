@@ -1,11 +1,15 @@
 {
  "slug": "ep006",
- "total_seconds": 9.6,
- "elevenlabs_chars_spent": 0,
+ "total_seconds": 122.1,
+ "elevenlabs_chars_spent": 5029,
  "steps": [
   {
    "step": "pipeline",
-   "seconds": 9.6
+   "seconds": 26.6
+  },
+  {
+   "step": "preview_render_qc",
+   "seconds": 95.5
   }
  ],
  "media": {
@@ -17,7 +21,6 @@
  "tokens": "not available",
  "owner_needed": [
   "final render (--allow-render)",
-  "publish (never automatic)",
-  "voice approval"
+  "publish (never automatic)"
  ]
 }

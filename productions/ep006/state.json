@@ -23,35 +23,35 @@
   },
   "research": {
    "status": "done",
-   "attempts": 23,
+   "attempts": 25,
    "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN",
-   "started": "2026-10-28T02:00:09Z",
+   "started": "2026-10-28T02:09:05Z",
    "error": null,
-   "finished": "2026-10-28T02:00:09Z",
+   "finished": "2026-10-28T02:09:05Z",
    "outputs": {
     "claims.json": "8428db1e4b44723497957aca96ecc572dbe160a55cb67cf36680d3319b20a942",
-    "research/report.md": "fde41400ad0ff2461b991ce3ef9960db53b17059a62af0036212566bb161cc9f"
+    "research/report.md": "6e23cd16468c2c8c05cc225e07c484bfb086b491ba3946ef29e3aab12edd671a"
    },
    "inputs": {
-    "research/notes.json": "5d2b7b9ce3d45a6cf91eea68d5767dca1d7c9dee236e2f29a6c97e64c46d34a2",
+    "research/notes.json": "3e1a87fead9e3448da362cb9807fddf5b1e24bae7e26b1da2a6ab80aa2678ef2",
     "topic/topic.json": "003755184b162732282f6bd0371383b8b43df7092082680fae70e66dccd75fab",
     "_tool": "20551a128ea3eaf0"
    },
    "agent_artifacts": {
-    "research/notes.json": "5d2b7b9ce3d45a6cf91eea68d5767dca1d7c9dee236e2f29a6c97e64c46d34a2",
+    "research/notes.json": "3e1a87fead9e3448da362cb9807fddf5b1e24bae7e26b1da2a6ab80aa2678ef2",
     "claims.json": "8428db1e4b44723497957aca96ecc572dbe160a55cb67cf36680d3319b20a942"
    }
   },
   "facts": {
    "status": "done",
-   "attempts": 21,
+   "attempts": 23,
    "note": "16 claims, registry ok",
-   "started": "2026-10-28T02:00:09Z",
+   "started": "2026-10-28T02:09:05Z",
    "error": null,
-   "finished": "2026-10-28T02:00:09Z",
+   "finished": "2026-10-28T02:09:06Z",
    "inputs": {
     "claims.json": "8428db1e4b44723497957aca96ecc572dbe160a55cb67cf36680d3319b20a942",
-    "research/report.md": "fde41400ad0ff2461b991ce3ef9960db53b17059a62af0036212566bb161cc9f",
+    "research/report.md": "6e23cd16468c2c8c05cc225e07c484bfb086b491ba3946ef29e3aab12edd671a",
     "_tool": "011f70d2646e3c92"
    },
    "outputs": {},
@@ -59,11 +59,11 @@
   },
   "evidence": {
    "status": "done",
-   "attempts": 22,
+   "attempts": 24,
    "note": "2 stacks + Landsat stack(s)",
-   "started": "2026-10-28T02:00:09Z",
+   "started": "2026-10-28T02:09:06Z",
    "error": null,
-   "finished": "2026-10-28T02:00:09Z",
+   "finished": "2026-10-28T02:09:06Z",
    "outputs": {
     "evidence/stack/provenance.json": "5af4ac10ede03de34f59770e29368c5784deac981af2e686928fa36f7a92c6ec",
     "evidence/stack/grid.json": "b0144f3b7d249ddf93ae619f6f35f975b46c6214d8941f594e471e79a05ef60e",
@@ -76,8 +76,8 @@
    },
    "inputs": {
     "claims.json": "8428db1e4b44723497957aca96ecc572dbe160a55cb67cf36680d3319b20a942",
-    "research/notes.json": "5d2b7b9ce3d45a6cf91eea68d5767dca1d7c9dee236e2f29a6c97e64c46d34a2",
-    "research/report.md": "fde41400ad0ff2461b991ce3ef9960db53b17059a62af0036212566bb161cc9f",
+    "research/notes.json": "3e1a87fead9e3448da362cb9807fddf5b1e24bae7e26b1da2a6ab80aa2678ef2",
+    "research/report.md": "6e23cd16468c2c8c05cc225e07c484bfb086b491ba3946ef29e3aab12edd671a",
     "topic/topic.json": "003755184b162732282f6bd0371383b8b43df7092082680fae70e66dccd75fab",
     "_tool": "9910c5ec0e089c03"
    },
@@ -113,18 +113,18 @@
   },
   "media": {
    "status": "done",
-   "attempts": 19,
+   "attempts": 21,
    "note": "3 verified of 5 media entries (style v2: media optional)",
-   "started": "2026-10-28T02:00:09Z",
+   "started": "2026-10-28T02:09:06Z",
    "error": null,
-   "finished": "2026-10-28T02:00:09Z",
+   "finished": "2026-10-28T02:09:06Z",
    "inputs": {
     "media/assets/a_member_of_the_nepali_armed.jpg": "e3d8b31e0acb3b91ee4410b11dc506d1c2c216fdc05f4d103fe30bebb344824e",
     "media/assets/palletized_life_saving_equip.jpg": "e5b4f6a1a250060af5d9264389f0938c84ec09436af712e58abba8e251717446",
     "media/assets/us_and_nepali_officials_besi.jpg": "523241f09a55e43dbbe3a31669f1aa6eb00e6c51e54e07f5ede57f0e8e7cf54c",
     "media/ledger.json": "e1c8d51b2a0837cdfef714b2b6a0cf5692d88dc2aa62e6de82179d0d4b14ebce",
     "research/brief.json": "e1d8d4a36d4cd683f7602c327f7d93a0369cf2ce33eb1226b6fb37e38d836b82",
-    "research/notes.json": "5d2b7b9ce3d45a6cf91eea68d5767dca1d7c9dee236e2f29a6c97e64c46d34a2",
+    "research/notes.json": "3e1a87fead9e3448da362cb9807fddf5b1e24bae7e26b1da2a6ab80aa2678ef2",
     "script.md": "a0728dfc971d2df48107d92093d526624e7d7476a17745041558a98d6e31b838",
     "_tool": "bcf6af8b3dcf17e9"
    },
@@ -137,11 +137,11 @@
   },
   "visualplan": {
    "status": "done",
-   "attempts": 19,
+   "attempts": 21,
    "note": "44 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']",
-   "started": "2026-10-28T02:00:09Z",
+   "started": "2026-10-28T02:09:06Z",
    "error": null,
-   "finished": "2026-10-28T02:00:09Z",
+   "finished": "2026-10-28T02:09:06Z",
    "inputs": {
     "claims.json": "8428db1e4b44723497957aca96ecc572dbe160a55cb67cf36680d3319b20a942",
     "evidence/landsat/grid.json": "90b33d6ff1643734b540f9f77d215879d359ab2eb554ac340552093450143dd7",
@@ -158,25 +158,25 @@
     "media/ledger.json": "e1c8d51b2a0837cdfef714b2b6a0cf5692d88dc2aa62e6de82179d0d4b14ebce",
     "media/report.json": "473c2ad88e11503d6c7f037e44fbf5592063d3f4c418024e13f26c44b93c7081",
     "research/brief.json": "e1d8d4a36d4cd683f7602c327f7d93a0369cf2ce33eb1226b6fb37e38d836b82",
-    "research/notes.json": "5d2b7b9ce3d45a6cf91eea68d5767dca1d7c9dee236e2f29a6c97e64c46d34a2",
+    "research/notes.json": "3e1a87fead9e3448da362cb9807fddf5b1e24bae7e26b1da2a6ab80aa2678ef2",
     "script.md": "a0728dfc971d2df48107d92093d526624e7d7476a17745041558a98d6e31b838",
     "_tool": "86573ffac96cfd08"
    },
    "outputs": {
-    "episode.json": "03062257e96942854b44fd052d1beae4805ead30cdb5df4af99ad6d96dab0e03",
+    "episode.json": "116fe74019c100426063e1ee354ae6c3f9c1b71cc4af47ea6088c29e0b31ccb1",
     "graphics_spec.json": "12410fceb2fdb82b763d3abdc6f91b19e69316044dde88fb43d8e7e12087ae32"
    },
    "agent_artifacts": {}
   },
   "visuals": {
    "status": "done",
-   "attempts": 28,
+   "attempts": 30,
    "note": "39 graphics",
-   "started": "2026-10-28T02:00:09Z",
+   "started": "2026-10-28T02:09:06Z",
    "error": null,
-   "finished": "2026-10-28T02:00:20Z",
+   "finished": "2026-10-28T02:09:16Z",
    "inputs": {
-    "episode.json": "03062257e96942854b44fd052d1beae4805ead30cdb5df4af99ad6d96dab0e03",
+    "episode.json": "116fe74019c100426063e1ee354ae6c3f9c1b71cc4af47ea6088c29e0b31ccb1",
     "evidence/landsat/grid.json": "90b33d6ff1643734b540f9f77d215879d359ab2eb554ac340552093450143dd7",
     "evidence/landsat/provenance.json": "dd330d166380617e5d40f0a6a8fe80b22224f6ae4b4634258dd4faf39adefa23",
     "evidence/landsat10/grid.json": "a223622a603ebc3deb9aad92d07279c2faec8c9234bde34cfdd1ee0393351772",
@@ -233,14 +233,15 @@
   },
   "storyboard": {
    "status": "done",
-   "attempts": 11,
-   "note": "52 shots, 362.449s, timing from estimate",
-   "started": "2026-10-28T02:00:20Z",
+   "attempts": 14,
+   "note": "51 shots, 358.842s, timing from voice",
+   "started": "2026-10-28T02:09:16Z",
    "error": null,
-   "finished": "2026-10-28T02:00:20Z",
+   "finished": "2026-10-28T02:09:18Z",
    "inputs": {
+    "captions/captions.srt": "c3f73e85ed9b42dc8c4e4d2dcfac46a85fea3316c5405e8ee43b88b28d43d207",
     "claims.json": "8428db1e4b44723497957aca96ecc572dbe160a55cb67cf36680d3319b20a942",
-    "episode.json": "03062257e96942854b44fd052d1beae4805ead30cdb5df4af99ad6d96dab0e03",
+    "episode.json": "116fe74019c100426063e1ee354ae6c3f9c1b71cc4af47ea6088c29e0b31ccb1",
     "evidence/landsat/grid.json": "90b33d6ff1643734b540f9f77d215879d359ab2eb554ac340552093450143dd7",
     "evidence/landsat/provenance.json": "dd330d166380617e5d40f0a6a8fe80b22224f6ae4b4634258dd4faf39adefa23",
     "evidence/landsat10/grid.json": "a223622a603ebc3deb9aad92d07279c2faec8c9234bde34cfdd1ee0393351772",
@@ -290,31 +291,32 @@
     "graphics/i_volume.step2.png": "32c48b82e40a9cb3ae198ca490a9ca5483cfbbaab695fcee98a47f0fdb0ca648",
     "research/brief.json": "e1d8d4a36d4cd683f7602c327f7d93a0369cf2ce33eb1226b6fb37e38d836b82",
     "script.md": "a0728dfc971d2df48107d92093d526624e7d7476a17745041558a98d6e31b838",
+    "voice/narration.voice.json": "254d6173168c08f549e0102af07c66b83df24b46f6273977157a270252111e7c",
     "_tool": "f03c50c96d0995f1"
    },
    "outputs": {
-    "story/storyboard.json": "4187492aac72c8087920afa32254c44d665b549b351a3ffe3deb84700e865217",
-    "timeline.json": "a10f309a7213e409a7aa9488eb9cf094a458b3aa97b36ee6db8c3b0730cceaf1",
-    "story/labels.json": "0a01adf29ad31659b8791682553ffb0d47fbab56ff9db8655ba2666bcef7f8b7",
-    "story/report.md": "3485d842d4da74f4887faf0cf58f27a00d1d6c618eb510eebd4a06e95b4ef68b",
-    "story/diversity.json": "b31e971890f8f0565b014432261e61adabfb8a3666b43123a2af0e5080644d73"
+    "story/storyboard.json": "6bf1bbe625a5fb3b216d44c1a5372520e41383978ac6d194b063d4368b5abb24",
+    "timeline.json": "3a443c7f38d9f48780835357db8976fa6b5447e84ed95a6d63ce90f30925bb0f",
+    "story/labels.json": "4d7324f2f7f82381557148a70d57c6e16876a59c27e9b0dbf7f9235a3627e8f4",
+    "story/report.md": "fad297650c0919d954b98c27b0772e539f2bbde9a3f7cfe376c7bf820d17b5f4",
+    "story/diversity.json": "c637eefcff82da1bcdb8f745b0d11835965b259ed9926d8e7eacfa655d668af4"
    },
    "agent_artifacts": {}
   },
   "visualcheck": {
    "status": "done",
-   "attempts": 17,
+   "attempts": 20,
    "note": "visual claims OK {'VERIFIED_DATA': 19, 'REVIEWED': 33} of 52 items; 5 orphan reviews (run `visualcheck.py prune`)",
-   "started": "2026-10-28T02:00:43Z",
+   "started": "2026-10-28T02:09:18Z",
    "error": null,
-   "finished": "2026-10-28T02:00:53Z",
+   "finished": "2026-10-28T02:09:27Z",
    "outputs": {
-    "qa/visual_claims.json": "dfb96196408626ec41b922975b118ebef0e9fb04d05ca3a8dcddd1fc8b486019",
-    "qa/visual_claims.md": "ec3166061149eb2a34f81432de455935a2ad235c02ca431e547d5017c9064310"
+    "qa/visual_claims.json": "d6bd4a40ad9233332dc2ff1608fd303bd476bf22e9f5ad3402620d0896730954",
+    "qa/visual_claims.md": "280fb60e636269a1c30b9d67d4f755f95f6327c5822fdee13a04bbdccc93b132"
    },
    "inputs": {
     "claims.json": "8428db1e4b44723497957aca96ecc572dbe160a55cb67cf36680d3319b20a942",
-    "episode.json": "03062257e96942854b44fd052d1beae4805ead30cdb5df4af99ad6d96dab0e03",
+    "episode.json": "116fe74019c100426063e1ee354ae6c3f9c1b71cc4af47ea6088c29e0b31ccb1",
     "evidence/stack/grid.json": "b0144f3b7d249ddf93ae619f6f35f975b46c6214d8941f594e471e79a05ef60e",
     "evidence/stack/provenance.json": "5af4ac10ede03de34f59770e29368c5784deac981af2e686928fa36f7a92c6ec",
     "graphics_spec.json": "12410fceb2fdb82b763d3abdc6f91b19e69316044dde88fb43d8e7e12087ae32",
@@ -322,11 +324,11 @@
     "media/assets/palletized_life_saving_equip.jpg": "e5b4f6a1a250060af5d9264389f0938c84ec09436af712e58abba8e251717446",
     "media/assets/us_and_nepali_officials_besi.jpg": "523241f09a55e43dbbe3a31669f1aa6eb00e6c51e54e07f5ede57f0e8e7cf54c",
     "qa/visual_review.json": "d3057adbc0b938cabffb353a7d5ddfc522e17e62be0c36f839a3f8906598a3a2",
-    "story/diversity.json": "b31e971890f8f0565b014432261e61adabfb8a3666b43123a2af0e5080644d73",
-    "story/labels.json": "0a01adf29ad31659b8791682553ffb0d47fbab56ff9db8655ba2666bcef7f8b7",
-    "story/report.md": "3485d842d4da74f4887faf0cf58f27a00d1d6c618eb510eebd4a06e95b4ef68b",
-    "story/storyboard.json": "4187492aac72c8087920afa32254c44d665b549b351a3ffe3deb84700e865217",
-    "timeline.json": "a10f309a7213e409a7aa9488eb9cf094a458b3aa97b36ee6db8c3b0730cceaf1",
+    "story/diversity.json": "c637eefcff82da1bcdb8f745b0d11835965b259ed9926d8e7eacfa655d668af4",
+    "story/labels.json": "4d7324f2f7f82381557148a70d57c6e16876a59c27e9b0dbf7f9235a3627e8f4",
+    "story/report.md": "fad297650c0919d954b98c27b0772e539f2bbde9a3f7cfe376c7bf820d17b5f4",
+    "story/storyboard.json": "6bf1bbe625a5fb3b216d44c1a5372520e41383978ac6d194b063d4368b5abb24",
+    "timeline.json": "3a443c7f38d9f48780835357db8976fa6b5447e84ed95a6d63ce90f30925bb0f",
     "_tool": "99a34655b31d05f3"
    },
    "agent_artifacts": {
@@ -334,30 +336,78 @@
    }
   },
   "voice": {
-   "status": "running",
-   "attempts": 10,
-   "note": "no approvals/voice.json; plan: 5029 characters",
-   "started": "2026-10-28T02:01:01Z",
+   "status": "done",
+   "attempts": 13,
+   "note": "narration already generated (not regenerated)",
+   "started": "2026-10-28T02:09:28Z",
    "error": null,
-   "finished": "2026-10-28T02:00:53Z",
+   "finished": "2026-10-28T02:09:28Z",
    "outputs": {
-    "voice/plan.json": "a750da7eed136becf503e0573f93437be65d47ba8ed41f0dd05f7ff0495e862c"
-   }
+    "voice/narration.wav": "a3c88f0e0e11729b869ff366b18560b54cc7e2b38b9c297cdbef325b442aa19b",
+    "voice/narration.voice.json": "254d6173168c08f549e0102af07c66b83df24b46f6273977157a270252111e7c"
+   },
+   "inputs": {
+    "approvals/voice.json": "2b6fa3554ef30b7bfb3d75a2223d18f70eb856279be54847bd814d3700ede3d1",
+    "qa/visual_claims.json": "d6bd4a40ad9233332dc2ff1608fd303bd476bf22e9f5ad3402620d0896730954",
+    "qa/visual_claims.md": "280fb60e636269a1c30b9d67d4f755f95f6327c5822fdee13a04bbdccc93b132",
+    "research/brief.json": "e1d8d4a36d4cd683f7602c327f7d93a0369cf2ce33eb1226b6fb37e38d836b82",
+    "script.md": "a0728dfc971d2df48107d92093d526624e7d7476a17745041558a98d6e31b838",
+    "story/diversity.json": "c637eefcff82da1bcdb8f745b0d11835965b259ed9926d8e7eacfa655d668af4",
+    "story/labels.json": "4d7324f2f7f82381557148a70d57c6e16876a59c27e9b0dbf7f9235a3627e8f4",
+    "story/report.md": "fad297650c0919d954b98c27b0772e539f2bbde9a3f7cfe376c7bf820d17b5f4",
+    "story/storyboard.json": "6bf1bbe625a5fb3b216d44c1a5372520e41383978ac6d194b063d4368b5abb24",
+    "timeline.json": "3a443c7f38d9f48780835357db8976fa6b5447e84ed95a6d63ce90f30925bb0f",
+    "_tool": "e3b0c44298fc1c14"
+   },
+   "agent_artifacts": {}
   },
   "voicecheck": {
-   "status": "waiting",
-   "attempts": 0,
-   "note": "waiting for ['voice']"
+   "status": "done",
+   "attempts": 1,
+   "note": "NEEDS_HUMAN_LISTEN: 4 risky words to listen to; storyboard re-timed from real word timings",
+   "started": "2026-10-28T02:02:00Z",
+   "error": null,
+   "finished": "2026-10-28T02:02:00Z",
+   "inputs": {
+    "voice/narration.voice.json": "254d6173168c08f549e0102af07c66b83df24b46f6273977157a270252111e7c",
+    "voice/narration.wav": "a3c88f0e0e11729b869ff366b18560b54cc7e2b38b9c297cdbef325b442aa19b",
+    "voice/spoken.md": "1c6116f082e75ac7167f9b59cd790fdb520cb8010dc79f9207dc3decda5a52b6",
+    "_tool": "f7b7409c4249b329"
+   },
+   "outputs": {
+    "voice/voicecheck.json": "e02239bde5b4672f6523ae299529317f7ee45ccc0ecbfacbc3a190abfc16f2ec"
+   },
+   "agent_artifacts": {}
   },
   "captions": {
-   "status": "waiting",
-   "attempts": 0,
-   "note": "waiting for ['voicecheck']"
+   "status": "done",
+   "attempts": 1,
+   "note": "captions built from real word timings",
+   "started": "2026-10-28T02:02:00Z",
+   "error": null,
+   "finished": "2026-10-28T02:02:00Z",
+   "inputs": {
+    "voice/narration.voice.json": "254d6173168c08f549e0102af07c66b83df24b46f6273977157a270252111e7c",
+    "voice/voicecheck.json": "e02239bde5b4672f6523ae299529317f7ee45ccc0ecbfacbc3a190abfc16f2ec",
+    "_tool": "0ea5d9ab1f32c208"
+   },
+   "outputs": {
+    "captions/captions.srt": "c3f73e85ed9b42dc8c4e4d2dcfac46a85fea3316c5405e8ee43b88b28d43d207",
+    "captions/captions.vtt": "aa3bb3f5144b12a88d74fda0095aa315914d66548509bcd32736c7fada0666cf",
+    "captions/captions.json": "a0ec3f5700f5c5cb0488291dacbd4e7b1f1f7eb0cb78bd85cc953cbeb9a1a512"
+   },
+   "agent_artifacts": {}
   },
   "render": {
-   "status": "waiting",
-   "attempts": 0,
-   "note": "waiting for ['voice', 'voicecheck', 'captions']"
+   "status": "awaiting_approval",
+   "attempts": 8,
+   "note": "no approvals/render.json; plan validated",
+   "started": "2026-10-28T02:10:58Z",
+   "error": null,
+   "finished": "2026-10-28T02:11:00Z",
+   "outputs": {
+    "render/plan.json": "88235302b8216696260b2c7bb043931108791838ea7bcf526d8f37c4d3d5d24c"
+   }
   },
   "qc": {
    "status": "waiting",
@@ -366,29 +416,37 @@
   },
   "release": {
    "status": "done",
-   "attempts": 22,
+   "attempts": 30,
    "note": "incomplete",
-   "started": "2026-10-28T02:00:53Z",
+   "started": "2026-10-28T02:11:00Z",
    "error": null,
-   "finished": "2026-10-28T02:00:53Z",
+   "finished": "2026-10-28T02:11:00Z",
    "inputs": {
     "claims.json": "8428db1e4b44723497957aca96ecc572dbe160a55cb67cf36680d3319b20a942",
-    "qa/visual_claims.json": "dfb96196408626ec41b922975b118ebef0e9fb04d05ca3a8dcddd1fc8b486019",
-    "story/diversity.json": "b31e971890f8f0565b014432261e61adabfb8a3666b43123a2af0e5080644d73",
-    "story/labels.json": "0a01adf29ad31659b8791682553ffb0d47fbab56ff9db8655ba2666bcef7f8b7",
-    "story/report.md": "3485d842d4da74f4887faf0cf58f27a00d1d6c618eb510eebd4a06e95b4ef68b",
-    "story/storyboard.json": "4187492aac72c8087920afa32254c44d665b549b351a3ffe3deb84700e865217",
-    "timeline.json": "a10f309a7213e409a7aa9488eb9cf094a458b3aa97b36ee6db8c3b0730cceaf1",
+    "qa/visual_claims.json": "d6bd4a40ad9233332dc2ff1608fd303bd476bf22e9f5ad3402620d0896730954",
+    "story/diversity.json": "c637eefcff82da1bcdb8f745b0d11835965b259ed9926d8e7eacfa655d668af4",
+    "story/labels.json": "4d7324f2f7f82381557148a70d57c6e16876a59c27e9b0dbf7f9235a3627e8f4",
+    "story/report.md": "fad297650c0919d954b98c27b0772e539f2bbde9a3f7cfe376c7bf820d17b5f4",
+    "story/storyboard.json": "6bf1bbe625a5fb3b216d44c1a5372520e41383978ac6d194b063d4368b5abb24",
+    "timeline.json": "3a443c7f38d9f48780835357db8976fa6b5447e84ed95a6d63ce90f30925bb0f",
     "_tool": "e3b0c44298fc1c14"
    },
    "outputs": {
-    "release/REVIEW.md": "720ad3dd3b8c55d82af350d8058b53ea2022a816d3156364bbacf1d9f2a32c6a",
-    "story/report.md": "3485d842d4da74f4887faf0cf58f27a00d1d6c618eb510eebd4a06e95b4ef68b"
+    "release/REVIEW.md": "91698cb98cfdfa38cfb25303fff2faa5a8a0baea5025fc8b074b85319e79b96b",
+    "story/report.md": "fad297650c0919d954b98c27b0772e539f2bbde9a3f7cfe376c7bf820d17b5f4"
    },
    "agent_artifacts": {}
   }
  },
- "costs": [],
+ "costs": [
+  {
+   "stage": "voice",
+   "chars": 5029,
+   "provider": "elevenlabs",
+   "at": "2026-10-28T02:01:59Z",
+   "note": "approved by owner"
+  }
+ ],
  "log": [
   {
    "at": "2026-10-27T10:57:17Z",
@@ -2323,7 +2381,392 @@
    "stage": "release",
    "event": "done",
    "note": "incomplete"
+  },
+  {
+   "at": "2026-10-28T02:02:00Z",
+   "stage": "voice",
+   "event": "done",
+   "note": "generated 5029 chars"
+  },
+  {
+   "at": "2026-10-28T02:02:00Z",
+   "stage": "voicecheck",
+   "event": "done",
+   "note": "NEEDS_HUMAN_LISTEN: 4 risky words to listen to; storyboard re-timed from real word timings"
+  },
+  {
+   "at": "2026-10-28T02:02:00Z",
+   "stage": "captions",
+   "event": "done",
+   "note": "captions built from real word timings"
+  },
+  {
+   "at": "2026-10-28T02:02:01Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "no approvals/render.json; plan validated"
+  },
+  {
+   "at": "2026-10-28T02:02:01Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:02:01Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-28T02:02:01Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:02:03Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "51 shots, 358.842s, timing from voice"
+  },
+  {
+   "at": "2026-10-28T02:02:03Z",
+   "stage": "visualcheck",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:02:12Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_DATA': 19, 'REVIEWED': 33} of 52 items; 5 orphan reviews (run `visualcheck.py prune`)"
+  },
+  {
+   "at": "2026-10-28T02:02:12Z",
+   "stage": "voice",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:02:12Z",
+   "stage": "voice",
+   "event": "done",
+   "note": "narration already generated (not regenerated)"
+  },
+  {
+   "at": "2026-10-28T02:02:15Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "no approvals/render.json; plan validated"
+  },
+  {
+   "at": "2026-10-28T02:02:15Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:02:15Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-28T02:02:17Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "no approvals/render.json; plan validated"
+  },
+  {
+   "at": "2026-10-28T02:02:17Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:02:17Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-28T02:06:43Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:06:43Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-28T02:06:43Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:06:43Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-28T02:06:43Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:06:43Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-28T02:06:43Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:06:43Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-28T02:06:43Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:06:43Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "44 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-28T02:06:43Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:06:53Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "39 graphics"
+  },
+  {
+   "at": "2026-10-28T02:06:53Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:06:56Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "51 shots, 358.842s, timing from voice"
+  },
+  {
+   "at": "2026-10-28T02:06:56Z",
+   "stage": "visualcheck",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:07:05Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_DATA': 19, 'REVIEWED': 33} of 52 items; 5 orphan reviews (run `visualcheck.py prune`)"
+  },
+  {
+   "at": "2026-10-28T02:07:05Z",
+   "stage": "voice",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:07:05Z",
+   "stage": "voice",
+   "event": "done",
+   "note": "narration already generated (not regenerated)"
+  },
+  {
+   "at": "2026-10-28T02:07:07Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "no approvals/render.json; plan validated"
+  },
+  {
+   "at": "2026-10-28T02:07:07Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:07:07Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-28T02:07:10Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "no approvals/render.json; plan validated"
+  },
+  {
+   "at": "2026-10-28T02:07:10Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:07:10Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-28T02:09:05Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:09:05Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-28T02:09:05Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:09:06Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-28T02:09:06Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:09:06Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-28T02:09:06Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:09:06Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-28T02:09:06Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:09:06Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "44 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-28T02:09:06Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:09:16Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "39 graphics"
+  },
+  {
+   "at": "2026-10-28T02:09:16Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:09:18Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "51 shots, 358.842s, timing from voice"
+  },
+  {
+   "at": "2026-10-28T02:09:18Z",
+   "stage": "visualcheck",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:09:27Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_DATA': 19, 'REVIEWED': 33} of 52 items; 5 orphan reviews (run `visualcheck.py prune`)"
+  },
+  {
+   "at": "2026-10-28T02:09:28Z",
+   "stage": "voice",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:09:28Z",
+   "stage": "voice",
+   "event": "done",
+   "note": "narration already generated (not regenerated)"
+  },
+  {
+   "at": "2026-10-28T02:09:30Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "no approvals/render.json; plan validated"
+  },
+  {
+   "at": "2026-10-28T02:09:30Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:09:30Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-28T02:09:32Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "no approvals/render.json; plan validated"
+  },
+  {
+   "at": "2026-10-28T02:09:32Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:09:32Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-28T02:11:00Z",
+   "stage": "render",
+   "event": "awaiting_approval",
+   "note": "no approvals/render.json; plan validated"
+  },
+  {
+   "at": "2026-10-28T02:11:00Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:11:00Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
   }
  ],
- "updated": "2026-10-28T02:01:01Z"
+ "updated": "2026-10-28T02:11:00Z"
 }

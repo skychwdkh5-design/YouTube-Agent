@@ -1,6 +1,6 @@
 # Release package - The Mountain That Fell
 
-Generated 2026-10-28T02:00:53Z. Nothing is published.
+Generated 2026-10-28T02:11:00Z. Nothing is published.
 
 ## Status
 - topic: done owner-approved topic
@@ -11,12 +11,12 @@ Generated 2026-10-28T02:00:53Z. Nothing is published.
 - media: done 3 verified of 5 media entries (style v2: media optional)
 - visualplan: done 44 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']
 - visuals: done 39 graphics
-- storyboard: done 52 shots, 362.449s, timing from estimate
+- storyboard: done 51 shots, 358.842s, timing from voice
 - visualcheck: done visual claims OK {'VERIFIED_DATA': 19, 'REVIEWED': 33} of 52 items; 5 orphan reviews (run `visualcheck.py prune`)
-- voice: awaiting_approval no approvals/voice.json; plan: 5029 characters
-- voicecheck: waiting waiting for ['voice']
-- captions: waiting waiting for ['voicecheck']
-- render: waiting waiting for ['voice', 'voicecheck', 'captions']
+- voice: done narration already generated (not regenerated)
+- voicecheck: done NEEDS_HUMAN_LISTEN: 4 risky words to listen to; storyboard re-timed from real word timings
+- captions: done captions built from real word timings
+- render: awaiting_approval no approvals/render.json; plan validated
 - qc: waiting waiting for ['render']
 
 ## Autonomy (what was automated)
@@ -30,9 +30,9 @@ Generated 2026-10-28T02:00:53Z. Nothing is published.
 - visuals: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - storyboard: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - visualcheck: FULLY_AUTOMATED / now FULLY_AUTOMATED / agent artifact, then code
-- voice: OWNER_REQUIRED / now OWNER_REQUIRED / -
-- voicecheck: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
-- captions: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
+- voice: OWNER_REQUIRED / now OWNER_REQUIRED / code
+- voicecheck: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
+- captions: FULLY_AUTOMATED / now FULLY_AUTOMATED / code
 - render: OWNER_REQUIRED / now OWNER_REQUIRED / -
 - qc: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
 - release: FULLY_AUTOMATED / now FULLY_AUTOMATED / -
@@ -58,9 +58,9 @@ Generated 2026-10-28T02:00:53Z. Nothing is published.
 - C16 [observation/high] The Sentinel-2 frames in this video have 10 meter pixels; the Landsat 9 frame has 30 meter pixels, shown on the same grid by nearest-neighbor resampling, which adds no detail.
 
 ## Costs
-- none (no paid action taken)
+- {'stage': 'voice', 'chars': 5029, 'provider': 'elevenlabs', 'at': '2026-10-28T02:01:59Z', 'note': 'approved by owner'}
 
 ## Package is INCOMPLETE
-Pending: voice, voicecheck, captions, render, qc
+Pending: render, qc
 
 **Owner question: approve the paid step(s) listed as awaiting_approval, or change?**

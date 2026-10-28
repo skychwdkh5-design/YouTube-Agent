@@ -75,11 +75,9 @@
   "shot": "plan_012"
  },
  {
-  "text": "graphic:i_china_s1",
-  "claims": [
-   "C11"
-  ],
-  "exempt": false,
+  "text": "AUG 2026",
+  "claim": null,
+  "exempt": true,
   "shot": "plan_013"
  },
  {
@@ -89,9 +87,11 @@
   "shot": "plan_014"
  },
  {
-  "text": "AUG 2026",
-  "claim": null,
-  "exempt": true,
+  "text": "graphic:i_china_s1",
+  "claims": [
+   "C11"
+  ],
+  "exempt": false,
   "shot": "plan_015"
  },
  {

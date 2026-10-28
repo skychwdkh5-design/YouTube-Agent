@@ -1,0 +1,4490 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "narration.wav",
+ "audio_format": "wav",
+ "audio_sha256": "a3c88f0e0e11729b869ff366b18560b54cc7e2b38b9c297cdbef325b442aa19b",
+ "duration": 358.841,
+ "characters": 5029,
+ "text": "On 12 August 2026, this valley in northern Nepal, high in the Himalaya, looks quiet.\n\nFourteen days later, a dark swath runs through the same valley.\n\nFor seven weeks before that, a radar satellite had been picking up movement in a mountain slope in northern Nepal.\n\nWhat had the satellites seen? And what does it not prove?\n\nFirst, what officials and news outlets said.\n\nThe US Geological Survey said a rapid slope failure involving a glacier struck Langtang National Park in Nepal, near the Chinese border, on the morning of 26 August 2026.\n\nIt said the debris flow and flood traveled about 100 kilometers, roughly 62 miles, along two rivers, the Lende Khola and the Trishuli Khola.\n\nIt said the flood hit populated areas downstream, including the Rasuwagadhi border post.\n\nIts summary does not say where along that route the water stopped.\n\nThe failure itself shook the ground. USGS said it released seismic energy equal to a magnitude 5.2 earthquake.\n\nUSGS said a second signal, about three hours later, was equal to magnitude 4.2.\n\nUSGS said those are energy comparisons: the slope failure itself produced the signals.\n\nUSGS also said it has not yet determined whether this began as a landslide that picked up part of a glacier, or as a failure of the glacier itself.\n\nAnd it said everything it has published is preliminary.\n\nThis mountain has done something like this before. In 2015, USGS said, a magnitude 7.8 earthquake set off a debris avalanche on the same mountain.\n\nUSGS said it fell nearly 1,900 meters, buried a village, and killed more than 200 people.\n\nNow the human cost. In its 13 October release, ICIMOD reported figures from Nepal's disaster authority: 1,451 people dead and 5,745 missing in Nepal.\n\nOther lists differ slightly and keep changing, so these numbers are not final.\n\nChina counts its own side of the border separately. Xinhua reported 43 dead and 519 missing at Gyirong Port as of 5 September.\n\nIt was not clear whether some people appear in both countries' counts, so we do not add the two together.\n\nSatellites cannot see people on the ground. They can see ground, ice, cloud, and sometimes tiny movements of a slope.\n\nThe mountain research organization ICIMOD published a preliminary analysis on 13 October.\n\nIt said the disaster was not a conventional glacial lake outburst flood.\n\nIt said a failure in the bedrock sheared away part of the glacier lying on top of it.\n\nICIMOD also said that radar satellites, Sentinel-1, detected up to 40 centimeters of ground movement between 7 July and 24 August.\n\nThat is movement along the satellite's line of sight, not the full motion of the slope.\n\nAnd the period ended two days before the failure.\n\nWe do not claim this was a warning anyone could have acted on. No source we found shows that.\n\nICIMOD's early estimate of the volume was about 132 million cubic meters of rock and ice.\n\nAnother early analysis suggested a much smaller volume.\n\nSo the size is not settled, and we do not rely on one number.\n\nNow our own images. They come from free public data.\n\nFirst we looked for the clearest view before the event.\n\nThe best was 12 August, with 19 percent cloud cover over the scene.\n\nBut between 14 and 27 August, every Sentinel-2 pass had between 39 and 97 percent cloud cover.\n\nRadar does not have that cloud problem, but the radar numbers in this video are ICIMOD's, not ours.\n\nSo for 26 August we used a different satellite, Landsat 9.\n\nIts pixels are 30 meters wide, three times coarser than Sentinel-2, and we show them as blocks, without sharpening.\n\nIn the 12 August image, the river is a narrow pale line.\n\nIn the 26 August image, a dark grey-brown swath follows the same valley.\n\nFrom the image alone, we cannot tell what the swath is made of.\n\nWe traced it by eye. On our grid it runs about 30 kilometers.\n\nAbout 20 of them lie between the glacier and the point where the river turns south, near the Rasuwagadhi border post.\n\nClouds hide other stretches, so this is the least we can follow, not the full length.\n\nUSGS said the flow traveled about 100 kilometers.\n\nOur frame cannot show all of it.\n\nUSGS said it is mapping the full extent by comparing satellite images from before and after.\n\nOur trace is not a substitute for that official map.\n\nWhat can we not say?\n\nThese images show what the ground looked like on two days. They are not a measurement of the flood itself.\n\nWe cannot say how fast the flow moved, or how high the water rose in any one village. These images do not show that.\n\nWe cannot say why the slope failed, because that work is not finished.\n\nWe cannot say anyone could have been warned in time.\n\nAnd we cannot say how many people died, because the lists are not final.\n\nTwo things will settle more of this.\n\nThe final findings from USGS and ICIMOD, on the type and size of the failure, are not out yet.\n\nAnd the official counts of the dead and missing, on both sides of the border, are not final.\n\nEvery satellite frame here comes from free public data, with the credits on screen. The sources are in the description.",
+ "text_sha256": "bd99f9807b36f7533980c93e6b9a42f2dec529dd516d4a06c9907ad5297cd86d",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 2405,
+   "offset": 0.0,
+   "duration": 176.89,
+   "timing": true
+  },
+  {
+   "index": 1,
+   "characters": 2411,
+   "offset": 176.89,
+   "duration": 169.227,
+   "timing": true
+  },
+  {
+   "index": 2,
+   "characters": 213,
+   "offset": 346.117,
+   "duration": 12.725,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "On",
+   "start": 0.0,
+   "end": 0.151
+  },
+  {
+   "text": "12",
+   "start": 0.197,
+   "end": 0.569
+  },
+  {
+   "text": "August",
+   "start": 0.662,
+   "end": 1.057
+  },
+  {
+   "text": "2026,",
+   "start": 1.173,
+   "end": 2.322
+  },
+  {
+   "text": "this",
+   "start": 2.403,
+   "end": 2.589
+  },
+  {
+   "text": "valley",
+   "start": 2.67,
+   "end": 2.995
+  },
+  {
+   "text": "in",
+   "start": 3.03,
+   "end": 3.1
+  },
+  {
+   "text": "northern",
+   "start": 3.158,
+   "end": 3.518
+  },
+  {
+   "text": "Nepal,",
+   "start": 3.564,
+   "end": 4.226
+  },
+  {
+   "text": "high",
+   "start": 4.354,
+   "end": 4.679
+  },
+  {
+   "text": "in",
+   "start": 4.725,
+   "end": 4.795
+  },
+  {
+   "text": "the",
+   "start": 4.841,
+   "end": 4.911
+  },
+  {
+   "text": "Himalaya,",
+   "start": 4.946,
+   "end": 5.724
+  },
+  {
+   "text": "looks",
+   "start": 5.933,
+   "end": 6.188
+  },
+  {
+   "text": "quiet.",
+   "start": 6.258,
+   "end": 6.92
+  },
+  {
+   "text": "Fourteen",
+   "start": 7.523,
+   "end": 8.011
+  },
+  {
+   "text": "days",
+   "start": 8.069,
+   "end": 8.301
+  },
+  {
+   "text": "later,",
+   "start": 8.371,
+   "end": 8.87
+  },
+  {
+   "text": "a",
+   "start": 9.044,
+   "end": 9.125
+  },
+  {
+   "text": "dark",
+   "start": 9.242,
+   "end": 9.555
+  },
+  {
+   "text": "swath",
+   "start": 9.671,
+   "end": 10.217
+  },
+  {
+   "text": "runs",
+   "start": 10.333,
+   "end": 10.635
+  },
+  {
+   "text": "through",
+   "start": 10.681,
+   "end": 10.925
+  },
+  {
+   "text": "the",
+   "start": 10.96,
+   "end": 11.029
+  },
+  {
+   "text": "same",
+   "start": 11.088,
+   "end": 11.424
+  },
+  {
+   "text": "valley.",
+   "start": 11.482,
+   "end": 12.086
+  },
+  {
+   "text": "For",
+   "start": 12.411,
+   "end": 12.562
+  },
+  {
+   "text": "seven",
+   "start": 12.632,
+   "end": 12.91
+  },
+  {
+   "text": "weeks",
+   "start": 12.968,
+   "end": 13.224
+  },
+  {
+   "text": "before",
+   "start": 13.27,
+   "end": 13.618
+  },
+  {
+   "text": "that,",
+   "start": 13.653,
+   "end": 14.083
+  },
+  {
+   "text": "a",
+   "start": 14.199,
+   "end": 14.269
+  },
+  {
+   "text": "radar",
+   "start": 14.362,
+   "end": 14.698
+  },
+  {
+   "text": "satellite",
+   "start": 14.768,
+   "end": 15.279
+  },
+  {
+   "text": "had",
+   "start": 15.302,
+   "end": 15.395
+  },
+  {
+   "text": "been",
+   "start": 15.43,
+   "end": 15.581
+  },
+  {
+   "text": "picking",
+   "start": 15.639,
+   "end": 15.94
+  },
+  {
+   "text": "up",
+   "start": 15.999,
+   "end": 16.091
+  },
+  {
+   "text": "movement",
+   "start": 16.161,
+   "end": 16.591
+  },
+  {
+   "text": "in",
+   "start": 16.649,
+   "end": 16.73
+  },
+  {
+   "text": "a",
+   "start": 16.777,
+   "end": 16.812
+  },
+  {
+   "text": "mountain",
+   "start": 16.881,
+   "end": 17.276
+  },
+  {
+   "text": "slope",
+   "start": 17.346,
+   "end": 17.764
+  },
+  {
+   "text": "in",
+   "start": 17.81,
+   "end": 17.973
+  },
+  {
+   "text": "northern",
+   "start": 18.042,
+   "end": 18.402
+  },
+  {
+   "text": "Nepal.",
+   "start": 18.437,
+   "end": 19.203
+  },
+  {
+   "text": "What",
+   "start": 20.016,
+   "end": 20.202
+  },
+  {
+   "text": "had",
+   "start": 20.237,
+   "end": 20.341
+  },
+  {
+   "text": "the",
+   "start": 20.376,
+   "end": 20.446
+  },
+  {
+   "text": "satellites",
+   "start": 20.504,
+   "end": 21.096
+  },
+  {
+   "text": "seen?",
+   "start": 21.154,
+   "end": 21.769
+  },
+  {
+   "text": "And",
+   "start": 22.21,
+   "end": 22.361
+  },
+  {
+   "text": "what",
+   "start": 22.408,
+   "end": 22.559
+  },
+  {
+   "text": "does",
+   "start": 22.605,
+   "end": 22.756
+  },
+  {
+   "text": "it",
+   "start": 22.802,
+   "end": 22.884
+  },
+  {
+   "text": "not",
+   "start": 22.953,
+   "end": 23.197
+  },
+  {
+   "text": "prove?",
+   "start": 23.278,
+   "end": 23.963
+  },
+  {
+   "text": "First,",
+   "start": 24.474,
+   "end": 25.032
+  },
+  {
+   "text": "what",
+   "start": 25.275,
+   "end": 25.461
+  },
+  {
+   "text": "officials",
+   "start": 25.496,
+   "end": 25.914
+  },
+  {
+   "text": "and",
+   "start": 25.949,
+   "end": 26.03
+  },
+  {
+   "text": "news",
+   "start": 26.1,
+   "end": 26.309
+  },
+  {
+   "text": "outlets",
+   "start": 26.367,
+   "end": 26.808
+  },
+  {
+   "text": "said.",
+   "start": 26.854,
+   "end": 27.354
+  },
+  {
+   "text": "The",
+   "start": 27.679,
+   "end": 27.795
+  },
+  {
+   "text": "US",
+   "start": 27.864,
+   "end": 28.131
+  },
+  {
+   "text": "Geological",
+   "start": 28.201,
+   "end": 28.828
+  },
+  {
+   "text": "Survey",
+   "start": 28.898,
+   "end": 29.362
+  },
+  {
+   "text": "said",
+   "start": 29.455,
+   "end": 29.699
+  },
+  {
+   "text": "a",
+   "start": 29.757,
+   "end": 29.803
+  },
+  {
+   "text": "rapid",
+   "start": 29.919,
+   "end": 30.244
+  },
+  {
+   "text": "slope",
+   "start": 30.302,
+   "end": 30.628
+  },
+  {
+   "text": "failure",
+   "start": 30.686,
+   "end": 31.138
+  },
+  {
+   "text": "involving",
+   "start": 31.196,
+   "end": 31.707
+  },
+  {
+   "text": "a",
+   "start": 31.765,
+   "end": 31.789
+  },
+  {
+   "text": "glacier",
+   "start": 31.87,
+   "end": 32.334
+  },
+  {
+   "text": "struck",
+   "start": 32.613,
+   "end": 32.915
+  },
+  {
+   "text": "Langtang",
+   "start": 33.008,
+   "end": 33.623
+  },
+  {
+   "text": "National",
+   "start": 33.716,
+   "end": 34.134
+  },
+  {
+   "text": "Park",
+   "start": 34.203,
+   "end": 34.471
+  },
+  {
+   "text": "in",
+   "start": 34.552,
+   "end": 34.621
+  },
+  {
+   "text": "Nepal,",
+   "start": 34.691,
+   "end": 35.376
+  },
+  {
+   "text": "near",
+   "start": 35.527,
+   "end": 35.701
+  },
+  {
+   "text": "the",
+   "start": 35.748,
+   "end": 35.817
+  },
+  {
+   "text": "Chinese",
+   "start": 35.864,
+   "end": 36.375
+  },
+  {
+   "text": "border,",
+   "start": 36.421,
+   "end": 37.002
+  },
+  {
+   "text": "on",
+   "start": 37.245,
+   "end": 37.385
+  },
+  {
+   "text": "the",
+   "start": 37.419,
+   "end": 37.489
+  },
+  {
+   "text": "morning",
+   "start": 37.536,
+   "end": 37.849
+  },
+  {
+   "text": "of",
+   "start": 37.895,
+   "end": 37.942
+  },
+  {
+   "text": "26",
+   "start": 38.0,
+   "end": 38.499
+  },
+  {
+   "text": "August",
+   "start": 38.615,
+   "end": 39.056
+  },
+  {
+   "text": "2026.",
+   "start": 39.231,
+   "end": 40.577
+  },
+  {
+   "text": "It",
+   "start": 41.181,
+   "end": 41.32
+  },
+  {
+   "text": "said",
+   "start": 41.378,
+   "end": 41.587
+  },
+  {
+   "text": "the",
+   "start": 41.634,
+   "end": 41.704
+  },
+  {
+   "text": "debris",
+   "start": 41.762,
+   "end": 42.133
+  },
+  {
+   "text": "flow",
+   "start": 42.191,
+   "end": 42.493
+  },
+  {
+   "text": "and",
+   "start": 42.563,
+   "end": 42.644
+  },
+  {
+   "text": "flood",
+   "start": 42.714,
+   "end": 43.027
+  },
+  {
+   "text": "traveled",
+   "start": 43.074,
+   "end": 43.503
+  },
+  {
+   "text": "about",
+   "start": 43.526,
+   "end": 43.782
+  },
+  {
+   "text": "100",
+   "start": 43.851,
+   "end": 44.327
+  },
+  {
+   "text": "kilometers,",
+   "start": 44.385,
+   "end": 45.21
+  },
+  {
+   "text": "roughly",
+   "start": 45.384,
+   "end": 45.79
+  },
+  {
+   "text": "62",
+   "start": 45.86,
+   "end": 46.417
+  },
+  {
+   "text": "miles,",
+   "start": 46.51,
+   "end": 47.195
+  },
+  {
+   "text": "along",
+   "start": 47.369,
+   "end": 47.752
+  },
+  {
+   "text": "two",
+   "start": 47.81,
+   "end": 47.996
+  },
+  {
+   "text": "rivers,",
+   "start": 48.077,
+   "end": 48.739
+  },
+  {
+   "text": "the",
+   "start": 48.855,
+   "end": 48.96
+  },
+  {
+   "text": "Lende",
+   "start": 49.029,
+   "end": 49.378
+  },
+  {
+   "text": "Khola",
+   "start": 49.494,
+   "end": 49.947
+  },
+  {
+   "text": "and",
+   "start": 50.005,
+   "end": 50.156
+  },
+  {
+   "text": "the",
+   "start": 50.202,
+   "end": 50.272
+  },
+  {
+   "text": "Trishuli",
+   "start": 50.307,
+   "end": 50.864
+  },
+  {
+   "text": "Khola.",
+   "start": 50.957,
+   "end": 51.549
+  },
+  {
+   "text": "It",
+   "start": 52.153,
+   "end": 52.28
+  },
+  {
+   "text": "said",
+   "start": 52.338,
+   "end": 52.524
+  },
+  {
+   "text": "the",
+   "start": 52.559,
+   "end": 52.628
+  },
+  {
+   "text": "flood",
+   "start": 52.675,
+   "end": 52.942
+  },
+  {
+   "text": "hit",
+   "start": 52.988,
+   "end": 53.186
+  },
+  {
+   "text": "populated",
+   "start": 53.255,
+   "end": 53.859
+  },
+  {
+   "text": "areas",
+   "start": 53.917,
+   "end": 54.3
+  },
+  {
+   "text": "downstream,",
+   "start": 54.37,
+   "end": 55.368
+  },
+  {
+   "text": "including",
+   "start": 55.577,
+   "end": 56.181
+  },
+  {
+   "text": "the",
+   "start": 56.239,
+   "end": 56.309
+  },
+  {
+   "text": "Rasuwagadhi",
+   "start": 56.378,
+   "end": 57.203
+  },
+  {
+   "text": "border",
+   "start": 57.284,
+   "end": 57.597
+  },
+  {
+   "text": "post.",
+   "start": 57.667,
+   "end": 58.236
+  },
+  {
+   "text": "Its",
+   "start": 58.747,
+   "end": 58.944
+  },
+  {
+   "text": "summary",
+   "start": 58.991,
+   "end": 59.374
+  },
+  {
+   "text": "does",
+   "start": 59.432,
+   "end": 59.583
+  },
+  {
+   "text": "not",
+   "start": 59.629,
+   "end": 59.803
+  },
+  {
+   "text": "say",
+   "start": 59.861,
+   "end": 60.082
+  },
+  {
+   "text": "where",
+   "start": 60.14,
+   "end": 60.337
+  },
+  {
+   "text": "along",
+   "start": 60.372,
+   "end": 60.709
+  },
+  {
+   "text": "that",
+   "start": 60.767,
+   "end": 60.941
+  },
+  {
+   "text": "route",
+   "start": 61.022,
+   "end": 61.301
+  },
+  {
+   "text": "the",
+   "start": 61.336,
+   "end": 61.417
+  },
+  {
+   "text": "water",
+   "start": 61.464,
+   "end": 61.765
+  },
+  {
+   "text": "stopped.",
+   "start": 61.823,
+   "end": 62.462
+  },
+  {
+   "text": "The",
+   "start": 62.787,
+   "end": 62.903
+  },
+  {
+   "text": "failure",
+   "start": 62.984,
+   "end": 63.437
+  },
+  {
+   "text": "itself",
+   "start": 63.484,
+   "end": 64.041
+  },
+  {
+   "text": "shook",
+   "start": 64.111,
+   "end": 64.389
+  },
+  {
+   "text": "the",
+   "start": 64.459,
+   "end": 64.529
+  },
+  {
+   "text": "ground.",
+   "start": 64.575,
+   "end": 65.26
+  },
+  {
+   "text": "USGS",
+   "start": 65.643,
+   "end": 66.618
+  },
+  {
+   "text": "said",
+   "start": 66.688,
+   "end": 66.885
+  },
+  {
+   "text": "it",
+   "start": 66.92,
+   "end": 66.99
+  },
+  {
+   "text": "released",
+   "start": 67.048,
+   "end": 67.454
+  },
+  {
+   "text": "seismic",
+   "start": 67.547,
+   "end": 68.093
+  },
+  {
+   "text": "energy",
+   "start": 68.162,
+   "end": 68.569
+  },
+  {
+   "text": "equal",
+   "start": 68.662,
+   "end": 68.941
+  },
+  {
+   "text": "to",
+   "start": 68.999,
+   "end": 69.057
+  },
+  {
+   "text": "a",
+   "start": 69.15,
+   "end": 69.173
+  },
+  {
+   "text": "magnitude",
+   "start": 69.254,
+   "end": 69.916
+  },
+  {
+   "text": "5.2",
+   "start": 69.986,
+   "end": 70.903
+  },
+  {
+   "text": "earthquake.",
+   "start": 70.996,
+   "end": 71.785
+  },
+  {
+   "text": "USGS",
+   "start": 72.389,
+   "end": 73.097
+  },
+  {
+   "text": "said",
+   "start": 73.167,
+   "end": 73.41
+  },
+  {
+   "text": "a",
+   "start": 73.457,
+   "end": 73.492
+  },
+  {
+   "text": "second",
+   "start": 73.585,
+   "end": 73.91
+  },
+  {
+   "text": "signal,",
+   "start": 73.968,
+   "end": 74.479
+  },
+  {
+   "text": "about",
+   "start": 74.537,
+   "end": 74.838
+  },
+  {
+   "text": "three",
+   "start": 74.873,
+   "end": 75.106
+  },
+  {
+   "text": "hours",
+   "start": 75.152,
+   "end": 75.442
+  },
+  {
+   "text": "later,",
+   "start": 75.512,
+   "end": 76.011
+  },
+  {
+   "text": "was",
+   "start": 76.127,
+   "end": 76.301
+  },
+  {
+   "text": "equal",
+   "start": 76.383,
+   "end": 76.638
+  },
+  {
+   "text": "to",
+   "start": 76.696,
+   "end": 76.754
+  },
+  {
+   "text": "magnitude",
+   "start": 76.87,
+   "end": 77.462
+  },
+  {
+   "text": "4.2.",
+   "start": 77.509,
+   "end": 78.565
+  },
+  {
+   "text": "USGS",
+   "start": 79.169,
+   "end": 79.935
+  },
+  {
+   "text": "said",
+   "start": 79.993,
+   "end": 80.295
+  },
+  {
+   "text": "those",
+   "start": 80.365,
+   "end": 80.678
+  },
+  {
+   "text": "are",
+   "start": 80.713,
+   "end": 80.841
+  },
+  {
+   "text": "energy",
+   "start": 80.911,
+   "end": 81.259
+  },
+  {
+   "text": "comparisons:",
+   "start": 81.317,
+   "end": 82.315
+  },
+  {
+   "text": "the",
+   "start": 82.64,
+   "end": 82.745
+  },
+  {
+   "text": "slope",
+   "start": 82.815,
+   "end": 83.174
+  },
+  {
+   "text": "failure",
+   "start": 83.221,
+   "end": 83.639
+  },
+  {
+   "text": "itself",
+   "start": 83.674,
+   "end": 84.196
+  },
+  {
+   "text": "produced",
+   "start": 84.266,
+   "end": 84.742
+  },
+  {
+   "text": "the",
+   "start": 84.777,
+   "end": 84.846
+  },
+  {
+   "text": "signals.",
+   "start": 84.893,
+   "end": 85.613
+  },
+  {
+   "text": "USGS",
+   "start": 86.216,
+   "end": 86.89
+  },
+  {
+   "text": "also",
+   "start": 86.971,
+   "end": 87.354
+  },
+  {
+   "text": "said",
+   "start": 87.435,
+   "end": 87.76
+  },
+  {
+   "text": "it",
+   "start": 87.842,
+   "end": 87.958
+  },
+  {
+   "text": "has",
+   "start": 88.004,
+   "end": 88.097
+  },
+  {
+   "text": "not",
+   "start": 88.155,
+   "end": 88.306
+  },
+  {
+   "text": "yet",
+   "start": 88.352,
+   "end": 88.515
+  },
+  {
+   "text": "determined",
+   "start": 88.561,
+   "end": 89.084
+  },
+  {
+   "text": "whether",
+   "start": 89.142,
+   "end": 89.397
+  },
+  {
+   "text": "this",
+   "start": 89.444,
+   "end": 89.571
+  },
+  {
+   "text": "began",
+   "start": 89.63,
+   "end": 90.024
+  },
+  {
+   "text": "as",
+   "start": 90.094,
+   "end": 90.175
+  },
+  {
+   "text": "a",
+   "start": 90.233,
+   "end": 90.268
+  },
+  {
+   "text": "landslide",
+   "start": 90.338,
+   "end": 91.174
+  },
+  {
+   "text": "that",
+   "start": 91.208,
+   "end": 91.348
+  },
+  {
+   "text": "picked",
+   "start": 91.406,
+   "end": 91.673
+  },
+  {
+   "text": "up",
+   "start": 91.719,
+   "end": 91.812
+  },
+  {
+   "text": "part",
+   "start": 91.87,
+   "end": 92.068
+  },
+  {
+   "text": "of",
+   "start": 92.102,
+   "end": 92.149
+  },
+  {
+   "text": "a",
+   "start": 92.195,
+   "end": 92.219
+  },
+  {
+   "text": "glacier,",
+   "start": 92.277,
+   "end": 92.927
+  },
+  {
+   "text": "or",
+   "start": 93.205,
+   "end": 93.356
+  },
+  {
+   "text": "as",
+   "start": 93.414,
+   "end": 93.496
+  },
+  {
+   "text": "a",
+   "start": 93.554,
+   "end": 93.577
+  },
+  {
+   "text": "failure",
+   "start": 93.647,
+   "end": 94.099
+  },
+  {
+   "text": "of",
+   "start": 94.134,
+   "end": 94.204
+  },
+  {
+   "text": "the",
+   "start": 94.25,
+   "end": 94.32
+  },
+  {
+   "text": "glacier",
+   "start": 94.366,
+   "end": 94.726
+  },
+  {
+   "text": "itself.",
+   "start": 94.796,
+   "end": 95.504
+  },
+  {
+   "text": "And",
+   "start": 95.887,
+   "end": 96.061
+  },
+  {
+   "text": "it",
+   "start": 96.131,
+   "end": 96.212
+  },
+  {
+   "text": "said",
+   "start": 96.282,
+   "end": 96.537
+  },
+  {
+   "text": "everything",
+   "start": 96.607,
+   "end": 97.118
+  },
+  {
+   "text": "it",
+   "start": 97.176,
+   "end": 97.246
+  },
+  {
+   "text": "has",
+   "start": 97.292,
+   "end": 97.408
+  },
+  {
+   "text": "published",
+   "start": 97.478,
+   "end": 97.989
+  },
+  {
+   "text": "is",
+   "start": 98.058,
+   "end": 98.221
+  },
+  {
+   "text": "preliminary.",
+   "start": 98.279,
+   "end": 99.196
+  },
+  {
+   "text": "This",
+   "start": 99.579,
+   "end": 99.777
+  },
+  {
+   "text": "mountain",
+   "start": 99.858,
+   "end": 100.206
+  },
+  {
+   "text": "has",
+   "start": 100.276,
+   "end": 100.392
+  },
+  {
+   "text": "done",
+   "start": 100.438,
+   "end": 100.636
+  },
+  {
+   "text": "something",
+   "start": 100.671,
+   "end": 100.972
+  },
+  {
+   "text": "like",
+   "start": 101.031,
+   "end": 101.205
+  },
+  {
+   "text": "this",
+   "start": 101.239,
+   "end": 101.402
+  },
+  {
+   "text": "before.",
+   "start": 101.46,
+   "end": 102.169
+  },
+  {
+   "text": "In",
+   "start": 102.772,
+   "end": 102.9
+  },
+  {
+   "text": "2015,",
+   "start": 102.958,
+   "end": 104.026
+  },
+  {
+   "text": "USGS",
+   "start": 104.177,
+   "end": 104.978
+  },
+  {
+   "text": "said,",
+   "start": 105.025,
+   "end": 105.512
+  },
+  {
+   "text": "a",
+   "start": 105.663,
+   "end": 105.733
+  },
+  {
+   "text": "magnitude",
+   "start": 105.826,
+   "end": 106.43
+  },
+  {
+   "text": "7.8",
+   "start": 106.488,
+   "end": 107.207
+  },
+  {
+   "text": "earthquake",
+   "start": 107.3,
+   "end": 107.811
+  },
+  {
+   "text": "set",
+   "start": 107.858,
+   "end": 108.02
+  },
+  {
+   "text": "off",
+   "start": 108.078,
+   "end": 108.206
+  },
+  {
+   "text": "a",
+   "start": 108.264,
+   "end": 108.287
+  },
+  {
+   "text": "debris",
+   "start": 108.357,
+   "end": 108.705
+  },
+  {
+   "text": "avalanche",
+   "start": 108.752,
+   "end": 109.332
+  },
+  {
+   "text": "on",
+   "start": 109.378,
+   "end": 109.483
+  },
+  {
+   "text": "the",
+   "start": 109.518,
+   "end": 109.587
+  },
+  {
+   "text": "same",
+   "start": 109.634,
+   "end": 109.901
+  },
+  {
+   "text": "mountain.",
+   "start": 109.924,
+   "end": 110.458
+  },
+  {
+   "text": "USGS",
+   "start": 110.865,
+   "end": 111.526
+  },
+  {
+   "text": "said",
+   "start": 111.561,
+   "end": 111.7
+  },
+  {
+   "text": "it",
+   "start": 111.735,
+   "end": 111.793
+  },
+  {
+   "text": "fell",
+   "start": 111.828,
+   "end": 112.026
+  },
+  {
+   "text": "nearly",
+   "start": 112.072,
+   "end": 112.339
+  },
+  {
+   "text": "1,900",
+   "start": 112.409,
+   "end": 113.419
+  },
+  {
+   "text": "meters,",
+   "start": 113.488,
+   "end": 113.976
+  },
+  {
+   "text": "buried",
+   "start": 114.127,
+   "end": 114.452
+  },
+  {
+   "text": "a",
+   "start": 114.487,
+   "end": 114.51
+  },
+  {
+   "text": "village,",
+   "start": 114.557,
+   "end": 115.079
+  },
+  {
+   "text": "and",
+   "start": 115.218,
+   "end": 115.381
+  },
+  {
+   "text": "killed",
+   "start": 115.462,
+   "end": 115.752
+  },
+  {
+   "text": "more",
+   "start": 115.799,
+   "end": 115.938
+  },
+  {
+   "text": "than",
+   "start": 115.961,
+   "end": 116.077
+  },
+  {
+   "text": "200",
+   "start": 116.135,
+   "end": 116.612
+  },
+  {
+   "text": "people.",
+   "start": 116.658,
+   "end": 117.215
+  },
+  {
+   "text": "Now",
+   "start": 117.981,
+   "end": 118.225
+  },
+  {
+   "text": "the",
+   "start": 118.295,
+   "end": 118.365
+  },
+  {
+   "text": "human",
+   "start": 118.411,
+   "end": 118.701
+  },
+  {
+   "text": "cost.",
+   "start": 118.771,
+   "end": 119.41
+  },
+  {
+   "text": "In",
+   "start": 119.978,
+   "end": 120.118
+  },
+  {
+   "text": "its",
+   "start": 120.153,
+   "end": 120.28
+  },
+  {
+   "text": "13",
+   "start": 120.315,
+   "end": 120.733
+  },
+  {
+   "text": "October",
+   "start": 120.814,
+   "end": 121.232
+  },
+  {
+   "text": "release,",
+   "start": 121.302,
+   "end": 121.778
+  },
+  {
+   "text": "ICIMOD",
+   "start": 122.01,
+   "end": 122.741
+  },
+  {
+   "text": "reported",
+   "start": 122.799,
+   "end": 123.159
+  },
+  {
+   "text": "figures",
+   "start": 123.206,
+   "end": 123.531
+  },
+  {
+   "text": "from",
+   "start": 123.566,
+   "end": 123.705
+  },
+  {
+   "text": "Nepal's",
+   "start": 123.752,
+   "end": 124.239
+  },
+  {
+   "text": "disaster",
+   "start": 124.274,
+   "end": 124.785
+  },
+  {
+   "text": "authority:",
+   "start": 124.854,
+   "end": 125.481
+  },
+  {
+   "text": "1,451",
+   "start": 125.76,
+   "end": 127.269
+  },
+  {
+   "text": "people",
+   "start": 127.374,
+   "end": 127.687
+  },
+  {
+   "text": "dead",
+   "start": 127.745,
+   "end": 128.047
+  },
+  {
+   "text": "and",
+   "start": 128.221,
+   "end": 128.419
+  },
+  {
+   "text": "5,745",
+   "start": 128.488,
+   "end": 130.358
+  },
+  {
+   "text": "missing",
+   "start": 130.439,
+   "end": 130.729
+  },
+  {
+   "text": "in",
+   "start": 130.776,
+   "end": 130.81
+  },
+  {
+   "text": "Nepal.",
+   "start": 130.857,
+   "end": 131.519
+  },
+  {
+   "text": "Other",
+   "start": 132.018,
+   "end": 132.285
+  },
+  {
+   "text": "lists",
+   "start": 132.343,
+   "end": 132.738
+  },
+  {
+   "text": "differ",
+   "start": 132.865,
+   "end": 133.156
+  },
+  {
+   "text": "slightly",
+   "start": 133.202,
+   "end": 133.62
+  },
+  {
+   "text": "and",
+   "start": 133.666,
+   "end": 133.748
+  },
+  {
+   "text": "keep",
+   "start": 133.806,
+   "end": 133.991
+  },
+  {
+   "text": "changing,",
+   "start": 134.061,
+   "end": 134.676
+  },
+  {
+   "text": "so",
+   "start": 134.851,
+   "end": 134.978
+  },
+  {
+   "text": "these",
+   "start": 135.036,
+   "end": 135.211
+  },
+  {
+   "text": "numbers",
+   "start": 135.257,
+   "end": 135.57
+  },
+  {
+   "text": "are",
+   "start": 135.605,
+   "end": 135.721
+  },
+  {
+   "text": "not",
+   "start": 135.756,
+   "end": 135.896
+  },
+  {
+   "text": "final.",
+   "start": 135.965,
+   "end": 136.546
+  },
+  {
+   "text": "China",
+   "start": 136.778,
+   "end": 137.115
+  },
+  {
+   "text": "counts",
+   "start": 137.173,
+   "end": 137.44
+  },
+  {
+   "text": "its",
+   "start": 137.486,
+   "end": 137.602
+  },
+  {
+   "text": "own",
+   "start": 137.649,
+   "end": 137.811
+  },
+  {
+   "text": "side",
+   "start": 137.881,
+   "end": 138.183
+  },
+  {
+   "text": "of",
+   "start": 138.206,
+   "end": 138.264
+  },
+  {
+   "text": "the",
+   "start": 138.299,
+   "end": 138.368
+  },
+  {
+   "text": "border",
+   "start": 138.415,
+   "end": 138.705
+  },
+  {
+   "text": "separately.",
+   "start": 138.775,
+   "end": 139.436
+  },
+  {
+   "text": "Xinhua",
+   "start": 139.82,
+   "end": 140.261
+  },
+  {
+   "text": "reported",
+   "start": 140.33,
+   "end": 140.772
+  },
+  {
+   "text": "43",
+   "start": 140.841,
+   "end": 141.34
+  },
+  {
+   "text": "dead",
+   "start": 141.422,
+   "end": 141.712
+  },
+  {
+   "text": "and",
+   "start": 141.77,
+   "end": 141.886
+  },
+  {
+   "text": "519",
+   "start": 141.979,
+   "end": 142.966
+  },
+  {
+   "text": "missing",
+   "start": 143.047,
+   "end": 143.407
+  },
+  {
+   "text": "at",
+   "start": 143.5,
+   "end": 143.628
+  },
+  {
+   "text": "Gyirong",
+   "start": 143.697,
+   "end": 144.092
+  },
+  {
+   "text": "Port",
+   "start": 144.185,
+   "end": 144.568
+  },
+  {
+   "text": "as",
+   "start": 144.812,
+   "end": 145.032
+  },
+  {
+   "text": "of",
+   "start": 145.102,
+   "end": 145.183
+  },
+  {
+   "text": "5",
+   "start": 145.299,
+   "end": 145.625
+  },
+  {
+   "text": "September.",
+   "start": 145.775,
+   "end": 146.472
+  },
+  {
+   "text": "It",
+   "start": 146.855,
+   "end": 146.983
+  },
+  {
+   "text": "was",
+   "start": 147.029,
+   "end": 147.134
+  },
+  {
+   "text": "not",
+   "start": 147.192,
+   "end": 147.331
+  },
+  {
+   "text": "clear",
+   "start": 147.389,
+   "end": 147.61
+  },
+  {
+   "text": "whether",
+   "start": 147.656,
+   "end": 147.877
+  },
+  {
+   "text": "some",
+   "start": 147.935,
+   "end": 148.144
+  },
+  {
+   "text": "people",
+   "start": 148.19,
+   "end": 148.515
+  },
+  {
+   "text": "appear",
+   "start": 148.55,
+   "end": 148.852
+  },
+  {
+   "text": "in",
+   "start": 148.91,
+   "end": 148.968
+  },
+  {
+   "text": "both",
+   "start": 149.015,
+   "end": 149.212
+  },
+  {
+   "text": "countries'",
+   "start": 149.27,
+   "end": 149.665
+  },
+  {
+   "text": "counts,",
+   "start": 149.711,
+   "end": 150.35
+  },
+  {
+   "text": "so",
+   "start": 150.501,
+   "end": 150.628
+  },
+  {
+   "text": "we",
+   "start": 150.686,
+   "end": 150.768
+  },
+  {
+   "text": "do",
+   "start": 150.814,
+   "end": 150.884
+  },
+  {
+   "text": "not",
+   "start": 150.965,
+   "end": 151.116
+  },
+  {
+   "text": "add",
+   "start": 151.174,
+   "end": 151.441
+  },
+  {
+   "text": "the",
+   "start": 151.488,
+   "end": 151.557
+  },
+  {
+   "text": "two",
+   "start": 151.604,
+   "end": 151.789
+  },
+  {
+   "text": "together.",
+   "start": 151.871,
+   "end": 152.498
+  },
+  {
+   "text": "Satellites",
+   "start": 152.881,
+   "end": 153.45
+  },
+  {
+   "text": "cannot",
+   "start": 153.496,
+   "end": 153.786
+  },
+  {
+   "text": "see",
+   "start": 153.856,
+   "end": 154.042
+  },
+  {
+   "text": "people",
+   "start": 154.088,
+   "end": 154.367
+  },
+  {
+   "text": "on",
+   "start": 154.414,
+   "end": 154.483
+  },
+  {
+   "text": "the",
+   "start": 154.518,
+   "end": 154.588
+  },
+  {
+   "text": "ground.",
+   "start": 154.622,
+   "end": 155.18
+  },
+  {
+   "text": "They",
+   "start": 155.331,
+   "end": 155.493
+  },
+  {
+   "text": "can",
+   "start": 155.528,
+   "end": 155.644
+  },
+  {
+   "text": "see",
+   "start": 155.691,
+   "end": 155.83
+  },
+  {
+   "text": "ground,",
+   "start": 155.888,
+   "end": 156.503
+  },
+  {
+   "text": "ice,",
+   "start": 156.619,
+   "end": 157.049
+  },
+  {
+   "text": "cloud,",
+   "start": 157.165,
+   "end": 157.885
+  },
+  {
+   "text": "and",
+   "start": 158.059,
+   "end": 158.21
+  },
+  {
+   "text": "sometimes",
+   "start": 158.28,
+   "end": 158.872
+  },
+  {
+   "text": "tiny",
+   "start": 158.941,
+   "end": 159.29
+  },
+  {
+   "text": "movements",
+   "start": 159.371,
+   "end": 159.882
+  },
+  {
+   "text": "of",
+   "start": 159.963,
+   "end": 160.056
+  },
+  {
+   "text": "a",
+   "start": 160.114,
+   "end": 160.137
+  },
+  {
+   "text": "slope.",
+   "start": 160.184,
+   "end": 160.706
+  },
+  {
+   "text": "The",
+   "start": 161.089,
+   "end": 161.194
+  },
+  {
+   "text": "mountain",
+   "start": 161.252,
+   "end": 161.565
+  },
+  {
+   "text": "research",
+   "start": 161.623,
+   "end": 161.995
+  },
+  {
+   "text": "organization",
+   "start": 162.053,
+   "end": 162.749
+  },
+  {
+   "text": "ICIMOD",
+   "start": 162.866,
+   "end": 163.643
+  },
+  {
+   "text": "published",
+   "start": 163.887,
+   "end": 164.305
+  },
+  {
+   "text": "a",
+   "start": 164.34,
+   "end": 164.375
+  },
+  {
+   "text": "preliminary",
+   "start": 164.445,
+   "end": 165.095
+  },
+  {
+   "text": "analysis",
+   "start": 165.164,
+   "end": 165.803
+  },
+  {
+   "text": "on",
+   "start": 165.884,
+   "end": 165.989
+  },
+  {
+   "text": "13",
+   "start": 166.047,
+   "end": 166.534
+  },
+  {
+   "text": "October.",
+   "start": 166.627,
+   "end": 167.359
+  },
+  {
+   "text": "It",
+   "start": 167.637,
+   "end": 167.777
+  },
+  {
+   "text": "said",
+   "start": 167.835,
+   "end": 168.044
+  },
+  {
+   "text": "the",
+   "start": 168.102,
+   "end": 168.183
+  },
+  {
+   "text": "disaster",
+   "start": 168.229,
+   "end": 168.74
+  },
+  {
+   "text": "was",
+   "start": 168.798,
+   "end": 168.914
+  },
+  {
+   "text": "not",
+   "start": 168.972,
+   "end": 169.123
+  },
+  {
+   "text": "a",
+   "start": 169.158,
+   "end": 169.181
+  },
+  {
+   "text": "conventional",
+   "start": 169.239,
+   "end": 169.866
+  },
+  {
+   "text": "glacial",
+   "start": 169.924,
+   "end": 170.354
+  },
+  {
+   "text": "lake",
+   "start": 170.435,
+   "end": 170.655
+  },
+  {
+   "text": "outburst",
+   "start": 170.702,
+   "end": 171.224
+  },
+  {
+   "text": "flood.",
+   "start": 171.294,
+   "end": 171.816
+  },
+  {
+   "text": "It",
+   "start": 172.142,
+   "end": 172.281
+  },
+  {
+   "text": "said",
+   "start": 172.327,
+   "end": 172.501
+  },
+  {
+   "text": "a",
+   "start": 172.536,
+   "end": 172.56
+  },
+  {
+   "text": "failure",
+   "start": 172.641,
+   "end": 173.059
+  },
+  {
+   "text": "in",
+   "start": 173.094,
+   "end": 173.163
+  },
+  {
+   "text": "the",
+   "start": 173.221,
+   "end": 173.291
+  },
+  {
+   "text": "bedrock",
+   "start": 173.337,
+   "end": 173.813
+  },
+  {
+   "text": "sheared",
+   "start": 173.895,
+   "end": 174.22
+  },
+  {
+   "text": "away",
+   "start": 174.255,
+   "end": 174.556
+  },
+  {
+   "text": "part",
+   "start": 174.649,
+   "end": 174.835
+  },
+  {
+   "text": "of",
+   "start": 174.87,
+   "end": 174.916
+  },
+  {
+   "text": "the",
+   "start": 174.951,
+   "end": 175.021
+  },
+  {
+   "text": "glacier",
+   "start": 175.067,
+   "end": 175.474
+  },
+  {
+   "text": "lying",
+   "start": 175.543,
+   "end": 175.81
+  },
+  {
+   "text": "on",
+   "start": 175.868,
+   "end": 175.961
+  },
+  {
+   "text": "top",
+   "start": 176.031,
+   "end": 176.286
+  },
+  {
+   "text": "of",
+   "start": 176.344,
+   "end": 176.402
+  },
+  {
+   "text": "it.",
+   "start": 176.472,
+   "end": 176.89
+  },
+  {
+   "text": "ICIMOD",
+   "start": 176.89,
+   "end": 177.668
+  },
+  {
+   "text": "also",
+   "start": 177.726,
+   "end": 178.039
+  },
+  {
+   "text": "said",
+   "start": 178.121,
+   "end": 178.388
+  },
+  {
+   "text": "that",
+   "start": 178.446,
+   "end": 178.597
+  },
+  {
+   "text": "radar",
+   "start": 178.69,
+   "end": 179.119
+  },
+  {
+   "text": "satellites,",
+   "start": 179.189,
+   "end": 179.862
+  },
+  {
+   "text": "Sentinel-1,",
+   "start": 179.943,
+   "end": 181.023
+  },
+  {
+   "text": "detected",
+   "start": 181.197,
+   "end": 181.627
+  },
+  {
+   "text": "up",
+   "start": 181.673,
+   "end": 181.766
+  },
+  {
+   "text": "to",
+   "start": 181.813,
+   "end": 181.871
+  },
+  {
+   "text": "40",
+   "start": 182.022,
+   "end": 182.312
+  },
+  {
+   "text": "centimeters",
+   "start": 182.382,
+   "end": 182.985
+  },
+  {
+   "text": "of",
+   "start": 183.02,
+   "end": 183.078
+  },
+  {
+   "text": "ground",
+   "start": 183.136,
+   "end": 183.461
+  },
+  {
+   "text": "movement",
+   "start": 183.543,
+   "end": 183.96
+  },
+  {
+   "text": "between",
+   "start": 184.169,
+   "end": 184.518
+  },
+  {
+   "text": "7",
+   "start": 184.599,
+   "end": 184.878
+  },
+  {
+   "text": "July",
+   "start": 184.947,
+   "end": 185.342
+  },
+  {
+   "text": "and",
+   "start": 185.423,
+   "end": 185.505
+  },
+  {
+   "text": "24",
+   "start": 185.586,
+   "end": 186.236
+  },
+  {
+   "text": "August.",
+   "start": 186.306,
+   "end": 186.933
+  },
+  {
+   "text": "That",
+   "start": 187.316,
+   "end": 187.502
+  },
+  {
+   "text": "is",
+   "start": 187.548,
+   "end": 187.629
+  },
+  {
+   "text": "movement",
+   "start": 187.745,
+   "end": 188.233
+  },
+  {
+   "text": "along",
+   "start": 188.326,
+   "end": 188.697
+  },
+  {
+   "text": "the",
+   "start": 188.744,
+   "end": 188.813
+  },
+  {
+   "text": "satellite's",
+   "start": 188.86,
+   "end": 189.429
+  },
+  {
+   "text": "line",
+   "start": 189.51,
+   "end": 189.789
+  },
+  {
+   "text": "of",
+   "start": 189.812,
+   "end": 189.87
+  },
+  {
+   "text": "sight,",
+   "start": 189.951,
+   "end": 190.52
+  },
+  {
+   "text": "not",
+   "start": 190.694,
+   "end": 190.892
+  },
+  {
+   "text": "the",
+   "start": 190.938,
+   "end": 191.008
+  },
+  {
+   "text": "full",
+   "start": 191.043,
+   "end": 191.24
+  },
+  {
+   "text": "motion",
+   "start": 191.31,
+   "end": 191.623
+  },
+  {
+   "text": "of",
+   "start": 191.669,
+   "end": 191.716
+  },
+  {
+   "text": "the",
+   "start": 191.762,
+   "end": 191.832
+  },
+  {
+   "text": "slope.",
+   "start": 191.878,
+   "end": 192.413
+  },
+  {
+   "text": "And",
+   "start": 192.796,
+   "end": 192.935
+  },
+  {
+   "text": "the",
+   "start": 192.981,
+   "end": 193.051
+  },
+  {
+   "text": "period",
+   "start": 193.097,
+   "end": 193.481
+  },
+  {
+   "text": "ended",
+   "start": 193.539,
+   "end": 193.794
+  },
+  {
+   "text": "two",
+   "start": 193.84,
+   "end": 194.026
+  },
+  {
+   "text": "days",
+   "start": 194.108,
+   "end": 194.409
+  },
+  {
+   "text": "before",
+   "start": 194.479,
+   "end": 194.792
+  },
+  {
+   "text": "the",
+   "start": 194.827,
+   "end": 194.897
+  },
+  {
+   "text": "failure.",
+   "start": 194.955,
+   "end": 195.57
+  },
+  {
+   "text": "We",
+   "start": 195.953,
+   "end": 196.093
+  },
+  {
+   "text": "do",
+   "start": 196.151,
+   "end": 196.232
+  },
+  {
+   "text": "not",
+   "start": 196.313,
+   "end": 196.453
+  },
+  {
+   "text": "claim",
+   "start": 196.511,
+   "end": 196.836
+  },
+  {
+   "text": "this",
+   "start": 196.906,
+   "end": 197.033
+  },
+  {
+   "text": "was",
+   "start": 197.091,
+   "end": 197.207
+  },
+  {
+   "text": "a",
+   "start": 197.265,
+   "end": 197.289
+  },
+  {
+   "text": "warning",
+   "start": 197.37,
+   "end": 197.753
+  },
+  {
+   "text": "anyone",
+   "start": 197.811,
+   "end": 198.194
+  },
+  {
+   "text": "could",
+   "start": 198.241,
+   "end": 198.38
+  },
+  {
+   "text": "have",
+   "start": 198.403,
+   "end": 198.519
+  },
+  {
+   "text": "acted",
+   "start": 198.554,
+   "end": 198.844
+  },
+  {
+   "text": "on.",
+   "start": 198.914,
+   "end": 199.274
+  },
+  {
+   "text": "No",
+   "start": 199.518,
+   "end": 199.68
+  },
+  {
+   "text": "source",
+   "start": 199.773,
+   "end": 200.063
+  },
+  {
+   "text": "we",
+   "start": 200.098,
+   "end": 200.238
+  },
+  {
+   "text": "found",
+   "start": 200.319,
+   "end": 200.586
+  },
+  {
+   "text": "shows",
+   "start": 200.644,
+   "end": 200.923
+  },
+  {
+   "text": "that.",
+   "start": 200.981,
+   "end": 201.468
+  },
+  {
+   "text": "ICIMOD's",
+   "start": 201.793,
+   "end": 202.525
+  },
+  {
+   "text": "early",
+   "start": 202.583,
+   "end": 202.861
+  },
+  {
+   "text": "estimate",
+   "start": 202.954,
+   "end": 203.361
+  },
+  {
+   "text": "of",
+   "start": 203.384,
+   "end": 203.43
+  },
+  {
+   "text": "the",
+   "start": 203.465,
+   "end": 203.535
+  },
+  {
+   "text": "volume",
+   "start": 203.581,
+   "end": 204.057
+  },
+  {
+   "text": "was",
+   "start": 204.092,
+   "end": 204.208
+  },
+  {
+   "text": "about",
+   "start": 204.255,
+   "end": 204.498
+  },
+  {
+   "text": "132",
+   "start": 204.568,
+   "end": 205.706
+  },
+  {
+   "text": "million",
+   "start": 205.857,
+   "end": 206.298
+  },
+  {
+   "text": "cubic",
+   "start": 206.414,
+   "end": 206.774
+  },
+  {
+   "text": "meters",
+   "start": 206.855,
+   "end": 207.204
+  },
+  {
+   "text": "of",
+   "start": 207.262,
+   "end": 207.331
+  },
+  {
+   "text": "rock",
+   "start": 207.447,
+   "end": 207.784
+  },
+  {
+   "text": "and",
+   "start": 207.935,
+   "end": 208.19
+  },
+  {
+   "text": "ice.",
+   "start": 208.306,
+   "end": 208.782
+  },
+  {
+   "text": "Another",
+   "start": 209.224,
+   "end": 209.595
+  },
+  {
+   "text": "early",
+   "start": 209.665,
+   "end": 209.932
+  },
+  {
+   "text": "analysis",
+   "start": 209.99,
+   "end": 210.64
+  },
+  {
+   "text": "suggested",
+   "start": 210.733,
+   "end": 211.36
+  },
+  {
+   "text": "a",
+   "start": 211.406,
+   "end": 211.441
+  },
+  {
+   "text": "much",
+   "start": 211.488,
+   "end": 211.685
+  },
+  {
+   "text": "smaller",
+   "start": 211.743,
+   "end": 212.173
+  },
+  {
+   "text": "volume.",
+   "start": 212.242,
+   "end": 212.881
+  },
+  {
+   "text": "So",
+   "start": 213.055,
+   "end": 213.194
+  },
+  {
+   "text": "the",
+   "start": 213.252,
+   "end": 213.322
+  },
+  {
+   "text": "size",
+   "start": 213.392,
+   "end": 213.798
+  },
+  {
+   "text": "is",
+   "start": 213.844,
+   "end": 213.937
+  },
+  {
+   "text": "not",
+   "start": 214.007,
+   "end": 214.169
+  },
+  {
+   "text": "settled,",
+   "start": 214.239,
+   "end": 214.75
+  },
+  {
+   "text": "and",
+   "start": 214.924,
+   "end": 215.075
+  },
+  {
+   "text": "we",
+   "start": 215.133,
+   "end": 215.214
+  },
+  {
+   "text": "do",
+   "start": 215.272,
+   "end": 215.354
+  },
+  {
+   "text": "not",
+   "start": 215.435,
+   "end": 215.574
+  },
+  {
+   "text": "rely",
+   "start": 215.632,
+   "end": 216.015
+  },
+  {
+   "text": "on",
+   "start": 216.108,
+   "end": 216.236
+  },
+  {
+   "text": "one",
+   "start": 216.317,
+   "end": 216.503
+  },
+  {
+   "text": "number.",
+   "start": 216.55,
+   "end": 217.153
+  },
+  {
+   "text": "Now",
+   "start": 217.664,
+   "end": 217.85
+  },
+  {
+   "text": "our",
+   "start": 217.931,
+   "end": 218.07
+  },
+  {
+   "text": "own",
+   "start": 218.128,
+   "end": 218.256
+  },
+  {
+   "text": "images.",
+   "start": 218.314,
+   "end": 219.034
+  },
+  {
+   "text": "They",
+   "start": 219.208,
+   "end": 219.382
+  },
+  {
+   "text": "come",
+   "start": 219.44,
+   "end": 219.626
+  },
+  {
+   "text": "from",
+   "start": 219.661,
+   "end": 219.812
+  },
+  {
+   "text": "free",
+   "start": 219.928,
+   "end": 220.241
+  },
+  {
+   "text": "public",
+   "start": 220.311,
+   "end": 220.671
+  },
+  {
+   "text": "data.",
+   "start": 220.729,
+   "end": 221.298
+  },
+  {
+   "text": "First",
+   "start": 221.623,
+   "end": 221.902
+  },
+  {
+   "text": "we",
+   "start": 221.948,
+   "end": 222.029
+  },
+  {
+   "text": "looked",
+   "start": 222.087,
+   "end": 222.296
+  },
+  {
+   "text": "for",
+   "start": 222.32,
+   "end": 222.413
+  },
+  {
+   "text": "the",
+   "start": 222.459,
+   "end": 222.529
+  },
+  {
+   "text": "clearest",
+   "start": 222.598,
+   "end": 223.051
+  },
+  {
+   "text": "view",
+   "start": 223.121,
+   "end": 223.353
+  },
+  {
+   "text": "before",
+   "start": 223.434,
+   "end": 223.759
+  },
+  {
+   "text": "the",
+   "start": 223.806,
+   "end": 223.887
+  },
+  {
+   "text": "event.",
+   "start": 223.968,
+   "end": 224.525
+  },
+  {
+   "text": "The",
+   "start": 224.85,
+   "end": 224.978
+  },
+  {
+   "text": "best",
+   "start": 225.036,
+   "end": 225.291
+  },
+  {
+   "text": "was",
+   "start": 225.349,
+   "end": 225.489
+  },
+  {
+   "text": "12",
+   "start": 225.547,
+   "end": 225.942
+  },
+  {
+   "text": "August,",
+   "start": 226.011,
+   "end": 226.534
+  },
+  {
+   "text": "with",
+   "start": 226.58,
+   "end": 226.766
+  },
+  {
+   "text": "19",
+   "start": 226.824,
+   "end": 227.277
+  },
+  {
+   "text": "percent",
+   "start": 227.346,
+   "end": 227.706
+  },
+  {
+   "text": "cloud",
+   "start": 227.764,
+   "end": 228.066
+  },
+  {
+   "text": "cover",
+   "start": 228.124,
+   "end": 228.403
+  },
+  {
+   "text": "over",
+   "start": 228.484,
+   "end": 228.658
+  },
+  {
+   "text": "the",
+   "start": 228.705,
+   "end": 228.774
+  },
+  {
+   "text": "scene.",
+   "start": 228.821,
+   "end": 229.367
+  },
+  {
+   "text": "But",
+   "start": 229.692,
+   "end": 229.854
+  },
+  {
+   "text": "between",
+   "start": 229.901,
+   "end": 230.237
+  },
+  {
+   "text": "14",
+   "start": 230.272,
+   "end": 230.736
+  },
+  {
+   "text": "and",
+   "start": 230.783,
+   "end": 230.864
+  },
+  {
+   "text": "27",
+   "start": 230.922,
+   "end": 231.48
+  },
+  {
+   "text": "August,",
+   "start": 231.561,
+   "end": 232.13
+  },
+  {
+   "text": "every",
+   "start": 232.339,
+   "end": 232.652
+  },
+  {
+   "text": "Sentinel-2",
+   "start": 232.722,
+   "end": 233.36
+  },
+  {
+   "text": "pass",
+   "start": 233.453,
+   "end": 233.894
+  },
+  {
+   "text": "had",
+   "start": 233.941,
+   "end": 234.069
+  },
+  {
+   "text": "between",
+   "start": 234.127,
+   "end": 234.428
+  },
+  {
+   "text": "39",
+   "start": 234.498,
+   "end": 235.09
+  },
+  {
+   "text": "and",
+   "start": 235.183,
+   "end": 235.311
+  },
+  {
+   "text": "97",
+   "start": 235.427,
+   "end": 236.147
+  },
+  {
+   "text": "percent",
+   "start": 236.228,
+   "end": 236.565
+  },
+  {
+   "text": "cloud",
+   "start": 236.623,
+   "end": 236.925
+  },
+  {
+   "text": "cover.",
+   "start": 236.983,
+   "end": 237.482
+  },
+  {
+   "text": "Radar",
+   "start": 237.923,
+   "end": 238.271
+  },
+  {
+   "text": "does",
+   "start": 238.329,
+   "end": 238.457
+  },
+  {
+   "text": "not",
+   "start": 238.515,
+   "end": 238.654
+  },
+  {
+   "text": "have",
+   "start": 238.713,
+   "end": 238.887
+  },
+  {
+   "text": "that",
+   "start": 238.922,
+   "end": 239.072
+  },
+  {
+   "text": "cloud",
+   "start": 239.142,
+   "end": 239.444
+  },
+  {
+   "text": "problem,",
+   "start": 239.502,
+   "end": 240.048
+  },
+  {
+   "text": "but",
+   "start": 240.222,
+   "end": 240.373
+  },
+  {
+   "text": "the",
+   "start": 240.408,
+   "end": 240.477
+  },
+  {
+   "text": "radar",
+   "start": 240.547,
+   "end": 240.918
+  },
+  {
+   "text": "numbers",
+   "start": 241.0,
+   "end": 241.348
+  },
+  {
+   "text": "in",
+   "start": 241.406,
+   "end": 241.476
+  },
+  {
+   "text": "this",
+   "start": 241.534,
+   "end": 241.673
+  },
+  {
+   "text": "video",
+   "start": 241.743,
+   "end": 242.219
+  },
+  {
+   "text": "are",
+   "start": 242.335,
+   "end": 242.579
+  },
+  {
+   "text": "ICIMOD's,",
+   "start": 242.648,
+   "end": 243.659
+  },
+  {
+   "text": "not",
+   "start": 243.833,
+   "end": 244.088
+  },
+  {
+   "text": "ours.",
+   "start": 244.158,
+   "end": 244.785
+  },
+  {
+   "text": "So",
+   "start": 245.028,
+   "end": 245.191
+  },
+  {
+   "text": "for",
+   "start": 245.261,
+   "end": 245.354
+  },
+  {
+   "text": "26",
+   "start": 245.412,
+   "end": 245.911
+  },
+  {
+   "text": "August",
+   "start": 246.12,
+   "end": 246.457
+  },
+  {
+   "text": "we",
+   "start": 246.515,
+   "end": 246.619
+  },
+  {
+   "text": "used",
+   "start": 246.7,
+   "end": 246.909
+  },
+  {
+   "text": "a",
+   "start": 246.956,
+   "end": 246.979
+  },
+  {
+   "text": "different",
+   "start": 247.037,
+   "end": 247.327
+  },
+  {
+   "text": "satellite,",
+   "start": 247.374,
+   "end": 248.047
+  },
+  {
+   "text": "Landsat",
+   "start": 248.256,
+   "end": 248.906
+  },
+  {
+   "text": "9.",
+   "start": 249.022,
+   "end": 249.58
+  },
+  {
+   "text": "Its",
+   "start": 249.963,
+   "end": 250.148
+  },
+  {
+   "text": "pixels",
+   "start": 250.207,
+   "end": 250.683
+  },
+  {
+   "text": "are",
+   "start": 250.729,
+   "end": 250.845
+  },
+  {
+   "text": "30",
+   "start": 250.892,
+   "end": 251.147
+  },
+  {
+   "text": "meters",
+   "start": 251.217,
+   "end": 251.542
+  },
+  {
+   "text": "wide,",
+   "start": 251.611,
+   "end": 252.145
+  },
+  {
+   "text": "three",
+   "start": 252.261,
+   "end": 252.494
+  },
+  {
+   "text": "times",
+   "start": 252.529,
+   "end": 252.83
+  },
+  {
+   "text": "coarser",
+   "start": 252.9,
+   "end": 253.295
+  },
+  {
+   "text": "than",
+   "start": 253.353,
+   "end": 253.492
+  },
+  {
+   "text": "Sentinel-2,",
+   "start": 253.573,
+   "end": 254.537
+  },
+  {
+   "text": "and",
+   "start": 254.688,
+   "end": 254.827
+  },
+  {
+   "text": "we",
+   "start": 254.874,
+   "end": 254.967
+  },
+  {
+   "text": "show",
+   "start": 255.025,
+   "end": 255.199
+  },
+  {
+   "text": "them",
+   "start": 255.257,
+   "end": 255.385
+  },
+  {
+   "text": "as",
+   "start": 255.431,
+   "end": 255.512
+  },
+  {
+   "text": "blocks,",
+   "start": 255.582,
+   "end": 256.128
+  },
+  {
+   "text": "without",
+   "start": 256.186,
+   "end": 256.569
+  },
+  {
+   "text": "sharpening.",
+   "start": 256.627,
+   "end": 257.358
+  },
+  {
+   "text": "In",
+   "start": 257.962,
+   "end": 258.09
+  },
+  {
+   "text": "the",
+   "start": 258.136,
+   "end": 258.206
+  },
+  {
+   "text": "12",
+   "start": 258.252,
+   "end": 258.635
+  },
+  {
+   "text": "August",
+   "start": 258.786,
+   "end": 259.146
+  },
+  {
+   "text": "image,",
+   "start": 259.216,
+   "end": 259.727
+  },
+  {
+   "text": "the",
+   "start": 259.878,
+   "end": 259.982
+  },
+  {
+   "text": "river",
+   "start": 260.052,
+   "end": 260.296
+  },
+  {
+   "text": "is",
+   "start": 260.377,
+   "end": 260.47
+  },
+  {
+   "text": "a",
+   "start": 260.516,
+   "end": 260.551
+  },
+  {
+   "text": "narrow",
+   "start": 260.621,
+   "end": 260.969
+  },
+  {
+   "text": "pale",
+   "start": 261.062,
+   "end": 261.457
+  },
+  {
+   "text": "line.",
+   "start": 261.515,
+   "end": 262.061
+  },
+  {
+   "text": "In",
+   "start": 262.386,
+   "end": 262.513
+  },
+  {
+   "text": "the",
+   "start": 262.548,
+   "end": 262.618
+  },
+  {
+   "text": "26",
+   "start": 262.687,
+   "end": 263.222
+  },
+  {
+   "text": "August",
+   "start": 263.338,
+   "end": 263.663
+  },
+  {
+   "text": "image,",
+   "start": 263.721,
+   "end": 264.185
+  },
+  {
+   "text": "a",
+   "start": 264.336,
+   "end": 264.417
+  },
+  {
+   "text": "dark",
+   "start": 264.533,
+   "end": 264.87
+  },
+  {
+   "text": "grey-brown",
+   "start": 264.986,
+   "end": 265.66
+  },
+  {
+   "text": "swath",
+   "start": 265.741,
+   "end": 266.217
+  },
+  {
+   "text": "follows",
+   "start": 266.287,
+   "end": 266.681
+  },
+  {
+   "text": "the",
+   "start": 266.739,
+   "end": 266.809
+  },
+  {
+   "text": "same",
+   "start": 266.867,
+   "end": 267.157
+  },
+  {
+   "text": "valley.",
+   "start": 267.204,
+   "end": 267.749
+  },
+  {
+   "text": "From",
+   "start": 268.075,
+   "end": 268.283
+  },
+  {
+   "text": "the",
+   "start": 268.33,
+   "end": 268.4
+  },
+  {
+   "text": "image",
+   "start": 268.481,
+   "end": 268.748
+  },
+  {
+   "text": "alone,",
+   "start": 268.783,
+   "end": 269.328
+  },
+  {
+   "text": "we",
+   "start": 269.479,
+   "end": 269.607
+  },
+  {
+   "text": "cannot",
+   "start": 269.653,
+   "end": 269.979
+  },
+  {
+   "text": "tell",
+   "start": 270.025,
+   "end": 270.257
+  },
+  {
+   "text": "what",
+   "start": 270.315,
+   "end": 270.478
+  },
+  {
+   "text": "the",
+   "start": 270.524,
+   "end": 270.594
+  },
+  {
+   "text": "swath",
+   "start": 270.64,
+   "end": 270.989
+  },
+  {
+   "text": "is",
+   "start": 271.047,
+   "end": 271.128
+  },
+  {
+   "text": "made",
+   "start": 271.198,
+   "end": 271.43
+  },
+  {
+   "text": "of.",
+   "start": 271.465,
+   "end": 271.766
+  },
+  {
+   "text": "We",
+   "start": 272.045,
+   "end": 272.184
+  },
+  {
+   "text": "traced",
+   "start": 272.242,
+   "end": 272.579
+  },
+  {
+   "text": "it",
+   "start": 272.626,
+   "end": 272.695
+  },
+  {
+   "text": "by",
+   "start": 272.753,
+   "end": 272.939
+  },
+  {
+   "text": "eye.",
+   "start": 273.032,
+   "end": 273.531
+  },
+  {
+   "text": "On",
+   "start": 273.81,
+   "end": 273.996
+  },
+  {
+   "text": "our",
+   "start": 274.042,
+   "end": 274.17
+  },
+  {
+   "text": "grid",
+   "start": 274.228,
+   "end": 274.53
+  },
+  {
+   "text": "it",
+   "start": 274.588,
+   "end": 274.646
+  },
+  {
+   "text": "runs",
+   "start": 274.704,
+   "end": 274.959
+  },
+  {
+   "text": "about",
+   "start": 275.006,
+   "end": 275.261
+  },
+  {
+   "text": "30",
+   "start": 275.308,
+   "end": 275.575
+  },
+  {
+   "text": "kilometers.",
+   "start": 275.633,
+   "end": 276.434
+  },
+  {
+   "text": "About",
+   "start": 276.713,
+   "end": 277.038
+  },
+  {
+   "text": "20",
+   "start": 277.084,
+   "end": 277.351
+  },
+  {
+   "text": "of",
+   "start": 277.409,
+   "end": 277.467
+  },
+  {
+   "text": "them",
+   "start": 277.525,
+   "end": 277.746
+  },
+  {
+   "text": "lie",
+   "start": 277.862,
+   "end": 278.164
+  },
+  {
+   "text": "between",
+   "start": 278.21,
+   "end": 278.524
+  },
+  {
+   "text": "the",
+   "start": 278.559,
+   "end": 278.628
+  },
+  {
+   "text": "glacier",
+   "start": 278.675,
+   "end": 279.104
+  },
+  {
+   "text": "and",
+   "start": 279.174,
+   "end": 279.29
+  },
+  {
+   "text": "the",
+   "start": 279.337,
+   "end": 279.406
+  },
+  {
+   "text": "point",
+   "start": 279.464,
+   "end": 279.755
+  },
+  {
+   "text": "where",
+   "start": 279.801,
+   "end": 279.987
+  },
+  {
+   "text": "the",
+   "start": 280.01,
+   "end": 280.08
+  },
+  {
+   "text": "river",
+   "start": 280.126,
+   "end": 280.347
+  },
+  {
+   "text": "turns",
+   "start": 280.405,
+   "end": 280.73
+  },
+  {
+   "text": "south,",
+   "start": 280.788,
+   "end": 281.357
+  },
+  {
+   "text": "near",
+   "start": 281.601,
+   "end": 281.786
+  },
+  {
+   "text": "the",
+   "start": 281.844,
+   "end": 281.914
+  },
+  {
+   "text": "Rasuwagadhi",
+   "start": 281.972,
+   "end": 282.808
+  },
+  {
+   "text": "border",
+   "start": 282.982,
+   "end": 283.319
+  },
+  {
+   "text": "post.",
+   "start": 283.377,
+   "end": 283.888
+  },
+  {
+   "text": "Clouds",
+   "start": 284.329,
+   "end": 284.793
+  },
+  {
+   "text": "hide",
+   "start": 284.851,
+   "end": 285.165
+  },
+  {
+   "text": "other",
+   "start": 285.223,
+   "end": 285.432
+  },
+  {
+   "text": "stretches,",
+   "start": 285.49,
+   "end": 286.21
+  },
+  {
+   "text": "so",
+   "start": 286.384,
+   "end": 286.535
+  },
+  {
+   "text": "this",
+   "start": 286.604,
+   "end": 286.744
+  },
+  {
+   "text": "is",
+   "start": 286.802,
+   "end": 286.883
+  },
+  {
+   "text": "the",
+   "start": 286.941,
+   "end": 287.011
+  },
+  {
+   "text": "least",
+   "start": 287.08,
+   "end": 287.301
+  },
+  {
+   "text": "we",
+   "start": 287.359,
+   "end": 287.452
+  },
+  {
+   "text": "can",
+   "start": 287.498,
+   "end": 287.626
+  },
+  {
+   "text": "follow,",
+   "start": 287.696,
+   "end": 288.265
+  },
+  {
+   "text": "not",
+   "start": 288.59,
+   "end": 288.787
+  },
+  {
+   "text": "the",
+   "start": 288.834,
+   "end": 288.903
+  },
+  {
+   "text": "full",
+   "start": 288.961,
+   "end": 289.159
+  },
+  {
+   "text": "length.",
+   "start": 289.217,
+   "end": 289.774
+  },
+  {
+   "text": "USGS",
+   "start": 290.587,
+   "end": 291.504
+  },
+  {
+   "text": "said",
+   "start": 291.678,
+   "end": 291.887
+  },
+  {
+   "text": "the",
+   "start": 291.922,
+   "end": 291.992
+  },
+  {
+   "text": "flow",
+   "start": 292.038,
+   "end": 292.259
+  },
+  {
+   "text": "traveled",
+   "start": 292.329,
+   "end": 292.723
+  },
+  {
+   "text": "about",
+   "start": 292.758,
+   "end": 292.979
+  },
+  {
+   "text": "100",
+   "start": 293.037,
+   "end": 293.606
+  },
+  {
+   "text": "kilometers.",
+   "start": 293.664,
+   "end": 294.523
+  },
+  {
+   "text": "Our",
+   "start": 294.906,
+   "end": 295.08
+  },
+  {
+   "text": "frame",
+   "start": 295.15,
+   "end": 295.533
+  },
+  {
+   "text": "cannot",
+   "start": 295.591,
+   "end": 295.916
+  },
+  {
+   "text": "show",
+   "start": 295.974,
+   "end": 296.195
+  },
+  {
+   "text": "all",
+   "start": 296.276,
+   "end": 296.497
+  },
+  {
+   "text": "of",
+   "start": 296.566,
+   "end": 296.613
+  },
+  {
+   "text": "it.",
+   "start": 296.682,
+   "end": 296.984
+  },
+  {
+   "text": "USGS",
+   "start": 297.425,
+   "end": 298.099
+  },
+  {
+   "text": "said",
+   "start": 298.157,
+   "end": 298.366
+  },
+  {
+   "text": "it",
+   "start": 298.412,
+   "end": 298.482
+  },
+  {
+   "text": "is",
+   "start": 298.528,
+   "end": 298.61
+  },
+  {
+   "text": "mapping",
+   "start": 298.679,
+   "end": 299.004
+  },
+  {
+   "text": "the",
+   "start": 299.051,
+   "end": 299.12
+  },
+  {
+   "text": "full",
+   "start": 299.19,
+   "end": 299.399
+  },
+  {
+   "text": "extent",
+   "start": 299.457,
+   "end": 299.829
+  },
+  {
+   "text": "by",
+   "start": 299.887,
+   "end": 300.026
+  },
+  {
+   "text": "comparing",
+   "start": 300.107,
+   "end": 300.56
+  },
+  {
+   "text": "satellite",
+   "start": 300.618,
+   "end": 301.094
+  },
+  {
+   "text": "images",
+   "start": 301.129,
+   "end": 301.512
+  },
+  {
+   "text": "from",
+   "start": 301.559,
+   "end": 301.709
+  },
+  {
+   "text": "before",
+   "start": 301.779,
+   "end": 302.232
+  },
+  {
+   "text": "and",
+   "start": 302.302,
+   "end": 302.476
+  },
+  {
+   "text": "after.",
+   "start": 302.557,
+   "end": 303.114
+  },
+  {
+   "text": "Our",
+   "start": 303.439,
+   "end": 303.637
+  },
+  {
+   "text": "trace",
+   "start": 303.695,
+   "end": 303.985
+  },
+  {
+   "text": "is",
+   "start": 304.02,
+   "end": 304.101
+  },
+  {
+   "text": "not",
+   "start": 304.159,
+   "end": 304.287
+  },
+  {
+   "text": "a",
+   "start": 304.322,
+   "end": 304.345
+  },
+  {
+   "text": "substitute",
+   "start": 304.403,
+   "end": 305.018
+  },
+  {
+   "text": "for",
+   "start": 305.053,
+   "end": 305.146
+  },
+  {
+   "text": "that",
+   "start": 305.192,
+   "end": 305.332
+  },
+  {
+   "text": "official",
+   "start": 305.378,
+   "end": 305.75
+  },
+  {
+   "text": "map.",
+   "start": 305.819,
+   "end": 306.353
+  },
+  {
+   "text": "What",
+   "start": 306.864,
+   "end": 307.05
+  },
+  {
+   "text": "can",
+   "start": 307.085,
+   "end": 307.212
+  },
+  {
+   "text": "we",
+   "start": 307.27,
+   "end": 307.352
+  },
+  {
+   "text": "not",
+   "start": 307.421,
+   "end": 307.596
+  },
+  {
+   "text": "say?",
+   "start": 307.677,
+   "end": 308.269
+  },
+  {
+   "text": "These",
+   "start": 308.71,
+   "end": 308.966
+  },
+  {
+   "text": "images",
+   "start": 309.0,
+   "end": 309.36
+  },
+  {
+   "text": "show",
+   "start": 309.407,
+   "end": 309.662
+  },
+  {
+   "text": "what",
+   "start": 309.732,
+   "end": 309.883
+  },
+  {
+   "text": "the",
+   "start": 309.918,
+   "end": 309.987
+  },
+  {
+   "text": "ground",
+   "start": 310.034,
+   "end": 310.359
+  },
+  {
+   "text": "looked",
+   "start": 310.417,
+   "end": 310.649
+  },
+  {
+   "text": "like",
+   "start": 310.695,
+   "end": 310.904
+  },
+  {
+   "text": "on",
+   "start": 310.951,
+   "end": 311.067
+  },
+  {
+   "text": "two",
+   "start": 311.125,
+   "end": 311.311
+  },
+  {
+   "text": "days.",
+   "start": 311.38,
+   "end": 312.065
+  },
+  {
+   "text": "They",
+   "start": 312.39,
+   "end": 312.541
+  },
+  {
+   "text": "are",
+   "start": 312.576,
+   "end": 312.669
+  },
+  {
+   "text": "not",
+   "start": 312.692,
+   "end": 312.808
+  },
+  {
+   "text": "a",
+   "start": 312.843,
+   "end": 312.866
+  },
+  {
+   "text": "measurement",
+   "start": 312.925,
+   "end": 313.343
+  },
+  {
+   "text": "of",
+   "start": 313.389,
+   "end": 313.447
+  },
+  {
+   "text": "the",
+   "start": 313.493,
+   "end": 313.563
+  },
+  {
+   "text": "flood",
+   "start": 313.61,
+   "end": 313.83
+  },
+  {
+   "text": "itself.",
+   "start": 313.877,
+   "end": 314.643
+  },
+  {
+   "text": "We",
+   "start": 314.968,
+   "end": 315.084
+  },
+  {
+   "text": "cannot",
+   "start": 315.13,
+   "end": 315.397
+  },
+  {
+   "text": "say",
+   "start": 315.444,
+   "end": 315.618
+  },
+  {
+   "text": "how",
+   "start": 315.676,
+   "end": 315.781
+  },
+  {
+   "text": "fast",
+   "start": 315.873,
+   "end": 316.245
+  },
+  {
+   "text": "the",
+   "start": 316.326,
+   "end": 316.408
+  },
+  {
+   "text": "flow",
+   "start": 316.454,
+   "end": 316.698
+  },
+  {
+   "text": "moved,",
+   "start": 316.814,
+   "end": 317.51
+  },
+  {
+   "text": "or",
+   "start": 317.685,
+   "end": 317.812
+  },
+  {
+   "text": "how",
+   "start": 317.87,
+   "end": 317.986
+  },
+  {
+   "text": "high",
+   "start": 318.056,
+   "end": 318.242
+  },
+  {
+   "text": "the",
+   "start": 318.277,
+   "end": 318.346
+  },
+  {
+   "text": "water",
+   "start": 318.404,
+   "end": 318.683
+  },
+  {
+   "text": "rose",
+   "start": 318.753,
+   "end": 319.089
+  },
+  {
+   "text": "in",
+   "start": 319.136,
+   "end": 319.206
+  },
+  {
+   "text": "any",
+   "start": 319.275,
+   "end": 319.438
+  },
+  {
+   "text": "one",
+   "start": 319.507,
+   "end": 319.728
+  },
+  {
+   "text": "village.",
+   "start": 319.786,
+   "end": 320.459
+  },
+  {
+   "text": "These",
+   "start": 320.784,
+   "end": 321.04
+  },
+  {
+   "text": "images",
+   "start": 321.086,
+   "end": 321.632
+  },
+  {
+   "text": "do",
+   "start": 321.806,
+   "end": 321.945
+  },
+  {
+   "text": "not",
+   "start": 322.038,
+   "end": 322.189
+  },
+  {
+   "text": "show",
+   "start": 322.259,
+   "end": 322.549
+  },
+  {
+   "text": "that.",
+   "start": 322.642,
+   "end": 323.211
+  },
+  {
+   "text": "We",
+   "start": 323.536,
+   "end": 323.664
+  },
+  {
+   "text": "cannot",
+   "start": 323.71,
+   "end": 324.012
+  },
+  {
+   "text": "say",
+   "start": 324.07,
+   "end": 324.291
+  },
+  {
+   "text": "why",
+   "start": 324.361,
+   "end": 324.651
+  },
+  {
+   "text": "the",
+   "start": 324.767,
+   "end": 324.848
+  },
+  {
+   "text": "slope",
+   "start": 324.906,
+   "end": 325.231
+  },
+  {
+   "text": "failed,",
+   "start": 325.289,
+   "end": 325.87
+  },
+  {
+   "text": "because",
+   "start": 326.079,
+   "end": 326.404
+  },
+  {
+   "text": "that",
+   "start": 326.439,
+   "end": 326.613
+  },
+  {
+   "text": "work",
+   "start": 326.694,
+   "end": 326.95
+  },
+  {
+   "text": "is",
+   "start": 327.019,
+   "end": 327.135
+  },
+  {
+   "text": "not",
+   "start": 327.217,
+   "end": 327.437
+  },
+  {
+   "text": "finished.",
+   "start": 327.518,
+   "end": 328.145
+  },
+  {
+   "text": "We",
+   "start": 328.32,
+   "end": 328.459
+  },
+  {
+   "text": "cannot",
+   "start": 328.517,
+   "end": 328.842
+  },
+  {
+   "text": "say",
+   "start": 328.9,
+   "end": 329.167
+  },
+  {
+   "text": "anyone",
+   "start": 329.283,
+   "end": 329.887
+  },
+  {
+   "text": "could",
+   "start": 329.933,
+   "end": 330.084
+  },
+  {
+   "text": "have",
+   "start": 330.107,
+   "end": 330.2
+  },
+  {
+   "text": "been",
+   "start": 330.235,
+   "end": 330.374
+  },
+  {
+   "text": "warned",
+   "start": 330.433,
+   "end": 330.792
+  },
+  {
+   "text": "in",
+   "start": 330.839,
+   "end": 330.92
+  },
+  {
+   "text": "time.",
+   "start": 330.99,
+   "end": 331.524
+  },
+  {
+   "text": "And",
+   "start": 331.768,
+   "end": 331.907
+  },
+  {
+   "text": "we",
+   "start": 331.965,
+   "end": 332.058
+  },
+  {
+   "text": "cannot",
+   "start": 332.116,
+   "end": 332.429
+  },
+  {
+   "text": "say",
+   "start": 332.487,
+   "end": 332.755
+  },
+  {
+   "text": "how",
+   "start": 332.824,
+   "end": 332.963
+  },
+  {
+   "text": "many",
+   "start": 333.022,
+   "end": 333.207
+  },
+  {
+   "text": "people",
+   "start": 333.265,
+   "end": 333.556
+  },
+  {
+   "text": "died,",
+   "start": 333.602,
+   "end": 334.148
+  },
+  {
+   "text": "because",
+   "start": 334.217,
+   "end": 334.542
+  },
+  {
+   "text": "the",
+   "start": 334.577,
+   "end": 334.647
+  },
+  {
+   "text": "lists",
+   "start": 334.717,
+   "end": 335.1
+  },
+  {
+   "text": "are",
+   "start": 335.158,
+   "end": 335.32
+  },
+  {
+   "text": "not",
+   "start": 335.367,
+   "end": 335.564
+  },
+  {
+   "text": "final.",
+   "start": 335.634,
+   "end": 336.272
+  },
+  {
+   "text": "Two",
+   "start": 336.714,
+   "end": 336.922
+  },
+  {
+   "text": "things",
+   "start": 336.992,
+   "end": 337.34
+  },
+  {
+   "text": "will",
+   "start": 337.398,
+   "end": 337.561
+  },
+  {
+   "text": "settle",
+   "start": 337.607,
+   "end": 337.886
+  },
+  {
+   "text": "more",
+   "start": 337.921,
+   "end": 338.13
+  },
+  {
+   "text": "of",
+   "start": 338.164,
+   "end": 338.222
+  },
+  {
+   "text": "this.",
+   "start": 338.269,
+   "end": 338.815
+  },
+  {
+   "text": "The",
+   "start": 339.058,
+   "end": 339.174
+  },
+  {
+   "text": "final",
+   "start": 339.232,
+   "end": 339.581
+  },
+  {
+   "text": "findings",
+   "start": 339.65,
+   "end": 340.196
+  },
+  {
+   "text": "from",
+   "start": 340.243,
+   "end": 340.393
+  },
+  {
+   "text": "USGS",
+   "start": 340.486,
+   "end": 341.241
+  },
+  {
+   "text": "and",
+   "start": 341.311,
+   "end": 341.404
+  },
+  {
+   "text": "ICIMOD,",
+   "start": 341.496,
+   "end": 342.251
+  },
+  {
+   "text": "on",
+   "start": 342.425,
+   "end": 342.588
+  },
+  {
+   "text": "the",
+   "start": 342.634,
+   "end": 342.704
+  },
+  {
+   "text": "type",
+   "start": 342.774,
+   "end": 343.064
+  },
+  {
+   "text": "and",
+   "start": 343.099,
+   "end": 343.18
+  },
+  {
+   "text": "size",
+   "start": 343.25,
+   "end": 343.609
+  },
+  {
+   "text": "of",
+   "start": 343.644,
+   "end": 343.702
+  },
+  {
+   "text": "the",
+   "start": 343.749,
+   "end": 343.818
+  },
+  {
+   "text": "failure,",
+   "start": 343.876,
+   "end": 344.445
+  },
+  {
+   "text": "are",
+   "start": 344.538,
+   "end": 344.747
+  },
+  {
+   "text": "not",
+   "start": 344.805,
+   "end": 344.991
+  },
+  {
+   "text": "out",
+   "start": 345.037,
+   "end": 345.177
+  },
+  {
+   "text": "yet.",
+   "start": 345.235,
+   "end": 346.117
+  },
+  {
+   "text": "And",
+   "start": 346.117,
+   "end": 346.256
+  },
+  {
+   "text": "the",
+   "start": 346.291,
+   "end": 346.361
+  },
+  {
+   "text": "official",
+   "start": 346.407,
+   "end": 346.732
+  },
+  {
+   "text": "counts",
+   "start": 346.802,
+   "end": 347.092
+  },
+  {
+   "text": "of",
+   "start": 347.127,
+   "end": 347.185
+  },
+  {
+   "text": "the",
+   "start": 347.232,
+   "end": 347.301
+  },
+  {
+   "text": "dead",
+   "start": 347.371,
+   "end": 347.591
+  },
+  {
+   "text": "and",
+   "start": 347.626,
+   "end": 347.708
+  },
+  {
+   "text": "missing,",
+   "start": 347.766,
+   "end": 348.3
+  },
+  {
+   "text": "on",
+   "start": 348.474,
+   "end": 348.648
+  },
+  {
+   "text": "both",
+   "start": 348.718,
+   "end": 348.95
+  },
+  {
+   "text": "sides",
+   "start": 348.996,
+   "end": 349.333
+  },
+  {
+   "text": "of",
+   "start": 349.356,
+   "end": 349.414
+  },
+  {
+   "text": "the",
+   "start": 349.461,
+   "end": 349.53
+  },
+  {
+   "text": "border,",
+   "start": 349.588,
+   "end": 350.146
+  },
+  {
+   "text": "are",
+   "start": 350.32,
+   "end": 350.517
+  },
+  {
+   "text": "not",
+   "start": 350.564,
+   "end": 350.749
+  },
+  {
+   "text": "final.",
+   "start": 350.807,
+   "end": 351.376
+  },
+  {
+   "text": "Every",
+   "start": 351.887,
+   "end": 352.131
+  },
+  {
+   "text": "satellite",
+   "start": 352.189,
+   "end": 352.653
+  },
+  {
+   "text": "frame",
+   "start": 352.7,
+   "end": 353.06
+  },
+  {
+   "text": "here",
+   "start": 353.118,
+   "end": 353.373
+  },
+  {
+   "text": "comes",
+   "start": 353.443,
+   "end": 353.698
+  },
+  {
+   "text": "from",
+   "start": 353.745,
+   "end": 353.896
+  },
+  {
+   "text": "free",
+   "start": 353.989,
+   "end": 354.221
+  },
+  {
+   "text": "public",
+   "start": 354.29,
+   "end": 354.616
+  },
+  {
+   "text": "data,",
+   "start": 354.674,
+   "end": 355.161
+  },
+  {
+   "text": "with",
+   "start": 355.312,
+   "end": 355.475
+  },
+  {
+   "text": "the",
+   "start": 355.509,
+   "end": 355.579
+  },
+  {
+   "text": "credits",
+   "start": 355.626,
+   "end": 355.962
+  },
+  {
+   "text": "on",
+   "start": 356.02,
+   "end": 356.125
+  },
+  {
+   "text": "screen.",
+   "start": 356.194,
+   "end": 356.833
+  },
+  {
+   "text": "The",
+   "start": 357.077,
+   "end": 357.205
+  },
+  {
+   "text": "sources",
+   "start": 357.263,
+   "end": 357.634
+  },
+  {
+   "text": "are",
+   "start": 357.669,
+   "end": 357.773
+  },
+  {
+   "text": "in",
+   "start": 357.808,
+   "end": 357.866
+  },
+  {
+   "text": "the",
+   "start": 357.901,
+   "end": 357.971
+  },
+  {
+   "text": "description.",
+   "start": 358.017,
+   "end": 358.842
+  }
+ ],
+ "created": "2026-10-28T02:01:59Z",
+ "warnings": []
+}

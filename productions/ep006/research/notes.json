@@ -1456,17 +1456,6 @@
      "t": 0.4,
      "dur": null,
      "plate": true
-    },
-    {
-     "type": "pin",
-     "at": [
-      85.4253,
-      28.3314
-     ],
-     "text": "DARK GREY-BROWN SWATH",
-     "anchor_text": "a dark grey-brown swath",
-     "dur": null,
-     "plate": true
     }
    ]
   },
@@ -1596,7 +1585,7 @@
    "claims": [],
    "limit": true,
    "anchor_text": "Clouds hide other stretches",
-   "min_s": 5,
+   "min_s": 8,
    "asset": "l2026",
    "zoom": [
     20,

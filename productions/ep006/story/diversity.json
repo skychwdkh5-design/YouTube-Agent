@@ -2,26 +2,26 @@
  "rule": "visual-monotony/2",
  "max_map_run": 4,
  "longest_map_run": {
-  "shots": 7,
-  "from": 331.4,
-  "to": 362.4,
+  "shots": 6,
+  "from": 333.4,
+  "to": 358.8,
   "chapter": "close"
  },
  "kind_share_info_only": {
-  "map": 0.538,
-  "scene": 0.192,
-  "graphic": 0.269,
+  "map": 0.529,
+  "scene": 0.196,
+  "graphic": 0.275,
   "still": 0.0,
   "video": 0.0
  },
  "kind_share": {
-  "map": 0.538,
-  "scene": 0.192,
-  "graphic": 0.269,
+  "map": 0.529,
+  "scene": 0.196,
+  "graphic": 0.275,
   "still": 0.0,
   "video": 0.0
  },
- "same_scale_neighbours": 4,
+ "same_scale_neighbours": 3,
  "justified_chapters": [
   "hook",
   "method",
@@ -29,7 +29,7 @@
   "plan"
  ],
  "warnings": [
-  "7 satellite-map shots in a row (331-362 s, chapter close): say in research/notes.json visual_choices['close'] why maps are the best evidence here, or use the material that proves or explains the claim better"
+  "6 satellite-map shots in a row (333-359 s, chapter close): say in research/notes.json visual_choices['close'] why maps are the best evidence here, or use the material that proves or explains the claim better"
  ],
  "status": "WARN",
  "media_pending": [

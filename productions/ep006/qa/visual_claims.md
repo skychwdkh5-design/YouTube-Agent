@@ -17,10 +17,10 @@ Overall: **OK** {'VERIFIED_DATA': 19, 'REVIEWED': 33} (total 52; orphan reviews 
 | plan_010:graphic:i_cause_s1 | C4 | REVIEWED_BY_AGENT | qa/frames/plan_010_graphic_i_cause_s1_0.png Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imager |
 | plan_011:graphic:i_2015_s1 | C5 | REVIEWED_BY_AGENT | qa/frames/plan_011_graphic_i_2015_s1_0.png Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imager |
 | plan_012:graphic:i_toll_s1 | C10 | REVIEWED_BY_AGENT | qa/frames/plan_012_graphic_i_toll_s1_0.png Text card read in the still: Nepal, as reported by ICIMOD 13 Oct; 1,451 dead (NDRRMA); 5,745 missing; other li |
-| plan_013:graphic:i_china_s1 | C11 | REVIEWED_BY_AGENT | qa/frames/plan_013_graphic_i_china_s1_0.png Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imager |
+| plan_013:label:AUG 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12 |
+| plan_013:shot | C13 | REVIEWED_BY_AGENT | qa/frames/plan_013_shot_0.png 12 Aug 2026 Sentinel-2 view of the valley: pale braided river bed through forest, no dark swath; matches the c |
 | plan_014:label:AUG 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12 |
-| plan_014:shot | C13 | REVIEWED_BY_AGENT | qa/frames/plan_014_shot_0.png 12 Aug 2026 Sentinel-2 view of the valley: pale braided river bed through forest, no dark swath; matches the c |
-| plan_015:label:AUG 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12 |
+| plan_015:graphic:i_china_s1 | C11 | REVIEWED_BY_AGENT | qa/frames/plan_015_graphic_i_china_s1_0.png Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imager |
 | plan_016:label:AUG 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12 |
 | plan_017:label:AUG 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12 |
 | method_018:label:AUG 2026 |  | VERIFIED_DATA |  scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12 |

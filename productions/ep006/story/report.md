@@ -1,65 +1,65 @@
 # Storyboard report
 
-- timing: estimate; duration 362.449 s; shots 52; plan hash 06a69fb84cf7413c
+- timing: voice; duration 358.842 s; shots 51; plan hash e70978f35732f15e
 - renderer plan: confirm_required rendering needs --confirm; the timeline is valid, plan attached
-- chapters: hook 0.0-6.12s, plan 6.12-141.22s, method 141.22-208.57s, obs 208.57-301.22s, limits 301.22-336.33s, close 336.33-362.45s
+- chapters: hook 0.0-6.92s, plan 6.92-152.5s, method 152.5-217.15s, obs 217.15-306.35s, limits 306.35-336.27s, close 336.27-358.84s
 - warning: only 2 visual families in the first 10 s (target >= 3; a new view of the same visual idea is not new)
-- warning: one composition holds 25.7s without a reset (167.9-193.6s, target <= 8s)
-- diversity WARN: map 54% / graphic 27% / photo 0% / video 0%; longest satellite-map run 7 shots
-- diversity warning: 7 satellite-map shots in a row (331-362 s, chapter close): say in research/notes.json visual_choices['close'] why maps are the best evidence here, or use the material that proves or explains the claim better
+- warning: one composition holds 24.3s without a reset (178.4-202.7s, target <= 8s)
+- diversity WARN: map 53% / graphic 28% / photo 0% / video 0%; longest satellite-map run 6 shots
+- diversity warning: 6 satellite-map shots in a row (333-359 s, chapter close): say in research/notes.json visual_choices['close'] why maps are the best evidence here, or use the material that proves or explains the claim better
 - media PENDING (not in the render, rights not VERIFIED): palletized_relief_supplies_t [UNVERIFIED] for scene aftermath https://commons.wikimedia.org/wiki/File:Delivering_Relief-_374th_Airlift_Wing_Provides_Lifesaving_aid_in_Nepal_(9908126).jpg
 - media PENDING (not in the render, rights not VERIFIED): mudslide_at_gyirong_port_cct [REJECTED] for scene aftermath https://commons.wikimedia.org/wiki/File:Mudslide_at_Gyirong_Port_1.webm
+- warning: duration 359s is outside the 6-12 minute target; add real content, never filler
 
 Shots:
--    0.00s +3.1s hook: y2026
--    3.06s +3.1s hook: y2026
--    6.12s +6.6s plan: l2026
--   12.76s +13.1s plan: l2026
--   25.82s +14.7s plan: i_usgs_s1
--   40.52s +5.1s plan: i_100km_s1
--   45.62s +5.1s plan: y2026
--   50.72s +6.2s plan: y2026
--   56.91s +4.4s plan: y2026
--   61.33s +16.3s plan: i_seismic_s1
--   77.66s +17.1s plan: i_cause_s1
--   94.80s +13.5s plan: i_2015_s1
--  108.27s +15.1s plan: i_toll_s1
--  123.37s +7.9s plan: i_china_s1
--  131.28s +2.5s plan: y2026
--  133.76s +2.5s plan: y2026
--  136.25s +2.5s plan: y2026
--  138.74s +2.5s plan: y2026
--  141.22s +5.0s method: y2026
--  146.18s +5.0s method: y2026
--  151.13s +16.7s method: i_icimod_s1
--  167.86s +25.7s method: i_radar_s1
--  193.58s +8.0s method: i_volume_s1
--  201.57s +2.3s method: y2026
--  203.91s +2.3s method: y2026
--  206.24s +2.3s method: y2026
--  208.57s +6.2s obs: y2026
--  214.81s +6.2s obs: y2026
--  221.04s +6.2s obs: y2026
--  227.28s +6.2s obs: y2026
--  233.52s +7.0s obs: i_clouds
--  240.52s +7.8s obs: l2026
--  248.27s +4.9s obs: y2026
--  253.17s +10.6s obs: l2026
--  263.78s +13.9s obs: l2026
--  277.66s +3.1s obs: l2026
--  280.76s +3.4s obs: y2026
--  284.19s +3.9s obs: i_flow_scale_s1
--  288.06s +1.9s obs: y2026
--  290.00s +1.9s obs: y2026
--  291.94s +6.0s obs: i_official_s1
--  297.92s +3.3s obs: y2026
--  301.22s +6.8s limits: y2026
--  308.01s +6.8s limits: y2026
--  314.80s +16.6s limits: i_cannot_s1
--  331.39s +4.9s limits: y2026
--  336.33s +4.6s close: y2026
--  340.94s +4.6s close: y2026
--  345.55s +4.6s close: y2026
--  350.16s +4.6s close: y2026
--  354.77s +3.8s close: y2026
--  358.61s +3.8s close: y2026
+-    0.00s +3.5s hook: y2026
+-    3.46s +3.5s hook: y2026
+-    6.92s +7.1s plan: l2026
+-   14.06s +13.3s plan: l2026
+-   27.38s +15.4s plan: i_usgs_s1
+-   42.77s +4.3s plan: i_100km_s1
+-   47.07s +8.2s plan: y2026
+-   55.28s +3.9s plan: y2026
+-   59.13s +7.6s plan: y2026
+-   66.75s +21.0s plan: i_seismic_s1
+-   87.70s +14.8s plan: i_cause_s1
+-  102.47s +15.2s plan: i_2015_s1
+-  117.68s +9.8s plan: i_toll_s1
+-  127.50s +4.5s plan: y2026
+-  131.99s +4.5s plan: y2026
+-  136.48s +7.8s plan: i_china_s1
+-  144.23s +4.1s plan: y2026
+-  148.37s +4.1s plan: y2026
+-  152.50s +5.5s method: y2026
+-  158.04s +5.5s method: y2026
+-  163.59s +14.8s method: i_icimod_s1
+-  178.39s +24.3s method: i_radar_s1
+-  202.65s +8.4s method: i_volume_s1
+-  211.03s +2.0s method: y2026
+-  213.07s +2.0s method: y2026
+-  215.11s +2.0s method: y2026
+-  217.15s +6.4s obs: y2026
+-  223.53s +6.4s obs: y2026
+-  229.91s +6.4s obs: y2026
+-  236.28s +6.4s obs: y2026
+-  242.66s +7.0s obs: i_clouds
+-  249.66s +8.0s obs: l2026
+-  257.66s +4.4s obs: y2026
+-  262.09s +9.7s obs: l2026
+-  271.75s +12.3s obs: l2026
+-  284.03s +4.1s obs: l2026
+-  288.12s +2.2s obs: y2026
+-  290.29s +4.6s obs: i_flow_scale_s1
+-  294.86s +1.8s obs: y2026
+-  296.62s +1.8s obs: y2026
+-  298.38s +5.6s obs: i_official_s1
+-  303.98s +2.4s obs: y2026
+-  306.35s +5.6s limits: y2026
+-  311.96s +5.6s limits: y2026
+-  317.57s +15.8s limits: i_cannot_s1
+-  333.42s +2.9s limits: y2026
+-  336.27s +4.0s close: y2026
+-  340.25s +4.0s close: y2026
+-  344.24s +4.0s close: y2026
+-  348.22s +4.0s close: y2026
+-  352.20s +6.6s close: y2026
