@@ -450,7 +450,7 @@ def _srt_time(t):
     return f"{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d},{ms % 1000:03d}"
 
 
-def render_test(slug, seconds=30.0, run_it=False, start=0.0, name="test", fps=None):
+def render_test(slug, seconds=30.0, run_it=False, start=0.0, name="test", fps=None, timeline="timeline.json"):
     """Short render of N seconds on the real timeline, the real narration (trimmed copy) and real captions. Never the full video.
     start > 0 renders a stretch from the middle: it begins at the shot boundary at or before `start`, so every shot is shown whole and the camera moves from its first frame."""
     ep = Ep(slug)
@@ -461,7 +461,7 @@ def render_test(slug, seconds=30.0, run_it=False, start=0.0, name="test", fps=No
     vc = json.load(open(ep.p("voice", "voicecheck.json"))) if os.path.exists(ep.p("voice", "voicecheck.json")) else {}
     if vc.get("result") == "FAIL":
         return {"status": "blocked", "error": "voicecheck FAIL: fix the narration before any render"}, 1
-    tl = json.load(open(ep.p("timeline.json")))
+    tl = json.load(open(ep.p(timeline)))                  # an alternative shot list (a trial edit) can be tested on the same narration and captions
     meta = json.load(open(ep.p("voice", "narration.voice.json")))
     allcues = _srt_cues(open(ep.p("captions", "captions.srt"), encoding="utf-8").read())
     t0 = max([x["start"] for x in tl["shots"] if x["start"] <= start + 0.02] or [0.0]) if start > 0 else 0.0      # 20 ms of tolerance: a chapter boundary rounded to 3 decimals must still pick its own first shot
@@ -704,7 +704,7 @@ def main(argv=None):
     r.add_argument("--force", action="store_true"); r.add_argument("--dry-run", action="store_true")
     r.add_argument("--allow-paid", action="store_true", help="permit yt-voice if approvals/voice.json matches the script")
     r.add_argument("--allow-render", action="store_true", help="permit the full render if approvals/render.json matches")
-    t = sub.add_parser("render-test"); t.add_argument("--slug", required=True); t.add_argument("--seconds", type=float, default=30.0); t.add_argument("--start", type=float, default=0.0); t.add_argument("--name", default="test"); t.add_argument("--fps", type=int, default=None); t.add_argument("--run", action="store_true")
+    t = sub.add_parser("render-test"); t.add_argument("--slug", required=True); t.add_argument("--seconds", type=float, default=30.0); t.add_argument("--start", type=float, default=0.0); t.add_argument("--name", default="test"); t.add_argument("--fps", type=int, default=None); t.add_argument("--timeline", default="timeline.json"); t.add_argument("--run", action="store_true")
     pk = sub.add_parser("package"); pk.add_argument("--slug", required=True)
     s = sub.add_parser("status"); s.add_argument("--slug", required=True)
     a = ap.parse_args(argv)
@@ -714,7 +714,7 @@ def main(argv=None):
         import package
         package.main(a.slug); return 0
     elif a.cmd == "render-test":
-        res, code = render_test(a.slug, a.seconds, a.run, a.start, a.name, a.fps)
+        res, code = render_test(a.slug, a.seconds, a.run, a.start, a.name, a.fps, a.timeline)
     elif a.cmd == "status":
         res, code = status(a.slug)
     else:

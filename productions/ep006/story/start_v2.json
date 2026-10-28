@@ -1,0 +1,510 @@
+{
+ "version": 3,
+ "profile": "long",
+ "grid": "evidence/stack/grid.json",
+ "assets": {
+  "y2026": {
+   "src": "evidence/stack/y2026.png",
+   "label": "12 AUG",
+   "credit": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "l2026": {
+   "src": "evidence/landsat10/y2026.png",
+   "label": "26 AUG",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  }
+ },
+ "shots": [
+  {
+   "id": "v2_000",
+   "start": 0.0,
+   "visual_family": "l_tease",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    },
+    {
+     "type": "label",
+     "text": "26 AUG 2026 - AFTER",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.15,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.455,
+      28.31
+     ],
+     "width_km": 13
+    },
+    "to": {
+     "center": [
+      85.45,
+      28.315
+     ],
+     "width_km": 10
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v2_001",
+   "start": 1.6,
+   "visual_family": "s_open",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "12 AUG 2026 - BEFORE",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.5,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 27
+    },
+    "to": {
+     "center": [
+      85.445,
+      28.325
+     ],
+     "width_km": 12
+    }
+   }
+  },
+  {
+   "id": "v2_002",
+   "start": 7.52,
+   "visual_family": "wipe",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "wipe",
+     "from": "y2026",
+     "to": "l2026",
+     "t": [
+      0.15,
+      2.4
+     ]
+    },
+    {
+     "type": "label",
+     "text": "26 AUG 2026 - LANDSAT 9",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      1.6,
+      null
+     ],
+     "sub": "30 M, NOT SHARPENED"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.445,
+      28.325
+     ],
+     "width_km": 12
+    },
+    "to": {
+     "center": [
+      85.44,
+      28.31
+     ],
+     "width_km": 9
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v2_003",
+   "start": 12.4,
+   "visual_family": "l_radar",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    },
+    {
+     "type": "label",
+     "text": "RADAR 7 JUL - 24 AUG",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      2.0,
+      null
+     ],
+     "sub": "UP TO 40 CM, LINE OF SIGHT (ICIMOD)"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.44,
+      28.31
+     ],
+     "width_km": 9
+    },
+    "to": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 24
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v2_004",
+   "start": 20.02,
+   "visual_family": "l_push",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.5,
+      28.295
+     ],
+     "width_km": 11
+    },
+    "to": {
+     "center": [
+      85.5126,
+      28.2872
+     ],
+     "width_km": 8.5
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v2_005",
+   "start": 24.47,
+   "visual_family": "s_pull",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.5126,
+      28.2872
+     ],
+     "width_km": 7
+    },
+    "to": {
+     "center": [
+      85.46,
+      28.31
+     ],
+     "width_km": 27
+    }
+   }
+  },
+  {
+   "id": "v2_006",
+   "start": 27.68,
+   "visual_family": "l_usgs",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    },
+    {
+     "type": "pin",
+     "at": [
+      85.5126,
+      28.2872
+     ],
+     "text": "SWATH STARTS HERE (26 AUG)",
+     "plate": true,
+     "t": [
+      5.2,
+      null
+     ]
+    },
+    {
+     "type": "label",
+     "text": "USGS - 26 AUG, MORNING",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      9.4,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.5126,
+      28.2872
+     ],
+     "width_km": 9
+    },
+    "to": {
+     "center": [
+      85.48,
+      28.31
+     ],
+     "width_km": 18
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v2_007",
+   "start": 41.18,
+   "visual_family": "l_flow",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    },
+    {
+     "type": "arrow",
+     "from": [
+      85.5126,
+      28.2872
+     ],
+     "to": [
+      85.4141,
+      28.3155
+     ],
+     "color": "#FFD23F",
+     "width": 9,
+     "t": [
+      1.2,
+      null
+     ]
+    },
+    {
+     "type": "arrow",
+     "from": [
+      85.4141,
+      28.3155
+     ],
+     "to": [
+      85.3852,
+      28.2858
+     ],
+     "color": "#FFD23F",
+     "width": 9,
+     "t": [
+      3.0,
+      null
+     ]
+    },
+    {
+     "type": "label",
+     "text": "USGS: ABOUT 100 KM (62 MI)",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      2.3,
+      null
+     ]
+    },
+    {
+     "type": "label",
+     "text": "OUR TRACE (APPROX.): ~30 KM",
+     "style": "tag",
+     "slot": "middle",
+     "plate": true,
+     "t": [
+      4.6,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.49,
+      28.3
+     ],
+     "width_km": 10
+    },
+    "to": {
+     "center": [
+      85.43,
+      28.325
+     ],
+     "width_km": 15
+    }
+   },
+   "resample": "nearest"
+  },
+  {
+   "id": "v2_008",
+   "start": 47.37,
+   "visual_family": "s_rivers",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "arrow",
+     "from": [
+      85.3852,
+      28.2858
+     ],
+     "to": [
+      85.3586,
+      28.2268
+     ],
+     "color": "#FFD23F",
+     "width": 9,
+     "t": [
+      2.6,
+      null
+     ]
+    },
+    {
+     "type": "pin",
+     "at": [
+      85.4456,
+      28.3379
+     ],
+     "text": "LENDE KHOLA",
+     "plate": true,
+     "t": [
+      1.6,
+      2.6
+     ]
+    },
+    {
+     "type": "pin",
+     "at": [
+      85.3586,
+      28.2268
+     ],
+     "text": "TRISHULI KHOLA",
+     "plate": true,
+     "t": [
+      2.9,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.43,
+      28.32
+     ],
+     "width_km": 16
+    },
+    "to": {
+     "center": [
+      85.38,
+      28.24
+     ],
+     "width_km": 14
+    }
+   }
+  },
+  {
+   "id": "v2_009",
+   "start": 52.15,
+   "visual_family": "l_border",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    },
+    {
+     "type": "label",
+     "text": "USGS: FLOOD HIT POPULATED AREAS",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      1.0,
+      null
+     ]
+    },
+    {
+     "type": "pin",
+     "at": [
+      85.3778,
+      28.2788
+     ],
+     "text": "RASUWAGADHI (APPROX.)",
+     "plate": true,
+     "t": [
+      4.2,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.395,
+      28.29
+     ],
+     "width_km": 14
+    },
+    "to": {
+     "center": [
+      85.3778,
+      28.2788
+     ],
+     "width_km": 8
+    }
+   },
+   "resample": "nearest"
+  }
+ ],
+ "voice": {
+  "src": "voice/narration.wav",
+  "meta": "voice/narration.voice.json"
+ },
+ "captions": {
+  "src": "captions/captions.srt",
+  "preset": "default",
+  "style": "kinetic"
+ },
+ "end": {
+  "seconds": 59.5
+ }
+}
