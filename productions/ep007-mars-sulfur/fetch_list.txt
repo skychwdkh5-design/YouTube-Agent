@@ -1,11 +1,6 @@
-# name url   (round 2: full inventory; panoramas as original JPG, not TIFF)
-PIA26309.png https://d2pn8kiwq2w21t.cloudfront.net/original_images/1-PIA26309-Curiosity_Views_Sulfur_Crystals_Within_a_Crushed_Rock.png
-PIA26308.png https://d2pn8kiwq2w21t.cloudfront.net/original_images/2-PIA26308-Curiosity_Views_the_Outside_of_a_Rock_at_Snow_Lake.png
-PIA26307.tif https://photojournal.jpl.nasa.gov/tiff/PIA26307.tif
-PIA26366.tif https://photojournal.jpl.nasa.gov/tiff/PIA26366.tif
-PIA26367.tif https://photojournal.jpl.nasa.gov/tiff/PIA26367.tif
-PIA26210.tif https://photojournal.jpl.nasa.gov/tiff/PIA26210.tif
-PIA26471.tif https://photojournal.jpl.nasa.gov/tiff/PIA26471.tif
-PIA26245.tif https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia26/pia26245/PIA26245.tif
-PIA26363.jpg https://d2pn8kiwq2w21t.cloudfront.net/original_images/PIA26363.jpg
-PIA26410.jpg https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA26410.jpg
+# round 3: direct asset-store paths (photojournal /tiff/ links return an HTML page)
+PIA26366.tif https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia26/pia26366/PIA26366.tif
+PIA26210.tif https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia26/pia26210/PIA26210.tif
+PIA26367.jpg https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia26/pia26367/PIA26367.jpg
+PIA26471.jpg https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia26/pia26471/PIA26471.jpg
+PIA26307.tif https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia26/pia26307/PIA26307.tif
