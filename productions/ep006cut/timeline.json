@@ -469,8 +469,8 @@
      "text": "LENDE KHOLA",
      "plate": true,
      "t": [
-      0.3,
-      2.0
+      1.4,
+      1.4
      ]
     },
     {
@@ -482,7 +482,7 @@
      "text": "TRISHULI KHOLA",
      "plate": true,
      "t": [
-      1.6,
+      2.6,
       null
      ]
     }
@@ -1688,11 +1688,11 @@
    "layers": [
     {
      "type": "image",
-     "asset": "d0827"
+     "asset": "y2026"
     },
     {
      "type": "label",
-     "text": "27 AUG 2026 - PARTLY CLOUDED",
+     "text": "12 AUG 2026 - BEFORE",
      "style": "tag",
      "slot": "upper",
      "plate": true,

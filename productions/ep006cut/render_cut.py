@@ -17,7 +17,8 @@ def run(i):
     subprocess.run(cmd, check=True)
     return i
 t = time.time()
-with cf.ThreadPoolExecutor(3) as ex: list(ex.map(run, range(len(cuts))))
+segs = [int(x) for x in os.environ.get("SEGS", "0,1,2,3").split(",")]
+with cf.ThreadPoolExecutor(3) as ex: list(ex.map(run, segs))
 open(f"{root}/render/list.txt", "w").write("".join(f"file '{root}/render/seg{i}/seg720.mp4'\n" for i in range(len(cuts))))
 out = f"{root}/render/EP006_cut_preview_720p15.mp4"
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", f"{root}/render/list.txt", "-c", "copy", "-movflags", "+faststart", out], check=True)
