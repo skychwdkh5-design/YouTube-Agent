@@ -12,4 +12,7 @@ Remaining:
 1. Owner reviews script + drafts. 2. After approval only: Adam voice via yt-voice (--confirm), yt-captions, re-render with build.py
    (timing comes from narration timing; adapt build.py to read voice.json words). 3. Owner picks title/cover; full thumbnail gate (section 5)
    recorded in a review file. 4. Optional: delete the temporary workflow and draft release after final render.
+Fixes for the next render (owner, 2026-10-28):
+- Add HiRISE credit (NASA/JPL-Caltech/University of Arizona) to the top source line of the long video (currently only in the graphic's footer).
+- Shorts stay 20-35 s as ordered (do not lengthen to 45-55).
 Next step: wait for owner's script/draft approval.
