@@ -1,0 +1,69 @@
+name: EP007 final render (temporary)
+# Owner-approved final build (2026-10-28). Runs only on this branch when final_request.txt changes.
+# Inputs: NASA originals + Adam narration from the DRAFT release ep007-originals. Output: final MP4s in the DRAFT
+# release ep007-v1 (not in Git, not public) + a small text manifest committed back.
+on:
+  push:
+    branches: [production/ep007-mars-sulfur]
+    paths: [productions/ep007-mars-sulfur/final_request.txt]
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    defaults:
+      run:
+        shell: bash {0}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tools
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-inter >/dev/null
+          pip install -q pillow numpy
+          ls /usr/share/fonts/opentype/inter/Inter-Black.otf
+      - name: Fetch originals and narration from the draft release
+        run: |
+          P=productions/ep007-mars-sulfur; mkdir -p $P/assets/src
+          gh release download ep007-originals -D $P/assets/src -p 'PIA*' || exit 1
+          for m in long short1 short2; do mkdir -p $P/adam_$m; done
+          gh release download ep007-originals -D /tmp/adam -p 'adam_*' || exit 1
+          for m in long:beats short1:short1 short2:short2; do d=${m%%:*}; s=${m##*:}
+            cp /tmp/adam/adam_$s.wav $P/adam_$d/adam_$s.wav; cp /tmp/adam/adam_$s.wav $P/adam_$d/narration.wav
+            cp /tmp/adam/adam_$s.voice.json $P/adam_$d/narration.voice.json; done
+          ls -la $P/assets/src $P/adam_*
+      - name: Build, render, QC
+        run: |
+          set +e
+          P=productions/ep007-mars-sulfur; cd $P; : > /tmp/m.txt
+          R=../../.claude/skills
+          for m in long:beats short1:short1 short2:short2; do d=${m%%:*}; s=${m##*:}
+            pre=$([ $d = long ] && echo default || echo short)
+            python3 $R/yt-captions/captions.py --voice adam_$d/narration.voice.json --out-dir adam_$d --preset $pre --overwrite > /tmp/cap_$d.json 2>&1
+            echo "$d captions $? $(head -c 300 /tmp/cap_$d.json | tr '\n' ' ')" >> /tmp/m.txt
+            python3 adam_timing.py $s adam_$d >> /tmp/m.txt 2>&1 || { echo "$d timing failed" >> /tmp/m.txt; continue; }
+            flag=$([ $d = long ] || echo --short)
+            python3 build.py $s adam_$d final_$d $flag >> /tmp/m.txt 2>&1
+            python3 $R/yt-render/render.py --timeline final_$d.timeline.json --output EP007_final_$d.mp4 --confirm --overwrite --timeout 5000 > /tmp/r_$d.json 2>&1
+            echo "$d render $? $(python3 -c "import json;d=json.load(open('/tmp/r_$d.json'));print(d.get('status'),d.get('duration'),d.get('sha256'),d.get('error'))" 2>&1)" >> /tmp/m.txt
+            q=$([ $d = long ] && echo "" || echo "--width 1080 --height 1920")
+            python3 $R/yt-qc/qc.py EP007_final_$d.mp4 --timeline final_$d.timeline.json $q > qc_final_$d.json 2>&1
+            echo "$d qc $(python3 -c "import json;d=json.load(open('qc_final_$d.json'));print(d.get('status') or d.get('result'),[c['id'] for c in d['checks'] if c.get('status')!='pass'])" 2>&1)" >> /tmp/m.txt
+          done
+          dur=$(ffprobe -v error -show_entries format=duration -of csv=p=0 EP007_final_long.mp4)
+          python3 package.py adam_long "$dur" >> /tmp/m.txt 2>&1
+          sha256sum EP007_final_*.mp4 >> /tmp/m.txt; ls -la EP007_final_*.mp4 >> /tmp/m.txt
+          for f in EP007_final_*.mp4; do echo "$f $(ffprobe -v error -show_entries format=duration -of csv=p=0 $f)" >> /tmp/m.txt; done
+          cat /tmp/m.txt
+      - name: Hand over (draft release ep007-v1) and commit the manifest
+        if: always()
+        run: |
+          P=productions/ep007-mars-sulfur
+          gh release view ep007-v1 >/dev/null 2>&1 || gh release create ep007-v1 --draft --title ep007-v1 --notes "Staged media for yt-publish. Keep as DRAFT."
+          for f in $P/EP007_final_*.mp4; do [ -s "$f" ] && gh release upload ep007-v1 "$f" --clobber; done
+          cp /tmp/m.txt $P/final_manifest.txt
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f $P/final_manifest.txt $P/final_*.timeline.json $P/qc_final_*.json $P/adam_*/captions.srt $P/adam_*/narration.timing.json $P/package/description_long.txt $P/package/texts.json $P/final_*.contact.jpg
+          git commit -qm "EP007 final render manifest (run ${{ github.run_id }})" && for i in 1 2 3; do git pull -q --rebase origin production/ep007-mars-sulfur; git push -q origin HEAD:production/ep007-mars-sulfur && break; done

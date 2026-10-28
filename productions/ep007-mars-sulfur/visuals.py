@@ -21,7 +21,10 @@ _cache = {}
 
 def src(pid):
     if pid not in _cache:
-        _cache[pid] = Image.open(os.path.join(SRC, FILES[pid])).convert("RGB")
+        p = os.path.join(SRC, FILES[pid])
+        if not os.path.exists(p) and p.endswith("_full.tif"):
+            p = p[:-4] + ".png"          # the release holds the lossless PNG; locally it was re-saved as TIFF
+        _cache[pid] = Image.open(p).convert("RGB")
     return _cache[pid]
 
 
