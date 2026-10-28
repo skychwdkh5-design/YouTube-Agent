@@ -1,0 +1,51 @@
+name: EP007 fetch NASA originals (temporary)
+# Runs only on this production branch. Downloads the files listed in fetch_list.txt,
+# verifies them and hands them over as a workflow artifact (not committed to Git).
+# Only a small text manifest is committed back.
+on:
+  push:
+    branches: [production/ep007-mars-sulfur]
+    paths: [productions/ep007-mars-sulfur/fetch_list.txt]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and verify
+        run: |
+          set -u
+          pip install -q pillow
+          mkdir -p out
+          : > manifest.tsv
+          while read -r name url; do
+            [ -z "${name:-}" ] && continue; case "$name" in \#*) continue;; esac
+            code=$(curl -sSL -A "OrbitalAtlas-research/1.0" -o "out/$name" -w '%{http_code}' --max-time 900 "$url" || echo ERR)
+            info=$(python3 - "out/$name" <<'PY'
+          import sys, hashlib, os
+          from PIL import Image
+          Image.MAX_IMAGE_PIXELS = None
+          p = sys.argv[1]
+          try:
+              im = Image.open(p); im.load()
+              h = hashlib.sha256(open(p,'rb').read()).hexdigest()
+              print(f"OK\t{im.size[0]}x{im.size[1]}\t{im.mode}\t{os.path.getsize(p)}\t{h}")
+          except Exception as e:
+              print(f"BAD\t-\t-\t{os.path.getsize(p) if os.path.exists(p) else 0}\t{type(e).__name__}")
+          PY
+          )
+            printf '%s\t%s\t%s\t%s\n' "$name" "$code" "$info" "$url" | tee -a manifest.tsv
+          done < productions/ep007-mars-sulfur/fetch_list.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ep007-originals
+          path: out/
+          retention-days: 14
+      - name: Commit manifest only
+        run: |
+          cp manifest.tsv productions/ep007-mars-sulfur/fetch_manifest.tsv
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add productions/ep007-mars-sulfur/fetch_manifest.tsv
+          git commit -qm "EP007 fetch manifest (run ${{ github.run_id }})" && git push -q origin HEAD:production/ep007-mars-sulfur
