@@ -1,8 +1,8 @@
 {
  "schema": "yt-approval/1",
- "approval_id": "5c9eacd0ab5748c99df85ab53aa0a0ca",
+ "approval_id": "abcf90facc064a8f9eb68a8aced035b4",
  "scope": "short_list",
- "label": "EP007 Shorts",
+ "label": "short-07-ep007 по карточке 3CB3-E98C и short-08-ep007",
  "items": [
   {
    "id": "short-07-ep007",
@@ -25,8 +25,8 @@
  ],
  "queue_commit": "fd95b60a6048f4e8683de61ffb3de998643b0bbb",
  "owner_quote": "Одобряю short-07-ep007 по карточке 3CB3-E98C и short-08-ep007 по карточке 4D66-2F71",
- "created_at": "2026-10-28T11:16:29+00:00",
- "expires_at": "2026-10-29T11:16:29+00:00",
+ "created_at": "2026-10-28T11:17:16+00:00",
+ "expires_at": "2026-10-29T11:17:16+00:00",
  "created_by": "claude-chat",
  "consent_channel": "owner-chat-message",
  "dry_run_only": false,
