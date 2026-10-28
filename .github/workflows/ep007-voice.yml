@@ -1,0 +1,38 @@
+name: EP007 Adam narration (temporary)
+# Owner-approved paid narration (2026-10-28). Runs only on this branch when voice_request.txt changes.
+# Generates Adam (ElevenLabs) for the three approved scripts and hands the audio over as a DRAFT release (not in Git).
+on:
+  push:
+    branches: [production/ep007-mars-sulfur]
+    paths: [productions/ep007-mars-sulfur/voice_request.txt]
+permissions:
+  contents: write
+jobs:
+  voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate (only if the key exists)
+        run: |
+          P=productions/ep007-mars-sulfur; : > /tmp/m.txt
+          if [ -z "$ELEVENLABS_API_KEY" ]; then echo "ELEVENLABS_API_KEY: NOT SET in repository secrets" | tee /tmp/m.txt; exit 0; fi
+          echo "ELEVENLABS_API_KEY: set" >> /tmp/m.txt
+          mkdir -p out
+          for m in beats short1 short2; do
+            max=$([ $m = beats ] && echo 6000 || echo 700)
+            python3 .claude/skills/yt-voice/voice.py --script $P/adam_$m.md --output out/adam_$m.wav --max-chars $max --confirm > out/adam_$m.result.json 2>&1
+            echo "$m exit $? $(head -c 600 out/adam_$m.result.json | tr '\n' ' ')" >> /tmp/m.txt
+          done
+          T=ep007-originals
+          for f in out/*; do [ -s "$f" ] && gh release upload "$T" "$f" --clobber; done
+          ls -la out >> /tmp/m.txt
+      - name: Commit manifest only
+        run: |
+          cp /tmp/m.txt productions/ep007-mars-sulfur/voice_manifest.txt
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f productions/ep007-mars-sulfur/voice_manifest.txt
+          git commit -qm "EP007 voice manifest (run ${{ github.run_id }})" && git push -q origin HEAD:production/ep007-mars-sulfur
