@@ -15,19 +15,19 @@ Remaining:
 Fixes for the next render (owner, 2026-10-28):
 - Add HiRISE credit (NASA/JPL-Caltech/University of Arizona) to the top source line of the long video (currently only in the graphic's footer).
 - Shorts stay 20-35 s as ordered (do not lengthen to 45-55).
-## 2026-10-28 16:xx ICT — owner APPROVED script + edit; asked for final Adam versions and scheduled upload
-Schedule (Asia/Ho_Chi_Minh): long 2026-10-29 08:00 (=01:00Z), Short 1 2026-10-29 12:00 (=05:00Z), Short 2 2026-10-30 12:00 (=05:00Z).
-Long title (fixed): NASA’s Rover Ran Over a Rock on Mars. This Was Inside.
-Done: cover B checked full size + 168x94, no defects -> package/thumbnail_B_final.jpg (unchanged file, thumbcheck PASS earlier).
-  package.py -> package/description_long.txt (chapters computed from final timing) + package/texts.json (Short titles/descriptions).
-  HiRISE credit now in the top source line (build.py: g_hirise / v_hirise -> NASA/JPL-Caltech/University of Arizona); takes effect at the next render.
-  Adam scripts: adam_beats.md (5,139 chars), adam_short1.md (456), adam_short2.md (401); workflow .github/workflows/ep007-voice.yml.
-BLOCKER: Adam cannot be generated. This cloud session cannot reach api.elevenlabs.io (proxy 403) and the repository has
-  NO ELEVENLABS_API_KEY secret (voice_manifest.txt). Nothing was charged.
-  Fix: owner adds repo secret ELEVENLABS_API_KEY (Settings -> Secrets and variables -> Actions), then re-push voice_request.txt.
-After the voice: tts timing -> build.py needs a small adapter from voice.json word timings to beat starts; render; yt-qc;
-  package.py with final timing; media to LFS branch -> stage-media; queue entries on publish-data with owner_approval
-  (owner approved in chat 2026-10-28 15:59 ICT); dispatch gated publish.yml (owner must approve the GitHub environment
-  review; chat-publish is NOT active). Related video: API has no field -> set in Studio by hand; descriptions carry no link yet.
-Note: short-06-ep004 is already queued for 2026-10-29T01:00Z, same minute as EP007 long.
-Next step: owner adds ELEVENLABS_API_KEY secret (or runs this in Claude Code, where Adam worked for EP003/EP004).
+## 2026-10-28 ~17:40 ICT — FINAL built, waiting for chat consent on the cards
+Adam narration: generated once on Actions (.github/workflows/ep007-voice.yml run 4): long 376.6 s / 5,247 chars, Short 1 32.8 s / 466, Short 2 27.5 s / 411.
+Final files (draft release ep007-v1; yt-qc PASS; checked by eye):
+  EP007_final_long.mp4   6:17.7  sha256 d966db6c2e55ab20e4ae26d9521a047b49a45028a128713293866e3d3b9eb484
+  EP007_final_short1.mp4 0:34.0  sha256 17042d093962cb4ee9080f8461b59301cbf7a7d75a95b6d712b9306a552c5686
+  EP007_final_short2.mp4 0:28.7  sha256 200a576acb744b41721952dfda95b5617bd676d736427f75ad2f89f300456e2a (v2: credit line fits)
+Chapters (Adam timing): 0:00 0:24 1:25 2:01 2:45 3:19 3:45 4:25 5:30 5:57 - package/description_long.txt
+publish-data fd95b60: entries ep007, short-07-ep007, short-08-ep007 (old entries unchanged) + cards shown:
+  ep007 3903-567C (29.10 08:00 ICT = 01:00Z), short-07-ep007 3CB3-E98C (29.10 12:00 = 05:00Z), short-08-ep007 4D66-2F71 (30.10 12:00 = 05:00Z).
+Why not uploaded yet: CLAUDE.md protocol - a consent is valid only AFTER the card; the owner's earlier approval preceded the cards.
+  The gated publish.yml path is blocked by design (tests require main's queue to stay unapproved) - not weakened.
+  Branch publish/ep007-mars-sulfur (gated-path attempt, owner_approval=true in its queue) is UNUSED - do not dispatch; deletion via proxy failed.
+Do not work: ElevenLabs/LFS/binary release upload from this session (proxy). Use Actions + draft releases.
+Next step: owner consent in chat naming ep007 and the Shorts list -> approval.py make (scope single_release / short_list) on publish-data ->
+  dispatch "YouTube publish (chat-approved)" with the 40-char data commit; real runs need CHAT_PUBLISH_ENABLED=true. Then read the real status.
+  Shorts "Related video": set by hand in Studio (API has no field).
