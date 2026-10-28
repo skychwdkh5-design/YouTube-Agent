@@ -22,10 +22,12 @@ for bi, (text, shots) in enumerate(BEATS):
         n += 1
         path = f"shots/{prefix}/{n:03d}_{ref}.png"
         if kind == "vgraphic":
-            im = V.VGRAPHICS[ref](o.get("step", 0)); credit = "NASA/JPL-Caltech"
+            im = V.VGRAPHICS[ref](o.get("step", 0))
+            credit = "NASA/JPL-Caltech/University of Arizona" if ref == "v_hirise" else "NASA/JPL-Caltech/MSSS"
         elif kind == "graphic":
             im = V.make_graphic(ref, o.get("step", 0))
-            credit = "NASA/JPL-Caltech" if ref in ("g_first", "g_title", "g_quote", "g_scale", "g_hirise") else None
+            credit = ("NASA/JPL-Caltech/University of Arizona" if ref == "g_hirise"
+                      else "NASA/JPL-Caltech/MSSS" if ref in ("g_first", "g_title", "g_quote", "g_scale") else None)
         else:
             im = {"still": lambda: V.crop_still(ref, o["y"]), "pano": lambda: V.crop_pano(ref, o["box"]),
                   "vstill": lambda: V.crop_still_v(ref, o["x"]), "vpano": lambda: V.crop_pano_v(ref, o["box"])}[kind]()
