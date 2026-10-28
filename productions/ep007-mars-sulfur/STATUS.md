@@ -31,3 +31,14 @@ Do not work: ElevenLabs/LFS/binary release upload from this session (proxy). Use
 Next step: owner consent in chat naming ep007 and the Shorts list -> approval.py make (scope single_release / short_list) on publish-data ->
   dispatch "YouTube publish (chat-approved)" with the 40-char data commit; real runs need CHAT_PUBLISH_ENABLED=true. Then read the real status.
   Shorts "Related video": set by hand in Studio (API has no field).
+
+## 2026-10-28 18:30 ICT — UPLOADED AND SCHEDULED (chat-approved, private + publishAt)
+Consents (owner chat, after the cards): ep007 "Одобряю ep007 по карточке 3903-567C"; Shorts list "Одобряю short-07-ep007 по карточке 3CB3-E98C и short-08-ep007 по карточке 4D66-2F71".
+publish-data d9d53f2: approvals 53bb8e6c... (ep007), abcf90fa... (Shorts). (5c9eacd0 failed the label check offline, never run; removed.)
+| id | video | publishAt (UTC) | ICT | read-back |
+| ep007 | https://youtu.be/c369ApHh8I8 | 2026-10-29T01:00Z | 29.10 08:00 | private, scheduled, thumbnail set; caption track NOT set (API scope) |
+| short-07-ep007 | https://youtu.be/bFyU-t08KZ0 | 2026-10-29T05:00Z | 29.10 12:00 | private, scheduled |
+| short-08-ep007 | https://youtu.be/bhb8G5z9eyo | 2026-10-30T05:00Z | 30.10 12:00 | private, scheduled |
+Runs: actions/runs/40678802401 (issue #38), actions/runs/40678953975 (issue #39). Verify scheduled releases workflow confirms going public.
+Manual in Studio (optional): add publish/assets/ep007/captions.srt as subtitles; set Shorts "Related video" -> c369ApHh8I8.
+Cleanup later: temporary workflows ep007-fetch/voice/final on this branch; unused branch publish/ep007-mars-sulfur.
