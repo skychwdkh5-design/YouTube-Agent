@@ -1,7 +1,7 @@
 {
  "schema": "produce-runs/1",
  "first_run": "2026-10-27T10:57:17Z",
- "wall_clock_since_first_run_min": 911.5,
+ "wall_clock_since_first_run_min": 915.3,
  "stage_seconds": {
   "topic": {
    "status": "done",
@@ -10,17 +10,17 @@
   },
   "research": {
    "status": "done",
-   "attempts": 24,
+   "attempts": 25,
    "seconds": 0
   },
   "facts": {
    "status": "done",
-   "attempts": 22,
-   "seconds": 0
+   "attempts": 23,
+   "seconds": 1
   },
   "evidence": {
    "status": "done",
-   "attempts": 23,
+   "attempts": 24,
    "seconds": 0
   },
   "script": {
@@ -30,32 +30,32 @@
   },
   "media": {
    "status": "done",
-   "attempts": 20,
+   "attempts": 21,
    "seconds": 0
   },
   "visualplan": {
    "status": "done",
-   "attempts": 20,
+   "attempts": 21,
    "seconds": 0
   },
   "visuals": {
    "status": "done",
-   "attempts": 29,
+   "attempts": 30,
    "seconds": 10
   },
   "storyboard": {
    "status": "done",
-   "attempts": 13,
-   "seconds": 3
+   "attempts": 14,
+   "seconds": 2
   },
   "visualcheck": {
    "status": "done",
-   "attempts": 19,
+   "attempts": 20,
    "seconds": 9
   },
   "voice": {
    "status": "done",
-   "attempts": 12,
+   "attempts": 13,
    "seconds": 0
   },
   "voicecheck": {
@@ -70,7 +70,7 @@
   },
   "render": {
    "status": "awaiting_approval",
-   "attempts": 5,
+   "attempts": 8,
    "seconds": 2
   },
   "qc": {
@@ -80,7 +80,7 @@
   },
   "release": {
    "status": "done",
-   "attempts": 27,
+   "attempts": 30,
    "seconds": 0
   }
  },
@@ -101,7 +101,7 @@
   "max_credits": 5029.0
  },
  "agent_artifact_bytes": {
-  "research/notes.json": 35636,
+  "research/notes.json": 35431,
   "claims.json": 10446,
   "script.md": 5476
  },
@@ -724,6 +724,21 @@
     {
      "step": "preview_render_qc",
      "seconds": 95.5
+    }
+   ],
+   "stopped": null
+  },
+  {
+   "at": "2026-10-28T02:12:34Z",
+   "invocation_seconds": 96.3,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 2.5
+    },
+    {
+     "step": "preview_render_qc",
+     "seconds": 93.8
     }
    ],
    "stopped": null

@@ -1,15 +1,15 @@
 {
  "slug": "ep006",
- "total_seconds": 122.1,
+ "total_seconds": 96.3,
  "elevenlabs_chars_spent": 5029,
  "steps": [
   {
    "step": "pipeline",
-   "seconds": 26.6
+   "seconds": 2.5
   },
   {
    "step": "preview_render_qc",
-   "seconds": 95.5
+   "seconds": 93.8
   }
  ],
  "media": {
