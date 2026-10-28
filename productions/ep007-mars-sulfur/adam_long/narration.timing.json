@@ -1,0 +1,291 @@
+{
+ "engine": "elevenlabs eleven_multilingual_v2 voice Adam",
+ "duration": 377.581,
+ "beats": [
+  {
+   "index": 0,
+   "start": 0.0,
+   "speech_end": 1.997
+  },
+  {
+   "index": 1,
+   "start": 2.148,
+   "speech_end": 9.044
+  },
+  {
+   "index": 2,
+   "start": 9.427,
+   "speech_end": 12.875
+  },
+  {
+   "index": 3,
+   "start": 13.084,
+   "speech_end": 16.904
+  },
+  {
+   "index": 4,
+   "start": 17.229,
+   "speech_end": 23.534
+  },
+  {
+   "index": 5,
+   "start": 24.045,
+   "speech_end": 33.03
+  },
+  {
+   "index": 6,
+   "start": 33.355,
+   "speech_end": 41.273
+  },
+  {
+   "index": 7,
+   "start": 41.877,
+   "speech_end": 49.028
+  },
+  {
+   "index": 8,
+   "start": 49.539,
+   "speech_end": 54.915
+  },
+  {
+   "index": 9,
+   "start": 55.24,
+   "speech_end": 59.895
+  },
+  {
+   "index": 10,
+   "start": 60.22,
+   "speech_end": 67.058
+  },
+  {
+   "index": 11,
+   "start": 67.662,
+   "speech_end": 72.817
+  },
+  {
+   "index": 12,
+   "start": 73.328,
+   "speech_end": 77.113
+  },
+  {
+   "index": 13,
+   "start": 77.554,
+   "speech_end": 84.984
+  },
+  {
+   "index": 14,
+   "start": 85.228,
+   "speech_end": 89.338
+  },
+  {
+   "index": 15,
+   "start": 89.779,
+   "speech_end": 97.105
+  },
+  {
+   "index": 16,
+   "start": 97.546,
+   "speech_end": 106.707
+  },
+  {
+   "index": 17,
+   "start": 107.218,
+   "speech_end": 115.658
+  },
+  {
+   "index": 18,
+   "start": 116.61,
+   "speech_end": 121.184
+  },
+  {
+   "index": 19,
+   "start": 121.788,
+   "speech_end": 124.911
+  },
+  {
+   "index": 20,
+   "start": 125.155,
+   "speech_end": 140.132
+  },
+  {
+   "index": 21,
+   "start": 140.735,
+   "speech_end": 145.96
+  },
+  {
+   "index": 22,
+   "start": 146.401,
+   "speech_end": 150.941
+  },
+  {
+   "index": 23,
+   "start": 151.266,
+   "speech_end": 155.724
+  },
+  {
+   "index": 24,
+   "start": 156.235,
+   "speech_end": 164.606
+  },
+  {
+   "index": 25,
+   "start": 165.047,
+   "speech_end": 167.101
+  },
+  {
+   "index": 26,
+   "start": 167.543,
+   "speech_end": 174.358
+  },
+  {
+   "index": 27,
+   "start": 174.683,
+   "speech_end": 180.372
+  },
+  {
+   "index": 28,
+   "start": 180.373,
+   "speech_end": 185.458
+  },
+  {
+   "index": 29,
+   "start": 185.899,
+   "speech_end": 195.942
+  },
+  {
+   "index": 30,
+   "start": 196.267,
+   "speech_end": 198.81
+  },
+  {
+   "index": 31,
+   "start": 199.321,
+   "speech_end": 208.017
+  },
+  {
+   "index": 32,
+   "start": 208.458,
+   "speech_end": 215.214
+  },
+  {
+   "index": 33,
+   "start": 215.725,
+   "speech_end": 225.164
+  },
+  {
+   "index": 34,
+   "start": 225.489,
+   "speech_end": 228.844
+  },
+  {
+   "index": 35,
+   "start": 229.169,
+   "speech_end": 238.271
+  },
+  {
+   "index": 36,
+   "start": 238.875,
+   "speech_end": 248.395
+  },
+  {
+   "index": 37,
+   "start": 248.72,
+   "speech_end": 252.482
+  },
+  {
+   "index": 38,
+   "start": 252.992,
+   "speech_end": 262.443
+  },
+  {
+   "index": 39,
+   "start": 262.884,
+   "speech_end": 265.043
+  },
+  {
+   "index": 40,
+   "start": 265.74,
+   "speech_end": 271.278
+  },
+  {
+   "index": 41,
+   "start": 271.603,
+   "speech_end": 281.227
+  },
+  {
+   "index": 42,
+   "start": 281.61,
+   "speech_end": 285.569
+  },
+  {
+   "index": 43,
+   "start": 285.952,
+   "speech_end": 292.779
+  },
+  {
+   "index": 44,
+   "start": 293.104,
+   "speech_end": 302.148
+  },
+  {
+   "index": 45,
+   "start": 302.844,
+   "speech_end": 306.943
+  },
+  {
+   "index": 46,
+   "start": 307.326,
+   "speech_end": 313.456
+  },
+  {
+   "index": 47,
+   "start": 314.268,
+   "speech_end": 325.147
+  },
+  {
+   "index": 48,
+   "start": 325.53,
+   "speech_end": 329.187
+  },
+  {
+   "index": 49,
+   "start": 330.139,
+   "speech_end": 334.18
+  },
+  {
+   "index": 50,
+   "start": 334.876,
+   "speech_end": 338.684
+  },
+  {
+   "index": 51,
+   "start": 339.288,
+   "speech_end": 348.669
+  },
+  {
+   "index": 52,
+   "start": 349.052,
+   "speech_end": 357.504
+  },
+  {
+   "index": 53,
+   "start": 357.713,
+   "speech_end": 359.536
+  },
+  {
+   "index": 54,
+   "start": 359.538,
+   "speech_end": 363.474
+  },
+  {
+   "index": 55,
+   "start": 363.752,
+   "speech_end": 371.659
+  },
+  {
+   "index": 56,
+   "start": 372.17,
+   "speech_end": 376.581
+  }
+ ]
+}

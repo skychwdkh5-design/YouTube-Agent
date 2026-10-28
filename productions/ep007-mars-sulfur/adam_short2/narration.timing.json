@@ -1,0 +1,36 @@
+{
+ "engine": "elevenlabs eleven_multilingual_v2 voice Adam",
+ "duration": 28.539,
+ "beats": [
+  {
+   "index": 0,
+   "start": 0.0,
+   "speech_end": 3.518
+  },
+  {
+   "index": 1,
+   "start": 3.901,
+   "speech_end": 10.983
+  },
+  {
+   "index": 2,
+   "start": 11.424,
+   "speech_end": 16.544
+  },
+  {
+   "index": 3,
+   "start": 16.823,
+   "speech_end": 19.54
+  },
+  {
+   "index": 4,
+   "start": 19.865,
+   "speech_end": 25.298
+  },
+  {
+   "index": 5,
+   "start": 25.623,
+   "speech_end": 27.539
+  }
+ ]
+}
