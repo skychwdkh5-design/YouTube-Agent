@@ -1,0 +1,37 @@
+{
+ "schema": "yt-approval/1",
+ "approval_id": "5c9eacd0ab5748c99df85ab53aa0a0ca",
+ "scope": "short_list",
+ "label": "EP007 Shorts",
+ "items": [
+  {
+   "id": "short-07-ep007",
+   "kind": "short",
+   "title": "Curiosity Ran Over a Rock on Mars. Pure Sulfur Was Inside.",
+   "publish_at": "2026-10-29T05:00:00Z",
+   "media_sha256": "17042d093962cb4ee9080f8461b59301cbf7a7d75a95b6d712b9306a552c5686",
+   "content_hash": "aed324b59d7dd79206f05a0ed3b776c6751d57f852f82a17d3448cf7d87525f2",
+   "entry_hash": "3cb3e98c065848e49080e5524434d6b8a0366441557da91d1829ba260e134015"
+  },
+  {
+   "id": "short-08-ep007",
+   "kind": "short",
+   "title": "Mars From Orbit: Nothing. On the Ground: Pure Sulfur",
+   "publish_at": "2026-10-30T05:00:00Z",
+   "media_sha256": "200a576acb744b41721952dfda95b5617bd676d736427f75ad2f89f300456e2a",
+   "content_hash": "044eba8125efd0dc5d66cc4e2b8ed1a1d6b5d498514286a85bcf296cc9e295e8",
+   "entry_hash": "4d662f718ec23cecdfdee3c57684112273d86d36ffe6d9a917c7ab230bceea2d"
+  }
+ ],
+ "queue_commit": "fd95b60a6048f4e8683de61ffb3de998643b0bbb",
+ "owner_quote": "Одобряю short-07-ep007 по карточке 3CB3-E98C и short-08-ep007 по карточке 4D66-2F71",
+ "created_at": "2026-10-28T11:16:29+00:00",
+ "expires_at": "2026-10-29T11:16:29+00:00",
+ "created_by": "claude-chat",
+ "consent_channel": "owner-chat-message",
+ "dry_run_only": false,
+ "card_codes": {
+  "short-07-ep007": "3CB3-E98C",
+  "short-08-ep007": "4D66-2F71"
+ }
+}
