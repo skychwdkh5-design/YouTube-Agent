@@ -23,35 +23,35 @@
   },
   "research": {
    "status": "done",
-   "attempts": 20,
+   "attempts": 23,
    "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN",
-   "started": "2026-10-28T01:53:31Z",
+   "started": "2026-10-28T02:00:09Z",
    "error": null,
-   "finished": "2026-10-28T01:53:31Z",
+   "finished": "2026-10-28T02:00:09Z",
    "outputs": {
-    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30",
-    "research/report.md": "74721663d31236d4dbfae685cb09228cb05740b584e9e59cc04d336b2bb17a6b"
+    "claims.json": "8428db1e4b44723497957aca96ecc572dbe160a55cb67cf36680d3319b20a942",
+    "research/report.md": "fde41400ad0ff2461b991ce3ef9960db53b17059a62af0036212566bb161cc9f"
    },
    "inputs": {
-    "research/notes.json": "eb59c79dc53ade68e86c6f94b53e28ce2b604f60b60fd8e160b6cb56d4b4f7fd",
+    "research/notes.json": "5d2b7b9ce3d45a6cf91eea68d5767dca1d7c9dee236e2f29a6c97e64c46d34a2",
     "topic/topic.json": "003755184b162732282f6bd0371383b8b43df7092082680fae70e66dccd75fab",
     "_tool": "20551a128ea3eaf0"
    },
    "agent_artifacts": {
-    "research/notes.json": "eb59c79dc53ade68e86c6f94b53e28ce2b604f60b60fd8e160b6cb56d4b4f7fd",
-    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30"
+    "research/notes.json": "5d2b7b9ce3d45a6cf91eea68d5767dca1d7c9dee236e2f29a6c97e64c46d34a2",
+    "claims.json": "8428db1e4b44723497957aca96ecc572dbe160a55cb67cf36680d3319b20a942"
    }
   },
   "facts": {
    "status": "done",
-   "attempts": 18,
+   "attempts": 21,
    "note": "16 claims, registry ok",
-   "started": "2026-10-28T01:53:31Z",
+   "started": "2026-10-28T02:00:09Z",
    "error": null,
-   "finished": "2026-10-28T01:53:31Z",
+   "finished": "2026-10-28T02:00:09Z",
    "inputs": {
-    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30",
-    "research/report.md": "74721663d31236d4dbfae685cb09228cb05740b584e9e59cc04d336b2bb17a6b",
+    "claims.json": "8428db1e4b44723497957aca96ecc572dbe160a55cb67cf36680d3319b20a942",
+    "research/report.md": "fde41400ad0ff2461b991ce3ef9960db53b17059a62af0036212566bb161cc9f",
     "_tool": "011f70d2646e3c92"
    },
    "outputs": {},
@@ -59,11 +59,11 @@
   },
   "evidence": {
    "status": "done",
-   "attempts": 19,
+   "attempts": 22,
    "note": "2 stacks + Landsat stack(s)",
-   "started": "2026-10-28T01:53:31Z",
+   "started": "2026-10-28T02:00:09Z",
    "error": null,
-   "finished": "2026-10-28T01:53:32Z",
+   "finished": "2026-10-28T02:00:09Z",
    "outputs": {
     "evidence/stack/provenance.json": "5af4ac10ede03de34f59770e29368c5784deac981af2e686928fa36f7a92c6ec",
     "evidence/stack/grid.json": "b0144f3b7d249ddf93ae619f6f35f975b46c6214d8941f594e471e79a05ef60e",
@@ -75,9 +75,9 @@
     "evidence/landsat10/grid.json": "a223622a603ebc3deb9aad92d07279c2faec8c9234bde34cfdd1ee0393351772"
    },
    "inputs": {
-    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30",
-    "research/notes.json": "eb59c79dc53ade68e86c6f94b53e28ce2b604f60b60fd8e160b6cb56d4b4f7fd",
-    "research/report.md": "74721663d31236d4dbfae685cb09228cb05740b584e9e59cc04d336b2bb17a6b",
+    "claims.json": "8428db1e4b44723497957aca96ecc572dbe160a55cb67cf36680d3319b20a942",
+    "research/notes.json": "5d2b7b9ce3d45a6cf91eea68d5767dca1d7c9dee236e2f29a6c97e64c46d34a2",
+    "research/report.md": "fde41400ad0ff2461b991ce3ef9960db53b17059a62af0036212566bb161cc9f",
     "topic/topic.json": "003755184b162732282f6bd0371383b8b43df7092082680fae70e66dccd75fab",
     "_tool": "9910c5ec0e089c03"
    },
@@ -85,17 +85,17 @@
   },
   "script": {
    "status": "done",
-   "attempts": 9,
-   "note": "883 words = 6.0 min, 15 claims used",
-   "started": "2026-10-28T01:54:44Z",
+   "attempts": 16,
+   "note": "888 words = 6.0 min, 15 claims used",
+   "started": "2026-10-28T01:59:32Z",
    "error": null,
-   "finished": "2026-10-28T01:54:44Z",
+   "finished": "2026-10-28T01:59:32Z",
    "outputs": {
-    "script.md": "2d78409a00fd1437a93c2bd0252409813c4cc422ce3eba93da3ce7a6a3dfba57",
-    "research/brief.json": "ad46257f2ae23dcfdb45b5cb32d954c51f2dd9760a2d58336d41d1bd0199d01d"
+    "script.md": "a0728dfc971d2df48107d92093d526624e7d7476a17745041558a98d6e31b838",
+    "research/brief.json": "e1d8d4a36d4cd683f7602c327f7d93a0369cf2ce33eb1226b6fb37e38d836b82"
    },
    "inputs": {
-    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30",
+    "claims.json": "8428db1e4b44723497957aca96ecc572dbe160a55cb67cf36680d3319b20a942",
     "evidence/landsat/grid.json": "90b33d6ff1643734b540f9f77d215879d359ab2eb554ac340552093450143dd7",
     "evidence/landsat/provenance.json": "dd330d166380617e5d40f0a6a8fe80b22224f6ae4b4634258dd4faf39adefa23",
     "evidence/landsat10/grid.json": "a223622a603ebc3deb9aad92d07279c2faec8c9234bde34cfdd1ee0393351772",
@@ -104,28 +104,28 @@
     "evidence/stack/provenance.json": "5af4ac10ede03de34f59770e29368c5784deac981af2e686928fa36f7a92c6ec",
     "evidence/wide/grid.json": "770b196aacb782d7116d63f2cffef6780e131ed694e5709e555b063660f804d7",
     "evidence/wide/provenance.json": "eed58d5da69eed516fe1a1ae8ed73457e9d43ee982d833004d9d9e2da453cdb0",
-    "script.md": "2d78409a00fd1437a93c2bd0252409813c4cc422ce3eba93da3ce7a6a3dfba57",
+    "script.md": "a0728dfc971d2df48107d92093d526624e7d7476a17745041558a98d6e31b838",
     "_tool": "1e8a31e2bf49a808"
    },
    "agent_artifacts": {
-    "script.md": "2d78409a00fd1437a93c2bd0252409813c4cc422ce3eba93da3ce7a6a3dfba57"
+    "script.md": "a0728dfc971d2df48107d92093d526624e7d7476a17745041558a98d6e31b838"
    }
   },
   "media": {
    "status": "done",
-   "attempts": 16,
+   "attempts": 19,
    "note": "3 verified of 5 media entries (style v2: media optional)",
-   "started": "2026-10-28T01:54:44Z",
+   "started": "2026-10-28T02:00:09Z",
    "error": null,
-   "finished": "2026-10-28T01:54:44Z",
+   "finished": "2026-10-28T02:00:09Z",
    "inputs": {
     "media/assets/a_member_of_the_nepali_armed.jpg": "e3d8b31e0acb3b91ee4410b11dc506d1c2c216fdc05f4d103fe30bebb344824e",
     "media/assets/palletized_life_saving_equip.jpg": "e5b4f6a1a250060af5d9264389f0938c84ec09436af712e58abba8e251717446",
     "media/assets/us_and_nepali_officials_besi.jpg": "523241f09a55e43dbbe3a31669f1aa6eb00e6c51e54e07f5ede57f0e8e7cf54c",
     "media/ledger.json": "e1c8d51b2a0837cdfef714b2b6a0cf5692d88dc2aa62e6de82179d0d4b14ebce",
-    "research/brief.json": "ad46257f2ae23dcfdb45b5cb32d954c51f2dd9760a2d58336d41d1bd0199d01d",
-    "research/notes.json": "eb59c79dc53ade68e86c6f94b53e28ce2b604f60b60fd8e160b6cb56d4b4f7fd",
-    "script.md": "2d78409a00fd1437a93c2bd0252409813c4cc422ce3eba93da3ce7a6a3dfba57",
+    "research/brief.json": "e1d8d4a36d4cd683f7602c327f7d93a0369cf2ce33eb1226b6fb37e38d836b82",
+    "research/notes.json": "5d2b7b9ce3d45a6cf91eea68d5767dca1d7c9dee236e2f29a6c97e64c46d34a2",
+    "script.md": "a0728dfc971d2df48107d92093d526624e7d7476a17745041558a98d6e31b838",
     "_tool": "bcf6af8b3dcf17e9"
    },
    "outputs": {
@@ -137,13 +137,13 @@
   },
   "visualplan": {
    "status": "done",
-   "attempts": 16,
-   "note": "41 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']",
-   "started": "2026-10-28T01:54:44Z",
+   "attempts": 19,
+   "note": "44 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']",
+   "started": "2026-10-28T02:00:09Z",
    "error": null,
-   "finished": "2026-10-28T01:54:45Z",
+   "finished": "2026-10-28T02:00:09Z",
    "inputs": {
-    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30",
+    "claims.json": "8428db1e4b44723497957aca96ecc572dbe160a55cb67cf36680d3319b20a942",
     "evidence/landsat/grid.json": "90b33d6ff1643734b540f9f77d215879d359ab2eb554ac340552093450143dd7",
     "evidence/landsat/provenance.json": "dd330d166380617e5d40f0a6a8fe80b22224f6ae4b4634258dd4faf39adefa23",
     "evidence/landsat10/grid.json": "a223622a603ebc3deb9aad92d07279c2faec8c9234bde34cfdd1ee0393351772",
@@ -157,26 +157,26 @@
     "media/assets/us_and_nepali_officials_besi.jpg": "523241f09a55e43dbbe3a31669f1aa6eb00e6c51e54e07f5ede57f0e8e7cf54c",
     "media/ledger.json": "e1c8d51b2a0837cdfef714b2b6a0cf5692d88dc2aa62e6de82179d0d4b14ebce",
     "media/report.json": "473c2ad88e11503d6c7f037e44fbf5592063d3f4c418024e13f26c44b93c7081",
-    "research/brief.json": "ad46257f2ae23dcfdb45b5cb32d954c51f2dd9760a2d58336d41d1bd0199d01d",
-    "research/notes.json": "eb59c79dc53ade68e86c6f94b53e28ce2b604f60b60fd8e160b6cb56d4b4f7fd",
-    "script.md": "2d78409a00fd1437a93c2bd0252409813c4cc422ce3eba93da3ce7a6a3dfba57",
+    "research/brief.json": "e1d8d4a36d4cd683f7602c327f7d93a0369cf2ce33eb1226b6fb37e38d836b82",
+    "research/notes.json": "5d2b7b9ce3d45a6cf91eea68d5767dca1d7c9dee236e2f29a6c97e64c46d34a2",
+    "script.md": "a0728dfc971d2df48107d92093d526624e7d7476a17745041558a98d6e31b838",
     "_tool": "86573ffac96cfd08"
    },
    "outputs": {
-    "episode.json": "992c48c404296ebad183c65a7a9027f6ddc0091448600074c2cd2b68e3371d7e",
-    "graphics_spec.json": "7329e04987147d2a385a17fb74814b530c7262962ada4d0c576e08f52d694e01"
+    "episode.json": "03062257e96942854b44fd052d1beae4805ead30cdb5df4af99ad6d96dab0e03",
+    "graphics_spec.json": "12410fceb2fdb82b763d3abdc6f91b19e69316044dde88fb43d8e7e12087ae32"
    },
    "agent_artifacts": {}
   },
   "visuals": {
    "status": "done",
-   "attempts": 25,
+   "attempts": 28,
    "note": "39 graphics",
-   "started": "2026-10-28T01:53:33Z",
+   "started": "2026-10-28T02:00:09Z",
    "error": null,
-   "finished": "2026-10-28T01:53:44Z",
+   "finished": "2026-10-28T02:00:20Z",
    "inputs": {
-    "episode.json": "992c48c404296ebad183c65a7a9027f6ddc0091448600074c2cd2b68e3371d7e",
+    "episode.json": "03062257e96942854b44fd052d1beae4805ead30cdb5df4af99ad6d96dab0e03",
     "evidence/landsat/grid.json": "90b33d6ff1643734b540f9f77d215879d359ab2eb554ac340552093450143dd7",
     "evidence/landsat/provenance.json": "dd330d166380617e5d40f0a6a8fe80b22224f6ae4b4634258dd4faf39adefa23",
     "evidence/landsat10/grid.json": "a223622a603ebc3deb9aad92d07279c2faec8c9234bde34cfdd1ee0393351772",
@@ -185,11 +185,11 @@
     "evidence/stack/provenance.json": "5af4ac10ede03de34f59770e29368c5784deac981af2e686928fa36f7a92c6ec",
     "evidence/wide/grid.json": "770b196aacb782d7116d63f2cffef6780e131ed694e5709e555b063660f804d7",
     "evidence/wide/provenance.json": "eed58d5da69eed516fe1a1ae8ed73457e9d43ee982d833004d9d9e2da453cdb0",
-    "graphics_spec.json": "7329e04987147d2a385a17fb74814b530c7262962ada4d0c576e08f52d694e01",
+    "graphics_spec.json": "12410fceb2fdb82b763d3abdc6f91b19e69316044dde88fb43d8e7e12087ae32",
     "_tool": "09bccd9933611a78"
    },
    "outputs": {
-    "graphics/g_reports.png": "f42e397a3b3308ae1a9bbe3326bc08863408fcc0ec833d95ea1c53fd635d57ab",
+    "graphics/g_reports.png": "57e0bc5893fa7306a4c9be93902d79961fbe0a013a2f83ca34736e8b7fa2a8c3",
     "graphics/i_100km.png": "5e768b1900f68a75ad483b6aaf46dec8551675ef71638c3af8507db40af92bd5",
     "graphics/i_100km.step1.png": "916066b230ac845733ee3e0b488f098f1727d6846bc440bcfef1abd653c11847",
     "graphics/i_2015.png": "4e2e99b50b96ac14f43236ff117ed2cc5e62529b0d216281c1e691be18afec82",
@@ -206,7 +206,7 @@
     "graphics/i_china.step1.png": "a189d051b3c9fef93af10dd644485d3feead3de9d8558bbbdfdde73d8ace5e3f",
     "graphics/i_china.step2.png": "a25e8267eb5cc8af89e68f151e2704959d770e128e1a65b6d8c5c3aafb0602e2",
     "graphics/i_clouds.png": "73a78b5a72208cd5b137ad1b49dbabcb5b7f360f8411550463f800227c5db182",
-    "graphics/i_flow_scale.png": "d2b61372ed0711ef1252048b90f961f34b4471b9500de441d2f61bc172fcb1bc",
+    "graphics/i_flow_scale.png": "967b1e826ea130d9bfe2a86d77e753ef42b3cc566aa2f1061a0f98cea064fb03",
     "graphics/i_flow_scale.step1.png": "78c5088de2ac78f88578e611d56defe7fd8075e4ff36f65afd1a8def7eb57111",
     "graphics/i_icimod.png": "25691d3fc086ef79b7a656f0b44d9dbb69125da76f01ca828bed78230d24e98c",
     "graphics/i_icimod.step1.png": "706f0bc91f8e5fac8aba774d9a513b1d82fc8409beec0eb69d4d53a85165973f",
@@ -220,9 +220,9 @@
     "graphics/i_seismic.png": "71a927237627d17a79fdb19de55624e785ead98234e33efbfcec4f2abe875ae5",
     "graphics/i_seismic.step1.png": "6278d4504a91ad0e35d064ba3786a22c1ece924e4600a37c565b653576030f73",
     "graphics/i_seismic.step2.png": "dc849454d83c7705e22b5e100ad0c5bfcb82bb66c88690705f0e7f7d0500a4d7",
-    "graphics/i_toll.png": "1cc1db12ff20b30d433ecfaed3f9c11d6db50581593ec5583c10c5de61c0dead",
-    "graphics/i_toll.step1.png": "346dcd753a65221006dff265320a7b7d32b8cc59b142c28cfa619a3ea9e17951",
-    "graphics/i_toll.step2.png": "19b1aa7f80b45b03b00ed7103adfc8a7d8d6871cb5b78f505f05ed44be22665f",
+    "graphics/i_toll.png": "df4fc6b79ecc8cc5fab4c7daa63b18ffcd3a3ec0f9ddab9d135e1dd52bccb9a0",
+    "graphics/i_toll.step1.png": "1cf78d1fb6f5172fc3fb045b54deba752d66b29cca4391120068b8a00da99f32",
+    "graphics/i_toll.step2.png": "493c92b8a2c3257bb39c4009aa00a57308d9089ae178ac0e1447b462e8b9a7c5",
     "graphics/i_usgs.png": "5e3e31a83c7c339748d3ab993004ee2d261bc4b3057b63fb65d042381f5fcbbc",
     "graphics/i_usgs.step1.png": "4c3e3bfb292ef580f4971f2305b8ba9dda0ef68f4ce6488a0bcd07f3b1c8b026",
     "graphics/i_volume.png": "d3ab0ba9482090b8bb59d04e544a76a83c4e05a51ddbf5c4637d72776117d6de",
@@ -233,14 +233,14 @@
   },
   "storyboard": {
    "status": "done",
-   "attempts": 7,
-   "note": "49 shots, 360.408s, timing from estimate",
-   "started": "2026-10-28T01:54:45Z",
+   "attempts": 11,
+   "note": "52 shots, 362.449s, timing from estimate",
+   "started": "2026-10-28T02:00:20Z",
    "error": null,
-   "finished": "2026-10-28T01:54:45Z",
+   "finished": "2026-10-28T02:00:20Z",
    "inputs": {
-    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30",
-    "episode.json": "992c48c404296ebad183c65a7a9027f6ddc0091448600074c2cd2b68e3371d7e",
+    "claims.json": "8428db1e4b44723497957aca96ecc572dbe160a55cb67cf36680d3319b20a942",
+    "episode.json": "03062257e96942854b44fd052d1beae4805ead30cdb5df4af99ad6d96dab0e03",
     "evidence/landsat/grid.json": "90b33d6ff1643734b540f9f77d215879d359ab2eb554ac340552093450143dd7",
     "evidence/landsat/provenance.json": "dd330d166380617e5d40f0a6a8fe80b22224f6ae4b4634258dd4faf39adefa23",
     "evidence/landsat10/grid.json": "a223622a603ebc3deb9aad92d07279c2faec8c9234bde34cfdd1ee0393351772",
@@ -249,7 +249,7 @@
     "evidence/stack/provenance.json": "5af4ac10ede03de34f59770e29368c5784deac981af2e686928fa36f7a92c6ec",
     "evidence/wide/grid.json": "770b196aacb782d7116d63f2cffef6780e131ed694e5709e555b063660f804d7",
     "evidence/wide/provenance.json": "eed58d5da69eed516fe1a1ae8ed73457e9d43ee982d833004d9d9e2da453cdb0",
-    "graphics/g_reports.png": "f42e397a3b3308ae1a9bbe3326bc08863408fcc0ec833d95ea1c53fd635d57ab",
+    "graphics/g_reports.png": "57e0bc5893fa7306a4c9be93902d79961fbe0a013a2f83ca34736e8b7fa2a8c3",
     "graphics/i_100km.png": "5e768b1900f68a75ad483b6aaf46dec8551675ef71638c3af8507db40af92bd5",
     "graphics/i_100km.step1.png": "916066b230ac845733ee3e0b488f098f1727d6846bc440bcfef1abd653c11847",
     "graphics/i_2015.png": "4e2e99b50b96ac14f43236ff117ed2cc5e62529b0d216281c1e691be18afec82",
@@ -266,7 +266,7 @@
     "graphics/i_china.step1.png": "a189d051b3c9fef93af10dd644485d3feead3de9d8558bbbdfdde73d8ace5e3f",
     "graphics/i_china.step2.png": "a25e8267eb5cc8af89e68f151e2704959d770e128e1a65b6d8c5c3aafb0602e2",
     "graphics/i_clouds.png": "73a78b5a72208cd5b137ad1b49dbabcb5b7f360f8411550463f800227c5db182",
-    "graphics/i_flow_scale.png": "d2b61372ed0711ef1252048b90f961f34b4471b9500de441d2f61bc172fcb1bc",
+    "graphics/i_flow_scale.png": "967b1e826ea130d9bfe2a86d77e753ef42b3cc566aa2f1061a0f98cea064fb03",
     "graphics/i_flow_scale.step1.png": "78c5088de2ac78f88578e611d56defe7fd8075e4ff36f65afd1a8def7eb57111",
     "graphics/i_icimod.png": "25691d3fc086ef79b7a656f0b44d9dbb69125da76f01ca828bed78230d24e98c",
     "graphics/i_icimod.step1.png": "706f0bc91f8e5fac8aba774d9a513b1d82fc8409beec0eb69d4d53a85165973f",
@@ -280,68 +280,68 @@
     "graphics/i_seismic.png": "71a927237627d17a79fdb19de55624e785ead98234e33efbfcec4f2abe875ae5",
     "graphics/i_seismic.step1.png": "6278d4504a91ad0e35d064ba3786a22c1ece924e4600a37c565b653576030f73",
     "graphics/i_seismic.step2.png": "dc849454d83c7705e22b5e100ad0c5bfcb82bb66c88690705f0e7f7d0500a4d7",
-    "graphics/i_toll.png": "1cc1db12ff20b30d433ecfaed3f9c11d6db50581593ec5583c10c5de61c0dead",
-    "graphics/i_toll.step1.png": "346dcd753a65221006dff265320a7b7d32b8cc59b142c28cfa619a3ea9e17951",
-    "graphics/i_toll.step2.png": "19b1aa7f80b45b03b00ed7103adfc8a7d8d6871cb5b78f505f05ed44be22665f",
+    "graphics/i_toll.png": "df4fc6b79ecc8cc5fab4c7daa63b18ffcd3a3ec0f9ddab9d135e1dd52bccb9a0",
+    "graphics/i_toll.step1.png": "1cf78d1fb6f5172fc3fb045b54deba752d66b29cca4391120068b8a00da99f32",
+    "graphics/i_toll.step2.png": "493c92b8a2c3257bb39c4009aa00a57308d9089ae178ac0e1447b462e8b9a7c5",
     "graphics/i_usgs.png": "5e3e31a83c7c339748d3ab993004ee2d261bc4b3057b63fb65d042381f5fcbbc",
     "graphics/i_usgs.step1.png": "4c3e3bfb292ef580f4971f2305b8ba9dda0ef68f4ce6488a0bcd07f3b1c8b026",
     "graphics/i_volume.png": "d3ab0ba9482090b8bb59d04e544a76a83c4e05a51ddbf5c4637d72776117d6de",
     "graphics/i_volume.step1.png": "14858011b23f3fd57ee13a606c4a1c0ebe41bbf949fd6e62bc103085c9f9a0f1",
     "graphics/i_volume.step2.png": "32c48b82e40a9cb3ae198ca490a9ca5483cfbbaab695fcee98a47f0fdb0ca648",
-    "research/brief.json": "ad46257f2ae23dcfdb45b5cb32d954c51f2dd9760a2d58336d41d1bd0199d01d",
-    "script.md": "2d78409a00fd1437a93c2bd0252409813c4cc422ce3eba93da3ce7a6a3dfba57",
+    "research/brief.json": "e1d8d4a36d4cd683f7602c327f7d93a0369cf2ce33eb1226b6fb37e38d836b82",
+    "script.md": "a0728dfc971d2df48107d92093d526624e7d7476a17745041558a98d6e31b838",
     "_tool": "f03c50c96d0995f1"
    },
    "outputs": {
-    "story/storyboard.json": "e8d86fccee00a0234bff403cdd00c3aff08fe1a9b9933d1e27c6bf7ce61a947c",
-    "timeline.json": "72512ca51d5bf6bc2cd58771bd5c65da936f27f7dfd97a2b9fbc0faac287cb5c",
-    "story/labels.json": "12e7139880a5007af4ee9c9beab2c2370e06b25a402b5484713ccfd1a2672179",
-    "story/report.md": "583f7c2eab72b1b0815e911131e946e22a56dfc73677f66b9a5629854fff5e2d",
-    "story/diversity.json": "263dd1f9987cb7a7b113a0c0ba9e619fdf2b87366ecad6b6ee3f6c47dcc4f890"
+    "story/storyboard.json": "4187492aac72c8087920afa32254c44d665b549b351a3ffe3deb84700e865217",
+    "timeline.json": "a10f309a7213e409a7aa9488eb9cf094a458b3aa97b36ee6db8c3b0730cceaf1",
+    "story/labels.json": "0a01adf29ad31659b8791682553ffb0d47fbab56ff9db8655ba2666bcef7f8b7",
+    "story/report.md": "3485d842d4da74f4887faf0cf58f27a00d1d6c618eb510eebd4a06e95b4ef68b",
+    "story/diversity.json": "b31e971890f8f0565b014432261e61adabfb8a3666b43123a2af0e5080644d73"
    },
    "agent_artifacts": {}
   },
   "visualcheck": {
    "status": "done",
-   "attempts": 12,
-   "note": "visual claims OK {'VERIFIED_DATA': 17, 'REVIEWED': 34} of 51 items; 1 orphan reviews (run `visualcheck.py prune`)",
-   "started": "2026-10-28T01:54:45Z",
+   "attempts": 17,
+   "note": "visual claims OK {'VERIFIED_DATA': 19, 'REVIEWED': 33} of 52 items; 5 orphan reviews (run `visualcheck.py prune`)",
+   "started": "2026-10-28T02:00:43Z",
    "error": null,
-   "finished": "2026-10-28T01:54:57Z",
+   "finished": "2026-10-28T02:00:53Z",
    "outputs": {
-    "qa/visual_claims.json": "2a7dfeb094c8a508c651300125d597198cb441b03fb875f183610dd1793a4050",
-    "qa/visual_claims.md": "771e6d8e0d9b7bafe2319bfce35db54ff8b836d98c5380384373ec4ed8e3a4f1"
+    "qa/visual_claims.json": "dfb96196408626ec41b922975b118ebef0e9fb04d05ca3a8dcddd1fc8b486019",
+    "qa/visual_claims.md": "ec3166061149eb2a34f81432de455935a2ad235c02ca431e547d5017c9064310"
    },
    "inputs": {
-    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30",
-    "episode.json": "992c48c404296ebad183c65a7a9027f6ddc0091448600074c2cd2b68e3371d7e",
+    "claims.json": "8428db1e4b44723497957aca96ecc572dbe160a55cb67cf36680d3319b20a942",
+    "episode.json": "03062257e96942854b44fd052d1beae4805ead30cdb5df4af99ad6d96dab0e03",
     "evidence/stack/grid.json": "b0144f3b7d249ddf93ae619f6f35f975b46c6214d8941f594e471e79a05ef60e",
     "evidence/stack/provenance.json": "5af4ac10ede03de34f59770e29368c5784deac981af2e686928fa36f7a92c6ec",
-    "graphics_spec.json": "7329e04987147d2a385a17fb74814b530c7262962ada4d0c576e08f52d694e01",
+    "graphics_spec.json": "12410fceb2fdb82b763d3abdc6f91b19e69316044dde88fb43d8e7e12087ae32",
     "media/assets/a_member_of_the_nepali_armed.jpg": "e3d8b31e0acb3b91ee4410b11dc506d1c2c216fdc05f4d103fe30bebb344824e",
     "media/assets/palletized_life_saving_equip.jpg": "e5b4f6a1a250060af5d9264389f0938c84ec09436af712e58abba8e251717446",
     "media/assets/us_and_nepali_officials_besi.jpg": "523241f09a55e43dbbe3a31669f1aa6eb00e6c51e54e07f5ede57f0e8e7cf54c",
-    "qa/visual_review.json": "16ad4a64addfa4e7e8007d7536b9f40ffdb3ed54123bc34b7be67fd7fa967d26",
-    "story/diversity.json": "263dd1f9987cb7a7b113a0c0ba9e619fdf2b87366ecad6b6ee3f6c47dcc4f890",
-    "story/labels.json": "12e7139880a5007af4ee9c9beab2c2370e06b25a402b5484713ccfd1a2672179",
-    "story/report.md": "583f7c2eab72b1b0815e911131e946e22a56dfc73677f66b9a5629854fff5e2d",
-    "story/storyboard.json": "e8d86fccee00a0234bff403cdd00c3aff08fe1a9b9933d1e27c6bf7ce61a947c",
-    "timeline.json": "72512ca51d5bf6bc2cd58771bd5c65da936f27f7dfd97a2b9fbc0faac287cb5c",
+    "qa/visual_review.json": "d3057adbc0b938cabffb353a7d5ddfc522e17e62be0c36f839a3f8906598a3a2",
+    "story/diversity.json": "b31e971890f8f0565b014432261e61adabfb8a3666b43123a2af0e5080644d73",
+    "story/labels.json": "0a01adf29ad31659b8791682553ffb0d47fbab56ff9db8655ba2666bcef7f8b7",
+    "story/report.md": "3485d842d4da74f4887faf0cf58f27a00d1d6c618eb510eebd4a06e95b4ef68b",
+    "story/storyboard.json": "4187492aac72c8087920afa32254c44d665b549b351a3ffe3deb84700e865217",
+    "timeline.json": "a10f309a7213e409a7aa9488eb9cf094a458b3aa97b36ee6db8c3b0730cceaf1",
     "_tool": "99a34655b31d05f3"
    },
    "agent_artifacts": {
-    "qa/visual_review.json": "16ad4a64addfa4e7e8007d7536b9f40ffdb3ed54123bc34b7be67fd7fa967d26"
+    "qa/visual_review.json": "d3057adbc0b938cabffb353a7d5ddfc522e17e62be0c36f839a3f8906598a3a2"
    }
   },
   "voice": {
-   "status": "awaiting_approval",
-   "attempts": 7,
-   "note": "no approvals/voice.json; plan: 4993 characters",
-   "started": "2026-10-28T01:54:57Z",
+   "status": "running",
+   "attempts": 10,
+   "note": "no approvals/voice.json; plan: 5029 characters",
+   "started": "2026-10-28T02:01:01Z",
    "error": null,
-   "finished": "2026-10-28T01:54:57Z",
+   "finished": "2026-10-28T02:00:53Z",
    "outputs": {
-    "voice/plan.json": "b8684d5be2a383d446764a93f36943d373860fbe2ed34f53f6c4569cbc6a5bfa"
+    "voice/plan.json": "a750da7eed136becf503e0573f93437be65d47ba8ed41f0dd05f7ff0495e862c"
    }
   },
   "voicecheck": {
@@ -366,24 +366,24 @@
   },
   "release": {
    "status": "done",
-   "attempts": 16,
+   "attempts": 22,
    "note": "incomplete",
-   "started": "2026-10-28T01:54:57Z",
+   "started": "2026-10-28T02:00:53Z",
    "error": null,
-   "finished": "2026-10-28T01:54:57Z",
+   "finished": "2026-10-28T02:00:53Z",
    "inputs": {
-    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30",
-    "qa/visual_claims.json": "2a7dfeb094c8a508c651300125d597198cb441b03fb875f183610dd1793a4050",
-    "story/diversity.json": "263dd1f9987cb7a7b113a0c0ba9e619fdf2b87366ecad6b6ee3f6c47dcc4f890",
-    "story/labels.json": "12e7139880a5007af4ee9c9beab2c2370e06b25a402b5484713ccfd1a2672179",
-    "story/report.md": "583f7c2eab72b1b0815e911131e946e22a56dfc73677f66b9a5629854fff5e2d",
-    "story/storyboard.json": "e8d86fccee00a0234bff403cdd00c3aff08fe1a9b9933d1e27c6bf7ce61a947c",
-    "timeline.json": "72512ca51d5bf6bc2cd58771bd5c65da936f27f7dfd97a2b9fbc0faac287cb5c",
+    "claims.json": "8428db1e4b44723497957aca96ecc572dbe160a55cb67cf36680d3319b20a942",
+    "qa/visual_claims.json": "dfb96196408626ec41b922975b118ebef0e9fb04d05ca3a8dcddd1fc8b486019",
+    "story/diversity.json": "b31e971890f8f0565b014432261e61adabfb8a3666b43123a2af0e5080644d73",
+    "story/labels.json": "0a01adf29ad31659b8791682553ffb0d47fbab56ff9db8655ba2666bcef7f8b7",
+    "story/report.md": "3485d842d4da74f4887faf0cf58f27a00d1d6c618eb510eebd4a06e95b4ef68b",
+    "story/storyboard.json": "4187492aac72c8087920afa32254c44d665b549b351a3ffe3deb84700e865217",
+    "timeline.json": "a10f309a7213e409a7aa9488eb9cf094a458b3aa97b36ee6db8c3b0730cceaf1",
     "_tool": "e3b0c44298fc1c14"
    },
    "outputs": {
-    "release/REVIEW.md": "58da891a29091a375c85d9590ad82dde1b2d6a17bb562d09a323e0c6be0bb391",
-    "story/report.md": "583f7c2eab72b1b0815e911131e946e22a56dfc73677f66b9a5629854fff5e2d"
+    "release/REVIEW.md": "720ad3dd3b8c55d82af350d8058b53ea2022a816d3156364bbacf1d9f2a32c6a",
+    "story/report.md": "3485d842d4da74f4887faf0cf58f27a00d1d6c618eb510eebd4a06e95b4ef68b"
    },
    "agent_artifacts": {}
   }
@@ -1926,7 +1926,404 @@
    "stage": "release",
    "event": "done",
    "note": "incomplete"
+  },
+  {
+   "at": "2026-10-28T01:59:03Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T01:59:03Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-28T01:59:03Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T01:59:03Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-28T01:59:03Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T01:59:03Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-28T01:59:03Z",
+   "stage": "script",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T01:59:03Z",
+   "stage": "script",
+   "event": "blocked",
+   "note": "script: line 23: {L} is only for limitations (needs not/cannot/no): 'Other lists differ slightly and keep changing as names are checked, so'"
+  },
+  {
+   "at": "2026-10-28T01:59:03Z",
+   "stage": "media",
+   "event": "invalidated: upstream ['script'] not done"
+  },
+  {
+   "at": "2026-10-28T01:59:03Z",
+   "stage": "visualplan",
+   "event": "invalidated: upstream ['script', 'media'] not done"
+  },
+  {
+   "at": "2026-10-28T01:59:03Z",
+   "stage": "visuals",
+   "event": "invalidated: upstream ['visualplan'] not done"
+  },
+  {
+   "at": "2026-10-28T01:59:03Z",
+   "stage": "storyboard",
+   "event": "invalidated: upstream ['script', 'visuals'] not done"
+  },
+  {
+   "at": "2026-10-28T01:59:03Z",
+   "stage": "visualcheck",
+   "event": "invalidated: upstream ['storyboard'] not done"
+  },
+  {
+   "at": "2026-10-28T01:59:03Z",
+   "stage": "release",
+   "event": "invalidated: upstream ['storyboard'] not done"
+  },
+  {
+   "at": "2026-10-28T01:59:04Z",
+   "stage": "script",
+   "event": "blocked",
+   "note": "script: line 23: {L} is only for limitations (needs not/cannot/no): 'Other lists differ slightly and keep changing as names are checked, so'"
+  },
+  {
+   "at": "2026-10-28T01:59:07Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T01:59:07Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-28T01:59:07Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T01:59:07Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-28T01:59:07Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T01:59:07Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-28T01:59:07Z",
+   "stage": "script",
+   "event": "blocked",
+   "note": "script: 881 words = 360s, under 6 minutes"
+  },
+  {
+   "at": "2026-10-28T01:59:07Z",
+   "stage": "script",
+   "event": "blocked",
+   "note": "script: 881 words = 360s, under 6 minutes"
+  },
+  {
+   "at": "2026-10-28T01:59:11Z",
+   "stage": "script",
+   "event": "done",
+   "note": "884 words = 6.0 min, 15 claims used"
+  },
+  {
+   "at": "2026-10-28T01:59:11Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-28T01:59:11Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "44 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-28T01:59:22Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "39 graphics"
+  },
+  {
+   "at": "2026-10-28T01:59:22Z",
+   "stage": "storyboard",
+   "event": "blocked",
+   "note": "yt-storyboard: StoryError: chapter hook: 4.5s is too short for 2 visuals"
+  },
+  {
+   "at": "2026-10-28T01:59:22Z",
+   "stage": "storyboard",
+   "event": "blocked",
+   "note": "yt-storyboard: StoryError: chapter hook: 4.5s is too short for 2 visuals"
+  },
+  {
+   "at": "2026-10-28T01:59:28Z",
+   "stage": "script",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T01:59:28Z",
+   "stage": "script",
+   "event": "blocked",
+   "note": "script: line 4: C1 is a org claim; the sentence must contain 'said'"
+  },
+  {
+   "at": "2026-10-28T01:59:28Z",
+   "stage": "media",
+   "event": "invalidated: upstream ['script'] not done"
+  },
+  {
+   "at": "2026-10-28T01:59:28Z",
+   "stage": "visualplan",
+   "event": "invalidated: upstream ['script', 'media'] not done"
+  },
+  {
+   "at": "2026-10-28T01:59:28Z",
+   "stage": "visuals",
+   "event": "invalidated: upstream ['visualplan'] not done"
+  },
+  {
+   "at": "2026-10-28T01:59:32Z",
+   "stage": "script",
+   "event": "done",
+   "note": "888 words = 6.0 min, 15 claims used"
+  },
+  {
+   "at": "2026-10-28T01:59:32Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-28T01:59:32Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "44 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-28T01:59:42Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "39 graphics"
+  },
+  {
+   "at": "2026-10-28T01:59:42Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "52 shots, 362.449s, timing from estimate"
+  },
+  {
+   "at": "2026-10-28T01:59:51Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-28T01:59:51Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-28T02:00:00Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-28T02:00:00Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:00:00Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-28T02:00:09Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:00:09Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-28T02:00:09Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:00:09Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-28T02:00:09Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:00:09Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-28T02:00:09Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:00:09Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-28T02:00:09Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:00:09Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "44 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-28T02:00:09Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:00:20Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "39 graphics"
+  },
+  {
+   "at": "2026-10-28T02:00:20Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:00:20Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "52 shots, 362.449s, timing from estimate"
+  },
+  {
+   "at": "2026-10-28T02:00:29Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-28T02:00:29Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:00:29Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-28T02:00:38Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-28T02:00:38Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:00:38Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-28T02:00:53Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_DATA': 19, 'REVIEWED': 33} of 52 items; 5 orphan reviews (run `visualcheck.py prune`)"
+  },
+  {
+   "at": "2026-10-28T02:00:53Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 5029 characters"
+  },
+  {
+   "at": "2026-10-28T02:00:53Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:00:53Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-28T02:00:53Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 5029 characters"
+  },
+  {
+   "at": "2026-10-28T02:00:53Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-28T02:00:53Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
   }
  ],
- "updated": "2026-10-28T01:54:57Z"
+ "updated": "2026-10-28T02:01:01Z"
 }

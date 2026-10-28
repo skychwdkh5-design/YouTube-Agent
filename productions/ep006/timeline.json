@@ -277,7 +277,7 @@
   },
   {
    "id": "hook_001",
-   "start": 6.735,
+   "start": 3.061,
    "visual_family": "y2026_hook",
    "info": "y2026",
    "layers": [
@@ -306,38 +306,18 @@
   {
    "resample": "nearest",
    "id": "plan_002",
-   "start": 13.469,
-   "visual_family": "y2026_plan",
-   "info": "wipe y2026->l2026",
+   "start": 6.122,
+   "visual_family": "l2026_plan",
+   "info": "l2026",
    "layers": [
     {
      "type": "image",
-     "asset": "y2026"
-    },
-    {
-     "type": "wipe",
-     "from": "y2026",
-     "to": "l2026",
-     "t": [
-      4.29,
-      6.09
-     ]
+     "asset": "l2026"
     },
     {
      "type": "label",
      "t": [
-      0.5,
-      4.7
-     ],
-     "text": "12 AUG 2026 - SENTINEL-2 (10 M)",
-     "style": "tag",
-     "slot": "upper",
-     "plate": true
-    },
-    {
-     "type": "label",
-     "t": [
-      4.29,
+      0.4,
       null
      ],
      "text": "26 AUG 2026 - LANDSAT 9 (30 M)",
@@ -357,16 +337,56 @@
     },
     "to": {
      "center": [
-      85.445,
-      28.325
+      85.44,
+      28.31
      ],
-     "width_km": 15
+     "width_km": 14
     }
    }
   },
   {
+   "resample": "nearest",
    "id": "plan_003",
-   "start": 23.782,
+   "start": 12.761,
+   "visual_family": "l2026_plan",
+   "info": "l2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    },
+    {
+     "type": "label",
+     "text": "RADAR NUMBERS ARE ICIMOD'S",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.6,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.5126,
+      28.2872
+     ],
+     "width_km": 14
+    },
+    "to": {
+     "center": [
+      85.445,
+      28.325
+     ],
+     "width_km": 26
+    }
+   }
+  },
+  {
+   "id": "plan_004",
+   "start": 25.822,
    "visual_family": "i_usgs_s1_plan",
    "info": "i_usgs_s1",
    "layers": [
@@ -391,8 +411,8 @@
    ]
   },
   {
-   "id": "plan_004",
-   "start": 38.476,
+   "id": "plan_005",
+   "start": 40.516,
    "visual_family": "i_100km_s1_plan",
    "info": "i_100km_s1",
    "layers": [
@@ -417,8 +437,8 @@
    ]
   },
   {
-   "id": "plan_005",
-   "start": 43.578,
+   "id": "plan_006",
+   "start": 45.618,
    "visual_family": "y2026_plan",
    "info": "y2026",
    "layers": [
@@ -471,8 +491,8 @@
    }
   },
   {
-   "id": "plan_006",
-   "start": 48.68,
+   "id": "plan_007",
+   "start": 50.72,
    "visual_family": "y2026_plan",
    "info": "y2026",
    "layers": [
@@ -490,7 +510,7 @@
       85.3778,
       28.2788
      ],
-     "text": "RASUWAGADHI BORDER POST",
+     "text": "RASUWAGADHI (APPROX.)",
      "plate": true
     }
    ],
@@ -512,8 +532,8 @@
    }
   },
   {
-   "id": "plan_007",
-   "start": 54.87,
+   "id": "plan_008",
+   "start": 56.911,
    "visual_family": "y2026_plan",
    "info": "y2026",
    "layers": [
@@ -551,8 +571,8 @@
    }
   },
   {
-   "id": "plan_008",
-   "start": 59.292,
+   "id": "plan_009",
+   "start": 61.333,
    "visual_family": "i_seismic_s1_plan",
    "info": "i_seismic_s1",
    "layers": [
@@ -586,8 +606,8 @@
    ]
   },
   {
-   "id": "plan_009",
-   "start": 75.618,
+   "id": "plan_010",
+   "start": 77.659,
    "visual_family": "i_cause_s1_plan",
    "info": "i_cause_s1",
    "layers": [
@@ -612,8 +632,8 @@
    ]
   },
   {
-   "id": "plan_010",
-   "start": 92.761,
+   "id": "plan_011",
+   "start": 94.802,
    "visual_family": "i_2015_s1_plan",
    "info": "i_2015_s1",
    "layers": [
@@ -647,8 +667,8 @@
    ]
   },
   {
-   "id": "plan_011",
-   "start": 106.231,
+   "id": "plan_012",
+   "start": 108.271,
    "visual_family": "i_toll_s1_plan",
    "info": "i_toll_s1",
    "layers": [
@@ -665,7 +685,7 @@
      "type": "graphic",
      "asset": "i_toll_s2",
      "t": [
-      7.039,
+      8.263,
       null
      ],
      "push": 0.04
@@ -674,7 +694,7 @@
      "type": "graphic",
      "asset": "i_toll",
      "t": [
-      14.386,
+      13.978,
       null
      ],
      "push": 0.04
@@ -682,8 +702,8 @@
    ]
   },
   {
-   "id": "plan_012",
-   "start": 122.557,
+   "id": "plan_013",
+   "start": 123.373,
    "visual_family": "i_china_s1_plan",
    "info": "i_china_s1",
    "layers": [
@@ -700,7 +720,7 @@
      "type": "graphic",
      "asset": "i_china",
      "t": [
-      11.5,
+      7.403915662650609,
       null
      ],
      "push": 0.04
@@ -708,8 +728,8 @@
    ]
   },
   {
-   "id": "plan_013",
-   "start": 134.557,
+   "id": "plan_014",
+   "start": 131.277,
    "visual_family": "y2026_plan",
    "info": "y2026",
    "layers": [
@@ -746,8 +766,8 @@
    }
   },
   {
-   "id": "plan_014",
-   "start": 137.483,
+   "id": "plan_015",
+   "start": 133.764,
    "visual_family": "y2026_plan",
    "info": "y2026",
    "layers": [
@@ -772,20 +792,96 @@
       85.505,
       28.3
      ],
-     "width_km": 14
+     "width_km": 15
     },
     "to": {
      "center": [
       85.505,
       28.3
      ],
-     "width_km": 8
+     "width_km": 9
     }
    }
   },
   {
-   "id": "method_015",
-   "start": 140.408,
+   "id": "plan_016",
+   "start": 136.251,
+   "visual_family": "y2026_plan",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 9
+    },
+    "to": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 15
+    }
+   }
+  },
+  {
+   "id": "plan_017",
+   "start": 138.738,
+   "visual_family": "y2026_plan",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 15
+    },
+    "to": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 7
+    }
+   }
+  },
+  {
+   "id": "method_018",
+   "start": 141.224,
    "visual_family": "y2026_method",
    "info": "y2026",
    "layers": [
@@ -822,8 +918,8 @@
    }
   },
   {
-   "id": "method_016",
-   "start": 144.748,
+   "id": "method_019",
+   "start": 146.177,
    "visual_family": "y2026_method",
    "info": "y2026",
    "layers": [
@@ -850,8 +946,8 @@
    }
   },
   {
-   "id": "method_017",
-   "start": 149.088,
+   "id": "method_020",
+   "start": 151.129,
    "visual_family": "i_icimod_s1_method",
    "info": "i_icimod_s1",
    "layers": [
@@ -885,8 +981,8 @@
    ]
   },
   {
-   "id": "method_018",
-   "start": 165.822,
+   "id": "method_021",
+   "start": 167.863,
    "visual_family": "i_radar_s1_method",
    "info": "i_radar_s1",
    "layers": [
@@ -929,8 +1025,8 @@
    ]
   },
   {
-   "id": "method_019",
-   "start": 191.537,
+   "id": "method_022",
+   "start": 193.578,
    "visual_family": "i_volume_s1_method",
    "info": "i_volume_s1",
    "layers": [
@@ -947,7 +1043,7 @@
      "type": "graphic",
      "asset": "i_volume_s2",
      "t": [
-      7.783309844976861,
+      7.49362735574122,
       null
      ],
      "push": 0.04
@@ -956,7 +1052,7 @@
      "type": "graphic",
      "asset": "i_volume",
      "t": [
-      7.783309844976861,
+      7.49362735574122,
       null
      ],
      "push": 0.04
@@ -964,8 +1060,8 @@
    ]
   },
   {
-   "id": "method_020",
-   "start": 199.82,
+   "id": "method_023",
+   "start": 201.571,
    "visual_family": "y2026_method",
    "info": "y2026",
    "layers": [
@@ -979,7 +1075,7 @@
      "style": "year",
      "slot": "upper",
      "t": [
-      0.7456186340048413,
+      0.7778055772532458,
       null
      ]
     }
@@ -1002,8 +1098,8 @@
    }
   },
   {
-   "id": "method_021",
-   "start": 202.057,
+   "id": "method_024",
+   "start": 203.905,
    "visual_family": "y2026_method",
    "info": "y2026",
    "layers": [
@@ -1017,7 +1113,7 @@
      "style": "year",
      "slot": "upper",
      "t": [
-      0.7456186340048413,
+      0.7778055772532458,
       null
      ]
     }
@@ -1040,8 +1136,8 @@
    }
   },
   {
-   "id": "method_022",
-   "start": 204.294,
+   "id": "method_025",
+   "start": 206.238,
    "visual_family": "y2026_method",
    "info": "y2026",
    "layers": [
@@ -1055,7 +1151,7 @@
      "style": "year",
      "slot": "upper",
      "t": [
-      0.7456186340048413,
+      0.7778055772532458,
       null
      ]
     }
@@ -1078,8 +1174,8 @@
    }
   },
   {
-   "id": "obs_023",
-   "start": 206.531,
+   "id": "obs_026",
+   "start": 208.571,
    "visual_family": "y2026_obs",
    "info": "y2026",
    "layers": [
@@ -1116,8 +1212,8 @@
    }
   },
   {
-   "id": "obs_024",
-   "start": 212.767,
+   "id": "obs_027",
+   "start": 214.808,
    "visual_family": "y2026_obs",
    "info": "y2026",
    "layers": [
@@ -1144,8 +1240,8 @@
    }
   },
   {
-   "id": "obs_025",
-   "start": 219.003,
+   "id": "obs_028",
+   "start": 221.044,
    "visual_family": "y2026_obs",
    "info": "y2026",
    "layers": [
@@ -1172,8 +1268,8 @@
    }
   },
   {
-   "id": "obs_026",
-   "start": 225.239,
+   "id": "obs_029",
+   "start": 227.28,
    "visual_family": "y2026_obs",
    "info": "y2026",
    "layers": [
@@ -1200,8 +1296,8 @@
    }
   },
   {
-   "id": "obs_027",
-   "start": 231.476,
+   "id": "obs_030",
+   "start": 233.516,
    "visual_family": "i_clouds_obs",
    "info": "i_clouds",
    "layers": [
@@ -1218,8 +1314,8 @@
   },
   {
    "resample": "nearest",
-   "id": "obs_028",
-   "start": 238.476,
+   "id": "obs_031",
+   "start": 240.516,
    "visual_family": "l2026_obs",
    "info": "l2026",
    "layers": [
@@ -1257,8 +1353,8 @@
    }
   },
   {
-   "id": "obs_029",
-   "start": 246.231,
+   "id": "obs_032",
+   "start": 248.271,
    "visual_family": "y2026_obs",
    "info": "y2026",
    "layers": [
@@ -1310,39 +1406,19 @@
   },
   {
    "resample": "nearest",
-   "id": "obs_030",
-   "start": 251.129,
-   "visual_family": "y2026_obs",
-   "info": "wipe y2026->l2026",
+   "id": "obs_033",
+   "start": 253.169,
+   "visual_family": "l2026_obs",
+   "info": "l2026",
    "layers": [
     {
      "type": "image",
-     "asset": "y2026"
-    },
-    {
-     "type": "wipe",
-     "from": "y2026",
-     "to": "l2026",
-     "t": [
-      2.141,
-      3.941
-     ]
+     "asset": "l2026"
     },
     {
      "type": "label",
      "t": [
       0.4,
-      3.4
-     ],
-     "text": "12 AUG 2026 - SENTINEL-2 (10 M)",
-     "style": "tag",
-     "slot": "upper",
-     "plate": true
-    },
-    {
-     "type": "label",
-     "t": [
-      2.141,
       null
      ],
      "text": "26 AUG 2026 - LANDSAT 9 (30 M)",
@@ -1350,6 +1426,19 @@
      "slot": "upper",
      "plate": true,
      "sub": "NOT SHARPENED"
+    },
+    {
+     "type": "pin",
+     "t": [
+      2.141,
+      null
+     ],
+     "at": [
+      85.4253,
+      28.3314
+     ],
+     "text": "DARK GREY-BROWN SWATH",
+     "plate": true
     }
    ],
    "camera": {
@@ -1371,23 +1460,14 @@
   },
   {
    "resample": "nearest",
-   "id": "obs_031",
-   "start": 261.741,
-   "visual_family": "y2026_obs",
-   "info": "wipe y2026->l2026",
+   "id": "obs_034",
+   "start": 263.782,
+   "visual_family": "l2026_obs",
+   "info": "l2026",
    "layers": [
     {
      "type": "image",
-     "asset": "y2026"
-    },
-    {
-     "type": "wipe",
-     "from": "y2026",
-     "to": "l2026",
-     "t": [
-      0.6,
-      2.4
-     ]
+     "asset": "l2026"
     },
     {
      "type": "arrow",
@@ -1446,7 +1526,7 @@
       2.141,
       null
      ],
-     "text": "TRACED BY EYE: ~30 KM",
+     "text": "TRACED BY EYE, APPROX. 30 KM",
      "style": "tag",
      "slot": "upper",
      "plate": true
@@ -1461,7 +1541,7 @@
       85.3778,
       28.2788
      ],
-     "text": "RASUWAGADHI BORDER POST",
+     "text": "RASUWAGADHI (APPROX.)",
      "plate": true
     },
     {
@@ -1494,8 +1574,8 @@
    }
   },
   {
-   "id": "obs_032",
-   "start": 275.618,
+   "id": "obs_035",
+   "start": 277.659,
    "visual_family": "l2026_obs",
    "info": "l2026",
    "layers": [
@@ -1533,8 +1613,8 @@
    }
   },
   {
-   "id": "obs_033",
-   "start": 278.779,
+   "id": "obs_036",
+   "start": 280.76,
    "visual_family": "y2026_obs",
    "info": "y2026",
    "layers": [
@@ -1571,8 +1651,8 @@
    }
   },
   {
-   "id": "obs_034",
-   "start": 282.149,
+   "id": "obs_037",
+   "start": 284.19,
    "visual_family": "i_flow_scale_s1_obs",
    "info": "i_flow_scale_s1",
    "layers": [
@@ -1597,8 +1677,8 @@
    ]
   },
   {
-   "id": "obs_035",
-   "start": 286.087,
+   "id": "obs_038",
+   "start": 288.057,
    "visual_family": "y2026_obs",
    "info": "y2026",
    "layers": [
@@ -1612,7 +1692,7 @@
      "style": "year",
      "slot": "upper",
      "t": [
-      0.6361512006347663,
+      0.6480520052609383,
       null
      ]
     }
@@ -1635,8 +1715,8 @@
    }
   },
   {
-   "id": "obs_036",
-   "start": 287.996,
+   "id": "obs_039",
+   "start": 290.001,
    "visual_family": "y2026_obs",
    "info": "y2026",
    "layers": [
@@ -1650,7 +1730,7 @@
      "style": "year",
      "slot": "upper",
      "t": [
-      0.6361512006347663,
+      0.6480520052609383,
       null
      ]
     }
@@ -1673,8 +1753,8 @@
    }
   },
   {
-   "id": "obs_037",
-   "start": 289.904,
+   "id": "obs_040",
+   "start": 291.945,
    "visual_family": "i_official_s1_obs",
    "info": "i_official_s1",
    "layers": [
@@ -1691,7 +1771,7 @@
      "type": "graphic",
      "asset": "i_official",
      "t": [
-      5.552981895633666,
+      5.475032851511182,
       null
      ],
      "push": 0.04
@@ -1699,8 +1779,8 @@
    ]
   },
   {
-   "id": "obs_038",
-   "start": 295.957,
+   "id": "obs_041",
+   "start": 297.92,
    "visual_family": "y2026_obs",
    "info": "y2026",
    "layers": [
@@ -1737,8 +1817,8 @@
    }
   },
   {
-   "id": "limits_039",
-   "start": 299.184,
+   "id": "limits_042",
+   "start": 301.224,
    "visual_family": "y2026_limits",
    "info": "y2026",
    "layers": [
@@ -1775,8 +1855,8 @@
    }
   },
   {
-   "id": "limits_040",
-   "start": 305.972,
+   "id": "limits_043",
+   "start": 308.013,
    "visual_family": "y2026_limits",
    "info": "y2026",
    "layers": [
@@ -1803,8 +1883,8 @@
    }
   },
   {
-   "id": "limits_041",
-   "start": 312.761,
+   "id": "limits_044",
+   "start": 314.802,
    "visual_family": "i_cannot_s1_limits",
    "info": "i_cannot_s1",
    "layers": [
@@ -1847,8 +1927,8 @@
    ]
   },
   {
-   "id": "limits_042",
-   "start": 329.347,
+   "id": "limits_045",
+   "start": 331.388,
    "visual_family": "y2026_limits",
    "info": "y2026",
    "layers": [
@@ -1885,8 +1965,8 @@
    }
   },
   {
-   "id": "close_043",
-   "start": 334.286,
+   "id": "close_046",
+   "start": 336.327,
    "visual_family": "close_view",
    "info": "y2026",
    "layers": [
@@ -1923,8 +2003,8 @@
    }
   },
   {
-   "id": "close_044",
-   "start": 338.896,
+   "id": "close_047",
+   "start": 340.936,
    "visual_family": "close_view",
    "info": "y2026",
    "layers": [
@@ -1951,8 +2031,8 @@
    }
   },
   {
-   "id": "close_045",
-   "start": 343.505,
+   "id": "close_048",
+   "start": 345.546,
    "visual_family": "close_wide",
    "info": "y2026",
    "layers": [
@@ -1989,8 +2069,8 @@
    }
   },
   {
-   "id": "close_046",
-   "start": 348.115,
+   "id": "close_049",
+   "start": 350.156,
    "visual_family": "close_wide",
    "info": "y2026",
    "layers": [
@@ -2017,8 +2097,8 @@
    }
   },
   {
-   "id": "close_047",
-   "start": 352.725,
+   "id": "close_050",
+   "start": 354.766,
    "visual_family": "y2026_close",
    "info": "y2026",
    "layers": [
@@ -2055,8 +2135,8 @@
    }
   },
   {
-   "id": "close_048",
-   "start": 356.567,
+   "id": "close_051",
+   "start": 358.607,
    "visual_family": "y2026_close",
    "info": "y2026",
    "layers": [
@@ -2084,6 +2164,6 @@
   }
  ],
  "end": {
-  "seconds": 361.41
+  "seconds": 363.45
  }
 }

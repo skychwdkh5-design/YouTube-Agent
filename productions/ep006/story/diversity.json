@@ -3,21 +3,21 @@
  "max_map_run": 4,
  "longest_map_run": {
   "shots": 7,
-  "from": 329.3,
-  "to": 360.4,
+  "from": 331.4,
+  "to": 362.4,
   "chapter": "close"
  },
  "kind_share_info_only": {
-  "map": 0.531,
-  "scene": 0.184,
-  "graphic": 0.286,
+  "map": 0.538,
+  "scene": 0.192,
+  "graphic": 0.269,
   "still": 0.0,
   "video": 0.0
  },
  "kind_share": {
-  "map": 0.531,
-  "scene": 0.184,
-  "graphic": 0.286,
+  "map": 0.538,
+  "scene": 0.192,
+  "graphic": 0.269,
   "still": 0.0,
   "video": 0.0
  },
@@ -29,7 +29,7 @@
   "plan"
  ],
  "warnings": [
-  "7 satellite-map shots in a row (329-360 s, chapter close): say in research/notes.json visual_choices['close'] why maps are the best evidence here, or use the material that proves or explains the claim better"
+  "7 satellite-map shots in a row (331-362 s, chapter close): say in research/notes.json visual_choices['close'] why maps are the best evidence here, or use the material that proves or explains the claim better"
  ],
  "status": "WARN",
  "media_pending": [

@@ -1,6 +1,6 @@
 # Research report
 
-Built 2026-10-28T01:53:31Z from 16 notes.
+Built 2026-10-28T02:00:09Z from 16 notes.
 
 | id | tier | confidence | why | access |
 |---|---|---|---|---|

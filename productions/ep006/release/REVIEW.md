@@ -1,19 +1,19 @@
 # Release package - The Mountain That Fell
 
-Generated 2026-10-28T01:54:57Z. Nothing is published.
+Generated 2026-10-28T02:00:53Z. Nothing is published.
 
 ## Status
 - topic: done owner-approved topic
 - research: done 16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN
 - facts: done 16 claims, registry ok
 - evidence: done 2 stacks + Landsat stack(s)
-- script: done 883 words = 6.0 min, 15 claims used
+- script: done 888 words = 6.0 min, 15 claims used
 - media: done 3 verified of 5 media entries (style v2: media optional)
-- visualplan: done 41 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']
+- visualplan: done 44 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']
 - visuals: done 39 graphics
-- storyboard: done 49 shots, 360.408s, timing from estimate
-- visualcheck: done visual claims OK {'VERIFIED_DATA': 17, 'REVIEWED': 34} of 51 items; 1 orphan reviews (run `visualcheck.py prune`)
-- voice: awaiting_approval no approvals/voice.json; plan: 4993 characters
+- storyboard: done 52 shots, 362.449s, timing from estimate
+- visualcheck: done visual claims OK {'VERIFIED_DATA': 19, 'REVIEWED': 33} of 52 items; 5 orphan reviews (run `visualcheck.py prune`)
+- voice: awaiting_approval no approvals/voice.json; plan: 5029 characters
 - voicecheck: waiting waiting for ['voice']
 - captions: waiting waiting for ['voicecheck']
 - render: waiting waiting for ['voice', 'voicecheck', 'captions']
@@ -49,7 +49,7 @@ Generated 2026-10-28T01:54:57Z. Nothing is published.
 - C7 [science/medium] ICIMOD's preliminary analysis (13 October 2026) concludes the disaster was not a conventional glacial lake outburst flood: a bedrock failure sheared away part of an overlying glacier. (ICIMOD press release, 2026-10-13, https://www.icimod.org/press-releases/second-major-himalayan-flood-in-seven-weeks-raises-new-questions-about-mountain-risk)
 - C8 [science/medium] ICIMOD reports that Sentinel-1 radar detected up to 40 centimeters of ground deformation along the satellite's line of sight between 7 July and 24 August 2026, two days before the collapse. (ICIMOD press release, 2026-10-13, https://www.icimod.org/press-releases/second-major-himalayan-flood-in-seven-weeks-raises-new-questions-about-mountain-risk)
 - C9 [science/medium] Early estimates of the volume differ: ICIMOD's preliminary figure is about 132 million cubic meters of rock and ice, while a separate preprint suggests a much smaller order of magnitude. (ICIMOD press release, 2026-10-13, https://www.icimod.org/press-releases/second-major-himalayan-flood-in-seven-weeks-raises-new-questions-about-mountain-risk)
-- C10 [media/medium] By mid-October 2026 Nepali figures put the confirmed death toll in Nepal above 1,400 people, with roughly five thousand still listed as missing; the lists keep changing as names are verified. (Nepal Police / NDRRMA figures as reported by Ratopati and a live tracker, 2026-10-14, https://english.ratopati.com/story/78427/rasuwa-flood-death-toll-reaches-1367)
+- C10 [media/medium] ICIMOD's 13 October 2026 press release reported figures from Nepal's disaster authority NDRRMA: 1,451 people dead and 5,745 missing in Nepal; other Nepali lists differ slightly (for example 1,454 dead and 5,285 missing on 4 October) and keep changing. (ICIMOD press release (read by the owner and relayed to us; not opened by us), 2026-10-13, https://www.icimod.org/press-releases/second-major-himalayan-flood-in-seven-weeks-raises-new-questions-about-mountain-risk)
 - C11 [media/medium] China counts casualties on its side of the border separately: Xinhua reported 43 dead and 519 missing at Gyirong Port as of 5 September, and it was not clear whether some people appear in both countries' counts. (Xinhua (via The Star, NST) and NBC News, 2026-09-06, https://english.news.cn/20260906/c7070ebe266b4338bf2206805140c36c/c.html)
 - C12 [org/low] On 2 September 2026 a US Air Force C-130J delivered relief supplies to Tribhuvan International Airport in Kathmandu, according to US Air Force photographs. (U.S. Air Force photographs (Commons file pages), 2026-09-02, https://commons.wikimedia.org/wiki/Category:2026_Nepal_floods)
 - C13 [observation/medium] In a Landsat 9 image taken on 26 August 2026, a dark grey-brown swath follows the valley and river corridor below the glacier; the clear 12 August 2026 Sentinel-2 image of the same valley shows only a narrow pale river bed there.

@@ -28,9 +28,9 @@ inf.append(card("i_cause", "plan", ["C4"], "has not yet determined", [N("a", "CA
 inf.append(card("i_2015", "plan", ["C5"], "In 2015, USGS said", [N("h", "2015 - SAME MOUNTAIN", 0.5, 0.15, 0.6, 0.12, "plain", 1), N("a", "M7.8 EARTHQUAKE SET OFF A DEBRIS AVALANCHE", 0.5, 0.4, 0.88, 0.18, "accent", 1),
     N("b", "FELL NEARLY 1,900 M - BURIED A VILLAGE", 0.5, 0.65, 0.88, 0.15, "default", 2), N("c", "MORE THAN 200 PEOPLE KILLED", 0.5, 0.86, 0.7, 0.13, "red", 3)],
     [{"anchor_text": "In 2015, USGS said"}, {"anchor_text": "nearly 1,900 meters"}, {"anchor_text": "killed more than 200 people"}], SRC_USGS, "What was reported", 14))
-inf.append(card("i_toll", "plan", ["C10"], "Now the human cost", [N("h", "NEPAL - MID-OCTOBER, REPORTED", 0.5, 0.16, 0.66, 0.12, "plain", 1), N("a", "MORE THAN 1,400 DEAD", 0.5, 0.4, 0.8, 0.2, "accent", 1),
-    N("b", "ROUGHLY 5,000 STILL LISTED AS MISSING", 0.5, 0.65, 0.86, 0.16, "default", 2), N("c", "THE LISTS KEEP CHANGING", 0.5, 0.86, 0.7, 0.12, "red", 3)],
-    [{"anchor_text": "Now the human cost"}, {"anchor_text": "roughly five thousand still listed as missing"}, {"anchor_text": "not giving one exact number"}], "Nepali figures as reported (Nepal Police / NDRRMA lists; they differ by source and date)", "Counts in Nepal", 14))
+inf.append(card("i_toll", "plan", ["C10"], "Now the human cost", [N("h", "NEPAL - AS REPORTED BY ICIMOD, 13 OCT", 0.5, 0.16, 0.8, 0.12, "plain", 1), N("a", "1,451 DEAD (NDRRMA)", 0.5, 0.4, 0.8, 0.2, "accent", 1),
+    N("b", "5,745 MISSING", 0.5, 0.65, 0.7, 0.16, "default", 2), N("c", "OTHER LISTS DIFFER - APPROXIMATE", 0.5, 0.86, 0.8, 0.12, "red", 3)],
+    [{"anchor_text": "Now the human cost"}, {"anchor_text": "5,745 missing"}, {"anchor_text": "are not final"}], "ICIMOD release, 13 Oct 2026 (NDRRMA figures); Nepal only", "Counts in Nepal", 14))
 inf.append(card("i_china", "plan", ["C11"], "China counts its own side", [N("h", "CHINA - XINHUA, 5 SEPT", 0.5, 0.16, 0.6, 0.12, "plain", 1), N("a", "GYIRONG PORT: 43 DEAD, 519 MISSING", 0.5, 0.42, 0.86, 0.18, "accent", 1),
     N("b", "COUNTED SEPARATELY FROM NEPAL", 0.5, 0.67, 0.8, 0.14, "default", 2), N("c", "NOT ADDED TO NEPAL'S NUMBERS", 0.5, 0.86, 0.76, 0.12, "red", 3)],
     [{"anchor_text": "China counts its own side"}, {"anchor_text": "do not add the two together"}], "Xinhua (via The Star / NST) and NBC News, early September 2026", "Counts in Tibet", 12))
@@ -52,7 +52,7 @@ inf.append({"id": "i_flow_scale", "chapter": "obs", "claims": ["C2", "C14"], "an
     "graphic": {"type": "geo", "title": "Part of ~100 km", "source": "Sentinel-2 12 Aug 2026 (40 m); trace: Landsat 9, 26 Aug", "credit": "Contains modified Copernicus Sentinel data 2026", "show_credit": False, "date": "12 AUG 2026",
                 "image": {"stack": "evidence/wide/y2026.png", "grid": "evidence/wide/grid.json", "center": [85.45, 28.26], "width_km": 42},
                 "arrows": [{"from": [85.5126, 28.2872], "to": [85.4141, 28.3155], "step": 1}, {"from": [85.4141, 28.3155], "to": [85.3852, 28.2858], "step": 1}, {"from": [85.3852, 28.2858], "to": [85.3586, 28.2268], "step": 1}],
-                "callouts": [{"at": [85.3778, 28.2788], "text": "RASUWAGADHI BORDER POST", "step": 2}], "graticule": False, "scale_bar": True},
+                "callouts": [{"at": [85.3778, 28.2788], "text": "RASUWAGADHI (APPROX.)", "step": 2}], "graticule": False, "scale_bar": True},
     "steps": [{"anchor_text": "USGS said the flow traveled about 100 kilometers"}, {"anchor_text": "Our frame cannot show all of it"}]})
 inf.append(card("i_official", "obs", ["C6"], "mapping the full extent", [N("a", "USGS: OFFICIAL EXTENT MAP FROM BEFORE/AFTER SATELLITE IMAGES", 0.5, 0.3, 0.9, 0.22, "accent", 1), N("b", "OUR TRACE IS NOT A SUBSTITUTE", 0.5, 0.68, 0.8, 0.16, "red", 2)],
     [{"anchor_text": "mapping the full extent"}, {"anchor_text": "not a substitute"}], SRC_USGS, "What was reported", 10))
@@ -65,29 +65,30 @@ inf.append(card("i_watch", "close", [], "Two things will settle more", [N("a", "
 # ---- maps (scenes): camera, wipe, pins, arrows; presets are shared (motion_presets.json)
 VALLEY = [85.445, 28.325]; SCAR = [85.5126, 28.2872]; JUNC = [85.3778, 28.2788]; BEND = [85.4456, 28.3379]
 MAPS = [
- {"id": "m_hook", "chapter": "plan", "claims": ["C13"], "anchor_text": "On 12 August 2026", "min_s": 10, "wipe": ["y2026", "l2026"], "zoom": [26, 15], "focus": VALLEY, "wipe_at": "a dark swath runs through", "resample": "nearest",
-  "marks": [{"type": "label", "text": "12 AUG 2026 - SENTINEL-2 (10 M)", "style": "tag", "slot": "upper", "t": 0.5, "dur": 4.2, "plate": True},
-            {"type": "label", "text": "26 AUG 2026 - LANDSAT 9 (30 M)", "sub": "NOT SHARPENED", "style": "tag", "slot": "upper", "anchor_text": "a dark swath runs through", "dur": None, "plate": True}]},
+ {"id": "m_hook", "chapter": "plan", "claims": ["C13"], "anchor_text": "Fourteen days later", "min_s": 7, "asset": "l2026", "zoom": [26, 14], "focus": VALLEY, "focus_to": [85.44, 28.31], "resample": "nearest",
+  "marks": [{"type": "label", "text": "26 AUG 2026 - LANDSAT 9 (30 M)", "sub": "NOT SHARPENED", "style": "tag", "slot": "upper", "t": 0.4, "dur": None, "plate": True}]},
+ {"id": "m_radar_note", "chapter": "plan", "claims": [], "limit": True, "anchor_text": "radar satellite had been picking up movement", "min_s": 6, "asset": "l2026", "zoom": [14, 26], "focus": SCAR, "focus_to": VALLEY, "resample": "nearest",
+  "label": {"text": "RADAR NUMBERS ARE ICIMOD'S", "style": "tag", "slot": "upper", "plate": True}},
  {"id": "m_rivers", "chapter": "plan", "claims": ["C2"], "anchor_text": "along two rivers", "min_s": 9, "asset": "y2026", "zoom": [20, 15], "focus": [85.43, 28.32], "focus_to": [85.37, 28.23],
   "marks": [{"type": "pin", "at": [85.4456, 28.3379], "text": "LENDE KHOLA", "anchor_text": "the Lende Khola", "dur": 4.0, "plate": True}, {"type": "pin", "at": [85.3592, 28.2404], "text": "TRISHULI KHOLA", "anchor_text": "the Trishuli Khola", "dur": None, "plate": True}]},
  {"id": "m_border", "chapter": "plan", "claims": ["C2"], "anchor_text": "including the Rasuwagadhi border post", "min_s": 7, "asset": "y2026", "zoom": [9, 5], "focus": JUNC,
-  "marks": [{"type": "pin", "at": JUNC, "text": "RASUWAGADHI BORDER POST", "t": 0.8, "dur": None, "plate": True}]},
+  "marks": [{"type": "pin", "at": JUNC, "text": "RASUWAGADHI (APPROX.)", "t": 0.8, "dur": None, "plate": True}]},
  {"id": "m_stop", "chapter": "plan", "claims": [], "limit": True, "anchor_text": "does not say where along that route", "min_s": 5, "asset": "y2026", "zoom": [16, 20], "focus": JUNC, "focus_to": [85.36, 28.20],
   "label": {"text": "STOP POINT: NOT IN USGS TEXT", "style": "tag", "slot": "upper", "plate": True}},
  {"id": "m_before", "chapter": "obs", "claims": ["C13"], "anchor_text": "In the 12 August image", "min_s": 7, "asset": "y2026", "zoom": [12, 7], "focus": [85.43, 28.335], "focus_to": [85.39, 28.30],
   "marks": [{"type": "pin", "at": [85.4253, 28.3314], "text": "NARROW PALE RIVER BED", "t": 1.0, "dur": None, "plate": True},
             {"type": "label", "text": "12 AUG 2026 - SENTINEL-2, 10 M", "style": "tag", "slot": "upper", "t": 0.3, "plate": True}]},
- {"id": "m_after", "chapter": "obs", "claims": ["C13"], "anchor_text": "In the 26 August image", "min_s": 9, "wipe": ["y2026", "l2026"], "zoom": [12, 7], "focus": [85.43, 28.335], "focus_to": [85.39, 28.30], "wipe_at": "a dark grey-brown swath", "resample": "nearest",
-  "marks": [{"type": "label", "text": "12 AUG 2026 - SENTINEL-2 (10 M)", "style": "tag", "slot": "upper", "t": 0.4, "dur": 3.0, "plate": True},
-            {"type": "label", "text": "26 AUG 2026 - LANDSAT 9 (30 M)", "sub": "NOT SHARPENED", "style": "tag", "slot": "upper", "anchor_text": "a dark grey-brown swath", "dur": None, "plate": True}]},
+ {"id": "m_after", "chapter": "obs", "claims": ["C13"], "anchor_text": "In the 26 August image", "min_s": 8, "asset": "l2026", "zoom": [12, 7], "focus": [85.43, 28.335], "focus_to": [85.39, 28.30], "resample": "nearest",
+  "marks": [{"type": "label", "text": "26 AUG 2026 - LANDSAT 9 (30 M)", "sub": "NOT SHARPENED", "style": "tag", "slot": "upper", "t": 0.4, "dur": None, "plate": True},
+            {"type": "pin", "at": [85.4253, 28.3314], "text": "DARK GREY-BROWN SWATH", "anchor_text": "a dark grey-brown swath", "dur": None, "plate": True}]},
  {"id": "m_pixel", "chapter": "obs", "claims": ["C16"], "anchor_text": "Its pixels are 30 meters wide", "min_s": 5, "asset": "l2026", "zoom": [1.5, 0.5], "focus": BEND, "resample": "nearest",
   "label": {"text": "1 PIXEL = 30 M OF GROUND", "style": "tag", "slot": "upper", "plate": True}},
- {"id": "m_trace", "chapter": "obs", "claims": ["C14"], "anchor_text": "We traced it by eye", "min_s": 15, "wipe": ["y2026", "l2026"], "zoom": [32, 26], "focus": [85.43, 28.30], "wipe_at": "We traced it by eye", "resample": "nearest",
+ {"id": "m_trace", "chapter": "obs", "claims": ["C14"], "anchor_text": "We traced it by eye", "min_s": 15, "asset": "l2026", "zoom": [32, 26], "focus": [85.43, 28.30], "resample": "nearest",
   "marks": [{"type": "arrow", "from": SCAR, "to": BEND, "color": "#FFD23F", "width": 9, "anchor_text": "We traced it by eye", "dur": None},
             {"type": "arrow", "from": BEND, "to": [85.3852, 28.2858], "color": "#FFD23F", "width": 9, "anchor_text": "On our grid it runs about 30 kilometers", "dur": None},
             {"type": "arrow", "from": [85.3852, 28.2858], "to": [85.3522, 28.1974], "color": "#FFD23F", "width": 9, "anchor_text": "On our grid it runs about 30 kilometers", "dur": None},
-            {"type": "label", "text": "TRACED BY EYE: ~30 KM", "style": "tag", "slot": "upper", "anchor_text": "On our grid it runs about 30 kilometers", "dur": None, "plate": True},
-            {"type": "pin", "at": JUNC, "text": "RASUWAGADHI BORDER POST", "anchor_text": "near the Rasuwagadhi border post", "dur": None, "plate": True},
+            {"type": "label", "text": "TRACED BY EYE, APPROX. 30 KM", "style": "tag", "slot": "upper", "anchor_text": "On our grid it runs about 30 kilometers", "dur": None, "plate": True},
+            {"type": "pin", "at": JUNC, "text": "RASUWAGADHI (APPROX.)", "anchor_text": "near the Rasuwagadhi border post", "dur": None, "plate": True},
             {"type": "label", "text": "~20 KM FROM GLACIER FOOT TO HERE", "style": "tag", "slot": "middle", "anchor_text": "About 20 of them", "dur": None, "plate": True}]},
  {"id": "m_clouds_hide", "chapter": "obs", "claims": [], "limit": True, "anchor_text": "Clouds hide other stretches", "min_s": 5, "asset": "l2026", "zoom": [20, 14], "focus": [85.5, 28.30], "focus_to": [85.45, 28.32],
   "label": {"text": "CLOUDS HIDE PARTS OF THE VALLEY", "style": "tag", "slot": "upper", "plate": True}},

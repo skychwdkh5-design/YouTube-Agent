@@ -302,6 +302,37 @@
    "reviewer": "agent",
    "verdict": "supports",
    "note": "Sentinel-2 12 Aug zoom on a river confluence with pale gravel beds and a few structures/clearings at the junction; consistent with the pin at the Rasuwagadhi border post position (Wikipedia coordinates 28°16'40\"N 85°22'40\"E); pin plate itself not visible in the still."
+  },
+  {
+   "item": "plan_002:shot",
+   "frame": 0,
+   "frame_sha256": "b2dbe0eca1c6add26c2230d61c456f7063a5e1519647dd0abbeeadcb727983b9",
+   "claims": [
+    "C13"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Same Landsat 9 view as a shot: dark swath visible along the valley, clouds partly hiding terrain; supports 'a dark swath runs through the valley'."
+  },
+  {
+   "item": "plan_003:label:RADAR NUMBERS ARE ICIMOD'S",
+   "frame": 0,
+   "frame_sha256": "a45ad5dcbb7021466719345dd415f3731f6b4e0b24cdc41799e4d446a74488e2",
+   "claims": [],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Landsat 9 view near the glacier foot with cyan snow/ice and clouds; no radar image is shown; the limit label says radar numbers are ICIMOD's (no radar data pictured)."
+  },
+  {
+   "item": "plan_012:graphic:i_toll_s1",
+   "frame": 0,
+   "frame_sha256": "fc663a945ddf3bcc32a0a08d48ab04d809d21f3639fa5407109ab8366a899184",
+   "claims": [
+    "C10"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Text card read in the still: Nepal, as reported by ICIMOD 13 Oct; 1,451 dead (NDRRMA); 5,745 missing; other lists differ - approximate; source line names ICIMOD release; no imagery of people."
   }
  ]
 }

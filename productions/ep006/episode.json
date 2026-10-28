@@ -547,11 +547,11 @@
       },
       {
        "asset": "i_toll_s2",
-       "anchor_text": "roughly five thousand still listed as missing"
+       "anchor_text": "5,745 missing"
       },
       {
        "asset": "i_toll",
-       "anchor_text": "not giving one exact number"
+       "anchor_text": "are not final"
       }
      ]
     },
@@ -578,33 +578,24 @@
     {
      "kind": "scene",
      "id": "m_hook",
-     "asset": "y2026",
-     "min_s": 10,
+     "asset": "l2026",
+     "min_s": 7,
      "claims": [
       "C13"
      ],
      "anchor": "claim",
      "zoom": [
       26,
-      15
+      14
      ],
      "marks": [
-      {
-       "type": "label",
-       "text": "12 AUG 2026 - SENTINEL-2 (10 M)",
-       "style": "tag",
-       "slot": "upper",
-       "t": 0.5,
-       "dur": 4.2,
-       "plate": true
-      },
       {
        "type": "label",
        "text": "26 AUG 2026 - LANDSAT 9 (30 M)",
        "sub": "NOT SHARPENED",
        "style": "tag",
        "slot": "upper",
-       "anchor_text": "a dark swath runs through",
+       "t": 0.4,
        "dur": null,
        "plate": true
       }
@@ -613,12 +604,41 @@
       85.445,
       28.325
      ],
-     "wipe": [
-      "y2026",
-      "l2026"
+     "focus_to": [
+      85.44,
+      28.31
      ],
-     "wipe_at": "a dark swath runs through",
-     "anchor_text": "On 12 August 2026",
+     "anchor_text": "Fourteen days later",
+     "resample": "nearest"
+    },
+    {
+     "kind": "scene",
+     "id": "m_radar_note",
+     "asset": "l2026",
+     "min_s": 6,
+     "claims": [],
+     "anchor": "claim",
+     "zoom": [
+      14,
+      26
+     ],
+     "marks": [],
+     "focus": [
+      85.5126,
+      28.2872
+     ],
+     "focus_to": [
+      85.445,
+      28.325
+     ],
+     "label": {
+      "text": "RADAR NUMBERS ARE ICIMOD'S",
+      "style": "tag",
+      "slot": "upper",
+      "plate": true
+     },
+     "anchor_text": "radar satellite had been picking up movement",
+     "limit": true,
      "resample": "nearest"
     },
     {
@@ -688,7 +708,7 @@
         85.3778,
         28.2788
        ],
-       "text": "RASUWAGADHI BORDER POST",
+       "text": "RASUWAGADHI (APPROX.)",
        "t": 0.8,
        "dur": null,
        "plate": true
@@ -752,8 +772,38 @@
     {
      "asset": "y2026",
      "zoom": [
-      14,
-      8
+      15,
+      9
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     }
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      9,
+      15
+     ],
+     "focus": [
+      85.44,
+      28.33
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     }
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      15,
+      7
      ],
      "label": {
       "text": "AUG 2026",
@@ -1006,8 +1056,8 @@
     {
      "kind": "scene",
      "id": "m_after",
-     "asset": "y2026",
-     "min_s": 9,
+     "asset": "l2026",
+     "min_s": 8,
      "claims": [
       "C13"
      ],
@@ -1019,19 +1069,21 @@
      "marks": [
       {
        "type": "label",
-       "text": "12 AUG 2026 - SENTINEL-2 (10 M)",
-       "style": "tag",
-       "slot": "upper",
-       "t": 0.4,
-       "dur": 3.0,
-       "plate": true
-      },
-      {
-       "type": "label",
        "text": "26 AUG 2026 - LANDSAT 9 (30 M)",
        "sub": "NOT SHARPENED",
        "style": "tag",
        "slot": "upper",
+       "t": 0.4,
+       "dur": null,
+       "plate": true
+      },
+      {
+       "type": "pin",
+       "at": [
+        85.4253,
+        28.3314
+       ],
+       "text": "DARK GREY-BROWN SWATH",
        "anchor_text": "a dark grey-brown swath",
        "dur": null,
        "plate": true
@@ -1045,11 +1097,6 @@
       85.39,
       28.3
      ],
-     "wipe": [
-      "y2026",
-      "l2026"
-     ],
-     "wipe_at": "a dark grey-brown swath",
      "anchor_text": "In the 26 August image",
      "resample": "nearest"
     },
@@ -1083,7 +1130,7 @@
     {
      "kind": "scene",
      "id": "m_trace",
-     "asset": "y2026",
+     "asset": "l2026",
      "min_s": 15,
      "claims": [
       "C14"
@@ -1141,7 +1188,7 @@
       },
       {
        "type": "label",
-       "text": "TRACED BY EYE: ~30 KM",
+       "text": "TRACED BY EYE, APPROX. 30 KM",
        "style": "tag",
        "slot": "upper",
        "anchor_text": "On our grid it runs about 30 kilometers",
@@ -1154,7 +1201,7 @@
         85.3778,
         28.2788
        ],
-       "text": "RASUWAGADHI BORDER POST",
+       "text": "RASUWAGADHI (APPROX.)",
        "anchor_text": "near the Rasuwagadhi border post",
        "dur": null,
        "plate": true
@@ -1173,11 +1220,6 @@
       85.43,
       28.3
      ],
-     "wipe": [
-      "y2026",
-      "l2026"
-     ],
-     "wipe_at": "We traced it by eye",
      "anchor_text": "We traced it by eye",
      "resample": "nearest"
     },
@@ -1420,7 +1462,21 @@
    "dropped": [
     "y2026"
    ],
-   "reason": "chapter is 128.2s"
+   "reason": "chapter is 136.7s"
+  },
+  {
+   "chapter": "plan",
+   "dropped": [
+    "y2026"
+   ],
+   "reason": "chapter is 136.7s"
+  },
+  {
+   "chapter": "plan",
+   "dropped": [
+    "y2026"
+   ],
+   "reason": "chapter is 136.7s"
   },
   {
    "chapter": "obs",
@@ -1455,6 +1511,11 @@
   }
  ],
  "media_gaps": [
+  {
+   "chapter": "plan",
+   "map_beats_in_a_row": 4,
+   "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"
+  },
   {
    "chapter": "method",
    "map_beats_in_a_row": 4,

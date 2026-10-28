@@ -151,20 +151,20 @@
   {
    "id": "C10",
    "tier": "media",
-   "text": "By mid-October 2026 Nepali figures put the confirmed death toll in Nepal above 1,400 people, with roughly five thousand still listed as missing; the lists keep changing as names are verified.",
-   "short": "Nepal: over 1,400 dead (Oct)",
+   "text": "ICIMOD's 13 October 2026 press release reported figures from Nepal's disaster authority NDRRMA: 1,451 people dead and 5,745 missing in Nepal; other Nepali lists differ slightly (for example 1,454 dead and 5,285 missing on 4 October) and keep changing.",
+   "short": "Nepal: 1,451 dead, 5,745 missing",
    "confidence": "medium",
    "confidence_reason": "search summary, 3 independent outlets",
    "wording": "reported",
-   "attribution": "Nepal Police / NDRRMA figures as reported by Ratopati and a live tracker",
-   "date": "2026-10-14",
-   "url": "https://english.ratopati.com/story/78427/rasuwa-flood-death-toll-reaches-1367",
+   "attribution": "ICIMOD press release (read by the owner and relayed to us; not opened by us)",
+   "date": "2026-10-13",
+   "url": "https://www.icimod.org/press-releases/second-major-himalayan-flood-in-seven-weeks-raises-new-questions-about-mountain-risk",
    "source_access": "summary_only",
    "source_kind": "search_summary",
    "forbid": [
-    "1,456",
-    "5,132",
-    "exactly"
+    "exactly",
+    "total of",
+    "in Tibet"
    ]
   },
   {

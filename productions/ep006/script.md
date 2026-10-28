@@ -1,12 +1,12 @@
 # EP006 - The Mountain That Fell (working title)
 
 ## hook: The first fifteen seconds
-For seven weeks before 26 August 2026, a radar satellite had been picking up movement in a mountain slope in northern Nepal. {C8}
-What had the satellites seen? And what does it not prove? {L}
+On 12 August 2026, this valley in northern Nepal, high in the Himalaya, looks quiet. {C13}
 
 ## plan: What has been reported
-On 12 August 2026, this valley looks quiet. {C13}
 Fourteen days later, a dark swath runs through the same valley. {C13}
+For seven weeks before that, a radar satellite had been picking up movement in a mountain slope in northern Nepal. {C8}
+What had the satellites seen? And what does it not prove? {L}
 First, what officials and news outlets said.
 The US Geological Survey said a rapid slope failure involving a glacier struck Langtang National Park in Nepal, near the Chinese border, on the morning of 26 August 2026. {C1}
 It said the debris flow and flood traveled about 100 kilometers, roughly 62 miles, along two rivers, the Lende Khola and the Trishuli Khola. {C2}
@@ -19,13 +19,13 @@ USGS also said it has not yet determined whether this began as a landslide that 
 And it said everything it has published is preliminary. {C4}
 This mountain has done something like this before. In 2015, USGS said, a magnitude 7.8 earthquake set off a debris avalanche on the same mountain. {C5}
 USGS said it fell nearly 1,900 meters, buried a village, and killed more than 200 people. {C5}
-Now the human cost. By mid-October, Nepali figures reported more than 1,400 people dead in Nepal, and roughly five thousand still listed as missing. {C10}
-Those lists keep changing as names are checked, so we are not giving one exact number. {L}
+Now the human cost. In its 13 October release, ICIMOD reported figures from Nepal's disaster authority: 1,451 people dead and 5,745 missing in Nepal. {C10}
+Other lists differ slightly and keep changing, so these numbers are not final. {L}
 China counts its own side of the border separately. Xinhua reported 43 dead and 519 missing at Gyirong Port as of 5 September. {C11}
 It was not clear whether some people appear in both countries' counts, so we do not add the two together. {L}
 
 ## method: What satellites saw first
-Satellites cannot see people. They can see ground, ice, cloud, and sometimes tiny movements of a slope.
+Satellites cannot see people on the ground. They can see ground, ice, cloud, and sometimes tiny movements of a slope.
 The mountain research organization ICIMOD published a preliminary analysis on 13 October. {C7}
 It said the disaster was not a conventional glacial lake outburst flood. {C7}
 It said a failure in the bedrock sheared away part of the glacier lying on top of it. {C7}

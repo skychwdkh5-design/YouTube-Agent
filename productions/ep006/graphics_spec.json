@@ -5,7 +5,7 @@
    "type": "flow",
    "id": "g_reports",
    "title": "What was reported",
-   "source": "Nepal Police / NDRRMA figures as reported by Ratopati and a live tracker; USGS Landslide Hazards Program; Xinh",
+   "source": "ICIMOD press release (read by the owner and relayed to us; not opened by us); USGS Landslide Hazards Program; ",
    "steps": [
     "26 Aug 2026: slope failure",
     "Flow travelled ~100 km",
@@ -234,21 +234,21 @@
   {
    "type": "diagram",
    "title": "Counts in Nepal",
-   "source": "Nepali figures as reported (Nepal Police / NDRRMA lists; they differ by source and date)",
+   "source": "ICIMOD release, 13 Oct 2026 (NDRRMA figures); Nepal only",
    "nodes": [
     {
      "id": "h",
-     "text": "NEPAL - MID-OCTOBER, REPORTED",
+     "text": "NEPAL - AS REPORTED BY ICIMOD, 13 OCT",
      "x": 0.5,
      "y": 0.16,
-     "w": 0.66,
+     "w": 0.8,
      "h": 0.12,
      "style": "plain",
      "step": 1
     },
     {
      "id": "a",
-     "text": "MORE THAN 1,400 DEAD",
+     "text": "1,451 DEAD (NDRRMA)",
      "x": 0.5,
      "y": 0.4,
      "w": 0.8,
@@ -258,20 +258,20 @@
     },
     {
      "id": "b",
-     "text": "ROUGHLY 5,000 STILL LISTED AS MISSING",
+     "text": "5,745 MISSING",
      "x": 0.5,
      "y": 0.65,
-     "w": 0.86,
+     "w": 0.7,
      "h": 0.16,
      "style": "default",
      "step": 2
     },
     {
      "id": "c",
-     "text": "THE LISTS KEEP CHANGING",
+     "text": "OTHER LISTS DIFFER - APPROXIMATE",
      "x": 0.5,
      "y": 0.86,
-     "w": 0.7,
+     "w": 0.8,
      "h": 0.12,
      "style": "red",
      "step": 3
@@ -547,7 +547,7 @@
       85.3778,
       28.2788
      ],
-     "text": "RASUWAGADHI BORDER POST",
+     "text": "RASUWAGADHI (APPROX.)",
      "step": 2
     }
    ],

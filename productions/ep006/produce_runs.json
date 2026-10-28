@@ -1,7 +1,7 @@
 {
  "schema": "produce-runs/1",
  "first_run": "2026-10-27T10:57:17Z",
- "wall_clock_since_first_run_min": 897.7,
+ "wall_clock_since_first_run_min": 903.6,
  "stage_seconds": {
   "topic": {
    "status": "done",
@@ -10,52 +10,52 @@
   },
   "research": {
    "status": "done",
-   "attempts": 20,
+   "attempts": 23,
    "seconds": 0
   },
   "facts": {
    "status": "done",
-   "attempts": 18,
+   "attempts": 21,
    "seconds": 0
   },
   "evidence": {
    "status": "done",
-   "attempts": 19,
-   "seconds": 1
+   "attempts": 22,
+   "seconds": 0
   },
   "script": {
    "status": "done",
-   "attempts": 9,
+   "attempts": 16,
    "seconds": 0
   },
   "media": {
    "status": "done",
-   "attempts": 16,
+   "attempts": 19,
    "seconds": 0
   },
   "visualplan": {
    "status": "done",
-   "attempts": 16,
-   "seconds": 1
+   "attempts": 19,
+   "seconds": 0
   },
   "visuals": {
    "status": "done",
-   "attempts": 25,
+   "attempts": 28,
    "seconds": 11
   },
   "storyboard": {
    "status": "done",
-   "attempts": 7,
+   "attempts": 11,
    "seconds": 0
   },
   "visualcheck": {
    "status": "done",
-   "attempts": 12,
-   "seconds": 12
+   "attempts": 17,
+   "seconds": 10
   },
   "voice": {
    "status": "awaiting_approval",
-   "attempts": 7,
+   "attempts": 9,
    "seconds": 0
   },
   "voicecheck": {
@@ -80,20 +80,20 @@
   },
   "release": {
    "status": "done",
-   "attempts": 16,
+   "attempts": 22,
    "seconds": 0
   }
  },
  "voice_elevenlabs": {
   "elevenlabs_chars_spent": 0,
   "calls": [],
-  "planned_chars": 4993,
-  "max_credits": 4993.0
+  "planned_chars": 5029,
+  "max_credits": 5029.0
  },
  "agent_artifact_bytes": {
-  "research/notes.json": 35429,
-  "claims.json": 10327,
-  "script.md": 5438
+  "research/notes.json": 35636,
+  "claims.json": 10446,
+  "script.md": 5476
  },
  "model_calls": "not measurable from this repo: record by hand from the session usage panel (calls, tokens) at the end of the run",
  "runs": [
@@ -559,6 +559,131 @@
     {
      "step": "pipeline",
      "seconds": 12.8
+    }
+   ],
+   "stopped": null
+  },
+  {
+   "at": "2026-10-28T01:59:04Z",
+   "invocation_seconds": 0.5,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 0.5
+    }
+   ],
+   "stopped": {
+    "needs_claude": [],
+    "blocked": [
+     "script"
+    ],
+    "detail": {
+     "script": "script: line 23: {L} is only for limitations (needs not/cannot/no): 'Other lists differ slightly and keep changing as names are checked, so'"
+    }
+   }
+  },
+  {
+   "at": "2026-10-28T01:59:07Z",
+   "invocation_seconds": 0.4,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 0.4
+    }
+   ],
+   "stopped": {
+    "needs_claude": [],
+    "blocked": [
+     "script"
+    ],
+    "detail": {
+     "script": "script: 881 words = 360s, under 6 minutes"
+    }
+   }
+  },
+  {
+   "at": "2026-10-28T01:59:22Z",
+   "invocation_seconds": 10.8,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 10.8
+    }
+   ],
+   "stopped": {
+    "needs_claude": [],
+    "blocked": [
+     "storyboard"
+    ],
+    "detail": {
+     "storyboard": "yt-storyboard: StoryError: chapter hook: 4.5s is too short for 2 visuals"
+    }
+   }
+  },
+  {
+   "at": "2026-10-28T01:59:28Z",
+   "invocation_seconds": 0.2,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 0.2
+    }
+   ],
+   "stopped": {
+    "needs_claude": [],
+    "blocked": [
+     "script"
+    ],
+    "detail": {
+     "script": "script: line 4: C1 is a org claim; the sentence must contain 'said'"
+    }
+   }
+  },
+  {
+   "at": "2026-10-28T02:00:00Z",
+   "invocation_seconds": 28.2,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 28.2
+    }
+   ],
+   "stopped": {
+    "needs_claude": [
+     "visualcheck"
+    ],
+    "blocked": [],
+    "detail": {
+     "visualcheck": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+    }
+   }
+  },
+  {
+   "at": "2026-10-28T02:00:38Z",
+   "invocation_seconds": 28.9,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 28.9
+    }
+   ],
+   "stopped": {
+    "needs_claude": [
+     "visualcheck"
+    ],
+    "blocked": [],
+    "detail": {
+     "visualcheck": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+    }
+   }
+  },
+  {
+   "at": "2026-10-28T02:00:53Z",
+   "invocation_seconds": 9.6,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 9.6
     }
    ],
    "stopped": null

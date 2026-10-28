@@ -6,13 +6,6 @@
   "shot": "hook_000"
  },
  {
-  "text": "12 AUG 2026 - SENTINEL-2 (10 M)",
-  "claim": "C13",
-  "exempt": false,
-  "limit": false,
-  "shot": "plan_002"
- },
- {
   "text": "26 AUG 2026 - LANDSAT 9 (30 M)",
   "claim": "C13",
   "exempt": false,
@@ -20,12 +13,19 @@
   "shot": "plan_002"
  },
  {
+  "text": "RADAR NUMBERS ARE ICIMOD'S",
+  "claim": null,
+  "exempt": false,
+  "limit": true,
+  "shot": "plan_003"
+ },
+ {
   "text": "graphic:i_usgs_s1",
   "claims": [
    "C1"
   ],
   "exempt": false,
-  "shot": "plan_003"
+  "shot": "plan_004"
  },
  {
   "text": "graphic:i_100km_s1",
@@ -33,14 +33,14 @@
    "C2"
   ],
   "exempt": false,
-  "shot": "plan_004"
+  "shot": "plan_005"
  },
  {
   "text": "STOP POINT: NOT IN USGS TEXT",
   "claim": null,
   "exempt": false,
   "limit": true,
-  "shot": "plan_007"
+  "shot": "plan_008"
  },
  {
   "text": "graphic:i_seismic_s1",
@@ -48,7 +48,7 @@
    "C3"
   ],
   "exempt": false,
-  "shot": "plan_008"
+  "shot": "plan_009"
  },
  {
   "text": "graphic:i_cause_s1",
@@ -56,7 +56,7 @@
    "C4"
   ],
   "exempt": false,
-  "shot": "plan_009"
+  "shot": "plan_010"
  },
  {
   "text": "graphic:i_2015_s1",
@@ -64,7 +64,7 @@
    "C5"
   ],
   "exempt": false,
-  "shot": "plan_010"
+  "shot": "plan_011"
  },
  {
   "text": "graphic:i_toll_s1",
@@ -72,7 +72,7 @@
    "C10"
   ],
   "exempt": false,
-  "shot": "plan_011"
+  "shot": "plan_012"
  },
  {
   "text": "graphic:i_china_s1",
@@ -80,12 +80,6 @@
    "C11"
   ],
   "exempt": false,
-  "shot": "plan_012"
- },
- {
-  "text": "AUG 2026",
-  "claim": null,
-  "exempt": true,
   "shot": "plan_013"
  },
  {
@@ -98,7 +92,25 @@
   "text": "AUG 2026",
   "claim": null,
   "exempt": true,
-  "shot": "method_015"
+  "shot": "plan_015"
+ },
+ {
+  "text": "AUG 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "plan_016"
+ },
+ {
+  "text": "AUG 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "plan_017"
+ },
+ {
+  "text": "AUG 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "method_018"
  },
  {
   "text": "graphic:i_icimod_s1",
@@ -106,7 +118,7 @@
    "C7"
   ],
   "exempt": false,
-  "shot": "method_017"
+  "shot": "method_020"
  },
  {
   "text": "graphic:i_radar_s1",
@@ -114,7 +126,7 @@
    "C8"
   ],
   "exempt": false,
-  "shot": "method_018"
+  "shot": "method_021"
  },
  {
   "text": "graphic:i_volume_s1",
@@ -122,31 +134,31 @@
    "C9"
   ],
   "exempt": false,
-  "shot": "method_019"
- },
- {
-  "text": "AUG 2026",
-  "claim": null,
-  "exempt": true,
-  "shot": "method_020"
- },
- {
-  "text": "AUG 2026",
-  "claim": null,
-  "exempt": true,
-  "shot": "method_021"
- },
- {
-  "text": "AUG 2026",
-  "claim": null,
-  "exempt": true,
   "shot": "method_022"
  },
  {
   "text": "AUG 2026",
   "claim": null,
   "exempt": true,
-  "shot": "obs_023"
+  "shot": "method_023"
+ },
+ {
+  "text": "AUG 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "method_024"
+ },
+ {
+  "text": "AUG 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "method_025"
+ },
+ {
+  "text": "AUG 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "obs_026"
  },
  {
   "text": "graphic:i_clouds",
@@ -154,76 +166,48 @@
    "C15"
   ],
   "exempt": false,
-  "shot": "obs_027"
+  "shot": "obs_030"
  },
  {
   "text": "1 PIXEL = 30 M OF GROUND",
   "claim": "C16",
   "exempt": false,
   "limit": false,
-  "shot": "obs_028"
+  "shot": "obs_031"
  },
  {
   "text": "12 AUG 2026 - SENTINEL-2, 10 M",
   "claim": "C13",
   "exempt": false,
   "limit": false,
-  "shot": "obs_029"
- },
- {
-  "text": "12 AUG 2026 - SENTINEL-2 (10 M)",
-  "claim": "C13",
-  "exempt": false,
-  "limit": false,
-  "shot": "obs_030"
+  "shot": "obs_032"
  },
  {
   "text": "26 AUG 2026 - LANDSAT 9 (30 M)",
   "claim": "C13",
   "exempt": false,
   "limit": false,
-  "shot": "obs_030"
+  "shot": "obs_033"
  },
  {
-  "text": "TRACED BY EYE: ~30 KM",
+  "text": "TRACED BY EYE, APPROX. 30 KM",
   "claim": "C14",
   "exempt": false,
   "limit": false,
-  "shot": "obs_031"
+  "shot": "obs_034"
  },
  {
   "text": "~20 KM FROM GLACIER FOOT TO HERE",
   "claim": "C14",
   "exempt": false,
   "limit": false,
-  "shot": "obs_031"
+  "shot": "obs_034"
  },
  {
   "text": "CLOUDS HIDE PARTS OF THE VALLEY",
   "claim": null,
   "exempt": false,
   "limit": true,
-  "shot": "obs_032"
- },
- {
-  "text": "AUG 2026",
-  "claim": null,
-  "exempt": true,
-  "shot": "obs_033"
- },
- {
-  "text": "graphic:i_flow_scale_s1",
-  "claims": [
-   "C2",
-   "C14"
-  ],
-  "exempt": false,
-  "shot": "obs_034"
- },
- {
-  "text": "AUG 2026",
-  "claim": null,
-  "exempt": true,
   "shot": "obs_035"
  },
  {
@@ -233,9 +217,10 @@
   "shot": "obs_036"
  },
  {
-  "text": "graphic:i_official_s1",
+  "text": "graphic:i_flow_scale_s1",
   "claims": [
-   "C6"
+   "C2",
+   "C14"
   ],
   "exempt": false,
   "shot": "obs_037"
@@ -250,13 +235,21 @@
   "text": "AUG 2026",
   "claim": null,
   "exempt": true,
-  "shot": "limits_039"
+  "shot": "obs_039"
  },
  {
-  "text": "graphic:i_cannot_s1",
-  "claims": [],
+  "text": "graphic:i_official_s1",
+  "claims": [
+   "C6"
+  ],
+  "exempt": false,
+  "shot": "obs_040"
+ },
+ {
+  "text": "AUG 2026",
+  "claim": null,
   "exempt": true,
-  "shot": "limits_041"
+  "shot": "obs_041"
  },
  {
   "text": "AUG 2026",
@@ -265,21 +258,33 @@
   "shot": "limits_042"
  },
  {
-  "text": "AUG 2026",
-  "claim": null,
+  "text": "graphic:i_cannot_s1",
+  "claims": [],
   "exempt": true,
-  "shot": "close_043"
+  "shot": "limits_044"
  },
  {
   "text": "AUG 2026",
   "claim": null,
   "exempt": true,
-  "shot": "close_045"
+  "shot": "limits_045"
  },
  {
   "text": "AUG 2026",
   "claim": null,
   "exempt": true,
-  "shot": "close_047"
+  "shot": "close_046"
+ },
+ {
+  "text": "AUG 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "close_048"
+ },
+ {
+  "text": "AUG 2026",
+  "claim": null,
+  "exempt": true,
+  "shot": "close_050"
  }
 ]

@@ -1,16 +1,16 @@
 # Narration text - exactly what will be sent to the voice provider
 
-Words: 883 | script sha256: `2d78409a00fd1437a93c2bd0252409813c4cc422ce3eba93da3ce7a6a3dfba57`
+Words: 888 | script sha256: `a0728dfc971d2df48107d92093d526624e7d7476a17745041558a98d6e31b838`
 
 Chapter titles and claim tags are not spoken.
 
 ## The first fifteen seconds
-1. For seven weeks before 26 August 2026, a radar satellite had been picking up movement in a mountain slope in northern Nepal.
-2. What had the satellites seen? And what does it not prove?
+1. On 12 August 2026, this valley in northern Nepal, high in the Himalaya, looks quiet.
 
 ## What has been reported
-3. On 12 August 2026, this valley looks quiet.
-4. Fourteen days later, a dark swath runs through the same valley.
+2. Fourteen days later, a dark swath runs through the same valley.
+3. For seven weeks before that, a radar satellite had been picking up movement in a mountain slope in northern Nepal.
+4. What had the satellites seen? And what does it not prove?
 5. First, what officials and news outlets said.
 6. The US Geological Survey said a rapid slope failure involving a glacier struck Langtang National Park in Nepal, near the Chinese border, on the morning of 26 August 2026.
 7. It said the debris flow and flood traveled about 100 kilometers, roughly 62 miles, along two rivers, the Lende Khola and the Trishuli Khola.
@@ -23,13 +23,13 @@ Chapter titles and claim tags are not spoken.
 14. And it said everything it has published is preliminary.
 15. This mountain has done something like this before. In 2015, USGS said, a magnitude 7.8 earthquake set off a debris avalanche on the same mountain.
 16. USGS said it fell nearly 1,900 meters, buried a village, and killed more than 200 people.
-17. Now the human cost. By mid-October, Nepali figures reported more than 1,400 people dead in Nepal, and roughly five thousand still listed as missing.
-18. Those lists keep changing as names are checked, so we are not giving one exact number.
+17. Now the human cost. In its 13 October release, ICIMOD reported figures from Nepal's disaster authority: 1,451 people dead and 5,745 missing in Nepal.
+18. Other lists differ slightly and keep changing, so these numbers are not final.
 19. China counts its own side of the border separately. Xinhua reported 43 dead and 519 missing at Gyirong Port as of 5 September.
 20. It was not clear whether some people appear in both countries' counts, so we do not add the two together.
 
 ## What satellites saw first
-21. Satellites cannot see people. They can see ground, ice, cloud, and sometimes tiny movements of a slope.
+21. Satellites cannot see people on the ground. They can see ground, ice, cloud, and sometimes tiny movements of a slope.
 22. The mountain research organization ICIMOD published a preliminary analysis on 13 October.
 23. It said the disaster was not a conventional glacial lake outburst flood.
 24. It said a failure in the bedrock sheared away part of the glacier lying on top of it.
