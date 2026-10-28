@@ -1,7 +1,17 @@
-ffmpeg: missing
+ffmpeg: /usr/bin/ffmpeg
 ELEVENLABS_API_KEY: set
-short1 exit 2 {  "status": "error",  "error": "ffmpeg is not installed or not on PATH" } 
-total 12
-drwxr-xr-x 2 runner runner 4096 Oct 28 09:45 .
-drwxr-xr-x 9 runner runner 4096 Oct 28 09:45 ..
--rw-r--r-- 1 runner runner   75 Oct 28 09:45 adam_short1.result.json
+short1 exit 0 {  "status": "ok",  "output": "/home/runner/work/YouTube-Agent/YouTube-Agent/out/adam_short1.wav",  "metadata": "/home/runner/work/YouTube-Agent/YouTube-Agent/out/adam_short1.voice.json",  "voice_id": "pNInz6obpgDQGcFmaJgB",  "voice_name": "Adam",  "duration": 32.833,  "characters": 466,  "chunks": 1,  "timing": true,  "words": 81,  "warnings": [],  "removed_from_script": [] } 
+short2 exit 0 {  "status": "ok",  "output": "/home/runner/work/YouTube-Agent/YouTube-Agent/out/adam_short2.wav",  "metadata": "/home/runner/work/YouTube-Agent/YouTube-Agent/out/adam_short2.voice.json",  "voice_id": "pNInz6obpgDQGcFmaJgB",  "voice_name": "Adam",  "duration": 27.539,  "characters": 411,  "chunks": 1,  "timing": true,  "words": 74,  "warnings": [],  "removed_from_script": [] } 
+beats exit 0 {  "status": "ok",  "output": "/home/runner/work/YouTube-Agent/YouTube-Agent/out/adam_beats.wav",  "metadata": "/home/runner/work/YouTube-Agent/YouTube-Agent/out/adam_beats.voice.json",  "voice_id": "pNInz6obpgDQGcFmaJgB",  "voice_name": "Adam",  "duration": 376.581,  "characters": 5247,  "chunks": 3,  "timing": true,  "words": 909,  "warnings": [],  "removed_from_script": [] } 
+total 37752
+drwxr-xr-x 2 runner runner     4096 Oct 28 09:48 .
+drwxr-xr-x 9 runner runner     4096 Oct 28 09:47 ..
+-rw-r--r-- 1 runner runner      381 Oct 28 09:48 adam_beats.result.json
+-rw-r--r-- 1 runner runner    67235 Oct 28 09:48 adam_beats.voice.json
+-rw-r--r-- 1 runner runner 33214508 Oct 28 09:48 adam_beats.wav
+-rw-r--r-- 1 runner runner      380 Oct 28 09:47 adam_short1.result.json
+-rw-r--r-- 1 runner runner     6605 Oct 28 09:47 adam_short1.voice.json
+-rw-r--r-- 1 runner runner  2895916 Oct 28 09:47 adam_short1.wav
+-rw-r--r-- 1 runner runner      380 Oct 28 09:47 adam_short2.result.json
+-rw-r--r-- 1 runner runner     6061 Oct 28 09:47 adam_short2.voice.json
+-rw-r--r-- 1 runner runner  2428972 Oct 28 09:47 adam_short2.wav
