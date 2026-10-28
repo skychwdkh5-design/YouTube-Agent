@@ -290,8 +290,137 @@
     "sha256": null,
     "publish_at": null
    }
+  },
+  {
+   "id": "ep007",
+   "mode": "approval",
+   "kind": "long",
+   "media": {
+    "asset": "EP007_final_long.mp4",
+    "sha256": "d966db6c2e55ab20e4ae26d9521a047b49a45028a128713293866e3d3b9eb484",
+    "seconds": 377.7
+   },
+   "title": "NASA’s Rover Ran Over a Rock on Mars. This Was Inside.",
+   "title_status": "final",
+   "description": "NASA’s Rover Ran Over a Rock on Mars. This Was Inside.\n\nIn May 2024, NASA's Curiosity rover drove over a rock in Gediz Vallis channel on Mount Sharp, Mars, and cracked it open. Inside were yellow crystals. The rover's APXS instrument identified them as elemental sulfur, the first pure sulfur ever found on Mars. NASA's project scientist: \"It shouldn't be there, so now we have to explain it.\"\n\nWe follow the find with NASA's own images: how the team knew it was sulfur, why it was a surprise, why the stones were invisible from orbit, and what scientists think now.\n\nCHAPTERS\n0:00 Yellow crystals on Mars\n0:24 The accident\n1:25 How they knew it was sulfur\n2:01 Why it shouldn't be there\n2:45 A whole field, invisible from orbit\n3:19 Gediz Vallis channel\n3:45 Drill hole #41 at Mammoth Lakes\n4:25 What scientists think now\n5:30 Not evidence of life\n5:57 Where it stands\n\nWHAT IS CONFIRMED, AND WHAT IS NOT\n- Confirmed (NASA/JPL): pure elemental sulfur, a whole field of sulfur stones, too brittle to drill; no evidence of volcanoes or hot springs near this part of Mount Sharp.\n- Peer reviewed (Science, 2026): the stones appear to have formed in place, roughly 3 billion years ago; the authors PROPOSE magmatic vapor as the source.\n- Not peer reviewed (conference abstracts, 2026): an impact-melt idea that depends on a rock layer nobody has measured yet.\n- Not claimed: evidence of life. There is no video of the moment the rock cracked; only photos taken afterwards.\n\nSOURCES\n- NASA/JPL, \"NASA's Curiosity Rover Discovers a Surprise in a Martian Rock\" (July 18, 2024): https://www.jpl.nasa.gov/news/nasas-curiosity-rover-discovers-a-surprise-in-a-martian-rock/\n- NASA/JPL, \"NASA's Curiosity Mars Rover Takes a Last Look at Mysterious Sulfur\" (Nov. 18, 2024): https://www.jpl.nasa.gov/news/nasas-curiosity-mars-rover-takes-a-last-look-at-mysterious-sulfur/\n- VanBommel et al., \"A native sulfur deposit in Gale crater, Mars,\" Science 393, 820-825 (2026), doi:10.1126/science.adu5501: https://www.science.org/doi/10.1126/science.adu5501\n- Washington University in St. Louis release on the Science paper: https://artsci.washu.edu/node/28889\n- Rapin et al., EGU26-22162: https://meetingorganizer.copernicus.org/EGU26/EGU26-22162.html\n- Maggioni et al., EGU26-12327: https://meetingorganizer.copernicus.org/EGU26/EGU26-12327.html\n\nIMAGES\nNASA/JPL-Caltech/MSSS: PIA26307, PIA26308, PIA26309, PIA26210, PIA26363, PIA26366, PIA26367, PIA26410, PIA26471 (Mastcam, MAHLI).\nNASA/JPL-Caltech/University of Arizona: PIA26245 (HiRISE, enhanced color).\nDiagrams are OrbitalAtlas schematics, not to scale. Use of NASA imagery does not imply NASA endorsement.\n\nNarration: ElevenLabs synthetic voice (Adam). Runtime 6:17.\nMade by OrbitalAtlas.\n",
+   "tags": [
+    "Mars",
+    "Curiosity rover",
+    "NASA",
+    "sulfur",
+    "Gediz Vallis",
+    "Gale crater",
+    "Mount Sharp",
+    "space",
+    "planetary science",
+    "OrbitalAtlas"
+   ],
+   "category_id": "27",
+   "default_language": "en",
+   "made_for_kids": false,
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Narration is a stock text-to-speech voice (ElevenLabs Adam), not a real person's voice; imagery is real NASA rover/orbiter data with labelled schematic graphics. No realistic fabricated people or events, so YouTube's altered-or-synthetic label is not required. The description states the voice.",
+   "thumbnail": "publish/assets/ep007/thumbnail_B.jpg",
+   "captions": {
+    "file": "publish/assets/ep007/captions.srt",
+    "language": "en",
+    "name": "English"
+   },
+   "publish_at": "2026-10-29T01:00:00Z",
+   "related": null,
+   "owner_approval": {
+    "approved": false,
+    "sha256": null,
+    "publish_at": null
+   },
+   "thumbnail_review": {
+    "result": "PASS",
+    "sha256": "17b448135a91c0dc151480a39c8769a68ae330c38ade0ddeb023e5918c129edc",
+    "note": "Cover B 'CRACKED OPEN': thumbcheck objective PASS; checked full size and at 168x94 against the four published covers by Claude.",
+    "owner_approved": true,
+    "owner_approved_note": "Owner chose cover B in chat 2026-10-28 15:59 ICT; applies to this exact file."
+   }
+  },
+  {
+   "id": "short-07-ep007",
+   "mode": "autopilot",
+   "kind": "short",
+   "media": {
+    "asset": "EP007_final_short1.mp4",
+    "sha256": "17042d093962cb4ee9080f8461b59301cbf7a7d75a95b6d712b9306a552c5686",
+    "seconds": 34.0
+   },
+   "title": "Curiosity Ran Over a Rock on Mars. Pure Sulfur Was Inside.",
+   "title_status": "final",
+   "description": "NASA's Curiosity rover cracked a rock in Gediz Vallis, Mars, in 2024. Inside: yellow crystals of pure sulfur, the first ever found on Mars. How they formed is still debated.\n\nFull episode on OrbitalAtlas: “NASA’s Rover Ran Over a Rock on Mars. This Was Inside.”\n\nImages: NASA/JPL-Caltech/MSSS (Mastcam, MAHLI).\n#Shorts #Mars #space #NASA",
+   "tags": [
+    "Mars",
+    "Curiosity rover",
+    "NASA",
+    "sulfur",
+    "Gediz Vallis",
+    "Gale crater",
+    "Mount Sharp",
+    "space",
+    "planetary science",
+    "OrbitalAtlas"
+   ],
+   "category_id": "27",
+   "default_language": "en",
+   "made_for_kids": false,
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Narration is a stock text-to-speech voice (ElevenLabs Adam), not a real person's voice; imagery is real NASA rover/orbiter data with labelled schematic graphics. No realistic fabricated people or events, so YouTube's altered-or-synthetic label is not required. The description states the voice.",
+   "thumbnail": null,
+   "captions": null,
+   "publish_at": "2026-10-29T05:00:00Z",
+   "related": null,
+   "owner_approval": {
+    "approved": false,
+    "sha256": null,
+    "publish_at": null
+   }
+  },
+  {
+   "id": "short-08-ep007",
+   "mode": "autopilot",
+   "kind": "short",
+   "media": {
+    "asset": "EP007_final_short2.mp4",
+    "sha256": "200a576acb744b41721952dfda95b5617bd676d736427f75ad2f89f300456e2a",
+    "seconds": 28.7
+   },
+   "title": "Mars From Orbit: Nothing. On the Ground: Pure Sulfur",
+   "title_status": "final",
+   "description": "From orbit, this patch of Mars looked unremarkable: the HiRISE camera can see Curiosity, but not the stones. On the ground, the rover found a field of them, made of pure sulfur.\n\nFull episode on OrbitalAtlas: “NASA’s Rover Ran Over a Rock on Mars. This Was Inside.”\n\nImages: NASA/JPL-Caltech/University of Arizona (HiRISE); NASA/JPL-Caltech/MSSS (Mastcam, MAHLI).\n#Shorts #Mars #space #NASA",
+   "tags": [
+    "Mars",
+    "Curiosity rover",
+    "NASA",
+    "sulfur",
+    "Gediz Vallis",
+    "Gale crater",
+    "Mount Sharp",
+    "space",
+    "planetary science",
+    "OrbitalAtlas"
+   ],
+   "category_id": "27",
+   "default_language": "en",
+   "made_for_kids": false,
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Narration is a stock text-to-speech voice (ElevenLabs Adam), not a real person's voice; imagery is real NASA rover/orbiter data with labelled schematic graphics. No realistic fabricated people or events, so YouTube's altered-or-synthetic label is not required. The description states the voice.",
+   "thumbnail": null,
+   "captions": null,
+   "publish_at": "2026-10-30T05:00:00Z",
+   "related": null,
+   "owner_approval": {
+    "approved": false,
+    "sha256": null,
+    "publish_at": null
+   }
   }
  ],
  "expected_channel_id": "UC2QxQJhUe9Q5NMRNb6M9ddw",
- "expected_handle": "@orbital_atlas"
+ "expected_handle": "@orbital_atlas",
+ "_note_ep007": "EP007: long 29.10 08:00 ICT = 01:00Z; Shorts 29.10 and 30.10 12:00 ICT = 05:00Z."
 }
