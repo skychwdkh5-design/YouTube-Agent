@@ -1,0 +1,840 @@
+{
+ "engine": "kokoro-onnx v1.0 (Apache-2.0), TEMPORARY draft voice",
+ "voice": "am_michael",
+ "speed": 0.93,
+ "duration": 365.957,
+ "beats": [
+  {
+   "index": 0,
+   "start": 0.25,
+   "speech_end": 2.585
+  },
+  {
+   "index": 1,
+   "start": 3.105,
+   "speech_end": 9.883
+  },
+  {
+   "index": 2,
+   "start": 10.403,
+   "speech_end": 13.867
+  },
+  {
+   "index": 3,
+   "start": 14.387,
+   "speech_end": 18.762
+  },
+  {
+   "index": 4,
+   "start": 19.282,
+   "speech_end": 24.676
+  },
+  {
+   "index": 5,
+   "start": 25.196,
+   "speech_end": 34.603
+  },
+  {
+   "index": 6,
+   "start": 35.123,
+   "speech_end": 42.421
+  },
+  {
+   "index": 7,
+   "start": 42.941,
+   "speech_end": 50.63
+  },
+  {
+   "index": 8,
+   "start": 51.15,
+   "speech_end": 55.871
+  },
+  {
+   "index": 9,
+   "start": 56.391,
+   "speech_end": 61.43
+  },
+  {
+   "index": 10,
+   "start": 61.95,
+   "speech_end": 67.902
+  },
+  {
+   "index": 11,
+   "start": 68.422,
+   "speech_end": 73.455
+  },
+  {
+   "index": 12,
+   "start": 73.975,
+   "speech_end": 77.548
+  },
+  {
+   "index": 13,
+   "start": 78.068,
+   "speech_end": 85.601
+  },
+  {
+   "index": 14,
+   "start": 86.121,
+   "speech_end": 89.798
+  },
+  {
+   "index": 15,
+   "start": 90.318,
+   "speech_end": 96.655
+  },
+  {
+   "index": 16,
+   "start": 97.175,
+   "speech_end": 105.611
+  },
+  {
+   "index": 17,
+   "start": 106.131,
+   "speech_end": 113.39
+  },
+  {
+   "index": 18,
+   "start": 113.91,
+   "speech_end": 118.881
+  },
+  {
+   "index": 19,
+   "start": 119.401,
+   "speech_end": 121.887
+  },
+  {
+   "index": 20,
+   "start": 122.407,
+   "speech_end": 136.551
+  },
+  {
+   "index": 21,
+   "start": 137.071,
+   "speech_end": 142.334
+  },
+  {
+   "index": 22,
+   "start": 142.854,
+   "speech_end": 147.004
+  },
+  {
+   "index": 23,
+   "start": 147.524,
+   "speech_end": 151.532
+  },
+  {
+   "index": 24,
+   "start": 152.052,
+   "speech_end": 160.073
+  },
+  {
+   "index": 25,
+   "start": 160.593,
+   "speech_end": 162.39
+  },
+  {
+   "index": 26,
+   "start": 162.91,
+   "speech_end": 168.739
+  },
+  {
+   "index": 27,
+   "start": 169.259,
+   "speech_end": 174.04
+  },
+  {
+   "index": 28,
+   "start": 174.56,
+   "speech_end": 179.005
+  },
+  {
+   "index": 29,
+   "start": 179.525,
+   "speech_end": 188.748
+  },
+  {
+   "index": 30,
+   "start": 189.268,
+   "speech_end": 191.584
+  },
+  {
+   "index": 31,
+   "start": 192.104,
+   "speech_end": 200.463
+  },
+  {
+   "index": 32,
+   "start": 200.983,
+   "speech_end": 207.852
+  },
+  {
+   "index": 33,
+   "start": 208.372,
+   "speech_end": 216.792
+  },
+  {
+   "index": 34,
+   "start": 217.312,
+   "speech_end": 220.93
+  },
+  {
+   "index": 35,
+   "start": 221.45,
+   "speech_end": 230.383
+  },
+  {
+   "index": 36,
+   "start": 230.903,
+   "speech_end": 240.398
+  },
+  {
+   "index": 37,
+   "start": 240.918,
+   "speech_end": 245.064
+  },
+  {
+   "index": 38,
+   "start": 245.584,
+   "speech_end": 254.126
+  },
+  {
+   "index": 39,
+   "start": 254.646,
+   "speech_end": 256.277
+  },
+  {
+   "index": 40,
+   "start": 256.797,
+   "speech_end": 262.135
+  },
+  {
+   "index": 41,
+   "start": 262.655,
+   "speech_end": 271.504
+  },
+  {
+   "index": 42,
+   "start": 272.024,
+   "speech_end": 276.01
+  },
+  {
+   "index": 43,
+   "start": 276.53,
+   "speech_end": 282.206
+  },
+  {
+   "index": 44,
+   "start": 282.726,
+   "speech_end": 290.624
+  },
+  {
+   "index": 45,
+   "start": 291.144,
+   "speech_end": 295.309
+  },
+  {
+   "index": 46,
+   "start": 295.829,
+   "speech_end": 301.605
+  },
+  {
+   "index": 47,
+   "start": 302.125,
+   "speech_end": 313.329
+  },
+  {
+   "index": 48,
+   "start": 313.849,
+   "speech_end": 318.297
+  },
+  {
+   "index": 49,
+   "start": 318.817,
+   "speech_end": 322.205
+  },
+  {
+   "index": 50,
+   "start": 322.725,
+   "speech_end": 326.711
+  },
+  {
+   "index": 51,
+   "start": 327.231,
+   "speech_end": 336.365
+  },
+  {
+   "index": 52,
+   "start": 336.885,
+   "speech_end": 344.064
+  },
+  {
+   "index": 53,
+   "start": 344.584,
+   "speech_end": 346.317
+  },
+  {
+   "index": 54,
+   "start": 346.837,
+   "speech_end": 351.2
+  },
+  {
+   "index": 55,
+   "start": 351.72,
+   "speech_end": 359.75
+  },
+  {
+   "index": 56,
+   "start": 360.27,
+   "speech_end": 364.637
+  }
+ ],
+ "cues": [
+  {
+   "start": 0.25,
+   "end": 2.585,
+   "text": "These yellow crystals are on Mars."
+  },
+  {
+   "start": 3.105,
+   "end": 4.87,
+   "text": "Nobody staged this picture."
+  },
+  {
+   "start": 5.01,
+   "end": 9.883,
+   "text": "A rover drove over a rock, the rock cracked open, and this was inside."
+  },
+  {
+   "start": 10.403,
+   "end": 13.867,
+   "text": "It is pure sulfur, the first ever found on Mars."
+  },
+  {
+   "start": 14.387,
+   "end": 18.762,
+   "text": "And according to the mission's own project scientist, it shouldn't be there."
+  },
+  {
+   "start": 19.282,
+   "end": 20.637,
+   "text": "So how did it get there?"
+  },
+  {
+   "start": 20.777,
+   "end": 22.969,
+   "text": "Scientists now have a serious answer."
+  },
+  {
+   "start": 23.109,
+   "end": 24.676,
+   "text": "But they don't all agree on it."
+  },
+  {
+   "start": 25.196,
+   "end": 27.304,
+   "text": "May thirtieth, twenty twenty-four."
+  },
+  {
+   "start": 27.444,
+   "end": 30.936,
+   "text": "NASA's Curiosity rover, a car-sized robot,"
+  },
+  {
+   "start": 31.076,
+   "end": 34.603,
+   "text": "is climbing a valley on the side of a mountain on Mars."
+  },
+  {
+   "start": 35.123,
+   "end": 37.078,
+   "text": "The mountain is called Mount Sharp."
+  },
+  {
+   "start": 37.218,
+   "end": 42.421,
+   "text": "It rises about three miles, five kilometers, from the floor of Gale crater."
+  },
+  {
+   "start": 42.941,
+   "end": 47.438,
+   "text": "Curiosity has been driving up its lower slopes since twenty fourteen,"
+  },
+  {
+   "start": 47.578,
+   "end": 50.63,
+   "text": "reading the layers like pages in a history book."
+  },
+  {
+   "start": 51.15,
+   "end": 53.862,
+   "text": "The team was not looking for sulfur that day."
+  },
+  {
+   "start": 54.002,
+   "end": 55.871,
+   "text": "The rover was simply driving."
+  },
+  {
+   "start": 56.391,
+   "end": 61.43,
+   "text": "One of its aluminum wheels rolled over a pale rock, and the rock broke apart."
+  },
+  {
+   "start": 61.95,
+   "end": 63.901,
+   "text": "There is no video of that moment."
+  },
+  {
+   "start": 64.041,
+   "end": 67.902,
+   "text": "What exists are the photos the rover took in the days after."
+  },
+  {
+   "start": 68.422,
+   "end": 73.455,
+   "text": "A few days later, the camera on the end of the robotic arm moved in close."
+  },
+  {
+   "start": 73.975,
+   "end": 77.548,
+   "text": "Yellow crystals, hidden under a reddish, dusty crust."
+  },
+  {
+   "start": 78.068,
+   "end": 79.954,
+   "text": "In this view from the mast camera,"
+  },
+  {
+   "start": 80.094,
+   "end": 85.601,
+   "text": "the patch of broken pieces is about five inches, thirteen centimeters, across."
+  },
+  {
+   "start": 86.121,
+   "end": 87.948,
+   "text": "But yellow doesn't prove anything."
+  },
+  {
+   "start": 88.088,
+   "end": 89.798,
+   "text": "Plenty of minerals are yellow."
+  },
+  {
+   "start": 90.318,
+   "end": 93.521,
+   "text": "So the team used another instrument on the same arm:"
+  },
+  {
+   "start": 93.661,
+   "end": 96.655,
+   "text": "APXS, the Alpha Particle X-ray Spectrometer."
+  },
+  {
+   "start": 97.175,
+   "end": 100.428,
+   "text": "It holds a small radioactive source against the rock"
+  },
+  {
+   "start": 100.568,
+   "end": 102.785,
+   "text": "and reads the X-rays that come back."
+  },
+  {
+   "start": 102.925,
+   "end": 105.611,
+   "text": "Every element answers with its own signature."
+  },
+  {
+   "start": 106.131,
+   "end": 108.217,
+   "text": "This material answered as sulfur."
+  },
+  {
+   "start": 108.357,
+   "end": 111.182,
+   "text": "Not sulfur locked inside another mineral."
+  },
+  {
+   "start": 111.322,
+   "end": 113.39,
+   "text": "Elemental sulfur, on its own."
+  },
+  {
+   "start": 113.91,
+   "end": 118.881,
+   "text": "It's the same yellow substance you can find around volcanic vents on Earth."
+  },
+  {
+   "start": 119.401,
+   "end": 121.887,
+   "text": "Now, sulfur on Mars is not news."
+  },
+  {
+   "start": 122.407,
+   "end": 126.117,
+   "text": "Curiosity had spent months in a region rich in sulfates:"
+  },
+  {
+   "start": 126.257,
+   "end": 131.175,
+   "text": "minerals where sulfur is bound to oxygen and to metals like calcium"
+  },
+  {
+   "start": 131.315,
+   "end": 132.476,
+   "text": "and magnesium."
+  },
+  {
+   "start": 132.616,
+   "end": 136.551,
+   "text": "They are thought to have formed as water evaporated, long ago."
+  },
+  {
+   "start": 137.071,
+   "end": 138.898,
+   "text": "Pure sulfur is something else."
+  },
+  {
+   "start": 139.038,
+   "end": 142.334,
+   "text": "It only forms under a narrow range of conditions."
+  },
+  {
+   "start": 142.854,
+   "end": 147.004,
+   "text": "On Earth, we usually find it near volcanoes and hot springs."
+  },
+  {
+   "start": 147.524,
+   "end": 151.532,
+   "text": "And around this part of Mount Sharp, there is no evidence of either."
+  },
+  {
+   "start": 152.052,
+   "end": 156.772,
+   "text": "Curiosity's project scientist, Ashwin Vasavada, put it plainly."
+  },
+  {
+   "start": 156.912,
+   "end": 158.103,
+   "text": "It shouldn't be there."
+  },
+  {
+   "start": 158.243,
+   "end": 160.073,
+   "text": "So now we have to explain it."
+  },
+  {
+   "start": 160.593,
+   "end": 162.39,
+   "text": "And it wasn't just one rock."
+  },
+  {
+   "start": 162.91,
+   "end": 164.562,
+   "text": "Look at the floor of the channel."
+  },
+  {
+   "start": 164.702,
+   "end": 168.739,
+   "text": "Those bright stones scattered across it are the same kind of rock."
+  },
+  {
+   "start": 169.259,
+   "end": 172.392,
+   "text": "Close up, their outsides are white and full of holes."
+  },
+  {
+   "start": 172.532,
+   "end": 174.04,
+   "text": "Inside, they are sulfur."
+  },
+  {
+   "start": 174.56,
+   "end": 176.223,
+   "text": "Here is the strange part."
+  },
+  {
+   "start": 176.363,
+   "end": 179.005,
+   "text": "From orbit, this patch looked unremarkable."
+  },
+  {
+   "start": 179.525,
+   "end": 184.186,
+   "text": "The HiRISE camera on the Mars Reconnaissance Orbiter can spot the rover"
+  },
+  {
+   "start": 184.326,
+   "end": 186.557,
+   "text": "itself, this dark dot, from space."
+  },
+  {
+   "start": 186.697,
+   "end": 188.748,
+   "text": "But it could not resolve the stones."
+  },
+  {
+   "start": 189.268,
+   "end": 191.584,
+   "text": "To see them, you had to drive into them."
+  },
+  {
+   "start": 192.104,
+   "end": 194.21,
+   "text": "The channel is called Gediz Vallis."
+  },
+  {
+   "start": 194.35,
+   "end": 198.113,
+   "text": "It winds down the side of Mount Sharp, and it formed late,"
+  },
+  {
+   "start": 198.253,
+   "end": 200.463,
+   "text": "when Mars was already drying out."
+  },
+  {
+   "start": 200.983,
+   "end": 204.902,
+   "text": "Floods of water and debris, flows of mud and boulders,"
+  },
+  {
+   "start": 205.042,
+   "end": 207.852,
+   "text": "and dry avalanches all left their marks here."
+  },
+  {
+   "start": 208.372,
+   "end": 211.691,
+   "text": "Water also bleached pale halos into some of the rocks."
+  },
+  {
+   "start": 211.831,
+   "end": 214.138,
+   "text": "One scientist on the team summed it up:"
+  },
+  {
+   "start": 214.278,
+   "end": 216.792,
+   "text": "this was not a quiet period on Mars."
+  },
+  {
+   "start": 217.312,
+   "end": 220.93,
+   "text": "The sulfur stones were too small and too brittle to drill."
+  },
+  {
+   "start": 221.45,
+   "end": 225.92,
+   "text": "So engineers picked a large rock nearby, nicknamed Mammoth Lakes,"
+  },
+  {
+   "start": 226.06,
+   "end": 230.383,
+   "text": "and found a place where the rover could park on loose, sloping ground."
+  },
+  {
+   "start": 230.903,
+   "end": 235.718,
+   "text": "On June eighteenth, Curiosity drilled the forty-first sample hole of its"
+  },
+  {
+   "start": 235.858,
+   "end": 236.545,
+   "text": "mission."
+  },
+  {
+   "start": 236.685,
+   "end": 240.398,
+   "text": "In this panorama, its arm is still raised after drilling."
+  },
+  {
+   "start": 240.918,
+   "end": 245.064,
+   "text": "The rock powder went into small laboratories inside the rover."
+  },
+  {
+   "start": 245.584,
+   "end": 247.875,
+   "text": "Curiosity spent months in this channel."
+  },
+  {
+   "start": 248.015,
+   "end": 250.597,
+   "text": "On October eleventh, twenty twenty-four,"
+  },
+  {
+   "start": 250.737,
+   "end": 254.126,
+   "text": "it took one last look at the sulfur field and drove on."
+  },
+  {
+   "start": 254.646,
+   "end": 256.277,
+   "text": "The question stayed behind."
+  },
+  {
+   "start": 256.797,
+   "end": 258.499,
+   "text": "In August twenty twenty-six,"
+  },
+  {
+   "start": 258.639,
+   "end": 262.135,
+   "text": "the team published its analysis in the journal Science."
+  },
+  {
+   "start": 262.655,
+   "end": 263.841,
+   "text": "Their main result:"
+  },
+  {
+   "start": 263.981,
+   "end": 268.078,
+   "text": "these stones are native sulfur, and they appear to have formed right"
+  },
+  {
+   "start": 268.218,
+   "end": 269.171,
+   "text": "where they sit."
+  },
+  {
+   "start": 269.311,
+   "end": 271.504,
+   "text": "They were not washed in from somewhere else."
+  },
+  {
+   "start": 272.024,
+   "end": 276.01,
+   "text": "The team estimates they formed roughly three billion years ago."
+  },
+  {
+   "start": 276.53,
+   "end": 279.763,
+   "text": "Their proposed explanation starts deep underground."
+  },
+  {
+   "start": 279.903,
+   "end": 282.206,
+   "text": "Magma released sulfur-rich gases."
+  },
+  {
+   "start": 282.726,
+   "end": 287.043,
+   "text": "The gases rose and cooled in frozen ground near the surface, and,"
+  },
+  {
+   "start": 287.183,
+   "end": 290.624,
+   "text": "likely with help from water, turned into pure sulfur."
+  },
+  {
+   "start": 291.144,
+   "end": 295.309,
+   "text": "Much later, as the valley eroded, the deposit was exposed."
+  },
+  {
+   "start": 295.829,
+   "end": 298.327,
+   "text": "That is a proposal, not a closed case."
+  },
+  {
+   "start": 298.467,
+   "end": 301.605,
+   "text": "Another group has suggested something quite different."
+  },
+  {
+   "start": 302.125,
+   "end": 307.76,
+   "text": "In their idea, a meteorite impact upstream melted a sulfur-rich layer of rock,"
+  },
+  {
+   "start": 307.9,
+   "end": 312.418,
+   "text": "and liquid sulfur flowed about four kilometers down the valley before it"
+  },
+  {
+   "start": 312.558,
+   "end": 313.329,
+   "text": "froze."
+  },
+  {
+   "start": 313.849,
+   "end": 318.297,
+   "text": "But that idea depends on a rock layer that nobody has measured yet."
+  },
+  {
+   "start": 318.817,
+   "end": 320.863,
+   "text": "One thing this discovery is not:"
+  },
+  {
+   "start": 321.003,
+   "end": 322.205,
+   "text": "evidence of life."
+  },
+  {
+   "start": 322.725,
+   "end": 326.711,
+   "text": "The team says it sees no sign that microbes played any role."
+  },
+  {
+   "start": 327.231,
+   "end": 330.002,
+   "text": "What the stones do show, the authors argue,"
+  },
+  {
+   "start": 330.142,
+   "end": 333.671,
+   "text": "is that ancient Mars had a way to concentrate sulfur,"
+  },
+  {
+   "start": 333.811,
+   "end": 336.365,
+   "text": "driven by fluids rising from below."
+  },
+  {
+   "start": 336.885,
+   "end": 340.609,
+   "text": "And they seem to have sat almost untouched for billions of years."
+  },
+  {
+   "start": 340.749,
+   "end": 344.064,
+   "text": "One of the researchers called Mars a frozen snapshot."
+  },
+  {
+   "start": 344.584,
+   "end": 346.317,
+   "text": "So here is where it stands."
+  },
+  {
+   "start": 346.837,
+   "end": 351.2,
+   "text": "We know what the stones are, where they are, and roughly how old they are."
+  },
+  {
+   "start": 351.72,
+   "end": 353.787,
+   "text": "We don't know for sure how they got there."
+  },
+  {
+   "start": 353.927,
+   "end": 358.726,
+   "text": "Part of the answer may sit in rock layers upstream that Curiosity has not"
+  },
+  {
+   "start": 358.866,
+   "end": 359.75,
+   "text": "reached yet."
+  },
+  {
+   "start": 360.27,
+   "end": 364.637,
+   "text": "Not bad, for a rock the rover only found because it ran it over."
+  }
+ ]
+}

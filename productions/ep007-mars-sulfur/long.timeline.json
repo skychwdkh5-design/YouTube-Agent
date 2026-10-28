@@ -1,0 +1,1306 @@
+{
+ "version": 1,
+ "output": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "crf": 20,
+  "preset": "veryfast"
+ },
+ "clips": [
+  {
+   "type": "image",
+   "src": "shots/long/001_PIA26309.png",
+   "duration": 3.385,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.08
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26309",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/002_PIA26307.png",
+   "duration": 4.049,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.04,
+     1.0
+    ],
+    "pan": "top_to_bottom"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26307",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/003_PIA26363.png",
+   "duration": 4.049,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.1
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26363",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/004_g_first.png",
+   "duration": 4.384,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_first",
+   "credit": "NASA/JPL-Caltech"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/005_PIA26308.png",
+   "duration": 5.295,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.06
+    ],
+    "pan": "left_to_right"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26308",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/006_g_title.png",
+   "duration": 6.314,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_title",
+   "credit": "NASA/JPL-Caltech"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/007_PIA26471.png",
+   "duration": 5.364,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.12
+    ],
+    "pan": "left_to_right"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26471",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/008_PIA26367.png",
+   "duration": 5.364,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.08,
+     1.0
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26367",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/009_g_where.png",
+   "duration": 8.218,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_where"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/010_PIA26367.png",
+   "duration": 8.609,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.1
+    ],
+    "pan": "right_to_left"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26367",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/011_PIA26410.png",
+   "duration": 5.641,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.12
+    ],
+    "pan": "left_to_right"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26410",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/012_PIA26363.png",
+   "duration": 5.959,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.12,
+     1.0
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26363",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/013_g_timeline.png",
+   "duration": 6.872,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_timeline"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/014_PIA26307.png",
+   "duration": 5.953,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.06
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26307",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/015_PIA26307.png",
+   "duration": 4.493,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.06,
+     1.0
+    ],
+    "pan": "right_to_left"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26307",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/016_PIA26309.png",
+   "duration": 4.426,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.1,
+     1.0
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26309",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/017_g_scale.png",
+   "duration": 4.426,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_scale",
+   "credit": "NASA/JPL-Caltech"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/018_PIA26309.png",
+   "duration": 4.597,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.05
+    ],
+    "pan": "left_to_right"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26309",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/019_g_apxs.png",
+   "duration": 7.257,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_apxs"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/020_g_apxs.png",
+   "duration": 9.356,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_apxs"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/021_g_apxs.png",
+   "duration": 8.179,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_apxs"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/022_g_earth.png",
+   "duration": 5.891,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_earth"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/023_PIA26366.png",
+   "duration": 3.406,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.1
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26366",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/024_g_sulfate.png",
+   "duration": 7.732,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_sulfate"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/025_PIA26471.png",
+   "duration": 7.732,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.1
+    ],
+    "pan": "left_to_right"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26471",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/026_g_sulfate.png",
+   "duration": 6.183,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_sulfate"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/027_g_earth.png",
+   "duration": 5.07,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_earth"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/028_PIA26367.png",
+   "duration": 4.928,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.12,
+     1.0
+    ],
+    "pan": "right_to_left"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26367",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/029_g_quote.png",
+   "duration": 8.941,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_quote",
+   "credit": "NASA/JPL-Caltech"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/030_PIA26210.png",
+   "duration": 2.717,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.06
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26210",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/031_PIA26210.png",
+   "duration": 6.749,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.15
+    ],
+    "pan": "left_to_right"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26210",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/032_PIA26308.png",
+   "duration": 5.701,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.08
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26308",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/033_g_hirise.png",
+   "duration": 5.365,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_hirise",
+   "credit": "NASA/JPL-Caltech"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/034_g_hirise.png",
+   "duration": 10.143,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_hirise",
+   "credit": "NASA/JPL-Caltech"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/035_PIA26363.png",
+   "duration": 3.236,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.12
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26363",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/036_PIA26367.png",
+   "duration": 9.279,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.08
+    ],
+    "pan": "left_to_right"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26367",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/037_PIA26366.png",
+   "duration": 4.095,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.1
+    ],
+    "pan": "right_to_left"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26366",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/038_PIA26410.png",
+   "duration": 4.095,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.06
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26410",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/039_PIA26366.png",
+   "duration": 9.34,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.1,
+     1.0
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26366",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/040_PIA26210.png",
+   "duration": 4.538,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.1,
+     1.0
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26210",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/041_PIA26363.png",
+   "duration": 9.853,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.08
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26363",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/042_PIA26363.png",
+   "duration": 5.408,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.08
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26363",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/043_g_timeline.png",
+   "duration": 5.408,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_timeline"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/044_PIA26363.png",
+   "duration": 5.066,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.1
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26363",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/045_PIA26210.png",
+   "duration": 4.931,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.06,
+     1.0
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26210",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/046_PIA26471.png",
+   "duration": 4.931,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.1
+    ],
+    "pan": "left_to_right"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26471",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/047_g_question.png",
+   "duration": 2.551,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_question"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/048_g_timeline.png",
+   "duration": 6.258,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_timeline"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/049_PIA26210.png",
+   "duration": 9.769,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.12,
+     1.0
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26210",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/050_g_age.png",
+   "duration": 4.906,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_age"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/051_g_hypA.png",
+   "duration": 6.596,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_hypA"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/052_g_hypA.png",
+   "duration": 8.818,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_hypA"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/053_g_hypA.png",
+   "duration": 5.085,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_hypA"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/054_PIA26366.png",
+   "duration": 6.696,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.1
+    ],
+    "pan": "left_to_right"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26366",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/055_g_hypB.png",
+   "duration": 12.124,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_hypB"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/056_g_hypB.png",
+   "duration": 5.368,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_hypB"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/057_g_notlife.png",
+   "duration": 4.308,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_notlife"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/058_PIA26307.png",
+   "duration": 4.906,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.06
+    ],
+    "pan": "left_to_right"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26307",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/059_PIA26410.png",
+   "duration": 10.054,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.08
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26410",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/060_PIA26308.png",
+   "duration": 8.099,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.06,
+     1.0
+    ],
+    "pan": "right_to_left"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26308",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/061_g_know.png",
+   "duration": 2.653,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_know"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/062_g_know.png",
+   "duration": 5.283,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_know"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/063_g_know.png",
+   "duration": 4.675,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.025
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "g_know"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/064_PIA26471.png",
+   "duration": 4.675,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.12,
+     1.0
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "crossfade",
+    "duration": 0.4
+   },
+   "source": "PIA26471",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  },
+  {
+   "type": "image",
+   "src": "shots/long/065_PIA26309.png",
+   "duration": 5.807,
+   "fit": "cover",
+   "motion": {
+    "type": "kenburns",
+    "zoom": [
+     1.0,
+     1.1
+    ],
+    "pan": "center"
+   },
+   "transition": {
+    "type": "none"
+   },
+   "source": "PIA26309",
+   "credit": "NASA/JPL-Caltech/MSSS"
+  }
+ ],
+ "audio": {
+  "voice": [
+   {
+    "src": "voice/narration.wav",
+    "start": 0.0
+   }
+  ]
+ },
+ "subtitles": {
+  "src": "voice/captions.srt",
+  "burn_in": true,
+  "size": 15,
+  "margin_v": 24
+ },
+ "credit": {
+  "position": "top_left"
+ }
+}
