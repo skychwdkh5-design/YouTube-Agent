@@ -1,6 +1,2 @@
-# round 3: direct asset-store paths (photojournal /tiff/ links return an HTML page)
-PIA26366.tif https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia26/pia26366/PIA26366.tif
-PIA26210.tif https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia26/pia26210/PIA26210.tif
-PIA26367.jpg https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia26/pia26367/PIA26367.jpg
-PIA26471.jpg https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia26/pia26471/PIA26471.jpg
-PIA26307.tif https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia26/pia26307/PIA26307.tif
+# round 4: lossless 360 pano (the 8192 px JPG has a purple seam line)
+PIA26363_full.png https://science.nasa.gov/wp-content/uploads/2024/07/pia26363-curiosity-takes-a-360-degree-view-of-gediz-vallis-channel.png
