@@ -1,0 +1,10 @@
+{
+ "aoi": [85.30, 28.20, 85.62, 28.42],
+ "pixel_m": 30,
+ "out_dir": "landsat",
+ "scenes": [
+  {"id": "y2026", "src": "raw/LC09_L1TP_141040_20260826_20260826_02_T1_refl.tif", "label": "26 AUG 2026",
+   "provenance": {"entityId": "LC91410402026238LGN00", "displayId": "LC09_L1TP_141040_20260826_20260826_02_T1", "acquired": "2026-08-26",
+                  "license": {"name": "Public domain (USGS Landsat)", "commercial_use": true}}}
+ ]
+}

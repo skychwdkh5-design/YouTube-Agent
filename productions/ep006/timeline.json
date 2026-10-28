@@ -1,0 +1,2089 @@
+{
+ "version": 3,
+ "profile": "long",
+ "grid": "evidence/stack/grid.json",
+ "assets": {
+  "y2026": {
+   "src": "evidence/stack/y2026.png",
+   "label": "2026",
+   "credit": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "l2026": {
+   "src": "evidence/landsat10/y2026.png",
+   "label": "2026",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
+  "g_reports": {
+   "src": "graphics/g_reports.png",
+   "kind": "graphic",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "group": "g_reports"
+  },
+  "i_usgs_s1": {
+   "src": "graphics/i_usgs.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_usgs"
+  },
+  "i_usgs": {
+   "src": "graphics/i_usgs.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_usgs"
+  },
+  "i_100km_s1": {
+   "src": "graphics/i_100km.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_100km"
+  },
+  "i_100km": {
+   "src": "graphics/i_100km.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_100km"
+  },
+  "i_seismic_s1": {
+   "src": "graphics/i_seismic.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_seismic"
+  },
+  "i_seismic_s2": {
+   "src": "graphics/i_seismic.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_seismic"
+  },
+  "i_seismic": {
+   "src": "graphics/i_seismic.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_seismic"
+  },
+  "i_cause_s1": {
+   "src": "graphics/i_cause.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_cause"
+  },
+  "i_cause": {
+   "src": "graphics/i_cause.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_cause"
+  },
+  "i_2015_s1": {
+   "src": "graphics/i_2015.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_2015"
+  },
+  "i_2015_s2": {
+   "src": "graphics/i_2015.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_2015"
+  },
+  "i_2015": {
+   "src": "graphics/i_2015.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_2015"
+  },
+  "i_toll_s1": {
+   "src": "graphics/i_toll.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_toll"
+  },
+  "i_toll_s2": {
+   "src": "graphics/i_toll.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_toll"
+  },
+  "i_toll": {
+   "src": "graphics/i_toll.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_toll"
+  },
+  "i_china_s1": {
+   "src": "graphics/i_china.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_china"
+  },
+  "i_china": {
+   "src": "graphics/i_china.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_china"
+  },
+  "i_icimod_s1": {
+   "src": "graphics/i_icimod.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_icimod"
+  },
+  "i_icimod_s2": {
+   "src": "graphics/i_icimod.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_icimod"
+  },
+  "i_icimod": {
+   "src": "graphics/i_icimod.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_icimod"
+  },
+  "i_radar_s1": {
+   "src": "graphics/i_radar.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_radar"
+  },
+  "i_radar_s2": {
+   "src": "graphics/i_radar.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_radar"
+  },
+  "i_radar_s3": {
+   "src": "graphics/i_radar.step3.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_radar"
+  },
+  "i_radar": {
+   "src": "graphics/i_radar.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_radar"
+  },
+  "i_volume_s1": {
+   "src": "graphics/i_volume.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_volume"
+  },
+  "i_volume_s2": {
+   "src": "graphics/i_volume.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_volume"
+  },
+  "i_volume": {
+   "src": "graphics/i_volume.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_volume"
+  },
+  "i_clouds": {
+   "src": "graphics/i_clouds.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_clouds"
+  },
+  "i_flow_scale_s1": {
+   "src": "graphics/i_flow_scale.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_flow_scale"
+  },
+  "i_flow_scale": {
+   "src": "graphics/i_flow_scale.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_flow_scale"
+  },
+  "i_official_s1": {
+   "src": "graphics/i_official.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_official"
+  },
+  "i_official": {
+   "src": "graphics/i_official.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_official"
+  },
+  "i_cannot_s1": {
+   "src": "graphics/i_cannot.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_cannot"
+  },
+  "i_cannot_s2": {
+   "src": "graphics/i_cannot.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_cannot"
+  },
+  "i_cannot_s3": {
+   "src": "graphics/i_cannot.step3.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_cannot"
+  },
+  "i_cannot": {
+   "src": "graphics/i_cannot.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_cannot"
+  }
+ },
+ "shots": [
+  {
+   "id": "hook_000",
+   "start": 0.0,
+   "visual_family": "y2026_hook",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 15
+    },
+    "to": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 8
+    }
+   }
+  },
+  {
+   "id": "hook_001",
+   "start": 6.735,
+   "visual_family": "y2026_hook",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 6.5
+    },
+    "to": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 2.8
+    }
+   }
+  },
+  {
+   "resample": "nearest",
+   "id": "plan_002",
+   "start": 13.469,
+   "visual_family": "y2026_plan",
+   "info": "wipe y2026->l2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "wipe",
+     "from": "y2026",
+     "to": "l2026",
+     "t": [
+      4.29,
+      6.09
+     ]
+    },
+    {
+     "type": "label",
+     "t": [
+      0.5,
+      4.7
+     ],
+     "text": "12 AUG 2026 - SENTINEL-2 (10 M)",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true
+    },
+    {
+     "type": "label",
+     "t": [
+      4.29,
+      null
+     ],
+     "text": "26 AUG 2026 - LANDSAT 9 (30 M)",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "sub": "NOT SHARPENED"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.445,
+      28.325
+     ],
+     "width_km": 26
+    },
+    "to": {
+     "center": [
+      85.445,
+      28.325
+     ],
+     "width_km": 15
+    }
+   }
+  },
+  {
+   "id": "plan_003",
+   "start": 23.782,
+   "visual_family": "i_usgs_s1_plan",
+   "info": "i_usgs_s1",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_usgs_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_usgs",
+     "t": [
+      5.406,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "plan_004",
+   "start": 38.476,
+   "visual_family": "i_100km_s1_plan",
+   "info": "i_100km_s1",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_100km_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_100km",
+     "t": [
+      2.957,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "plan_005",
+   "start": 43.578,
+   "visual_family": "y2026_plan",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "pin",
+     "t": [
+      0.1,
+      4.1
+     ],
+     "at": [
+      85.4456,
+      28.3379
+     ],
+     "text": "LENDE KHOLA",
+     "plate": true
+    },
+    {
+     "type": "pin",
+     "t": [
+      0.712,
+      null
+     ],
+     "at": [
+      85.3592,
+      28.2404
+     ],
+     "text": "TRISHULI KHOLA",
+     "plate": true
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.43,
+      28.32
+     ],
+     "width_km": 20
+    },
+    "to": {
+     "center": [
+      85.37731,
+      28.2361
+     ],
+     "width_km": 15
+    }
+   }
+  },
+  {
+   "id": "plan_006",
+   "start": 48.68,
+   "visual_family": "y2026_plan",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "pin",
+     "t": [
+      0.8,
+      null
+     ],
+     "at": [
+      85.3777,
+      28.2789
+     ],
+     "text": "RASUWAGADHI (APPROX.)",
+     "plate": true
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.3777,
+      28.2789
+     ],
+     "width_km": 9
+    },
+    "to": {
+     "center": [
+      85.3777,
+      28.2789
+     ],
+     "width_km": 5
+    }
+   }
+  },
+  {
+   "id": "plan_007",
+   "start": 54.87,
+   "visual_family": "y2026_plan",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "STOP POINT: NOT IN USGS TEXT",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.6,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.38186,
+      28.27895
+     ],
+     "width_km": 16
+    },
+    "to": {
+     "center": [
+      85.4031,
+      28.24934
+     ],
+     "width_km": 20
+    }
+   }
+  },
+  {
+   "id": "plan_008",
+   "start": 59.292,
+   "visual_family": "i_seismic_s1_plan",
+   "info": "i_seismic_s1",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_seismic_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_seismic_s2",
+     "t": [
+      5.814,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_seismic",
+     "t": [
+      10.304,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "plan_009",
+   "start": 75.618,
+   "visual_family": "i_cause_s1_plan",
+   "info": "i_cause_s1",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_cause_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_cause",
+     "t": [
+      11.529,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "plan_010",
+   "start": 92.761,
+   "visual_family": "i_2015_s1_plan",
+   "info": "i_2015_s1",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_2015_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_2015_s2",
+     "t": [
+      8.671,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_2015",
+     "t": [
+      11.529,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "plan_011",
+   "start": 106.231,
+   "visual_family": "i_toll_s1_plan",
+   "info": "i_toll_s1",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_toll_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_toll_s2",
+     "t": [
+      7.039,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_toll",
+     "t": [
+      14.386,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "plan_012",
+   "start": 122.557,
+   "visual_family": "i_china_s1_plan",
+   "info": "i_china_s1",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_china_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_china",
+     "t": [
+      11.5,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "plan_013",
+   "start": 134.557,
+   "visual_family": "y2026_plan",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 10
+    },
+    "to": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 6
+    }
+   }
+  },
+  {
+   "id": "plan_014",
+   "start": 137.483,
+   "visual_family": "y2026_plan",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 14
+    },
+    "to": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 8
+    }
+   }
+  },
+  {
+   "id": "method_015",
+   "start": 140.408,
+   "visual_family": "y2026_method",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 15
+    },
+    "to": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 9
+    }
+   }
+  },
+  {
+   "id": "method_016",
+   "start": 144.748,
+   "visual_family": "y2026_method",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 5.4
+    },
+    "to": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 9.0
+    }
+   }
+  },
+  {
+   "id": "method_017",
+   "start": 149.088,
+   "visual_family": "i_icimod_s1_method",
+   "info": "i_icimod_s1",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_icimod_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_icimod_s2",
+     "t": [
+      4.998,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_icimod",
+     "t": [
+      10.712,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "method_018",
+   "start": 165.822,
+   "visual_family": "i_radar_s1_method",
+   "info": "i_radar_s1",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_radar_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_radar_s2",
+     "t": [
+      4.59,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_radar_s3",
+     "t": [
+      8.263,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_radar",
+     "t": [
+      24.182,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "method_019",
+   "start": 192.353,
+   "visual_family": "i_volume_s1_method",
+   "info": "i_volume_s1",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_volume_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_volume_s2",
+     "t": [
+      7.5879103597405315,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_volume",
+     "t": [
+      7.5879103597405315,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "method_020",
+   "start": 200.441,
+   "visual_family": "y2026_method",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.767329687919989,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 9
+    },
+    "to": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 15
+    }
+   }
+  },
+  {
+   "id": "method_021",
+   "start": 202.743,
+   "visual_family": "y2026_method",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.767329687919989,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 15
+    },
+    "to": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 7
+    }
+   }
+  },
+  {
+   "id": "method_022",
+   "start": 205.045,
+   "visual_family": "y2026_method",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.767329687919989,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 7
+    },
+    "to": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 15
+    }
+   }
+  },
+  {
+   "id": "obs_023",
+   "start": 207.347,
+   "visual_family": "y2026_obs",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 10
+    },
+    "to": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 6
+    }
+   }
+  },
+  {
+   "id": "obs_024",
+   "start": 213.583,
+   "visual_family": "y2026_obs",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 3.6
+    },
+    "to": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 6.0
+    }
+   }
+  },
+  {
+   "id": "obs_025",
+   "start": 219.819,
+   "visual_family": "y2026_obs",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 10
+    },
+    "to": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 6
+    }
+   }
+  },
+  {
+   "id": "obs_026",
+   "start": 226.056,
+   "visual_family": "y2026_obs",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 3.6
+    },
+    "to": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 6.0
+    }
+   }
+  },
+  {
+   "id": "obs_027",
+   "start": 232.292,
+   "visual_family": "i_clouds_obs",
+   "info": "i_clouds",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_clouds",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "resample": "nearest",
+   "id": "obs_028",
+   "start": 239.292,
+   "visual_family": "l2026_obs",
+   "info": "l2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    },
+    {
+     "type": "label",
+     "text": "1 PIXEL = 30 M OF GROUND",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.6,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.4456,
+      28.3379
+     ],
+     "width_km": 1.5
+    },
+    "to": {
+     "center": [
+      85.4456,
+      28.3379
+     ],
+     "width_km": 0.5
+    }
+   }
+  },
+  {
+   "id": "obs_029",
+   "start": 247.047,
+   "visual_family": "y2026_obs",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "pin",
+     "t": [
+      1.0,
+      null
+     ],
+     "at": [
+      85.4253,
+      28.3314
+     ],
+     "text": "NARROW PALE RIVER BED",
+     "plate": true
+    },
+    {
+     "type": "label",
+     "t": [
+      0.3,
+      null
+     ],
+     "text": "12 AUG 2026 - SENTINEL-2, 10 M",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.43,
+      28.335
+     ],
+     "width_km": 12
+    },
+    "to": {
+     "center": [
+      85.39,
+      28.3
+     ],
+     "width_km": 7
+    }
+   }
+  },
+  {
+   "resample": "nearest",
+   "id": "obs_030",
+   "start": 251.945,
+   "visual_family": "y2026_obs",
+   "info": "wipe y2026->l2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "wipe",
+     "from": "y2026",
+     "to": "l2026",
+     "t": [
+      2.141,
+      3.941
+     ]
+    },
+    {
+     "type": "label",
+     "t": [
+      0.4,
+      3.4
+     ],
+     "text": "12 AUG 2026 - SENTINEL-2 (10 M)",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true
+    },
+    {
+     "type": "label",
+     "t": [
+      2.141,
+      null
+     ],
+     "text": "26 AUG 2026 - LANDSAT 9 (30 M)",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "sub": "NOT SHARPENED"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.43,
+      28.335
+     ],
+     "width_km": 12
+    },
+    "to": {
+     "center": [
+      85.39,
+      28.3
+     ],
+     "width_km": 7
+    }
+   }
+  },
+  {
+   "resample": "nearest",
+   "id": "obs_031",
+   "start": 262.557,
+   "visual_family": "y2026_obs",
+   "info": "wipe y2026->l2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "wipe",
+     "from": "y2026",
+     "to": "l2026",
+     "t": [
+      0.6,
+      2.4
+     ]
+    },
+    {
+     "type": "arrow",
+     "t": [
+      0.1,
+      null
+     ],
+     "from": [
+      85.5126,
+      28.2872
+     ],
+     "to": [
+      85.4456,
+      28.3379
+     ],
+     "width": 9,
+     "color": "#FFD23F"
+    },
+    {
+     "type": "arrow",
+     "t": [
+      2.141,
+      null
+     ],
+     "from": [
+      85.4456,
+      28.3379
+     ],
+     "to": [
+      85.3852,
+      28.2858
+     ],
+     "width": 9,
+     "color": "#FFD23F"
+    },
+    {
+     "type": "arrow",
+     "t": [
+      2.141,
+      null
+     ],
+     "from": [
+      85.3852,
+      28.2858
+     ],
+     "to": [
+      85.3522,
+      28.1974
+     ],
+     "width": 9,
+     "color": "#FFD23F"
+    },
+    {
+     "type": "label",
+     "t": [
+      2.141,
+      null
+     ],
+     "text": "TRACED BY EYE: ~30 KM",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true
+    },
+    {
+     "type": "pin",
+     "t": [
+      11.937,
+      null
+     ],
+     "at": [
+      85.3777,
+      28.2789
+     ],
+     "text": "RIVER TURNS SOUTH (APPROX.)",
+     "plate": true
+    },
+    {
+     "type": "label",
+     "t": [
+      0.6,
+      null
+     ],
+     "text": "~20 KM FROM GLACIER FOOT TO HERE",
+     "style": "tag",
+     "slot": "middle",
+     "plate": true
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.45988,
+      28.30034
+     ],
+     "width_km": 31.066
+    },
+    "to": {
+     "center": [
+      85.43354,
+      28.30004
+     ],
+     "width_km": 26
+    }
+   }
+  },
+  {
+   "id": "obs_032",
+   "start": 276.435,
+   "visual_family": "l2026_obs",
+   "info": "l2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "l2026"
+    },
+    {
+     "type": "label",
+     "text": "CLOUDS HIDE PARTS OF THE VALLEY",
+     "style": "tag",
+     "slot": "upper",
+     "plate": true,
+     "t": [
+      0.6,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.5,
+      28.3
+     ],
+     "width_km": 20
+    },
+    "to": {
+     "center": [
+      85.45,
+      28.32
+     ],
+     "width_km": 14
+    }
+   }
+  },
+  {
+   "id": "obs_033",
+   "start": 279.595,
+   "visual_family": "y2026_obs",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 10
+    },
+    "to": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 6
+    }
+   }
+  },
+  {
+   "id": "obs_034",
+   "start": 282.965,
+   "visual_family": "i_flow_scale_s1_obs",
+   "info": "i_flow_scale_s1",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_flow_scale_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_flow_scale",
+     "t": [
+      3.365,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "obs_035",
+   "start": 286.904,
+   "visual_family": "y2026_obs",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.636151200634767,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 10
+    },
+    "to": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 6
+    }
+   }
+  },
+  {
+   "id": "obs_036",
+   "start": 288.812,
+   "visual_family": "y2026_obs",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.636151200634767,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 10
+    },
+    "to": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 6
+    }
+   }
+  },
+  {
+   "id": "obs_037",
+   "start": 290.72,
+   "visual_family": "i_official_s1_obs",
+   "info": "i_official_s1",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_official_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_official",
+     "t": [
+      5.552981895633661,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "obs_038",
+   "start": 296.773,
+   "visual_family": "y2026_obs",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 14
+    },
+    "to": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 8
+    }
+   }
+  },
+  {
+   "id": "limits_039",
+   "start": 300.0,
+   "visual_family": "y2026_limits",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 15
+    },
+    "to": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 8
+    }
+   }
+  },
+  {
+   "id": "limits_040",
+   "start": 306.789,
+   "visual_family": "y2026_limits",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 4.8
+    },
+    "to": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 9.0
+    }
+   }
+  },
+  {
+   "id": "limits_041",
+   "start": 313.578,
+   "visual_family": "i_cannot_s1_limits",
+   "info": "i_cannot_s1",
+   "layers": [
+    {
+     "type": "graphic",
+     "asset": "i_cannot_s1",
+     "t": [
+      0,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_cannot_s2",
+     "t": [
+      7.447,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_cannot_s3",
+     "t": [
+      12.753,
+      null
+     ],
+     "push": 0.04
+    },
+    {
+     "type": "graphic",
+     "asset": "i_cannot",
+     "t": [
+      16.08570407433883,
+      null
+     ],
+     "push": 0.04
+    }
+   ]
+  },
+  {
+   "id": "limits_042",
+   "start": 330.163,
+   "visual_family": "y2026_limits",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 8
+    },
+    "to": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 15
+    }
+   }
+  },
+  {
+   "id": "close_043",
+   "start": 335.102,
+   "visual_family": "close_view",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 10
+    },
+    "to": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 6
+    }
+   }
+  },
+  {
+   "id": "close_044",
+   "start": 339.712,
+   "visual_family": "close_view",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 3.6
+    },
+    "to": {
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 6.0
+    }
+   }
+  },
+  {
+   "id": "close_045",
+   "start": 344.322,
+   "visual_family": "close_wide",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 8
+    },
+    "to": {
+     "center": [
+      85.49677,
+      28.29991
+     ],
+     "width_km": 24
+    }
+   }
+  },
+  {
+   "id": "close_046",
+   "start": 348.932,
+   "visual_family": "close_wide",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 14.4
+    },
+    "to": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 4.8
+    }
+   }
+  },
+  {
+   "id": "close_047",
+   "start": 353.541,
+   "visual_family": "y2026_close",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    },
+    {
+     "type": "label",
+     "text": "AUG 2026",
+     "style": "year",
+     "slot": "upper",
+     "t": [
+      0.8,
+      null
+     ]
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 15
+    },
+    "to": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 8
+    }
+   }
+  },
+  {
+   "id": "close_048",
+   "start": 357.383,
+   "visual_family": "y2026_close",
+   "info": "y2026",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "y2026"
+    }
+   ],
+   "camera": {
+    "from": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 4.8
+    },
+    "to": {
+     "center": [
+      85.505,
+      28.3
+     ],
+     "width_km": 9.0
+    }
+   }
+  }
+ ],
+ "end": {
+  "seconds": 362.22
+ }
+}

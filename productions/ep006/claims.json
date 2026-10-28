@@ -1,0 +1,258 @@
+{
+ "schema": "yt-facts/1",
+ "derived_from": "research/notes.json",
+ "claims": [
+  {
+   "id": "C1",
+   "tier": "org",
+   "text": "USGS says a rapid slope failure involving a glacier struck Langtang National Park in Nepal, near the China border, on the morning of 26 August 2026.",
+   "short": "26 Aug 2026: slope failure",
+   "confidence": "high",
+   "confidence_reason": "primary read",
+   "wording": "said",
+   "attribution": "USGS Landslide Hazards Program",
+   "date": "2026-08-28",
+   "url": "https://www.usgs.gov/programs/landslide-hazards/science/2026-nepal-debris-avalanche-and-flash-flood",
+   "source_access": "read",
+   "source_kind": "primary"
+  },
+  {
+   "id": "C2",
+   "tier": "org",
+   "text": "USGS says the debris flow and flood travelled approximately 100 kilometers (about 62 miles) along the Lende Khola and Trishuli Khola, and impacted populated areas downstream, including the Rasuwagadhi border post.",
+   "short": "Flow travelled ~100 km",
+   "confidence": "high",
+   "confidence_reason": "primary read",
+   "wording": "said",
+   "attribution": "USGS Landslide Hazards Program",
+   "date": "2026-08-28",
+   "url": "https://www.usgs.gov/programs/landslide-hazards/science/2026-nepal-debris-avalanche-and-flash-flood",
+   "source_access": "read",
+   "source_kind": "primary",
+   "forbid": [
+    "reached Rasuwagadhi after 100",
+    "100 km to Rasuwagadhi"
+   ]
+  },
+  {
+   "id": "C3",
+   "tier": "org",
+   "text": "USGS says the slope failure generated seismic energy equivalent to a magnitude 5.2 earthquake, and a second event about three hours later was equivalent to magnitude 4.2; the signals were produced by the failure itself.",
+   "short": "Signal equal to M5.2",
+   "confidence": "high",
+   "confidence_reason": "primary read",
+   "wording": "said",
+   "attribution": "USGS Landslide Hazards Program",
+   "date": "2026-08-28",
+   "url": "https://www.usgs.gov/programs/landslide-hazards/science/2026-nepal-debris-avalanche-and-flash-flood",
+   "source_access": "read",
+   "source_kind": "primary",
+   "forbid": [
+    "earthquake triggered",
+    "earthquake caused",
+    "earthquake struck"
+   ]
+  },
+  {
+   "id": "C4",
+   "tier": "org",
+   "text": "USGS has not determined whether the initial failure was a landslide that incorporated part of a glacier or a collapse of the glacier itself, and all information is preliminary.",
+   "short": "Exact cause not settled",
+   "confidence": "high",
+   "confidence_reason": "primary read",
+   "wording": "said",
+   "attribution": "USGS Landslide Hazards Program",
+   "date": "2026-08-28",
+   "url": "https://www.usgs.gov/programs/landslide-hazards/science/2026-nepal-debris-avalanche-and-flash-flood",
+   "source_access": "read",
+   "source_kind": "primary"
+  },
+  {
+   "id": "C5",
+   "tier": "org",
+   "text": "USGS notes the same mountain produced a large debris avalanche in 2015, caused by the magnitude 7.8 Gorkha earthquake, which fell nearly 1,900 meters, buried a village and killed more than 200 people.",
+   "short": "2015: same mountain",
+   "confidence": "high",
+   "confidence_reason": "primary read",
+   "wording": "said",
+   "attribution": "USGS Landslide Hazards Program",
+   "date": "2026-08-28",
+   "url": "https://www.usgs.gov/programs/landslide-hazards/science/2026-nepal-debris-avalanche-and-flash-flood",
+   "source_access": "read",
+   "source_kind": "primary"
+  },
+  {
+   "id": "C6",
+   "tier": "org",
+   "text": "USGS is mapping the extent of the flood and debris by comparing satellite images from before and after the event.",
+   "short": "USGS maps flood extent",
+   "confidence": "high",
+   "confidence_reason": "primary read",
+   "wording": "said",
+   "attribution": "USGS Landslide Hazards Program",
+   "date": "2026-08-28",
+   "url": "https://www.usgs.gov/programs/landslide-hazards/science/2026-nepal-debris-avalanche-and-flash-flood",
+   "source_access": "read",
+   "source_kind": "primary"
+  },
+  {
+   "id": "C7",
+   "tier": "science",
+   "text": "ICIMOD's preliminary analysis (13 October 2026) concludes the disaster was not a conventional glacial lake outburst flood: a bedrock failure sheared away part of an overlying glacier.",
+   "short": "ICIMOD: not a lake burst",
+   "confidence": "medium",
+   "confidence_reason": "search summary, 2 independent outlets",
+   "wording": "said",
+   "attribution": "ICIMOD press release",
+   "date": "2026-10-13",
+   "url": "https://www.icimod.org/press-releases/second-major-himalayan-flood-in-seven-weeks-raises-new-questions-about-mountain-risk",
+   "source_access": "summary_only",
+   "source_kind": "search_summary",
+   "forbid": [
+    "lake burst",
+    "lake outburst caused",
+    "burst its banks"
+   ]
+  },
+  {
+   "id": "C8",
+   "tier": "science",
+   "text": "ICIMOD reports that Sentinel-1 radar detected up to 40 centimeters of ground deformation along the satellite's line of sight between 7 July and 24 August 2026, two days before the collapse.",
+   "short": "Radar: up to 40 cm, 7 Jul-24 Aug",
+   "confidence": "medium",
+   "confidence_reason": "search summary, 2 independent outlets",
+   "wording": "said",
+   "attribution": "ICIMOD press release",
+   "date": "2026-10-13",
+   "url": "https://www.icimod.org/press-releases/second-major-himalayan-flood-in-seven-weeks-raises-new-questions-about-mountain-risk",
+   "source_access": "summary_only",
+   "source_kind": "search_summary",
+   "forbid": [
+    "predicted",
+    "could have been predicted",
+    "proved it was predictable",
+    "early warning would have"
+   ]
+  },
+  {
+   "id": "C9",
+   "tier": "science",
+   "text": "Early estimates of the volume differ: ICIMOD's preliminary figure is about 132 million cubic meters of rock and ice, while a separate preprint suggests a much smaller order of magnitude.",
+   "short": "Volume estimates differ",
+   "confidence": "medium",
+   "confidence_reason": "search summary, 2 independent outlets",
+   "wording": "said",
+   "attribution": "ICIMOD press release",
+   "date": "2026-10-13",
+   "url": "https://www.icimod.org/press-releases/second-major-himalayan-flood-in-seven-weeks-raises-new-questions-about-mountain-risk",
+   "source_access": "summary_only",
+   "source_kind": "search_summary"
+  },
+  {
+   "id": "C10",
+   "tier": "media",
+   "text": "By mid-October 2026 Nepali figures put the confirmed death toll in Nepal above 1,400 people, with roughly five thousand still listed as missing; the lists keep changing as names are verified.",
+   "short": "Nepal: over 1,400 dead (Oct)",
+   "confidence": "medium",
+   "confidence_reason": "search summary, 3 independent outlets",
+   "wording": "reported",
+   "attribution": "Nepal Police / NDRRMA figures as reported by Ratopati and a live tracker",
+   "date": "2026-10-14",
+   "url": "https://english.ratopati.com/story/78427/rasuwa-flood-death-toll-reaches-1367",
+   "source_access": "summary_only",
+   "source_kind": "search_summary",
+   "forbid": [
+    "1,456",
+    "5,132",
+    "exactly"
+   ]
+  },
+  {
+   "id": "C11",
+   "tier": "media",
+   "text": "China counts casualties on its side of the border separately: Xinhua reported 43 dead and 519 missing at Gyirong Port as of 5 September, and it was not clear whether some people appear in both countries' counts.",
+   "short": "China counts its side separately",
+   "confidence": "medium",
+   "confidence_reason": "search summary, 2 independent outlets",
+   "wording": "reported",
+   "attribution": "Xinhua (via The Star, NST) and NBC News",
+   "date": "2026-09-06",
+   "url": "https://english.news.cn/20260906/c7070ebe266b4338bf2206805140c36c/c.html",
+   "source_access": "summary_only",
+   "source_kind": "search_summary",
+   "forbid": [
+    "total of"
+   ]
+  },
+  {
+   "id": "C12",
+   "tier": "org",
+   "text": "On 2 September 2026 a US Air Force C-130J delivered relief supplies to Tribhuvan International Airport in Kathmandu, according to US Air Force photographs.",
+   "short": "Relief flights, 2 Sept",
+   "confidence": "low",
+   "confidence_reason": "secondary read, one outlet",
+   "wording": "said",
+   "attribution": "U.S. Air Force photographs (Commons file pages)",
+   "date": "2026-09-02",
+   "url": "https://commons.wikimedia.org/wiki/Category:2026_Nepal_floods",
+   "source_access": "read",
+   "source_kind": "secondary"
+  },
+  {
+   "id": "C13",
+   "tier": "observation",
+   "text": "In a Landsat 9 image taken on 26 August 2026, a dark grey-brown swath follows the valley and river corridor below the glacier; the clear 12 August 2026 Sentinel-2 image of the same valley shows only a narrow pale river bed there.",
+   "short": "26 Aug: dark swath in valley",
+   "confidence": "medium",
+   "confidence_reason": "observation basis one_check",
+   "evidence": "evidence/landsat10/y2026.png",
+   "years": [
+    2026
+   ],
+   "group": "obs",
+   "visual": true
+  },
+  {
+   "id": "C14",
+   "tier": "observation",
+   "text": "On our 10 m grid the dark swath can be followed for about 30 kilometers in the 26 August 2026 Landsat 9 image, about 20 kilometers of it before the river turns south near the Rasuwagadhi border post; clouds hide other stretches, so this is a lower bound inside our frame.",
+   "short": "Swath: ~30 km on our frame",
+   "confidence": "medium",
+   "confidence_reason": "observation basis one_check",
+   "evidence": "evidence/path_measure.json",
+   "years": [
+    2026
+   ],
+   "group": "obs",
+   "visual": true
+  },
+  {
+   "id": "C15",
+   "tier": "observation",
+   "text": "Optical satellites need clear sky: Sentinel-2 passes over this valley between 14 and 27 August 2026 had 39 to 97 percent scene cloud cover, and the clearest view before the event is from 12 August, with 19 percent scene cloud.",
+   "short": "Clouds hid most passes",
+   "confidence": "high",
+   "confidence_reason": "observation basis two_checks",
+   "evidence": "research/scenes_found.json",
+   "years": [
+    2026
+   ],
+   "group": "obs",
+   "visual": false
+  },
+  {
+   "id": "C16",
+   "tier": "observation",
+   "text": "The Sentinel-2 frames in this video have 10 meter pixels; the Landsat 9 frame has 30 meter pixels, shown on the same grid by nearest-neighbor resampling, which adds no detail.",
+   "short": "Sentinel-2: 10 m, Landsat: 30 m",
+   "confidence": "high",
+   "confidence_reason": "observation basis two_checks",
+   "evidence": "evidence/landsat10/provenance.json",
+   "years": [
+    2026
+   ],
+   "group": "obs",
+   "visual": false
+  }
+ ]
+}

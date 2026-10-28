@@ -1,0 +1,1687 @@
+{
+ "schema": "yt-orchestrate/1",
+ "slug": "ep006",
+ "created": "2026-10-27T10:57:17Z",
+ "stages": {
+  "topic": {
+   "status": "done",
+   "attempts": 2,
+   "started": "2026-10-27T10:57:29Z",
+   "error": null,
+   "finished": "2026-10-27T10:57:29Z",
+   "note": "owner-approved topic",
+   "outputs": {
+    "topic/topic.json": "003755184b162732282f6bd0371383b8b43df7092082680fae70e66dccd75fab"
+   },
+   "inputs": {
+    "topic/approval.json": "97b613b232b8d8b446fcaef932ce80534491c8a8ac585236fd49b959b76b6cde",
+    "_tool": "a7c247e10529a591"
+   },
+   "agent_artifacts": {
+    "topic/approval.json": "97b613b232b8d8b446fcaef932ce80534491c8a8ac585236fd49b959b76b6cde"
+   }
+  },
+  "research": {
+   "status": "done",
+   "attempts": 19,
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN",
+   "started": "2026-10-27T11:15:56Z",
+   "error": null,
+   "finished": "2026-10-27T11:15:56Z",
+   "outputs": {
+    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30",
+    "research/report.md": "90406da5e7bd5602a0dd0cb9a79c1e93f8fdaeac17f88ffc5e7c1961fb4e4c7e"
+   },
+   "inputs": {
+    "research/notes.json": "a176c3a380ac37f81966c4fa5813f49d913a79b10060fc11c5b7176aaec7e5a8",
+    "topic/topic.json": "003755184b162732282f6bd0371383b8b43df7092082680fae70e66dccd75fab",
+    "_tool": "20551a128ea3eaf0"
+   },
+   "agent_artifacts": {
+    "research/notes.json": "a176c3a380ac37f81966c4fa5813f49d913a79b10060fc11c5b7176aaec7e5a8",
+    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30"
+   }
+  },
+  "facts": {
+   "status": "done",
+   "attempts": 17,
+   "note": "16 claims, registry ok",
+   "started": "2026-10-27T11:15:56Z",
+   "error": null,
+   "finished": "2026-10-27T11:15:56Z",
+   "inputs": {
+    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30",
+    "research/report.md": "90406da5e7bd5602a0dd0cb9a79c1e93f8fdaeac17f88ffc5e7c1961fb4e4c7e",
+    "_tool": "011f70d2646e3c92"
+   },
+   "outputs": {},
+   "agent_artifacts": {}
+  },
+  "evidence": {
+   "status": "done",
+   "attempts": 18,
+   "note": "2 stacks + Landsat stack(s)",
+   "started": "2026-10-27T11:15:56Z",
+   "error": null,
+   "finished": "2026-10-27T11:15:56Z",
+   "outputs": {
+    "evidence/stack/provenance.json": "5af4ac10ede03de34f59770e29368c5784deac981af2e686928fa36f7a92c6ec",
+    "evidence/stack/grid.json": "b0144f3b7d249ddf93ae619f6f35f975b46c6214d8941f594e471e79a05ef60e",
+    "evidence/wide/provenance.json": "eed58d5da69eed516fe1a1ae8ed73457e9d43ee982d833004d9d9e2da453cdb0",
+    "evidence/wide/grid.json": "770b196aacb782d7116d63f2cffef6780e131ed694e5709e555b063660f804d7",
+    "evidence/landsat/provenance.json": "dd330d166380617e5d40f0a6a8fe80b22224f6ae4b4634258dd4faf39adefa23",
+    "evidence/landsat/grid.json": "90b33d6ff1643734b540f9f77d215879d359ab2eb554ac340552093450143dd7",
+    "evidence/landsat10/provenance.json": "b63ea34f02d7baa6d93455be7f231d09ec642d2d9b24c67a2fda417afcbb0f03",
+    "evidence/landsat10/grid.json": "a223622a603ebc3deb9aad92d07279c2faec8c9234bde34cfdd1ee0393351772"
+   },
+   "inputs": {
+    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30",
+    "research/notes.json": "a176c3a380ac37f81966c4fa5813f49d913a79b10060fc11c5b7176aaec7e5a8",
+    "research/report.md": "90406da5e7bd5602a0dd0cb9a79c1e93f8fdaeac17f88ffc5e7c1961fb4e4c7e",
+    "topic/topic.json": "003755184b162732282f6bd0371383b8b43df7092082680fae70e66dccd75fab",
+    "_tool": "9910c5ec0e089c03"
+   },
+   "agent_artifacts": {}
+  },
+  "script": {
+   "status": "done",
+   "attempts": 8,
+   "note": "885 words = 6.0 min, 15 claims used",
+   "started": "2026-10-27T11:15:56Z",
+   "error": null,
+   "finished": "2026-10-27T11:15:56Z",
+   "outputs": {
+    "script.md": "6bcc176ad9027b4f0b696166735d93f0e3f2a8a1d72d58f40d13a9c8626572dc",
+    "research/brief.json": "ad46257f2ae23dcfdb45b5cb32d954c51f2dd9760a2d58336d41d1bd0199d01d"
+   },
+   "inputs": {
+    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30",
+    "evidence/landsat/grid.json": "90b33d6ff1643734b540f9f77d215879d359ab2eb554ac340552093450143dd7",
+    "evidence/landsat/provenance.json": "dd330d166380617e5d40f0a6a8fe80b22224f6ae4b4634258dd4faf39adefa23",
+    "evidence/landsat10/grid.json": "a223622a603ebc3deb9aad92d07279c2faec8c9234bde34cfdd1ee0393351772",
+    "evidence/landsat10/provenance.json": "b63ea34f02d7baa6d93455be7f231d09ec642d2d9b24c67a2fda417afcbb0f03",
+    "evidence/stack/grid.json": "b0144f3b7d249ddf93ae619f6f35f975b46c6214d8941f594e471e79a05ef60e",
+    "evidence/stack/provenance.json": "5af4ac10ede03de34f59770e29368c5784deac981af2e686928fa36f7a92c6ec",
+    "evidence/wide/grid.json": "770b196aacb782d7116d63f2cffef6780e131ed694e5709e555b063660f804d7",
+    "evidence/wide/provenance.json": "eed58d5da69eed516fe1a1ae8ed73457e9d43ee982d833004d9d9e2da453cdb0",
+    "script.md": "6bcc176ad9027b4f0b696166735d93f0e3f2a8a1d72d58f40d13a9c8626572dc",
+    "_tool": "1e8a31e2bf49a808"
+   },
+   "agent_artifacts": {
+    "script.md": "6bcc176ad9027b4f0b696166735d93f0e3f2a8a1d72d58f40d13a9c8626572dc"
+   }
+  },
+  "media": {
+   "status": "done",
+   "attempts": 14,
+   "note": "3 verified of 5 media entries (style v2: media optional)",
+   "started": "2026-10-27T11:15:56Z",
+   "error": null,
+   "finished": "2026-10-27T11:15:56Z",
+   "inputs": {
+    "media/assets/a_member_of_the_nepali_armed.jpg": "e3d8b31e0acb3b91ee4410b11dc506d1c2c216fdc05f4d103fe30bebb344824e",
+    "media/assets/palletized_life_saving_equip.jpg": "e5b4f6a1a250060af5d9264389f0938c84ec09436af712e58abba8e251717446",
+    "media/assets/us_and_nepali_officials_besi.jpg": "523241f09a55e43dbbe3a31669f1aa6eb00e6c51e54e07f5ede57f0e8e7cf54c",
+    "media/ledger.json": "e1c8d51b2a0837cdfef714b2b6a0cf5692d88dc2aa62e6de82179d0d4b14ebce",
+    "research/brief.json": "ad46257f2ae23dcfdb45b5cb32d954c51f2dd9760a2d58336d41d1bd0199d01d",
+    "research/notes.json": "a176c3a380ac37f81966c4fa5813f49d913a79b10060fc11c5b7176aaec7e5a8",
+    "script.md": "6bcc176ad9027b4f0b696166735d93f0e3f2a8a1d72d58f40d13a9c8626572dc",
+    "_tool": "bcf6af8b3dcf17e9"
+   },
+   "outputs": {
+    "media/report.json": "473c2ad88e11503d6c7f037e44fbf5592063d3f4c418024e13f26c44b93c7081"
+   },
+   "agent_artifacts": {
+    "media/ledger.json": "e1c8d51b2a0837cdfef714b2b6a0cf5692d88dc2aa62e6de82179d0d4b14ebce"
+   }
+  },
+  "visualplan": {
+   "status": "done",
+   "attempts": 14,
+   "note": "41 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']",
+   "started": "2026-10-27T11:15:56Z",
+   "error": null,
+   "finished": "2026-10-27T11:15:56Z",
+   "inputs": {
+    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30",
+    "evidence/landsat/grid.json": "90b33d6ff1643734b540f9f77d215879d359ab2eb554ac340552093450143dd7",
+    "evidence/landsat/provenance.json": "dd330d166380617e5d40f0a6a8fe80b22224f6ae4b4634258dd4faf39adefa23",
+    "evidence/landsat10/grid.json": "a223622a603ebc3deb9aad92d07279c2faec8c9234bde34cfdd1ee0393351772",
+    "evidence/landsat10/provenance.json": "b63ea34f02d7baa6d93455be7f231d09ec642d2d9b24c67a2fda417afcbb0f03",
+    "evidence/stack/grid.json": "b0144f3b7d249ddf93ae619f6f35f975b46c6214d8941f594e471e79a05ef60e",
+    "evidence/stack/provenance.json": "5af4ac10ede03de34f59770e29368c5784deac981af2e686928fa36f7a92c6ec",
+    "evidence/wide/grid.json": "770b196aacb782d7116d63f2cffef6780e131ed694e5709e555b063660f804d7",
+    "evidence/wide/provenance.json": "eed58d5da69eed516fe1a1ae8ed73457e9d43ee982d833004d9d9e2da453cdb0",
+    "media/assets/a_member_of_the_nepali_armed.jpg": "e3d8b31e0acb3b91ee4410b11dc506d1c2c216fdc05f4d103fe30bebb344824e",
+    "media/assets/palletized_life_saving_equip.jpg": "e5b4f6a1a250060af5d9264389f0938c84ec09436af712e58abba8e251717446",
+    "media/assets/us_and_nepali_officials_besi.jpg": "523241f09a55e43dbbe3a31669f1aa6eb00e6c51e54e07f5ede57f0e8e7cf54c",
+    "media/ledger.json": "e1c8d51b2a0837cdfef714b2b6a0cf5692d88dc2aa62e6de82179d0d4b14ebce",
+    "media/report.json": "473c2ad88e11503d6c7f037e44fbf5592063d3f4c418024e13f26c44b93c7081",
+    "research/brief.json": "ad46257f2ae23dcfdb45b5cb32d954c51f2dd9760a2d58336d41d1bd0199d01d",
+    "research/notes.json": "a176c3a380ac37f81966c4fa5813f49d913a79b10060fc11c5b7176aaec7e5a8",
+    "script.md": "6bcc176ad9027b4f0b696166735d93f0e3f2a8a1d72d58f40d13a9c8626572dc",
+    "_tool": "86573ffac96cfd08"
+   },
+   "outputs": {
+    "episode.json": "aa72a9cc004be8ab2dd497ec21ffc6eac4f778bf9b395d879c1ad17246b7c9fc",
+    "graphics_spec.json": "2976efabfd6b7d8f5db6abe81cae92056241ad83511c839e312afe201f824a54"
+   },
+   "agent_artifacts": {}
+  },
+  "visuals": {
+   "status": "done",
+   "attempts": 24,
+   "note": "39 graphics",
+   "started": "2026-10-27T11:15:56Z",
+   "error": null,
+   "finished": "2026-10-27T11:16:05Z",
+   "inputs": {
+    "episode.json": "aa72a9cc004be8ab2dd497ec21ffc6eac4f778bf9b395d879c1ad17246b7c9fc",
+    "evidence/landsat/grid.json": "90b33d6ff1643734b540f9f77d215879d359ab2eb554ac340552093450143dd7",
+    "evidence/landsat/provenance.json": "dd330d166380617e5d40f0a6a8fe80b22224f6ae4b4634258dd4faf39adefa23",
+    "evidence/landsat10/grid.json": "a223622a603ebc3deb9aad92d07279c2faec8c9234bde34cfdd1ee0393351772",
+    "evidence/landsat10/provenance.json": "b63ea34f02d7baa6d93455be7f231d09ec642d2d9b24c67a2fda417afcbb0f03",
+    "evidence/stack/grid.json": "b0144f3b7d249ddf93ae619f6f35f975b46c6214d8941f594e471e79a05ef60e",
+    "evidence/stack/provenance.json": "5af4ac10ede03de34f59770e29368c5784deac981af2e686928fa36f7a92c6ec",
+    "evidence/wide/grid.json": "770b196aacb782d7116d63f2cffef6780e131ed694e5709e555b063660f804d7",
+    "evidence/wide/provenance.json": "eed58d5da69eed516fe1a1ae8ed73457e9d43ee982d833004d9d9e2da453cdb0",
+    "graphics_spec.json": "2976efabfd6b7d8f5db6abe81cae92056241ad83511c839e312afe201f824a54",
+    "_tool": "09bccd9933611a78"
+   },
+   "outputs": {
+    "graphics/g_reports.png": "f42e397a3b3308ae1a9bbe3326bc08863408fcc0ec833d95ea1c53fd635d57ab",
+    "graphics/i_100km.png": "5e768b1900f68a75ad483b6aaf46dec8551675ef71638c3af8507db40af92bd5",
+    "graphics/i_100km.step1.png": "916066b230ac845733ee3e0b488f098f1727d6846bc440bcfef1abd653c11847",
+    "graphics/i_2015.png": "4e2e99b50b96ac14f43236ff117ed2cc5e62529b0d216281c1e691be18afec82",
+    "graphics/i_2015.step1.png": "d19a2d44ad331cb957d9ff1c30803cb3b02ba4696c383c2b120b80a6efdf6256",
+    "graphics/i_2015.step2.png": "61f43c1ad317a86ce4ba296035790887b20a33c02ddd0b4f4f1927972b1e12a8",
+    "graphics/i_cannot.png": "67be953a931fe6d51b4e2e65b41a728e234315516e0a31521bc0d64f5b32f0eb",
+    "graphics/i_cannot.step1.png": "8ad0d9d064c82f6ea00882a7b5f7a9f67649cff5a423b56a729771c1e830461b",
+    "graphics/i_cannot.step2.png": "c94a12f93c142242bc73585eb6fe49f16b87817ac05872a6a13bf3047d6ad20b",
+    "graphics/i_cannot.step3.png": "3d5afb48c014d3f8fee83d278d33e2ec390d3b24a05efa2eabf78fa6ba6c1d26",
+    "graphics/i_cause.png": "4a494d17111c3b0223a6dddbd8d362d6957107e79995ef0ae28f6898df3674ec",
+    "graphics/i_cause.step1.png": "eb04ae9e0d4e6862044bd31ecc7caa51052f17aaefb7cfe0a94f4f652c644a04",
+    "graphics/i_cause.step2.png": "508dc04c9ac4b45c6c7301b13b6b50f2142a96bcc4926e7cd9a0c1bb4ef2c8a1",
+    "graphics/i_china.png": "79c88731a7f653957e81a6c591d2b8043ba093d4492c4b1591cfa4e1107923b1",
+    "graphics/i_china.step1.png": "a189d051b3c9fef93af10dd644485d3feead3de9d8558bbbdfdde73d8ace5e3f",
+    "graphics/i_china.step2.png": "a25e8267eb5cc8af89e68f151e2704959d770e128e1a65b6d8c5c3aafb0602e2",
+    "graphics/i_clouds.png": "73a78b5a72208cd5b137ad1b49dbabcb5b7f360f8411550463f800227c5db182",
+    "graphics/i_flow_scale.png": "bd1ebdcb2bed0146d3fb86d949314163cb3418e2bfb8c0513281bb757612373f",
+    "graphics/i_flow_scale.step1.png": "78c5088de2ac78f88578e611d56defe7fd8075e4ff36f65afd1a8def7eb57111",
+    "graphics/i_icimod.png": "25691d3fc086ef79b7a656f0b44d9dbb69125da76f01ca828bed78230d24e98c",
+    "graphics/i_icimod.step1.png": "706f0bc91f8e5fac8aba774d9a513b1d82fc8409beec0eb69d4d53a85165973f",
+    "graphics/i_icimod.step2.png": "cbf72076ddf87e10e9a4d0135c69df5b5155d05fd63df5e70234dbc639838e35",
+    "graphics/i_official.png": "da6a97cf1703325705ae43235bceae7123e6ffba8695a3b2798af5df63627862",
+    "graphics/i_official.step1.png": "5b403e87aa691499ef47f71d70fc9a6e7a011acf87a7334fe965334e4a3174e2",
+    "graphics/i_radar.png": "fc2a2b83a5d0fcd8c6971269f003ad3ab3300f1c09405323fc10d893bafbfb48",
+    "graphics/i_radar.step1.png": "c37dee2f2659d4f85d24e95c06be5fbeb25a26bdd12e92bbe425233ad97f1f96",
+    "graphics/i_radar.step2.png": "90fc5253295d3f7cb482a656bc0edc395b3d3b88093f40cc805b0ab9f7c22bdf",
+    "graphics/i_radar.step3.png": "d9dc7e042aff9ef38c538f72a5b6acb9d7ed2e715dadf44808900134625eb17c",
+    "graphics/i_seismic.png": "71a927237627d17a79fdb19de55624e785ead98234e33efbfcec4f2abe875ae5",
+    "graphics/i_seismic.step1.png": "6278d4504a91ad0e35d064ba3786a22c1ece924e4600a37c565b653576030f73",
+    "graphics/i_seismic.step2.png": "dc849454d83c7705e22b5e100ad0c5bfcb82bb66c88690705f0e7f7d0500a4d7",
+    "graphics/i_toll.png": "1cc1db12ff20b30d433ecfaed3f9c11d6db50581593ec5583c10c5de61c0dead",
+    "graphics/i_toll.step1.png": "346dcd753a65221006dff265320a7b7d32b8cc59b142c28cfa619a3ea9e17951",
+    "graphics/i_toll.step2.png": "19b1aa7f80b45b03b00ed7103adfc8a7d8d6871cb5b78f505f05ed44be22665f",
+    "graphics/i_usgs.png": "5e3e31a83c7c339748d3ab993004ee2d261bc4b3057b63fb65d042381f5fcbbc",
+    "graphics/i_usgs.step1.png": "4c3e3bfb292ef580f4971f2305b8ba9dda0ef68f4ce6488a0bcd07f3b1c8b026",
+    "graphics/i_volume.png": "d3ab0ba9482090b8bb59d04e544a76a83c4e05a51ddbf5c4637d72776117d6de",
+    "graphics/i_volume.step1.png": "14858011b23f3fd57ee13a606c4a1c0ebe41bbf949fd6e62bc103085c9f9a0f1",
+    "graphics/i_volume.step2.png": "32c48b82e40a9cb3ae198ca490a9ca5483cfbbaab695fcee98a47f0fdb0ca648"
+   },
+   "agent_artifacts": {}
+  },
+  "storyboard": {
+   "status": "done",
+   "attempts": 5,
+   "note": "49 shots, 361.224s, timing from estimate",
+   "started": "2026-10-27T11:16:05Z",
+   "error": null,
+   "finished": "2026-10-27T11:16:06Z",
+   "inputs": {
+    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30",
+    "episode.json": "aa72a9cc004be8ab2dd497ec21ffc6eac4f778bf9b395d879c1ad17246b7c9fc",
+    "evidence/landsat/grid.json": "90b33d6ff1643734b540f9f77d215879d359ab2eb554ac340552093450143dd7",
+    "evidence/landsat/provenance.json": "dd330d166380617e5d40f0a6a8fe80b22224f6ae4b4634258dd4faf39adefa23",
+    "evidence/landsat10/grid.json": "a223622a603ebc3deb9aad92d07279c2faec8c9234bde34cfdd1ee0393351772",
+    "evidence/landsat10/provenance.json": "b63ea34f02d7baa6d93455be7f231d09ec642d2d9b24c67a2fda417afcbb0f03",
+    "evidence/stack/grid.json": "b0144f3b7d249ddf93ae619f6f35f975b46c6214d8941f594e471e79a05ef60e",
+    "evidence/stack/provenance.json": "5af4ac10ede03de34f59770e29368c5784deac981af2e686928fa36f7a92c6ec",
+    "evidence/wide/grid.json": "770b196aacb782d7116d63f2cffef6780e131ed694e5709e555b063660f804d7",
+    "evidence/wide/provenance.json": "eed58d5da69eed516fe1a1ae8ed73457e9d43ee982d833004d9d9e2da453cdb0",
+    "graphics/g_reports.png": "f42e397a3b3308ae1a9bbe3326bc08863408fcc0ec833d95ea1c53fd635d57ab",
+    "graphics/i_100km.png": "5e768b1900f68a75ad483b6aaf46dec8551675ef71638c3af8507db40af92bd5",
+    "graphics/i_100km.step1.png": "916066b230ac845733ee3e0b488f098f1727d6846bc440bcfef1abd653c11847",
+    "graphics/i_2015.png": "4e2e99b50b96ac14f43236ff117ed2cc5e62529b0d216281c1e691be18afec82",
+    "graphics/i_2015.step1.png": "d19a2d44ad331cb957d9ff1c30803cb3b02ba4696c383c2b120b80a6efdf6256",
+    "graphics/i_2015.step2.png": "61f43c1ad317a86ce4ba296035790887b20a33c02ddd0b4f4f1927972b1e12a8",
+    "graphics/i_cannot.png": "67be953a931fe6d51b4e2e65b41a728e234315516e0a31521bc0d64f5b32f0eb",
+    "graphics/i_cannot.step1.png": "8ad0d9d064c82f6ea00882a7b5f7a9f67649cff5a423b56a729771c1e830461b",
+    "graphics/i_cannot.step2.png": "c94a12f93c142242bc73585eb6fe49f16b87817ac05872a6a13bf3047d6ad20b",
+    "graphics/i_cannot.step3.png": "3d5afb48c014d3f8fee83d278d33e2ec390d3b24a05efa2eabf78fa6ba6c1d26",
+    "graphics/i_cause.png": "4a494d17111c3b0223a6dddbd8d362d6957107e79995ef0ae28f6898df3674ec",
+    "graphics/i_cause.step1.png": "eb04ae9e0d4e6862044bd31ecc7caa51052f17aaefb7cfe0a94f4f652c644a04",
+    "graphics/i_cause.step2.png": "508dc04c9ac4b45c6c7301b13b6b50f2142a96bcc4926e7cd9a0c1bb4ef2c8a1",
+    "graphics/i_china.png": "79c88731a7f653957e81a6c591d2b8043ba093d4492c4b1591cfa4e1107923b1",
+    "graphics/i_china.step1.png": "a189d051b3c9fef93af10dd644485d3feead3de9d8558bbbdfdde73d8ace5e3f",
+    "graphics/i_china.step2.png": "a25e8267eb5cc8af89e68f151e2704959d770e128e1a65b6d8c5c3aafb0602e2",
+    "graphics/i_clouds.png": "73a78b5a72208cd5b137ad1b49dbabcb5b7f360f8411550463f800227c5db182",
+    "graphics/i_flow_scale.png": "bd1ebdcb2bed0146d3fb86d949314163cb3418e2bfb8c0513281bb757612373f",
+    "graphics/i_flow_scale.step1.png": "78c5088de2ac78f88578e611d56defe7fd8075e4ff36f65afd1a8def7eb57111",
+    "graphics/i_icimod.png": "25691d3fc086ef79b7a656f0b44d9dbb69125da76f01ca828bed78230d24e98c",
+    "graphics/i_icimod.step1.png": "706f0bc91f8e5fac8aba774d9a513b1d82fc8409beec0eb69d4d53a85165973f",
+    "graphics/i_icimod.step2.png": "cbf72076ddf87e10e9a4d0135c69df5b5155d05fd63df5e70234dbc639838e35",
+    "graphics/i_official.png": "da6a97cf1703325705ae43235bceae7123e6ffba8695a3b2798af5df63627862",
+    "graphics/i_official.step1.png": "5b403e87aa691499ef47f71d70fc9a6e7a011acf87a7334fe965334e4a3174e2",
+    "graphics/i_radar.png": "fc2a2b83a5d0fcd8c6971269f003ad3ab3300f1c09405323fc10d893bafbfb48",
+    "graphics/i_radar.step1.png": "c37dee2f2659d4f85d24e95c06be5fbeb25a26bdd12e92bbe425233ad97f1f96",
+    "graphics/i_radar.step2.png": "90fc5253295d3f7cb482a656bc0edc395b3d3b88093f40cc805b0ab9f7c22bdf",
+    "graphics/i_radar.step3.png": "d9dc7e042aff9ef38c538f72a5b6acb9d7ed2e715dadf44808900134625eb17c",
+    "graphics/i_seismic.png": "71a927237627d17a79fdb19de55624e785ead98234e33efbfcec4f2abe875ae5",
+    "graphics/i_seismic.step1.png": "6278d4504a91ad0e35d064ba3786a22c1ece924e4600a37c565b653576030f73",
+    "graphics/i_seismic.step2.png": "dc849454d83c7705e22b5e100ad0c5bfcb82bb66c88690705f0e7f7d0500a4d7",
+    "graphics/i_toll.png": "1cc1db12ff20b30d433ecfaed3f9c11d6db50581593ec5583c10c5de61c0dead",
+    "graphics/i_toll.step1.png": "346dcd753a65221006dff265320a7b7d32b8cc59b142c28cfa619a3ea9e17951",
+    "graphics/i_toll.step2.png": "19b1aa7f80b45b03b00ed7103adfc8a7d8d6871cb5b78f505f05ed44be22665f",
+    "graphics/i_usgs.png": "5e3e31a83c7c339748d3ab993004ee2d261bc4b3057b63fb65d042381f5fcbbc",
+    "graphics/i_usgs.step1.png": "4c3e3bfb292ef580f4971f2305b8ba9dda0ef68f4ce6488a0bcd07f3b1c8b026",
+    "graphics/i_volume.png": "d3ab0ba9482090b8bb59d04e544a76a83c4e05a51ddbf5c4637d72776117d6de",
+    "graphics/i_volume.step1.png": "14858011b23f3fd57ee13a606c4a1c0ebe41bbf949fd6e62bc103085c9f9a0f1",
+    "graphics/i_volume.step2.png": "32c48b82e40a9cb3ae198ca490a9ca5483cfbbaab695fcee98a47f0fdb0ca648",
+    "research/brief.json": "ad46257f2ae23dcfdb45b5cb32d954c51f2dd9760a2d58336d41d1bd0199d01d",
+    "script.md": "6bcc176ad9027b4f0b696166735d93f0e3f2a8a1d72d58f40d13a9c8626572dc",
+    "_tool": "f03c50c96d0995f1"
+   },
+   "outputs": {
+    "story/storyboard.json": "20b9c3e6c40940ccfb02a46055addafa254863fe6734ad4b080fff3ab1a01508",
+    "timeline.json": "ea2c0e59575f4e1891de12884902d3a08db027bc45bfce9bb5b468082a22b4b1",
+    "story/labels.json": "12e7139880a5007af4ee9c9beab2c2370e06b25a402b5484713ccfd1a2672179",
+    "story/report.md": "9c2403b24579349d10bf35f7721b57de306f0ee0e34d6e0c7db77c5c1d38cd6f",
+    "story/diversity.json": "0eb8ccd506c30074c747774bf199d8fa06b581a92e734476f0c6434fc90884ab"
+   },
+   "agent_artifacts": {}
+  },
+  "visualcheck": {
+   "status": "done",
+   "attempts": 8,
+   "note": "visual claims OK {'VERIFIED_DATA': 17, 'REVIEWED': 34} of 51 items",
+   "started": "2026-10-27T11:17:35Z",
+   "error": null,
+   "finished": "2026-10-27T11:17:46Z",
+   "outputs": {
+    "qa/visual_claims.json": "2affda0fb077fae3d1ee2ca7959d46de4acb98f903a5cde7295a71d2013dacb9",
+    "qa/visual_claims.md": "2bfcce66ac6d94af7dfbad34ae039c817cb8f214ee315c1c8eaef56ac2fcdf2c"
+   },
+   "inputs": {
+    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30",
+    "episode.json": "aa72a9cc004be8ab2dd497ec21ffc6eac4f778bf9b395d879c1ad17246b7c9fc",
+    "evidence/stack/grid.json": "b0144f3b7d249ddf93ae619f6f35f975b46c6214d8941f594e471e79a05ef60e",
+    "evidence/stack/provenance.json": "5af4ac10ede03de34f59770e29368c5784deac981af2e686928fa36f7a92c6ec",
+    "graphics_spec.json": "2976efabfd6b7d8f5db6abe81cae92056241ad83511c839e312afe201f824a54",
+    "media/assets/a_member_of_the_nepali_armed.jpg": "e3d8b31e0acb3b91ee4410b11dc506d1c2c216fdc05f4d103fe30bebb344824e",
+    "media/assets/palletized_life_saving_equip.jpg": "e5b4f6a1a250060af5d9264389f0938c84ec09436af712e58abba8e251717446",
+    "media/assets/us_and_nepali_officials_besi.jpg": "523241f09a55e43dbbe3a31669f1aa6eb00e6c51e54e07f5ede57f0e8e7cf54c",
+    "qa/visual_review.json": "695e46aa5333e2988e73c2463d8486d74a2e4b95e18403c58e1343400765613d",
+    "story/diversity.json": "0eb8ccd506c30074c747774bf199d8fa06b581a92e734476f0c6434fc90884ab",
+    "story/labels.json": "12e7139880a5007af4ee9c9beab2c2370e06b25a402b5484713ccfd1a2672179",
+    "story/report.md": "9c2403b24579349d10bf35f7721b57de306f0ee0e34d6e0c7db77c5c1d38cd6f",
+    "story/storyboard.json": "20b9c3e6c40940ccfb02a46055addafa254863fe6734ad4b080fff3ab1a01508",
+    "timeline.json": "ea2c0e59575f4e1891de12884902d3a08db027bc45bfce9bb5b468082a22b4b1",
+    "_tool": "99a34655b31d05f3"
+   },
+   "agent_artifacts": {
+    "qa/visual_review.json": "695e46aa5333e2988e73c2463d8486d74a2e4b95e18403c58e1343400765613d"
+   }
+  },
+  "voice": {
+   "status": "awaiting_approval",
+   "attempts": 3,
+   "note": "no approvals/voice.json; plan: 5001 characters",
+   "started": "2026-10-27T11:17:50Z",
+   "error": null,
+   "finished": "2026-10-27T11:17:50Z",
+   "outputs": {
+    "voice/plan.json": "e70659527397cdc9da7f5cb007ec77a681be2b4d12d7c6b955999e39cb3f9db9"
+   }
+  },
+  "voicecheck": {
+   "status": "waiting",
+   "attempts": 0,
+   "note": "waiting for ['voice']"
+  },
+  "captions": {
+   "status": "waiting",
+   "attempts": 0,
+   "note": "waiting for ['voicecheck']"
+  },
+  "render": {
+   "status": "waiting",
+   "attempts": 0,
+   "note": "waiting for ['voice', 'voicecheck', 'captions']"
+  },
+  "qc": {
+   "status": "waiting",
+   "attempts": 0,
+   "note": "waiting for ['render']"
+  },
+  "release": {
+   "status": "done",
+   "attempts": 10,
+   "note": "incomplete",
+   "started": "2026-10-27T11:17:50Z",
+   "error": null,
+   "finished": "2026-10-27T11:17:50Z",
+   "inputs": {
+    "claims.json": "247e0880789a8d9d909c884edde869d63848b85dd3b63a6844ff570d2d914b30",
+    "qa/visual_claims.json": "2affda0fb077fae3d1ee2ca7959d46de4acb98f903a5cde7295a71d2013dacb9",
+    "story/diversity.json": "0eb8ccd506c30074c747774bf199d8fa06b581a92e734476f0c6434fc90884ab",
+    "story/labels.json": "12e7139880a5007af4ee9c9beab2c2370e06b25a402b5484713ccfd1a2672179",
+    "story/report.md": "9c2403b24579349d10bf35f7721b57de306f0ee0e34d6e0c7db77c5c1d38cd6f",
+    "story/storyboard.json": "20b9c3e6c40940ccfb02a46055addafa254863fe6734ad4b080fff3ab1a01508",
+    "timeline.json": "ea2c0e59575f4e1891de12884902d3a08db027bc45bfce9bb5b468082a22b4b1",
+    "_tool": "e3b0c44298fc1c14"
+   },
+   "outputs": {
+    "release/REVIEW.md": "b6d27a839533dd9d3576877e54ac17055c49be5aa6bd03d77a3b27a8f17ed685",
+    "story/report.md": "9c2403b24579349d10bf35f7721b57de306f0ee0e34d6e0c7db77c5c1d38cd6f"
+   },
+   "agent_artifacts": {}
+  }
+ },
+ "costs": [],
+ "log": [
+  {
+   "at": "2026-10-27T10:57:17Z",
+   "stage": "topic",
+   "event": "needs_agent",
+   "note": "write topic/candidates.json (see tasks/topic.md)"
+  },
+  {
+   "at": "2026-10-27T10:57:29Z",
+   "stage": "topic",
+   "event": "done",
+   "note": "owner-approved topic"
+  },
+  {
+   "at": "2026-10-27T10:57:29Z",
+   "stage": "research",
+   "event": "needs_agent",
+   "note": "write research/notes.json (see tasks/research.md)"
+  },
+  {
+   "at": "2026-10-27T10:57:29Z",
+   "stage": "research",
+   "event": "needs_agent",
+   "note": "write research/notes.json (see tasks/research.md)"
+  },
+  {
+   "at": "2026-10-27T11:05:41Z",
+   "stage": "research",
+   "event": "done",
+   "note": "13 claims (12 usable), factual capacity about 4.5 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-27T11:05:41Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "13 claims, registry ok"
+  },
+  {
+   "at": "2026-10-27T11:06:02Z",
+   "stage": "evidence",
+   "event": "blocked",
+   "note": "yt-sentinel wide: not_covered no scene for 2026 covers the AOI; tried ['S2C_MSIL2A_20260812T045701_R119_T45RTL_20260812T100317', 'S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317', 'S2C_MSIL2A_20260812T045701_R119_T45RTM_20260812T100317'] "
+  },
+  {
+   "at": "2026-10-27T11:06:10Z",
+   "stage": "evidence",
+   "event": "blocked",
+   "note": "yt-sentinel wide: not_covered no scene for 2026 covers the AOI; tried ['S2C_MSIL2A_20260812T045701_R119_T45RTL_20260812T100317', 'S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317', 'S2C_MSIL2A_20260812T045701_R119_T45RTM_20260812T100317'] "
+  },
+  {
+   "at": "2026-10-27T11:06:17Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:06:17Z",
+   "stage": "research",
+   "event": "done",
+   "note": "13 claims (12 usable), factual capacity about 4.5 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-27T11:06:17Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:06:17Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "13 claims, registry ok"
+  },
+  {
+   "at": "2026-10-27T11:06:41Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-27T11:06:41Z",
+   "stage": "script",
+   "event": "needs_agent",
+   "note": "write script.md from tasks/script.md (target 882-1323 words; factual capacity about 660 words)"
+  },
+  {
+   "at": "2026-10-27T11:06:41Z",
+   "stage": "script",
+   "event": "needs_agent",
+   "note": "write script.md from tasks/script.md (target 882-1323 words; factual capacity about 660 words)"
+  },
+  {
+   "at": "2026-10-27T11:07:42Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:07:42Z",
+   "stage": "research",
+   "event": "done",
+   "note": "15 claims (14 usable), factual capacity about 5.2 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-27T11:07:42Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:07:42Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "15 claims, registry ok"
+  },
+  {
+   "at": "2026-10-27T11:07:42Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:07:42Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-27T11:07:42Z",
+   "stage": "script",
+   "event": "needs_agent",
+   "note": "write script.md from tasks/script.md (target 882-1323 words; factual capacity about 770 words)"
+  },
+  {
+   "at": "2026-10-27T11:07:42Z",
+   "stage": "script",
+   "event": "needs_agent",
+   "note": "write script.md from tasks/script.md (target 882-1323 words; factual capacity about 770 words)"
+  },
+  {
+   "at": "2026-10-27T11:08:41Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:08:41Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-27T11:08:41Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:08:41Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-27T11:08:41Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:08:41Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-27T11:08:41Z",
+   "stage": "script",
+   "event": "blocked",
+   "note": "script: 841 words = 343s, under 6 minutes; line 46: factual sentence without a claim id: 'Its pixels are 30 meters wide, three times coarser than Sentinel-2.'; line 53: factual sentence without a claim id: 'USGS said the flow traveled about 100 kilometers.'; line 53: C2 is a org claim; the sentence must contain 'said'; line 55: {L} is only for limitations (needs not/cannot/no): 'That official map will be a better measurement than our trace.'; line 60: {L} is only for limitations (needs not/cannot/no): 'Researchers are still working that out.'; line 62: {L} is only for limitations (needs not/cannot/no)"
+  },
+  {
+   "at": "2026-10-27T11:08:41Z",
+   "stage": "script",
+   "event": "blocked",
+   "note": "script: 841 words = 343s, under 6 minutes; line 46: factual sentence without a claim id: 'Its pixels are 30 meters wide, three times coarser than Sentinel-2.'; line 53: factual sentence without a claim id: 'USGS said the flow traveled about 100 kilometers.'; line 53: C2 is a org claim; the sentence must contain 'said'; line 55: {L} is only for limitations (needs not/cannot/no): 'That official map will be a better measurement than our trace.'; line 60: {L} is only for limitations (needs not/cannot/no): 'Researchers are still working that out.'; line 62: {L} is only for limitations (needs not/cannot/no)"
+  },
+  {
+   "at": "2026-10-27T11:09:05Z",
+   "stage": "script",
+   "event": "done",
+   "note": "885 words = 6.0 min, 15 claims used"
+  },
+  {
+   "at": "2026-10-27T11:09:06Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-27T11:09:06Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "37 visuals in 6 chapters, graphics ['g_reports']"
+  },
+  {
+   "at": "2026-10-27T11:09:07Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "1 graphics"
+  },
+  {
+   "at": "2026-10-27T11:09:08Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "76 shots, 361.224s, timing from estimate"
+  },
+  {
+   "at": "2026-10-27T11:09:10Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-27T11:09:10Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-27T11:09:13Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-27T11:09:13Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:09:13Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-27T11:11:20Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:20Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-27T11:11:20Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:20Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-27T11:11:20Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:20Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-27T11:11:20Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:20Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-27T11:11:20Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:20Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "43 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-27T11:11:20Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:20Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: error graphics[12].arrows[0]: unknown key(s) ['color']"
+  },
+  {
+   "at": "2026-10-27T11:11:20Z",
+   "stage": "storyboard",
+   "event": "invalidated: upstream ['visuals'] not done"
+  },
+  {
+   "at": "2026-10-27T11:11:20Z",
+   "stage": "release",
+   "event": "invalidated: upstream ['storyboard'] not done"
+  },
+  {
+   "at": "2026-10-27T11:11:20Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: error graphics[12].arrows[0]: unknown key(s) ['color']"
+  },
+  {
+   "at": "2026-10-27T11:11:23Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:23Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-27T11:11:23Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:23Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-27T11:11:23Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:23Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-27T11:11:23Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:23Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-27T11:11:23Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:23Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "43 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-27T11:11:31Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: error graphics[12].image: a 46.0 km view at [85.43, 28.27] leaves the imagery"
+  },
+  {
+   "at": "2026-10-27T11:11:37Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: error graphics[12].image: a 46.0 km view at [85.43, 28.27] leaves the imagery"
+  },
+  {
+   "at": "2026-10-27T11:11:41Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:41Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-27T11:11:41Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:41Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-27T11:11:41Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:41Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-27T11:11:41Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:41Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-27T11:11:41Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:41Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "43 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-27T11:11:48Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: overflow arrow label: no free place for 'OUR TRACE: ~30 KM IN FRAME' (it would overlap a drawn line or arrow)"
+  },
+  {
+   "at": "2026-10-27T11:11:55Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: overflow arrow label: no free place for 'OUR TRACE: ~30 KM IN FRAME' (it would overlap a drawn line or arrow)"
+  },
+  {
+   "at": "2026-10-27T11:11:59Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:59Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-27T11:11:59Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:59Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-27T11:11:59Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:59Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-27T11:11:59Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:11:59Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-27T11:11:59Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:12:00Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "43 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-27T11:12:06Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: overflow graphics[12]: no free place for callout 'OUR TRACE: ~30 KM'"
+  },
+  {
+   "at": "2026-10-27T11:12:12Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: overflow graphics[12]: no free place for callout 'OUR TRACE: ~30 KM'"
+  },
+  {
+   "at": "2026-10-27T11:12:16Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:12:16Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-27T11:12:16Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:12:16Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-27T11:12:16Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:12:16Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-27T11:12:16Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:12:16Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-27T11:12:16Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:12:16Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "43 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-27T11:12:22Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: overflow source: 'Source: Copernicus Sentinel-2 L2A, 12 Aug 2026, resampled to 40 m; trace from Landsat 9, 26 Aug 2026' does not fit in 1037 px on 1 line(s) at >= 24 px"
+  },
+  {
+   "at": "2026-10-27T11:12:28Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: overflow source: 'Source: Copernicus Sentinel-2 L2A, 12 Aug 2026, resampled to 40 m; trace from Landsat 9, 26 Aug 2026' does not fit in 1037 px on 1 line(s) at >= 24 px"
+  },
+  {
+   "at": "2026-10-27T11:12:32Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:12:32Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-27T11:12:32Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:12:32Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-27T11:12:32Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:12:32Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-27T11:12:32Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:12:32Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-27T11:12:32Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:12:32Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "43 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-27T11:12:38Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: overflow title \"Our trace covers part of USGS's ~100 km\" is drawn across a line or arrow"
+  },
+  {
+   "at": "2026-10-27T11:12:45Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: overflow title \"Our trace covers part of USGS's ~100 km\" is drawn across a line or arrow"
+  },
+  {
+   "at": "2026-10-27T11:12:48Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:12:48Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-27T11:12:48Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:12:48Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-27T11:12:48Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:12:48Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-27T11:12:48Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:12:48Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-27T11:12:48Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:12:48Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "43 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-27T11:12:54Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: overflow title 'USGS: ~100 km. Our frame: part of it' is drawn across a line or arrow"
+  },
+  {
+   "at": "2026-10-27T11:13:00Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: overflow title 'USGS: ~100 km. Our frame: part of it' is drawn across a line or arrow"
+  },
+  {
+   "at": "2026-10-27T11:13:08Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:08Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-27T11:13:08Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:08Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-27T11:13:08Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:08Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-27T11:13:08Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:08Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-27T11:13:08Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:08Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "43 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-27T11:13:14Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: overflow title 'USGS: ~100 km. Our frame: part of it' is drawn across a line or arrow"
+  },
+  {
+   "at": "2026-10-27T11:13:20Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: overflow title 'USGS: ~100 km. Our frame: part of it' is drawn across a line or arrow"
+  },
+  {
+   "at": "2026-10-27T11:13:26Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:26Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-27T11:13:26Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:26Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-27T11:13:26Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:26Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-27T11:13:26Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:27Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-27T11:13:27Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:27Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "43 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-27T11:13:33Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: overflow source 'Source: Sentinel-2 12 Aug 2026 (40 m); trace: Landsat 9, 26 Aug' is drawn across a line or arrow"
+  },
+  {
+   "at": "2026-10-27T11:13:39Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: overflow source 'Source: Sentinel-2 12 Aug 2026 (40 m); trace: Landsat 9, 26 Aug' is drawn across a line or arrow"
+  },
+  {
+   "at": "2026-10-27T11:13:39Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:40Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-27T11:13:40Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:40Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-27T11:13:40Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:40Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-27T11:13:40Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:40Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-27T11:13:40Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:40Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "43 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-27T11:13:46Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: overflow source 'Source: Sentinel-2 12 Aug 2026 (40 m); trace: Landsat 9, 26 Aug' is drawn across a line or arrow"
+  },
+  {
+   "at": "2026-10-27T11:13:52Z",
+   "stage": "visuals",
+   "event": "blocked",
+   "note": "yt-graphics: overflow source 'Source: Sentinel-2 12 Aug 2026 (40 m); trace: Landsat 9, 26 Aug' is drawn across a line or arrow"
+  },
+  {
+   "at": "2026-10-27T11:13:58Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:58Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-27T11:13:58Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:58Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-27T11:13:58Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:58Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-27T11:13:58Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:58Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-27T11:13:58Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:13:58Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "43 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-27T11:14:07Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "39 graphics"
+  },
+  {
+   "at": "2026-10-27T11:14:07Z",
+   "stage": "storyboard",
+   "event": "blocked",
+   "note": "yt-storyboard: {'status': 'error', 'error': 'shots[9].layers[1].text must be 1-32 characters', 'warnings': []}"
+  },
+  {
+   "at": "2026-10-27T11:14:08Z",
+   "stage": "storyboard",
+   "event": "blocked",
+   "note": "yt-storyboard: {'status': 'error', 'error': 'shots[9].layers[1].text must be 1-32 characters', 'warnings': []}"
+  },
+  {
+   "at": "2026-10-27T11:14:15Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:14:15Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-27T11:14:15Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:14:15Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-27T11:14:15Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:14:15Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-27T11:14:15Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:14:15Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-27T11:14:15Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:14:15Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "43 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-27T11:14:15Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:14:24Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "39 graphics"
+  },
+  {
+   "at": "2026-10-27T11:14:24Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "52 shots, 361.224s, timing from estimate"
+  },
+  {
+   "at": "2026-10-27T11:14:33Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "30 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-27T11:14:33Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-27T11:14:42Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "30 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-27T11:14:42Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:14:42Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-27T11:15:56Z",
+   "stage": "research",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:15:56Z",
+   "stage": "research",
+   "event": "done",
+   "note": "16 claims (15 usable), factual capacity about 5.6 min - INSUFFICIENT_FOR_6_MIN"
+  },
+  {
+   "at": "2026-10-27T11:15:56Z",
+   "stage": "facts",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:15:56Z",
+   "stage": "facts",
+   "event": "done",
+   "note": "16 claims, registry ok"
+  },
+  {
+   "at": "2026-10-27T11:15:56Z",
+   "stage": "evidence",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:15:56Z",
+   "stage": "evidence",
+   "event": "done",
+   "note": "2 stacks + Landsat stack(s)"
+  },
+  {
+   "at": "2026-10-27T11:15:56Z",
+   "stage": "script",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:15:56Z",
+   "stage": "script",
+   "event": "done",
+   "note": "885 words = 6.0 min, 15 claims used"
+  },
+  {
+   "at": "2026-10-27T11:15:56Z",
+   "stage": "media",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:15:56Z",
+   "stage": "media",
+   "event": "done",
+   "note": "3 verified of 5 media entries (style v2: media optional)"
+  },
+  {
+   "at": "2026-10-27T11:15:56Z",
+   "stage": "visualplan",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:15:56Z",
+   "stage": "visualplan",
+   "event": "done",
+   "note": "41 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']"
+  },
+  {
+   "at": "2026-10-27T11:15:56Z",
+   "stage": "visuals",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:16:05Z",
+   "stage": "visuals",
+   "event": "done",
+   "note": "39 graphics"
+  },
+  {
+   "at": "2026-10-27T11:16:05Z",
+   "stage": "storyboard",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:16:06Z",
+   "stage": "storyboard",
+   "event": "done",
+   "note": "49 shots, 361.224s, timing from estimate"
+  },
+  {
+   "at": "2026-10-27T11:16:17Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "34 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-27T11:16:17Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:16:17Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-27T11:16:28Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "34 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-27T11:16:28Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:16:28Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-27T11:17:23Z",
+   "stage": "visualcheck",
+   "event": "needs_agent",
+   "note": "3 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+  },
+  {
+   "at": "2026-10-27T11:17:23Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:17:23Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-27T11:17:46Z",
+   "stage": "visualcheck",
+   "event": "done",
+   "note": "visual claims OK {'VERIFIED_DATA': 17, 'REVIEWED': 34} of 51 items"
+  },
+  {
+   "at": "2026-10-27T11:17:46Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 5001 characters"
+  },
+  {
+   "at": "2026-10-27T11:17:46Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:17:46Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-27T11:17:46Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 5001 characters"
+  },
+  {
+   "at": "2026-10-27T11:17:46Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:17:46Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  },
+  {
+   "at": "2026-10-27T11:17:50Z",
+   "stage": "voice",
+   "event": "awaiting_approval",
+   "note": "no approvals/voice.json; plan: 5001 characters"
+  },
+  {
+   "at": "2026-10-27T11:17:50Z",
+   "stage": "release",
+   "event": "inputs or outputs changed; rerun"
+  },
+  {
+   "at": "2026-10-27T11:17:50Z",
+   "stage": "release",
+   "event": "done",
+   "note": "incomplete"
+  }
+ ],
+ "updated": "2026-10-27T11:17:50Z"
+}

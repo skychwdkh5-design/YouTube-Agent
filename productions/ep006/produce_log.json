@@ -1,0 +1,23 @@
+{
+ "slug": "ep006",
+ "total_seconds": 0.2,
+ "elevenlabs_chars_spent": 0,
+ "steps": [
+  {
+   "step": "pipeline",
+   "seconds": 0.2
+  }
+ ],
+ "media": {
+  "skipped": "notes.json has no media_scenes (queries come from the planning step)"
+ },
+ "stopped": null,
+ "visual_standard_exceptions": [],
+ "claude_model_calls": "not measurable from code (this process makes none; agent steps are listed under 'stopped')",
+ "tokens": "not available",
+ "owner_needed": [
+  "final render (--allow-render)",
+  "publish (never automatic)",
+  "voice approval"
+ ]
+}

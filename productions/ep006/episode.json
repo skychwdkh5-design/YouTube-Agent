@@ -1,0 +1,1481 @@
+{
+ "slug": "ep006",
+ "title": "The Mountain That Fell",
+ "titles": [],
+ "grid": "evidence/stack/grid.json",
+ "focus": [
+  85.505,
+  28.3
+ ],
+ "graphics": "graphics_spec.json",
+ "evidence": {
+  "stacks": [
+   {
+    "name": "stack",
+    "aoi": [
+     85.3,
+     28.2,
+     85.62,
+     28.42
+    ],
+    "years": [
+     2026
+    ],
+    "pixel_m": 10,
+    "window": "08-12:08-12",
+    "cloud": 30
+   },
+   {
+    "name": "wide",
+    "aoi": [
+     85.2,
+     28.08,
+     85.7,
+     28.45
+    ],
+    "years": [
+     2026
+    ],
+    "pixel_m": 40,
+    "window": "08-12:08-12",
+    "cloud": 30
+   }
+  ]
+ },
+ "assets": {
+  "y2026": {
+   "src": "evidence/stack/y2026.png",
+   "label": "2026",
+   "credit": "Contains modified Copernicus Sentinel data 2026"
+  },
+  "l2026": {
+   "src": "evidence/landsat10/y2026.png",
+   "label": "2026",
+   "credit": "Landsat imagery courtesy of the U.S. Geological Survey"
+  },
+  "g_reports": {
+   "src": "graphics/g_reports.png",
+   "kind": "graphic",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "group": "g_reports",
+   "claims": [
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5"
+   ]
+  },
+  "i_usgs_s1": {
+   "src": "graphics/i_usgs.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_usgs",
+   "claims": [
+    "C1"
+   ]
+  },
+  "i_usgs": {
+   "src": "graphics/i_usgs.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_usgs",
+   "claims": [
+    "C1"
+   ]
+  },
+  "i_100km_s1": {
+   "src": "graphics/i_100km.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_100km",
+   "claims": [
+    "C2"
+   ]
+  },
+  "i_100km": {
+   "src": "graphics/i_100km.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_100km",
+   "claims": [
+    "C2"
+   ]
+  },
+  "i_seismic_s1": {
+   "src": "graphics/i_seismic.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_seismic",
+   "claims": [
+    "C3"
+   ]
+  },
+  "i_seismic_s2": {
+   "src": "graphics/i_seismic.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_seismic",
+   "claims": [
+    "C3"
+   ]
+  },
+  "i_seismic": {
+   "src": "graphics/i_seismic.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_seismic",
+   "claims": [
+    "C3"
+   ]
+  },
+  "i_cause_s1": {
+   "src": "graphics/i_cause.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_cause",
+   "claims": [
+    "C4"
+   ]
+  },
+  "i_cause": {
+   "src": "graphics/i_cause.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_cause",
+   "claims": [
+    "C4"
+   ]
+  },
+  "i_2015_s1": {
+   "src": "graphics/i_2015.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_2015",
+   "claims": [
+    "C5"
+   ]
+  },
+  "i_2015_s2": {
+   "src": "graphics/i_2015.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_2015",
+   "claims": [
+    "C5"
+   ]
+  },
+  "i_2015": {
+   "src": "graphics/i_2015.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_2015",
+   "claims": [
+    "C5"
+   ]
+  },
+  "i_toll_s1": {
+   "src": "graphics/i_toll.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_toll",
+   "claims": [
+    "C10"
+   ]
+  },
+  "i_toll_s2": {
+   "src": "graphics/i_toll.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_toll",
+   "claims": [
+    "C10"
+   ]
+  },
+  "i_toll": {
+   "src": "graphics/i_toll.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_toll",
+   "claims": [
+    "C10"
+   ]
+  },
+  "i_china_s1": {
+   "src": "graphics/i_china.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_china",
+   "claims": [
+    "C11"
+   ]
+  },
+  "i_china": {
+   "src": "graphics/i_china.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_china",
+   "claims": [
+    "C11"
+   ]
+  },
+  "i_icimod_s1": {
+   "src": "graphics/i_icimod.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_icimod",
+   "claims": [
+    "C7"
+   ]
+  },
+  "i_icimod_s2": {
+   "src": "graphics/i_icimod.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_icimod",
+   "claims": [
+    "C7"
+   ]
+  },
+  "i_icimod": {
+   "src": "graphics/i_icimod.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_icimod",
+   "claims": [
+    "C7"
+   ]
+  },
+  "i_radar_s1": {
+   "src": "graphics/i_radar.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_radar",
+   "claims": [
+    "C8"
+   ]
+  },
+  "i_radar_s2": {
+   "src": "graphics/i_radar.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_radar",
+   "claims": [
+    "C8"
+   ]
+  },
+  "i_radar_s3": {
+   "src": "graphics/i_radar.step3.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_radar",
+   "claims": [
+    "C8"
+   ]
+  },
+  "i_radar": {
+   "src": "graphics/i_radar.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_radar",
+   "claims": [
+    "C8"
+   ]
+  },
+  "i_volume_s1": {
+   "src": "graphics/i_volume.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_volume",
+   "claims": [
+    "C9"
+   ]
+  },
+  "i_volume_s2": {
+   "src": "graphics/i_volume.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_volume",
+   "claims": [
+    "C9"
+   ]
+  },
+  "i_volume": {
+   "src": "graphics/i_volume.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_volume",
+   "claims": [
+    "C9"
+   ]
+  },
+  "i_clouds": {
+   "src": "graphics/i_clouds.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_clouds",
+   "claims": [
+    "C15"
+   ]
+  },
+  "i_flow_scale_s1": {
+   "src": "graphics/i_flow_scale.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_flow_scale",
+   "claims": [
+    "C2",
+    "C14"
+   ]
+  },
+  "i_flow_scale": {
+   "src": "graphics/i_flow_scale.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_flow_scale",
+   "claims": [
+    "C2",
+    "C14"
+   ]
+  },
+  "i_official_s1": {
+   "src": "graphics/i_official.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_official",
+   "claims": [
+    "C6"
+   ]
+  },
+  "i_official": {
+   "src": "graphics/i_official.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_official",
+   "claims": [
+    "C6"
+   ]
+  },
+  "i_cannot_s1": {
+   "src": "graphics/i_cannot.step1.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_cannot",
+   "claims": [],
+   "exempt": true
+  },
+  "i_cannot_s2": {
+   "src": "graphics/i_cannot.step2.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_cannot",
+   "claims": [],
+   "exempt": true
+  },
+  "i_cannot_s3": {
+   "src": "graphics/i_cannot.step3.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_cannot",
+   "claims": [],
+   "exempt": true
+  },
+  "i_cannot": {
+   "src": "graphics/i_cannot.png",
+   "kind": "graphic",
+   "credit": "Graphic: OrbitalAtlas",
+   "group": "i_cannot",
+   "claims": [],
+   "exempt": true
+  }
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "visuals": [
+    {
+     "asset": "y2026",
+     "zoom": [
+      15,
+      8
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     },
+     "anchor": null
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      6.5,
+      2.8
+     ],
+     "focus": [
+      85.44,
+      28.33
+     ]
+    }
+   ]
+  },
+  {
+   "id": "plan",
+   "visuals": [
+    {
+     "asset": "i_usgs_s1",
+     "kind": "graphic",
+     "min_s": 10,
+     "claims": [
+      "C1"
+     ],
+     "anchor": "claim",
+     "anchor_text": "The US Geological Survey said",
+     "steps": [
+      {
+       "asset": "i_usgs_s1",
+       "anchor_text": "The US Geological Survey said"
+      },
+      {
+       "asset": "i_usgs",
+       "anchor_text": "Langtang National Park in Nepal"
+      }
+     ]
+    },
+    {
+     "asset": "i_100km_s1",
+     "kind": "graphic",
+     "min_s": 9,
+     "claims": [
+      "C2"
+     ],
+     "anchor": "claim",
+     "anchor_text": "traveled about 100 kilometers",
+     "steps": [
+      {
+       "asset": "i_100km_s1",
+       "anchor_text": "traveled about 100 kilometers"
+      },
+      {
+       "asset": "i_100km",
+       "anchor_text": "along two rivers"
+      }
+     ]
+    },
+    {
+     "asset": "i_seismic_s1",
+     "kind": "graphic",
+     "min_s": 15,
+     "claims": [
+      "C3"
+     ],
+     "anchor": "claim",
+     "anchor_text": "released seismic energy equal to a magnitude 5.2",
+     "steps": [
+      {
+       "asset": "i_seismic_s1",
+       "anchor_text": "released seismic energy equal to a magnitude 5.2"
+      },
+      {
+       "asset": "i_seismic_s2",
+       "anchor_text": "about three hours later"
+      },
+      {
+       "asset": "i_seismic",
+       "anchor_text": "those are energy comparisons"
+      }
+     ]
+    },
+    {
+     "asset": "i_cause_s1",
+     "kind": "graphic",
+     "min_s": 12,
+     "claims": [
+      "C4"
+     ],
+     "anchor": "claim",
+     "anchor_text": "has not yet determined",
+     "steps": [
+      {
+       "asset": "i_cause_s1",
+       "anchor_text": "has not yet determined"
+      },
+      {
+       "asset": "i_cause",
+       "anchor_text": "everything it has published is preliminary"
+      }
+     ]
+    },
+    {
+     "asset": "i_2015_s1",
+     "kind": "graphic",
+     "min_s": 14,
+     "claims": [
+      "C5"
+     ],
+     "anchor": "claim",
+     "anchor_text": "In 2015, USGS said",
+     "steps": [
+      {
+       "asset": "i_2015_s1",
+       "anchor_text": "In 2015, USGS said"
+      },
+      {
+       "asset": "i_2015_s2",
+       "anchor_text": "nearly 1,900 meters"
+      },
+      {
+       "asset": "i_2015",
+       "anchor_text": "killed more than 200 people"
+      }
+     ]
+    },
+    {
+     "asset": "i_toll_s1",
+     "kind": "graphic",
+     "min_s": 14,
+     "claims": [
+      "C10"
+     ],
+     "anchor": "claim",
+     "anchor_text": "Now the human cost",
+     "steps": [
+      {
+       "asset": "i_toll_s1",
+       "anchor_text": "Now the human cost"
+      },
+      {
+       "asset": "i_toll_s2",
+       "anchor_text": "roughly five thousand still listed as missing"
+      },
+      {
+       "asset": "i_toll",
+       "anchor_text": "not giving one exact number"
+      }
+     ]
+    },
+    {
+     "asset": "i_china_s1",
+     "kind": "graphic",
+     "min_s": 12,
+     "claims": [
+      "C11"
+     ],
+     "anchor": "claim",
+     "anchor_text": "China counts its own side",
+     "steps": [
+      {
+       "asset": "i_china_s1",
+       "anchor_text": "China counts its own side"
+      },
+      {
+       "asset": "i_china",
+       "anchor_text": "do not add the two together"
+      }
+     ]
+    },
+    {
+     "kind": "scene",
+     "id": "m_hook",
+     "asset": "y2026",
+     "min_s": 10,
+     "claims": [
+      "C13"
+     ],
+     "anchor": "claim",
+     "zoom": [
+      26,
+      15
+     ],
+     "marks": [
+      {
+       "type": "label",
+       "text": "12 AUG 2026 - SENTINEL-2 (10 M)",
+       "style": "tag",
+       "slot": "upper",
+       "t": 0.5,
+       "dur": 4.2,
+       "plate": true
+      },
+      {
+       "type": "label",
+       "text": "26 AUG 2026 - LANDSAT 9 (30 M)",
+       "sub": "NOT SHARPENED",
+       "style": "tag",
+       "slot": "upper",
+       "anchor_text": "a dark swath runs through",
+       "dur": null,
+       "plate": true
+      }
+     ],
+     "focus": [
+      85.445,
+      28.325
+     ],
+     "wipe": [
+      "y2026",
+      "l2026"
+     ],
+     "wipe_at": "a dark swath runs through",
+     "anchor_text": "On 12 August 2026",
+     "resample": "nearest"
+    },
+    {
+     "kind": "scene",
+     "id": "m_rivers",
+     "asset": "y2026",
+     "min_s": 9,
+     "claims": [
+      "C2"
+     ],
+     "anchor": "claim",
+     "zoom": [
+      20,
+      15
+     ],
+     "marks": [
+      {
+       "type": "pin",
+       "at": [
+        85.4456,
+        28.3379
+       ],
+       "text": "LENDE KHOLA",
+       "anchor_text": "the Lende Khola",
+       "dur": 4.0,
+       "plate": true
+      },
+      {
+       "type": "pin",
+       "at": [
+        85.3592,
+        28.2404
+       ],
+       "text": "TRISHULI KHOLA",
+       "anchor_text": "the Trishuli Khola",
+       "dur": null,
+       "plate": true
+      }
+     ],
+     "focus": [
+      85.43,
+      28.32
+     ],
+     "focus_to": [
+      85.37,
+      28.23
+     ],
+     "anchor_text": "along two rivers"
+    },
+    {
+     "kind": "scene",
+     "id": "m_border",
+     "asset": "y2026",
+     "min_s": 7,
+     "claims": [
+      "C2"
+     ],
+     "anchor": "claim",
+     "zoom": [
+      9,
+      5
+     ],
+     "marks": [
+      {
+       "type": "pin",
+       "at": [
+        85.3777,
+        28.2789
+       ],
+       "text": "RASUWAGADHI (APPROX.)",
+       "t": 0.8,
+       "dur": null,
+       "plate": true
+      }
+     ],
+     "focus": [
+      85.3777,
+      28.2789
+     ],
+     "anchor_text": "including the Rasuwagadhi border post"
+    },
+    {
+     "kind": "scene",
+     "id": "m_stop",
+     "asset": "y2026",
+     "min_s": 5,
+     "claims": [],
+     "anchor": "claim",
+     "zoom": [
+      16,
+      20
+     ],
+     "marks": [],
+     "focus": [
+      85.3777,
+      28.2789
+     ],
+     "focus_to": [
+      85.36,
+      28.2
+     ],
+     "label": {
+      "text": "STOP POINT: NOT IN USGS TEXT",
+      "style": "tag",
+      "slot": "upper",
+      "plate": true
+     },
+     "anchor_text": "does not say where along that route",
+     "limit": true
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      10,
+      6
+     ],
+     "focus": [
+      85.44,
+      28.33
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     },
+     "claims": [
+      "C13"
+     ]
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      14,
+      8
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     }
+    }
+   ]
+  },
+  {
+   "id": "method",
+   "visuals": [
+    {
+     "asset": "i_icimod_s1",
+     "kind": "graphic",
+     "min_s": 15,
+     "claims": [
+      "C7"
+     ],
+     "anchor": "claim",
+     "anchor_text": "published a preliminary analysis on 13 October",
+     "steps": [
+      {
+       "asset": "i_icimod_s1",
+       "anchor_text": "published a preliminary analysis on 13 October"
+      },
+      {
+       "asset": "i_icimod_s2",
+       "anchor_text": "not a conventional glacial lake outburst flood"
+      },
+      {
+       "asset": "i_icimod",
+       "anchor_text": "sheared away part of the glacier"
+      }
+     ]
+    },
+    {
+     "asset": "i_radar_s1",
+     "kind": "graphic",
+     "min_s": 22,
+     "claims": [
+      "C8"
+     ],
+     "anchor": "claim",
+     "anchor_text": "radar satellites, Sentinel-1",
+     "steps": [
+      {
+       "asset": "i_radar_s1",
+       "anchor_text": "radar satellites, Sentinel-1"
+      },
+      {
+       "asset": "i_radar_s2",
+       "anchor_text": "between 7 July and 24 August"
+      },
+      {
+       "asset": "i_radar_s3",
+       "anchor_text": "along the satellite's line of sight"
+      },
+      {
+       "asset": "i_radar",
+       "anchor_text": "does not show that"
+      }
+     ]
+    },
+    {
+     "asset": "i_volume_s1",
+     "kind": "graphic",
+     "min_s": 14,
+     "claims": [
+      "C9"
+     ],
+     "anchor": "claim",
+     "anchor_text": "estimate of the volume",
+     "steps": [
+      {
+       "asset": "i_volume_s1",
+       "anchor_text": "estimate of the volume"
+      },
+      {
+       "asset": "i_volume_s2",
+       "anchor_text": "much smaller volume"
+      },
+      {
+       "asset": "i_volume",
+       "anchor_text": "the size is not settled"
+      }
+     ]
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      15,
+      9
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     }
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      9,
+      15
+     ],
+     "focus": [
+      85.44,
+      28.33
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     }
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      15,
+      7
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     }
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      7,
+      15
+     ],
+     "focus": [
+      85.44,
+      28.33
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     }
+    }
+   ]
+  },
+  {
+   "id": "obs",
+   "visuals": [
+    {
+     "asset": "i_clouds",
+     "kind": "graphic",
+     "min_s": 12,
+     "claims": [
+      "C15"
+     ],
+     "anchor": "claim",
+     "anchor_text": "First we looked for the clearest view"
+    },
+    {
+     "asset": "i_flow_scale_s1",
+     "kind": "graphic",
+     "min_s": 11,
+     "claims": [
+      "C2",
+      "C14"
+     ],
+     "anchor": "claim",
+     "anchor_text": "USGS said the flow traveled about 100 kilometers",
+     "steps": [
+      {
+       "asset": "i_flow_scale_s1",
+       "anchor_text": "USGS said the flow traveled about 100 kilometers"
+      },
+      {
+       "asset": "i_flow_scale",
+       "anchor_text": "Our frame cannot show all of it"
+      }
+     ]
+    },
+    {
+     "asset": "i_official_s1",
+     "kind": "graphic",
+     "min_s": 10,
+     "claims": [
+      "C6"
+     ],
+     "anchor": "claim",
+     "anchor_text": "mapping the full extent",
+     "steps": [
+      {
+       "asset": "i_official_s1",
+       "anchor_text": "mapping the full extent"
+      },
+      {
+       "asset": "i_official",
+       "anchor_text": "not a substitute"
+      }
+     ]
+    },
+    {
+     "kind": "scene",
+     "id": "m_before",
+     "asset": "y2026",
+     "min_s": 7,
+     "claims": [
+      "C13"
+     ],
+     "anchor": "claim",
+     "zoom": [
+      12,
+      7
+     ],
+     "marks": [
+      {
+       "type": "pin",
+       "at": [
+        85.4253,
+        28.3314
+       ],
+       "text": "NARROW PALE RIVER BED",
+       "t": 1.0,
+       "dur": null,
+       "plate": true
+      },
+      {
+       "type": "label",
+       "text": "12 AUG 2026 - SENTINEL-2, 10 M",
+       "style": "tag",
+       "slot": "upper",
+       "t": 0.3,
+       "plate": true
+      }
+     ],
+     "focus": [
+      85.43,
+      28.335
+     ],
+     "focus_to": [
+      85.39,
+      28.3
+     ],
+     "anchor_text": "In the 12 August image"
+    },
+    {
+     "kind": "scene",
+     "id": "m_after",
+     "asset": "y2026",
+     "min_s": 9,
+     "claims": [
+      "C13"
+     ],
+     "anchor": "claim",
+     "zoom": [
+      12,
+      7
+     ],
+     "marks": [
+      {
+       "type": "label",
+       "text": "12 AUG 2026 - SENTINEL-2 (10 M)",
+       "style": "tag",
+       "slot": "upper",
+       "t": 0.4,
+       "dur": 3.0,
+       "plate": true
+      },
+      {
+       "type": "label",
+       "text": "26 AUG 2026 - LANDSAT 9 (30 M)",
+       "sub": "NOT SHARPENED",
+       "style": "tag",
+       "slot": "upper",
+       "anchor_text": "a dark grey-brown swath",
+       "dur": null,
+       "plate": true
+      }
+     ],
+     "focus": [
+      85.43,
+      28.335
+     ],
+     "focus_to": [
+      85.39,
+      28.3
+     ],
+     "wipe": [
+      "y2026",
+      "l2026"
+     ],
+     "wipe_at": "a dark grey-brown swath",
+     "anchor_text": "In the 26 August image",
+     "resample": "nearest"
+    },
+    {
+     "kind": "scene",
+     "id": "m_pixel",
+     "asset": "l2026",
+     "min_s": 5,
+     "claims": [
+      "C16"
+     ],
+     "anchor": "claim",
+     "zoom": [
+      1.5,
+      0.5
+     ],
+     "marks": [],
+     "focus": [
+      85.4456,
+      28.3379
+     ],
+     "label": {
+      "text": "1 PIXEL = 30 M OF GROUND",
+      "style": "tag",
+      "slot": "upper",
+      "plate": true
+     },
+     "anchor_text": "Its pixels are 30 meters wide",
+     "resample": "nearest"
+    },
+    {
+     "kind": "scene",
+     "id": "m_trace",
+     "asset": "y2026",
+     "min_s": 15,
+     "claims": [
+      "C14"
+     ],
+     "anchor": "claim",
+     "zoom": [
+      32,
+      26
+     ],
+     "marks": [
+      {
+       "type": "arrow",
+       "from": [
+        85.5126,
+        28.2872
+       ],
+       "to": [
+        85.4456,
+        28.3379
+       ],
+       "color": "#FFD23F",
+       "width": 9,
+       "anchor_text": "We traced it by eye",
+       "dur": null
+      },
+      {
+       "type": "arrow",
+       "from": [
+        85.4456,
+        28.3379
+       ],
+       "to": [
+        85.3852,
+        28.2858
+       ],
+       "color": "#FFD23F",
+       "width": 9,
+       "anchor_text": "On our grid it runs about 30 kilometers",
+       "dur": null
+      },
+      {
+       "type": "arrow",
+       "from": [
+        85.3852,
+        28.2858
+       ],
+       "to": [
+        85.3522,
+        28.1974
+       ],
+       "color": "#FFD23F",
+       "width": 9,
+       "anchor_text": "On our grid it runs about 30 kilometers",
+       "dur": null
+      },
+      {
+       "type": "label",
+       "text": "TRACED BY EYE: ~30 KM",
+       "style": "tag",
+       "slot": "upper",
+       "anchor_text": "On our grid it runs about 30 kilometers",
+       "dur": null,
+       "plate": true
+      },
+      {
+       "type": "pin",
+       "at": [
+        85.3777,
+        28.2789
+       ],
+       "text": "RIVER TURNS SOUTH (APPROX.)",
+       "anchor_text": "near the Rasuwagadhi border post",
+       "dur": null,
+       "plate": true
+      },
+      {
+       "type": "label",
+       "text": "~20 KM FROM GLACIER FOOT TO HERE",
+       "style": "tag",
+       "slot": "middle",
+       "anchor_text": "About 20 of them",
+       "dur": null,
+       "plate": true
+      }
+     ],
+     "focus": [
+      85.43,
+      28.3
+     ],
+     "wipe": [
+      "y2026",
+      "l2026"
+     ],
+     "wipe_at": "We traced it by eye",
+     "anchor_text": "We traced it by eye",
+     "resample": "nearest"
+    },
+    {
+     "kind": "scene",
+     "id": "m_clouds_hide",
+     "asset": "l2026",
+     "min_s": 5,
+     "claims": [],
+     "anchor": "claim",
+     "zoom": [
+      20,
+      14
+     ],
+     "marks": [],
+     "focus": [
+      85.5,
+      28.3
+     ],
+     "focus_to": [
+      85.45,
+      28.32
+     ],
+     "label": {
+      "text": "CLOUDS HIDE PARTS OF THE VALLEY",
+      "style": "tag",
+      "slot": "upper",
+      "plate": true
+     },
+     "anchor_text": "Clouds hide other stretches",
+     "limit": true
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      10,
+      6
+     ],
+     "focus": [
+      85.44,
+      28.33
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     }
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      10,
+      6
+     ],
+     "focus": [
+      85.44,
+      28.33
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     }
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      10,
+      6
+     ],
+     "focus": [
+      85.44,
+      28.33
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     },
+     "claims": [
+      "C13"
+     ]
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      10,
+      6
+     ],
+     "focus": [
+      85.44,
+      28.33
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     },
+     "claims": [
+      "C14"
+     ]
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      14,
+      8
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     }
+    }
+   ]
+  },
+  {
+   "id": "limits",
+   "visuals": [
+    {
+     "asset": "i_cannot_s1",
+     "kind": "graphic",
+     "min_s": 22,
+     "claims": [],
+     "anchor": "claim",
+     "anchor_text": "how high the water rose",
+     "steps": [
+      {
+       "asset": "i_cannot_s1",
+       "anchor_text": "how high the water rose"
+      },
+      {
+       "asset": "i_cannot_s2",
+       "anchor_text": "why the slope failed"
+      },
+      {
+       "asset": "i_cannot_s3",
+       "anchor_text": "anyone could have been warned"
+      },
+      {
+       "asset": "i_cannot",
+       "anchor_text": "how many people died"
+      }
+     ]
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      15,
+      8
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     }
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      8,
+      15
+     ],
+     "focus": [
+      85.44,
+      28.33
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     }
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "visuals": [
+    {
+     "asset": "y2026",
+     "zoom": [
+      10,
+      6
+     ],
+     "focus": [
+      85.44,
+      28.33
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     },
+     "family": "close_view",
+     "min_s": 3
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      8,
+      24
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     },
+     "family": "close_wide",
+     "min_s": 3
+    },
+    {
+     "asset": "y2026",
+     "zoom": [
+      15,
+      8
+     ],
+     "label": {
+      "text": "AUG 2026",
+      "style": "year",
+      "exempt": true,
+      "date_year": 2026
+     }
+    }
+   ]
+  }
+ ],
+ "generated_by": "yt-visual-planner",
+ "planner_dropped": [
+  {
+   "chapter": "plan",
+   "dropped": [
+    "y2026"
+   ],
+   "reason": "chapter is 128.2s"
+  },
+  {
+   "chapter": "obs",
+   "dropped": [
+    "y2026"
+   ],
+   "reason": "notes.max_map_beats caps obs at 5"
+  }
+ ],
+ "media_pending": [
+  {
+   "id": "palletized_relief_supplies_t",
+   "scene": "aftermath",
+   "status": "UNVERIFIED",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Delivering_Relief-_374th_Airlift_Wing_Provides_Lifesaving_aid_in_Nepal_(9908126).jpg",
+   "license": "U.S. Government work (US Air Force photograph, 17 U.S.C. 105)",
+   "title": "Palletized relief supplies transported at Tribhuvan International Airport after delivery by C-130J, 2 Sept 2026",
+   "reasons": [
+    "rights look fine but the file is not fetched yet (run fetch --confirm); VERIFIED needs the local file and its sha256"
+   ]
+  },
+  {
+   "id": "mudslide_at_gyirong_port_cct",
+   "scene": "aftermath",
+   "status": "REJECTED",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Mudslide_at_Gyirong_Port_1.webm",
+   "license": "Unknown - uploader claims public domain; news CCTV source (Resound News), copyright holder not identified",
+   "title": "Mudslide at Gyirong Port (CCTV, view NW and S)",
+   "reasons": [
+    "licence 'Unknown - uploader claims public domain; news CCTV source (Resound News), copyright holder not identified': copyrighted: needs a licence we do not have"
+   ]
+  }
+ ],
+ "media_gaps": [
+  {
+   "chapter": "method",
+   "map_beats_in_a_row": 4,
+   "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"
+  },
+  {
+   "chapter": "obs",
+   "map_beats_in_a_row": 5,
+   "need": "a verified photo or video for this scene (yt-media-research), or a graphic of a different kind"
+  }
+ ],
+ "visual_choices": {
+  "hook": "The strongest real material is our own before/after pair: Sentinel-2 on 12 Aug (clear) against Landsat 9 on 26 Aug. It is shown first, with both sensors and pixel sizes named.",
+  "obs": "Satellite frames are the evidence for this chapter: the claim is about what the ground looked like on two dates. No verified ground photograph of the flood exists in the ledger (see media/exceptions.json).",
+  "plan": "Reported facts are shown as source cards (USGS / ICIMOD / Nepali and Chinese counts); satellite scenes only place the rivers and the border post, never a casualty.",
+  "method": "Radar is not shown: no Sentinel-1 image was obtained, so the radar claim is a labelled card, not a picture."
+ },
+ "infographics_dropped": [
+  {
+   "id": "i_watch",
+   "reason": "chapter close is built by rule (opening beats and the closing recap); put the scene in another chapter"
+  }
+ ]
+}

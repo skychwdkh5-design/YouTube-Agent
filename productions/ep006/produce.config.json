@@ -1,0 +1,24 @@
+{
+ "schema": "produce-config/1",
+ "topic": "x",
+ "slug": "ep006",
+ "updated": "2026-10-27T11:17:50Z",
+ "budget_chars": 0,
+ "paid_allowed": false,
+ "sources": {
+  "claims": "claims.json",
+  "ledger": "media/ledger.json",
+  "licence_cache": "media_cache/index.json",
+  "exceptions": "media/exceptions.json"
+ },
+ "scenes": {
+  "infographics": 15,
+  "maps": 9,
+  "templates": 0
+ },
+ "voice": "voice/narration.voice.json",
+ "timeline": "timeline.json",
+ "preview": "render/ep006_preview_720p_15fps.mp4",
+ "preview_fps": 15,
+ "final_master": "1080p/30 (owner permission required)"
+}

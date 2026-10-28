@@ -1,0 +1,1665 @@
+{
+ "schema": "yt-visualcheck/1",
+ "total": 51,
+ "orphan_reviews": 0,
+ "overall": "OK",
+ "counts": {
+  "VERIFIED_DATA": 17,
+  "REVIEWED": 34
+ },
+ "items": [
+  {
+   "id": "hook_000:label:AUG 2026",
+   "kind": "label",
+   "text": "AUG 2026",
+   "shot": "hook_000",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "plan_002:label:12 AUG 2026 - SENTINEL-2 (10 M)",
+   "kind": "label",
+   "text": "12 AUG 2026 - SENTINEL-2 (10 M)",
+   "shot": "plan_002",
+   "claims": [
+    "C13"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/plan_002_label_12_AUG_2026_-_SENTINEL-2__10_M__0.png",
+     "sha256": "cfc70aba68107435f9703c28fa23932cef7a1f7a3e6a9c19543fd50f84160412",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      85.445,
+      28.325
+     ],
+     "width_km": 15,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Wipe from the 12 Aug Sentinel-2 view (narrow pale river bed, no dark swath) to the 26 Aug Landsat 9 view (dark grey-brown swath along the valley, cloud patches); two different sensors, labelled as such in the frame.",
+   "source": [
+    {
+     "claim": "C13",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/landsat10/y2026.png"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "plan_002:label:26 AUG 2026 - LANDSAT 9 (30 M)",
+   "kind": "label",
+   "text": "26 AUG 2026 - LANDSAT 9 (30 M)",
+   "shot": "plan_002",
+   "claims": [
+    "C13"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/plan_002_label_26_AUG_2026_-_LANDSAT_9__30_M__0.png",
+     "sha256": "cfc70aba68107435f9703c28fa23932cef7a1f7a3e6a9c19543fd50f84160412",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      85.445,
+      28.325
+     ],
+     "width_km": 15,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Wipe from the 12 Aug Sentinel-2 view (narrow pale river bed, no dark swath) to the 26 Aug Landsat 9 view (dark grey-brown swath along the valley, cloud patches); two different sensors, labelled as such in the frame.",
+   "source": [
+    {
+     "claim": "C13",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/landsat10/y2026.png"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "plan_002:shot",
+   "kind": "shot",
+   "text": "wipe y2026->l2026",
+   "shot": "plan_002",
+   "claims": [
+    "C13"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/plan_002_shot_0.png",
+     "sha256": "cfc70aba68107435f9703c28fa23932cef7a1f7a3e6a9c19543fd50f84160412",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      85.445,
+      28.325
+     ],
+     "width_km": 15,
+     "review": "supports"
+    },
+    {
+     "file": "qa/frames/plan_002_shot_1.png",
+     "sha256": "e12bb54c755d53e4d4d241766f7559250e4f2c8408faaec0286576938aeacf45",
+     "stack": "evidence/landsat10/y2026.png",
+     "center": [
+      85.445,
+      28.325
+     ],
+     "width_km": 15,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Wipe from the 12 Aug Sentinel-2 view (narrow pale river bed, no dark swath) to the 26 Aug Landsat 9 view (dark grey-brown swath along the valley, cloud patches); two different sensors, labelled as such in the frame. | After half of the wipe: blurred Landsat 9 view (26 Aug) with a dark grey-brown swa",
+   "source": [
+    {
+     "claim": "C13",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/landsat10/y2026.png"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "plan_003:graphic:i_usgs_s1",
+   "kind": "graphic",
+   "text": "i_usgs_s1",
+   "shot": "plan_003",
+   "claims": [
+    "C1"
+   ],
+   "texts": [
+    "What was reported"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/plan_003_graphic_i_usgs_s1_0.png",
+     "sha256": "e041364152fc447fa128a6fb206013a3618466b6af17cc68e19fd6eab6253e52",
+     "stack": "graphics/i_usgs.png",
+     "center": null,
+     "width_km": null,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people.",
+   "source": [
+    {
+     "claim": "C1",
+     "tier": "org",
+     "attribution": "USGS Landslide Hazards Program",
+     "url": "https://www.usgs.gov/programs/landslide-hazards/science/2026-nepal-debris-avalanche-and-flash-flood",
+     "date": "2026-08-28",
+     "evidence": null
+    }
+   ],
+   "allowed": {
+    "wording": [
+     "said"
+    ],
+    "forbid": []
+   }
+  },
+  {
+   "id": "plan_004:graphic:i_100km_s1",
+   "kind": "graphic",
+   "text": "i_100km_s1",
+   "shot": "plan_004",
+   "claims": [
+    "C2"
+   ],
+   "texts": [
+    "What was reported"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/plan_004_graphic_i_100km_s1_0.png",
+     "sha256": "74ff0dfc9ec85d2ea0715cf5d7196f0414f923ce6a4aa0c98765dc4cf5cc3070",
+     "stack": "graphics/i_100km.png",
+     "center": null,
+     "width_km": null,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people.",
+   "source": [
+    {
+     "claim": "C2",
+     "tier": "org",
+     "attribution": "USGS Landslide Hazards Program",
+     "url": "https://www.usgs.gov/programs/landslide-hazards/science/2026-nepal-debris-avalanche-and-flash-flood",
+     "date": "2026-08-28",
+     "evidence": null
+    }
+   ],
+   "allowed": {
+    "wording": [
+     "said"
+    ],
+    "forbid": [
+     "100 km to Rasuwagadhi",
+     "reached Rasuwagadhi after 100"
+    ]
+   }
+  },
+  {
+   "id": "plan_005:shot",
+   "kind": "shot",
+   "text": "y2026",
+   "shot": "plan_005",
+   "claims": [
+    "C2"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/plan_005_shot_0.png",
+     "sha256": "dcee978e860596c67f4ae9c5def1b785b436a42230e92ea269977b3f2bc58fac",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      85.37731,
+      28.2361
+     ],
+     "width_km": 15,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "12 Aug 2026 Sentinel-2 view of the valley: pale braided river bed through forest, no dark swath; matches the claim wording as a before view.",
+   "source": [
+    {
+     "claim": "C2",
+     "tier": "org",
+     "attribution": "USGS Landslide Hazards Program",
+     "url": "https://www.usgs.gov/programs/landslide-hazards/science/2026-nepal-debris-avalanche-and-flash-flood",
+     "date": "2026-08-28",
+     "evidence": null
+    }
+   ],
+   "allowed": {
+    "wording": [
+     "said"
+    ],
+    "forbid": [
+     "100 km to Rasuwagadhi",
+     "reached Rasuwagadhi after 100"
+    ]
+   }
+  },
+  {
+   "id": "plan_006:shot",
+   "kind": "shot",
+   "text": "y2026",
+   "shot": "plan_006",
+   "claims": [
+    "C2"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/plan_006_shot_0.png",
+     "sha256": "a66446c11a125fd2ffea2c7b1e151b7b29e91d161a2863bc48949a970e96ba72",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      85.3777,
+      28.2789
+     ],
+     "width_km": 5,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "12 Aug 2026 Sentinel-2 view of the valley: pale braided river bed through forest, no dark swath; matches the claim wording as a before view.",
+   "source": [
+    {
+     "claim": "C2",
+     "tier": "org",
+     "attribution": "USGS Landslide Hazards Program",
+     "url": "https://www.usgs.gov/programs/landslide-hazards/science/2026-nepal-debris-avalanche-and-flash-flood",
+     "date": "2026-08-28",
+     "evidence": null
+    }
+   ],
+   "allowed": {
+    "wording": [
+     "said"
+    ],
+    "forbid": [
+     "100 km to Rasuwagadhi",
+     "reached Rasuwagadhi after 100"
+    ]
+   }
+  },
+  {
+   "id": "plan_007:label:STOP POINT: NOT IN USGS TEXT",
+   "kind": "label",
+   "text": "STOP POINT: NOT IN USGS TEXT",
+   "shot": "plan_007",
+   "claims": [],
+   "frames": [
+    {
+     "file": "qa/frames/plan_007_label_STOP_POINT__NOT_IN_USGS_TEXT_0.png",
+     "sha256": "17371505a4335f45b261c2ea8440583b0a27446c00db3b54784823324b994f67",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      85.4031,
+      28.24934
+     ],
+     "width_km": 20,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Frame consistent with the label text.",
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "plan_008:graphic:i_seismic_s1",
+   "kind": "graphic",
+   "text": "i_seismic_s1",
+   "shot": "plan_008",
+   "claims": [
+    "C3"
+   ],
+   "texts": [
+    "What was reported"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/plan_008_graphic_i_seismic_s1_0.png",
+     "sha256": "4012281104bafa55fbc1843fd798bc12c6b1820fbf660292bb66435c07239f6b",
+     "stack": "graphics/i_seismic.png",
+     "center": null,
+     "width_km": null,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people.",
+   "source": [
+    {
+     "claim": "C3",
+     "tier": "org",
+     "attribution": "USGS Landslide Hazards Program",
+     "url": "https://www.usgs.gov/programs/landslide-hazards/science/2026-nepal-debris-avalanche-and-flash-flood",
+     "date": "2026-08-28",
+     "evidence": null
+    }
+   ],
+   "allowed": {
+    "wording": [
+     "said"
+    ],
+    "forbid": [
+     "earthquake caused",
+     "earthquake struck",
+     "earthquake triggered"
+    ]
+   }
+  },
+  {
+   "id": "plan_009:graphic:i_cause_s1",
+   "kind": "graphic",
+   "text": "i_cause_s1",
+   "shot": "plan_009",
+   "claims": [
+    "C4"
+   ],
+   "texts": [
+    "What was reported"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/plan_009_graphic_i_cause_s1_0.png",
+     "sha256": "c6cb201958738d86c6394589dc9cefac08bf63e08ba040b500d5d8b4c0568045",
+     "stack": "graphics/i_cause.png",
+     "center": null,
+     "width_km": null,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people.",
+   "source": [
+    {
+     "claim": "C4",
+     "tier": "org",
+     "attribution": "USGS Landslide Hazards Program",
+     "url": "https://www.usgs.gov/programs/landslide-hazards/science/2026-nepal-debris-avalanche-and-flash-flood",
+     "date": "2026-08-28",
+     "evidence": null
+    }
+   ],
+   "allowed": {
+    "wording": [
+     "said"
+    ],
+    "forbid": []
+   }
+  },
+  {
+   "id": "plan_010:graphic:i_2015_s1",
+   "kind": "graphic",
+   "text": "i_2015_s1",
+   "shot": "plan_010",
+   "claims": [
+    "C5"
+   ],
+   "texts": [
+    "What was reported"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/plan_010_graphic_i_2015_s1_0.png",
+     "sha256": "c443ee83a8376e518e7e36d79fa7351f3673378c8875e10a16ac98f8e7790a16",
+     "stack": "graphics/i_2015.png",
+     "center": null,
+     "width_km": null,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people.",
+   "source": [
+    {
+     "claim": "C5",
+     "tier": "org",
+     "attribution": "USGS Landslide Hazards Program",
+     "url": "https://www.usgs.gov/programs/landslide-hazards/science/2026-nepal-debris-avalanche-and-flash-flood",
+     "date": "2026-08-28",
+     "evidence": null
+    }
+   ],
+   "allowed": {
+    "wording": [
+     "said"
+    ],
+    "forbid": []
+   }
+  },
+  {
+   "id": "plan_011:graphic:i_toll_s1",
+   "kind": "graphic",
+   "text": "i_toll_s1",
+   "shot": "plan_011",
+   "claims": [
+    "C10"
+   ],
+   "texts": [
+    "Counts in Nepal"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/plan_011_graphic_i_toll_s1_0.png",
+     "sha256": "cbea6a937f5261da2fff6049e298643f0749aa47e11881ffcb4a2c203d2d91d2",
+     "stack": "graphics/i_toll.png",
+     "center": null,
+     "width_km": null,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people.",
+   "source": [
+    {
+     "claim": "C10",
+     "tier": "media",
+     "attribution": "Nepal Police / NDRRMA figures as reported by Ratopati and a live tracker",
+     "url": "https://english.ratopati.com/story/78427/rasuwa-flood-death-toll-reaches-1367",
+     "date": "2026-10-14",
+     "evidence": null
+    }
+   ],
+   "allowed": {
+    "wording": [
+     "reported"
+    ],
+    "forbid": [
+     "1,456",
+     "5,132",
+     "exactly"
+    ]
+   }
+  },
+  {
+   "id": "plan_012:graphic:i_china_s1",
+   "kind": "graphic",
+   "text": "i_china_s1",
+   "shot": "plan_012",
+   "claims": [
+    "C11"
+   ],
+   "texts": [
+    "Counts in Tibet"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/plan_012_graphic_i_china_s1_0.png",
+     "sha256": "b6b6fe945c1cc6a4a9e0aca0fc58eb92387232223485732471197172c00f1139",
+     "stack": "graphics/i_china.png",
+     "center": null,
+     "width_km": null,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people.",
+   "source": [
+    {
+     "claim": "C11",
+     "tier": "media",
+     "attribution": "Xinhua (via The Star, NST) and NBC News",
+     "url": "https://english.news.cn/20260906/c7070ebe266b4338bf2206805140c36c/c.html",
+     "date": "2026-09-06",
+     "evidence": null
+    }
+   ],
+   "allowed": {
+    "wording": [
+     "reported"
+    ],
+    "forbid": [
+     "total of"
+    ]
+   }
+  },
+  {
+   "id": "plan_013:label:AUG 2026",
+   "kind": "label",
+   "text": "AUG 2026",
+   "shot": "plan_013",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "plan_013:shot",
+   "kind": "shot",
+   "text": "y2026",
+   "shot": "plan_013",
+   "claims": [
+    "C13"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/plan_013_shot_0.png",
+     "sha256": "a85b408138d6a0f4a0847d6e8053f74fb419529f89917cbf578a69a3841a91cd",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 6,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "12 Aug 2026 Sentinel-2 view of the valley: pale braided river bed through forest, no dark swath; matches the claim wording as a before view.",
+   "source": [
+    {
+     "claim": "C13",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/landsat10/y2026.png"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "plan_014:label:AUG 2026",
+   "kind": "label",
+   "text": "AUG 2026",
+   "shot": "plan_014",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "method_015:label:AUG 2026",
+   "kind": "label",
+   "text": "AUG 2026",
+   "shot": "method_015",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "method_017:graphic:i_icimod_s1",
+   "kind": "graphic",
+   "text": "i_icimod_s1",
+   "shot": "method_017",
+   "claims": [
+    "C7"
+   ],
+   "texts": [
+    "What was reported"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/method_017_graphic_i_icimod_s1_0.png",
+     "sha256": "f006846b5b2f6913bc1113d3f0ef6ea13ab2cde654321f5a47f0520761eb5985",
+     "stack": "graphics/i_icimod.png",
+     "center": null,
+     "width_km": null,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people.",
+   "source": [
+    {
+     "claim": "C7",
+     "tier": "science",
+     "attribution": "ICIMOD press release",
+     "url": "https://www.icimod.org/press-releases/second-major-himalayan-flood-in-seven-weeks-raises-new-questions-about-mountain-risk",
+     "date": "2026-10-13",
+     "evidence": null
+    }
+   ],
+   "allowed": {
+    "wording": [
+     "said"
+    ],
+    "forbid": [
+     "burst its banks",
+     "lake burst",
+     "lake outburst caused"
+    ]
+   }
+  },
+  {
+   "id": "method_018:graphic:i_radar_s1",
+   "kind": "graphic",
+   "text": "i_radar_s1",
+   "shot": "method_018",
+   "claims": [
+    "C8"
+   ],
+   "texts": [
+    "What the radar measured"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/method_018_graphic_i_radar_s1_0.png",
+     "sha256": "d025d7d53a3715d4b5b1c7c500983f84c632afda08bbabaa9aedac7de7f39ebf",
+     "stack": "graphics/i_radar.png",
+     "center": null,
+     "width_km": null,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people.",
+   "source": [
+    {
+     "claim": "C8",
+     "tier": "science",
+     "attribution": "ICIMOD press release",
+     "url": "https://www.icimod.org/press-releases/second-major-himalayan-flood-in-seven-weeks-raises-new-questions-about-mountain-risk",
+     "date": "2026-10-13",
+     "evidence": null
+    }
+   ],
+   "allowed": {
+    "wording": [
+     "said"
+    ],
+    "forbid": [
+     "could have been predicted",
+     "early warning would have",
+     "predicted",
+     "proved it was predictable"
+    ]
+   }
+  },
+  {
+   "id": "method_019:graphic:i_volume_s1",
+   "kind": "graphic",
+   "text": "i_volume_s1",
+   "shot": "method_019",
+   "claims": [
+    "C9"
+   ],
+   "texts": [
+    "How big?"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/method_019_graphic_i_volume_s1_0.png",
+     "sha256": "571f077c83fea7f887969f64d2fa010347dfea5196cd4436c2c347465e53775a",
+     "stack": "graphics/i_volume.png",
+     "center": null,
+     "width_km": null,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people.",
+   "source": [
+    {
+     "claim": "C9",
+     "tier": "science",
+     "attribution": "ICIMOD press release",
+     "url": "https://www.icimod.org/press-releases/second-major-himalayan-flood-in-seven-weeks-raises-new-questions-about-mountain-risk",
+     "date": "2026-10-13",
+     "evidence": null
+    }
+   ],
+   "allowed": {
+    "wording": [
+     "said"
+    ],
+    "forbid": []
+   }
+  },
+  {
+   "id": "method_020:label:AUG 2026",
+   "kind": "label",
+   "text": "AUG 2026",
+   "shot": "method_020",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "method_021:label:AUG 2026",
+   "kind": "label",
+   "text": "AUG 2026",
+   "shot": "method_021",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "method_022:label:AUG 2026",
+   "kind": "label",
+   "text": "AUG 2026",
+   "shot": "method_022",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_023:label:AUG 2026",
+   "kind": "label",
+   "text": "AUG 2026",
+   "shot": "obs_023",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_027:graphic:i_clouds",
+   "kind": "graphic",
+   "text": "i_clouds",
+   "shot": "obs_027",
+   "claims": [
+    "C15"
+   ],
+   "texts": [
+    "Sentinel-2 scene cloud cover, clearest pass per date (%)"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/obs_027_graphic_i_clouds_0.png",
+     "sha256": "af0886e4f81cbc1f10c46cd51f2e41c073411868227b57362bbfdcd1f0e6837c",
+     "stack": "graphics/i_clouds.png",
+     "center": null,
+     "width_km": null,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people.",
+   "source": [
+    {
+     "claim": "C15",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "research/scenes_found.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_028:label:1 PIXEL = 30 M OF GROUND",
+   "kind": "label",
+   "text": "1 PIXEL = 30 M OF GROUND",
+   "shot": "obs_028",
+   "claims": [
+    "C16"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/obs_028_label_1_PIXEL___30_M_OF_GROUND_0.png",
+     "sha256": "36e939ef35240dc343dae151630bc92d7457242d3aa984b53c4c628e84d4a24a",
+     "stack": "evidence/landsat10/y2026.png",
+     "center": [
+      85.4456,
+      28.3379
+     ],
+     "width_km": 0.5,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Magnified Landsat 9 blocks (see label item).",
+   "source": [
+    {
+     "claim": "C16",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/landsat10/provenance.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_028:shot",
+   "kind": "shot",
+   "text": "l2026",
+   "shot": "obs_028",
+   "claims": [
+    "C16"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/obs_028_shot_0.png",
+     "sha256": "36e939ef35240dc343dae151630bc92d7457242d3aa984b53c4c628e84d4a24a",
+     "stack": "evidence/landsat10/y2026.png",
+     "center": [
+      85.4456,
+      28.3379
+     ],
+     "width_km": 0.5,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Magnified Landsat 9 blocks (see label item).",
+   "source": [
+    {
+     "claim": "C16",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/landsat10/provenance.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_029:label:12 AUG 2026 - SENTINEL-2, 10 M",
+   "kind": "label",
+   "text": "12 AUG 2026 - SENTINEL-2, 10 M",
+   "shot": "obs_029",
+   "claims": [
+    "C13"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/obs_029_label_12_AUG_2026_-_SENTINEL-2__10_M_0.png",
+     "sha256": "4d38a7791b3a10478225b09c5dfc13fa62724ba1dfdf6d58f91120bda41d5208",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      85.39,
+      28.3
+     ],
+     "width_km": 7,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Wipe from the 12 Aug Sentinel-2 view (narrow pale river bed, no dark swath) to the 26 Aug Landsat 9 view (dark grey-brown swath along the valley, cloud patches); two different sensors, labelled as such in the frame.",
+   "source": [
+    {
+     "claim": "C13",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/landsat10/y2026.png"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_029:shot",
+   "kind": "shot",
+   "text": "y2026",
+   "shot": "obs_029",
+   "claims": [
+    "C13"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/obs_029_shot_0.png",
+     "sha256": "4d38a7791b3a10478225b09c5dfc13fa62724ba1dfdf6d58f91120bda41d5208",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      85.39,
+      28.3
+     ],
+     "width_km": 7,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Wipe from the 12 Aug Sentinel-2 view (narrow pale river bed, no dark swath) to the 26 Aug Landsat 9 view (dark grey-brown swath along the valley, cloud patches); two different sensors, labelled as such in the frame.",
+   "source": [
+    {
+     "claim": "C13",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/landsat10/y2026.png"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_030:label:12 AUG 2026 - SENTINEL-2 (10 M)",
+   "kind": "label",
+   "text": "12 AUG 2026 - SENTINEL-2 (10 M)",
+   "shot": "obs_030",
+   "claims": [
+    "C13"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/obs_030_label_12_AUG_2026_-_SENTINEL-2__10_M__0.png",
+     "sha256": "4d38a7791b3a10478225b09c5dfc13fa62724ba1dfdf6d58f91120bda41d5208",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      85.39,
+      28.3
+     ],
+     "width_km": 7,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Wipe from the 12 Aug Sentinel-2 view (narrow pale river bed, no dark swath) to the 26 Aug Landsat 9 view (dark grey-brown swath along the valley, cloud patches); two different sensors, labelled as such in the frame.",
+   "source": [
+    {
+     "claim": "C13",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/landsat10/y2026.png"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_030:label:26 AUG 2026 - LANDSAT 9 (30 M)",
+   "kind": "label",
+   "text": "26 AUG 2026 - LANDSAT 9 (30 M)",
+   "shot": "obs_030",
+   "claims": [
+    "C13"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/obs_030_label_26_AUG_2026_-_LANDSAT_9__30_M__0.png",
+     "sha256": "4d38a7791b3a10478225b09c5dfc13fa62724ba1dfdf6d58f91120bda41d5208",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      85.39,
+      28.3
+     ],
+     "width_km": 7,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Wipe from the 12 Aug Sentinel-2 view (narrow pale river bed, no dark swath) to the 26 Aug Landsat 9 view (dark grey-brown swath along the valley, cloud patches); two different sensors, labelled as such in the frame.",
+   "source": [
+    {
+     "claim": "C13",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/landsat10/y2026.png"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_030:shot",
+   "kind": "shot",
+   "text": "wipe y2026->l2026",
+   "shot": "obs_030",
+   "claims": [
+    "C13"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/obs_030_shot_0.png",
+     "sha256": "4d38a7791b3a10478225b09c5dfc13fa62724ba1dfdf6d58f91120bda41d5208",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      85.39,
+      28.3
+     ],
+     "width_km": 7,
+     "review": "supports"
+    },
+    {
+     "file": "qa/frames/obs_030_shot_1.png",
+     "sha256": "2f8db20a04775b7cda5ce97de03697088c47e9ba01bda4f413988794fa79535d",
+     "stack": "evidence/landsat10/y2026.png",
+     "center": [
+      85.39,
+      28.3
+     ],
+     "width_km": 7,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Wipe from the 12 Aug Sentinel-2 view (narrow pale river bed, no dark swath) to the 26 Aug Landsat 9 view (dark grey-brown swath along the valley, cloud patches); two different sensors, labelled as such in the frame. | After half of the wipe: Landsat 9 view at larger zoom; a dark swath runs through g",
+   "source": [
+    {
+     "claim": "C13",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/landsat10/y2026.png"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_031:label:TRACED BY EYE: ~30 KM",
+   "kind": "label",
+   "text": "TRACED BY EYE: ~30 KM",
+   "shot": "obs_031",
+   "claims": [
+    "C14"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/obs_031_label_TRACED_BY_EYE___30_KM_0.png",
+     "sha256": "e96a518e9498b9d19246458fad87a173339f4108dc2dc401c11e5d33c415ddf0",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      85.43354,
+      28.30004
+     ],
+     "width_km": 26,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Wipe from the 12 Aug Sentinel-2 view (narrow pale river bed, no dark swath) to the 26 Aug Landsat 9 view (dark grey-brown swath along the valley, cloud patches); two different sensors, labelled as such in the frame.",
+   "source": [
+    {
+     "claim": "C14",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/path_measure.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_031:label:~20 KM FROM GLACIER FOOT TO HERE",
+   "kind": "label",
+   "text": "~20 KM FROM GLACIER FOOT TO HERE",
+   "shot": "obs_031",
+   "claims": [
+    "C14"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/obs_031_label__20_KM_FROM_GLACIER_FOOT_TO_HERE_0.png",
+     "sha256": "e96a518e9498b9d19246458fad87a173339f4108dc2dc401c11e5d33c415ddf0",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      85.43354,
+      28.30004
+     ],
+     "width_km": 26,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Wipe from the 12 Aug Sentinel-2 view (narrow pale river bed, no dark swath) to the 26 Aug Landsat 9 view (dark grey-brown swath along the valley, cloud patches); two different sensors, labelled as such in the frame.",
+   "source": [
+    {
+     "claim": "C14",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/path_measure.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_031:shot",
+   "kind": "shot",
+   "text": "wipe y2026->l2026",
+   "shot": "obs_031",
+   "claims": [
+    "C14"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/obs_031_shot_0.png",
+     "sha256": "e96a518e9498b9d19246458fad87a173339f4108dc2dc401c11e5d33c415ddf0",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      85.43354,
+      28.30004
+     ],
+     "width_km": 26,
+     "review": "supports"
+    },
+    {
+     "file": "qa/frames/obs_031_shot_1.png",
+     "sha256": "1c934af784821a10b7becf3756fd06841f50d736d22fdcb6a571181a784402e5",
+     "stack": "evidence/landsat10/y2026.png",
+     "center": [
+      85.43354,
+      28.30004
+     ],
+     "width_km": 26,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Wipe from the 12 Aug Sentinel-2 view (narrow pale river bed, no dark swath) to the 26 Aug Landsat 9 view (dark grey-brown swath along the valley, cloud patches); two different sensors, labelled as such in the frame. | Wide Landsat 9 view: a dark grey-brown swath can be followed from the glacier-ice ",
+   "source": [
+    {
+     "claim": "C14",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/path_measure.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_032:label:CLOUDS HIDE PARTS OF THE VALLEY",
+   "kind": "label",
+   "text": "CLOUDS HIDE PARTS OF THE VALLEY",
+   "shot": "obs_032",
+   "claims": [],
+   "frames": [
+    {
+     "file": "qa/frames/obs_032_label_CLOUDS_HIDE_PARTS_OF_THE_VALLEY_0.png",
+     "sha256": "2d86ff5f4fc6639cea5d41ffbf425301776b7a283988cd8b12a59a11089cd775",
+     "stack": "evidence/landsat10/y2026.png",
+     "center": [
+      85.45,
+      28.32
+     ],
+     "width_km": 14,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Magnified Landsat 9 view where white cloud patches and the dark swath are both visible; supports the limit label that clouds hide parts of the valley.",
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_033:label:AUG 2026",
+   "kind": "label",
+   "text": "AUG 2026",
+   "shot": "obs_033",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_034:graphic:i_flow_scale_s1",
+   "kind": "graphic",
+   "text": "i_flow_scale_s1",
+   "shot": "obs_034",
+   "claims": [
+    "C2",
+    "C14"
+   ],
+   "texts": [
+    "Part of ~100 km",
+    "RASUWAGADHI (APPROX.)"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/obs_034_graphic_i_flow_scale_s1_0.png",
+     "sha256": "3beb79e731195ae564cad7732664c4868c38a7052330c4e0e076d93fc554be73",
+     "stack": "evidence/wide/y2026.png",
+     "center": [
+      85.45,
+      28.26
+     ],
+     "width_km": 42,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people.",
+   "source": [
+    {
+     "claim": "C2",
+     "tier": "org",
+     "attribution": "USGS Landslide Hazards Program",
+     "url": "https://www.usgs.gov/programs/landslide-hazards/science/2026-nepal-debris-avalanche-and-flash-flood",
+     "date": "2026-08-28",
+     "evidence": null
+    },
+    {
+     "claim": "C14",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/path_measure.json"
+    }
+   ],
+   "allowed": {
+    "wording": [
+     "said"
+    ],
+    "forbid": [
+     "100 km to Rasuwagadhi",
+     "reached Rasuwagadhi after 100"
+    ]
+   }
+  },
+  {
+   "id": "obs_035:label:AUG 2026",
+   "kind": "label",
+   "text": "AUG 2026",
+   "shot": "obs_035",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_035:shot",
+   "kind": "shot",
+   "text": "y2026",
+   "shot": "obs_035",
+   "claims": [
+    "C13"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/obs_035_shot_0.png",
+     "sha256": "a85b408138d6a0f4a0847d6e8053f74fb419529f89917cbf578a69a3841a91cd",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 6,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "12 Aug 2026 Sentinel-2 view of the valley: pale braided river bed through forest, no dark swath; matches the claim wording as a before view.",
+   "source": [
+    {
+     "claim": "C13",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/landsat10/y2026.png"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_036:label:AUG 2026",
+   "kind": "label",
+   "text": "AUG 2026",
+   "shot": "obs_036",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_036:shot",
+   "kind": "shot",
+   "text": "y2026",
+   "shot": "obs_036",
+   "claims": [
+    "C14"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/obs_036_shot_0.png",
+     "sha256": "a85b408138d6a0f4a0847d6e8053f74fb419529f89917cbf578a69a3841a91cd",
+     "stack": "evidence/stack/y2026.png",
+     "center": [
+      85.44,
+      28.33
+     ],
+     "width_km": 6,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "12 Aug 2026 Sentinel-2 view of the valley: pale braided river bed through forest, no dark swath; matches the claim wording as a before view.",
+   "source": [
+    {
+     "claim": "C14",
+     "tier": "observation",
+     "attribution": null,
+     "url": null,
+     "date": null,
+     "evidence": "evidence/path_measure.json"
+    }
+   ],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_037:graphic:i_official_s1",
+   "kind": "graphic",
+   "text": "i_official_s1",
+   "shot": "obs_037",
+   "claims": [
+    "C6"
+   ],
+   "texts": [
+    "What was reported"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/obs_037_graphic_i_official_s1_0.png",
+     "sha256": "cdf259607f5478cdfb94f9dc26ebfd35f5d9a7515877753c068c80c91b6814a1",
+     "stack": "graphics/i_official.png",
+     "center": null,
+     "width_km": null,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people.",
+   "source": [
+    {
+     "claim": "C6",
+     "tier": "org",
+     "attribution": "USGS Landslide Hazards Program",
+     "url": "https://www.usgs.gov/programs/landslide-hazards/science/2026-nepal-debris-avalanche-and-flash-flood",
+     "date": "2026-08-28",
+     "evidence": null
+    }
+   ],
+   "allowed": {
+    "wording": [
+     "said"
+    ],
+    "forbid": []
+   }
+  },
+  {
+   "id": "obs_038:label:AUG 2026",
+   "kind": "label",
+   "text": "AUG 2026",
+   "shot": "obs_038",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "limits_039:label:AUG 2026",
+   "kind": "label",
+   "text": "AUG 2026",
+   "shot": "limits_039",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "limits_041:graphic:i_cannot_s1",
+   "kind": "graphic",
+   "text": "i_cannot_s1",
+   "shot": "limits_041",
+   "claims": [],
+   "texts": [
+    "What we cannot say"
+   ],
+   "frames": [
+    {
+     "file": "qa/frames/limits_041_graphic_i_cannot_s1_0.png",
+     "sha256": "59e2622f08194d82151b0a4c1dd1e30a66717ee3bcb0210186e8f723d7544636",
+     "stack": "graphics/i_cannot.png",
+     "center": null,
+     "width_km": null,
+     "review": "supports"
+    }
+   ],
+   "status": "REVIEWED_BY_AGENT",
+   "why": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people.",
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "limits_042:label:AUG 2026",
+   "kind": "label",
+   "text": "AUG 2026",
+   "shot": "limits_042",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "close_043:label:AUG 2026",
+   "kind": "label",
+   "text": "AUG 2026",
+   "shot": "close_043",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "close_045:label:AUG 2026",
+   "kind": "label",
+   "text": "AUG 2026",
+   "shot": "close_045",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  },
+  {
+   "id": "close_047:label:AUG 2026",
+   "kind": "label",
+   "text": "AUG 2026",
+   "shot": "close_047",
+   "claims": [],
+   "status": "VERIFIED_DATA",
+   "why": "scene S2C_MSIL2A_20260812T045701_R119_T45RUM_20260812T100317 acquired 2026-08-12",
+   "frame": {
+    "asset": "y2026"
+   },
+   "source": [],
+   "allowed": {
+    "wording": [],
+    "forbid": []
+   }
+  }
+ ]
+}

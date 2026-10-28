@@ -1,0 +1,13 @@
+{
+ "chars": 5001,
+ "chunks": 3,
+ "script_sha256": "6bcc176ad9027b4f0b696166735d93f0e3f2a8a1d72d58f40d13a9c8626572dc",
+ "spoken_sha256": "a5028e5a8c2186acdac556dddf6cde5f284697993e3541fa4b381add61e9d279",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "voice": "Adam (pNInz6obpgDQGcFmaJgB)",
+ "max_credits": 5001.0,
+ "credit_basis": "published rate for eleven_multilingual_v2: 1.0 credit per character (one generation; account balance and plan could not be read: the API key lacks user_read)",
+ "command_after_owner_approval": "python3 .claude/skills/yt-orchestrate/orchestrate.py run --slug ep006 --stage voice --allow-paid",
+ "note": "PAID. Owner must set approvals/voice.json approved:true (script_sha256, max_chars >= chars, a fresh approval_id) and run with --allow-paid. One approval_id = one attempt, success or failure."
+}

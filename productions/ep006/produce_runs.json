@@ -1,0 +1,526 @@
+{
+ "schema": "produce-runs/1",
+ "first_run": "2026-10-27T10:57:17Z",
+ "wall_clock_since_first_run_min": 20.6,
+ "stage_seconds": {
+  "topic": {
+   "status": "done",
+   "attempts": 2,
+   "seconds": 0
+  },
+  "research": {
+   "status": "done",
+   "attempts": 19,
+   "seconds": 0
+  },
+  "facts": {
+   "status": "done",
+   "attempts": 17,
+   "seconds": 0
+  },
+  "evidence": {
+   "status": "done",
+   "attempts": 18,
+   "seconds": 0
+  },
+  "script": {
+   "status": "done",
+   "attempts": 8,
+   "seconds": 0
+  },
+  "media": {
+   "status": "done",
+   "attempts": 14,
+   "seconds": 0
+  },
+  "visualplan": {
+   "status": "done",
+   "attempts": 14,
+   "seconds": 0
+  },
+  "visuals": {
+   "status": "done",
+   "attempts": 24,
+   "seconds": 9
+  },
+  "storyboard": {
+   "status": "done",
+   "attempts": 5,
+   "seconds": 1
+  },
+  "visualcheck": {
+   "status": "done",
+   "attempts": 8,
+   "seconds": 11
+  },
+  "voice": {
+   "status": "awaiting_approval",
+   "attempts": 3,
+   "seconds": 0
+  },
+  "voicecheck": {
+   "status": "waiting",
+   "attempts": 0,
+   "seconds": null
+  },
+  "captions": {
+   "status": "waiting",
+   "attempts": 0,
+   "seconds": null
+  },
+  "render": {
+   "status": "waiting",
+   "attempts": 0,
+   "seconds": null
+  },
+  "qc": {
+   "status": "waiting",
+   "attempts": 0,
+   "seconds": null
+  },
+  "release": {
+   "status": "done",
+   "attempts": 10,
+   "seconds": 0
+  }
+ },
+ "voice_elevenlabs": {
+  "elevenlabs_chars_spent": 0,
+  "calls": [],
+  "planned_chars": 5001,
+  "max_credits": 5001.0
+ },
+ "agent_artifact_bytes": {
+  "research/notes.json": 35429,
+  "claims.json": 10327,
+  "script.md": 5448
+ },
+ "model_calls": "not measurable from this repo: record by hand from the session usage panel (calls, tokens) at the end of the run",
+ "runs": [
+  {
+   "at": "2026-10-27T10:57:17Z",
+   "invocation_seconds": 0.3,
+   "steps": [
+    {
+     "step": "new",
+     "seconds": 0.2
+    },
+    {
+     "step": "pipeline",
+     "seconds": 0.1
+    }
+   ],
+   "stopped": {
+    "needs_claude": [
+     "topic"
+    ],
+    "blocked": [],
+    "detail": {
+     "topic": "write topic/candidates.json (see tasks/topic.md)"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T10:57:29Z",
+   "invocation_seconds": 0.5,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 0.5
+    }
+   ],
+   "stopped": {
+    "needs_claude": [
+     "research"
+    ],
+    "blocked": [],
+    "detail": {
+     "research": "write research/notes.json (see tasks/research.md)"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:06:10Z",
+   "invocation_seconds": 29.1,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 29.1
+    }
+   ],
+   "stopped": {
+    "needs_claude": [],
+    "blocked": [
+     "evidence"
+    ],
+    "detail": {
+     "evidence": "yt-sentinel wide: not_covered no scene for 2026 covers the AOI; tried ['S2C_MSIL2A_20260812T045701_R119_T45RTL_20260812T100317', 'S2C_MSIL2A"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:06:42Z",
+   "invocation_seconds": 24.5,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 24.5
+    }
+   ],
+   "stopped": {
+    "needs_claude": [
+     "script"
+    ],
+    "blocked": [],
+    "detail": {
+     "script": "write script.md from tasks/script.md (target 882-1323 words; factual capacity about 660 words)"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:07:42Z",
+   "invocation_seconds": 0.3,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 0.3
+    }
+   ],
+   "stopped": {
+    "needs_claude": [
+     "script"
+    ],
+    "blocked": [],
+    "detail": {
+     "script": "write script.md from tasks/script.md (target 882-1323 words; factual capacity about 770 words)"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:08:41Z",
+   "invocation_seconds": 0.4,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 0.4
+    }
+   ],
+   "stopped": {
+    "needs_claude": [],
+    "blocked": [
+     "script"
+    ],
+    "detail": {
+     "script": "script: 841 words = 343s, under 6 minutes; line 46: factual sentence without a claim id: 'Its pixels are 30 meters wide, three times coarser"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:09:13Z",
+   "invocation_seconds": 7.7,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 7.7
+    }
+   ],
+   "stopped": {
+    "needs_claude": [
+     "visualcheck"
+    ],
+    "blocked": [],
+    "detail": {
+     "visualcheck": "4 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:11:20Z",
+   "invocation_seconds": 0.6,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 0.6
+    }
+   ],
+   "stopped": {
+    "needs_claude": [],
+    "blocked": [
+     "visuals"
+    ],
+    "detail": {
+     "visuals": "yt-graphics: error graphics[12].arrows[0]: unknown key(s) ['color']"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:11:37Z",
+   "invocation_seconds": 14.0,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 14.0
+    }
+   ],
+   "stopped": {
+    "needs_claude": [],
+    "blocked": [
+     "visuals"
+    ],
+    "detail": {
+     "visuals": "yt-graphics: error graphics[12].image: a 46.0 km view at [85.43, 28.27] leaves the imagery"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:11:55Z",
+   "invocation_seconds": 14.0,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 14.0
+    }
+   ],
+   "stopped": {
+    "needs_claude": [],
+    "blocked": [
+     "visuals"
+    ],
+    "detail": {
+     "visuals": "yt-graphics: overflow arrow label: no free place for 'OUR TRACE: ~30 KM IN FRAME' (it would overlap a drawn line or arrow)"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:12:12Z",
+   "invocation_seconds": 13.0,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 13.0
+    }
+   ],
+   "stopped": {
+    "needs_claude": [],
+    "blocked": [
+     "visuals"
+    ],
+    "detail": {
+     "visuals": "yt-graphics: overflow graphics[12]: no free place for callout 'OUR TRACE: ~30 KM'"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:12:28Z",
+   "invocation_seconds": 12.7,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 12.7
+    }
+   ],
+   "stopped": {
+    "needs_claude": [],
+    "blocked": [
+     "visuals"
+    ],
+    "detail": {
+     "visuals": "yt-graphics: overflow source: 'Source: Copernicus Sentinel-2 L2A, 12 Aug 2026, resampled to 40 m; trace from Landsat 9, 26 Aug 2026' does no"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:12:45Z",
+   "invocation_seconds": 12.9,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 12.9
+    }
+   ],
+   "stopped": {
+    "needs_claude": [],
+    "blocked": [
+     "visuals"
+    ],
+    "detail": {
+     "visuals": "yt-graphics: overflow title \"Our trace covers part of USGS's ~100 km\" is drawn across a line or arrow"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:13:00Z",
+   "invocation_seconds": 12.7,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 12.7
+    }
+   ],
+   "stopped": {
+    "needs_claude": [],
+    "blocked": [
+     "visuals"
+    ],
+    "detail": {
+     "visuals": "yt-graphics: overflow title 'USGS: ~100 km. Our frame: part of it' is drawn across a line or arrow"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:13:20Z",
+   "invocation_seconds": 12.5,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 12.5
+    }
+   ],
+   "stopped": {
+    "needs_claude": [],
+    "blocked": [
+     "visuals"
+    ],
+    "detail": {
+     "visuals": "yt-graphics: overflow title 'USGS: ~100 km. Our frame: part of it' is drawn across a line or arrow"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:13:39Z",
+   "invocation_seconds": 13.0,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 13.0
+    }
+   ],
+   "stopped": {
+    "needs_claude": [],
+    "blocked": [
+     "visuals"
+    ],
+    "detail": {
+     "visuals": "yt-graphics: overflow source 'Source: Sentinel-2 12 Aug 2026 (40 m); trace: Landsat 9, 26 Aug' is drawn across a line or arrow"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:13:52Z",
+   "invocation_seconds": 13.1,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 13.1
+    }
+   ],
+   "stopped": {
+    "needs_claude": [],
+    "blocked": [
+     "visuals"
+    ],
+    "detail": {
+     "visuals": "yt-graphics: overflow source 'Source: Sentinel-2 12 Aug 2026 (40 m); trace: Landsat 9, 26 Aug' is drawn across a line or arrow"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:14:08Z",
+   "invocation_seconds": 9.8,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 9.8
+    }
+   ],
+   "stopped": {
+    "needs_claude": [],
+    "blocked": [
+     "storyboard"
+    ],
+    "detail": {
+     "storyboard": "yt-storyboard: {'status': 'error', 'error': 'shots[9].layers[1].text must be 1-32 characters', 'warnings': []}"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:14:42Z",
+   "invocation_seconds": 27.9,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 27.9
+    }
+   ],
+   "stopped": {
+    "needs_claude": [
+     "visualcheck"
+    ],
+    "blocked": [],
+    "detail": {
+     "visualcheck": "30 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:16:29Z",
+   "invocation_seconds": 33.0,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 33.0
+    }
+   ],
+   "stopped": {
+    "needs_claude": [
+     "visualcheck"
+    ],
+    "blocked": [],
+    "detail": {
+     "visualcheck": "34 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:17:23Z",
+   "invocation_seconds": 11.1,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 11.1
+    }
+   ],
+   "stopped": {
+    "needs_claude": [
+     "visualcheck"
+    ],
+    "blocked": [],
+    "detail": {
+     "visualcheck": "3 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+    }
+   }
+  },
+  {
+   "at": "2026-10-27T11:17:46Z",
+   "invocation_seconds": 11.4,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 11.4
+    }
+   ],
+   "stopped": null
+  },
+  {
+   "at": "2026-10-27T11:17:50Z",
+   "invocation_seconds": 0.2,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 0.2
+    }
+   ],
+   "stopped": null
+  }
+ ]
+}

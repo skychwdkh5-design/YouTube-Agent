@@ -1,0 +1,296 @@
+{
+ "reviews": [
+  {
+   "item": "plan_002:shot",
+   "frame": 0,
+   "frame_sha256": "cfc70aba68107435f9703c28fa23932cef7a1f7a3e6a9c19543fd50f84160412",
+   "claims": [
+    "C13"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Wipe from the 12 Aug Sentinel-2 view (narrow pale river bed, no dark swath) to the 26 Aug Landsat 9 view (dark grey-brown swath along the valley, cloud patches); two different sensors, labelled as such in the frame."
+  },
+  {
+   "item": "plan_003:graphic:i_usgs_s1",
+   "frame": 0,
+   "frame_sha256": "e041364152fc447fa128a6fb206013a3618466b6af17cc68e19fd6eab6253e52",
+   "claims": [
+    "C1"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people."
+  },
+  {
+   "item": "plan_004:graphic:i_100km_s1",
+   "frame": 0,
+   "frame_sha256": "74ff0dfc9ec85d2ea0715cf5d7196f0414f923ce6a4aa0c98765dc4cf5cc3070",
+   "claims": [
+    "C2"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people."
+  },
+  {
+   "item": "plan_005:shot",
+   "frame": 0,
+   "frame_sha256": "dcee978e860596c67f4ae9c5def1b785b436a42230e92ea269977b3f2bc58fac",
+   "claims": [
+    "C2"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "12 Aug 2026 Sentinel-2 view of the valley: pale braided river bed through forest, no dark swath; matches the claim wording as a before view."
+  },
+  {
+   "item": "plan_006:shot",
+   "frame": 0,
+   "frame_sha256": "a66446c11a125fd2ffea2c7b1e151b7b29e91d161a2863bc48949a970e96ba72",
+   "claims": [
+    "C2"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "12 Aug 2026 Sentinel-2 view of the valley: pale braided river bed through forest, no dark swath; matches the claim wording as a before view."
+  },
+  {
+   "item": "plan_007:label:STOP POINT: NOT IN USGS TEXT",
+   "frame": 0,
+   "frame_sha256": "17371505a4335f45b261c2ea8440583b0a27446c00db3b54784823324b994f67",
+   "claims": [],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Frame consistent with the label text."
+  },
+  {
+   "item": "plan_008:graphic:i_seismic_s1",
+   "frame": 0,
+   "frame_sha256": "4012281104bafa55fbc1843fd798bc12c6b1820fbf660292bb66435c07239f6b",
+   "claims": [
+    "C3"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people."
+  },
+  {
+   "item": "plan_009:graphic:i_cause_s1",
+   "frame": 0,
+   "frame_sha256": "c6cb201958738d86c6394589dc9cefac08bf63e08ba040b500d5d8b4c0568045",
+   "claims": [
+    "C4"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people."
+  },
+  {
+   "item": "plan_010:graphic:i_2015_s1",
+   "frame": 0,
+   "frame_sha256": "c443ee83a8376e518e7e36d79fa7351f3673378c8875e10a16ac98f8e7790a16",
+   "claims": [
+    "C5"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people."
+  },
+  {
+   "item": "plan_011:graphic:i_toll_s1",
+   "frame": 0,
+   "frame_sha256": "cbea6a937f5261da2fff6049e298643f0749aa47e11881ffcb4a2c203d2d91d2",
+   "claims": [
+    "C10"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people."
+  },
+  {
+   "item": "plan_012:graphic:i_china_s1",
+   "frame": 0,
+   "frame_sha256": "b6b6fe945c1cc6a4a9e0aca0fc58eb92387232223485732471197172c00f1139",
+   "claims": [
+    "C11"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people."
+  },
+  {
+   "item": "method_017:graphic:i_icimod_s1",
+   "frame": 0,
+   "frame_sha256": "f006846b5b2f6913bc1113d3f0ef6ea13ab2cde654321f5a47f0520761eb5985",
+   "claims": [
+    "C7"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people."
+  },
+  {
+   "item": "method_018:graphic:i_radar_s1",
+   "frame": 0,
+   "frame_sha256": "d025d7d53a3715d4b5b1c7c500983f84c632afda08bbabaa9aedac7de7f39ebf",
+   "claims": [
+    "C8"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people."
+  },
+  {
+   "item": "method_019:graphic:i_volume_s1",
+   "frame": 0,
+   "frame_sha256": "571f077c83fea7f887969f64d2fa010347dfea5196cd4436c2c347465e53775a",
+   "claims": [
+    "C9"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people."
+  },
+  {
+   "item": "obs_027:graphic:i_clouds",
+   "frame": 0,
+   "frame_sha256": "af0886e4f81cbc1f10c46cd51f2e41c073411868227b57362bbfdcd1f0e6837c",
+   "claims": [
+    "C15"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people."
+  },
+  {
+   "item": "obs_028:shot",
+   "frame": 0,
+   "frame_sha256": "36e939ef35240dc343dae151630bc92d7457242d3aa984b53c4c628e84d4a24a",
+   "claims": [
+    "C16"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Magnified Landsat 9 blocks (see label item)."
+  },
+  {
+   "item": "obs_030:shot",
+   "frame": 0,
+   "frame_sha256": "4d38a7791b3a10478225b09c5dfc13fa62724ba1dfdf6d58f91120bda41d5208",
+   "claims": [
+    "C13"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Wipe from the 12 Aug Sentinel-2 view (narrow pale river bed, no dark swath) to the 26 Aug Landsat 9 view (dark grey-brown swath along the valley, cloud patches); two different sensors, labelled as such in the frame."
+  },
+  {
+   "item": "obs_031:shot",
+   "frame": 0,
+   "frame_sha256": "e96a518e9498b9d19246458fad87a173339f4108dc2dc401c11e5d33c415ddf0",
+   "claims": [
+    "C14"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Wipe from the 12 Aug Sentinel-2 view (narrow pale river bed, no dark swath) to the 26 Aug Landsat 9 view (dark grey-brown swath along the valley, cloud patches); two different sensors, labelled as such in the frame."
+  },
+  {
+   "item": "obs_032:label:CLOUDS HIDE PARTS OF THE VALLEY",
+   "frame": 0,
+   "frame_sha256": "2d86ff5f4fc6639cea5d41ffbf425301776b7a283988cd8b12a59a11089cd775",
+   "claims": [],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Magnified Landsat 9 view where white cloud patches and the dark swath are both visible; supports the limit label that clouds hide parts of the valley."
+  },
+  {
+   "item": "obs_034:graphic:i_flow_scale_s1",
+   "frame": 0,
+   "frame_sha256": "3beb79e731195ae564cad7732664c4868c38a7052330c4e0e076d93fc554be73",
+   "claims": [
+    "C14",
+    "C2"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people."
+  },
+  {
+   "item": "obs_035:shot",
+   "frame": 0,
+   "frame_sha256": "a85b408138d6a0f4a0847d6e8053f74fb419529f89917cbf578a69a3841a91cd",
+   "claims": [
+    "C13"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "12 Aug 2026 Sentinel-2 view of the valley: pale braided river bed through forest, no dark swath; matches the claim wording as a before view."
+  },
+  {
+   "item": "obs_036:shot",
+   "frame": 0,
+   "frame_sha256": "a85b408138d6a0f4a0847d6e8053f74fb419529f89917cbf578a69a3841a91cd",
+   "claims": [
+    "C14"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "12 Aug 2026 Sentinel-2 view of the valley: pale braided river bed through forest, no dark swath; matches the claim wording as a before view."
+  },
+  {
+   "item": "obs_037:graphic:i_official_s1",
+   "frame": 0,
+   "frame_sha256": "cdf259607f5478cdfb94f9dc26ebfd35f5d9a7515877753c068c80c91b6814a1",
+   "claims": [
+    "C6"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people."
+  },
+  {
+   "item": "limits_041:graphic:i_cannot_s1",
+   "frame": 0,
+   "frame_sha256": "59e2622f08194d82151b0a4c1dd1e30a66717ee3bcb0210186e8f723d7544636",
+   "claims": [],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imagery, no people."
+  },
+  {
+   "item": "plan_002:shot",
+   "frame": 1,
+   "frame_sha256": "e12bb54c755d53e4d4d241766f7559250e4f2c8408faaec0286576938aeacf45",
+   "claims": [
+    "C13"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "After half of the wipe: blurred Landsat 9 view (26 Aug) with a dark grey-brown swath winding along the valley and a cyan snow/ice patch; cloud patches visible; consistent with 'a dark swath runs through the valley'."
+  },
+  {
+   "item": "obs_030:shot",
+   "frame": 1,
+   "frame_sha256": "2f8db20a04775b7cda5ce97de03697088c47e9ba01bda4f413988794fa79535d",
+   "claims": [
+    "C13"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "After half of the wipe: Landsat 9 view at larger zoom; a dark swath runs through green terrain beside white cloud patches; soft 30 m blocks; consistent with 'a dark grey-brown swath'."
+  },
+  {
+   "item": "obs_031:shot",
+   "frame": 1,
+   "frame_sha256": "1c934af784821a10b7becf3756fd06841f50d736d22fdcb6a571181a784402e5",
+   "claims": [
+    "C14"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Wide Landsat 9 view: a dark grey-brown swath can be followed from the glacier-ice area down the valley; clouds hide other stretches; consistent with 'traced by eye, clouds hide other stretches'."
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+# Storyboard report
+
+- timing: estimate; duration 361.224 s; shots 49; plan hash 42b483d19cddc42e
+- renderer plan: confirm_required rendering needs --confirm; the timeline is valid, plan attached
+- chapters: hook 0.0-13.47s, plan 13.47-140.41s, method 140.41-207.35s, obs 207.35-300.0s, limits 300.0-335.1s, close 335.1-361.22s
+- warning: only 2 information events in the first 10 s (target >= 3)
+- warning: only 1 visual families in the first 10 s (target >= 3; a new view of the same visual idea is not new)
+- warning: one composition holds 26.5s without a reset (165.8-192.4s, target <= 8s)
+- diversity WARN: map 53% / graphic 29% / photo 0% / video 0%; longest satellite-map run 7 shots
+- diversity warning: 7 satellite-map shots in a row (330-361 s, chapter close): say in research/notes.json visual_choices['close'] why maps are the best evidence here, or use the material that proves or explains the claim better
+- media PENDING (not in the render, rights not VERIFIED): palletized_relief_supplies_t [UNVERIFIED] for scene aftermath https://commons.wikimedia.org/wiki/File:Delivering_Relief-_374th_Airlift_Wing_Provides_Lifesaving_aid_in_Nepal_(9908126).jpg
+- media PENDING (not in the render, rights not VERIFIED): mudslide_at_gyirong_port_cct [REJECTED] for scene aftermath https://commons.wikimedia.org/wiki/File:Mudslide_at_Gyirong_Port_1.webm
+
+Shots:
+-    0.00s +6.7s hook: y2026
+-    6.74s +6.7s hook: y2026
+-   13.47s +10.3s plan: wipe y2026->l2026
+-   23.78s +14.7s plan: i_usgs_s1
+-   38.48s +5.1s plan: i_100km_s1
+-   43.58s +5.1s plan: y2026
+-   48.68s +6.2s plan: y2026
+-   54.87s +4.4s plan: y2026
+-   59.29s +16.3s plan: i_seismic_s1
+-   75.62s +17.1s plan: i_cause_s1
+-   92.76s +13.5s plan: i_2015_s1
+-  106.23s +16.3s plan: i_toll_s1
+-  122.56s +12.0s plan: i_china_s1
+-  134.56s +2.9s plan: y2026
+-  137.48s +2.9s plan: y2026
+-  140.41s +4.3s method: y2026
+-  144.75s +4.3s method: y2026
+-  149.09s +16.7s method: i_icimod_s1
+-  165.82s +26.5s method: i_radar_s1
+-  192.35s +8.1s method: i_volume_s1
+-  200.44s +2.3s method: y2026
+-  202.74s +2.3s method: y2026
+-  205.04s +2.3s method: y2026
+-  207.35s +6.2s obs: y2026
+-  213.58s +6.2s obs: y2026
+-  219.82s +6.2s obs: y2026
+-  226.06s +6.2s obs: y2026
+-  232.29s +7.0s obs: i_clouds
+-  239.29s +7.8s obs: l2026
+-  247.05s +4.9s obs: y2026
+-  251.94s +10.6s obs: wipe y2026->l2026
+-  262.56s +13.9s obs: wipe y2026->l2026
+-  276.44s +3.2s obs: l2026
+-  279.60s +3.4s obs: y2026
+-  282.96s +3.9s obs: i_flow_scale_s1
+-  286.90s +1.9s obs: y2026
+-  288.81s +1.9s obs: y2026
+-  290.72s +6.1s obs: i_official_s1
+-  296.77s +3.2s obs: y2026
+-  300.00s +6.8s limits: y2026
+-  306.79s +6.8s limits: y2026
+-  313.58s +16.6s limits: i_cannot_s1
+-  330.16s +4.9s limits: y2026
+-  335.10s +4.6s close: y2026
+-  339.71s +4.6s close: y2026
+-  344.32s +4.6s close: y2026
+-  348.93s +4.6s close: y2026
+-  353.54s +3.8s close: y2026
+-  357.38s +3.8s close: y2026

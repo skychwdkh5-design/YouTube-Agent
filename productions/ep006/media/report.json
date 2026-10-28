@@ -1,0 +1,14 @@
+{
+ "entries": 5,
+ "by_status": {
+  "VERIFIED": 3,
+  "UNVERIFIED": 1,
+  "REJECTED": 1
+ },
+ "verified": [
+  "palletized_life_saving_equip",
+  "a_member_of_the_nepali_armed",
+  "us_and_nepali_officials_besi"
+ ],
+ "style": "v2"
+}

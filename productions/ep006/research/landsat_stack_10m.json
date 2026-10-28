@@ -1,0 +1,6 @@
+{
+ "_note": "Landsat 9 on the Sentinel-2 grid by nearest neighbour (no interpolation): 30 m pixels appear as 30 m blocks. Built from evidence/landsat (research/landsat_stack.json).",
+ "nearest_from": "landsat",
+ "target": "stack",
+ "out_dir": "landsat10"
+}

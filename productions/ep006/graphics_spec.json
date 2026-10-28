@@ -1,0 +1,635 @@
+{
+ "schema": "yt-graphics/1",
+ "graphics": [
+  {
+   "type": "flow",
+   "id": "g_reports",
+   "title": "What was reported",
+   "source": "Nepal Police / NDRRMA figures as reported by Ratopati and a live tracker; USGS Landslide Hazards Program; Xinh",
+   "steps": [
+    "26 Aug 2026: slope failure",
+    "Flow travelled ~100 km",
+    "Signal equal to M5.2",
+    "Exact cause not settled",
+    "2015: same mountain"
+   ],
+   "arrow_labels": [
+    "then",
+    "then",
+    "then",
+    "then"
+   ],
+   "build": false
+  },
+  {
+   "type": "diagram",
+   "title": "What was reported",
+   "source": "USGS Landslide Hazards Program, page updated 28 Aug 2026 (preliminary)",
+   "nodes": [
+    {
+     "id": "h",
+     "text": "USGS - 26 AUG 2026, MORNING",
+     "x": 0.5,
+     "y": 0.17,
+     "w": 0.66,
+     "h": 0.13,
+     "style": "plain",
+     "step": 1
+    },
+    {
+     "id": "a",
+     "text": "RAPID SLOPE FAILURE INVOLVING A GLACIER",
+     "x": 0.5,
+     "y": 0.45,
+     "w": 0.86,
+     "h": 0.2,
+     "style": "accent",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "LANGTANG NATIONAL PARK, NEPAL, NEAR THE CHINA BORDER",
+     "x": 0.5,
+     "y": 0.75,
+     "w": 0.86,
+     "h": 0.18,
+     "style": "default",
+     "step": 2
+    }
+   ],
+   "id": "i_usgs"
+  },
+  {
+   "type": "diagram",
+   "title": "What was reported",
+   "source": "USGS Landslide Hazards Program, page updated 28 Aug 2026 (preliminary)",
+   "nodes": [
+    {
+     "id": "h",
+     "text": "USGS: DEBRIS FLOW AND FLOOD",
+     "x": 0.5,
+     "y": 0.17,
+     "w": 0.66,
+     "h": 0.13,
+     "style": "plain",
+     "step": 1
+    },
+    {
+     "id": "a",
+     "text": "ABOUT 100 KM (62 MI)",
+     "x": 0.5,
+     "y": 0.43,
+     "w": 0.8,
+     "h": 0.22,
+     "style": "accent",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "ALONG THE LENDE KHOLA AND TRISHULI KHOLA",
+     "x": 0.5,
+     "y": 0.74,
+     "w": 0.86,
+     "h": 0.17,
+     "style": "default",
+     "step": 2
+    }
+   ],
+   "id": "i_100km"
+  },
+  {
+   "type": "diagram",
+   "title": "What was reported",
+   "source": "USGS Landslide Hazards Program, page updated 28 Aug 2026 (preliminary)",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "ENERGY EQUAL TO A M5.2 EARTHQUAKE",
+     "x": 0.5,
+     "y": 0.2,
+     "w": 0.84,
+     "h": 0.17,
+     "style": "accent",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "A SECOND SIGNAL ~3 HOURS LATER: M4.2",
+     "x": 0.5,
+     "y": 0.47,
+     "w": 0.84,
+     "h": 0.17,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "c",
+     "text": "THE FAILURE PRODUCED THE SIGNALS - NOT AN EARTHQUAKE TRIGGER",
+     "x": 0.5,
+     "y": 0.76,
+     "w": 0.9,
+     "h": 0.2,
+     "style": "red",
+     "step": 3
+    }
+   ],
+   "id": "i_seismic"
+  },
+  {
+   "type": "diagram",
+   "title": "What was reported",
+   "source": "USGS Landslide Hazards Program, page updated 28 Aug 2026 (preliminary)",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "CAUSE: NOT YET DETERMINED",
+     "x": 0.5,
+     "y": 0.2,
+     "w": 0.8,
+     "h": 0.16,
+     "style": "red",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "A LANDSLIDE THAT PICKED UP PART OF A GLACIER",
+     "x": 0.5,
+     "y": 0.46,
+     "w": 0.86,
+     "h": 0.16,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "c",
+     "text": "OR A FAILURE OF THE GLACIER ITSELF",
+     "x": 0.5,
+     "y": 0.7,
+     "w": 0.86,
+     "h": 0.16,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "d",
+     "text": "ALL INFORMATION PRELIMINARY",
+     "x": 0.5,
+     "y": 0.9,
+     "w": 0.7,
+     "h": 0.1,
+     "style": "plain",
+     "step": 3
+    }
+   ],
+   "id": "i_cause"
+  },
+  {
+   "type": "diagram",
+   "title": "What was reported",
+   "source": "USGS Landslide Hazards Program, page updated 28 Aug 2026 (preliminary)",
+   "nodes": [
+    {
+     "id": "h",
+     "text": "2015 - SAME MOUNTAIN",
+     "x": 0.5,
+     "y": 0.15,
+     "w": 0.6,
+     "h": 0.12,
+     "style": "plain",
+     "step": 1
+    },
+    {
+     "id": "a",
+     "text": "M7.8 EARTHQUAKE SET OFF A DEBRIS AVALANCHE",
+     "x": 0.5,
+     "y": 0.4,
+     "w": 0.88,
+     "h": 0.18,
+     "style": "accent",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "FELL NEARLY 1,900 M - BURIED A VILLAGE",
+     "x": 0.5,
+     "y": 0.65,
+     "w": 0.88,
+     "h": 0.15,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "c",
+     "text": "MORE THAN 200 PEOPLE KILLED",
+     "x": 0.5,
+     "y": 0.86,
+     "w": 0.7,
+     "h": 0.13,
+     "style": "red",
+     "step": 3
+    }
+   ],
+   "id": "i_2015"
+  },
+  {
+   "type": "diagram",
+   "title": "Counts in Nepal",
+   "source": "Nepali figures as reported (Nepal Police / NDRRMA lists; they differ by source and date)",
+   "nodes": [
+    {
+     "id": "h",
+     "text": "NEPAL - MID-OCTOBER, REPORTED",
+     "x": 0.5,
+     "y": 0.16,
+     "w": 0.66,
+     "h": 0.12,
+     "style": "plain",
+     "step": 1
+    },
+    {
+     "id": "a",
+     "text": "MORE THAN 1,400 DEAD",
+     "x": 0.5,
+     "y": 0.4,
+     "w": 0.8,
+     "h": 0.2,
+     "style": "accent",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "ROUGHLY 5,000 STILL LISTED AS MISSING",
+     "x": 0.5,
+     "y": 0.65,
+     "w": 0.86,
+     "h": 0.16,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "c",
+     "text": "THE LISTS KEEP CHANGING",
+     "x": 0.5,
+     "y": 0.86,
+     "w": 0.7,
+     "h": 0.12,
+     "style": "red",
+     "step": 3
+    }
+   ],
+   "id": "i_toll"
+  },
+  {
+   "type": "diagram",
+   "title": "Counts in Tibet",
+   "source": "Xinhua (via The Star / NST) and NBC News, early September 2026",
+   "nodes": [
+    {
+     "id": "h",
+     "text": "CHINA - XINHUA, 5 SEPT",
+     "x": 0.5,
+     "y": 0.16,
+     "w": 0.6,
+     "h": 0.12,
+     "style": "plain",
+     "step": 1
+    },
+    {
+     "id": "a",
+     "text": "GYIRONG PORT: 43 DEAD, 519 MISSING",
+     "x": 0.5,
+     "y": 0.42,
+     "w": 0.86,
+     "h": 0.18,
+     "style": "accent",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "COUNTED SEPARATELY FROM NEPAL",
+     "x": 0.5,
+     "y": 0.67,
+     "w": 0.8,
+     "h": 0.14,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "c",
+     "text": "NOT ADDED TO NEPAL'S NUMBERS",
+     "x": 0.5,
+     "y": 0.86,
+     "w": 0.76,
+     "h": 0.12,
+     "style": "red",
+     "step": 3
+    }
+   ],
+   "id": "i_china"
+  },
+  {
+   "type": "diagram",
+   "title": "What was reported",
+   "source": "ICIMOD preliminary analysis, 13 Oct 2026 (page not readable here; via coverage)",
+   "nodes": [
+    {
+     "id": "h",
+     "text": "ICIMOD - 13 OCT 2026",
+     "x": 0.5,
+     "y": 0.17,
+     "w": 0.6,
+     "h": 0.12,
+     "style": "plain",
+     "step": 1
+    },
+    {
+     "id": "a",
+     "text": "NOT A CONVENTIONAL GLACIAL LAKE OUTBURST FLOOD",
+     "x": 0.5,
+     "y": 0.45,
+     "w": 0.88,
+     "h": 0.2,
+     "style": "accent",
+     "step": 2
+    },
+    {
+     "id": "b",
+     "text": "BEDROCK FAILURE SHEARED AWAY PART OF THE GLACIER ABOVE IT",
+     "x": 0.5,
+     "y": 0.76,
+     "w": 0.9,
+     "h": 0.2,
+     "style": "default",
+     "step": 3
+    }
+   ],
+   "id": "i_icimod"
+  },
+  {
+   "type": "diagram",
+   "title": "What the radar measured",
+   "source": "ICIMOD preliminary analysis, 13 Oct 2026 (page not readable here; via coverage)",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "SENTINEL-1 RADAR: UP TO 40 CM OF MOVEMENT",
+     "x": 0.5,
+     "y": 0.2,
+     "w": 0.88,
+     "h": 0.17,
+     "style": "accent",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "7 JULY - 24 AUGUST (ENDS 2 DAYS BEFORE THE FAILURE)",
+     "x": 0.5,
+     "y": 0.47,
+     "w": 0.9,
+     "h": 0.17,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "c",
+     "text": "ALONG THE LINE OF SIGHT - NOT THE FULL MOTION",
+     "x": 0.5,
+     "y": 0.74,
+     "w": 0.86,
+     "h": 0.16,
+     "style": "plain",
+     "step": 3
+    },
+    {
+     "id": "d",
+     "text": "NOT SHOWN TO BE PREDICTABLE",
+     "x": 0.5,
+     "y": 0.92,
+     "w": 0.7,
+     "h": 0.1,
+     "style": "red",
+     "step": 4
+    }
+   ],
+   "id": "i_radar"
+  },
+  {
+   "type": "diagram",
+   "title": "How big?",
+   "source": "ICIMOD preliminary analysis, 13 Oct 2026 (page not readable here; via coverage)",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "ICIMOD EARLY ESTIMATE: ~132 MILLION M3",
+     "x": 0.5,
+     "y": 0.22,
+     "w": 0.88,
+     "h": 0.17,
+     "style": "accent",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "ANOTHER EARLY ANALYSIS: MUCH SMALLER",
+     "x": 0.5,
+     "y": 0.5,
+     "w": 0.88,
+     "h": 0.17,
+     "style": "default",
+     "step": 2
+    },
+    {
+     "id": "c",
+     "text": "SIZE NOT SETTLED",
+     "x": 0.5,
+     "y": 0.78,
+     "w": 0.6,
+     "h": 0.14,
+     "style": "red",
+     "step": 3
+    }
+   ],
+   "id": "i_volume"
+  },
+  {
+   "type": "bar",
+   "title": "Sentinel-2 scene cloud cover, clearest pass per date (%)",
+   "source": "Copernicus Sentinel-2 L2A scene catalogue, tiles over Langtang, Aug 2026",
+   "unit": "%",
+   "decimals": 0,
+   "bars": [
+    {
+     "label": "12 AUG",
+     "value": 19,
+     "highlight": true
+    },
+    {
+     "label": "14 AUG",
+     "value": 49
+    },
+    {
+     "label": "17 AUG",
+     "value": 97
+    },
+    {
+     "label": "19 AUG",
+     "value": 85
+    },
+    {
+     "label": "22 AUG",
+     "value": 78
+    },
+    {
+     "label": "24 AUG",
+     "value": 39
+    },
+    {
+     "label": "27 AUG",
+     "value": 78
+    }
+   ],
+   "id": "i_clouds"
+  },
+  {
+   "type": "geo",
+   "title": "Part of ~100 km",
+   "source": "Sentinel-2 12 Aug 2026 (40 m); trace: Landsat 9, 26 Aug",
+   "credit": "Contains modified Copernicus Sentinel data 2026",
+   "show_credit": false,
+   "date": "12 AUG 2026",
+   "image": {
+    "stack": "evidence/wide/y2026.png",
+    "grid": "evidence/wide/grid.json",
+    "center": [
+     85.45,
+     28.26
+    ],
+    "width_km": 42
+   },
+   "arrows": [
+    {
+     "from": [
+      85.5126,
+      28.2872
+     ],
+     "to": [
+      85.4141,
+      28.3155
+     ],
+     "step": 1
+    },
+    {
+     "from": [
+      85.4141,
+      28.3155
+     ],
+     "to": [
+      85.3852,
+      28.2858
+     ],
+     "step": 1
+    },
+    {
+     "from": [
+      85.3852,
+      28.2858
+     ],
+     "to": [
+      85.3586,
+      28.2268
+     ],
+     "step": 1
+    }
+   ],
+   "callouts": [
+    {
+     "at": [
+      85.3777,
+      28.2789
+     ],
+     "text": "RASUWAGADHI (APPROX.)",
+     "step": 2
+    }
+   ],
+   "graticule": false,
+   "scale_bar": true,
+   "id": "i_flow_scale"
+  },
+  {
+   "type": "diagram",
+   "title": "What was reported",
+   "source": "USGS Landslide Hazards Program, page updated 28 Aug 2026 (preliminary)",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "USGS: OFFICIAL EXTENT MAP FROM BEFORE/AFTER SATELLITE IMAGES",
+     "x": 0.5,
+     "y": 0.3,
+     "w": 0.9,
+     "h": 0.22,
+     "style": "accent",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "OUR TRACE IS NOT A SUBSTITUTE",
+     "x": 0.5,
+     "y": 0.68,
+     "w": 0.8,
+     "h": 0.16,
+     "style": "red",
+     "step": 2
+    }
+   ],
+   "id": "i_official"
+  },
+  {
+   "type": "diagram",
+   "title": "What we cannot say",
+   "source": "Limitations listed in the script (L)",
+   "nodes": [
+    {
+     "id": "a",
+     "text": "SPEED OR DEPTH OF THE FLOW: NOT SHOWN",
+     "x": 0.5,
+     "y": 0.18,
+     "w": 0.88,
+     "h": 0.14,
+     "style": "red",
+     "step": 1
+    },
+    {
+     "id": "b",
+     "text": "WHY THE SLOPE FAILED: NOT FINISHED",
+     "x": 0.5,
+     "y": 0.4,
+     "w": 0.88,
+     "h": 0.14,
+     "style": "red",
+     "step": 2
+    },
+    {
+     "id": "c",
+     "text": "A WARNING IN TIME: NOT SHOWN",
+     "x": 0.5,
+     "y": 0.62,
+     "w": 0.88,
+     "h": 0.14,
+     "style": "red",
+     "step": 3
+    },
+    {
+     "id": "d",
+     "text": "HOW MANY DIED: LISTS NOT FINAL",
+     "x": 0.5,
+     "y": 0.84,
+     "w": 0.88,
+     "h": 0.14,
+     "style": "red",
+     "step": 4
+    }
+   ],
+   "id": "i_cannot"
+  }
+ ]
+}

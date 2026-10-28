@@ -1,0 +1,2 @@
+{"at": "2026-10-27T11:05:41Z", "tool": "WebFetch", "query": "USGS 2026 Nepal debris avalanche page", "url": null, "status": "ok", "note": "read primary; ~100 km / Rasuwagadhi wording, M5.2/M4.2 'energy equivalent', 2015 context, public-domain map"}
+{"at": "2026-10-27T11:05:41Z", "tool": "fetch", "url": "https://www.icimod.org/press-releases/second-major-himalayan-flood-in-seven-weeks-raises-new-questions-about-mountain-risk", "status": "blocked", "bytes": 0, "sha256": null, "error": "Tunnel connection failed: 403 Forbidden"}
