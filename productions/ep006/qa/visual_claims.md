@@ -1,6 +1,6 @@
 # Visual-claim check
 
-Overall: **OK** {'VERIFIED_DATA': 17, 'REVIEWED': 34} (total 51; orphan reviews not matching any current frame: 0)
+Overall: **OK** {'VERIFIED_DATA': 17, 'REVIEWED': 34} (total 51; orphan reviews not matching any current frame: 1)
 
 | item | claims | status | frame / why |
 |---|---|---|---|
@@ -11,7 +11,7 @@ Overall: **OK** {'VERIFIED_DATA': 17, 'REVIEWED': 34} (total 51; orphan reviews 
 | plan_003:graphic:i_usgs_s1 | C1 | REVIEWED_BY_AGENT | qa/frames/plan_003_graphic_i_usgs_s1_0.png Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imager |
 | plan_004:graphic:i_100km_s1 | C2 | REVIEWED_BY_AGENT | qa/frames/plan_004_graphic_i_100km_s1_0.png Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imager |
 | plan_005:shot | C2 | REVIEWED_BY_AGENT | qa/frames/plan_005_shot_0.png 12 Aug 2026 Sentinel-2 view of the valley: pale braided river bed through forest, no dark swath; matches the c |
-| plan_006:shot | C2 | REVIEWED_BY_AGENT | qa/frames/plan_006_shot_0.png 12 Aug 2026 Sentinel-2 view of the valley: pale braided river bed through forest, no dark swath; matches the c |
+| plan_006:shot | C2 | REVIEWED_BY_AGENT | qa/frames/plan_006_shot_0.png Sentinel-2 12 Aug zoom on a river confluence with pale gravel beds and a few structures/clearings at the junct |
 | plan_007:label:STOP POINT: NOT IN USGS TEXT |  | REVIEWED_BY_AGENT | qa/frames/plan_007_label_STOP_POINT__NOT_IN_USGS_TEXT_0.png Frame consistent with the label text. |
 | plan_008:graphic:i_seismic_s1 | C3 | REVIEWED_BY_AGENT | qa/frames/plan_008_graphic_i_seismic_s1_0.png Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imager |
 | plan_009:graphic:i_cause_s1 | C4 | REVIEWED_BY_AGENT | qa/frames/plan_009_graphic_i_cause_s1_0.png Text card (dark background, plain text boxes) whose wording matches the cited claim and source line; no imager |

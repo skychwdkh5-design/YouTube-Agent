@@ -1,7 +1,7 @@
 {
  "schema": "produce-runs/1",
  "first_run": "2026-10-27T10:57:17Z",
- "wall_clock_since_first_run_min": 20.6,
+ "wall_clock_since_first_run_min": 897.3,
  "stage_seconds": {
   "topic": {
    "status": "done",
@@ -10,18 +10,18 @@
   },
   "research": {
    "status": "done",
-   "attempts": 19,
+   "attempts": 20,
    "seconds": 0
   },
   "facts": {
    "status": "done",
-   "attempts": 17,
+   "attempts": 18,
    "seconds": 0
   },
   "evidence": {
    "status": "done",
-   "attempts": 18,
-   "seconds": 0
+   "attempts": 19,
+   "seconds": 1
   },
   "script": {
    "status": "done",
@@ -30,32 +30,32 @@
   },
   "media": {
    "status": "done",
-   "attempts": 14,
+   "attempts": 15,
    "seconds": 0
   },
   "visualplan": {
    "status": "done",
-   "attempts": 14,
+   "attempts": 15,
    "seconds": 0
   },
   "visuals": {
    "status": "done",
-   "attempts": 24,
-   "seconds": 9
+   "attempts": 25,
+   "seconds": 11
   },
   "storyboard": {
    "status": "done",
-   "attempts": 5,
-   "seconds": 1
+   "attempts": 6,
+   "seconds": 0
   },
   "visualcheck": {
    "status": "done",
-   "attempts": 8,
-   "seconds": 11
+   "attempts": 11,
+   "seconds": 12
   },
   "voice": {
    "status": "awaiting_approval",
-   "attempts": 3,
+   "attempts": 5,
    "seconds": 0
   },
   "voicecheck": {
@@ -80,7 +80,7 @@
   },
   "release": {
    "status": "done",
-   "attempts": 10,
+   "attempts": 14,
    "seconds": 0
   }
  },
@@ -518,6 +518,36 @@
     {
      "step": "pipeline",
      "seconds": 0.2
+    }
+   ],
+   "stopped": null
+  },
+  {
+   "at": "2026-10-28T01:54:09Z",
+   "invocation_seconds": 38.2,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 38.2
+    }
+   ],
+   "stopped": {
+    "needs_claude": [
+     "visualcheck"
+    ],
+    "blocked": [],
+    "detail": {
+     "visualcheck": "1 items NEEDS_VISUAL_REVIEW (see tasks/visualcheck.md)"
+    }
+   }
+  },
+  {
+   "at": "2026-10-28T01:54:35Z",
+   "invocation_seconds": 12.6,
+   "steps": [
+    {
+     "step": "pipeline",
+     "seconds": 12.6
     }
    ],
    "stopped": null

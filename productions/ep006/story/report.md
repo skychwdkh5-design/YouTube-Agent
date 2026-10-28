@@ -1,6 +1,6 @@
 # Storyboard report
 
-- timing: estimate; duration 361.224 s; shots 49; plan hash 42b483d19cddc42e
+- timing: estimate; duration 361.224 s; shots 49; plan hash 48c1ad5a603c5542
 - renderer plan: confirm_required rendering needs --confirm; the timeline is valid, plan attached
 - chapters: hook 0.0-13.47s, plan 13.47-140.41s, method 140.41-207.35s, obs 207.35-300.0s, limits 300.0-335.1s, close 335.1-361.22s
 - warning: only 2 information events in the first 10 s (target >= 3)

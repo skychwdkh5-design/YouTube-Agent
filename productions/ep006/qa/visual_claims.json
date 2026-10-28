@@ -1,7 +1,7 @@
 {
  "schema": "yt-visualcheck/1",
  "total": 51,
- "orphan_reviews": 0,
+ "orphan_reviews": 1,
  "overall": "OK",
  "counts": {
   "VERIFIED_DATA": 17,
@@ -287,18 +287,18 @@
    "frames": [
     {
      "file": "qa/frames/plan_006_shot_0.png",
-     "sha256": "a66446c11a125fd2ffea2c7b1e151b7b29e91d161a2863bc48949a970e96ba72",
+     "sha256": "08389643d246c6ea5420b35d041043c225607a07f97914de1a7d5161ce70f28d",
      "stack": "evidence/stack/y2026.png",
      "center": [
-      85.3777,
-      28.2789
+      85.3778,
+      28.2788
      ],
      "width_km": 5,
      "review": "supports"
     }
    ],
    "status": "REVIEWED_BY_AGENT",
-   "why": "12 Aug 2026 Sentinel-2 view of the valley: pale braided river bed through forest, no dark swath; matches the claim wording as a before view.",
+   "why": "Sentinel-2 12 Aug zoom on a river confluence with pale gravel beds and a few structures/clearings at the junction; consistent with the pin at the Rasuwagadhi border post position (Wikipedia coordinates 28°16'40\"N 85°22'40\"E); pin plate itself not visible in the still.",
    "source": [
     {
      "claim": "C2",
@@ -1337,7 +1337,7 @@
    ],
    "texts": [
     "Part of ~100 km",
-    "RASUWAGADHI (APPROX.)"
+    "RASUWAGADHI BORDER POST"
    ],
    "frames": [
     {

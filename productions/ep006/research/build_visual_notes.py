@@ -52,7 +52,7 @@ inf.append({"id": "i_flow_scale", "chapter": "obs", "claims": ["C2", "C14"], "an
     "graphic": {"type": "geo", "title": "Part of ~100 km", "source": "Sentinel-2 12 Aug 2026 (40 m); trace: Landsat 9, 26 Aug", "credit": "Contains modified Copernicus Sentinel data 2026", "show_credit": False, "date": "12 AUG 2026",
                 "image": {"stack": "evidence/wide/y2026.png", "grid": "evidence/wide/grid.json", "center": [85.45, 28.26], "width_km": 42},
                 "arrows": [{"from": [85.5126, 28.2872], "to": [85.4141, 28.3155], "step": 1}, {"from": [85.4141, 28.3155], "to": [85.3852, 28.2858], "step": 1}, {"from": [85.3852, 28.2858], "to": [85.3586, 28.2268], "step": 1}],
-                "callouts": [{"at": [85.3777, 28.2789], "text": "RASUWAGADHI (APPROX.)", "step": 2}], "graticule": False, "scale_bar": True},
+                "callouts": [{"at": [85.3778, 28.2788], "text": "RASUWAGADHI BORDER POST", "step": 2}], "graticule": False, "scale_bar": True},
     "steps": [{"anchor_text": "USGS said the flow traveled about 100 kilometers"}, {"anchor_text": "Our frame cannot show all of it"}]})
 inf.append(card("i_official", "obs", ["C6"], "mapping the full extent", [N("a", "USGS: OFFICIAL EXTENT MAP FROM BEFORE/AFTER SATELLITE IMAGES", 0.5, 0.3, 0.9, 0.22, "accent", 1), N("b", "OUR TRACE IS NOT A SUBSTITUTE", 0.5, 0.68, 0.8, 0.16, "red", 2)],
     [{"anchor_text": "mapping the full extent"}, {"anchor_text": "not a substitute"}], SRC_USGS, "What was reported", 10))
@@ -63,7 +63,7 @@ inf.append(card("i_cannot", "limits", [], "What can we not say", [N("a", "SPEED 
 inf.append(card("i_watch", "close", [], "Two things will settle more", [N("a", "FINAL USGS + ICIMOD FINDINGS: TYPE AND SIZE", 0.5, 0.3, 0.9, 0.2, "accent", 1), N("b", "OFFICIAL COUNTS ON BOTH SIDES OF THE BORDER", 0.5, 0.68, 0.9, 0.2, "accent", 2)],
     [{"anchor_text": "The final findings from USGS and ICIMOD"}, {"anchor_text": "official counts of the dead and missing"}], "Limitations listed in the script (L)", "What to watch", 14, True))
 # ---- maps (scenes): camera, wipe, pins, arrows; presets are shared (motion_presets.json)
-VALLEY = [85.445, 28.325]; SCAR = [85.5126, 28.2872]; JUNC = [85.3777, 28.2789]; BEND = [85.4456, 28.3379]
+VALLEY = [85.445, 28.325]; SCAR = [85.5126, 28.2872]; JUNC = [85.3778, 28.2788]; BEND = [85.4456, 28.3379]
 MAPS = [
  {"id": "m_hook", "chapter": "plan", "claims": ["C13"], "anchor_text": "On 12 August 2026", "min_s": 10, "wipe": ["y2026", "l2026"], "zoom": [26, 15], "focus": VALLEY, "wipe_at": "a dark swath runs through", "resample": "nearest",
   "marks": [{"type": "label", "text": "12 AUG 2026 - SENTINEL-2 (10 M)", "style": "tag", "slot": "upper", "t": 0.5, "dur": 4.2, "plate": True},
@@ -71,7 +71,7 @@ MAPS = [
  {"id": "m_rivers", "chapter": "plan", "claims": ["C2"], "anchor_text": "along two rivers", "min_s": 9, "asset": "y2026", "zoom": [20, 15], "focus": [85.43, 28.32], "focus_to": [85.37, 28.23],
   "marks": [{"type": "pin", "at": [85.4456, 28.3379], "text": "LENDE KHOLA", "anchor_text": "the Lende Khola", "dur": 4.0, "plate": True}, {"type": "pin", "at": [85.3592, 28.2404], "text": "TRISHULI KHOLA", "anchor_text": "the Trishuli Khola", "dur": None, "plate": True}]},
  {"id": "m_border", "chapter": "plan", "claims": ["C2"], "anchor_text": "including the Rasuwagadhi border post", "min_s": 7, "asset": "y2026", "zoom": [9, 5], "focus": JUNC,
-  "marks": [{"type": "pin", "at": JUNC, "text": "RASUWAGADHI (APPROX.)", "t": 0.8, "dur": None, "plate": True}]},
+  "marks": [{"type": "pin", "at": JUNC, "text": "RASUWAGADHI BORDER POST", "t": 0.8, "dur": None, "plate": True}]},
  {"id": "m_stop", "chapter": "plan", "claims": [], "limit": True, "anchor_text": "does not say where along that route", "min_s": 5, "asset": "y2026", "zoom": [16, 20], "focus": JUNC, "focus_to": [85.36, 28.20],
   "label": {"text": "STOP POINT: NOT IN USGS TEXT", "style": "tag", "slot": "upper", "plate": True}},
  {"id": "m_before", "chapter": "obs", "claims": ["C13"], "anchor_text": "In the 12 August image", "min_s": 7, "asset": "y2026", "zoom": [12, 7], "focus": [85.43, 28.335], "focus_to": [85.39, 28.30],
@@ -87,7 +87,7 @@ MAPS = [
             {"type": "arrow", "from": BEND, "to": [85.3852, 28.2858], "color": "#FFD23F", "width": 9, "anchor_text": "On our grid it runs about 30 kilometers", "dur": None},
             {"type": "arrow", "from": [85.3852, 28.2858], "to": [85.3522, 28.1974], "color": "#FFD23F", "width": 9, "anchor_text": "On our grid it runs about 30 kilometers", "dur": None},
             {"type": "label", "text": "TRACED BY EYE: ~30 KM", "style": "tag", "slot": "upper", "anchor_text": "On our grid it runs about 30 kilometers", "dur": None, "plate": True},
-            {"type": "pin", "at": JUNC, "text": "RIVER TURNS SOUTH (APPROX.)", "anchor_text": "near the Rasuwagadhi border post", "dur": None, "plate": True},
+            {"type": "pin", "at": JUNC, "text": "RASUWAGADHI BORDER POST", "anchor_text": "near the Rasuwagadhi border post", "dur": None, "plate": True},
             {"type": "label", "text": "~20 KM FROM GLACIER FOOT TO HERE", "style": "tag", "slot": "middle", "anchor_text": "About 20 of them", "dur": None, "plate": True}]},
  {"id": "m_clouds_hide", "chapter": "obs", "claims": [], "limit": True, "anchor_text": "Clouds hide other stretches", "min_s": 5, "asset": "l2026", "zoom": [20, 14], "focus": [85.5, 28.30], "focus_to": [85.45, 28.32],
   "label": {"text": "CLOUDS HIDE PARTS OF THE VALLEY", "style": "tag", "slot": "upper", "plate": True}},

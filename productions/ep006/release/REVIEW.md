@@ -1,6 +1,6 @@
 # Release package - The Mountain That Fell
 
-Generated 2026-10-27T11:17:50Z. Nothing is published.
+Generated 2026-10-28T01:54:35Z. Nothing is published.
 
 ## Status
 - topic: done owner-approved topic
@@ -12,7 +12,7 @@ Generated 2026-10-27T11:17:50Z. Nothing is published.
 - visualplan: done 41 visuals in 6 chapters, graphics ['g_reports', 'i_usgs', 'i_100km', 'i_seismic', 'i_cause', 'i_2015', 'i_toll', 'i_china', 'i_icimod', 'i_radar', 'i_volume', 'i_clouds', 'i_flow_scale', 'i_official', 'i_cannot']
 - visuals: done 39 graphics
 - storyboard: done 49 shots, 361.224s, timing from estimate
-- visualcheck: done visual claims OK {'VERIFIED_DATA': 17, 'REVIEWED': 34} of 51 items
+- visualcheck: done visual claims OK {'VERIFIED_DATA': 17, 'REVIEWED': 34} of 51 items; 1 orphan reviews (run `visualcheck.py prune`)
 - voice: awaiting_approval no approvals/voice.json; plan: 5001 characters
 - voicecheck: waiting waiting for ['voice']
 - captions: waiting waiting for ['voicecheck']

@@ -291,6 +291,17 @@
    "reviewer": "agent",
    "verdict": "supports",
    "note": "Wide Landsat 9 view: a dark grey-brown swath can be followed from the glacier-ice area down the valley; clouds hide other stretches; consistent with 'traced by eye, clouds hide other stretches'."
+  },
+  {
+   "item": "plan_006:shot",
+   "frame": 0,
+   "frame_sha256": "08389643d246c6ea5420b35d041043c225607a07f97914de1a7d5161ce70f28d",
+   "claims": [
+    "C2"
+   ],
+   "reviewer": "agent",
+   "verdict": "supports",
+   "note": "Sentinel-2 12 Aug zoom on a river confluence with pale gravel beds and a few structures/clearings at the junction; consistent with the pin at the Rasuwagadhi border post position (Wikipedia coordinates 28°16'40\"N 85°22'40\"E); pin plate itself not visible in the still."
   }
  ]
 }
