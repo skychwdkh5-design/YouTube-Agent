@@ -39,7 +39,9 @@ jobs:
           set +e
           P=productions/ep007-mars-sulfur; cd $P; : > /tmp/m.txt
           R=../../.claude/skills
+          ONLY=$(grep '^only=' final_request.txt | tail -1 | cut -d= -f2)
           for m in long:beats short1:short1 short2:short2; do d=${m%%:*}; s=${m##*:}
+            if [ -n "$ONLY" ] && ! echo ",$ONLY," | grep -q ",$d,"; then continue; fi
             pre=$([ $d = long ] && echo default || echo short)
             python3 $R/yt-captions/captions.py --voice adam_$d/narration.voice.json --out-dir adam_$d --preset $pre --overwrite > /tmp/cap_$d.json 2>&1
             echo "$d captions $? $(head -c 300 /tmp/cap_$d.json | tr '\n' ' ')" >> /tmp/m.txt
@@ -52,8 +54,8 @@ jobs:
             python3 $R/yt-qc/qc.py EP007_final_$d.mp4 --timeline final_$d.timeline.json $q > qc_final_$d.json 2>&1
             echo "$d qc $(python3 -c "import json;d=json.load(open('qc_final_$d.json'));print(d.get('status') or d.get('result'),[c['id'] for c in d['checks'] if c.get('status')!='pass'])" 2>&1)" >> /tmp/m.txt
           done
-          dur=$(ffprobe -v error -show_entries format=duration -of csv=p=0 EP007_final_long.mp4)
-          python3 package.py adam_long "$dur" >> /tmp/m.txt 2>&1
+          [ -s EP007_final_long.mp4 ] && { dur=$(ffprobe -v error -show_entries format=duration -of csv=p=0 EP007_final_long.mp4)
+          python3 package.py adam_long "$dur" >> /tmp/m.txt 2>&1; }
           sha256sum EP007_final_*.mp4 >> /tmp/m.txt; ls -la EP007_final_*.mp4 >> /tmp/m.txt
           for f in EP007_final_*.mp4; do echo "$f $(ffprobe -v error -show_entries format=duration -of csv=p=0 $f)" >> /tmp/m.txt; done
           cat /tmp/m.txt
@@ -65,5 +67,5 @@ jobs:
           for f in $P/EP007_final_*.mp4; do [ -s "$f" ] && gh release upload ep007-v1 "$f" --clobber; done
           cp /tmp/m.txt $P/final_manifest.txt
           git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f $P/final_manifest.txt $P/final_*.timeline.json $P/qc_final_*.json $P/adam_*/captions.srt $P/adam_*/narration.timing.json $P/package/description_long.txt $P/package/texts.json $P/final_*.contact.jpg
+          git add -f $P/final_manifest.txt $P/final_*.timeline.json $P/qc_final_*.json $P/adam_*/captions.srt $P/adam_*/narration.timing.json $P/package/description_long.txt $P/package/texts.json $P/final_*.contact.jpg 2>/dev/null; git add -f $P/final_manifest.txt
           git commit -qm "EP007 final render manifest (run ${{ github.run_id }})" && for i in 1 2 3; do git pull -q --rebase origin production/ep007-mars-sulfur; git push -q origin HEAD:production/ep007-mars-sulfur && break; done

@@ -51,7 +51,7 @@ tl = {"version": 1, "output": {"width": W, "height": H, "fps": 30, "crf": 18 if 
       "clips": clips,
       "audio": {"voice": [{"src": f"{vdir}/narration.wav", "start": 0.0}]},
       "subtitles": {"src": f"{vdir}/captions.srt", "burn_in": True, "size": 12 if SHORT else 15, "margin_v": 72 if SHORT else 24},
-      "credit": {"position": "top_left"}}
+      "credit": {"position": "top_left", **({"size": 22} if SHORT else {})}}
 json.dump(tl, open(f"{prefix}.timeline.json", "w"), indent=1)
 # contact sheet
 cols = 6; tw, th = (320, 180) if not SHORT else (180, 320)
