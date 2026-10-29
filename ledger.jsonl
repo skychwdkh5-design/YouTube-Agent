@@ -55,3 +55,4 @@
 {"at": "2026-10-28T11:19:07+00:00", "event": "uploaded", "sha256": "200a576acb744b41721952dfda95b5617bd676d736427f75ad2f89f300456e2a", "id": "short-08-ep007", "video_id": "bhb8G5z9eyo", "publish_at": "2026-10-30T05:00:00Z"}
 {"at": "2026-10-28T11:19:07+00:00", "event": "verified", "sha256": "200a576acb744b41721952dfda95b5617bd676d736427f75ad2f89f300456e2a", "id": "short-08-ep007", "video_id": "bhb8G5z9eyo", "ok": true, "privacyStatus": "private", "publishAt": "2026-10-30T05:00:00Z", "uploadStatus": "uploaded"}
 {"at": "2026-10-28T11:19:07+00:00", "event": "approval_done", "approval_id": "abcf90facc064a8f9eb68a8aced035b4", "ids": ["short-07-ep007", "short-08-ep007"]}
+{"at": "2026-10-29T01:36:58+00:00", "event": "release_confirmed", "video_id": "c369ApHh8I8", "id": "ep007", "publishAt": "2026-10-29T01:00:00Z", "privacyStatus": "public", "delay_s": 2218}
