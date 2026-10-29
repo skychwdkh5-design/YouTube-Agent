@@ -1,0 +1,36 @@
+name: Free topic scout (read-only)
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'
+  pull_request:
+    paths:
+      - 'tools/free_topic_scout.py'
+      - 'tests/test_free_topic_scout.py'
+      - '.github/workflows/free-topic-scout.yml'
+permissions:
+  contents: read
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Offline tests
+        run: python -m unittest discover -s tests -p 'test_free_topic_scout.py' -v
+      - name: Gather public topic candidates (no publishing)
+        if: github.event_name != 'pull_request'
+        run: |
+          mkdir -p reports
+          python tools/free_topic_scout.py --channel orbital-atlas --format json > reports/topic-candidates.json || true
+      - name: Save report
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: free-topic-candidates
+          path: reports/topic-candidates.json
+          retention-days: 7
+          if-no-files-found: warn
