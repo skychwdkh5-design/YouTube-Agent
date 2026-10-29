@@ -22,7 +22,7 @@ FEEDS = {
 ATOM = "{http://www.w3.org/2005/Atom}"
 
 def plain(value):
-    return re.sub(r"\\s+", " ", re.sub(r"<[^>]+>", " ", html.unescape(value or ""))).strip()
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html.unescape(value or ""))).strip()
 
 def parse_feed(xml_bytes, source):
     root = ET.fromstring(xml_bytes)
@@ -90,12 +90,12 @@ def main():
     if args.format == "json":
         print(json.dumps({"channel":args.channel,"candidates":items,"warnings":warnings},ensure_ascii=False,indent=2))
     else:
-        print(f"# Topic candidates: {args.channel}\\n")
-        print("Discovery only; independently verify publication date, event date, claims and asset rights.\\n")
+        print(f"# Topic candidates: {args.channel}\n")
+        print("Discovery only; independently verify publication date, event date, claims and asset rights.\n")
         for item in items:
             print(f"- **{item['title']}** | {item['published']} | {item['url']} | VERIFY")
         for warning in warnings:
-            print(f"\\nWARNING: {warning}", file=sys.stderr)
+            print(f"\nWARNING: {warning}", file=sys.stderr)
     return 0 if items else 1
 
 if __name__ == "__main__":
