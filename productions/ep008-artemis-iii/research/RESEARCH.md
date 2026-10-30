@@ -76,6 +76,11 @@ edit plan, motion spec and hook board. Compared claim by claim:
   and `~large` is 1280x1920 portrait. EP008 keeps the Artemis II Moon photo (5568x3712, downloaded) as frame 1.
 - NEXORA's "spacesuit evaluations" = Orion Crew Survival System suits, not lunar EVA suits — worded that way here.
 
+## 4c. Scene 12 wording (owner decision 2026-10-31)
+Scene kept; the hours/days line is now an explanation framed as general, not a mission time: Artemis II's return from
+the Moon took several days (F03: flyby Apr 6, splashdown Apr 10); from LEO a return can take hours, "though the exact
+time depends on where it is and when it can land". On screen: "*TYPICAL, NOT A MISSION TIME". Not attributed to NASA.
+
 ## 5. Topic score (Orbital Atlas)
 `research/TOPIC_SCORE.md` — 3.83, GO-CANDIDATE. Inputs from NEXORA are external; `proof` scored 2 because
 vidIQ breakout scores have no baselines (`research/OUTLIERS_external_vidiq.md`). Not an Orbital Atlas measurement.

@@ -1,0 +1,62 @@
+{
+ "s01": {
+  "dur": 5.459,
+  "sentences": [
+   {
+    "text": "NASA's next Moon mission was supposed to land here.",
+    "start": 0.0,
+    "end": 2.987
+   },
+   {
+    "text": "Now it won't even leave Earth orbit.",
+    "start": 3.167,
+    "end": 5.279
+   }
+  ]
+ },
+ "s02": {
+  "dur": 13.413,
+  "sentences": [
+   {
+    "text": "In April, four astronauts flew around the Moon on Artemis Two.",
+    "start": 0.0,
+    "end": 3.968
+   },
+   {
+    "text": "And the next crew's rocket won't even carry the stage that sends Orion toward the Moon.",
+    "start": 4.148,
+    "end": 9.695
+   },
+   {
+    "text": "In its place:",
+    "start": 9.875,
+    "end": 10.963
+   },
+   {
+    "text": "a metal barrel with no engine.",
+    "start": 11.143,
+    "end": 13.233
+   }
+  ]
+ },
+ "s03": {
+  "dur": 18.759,
+  "sentences": [
+   {
+    "text": "NASA made this change back in February, and in October it published the full plan:",
+    "start": 0.0,
+    "end": 5.099
+   },
+   {
+    "text": "fourteen days in orbit, two Moon landers, and one test that has to work before anyone lands near the lunar South Pole.",
+    "start": 5.279,
+    "end": 13.193
+   },
+   {
+    "text": "Here's what they'll actually do up there, and why NASA decided the Moon can wait a year.",
+    "start": 13.373,
+    "end": 18.579
+   }
+  ]
+ }
+}

@@ -134,16 +134,18 @@ scene("s11", "Home", ["F29", "F12", "F06"],
  sfx="wind/water swell")
 
 # ---------------------------------------------------------------- 4:40 why docking first
-scene("s12", "Why docking first", ["F30", "F02", "F13", "F08", "F10"],
+scene("s12", "Why docking first", ["F30", "F02", "F13", "F08", "F10", "F03"],
  "So why spend a whole mission on this? NASA's Artemis program manager put it plainly: every piece of the mission in Earth orbit is designed to reduce risk before astronauts go back to the Moon. "
  "Three spacecraft on three different rockets, working together, which he says NASA has never attempted. "
  "And on Artemis Four, the landing depends on exactly this step. "
  "Orion can't land. A commercial lander has to meet it, take astronauts down near the South Pole, and bring them back. "
- "If that handoff fails near the Moon, the crew is days from home. In low Earth orbit, they're hours away.",
+ "Distance is part of the logic. Artemis Two needed several days just to get back from the Moon. "
+ "From low Earth orbit, a spacecraft can be back on the ground in a matter of hours, though the exact time depends on where it is and when it can land. "
+ "So the first test of this handoff happens close to home.",
  [("d-three-rockets", .25, "three launch arcs converge in one orbit", "3 SPACECRAFT · 3 ROCKETS", "DIAGRAM"),
   ("d-orbit-vs-moon", .25, "Artemis IV path draws out to Moon, handoff point flashes", "ARTEMIS IV: HANDOFF AT THE MOON", "DIAGRAM"),
-  ("a2-tiny-earth", .25, "slow push", "DAYS FROM HOME", "NASA · ARTEMIS II PHOTO"),
-  ("d-orbit-vs-moon", .25, "snap back to LEO ring", "HOURS FROM HOME", "DIAGRAM")],
+  ("a2-tiny-earth", .25, "slow push", "NEAR THE MOON: DAYS TO COME HOME", "NASA · ARTEMIS II PHOTO"),
+  ("d-orbit-vs-moon", .25, "snap back to LEO ring", "EARTH ORBIT: HOURS, NOT DAYS*", "DIAGRAM · *TYPICAL, NOT A MISSION TIME")],
  sfx="tension drone builds; cut to silence on 'hours away'")
 # NOTE s12: 'days from home / hours away' is a general orbital-mechanics statement, not a NASA-stated reason.
 # The VO frames it as why the test is placed in LEO in principle; NASA's stated purpose (F08/F10, July 15)

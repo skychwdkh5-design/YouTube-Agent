@@ -23,7 +23,12 @@ is answered at 3.1 s; the "why" promise of the title is opened at 20-30 s and an
 **Fact check of this segment:** F04 (photo date), F02 (landing moved), F06 (273 mi), F03 (Artemis II, April), F14 + F20 (spacer replaces the stage; the
 stage's job). Every frame's asset: research/media.json.
 
-**Stills for these 20 s are downloaded** (GitHub run 41011659925, draft release `ep008-originals`): a2-lunar-surface 5568x3712,
-a2-earthset 5568x3712, spacer 6000x4000.
-**Still blocking a real test:**
-The diagrams `d-orbit-vs-moon` and `d-sls-stack` still have to be drawn (yt-graphics). Temporary voice (free Kokoro, as EP007) is enough for the test; no ElevenLabs.
+## Test render 2026-10-31 (for owner review)
+`hook20.py` → `test/EP008_hook20_test.mp4` (git-ignored; sent in chat) + `.srt` + `.timeline.json`. yt-qc: PASS (1920x1080, 30 fps,
+20.0 s, full decode). Cuts follow the temporary voice (Kokoro am_michael, `tts_temp.py`): lunar 0.0-3.1 · orbit 3.1-5.8 ·
+earthset 5.8-9.9 · SLS swap 9.9-16.9 · spacer 16.9-20.0. Frame 0 = the cover's exact crop of art002e009289.
+Diagrams: `graphics.py` (`d_orbit_vs_moon`, `d_sls_stack`) in the NEXORA motion_spec style, labelled ORBITAL ATLAS DIAGRAM ·
+NOT TO SCALE with source lines. Sound: synthesised in hook20.py (no library SFX), loudness -14 LUFS target.
+Cover A: `covers/EP008_cover_A.jpg` - thumbcheck PASS (objective part: saturation 0.64, luma std 81). Grade only (warm
+lunar tone, navy sky masked away from craters); no content added. Visual comparison with the four reference covers: done
+by Claude, owner verdict pending (`thumbnail_hook.match_review`).
