@@ -6,7 +6,7 @@ highest used is EP007.
 
 ## Where things are
 - `nexora-import/` — NEXORA research copied unchanged (youtube-ops, research/runs/2026-10-30-growth-demo; PROVENANCE.txt) and, received at 13:03, NEXORA's later preproduction from branch production/artemis3 (`nexora-import/production-artemis3/`: script, edit plan, motion spec, hook board). Reconciled claim by claim in research/RESEARCH.md §4b; its verified extras are in the EP008 script.
-- `research/RESEARCH.md` — confirmed facts F01-F23, secondary/pending S1-S3, never-say list, corrections vs NEXORA.
+- `research/RESEARCH.md` — confirmed facts F01-F30, removed secondary claims S1-S3, never-say list, corrections vs NEXORA.
 - `research/media.json` — assets, credits, rights, cover use, needed resolution, excluded material.
 - `research/TOPIC_SCORE.md`, `topics.json` — OA rescoring (3.83 GO-CANDIDATE); `OUTLIERS_external_vidiq.md` — NEXORA vidIQ data through OA outliers.py, labelled external.
 - `beats.py` → `script/SCRIPT.md`, `script/EDIT_MAP.md`, `script/edit_map.json`, `script/narration.txt`.
