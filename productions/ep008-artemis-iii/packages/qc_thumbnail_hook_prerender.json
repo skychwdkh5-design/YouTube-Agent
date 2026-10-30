@@ -1,0 +1,73 @@
+[
+ {
+  "id": "thumbnail_hook_concepts",
+  "status": "pass",
+  "expected": "3 cover concepts, each with title, thumb_text, visual_promise, main_subject, hook_15s, facts",
+  "actual": 3
+ },
+ {
+  "id": "thumbnail_hook_choice",
+  "status": "pass",
+  "expected": "a chosen concept with a written rationale",
+  "actual": {
+   "chosen": "A",
+   "rationale": true
+  }
+ },
+ {
+  "id": "thumbnail_hook_alternates_kept",
+  "status": "pass",
+  "expected": "2 alternate covers kept for A/B",
+  "actual": [
+   "B",
+   "C"
+  ]
+ },
+ {
+  "id": "thumbnail_hook_title",
+  "status": "pass",
+  "expected": "release title = chosen concept title, and title or cover text names the main subject",
+  "actual": {
+   "title": "NASA Changed Its Moon Mission. Here's Why.",
+   "concept_title": "NASA Changed Its Moon Mission. Here's Why.",
+   "main_subject": "the Moon - lunar surface photographed from Orion on Artemis II"
+  }
+ },
+ {
+  "id": "thumbnail_hook_subject_first_3s",
+  "status": "pass",
+  "expected": "main subject on screen at <= 3.0 s, inside the named shot",
+  "actual": {
+   "shot": "s01.1",
+   "at": 0.0,
+   "shot_span": [
+    0.0,
+    3.1
+   ]
+  }
+ },
+ {
+  "id": "thumbnail_hook_cold_open",
+  "status": "pass",
+  "expected": "no logo, greeting, general history or long intro at the start",
+  "actual": "ok"
+ },
+ {
+  "id": "thumbnail_hook_honest",
+  "status": "pass",
+  "expected": "a reconstruction/CGI subject carries an on-screen label",
+  "actual": {
+   "reconstruction": false,
+   "label": null
+  }
+ },
+ {
+  "id": "thumbnail_hook_match",
+  "status": "fail",
+  "expected": "title promise, cover and first frames confirmed to match (match_review.confirmed, by)",
+  "actual": {
+   "confirmed": false,
+   "by": null
+  }
+ }
+]

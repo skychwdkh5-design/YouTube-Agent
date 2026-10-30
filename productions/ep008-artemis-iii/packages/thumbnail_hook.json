@@ -1,0 +1,81 @@
+{
+ "schema": "thumbnail-hook/1",
+ "episode": "EP008",
+ "title": "NASA Changed Its Moon Mission. Here's Why.",
+ "chosen": "A",
+ "rationale": "A is literally true (NASA 2026-02-27, 2026-08-05, 2026-10-23) and its cover subject - the Moon, in a real NASA photo from Artemis II (art002e009289) - is frame 1 of the video, so cover, title and first 3 s match. It fits the Orbital Atlas cover style (dramatic real imagery from space, big uppercase white/yellow text) better than a high-bay hardware photo. Risk: the photo is from Artemis II, not Artemis III; the frame carries the label 'ARTEMIS II PHOTO' and the VO says 'was supposed to land here', never that Artemis III took it. B is NEXORA's former choice A (boosters), demoted because the cleared photo is portrait 1280x1920 and needs the ~orig file for a 16:9 1080p crop. C leads with an illustration. Which earns more clicks is a hypothesis for A/B, not a forecast.",
+ "concepts": [
+  {
+   "id": "A",
+   "title": "NASA Changed Its Moon Mission. Here's Why.",
+   "thumb_text": "NO MOON LANDING",
+   "visual_promise": "the Moon up close (real Artemis II photo) and why the next crew stays in Earth orbit instead",
+   "main_subject": "the Moon - lunar surface photographed from Orion on Artemis II",
+   "cover_asset": "a2-lunar-surface (NASA, art002e009289); yellow 'ARTEMIS III' tag top-left, 'NO MOON LANDING' white, thin red strike line; no crew, no NASA insignia",
+   "hook_15s": "0-3 s: lunar surface photo (Artemis II, labelled), fast push-in, 'THE PLAN: LAND HERE'. VO: 'NASA's next Moon mission was supposed to land here.' 3-7 s: hard cut, diagram zooms out from Moon to Earth, LEO ring lights: 'NOW: 273 MILES UP'. VO: 'Now it won't even leave Earth orbit.' 7-11 s: Artemis II Earthset photo. VO: 'In April, four astronauts flew around the Moon on Artemis Two.' 11-15 s: SLS diagram, upper stage slides out. VO: 'And the next crew's rocket won't even carry the stage that sends Orion toward the Moon.'",
+   "facts": [
+    "Artemis II flew around the Moon, flyby 2026-04-06 (NASA)",
+    "2026-02-27: Artemis III becomes a 2027 low-Earth-orbit test, landing moves to Artemis IV 2028 (NASA 2026-02-27, 2026-08-05)",
+    "Blue Moon test article orbit ~273 mi (NASA 2026-10-23)",
+    "Artemis III SLS flies a non-propulsive spacer instead of the ICPS (NASA 2026-08-05)"
+   ]
+  },
+  {
+   "id": "B",
+   "title": "NASA's Next Moon Mission Won't Go to the Moon",
+   "thumb_text": "NOT THE MOON?",
+   "visual_promise": "the real Artemis III rocket boosters, and why their crew will stay in Earth orbit",
+   "main_subject": "Artemis III SLS booster nose cones in the VAB",
+   "cover_asset": "srb-nosecones (NASA/Cory S Huston, KSC-20260930-PH-CSH01-0003), cropped with no insignia; needs ~orig >= 1920 px wide",
+   "hook_15s": "0-3 s: booster nose cones photo, push-in; VO: 'These boosters will launch NASA's next Moon mission.' 3-10 s: 'LOW EARTH ORBIT · 2027'; VO: 'But its four astronauts won't go to the Moon. NASA changed the plan in February.' 10-15 s: VO: 'In October NASA published what they'll do up there instead.'",
+   "facts": [
+    "Booster stacking completed 2026-09-30 (NASA 2026-10-13)",
+    "2026-02-27 change (NASA)",
+    "2026-10-23 flight profile (NASA)"
+   ],
+   "origin": "NEXORA concept A (thumbnail_hook.json, 2026-10-30), adapted"
+  },
+  {
+   "id": "C",
+   "title": "Artemis III: Docking Two Moon Landers - in Earth Orbit",
+   "thumb_text": "DOCK FIRST, LAND LATER",
+   "visual_promise": "how Orion will dock with Blue Origin's and SpaceX's lander test articles before anyone lands",
+   "main_subject": "Orion docking sequence (NASA concept graphic / own labelled diagram)",
+   "cover_asset": "conops-graphic (NASA) or own diagram, labelled; company artwork excluded",
+   "hook_15s": "0-3 s: NASA concept graphic, labelled 'NASA CONCEPT GRAPHIC'. VO: 'Before anyone lands on the Moon again, this has to work.' 3-10 s: VO: 'About two days docked to a Blue Origin lander with astronauts inside - then up to two hours nose to nose with SpaceX's Starship.' 10-15 s: VO: 'That's Artemis III. Here's why it comes first.'",
+   "facts": [
+    "~2 days with Blue Moon, crew enters (NASA 2026-10-23)",
+    "Starship up to 2 h, crew does not enter (NASA 2026-10-23)"
+   ],
+   "honesty": "no docking has happened; every docking image is labelled ILLUSTRATION",
+   "origin": "NEXORA concept B, adapted"
+  }
+ ],
+ "hook": {
+  "subject_shot": "s01.1",
+  "subject_visible_at": 0.0,
+  "first_line": "NASA's next Moon mission was supposed to land here.",
+  "subject_is_reconstruction": false,
+  "reconstruction_label": null,
+  "note": "subject is a real NASA photo from Artemis II, labelled 'NASA · ARTEMIS II PHOTO, APR 2026'; s01.2 is a labelled DIAGRAM"
+ },
+ "match_review": {
+  "confirmed": false,
+  "by": null,
+  "date": null,
+  "notes": "pending: owner compares title, cover and first frames of a real draft (needs originals)"
+ },
+ "ab_test": {
+  "status": "not started",
+  "alternates": [
+   "B",
+   "C"
+  ],
+  "hypothesis": "H-T1 (carried from NEXORA, untested on OA): a cover with a literal contradiction about a real place (A, the Moon) earns more browse CTR than an object cover (B) or a process cover (C) at similar impressions"
+ },
+ "results": {
+  "ctr": null,
+  "retention_30s": null,
+  "avg_view_duration": null
+ }
+}

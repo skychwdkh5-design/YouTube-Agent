@@ -1,0 +1,1222 @@
+{
+ "wpm": 150,
+ "total_s": 349.2,
+ "words": 858,
+ "scenes": [
+  {
+   "id": "s01",
+   "title": "Cold open: the plan vs the new plan",
+   "facts": [
+    "F04",
+    "F02",
+    "F06"
+   ],
+   "vo": "NASA's next Moon mission was supposed to land here. Now it won't even leave Earth orbit.",
+   "shots": [
+    [
+     "a2-lunar-surface",
+     0.45,
+     "fast push-in 104->110%",
+     "THE PLAN: LAND HERE",
+     "NASA \u00b7 ARTEMIS II PHOTO, APR 2026"
+    ],
+    [
+     "d-orbit-vs-moon",
+     0.55,
+     "hard cut, zoom out from Moon to Earth, LEO ring lights up",
+     "NOW: 273 MILES UP",
+     "DIAGRAM"
+    ]
+   ],
+   "sfx": "0.0 low sub hit; 1.3 whoosh-reverse into cut; 1.4 impact + silence 0.2 s",
+   "start": 0.0,
+   "dur": 6.8
+  },
+  {
+   "id": "s02",
+   "title": "The surprising fact",
+   "facts": [
+    "F03",
+    "F14",
+    "F20"
+   ],
+   "vo": "In April, four astronauts flew around the Moon on Artemis Two. And the next crew's rocket won't even carry the stage that sends Orion toward the Moon. In its place: a metal barrel with no engine.",
+   "shots": [
+    [
+     "a2-earthset",
+     0.27,
+     "slow drift L->R",
+     "ARTEMIS II \u00b7 APRIL 2026",
+     "NASA \u00b7 ARTEMIS II PHOTO"
+    ],
+    [
+     "d-sls-stack",
+     0.38,
+     "upper stage slides out, spacer slides in",
+     "UPPER STAGE \u2192 SPACER",
+     "DIAGRAM \u00b7 NASA HARDWARE UPDATE"
+    ],
+    [
+     "spacer",
+     0.35,
+     "push-in on barrel",
+     "NO ENGINE",
+     "NASA/SAM LOTT"
+    ]
+   ],
+   "sfx": "tick on each on-screen word; metallic clank on 'barrel'",
+   "start": 6.8,
+   "dur": 14.8
+  },
+  {
+   "id": "s03",
+   "title": "Why it matters + promise",
+   "facts": [
+    "F01",
+    "F02",
+    "F06",
+    "F13"
+   ],
+   "vo": "NASA made this change back in February, and in October it published the full plan: fourteen days in orbit, two Moon landers, and one test that has to work before anyone lands near the lunar South Pole. Here's what they'll actually do up there, and why NASA decided the Moon can wait a year.",
+   "shots": [
+    [
+     "d-timeline",
+     0.4,
+     "playhead runs Feb 27 \u2192 Oct 23",
+     "ANNOUNCED FEB 27, 2026",
+     null
+    ],
+    [
+     "conops-graphic",
+     0.35,
+     "pan across, highlight two docking points",
+     "14 DAYS \u00b7 2 LANDERS",
+     "NASA CONCEPT GRAPHIC"
+    ],
+    [
+     "a2-hertzsprung",
+     0.25,
+     "slow push to South Pole direction",
+     "LANDING: 2028",
+     "NASA \u00b7 ARTEMIS II PHOTO"
+    ]
+   ],
+   "sfx": "music bed enters at 'Here's what' (low, pulsing)",
+   "start": 21.6,
+   "dur": 22.0
+  },
+  {
+   "id": "s04",
+   "title": "What NASA changed in February",
+   "facts": [
+    "F03",
+    "F04",
+    "F01",
+    "F02",
+    "S1"
+   ],
+   "vo": "Artemis Two's flight took ten days: launch on April first, a seven-hour lunar flyby on April sixth, splashdown off California on April tenth. But by then the plan for the next mission had already changed. On February twenty-seventh, NASA rewrote the order of the Artemis program. Artemis Three had been the landing. It became a test flight in low Earth orbit, set for twenty twenty-seven, and the first landing moved to Artemis Four, targeted for twenty twenty-eight. NASA also promised at least one landing every year after that. At the announcement, NASA's leadership argued that rare flights are a problem in themselves: crews and launch teams lose practice between missions, and changing the rocket and spacecraft after every flight adds risk instead of removing it.",
+   "shots": [
+    [
+     "a2-earth-behind-moon",
+     0.12,
+     "slow drift",
+     "ARTEMIS II \u00b7 APR 1-10, 2026",
+     "NASA \u00b7 ARTEMIS II PHOTO"
+    ],
+    [
+     "a2-earthset",
+     0.1,
+     "push-in on Earth",
+     "APRIL 6: FLYBY",
+     "NASA \u00b7 ARTEMIS II PHOTO"
+    ],
+    [
+     "cadence-infographic",
+     0.14,
+     "push-in on 2027 slot",
+     "FEB 27, 2026",
+     "NASA GRAPHIC"
+    ],
+    [
+     "d-timeline",
+     0.16,
+     "Artemis III block slides from 'LANDING' to 'EARTH ORBIT'",
+     "ARTEMIS III \u2192 TEST FLIGHT",
+     null
+    ],
+    [
+     "d-timeline",
+     0.16,
+     "Artemis IV highlighted",
+     "FIRST LANDING: ARTEMIS IV \u00b7 2028",
+     null
+    ],
+    [
+     "rs25",
+     0.32,
+     "slow pan across four engines",
+     "SAME ROCKET, MORE OFTEN",
+     "NASA/BEN SMEGELSKY"
+    ]
+   ],
+   "sfx": "soft paper/whoosh on each timeline move",
+   "start": 43.6,
+   "dur": 50.4
+  },
+  {
+   "id": "s05",
+   "title": "The hardware already exists",
+   "facts": [
+    "F15",
+    "F16",
+    "F18",
+    "F17",
+    "F14",
+    "F22"
+   ],
+   "vo": "And this isn't a paper mission. The four main engines for Artemis Three reached Kennedy Space Center in July. The Orion capsule and its service module were joined in late July. On September thirtieth, technicians put the nose cones on the twin boosters, finishing the stack. More than two hundred and fifty parts from Artemis Two's Orion are being reused on later missions, and NASA says reused parts move some installation work up by about three months. Even the launch tower is being turned around for its next flight nearly fifty percent faster. And that missing upper stage? It isn't scrapped. NASA reassigned it to Artemis Four, the mission that actually has to reach the Moon.",
+   "shots": [
+    [
+     "rs25",
+     0.16,
+     "tilt up",
+     "JULY 2026",
+     "NASA/BEN SMEGELSKY"
+    ],
+    [
+     "orion-joined",
+     0.23,
+     "slow vertical pan (portrait in 16:9 with blurred fill)",
+     "ORION \u00b7 ARTEMIS III",
+     "NASA/AMANDA STEVENSON"
+    ],
+    [
+     "srb-nosecones",
+     0.23,
+     "vertical tilt down the booster",
+     "SEPT 30: BOOSTERS STACKED",
+     "NASA/CORY S HUSTON"
+    ],
+    [
+     "solar-array",
+     0.14,
+     "push-in",
+     "250+ ARTEMIS II PARTS REUSED",
+     "NASA/AMANDA STEVENSON"
+    ],
+    [
+     "d-timeline",
+     0.1,
+     "'~3 MONTHS' and '~50% FASTER' counters",
+     "FASTER TURNAROUND",
+     null
+    ],
+    [
+     "d-sls-stack",
+     0.14,
+     "upper stage moves from A-III stack to A-IV stack",
+     "UPPER STAGE \u2192 ARTEMIS IV",
+     "DIAGRAM"
+    ]
+   ],
+   "sfx": "room tone of a high bay (library SFX), light mechanical clicks",
+   "start": 94.0,
+   "dur": 46.8
+  },
+  {
+   "id": "s06",
+   "title": "Who flies",
+   "facts": [
+    "F05",
+    "F23"
+   ],
+   "vo": "The crew is Randy Bresnik, Andre Douglas and Frank Rubio of NASA, and Luca Parmitano of the European Space Agency. In September they trained with Navy helicopter crews off San Diego, practicing being hoisted out of the water after splashdown. They've drilled escaping a capsule underwater, trained in their orange survival suits, and tasted nearly two hundred items of space food. Their mission will be about two weeks long, and it will never get farther than a few hundred miles from home.",
+   "shots": [
+    [
+     "d-crew-names",
+     0.3,
+     "names type on over Earth limb graphic, no portraits",
+     "THE CREW",
+     "NAMES ONLY"
+    ],
+    [
+     "d-training-list",
+     0.4,
+     "4 training items tick in, icons only, no crew photos",
+     "TRAINING \u00b7 SEPT 2026",
+     "GRAPHIC \u00b7 NASA STATUS 2026-10-13"
+    ],
+    [
+     "d-orbit-vs-moon",
+     0.3,
+     "Moon distance bar vs LEO ring",
+     "~345 MI vs ~239,000 MI",
+     "DIAGRAM"
+    ]
+   ],
+   "sfx": "",
+   "start": 140.8,
+   "dur": 33.2
+  },
+  {
+   "id": "s07",
+   "title": "Three launches",
+   "facts": [
+    "F11",
+    "F09"
+   ],
+   "vo": "Artemis Three needs three launches. First, Blue Origin launches a test version of its Blue Moon lander. It can wait in orbit for up to thirty days. Then the crew launches on NASA's SLS rocket from Florida. Starship goes up after the crew is already in orbit.",
+   "shots": [
+    [
+     "d-mission-sequence",
+     0.35,
+     "launch 1 arc, Blue Moon icon parks in orbit, 30-day counter",
+     "LAUNCH 1: BLUE MOON",
+     "ILLUSTRATION"
+    ],
+    [
+     "d-mission-sequence",
+     0.35,
+     "launch 2 from Florida, Orion icon",
+     "LAUNCH 2: CREW",
+     "ILLUSTRATION"
+    ],
+    [
+     "d-mission-sequence",
+     0.3,
+     "launch 3, Starship icon",
+     "LAUNCH 3: STARSHIP",
+     "ILLUSTRATION"
+    ]
+   ],
+   "sfx": "three distinct launch rumbles, each shorter",
+   "start": 174.0,
+   "dur": 19.2
+  },
+  {
+   "id": "s08",
+   "title": "The orbits",
+   "facts": [
+    "F06"
+   ],
+   "vo": "The orbits are precise. The Blue Moon test article circles about two hundred seventy-three miles up. Orion starts in a long, stretched orbit, from eighteen to more than eleven hundred miles, then rounds it out near three hundred forty-five. Starship flies lower still. Every number here comes from NASA's flight profile.",
+   "shots": [
+    [
+     "conops-graphic",
+     0.4,
+     "zoom to orbit annotations",
+     "273 MI \u00b7 345 MI",
+     "NASA CONCEPT GRAPHIC"
+    ],
+    [
+     "d-orbit-vs-moon",
+     0.6,
+     "ellipse 18 x 1,122 mi animates, circularizes",
+     "18 \u00d7 1,122 MI \u2192 345 MI",
+     "DIAGRAM \u00b7 NASA FIGURES"
+    ]
+   ],
+   "sfx": "soft UI ticks on numbers",
+   "start": 193.2,
+   "dur": 20.8
+  },
+  {
+   "id": "s09",
+   "title": "Dock one: Blue Moon",
+   "facts": [
+    "F07",
+    "F08",
+    "F09"
+   ],
+   "vo": "First docking: Orion pulls up alongside the Blue Moon lander. While they're joined, Orion's own software flies both spacecraft. Then the hatch opens. Up to two astronauts, in their orange survival suits, float into a lunar lander for the first time since Apollo. They spend about two days checking its cabin, controls and life support. Riding along is a dummy the weight of a spacesuit, wired with sensors, reporting what the cabin really feels like.",
+   "shots": [
+    [
+     "d-mission-sequence",
+     0.3,
+     "Orion approaches, side-by-side dock, 'ORION SOFTWARE IN CONTROL'",
+     "DOCK 1: BLUE MOON",
+     "ILLUSTRATION - NOT REAL FOOTAGE"
+    ],
+    [
+     "d-mission-sequence",
+     0.25,
+     "hatch icon opens, 2 figures move across",
+     "UP TO 2 ASTRONAUTS INSIDE",
+     "ILLUSTRATION"
+    ],
+    [
+     "d-mission-sequence",
+     0.25,
+     "48-hour clock runs",
+     "~2 DAYS",
+     "ILLUSTRATION"
+    ],
+    [
+     "a2-orion-sunlit",
+     0.2,
+     "slow push",
+     "ORION",
+     "NASA \u00b7 ARTEMIS II PHOTO"
+    ]
+   ],
+   "sfx": "docking latch clunk (library), hatch hiss",
+   "start": 214.0,
+   "dur": 30.4
+  },
+  {
+   "id": "s10",
+   "title": "Dock two: Starship",
+   "facts": [
+    "F10",
+    "F19"
+   ],
+   "vo": "Second docking: Starship. The test vehicle is a hundred seventy-one feet tall, about fifty-two meters, with a docking port in its nose. Orion meets it nose to nose, and this time SpaceX flies the pair. It lasts up to two hours, and nobody goes inside. NASA and SpaceX are still deciding exactly which control and communication tests to run.",
+   "shots": [
+    [
+     "d-mission-sequence",
+     0.35,
+     "Starship icon at true scale next to Orion (171 ft)",
+     "171 FT \u00b7 52 M",
+     "ILLUSTRATION"
+    ],
+    [
+     "d-mission-sequence",
+     0.35,
+     "nose-to-nose dock, 2:00:00 countdown",
+     "UP TO 2 HOURS",
+     "ILLUSTRATION - NOT REAL FOOTAGE"
+    ],
+    [
+     "d-mission-sequence",
+     0.3,
+     "crew icon stays in Orion, red X on Starship hatch",
+     "CREW STAYS IN ORION",
+     "ILLUSTRATION"
+    ]
+   ],
+   "sfx": "lower, heavier clunk; countdown ticks",
+   "start": 244.4,
+   "dur": 24.0
+  },
+  {
+   "id": "s11",
+   "title": "Home",
+   "facts": [
+    "F12",
+    "F06"
+   ],
+   "vo": "After about fourteen days, Orion comes home and splashes down in the Pacific, off the coast of California, the same ocean where Artemis Two landed in April.",
+   "shots": [
+    [
+     "d-mission-sequence",
+     0.45,
+     "reentry arc to Pacific",
+     "SPLASHDOWN: PACIFIC",
+     "ILLUSTRATION"
+    ],
+    [
+     "a2-earth-behind-moon",
+     0.55,
+     "slow drift",
+     "DAY 14",
+     "NASA \u00b7 ARTEMIS II PHOTO"
+    ]
+   ],
+   "sfx": "wind/water swell",
+   "start": 268.4,
+   "dur": 11.2
+  },
+  {
+   "id": "s12",
+   "title": "Why docking first",
+   "facts": [
+    "F02",
+    "F13",
+    "F08",
+    "F10"
+   ],
+   "vo": "So why test this in Earth orbit? Because on Artemis Four, the landing depends on exactly this step. Orion can't land. A commercial lander has to meet it, take astronauts down near the South Pole, and bring them back. If that handoff fails near the Moon, the crew is days from home. In low Earth orbit, they're hours away.",
+   "shots": [
+    [
+     "d-orbit-vs-moon",
+     0.35,
+     "Artemis IV path draws out to Moon, handoff point flashes",
+     "ARTEMIS IV: HANDOFF AT THE MOON",
+     "DIAGRAM"
+    ],
+    [
+     "a2-tiny-earth",
+     0.3,
+     "slow push",
+     "DAYS FROM HOME",
+     "NASA \u00b7 ARTEMIS II PHOTO"
+    ],
+    [
+     "d-orbit-vs-moon",
+     0.35,
+     "snap back to LEO ring",
+     "HOURS FROM HOME",
+     "DIAGRAM"
+    ]
+   ],
+   "sfx": "tension drone builds; cut to silence on 'hours away'",
+   "start": 279.6,
+   "dur": 24.0
+  },
+  {
+   "id": "s13",
+   "title": "Apollo did this too",
+   "facts": [
+    "F21"
+   ],
+   "vo": "If this sounds familiar, it should. In March nineteen sixty-nine, Apollo Nine tested the lunar module in Earth orbit. Four months later, Apollo Eleven landed.",
+   "shots": [
+    [
+     "d-timeline-apollo",
+     0.55,
+     "1969 timeline: Apollo 9 (Earth orbit) \u2192 Apollo 11 (landing)",
+     "APOLLO 9 \u00b7 EARTH ORBIT \u00b7 1969",
+     "DIAGRAM"
+    ],
+    [
+     "a2-earthrise",
+     0.45,
+     "slow push",
+     "ARTEMIS: 2027 \u2192 2028",
+     "NASA \u00b7 ARTEMIS II PHOTO"
+    ]
+   ],
+   "sfx": "",
+   "start": 303.6,
+   "dur": 10.4
+  },
+  {
+   "id": "s14",
+   "title": "What is still unknown",
+   "facts": [
+    "S2",
+    "F18",
+    "F19"
+   ],
+   "vo": "What we don't know yet: a launch date. NASA says twenty twenty-seven; its administrator told reporters in October that next summer is still the target. The rocket's fueling test at the pad is still ahead. And NASA hasn't said which lander will carry the first crew down on Artemis Four.",
+   "shots": [
+    [
+     "srb-nosecones",
+     0.4,
+     "tilt",
+     "LAUNCH: 2027 (NO DATE)",
+     "NASA/CORY S HUSTON"
+    ],
+    [
+     "d-timeline",
+     0.3,
+     "open items flash: tanking test, lander choice",
+     "STILL OPEN",
+     null
+    ],
+    [
+     "a2-earthset",
+     0.3,
+     "drift",
+     "ARTEMIS IV: WHICH LANDER?",
+     "NASA \u00b7 ARTEMIS II PHOTO"
+    ]
+   ],
+   "sfx": "",
+   "start": 314.0,
+   "dur": 20.4
+  },
+  {
+   "id": "s15",
+   "title": "Close",
+   "facts": [
+    "F02",
+    "F13"
+   ],
+   "vo": "So the next Moon mission stays close to home, on purpose. If both dockings work, the following crew goes all the way down. Artemis Four is the landing. Artemis Three is the test it can't skip.",
+   "shots": [
+    [
+     "d-orbit-vs-moon",
+     0.4,
+     "LEO ring \u2192 path to Moon",
+     "ARTEMIS III: THE TEST",
+     "DIAGRAM"
+    ],
+    [
+     "a2-lunar-surface",
+     0.6,
+     "slow push - bookends frame 1",
+     "ARTEMIS IV: THE LANDING",
+     "NASA \u00b7 ARTEMIS II PHOTO"
+    ]
+   ],
+   "sfx": "music resolves; 1 s tail; end screen 10 s (silent, not counted)",
+   "start": 334.4,
+   "dur": 14.8
+  }
+ ],
+ "shots": [
+  {
+   "scene": "s01",
+   "shot": "s01.1",
+   "start": 0.0,
+   "end": 3.1,
+   "asset": "a2-lunar-surface",
+   "motion": "fast push-in 104->110%",
+   "on_screen": "THE PLAN: LAND HERE",
+   "label": "NASA \u00b7 ARTEMIS II PHOTO, APR 2026"
+  },
+  {
+   "scene": "s01",
+   "shot": "s01.2",
+   "start": 3.1,
+   "end": 6.8,
+   "asset": "d-orbit-vs-moon",
+   "motion": "hard cut, zoom out from Moon to Earth, LEO ring lights up",
+   "on_screen": "NOW: 273 MILES UP",
+   "label": "DIAGRAM"
+  },
+  {
+   "scene": "s02",
+   "shot": "s02.1",
+   "start": 6.8,
+   "end": 10.8,
+   "asset": "a2-earthset",
+   "motion": "slow drift L->R",
+   "on_screen": "ARTEMIS II \u00b7 APRIL 2026",
+   "label": "NASA \u00b7 ARTEMIS II PHOTO"
+  },
+  {
+   "scene": "s02",
+   "shot": "s02.2",
+   "start": 10.8,
+   "end": 16.4,
+   "asset": "d-sls-stack",
+   "motion": "upper stage slides out, spacer slides in",
+   "on_screen": "UPPER STAGE \u2192 SPACER",
+   "label": "DIAGRAM \u00b7 NASA HARDWARE UPDATE"
+  },
+  {
+   "scene": "s02",
+   "shot": "s02.3",
+   "start": 16.4,
+   "end": 21.6,
+   "asset": "spacer",
+   "motion": "push-in on barrel",
+   "on_screen": "NO ENGINE",
+   "label": "NASA/SAM LOTT"
+  },
+  {
+   "scene": "s03",
+   "shot": "s03.1",
+   "start": 21.6,
+   "end": 30.4,
+   "asset": "d-timeline",
+   "motion": "playhead runs Feb 27 \u2192 Oct 23",
+   "on_screen": "ANNOUNCED FEB 27, 2026",
+   "label": null
+  },
+  {
+   "scene": "s03",
+   "shot": "s03.2a",
+   "start": 30.4,
+   "end": 34.2,
+   "asset": "conops-graphic",
+   "motion": "pan across, highlight two docking points",
+   "on_screen": "14 DAYS \u00b7 2 LANDERS",
+   "label": "NASA CONCEPT GRAPHIC"
+  },
+  {
+   "scene": "s03",
+   "shot": "s03.2b",
+   "start": 34.2,
+   "end": 38.1,
+   "asset": "conops-graphic",
+   "motion": "re-frame: detail crop 1.4x",
+   "on_screen": "",
+   "label": "NASA CONCEPT GRAPHIC"
+  },
+  {
+   "scene": "s03",
+   "shot": "s03.3",
+   "start": 38.1,
+   "end": 43.6,
+   "asset": "a2-hertzsprung",
+   "motion": "slow push to South Pole direction",
+   "on_screen": "LANDING: 2028",
+   "label": "NASA \u00b7 ARTEMIS II PHOTO"
+  },
+  {
+   "scene": "s04",
+   "shot": "s04.1",
+   "start": 43.6,
+   "end": 49.6,
+   "asset": "a2-earth-behind-moon",
+   "motion": "slow drift",
+   "on_screen": "ARTEMIS II \u00b7 APR 1-10, 2026",
+   "label": "NASA \u00b7 ARTEMIS II PHOTO"
+  },
+  {
+   "scene": "s04",
+   "shot": "s04.2",
+   "start": 49.6,
+   "end": 54.7,
+   "asset": "a2-earthset",
+   "motion": "push-in on Earth",
+   "on_screen": "APRIL 6: FLYBY",
+   "label": "NASA \u00b7 ARTEMIS II PHOTO"
+  },
+  {
+   "scene": "s04",
+   "shot": "s04.3a",
+   "start": 54.7,
+   "end": 58.2,
+   "asset": "cadence-infographic",
+   "motion": "push-in on 2027 slot",
+   "on_screen": "FEB 27, 2026",
+   "label": "NASA GRAPHIC"
+  },
+  {
+   "scene": "s04",
+   "shot": "s04.3b",
+   "start": 58.2,
+   "end": 61.7,
+   "asset": "cadence-infographic",
+   "motion": "re-frame: detail crop 1.4x",
+   "on_screen": "",
+   "label": "NASA GRAPHIC"
+  },
+  {
+   "scene": "s04",
+   "shot": "s04.4",
+   "start": 61.7,
+   "end": 69.8,
+   "asset": "d-timeline",
+   "motion": "Artemis III block slides from 'LANDING' to 'EARTH ORBIT'",
+   "on_screen": "ARTEMIS III \u2192 TEST FLIGHT",
+   "label": null
+  },
+  {
+   "scene": "s04",
+   "shot": "s04.5",
+   "start": 69.8,
+   "end": 77.9,
+   "asset": "d-timeline",
+   "motion": "Artemis IV highlighted",
+   "on_screen": "FIRST LANDING: ARTEMIS IV \u00b7 2028",
+   "label": null
+  },
+  {
+   "scene": "s04",
+   "shot": "s04.6a",
+   "start": 77.9,
+   "end": 83.2,
+   "asset": "rs25",
+   "motion": "slow pan across four engines",
+   "on_screen": "SAME ROCKET, MORE OFTEN",
+   "label": "NASA/BEN SMEGELSKY"
+  },
+  {
+   "scene": "s04",
+   "shot": "s04.6b",
+   "start": 83.2,
+   "end": 88.6,
+   "asset": "rs25",
+   "motion": "re-frame: detail crop 1.4x",
+   "on_screen": "",
+   "label": "NASA/BEN SMEGELSKY"
+  },
+  {
+   "scene": "s04",
+   "shot": "s04.6c",
+   "start": 88.6,
+   "end": 94.0,
+   "asset": "rs25",
+   "motion": "re-frame: opposite-side crop",
+   "on_screen": "",
+   "label": "NASA/BEN SMEGELSKY"
+  },
+  {
+   "scene": "s05",
+   "shot": "s05.1a",
+   "start": 94.0,
+   "end": 97.7,
+   "asset": "rs25",
+   "motion": "tilt up",
+   "on_screen": "JULY 2026",
+   "label": "NASA/BEN SMEGELSKY"
+  },
+  {
+   "scene": "s05",
+   "shot": "s05.1b",
+   "start": 97.7,
+   "end": 101.5,
+   "asset": "rs25",
+   "motion": "re-frame: detail crop 1.4x",
+   "on_screen": "",
+   "label": "NASA/BEN SMEGELSKY"
+  },
+  {
+   "scene": "s05",
+   "shot": "s05.2a",
+   "start": 101.5,
+   "end": 106.9,
+   "asset": "orion-joined",
+   "motion": "slow vertical pan (portrait in 16:9 with blurred fill)",
+   "on_screen": "ORION \u00b7 ARTEMIS III",
+   "label": "NASA/AMANDA STEVENSON"
+  },
+  {
+   "scene": "s05",
+   "shot": "s05.2b",
+   "start": 106.9,
+   "end": 112.3,
+   "asset": "orion-joined",
+   "motion": "re-frame: detail crop 1.4x",
+   "on_screen": "",
+   "label": "NASA/AMANDA STEVENSON"
+  },
+  {
+   "scene": "s05",
+   "shot": "s05.3a",
+   "start": 112.3,
+   "end": 117.6,
+   "asset": "srb-nosecones",
+   "motion": "vertical tilt down the booster",
+   "on_screen": "SEPT 30: BOOSTERS STACKED",
+   "label": "NASA/CORY S HUSTON"
+  },
+  {
+   "scene": "s05",
+   "shot": "s05.3b",
+   "start": 117.6,
+   "end": 123.0,
+   "asset": "srb-nosecones",
+   "motion": "re-frame: detail crop 1.4x",
+   "on_screen": "",
+   "label": "NASA/CORY S HUSTON"
+  },
+  {
+   "scene": "s05",
+   "shot": "s05.4a",
+   "start": 123.0,
+   "end": 126.3,
+   "asset": "solar-array",
+   "motion": "push-in",
+   "on_screen": "250+ ARTEMIS II PARTS REUSED",
+   "label": "NASA/AMANDA STEVENSON"
+  },
+  {
+   "scene": "s05",
+   "shot": "s05.4b",
+   "start": 126.3,
+   "end": 129.6,
+   "asset": "solar-array",
+   "motion": "re-frame: detail crop 1.4x",
+   "on_screen": "",
+   "label": "NASA/AMANDA STEVENSON"
+  },
+  {
+   "scene": "s05",
+   "shot": "s05.5",
+   "start": 129.6,
+   "end": 134.2,
+   "asset": "d-timeline",
+   "motion": "'~3 MONTHS' and '~50% FASTER' counters",
+   "on_screen": "FASTER TURNAROUND",
+   "label": null
+  },
+  {
+   "scene": "s05",
+   "shot": "s05.6",
+   "start": 134.2,
+   "end": 140.8,
+   "asset": "d-sls-stack",
+   "motion": "upper stage moves from A-III stack to A-IV stack",
+   "on_screen": "UPPER STAGE \u2192 ARTEMIS IV",
+   "label": "DIAGRAM"
+  },
+  {
+   "scene": "s06",
+   "shot": "s06.1a",
+   "start": 140.8,
+   "end": 145.8,
+   "asset": "d-crew-names",
+   "motion": "names type on over Earth limb graphic, no portraits - beat 1/2",
+   "on_screen": "THE CREW",
+   "label": "NAMES ONLY"
+  },
+  {
+   "scene": "s06",
+   "shot": "s06.1b",
+   "start": 145.8,
+   "end": 150.8,
+   "asset": "d-crew-names",
+   "motion": "names type on over Earth limb graphic, no portraits - beat 2/2",
+   "on_screen": "",
+   "label": "NAMES ONLY"
+  },
+  {
+   "scene": "s06",
+   "shot": "s06.2a",
+   "start": 150.8,
+   "end": 157.4,
+   "asset": "d-training-list",
+   "motion": "4 training items tick in, icons only, no crew photos - beat 1/2",
+   "on_screen": "TRAINING \u00b7 SEPT 2026",
+   "label": "GRAPHIC \u00b7 NASA STATUS 2026-10-13"
+  },
+  {
+   "scene": "s06",
+   "shot": "s06.2b",
+   "start": 157.4,
+   "end": 164.0,
+   "asset": "d-training-list",
+   "motion": "4 training items tick in, icons only, no crew photos - beat 2/2",
+   "on_screen": "",
+   "label": "GRAPHIC \u00b7 NASA STATUS 2026-10-13"
+  },
+  {
+   "scene": "s06",
+   "shot": "s06.3a",
+   "start": 164.0,
+   "end": 169.0,
+   "asset": "d-orbit-vs-moon",
+   "motion": "Moon distance bar vs LEO ring - beat 1/2",
+   "on_screen": "~345 MI vs ~239,000 MI",
+   "label": "DIAGRAM"
+  },
+  {
+   "scene": "s06",
+   "shot": "s06.3b",
+   "start": 169.0,
+   "end": 174.0,
+   "asset": "d-orbit-vs-moon",
+   "motion": "Moon distance bar vs LEO ring - beat 2/2",
+   "on_screen": "",
+   "label": "DIAGRAM"
+  },
+  {
+   "scene": "s07",
+   "shot": "s07.1",
+   "start": 174.0,
+   "end": 180.7,
+   "asset": "d-mission-sequence",
+   "motion": "launch 1 arc, Blue Moon icon parks in orbit, 30-day counter",
+   "on_screen": "LAUNCH 1: BLUE MOON",
+   "label": "ILLUSTRATION"
+  },
+  {
+   "scene": "s07",
+   "shot": "s07.2",
+   "start": 180.7,
+   "end": 187.4,
+   "asset": "d-mission-sequence",
+   "motion": "launch 2 from Florida, Orion icon",
+   "on_screen": "LAUNCH 2: CREW",
+   "label": "ILLUSTRATION"
+  },
+  {
+   "scene": "s07",
+   "shot": "s07.3",
+   "start": 187.4,
+   "end": 193.2,
+   "asset": "d-mission-sequence",
+   "motion": "launch 3, Starship icon",
+   "on_screen": "LAUNCH 3: STARSHIP",
+   "label": "ILLUSTRATION"
+  },
+  {
+   "scene": "s08",
+   "shot": "s08.1a",
+   "start": 193.2,
+   "end": 197.4,
+   "asset": "conops-graphic",
+   "motion": "zoom to orbit annotations",
+   "on_screen": "273 MI \u00b7 345 MI",
+   "label": "NASA CONCEPT GRAPHIC"
+  },
+  {
+   "scene": "s08",
+   "shot": "s08.1b",
+   "start": 197.4,
+   "end": 201.5,
+   "asset": "conops-graphic",
+   "motion": "re-frame: detail crop 1.4x",
+   "on_screen": "",
+   "label": "NASA CONCEPT GRAPHIC"
+  },
+  {
+   "scene": "s08",
+   "shot": "s08.2a",
+   "start": 201.5,
+   "end": 207.8,
+   "asset": "d-orbit-vs-moon",
+   "motion": "ellipse 18 x 1,122 mi animates, circularizes - beat 1/2",
+   "on_screen": "18 \u00d7 1,122 MI \u2192 345 MI",
+   "label": "DIAGRAM \u00b7 NASA FIGURES"
+  },
+  {
+   "scene": "s08",
+   "shot": "s08.2b",
+   "start": 207.8,
+   "end": 214.0,
+   "asset": "d-orbit-vs-moon",
+   "motion": "ellipse 18 x 1,122 mi animates, circularizes - beat 2/2",
+   "on_screen": "",
+   "label": "DIAGRAM \u00b7 NASA FIGURES"
+  },
+  {
+   "scene": "s09",
+   "shot": "s09.1a",
+   "start": 214.0,
+   "end": 218.6,
+   "asset": "d-mission-sequence",
+   "motion": "Orion approaches, side-by-side dock, 'ORION SOFTWARE IN CONTROL' - beat 1/2",
+   "on_screen": "DOCK 1: BLUE MOON",
+   "label": "ILLUSTRATION - NOT REAL FOOTAGE"
+  },
+  {
+   "scene": "s09",
+   "shot": "s09.1b",
+   "start": 218.6,
+   "end": 223.1,
+   "asset": "d-mission-sequence",
+   "motion": "Orion approaches, side-by-side dock, 'ORION SOFTWARE IN CONTROL' - beat 2/2",
+   "on_screen": "",
+   "label": "ILLUSTRATION - NOT REAL FOOTAGE"
+  },
+  {
+   "scene": "s09",
+   "shot": "s09.2",
+   "start": 223.1,
+   "end": 230.7,
+   "asset": "d-mission-sequence",
+   "motion": "hatch icon opens, 2 figures move across",
+   "on_screen": "UP TO 2 ASTRONAUTS INSIDE",
+   "label": "ILLUSTRATION"
+  },
+  {
+   "scene": "s09",
+   "shot": "s09.3",
+   "start": 230.7,
+   "end": 238.3,
+   "asset": "d-mission-sequence",
+   "motion": "48-hour clock runs",
+   "on_screen": "~2 DAYS",
+   "label": "ILLUSTRATION"
+  },
+  {
+   "scene": "s09",
+   "shot": "s09.4",
+   "start": 238.3,
+   "end": 244.4,
+   "asset": "a2-orion-sunlit",
+   "motion": "slow push",
+   "on_screen": "ORION",
+   "label": "NASA \u00b7 ARTEMIS II PHOTO"
+  },
+  {
+   "scene": "s10",
+   "shot": "s10.1",
+   "start": 244.4,
+   "end": 252.8,
+   "asset": "d-mission-sequence",
+   "motion": "Starship icon at true scale next to Orion (171 ft)",
+   "on_screen": "171 FT \u00b7 52 M",
+   "label": "ILLUSTRATION"
+  },
+  {
+   "scene": "s10",
+   "shot": "s10.2",
+   "start": 252.8,
+   "end": 261.2,
+   "asset": "d-mission-sequence",
+   "motion": "nose-to-nose dock, 2:00:00 countdown",
+   "on_screen": "UP TO 2 HOURS",
+   "label": "ILLUSTRATION - NOT REAL FOOTAGE"
+  },
+  {
+   "scene": "s10",
+   "shot": "s10.3",
+   "start": 261.2,
+   "end": 268.4,
+   "asset": "d-mission-sequence",
+   "motion": "crew icon stays in Orion, red X on Starship hatch",
+   "on_screen": "CREW STAYS IN ORION",
+   "label": "ILLUSTRATION"
+  },
+  {
+   "scene": "s11",
+   "shot": "s11.1",
+   "start": 268.4,
+   "end": 273.4,
+   "asset": "d-mission-sequence",
+   "motion": "reentry arc to Pacific",
+   "on_screen": "SPLASHDOWN: PACIFIC",
+   "label": "ILLUSTRATION"
+  },
+  {
+   "scene": "s11",
+   "shot": "s11.2a",
+   "start": 273.4,
+   "end": 276.5,
+   "asset": "a2-earth-behind-moon",
+   "motion": "slow drift",
+   "on_screen": "DAY 14",
+   "label": "NASA \u00b7 ARTEMIS II PHOTO"
+  },
+  {
+   "scene": "s11",
+   "shot": "s11.2b",
+   "start": 276.5,
+   "end": 279.6,
+   "asset": "a2-earth-behind-moon",
+   "motion": "re-frame: detail crop 1.4x",
+   "on_screen": "",
+   "label": "NASA \u00b7 ARTEMIS II PHOTO"
+  },
+  {
+   "scene": "s12",
+   "shot": "s12.1",
+   "start": 279.6,
+   "end": 288.0,
+   "asset": "d-orbit-vs-moon",
+   "motion": "Artemis IV path draws out to Moon, handoff point flashes",
+   "on_screen": "ARTEMIS IV: HANDOFF AT THE MOON",
+   "label": "DIAGRAM"
+  },
+  {
+   "scene": "s12",
+   "shot": "s12.2a",
+   "start": 288.0,
+   "end": 291.6,
+   "asset": "a2-tiny-earth",
+   "motion": "slow push",
+   "on_screen": "DAYS FROM HOME",
+   "label": "NASA \u00b7 ARTEMIS II PHOTO"
+  },
+  {
+   "scene": "s12",
+   "shot": "s12.2b",
+   "start": 291.6,
+   "end": 295.2,
+   "asset": "a2-tiny-earth",
+   "motion": "re-frame: detail crop 1.4x",
+   "on_screen": "",
+   "label": "NASA \u00b7 ARTEMIS II PHOTO"
+  },
+  {
+   "scene": "s12",
+   "shot": "s12.3",
+   "start": 295.2,
+   "end": 303.6,
+   "asset": "d-orbit-vs-moon",
+   "motion": "snap back to LEO ring",
+   "on_screen": "HOURS FROM HOME",
+   "label": "DIAGRAM"
+  },
+  {
+   "scene": "s13",
+   "shot": "s13.1",
+   "start": 303.6,
+   "end": 309.3,
+   "asset": "d-timeline-apollo",
+   "motion": "1969 timeline: Apollo 9 (Earth orbit) \u2192 Apollo 11 (landing)",
+   "on_screen": "APOLLO 9 \u00b7 EARTH ORBIT \u00b7 1969",
+   "label": "DIAGRAM"
+  },
+  {
+   "scene": "s13",
+   "shot": "s13.2",
+   "start": 309.3,
+   "end": 314.0,
+   "asset": "a2-earthrise",
+   "motion": "slow push",
+   "on_screen": "ARTEMIS: 2027 \u2192 2028",
+   "label": "NASA \u00b7 ARTEMIS II PHOTO"
+  },
+  {
+   "scene": "s14",
+   "shot": "s14.1a",
+   "start": 314.0,
+   "end": 318.1,
+   "asset": "srb-nosecones",
+   "motion": "tilt",
+   "on_screen": "LAUNCH: 2027 (NO DATE)",
+   "label": "NASA/CORY S HUSTON"
+  },
+  {
+   "scene": "s14",
+   "shot": "s14.1b",
+   "start": 318.1,
+   "end": 322.2,
+   "asset": "srb-nosecones",
+   "motion": "re-frame: detail crop 1.4x",
+   "on_screen": "",
+   "label": "NASA/CORY S HUSTON"
+  },
+  {
+   "scene": "s14",
+   "shot": "s14.2",
+   "start": 322.2,
+   "end": 328.3,
+   "asset": "d-timeline",
+   "motion": "open items flash: tanking test, lander choice",
+   "on_screen": "STILL OPEN",
+   "label": null
+  },
+  {
+   "scene": "s14",
+   "shot": "s14.3a",
+   "start": 328.3,
+   "end": 331.3,
+   "asset": "a2-earthset",
+   "motion": "drift",
+   "on_screen": "ARTEMIS IV: WHICH LANDER?",
+   "label": "NASA \u00b7 ARTEMIS II PHOTO"
+  },
+  {
+   "scene": "s14",
+   "shot": "s14.3b",
+   "start": 331.3,
+   "end": 334.4,
+   "asset": "a2-earthset",
+   "motion": "re-frame: detail crop 1.4x",
+   "on_screen": "",
+   "label": "NASA \u00b7 ARTEMIS II PHOTO"
+  },
+  {
+   "scene": "s15",
+   "shot": "s15.1",
+   "start": 334.4,
+   "end": 340.3,
+   "asset": "d-orbit-vs-moon",
+   "motion": "LEO ring \u2192 path to Moon",
+   "on_screen": "ARTEMIS III: THE TEST",
+   "label": "DIAGRAM"
+  },
+  {
+   "scene": "s15",
+   "shot": "s15.2a",
+   "start": 340.3,
+   "end": 344.8,
+   "asset": "a2-lunar-surface",
+   "motion": "slow push - bookends frame 1",
+   "on_screen": "ARTEMIS IV: THE LANDING",
+   "label": "NASA \u00b7 ARTEMIS II PHOTO"
+  },
+  {
+   "scene": "s15",
+   "shot": "s15.2b",
+   "start": 344.8,
+   "end": 349.2,
+   "asset": "a2-lunar-surface",
+   "motion": "re-frame: detail crop 1.4x",
+   "on_screen": "",
+   "label": "NASA \u00b7 ARTEMIS II PHOTO"
+  }
+ ],
+ "problems": []
+}

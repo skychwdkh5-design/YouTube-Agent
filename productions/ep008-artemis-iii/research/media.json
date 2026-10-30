@@ -1,0 +1,266 @@
+{
+ "episode": "EP008",
+ "rights_basis": "NASA media is generally not subject to US copyright; NASA must not appear to endorse; NASA insignia/logotype are not public domain and may need clearance as cover art; current astronauts' likeness may not be used in promotional material; third-party (company) artwork is not covered. https://www.nasa.gov/nasa-brand-center/images-and-media/",
+ "assets": [
+  {
+   "id": "a2-lunar-surface",
+   "file": "a2_lunar_surface_art002e009289.jpg",
+   "what": "Artemis II flyby: lunar surface filling the frame, 2026-04-06",
+   "credit": "NASA",
+   "page": "https://www.nasa.gov/image-detail/amf-art002e009289/",
+   "licence": "NASA (US public domain; no endorsement implied)",
+   "cover_ok": "YES - chosen cover base (no crew, no insignia)",
+   "min_needed": "1920x1080 crop",
+   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+  },
+  {
+   "id": "a2-earthset",
+   "file": "a2_earthset_art002e009288.jpg",
+   "what": "Artemis II: Earthset behind the Moon through Orion window",
+   "credit": "NASA",
+   "page": "https://www.nasa.gov/image-detail/art002e009288/",
+   "licence": "NASA (US public domain; no endorsement implied)",
+   "cover_ok": "possible (window frame)",
+   "min_needed": "1920x1080 crop",
+   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+  },
+  {
+   "id": "a2-earthrise",
+   "file": "a2_earthrise_art002e021278.jpg",
+   "what": "Artemis II Earthrise, 2026-04-06",
+   "credit": "NASA",
+   "page": "https://www.nasa.gov/image-detail/amf-art002e021278/",
+   "licence": "NASA (US public domain; no endorsement implied)",
+   "cover_ok": "possible",
+   "min_needed": "1920x1080 crop",
+   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+  },
+  {
+   "id": "a2-tiny-earth",
+   "file": "a2_tiny_earth_art002e009284.jpg",
+   "what": "Artemis II: tiny Earth, large Moon",
+   "credit": "NASA",
+   "page": "https://www.nasa.gov/image-detail/amf-art002e009284/",
+   "licence": "NASA (US public domain; no endorsement implied)",
+   "cover_ok": "no",
+   "min_needed": "1920x1080",
+   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+  },
+  {
+   "id": "a2-earth-behind-moon",
+   "file": "a2_earth_behind_moon_art002e009285.jpg",
+   "what": "Artemis II: Earth passing behind the Moon",
+   "credit": "NASA",
+   "page": "https://www.nasa.gov/image-detail/amf-art002e009285/",
+   "licence": "NASA (US public domain; no endorsement implied)",
+   "cover_ok": "no",
+   "min_needed": "1920x1080",
+   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+  },
+  {
+   "id": "a2-hertzsprung",
+   "file": "a2_hertzsprung_art002e012093.jpg",
+   "what": "Artemis II: Hertzsprung Basin",
+   "credit": "NASA",
+   "page": "https://www.nasa.gov/image-detail/amf-art002e012093/",
+   "licence": "NASA (US public domain; no endorsement implied)",
+   "cover_ok": "no",
+   "min_needed": "1920x1080",
+   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+  },
+  {
+   "id": "a2-orion-sunlit",
+   "file": "a2_orion_sunlit_art002e009566.jpg",
+   "what": "Artemis II: Orion lit by the Sun (camera on solar array)",
+   "credit": "NASA",
+   "page": "https://www.nasa.gov/image-detail/amf-art002e009566/",
+   "licence": "NASA (US public domain; no endorsement implied)",
+   "cover_ok": "no",
+   "min_needed": "1920x1080",
+   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+  },
+  {
+   "id": "srb-nosecones",
+   "file": "a3_srb_nosecones_KSC-20260930-PH-CSH01-0003.jpg",
+   "what": "Artemis III SRB nose cones, VAB High Bay 3, 2026-09-30 (= NEXORA srb-forward-assemblies)",
+   "credit": "NASA/Cory S Huston",
+   "page": "https://www.nasa.gov/?p=1055609",
+   "licence": "NASA (US public domain; no endorsement implied)",
+   "cover_ok": "alternate B only; portrait - large is 1280x1920, 16:9 needs ~orig >=1920 wide",
+   "min_needed": "~orig width >= 1920",
+   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+  },
+  {
+   "id": "rs25",
+   "file": "a3_rs25_KSC-20260721-PH-JBS01_0004.jpg",
+   "what": "Four RS-25 engines for Artemis III at the VAB, 2026-07-21 (= NEXORA core-stage-engines)",
+   "credit": "NASA/Ben Smegelsky",
+   "page": "https://www.nasa.gov/blogs/missions/2026/08/05/nasa-joins-artemis-iii-orion-modules-rocket-hardware-update/",
+   "licence": "NASA (US public domain; no endorsement implied)",
+   "cover_ok": "no",
+   "min_needed": "1920x1080",
+   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+  },
+  {
+   "id": "booster-segment",
+   "file": "a3_booster_segment_KSC-20260722-PH-JBS01_0056.jpg",
+   "what": "Right center SRB segment on work stand, 2026-07-22 (NASA insignia visible)",
+   "credit": "NASA/Ben Smegelsky",
+   "page": "https://www.nasa.gov/blogs/missions/2026/08/05/nasa-joins-artemis-iii-orion-modules-rocket-hardware-update/",
+   "licence": "NASA (US public domain; no endorsement implied)",
+   "cover_ok": "NO - insignia",
+   "min_needed": "1920x1080",
+   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+  },
+  {
+   "id": "spacer",
+   "file": "a3_spacer_MSFC_07212026_4755.jpg",
+   "what": "Artemis III spacer barrel after final weld, Marshall, 2026-07-23",
+   "credit": "NASA/Sam Lott",
+   "page": "https://www.nasa.gov/blogs/missions/2026/08/05/nasa-joins-artemis-iii-orion-modules-rocket-hardware-update/",
+   "licence": "NASA (US public domain; no endorsement implied)",
+   "cover_ok": "alternate C insert",
+   "min_needed": "1920x1080",
+   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+  },
+  {
+   "id": "solar-array",
+   "file": "a3_solar_array_KSC-20260818-PH-ALS01_0001.jpg",
+   "what": "Artemis III Orion solar array wing inspection, 2026-08-18",
+   "credit": "NASA/Amanda Stevenson",
+   "page": "https://www.nasa.gov/?p=1055609",
+   "licence": "NASA (US public domain; no endorsement implied)",
+   "cover_ok": "no",
+   "min_needed": "1920x1080",
+   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+  },
+  {
+   "id": "orion-joined",
+   "file": "a3_orion_joined_KSC-20260730-PH-AS01_6583.jpg",
+   "what": "Artemis III Orion crew + service modules joined (= NEXORA orion-modules-joined). wp-content copy is 768x1024; images-assets id is a GUESS from the file name",
+   "credit": "NASA/Amanda Stevenson",
+   "page": "https://www.nasa.gov/blogs/missions/2026/08/05/nasa-joins-artemis-iii-orion-modules-rocket-hardware-update/",
+   "licence": "NASA (US public domain; no endorsement implied)",
+   "cover_ok": "check crop",
+   "min_needed": "1920x1080 - may FAIL (portrait)",
+   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+  },
+  {
+   "id": "conops-graphic",
+   "file": "a3_conops_oct2026.jpg",
+   "what": "Artemis III concept of operations graphic (labelled NASA CONCEPT GRAPHIC on screen)",
+   "credit": "NASA",
+   "page": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+   "licence": "NASA (US public domain; no endorsement implied)",
+   "cover_ok": "alternate C base",
+   "min_needed": "legible at 1080p; used as reference for own diagrams",
+   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+  },
+  {
+   "id": "cadence-infographic",
+   "file": "artemis_cadence_infographic_feb2026.jpg",
+   "what": "NASA graphic: increased cadence of Artemis missions, 2026-02-27",
+   "credit": "NASA",
+   "page": "https://www.nasa.gov/blogs/missions/2026/02/27/nasa-adds-mission-to-artemis-lunar-program-updates-architecture",
+   "licence": "NASA (US public domain; no endorsement implied)",
+   "cover_ok": "no",
+   "min_needed": "legible at 1080p",
+   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+  }
+ ],
+ "own_graphics": [
+  {
+   "id": "d-orbit-vs-moon",
+   "what": "own diagram: Earth, LEO ring at 273-345 mi, Moon at ~239,000 mi (scale bar) - Artemis II path vs Artemis III orbit",
+   "credit": "Orbital Atlas graphic; based on NASA figures",
+   "label": "DIAGRAM"
+  },
+  {
+   "id": "d-mission-sequence",
+   "what": "own animated sequence: 3 launches, Blue Moon dock (~2 days, crew inside), Starship nose-to-nose dock (up to 2 h, crew stays in Orion), splashdown",
+   "credit": "Orbital Atlas animation; NASA flight profile",
+   "label": "ILLUSTRATION - NOT REAL FOOTAGE"
+  },
+  {
+   "id": "d-sls-stack",
+   "what": "own SLS side-view: Artemis II (with ICPS) vs Artemis III (spacer)",
+   "credit": "Orbital Atlas graphic; NASA hardware update 2026-08-05",
+   "label": "DIAGRAM"
+  },
+  {
+   "id": "d-timeline",
+   "what": "own timeline: Apr 2026 Artemis II, Feb 27 change, Jun crew, Jul-Sep hardware, Oct 23 profile, 2027 A-III, 2028 A-IV",
+   "credit": "Orbital Atlas graphic; NASA dates",
+   "label": null
+  },
+  {
+   "id": "d-crew-names",
+   "what": "crew names over a dark Earth-limb background; no portraits",
+   "credit": "Orbital Atlas graphic; NASA crew list",
+   "label": "NAMES ONLY"
+  },
+  {
+   "id": "d-training-list",
+   "what": "4 training items as icons (Navy hoist, underwater egress, survival suit, food tasting); no crew photos",
+   "credit": "Orbital Atlas graphic; NASA status 2026-10-13",
+   "label": "GRAPHIC"
+  },
+  {
+   "id": "d-timeline-apollo",
+   "what": "1969 timeline: Apollo 9 Earth-orbit LM test (March) -> Apollo 11 landing (July)",
+   "credit": "Orbital Atlas graphic; historical dates",
+   "label": "DIAGRAM"
+  }
+ ],
+ "excluded": [
+  {
+   "what": "Blue Moon Mark 2 docking artwork",
+   "credit": "Blue Origin",
+   "why": "company copyright"
+  },
+  {
+   "what": "Starship docking artwork",
+   "credit": "SpaceX",
+   "why": "company copyright"
+  },
+  {
+   "what": "Artemis III crew portrait",
+   "credit": "NASA/Bill Stafford",
+   "why": "current astronauts' likeness - not on covers or promotional material; in-video editorial use only after owner decision"
+  },
+  {
+   "what": "Crew water-training photo",
+   "credit": "US Navy",
+   "why": "not needed; identifiable crew"
+  },
+  {
+   "what": "2026-10-28 core-stage imagery",
+   "why": "after the 2026-10-23 source cut-off set by the owner"
+  },
+  {
+   "what": "Blue Moon Mark 2 art on NASA pages (mk2-eor-*.jpg, blue-origin-blue-moon-mark-2.png)",
+   "credit": "Blue Origin",
+   "why": "company copyright, even though hosted by NASA"
+  },
+  {
+   "what": "Starship docking composites (07-06-26-artemis3-*.jpg, spacex-starship.png)",
+   "credit": "SpaceX",
+   "why": "company copyright"
+  },
+  {
+   "what": "Artemis II crew photos (Glover, Koch, Hansen, Wiseman)",
+   "why": "identifiable current astronauts - not on cover; in-video only if owner decides"
+  }
+ ],
+ "video": {
+  "status": "candidates to be listed by ep008-fetch.yml into research/video_candidates.json (NASA Image and Video Library API). Nothing chosen or downloaded yet.",
+  "wanted": [
+   "Artemis II launch 2026-04-01 (KSC wide shot, 1080p+)",
+   "Artemis II splashdown/recovery 2026-04-10",
+   "Artemis III booster stacking time-lapse (VAB)",
+   "Artemis III Orion processing B-roll",
+   "SLS/Orion rollout B-roll"
+  ]
+ },
+ "nexora_source": "nexora-import/media.json (ids srb-forward-assemblies, orion-modules-joined, conops-graphic, core-stage-engines mapped above)"
+}
