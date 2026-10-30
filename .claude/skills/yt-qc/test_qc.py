@@ -310,6 +310,11 @@ class LongProfile(Base):
                   "thumbnail_hook_subject_first_3s", "thumbnail_hook_cold_open", "thumbnail_hook_honest", "thumbnail_hook_match"):
             self.assertEqual(ids[k], "fail", k)
 
+    def test_thumbnail_hook_without_manifest_uses_declared_time(self):
+        p = self.landscape(); self.package(hook={"subject_shot": "s1", "subject_visible_at": 5.0, "first_line": "x"})
+        code, d = run([p, "--profile", "long", "--thumbnail-hook", os.path.join(self.dir, "thumbnail_hook.json")])
+        self.assertEqual(status(d, "thumbnail_hook_subject_first_3s"), "fail")
+
     def test_short_profile_has_no_thumbnail_hook(self):
         self.assertNotIn(qc.check_thumbnail_hook, qc.SHORT_CHECKS)
 

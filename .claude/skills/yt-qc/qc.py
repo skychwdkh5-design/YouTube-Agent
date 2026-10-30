@@ -398,7 +398,11 @@ def check_thumbnail_hook(ctx):
     shot = shots.get(h.get("subject_shot"))
     at = _f(h.get("subject_visible_at"))
     if not m.get("shots"):
-        out.append(_skip("thumbnail_hook_subject_first_3s", "no render manifest to locate the subject shot"))
+        # no render manifest: check the declared time, and say it was not cross-checked
+        ok = at is not None and at <= HOOK_SUBJECT_MAX_S
+        out.append(_check("thumbnail_hook_subject_first_3s", ok, f"main subject on screen at <= {HOOK_SUBJECT_MAX_S} s",
+                          {"at": at}, "declared in the package; no render manifest to cross-check the shot - "
+                          "confirm on the contact sheet / first frames in match_review"))
     else:
         ok = (shot is not None and at is not None and at <= HOOK_SUBJECT_MAX_S
               and _f(shot.get("start")) is not None and _f(shot["start"]) - 1e-6 <= at < (_f(shot.get("end")) or 0))
