@@ -5,7 +5,7 @@ Episode number EP008: free after checking every branch (production/*, media/*, p
 highest used is EP007.
 
 ## Where things are
-- `nexora-import/` — NEXORA research copied unchanged (youtube-ops, research/runs/2026-10-30-growth-demo; see PROVENANCE.txt). NEXORA had no script, storyboard or downloaded files on any branch.
+- `nexora-import/` — NEXORA research copied unchanged (youtube-ops, research/runs/2026-10-30-growth-demo; PROVENANCE.txt) and, received at 13:03, NEXORA's later preproduction from branch production/artemis3 (`nexora-import/production-artemis3/`: script, edit plan, motion spec, hook board). Reconciled claim by claim in research/RESEARCH.md §4b; its verified extras are in the EP008 script.
 - `research/RESEARCH.md` — confirmed facts F01-F23, secondary/pending S1-S3, never-say list, corrections vs NEXORA.
 - `research/media.json` — assets, credits, rights, cover use, needed resolution, excluded material.
 - `research/TOPIC_SCORE.md`, `topics.json` — OA rescoring (3.83 GO-CANDIDATE); `OUTLIERS_external_vidiq.md` — NEXORA vidIQ data through OA outliers.py, labelled external.
@@ -18,7 +18,7 @@ highest used is EP007.
 - No vidIQ calls (0 credits). NEXORA untouched (read only).
 
 ## Next session, in order
-1. Read `fetch_manifest.tsv` (sizes; SMALL = below 1920 px) and `research/primary-texts/` — re-check S1 against the Feb 27 release text; fix RESEARCH.md if anything differs.
+1. Fetch run 1 done: 13/15 stills downloaded (research/fetch_manifest_run1.tsv), NASA texts saved and re-read (S1/S2 removed). Run 2 (this push) requests `~large` for srb-nosecones and solar-array — read fetch_manifest.tsv.
 2. Pick 3-5 NASA video clips from `research/video_candidates.json` (Artemis II launch/splashdown, booster stacking), add to a fetch list.
-3. Draw d-orbit-vs-moon and d-sls-stack (yt-graphics); render the first 20 s with a free temporary voice (Kokoro, as EP007); owner reviews cover A vs first frames.
+3. Reuse NEXORA's motion_spec.json/hook20 builder where it fits (do not redo); draw d-orbit-vs-moon and d-sls-stack (yt-graphics); render the first 20 s with a free temporary voice (Kokoro, as EP007); owner reviews cover A vs first frames.
 4. After owner approval of the script: full draft render → yt-qc --profile long → thumbcheck → owner.

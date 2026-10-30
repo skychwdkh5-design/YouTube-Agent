@@ -11,7 +11,7 @@
    "licence": "NASA (US public domain; no endorsement implied)",
    "cover_ok": "YES - chosen cover base (no crew, no insignia)",
    "min_needed": "1920x1080 crop",
-   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+   "status": "original downloaded 5568x3712 (sha256 2aa8c4a481ba\u2026), draft release ep008-originals, run 41011659925"
   },
   {
    "id": "a2-earthset",
@@ -22,7 +22,7 @@
    "licence": "NASA (US public domain; no endorsement implied)",
    "cover_ok": "possible (window frame)",
    "min_needed": "1920x1080 crop",
-   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+   "status": "original downloaded 5568x3712 (sha256 1a172c85a5b7\u2026), draft release ep008-originals, run 41011659925"
   },
   {
    "id": "a2-earthrise",
@@ -33,7 +33,7 @@
    "licence": "NASA (US public domain; no endorsement implied)",
    "cover_ok": "possible",
    "min_needed": "1920x1080 crop",
-   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+   "status": "original downloaded 5568x3712 (sha256 22687d173e1f\u2026), draft release ep008-originals, run 41011659925"
   },
   {
    "id": "a2-tiny-earth",
@@ -44,7 +44,7 @@
    "licence": "NASA (US public domain; no endorsement implied)",
    "cover_ok": "no",
    "min_needed": "1920x1080",
-   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+   "status": "original downloaded 5568x3712 (sha256 d3842b823a45\u2026), draft release ep008-originals, run 41011659925"
   },
   {
    "id": "a2-earth-behind-moon",
@@ -55,7 +55,7 @@
    "licence": "NASA (US public domain; no endorsement implied)",
    "cover_ok": "no",
    "min_needed": "1920x1080",
-   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+   "status": "original downloaded 5568x3712 (sha256 56434d0bcb0c\u2026), draft release ep008-originals, run 41011659925"
   },
   {
    "id": "a2-hertzsprung",
@@ -66,7 +66,7 @@
    "licence": "NASA (US public domain; no endorsement implied)",
    "cover_ok": "no",
    "min_needed": "1920x1080",
-   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+   "status": "original downloaded 5568x3712 (sha256 29ee07c79290\u2026), draft release ep008-originals, run 41011659925"
   },
   {
    "id": "a2-orion-sunlit",
@@ -77,7 +77,7 @@
    "licence": "NASA (US public domain; no endorsement implied)",
    "cover_ok": "no",
    "min_needed": "1920x1080",
-   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+   "status": "original downloaded 4000x3000 (sha256 9019da4c857f\u2026), draft release ep008-originals, run 41011659925"
   },
   {
    "id": "srb-nosecones",
@@ -88,7 +88,7 @@
    "licence": "NASA (US public domain; no endorsement implied)",
    "cover_ok": "alternate B only; portrait - large is 1280x1920, 16:9 needs ~orig >=1920 wide",
    "min_needed": "~orig width >= 1920",
-   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+   "status": "~orig refused (403); ~large requested in run 2"
   },
   {
    "id": "rs25",
@@ -99,7 +99,7 @@
    "licence": "NASA (US public domain; no endorsement implied)",
    "cover_ok": "no",
    "min_needed": "1920x1080",
-   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+   "status": "original downloaded 6720x4480 (sha256 c67cf3ac6fe3\u2026), draft release ep008-originals, run 41011659925"
   },
   {
    "id": "booster-segment",
@@ -110,7 +110,7 @@
    "licence": "NASA (US public domain; no endorsement implied)",
    "cover_ok": "NO - insignia",
    "min_needed": "1920x1080",
-   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+   "status": "original downloaded 6720x4480 (sha256 38c391972a5f\u2026), draft release ep008-originals, run 41011659925"
   },
   {
    "id": "spacer",
@@ -121,7 +121,7 @@
    "licence": "NASA (US public domain; no endorsement implied)",
    "cover_ok": "alternate C insert",
    "min_needed": "1920x1080",
-   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+   "status": "original downloaded 6000x4000 (sha256 f2d9e9adfefa\u2026), draft release ep008-originals, run 41011659925"
   },
   {
    "id": "solar-array",
@@ -132,18 +132,18 @@
    "licence": "NASA (US public domain; no endorsement implied)",
    "cover_ok": "no",
    "min_needed": "1920x1080",
-   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+   "status": "~orig refused (403); ~large requested in run 2"
   },
   {
    "id": "orion-joined",
-   "file": "a3_orion_joined_KSC-20260730-PH-AS01_6583.jpg",
+   "file": "a3_orion_joined_wp_ksc-20260730-ph-as01-6583.jpg",
    "what": "Artemis III Orion crew + service modules joined (= NEXORA orion-modules-joined). wp-content copy is 768x1024; images-assets id is a GUESS from the file name",
    "credit": "NASA/Amanda Stevenson",
    "page": "https://www.nasa.gov/blogs/missions/2026/08/05/nasa-joins-artemis-iii-orion-modules-rocket-hardware-update/",
    "licence": "NASA (US public domain; no endorsement implied)",
    "cover_ok": "check crop",
    "min_needed": "1920x1080 - may FAIL (portrait)",
-   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+   "status": "original downloaded 3648x4864 (sha256 fece7b884ceb\u2026), draft release ep008-originals, run 41011659925"
   },
   {
    "id": "conops-graphic",
@@ -154,7 +154,7 @@
    "licence": "NASA (US public domain; no endorsement implied)",
    "cover_ok": "alternate C base",
    "min_needed": "legible at 1080p; used as reference for own diagrams",
-   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+   "status": "original downloaded 4000x2250 (sha256 b9d1363a899b\u2026), draft release ep008-originals, run 41011659925"
   },
   {
    "id": "cadence-infographic",
@@ -165,7 +165,7 @@
    "licence": "NASA (US public domain; no endorsement implied)",
    "cover_ok": "no",
    "min_needed": "legible at 1080p",
-   "status": "listed; original not yet downloaded (NASA hosts blocked from this session) - fetch_list.txt"
+   "status": "original downloaded 5079x3839 (sha256 badb7b97b50e\u2026), draft release ep008-originals, run 41011659925"
   }
  ],
  "own_graphics": [
@@ -209,6 +209,18 @@
    "id": "d-timeline-apollo",
    "what": "1969 timeline: Apollo 9 Earth-orbit LM test (March) -> Apollo 11 landing (July)",
    "credit": "Orbital Atlas graphic; historical dates",
+   "label": "DIAGRAM"
+  },
+  {
+   "id": "d-test-list",
+   "what": "4 extra-day test items as icons",
+   "credit": "Orbital Atlas graphic; NASA flight profile 2026-10-23",
+   "label": "GRAPHIC"
+  },
+  {
+   "id": "d-three-rockets",
+   "what": "3 launch arcs converging in LEO, labelled BLUE MOON / ORION (SLS) / STARSHIP, generic silhouettes, no company artwork",
+   "credit": "Orbital Atlas graphic; NASA flight profile",
    "label": "DIAGRAM"
   }
  ],

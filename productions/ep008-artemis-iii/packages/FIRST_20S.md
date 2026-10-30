@@ -23,6 +23,7 @@ is answered at 3.1 s; the "why" promise of the title is opened at 20-30 s and an
 **Fact check of this segment:** F04 (photo date), F02 (landing moved), F06 (273 mi), F03 (Artemis II, April), F14 + F20 (spacer replaces the stage; the
 stage's job). Every frame's asset: research/media.json.
 
-**Blocking a real test of these 20 s:** the four stills (a2-lunar-surface, a2-earthset, spacer, + d-* diagrams built from
-them) are not downloaded yet. Run `ep008-fetch.yml` (push of fetch_list.txt), then check each is ≥1920 px wide.
+**Stills for these 20 s are downloaded** (GitHub run 41011659925, draft release `ep008-originals`): a2-lunar-surface 5568x3712,
+a2-earthset 5568x3712, spacer 6000x4000.
+**Still blocking a real test:**
 The diagrams `d-orbit-vs-moon` and `d-sls-stack` still have to be drawn (yt-graphics). Temporary voice (free Kokoro, as EP007) is enough for the test; no ElevenLabs.

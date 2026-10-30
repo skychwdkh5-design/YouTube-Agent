@@ -1,0 +1,77 @@
+{
+ "version": 1,
+ "items": [
+  {
+   "id": "n1-boosters",
+   "file": "assets/n1-boosters.jpg",
+   "kind": "photo",
+   "author": "NASA/Cory S Huston",
+   "origin_url": "https://images-assets.nasa.gov/image/KSC-20260930-PH-CSH01-0003/KSC-20260930-PH-CSH01-0003~orig.jpg",
+   "license": "PD-US-Gov",
+   "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+   "credit": "NASA/Cory S Huston",
+   "verified": false,
+   "notes": "Page: https://www.nasa.gov/blogs/missions/2026/10/13/nasa-completes-artemis-iii-booster-stacking-shares-status-update/. Credit and caption read via WebFetch 2026-10-30; file not downloaded yet - set verified after download + origin check. hook 0:00 + cover A; crop so no NASA insignia is legible; portrait -> vertical tilt inside 16:9"
+  },
+  {
+   "id": "n4-conops",
+   "file": "assets/n4-conops.jpg",
+   "kind": "graphic",
+   "author": "NASA",
+   "origin_url": "https://www.nasa.gov/wp-content/uploads/2026/10/2-artemis-iii-con-ops-oct2026.jpg",
+   "license": "PD-US-Gov",
+   "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+   "credit": "NASA",
+   "verified": false,
+   "notes": "Page: https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/. Credit and caption read via WebFetch 2026-10-30; file not downloaded yet - set verified after download + origin check. label on screen: NASA CONCEPT GRAPHIC"
+  },
+  {
+   "id": "n2-orion",
+   "file": "assets/n2-orion.jpg",
+   "kind": "photo",
+   "author": "NASA/Amanda Stevenson",
+   "origin_url": "https://www.nasa.gov/wp-content/uploads/2026/08/ksc-20260730-ph-as01-6583.jpg",
+   "license": "PD-US-Gov",
+   "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+   "credit": "NASA/Amanda Stevenson",
+   "verified": false,
+   "notes": "Page: https://www.nasa.gov/blogs/missions/2026/08/05/nasa-joins-artemis-iii-orion-modules-rocket-hardware-update/. Credit and caption read via WebFetch 2026-10-30; file not downloaded yet - set verified after download + origin check. also cover C (no insignia in crop)"
+  },
+  {
+   "id": "n3-rs25",
+   "file": "assets/n3-rs25.jpg",
+   "kind": "photo",
+   "author": "NASA/Ben Smegelsky",
+   "origin_url": "https://images-assets.nasa.gov/image/KSC-20260721-PH-JBS01_0004/KSC-20260721-PH-JBS01_0004~orig.jpg",
+   "license": "PD-US-Gov",
+   "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+   "credit": "NASA/Ben Smegelsky",
+   "verified": false,
+   "notes": "Page: https://www.nasa.gov/blogs/missions/2026/08/05/nasa-joins-artemis-iii-orion-modules-rocket-hardware-update/. Credit and caption read via WebFetch 2026-10-30; file not downloaded yet - set verified after download + origin check. "
+  },
+  {
+   "id": "n5-solar",
+   "file": "assets/n5-solar.jpg",
+   "kind": "photo",
+   "author": "NASA/Amanda Stevenson",
+   "origin_url": "https://images-assets.nasa.gov/image/KSC-20260818-PH-ALS01_0001/KSC-20260818-PH-ALS01_0001~orig.jpg",
+   "license": "PD-US-Gov",
+   "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+   "credit": "NASA/Amanda Stevenson",
+   "verified": false,
+   "notes": "Page: https://www.nasa.gov/blogs/missions/2026/10/13/nasa-completes-artemis-iii-booster-stacking-shares-status-update/. Credit and caption read via WebFetch 2026-10-30; file not downloaded yet - set verified after download + origin check. "
+  },
+  {
+   "id": "n6-booster-rpsf",
+   "file": "assets/n6-booster-rpsf.jpg",
+   "kind": "photo",
+   "author": "NASA/Ben Smegelsky",
+   "origin_url": "https://images-assets.nasa.gov/image/KSC-20260722-PH-JBS01_0056/KSC-20260722-PH-JBS01_0056~orig.jpg",
+   "license": "PD-US-Gov",
+   "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+   "credit": "NASA/Ben Smegelsky",
+   "verified": false,
+   "notes": "Page: https://www.nasa.gov/blogs/missions/2026/08/05/nasa-joins-artemis-iii-orion-modules-rocket-hardware-update/. Credit and caption read via WebFetch 2026-10-30; file not downloaded yet - set verified after download + origin check. in-video only (NASA 'worm' insignia visible) - never on a cover"
+  }
+ ]
+}

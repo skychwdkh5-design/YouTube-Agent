@@ -44,13 +44,14 @@ scene("s03", "Why it matters + promise", ["F01", "F02", "F06", "F13"],
  sfx="music bed enters at 'Here's what' (low, pulsing)")
 
 # ---------------------------------------------------------------- 0:30 what changed
-scene("s04", "What NASA changed in February", ["F03", "F04", "F01", "F02", "S1"],
+scene("s04", "What NASA changed in February", ["F03", "F04", "F01", "F02", "F24"],
  "Artemis Two's flight took ten days: launch on April first, a seven-hour lunar flyby on April sixth, splashdown off California on April tenth. "
  "But by then the plan for the next mission had already changed. On February twenty-seventh, NASA rewrote the order of the Artemis program. Artemis Three had been the landing. "
  "It became a test flight in low Earth orbit, set for twenty twenty-seven, and the first landing moved to Artemis Four, targeted for twenty twenty-eight. "
  "NASA also promised at least one landing every year after that. "
- "At the announcement, NASA's leadership argued that rare flights are a problem in themselves: crews and launch teams lose practice between missions, "
- "and changing the rocket and spacecraft after every flight adds risk instead of removing it.",
+ "NASA's reasoning, in its own announcement: keep the rocket and spacecraft as close as possible to the version that already flew, fly more often, "
+ "and build up step by step, with each mission big enough to make progress but not so big that it takes unnecessary risk. "
+ "NASA's administrator said that's how the agency did it in nineteen sixty-nine.",
  [("a2-earth-behind-moon", .12, "slow drift", "ARTEMIS II · APR 1-10, 2026", "NASA · ARTEMIS II PHOTO"),
   ("a2-earthset", .10, "push-in on Earth", "APRIL 6: FLYBY", "NASA · ARTEMIS II PHOTO"),
   ("cadence-infographic", .14, "push-in on 2027 slot", "FEB 27, 2026", "NASA GRAPHIC"),
@@ -86,26 +87,26 @@ scene("s06", "Who flies", ["F05", "F23"],
  sfx="")
 
 # ---------------------------------------------------------------- 2:05 the mission
-scene("s07", "Three launches", ["F11", "F09"],
+scene("s07", "Three launches", ["F11", "F09", "F25"],
  "Artemis Three needs three launches. First, Blue Origin launches a test version of its Blue Moon lander. "
  "It can wait in orbit for up to thirty days. "
- "Then the crew launches on NASA's SLS rocket from Florida. Starship goes up after the crew is already in orbit.",
+ "Then the crew launches on NASA's SLS rocket from Florida. Starship goes up later, after the crew is already in orbit, because it's built for a much shorter stay in space than Blue Origin's lander.",
  [("d-mission-sequence", .35, "launch 1 arc, Blue Moon icon parks in orbit, 30-day counter", "LAUNCH 1: BLUE MOON", "ILLUSTRATION"),
   ("d-mission-sequence", .35, "launch 2 from Florida, Orion icon", "LAUNCH 2: CREW", "ILLUSTRATION"),
   ("d-mission-sequence", .30, "launch 3, Starship icon", "LAUNCH 3: STARSHIP", "ILLUSTRATION")],
  sfx="three distinct launch rumbles, each shorter")
 
-scene("s08", "The orbits", ["F06"],
+scene("s08", "The orbits", ["F06", "F27"],
  "The orbits are precise. The Blue Moon test article circles about two hundred seventy-three miles up. "
  "Orion starts in a long, stretched orbit, from eighteen to more than eleven hundred miles, then rounds it out near three hundred forty-five. "
- "Starship flies lower still. Every number here comes from NASA's flight profile.",
+ "Starship is planned lower still, at two hundred six nautical miles, an orbit NASA picked for communications coverage. Every number here comes from NASA's flight profile.",
  [("conops-graphic", .40, "zoom to orbit annotations", "273 MI · 345 MI", "NASA CONCEPT GRAPHIC"),
   ("d-orbit-vs-moon", .60, "ellipse 18 x 1,122 mi animates, circularizes", "18 × 1,122 MI → 345 MI", "DIAGRAM · NASA FIGURES")],
  sfx="soft UI ticks on numbers")
 
-scene("s09", "Dock one: Blue Moon", ["F07", "F08", "F09"],
+scene("s09", "Dock one: Blue Moon", ["F07", "F08", "F09", "F28"],
  "First docking: Orion pulls up alongside the Blue Moon lander. While they're joined, Orion's own software flies both spacecraft. "
- "Then the hatch opens. Up to two astronauts, in their orange survival suits, float into a lunar lander for the first time since Apollo. "
+ "Then the hatch opens. Up to two astronauts, in their orange survival suits, float inside. NASA calls it its first evaluation of a commercial lunar lander with a crew. "
  "They spend about two days checking its cabin, controls and life support. "
  "Riding along is a dummy the weight of a spacesuit, wired with sensors, reporting what the cabin really feels like.",
  [("d-mission-sequence", .30, "Orion approaches, side-by-side dock, 'ORION SOFTWARE IN CONTROL'", "DOCK 1: BLUE MOON", "ILLUSTRATION - NOT REAL FOOTAGE"),
@@ -116,34 +117,39 @@ scene("s09", "Dock one: Blue Moon", ["F07", "F08", "F09"],
 
 scene("s10", "Dock two: Starship", ["F10", "F19"],
  "Second docking: Starship. The test vehicle is a hundred seventy-one feet tall, about fifty-two meters, with a docking port in its nose. "
- "Orion meets it nose to nose, and this time SpaceX flies the pair. It lasts up to two hours, and nobody goes inside. "
+ "This time Orion uses its forward docking port and meets Starship nose to nose, a different geometry from the first docking, and SpaceX flies the pair. It lasts up to two hours, and nobody goes inside. "
  "NASA and SpaceX are still deciding exactly which control and communication tests to run.",
  [("d-mission-sequence", .35, "Starship icon at true scale next to Orion (171 ft)", "171 FT · 52 M", "ILLUSTRATION"),
   ("d-mission-sequence", .35, "nose-to-nose dock, 2:00:00 countdown", "UP TO 2 HOURS", "ILLUSTRATION - NOT REAL FOOTAGE"),
   ("d-mission-sequence", .30, "crew icon stays in Orion, red X on Starship hatch", "CREW STAYS IN ORION", "ILLUSTRATION")],
  sfx="lower, heavier clunk; countdown ticks")
 
-scene("s11", "Home", ["F12", "F06"],
- "After about fourteen days, Orion comes home and splashes down in the Pacific, off the coast of California, "
+scene("s11", "Home", ["F29", "F12", "F06"],
+ "After Starship, NASA has set aside up to five more days for extra tests: more checks of the crew's survival suits, docking sensor tests, sound and heat measurements, and studies of how the crew lives and works on board. "
+ "Then, after about fourteen days in total, Orion comes home and splashes down in the Pacific, off the coast of California, "
  "the same ocean where Artemis Two landed in April.",
- [("d-mission-sequence", .45, "reentry arc to Pacific", "SPLASHDOWN: PACIFIC", "ILLUSTRATION"),
-  ("a2-earth-behind-moon", .55, "slow drift", "DAY 14", "NASA · ARTEMIS II PHOTO")],
+ [("d-test-list", .40, "4 test items tick in", "UP TO 5 EXTRA DAYS", "GRAPHIC · NASA FLIGHT PROFILE"),
+  ("d-mission-sequence", .30, "reentry arc to Pacific", "SPLASHDOWN: PACIFIC", "ILLUSTRATION"),
+  ("a2-earth-behind-moon", .30, "slow drift", "DAY 14", "NASA · ARTEMIS II PHOTO")],
  sfx="wind/water swell")
 
 # ---------------------------------------------------------------- 4:40 why docking first
-scene("s12", "Why docking first", ["F02", "F13", "F08", "F10"],
- "So why test this in Earth orbit? Because on Artemis Four, the landing depends on exactly this step. "
+scene("s12", "Why docking first", ["F30", "F02", "F13", "F08", "F10"],
+ "So why spend a whole mission on this? NASA's Artemis program manager put it plainly: every piece of the mission in Earth orbit is designed to reduce risk before astronauts go back to the Moon. "
+ "Three spacecraft on three different rockets, working together, which he says NASA has never attempted. "
+ "And on Artemis Four, the landing depends on exactly this step. "
  "Orion can't land. A commercial lander has to meet it, take astronauts down near the South Pole, and bring them back. "
  "If that handoff fails near the Moon, the crew is days from home. In low Earth orbit, they're hours away.",
- [("d-orbit-vs-moon", .35, "Artemis IV path draws out to Moon, handoff point flashes", "ARTEMIS IV: HANDOFF AT THE MOON", "DIAGRAM"),
-  ("a2-tiny-earth", .30, "slow push", "DAYS FROM HOME", "NASA · ARTEMIS II PHOTO"),
-  ("d-orbit-vs-moon", .35, "snap back to LEO ring", "HOURS FROM HOME", "DIAGRAM")],
+ [("d-three-rockets", .25, "three launch arcs converge in one orbit", "3 SPACECRAFT · 3 ROCKETS", "DIAGRAM"),
+  ("d-orbit-vs-moon", .25, "Artemis IV path draws out to Moon, handoff point flashes", "ARTEMIS IV: HANDOFF AT THE MOON", "DIAGRAM"),
+  ("a2-tiny-earth", .25, "slow push", "DAYS FROM HOME", "NASA · ARTEMIS II PHOTO"),
+  ("d-orbit-vs-moon", .25, "snap back to LEO ring", "HOURS FROM HOME", "DIAGRAM")],
  sfx="tension drone builds; cut to silence on 'hours away'")
 # NOTE s12: 'days from home / hours away' is a general orbital-mechanics statement, not a NASA-stated reason.
 # The VO frames it as why the test is placed in LEO in principle; NASA's stated purpose (F08/F10, July 15)
 # is to test rendezvous and docking between commercial landers and Orion. Owner to confirm wording.
 
-scene("s13", "Apollo did this too", ["F21"],
+scene("s13", "Apollo did this too", ["F21", "F24"],
  "If this sounds familiar, it should. In March nineteen sixty-nine, Apollo Nine tested the lunar module in Earth orbit. "
  "Four months later, Apollo Eleven landed.",
  [("d-timeline-apollo", .55, "1969 timeline: Apollo 9 (Earth orbit) → Apollo 11 (landing)", "APOLLO 9 · EARTH ORBIT · 1969", "DIAGRAM"),
@@ -152,8 +158,8 @@ scene("s13", "Apollo did this too", ["F21"],
 # Apollo 9: launched 1969-03-03; Apollo 11 landed 1969-07-20 (about 4.5 months). Historical parallel only.
 
 # ---------------------------------------------------------------- 5:40 unknowns + close
-scene("s14", "What is still unknown", ["S2", "F18", "F19"],
- "What we don't know yet: a launch date. NASA says twenty twenty-seven; its administrator told reporters in October that next summer is still the target. "
+scene("s14", "What is still unknown", ["F02", "F18", "F19"],
+ "What we don't know yet: a launch date. NASA says twenty twenty-seven, and nothing more precise. "
  "The rocket's fueling test at the pad is still ahead. And NASA hasn't said which lander will carry the first crew down on Artemis Four.",
  [("srb-nosecones", .40, "tilt", "LAUNCH: 2027 (NO DATE)", "NASA/CORY S HUSTON"),
   ("d-timeline", .30, "open items flash: tanking test, lander choice", "STILL OPEN", None),

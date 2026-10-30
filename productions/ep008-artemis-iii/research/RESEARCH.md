@@ -34,6 +34,13 @@ into `primary-texts/` and re-read before voice.
 | F19 | Docking controllability and communications tests with Starship are still being identified | V | NASA 2026-07-15 |
 | F22 | Reused Artemis II crew-module components move hardware installation up ~3 months; mobile launcher tower turnaround nearly 50% faster; booster motor segment readiness accelerated by almost four months | V | NASA 2026-08-05 |
 | F23 | Crew training reported Oct 13: water-lift recovery with US Navy helicopters off San Diego (2026-09-24), helicopter underwater egress, suited training in Orion Crew Survival System suits, tasting of nearly 200 food items | V | NASA 2026-10-13 |
+| F24 | NASA's stated reasons (release 2026-02-27): Isaacman — standardize, increase flight rate safely, competition from "our greatest geopolitical adversary", phased approach "is how we achieved the near-impossible in 1969"; Kshatriya — "needlessly complicated" to alter the SLS/Orion configuration, step-by-step build-up, each step "big enough to make progress, but not so big that we take unnecessary risk", land in close to Block 1 configuration | V (primary text saved) | research/primary-texts/2026-02-27_nasa_adds_mission.txt |
+| F25 | Starship launches later in the mission because it is designed for a much shorter on-orbit lifetime than Blue Origin's lander | V (primary text saved) | research/primary-texts/2026-10-23_flight_profile.txt |
+| F26 | Feb 27 release also lists for Artemis III: integrated checkout of life support, communications, propulsion, and tests of new xEVA suits — "will endeavor to include" (aspirational; the Oct 23 profile is the newer, definitive plan) | V | 2026-02-27 primary text |
+| F27 | Starship's lower orbit (206 nmi) is "optimized for communications coverage" | V | primary-texts/2026-10-23_flight_profile.txt (also NEXORA script) |
+| F28 | Orion docks at a port beside Blue Moon's crew cabin, then aligns its forward docking system with Starship's nose — two docking geometries; by undocking NASA will have completed "its first evaluation of a commercial lunar lander with crew" | V | 2026-10-23 profile |
+| F29 | After Starship: up to five additional days in orbit — Orion Crew Survival System suit evaluations, docking sensor tests, acoustic and thermal measurements, human-factors assessments; recovery by NASA and the US Navy | V | 2026-10-23 profile |
+| F30 | Jeremy Parsons (Artemis program manager): every piece of the mission in Earth orbit is designed to reduce risk before astronauts return to the Moon; three spacecraft on three rockets, "something NASA has never attempted" | V | 2026-10-23 profile |
 | F20 | The ICPS performs the push toward the Moon on SLS Block 1 missions | general knowledge (well established); wording "the stage that sends Orion toward the Moon" |
 | F21 | Apollo 9 (March 1969) tested the lunar module in Earth orbit before Apollo 10/11 | historical fact; **used only as a parallel, never as NASA's stated reason** |
 
@@ -41,8 +48,8 @@ into `primary-texts/` and re-read before voice.
 
 | id | claim | status | use |
 |---|---|---|---|
-| S1 | Feb 27 reasons: Isaacman — Artemis flight rate the lowest of any NASA-designed vehicle; rare flights let skills atrophy (safety); Kshatriya — changing SLS/Orion configuration after Artemis II needlessly complicated, build step by step | S ([Astronomy.com](https://www.astronomy.com/space-exploration/nasa-overhauls-artemis-adds-second-mission-before-first-lunar-landing/)), P (NASA release text) | Scene 4, paraphrased and attributed to "NASA's leadership said at the announcement". **Re-read in `primary-texts/2026-02-27_nasa_adds_mission.txt` before voice; cut if absent.** |
-| S2 | Oct 23 briefing: Isaacman says Artemis III on track for next summer; NASA keeps lander choice for Artemis IV open | S ([AP via News4Jax](https://www.news4jax.com/tech/2026/10/23/nasa-adopting-apollos-urgency-to-build-a-moon-base-and-land-astronauts-within-two-years/)), P | Scene 9, attributed "NASA's administrator told reporters". Never as a launch date. |
+| S1 | Astronomy.com: Isaacman said Artemis flight rate is the lowest of any NASA-designed vehicle and rare flights let skills atrophy | S — **NOT in the NASA release text** (checked 2026-10-30, primary-texts/2026-02-27). Possibly said at the news conference; not verifiable here | **removed from the script**; scene 4 now uses F24 (NASA's own words) |
+| S2 | Oct 23 briefing: Isaacman says Artemis III on track for next summer; lander choice for Artemis IV kept open | S ([AP via News4Jax](https://www.news4jax.com/tech/2026/10/23/nasa-adopting-apollos-urgency-to-build-a-moon-base-and-land-astronauts-within-two-years/)) — NASA's briefing page says only "next year" | **removed from the script**; scene 14 says "2027, nothing more precise" |
 | S3 | AP wrote "Blue Ghost" for Blue Origin's lander — an error (Blue Ghost is Firefly) | S | not used; shows why secondary sources are not trusted |
 
 ## 3. Never say
@@ -57,6 +64,17 @@ into `primary-texts/` and re-read before voice.
 - NEXORA chose cover A (boosters). Re-checked: the cleared booster photo is **portrait 1280x1920 (large)**;
   a 16:9 crop is 1280x720 — below 1080p unless the `~orig` file is larger. Moved to alternate B.
 - New verified material not in NEXORA: Artemis II flight (F03-F04), the spacer (F14), mission profile details F08-F11.
+
+## 4b. Reconciliation with NEXORA production/artemis3 (received 2026-10-30 13:03)
+NEXORA's later session (branch production/artemis3, imported to `nexora-import/production-artemis3/`) wrote a script,
+edit plan, motion spec and hook board. Compared claim by claim:
+- NEXORA excluded "Blue Moon orbit ~273 miles" and "off California" as unconfirmed. **Both are in NASA's own text**
+  (primary-texts/2026-10-23_flight_profile.txt lines "approximately 273 miles (237 nautical miles)" and "in the Pacific
+  Ocean, off the coast of California"). Kept.
+- Taken over from NEXORA (verified in the same text): F27-F30 and the discipline of wording plans as plans.
+- NEXORA's hook uses the booster photo; its `~orig` file returns 403 even from the GitHub runner (manifest run 1),
+  and `~large` is 1280x1920 portrait. EP008 keeps the Artemis II Moon photo (5568x3712, downloaded) as frame 1.
+- NEXORA's "spacesuit evaluations" = Orion Crew Survival System suits, not lunar EVA suits — worded that way here.
 
 ## 5. Topic score (Orbital Atlas)
 `research/TOPIC_SCORE.md` — 3.83, GO-CANDIDATE. Inputs from NEXORA are external; `proof` scored 2 because
