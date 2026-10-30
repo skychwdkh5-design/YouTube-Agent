@@ -55,6 +55,15 @@ Decision rules:
 or anywhere else may use it when satellite evidence materially improves the story. The no-
 fabrication rules in that skill apply everywhere: no scene, no satellite claim.
 
+## Thumbnail-Hook consistency (mandatory, long-form)
+
+Before writing a full script, propose 3 cover concepts tied to verified facts (title, main visual promise,
+first 15 s each), choose one with a rationale (never state a CTR forecast as fact), and keep the other two
+for A/B. The chosen cover's main subject appears in the first 3 seconds or the concept is revised. Never
+open with a logo, greeting, general history or long intro; never present an invented event as documentary
+footage. Details: `docs/production-pipeline.md` (Thumbnail-Hook consistency); QC: `thumbnail_hook_*` in
+`/yt-qc --profile long`; learnings: `docs/THUMBNAIL_HOOK_LEARNINGS.md`.
+
 ## Thumbnail standard
 
 For all OrbitalAtlas long-form videos, thumbnails must follow the established channel style from previously approved covers. No gray, low-contrast, weak, minimal, or off-brand thumbnails are allowed. New thumbnails must visually match the existing style: large uppercase headline, bold white/yellow emphasis, dramatic satellite/aerial imagery, strong contrast, simple high-impact composition, and mobile-first readability. Any thumbnail that visually deviates from the approved style must be treated as FAIL and revised before approval.
