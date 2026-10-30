@@ -35,6 +35,17 @@ Name the single biggest leak and one change for it. Not a list of five. Then, on
 rest. And if the hook leak is healthy and the slide is flat, say the video is fine and the problem
 is packaging - send them to `/yt-package`.
 
+## Episode report (day 7 and day 28)
+
+`episode_report.py` combines Studio numbers (impressions, CTR by traffic source, 30 s retention, average
+view duration, percent viewed, A/B) with the retention export, compares only with episodes at a similar
+age, names length and traffic-mix confounders, and grades each hypothesis supported / not supported /
+inconclusive. It answers: what held, what did not, where viewers left, what to test next.
+
+```bash
+python3 episode_report.py metrics.json --history ../../../docs/growth/history.jsonl --retention r.csv --markdown --append
+```
+
 ## The gate
 
 Nothing here publishes. This skill writes and you publish. Every output ends in a block the user
