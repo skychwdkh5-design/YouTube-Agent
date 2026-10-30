@@ -1,0 +1,61 @@
+name: EP008 fetch NASA videos (temporary)
+# Branch-only, read-only towards NASA. For each line in fetch_videos.txt: read the NASA collection.json, log every
+# MP4 rendition with its size, download the original, record ffprobe data, make a 1080p H.264 working copy
+# (downscale only, never upscale), upload BOTH to the DRAFT release ep008-originals immediately (progress survives a
+# timeout). Commits fetch_video_manifest.tsv only. No YouTube secrets. Delete after the final render.
+on:
+  push:
+    branches: [production/ep008-artemis-iii]
+    paths: [productions/ep008-artemis-iii/fetch_videos.txt]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ep008-videos
+  cancel-in-progress: false
+jobs:
+  videos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download, probe, make 1080p working copies, upload
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -u
+          D=productions/ep008-artemis-iii; T=ep008-originals
+          sudo apt-get -qq update >/dev/null && sudo apt-get -qq install -y ffmpeg >/dev/null
+          gh release view "$T" >/dev/null 2>&1 || gh release create "$T" --draft --title "EP008 NASA originals (draft, not for publication)" --notes "Working sources for EP008. Draft only."
+          mkdir -p v; : > vm.tsv
+          while IFS='|' read -r name nid; do
+            [ -z "${name:-}" ] && continue; case "$name" in \#*) continue;; esac
+            enc=$(python3 -c "import urllib.parse,sys;print(urllib.parse.quote(sys.argv[1]))" "$nid")
+            curl -sSL -A "OrbitalAtlas-research/1.0" --max-time 60 "https://images-assets.nasa.gov/video/$enc/collection.json" -o coll.json || true
+            python3 - > pick.txt <<'PY'
+          import json
+          try: L=[u.replace("http://","https://").replace(" ","%20") for u in json.load(open("coll.json")) if u.lower().endswith((".mp4",".mov"))]
+          except Exception: L=[]
+          order=lambda u:(0 if "~orig" in u else 1 if "~large" in u else 2)
+          for u in sorted(L,key=order): print(u)
+          PY
+            echo "== $name renditions:"; cat pick.txt
+            url=$(head -1 pick.txt)
+            if [ -z "$url" ]; then printf '%s\tNOURL\t-\t-\t-\t%s\n' "$name" "$nid" | tee -a vm.tsv; continue; fi
+            ext="${url##*.}"; src="v/${name%.mp4}_orig.$ext"
+            code=$(curl -sSL -A "OrbitalAtlas-research/1.0" -o "$src" -w '%{http_code}' --max-time 2400 "$url" || echo ERR)
+            probe=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate,codec_name:format=duration,size -of csv=p=0:s=x "$src" 2>/dev/null | tr '\n' ' ')
+            ffmpeg -v error -y -i "$src" -vf "scale='min(1920,iw)':-2" -c:v libx264 -preset veryfast -crf 16 -pix_fmt yuv420p -an "v/$name" || true
+            wprobe=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate:format=duration -of csv=p=0:s=x "v/$name" 2>/dev/null | tr '\n' ' ')
+            sha=$(sha256sum "$src" | cut -c1-64)
+            printf '%s\t%s\torig: %s\twork: %s\t%s\t%s\t%s\n' "$name" "$code" "$probe" "$wprobe" "$sha" "$nid" "$url" | tee -a vm.tsv
+            [ -s "v/$name" ] && gh release upload "$T" "v/$name" --clobber
+            sz=$(stat -c%s "$src" 2>/dev/null || echo 0)
+            [ "$sz" -lt 1900000000 ] && [ "$sz" -gt 0 ] && gh release upload "$T" "$src" --clobber || echo "original not uploaded (size $sz)"
+            rm -f "$src"
+          done < $D/fetch_videos.txt
+          cp vm.tsv $D/fetch_video_manifest.tsv
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull -q --rebase origin production/ep008-artemis-iii || true
+          git add -f $D/fetch_video_manifest.tsv
+          git commit -qm "EP008 video manifest (run ${{ github.run_id }})" && git push -q origin HEAD:production/ep008-artemis-iii || echo "nothing to commit"

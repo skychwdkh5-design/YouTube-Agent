@@ -12,7 +12,6 @@ on:
       - productions/ep008-artemis-iii/fetch_list.txt
       - productions/ep008-artemis-iii/fetch_pages.txt
       - productions/ep008-artemis-iii/fetch_video_queries.txt
-      - productions/ep008-artemis-iii/fetch_videos.txt
   workflow_dispatch:
 permissions:
   contents: write
@@ -51,31 +50,6 @@ jobs:
           )
             printf '%s\t%s\t%s\t%s\n' "$name" "$code" "$info" "$url" | tee -a manifest.tsv
           done < $D/fetch_list.txt
-      - name: Download NASA video originals
-        run: |
-          set -u
-          D=productions/ep008-artemis-iii
-          sudo apt-get -qq install -y ffmpeg >/dev/null 2>&1 || true
-          : > video_manifest.tsv
-          [ -f $D/fetch_videos.txt ] || exit 0
-          while IFS='|' read -r name nid; do
-            [ -z "${name:-}" ] && continue; case "$name" in \#*) continue;; esac
-            enc=$(python3 -c "import urllib.parse,sys;print(urllib.parse.quote(sys.argv[1]))" "$nid")
-            curl -sSL -A "OrbitalAtlas-research/1.0" --max-time 60 "https://images-assets.nasa.gov/video/$enc/collection.json" -o coll.json || true
-            url=$(python3 - <<'PY'
-          import json
-          try: L=[u.replace("http://","https://") for u in json.load(open("coll.json")) if u.lower().endswith(".mp4")]
-          except Exception: L=[]
-          pick=[u for u in L if "~orig" in u] or [u for u in L if "~large" in u] or L
-          print(pick[0].replace(" ","%20") if pick else "")
-          PY
-          )
-            if [ -z "$url" ]; then printf '%s\tNOURL\t-\t%s\n' "$name" "$nid" | tee -a video_manifest.tsv; continue; fi
-            code=$(curl -sSL -A "OrbitalAtlas-research/1.0" -o "out/$name" -w '%{http_code}' --max-time 900 "$url" || echo ERR)
-            info=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate,codec_name:format=duration -of csv=p=0:s=x "out/$name" 2>/dev/null | tr '\n' ' ')
-            sha=$(sha256sum "out/$name" 2>/dev/null | cut -c1-64)
-            printf '%s\t%s\t%s\t%s\t%s\t%s\n' "$name" "$code" "$info" "$sha" "$nid" "$url" | tee -a video_manifest.tsv
-          done < $D/fetch_videos.txt
       - name: Save primary texts
         run: |
           set -u
@@ -126,7 +100,7 @@ jobs:
       - name: Commit manifest, texts and video list
         run: |
           D=productions/ep008-artemis-iii
-          cp manifest.tsv $D/fetch_manifest.tsv; cp video_manifest.tsv $D/fetch_video_manifest.tsv
+          cp manifest.tsv $D/fetch_manifest.tsv
           git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f $D/fetch_manifest.tsv $D/fetch_video_manifest.tsv $D/research/primary-texts $D/research/video_candidates.json
+          git add -f $D/fetch_manifest.tsv $D/research/primary-texts $D/research/video_candidates.json
           git commit -qm "EP008 fetch results (run ${{ github.run_id }})" && git push -q origin HEAD:production/ep008-artemis-iii || echo "nothing to commit"
