@@ -265,13 +265,54 @@
   }
  ],
  "video": {
-  "status": "candidates to be listed by ep008-fetch.yml into research/video_candidates.json (NASA Image and Video Library API). Nothing chosen or downloaded yet.",
-  "wanted": [
-   "Artemis II launch 2026-04-01 (KSC wide shot, 1080p+)",
-   "Artemis II splashdown/recovery 2026-04-10",
-   "Artemis III booster stacking time-lapse (VAB)",
-   "Artemis III Orion processing B-roll",
-   "SLS/Orion rollout B-roll"
+  "status": "downloaded 2026-10-31 (runs 41102466825, 41103917365); 1080p H.264 working copies (downscale only) in draft release ep008-originals; originals > 1.9 GB not stored, sha256 in fetch_video_manifest.tsv",
+  "rights": "NASA-produced footage (US public domain, no endorsement implied). Checked descriptions: no third-party/company footage. Crew appear only small/inside the vehicle or not at all; no crew close-ups used.",
+  "clips": [
+   {
+    "id": "v1-a2-launch",
+    "file": "v1_a2_launch_causeway.mp4",
+    "nasa_id": "KSC ART II Cause Way Launch low angle",
+    "what": "Artemis II launch from LC-39B, Apr 1 2026, causeway slow-motion, low angle",
+    "spec": "3840x2160 29.97 fps, 8:47",
+    "use": "s04 (Artemis II recap)",
+    "credit": "NASA"
+   },
+   {
+    "id": "v2-a2-reentry",
+    "file": "v2_a2_orion_window_reentry.mp4",
+    "nasa_id": "GP011149",
+    "what": "View from the Artemis II pilot's forward window: reentry, parachute deployment, splashdown, Apr 10 2026",
+    "spec": "1920x1080 29.97 fps, 11:50",
+    "use": "s11 (coming home), s04",
+    "credit": "NASA"
+   },
+   {
+    "id": "v3-a2-splashdown",
+    "file": "v3_a2_splashdown.mp4",
+    "nasa_id": "KSC-20260410-MH-JBP01-0001-Artemis_II_Splashdown_GSS_Visual_60fps-M19183",
+    "what": "Artemis II Orion splashdown in the Pacific near San Diego, Apr 10 2026",
+    "spec": "4096x2160 60 fps (DCI), 2:57; working copy 1920x1012 -> used with 34 px blurred fill, NOT upscaled",
+    "use": "s11 (splashdown off California)",
+    "credit": "NASA"
+   },
+   {
+    "id": "v4-a3-booster-stacking",
+    "file": "v4_a3_booster_stacking.mp4",
+    "nasa_id": "KSC-20260901-MH-CSH02-0001-Artemis_III_Booster_Stacking_RCC-M21897",
+    "what": "Artemis III center booster segments stacked on the mobile launcher, VAB, Sep 2026",
+    "spec": "3840x2160 59.94 fps, 2:03",
+    "use": "s05 (hardware exists), s14",
+    "credit": "NASA"
+   },
+   {
+    "id": "v5-a3-rs25",
+    "file": "v5_a3_rs25_to_workstand.mp4",
+    "nasa_id": "KSC-20260825-MH-CSH01-0001-Artemis_III_Booster_Engine_3_Prepping_For_Installation-M21897.MP4",
+    "what": "RS-25 engine #2 moved to its work stand for the Artemis III core stage, VAB, Aug 25 2026",
+    "spec": "3840x2160 59.94 fps, 5:47",
+    "use": "s04/s05 (engines)",
+    "credit": "NASA"
+   }
   ]
  },
  "nexora_source": "nexora-import/media.json (ids srb-forward-assemblies, orion-modules-joined, conops-graphic, core-stage-engines mapped above)"
