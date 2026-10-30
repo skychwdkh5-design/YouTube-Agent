@@ -20,15 +20,26 @@ nobody can check is a guess.
                  enough data = 5, 1.5-3x = 3-4, none found = 2, not checked = 1)
     length_fit   the story fills 6-8 minutes without padding               (GATE: < 3 blocks)
 
+Gate evidence must be VERIFIABLE: rights, facts and length_fit each need a URL or a path to a file
+(media.json, a run report, an outline). Without it the topic is "HOLD (unverified gates)", never
+GO-CANDIDATE, whatever the scores say.
+
 Rule: a topic is never chosen on competitor views alone. If "proof" is its only score >= 4 the topic is
 HOLD (competitor-only), whatever the total.
 """
-import json, sys
+import json, re, sys
 
 CRITERIA = {"us_interest": 1.0, "novelty": 1.0, "hook": 1.0, "thumbnail": 1.0, "rights": 1.5,
             "facts": 1.5, "proof": 0.75, "length_fit": 1.0}
 GATES = ("rights", "facts", "length_fit")
 GO = 3.5
+
+
+def verifiable(text):
+    """Evidence a person can check: a URL, or a path to a file in the repo / run folder
+    (e.g. research/runs/<run>/media.json). A bare claim ("NASA imagery is public domain") is not."""
+    t = str(text or "")
+    return bool(re.search(r"https?://\S+", t) or re.search(r"(?:^|\s)[\w.-]+(?:/[\w.-]+)+\.(?:json|md|txt|csv|pdf)\b", t))
 
 
 def score(topic, criteria=CRITERIA, gates=GATES):
@@ -45,17 +56,19 @@ def score(topic, criteria=CRITERIA, gates=GATES):
     no_evidence = [k for k in criteria if not ev.get(k)]
     strong = [k for k in criteria if s[k] >= 4]
     competitor_only = "proof" in criteria and strong == ["proof"]
-    return total, blocked, no_evidence, competitor_only
+    unverified = [g for g in gates if not verifiable(ev.get(g))]
+    return total, blocked, no_evidence, competitor_only, unverified
 
 
 def rank(topics, criteria=CRITERIA, gates=GATES):
     rows = []
     for t in topics:
-        total, blocked, no_ev, comp = score(t, criteria, gates)
-        status = ("BLOCKED" if blocked else "HOLD (competitor-only)" if comp
+        total, blocked, no_ev, comp, unver = score(t, criteria, gates)
+        status = ("BLOCKED" if blocked else "HOLD (unverified gates)" if unver else "HOLD (competitor-only)" if comp
                   else "GO-CANDIDATE" if total >= GO else "HOLD")
-        rows.append({**t, "total": total, "blocked_by": blocked, "missing_evidence": no_ev, "status": status})
-    order = {"GO-CANDIDATE": 3, "HOLD": 2, "HOLD (competitor-only)": 1, "BLOCKED": 0}
+        rows.append({**t, "total": total, "blocked_by": blocked, "unverified_gates": unver, "missing_evidence": no_ev,
+                     "status": status})
+    order = {"GO-CANDIDATE": 4, "HOLD": 3, "HOLD (unverified gates)": 2, "HOLD (competitor-only)": 1, "BLOCKED": 0}
     return sorted(rows, key=lambda r: (order[r["status"]], r["total"]), reverse=True)
 
 
@@ -64,6 +77,8 @@ def markdown(rows, criteria=CRITERIA):
          "|---|---|" + "---|" * len(criteria) + "---|---|"]
     for i, r in enumerate(rows, 1):
         st = r["status"] + (f" ({', '.join(r['blocked_by'])})" if r["blocked_by"] else "")
+        if r["unverified_gates"] and not r["blocked_by"]:
+            st += f" ({', '.join(r['unverified_gates'])})"
         if r["missing_evidence"]:
             st += f"; no evidence: {', '.join(r['missing_evidence'])}"
         L.append(f"| {i} | {r['title']} | " + " | ".join(str(r["scores"][k]) for k in criteria) + f" | {r['total']} | {st} |")

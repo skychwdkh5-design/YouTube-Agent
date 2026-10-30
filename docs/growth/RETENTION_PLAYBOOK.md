@@ -19,7 +19,7 @@ test next. **Correlation is not causation**: a better episode after a change doe
 caused it.
 
 Data: YouTube Studio exports (Analytics -> Advanced mode -> export; retention chart -> download).
-The publishing OAuth has no Analytics scope; adding one means a new consent - owner decision, not part of this change.
+The publishing OAuth has no Analytics scope; adding one means a new consent - owner decision, not part of this change. Plan: `docs/growth/ANALYTICS_API_PLAN.md`.
 
 ## Confirmed (tested on our channel)
 _None yet._
