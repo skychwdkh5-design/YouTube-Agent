@@ -16,6 +16,17 @@ median**, which is the only version of the question that is about the video.
 python3 swipe.py collected.json --min 2.0
 ```
 
+## Outlier Detector (for decisions)
+
+`swipe.py` is the quick swipe file. For a topic decision use `outliers.py`: it builds each channel's
+baseline from the same format, videos at least 14 days old, within a year, marks data as sufficient /
+limited / insufficient / external (third-party breakout score), never says "viral", and keeps facts
+apart from hypotheses. Method and rules: `docs/growth/OUTLIER_RESEARCH.md`.
+
+```bash
+python3 outliers.py collected.json --as-of 2026-10-30 --markdown
+```
+
 ## Collecting the input
 
 You need at least **four videos per channel** or a median means nothing, and the tool will skip the

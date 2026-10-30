@@ -46,3 +46,13 @@ goes wrong.
 
 Nothing here publishes. This skill writes and you publish. Every output ends in a block the user
 copies, and the last line of every run is the question: **ship it, or change it?**
+
+## Choosing a long-form topic
+
+Score candidates before any script with `topic_score.py` (growth rubric: US interest, novelty, hook,
+thumbnail, rights*, facts*, proof, length fit*; * = gate). Every score carries an evidence line; a topic
+whose only strength is competitor views is HOLD. See `docs/growth/`.
+
+```bash
+python3 topic_score.py topics.json --markdown
+```

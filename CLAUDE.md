@@ -55,6 +55,14 @@ Decision rules:
 or anywhere else may use it when satellite evidence materially improves the story. The no-
 fabrication rules in that skill apply everywhere: no scene, no satellite claim.
 
+## Growth system (read before every new long episode)
+
+Before choosing a topic and before the three cover concepts, read `docs/growth/` - OUTLIER_RESEARCH,
+THUMBNAIL_PLAYBOOK, HOOK_PLAYBOOK, RETENTION_PLAYBOOK, EXPERIMENT_LOG. Order: outlier scan (`yt-viral/outliers.py`) ->
+topic score (`yt-plan/topic_score.py`; never on competitor views alone) -> three cover + title + first-15-s packages ->
+script. After publishing: `yt-retention/episode_report.py` at day 7 and day 28, results into EXPERIMENT_LOG. Facts and hypotheses
+stay separate; only hypotheses supported by two episodes become "Confirmed". Correlation is not causation.
+
 ## Thumbnail-Hook consistency (mandatory, long-form)
 
 Before writing a full script, propose 3 cover concepts tied to verified facts (title, main visual promise,
