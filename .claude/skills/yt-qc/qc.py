@@ -23,6 +23,10 @@ and a source credit on every shot.
 black frames, freezes (warn 2.5 s, fail 5 s), loudness, audio within 1 s, captions inside the 16:9 safe
 area, a credit on every shot, composition and visual-family checks as rates (warnings), and for segmented
 renders: the segments tile the video frame-exactly and every segment boundary is a keyframe.
+  Thumbnail-Hook Match (rule of 2026-10-30): thumbnail_hook.json next to the video (or --thumbnail-hook) with
+  3 cover concepts, the choice + rationale, 2 alternates kept for A/B, title = chosen concept, the cover's main
+  subject on screen within 3 s, no logo/greeting opening, labelled reconstructions and a human match review.
+  --legacy-episode skips it, explicitly, for episodes produced before the rule.
 --contact-sheet out.jpg writes the first frame plus the middle of every shot.
 
 Each check is one function in CHECKS returning {"id", "status", "expected", "actual", "detail"}
@@ -340,9 +344,93 @@ def check_segments(ctx):
     return out
 
 
+
+# --- Thumbnail-Hook Match (long-form, rule of 2026-10-30) ----------------------------------------
+# The packaging file (thumbnail_hook.json, schema "thumbnail-hook/1") is written before the full script:
+# three cover concepts tied to verified facts, the chosen one with its rationale, the alternates kept
+# for A/B, and where the chosen cover's main subject appears in the cut. QC passes only when the title
+# promise, the cover and the first frames match - checked here from the package and the render manifest,
+# plus a human confirmation recorded in the package after looking at the contact sheet.
+
+HOOK_SUBJECT_MAX_S = 3.0
+HOOK_CONCEPT_KEYS = ("id", "title", "thumb_text", "visual_promise", "main_subject", "hook_15s", "facts")
+OPENING_BANNED = re.compile(r"\b(logo|intro|channel ident|welcome|hello|hi everyone|hey (guys|everyone)|"
+                            r"in this video|today we|subscribe|before we (start|begin)|throughout history|"
+                            r"since the dawn)\b", re.I)
+
+
+def _words(s):
+    return {w for w in re.findall(r"[a-z0-9]+", (s or "").lower()) if len(w) > 2}
+
+
+def check_thumbnail_hook(ctx):
+    if ctx.get("legacy_hook"):
+        return [_skip("thumbnail_hook_match", "--legacy-episode: produced before the Thumbnail-Hook rule (2026-10-30)")]
+    pkg, m = ctx.get("thumbhook"), ctx.get("manifest") or {}
+    if not pkg:
+        return [_check("thumbnail_hook_package", False, "thumbnail_hook.json next to the video (or --thumbnail-hook)",
+                       "missing", "every new long episode needs its packaging file; an episode made before the rule "
+                       "is checked with --legacy-episode")]
+    out = []
+    concepts = [c for c in pkg.get("concepts") or [] if isinstance(c, dict)]
+    incomplete = [c.get("id", i) for i, c in enumerate(concepts)
+                  if any(not c.get(k) for k in HOOK_CONCEPT_KEYS)]
+    out.append(_check("thumbnail_hook_concepts", len(concepts) == 3 and not incomplete,
+                      "3 cover concepts, each with title, thumb_text, visual_promise, main_subject, hook_15s, facts",
+                      {"concepts": len(concepts), "incomplete": incomplete} if incomplete or len(concepts) != 3 else 3))
+    chosen = next((c for c in concepts if c.get("id") == pkg.get("chosen")), None)
+    out.append(_check("thumbnail_hook_choice", chosen is not None and bool(pkg.get("rationale")),
+                      "a chosen concept with a written rationale", {"chosen": pkg.get("chosen"),
+                      "rationale": bool(pkg.get("rationale"))}))
+    alts = [c.get("id") for c in concepts if chosen is not None and c is not chosen]
+    out.append(_check("thumbnail_hook_alternates_kept", len(alts) == 2, "2 alternate covers kept for A/B", alts or 0))
+    if chosen is None:
+        return out
+    # title promise = the chosen concept, and both name the same subject
+    title = pkg.get("title") or chosen.get("title")
+    subj = _words(chosen.get("main_subject"))
+    out.append(_check("thumbnail_hook_title", title == chosen.get("title") and bool(subj & (_words(title) | _words(chosen.get("thumb_text")))),
+                      "release title = chosen concept title, and title or cover text names the main subject",
+                      {"title": title, "concept_title": chosen.get("title"), "main_subject": chosen.get("main_subject")}))
+    # the cover's subject on screen within the first 3 s
+    h = pkg.get("hook") or {}
+    shots = {s.get("id"): s for s in m.get("shots") or []}
+    shot = shots.get(h.get("subject_shot"))
+    at = _f(h.get("subject_visible_at"))
+    if not m.get("shots"):
+        # no render manifest: check the declared time, and say it was not cross-checked
+        ok = at is not None and at <= HOOK_SUBJECT_MAX_S
+        out.append(_check("thumbnail_hook_subject_first_3s", ok, f"main subject on screen at <= {HOOK_SUBJECT_MAX_S} s",
+                          {"at": at}, "declared in the package; no render manifest to cross-check the shot - "
+                          "confirm on the contact sheet / first frames in match_review"))
+    else:
+        ok = (shot is not None and at is not None and at <= HOOK_SUBJECT_MAX_S
+              and _f(shot.get("start")) is not None and _f(shot["start"]) - 1e-6 <= at < (_f(shot.get("end")) or 0))
+        out.append(_check("thumbnail_hook_subject_first_3s", ok, f"main subject on screen at <= {HOOK_SUBJECT_MAX_S} s, "
+                          "inside the named shot", {"shot": h.get("subject_shot"), "at": at,
+                          "shot_span": [shot.get("start"), shot.get("end")] if shot else None},
+                          None if ok else "if the subject cannot be shown in 3 s, revise the concept"))
+    # no logo, greeting or slow start
+    first = sorted(m.get("shots") or [], key=lambda s: _f(s.get("start")) or 0)[:1]
+    opening = " ".join([h.get("first_line") or ""] + [str(first[0].get(k) or "") for k in ("beat", "info")] if first else [h.get("first_line") or ""])
+    bad = OPENING_BANNED.findall(opening)
+    out.append(_check("thumbnail_hook_cold_open", not bad, "no logo, greeting, general history or long intro at the start",
+                      "ok" if not bad else sorted({b if isinstance(b, str) else b[0] for b in bad})))
+    # a reconstruction is labelled, never passed off as footage
+    rec = bool(h.get("subject_is_reconstruction"))
+    out.append(_check("thumbnail_hook_honest", not rec or bool(h.get("reconstruction_label")),
+                      "a reconstruction/CGI subject carries an on-screen label", {"reconstruction": rec,
+                      "label": h.get("reconstruction_label")}))
+    # a person looked at cover + title + contact sheet and confirmed they promise the same thing
+    rv = pkg.get("match_review") or {}
+    out.append(_check("thumbnail_hook_match", rv.get("confirmed") is True and bool(rv.get("by")),
+                      "title promise, cover and first frames confirmed to match (match_review.confirmed, by)",
+                      {"confirmed": rv.get("confirmed"), "by": rv.get("by")}))
+    return out
+
 SHORT_CHECKS = [check_short_duration, check_black, check_freeze, check_audio, check_manifest, check_compositions,
                 check_visual_novelty]
-LONG_CHECKS = SHORT_CHECKS + [check_segments]
+LONG_CHECKS = SHORT_CHECKS + [check_segments, check_thumbnail_hook]
 
 
 def contact_sheet(path, manifest, out, timeout=300):
@@ -373,7 +461,8 @@ def contact_sheet(path, manifest, out, timeout=300):
 
 # --- driver ------------------------------------------------------------------------------------
 
-def run_qc(path, spec=None, expected_duration=None, quick=False, profile=None, manifest=None):
+def run_qc(path, spec=None, expected_duration=None, quick=False, profile=None, manifest=None,
+           thumbhook=None, legacy_hook=False):
     prof = PROFILES.get(profile) if profile else None
     base = dict(DEFAULTS, **({k: prof[k] for k in ("width", "height", "fps")} if prof else {}))
     spec = dict(base, **(spec or {}))
@@ -405,7 +494,8 @@ def run_qc(path, spec=None, expected_duration=None, quick=False, profile=None, m
            "videos": videos, "audios": audios,
            "video": videos[0] if len(videos) == 1 else None,
            "audio": audios[0] if len(audios) == 1 else None,
-           "expected_duration": expected_duration, "quick": quick, "profile": prof, "manifest": manifest}
+           "expected_duration": expected_duration, "quick": quick, "profile": prof, "manifest": manifest,
+           "thumbhook": thumbhook, "legacy_hook": legacy_hook}
     for fn in CHECKS + ((LONG_CHECKS if prof.get("name") == "long" else SHORT_CHECKS) if prof else []):
         checks += fn(ctx)
     fmt = probe.get("format") or {}
@@ -455,8 +545,8 @@ def main(argv=None):
     try:
         valued = {"--timeline", "--media-root", "--expected-duration", "--width", "--height", "--fps",
                   "--vcodec", "--acodec", "--max-mb", "--tolerance", "--timeout", "--profile", "--manifest",
-                  "--contact-sheet"}
-        unknown = [x for x in a if x.startswith("--") and x not in valued | {"--quick"}]
+                  "--contact-sheet", "--thumbnail-hook"}
+        unknown = [x for x in a if x.startswith("--") and x not in valued | {"--quick", "--legacy-episode"}]
         if unknown: raise QCError(f"unknown option(s): {unknown}")
         values = {a[i + 1] for i, x in enumerate(a[:-1]) if x in valued}
         files = [x for x in a if not x.startswith("--") and x not in values]
@@ -486,7 +576,19 @@ def main(argv=None):
                     manifest = json.load(f)
             except (OSError, ValueError) as e:
                 raise QCError(f"manifest unreadable: {type(e).__name__}: {e}")
-        report = run_qc(files[0], spec, exp, "--quick" in a, profile, manifest)
+        thumbhook, hpath = None, _flag(a, "--thumbnail-hook")
+        if hpath is None and profile == "long":
+            for guess in (os.path.splitext(files[0])[0] + ".thumbhook.json",
+                          os.path.join(os.path.dirname(os.path.abspath(files[0])), "thumbnail_hook.json")):
+                if os.path.isfile(guess):
+                    hpath = guess; break
+        if hpath:
+            try:
+                with open(hpath, encoding="utf-8") as f:
+                    thumbhook = json.load(f)
+            except (OSError, ValueError) as e:
+                raise QCError(f"thumbnail-hook package unreadable: {type(e).__name__}: {e}")
+        report = run_qc(files[0], spec, exp, "--quick" in a, profile, manifest, thumbhook, "--legacy-episode" in a)
         sheet = _flag(a, "--contact-sheet")
         if sheet:
             if not manifest:

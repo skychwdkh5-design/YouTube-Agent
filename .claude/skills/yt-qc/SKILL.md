@@ -71,6 +71,26 @@ dominance over 30 s. For segmented renders the manifest's segments must tile the
 (`segments_tile_video`) and every segment start must be a keyframe in the file
 (`segment_boundaries_keyframes`) - both fail if not. The contact sheet uses 16:9 tiles.
 
+## Thumbnail-Hook Match (long-form, mandatory from 2026-10-30)
+
+Runs in `--profile long`. Reads `thumbnail_hook.json` next to the video (or `<video>.thumbhook.json`, or
+`--thumbnail-hook PATH`); template: `docs/templates/thumbnail_hook.example.json`. All are **fail** checks:
+
+| id | fails when |
+|---|---|
+| `thumbnail_hook_package` | no package for a new episode |
+| `thumbnail_hook_concepts` | not exactly 3 concepts, or one lacks title, thumb_text, visual_promise, main_subject, hook_15s, facts |
+| `thumbnail_hook_choice` / `thumbnail_hook_alternates_kept` | no chosen concept with a rationale / the 2 alternates (A/B) are not kept |
+| `thumbnail_hook_title` | the release title is not the chosen concept's title, or neither title nor cover text names the main subject |
+| `thumbnail_hook_subject_first_3s` | the cover's main subject is not on screen by 3.0 s inside the named shot - revise the concept |
+| `thumbnail_hook_cold_open` | the opening is a logo, greeting, "in this video", general history or a slow intro |
+| `thumbnail_hook_honest` | a reconstruction/CGI subject has no on-screen label |
+| `thumbnail_hook_match` | no human confirmation (`match_review.confirmed`, `by`) after comparing title, cover and the contact sheet's first frames |
+
+The check passes only when title promise, cover and first frames match. A CTR forecast is never a
+check result. Episodes produced before the rule are checked with `--legacy-episode`, which reports the
+check as an explicit `skip` - never drop the package to make a FAIL go away.
+
 ## Adding checks later
 
 Every check is a function in `CHECKS` that takes the probe context and returns a list of results.

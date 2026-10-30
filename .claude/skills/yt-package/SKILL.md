@@ -39,6 +39,13 @@ python3 title.py titles.txt            # one per line, ranked
 - **A number, a name or a date** beats every adjective available to you.
 - **Two all-caps words is the ceiling** before a title reads as spam.
 
+## Long-form: three concepts first
+
+For a new long episode, before the full script: three cover concepts tied to verified facts, each with
+title, cover text, visual promise, main subject and the first 15 seconds. Pick one with a written
+rationale and save all three in `thumbnail_hook.json` (`docs/templates/thumbnail_hook.example.json`).
+The title-ranking below then works inside the chosen concept. QC: `thumbnail_hook_*` in `/yt-qc --profile long`.
+
 ## Write ten, keep two
 
 Generate ten titles, run them all through `title.py`, show the user the top three with their scores

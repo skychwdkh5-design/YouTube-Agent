@@ -265,6 +265,59 @@ class LongProfile(Base):
         self.assertEqual([ids[k] for k in ("segments_tile_video", "segment_boundaries_keyframes", "captions_in_safe_zone")],
                          ["fail", "fail", "fail"])
 
+    # --- Thumbnail-Hook Match --------------------------------------------------------------------
+    def package(self, **over):
+        c = lambda i, t, subj: {"id": i, "title": t, "thumb_text": "IT VANISHED", "visual_promise": f"{subj} from orbit",
+                               "main_subject": subj, "hook_15s": f"0-3 s {subj} from orbit; 3-15 s why it matters",
+                               "facts": ["USGS Landsat 9, 2024-05-01"]}
+        pkg = {"schema": "thumbnail-hook/1", "title": "The Aral Sea Vanished in 40 Years", "chosen": "A",
+               "rationale": "the only concept whose subject is real imagery in the first shot",
+               "concepts": [c("A", "The Aral Sea Vanished in 40 Years", "Aral Sea"),
+                            c("B", "A Desert Where a Sea Used to Be", "Aralkum desert"),
+                            c("C", "The Ships Left in the Sand", "stranded ships")],
+               "hook": {"subject_shot": "s1", "subject_visible_at": 0.0, "first_line": "This was the fourth-largest lake on Earth.",
+                        "subject_is_reconstruction": False},
+               "match_review": {"confirmed": True, "by": "Egor", "date": "2026-10-30"}}
+        pkg.update(over)
+        path = os.path.join(self.dir, "thumbnail_hook.json")
+        with open(path, "w") as f: json.dump(pkg, f)
+        return path
+
+    def hook_ids(self, *extra):
+        p = self.landscape()
+        man = self.manifest([{"index": 0, "start_frame": 0, "frames": 60}])
+        code, d = run([p, "--profile", "long", "--manifest", man, *extra])
+        return {c["id"]: c["status"] for c in d["checks"]}
+
+    def test_thumbnail_hook_missing_fails_legacy_skips(self):
+        self.assertEqual(self.hook_ids()["thumbnail_hook_package"], "fail")
+        ids = self.hook_ids("--legacy-episode")
+        self.assertEqual(ids["thumbnail_hook_match"], "skip"); self.assertNotIn("thumbnail_hook_package", ids)
+
+    def test_thumbnail_hook_good_package_passes(self):
+        self.package()                                   # auto-found next to the video
+        ids = self.hook_ids()
+        for k in ("thumbnail_hook_concepts", "thumbnail_hook_choice", "thumbnail_hook_alternates_kept", "thumbnail_hook_title",
+                  "thumbnail_hook_subject_first_3s", "thumbnail_hook_cold_open", "thumbnail_hook_honest", "thumbnail_hook_match"):
+            self.assertEqual(ids[k], "pass", k)
+
+    def test_thumbnail_hook_failures(self):
+        self.package(hook={"subject_shot": "s1", "subject_visible_at": 4.5, "first_line": "Welcome back to the channel",
+                           "subject_is_reconstruction": True}, match_review={}, title="Something Else Entirely",
+                     concepts=[{"id": "A", "title": "x"}])
+        ids = self.hook_ids()
+        for k in ("thumbnail_hook_concepts", "thumbnail_hook_alternates_kept", "thumbnail_hook_title",
+                  "thumbnail_hook_subject_first_3s", "thumbnail_hook_cold_open", "thumbnail_hook_honest", "thumbnail_hook_match"):
+            self.assertEqual(ids[k], "fail", k)
+
+    def test_thumbnail_hook_without_manifest_uses_declared_time(self):
+        p = self.landscape(); self.package(hook={"subject_shot": "s1", "subject_visible_at": 5.0, "first_line": "x"})
+        code, d = run([p, "--profile", "long", "--thumbnail-hook", os.path.join(self.dir, "thumbnail_hook.json")])
+        self.assertEqual(status(d, "thumbnail_hook_subject_first_3s"), "fail")
+
+    def test_short_profile_has_no_thumbnail_hook(self):
+        self.assertNotIn(qc.check_thumbnail_hook, qc.SHORT_CHECKS)
+
     def test_short_profile_unchanged_by_long(self):
         self.assertNotIn("name", qc.PROFILES["short"])
         self.assertEqual(qc.PROFILES["short"]["composition_resets"], (7, 10))

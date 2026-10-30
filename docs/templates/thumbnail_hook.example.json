@@ -1,0 +1,68 @@
+{
+ "schema": "thumbnail-hook/1",
+ "episode": "EP000",
+ "title": "<release title = chosen concept title>",
+ "chosen": "A",
+ "rationale": "<why this pairing: strongest verified fact, subject visible in the first shot, honest promise. Any CTR estimate is a hypothesis, not a fact>",
+ "concepts": [
+  {
+   "id": "A",
+   "title": "<title>",
+   "thumb_text": "<3-7 WORDS, UPPERCASE>",
+   "visual_promise": "<what the viewer expects to see>",
+   "main_subject": "<the object or event on the cover>",
+   "hook_15s": "<0-3 s: subject on screen ... 3-15 s: ...>",
+   "facts": [
+    "<verified fact + source + date>"
+   ]
+  },
+  {
+   "id": "B",
+   "title": "<title>",
+   "thumb_text": "<3-7 WORDS, UPPERCASE>",
+   "visual_promise": "<what the viewer expects to see>",
+   "main_subject": "<the object or event on the cover>",
+   "hook_15s": "<0-3 s: subject on screen ... 3-15 s: ...>",
+   "facts": [
+    "<verified fact + source + date>"
+   ]
+  },
+  {
+   "id": "C",
+   "title": "<title>",
+   "thumb_text": "<3-7 WORDS, UPPERCASE>",
+   "visual_promise": "<what the viewer expects to see>",
+   "main_subject": "<the object or event on the cover>",
+   "hook_15s": "<0-3 s: subject on screen ... 3-15 s: ...>",
+   "facts": [
+    "<verified fact + source + date>"
+   ]
+  }
+ ],
+ "hook": {
+  "subject_shot": "s1",
+  "subject_visible_at": 0.0,
+  "first_line": "<first narrated sentence>",
+  "subject_is_reconstruction": false,
+  "reconstruction_label": null
+ },
+ "match_review": {
+  "confirmed": false,
+  "by": null,
+  "date": null,
+  "notes": "<set confirmed=true only after comparing title, cover and the contact sheet first frames>"
+ },
+ "ab_test": {
+  "status": "not started",
+  "alternates": [
+   "B",
+   "C"
+  ]
+ },
+ "results": {
+  "note": "filled after publication from analytics; see docs/THUMBNAIL_HOOK_LEARNINGS.md",
+  "ctr": null,
+  "retention_30s": null,
+  "avg_view_duration": null
+ }
+}

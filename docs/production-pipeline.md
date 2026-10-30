@@ -192,5 +192,17 @@ productions keep their manifests and QC results.
 - Credentials come from the environment only and are never printed.
 - No fabricated evidence or timings: missing data is reported, not guessed.
 
+## Thumbnail-Hook consistency (long-form, mandatory from 2026-10-30)
+Before the full script: three cover concepts tied to verified facts, each with a title, the main
+visual promise and the first 15 seconds. Choose one pairing, write why (a CTR forecast is a hypothesis,
+never a fact), and save all three in `productions/<ep>/thumbnail_hook.json`
+(template `docs/templates/thumbnail_hook.example.json`) - the alternates stay for A/B tests.
+The chosen cover's main subject is on screen within the first 3 seconds; if that is not possible the
+concept is revised. No logo, greeting, general history or long intro at the start; a reconstruction is
+labelled and never shown as documentary footage. `/yt-qc --profile long` checks it
+(`thumbnail_hook_*`, see the yt-qc skill). After publication the results go to
+`docs/THUMBNAIL_HOOK_LEARNINGS.md`. Published episodes, schedules and the publish pipeline are not
+changed by this rule.
+
 ## Thumbnail gate (long-form)
 No long episode is approved or uploaded with a cover that has not passed `docs/THUMBNAIL_STYLE_GUIDE.md` section 5: `thumbcheck.py` plus a visual comparison with the four published covers (docs/assets/thumbnail-reference/). A deviating cover is FAIL and is redone first. `publish/queue.json` enforces it through `thumbnail_review`.
