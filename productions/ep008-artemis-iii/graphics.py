@@ -331,14 +331,14 @@ def d_orbits(u, step):
         if a > 0:
             d.arc([cx - r, cy - r, cx + r, cy + r], 250, 250 + 40 * a, fill=col, width=wdt * S)
             _alpha_text(im, (xlab * S, cy - r - 70 * S), label, font(46 * S), col, a)
-    arc(470, (200, 210, 225), 7, seg(u, 0.0, 0.3) if step >= 1 else 0, "BLUE MOON TEST ARTICLE · ~273 MI (237 NMI)", 120)
+    arc(470, (200, 210, 225), 7, seg(u, 0.0, 0.3) if step == 1 else 1.0, "BLUE MOON TEST ARTICLE · ~273 MI (237 NMI)", 120)
     if step >= 2:
-        k = seg(u, 0.0, 0.5)
+        k = seg(u, 0.0, 0.5) if step == 2 else 1.0
         r = R0 + 600 * S
         d.arc([cx - r, cy - r, cx + r, cy + r], 250, 250 + 40 * k, fill=ACC, width=9 * S)
-        _alpha_text(im, (980 * S, cy - r - 70 * S), "ORION · 18 x 1,122 MI → ~345 MI", font(46 * S), ACC, k)
+        _alpha_text(im, (520 * S, cy - r - 70 * S), "ORION · 18 x 1,122 MI → ~345 MI", font(46 * S), ACC, k)
     if step >= 3:
-        k = seg(u, 0.0, 0.4)
+        k = seg(u, 0.0, 0.4) if step == 3 else 1.0
         r = R0 + 330 * S
         d.arc([cx - r, cy - r, cx + r, cy + r], 250, 250 + 40 * k, fill=(150, 200, 255), width=7 * S)
         _alpha_text(im, (980 * S, cy - r - 70 * S), "STARSHIP · 206 NMI (~237 MI)", font(46 * S), (150, 200, 255), k)
