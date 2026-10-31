@@ -174,3 +174,48 @@ def text_on(im, xy, s, size, color=INK, anchor="la", alpha=1.0, face=ANTON):
     d.text(xy, s, font=font(size, face), fill=color + (int(255 * alpha),), anchor=anchor,
            stroke_width=max(3, size // 14), stroke_fill=(0, 0, 0, int(255 * alpha)))
     im = im.convert("RGBA"); im.alpha_composite(lay); return im.convert("RGB")
+
+
+# ---------------------------------------------------------------- mission chips (owner rule 2026-10-31)
+# Every frame says which mission it belongs to, so Artemis II pictures are never read as a flown Artemis III.
+CHIPS = {
+    "a2":     ("ARTEMIS II · FLOWN APR 2026 · REAL PHOTO", (38, 104, 200), (255, 255, 255)),
+    "a2vid":  ("ARTEMIS II · FLOWN APR 2026 · NASA VIDEO", (38, 104, 200), (255, 255, 255)),
+    "a3plan": ("ARTEMIS III · PLANNED 2027 · NOT FLOWN", (255, 210, 30), (0, 0, 0)),
+    "a3hw":   ("ARTEMIS III HARDWARE · ON THE GROUND, 2026", (245, 245, 245), (0, 0, 0)),
+}
+
+
+def chip(im, kind, size=30):
+    text, fill, col = CHIPS[kind]
+    im = im.convert("RGBA"); lay = Image.new("RGBA", im.size, (0, 0, 0, 0)); d = ImageDraw.Draw(lay)
+    f = font(size, INTER); w = d.textlength(text, font=f); x = W - 48 - w - 32; y = 44
+    d.rounded_rectangle([x, y, x + w + 32, y + size + 22], 10, fill=fill + (240,)); d.text((x + 16, y + 9), text, font=f, fill=col)
+    im.alpha_composite(lay); return im.convert("RGB")
+
+
+def d_timeline(u):
+    """s03: dated timeline, playhead runs Feb 27 -> Oct 23, 2026; then 2027 (Artemis III, Earth orbit) and 2028 (Artemis IV, landing)."""
+    im = Image.new("RGB", (W * S, H * S), BG); d = ImageDraw.Draw(im)
+    x0, x1, y = 160 * S, (W - 160) * S, H * 0.56 * S
+    d.line([(x0, y), (x1, y)], fill=DIM, width=5 * S)
+    marks = [(0.00, "APR 2026", "Artemis II flies\naround the Moon", (90, 150, 230)),
+             (0.18, "FEB 27, 2026", "NASA changes\nthe plan", ACC),
+             (0.42, "OCT 23, 2026", "Flight plan\npublished", ACC),
+             (0.68, "2027", "Artemis III (planned):\nEarth orbit test", INK),
+             (0.92, "2028", "Artemis IV (planned):\nfirst landing", INK)]
+    marks.sort(key=lambda m: m[0]); marks[0], marks[1] = marks[1], marks[0]     # Feb 27 is left of April
+    pos = [0.06, 0.24, 0.46, 0.70, 0.92]
+    for k, ((_, date, what, col), p) in enumerate(zip(marks, pos)):
+        a = seg(u, 0.08 + k * 0.15, 0.2 + k * 0.15)
+        if a <= 0:
+            continue
+        x = x0 + (x1 - x0) * p
+        c = tuple(int(BG[i] + (col[i] - BG[i]) * a) for i in range(3))
+        d.ellipse([x - 14 * S, y - 14 * S, x + 14 * S, y + 14 * S], fill=c)
+        d.text((x, y - 50 * S), date, font=font(54 * S), fill=c, anchor="ms")
+        d.multiline_text((x, y + 44 * S), what, font=font(32 * S, INTER), fill=c, anchor="ma", align="center", spacing=8 * S)
+    ph = seg(u, 0.08, 0.80)
+    d.line([(x0, y), (x0 + (x1 - x0) * 0.92 * ph, y)], fill=ACC, width=7 * S)
+    label_lines(d, "ORBITAL ATLAS DIAGRAM", "Sources: NASA Feb 27, Apr 11, Oct 23, 2026")
+    return finish(im)

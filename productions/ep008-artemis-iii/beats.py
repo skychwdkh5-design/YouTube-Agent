@@ -37,7 +37,7 @@ scene("s02", "The surprising fact", ["F03", "F14", "F20"],
 scene("s03", "Why it matters + promise", ["F01", "F02", "F06", "F13"],
  "NASA made this change back in February, and in October it published the full plan: fourteen days in orbit, "
  "two Moon landers, and one test that has to work before anyone lands near the lunar South Pole. "
- "Here's what they'll actually do up there, and why NASA decided the Moon can wait a year.",
+ "Here's what they'll actually do up there, and why the landing now waits for Artemis Four.",
  [("d-timeline", .40, "playhead runs Feb 27 → Oct 23", "ANNOUNCED FEB 27, 2026", None),
   ("conops-graphic", .35, "pan across, highlight two docking points", "14 DAYS · 2 LANDERS", "NASA CONCEPT GRAPHIC"),
   ("a2-hertzsprung", .25, "slow push to South Pole direction", "LANDING: 2028", "NASA · ARTEMIS II PHOTO")],

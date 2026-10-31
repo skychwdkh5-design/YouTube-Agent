@@ -32,3 +32,12 @@ NOT TO SCALE with source lines. Sound: synthesised in hook20.py (no library SFX)
 Cover A: `covers/EP008_cover_A.jpg` - thumbcheck PASS (objective part: saturation 0.64, luma std 81). Grade only (warm
 lunar tone, navy sky masked away from craters); no content added. Visual comparison with the four reference covers: done
 by Claude, owner verdict pending (`thumbnail_hook.match_review`).
+
+## Preview 2026-10-31 18:00 (owner request: first ~30 s, iPad)
+`test/EP008_hook30_preview.mp4` (38.8 s = hook + scene s03 to the end of its open question; git-ignored, sent in chat),
+captions `packages/EP008_hook30_preview.srt`. yt-qc PASS. H.264 High@4.1 + AAC, +faststart.
+Mission chips on every frame (owner rule): blue "ARTEMIS II · FLOWN APR 2026 · REAL PHOTO" on all Artemis II pictures,
+gold "ARTEMIS III · PLANNED 2027 · NOT FLOWN" on plan graphics, white "ARTEMIS III HARDWARE · ON THE GROUND, 2026" on hardware.
+Frame 0 text now "ARTEMIS III PLAN: LAND HERE" over the Artemis II photo (no Artemis III tag on an Artemis II picture).
+Cover A carries "Photo: NASA, Artemis II (2026)". Last hook line changed to the verifiable "and why the landing now
+waits for Artemis Four" (the old "the Moon can wait a year" had no NASA source for a prior landing date).

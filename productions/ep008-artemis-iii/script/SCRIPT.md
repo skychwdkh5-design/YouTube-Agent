@@ -1,6 +1,6 @@
 # EP008 script — NASA Changed Its Moon Mission. Here's Why.
 
-Draft for owner review. 1043 words, estimated 7:03 at 150 wpm (timing re-derived after voice).
+Draft for owner review. 1042 words, estimated 7:03 at 150 wpm (timing re-derived after voice).
 Fact ids → `research/RESEARCH.md`. Numbers spelled out for TTS. No voice generated.
 
 ## s01 · 0:00 · Cold open: the plan vs the new plan
@@ -16,7 +16,7 @@ In April, four astronauts flew around the Moon on Artemis Two. And the next crew
 ## s03 · 0:21 · Why it matters + promise
 *Facts: F01, F02, F06, F13*
 
-NASA made this change back in February, and in October it published the full plan: fourteen days in orbit, two Moon landers, and one test that has to work before anyone lands near the lunar South Pole. Here's what they'll actually do up there, and why NASA decided the Moon can wait a year.
+NASA made this change back in February, and in October it published the full plan: fourteen days in orbit, two Moon landers, and one test that has to work before anyone lands near the lunar South Pole. Here's what they'll actually do up there, and why the landing now waits for Artemis Four.
 
 ## s04 · 0:43 · What NASA changed in February
 *Facts: F03, F04, F01, F02, F24*
@@ -38,7 +38,7 @@ The crew is Randy Bresnik, Andre Douglas and Frank Rubio of NASA, and Luca Parmi
 
 Artemis Three needs three launches. First, Blue Origin launches a test version of its Blue Moon lander. It can wait in orbit for up to thirty days. Then the crew launches on NASA's SLS rocket from Florida. Starship goes up later, after the crew is already in orbit, because it's built for a much shorter stay in space than Blue Origin's lander.
 
-## s08 · 3:28 · The orbits
+## s08 · 3:27 · The orbits
 *Facts: F06, F27*
 
 The orbits are precise. The Blue Moon test article circles about two hundred seventy-three miles up. Orion starts in a long, stretched orbit, from eighteen to more than eleven hundred miles, then rounds it out near three hundred forty-five. Starship is planned lower still, at two hundred six nautical miles, an orbit NASA picked for communications coverage. Every number here comes from NASA's flight profile.
@@ -53,17 +53,17 @@ First docking: Orion pulls up alongside the Blue Moon lander. While they're join
 
 Second docking: Starship. The test vehicle is a hundred seventy-one feet tall, about fifty-two meters, with a docking port in its nose. This time Orion uses its forward docking port and meets Starship nose to nose, a different geometry from the first docking, and SpaceX flies the pair. It lasts up to two hours, and nobody goes inside. NASA and SpaceX are still deciding exactly which control and communication tests to run.
 
-## s11 · 4:56 · Home
+## s11 · 4:55 · Home
 *Facts: F29, F12, F06*
 
 After Starship, NASA has set aside up to five more days for extra tests: more checks of the crew's survival suits, docking sensor tests, sound and heat measurements, and studies of how the crew lives and works on board. Then, after about fourteen days in total, Orion comes home and splashes down in the Pacific, off the coast of California, the same ocean where Artemis Two landed in April.
 
-## s12 · 5:24 · Why docking first
+## s12 · 5:23 · Why docking first
 *Facts: F30, F02, F13, F08, F10, F03*
 
 So why spend a whole mission on this? NASA's Artemis program manager put it plainly: every piece of the mission in Earth orbit is designed to reduce risk before astronauts go back to the Moon. Three spacecraft on three different rockets, working together, which he says NASA has never attempted. And on Artemis Four, the landing depends on exactly this step. Orion can't land. A commercial lander has to meet it, take astronauts down near the South Pole, and bring them back. Distance is part of the logic. Artemis Two needed several days just to get back from the Moon. From low Earth orbit, a spacecraft can be back on the ground in a matter of hours, though the exact time depends on where it is and when it can land. So the first test of this handoff happens close to home.
 
-## s13 · 6:21 · Apollo did this too
+## s13 · 6:20 · Apollo did this too
 *Facts: F21, F24*
 
 If this sounds familiar, it should. In March nineteen sixty-nine, Apollo Nine tested the lunar module in Earth orbit. Four months later, Apollo Eleven landed.
