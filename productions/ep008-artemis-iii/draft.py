@@ -229,7 +229,7 @@ def audio(starts, n_s, sr=24000):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(); ap.add_argument("--media", required=True); ap.add_argument("--render", action="store_true")
-    ap.add_argument("--confirm", action="store_true"); ap.add_argument("--jobs", type=int, default=2); ap.add_argument("--scenes", default="")
+    ap.add_argument("--confirm", action="store_true"); ap.add_argument("--jobs", type=int, default=2); ap.add_argument("--scenes", default=""); ap.add_argument("--reuse", default="")
     a = ap.parse_args()
     SHOTS_PLAN, lines, starts, END = plan()
     caps = hk.chunks(lines)
@@ -239,15 +239,24 @@ if __name__ == "__main__":
     if not (a.render and a.confirm):
         print(json.dumps({"end": END, "shots": len(SHOTS_PLAN), "note": "add --render --confirm"})); raise SystemExit
     want = set(filter(None, a.scenes.split(",")))
-    tmp = tempfile.mkdtemp(dir=os.path.join(HERE, "draft"))
+    tmp = a.reuse or tempfile.mkdtemp(dir=os.path.join(HERE, "draft"))
     ids = sorted(starts); bounds = [starts[s] for s in ids] + [END]
     jobs = []
     for k, sid in enumerate(ids):
         if want and sid not in want:
             continue
         jobs.append((round(bounds[k] * FPS), round(bounds[k + 1] * FPS), SHOTS_PLAN, caps, a.media, os.path.join(tmp, f"{sid}.mp4")))
+    def complete(j):                                       # --reuse: keep segments that already have every frame
+        r = subprocess.run(["ffprobe", "-v", "error", "-count_packets", "-select_streams", "v:0", "-show_entries", "stream=nb_read_packets",
+                            "-of", "csv=p=0", j[5]], capture_output=True, text=True)
+        return r.stdout.strip() == str(j[1] - j[0])
+    todo = [j for j in jobs if not (a.reuse and os.path.exists(j[5]) and complete(j))]
     with Pool(a.jobs) as pool:
-        parts = pool.map(render_range, jobs, chunksize=1)
+        pool.map(render_range, todo, chunksize=1)
+    bad = [j[5] for j in jobs if not complete(j)]
+    if bad:
+        raise SystemExit(f"incomplete segments: {bad}")
+    parts = [j[5] for j in jobs]
     tag = "partial_" + "_".join(sorted(want)) if want else "EP008_draft_v1"
     lst = os.path.join(tmp, "list.txt"); open(lst, "w").write("".join(f"file '{p}'\n" for p in parts))
     vid = os.path.join(tmp, "v.mp4"); subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", vid], check=True)
