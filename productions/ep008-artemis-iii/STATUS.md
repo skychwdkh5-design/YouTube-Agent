@@ -17,8 +17,19 @@ highest used is EP007.
 - No voice (ElevenLabs/Adam only after owner approves script and draft). No upload, no queue entry, no schedule change.
 - No vidIQ calls (0 credits). NEXORA untouched (read only).
 
+## Draft status (2026-10-31)
+- Owner approved the hook direction (18:08) with changes, all applied: larger Earth-orbit diagram, zoomed upper-stage →
+  spacer swap, timeline cut to two dates (Feb 27 / Oct 23, 2026), NASA con-ops graphic shown as large sequential fragments
+  with the narrated item lit (graphics.conops, never above native resolution), frame 1 text "LAND ON THE MOON" (no specific
+  landing point is confirmed for that photo).
+- Mission chips on every picture: blue Artemis II (flown) / gold Artemis III plan / white Artemis III hardware.
+- Full draft: `draft.py` (shots anchored to sentences of the temporary voice) → `draft/EP008_draft_v1.mp4` (git-ignored, sent
+  in chat) + `.srt` + `.timeline.json`. Temporary voice: Kokoro am_michael via `tts_temp.py` (all scenes, ~6:55).
+- 5 NASA clips used: v1 launch, v2 Orion window, v3 splashdown (1920x1012 with blurred fill, not upscaled), v4 booster
+  stacking, v5 RS-25. Stills: 13 originals + 2 `~large` (srb-nosecones portrait shown height-fit over blurred fill).
+- Not started: ElevenLabs Adam (needs owner OK after the draft), Shorts, final cover gate, publishing.
+
 ## Next session, in order
-1. Fetch run 1 done: 13/15 stills downloaded (research/fetch_manifest_run1.tsv), NASA texts saved and re-read (S1/S2 removed). Run 2 (this push) requests `~large` for srb-nosecones and solar-array — read fetch_manifest.tsv.
-2. Pick 3-5 NASA video clips from `research/video_candidates.json` (Artemis II launch/splashdown, booster stacking), add to a fetch list.
-3. Reuse NEXORA's motion_spec.json/hook20 builder where it fits (do not redo); draw d-orbit-vs-moon and d-sls-stack (yt-graphics); render the first 20 s with a free temporary voice (Kokoro, as EP007); owner reviews cover A vs first frames.
-4. After owner approval of the script: full draft render → yt-qc --profile long → thumbcheck → owner.
+1. Owner reviews draft v1. Fixes → re-render with `python3 draft.py --media <dir> --render --confirm` (or `--scenes sNN` for parts).
+2. After owner approval of the draft: ElevenLabs Adam via yt-voice (--confirm), re-time draft.py on Adam's timing, final render,
+   two Shorts (packages/SHORTS.md), SRT, cover gate (section 5), QC report.
