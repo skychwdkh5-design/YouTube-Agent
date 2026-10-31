@@ -47,12 +47,11 @@ SHOTS = {
             (3, P("artemis_cadence_infographic_feb2026.jpg", (0.0, 0.0, 1.0, 0), (0.05, 0.05, 0.90, 0), A3, "NASA GRAPHIC, FEB 27, 2026",
                   [T("FEB 27, 2026", 64)])),
             (4, G("d_plan_swap", chip=A3)),
-            (6, G("card", "AFTER THE FIRST LANDING", ["At least one landing every year (NASA plan)"], "Source: NASA, Feb 27, 2026", chip=A3)),
+            (6, G("d_yearly", chip=A3)),
             (7, C(V5, 195.0, "a3hw", "NASA · ARTEMIS III RS-25, VAB, AUG 2026", [T("NASA'S REASONING", 64)])),
             (8.35, C(V4, 61.0, "a3hw", "NASA · ARTEMIS III BOOSTER STACKING, SEP 2026",
-                     [T("SAME CONFIGURATION AS FLOWN", 60), T("FLY MORE OFTEN", 60, GOLD, (70, 140), 1.2), T("STEP BY STEP", 60, GOLD, (70, 220), 2.4)])),
-            (9, G("quote", "Standardizing vehicle configuration, increasing\nflight rate and progressing through objectives\nin a logical, phased approach, is how we\nachieved the near-impossible in 1969.",
-                  "JARED ISAACMAN, NASA ADMINISTRATOR", "Source: NASA, Feb 27, 2026"))],
+                     [T("SAME CONFIGURATION AS FLOWN", 60), T("FLY MORE OFTEN", 60, GOLD, (70, 140), 1.2), T("STEP BY STEP", 60, GOLD, (70, 220), 2.4),
+                      ("\u201c...is how we achieved the near-impossible in 1969.\u201d", "JARED ISAACMAN, NASA ADMINISTRATOR · FEB 27, 2026", None, "LT", 14.6)]))],
     "s05": [(0, C(V5, 108.0, "a3hw", "NASA · ARTEMIS III RS-25 ENGINE, VAB, AUG 2026", [T("NOT A PAPER MISSION", 64), T("4 RS-25 ENGINES AT KENNEDY · JULY", 50, WHITE, (70, 140), 2.0)])),
             (2, P("a3_orion_joined_wp_ksc-20260730-ph-as01-6583.jpg", (0.0, 0.10, 1.0, 0), (0.0, 0.42, 1.0, 0), HW, "NASA/AMANDA STEVENSON · KENNEDY, JULY 2026",
                   [T("ARTEMIS III ORION · JOINED LATE JULY", 60)])),
@@ -60,14 +59,13 @@ SHOTS = {
             (3.55, ("portrait", "a3_srb_nosecones_large.jpg", HW, "NASA/CORY S HUSTON · VAB, SEP 30, 2026", [T("SEPT 30: NOSE CONES ON", 60)])),
             (4, P("a3_solar_array_large.jpg", (0.0, 0.0, 1.0, 0), (0.0, 0.25, 1.0, 0), HW, "NASA/AMANDA STEVENSON · KENNEDY, AUG 2026",
                   [T("250+ ARTEMIS II ORION PARTS REUSED", 56)])),
-            (4.5, G("card", "FASTER", ["Reused parts: some installation ~3 months earlier", "Launch tower turnaround: nearly 50% faster"], "Source: NASA, Aug 5, 2026", chip=HW)),
+            (4.5, G("d_faster", chip=HW)),
             (5, C(V1, 2.0, "a2vid", "NASA · ARTEMIS II ON THE PAD, APR 1, 2026", [T("LAUNCH TOWER", 64), T("TURNAROUND ~50% FASTER (NASA)", 50, WHITE, (70, 140), 0.8)])),
             (6, G("d_stage_to_a4", chip=A3))],
-    "s06": [(0, G("card", "THE ARTEMIS III CREW", ["Randy Bresnik · NASA", "Andre Douglas · NASA", "Frank Rubio · NASA", "Luca Parmitano · ESA"],
-                  "Source: NASA, Jun 9 and Oct 13, 2026", "NAMES ONLY · NO PORTRAITS", chip=A3)),
-            (1, G("card", "TRAINING · SEPT 2026", ["Navy helicopter crews, off San Diego", "Hoisted out of the water after splashdown"],
+    "s06": [(0, G("d_crew_v2", chip=A3)),
+            (1, G("tiles", "TRAINING · SEPT 2026", [("heli", "Hoisted out of the water\nby Navy helicopter crews\noff San Diego")],
                   "Source: NASA status update, Oct 13, 2026", chip=A3)),
-            (2, G("card", "MORE TRAINING", ["Escaping a capsule underwater", "Orange Orion survival suits", "Tasting nearly 200 space foods"],
+            (2, G("tiles", "MORE TRAINING", [("water", "Escaping a capsule\nunderwater"), ("suit", "Orange Orion\nsurvival suits"), ("food", "Nearly 200\nspace foods tasted")],
                   "Source: NASA status update, Oct 13, 2026", chip=A3)),
             (3, G("d_distance", chip=A3))],
     "s07": [(0, CO((0.0, 0.0, 1.0), ["r_ng", "r_sls", "r_ss"], "3 LAUNCHES")),
@@ -76,31 +74,30 @@ SHOTS = {
             (3, CO((0.0, 0.43, 0.5), ["r_sls"], "LAUNCH 2", "the crew, on SLS")),
             (4, CO((0.40, 0.40, 0.5), ["r_ss"], "LAUNCH 3: STARSHIP", "later - built for a shorter stay in space"))],
     "s08": [(0, G("d_orbits", 1, chip=A3)), (2, G("d_orbits", 2, chip=A3)), (3, G("d_orbits", 3, chip=A3)), (4, G("d_orbits", 4, chip=A3))],
-    "s09": [(0, G("d_dock", "side", chip=A3)),
+    "s09": [(0, G("d_dock_v2", "side", chip=A3)),
             (2, CO((0.30, 0.07, 0.5), ["bm_ops"], "DOCK 1: BLUE MOON", "Orion's software flies both spacecraft")),
-            (3, G("d_dock", "hatch", chip=A3)),
+            (3, G("d_dock_v2", "hatch", chip=A3)),
             (5, CO((0.30, 0.07, 0.5), ["bm_ops"], "A FIRST FOR NASA", "crewed evaluation of a commercial lunar lander")),
             (6, G("d_clock", chip=A3)),
-            (7, G("card", "RIDING ALONG", ["A spacesuit mass simulator", "Wired with sensors", "Reports conditions inside the cabin"], "Source: NASA, Jul 15, 2026", chip=A3))],
+            (7, G("d_mass_sim", chip=A3))],
     "s10": [(0, CO((0.40, 0.40, 0.5), ["r_ss"], "DOCK 2: STARSHIP", "test vehicle: 171 ft / 52 m")),
             (2, CO((0.5, 0.07, 0.5), ["ss_ops"], "171 FT · 52 M", "docking port in its nose")),
-            (3, G("d_dock", "nose", chip=A3)),
-            (4, G("d_dock", "timer", chip=A3)),
+            (3, G("d_dock_v2", "nose", chip=A3)),
+            (4, G("d_dock_v2", "timer", chip=A3)),
             (5, CO((0.5, 0.07, 0.5), ["ss_ops"], "TESTS STILL BEING DEFINED", "NASA and SpaceX, Jul 2026"))],
     "s11": [(0, CO((0.5, 0.07, 0.5), ["tests"], "UP TO 5 EXTRA DAYS", "Orion tests")),
-            (1, G("card", "EXTRA TESTS", ["Orion survival suit checks", "Docking sensor tests", "Acoustic and thermal measurements", "How the crew lives and works on board"],
+            (1, G("tiles", "UP TO 5 EXTRA DAYS", [("suit", "Survival suit\nchecks"), ("sensor", "Docking sensor\ntests"), ("sound", "Sound and heat\nmeasurements"), ("crew", "How the crew\nlives and works")],
                   "Source: NASA flight profile, Oct 23, 2026", chip=A3)),
             (2, CO((0.5, 0.35, 0.5), ["reentry", "splash"], "~14 DAYS, THEN HOME", "splashdown in the Pacific, off California")),
             (2.4, C(V2, 580.0, "a2vid", "NASA · ARTEMIS II, VIEW FROM ORION'S WINDOW, APR 10, 2026", [T("SAME OCEAN AS ARTEMIS II", 60)])),
             (2.7, C(V3, 154.0, "a2vid", "NASA · ARTEMIS II SPLASHDOWN, APR 10, 2026", [T("ARTEMIS II · PACIFIC · APR 10", 60)]))],
-    "s12": [(0, G("card", "WHY A WHOLE MISSION?", [], "", big="?")),
-            (1, G("quote", "Every piece of this mission in Earth orbit\nis designed to reduce risk before we put\nastronauts back on the Moon.",
-                  "JEREMY PARSONS, NASA ARTEMIS PROGRAM MANAGER", "Source: NASA, Oct 23, 2026")),
+    "s12": [(0, CO((0.0, 0.0, 1.0), [], "WHY A WHOLE MISSION?")),
+            (1, P(g.CONOPS, (0.0, 0.0, 1.0, 0), (0.06, 0.06, 0.88, 0), A3, "NASA CONCEPT GRAPHIC, OCT 23, 2026",
+                  [("\u201cEvery piece of this mission in Earth orbit is designed\nto reduce risk before we put astronauts back on the Moon.\u201d",
+                    "JEREMY PARSONS, NASA ARTEMIS PROGRAM MANAGER · OCT 23, 2026", None, "LT", 0.3)])),
             (3, CO((0.0, 0.0, 1.0), ["r_ng", "r_sls", "r_ss"], "3 SPACECRAFT · 3 ROCKETS", "\"something NASA has never attempted\"")),
-            (4, G("d_handoff", chip=A3)),
-            (7, P("a2_tiny_earth_art002e009284.jpg", (0.05, 0.05, 0.95, 0), (0.15, 0.12, 0.85, 0), A2, A2C, [T("ARTEMIS II: SEVERAL DAYS HOME", 64)])),
-            (9, G("d_hours")),
-            (10, G("d_orbit_vs_moon", chip=A3))],
+            (4, G("d_handoff_v2", chip=A3)),
+            (7, G("d_orbit_vs_moon", chip=A3))],
     "s13": [(0, G("d_apollo"))],
     "s14": [(0, C(V4, 75.0, "a3hw", "NASA · ARTEMIS III BOOSTER STACKING, SEP 2026", [T("LAUNCH: 2027", 72), T("NO DATE ANNOUNCED", 56, WHITE, (70, 150), 0.8)])),
             (3, ("portrait", "a3_srb_nosecones_large.jpg", HW, "NASA/CORY S HUSTON · VAB, SEP 30, 2026", [T("FUELING TEST AT THE PAD: AHEAD", 56)])),
@@ -150,7 +147,9 @@ def _clip_reader(path, start, dur):
 def overlays(im, texts, tl):
     for txt, size, col, xy, t_in in texts:
         a = min(1, max(0, (tl - t_in) / 0.25))
-        if a > 0:
+        if a > 0 and xy == "LT":
+            im = g.lower_third(im, txt, size, a)
+        elif a > 0:
             im = g.text_on(im, xy, txt, size, col, alpha=a)
     return im
 
@@ -229,13 +228,13 @@ def audio(starts, n_s, sr=24000):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(); ap.add_argument("--media", required=True); ap.add_argument("--render", action="store_true")
-    ap.add_argument("--confirm", action="store_true"); ap.add_argument("--jobs", type=int, default=2); ap.add_argument("--scenes", default=""); ap.add_argument("--reuse", default="")
+    ap.add_argument("--confirm", action="store_true"); ap.add_argument("--jobs", type=int, default=2); ap.add_argument("--scenes", default=""); ap.add_argument("--reuse", default=""); ap.add_argument("--tag", default="EP008_draft_v2")
     a = ap.parse_args()
     SHOTS_PLAN, lines, starts, END = plan()
     caps = hk.chunks(lines)
     os.makedirs(os.path.join(HERE, "draft"), exist_ok=True)
     json.dump({"end": END, "starts": starts, "shots": [{**s, "spec": [str(x) for x in s["spec"][:2]]} for s in SHOTS_PLAN]},
-              open(os.path.join(HERE, "draft", "EP008_draft_v1.timeline.json"), "w"), indent=1)
+              open(os.path.join(HERE, "draft", a.tag + ".timeline.json"), "w"), indent=1)
     if not (a.render and a.confirm):
         print(json.dumps({"end": END, "shots": len(SHOTS_PLAN), "note": "add --render --confirm"})); raise SystemExit
     want = set(filter(None, a.scenes.split(",")))
@@ -257,7 +256,7 @@ if __name__ == "__main__":
     if bad:
         raise SystemExit(f"incomplete segments: {bad}")
     parts = [j[5] for j in jobs]
-    tag = "partial_" + "_".join(sorted(want)) if want else "EP008_draft_v1"
+    tag = "partial_" + "_".join(sorted(want)) if want else a.tag
     lst = os.path.join(tmp, "list.txt"); open(lst, "w").write("".join(f"file '{p}'\n" for p in parts))
     vid = os.path.join(tmp, "v.mp4"); subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", vid], check=True)
     t0 = bounds[ids.index(sorted(want)[0])] if want else 0.0

@@ -63,24 +63,23 @@
 | s11.2 | 306.8 | 315.2 | d-mission-sequence | reentry arc to Pacific | SPLASHDOWN: PACIFIC | ILLUSTRATION |
 | s11.3a | 315.2 | 319.4 | a2-earth-behind-moon | slow drift | DAY 14 | NASA · ARTEMIS II PHOTO |
 | s11.3b | 319.4 | 323.6 | a2-earth-behind-moon | re-frame: detail crop 1.4x |  | NASA · ARTEMIS II PHOTO |
-| s12.1a | 323.6 | 330.7 | d-three-rockets | three launch arcs converge in one orbit - beat 1/2 | 3 SPACECRAFT · 3 ROCKETS | DIAGRAM |
-| s12.1b | 330.7 | 337.9 | d-three-rockets | three launch arcs converge in one orbit - beat 2/2 |  | DIAGRAM |
-| s12.2a | 337.9 | 345.0 | d-orbit-vs-moon | Artemis IV path draws out to Moon, handoff point flashes - beat 1/2 | ARTEMIS IV: HANDOFF AT THE MOON | DIAGRAM |
-| s12.2b | 345.0 | 352.2 | d-orbit-vs-moon | Artemis IV path draws out to Moon, handoff point flashes - beat 2/2 |  | DIAGRAM |
-| s12.3a | 352.2 | 357.0 | a2-tiny-earth | slow push | NEAR THE MOON: DAYS TO COME HOME | NASA · ARTEMIS II PHOTO |
-| s12.3b | 357.0 | 361.7 | a2-tiny-earth | re-frame: detail crop 1.4x |  | NASA · ARTEMIS II PHOTO |
-| s12.3c | 361.7 | 366.5 | a2-tiny-earth | re-frame: opposite-side crop |  | NASA · ARTEMIS II PHOTO |
-| s12.4a | 366.5 | 373.6 | d-orbit-vs-moon | snap back to LEO ring - beat 1/2 | EARTH ORBIT: HOURS, NOT DAYS* | DIAGRAM · *TYPICAL, NOT A MISSION TIME |
-| s12.4b | 373.6 | 380.8 | d-orbit-vs-moon | snap back to LEO ring - beat 2/2 |  | DIAGRAM · *TYPICAL, NOT A MISSION TIME |
-| s13.1 | 380.8 | 386.5 | d-timeline-apollo | 1969 timeline: Apollo 9 (Earth orbit) → Apollo 11 (landing) | APOLLO 9 · EARTH ORBIT · 1969 | DIAGRAM |
-| s13.2 | 386.5 | 391.2 | a2-earthrise | slow push | ARTEMIS: 2027 → 2028 | NASA · ARTEMIS II PHOTO |
-| s14.1a | 391.2 | 394.6 | srb-nosecones | tilt | LAUNCH: 2027 (NO DATE) | NASA/CORY S HUSTON |
-| s14.1b | 394.6 | 397.9 | srb-nosecones | re-frame: detail crop 1.4x |  | NASA/CORY S HUSTON |
-| s14.2 | 397.9 | 403.0 | d-timeline | open items flash: tanking test, lander choice | STILL OPEN |  |
-| s14.3 | 403.0 | 408.0 | a2-earthset | drift | ARTEMIS IV: WHICH LANDER? | NASA · ARTEMIS II PHOTO |
-| s15.1 | 408.0 | 413.9 | d-orbit-vs-moon | LEO ring → path to Moon | ARTEMIS III: THE TEST | DIAGRAM |
-| s15.2a | 413.9 | 418.4 | a2-lunar-surface | slow push - bookends frame 1 | ARTEMIS IV: THE LANDING | NASA · ARTEMIS II PHOTO |
-| s15.2b | 418.4 | 422.8 | a2-lunar-surface | re-frame: detail crop 1.4x |  | NASA · ARTEMIS II PHOTO |
+| s12.1a | 323.6 | 328.4 | d-three-rockets | three launch arcs converge in one orbit - beat 1/2 | 3 SPACECRAFT · 3 ROCKETS | DIAGRAM |
+| s12.1b | 328.4 | 333.3 | d-three-rockets | three launch arcs converge in one orbit - beat 2/2 |  | DIAGRAM |
+| s12.2a | 333.3 | 338.2 | d-orbit-vs-moon | Artemis IV path draws out to Moon, handoff point flashes - beat 1/2 | ARTEMIS IV: HANDOFF AT THE MOON | DIAGRAM |
+| s12.2b | 338.2 | 343.0 | d-orbit-vs-moon | Artemis IV path draws out to Moon, handoff point flashes - beat 2/2 |  | DIAGRAM |
+| s12.3a | 343.0 | 347.9 | a2-tiny-earth | slow push | NEAR THE MOON: DAYS TO COME HOME | NASA · ARTEMIS II PHOTO |
+| s12.3b | 347.9 | 352.7 | a2-tiny-earth | re-frame: detail crop 1.4x |  | NASA · ARTEMIS II PHOTO |
+| s12.4a | 352.7 | 357.6 | d-orbit-vs-moon | snap back to LEO ring - beat 1/2 | EARTH ORBIT: HOURS, NOT DAYS* | DIAGRAM · *TYPICAL, NOT A MISSION TIME |
+| s12.4b | 357.6 | 362.4 | d-orbit-vs-moon | snap back to LEO ring - beat 2/2 |  | DIAGRAM · *TYPICAL, NOT A MISSION TIME |
+| s13.1 | 362.4 | 368.1 | d-timeline-apollo | 1969 timeline: Apollo 9 (Earth orbit) → Apollo 11 (landing) | APOLLO 9 · EARTH ORBIT · 1969 | DIAGRAM |
+| s13.2 | 368.1 | 372.8 | a2-earthrise | slow push | ARTEMIS: 2027 → 2028 | NASA · ARTEMIS II PHOTO |
+| s14.1a | 372.8 | 376.2 | srb-nosecones | tilt | LAUNCH: 2027 (NO DATE) | NASA/CORY S HUSTON |
+| s14.1b | 376.2 | 379.5 | srb-nosecones | re-frame: detail crop 1.4x |  | NASA/CORY S HUSTON |
+| s14.2 | 379.5 | 384.6 | d-timeline | open items flash: tanking test, lander choice | STILL OPEN |  |
+| s14.3 | 384.6 | 389.6 | a2-earthset | drift | ARTEMIS IV: WHICH LANDER? | NASA · ARTEMIS II PHOTO |
+| s15.1 | 389.6 | 395.5 | d-orbit-vs-moon | LEO ring → path to Moon | ARTEMIS III: THE TEST | DIAGRAM |
+| s15.2a | 395.5 | 400.0 | a2-lunar-surface | slow push - bookends frame 1 | ARTEMIS IV: THE LANDING | NASA · ARTEMIS II PHOTO |
+| s15.2b | 400.0 | 404.4 | a2-lunar-surface | re-frame: detail crop 1.4x |  | NASA · ARTEMIS II PHOTO |
 
 ## Sound per scene
 

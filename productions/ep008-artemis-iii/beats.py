@@ -139,9 +139,7 @@ scene("s12", "Why docking first", ["F30", "F02", "F13", "F08", "F10", "F03"],
  "Three spacecraft on three different rockets, working together, which he says NASA has never attempted. "
  "And on Artemis Four, the landing depends on exactly this step. "
  "Orion can't land. A commercial lander has to meet it, take astronauts down near the South Pole, and bring them back. "
- "Distance is part of the logic. Artemis Two needed several days just to get back from the Moon. "
- "From low Earth orbit, a spacecraft can be back on the ground in a matter of hours, though the exact time depends on where it is and when it can land. "
- "So the first test of this handoff happens close to home.",
+ "So the first test of this handoff happens close to home, in Earth orbit.",
  [("d-three-rockets", .25, "three launch arcs converge in one orbit", "3 SPACECRAFT · 3 ROCKETS", "DIAGRAM"),
   ("d-orbit-vs-moon", .25, "Artemis IV path draws out to Moon, handoff point flashes", "ARTEMIS IV: HANDOFF AT THE MOON", "DIAGRAM"),
   ("a2-tiny-earth", .25, "slow push", "NEAR THE MOON: DAYS TO COME HOME", "NASA · ARTEMIS II PHOTO"),

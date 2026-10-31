@@ -543,3 +543,311 @@ def portrait(path, u, credit):
     bg = ImageEnhance_Brightness(bg, 0.45); bg.paste(fg, ((W - w) // 2, 0))
     ImageDraw.Draw(bg).text((W - 40, H - 34), credit, font=font(24, INTER), fill=INK, anchor="rs", stroke_width=2, stroke_fill=(0, 0, 0))
     return bg
+
+
+# ================================================================ v2 (owner 2026-10-31 20:04): recognisable vehicles,
+# phased docking animation, visual explanations instead of text lists. Own drawings from public descriptions; no company
+# artwork copied. Every illustration is labelled ILLUSTRATION.
+STEEL, STEEL_D, WHITE_V, ORANGE = (196, 202, 210), (120, 128, 140), (232, 236, 240), (255, 140, 40)
+
+
+def _space(d, limb=True):
+    for i in range(220):
+        x = (i * 7919) % W; y = (i * 104729) % H; c = 70 + (i * 37) % 90
+        d.point((x * S, y * S), fill=(c, c, c + 10))
+    if limb:
+        R0 = 3000 * S; cx, cy = W * 0.5 * S, (H + 2780) * S
+        d.ellipse([cx - R0, cy - R0, cx + R0, cy + R0], fill=(22, 52, 96))
+        d.ellipse([cx - R0, cy - R0, cx + R0, cy + R0], outline=(110, 170, 240), width=8 * S)
+
+
+def orion(d, x, y, s, dirn=1, crew=0):
+    """Orion side view: crew module (truncated cone) forward, service module behind, X-shaped solar wings.
+    (x, y) = forward docking port; dirn=+1 points right. s = pixels per metre (supersampled)."""
+    f = dirn
+    cm_len, cm_r0, cm_r1 = 3.3 * s, 0.6 * s, 2.5 * s           # crew module: port radius -> heat shield radius
+    xb = x - f * cm_len
+    d.polygon([(x, y - cm_r0), (x, y + cm_r0), (xb, y + cm_r1), (xb, y - cm_r1)], fill=(205, 210, 216), outline=(90, 96, 106))
+    d.rectangle([min(x, x - f * 0.25 * s), y - cm_r0 * 0.8, max(x, x - f * 0.25 * s), y + cm_r0 * 0.8], fill=ACC)   # docking port
+    for k in range(crew):
+        wx = x - f * (1.2 + 0.55 * k) * s
+        d.ellipse([wx - 0.25 * s, y - 0.9 * s, wx + 0.25 * s, y - 0.4 * s], fill=ORANGE)
+    sm0, sm1 = xb - f * 0.3 * s, xb - f * 4.3 * s
+    d.rectangle([min(sm0, sm1), y - 2.0 * s, max(sm0, sm1), y + 2.0 * s], fill=(176, 182, 190), outline=(90, 96, 106))
+    d.polygon([(sm1, y - 1.2 * s), (sm1, y + 1.2 * s), (sm1 - f * 1.0 * s, y + 0.9 * s), (sm1 - f * 1.0 * s, y - 0.9 * s)], fill=(70, 74, 82))
+    mx = (sm0 + sm1) / 2
+    for sy in (-1, 1):                                          # two wings visible in side view, swept back
+        tip = (mx - f * 4.5 * s, y + sy * 7.5 * s); root = (mx, y + sy * 2.0 * s)
+        d.line([root, tip], fill=(40, 70, 140), width=int(1.3 * s))
+        d.line([root, tip], fill=(90, 130, 210), width=int(0.5 * s))
+
+
+def blue_moon(d, x, y, s, port_side=-1):
+    """Tall lander (illustration): cylindrical body, crew cabin near the top with windows, side docking port beside the cabin
+    (port_side=-1 = left), landing legs. (x, y) = centre of the side port. Returns nothing."""
+    bw = 3.2 * s; top = y - 3.0 * s; bot = y + 13.0 * s
+    cx = x - port_side * bw                                     # body centre line
+    d.rectangle([cx - bw, top + 2.2 * s, cx + bw, bot], fill=WHITE_V, outline=(110, 116, 126))
+    d.rounded_rectangle([cx - bw * 0.95, top, cx + bw * 0.95, top + 4.2 * s], radius=int(1.2 * s), fill=(214, 218, 224), outline=(110, 116, 126))
+    for k in (-1, 0, 1):
+        d.rectangle([cx + k * 1.1 * s - 0.35 * s, top + 1.0 * s, cx + k * 1.1 * s + 0.35 * s, top + 1.8 * s], fill=(30, 40, 60))
+    d.rectangle([cx - bw, top + 7.5 * s, cx + bw, top + 9.5 * s], fill=(200, 160, 60))                    # tank band
+    px = cx + port_side * bw
+    d.rectangle([px - 0.25 * s if port_side == -1 else px, y - 0.6 * s, px if port_side == -1 else px + 0.25 * s, y + 0.6 * s], fill=ACC)
+    for sx in (-1, 1):
+        d.line([(cx + sx * bw * 0.8, bot - 1.0 * s), (cx + sx * (bw + 2.6 * s), bot + 2.6 * s)], fill=STEEL_D, width=int(0.5 * s))
+        d.line([(cx + sx * (bw + 2.6 * s) - 0.8 * s, bot + 2.6 * s), (cx + sx * (bw + 2.6 * s) + 0.8 * s, bot + 2.6 * s)], fill=STEEL_D, width=int(0.5 * s))
+
+
+def starship(d, x, y, s, dirn=-1):
+    """Starship test article, horizontal side view (illustration). (x, y) = nose tip with docking port; dirn=-1: nose points left.
+    52 m long, 9 m diameter; two small forward flaps, two large aft flaps."""
+    f = -dirn; r = 4.5 * s; L = 52 * s; nose = 12 * s
+    x1 = x + f * nose; x2 = x + f * L
+    pts = []
+    for i in range(21):
+        t = i / 20; px_ = x + f * nose * t; rr = r * (1 - (1 - t) ** 2) ** 0.5
+        pts.append((px_, y - rr))
+    pts += [(x2, y - r), (x2, y + r)] + [(p[0], 2 * y - p[1]) for p in reversed(pts)]
+    d.polygon(pts, fill=STEEL, outline=(110, 116, 126))
+    for k in range(1, 8):                                       # ring welds
+        xx = x1 + f * k * (L - nose) / 8
+        d.line([(xx, y - r), (xx, y + r)], fill=(170, 176, 186), width=max(1, int(0.12 * s)))
+    d.line([(x + f * nose * 0.15, y + r * 0.2), (x2, y + r * 0.2)], fill=(40, 44, 52), width=int(0.3 * s))   # heat-shield edge
+    for (a, b, h) in ((nose * 0.55, nose * 1.1, 3.0), (L - 9 * s, L - 1 * s, 5.0)):
+        for sy in (-1, 1):
+            d.polygon([(x + f * a, y + sy * r), (x + f * b, y + sy * r), (x + f * b, y + sy * (r + h * s)), (x + f * (a + (b - a) * 0.5), y + sy * (r + h * s))], fill=STEEL_D)
+    d.rectangle([x - 0.3 * s if f > 0 else x, y - 0.8 * s, x if f > 0 else x + 0.3 * s, y + 0.8 * s], fill=ACC)    # nose port
+
+
+def _phase(d, im, u, labels, xy):
+    k = min(len(labels) - 1, int(u * len(labels)))
+    for i, lab in enumerate(labels):
+        col = ACC if i == k else DIM
+        d.text((xy[0] + i * 330 * S, xy[1]), ("● " if i <= k else "○ ") + lab, font=font(34 * S, INTER), fill=col)
+
+
+def d_dock_v2(u, mode):
+    im = Image.new("RGB", (W * S, H * S), BG); d = ImageDraw.Draw(im); _space(d)
+    s = 26 * S
+    if mode == "side":                       # dock 1: Orion to the port beside Blue Moon's crew cabin
+        bx, by = W * 0.66 * S, H * 0.36 * S
+        k = seg(u, 0.0, 0.62); ox = W * 0.08 * S + (bx - 3.2 * s * 0 - W * 0.08 * S - 0.2 * s) * k
+        ox = W * 0.10 * S + (bx - W * 0.10 * S) * k
+        blue_moon(d, bx, by, s, port_side=-1)
+        orion(d, ox, by, s, 1)
+        if 0.6 < u < 0.7:
+            d.ellipse([ox - 2 * s, by - 2 * s, ox + 2 * s, by + 2 * s], outline=ACC, width=4 * S)
+        d.text((W * 0.66 * S, H * 0.88 * S), "BLUE MOON TEST ARTICLE", font=font(30 * S, INTER), fill=INK, anchor="ma")
+        d.text((ox - 4 * s, by + 4 * s), "ORION", font=font(34 * S), fill=ACC, anchor="ma")
+        _phase(d, im, u, ["APPROACH", "CONTACT", "DOCKED"], (90 * S, 70 * S))
+        _alpha_text(im, (90 * S, 130 * S), "PORT BESIDE THE CREW CABIN · ORION'S SOFTWARE FLIES THE PAIR", font(34 * S, INTER), INK, seg(u, 0.65, 0.8))
+    elif mode == "hatch":                    # docked, hatch opens, up to two crew move across
+        s2 = 40 * S; bx, by = W * 0.70 * S, H * 0.40 * S
+        blue_moon(d, bx, by, s2, port_side=-1); orion(d, bx, by, s2, 1)
+        hx = bx - 6.4 * s2 * 0.5
+        for i in range(2):
+            p = seg(u, 0.25 + i * 0.25, 0.6 + i * 0.25)
+            fx = (bx - 2.0 * s2) + (3.2 * s2 + 2.0 * s2) * p
+            fy = by - 0.2 * s2
+            d.ellipse([fx - 0.45 * s2, fy - 1.3 * s2, fx + 0.45 * s2, fy - 0.4 * s2], fill=ORANGE)
+            d.rounded_rectangle([fx - 0.55 * s2, fy - 0.4 * s2, fx + 0.55 * s2, fy + 1.4 * s2], radius=int(0.3 * s2), fill=ORANGE)
+        _phase(d, im, u, ["HATCH OPEN", "CREW 1 IN", "CREW 2 IN"], (90 * S, 70 * S))
+        _alpha_text(im, (90 * S, 130 * S), "UP TO 2 ASTRONAUTS · ORANGE ORION SURVIVAL SUITS", font(34 * S, INTER), INK, 1.0)
+    elif mode in ("nose", "timer"):          # dock 2: Orion forward port to Starship's nose, nose to nose
+        s3 = 22 * S; nx, ny = W * 0.40 * S, H * 0.46 * S
+        starship(d, nx, ny, s3, dirn=-1)
+        k = seg(u, 0.0, 0.62) if mode == "nose" else 1.0
+        ox = W * 0.02 * S + (nx - W * 0.02 * S) * k
+        orion(d, ox, ny, s3, 1, crew=3 if mode == "timer" else 0)
+        d.text((nx + 26 * s3, ny + 6.5 * s3), "STARSHIP TEST ARTICLE · 171 FT / 52 M", font=font(30 * S, INTER), fill=INK, anchor="ma")
+        if mode == "nose":
+            _phase(d, im, u, ["APPROACH", "NOSE TO NOSE", "DOCKED"], (90 * S, 70 * S))
+            _alpha_text(im, (90 * S, 130 * S), "ORION FORWARD PORT · SPACEX FLIES THE PAIR", font(34 * S, INTER), INK, seg(u, 0.65, 0.8))
+        else:
+            cx, cy, r = W * 0.84 * S, H * 0.22 * S, 110 * S
+            d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=DIM, width=5 * S)
+            d.arc([cx - r, cy - r, cx + r, cy + r], -90, -90 + 360 * seg(u, 0.0, 0.9), fill=ACC, width=14 * S)
+            d.text((cx, cy), "≤2 H", font=font(60 * S), fill=INK, anchor="mm")
+            d.text((90 * S, 70 * S), "UP TO 2 HOURS DOCKED", font=font(64 * S), fill=ACC)
+            _alpha_text(im, (90 * S, 160 * S), "CREW STAYS IN ORION · NOBODY ENTERS STARSHIP", font(38 * S, INTER), INK, seg(u, 0.15, 0.3))
+    label_lines(d, "ORBITAL ATLAS ILLUSTRATION · NOT REAL FOOTAGE · SIMPLIFIED SHAPES", "Source: NASA, Jul 15 and Oct 23, 2026")
+    return finish(im)
+
+
+def d_mass_sim(u):
+    """Spacesuit mass simulator inside the lander cabin (cutaway, illustration), sensor pulses."""
+    im = Image.new("RGB", (W * S, H * S), BG); d = ImageDraw.Draw(im)
+    cx, cy = W * 0.36 * S, H * 0.52 * S
+    d.rounded_rectangle([cx - 420 * S, cy - 330 * S, cx + 420 * S, cy + 330 * S], radius=60 * S, outline=DIM, width=6 * S)
+    d.text((cx, cy - 380 * S), "LANDER CABIN (CUTAWAY)", font=font(32 * S, INTER), fill=DIM, anchor="ma")
+    g = (150, 156, 166)                                     # suit-shaped stand-in
+    d.ellipse([cx - 70 * S, cy - 250 * S, cx + 70 * S, cy - 110 * S], fill=g)
+    d.rounded_rectangle([cx - 120 * S, cy - 110 * S, cx + 120 * S, cy + 110 * S], radius=40 * S, fill=g)
+    for sx in (-1, 1):
+        d.rounded_rectangle([cx + sx * 120 * S - 35 * S, cy - 90 * S, cx + sx * 120 * S + 35 * S, cy + 90 * S], radius=30 * S, fill=g)
+        d.rounded_rectangle([cx + sx * 55 * S - 40 * S, cy + 110 * S, cx + sx * 55 * S + 40 * S, cy + 290 * S], radius=30 * S, fill=g)
+    for k in range(3):
+        ph = (u * 3 + k / 3) % 1
+        r = (60 + 300 * ph) * S
+        d.ellipse([cx - r, cy - 40 * S - r, cx + r, cy - 40 * S + r], outline=(int(255 * (1 - ph)), int(196 * (1 - ph)), int(64 * (1 - ph))), width=4 * S)
+    d.ellipse([cx - 16 * S, cy - 56 * S, cx + 16 * S, cy - 24 * S], fill=ACC)
+    d.text((W * 0.66 * S, H * 0.34 * S), "SPACESUIT\nMASS SIMULATOR", font=font(80 * S), fill=ACC, spacing=10 * S)
+    _alpha_text(im, (W * 0.66 * S, H * 0.60 * S), "suit-weight stand-in with sensors:\nreports conditions in the cabin", font(40 * S, INTER), INK, seg(u, 0.1, 0.25), spacing=12 * S)
+    label_lines(d, "ORBITAL ATLAS ILLUSTRATION · NOT REAL FOOTAGE", "Source: NASA, Jul 15, 2026")
+    return finish(im)
+
+
+def _icon(d, kind, x, y, r, col):
+    """Simple pictograms (own)."""
+    w = int(6 * S)
+    if kind == "heli":
+        d.ellipse([x - r * 0.6, y - r * 0.35, x + r * 0.4, y + r * 0.15], outline=col, width=w)
+        d.line([(x - r, y - r * 0.5), (x + r * 0.8, y - r * 0.5)], fill=col, width=w)
+        d.line([(x + r * 0.4, y - r * 0.1), (x + r, y - r * 0.2)], fill=col, width=w)
+        d.line([(x - r * 0.1, y + r * 0.15), (x - r * 0.1, y + r * 0.75)], fill=ACC, width=int(3 * S))
+        d.ellipse([x - r * 0.25, y + r * 0.7, x + r * 0.05, y + r * 1.0], fill=ORANGE)
+    elif kind == "water":
+        for k in range(3):
+            yy = y + r * (0.2 + 0.3 * k)
+            d.arc([x - r, yy - r * 0.2, x, yy + r * 0.2], 200, 340, fill=col, width=w); d.arc([x, yy - r * 0.2, x + r, yy + r * 0.2], 200, 340, fill=col, width=w)
+        d.polygon([(x - r * 0.4, y), (x + r * 0.4, y), (x + r * 0.25, y - r * 0.6), (x - r * 0.25, y - r * 0.6)], outline=col, width=w)
+        d.line([(x, y - r * 0.6), (x, y - r * 1.0)], fill=ACC, width=w)
+    elif kind == "suit":
+        d.ellipse([x - r * 0.3, y - r, x + r * 0.3, y - r * 0.4], fill=ORANGE)
+        d.rounded_rectangle([x - r * 0.45, y - r * 0.4, x + r * 0.45, y + r * 0.4], radius=int(r * 0.15), fill=ORANGE)
+        for sx in (-1, 1):
+            d.rounded_rectangle([x + sx * r * 0.2 - r * 0.15, y + r * 0.4, x + sx * r * 0.2 + r * 0.15, y + r], radius=int(r * 0.1), fill=ORANGE)
+    elif kind == "food":
+        d.rounded_rectangle([x - r, y - r * 0.6, x + r, y + r * 0.6], radius=int(r * 0.15), outline=col, width=w)
+        for i in range(3):
+            for j in range(2):
+                cx = x - r * 0.6 + i * r * 0.6; cy = y - r * 0.25 + j * r * 0.5
+                d.rounded_rectangle([cx - r * 0.22, cy - r * 0.18, cx + r * 0.22, cy + r * 0.18], radius=int(r * 0.05), fill=ACC if (i + j) % 2 else DIM)
+    elif kind == "sensor":
+        d.rectangle([x - r * 0.3, y - r * 0.3, x + r * 0.3, y + r * 0.3], outline=col, width=w)
+        for k in (1, 2):
+            d.arc([x - r * 0.3 * k - r * 0.4, y - r * 0.3 * k - r * 0.4, x + r * 0.3 * k + r * 0.4, y + r * 0.3 * k + r * 0.4], -40, 40, fill=ACC, width=w)
+    elif kind == "sound":
+        d.polygon([(x - r, y - r * 0.3), (x - r * 0.5, y - r * 0.3), (x, y - r * 0.8), (x, y + r * 0.8), (x - r * 0.5, y + r * 0.3), (x - r, y + r * 0.3)], outline=col, width=w)
+        for k in (1, 2):
+            d.arc([x - r * 0.4 * k, y - r * 0.4 * k, x + r * 0.4 * k, y + r * 0.4 * k], -50, 50, fill=ACC, width=w)
+        d.line([(x + r * 0.9, y + r * 0.8), (x + r * 0.9, y - r * 0.4)], fill=(229, 80, 45), width=w)
+        d.ellipse([x + r * 0.75, y + r * 0.7, x + r * 1.05, y + r * 1.0], fill=(229, 80, 45))
+    elif kind == "crew":
+        for k in (-1, 0, 1):
+            d.ellipse([x + k * r * 0.6 - r * 0.2, y - r * 0.6, x + k * r * 0.6 + r * 0.2, y - r * 0.2], fill=col)
+            d.rounded_rectangle([x + k * r * 0.6 - r * 0.28, y - r * 0.15, x + k * r * 0.6 + r * 0.28, y + r * 0.5], radius=int(r * 0.1), fill=col)
+    elif kind == "lander":
+        d.rectangle([x - r * 0.35, y - r * 0.8, x + r * 0.35, y + r * 0.4], outline=col, width=w)
+        for sx in (-1, 1):
+            d.line([(x + sx * r * 0.35, y + r * 0.3), (x + sx * r * 0.8, y + r * 0.9)], fill=col, width=w)
+
+
+def tiles(u, title, items, source, label="ORBITAL ATLAS GRAPHIC"):
+    """Icon tiles instead of a text list: items = [(icon, short label)], one appears per beat."""
+    im, d = _bg()
+    d.text((W * 0.5 * S, 110 * S), title, font=font(84 * S), fill=ACC, anchor="ma")
+    n = len(items); tw = (W - 240) / n
+    for k, (ic, lab) in enumerate(items):
+        a = 1.0 if k == 0 else seg(u, 0.12 + 0.6 * (k - 1) / max(n - 1, 1), 0.24 + 0.6 * (k - 1) / max(n - 1, 1))
+        if a <= 0:
+            continue
+        x = (120 + tw * (k + 0.5)) * S; y = H * 0.50 * S
+        col = tuple(int(BG[i] + (INK[i] - BG[i]) * a) for i in range(3))
+        d.rounded_rectangle([x - tw * 0.42 * S, y - 230 * S, x + tw * 0.42 * S, y + 250 * S], radius=30 * S, outline=tuple(int(BG[i] + (60 - BG[i]) * a) + 0 for i in range(3)) if False else (40, 52, 74), width=4 * S)
+        _icon(d, ic, x, y - 40 * S, 120 * S, col)
+        d.multiline_text((x, y + 150 * S), lab, font=font(40 * S, INTER), fill=col, anchor="ma", align="center", spacing=8 * S)
+    label_lines(d, label, source)
+    return finish(im)
+
+
+def d_crew_v2(u):
+    """Crew names around an Orion silhouette (no portraits)."""
+    im = Image.new("RGB", (W * S, H * S), BG); d = ImageDraw.Draw(im); _space(d, limb=False)
+    s = 70 * S; ox, oy = W * 0.62 * S, H * 0.50 * S
+    orion(d, ox, oy, s, 1, crew=4)
+    names = [("RANDY BRESNIK", "NASA"), ("ANDRE DOUGLAS", "NASA"), ("FRANK RUBIO", "NASA"), ("LUCA PARMITANO", "ESA")]
+    for k, (n, ag) in enumerate(names):
+        a = 1.0 if k == 0 else seg(u, 0.1 + 0.15 * k, 0.22 + 0.15 * k)
+        y = (230 + k * 160) * S
+        _alpha_text(im, (110 * S, y), n, font(66 * S), INK, a)
+        _alpha_text(im, (110 * S, y + 80 * S), ag, font(34 * S, INTER), ACC, a)
+    d.text((W * 0.62 * S, 90 * S), "THE ARTEMIS III CREW", font=font(60 * S), fill=ACC, anchor="ma")
+    label_lines(d, "ORBITAL ATLAS ILLUSTRATION · NAMES ONLY, NO PORTRAITS", "Source: NASA, Jun 9 and Oct 13, 2026")
+    return finish(im)
+
+
+def d_yearly(u):
+    """At least one landing a year after the first (NASA plan): years with lander icons."""
+    im, d = _bg()
+    yrs = [("2028", "ARTEMIS IV\n(TARGET)"), ("2029", "PLAN"), ("2030", "PLAN"), ("2031", "PLAN")]
+    for k, (yr, lab) in enumerate(yrs):
+        a = 1.0 if k == 0 else seg(u, 0.15 + 0.15 * k, 0.27 + 0.15 * k)
+        x = (300 + k * 440) * S; y = H * 0.48 * S
+        col = ACC if k == 0 else INK
+        c = tuple(int(BG[i] + (col[i] - BG[i]) * a) for i in range(3))
+        d.arc([x - 170 * S, y + 40 * S, x + 170 * S, y + 360 * S], 200, 340, fill=c, width=6 * S)        # Moon horizon
+        _icon(d, "lander", x, y - 10 * S, 120 * S, c)
+        _alpha_text(im, (x, y - 220 * S), yr, font(90 * S), col, a, "ma")
+        _alpha_text(im, (x, y + 170 * S), lab, font(36 * S, INTER), col, a, "ma", spacing=8 * S)
+    _alpha_text(im, (W * 0.5 * S, 80 * S), "AT LEAST ONE LANDING A YEAR AFTER THE FIRST", font(64 * S), INK, 1.0, "ma")
+    label_lines(d, "ORBITAL ATLAS GRAPHIC · NASA PLAN, NOT A SCHEDULE", "Source: NASA, Feb 27, 2026")
+    return finish(im)
+
+
+def d_faster(u):
+    """Two visual bars: tower turnaround nearly 50% faster; some installation work ~3 months earlier."""
+    im, d = _bg(); x0 = 520 * S; full = 1150 * S
+    d.text((110 * S, 250 * S), "LAUNCH TOWER\nTURNAROUND", font=font(52 * S), fill=INK, spacing=6 * S)
+    d.rectangle([x0, 270 * S, x0 + full, 340 * S], fill=(60, 66, 80)); d.text((x0 + full + 20 * S, 280 * S), "BEFORE", font=font(30 * S, INTER), fill=DIM)
+    k = seg(u, 0.05, 0.4)
+    d.rectangle([x0, 370 * S, x0 + full * (1 - 0.5 * k), 440 * S], fill=ACC)
+    _alpha_text(im, (x0 + full * 0.5 + 20 * S, 380 * S), "~50% FASTER", font(44 * S), ACC, seg(u, 0.3, 0.45))
+    d.text((110 * S, 600 * S), "SOME ORION\nINSTALLATION WORK", font=font(52 * S), fill=INK, spacing=6 * S)
+    for m in range(12):
+        d.rectangle([x0 + m * full / 12 + 4 * S, 620 * S, x0 + (m + 1) * full / 12 - 4 * S, 690 * S], fill=(40, 52, 74))
+    sh = seg(u, 0.5, 0.85) * 3
+    bx = x0 + (7 - sh) * full / 12
+    d.rectangle([bx, 620 * S, bx + full / 12 * 2, 690 * S], fill=ACC)
+    _alpha_text(im, (x0, 720 * S), "~3 MONTHS EARLIER · REUSED ARTEMIS II PARTS", font(40 * S), ACC, seg(u, 0.75, 0.9))
+    label_lines(d, "ORBITAL ATLAS GRAPHIC · RELATIVE, NOT TO SCALE", "Source: NASA hardware update, Aug 5, 2026")
+    return finish(im)
+
+
+def d_handoff_v2(u):
+    """Artemis IV plan: Orion in lunar orbit; a lander (company not chosen) meets it, goes down near the South Pole."""
+    im = Image.new("RGB", (W * S, H * S), BG); d = ImageDraw.Draw(im); _space(d, limb=False)
+    cx, cy, r = W * 0.40 * S, H * 0.62 * S, 360 * S
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=(70, 72, 78), outline=(150, 152, 160), width=4 * S)
+    for k in range(14):
+        a_ = k * 2.4; rr = r * (0.2 + 0.7 * ((k * 37) % 10) / 10)
+        x, y = cx + rr * math.cos(a_), cy + rr * math.sin(a_); q = (12 + k % 4 * 8) * S
+        d.ellipse([x - q, y - q, x + q, y + q], outline=(95, 97, 104), width=3 * S)
+    ro = r + 130 * S; d.ellipse([cx - ro, cy - ro, cx + ro, cy + ro], outline=(90, 100, 120), width=3 * S)
+    a = math.radians(-120 + 80 * seg(u, 0.0, 0.4)); ox, oy = cx + ro * math.cos(a), cy + ro * math.sin(a)
+    orion(d, ox, oy, 9 * S, 1)
+    m = seg(u, 0.4, 0.6); dn = seg(u, 0.62, 0.9)
+    if m > 0:
+        lx, ly = ox + 40 * S, oy + 40 * S; sp = (cx + 0.35 * r, cy + 0.94 * r)
+        px, py = lx + (sp[0] - lx) * dn, ly + (sp[1] - ly) * dn
+        _icon(d, "lander", px, py - 30 * S, 60 * S, INK)
+    _alpha_text(im, (cx + 0.35 * r, cy + r + 10 * S), "SOUTH POLE REGION", font(34 * S, INTER), ACC, seg(u, 0.75, 0.9), "ma")
+    d.text((W * 0.70 * S, H * 0.18 * S), "ARTEMIS IV\n(PLANNED 2028)", font=font(76 * S), fill=ACC, spacing=10 * S)
+    _alpha_text(im, (W * 0.70 * S, H * 0.45 * S), "Orion can't land.\nA commercial lander\nmeets it, goes down,\ncomes back.", font(44 * S, INTER), INK, seg(u, 0.3, 0.45), spacing=12 * S)
+    _alpha_text(im, (W * 0.70 * S, H * 0.78 * S), "LANDER FOR ARTEMIS IV:\nNOT YET ANNOUNCED", font(36 * S), DIM, seg(u, 0.5, 0.65), spacing=8 * S)
+    label_lines(d, "ORBITAL ATLAS ILLUSTRATION · NOT TO SCALE", "Source: NASA, Feb 27 and Oct 23, 2026")
+    return finish(im)
+
+
+def lower_third(im, quote_txt, who, a=1.0):
+    """Short quote as a lower third over a picture (owner: no long full-screen quotes)."""
+    lay = Image.new("RGBA", im.size, (0, 0, 0, 0)); d = ImageDraw.Draw(lay)
+    f = font(42, INTER); w = max(d.textlength(l, font=f) for l in quote_txt.split("\n"))
+    nl = quote_txt.count("\n") + 1; h = 60 * nl + 70
+    x0, y1 = 70, H - 210; y0 = y1 - h
+    d.rounded_rectangle([x0, y0, x0 + w + 80, y1], 14, fill=(0, 0, 0, int(190 * a)))
+    d.rectangle([x0, y0, x0 + 10, y1], fill=ACC + (int(255 * a),))
+    d.multiline_text((x0 + 40, y0 + 20), quote_txt, font=f, fill=(255, 255, 255, int(255 * a)), spacing=14)
+    d.text((x0 + 40, y1 - 46), who, font=font(30), fill=ACC + (int(255 * a),))
+    im = im.convert("RGBA"); im.alpha_composite(lay); return im.convert("RGB")

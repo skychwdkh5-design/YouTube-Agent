@@ -81,6 +81,12 @@ Scene kept; the hours/days line is now an explanation framed as general, not a m
 the Moon took several days (F03: flyby Apr 6, splashdown Apr 10); from LEO a return can take hours, "though the exact
 time depends on where it is and when it can land". On screen: "*TYPICAL, NOT A MISSION TIME". Not attributed to NASA.
 
+## 4d. DAYS/HOURS comparison removed (owner rule 2026-10-31 20:04)
+Owner: show a direct confirmation of the comparison conditions or remove it. Searched all saved NASA primary texts:
+no statement of a return time from low Earth orbit. Removed from VO (s12 sentences "Distance is part of the logic…",
+"Artemis Two needed several days…", "From low Earth orbit… hours…") and the d_hours graphic. s12 now ends
+"So the first test of this handoff happens close to home, in Earth orbit." (NASA: Artemis III flies in LEO, F02/F30).
+
 ## 5. Topic score (Orbital Atlas)
 `research/TOPIC_SCORE.md` — 3.83, GO-CANDIDATE. Inputs from NEXORA are external; `proof` scored 2 because
 vidIQ breakout scores have no baselines (`research/OUTLIERS_external_vidiq.md`). Not an Orbital Atlas measurement.

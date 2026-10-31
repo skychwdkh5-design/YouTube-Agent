@@ -1,7 +1,7 @@
 {
  "wpm": 150,
- "total_s": 422.8,
- "words": 1042,
+ "total_s": 404.4,
+ "words": 996,
  "scenes": [
   {
    "id": "s01",
@@ -449,7 +449,7 @@
     "F10",
     "F03"
    ],
-   "vo": "So why spend a whole mission on this? NASA's Artemis program manager put it plainly: every piece of the mission in Earth orbit is designed to reduce risk before astronauts go back to the Moon. Three spacecraft on three different rockets, working together, which he says NASA has never attempted. And on Artemis Four, the landing depends on exactly this step. Orion can't land. A commercial lander has to meet it, take astronauts down near the South Pole, and bring them back. Distance is part of the logic. Artemis Two needed several days just to get back from the Moon. From low Earth orbit, a spacecraft can be back on the ground in a matter of hours, though the exact time depends on where it is and when it can land. So the first test of this handoff happens close to home.",
+   "vo": "So why spend a whole mission on this? NASA's Artemis program manager put it plainly: every piece of the mission in Earth orbit is designed to reduce risk before astronauts go back to the Moon. Three spacecraft on three different rockets, working together, which he says NASA has never attempted. And on Artemis Four, the landing depends on exactly this step. Orion can't land. A commercial lander has to meet it, take astronauts down near the South Pole, and bring them back. So the first test of this handoff happens close to home, in Earth orbit.",
    "shots": [
     [
      "d-three-rockets",
@@ -482,7 +482,7 @@
    ],
    "sfx": "tension drone builds; cut to silence on 'hours away'",
    "start": 323.6,
-   "dur": 57.2
+   "dur": 38.8
   },
   {
    "id": "s13",
@@ -509,7 +509,7 @@
     ]
    ],
    "sfx": "",
-   "start": 380.8,
+   "start": 362.4,
    "dur": 10.4
   },
   {
@@ -545,7 +545,7 @@
     ]
    ],
    "sfx": "",
-   "start": 391.2,
+   "start": 372.8,
    "dur": 16.8
   },
   {
@@ -573,7 +573,7 @@
     ]
    ],
    "sfx": "music resolves; 1 s tail; end screen 10 s (silent, not counted)",
-   "start": 408.0,
+   "start": 389.6,
    "dur": 14.8
   }
  ],
@@ -1192,7 +1192,7 @@
    "scene": "s12",
    "shot": "s12.1a",
    "start": 323.6,
-   "end": 330.7,
+   "end": 328.4,
    "asset": "d-three-rockets",
    "motion": "three launch arcs converge in one orbit - beat 1/2",
    "on_screen": "3 SPACECRAFT \u00b7 3 ROCKETS",
@@ -1201,8 +1201,8 @@
   {
    "scene": "s12",
    "shot": "s12.1b",
-   "start": 330.7,
-   "end": 337.9,
+   "start": 328.4,
+   "end": 333.3,
    "asset": "d-three-rockets",
    "motion": "three launch arcs converge in one orbit - beat 2/2",
    "on_screen": "",
@@ -1211,8 +1211,8 @@
   {
    "scene": "s12",
    "shot": "s12.2a",
-   "start": 337.9,
-   "end": 345.0,
+   "start": 333.3,
+   "end": 338.2,
    "asset": "d-orbit-vs-moon",
    "motion": "Artemis IV path draws out to Moon, handoff point flashes - beat 1/2",
    "on_screen": "ARTEMIS IV: HANDOFF AT THE MOON",
@@ -1221,8 +1221,8 @@
   {
    "scene": "s12",
    "shot": "s12.2b",
-   "start": 345.0,
-   "end": 352.2,
+   "start": 338.2,
+   "end": 343.0,
    "asset": "d-orbit-vs-moon",
    "motion": "Artemis IV path draws out to Moon, handoff point flashes - beat 2/2",
    "on_screen": "",
@@ -1231,8 +1231,8 @@
   {
    "scene": "s12",
    "shot": "s12.3a",
-   "start": 352.2,
-   "end": 357.0,
+   "start": 343.0,
+   "end": 347.9,
    "asset": "a2-tiny-earth",
    "motion": "slow push",
    "on_screen": "NEAR THE MOON: DAYS TO COME HOME",
@@ -1241,8 +1241,8 @@
   {
    "scene": "s12",
    "shot": "s12.3b",
-   "start": 357.0,
-   "end": 361.7,
+   "start": 347.9,
+   "end": 352.7,
    "asset": "a2-tiny-earth",
    "motion": "re-frame: detail crop 1.4x",
    "on_screen": "",
@@ -1250,19 +1250,9 @@
   },
   {
    "scene": "s12",
-   "shot": "s12.3c",
-   "start": 361.7,
-   "end": 366.5,
-   "asset": "a2-tiny-earth",
-   "motion": "re-frame: opposite-side crop",
-   "on_screen": "",
-   "label": "NASA \u00b7 ARTEMIS II PHOTO"
-  },
-  {
-   "scene": "s12",
    "shot": "s12.4a",
-   "start": 366.5,
-   "end": 373.6,
+   "start": 352.7,
+   "end": 357.6,
    "asset": "d-orbit-vs-moon",
    "motion": "snap back to LEO ring - beat 1/2",
    "on_screen": "EARTH ORBIT: HOURS, NOT DAYS*",
@@ -1271,8 +1261,8 @@
   {
    "scene": "s12",
    "shot": "s12.4b",
-   "start": 373.6,
-   "end": 380.8,
+   "start": 357.6,
+   "end": 362.4,
    "asset": "d-orbit-vs-moon",
    "motion": "snap back to LEO ring - beat 2/2",
    "on_screen": "",
@@ -1281,8 +1271,8 @@
   {
    "scene": "s13",
    "shot": "s13.1",
-   "start": 380.8,
-   "end": 386.5,
+   "start": 362.4,
+   "end": 368.1,
    "asset": "d-timeline-apollo",
    "motion": "1969 timeline: Apollo 9 (Earth orbit) \u2192 Apollo 11 (landing)",
    "on_screen": "APOLLO 9 \u00b7 EARTH ORBIT \u00b7 1969",
@@ -1291,8 +1281,8 @@
   {
    "scene": "s13",
    "shot": "s13.2",
-   "start": 386.5,
-   "end": 391.2,
+   "start": 368.1,
+   "end": 372.8,
    "asset": "a2-earthrise",
    "motion": "slow push",
    "on_screen": "ARTEMIS: 2027 \u2192 2028",
@@ -1301,8 +1291,8 @@
   {
    "scene": "s14",
    "shot": "s14.1a",
-   "start": 391.2,
-   "end": 394.6,
+   "start": 372.8,
+   "end": 376.2,
    "asset": "srb-nosecones",
    "motion": "tilt",
    "on_screen": "LAUNCH: 2027 (NO DATE)",
@@ -1311,8 +1301,8 @@
   {
    "scene": "s14",
    "shot": "s14.1b",
-   "start": 394.6,
-   "end": 397.9,
+   "start": 376.2,
+   "end": 379.5,
    "asset": "srb-nosecones",
    "motion": "re-frame: detail crop 1.4x",
    "on_screen": "",
@@ -1321,8 +1311,8 @@
   {
    "scene": "s14",
    "shot": "s14.2",
-   "start": 397.9,
-   "end": 403.0,
+   "start": 379.5,
+   "end": 384.6,
    "asset": "d-timeline",
    "motion": "open items flash: tanking test, lander choice",
    "on_screen": "STILL OPEN",
@@ -1331,8 +1321,8 @@
   {
    "scene": "s14",
    "shot": "s14.3",
-   "start": 403.0,
-   "end": 408.0,
+   "start": 384.6,
+   "end": 389.6,
    "asset": "a2-earthset",
    "motion": "drift",
    "on_screen": "ARTEMIS IV: WHICH LANDER?",
@@ -1341,8 +1331,8 @@
   {
    "scene": "s15",
    "shot": "s15.1",
-   "start": 408.0,
-   "end": 413.9,
+   "start": 389.6,
+   "end": 395.5,
    "asset": "d-orbit-vs-moon",
    "motion": "LEO ring \u2192 path to Moon",
    "on_screen": "ARTEMIS III: THE TEST",
@@ -1351,8 +1341,8 @@
   {
    "scene": "s15",
    "shot": "s15.2a",
-   "start": 413.9,
-   "end": 418.4,
+   "start": 395.5,
+   "end": 400.0,
    "asset": "a2-lunar-surface",
    "motion": "slow push - bookends frame 1",
    "on_screen": "ARTEMIS IV: THE LANDING",
@@ -1361,8 +1351,8 @@
   {
    "scene": "s15",
    "shot": "s15.2b",
-   "start": 418.4,
-   "end": 422.8,
+   "start": 400.0,
+   "end": 404.4,
    "asset": "a2-lunar-surface",
    "motion": "re-frame: detail crop 1.4x",
    "on_screen": "",
