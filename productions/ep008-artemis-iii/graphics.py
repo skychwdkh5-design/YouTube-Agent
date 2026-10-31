@@ -246,7 +246,7 @@ def d_timeline2(u, highlight=None):
     d.line([(x0, y), (x1, y)], fill=DIM, width=6 * S)
     d.line([(x0, y), (x0 + (x1 - x0) * ph, y)], fill=ACC, width=10 * S)
     for k, (p, date, what) in enumerate([(0.0, "FEB 27, 2026", "NASA changes the plan"), (1.0, "OCT 23, 2026", "NASA publishes the flight plan")]):
-        a = seg(u, 0.05 + k * 0.45, 0.2 + k * 0.45)
+        a = 1.0 if k == 0 else seg(u, 0.5, 0.65)
         x = x0 + (x1 - x0) * p
         if a > 0:
             d.ellipse([x - 26 * S, y - 26 * S, x + 26 * S, y + 26 * S], fill=ACC)
@@ -259,7 +259,7 @@ def d_timeline2(u, highlight=None):
 def card(u, title, items, source="", label="ORBITAL ATLAS GRAPHIC", title_col=ACC, item_size=58, big=None):
     """Generic motion_spec card: title lands, items build one by one."""
     im, d = _bg()
-    _alpha_text(im, (150 * S, 170 * S), title, font(96 * S), title_col, seg(u, 0.0, 0.12))
+    _alpha_text(im, (150 * S, 170 * S), title, font(96 * S), title_col, 1.0)
     y = 340 * S
     n = max(len(items), 1)
     for k, it in enumerate(items):
@@ -277,7 +277,7 @@ def card(u, title, items, source="", label="ORBITAL ATLAS GRAPHIC", title_col=AC
 def quote(u, text, who, source):
     im, d = _bg()
     d.text((140 * S, 120 * S), "“", font=font(260 * S), fill=ACC)
-    _alpha_text(im, (180 * S, 330 * S), text, font(66 * S, INTER), INK, seg(u, 0.03, 0.15), spacing=26 * S)
+    _alpha_text(im, (180 * S, 330 * S), text, font(66 * S, INTER), INK, 1.0, spacing=26 * S)
     _alpha_text(im, (180 * S, (H - 230) * S), who, font(44 * S), ACC, seg(u, 0.15, 0.27))
     label_lines(d, "QUOTE", source)
     return finish(im)
@@ -441,7 +441,7 @@ def d_hours(u):
     im, d = _bg()
     for k, (title, big, note, col) in enumerate([("NEAR THE MOON", "DAYS", "Artemis II: flyby Apr 6 → splashdown Apr 10", DIM),
                                                  ("LOW EARTH ORBIT", "HOURS*", "*typical return, not a mission time", ACC)]):
-        a = seg(u, 0.05 + k * 0.35, 0.2 + k * 0.35); x = (W * (0.27 + 0.46 * k)) * S
+        a = 1.0 if k == 0 else seg(u, 0.4, 0.55); x = (W * (0.27 + 0.46 * k)) * S
         _alpha_text(im, (x, H * 0.28 * S), title, font(64 * S), INK, a, "ma")
         _alpha_text(im, (x, H * 0.40 * S), big, font(200 * S), col, a, "ma")
         _alpha_text(im, (x, H * 0.70 * S), note, font(36 * S, INTER), INK, a, "ma")
@@ -455,11 +455,11 @@ def d_apollo(u):
     rows = [(y, [("MAR 1969", "APOLLO 9\nLander tested in Earth orbit"), ("JUL 1969", "APOLLO 11\nFirst landing")], 0.0),
             (y2, [("2027", "ARTEMIS III (planned)\nLander tests in Earth orbit"), ("2028", "ARTEMIS IV (target)\nFirst Artemis landing")], 0.5)]
     for yy, pts, t0 in rows:
-        a = seg(u, t0, t0 + 0.2)
+        a = 1.0 if t0 == 0 else seg(u, t0, t0 + 0.2)
         if a > 0:
             d.line([(x0, yy), (x0 + (x1 - x0) * a, yy)], fill=DIM, width=6 * S)
         for k, (date, what) in enumerate(pts):
-            b = seg(u, t0 + 0.1 + k * 0.15, t0 + 0.25 + k * 0.15); x = x0 + (x1 - x0) * k
+            b = 1.0 if (t0 == 0 and k == 0) else seg(u, t0 + 0.1 + k * 0.15, t0 + 0.25 + k * 0.15); x = x0 + (x1 - x0) * k
             if b > 0:
                 d.ellipse([x - 18 * S, yy - 18 * S, x + 18 * S, yy + 18 * S], fill=ACC if t0 else INK)
             _alpha_text(im, (x, yy - 40 * S), date, font(72 * S), ACC if t0 else INK, b, "ms")

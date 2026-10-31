@@ -239,7 +239,7 @@ if __name__ == "__main__":
     if not (a.render and a.confirm):
         print(json.dumps({"end": END, "shots": len(SHOTS_PLAN), "note": "add --render --confirm"})); raise SystemExit
     want = set(filter(None, a.scenes.split(",")))
-    tmp = a.reuse or tempfile.mkdtemp(dir=os.path.join(HERE, "draft"))
+    tmp = os.path.abspath(a.reuse) if a.reuse else tempfile.mkdtemp(dir=os.path.join(HERE, "draft"))
     ids = sorted(starts); bounds = [starts[s] for s in ids] + [END]
     jobs = []
     for k, sid in enumerate(ids):
