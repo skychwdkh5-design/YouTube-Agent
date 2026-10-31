@@ -1,0 +1,16 @@
+{
+ "note": "Official NASA sources dated 2026-10-23 or earlier (owner rule 2026-10-30). Read via WebFetch on 2026-10-30; a person re-reads before the script (NEXORA rule 1). The 2026-10-28 core-stage article is deliberately NOT used.",
+ "timeline": [
+  {"date": "2026-02-27", "claim": "NASA adds a mission: Artemis III becomes a 2027 test flight in low Earth orbit to rendezvous and dock with one or both commercial landers (SpaceX, Blue Origin); first landing moves to Artemis IV, targeted 2028.", "source": "https://www.nasa.gov/news-release/nasa-adds-mission-to-artemis-lunar-program-updates-architecture/"},
+  {"date": "2026-06-09", "claim": "Crew named: Randy Bresnik (commander), Luca Parmitano (ESA, pilot), Andre Douglas and Frank Rubio (mission specialists); backup Bob Hines; launch target 2027.", "source": "https://www.nasa.gov/news-release/nasa-marches-toward-artemis-iii-mission-in-2027-names-crew-members/"},
+  {"date": "2026-07-30", "claim": "Artemis III Orion crew and service modules joined at Kennedy.", "source": "https://www.nasa.gov/blogs/missions/2026/08/05/nasa-joins-artemis-iii-orion-modules-rocket-hardware-update/"},
+  {"date": "2026-09-30", "claim": "SLS booster forward assemblies with nose cones completed in VAB High Bay 3 (reported 2026-10-13).", "source": "https://www.nasa.gov/blogs/missions/2026/10/13/nasa-completes-artemis-iii-booster-stacking-shares-status-update/"},
+  {"date": "2026-10-23", "claim": "NASA publishes the flight profile: about 14 days; Blue Moon Mark 2 test article in ~273-mile orbit; Orion docks, crew spends about two days inside it; Starship V3 test article docks with Orion for up to two hours, crew does not enter Starship; splashdown off California. Landings near the South Pole follow in 2028.", "source": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/"},
+  {"date": "2026-10-23", "claim": "Artemis acceleration briefing at Kennedy: Artemis III flies to low Earth orbit in 2027; Artemis IV is the first Artemis landing; goal is a 2028 return to the surface.", "source": "https://www.nasa.gov/blogs/missions/2026/10/23/nasa-shares-artemis-acceleration-plans-for-moon-missions/"}
+ ],
+ "corrections": [
+  "Earlier draft said Starship stays docked about one day (secondary source). NASA (2026-10-23): up to two hours, crew stays in Orion.",
+  "Earlier draft framed the change around the 2026-10-28 core-stage event. The change was announced 2026-02-27; 2026-10-23 is the newest official detail used."
+ ],
+ "never_say": ["a launch date (NASA gives 2027 only)", "that the change is new this week", "that astronauts enter Starship"]
+}

@@ -1,0 +1,78 @@
+{
+ "total_s": 394.34,
+ "total_min": 6.57,
+ "voice_s": 349.8,
+ "shots": 65,
+ "photo_share": 0.3,
+ "slots_used": {
+  "n1-boosters": [
+   "h1-boosters",
+   "p1-hardware",
+   "p1-hardware",
+   "p5-unknown",
+   "close",
+   "close"
+  ],
+  "n2-orion": [
+   "p1-why",
+   "p1-why",
+   "p1-hardware",
+   "p4-why",
+   "p5-2028"
+  ],
+  "n3-rs25": [
+   "p1-hardware"
+  ],
+  "n4-conops": [
+   "h3-conops",
+   "h3-conops",
+   "p5-2028"
+  ],
+  "n5-solar": [
+   "p3-step2",
+   "p3-step3",
+   "p4-extra"
+  ],
+  "n6-booster-rpsf": [
+   "p4-extra"
+  ]
+ },
+ "hook_first_20s": [
+  {
+   "scene": "h1-boosters",
+   "in": 0.0,
+   "out": 3.46,
+   "kind": "photo",
+   "asset": "n1-boosters"
+  },
+  {
+   "scene": "h2-leo",
+   "in": 3.46,
+   "out": 8.13,
+   "kind": "graphic",
+   "asset": "g-moon-x"
+  },
+  {
+   "scene": "h2-leo",
+   "in": 8.13,
+   "out": 15.8,
+   "kind": "graphic",
+   "asset": "g-feb-orbit"
+  },
+  {
+   "scene": "h3-conops",
+   "in": 15.8,
+   "out": 19.58,
+   "kind": "photo",
+   "asset": "n4-conops"
+  },
+  {
+   "scene": "h3-conops",
+   "in": 19.58,
+   "out": 24.22,
+   "kind": "photo",
+   "asset": "n4-conops"
+  }
+ ],
+ "subject_on_screen_at": 0.0
+}

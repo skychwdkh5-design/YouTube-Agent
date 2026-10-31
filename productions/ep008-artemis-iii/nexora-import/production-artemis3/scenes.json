@@ -1,0 +1,1139 @@
+{
+ "version": 1,
+ "output": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 30
+ },
+ "scenes": [
+  {
+   "id": "h1-boosters-0",
+   "duration": 3.46,
+   "claim_ids": [
+    "noses"
+   ],
+   "note": "tilt up base -> nose cones; no insignia legible",
+   "type": "photo",
+   "src": "assets/n1-boosters.jpg",
+   "credit": "NASA/Cory S Huston",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "h2-leo-0",
+   "duration": 4.67,
+   "claim_ids": [
+    "crew",
+    "feb-change"
+   ],
+   "note": "Moon outline (own line art) gets a strike; label NEXORA GRAPHIC",
+   "type": "kinetic",
+   "text": "NOT THE MOON",
+   "emphasis": [
+    "NOT"
+   ]
+  },
+  {
+   "id": "h2-leo-1",
+   "duration": 7.67,
+   "claim_ids": [
+    "crew",
+    "feb-change"
+   ],
+   "note": "date stamp lands, then orbit ring draws around an Earth outline",
+   "type": "kinetic",
+   "text": "FEB 27, 2026 LOW EARTH ORBIT 2027",
+   "emphasis": [
+    "FEB"
+   ]
+  },
+  {
+   "id": "h3-conops-0",
+   "duration": 3.78,
+   "claim_ids": [
+    "first-landing",
+    "oct23"
+   ],
+   "note": "push-in on the NASA graphic; corner tag NASA CONCEPT GRAPHIC",
+   "type": "photo",
+   "src": "assets/n4-conops.jpg",
+   "credit": "NASA",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "h3-conops-1",
+   "duration": 4.64,
+   "claim_ids": [
+    "first-landing",
+    "oct23"
+   ],
+   "note": "pan across the docking steps of the same NASA graphic",
+   "type": "photo",
+   "src": "assets/n4-conops.jpg",
+   "credit": "NASA",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "h4-two-landers-0",
+   "duration": 7.41,
+   "claim_ids": [
+    "bm-first",
+    "feb-landers",
+    "ss-launch"
+   ],
+   "note": "kinetic stack; no company artwork",
+   "type": "kinetic",
+   "text": "2 LANDERS 2 COMPANIES 1 SPACECRAFT",
+   "emphasis": [
+    "2"
+   ]
+  },
+  {
+   "id": "p1-title-0",
+   "duration": 4.97,
+   "claim_ids": [],
+   "note": "chapter card",
+   "type": "kinetic",
+   "text": "WHAT CHANGED",
+   "emphasis": [
+    "WHAT"
+   ]
+  },
+  {
+   "id": "p1-feb-0",
+   "duration": 5.54,
+   "claim_ids": [
+    "feb-change",
+    "first-landing"
+   ],
+   "note": "timeline bar appears, Feb 27 marker",
+   "type": "kinetic",
+   "text": "FEB 27, 2026",
+   "emphasis": [
+    "FEB"
+   ]
+  },
+  {
+   "id": "p1-feb-1",
+   "duration": 7.47,
+   "claim_ids": [
+    "feb-change",
+    "first-landing"
+   ],
+   "note": "Artemis III marker slides to 'Earth orbit'",
+   "type": "kinetic",
+   "text": "ARTEMIS III → EARTH ORBIT 2027",
+   "emphasis": [
+    "ARTEMIS"
+   ]
+  },
+  {
+   "id": "p1-feb-2",
+   "duration": 8.33,
+   "claim_ids": [
+    "feb-change",
+    "first-landing"
+   ],
+   "note": "Artemis IV marker lands on the Moon icon",
+   "type": "kinetic",
+   "text": "ARTEMIS IV → FIRST LANDING 2028",
+   "emphasis": [
+    "ARTEMIS"
+   ]
+  },
+  {
+   "id": "p1-why-0",
+   "duration": 2.71,
+   "claim_ids": [
+    "feb-landers",
+    "goals-risk"
+   ],
+   "note": "Orion photo, slow push-in",
+   "type": "photo",
+   "src": "assets/n2-orion.jpg",
+   "credit": "NASA/Amanda Stevenson",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "p1-why-1",
+   "duration": 5.49,
+   "claim_ids": [
+    "feb-landers",
+    "goals-risk"
+   ],
+   "note": "two outline craft approach and lock (ILLUSTRATION)",
+   "type": "kinetic",
+   "text": "MEET CONNECT WORK TOGETHER",
+   "emphasis": [
+    "MEET"
+   ]
+  },
+  {
+   "id": "p1-why-2",
+   "duration": 8.45,
+   "claim_ids": [
+    "feb-landers",
+    "goals-risk"
+   ],
+   "note": "Orion detail crop, push-out",
+   "type": "photo",
+   "src": "assets/n2-orion.jpg",
+   "credit": "NASA/Amanda Stevenson",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "p1-why-3",
+   "duration": 9.61,
+   "claim_ids": [
+    "feb-landers",
+    "goals-risk"
+   ],
+   "note": "three words build; source NASA 2026-10-23",
+   "type": "kinetic",
+   "text": "REDUCE RISK VALIDATE HARDWARE GAIN EXPERIENCE",
+   "emphasis": [
+    "REDUCE"
+   ]
+  },
+  {
+   "id": "p1-quote-0",
+   "duration": 5.36,
+   "claim_ids": [
+    "feb-why",
+    "feb-yearly"
+   ],
+   "note": "quote card, source NASA 2026-02-27",
+   "type": "kinetic",
+   "text": "\"keep testing like we fly\" - Amit Kshatriya, NASA",
+   "emphasis": [
+    "\"keep"
+   ]
+  },
+  {
+   "id": "p1-quote-1",
+   "duration": 7.19,
+   "claim_ids": [
+    "feb-why",
+    "feb-yearly"
+   ],
+   "note": "attribution: Jared Isaacman, NASA Administrator",
+   "type": "kinetic",
+   "text": "STANDARDIZE RAISE FLIGHT RATE SAFELY",
+   "emphasis": [
+    "STANDARDIZE"
+   ]
+  },
+  {
+   "id": "p1-quote-2",
+   "duration": 6.37,
+   "claim_ids": [
+    "feb-why",
+    "feb-yearly"
+   ],
+   "note": "calendar ticks; 'stated plan'",
+   "type": "kinetic",
+   "text": "AFTER THE FIRST LANDING: ≥1 PER YEAR",
+   "emphasis": [
+    "AFTER"
+   ]
+  },
+  {
+   "id": "p1-hardware-0",
+   "duration": 3.11,
+   "claim_ids": [
+    "noses",
+    "orion-joined",
+    "rs25"
+   ],
+   "note": "booster tops, quick push",
+   "type": "photo",
+   "src": "assets/n1-boosters.jpg",
+   "credit": "NASA/Cory S Huston",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "p1-hardware-1",
+   "duration": 5.7,
+   "claim_ids": [
+    "noses",
+    "orion-joined",
+    "rs25"
+   ],
+   "note": "engines photo",
+   "type": "photo",
+   "src": "assets/n3-rs25.jpg",
+   "credit": "NASA/Ben Smegelsky",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "p1-hardware-2",
+   "duration": 5.48,
+   "claim_ids": [
+    "noses",
+    "orion-joined",
+    "rs25"
+   ],
+   "note": "Orion photo",
+   "type": "photo",
+   "src": "assets/n2-orion.jpg",
+   "credit": "NASA/Amanda Stevenson",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "p1-hardware-3",
+   "duration": 5.41,
+   "claim_ids": [
+    "noses",
+    "orion-joined",
+    "rs25"
+   ],
+   "note": "tilt to nose cones",
+   "type": "photo",
+   "src": "assets/n1-boosters.jpg",
+   "credit": "NASA/Cory S Huston",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "chapter-p2-crew-0",
+   "duration": 2.0,
+   "claim_ids": [],
+   "note": "chapter card, whoosh-free hard cut",
+   "type": "kinetic",
+   "text": "WHO FLIES",
+   "emphasis": [
+    "WHO"
+   ]
+  },
+  {
+   "id": "p2-crew-0",
+   "duration": 7.85,
+   "claim_ids": [
+    "crew",
+    "days-14",
+    "goals"
+   ],
+   "note": "names one by one, roles beneath; no portraits",
+   "type": "kinetic",
+   "text": "BRESNIK PARMITANO (ESA) DOUGLAS RUBIO",
+   "emphasis": [
+    "BRESNIK"
+   ]
+  },
+  {
+   "id": "p2-crew-1",
+   "duration": 3.89,
+   "claim_ids": [
+    "crew",
+    "days-14",
+    "goals"
+   ],
+   "note": "big number, source NASA 2026-10-23",
+   "type": "kinetic",
+   "text": "14 DAYS",
+   "emphasis": [
+    "14"
+   ]
+  },
+  {
+   "id": "p2-crew-2",
+   "duration": 3.18,
+   "claim_ids": [
+    "crew",
+    "days-14",
+    "goals"
+   ],
+   "note": "list builds under 14 DAYS",
+   "type": "kinetic",
+   "text": "PRACTICE: RENDEZVOUS DOCKING HABITATION",
+   "emphasis": [
+    "PRACTICE:"
+   ]
+  },
+  {
+   "id": "p2-crew-3",
+   "duration": 12.34,
+   "claim_ids": [
+    "crew",
+    "days-14",
+    "goals"
+   ],
+   "note": "list completes; hold",
+   "type": "kinetic",
+   "text": "PRACTICE: RENDEZVOUS DOCKING HABITATION OPERATIONS",
+   "emphasis": [
+    "PRACTICE:"
+   ]
+  },
+  {
+   "id": "p2-three-0",
+   "duration": 4.03,
+   "claim_ids": [
+    "three-rockets"
+   ],
+   "note": "title",
+   "type": "kinetic",
+   "text": "NO APOLLO MISSION DID THIS",
+   "emphasis": [
+    "NO"
+   ]
+  },
+  {
+   "id": "p2-three-1",
+   "duration": 9.09,
+   "claim_ids": [
+    "three-rockets"
+   ],
+   "note": "three outline icons rise from three pads and meet on one orbit",
+   "type": "kinetic",
+   "text": "3 SPACECRAFT 3 ROCKETS",
+   "emphasis": [
+    "3"
+   ]
+  },
+  {
+   "id": "chapter-p3-step1-0",
+   "duration": 2.0,
+   "claim_ids": [],
+   "note": "chapter card, whoosh-free hard cut",
+   "type": "kinetic",
+   "text": "THE FLIGHT, STEP BY STEP",
+   "emphasis": [
+    "THE"
+   ]
+  },
+  {
+   "id": "p3-step1-0",
+   "duration": 2.88,
+   "claim_ids": [
+    "bm-30",
+    "bm-first"
+   ],
+   "note": "step card",
+   "type": "kinetic",
+   "text": "STEP 1",
+   "emphasis": [
+    "STEP"
+   ]
+  },
+  {
+   "id": "p3-step1-1",
+   "duration": 9.22,
+   "claim_ids": [
+    "bm-30",
+    "bm-first"
+   ],
+   "note": "lander dot enters circular orbit; ILLUSTRATION - NOT TO SCALE",
+   "type": "kinetic",
+   "text": "BLUE MOON TEST ARTICLE → CIRCULAR LEO",
+   "emphasis": [
+    "BLUE"
+   ]
+  },
+  {
+   "id": "p3-step1-2",
+   "duration": 3.53,
+   "claim_ids": [
+    "bm-30",
+    "bm-first"
+   ],
+   "note": "counter ring",
+   "type": "kinetic",
+   "text": "UP TO 30 DAYS",
+   "emphasis": [
+    "UP"
+   ]
+  },
+  {
+   "id": "p3-step2-0",
+   "duration": 6.74,
+   "claim_ids": [
+    "orion-345",
+    "orion-days",
+    "orion-ellipse"
+   ],
+   "note": "Orion dot launches 'days later'",
+   "type": "kinetic",
+   "text": "STEP 2 ORION ON SLS KENNEDY",
+   "emphasis": [
+    "STEP"
+   ]
+  },
+  {
+   "id": "p3-step2-1",
+   "duration": 8.56,
+   "claim_ids": [
+    "orion-345",
+    "orion-days",
+    "orion-ellipse"
+   ],
+   "note": "ellipse draws with the two numbers",
+   "type": "kinetic",
+   "text": "18 × 1,122 MILES",
+   "emphasis": [
+    "18"
+   ]
+  },
+  {
+   "id": "p3-step2-2",
+   "duration": 8.7,
+   "claim_ids": [
+    "orion-345",
+    "orion-days",
+    "orion-ellipse"
+   ],
+   "note": "ellipse becomes a circle (inset) over the Orion solar-array photo",
+   "type": "photo",
+   "src": "assets/n5-solar.jpg",
+   "credit": "NASA/Amanda Stevenson",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "p3-step3-0",
+   "duration": 6.98,
+   "claim_ids": [
+    "checkout-2d"
+   ],
+   "note": "Orion hardware photo under the step label",
+   "type": "photo",
+   "src": "assets/n5-solar.jpg",
+   "credit": "NASA/Amanda Stevenson",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "p3-step4-0",
+   "duration": 4.12,
+   "claim_ids": [
+    "bm-dock-2d",
+    "feb-tests",
+    "first-eval",
+    "ports"
+   ],
+   "note": "approach animation, ILLUSTRATION",
+   "type": "kinetic",
+   "text": "STEP 4 DOCK WITH BLUE MOON",
+   "emphasis": [
+    "STEP"
+   ]
+  },
+  {
+   "id": "p3-step4-1",
+   "duration": 5.36,
+   "claim_ids": [
+    "bm-dock-2d",
+    "feb-tests",
+    "first-eval",
+    "ports"
+   ],
+   "note": "hatch icon opens",
+   "type": "kinetic",
+   "text": "HATCH OPEN",
+   "emphasis": [
+    "HATCH"
+   ]
+  },
+  {
+   "id": "p3-step4-2",
+   "duration": 3.8,
+   "claim_ids": [
+    "bm-dock-2d",
+    "feb-tests",
+    "first-eval",
+    "ports"
+   ],
+   "note": "day counter 1-2",
+   "type": "kinetic",
+   "text": "~2 DAYS INSIDE",
+   "emphasis": [
+    "~2"
+   ]
+  },
+  {
+   "id": "p3-step4-3",
+   "duration": 4.86,
+   "claim_ids": [
+    "bm-dock-2d",
+    "feb-tests",
+    "first-eval",
+    "ports"
+   ],
+   "note": "port highlighted on the outline",
+   "type": "kinetic",
+   "text": "PORT BESIDE THE CREW CABIN",
+   "emphasis": [
+    "PORT"
+   ]
+  },
+  {
+   "id": "p3-step4-4",
+   "duration": 8.92,
+   "claim_ids": [
+    "bm-dock-2d",
+    "feb-tests",
+    "first-eval",
+    "ports"
+   ],
+   "note": "three checks tick (NASA 2026-02-27 plan)",
+   "type": "kinetic",
+   "text": "DOCKED TESTS LIFE SUPPORT COMMS PROPULSION",
+   "emphasis": [
+    "DOCKED"
+   ]
+  },
+  {
+   "id": "p3-step4-5",
+   "duration": 9.03,
+   "claim_ids": [
+    "bm-dock-2d",
+    "feb-tests",
+    "first-eval",
+    "ports"
+   ],
+   "note": "undock animation",
+   "type": "kinetic",
+   "text": "FIRST CREWED EVALUATION OF A COMMERCIAL LUNAR LANDER",
+   "emphasis": [
+    "FIRST"
+   ]
+  },
+  {
+   "id": "p3-step5-0",
+   "duration": 7.3,
+   "claim_ids": [
+    "ports",
+    "ss-2h",
+    "ss-launch",
+    "ss-orbit"
+   ],
+   "note": "Starship outline launches from Florida",
+   "type": "kinetic",
+   "text": "STEP 5 STARSHIP V3 TEST ARTICLE",
+   "emphasis": [
+    "STEP"
+   ]
+  },
+  {
+   "id": "p3-step5-1",
+   "duration": 8.81,
+   "claim_ids": [
+    "ports",
+    "ss-2h",
+    "ss-launch",
+    "ss-orbit"
+   ],
+   "note": "lower orbit line under Orion's",
+   "type": "kinetic",
+   "text": "206 NAUTICAL MILES COMMS COVERAGE",
+   "emphasis": [
+    "206"
+   ]
+  },
+  {
+   "id": "p3-step5-2",
+   "duration": 8.43,
+   "claim_ids": [
+    "ports",
+    "ss-2h",
+    "ss-launch",
+    "ss-orbit"
+   ],
+   "note": "forward-port docking, ILLUSTRATION",
+   "type": "kinetic",
+   "text": "ORION FORWARD PORT → STARSHIP NOSE",
+   "emphasis": [
+    "ORION"
+   ]
+  },
+  {
+   "id": "p3-step5-3",
+   "duration": 4.73,
+   "claim_ids": [
+    "ports",
+    "ss-2h",
+    "ss-launch",
+    "ss-orbit"
+   ],
+   "note": "timer",
+   "type": "kinetic",
+   "text": "UP TO 2 HOURS",
+   "emphasis": [
+    "UP"
+   ]
+  },
+  {
+   "id": "p3-step5-4",
+   "duration": 6.7,
+   "claim_ids": [
+    "ports",
+    "ss-2h",
+    "ss-launch",
+    "ss-orbit"
+   ],
+   "note": "hatch closed icon",
+   "type": "kinetic",
+   "text": "CREW STAYS IN ORION",
+   "emphasis": [
+    "CREW"
+   ]
+  },
+  {
+   "id": "chapter-p4-why-0",
+   "duration": 2.0,
+   "claim_ids": [],
+   "note": "chapter card, whoosh-free hard cut",
+   "type": "kinetic",
+   "text": "WHY DOCK FIRST",
+   "emphasis": [
+    "WHY"
+   ]
+  },
+  {
+   "id": "p4-why-0",
+   "duration": 2.26,
+   "claim_ids": [
+    "feb-change",
+    "first-eval"
+   ],
+   "note": "question card",
+   "type": "kinetic",
+   "text": "WHY?",
+   "emphasis": [
+    "WHY?"
+   ]
+  },
+  {
+   "id": "p4-why-1",
+   "duration": 8.23,
+   "claim_ids": [
+    "feb-change",
+    "first-eval"
+   ],
+   "note": "two outlines lock",
+   "type": "kinetic",
+   "text": "2 VEHICLES 2 PROGRAMS 1 LOCK",
+   "emphasis": [
+    "2"
+   ]
+  },
+  {
+   "id": "p4-why-2",
+   "duration": 3.91,
+   "claim_ids": [
+    "feb-change",
+    "first-eval"
+   ],
+   "note": "left half lights",
+   "type": "kinetic",
+   "text": "EARTH ORBIT: HOURS FROM HOME",
+   "emphasis": [
+    "EARTH"
+   ]
+  },
+  {
+   "id": "p4-why-3",
+   "duration": 3.18,
+   "claim_ids": [
+    "feb-change",
+    "first-eval"
+   ],
+   "note": "right half lights; editorial framing, no numbers",
+   "type": "kinetic",
+   "text": "NEAR THE MOON: DAYS",
+   "emphasis": [
+    "NEAR"
+   ]
+  },
+  {
+   "id": "p4-why-4",
+   "duration": 7.58,
+   "claim_ids": [
+    "feb-change",
+    "first-eval"
+   ],
+   "note": "Orion photo",
+   "type": "photo",
+   "src": "assets/n2-orion.jpg",
+   "credit": "NASA/Amanda Stevenson",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "p4-extra-0",
+   "duration": 5.63,
+   "claim_ids": [
+    "extra-5d",
+    "extra-tests",
+    "splash"
+   ],
+   "note": "photo, dimmed",
+   "type": "photo",
+   "src": "assets/n5-solar.jpg",
+   "credit": "NASA/Amanda Stevenson",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "p4-extra-1",
+   "duration": 13.02,
+   "claim_ids": [
+    "extra-5d",
+    "extra-tests",
+    "splash"
+   ],
+   "note": "list builds one item per ~2 s",
+   "type": "kinetic",
+   "text": "SUITS DOCKING SENSORS ACOUSTIC & THERMAL HUMAN FACTORS SCIENCE & TECH",
+   "emphasis": [
+    "SUITS"
+   ]
+  },
+  {
+   "id": "p4-extra-2",
+   "duration": 9.57,
+   "claim_ids": [
+    "extra-5d",
+    "extra-tests",
+    "splash"
+   ],
+   "note": "photo, push-in",
+   "type": "photo",
+   "src": "assets/n6-booster-rpsf.jpg",
+   "credit": "NASA/Ben Smegelsky",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "chapter-p5-2028-0",
+   "duration": 2.0,
+   "claim_ids": [],
+   "note": "chapter card, whoosh-free hard cut",
+   "type": "kinetic",
+   "text": "WHAT IT MEANS",
+   "emphasis": [
+    "WHAT"
+   ]
+  },
+  {
+   "id": "p5-2028-0",
+   "duration": 4.67,
+   "claim_ids": [
+    "first-landing",
+    "oct23"
+   ],
+   "note": "card",
+   "type": "kinetic",
+   "text": "IF THE DOCKINGS WORK",
+   "emphasis": [
+    "IF"
+   ]
+  },
+  {
+   "id": "p5-2028-1",
+   "duration": 7.96,
+   "claim_ids": [
+    "first-landing",
+    "oct23"
+   ],
+   "note": "Orion photo push-out",
+   "type": "photo",
+   "src": "assets/n2-orion.jpg",
+   "credit": "NASA/Amanda Stevenson",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "p5-2028-2",
+   "duration": 9.89,
+   "claim_ids": [
+    "first-landing",
+    "oct23"
+   ],
+   "note": "NASA graphic again, wide",
+   "type": "photo",
+   "src": "assets/n4-conops.jpg",
+   "credit": "NASA",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "p5-unknown-0",
+   "duration": 7.51,
+   "claim_ids": [
+    "feb-change"
+   ],
+   "note": "honest-unknown card",
+   "type": "kinetic",
+   "text": "LAUNCH: 2027 DATE: NOT ANNOUNCED",
+   "emphasis": [
+    "LAUNCH:"
+   ]
+  },
+  {
+   "id": "p5-unknown-1",
+   "duration": 3.52,
+   "claim_ids": [
+    "feb-change"
+   ],
+   "note": "beat",
+   "type": "kinetic",
+   "text": "THE ANSWER",
+   "emphasis": [
+    "THE"
+   ]
+  },
+  {
+   "id": "p5-unknown-2",
+   "duration": 7.53,
+   "claim_ids": [
+    "feb-change"
+   ],
+   "note": "boosters, push-in, title echo",
+   "type": "photo",
+   "src": "assets/n1-boosters.jpg",
+   "credit": "NASA/Cory S Huston",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "close-0",
+   "duration": 3.36,
+   "claim_ids": [],
+   "note": "tilt to the tops",
+   "type": "photo",
+   "src": "assets/n1-boosters.jpg",
+   "credit": "NASA/Cory S Huston",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  },
+  {
+   "id": "close-1",
+   "duration": 6.65,
+   "claim_ids": [],
+   "note": "fade to black",
+   "type": "photo",
+   "src": "assets/n1-boosters.jpg",
+   "credit": "NASA/Cory S Huston",
+   "license": "PD-US-Gov",
+   "camera": {
+    "from": [
+     0.5,
+     0.62,
+     1.0
+    ],
+    "to": [
+     0.5,
+     0.45,
+     1.1
+    ]
+   }
+  }
+ ],
+ "_note": "photo scenes need the NASA originals in assets/ (ASSETS_NEEDED.md); graphic scenes are placeholders as kinetic cards until the animated graphics in graphics/ are rendered"
+}

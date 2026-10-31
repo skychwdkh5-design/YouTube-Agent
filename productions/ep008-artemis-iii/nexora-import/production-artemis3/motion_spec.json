@@ -1,0 +1,361 @@
+{
+ "version": 1,
+ "graphics": [
+  {
+   "id": "g-moon-x",
+   "shots": 1,
+   "seconds": 4.7,
+   "first_in": "3.46",
+   "on_screen": [
+    "NOT THE MOON"
+   ],
+   "motion": [
+    "Moon outline (own line art) gets a strike; label NEXORA GRAPHIC"
+   ],
+   "label": "NEXORA GRAPHIC - ILLUSTRATION",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-feb-orbit",
+   "shots": 1,
+   "seconds": 7.7,
+   "first_in": "8.13",
+   "on_screen": [
+    "FEB 27, 2026 · LOW EARTH ORBIT · 2027"
+   ],
+   "motion": [
+    "date stamp lands, then orbit ring draws around an Earth outline"
+   ],
+   "label": "NEXORA GRAPHIC - ILLUSTRATION",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-two-landers",
+   "shots": 1,
+   "seconds": 7.4,
+   "first_in": "24.22",
+   "on_screen": [
+    "2 LANDERS · 2 COMPANIES · 1 SPACECRAFT"
+   ],
+   "motion": [
+    "kinetic stack; no company artwork"
+   ],
+   "label": "NEXORA GRAPHIC",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-chapter-1",
+   "shots": 1,
+   "seconds": 5.0,
+   "first_in": "31.63",
+   "on_screen": [
+    "WHAT CHANGED"
+   ],
+   "motion": [
+    "chapter card"
+   ],
+   "label": "NEXORA GRAPHIC",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-timeline",
+   "shots": 3,
+   "seconds": 21.3,
+   "first_in": "36.6",
+   "on_screen": [
+    "FEB 27, 2026",
+    "ARTEMIS III → EARTH ORBIT · 2027",
+    "ARTEMIS IV → FIRST LANDING · 2028"
+   ],
+   "motion": [
+    "timeline bar appears, Feb 27 marker",
+    "Artemis III marker slides to 'Earth orbit'",
+    "Artemis IV marker lands on the Moon icon"
+   ],
+   "label": "NEXORA GRAPHIC",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-meet",
+   "shots": 1,
+   "seconds": 5.5,
+   "first_in": "60.65",
+   "on_screen": [
+    "MEET · CONNECT · WORK TOGETHER"
+   ],
+   "motion": [
+    "two outline craft approach and lock (ILLUSTRATION)"
+   ],
+   "label": "NEXORA GRAPHIC - ILLUSTRATION",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-goals",
+   "shots": 1,
+   "seconds": 9.6,
+   "first_in": "74.59",
+   "on_screen": [
+    "REDUCE RISK · VALIDATE HARDWARE · GAIN EXPERIENCE"
+   ],
+   "motion": [
+    "three words build; source NASA 2026-10-23"
+   ],
+   "label": "NEXORA GRAPHIC",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-quote",
+   "shots": 1,
+   "seconds": 5.4,
+   "first_in": "84.2",
+   "on_screen": [
+    "\"keep testing like we fly\" - Amit Kshatriya, NASA"
+   ],
+   "motion": [
+    "quote card, source NASA 2026-02-27"
+   ],
+   "label": "NEXORA GRAPHIC",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-quote2",
+   "shots": 1,
+   "seconds": 7.2,
+   "first_in": "89.56",
+   "on_screen": [
+    "STANDARDIZE · RAISE FLIGHT RATE · SAFELY"
+   ],
+   "motion": [
+    "attribution: Jared Isaacman, NASA Administrator"
+   ],
+   "label": "NEXORA GRAPHIC",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-yearly",
+   "shots": 1,
+   "seconds": 6.4,
+   "first_in": "96.75",
+   "on_screen": [
+    "AFTER THE FIRST LANDING: ≥1 PER YEAR"
+   ],
+   "motion": [
+    "calendar ticks; 'stated plan'"
+   ],
+   "label": "NEXORA GRAPHIC",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-chapter",
+   "shots": 4,
+   "seconds": 8.0,
+   "first_in": "122.82",
+   "on_screen": [
+    "WHO FLIES",
+    "THE FLIGHT, STEP BY STEP",
+    "WHY DOCK FIRST",
+    "WHAT IT MEANS"
+   ],
+   "motion": [
+    "chapter card, whoosh-free hard cut",
+    "chapter card, whoosh-free hard cut",
+    "chapter card, whoosh-free hard cut",
+    "chapter card, whoosh-free hard cut"
+   ],
+   "label": "NEXORA GRAPHIC",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-crew-names",
+   "shots": 1,
+   "seconds": 7.8,
+   "first_in": "124.82",
+   "on_screen": [
+    "BRESNIK · PARMITANO (ESA) · DOUGLAS · RUBIO"
+   ],
+   "motion": [
+    "names one by one, roles beneath; no portraits"
+   ],
+   "label": "NEXORA GRAPHIC",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-14",
+   "shots": 3,
+   "seconds": 19.4,
+   "first_in": "132.67",
+   "on_screen": [
+    "14 DAYS",
+    "PRACTICE: RENDEZVOUS · DOCKING · HABITATION",
+    "PRACTICE: RENDEZVOUS · DOCKING · HABITATION · OPERATIONS"
+   ],
+   "motion": [
+    "big number, source NASA 2026-10-23",
+    "list builds under 14 DAYS",
+    "list completes; hold"
+   ],
+   "label": "NEXORA GRAPHIC",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-three",
+   "shots": 2,
+   "seconds": 13.1,
+   "first_in": "152.08",
+   "on_screen": [
+    "NO APOLLO MISSION DID THIS",
+    "3 SPACECRAFT · 3 ROCKETS"
+   ],
+   "motion": [
+    "title",
+    "three outline icons rise from three pads and meet on one orbit"
+   ],
+   "label": "NEXORA GRAPHIC - ILLUSTRATION",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-step1",
+   "shots": 3,
+   "seconds": 15.6,
+   "first_in": "167.2",
+   "on_screen": [
+    "STEP 1",
+    "BLUE MOON TEST ARTICLE → CIRCULAR LEO",
+    "UP TO 30 DAYS"
+   ],
+   "motion": [
+    "step card",
+    "lander dot enters circular orbit; ILLUSTRATION - NOT TO SCALE",
+    "counter ring"
+   ],
+   "label": "NEXORA GRAPHIC - ILLUSTRATION",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-step2",
+   "shots": 2,
+   "seconds": 15.3,
+   "first_in": "182.83",
+   "on_screen": [
+    "STEP 2 · ORION ON SLS · KENNEDY",
+    "18 × 1,122 MILES"
+   ],
+   "motion": [
+    "Orion dot launches 'days later'",
+    "ellipse draws with the two numbers"
+   ],
+   "label": "NEXORA GRAPHIC",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-step4",
+   "shots": 6,
+   "seconds": 36.1,
+   "first_in": "213.81",
+   "on_screen": [
+    "STEP 4 · DOCK WITH BLUE MOON",
+    "HATCH OPEN",
+    "~2 DAYS INSIDE",
+    "PORT BESIDE THE CREW CABIN",
+    "DOCKED TESTS · LIFE SUPPORT · COMMS · PROPULSION",
+    "FIRST CREWED EVALUATION OF A COMMERCIAL LUNAR LANDER"
+   ],
+   "motion": [
+    "approach animation, ILLUSTRATION",
+    "hatch icon opens",
+    "day counter 1-2",
+    "port highlighted on the outline",
+    "three checks tick (NASA 2026-02-27 plan)",
+    "undock animation"
+   ],
+   "label": "NEXORA GRAPHIC - ILLUSTRATION",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-step5",
+   "shots": 5,
+   "seconds": 36.0,
+   "first_in": "249.9",
+   "on_screen": [
+    "STEP 5 · STARSHIP V3 TEST ARTICLE",
+    "206 NAUTICAL MILES · COMMS COVERAGE",
+    "ORION FORWARD PORT → STARSHIP NOSE",
+    "UP TO 2 HOURS",
+    "CREW STAYS IN ORION"
+   ],
+   "motion": [
+    "Starship outline launches from Florida",
+    "lower orbit line under Orion's",
+    "forward-port docking, ILLUSTRATION",
+    "timer",
+    "hatch closed icon"
+   ],
+   "label": "NEXORA GRAPHIC - ILLUSTRATION",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-distance",
+   "shots": 4,
+   "seconds": 17.6,
+   "first_in": "287.87",
+   "on_screen": [
+    "WHY?",
+    "2 VEHICLES · 2 PROGRAMS · 1 LOCK",
+    "EARTH ORBIT: HOURS FROM HOME",
+    "NEAR THE MOON: DAYS"
+   ],
+   "motion": [
+    "question card",
+    "two outlines lock",
+    "left half lights",
+    "right half lights; editorial framing, no numbers"
+   ],
+   "label": "NEXORA GRAPHIC - ILLUSTRATION",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-extra",
+   "shots": 1,
+   "seconds": 13.0,
+   "first_in": "318.66",
+   "on_screen": [
+    "SUITS · DOCKING SENSORS · ACOUSTIC & THERMAL · HUMAN FACTORS · SCIENCE & TECH"
+   ],
+   "motion": [
+    "list builds one item per ~2 s"
+   ],
+   "label": "NEXORA GRAPHIC",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-2028",
+   "shots": 1,
+   "seconds": 4.7,
+   "first_in": "343.25",
+   "on_screen": [
+    "IF THE DOCKINGS WORK"
+   ],
+   "motion": [
+    "card"
+   ],
+   "label": "NEXORA GRAPHIC",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  },
+  {
+   "id": "g-no-date",
+   "shots": 2,
+   "seconds": 11.0,
+   "first_in": "365.77",
+   "on_screen": [
+    "LAUNCH: 2027 · DATE: NOT ANNOUNCED",
+    "THE ANSWER"
+   ],
+   "motion": [
+    "honest-unknown card",
+    "beat"
+   ],
+   "label": "NEXORA GRAPHIC",
+   "rules": "original vector line art only; no company artwork, no NASA insignia, no photoreal renders; every number shows its source line"
+  }
+ ]
+}
