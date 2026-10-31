@@ -51,7 +51,7 @@ SHOTS = {
             (7, C(V5, 195.0, "a3hw", "NASA · ARTEMIS III RS-25, VAB, AUG 2026", [T("NASA'S REASONING", 64)])),
             (8.35, C(V4, 61.0, "a3hw", "NASA · ARTEMIS III BOOSTER STACKING, SEP 2026",
                      [T("SAME CONFIGURATION AS FLOWN", 60), T("FLY MORE OFTEN", 60, GOLD, (70, 140), 1.2), T("STEP BY STEP", 60, GOLD, (70, 220), 2.4),
-                      ("\u201c...is how we achieved the near-impossible in 1969.\u201d", "JARED ISAACMAN, NASA ADMINISTRATOR · FEB 27, 2026", None, "LT", 14.6)]))],
+                      ("\u201c...is how we achieved the near-impossible in 1969.\u201d", "JARED ISAACMAN, NASA ADMINISTRATOR · FEB 27, 2026", None, "LT", 9.67)]))],
     "s05": [(0, C(V5, 108.0, "a3hw", "NASA · ARTEMIS III RS-25 ENGINE, VAB, AUG 2026", [T("NOT A PAPER MISSION", 64), T("4 RS-25 ENGINES AT KENNEDY · JULY", 50, WHITE, (70, 140), 2.0)])),
             (2, P("a3_orion_joined_wp_ksc-20260730-ph-as01-6583.jpg", (0.0, 0.10, 1.0, 0), (0.0, 0.42, 1.0, 0), HW, "NASA/AMANDA STEVENSON · KENNEDY, JULY 2026",
                   [T("ARTEMIS III ORION · JOINED LATE JULY", 60)])),

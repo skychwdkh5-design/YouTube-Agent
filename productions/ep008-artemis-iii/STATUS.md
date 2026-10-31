@@ -29,6 +29,15 @@ highest used is EP007.
   stacking, v5 RS-25. Stills: 13 originals + 2 `~large` (srb-nosecones portrait shown height-fit over blurred fill).
 - Not started: ElevenLabs Adam (needs owner OK after the draft), Shorts, final cover gate, publishing.
 
+## Draft v2 (2026-10-31 20:20, owner edit notes of 20:04)
+- Text lists → visuals: yearly-landing calendar, "faster" bars, crew around an Orion silhouette (names only), training and
+  extra-test icon tiles, suit-mass-simulator cutaway. Quotes → short lower thirds over picture (Isaacman, Parsons).
+- Recognisable vehicles (own drawings, labelled ILLUSTRATION): Orion (CM + ESM + wings), Blue Moon test article (tall
+  lander, side port by the cabin), Starship (52 m, flaps, nose port). Docking shown in phases APPROACH → CONTACT → DOCKED.
+- DAYS/HOURS comparison removed: no NASA source for a return time from LEO (RESEARCH.md §4d); s12 shortened by ~15 s.
+- draft/EP008_draft_v2.mp4 6:42, QC: technical PASS; warn length (<8 min target) and one 3.9 s freeze; thumbnail_hook_match
+  waits for the owner. Changed-fragment reel: draft/EP008_v2_changes.mp4 (git-ignored, sent in chat).
+
 ## Next session, in order
 1. Owner reviews draft v1. Fixes → re-render with `python3 draft.py --media <dir> --render --confirm` (or `--scenes sNN` for parts).
 2. After owner approval of the draft: ElevenLabs Adam via yt-voice (--confirm), re-time draft.py on Adam's timing, final render,
