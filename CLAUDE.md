@@ -94,3 +94,5 @@ When active, the owner controls publishing only through this chat:
 ## Dynamic editing and explanatory motion (next new episode)
 
 Before scripting or storyboarding a new Orbital Atlas episode, read `docs/DYNAMIC_MOTION_STYLE_V1.md`. Include the Graphics and motion column in the storyboard, selective color emphasis, progressive drawing and moving geometry where they explain evidence. Build a 45–60 s representative pilot before extending the edit. Shot lengths are flexible editorial targets, not retention guarantees. Keep existing facts, rights, thumbnail, QC and publication gates. EP008 and existing schedules are unchanged. This specification does not imply new renderer capabilities have been implemented.
+
+Read `docs/DYNAMIC_MOTION_REVIEW_V2.md` alongside the v1 specification: the owner rejected the slide-like schematic demo. Picture-led cinematic direction supersedes that demo as the proposed visual approach; v2 approval remains pending.
