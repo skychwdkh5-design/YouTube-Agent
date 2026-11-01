@@ -58,3 +58,10 @@
 {"at": "2026-10-29T01:36:58+00:00", "event": "release_confirmed", "video_id": "c369ApHh8I8", "id": "ep007", "publishAt": "2026-10-29T01:00:00Z", "privacyStatus": "public", "delay_s": 2218}
 {"at": "2026-10-29T05:22:12+00:00", "event": "release_confirmed", "video_id": "bFyU-t08KZ0", "id": "short-07-ep007", "publishAt": "2026-10-29T05:00:00Z", "privacyStatus": "public", "delay_s": 1331}
 {"at": "2026-10-31T07:43:13+00:00", "event": "release_confirmed", "video_id": "bhb8G5z9eyo", "id": "short-08-ep007", "publishAt": "2026-10-30T05:00:00Z", "privacyStatus": "public", "delay_s": 96192}
+{"at": "2026-11-01T09:01:00+00:00", "event": "approval_started", "approval_id": "c92c488aa038468ea3037f31a2440d7d", "ids": ["ep008"]}
+{"at": "2026-11-01T09:01:01+00:00", "event": "started", "sha256": "a58c84dc66f4e3f5646d40903474a24d6d401725ddb5c77eed21f693b0c297b0", "id": "ep008", "file": "EP008_final_1080p.mp4", "kind": "long"}
+{"at": "2026-11-01T09:01:09+00:00", "event": "uploaded", "sha256": "a58c84dc66f4e3f5646d40903474a24d6d401725ddb5c77eed21f693b0c297b0", "id": "ep008", "video_id": "VQoqReQm9S4", "publish_at": "2026-11-01T16:00:00Z"}
+{"at": "2026-11-01T09:01:12+00:00", "event": "thumbnail_set", "sha256": "a58c84dc66f4e3f5646d40903474a24d6d401725ddb5c77eed21f693b0c297b0", "id": "ep008", "video_id": "VQoqReQm9S4"}
+{"at": "2026-11-01T09:01:12+00:00", "event": "captions_unavailable", "sha256": "a58c84dc66f4e3f5646d40903474a24d6d401725ddb5c77eed21f693b0c297b0", "id": "ep008", "video_id": "VQoqReQm9S4", "message": "YouTube API 403: Request had insufficient authentication scopes. ['insufficientPermissions']"}
+{"at": "2026-11-01T09:01:12+00:00", "event": "verified", "sha256": "a58c84dc66f4e3f5646d40903474a24d6d401725ddb5c77eed21f693b0c297b0", "id": "ep008", "video_id": "VQoqReQm9S4", "ok": true, "privacyStatus": "private", "publishAt": "2026-11-01T16:00:00Z", "uploadStatus": "uploaded"}
+{"at": "2026-11-01T09:01:12+00:00", "event": "approval_done", "approval_id": "c92c488aa038468ea3037f31a2440d7d", "ids": ["ep008"]}
