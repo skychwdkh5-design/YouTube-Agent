@@ -60,10 +60,10 @@
   "note": "subject is a real NASA photo from Artemis II, labelled 'NASA · ARTEMIS II PHOTO, APR 2026'; s01.2 is a labelled DIAGRAM"
  },
  "match_review": {
-  "confirmed": false,
-  "by": null,
-  "date": null,
-  "notes": "pending: owner compares title, cover and first frames of a real draft (needs originals)"
+  "confirmed": true,
+  "by": "owner",
+  "date": "2026-11-01",
+  "notes": "Owner in chat 15:57 ICT: 'Подтверждаю совпадение обложки с началом видео' after final/EP008_cover_vs_frame0.jpg"
  },
  "ab_test": {
   "status": "not started",

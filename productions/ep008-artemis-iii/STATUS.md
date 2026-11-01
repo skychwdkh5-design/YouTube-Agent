@@ -62,6 +62,15 @@ highest used is EP007.
 - CHAT_PUBLISH_ENABLED cannot be read from this session (proxy 403 on the Actions variables API).
 - Next: owner consent naming ep008 after card 1604-4798 → approval.py make → dispatch "YouTube publish (chat-approved)".
 
+## UPLOADED AND SCHEDULED (2026-11-01 16:01 ICT)
+- Owner consent 15:57 ICT: "Одобряю ep008 по карточке 1604-4798" (+ cover/first-frame match confirmed).
+- publish-data f0f1879: approval c92c488aa038468ea3037f31a2440d7d (6e0dca56 removed: wrong consent_channel, failed dry run).
+- Release ep008-v1 title set to "ep008-v1" (media.py looks up by name) via ep008-release-name.yml.
+- Run 41291231955 (issue #44): https://youtu.be/VQoqReQm9S4 — private, publishAt 2026-11-01T16:00:00Z (23:00 ICT),
+  verified_scheduled true, thumbnail set. Captions NOT uploaded (OAuth token lacks the captions scope, same as EP007):
+  add final/EP008_en.srt by hand in YouTube Studio → Subtitles.
+- Verify scheduled releases workflow will confirm the public release in the ledger.
+
 ## Next session, in order
 1. Owner reviews draft v1. Fixes → re-render with `python3 draft.py --media <dir> --render --confirm` (or `--scenes sNN` for parts).
 2. After owner approval of the draft: ElevenLabs Adam via yt-voice (--confirm), re-time draft.py on Adam's timing, final render,
