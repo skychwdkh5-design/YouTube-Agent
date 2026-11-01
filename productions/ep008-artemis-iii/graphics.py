@@ -781,7 +781,7 @@ def d_crew_v2(u):
 def d_yearly(u):
     """At least one landing a year after the first (NASA plan): years with lander icons."""
     im, d = _bg()
-    yrs = [("2028", "ARTEMIS IV\n(TARGET)"), ("2029", "PLAN"), ("2030", "PLAN"), ("2031", "PLAN")]
+    yrs = [("2028", "ARTEMIS IV\n(TARGET)"), ("2029", ""), ("2030", ""), ("2031", "")]
     for k, (yr, lab) in enumerate(yrs):
         a = 1.0 if k == 0 else seg(u, 0.15 + 0.15 * k, 0.27 + 0.15 * k)
         x = (300 + k * 440) * S; y = H * 0.48 * S
@@ -792,7 +792,14 @@ def d_yearly(u):
         _alpha_text(im, (x, y - 220 * S), yr, font(90 * S), col, a, "ma")
         _alpha_text(im, (x, y + 170 * S), lab, font(36 * S, INTER), col, a, "ma", spacing=8 * S)
     _alpha_text(im, (W * 0.5 * S, 80 * S), "AT LEAST ONE LANDING A YEAR AFTER THE FIRST", font(64 * S), INK, 1.0, "ma")
-    label_lines(d, "ORBITAL ATLAS GRAPHIC · NASA PLAN, NOT A SCHEDULE", "Source: NASA, Feb 27, 2026")
+    a = seg(u, 0.3, 0.45)
+    if a > 0:                                   # one bracket label over the future years (owner wording 2026-11-01)
+        bx0, bx1, by = 520 * S, (300 + 3 * 440 + 180) * S, H * 0.84 * S
+        d.line([(bx0, by), (bx1, by)], fill=ACC, width=4 * S)
+        for xx in (bx0, bx1):
+            d.line([(xx, by - 24 * S), (xx, by)], fill=ACC, width=4 * S)
+        _alpha_text(im, ((bx0 + bx1) / 2, by + 20 * S), "NASA LUNAR LANDING PLAN", font(54 * S), ACC, a, "ma")
+    label_lines(d, "ORBITAL ATLAS GRAPHIC", "Source: NASA, Feb 27, 2026")
     return finish(im)
 
 
