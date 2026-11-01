@@ -238,6 +238,7 @@ def audio(starts, n_s, sr=None):
     for sid, at in starts.items():
         v, sr_ = sf.read(os.path.join(HERE, VOICE, sid + ".wav"), dtype="float32")
         v = v if v.ndim == 1 else v.mean(axis=1)
+        v = v.copy(); f = min(len(v), int(0.005 * sr_)); v[:f] *= np.linspace(0, 1, f)     # 5 ms fade-in: no click on a hard start
         i = int(at * sr); mix[i: i + len(v)] += v[: max(0, n - i)]
     shots_hook = [s for s in SHOTS_PLAN if s["scene"] in ("s01", "s02")]
     cut1, cut2, cut3 = shots_hook[1]["start"], shots_hook[3]["start"], shots_hook[4]["start"]
