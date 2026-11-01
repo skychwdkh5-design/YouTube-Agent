@@ -55,6 +55,13 @@ highest used is EP007.
 - thumbnail_hook_match stays unconfirmed (owner 15:39). Next: owner decides publish time/text; then the chat-publish flow
   (card logged + consent naming ep008) — media.json in publish-data must point to release ep008-v1.
 
+## Official card (2026-11-01 15:54 ICT, owner switched chat-publish on and moved the date)
+- publish-data a70943b: queue entry ep008 (publish 2026-11-01T16:00:00Z = 23:00 ICT), media.json bundle -> ep008-v1
+  (EP008_final_1080p.mp4 sha256 a58c84dc…), publish/assets/ep008/{thumbnail_A.jpg,captions.srt}; card 1604-4798 logged in
+  publish/cards.jsonl. The 2026-11-03 proposal is cancelled. Not approved, not uploaded.
+- CHAT_PUBLISH_ENABLED cannot be read from this session (proxy 403 on the Actions variables API).
+- Next: owner consent naming ep008 after card 1604-4798 → approval.py make → dispatch "YouTube publish (chat-approved)".
+
 ## Next session, in order
 1. Owner reviews draft v1. Fixes → re-render with `python3 draft.py --media <dir> --render --confirm` (or `--scenes sNN` for parts).
 2. After owner approval of the draft: ElevenLabs Adam via yt-voice (--confirm), re-time draft.py on Adam's timing, final render,
