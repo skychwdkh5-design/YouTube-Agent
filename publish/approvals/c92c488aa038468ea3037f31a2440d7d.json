@@ -1,6 +1,6 @@
 {
  "schema": "yt-approval/1",
- "approval_id": "6e0dca56c0bc439b9523d49b23c6d46f",
+ "approval_id": "c92c488aa038468ea3037f31a2440d7d",
  "scope": "single_release",
  "label": "ep008",
  "items": [
@@ -16,10 +16,10 @@
  ],
  "queue_commit": "a70943b9af8946ea9f23baf39255f23b1d721783",
  "owner_quote": "Одобряю ep008 по карточке 1604-4798",
- "created_at": "2026-11-01T08:58:17+00:00",
- "expires_at": "2026-11-02T08:58:17+00:00",
+ "created_at": "2026-11-01T08:59:06+00:00",
+ "expires_at": "2026-11-02T08:59:06+00:00",
  "created_by": "claude-chat",
- "consent_channel": "UC2QxQJhUe9Q5NMRNb6M9ddw",
+ "consent_channel": "owner-chat-message",
  "dry_run_only": false,
  "card_codes": {
   "ep008": "1604-4798"
