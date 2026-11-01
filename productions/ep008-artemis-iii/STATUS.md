@@ -45,6 +45,16 @@ highest used is EP007.
 - Deliverables in final/: EP008_final_1080p.mp4 (local + chat only), EP008_en.srt, EP008_cover_A.jpg, SHA256SUMS. QC: QC.md "Final v1".
 - NOT done (needs owner): publication/queue (chat-publish protocol), Shorts, cover gate record for publish, thumbnail_hook match confirmation.
 
+## Storage + publish candidate (2026-11-01 15:40-16:10)
+- Final MP4 stored outside the workspace: branch media/ep008-final (3 parts) → workflow ep008-store.yml reassembled it,
+  sha256 a58c84dc… OK against SHA256SUMS, ffprobe H.264 High@4.1 1920x1080 30 fps + AAC 48 kHz stereo, 392.6 s, 101,200,045 B,
+  moov before mdat, full decode clean → DRAFT release ep008-v1 (EP008_final_1080p.mp4, EP008_cover_A.jpg, EP008_en.srt,
+  SHA256SUMS). Report: media/ep008-final:ep008/STORE_REPORT.txt (run 41289861789).
+- Publish candidate entry (NOT in publish-data, NOT queued): packages/publish_candidate_ep008.json; card preview code C7D6-1BAF
+  shown to the owner as a preview only (not logged in cards.jsonl, no consent requested). Proposed time 2026-11-03 01:00 UTC.
+- thumbnail_hook_match stays unconfirmed (owner 15:39). Next: owner decides publish time/text; then the chat-publish flow
+  (card logged + consent naming ep008) — media.json in publish-data must point to release ep008-v1.
+
 ## Next session, in order
 1. Owner reviews draft v1. Fixes → re-render with `python3 draft.py --media <dir> --render --confirm` (or `--scenes sNN` for parts).
 2. After owner approval of the draft: ElevenLabs Adam via yt-voice (--confirm), re-time draft.py on Adam's timing, final render,
