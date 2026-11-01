@@ -91,28 +91,6 @@ When active, the owner controls publishing only through this chat:
 5. Never: weaken or edit an approval to make it pass, reuse a consent, publish immediately, change an existing video, use the legacy workflows to get around a refusal, or re-dispatch blindly after an unclear result (read the channel inventory first). If the GitHub tools are unavailable, say so and stop.
 6. After an upload the workflow `Verify scheduled releases` (read-only, every 15 min, no session needed) confirms the real release in the ledger and opens a GitHub issue if a video is still private; when asked, read its ledger events (`release_confirmed`, `release_check`) instead of guessing. It never replaces the owner's separate consent for the next batch.
 
-## Dynamic editing and explanatory motion (next new episode)
+## Visual direction — selected painted editorial style
 
-Before scripting or storyboarding a new Orbital Atlas episode, read `docs/DYNAMIC_MOTION_STYLE_V1.md`. Include the Graphics and motion column in the storyboard, selective color emphasis, progressive drawing and moving geometry where they explain evidence. Build a 45–60 s representative pilot before extending the edit. Shot lengths are flexible editorial targets, not retention guarantees. Keep existing facts, rights, thumbnail, QC and publication gates. EP008 and existing schedules are unchanged. This specification does not imply new renderer capabilities have been implemented.
-
-Read `docs/DYNAMIC_MOTION_REVIEW_V2.md` alongside the v1 specification: the owner rejected the slide-like schematic demo. Picture-led cinematic direction supersedes that demo as the proposed visual approach; v2 approval remains pending.
-
-## Writer/director handoff to Claude assembly
-
-Read `docs/CLAUDE_VIDEO_HANDOFF.md` and `docs/DYNAMIC_MOTION_REFERENCE_V3.md` before new video planning. The proposed owner workflow is a complete English script plus second-by-second visual/action plan committed to this repository, followed by Claude assembly. Use `examples/action-pilot-v3/` for the staged-action test, not the rejected zoom-led v1/v2 demos. Style approval is pending. Preserve the authored actions and report material deviations; do not substitute zoomed stills for moving objects. Existing facts, rights, cost and publication rules remain effective.
-
-### Latest visual steering: 3D action, v4
-
-Read `docs/DYNAMIC_MOTION_3D_V4.md`. The owner requested more dynamic shots and primary visuals beyond 2D after reviewing v3. `examples/3d-action-pilot-v4/` contains an actual XYZ mesh/render/camera demonstration; its look is still pending review. Retain narrative object action, multi-angle staging and real scene-state rewind. Do not interpret previous 2D demos as approved final art direction or present this illustrative model as documentary evidence.
-
-### Narrative pilot v5 — latest experiment
-
-Read `docs/REFERENCE_REFINEMENT_AFTER_3D_V4.md` and `docs/NARRATIVE_PILOT_V5.md`. V5 tests source-image cold open -> question -> causal rewind -> staged 3D action -> actual NASA image resolution. Every shot needs a new narrative job; extra camera angles alone do not provide progression. Code is in `examples/narrative-pilot-v5/`; original image URL/hash/credit are documented. Owner review remains pending, art is still provisional. Retain existing cost, facts, rights, QC and publication gates.
-
-### V5 review outcome
-
-Owner rejected v5. Read `docs/V5_REJECTED_REFERENCE_REVIEW.md` before further work. None of v1–v5 is approved as final visual style. Do not use v5 as an accepted template or extend its crude rover artwork to a full episode. Maintain owner requirement for volume, but align composition, semantic surprise, prop staging and transitions to the uploaded reference. Next visual direction remains unapproved.
-
-### V6 collage experiment
-
-Latest pending-review test: `docs/SUEZ_COLLAGE_V6.md`, executable source and committed generated prop atlas in `examples/suez-collage-v6/`. Medium is 2.5D compositing of pre-rendered volumetric raster props over a NASA map, not full 3D rigging/simulation. Geographic positions/count/scale and captain are illustrative. Do not treat it as approved final style or measured event map. Existing production/publishing gates remain.
+Before new Orbital Atlas visuals or storyboard work, read `docs/ORBITAL_ATLAS_VISUAL_STYLE.md` and `docs/PAINTED_VIDEO_HANDOFF.md`. The owner selected option 3 (Живописная иллюстрация) and explicitly requires newly created props/characters/objects in future videos to follow it: textured semi-realistic painting, sculptural light/shadow and expressive natural proportions, with the reference-led dynamic map/story staging. Authoritative art references are `docs/assets/visual-style/painted-reference.webp` and `painted-props.webp`. Build the complete script and per-second visual/action/assets package for Claude assembly. Prior v1–v5 experiments are not approved templates; glossy toy-style v6 props are superseded. V7 animation itself is still for review. Existing factual, rights, voice, QC, cost and publishing gates remain unchanged.
