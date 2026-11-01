@@ -108,3 +108,7 @@ Read `docs/DYNAMIC_MOTION_3D_V4.md`. The owner requested more dynamic shots and 
 ### Narrative pilot v5 — latest experiment
 
 Read `docs/REFERENCE_REFINEMENT_AFTER_3D_V4.md` and `docs/NARRATIVE_PILOT_V5.md`. V5 tests source-image cold open -> question -> causal rewind -> staged 3D action -> actual NASA image resolution. Every shot needs a new narrative job; extra camera angles alone do not provide progression. Code is in `examples/narrative-pilot-v5/`; original image URL/hash/credit are documented. Owner review remains pending, art is still provisional. Retain existing cost, facts, rights, QC and publication gates.
+
+### V5 review outcome
+
+Owner rejected v5. Read `docs/V5_REJECTED_REFERENCE_REVIEW.md` before further work. None of v1–v5 is approved as final visual style. Do not use v5 as an accepted template or extend its crude rover artwork to a full episode. Maintain owner requirement for volume, but align composition, semantic surprise, prop staging and transitions to the uploaded reference. Next visual direction remains unapproved.
