@@ -100,3 +100,7 @@ Read `docs/DYNAMIC_MOTION_REVIEW_V2.md` alongside the v1 specification: the owne
 ## Writer/director handoff to Claude assembly
 
 Read `docs/CLAUDE_VIDEO_HANDOFF.md` and `docs/DYNAMIC_MOTION_REFERENCE_V3.md` before new video planning. The proposed owner workflow is a complete English script plus second-by-second visual/action plan committed to this repository, followed by Claude assembly. Use `examples/action-pilot-v3/` for the staged-action test, not the rejected zoom-led v1/v2 demos. Style approval is pending. Preserve the authored actions and report material deviations; do not substitute zoomed stills for moving objects. Existing facts, rights, cost and publication rules remain effective.
+
+### Latest visual steering: 3D action, v4
+
+Read `docs/DYNAMIC_MOTION_3D_V4.md`. The owner requested more dynamic shots and primary visuals beyond 2D after reviewing v3. `examples/3d-action-pilot-v4/` contains an actual XYZ mesh/render/camera demonstration; its look is still pending review. Retain narrative object action, multi-angle staging and real scene-state rewind. Do not interpret previous 2D demos as approved final art direction or present this illustrative model as documentary evidence.
