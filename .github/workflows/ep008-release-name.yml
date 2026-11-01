@@ -1,0 +1,19 @@
+name: EP008 release title = bundle name
+# media.py finds a release by its NAME (title); publish/media.json bundle is "ep008-v1". Sets the title of the draft
+# release with tag ep008-v1 to "ep008-v1". Files and checksums are not touched; the release stays a draft.
+on:
+  push:
+    branches: [media/ep008-final]
+    paths: [ep008/RENAME_REQUEST.txt]
+permissions:
+  contents: write
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          gh release edit ep008-v1 --title ep008-v1 --draft=true
+          gh release view ep008-v1 --json name,isDraft,assets -q '.name+" draft="+(.isDraft|tostring)+" "+([.assets[].name]|join(","))'
