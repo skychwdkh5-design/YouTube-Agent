@@ -61,7 +61,7 @@ def rock(im,s,t):
     q=(t*1.3+j*.33)%1;cx=x-25+j*28;cy=y-35-j%2*18;sz=7*math.sin(q*math.pi)
     line(d,[(cx-sz,cy),(cx+sz,cy)],'#FFF4B6',2);line(d,[(cx,cy-sz),(cx,cy+sz)],'#FFF4B6',2)
 def world(t):
- im=bg.copy();x=lerp(205,878,ease(t/5.2));split=ease((t-3.65)/.5)
+ im=bg.copy();x=lerp(205,705,ease(t/3.6)) if t<3.6 else lerp(705,1180,ease((t-3.6)/3.4));split=ease((t-3.65)/.5)
  shock=max(0,1-abs(t-3.55)/.35)
  # Rover passes over, then leaves the opened rock visible behind it.
  rover(im,x,t,shock);rock(im,split,t)
@@ -81,7 +81,7 @@ def frame(t):
  if t<7.8:wt=t
  elif rewind:wt=lerp(7.7,1.6,ease((t-7.8)/1.7))
  elif t<12.8:wt=lerp(2.8,4.7,(t-9.5)/3.3)
- else:wt=5.5
+ else:wt=6.8
  im=world(wt)
  # Scene-space camera follows action; second pass shows contact in close-up.
  if 9.5<=t<12.8:z=1.8;cx=790;cy=470
