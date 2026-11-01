@@ -17,6 +17,7 @@ import graphics as g
 import hook20 as hk
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+VOICE = os.environ.get("EP008_VOICE", "voice_temp")        # voice_adam for the final (Adam) render
 W, H, FPS, GAP, TAIL = 1920, 1080, 30, 0.35, 1.2
 GOLD, WHITE, RED = (255, 210, 30), (255, 255, 255), (229, 50, 45)
 A2, A3, HW = "a2", "a3plan", "a3hw"
@@ -109,7 +110,7 @@ SHOTS = {
 
 
 def plan():
-    t = json.load(open(os.path.join(HERE, "voice_temp", "timing.json")))
+    t = json.load(open(os.path.join(HERE, VOICE, "timing.json")))
     shots, lines, starts, at = [], [], {}, 0.0
     order = sorted(SHOTS)
     for sid in order:
@@ -127,6 +128,27 @@ def plan():
         lines += [(at + x["start"], at + x["end"], x["text"]) for x in sents]
         at = nxt
     return shots, lines, starts, round(at + TAIL, 3)
+
+
+def word_caps(starts, maxc=42):
+    """Captions from Adam's real word timings: phrase-sized cues, a cue never crosses a sentence end."""
+    caps = []
+    for sid, at in sorted(starts.items()):
+        words = json.load(open(os.path.join(HERE, "adam", "timing", f"adam_{sid}.voice.json")))["words"]
+        cur = []
+        for w in words:
+            cur.append(w)
+            txt = " ".join(x["text"] for x in cur)
+            if len(txt) > maxc or w["text"].rstrip().endswith((".", "?", "!", ":")):
+                if len(txt) > maxc and len(cur) > 1:
+                    last = cur.pop(); caps.append((at + cur[0]["start"], at + cur[-1]["end"], " ".join(x["text"] for x in cur))); cur = [last]
+                    if not last["text"].rstrip().endswith((".", "?", "!", ":")):
+                        continue
+                caps.append((at + cur[0]["start"], at + cur[-1]["end"], " ".join(x["text"] for x in cur))); cur = []
+        if cur:
+            caps.append((at + cur[0]["start"], at + cur[-1]["end"], " ".join(x["text"] for x in cur)))
+    # hold each cue until the next one starts (max +0.6 s) so text does not flicker
+    return [(a, min(b + 0.6, caps[i + 1][0]) if i + 1 < len(caps) else b + 0.6, t) for i, (a, b, t) in enumerate(caps)]
 
 
 def _clip_reader(path, start, dur):
@@ -210,10 +232,12 @@ def render_range(job):
     return out
 
 
-def audio(starts, n_s, sr=24000):
+def audio(starts, n_s, sr=None):
+    sr = sr or sf.info(os.path.join(HERE, VOICE, "s01.wav")).samplerate
     n = int(n_s * sr); mix = np.zeros(n, np.float32)
     for sid, at in starts.items():
-        v, sr_ = sf.read(os.path.join(HERE, "voice_temp", sid + ".wav"), dtype="float32")
+        v, sr_ = sf.read(os.path.join(HERE, VOICE, sid + ".wav"), dtype="float32")
+        v = v if v.ndim == 1 else v.mean(axis=1)
         i = int(at * sr); mix[i: i + len(v)] += v[: max(0, n - i)]
     shots_hook = [s for s in SHOTS_PLAN if s["scene"] in ("s01", "s02")]
     cut1, cut2, cut3 = shots_hook[1]["start"], shots_hook[3]["start"], shots_hook[4]["start"]
@@ -231,7 +255,7 @@ if __name__ == "__main__":
     ap.add_argument("--confirm", action="store_true"); ap.add_argument("--jobs", type=int, default=2); ap.add_argument("--scenes", default=""); ap.add_argument("--reuse", default=""); ap.add_argument("--tag", default="EP008_draft_v2")
     a = ap.parse_args()
     SHOTS_PLAN, lines, starts, END = plan()
-    caps = hk.chunks(lines)
+    caps = hk.chunks(lines) if VOICE != "voice_adam" else word_caps(starts)
     os.makedirs(os.path.join(HERE, "draft"), exist_ok=True)
     json.dump({"end": END, "starts": starts, "shots": [{**s, "spec": [str(x) for x in s["spec"][:2]]} for s in SHOTS_PLAN]},
               open(os.path.join(HERE, "draft", a.tag + ".timeline.json"), "w"), indent=1)
@@ -265,7 +289,7 @@ if __name__ == "__main__":
     wav = os.path.join(tmp, "a.wav"); sf.write(wav, mix, sr)
     out = os.path.join(HERE, "draft", tag + ".mp4")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", vid, "-i", wav, "-af", "loudnorm=I=-14:TP=-1.5", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
-                    "-ar", "48000", "-movflags", "+faststart", "-shortest", out], check=True)
+                    "-ar", "48000", "-ac", "2", "-movflags", "+faststart", "-shortest", out], check=True)
     if not want:
         fmt = lambda s: f"{int(s)//3600:02d}:{int(s)//60%60:02d}:{int(s)%60:02d},{int(round((s % 1) * 1000)) % 1000:03d}"
         with open(out[:-4] + ".srt", "w") as fh:
