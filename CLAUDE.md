@@ -104,3 +104,7 @@ Read `docs/CLAUDE_VIDEO_HANDOFF.md` and `docs/DYNAMIC_MOTION_REFERENCE_V3.md` be
 ### Latest visual steering: 3D action, v4
 
 Read `docs/DYNAMIC_MOTION_3D_V4.md`. The owner requested more dynamic shots and primary visuals beyond 2D after reviewing v3. `examples/3d-action-pilot-v4/` contains an actual XYZ mesh/render/camera demonstration; its look is still pending review. Retain narrative object action, multi-angle staging and real scene-state rewind. Do not interpret previous 2D demos as approved final art direction or present this illustrative model as documentary evidence.
+
+### Narrative pilot v5 — latest experiment
+
+Read `docs/REFERENCE_REFINEMENT_AFTER_3D_V4.md` and `docs/NARRATIVE_PILOT_V5.md`. V5 tests source-image cold open -> question -> causal rewind -> staged 3D action -> actual NASA image resolution. Every shot needs a new narrative job; extra camera angles alone do not provide progression. Code is in `examples/narrative-pilot-v5/`; original image URL/hash/credit are documented. Owner review remains pending, art is still provisional. Retain existing cost, facts, rights, QC and publication gates.
