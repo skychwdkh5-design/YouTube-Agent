@@ -21,8 +21,9 @@ jobs:
         shell: bash {0}
         run: |
           P=productions/ep008-artemis-iii; mkdir -p out
-          for s in s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15; do gh release download ep008-originals -p adam_$s.wav -D out; done
-          pip install -q "faster-whisper==1.1.1" "av==12.3.0" > $P/adam/whisper_log.txt 2>&1
+          for s in s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15; do id=$(gh api repos/${{ github.repository }}/releases --jq '.[] | select(.tag_name=="ep008-originals") | .assets[] | select(.name=="adam_'$s'.wav") | .id'); gh api -H 'Accept: application/octet-stream' repos/${{ github.repository }}/releases/assets/$id > out/adam_$s.wav; done
+          ls -la out > $P/adam/asr_files.txt
+          pip install "faster-whisper==1.1.1" "av==12.3.0" > $P/adam/whisper_log.txt 2>&1; python -c "import av, faster_whisper; print(av.__version__, faster_whisper.__version__)" >> $P/adam/whisper_log.txt 2>&1
           python - "$P" >> $P/adam/whisper_log.txt 2>&1 <<'PY'
           import sys, json, re, glob, os, difflib
           from faster_whisper import WhisperModel
@@ -44,5 +45,5 @@ jobs:
           tail -20 $P/adam/whisper_log.txt
           git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull -q --rebase origin production/ep008-artemis-iii || true
-          git add -f $P/adam/transcript_check.json $P/adam/whisper_log.txt
+          for f in $P/adam/transcript_check.json $P/adam/whisper_log.txt $P/adam/asr_files.txt; do [ -f $f ] && git add -f $f; done
           git commit -qm "EP008 Adam transcript check (run ${{ github.run_id }})" && git push -q origin HEAD:production/ep008-artemis-iii || echo nothing
