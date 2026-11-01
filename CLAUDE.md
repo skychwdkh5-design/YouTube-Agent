@@ -96,3 +96,7 @@ When active, the owner controls publishing only through this chat:
 Before scripting or storyboarding a new Orbital Atlas episode, read `docs/DYNAMIC_MOTION_STYLE_V1.md`. Include the Graphics and motion column in the storyboard, selective color emphasis, progressive drawing and moving geometry where they explain evidence. Build a 45–60 s representative pilot before extending the edit. Shot lengths are flexible editorial targets, not retention guarantees. Keep existing facts, rights, thumbnail, QC and publication gates. EP008 and existing schedules are unchanged. This specification does not imply new renderer capabilities have been implemented.
 
 Read `docs/DYNAMIC_MOTION_REVIEW_V2.md` alongside the v1 specification: the owner rejected the slide-like schematic demo. Picture-led cinematic direction supersedes that demo as the proposed visual approach; v2 approval remains pending.
+
+## Writer/director handoff to Claude assembly
+
+Read `docs/CLAUDE_VIDEO_HANDOFF.md` and `docs/DYNAMIC_MOTION_REFERENCE_V3.md` before new video planning. The proposed owner workflow is a complete English script plus second-by-second visual/action plan committed to this repository, followed by Claude assembly. Use `examples/action-pilot-v3/` for the staged-action test, not the rejected zoom-led v1/v2 demos. Style approval is pending. Preserve the authored actions and report material deviations; do not substitute zoomed stills for moving objects. Existing facts, rights, cost and publication rules remain effective.
