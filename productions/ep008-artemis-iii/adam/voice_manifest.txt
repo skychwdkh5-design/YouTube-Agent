@@ -1,0 +1,9 @@
+s01 exit 0 ok 88 4.737 Adam
+s02 exit 0 ok 195 13.839 Adam
+s03 exit 0 ok 291 19.04 Adam
+s04 exit 2 over_limit 874 None 
+{
+ "status": "over_limit",
+ "error": "874 characters is over --max-chars 700; nothing was sent. Raise --max-chars only if this cost is intended",
+ "characters": 874
+}
