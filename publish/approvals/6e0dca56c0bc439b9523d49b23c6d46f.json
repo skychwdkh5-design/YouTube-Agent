@@ -1,0 +1,27 @@
+{
+ "schema": "yt-approval/1",
+ "approval_id": "6e0dca56c0bc439b9523d49b23c6d46f",
+ "scope": "single_release",
+ "label": "ep008",
+ "items": [
+  {
+   "id": "ep008",
+   "kind": "long",
+   "title": "NASA Changed Its Moon Mission. Here's Why.",
+   "publish_at": "2026-11-01T16:00:00Z",
+   "media_sha256": "a58c84dc66f4e3f5646d40903474a24d6d401725ddb5c77eed21f693b0c297b0",
+   "content_hash": "5c11c8f81c99dad67deab2207f0810224de7d6cfa6f77d605ce41b0337b5428e",
+   "entry_hash": "1604479885853b75b43aefbb7cec61c9bc48a2e13e81abdbf22e8ad896c7cb01"
+  }
+ ],
+ "queue_commit": "a70943b9af8946ea9f23baf39255f23b1d721783",
+ "owner_quote": "Одобряю ep008 по карточке 1604-4798",
+ "created_at": "2026-11-01T08:58:17+00:00",
+ "expires_at": "2026-11-02T08:58:17+00:00",
+ "created_by": "claude-chat",
+ "consent_channel": "UC2QxQJhUe9Q5NMRNb6M9ddw",
+ "dry_run_only": false,
+ "card_codes": {
+  "ep008": "1604-4798"
+ }
+}
