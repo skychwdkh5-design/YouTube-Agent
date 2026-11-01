@@ -112,3 +112,7 @@ Read `docs/REFERENCE_REFINEMENT_AFTER_3D_V4.md` and `docs/NARRATIVE_PILOT_V5.md`
 ### V5 review outcome
 
 Owner rejected v5. Read `docs/V5_REJECTED_REFERENCE_REVIEW.md` before further work. None of v1–v5 is approved as final visual style. Do not use v5 as an accepted template or extend its crude rover artwork to a full episode. Maintain owner requirement for volume, but align composition, semantic surprise, prop staging and transitions to the uploaded reference. Next visual direction remains unapproved.
+
+### V6 collage experiment
+
+Latest pending-review test: `docs/SUEZ_COLLAGE_V6.md`, executable source and committed generated prop atlas in `examples/suez-collage-v6/`. Medium is 2.5D compositing of pre-rendered volumetric raster props over a NASA map, not full 3D rigging/simulation. Geographic positions/count/scale and captain are illustrative. Do not treat it as approved final style or measured event map. Existing production/publishing gates remain.
