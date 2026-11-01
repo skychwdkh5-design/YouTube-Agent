@@ -1,0 +1,161 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "adam_s13.wav",
+ "audio_format": "wav",
+ "audio_sha256": "a2e456397089fb0fa564f3b34f1effdf2caa06145f0c0c753d6758b72333248f",
+ "duration": 10.635,
+ "characters": 158,
+ "text": "If this sounds familiar, it should. In March nineteen sixty-nine, Apollo Nine tested the lunar module in Earth orbit. Four months later, Apollo Eleven landed.",
+ "text_sha256": "6fe70238f8697b03648fd3eafa7f31f6a1e08682db0dee460d8edc0e8c0ab2d2",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 158,
+   "offset": 0.0,
+   "duration": 10.635,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "If",
+   "start": 0.0,
+   "end": 0.139
+  },
+  {
+   "text": "this",
+   "start": 0.186,
+   "end": 0.325
+  },
+  {
+   "text": "sounds",
+   "start": 0.372,
+   "end": 0.639
+  },
+  {
+   "text": "familiar,",
+   "start": 0.673,
+   "end": 1.219
+  },
+  {
+   "text": "it",
+   "start": 1.3,
+   "end": 1.463
+  },
+  {
+   "text": "should.",
+   "start": 1.521,
+   "end": 1.962
+  },
+  {
+   "text": "In",
+   "start": 2.345,
+   "end": 2.485
+  },
+  {
+   "text": "March",
+   "start": 2.554,
+   "end": 2.81
+  },
+  {
+   "text": "nineteen",
+   "start": 2.879,
+   "end": 3.239
+  },
+  {
+   "text": "sixty-nine,",
+   "start": 3.297,
+   "end": 4.052
+  },
+  {
+   "text": "Apollo",
+   "start": 4.087,
+   "end": 4.574
+  },
+  {
+   "text": "Nine",
+   "start": 4.656,
+   "end": 4.981
+  },
+  {
+   "text": "tested",
+   "start": 5.027,
+   "end": 5.387
+  },
+  {
+   "text": "the",
+   "start": 5.433,
+   "end": 5.503
+  },
+  {
+   "text": "lunar",
+   "start": 5.55,
+   "end": 5.828
+  },
+  {
+   "text": "module",
+   "start": 5.886,
+   "end": 6.397
+  },
+  {
+   "text": "in",
+   "start": 6.455,
+   "end": 6.594
+  },
+  {
+   "text": "Earth",
+   "start": 6.711,
+   "end": 6.966
+  },
+  {
+   "text": "orbit.",
+   "start": 7.036,
+   "end": 7.546
+  },
+  {
+   "text": "Four",
+   "start": 7.872,
+   "end": 8.081
+  },
+  {
+   "text": "months",
+   "start": 8.139,
+   "end": 8.359
+  },
+  {
+   "text": "later,",
+   "start": 8.406,
+   "end": 8.835
+  },
+  {
+   "text": "Apollo",
+   "start": 8.916,
+   "end": 9.404
+  },
+  {
+   "text": "Eleven",
+   "start": 9.485,
+   "end": 9.845
+  },
+  {
+   "text": "landed.",
+   "start": 9.915,
+   "end": 10.635
+  }
+ ],
+ "created": "2026-11-01T07:39:48Z",
+ "warnings": []
+}

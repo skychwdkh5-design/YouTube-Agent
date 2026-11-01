@@ -1,0 +1,106 @@
+name: EP008 fetch NASA originals (temporary)
+# Runs only on this production branch (same pattern as EP007). Read-only towards NASA:
+#  1. downloads the stills in fetch_list.txt, checks they decode, uploads them to a DRAFT release
+#     (not in Git, not public);
+#  2. saves the primary NASA pages in fetch_pages.txt as plain text (small, committed);
+#  3. lists NASA video candidates from the Image and Video Library API (nothing downloaded).
+# No YouTube secrets, no publishing, no other workflow touched. Delete after the final render.
+on:
+  push:
+    branches: [production/ep008-artemis-iii]
+    paths:
+      - productions/ep008-artemis-iii/fetch_list.txt
+      - productions/ep008-artemis-iii/fetch_pages.txt
+      - productions/ep008-artemis-iii/fetch_video_queries.txt
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ep008-fetch
+  cancel-in-progress: false
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and verify stills
+        run: |
+          set -u
+          D=productions/ep008-artemis-iii
+          pip install -q pillow html2text
+          mkdir -p out
+          : > manifest.tsv
+          while read -r name url; do
+            [ -z "${name:-}" ] && continue; case "$name" in \#*) continue;; esac
+            code=$(curl -sSL -A "OrbitalAtlas-research/1.0" -o "out/$name" -w '%{http_code}' --max-time 600 "$url" || echo ERR)
+            info=$(python3 - "out/$name" <<'PY'
+          import sys, hashlib, os
+          from PIL import Image
+          Image.MAX_IMAGE_PIXELS = None
+          p = sys.argv[1]
+          try:
+              im = Image.open(p); im.load()
+              h = hashlib.sha256(open(p,'rb').read()).hexdigest()
+              ok = "OK" if im.size[0] >= 1920 or im.size[1] >= 1920 else "SMALL"
+              print(f"{ok}\t{im.size[0]}x{im.size[1]}\t{im.mode}\t{os.path.getsize(p)}\t{h}")
+          except Exception as e:
+              print(f"BAD\t-\t-\t{os.path.getsize(p) if os.path.exists(p) else 0}\t{type(e).__name__}")
+          PY
+          )
+            printf '%s\t%s\t%s\t%s\n' "$name" "$code" "$info" "$url" | tee -a manifest.tsv
+          done < $D/fetch_list.txt
+      - name: Save primary texts
+        run: |
+          set -u
+          D=productions/ep008-artemis-iii
+          mkdir -p $D/research/primary-texts
+          while read -r name url; do
+            [ -z "${name:-}" ] && continue; case "$name" in \#*) continue;; esac
+            curl -sSL -A "OrbitalAtlas-research/1.0" --max-time 120 "$url" -o page.html || true
+            python3 - page.html "$url" > "$D/research/primary-texts/$name" <<'PY'
+          import sys, html2text, datetime
+          h = html2text.HTML2Text(); h.ignore_images = False; h.body_width = 0
+          raw = open(sys.argv[1], encoding="utf-8", errors="replace").read()
+          print(f"source: {sys.argv[2]}\nfetched: {datetime.datetime.utcnow().isoformat()}Z\n")
+          print(h.handle(raw))
+          PY
+          done < $D/fetch_pages.txt
+      - name: List NASA video candidates (no download)
+        run: |
+          set -u
+          D=productions/ep008-artemis-iii
+          python3 - "$D/fetch_video_queries.txt" > "$D/research/video_candidates.json" <<'PY'
+          import sys, json, urllib.request, urllib.parse
+          out = {}
+          for q in open(sys.argv[1]):
+              q = q.strip()
+              if not q or q.startswith("#"): continue
+              url = "https://images-api.nasa.gov/search?" + urllib.parse.urlencode({"q": q, "media_type": "video", "year_start": "2026"})
+              try:
+                  d = json.load(urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "OrbitalAtlas-research/1.0"}), timeout=60))
+                  items = []
+                  for it in d["collection"]["items"][:20]:
+                      m = it["data"][0]
+                      items.append({"nasa_id": m.get("nasa_id"), "title": m.get("title"), "date": m.get("date_created"),
+                                    "center": m.get("center"), "description": (m.get("description") or "")[:300],
+                                    "assets": it.get("href")})
+                  out[q] = items
+              except Exception as e:
+                  out[q] = {"error": repr(e)}
+          print(json.dumps(out, indent=1))
+          PY
+      - name: Upload stills to a DRAFT release (not in Git, not public)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          T=ep008-originals
+          gh release view "$T" >/dev/null 2>&1 || gh release create "$T" --draft --title "EP008 NASA originals (draft, not for publication)" --notes "Working sources for EP008 Artemis III. Draft only."
+          for f in out/*; do [ -s "$f" ] && gh release upload "$T" "$f" --clobber; done
+      - name: Commit manifest, texts and video list
+        run: |
+          D=productions/ep008-artemis-iii
+          cp manifest.tsv $D/fetch_manifest.tsv
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f $D/fetch_manifest.tsv $D/research/primary-texts $D/research/video_candidates.json
+          git commit -qm "EP008 fetch results (run ${{ github.run_id }})" && git push -q origin HEAD:production/ep008-artemis-iii || echo "nothing to commit"

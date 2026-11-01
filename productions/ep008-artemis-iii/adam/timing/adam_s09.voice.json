@@ -1,0 +1,436 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "adam_s09.wav",
+ "audio_format": "wav",
+ "audio_sha256": "228ccbd44008c9d61e3bda0cc5de467cf093414ac3e31a65dabd937deba939a2",
+ "duration": 32.322,
+ "characters": 482,
+ "text": "First docking: Orion pulls up alongside the Blue Moon lander. While they're joined, Orion's own software flies both spacecraft. Then the hatch opens. Up to two astronauts, in their orange survival suits, float inside. NASA calls it its first evaluation of a commercial lunar lander with a crew. They spend about two days checking its cabin, controls and life support. Riding along is a dummy the weight of a spacesuit, wired with sensors, reporting what the cabin really feels like.",
+ "text_sha256": "d61416ad63db841642bd4f77472ac482e30ea5afba83278d173f828383106990",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 482,
+   "offset": 0.0,
+   "duration": 32.322,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "First",
+   "start": 0.0,
+   "end": 0.406
+  },
+  {
+   "text": "docking:",
+   "start": 0.464,
+   "end": 1.08
+  },
+  {
+   "text": "Orion",
+   "start": 1.463,
+   "end": 1.916
+  },
+  {
+   "text": "pulls",
+   "start": 1.985,
+   "end": 2.276
+  },
+  {
+   "text": "up",
+   "start": 2.334,
+   "end": 2.426
+  },
+  {
+   "text": "alongside",
+   "start": 2.485,
+   "end": 3.135
+  },
+  {
+   "text": "the",
+   "start": 3.17,
+   "end": 3.239
+  },
+  {
+   "text": "Blue",
+   "start": 3.286,
+   "end": 3.518
+  },
+  {
+   "text": "Moon",
+   "start": 3.564,
+   "end": 3.785
+  },
+  {
+   "text": "lander.",
+   "start": 3.855,
+   "end": 4.435
+  },
+  {
+   "text": "While",
+   "start": 4.714,
+   "end": 4.934
+  },
+  {
+   "text": "they're",
+   "start": 4.957,
+   "end": 5.143
+  },
+  {
+   "text": "joined,",
+   "start": 5.19,
+   "end": 5.805
+  },
+  {
+   "text": "Orion's",
+   "start": 5.921,
+   "end": 6.374
+  },
+  {
+   "text": "own",
+   "start": 6.42,
+   "end": 6.571
+  },
+  {
+   "text": "software",
+   "start": 6.641,
+   "end": 7.187
+  },
+  {
+   "text": "flies",
+   "start": 7.21,
+   "end": 7.546
+  },
+  {
+   "text": "both",
+   "start": 7.605,
+   "end": 7.814
+  },
+  {
+   "text": "spacecraft.",
+   "start": 7.86,
+   "end": 8.719
+  },
+  {
+   "text": "Then",
+   "start": 9.23,
+   "end": 9.404
+  },
+  {
+   "text": "the",
+   "start": 9.451,
+   "end": 9.52
+  },
+  {
+   "text": "hatch",
+   "start": 9.567,
+   "end": 9.787
+  },
+  {
+   "text": "opens.",
+   "start": 9.845,
+   "end": 10.484
+  },
+  {
+   "text": "Up",
+   "start": 10.658,
+   "end": 10.786
+  },
+  {
+   "text": "to",
+   "start": 10.82,
+   "end": 10.879
+  },
+  {
+   "text": "two",
+   "start": 10.937,
+   "end": 11.064
+  },
+  {
+   "text": "astronauts,",
+   "start": 11.157,
+   "end": 11.796
+  },
+  {
+   "text": "in",
+   "start": 11.831,
+   "end": 11.923
+  },
+  {
+   "text": "their",
+   "start": 11.97,
+   "end": 12.179
+  },
+  {
+   "text": "orange",
+   "start": 12.26,
+   "end": 12.701
+  },
+  {
+   "text": "survival",
+   "start": 12.725,
+   "end": 13.27
+  },
+  {
+   "text": "suits,",
+   "start": 13.34,
+   "end": 13.886
+  },
+  {
+   "text": "float",
+   "start": 14.036,
+   "end": 14.338
+  },
+  {
+   "text": "inside.",
+   "start": 14.454,
+   "end": 15.383
+  },
+  {
+   "text": "NASA",
+   "start": 15.894,
+   "end": 16.254
+  },
+  {
+   "text": "calls",
+   "start": 16.3,
+   "end": 16.602
+  },
+  {
+   "text": "it",
+   "start": 16.66,
+   "end": 16.741
+  },
+  {
+   "text": "its",
+   "start": 16.811,
+   "end": 16.985
+  },
+  {
+   "text": "first",
+   "start": 17.055,
+   "end": 17.322
+  },
+  {
+   "text": "evaluation",
+   "start": 17.368,
+   "end": 18.065
+  },
+  {
+   "text": "of",
+   "start": 18.135,
+   "end": 18.204
+  },
+  {
+   "text": "a",
+   "start": 18.251,
+   "end": 18.274
+  },
+  {
+   "text": "commercial",
+   "start": 18.332,
+   "end": 18.75
+  },
+  {
+   "text": "lunar",
+   "start": 18.808,
+   "end": 19.063
+  },
+  {
+   "text": "lander",
+   "start": 19.11,
+   "end": 19.412
+  },
+  {
+   "text": "with",
+   "start": 19.458,
+   "end": 19.586
+  },
+  {
+   "text": "a",
+   "start": 19.632,
+   "end": 19.655
+  },
+  {
+   "text": "crew.",
+   "start": 19.702,
+   "end": 20.271
+  },
+  {
+   "text": "They",
+   "start": 20.654,
+   "end": 20.84
+  },
+  {
+   "text": "spend",
+   "start": 20.909,
+   "end": 21.2
+  },
+  {
+   "text": "about",
+   "start": 21.246,
+   "end": 21.478
+  },
+  {
+   "text": "two",
+   "start": 21.513,
+   "end": 21.699
+  },
+  {
+   "text": "days",
+   "start": 21.768,
+   "end": 22.094
+  },
+  {
+   "text": "checking",
+   "start": 22.163,
+   "end": 22.512
+  },
+  {
+   "text": "its",
+   "start": 22.57,
+   "end": 22.686
+  },
+  {
+   "text": "cabin,",
+   "start": 22.744,
+   "end": 23.162
+  },
+  {
+   "text": "controls",
+   "start": 23.208,
+   "end": 23.812
+  },
+  {
+   "text": "and",
+   "start": 23.858,
+   "end": 23.951
+  },
+  {
+   "text": "life",
+   "start": 24.032,
+   "end": 24.253
+  },
+  {
+   "text": "support.",
+   "start": 24.288,
+   "end": 24.903
+  },
+  {
+   "text": "Riding",
+   "start": 25.228,
+   "end": 25.553
+  },
+  {
+   "text": "along",
+   "start": 25.611,
+   "end": 26.029
+  },
+  {
+   "text": "is",
+   "start": 26.145,
+   "end": 26.308
+  },
+  {
+   "text": "a",
+   "start": 26.354,
+   "end": 26.378
+  },
+  {
+   "text": "dummy",
+   "start": 26.447,
+   "end": 26.749
+  },
+  {
+   "text": "the",
+   "start": 26.819,
+   "end": 26.888
+  },
+  {
+   "text": "weight",
+   "start": 26.935,
+   "end": 27.121
+  },
+  {
+   "text": "of",
+   "start": 27.144,
+   "end": 27.19
+  },
+  {
+   "text": "a",
+   "start": 27.225,
+   "end": 27.248
+  },
+  {
+   "text": "spacesuit,",
+   "start": 27.295,
+   "end": 28.003
+  },
+  {
+   "text": "wired",
+   "start": 28.247,
+   "end": 28.63
+  },
+  {
+   "text": "with",
+   "start": 28.665,
+   "end": 28.793
+  },
+  {
+   "text": "sensors,",
+   "start": 28.839,
+   "end": 29.524
+  },
+  {
+   "text": "reporting",
+   "start": 29.733,
+   "end": 30.174
+  },
+  {
+   "text": "what",
+   "start": 30.221,
+   "end": 30.348
+  },
+  {
+   "text": "the",
+   "start": 30.383,
+   "end": 30.453
+  },
+  {
+   "text": "cabin",
+   "start": 30.499,
+   "end": 30.813
+  },
+  {
+   "text": "really",
+   "start": 30.871,
+   "end": 31.115
+  },
+  {
+   "text": "feels",
+   "start": 31.173,
+   "end": 31.463
+  },
+  {
+   "text": "like.",
+   "start": 31.532,
+   "end": 32.322
+  }
+ ],
+ "created": "2026-11-01T07:39:41Z",
+ "warnings": []
+}

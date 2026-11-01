@@ -1,0 +1,46 @@
+{
+ "shots": [
+  [
+   "lunar",
+   0.0,
+   3.1
+  ],
+  [
+   "orbit",
+   3.1,
+   5.81
+  ],
+  [
+   "earthset",
+   5.81,
+   9.86
+  ],
+  [
+   "sls",
+   9.86,
+   16.9
+  ],
+  [
+   "spacer",
+   16.9,
+   19.57
+  ],
+  [
+   "timeline",
+   19.57,
+   24.75
+  ],
+  [
+   "conops",
+   24.75,
+   32.84
+  ],
+  [
+   "hertz",
+   32.84,
+   38.81
+  ]
+ ],
+ "voice": "TEMPORARY Kokoro am_michael",
+ "sfx": "synthesised in hook20.py"
+}

@@ -1,0 +1,429 @@
+[
+ {
+  "i": 0,
+  "scene": "h1-boosters",
+  "file": "voice_temp/l000.wav",
+  "dur": 3.008,
+  "text": "These boosters will launch NASA's next Moon mission."
+ },
+ {
+  "i": 1,
+  "scene": "h2-leo",
+  "file": "voice_temp/l001.wav",
+  "dur": 4.373,
+  "text": "But if NASA's plan holds, its four astronauts won't go to the Moon."
+ },
+ {
+  "i": 2,
+  "scene": "h2-leo",
+  "file": "voice_temp/l002.wav",
+  "dur": 6.869,
+  "text": "NASA announced the change back in February: Artemis III is now a test flight in Earth orbit."
+ },
+ {
+  "i": 3,
+  "scene": "h3-conops",
+  "file": "voice_temp/l003.wav",
+  "dur": 3.477,
+  "text": "In October, NASA published what they'll do up there instead"
+ },
+ {
+  "i": 4,
+  "scene": "h3-conops",
+  "file": "voice_temp/l004.wav",
+  "dur": 3.84,
+  "text": "and why, according to NASA, the Moon landing depends on it."
+ },
+ {
+  "i": 5,
+  "scene": "h4-two-landers",
+  "file": "voice_temp/l005.wav",
+  "dur": 6.208,
+  "text": "Two different Moon landers. Two companies. One spacecraft NASA plans to dock with both."
+ },
+ {
+  "i": 6,
+  "scene": "p1-title",
+  "file": "voice_temp/l006.wav",
+  "dur": 3.371,
+  "text": "Artemis III was supposed to be the landing."
+ },
+ {
+  "i": 7,
+  "scene": "p1-feb",
+  "file": "voice_temp/l007.wav",
+  "dur": 5.248,
+  "text": "On February 27th, 2026, NASA announced a new order."
+ },
+ {
+  "i": 8,
+  "scene": "p1-feb",
+  "file": "voice_temp/l008.wav",
+  "dur": 7.168,
+  "text": "NASA plans Artemis III as a test flight in low Earth orbit, in 2027."
+ },
+ {
+  "i": 9,
+  "scene": "p1-feb",
+  "file": "voice_temp/l009.wav",
+  "dur": 7.232,
+  "text": "The first boots on the surface moved to Artemis IV, which NASA aims to fly in 2028."
+ },
+ {
+  "i": 10,
+  "scene": "p1-why",
+  "file": "voice_temp/l010.wav",
+  "dur": 2.411,
+  "text": "The reason is in what the flight tests."
+ },
+ {
+  "i": 11,
+  "scene": "p1-why",
+  "file": "voice_temp/l011.wav",
+  "dur": 5.184,
+  "text": "A landing needs a crew spacecraft and a lander to meet, connect and work together."
+ },
+ {
+  "i": 12,
+  "scene": "p1-why",
+  "file": "voice_temp/l012.wav",
+  "dur": 8.149,
+  "text": "NASA plans to try exactly that on Artemis III - in orbit around Earth, before anyone tries it near the Moon."
+ },
+ {
+  "i": 13,
+  "scene": "p1-why",
+  "file": "voice_temp/l013.wav",
+  "dur": 8.512,
+  "text": "According to NASA, the goal is to reduce risk, validate hardware, and gain operational experience before a crewed landing."
+ },
+ {
+  "i": 14,
+  "scene": "p1-quote",
+  "file": "voice_temp/l014.wav",
+  "dur": 5.056,
+  "text": "NASA's Amit Kshatriya put the logic simply: keep testing like you fly."
+ },
+ {
+  "i": 15,
+  "scene": "p1-quote",
+  "file": "voice_temp/l015.wav",
+  "dur": 6.891,
+  "text": "Administrator Jared Isaacman framed it as standardizing the approach and raising the flight rate - safely."
+ },
+ {
+  "i": 16,
+  "scene": "p1-quote",
+  "file": "voice_temp/l016.wav",
+  "dur": 5.269,
+  "text": "And after the first landing, NASA plans at least one surface landing every year."
+ },
+ {
+  "i": 17,
+  "scene": "p1-hardware",
+  "file": "voice_temp/l017.wav",
+  "dur": 2.816,
+  "text": "The hardware is real and already stacking up."
+ },
+ {
+  "i": 18,
+  "scene": "p1-hardware",
+  "file": "voice_temp/l018.wav",
+  "dur": 5.397,
+  "text": "Four RS-25 engines for this rocket arrived at Kennedy in July."
+ },
+ {
+  "i": 19,
+  "scene": "p1-hardware",
+  "file": "voice_temp/l019.wav",
+  "dur": 5.184,
+  "text": "The same month, engineers joined Orion's crew module to its service module."
+ },
+ {
+  "i": 20,
+  "scene": "p1-hardware",
+  "file": "voice_temp/l020.wav",
+  "dur": 4.309,
+  "text": "And on September 30th, the twin boosters got their nose cones."
+ },
+ {
+  "i": 21,
+  "scene": "p2-crew",
+  "file": "voice_temp/l021.wav",
+  "dur": 7.552,
+  "text": "Four people will ride it: commander Randy Bresnik, pilot Luca Parmitano of the European Space Agency,"
+ },
+ {
+  "i": 22,
+  "scene": "p2-crew",
+  "file": "voice_temp/l022.wav",
+  "dur": 3.584,
+  "text": "and mission specialists Andre Douglas and Frank Rubio."
+ },
+ {
+  "i": 23,
+  "scene": "p2-crew",
+  "file": "voice_temp/l023.wav",
+  "dur": 2.88,
+  "text": "NASA plans the mission to last fourteen days."
+ },
+ {
+  "i": 24,
+  "scene": "p2-crew",
+  "file": "voice_temp/l024.wav",
+  "dur": 11.243,
+  "text": "In those two weeks, NASA expects them and the flight controllers to practice the rendezvous, docking, habitation and operational procedures a real landing needs."
+ },
+ {
+  "i": 25,
+  "scene": "p2-three",
+  "file": "voice_temp/l025.wav",
+  "dur": 3.733,
+  "text": "And the flight has a detail no Apollo mission ever had:"
+ },
+ {
+  "i": 26,
+  "scene": "p2-three",
+  "file": "voice_temp/l026.wav",
+  "dur": 7.787,
+  "text": "three separate spacecraft, which NASA plans to launch on three different heavy-lift rockets, all meeting in Earth orbit."
+ },
+ {
+  "i": 27,
+  "scene": "p3-step1",
+  "file": "voice_temp/l027.wav",
+  "dur": 2.581,
+  "text": "Step one doesn't involve the crew at all."
+ },
+ {
+  "i": 28,
+  "scene": "p3-step1",
+  "file": "voice_temp/l028.wav",
+  "dur": 8.917,
+  "text": "NASA plans for Blue Origin to launch first - a test version of its Blue Moon Mark 2 lander - into a circular orbit around Earth."
+ },
+ {
+  "i": 29,
+  "scene": "p3-step1",
+  "file": "voice_temp/l029.wav",
+  "dur": 2.432,
+  "text": "It could wait up there for up to thirty days."
+ },
+ {
+  "i": 30,
+  "scene": "p3-step2",
+  "file": "voice_temp/l030.wav",
+  "dur": 6.443,
+  "text": "Step two: only days later, NASA plans to launch Orion on its SLS rocket from Kennedy."
+ },
+ {
+  "i": 31,
+  "scene": "p3-step2",
+  "file": "voice_temp/l031.wav",
+  "dur": 8.256,
+  "text": "Orion is expected to start in a stretched orbit - eighteen miles at the low point, one thousand one hundred twenty-two at the high."
+ },
+ {
+  "i": 32,
+  "scene": "p3-step2",
+  "file": "voice_temp/l032.wav",
+  "dur": 7.595,
+  "text": "Then it's expected to settle into a circle about three hundred forty-five miles up, to let its temperatures stabilize."
+ },
+ {
+  "i": 33,
+  "scene": "p3-step3",
+  "file": "voice_temp/l033.wav",
+  "dur": 5.888,
+  "text": "Step three is patience. NASA plans two days for the crew to check out Orion's systems."
+ },
+ {
+  "i": 34,
+  "scene": "p3-step4",
+  "file": "voice_temp/l034.wav",
+  "dur": 3.819,
+  "text": "Step four is the first big test: docking with Blue Moon."
+ },
+ {
+  "i": 35,
+  "scene": "p3-step4",
+  "file": "voice_temp/l035.wav",
+  "dur": 5.056,
+  "text": "Once connected, the crew is expected to open the hatch and go inside the lander."
+ },
+ {
+  "i": 36,
+  "scene": "p3-step4",
+  "file": "voice_temp/l036.wav",
+  "dur": 3.499,
+  "text": "NASA plans about two days of evaluations aboard."
+ },
+ {
+  "i": 37,
+  "scene": "p3-step4",
+  "file": "voice_temp/l037.wav",
+  "dur": 4.565,
+  "text": "Orion is expected to connect at a port beside Blue Moon's crew cabin."
+ },
+ {
+  "i": 38,
+  "scene": "p3-step4",
+  "file": "voice_temp/l038.wav",
+  "dur": 8.619,
+  "text": "February's announced plan listed tests of the docked vehicles, and integrated checks of life support, communications and propulsion."
+ },
+ {
+  "i": 39,
+  "scene": "p3-step4",
+  "file": "voice_temp/l039.wav",
+  "dur": 7.829,
+  "text": "When Orion undocks, NASA plans to have completed its first evaluation of a commercial lunar lander with a crew."
+ },
+ {
+  "i": 40,
+  "scene": "p3-step5",
+  "file": "voice_temp/l040.wav",
+  "dur": 6.997,
+  "text": "Step five: according to NASA, SpaceX launches a Starship Version 3 test article from Florida."
+ },
+ {
+  "i": 41,
+  "scene": "p3-step5",
+  "file": "voice_temp/l041.wav",
+  "dur": 8.512,
+  "text": "It's expected to fly lower than Orion - at two hundred six nautical miles, an orbit NASA chose for communications coverage."
+ },
+ {
+  "i": 42,
+  "scene": "p3-step5",
+  "file": "voice_temp/l042.wav",
+  "dur": 8.128,
+  "text": "This time, NASA plans for Orion to use its forward docking system, lined up with the docking system at Starship's nose."
+ },
+ {
+  "i": 43,
+  "scene": "p3-step5",
+  "file": "voice_temp/l043.wav",
+  "dur": 4.437,
+  "text": "Orion docks with it in a test expected to last up to two hours."
+ },
+ {
+  "i": 44,
+  "scene": "p3-step5",
+  "file": "voice_temp/l044.wav",
+  "dur": 5.291,
+  "text": "And this time, nobody is expected to go inside. The crew stays in Orion."
+ },
+ {
+  "i": 45,
+  "scene": "p4-why",
+  "file": "voice_temp/l045.wav",
+  "dur": 1.963,
+  "text": "Why spend a whole mission on this?"
+ },
+ {
+  "i": 46,
+  "scene": "p4-why",
+  "file": "voice_temp/l046.wav",
+  "dur": 7.936,
+  "text": "Because every Artemis landing depends on two vehicles from two different programs finding each other and locking together."
+ },
+ {
+  "i": 47,
+  "scene": "p4-why",
+  "file": "voice_temp/l047.wav",
+  "dur": 3.605,
+  "text": "In Earth orbit, a problem means coming home in hours."
+ },
+ {
+  "i": 48,
+  "scene": "p4-why",
+  "file": "voice_temp/l048.wav",
+  "dur": 2.88,
+  "text": "Near the Moon, it means days away from help."
+ },
+ {
+  "i": 49,
+  "scene": "p4-why",
+  "file": "voice_temp/l049.wav",
+  "dur": 6.379,
+  "text": "If it works as planned, Artemis III moves that first meeting to the safest place NASA has."
+ },
+ {
+  "i": 50,
+  "scene": "p4-extra",
+  "file": "voice_temp/l050.wav",
+  "dur": 5.333,
+  "text": "After Starship, NASA plans up to five more days in orbit for extra tests."
+ },
+ {
+  "i": 51,
+  "scene": "p4-extra",
+  "file": "voice_temp/l051.wav",
+  "dur": 12.715,
+  "text": "The list NASA announced is practical: spacesuit evaluations, docking sensor tests, acoustic and thermal measurements, human-factors assessments, and science and technology demonstrations."
+ },
+ {
+  "i": 52,
+  "scene": "p4-extra",
+  "file": "voice_temp/l052.wav",
+  "dur": 8.469,
+  "text": "Then Orion is expected to reenter and splash down in the Pacific, where NASA and the US Navy plan to recover the crew."
+ },
+ {
+  "i": 53,
+  "scene": "p5-2028",
+  "file": "voice_temp/l053.wav",
+  "dur": 4.373,
+  "text": "If the dockings work, the next step is the one everyone is waiting for:"
+ },
+ {
+  "i": 54,
+  "scene": "p5-2028",
+  "file": "voice_temp/l054.wav",
+  "dur": 7.659,
+  "text": "Artemis IV, targeted for 2028, is what NASA plans as the first Artemis landing."
+ },
+ {
+  "i": 55,
+  "scene": "p5-2028",
+  "file": "voice_temp/l055.wav",
+  "dur": 8.789,
+  "text": "On October 23rd, NASA laid out how it wants to speed up that path - with Artemis III flying in Earth orbit first."
+ },
+ {
+  "i": 56,
+  "scene": "p5-unknown",
+  "file": "voice_temp/l056.wav",
+  "dur": 7.211,
+  "text": "What NASA hasn't announced is a launch date. The plan says 2027, and nothing more precise."
+ },
+ {
+  "i": 57,
+  "scene": "p5-unknown",
+  "file": "voice_temp/l057.wav",
+  "dur": 3.221,
+  "text": "So here's the honest answer to the question on the screen:"
+ },
+ {
+  "i": 58,
+  "scene": "p5-unknown",
+  "file": "voice_temp/l058.wav",
+  "dur": 6.336,
+  "text": "Artemis III won't go to the Moon. It's the mission that has to work so the next one can."
+ },
+ {
+  "i": 59,
+  "scene": "close",
+  "file": "voice_temp/l059.wav",
+  "dur": 3.051,
+  "text": "If NASA's dockings succeed, the Moon is next."
+ },
+ {
+  "i": 60,
+  "scene": "close",
+  "file": "voice_temp/l060.wav",
+  "dur": 4.309,
+  "text": "If they don't, we'll find out in Earth orbit - which is exactly the point."
+ }
+]

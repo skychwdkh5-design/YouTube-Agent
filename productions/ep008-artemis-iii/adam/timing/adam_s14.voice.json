@@ -1,0 +1,241 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "adam_s14.wav",
+ "audio_format": "wav",
+ "audio_sha256": "d5273a781ca16ba9ce8834b29aa6253b22598f8818d2be006af6937bd87f2640",
+ "duration": 13.839,
+ "characters": 230,
+ "text": "What we don't know yet: a launch date. NASA says twenty twenty-seven, and nothing more precise. The rocket's fueling test at the pad is still ahead. And NASA hasn't said which lander will carry the first crew down on Artemis Four.",
+ "text_sha256": "8c582754403bb3a63fe0149aee933f3a40612eb8809b644f6d131056dafc9315",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 230,
+   "offset": 0.0,
+   "duration": 13.839,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "What",
+   "start": 0.0,
+   "end": 0.186
+  },
+  {
+   "text": "we",
+   "start": 0.232,
+   "end": 0.325
+  },
+  {
+   "text": "don't",
+   "start": 0.406,
+   "end": 0.639
+  },
+  {
+   "text": "know",
+   "start": 0.685,
+   "end": 0.836
+  },
+  {
+   "text": "yet:",
+   "start": 0.917,
+   "end": 1.324
+  },
+  {
+   "text": "a",
+   "start": 1.474,
+   "end": 1.556
+  },
+  {
+   "text": "launch",
+   "start": 1.672,
+   "end": 1.997
+  },
+  {
+   "text": "date.",
+   "start": 2.067,
+   "end": 2.473
+  },
+  {
+   "text": "NASA",
+   "start": 2.798,
+   "end": 3.193
+  },
+  {
+   "text": "says",
+   "start": 3.239,
+   "end": 3.471
+  },
+  {
+   "text": "twenty",
+   "start": 3.541,
+   "end": 3.855
+  },
+  {
+   "text": "twenty-seven,",
+   "start": 3.913,
+   "end": 4.574
+  },
+  {
+   "text": "and",
+   "start": 4.598,
+   "end": 4.69
+  },
+  {
+   "text": "nothing",
+   "start": 4.76,
+   "end": 5.027
+  },
+  {
+   "text": "more",
+   "start": 5.085,
+   "end": 5.236
+  },
+  {
+   "text": "precise.",
+   "start": 5.271,
+   "end": 5.944
+  },
+  {
+   "text": "The",
+   "start": 6.269,
+   "end": 6.374
+  },
+  {
+   "text": "rocket's",
+   "start": 6.444,
+   "end": 6.803
+  },
+  {
+   "text": "fueling",
+   "start": 6.861,
+   "end": 7.279
+  },
+  {
+   "text": "test",
+   "start": 7.349,
+   "end": 7.616
+  },
+  {
+   "text": "at",
+   "start": 7.663,
+   "end": 7.732
+  },
+  {
+   "text": "the",
+   "start": 7.779,
+   "end": 7.848
+  },
+  {
+   "text": "pad",
+   "start": 7.906,
+   "end": 8.197
+  },
+  {
+   "text": "is",
+   "start": 8.243,
+   "end": 8.313
+  },
+  {
+   "text": "still",
+   "start": 8.348,
+   "end": 8.557
+  },
+  {
+   "text": "ahead.",
+   "start": 8.615,
+   "end": 9.067
+  },
+  {
+   "text": "And",
+   "start": 9.242,
+   "end": 9.392
+  },
+  {
+   "text": "NASA",
+   "start": 9.451,
+   "end": 9.787
+  },
+  {
+   "text": "hasn't",
+   "start": 9.845,
+   "end": 10.124
+  },
+  {
+   "text": "said",
+   "start": 10.17,
+   "end": 10.379
+  },
+  {
+   "text": "which",
+   "start": 10.437,
+   "end": 10.635
+  },
+  {
+   "text": "lander",
+   "start": 10.716,
+   "end": 11.064
+  },
+  {
+   "text": "will",
+   "start": 11.111,
+   "end": 11.25
+  },
+  {
+   "text": "carry",
+   "start": 11.296,
+   "end": 11.517
+  },
+  {
+   "text": "the",
+   "start": 11.575,
+   "end": 11.645
+  },
+  {
+   "text": "first",
+   "start": 11.691,
+   "end": 11.935
+  },
+  {
+   "text": "crew",
+   "start": 11.993,
+   "end": 12.202
+  },
+  {
+   "text": "down",
+   "start": 12.272,
+   "end": 12.539
+  },
+  {
+   "text": "on",
+   "start": 12.597,
+   "end": 12.713
+  },
+  {
+   "text": "Artemis",
+   "start": 12.783,
+   "end": 13.131
+  },
+  {
+   "text": "Four.",
+   "start": 13.201,
+   "end": 13.839
+  }
+ ],
+ "created": "2026-11-01T07:39:49Z",
+ "warnings": []
+}

@@ -1,0 +1,370 @@
+[
+ {
+  "scene": "s01",
+  "ratio": 1.0,
+  "audio_s": 4.74,
+  "last_word_end": 4.34,
+  "last_ref": "even leave earth orbit",
+  "last_heard": "even leave earth orbit",
+  "diffs": [],
+  "heard": "NASA's next moon mission was supposed to land here.  Now it won't even leave Earth orbit."
+ },
+ {
+  "scene": "s02",
+  "ratio": 0.972,
+  "audio_s": 13.84,
+  "last_word_end": 13.22,
+  "last_ref": "barrel with no engine",
+  "last_heard": "barrel with no engine",
+  "diffs": [
+   [
+    "replace",
+    "two",
+    "2"
+   ]
+  ],
+  "heard": "In April, four astronauts flew around the moon on Artemis 2,  and the next crew's rocket won't even carry the stage that sends Orion toward the moon.  In its place, a metal barrel with no engine."
+ },
+ {
+  "scene": "s03",
+  "ratio": 0.981,
+  "audio_s": 19.04,
+  "last_word_end": 18.66,
+  "last_ref": "waits for artemis four",
+  "last_heard": "waits for artemis 4",
+  "diffs": [
+   [
+    "replace",
+    "four",
+    "4"
+   ]
+  ],
+  "heard": "NASA made this change back in February, and in October it published the full plan.  Fourteen days in orbit, two moon landers, and one test that has to work before anyone lands  near the lunar south pole.  Here's what they'll actually do up there, and why the landing now waits for Artemis  4."
+ },
+ {
+  "scene": "s04",
+  "ratio": 0.893,
+  "audio_s": 59.81,
+  "last_word_end": 58.86,
+  "last_ref": "in nineteen sixty nine",
+  "last_heard": "did it in 1969",
+  "diffs": [
+   [
+    "replace",
+    "two's",
+    "2's"
+   ],
+   [
+    "replace",
+    "ten",
+    "10"
+   ],
+   [
+    "replace",
+    "first",
+    "1st"
+   ],
+   [
+    "replace",
+    "sixth splashdown",
+    "6th splashed down"
+   ],
+   [
+    "replace",
+    "tenth",
+    "10th"
+   ],
+   [
+    "replace",
+    "twenty seventh",
+    "27th"
+   ],
+   [
+    "replace",
+    "three",
+    "3"
+   ],
+   [
+    "replace",
+    "twenty twenty seven",
+    "2027"
+   ],
+   [
+    "replace",
+    "four",
+    "4"
+   ],
+   [
+    "replace",
+    "twenty twenty eight",
+    "2028"
+   ],
+   [
+    "replace",
+    "nineteen sixty nine",
+    "1969"
+   ]
+  ],
+  "heard": "Artemis 2's flight took 10 days. Launch on April 1st, a seven-hour lunar flyby on April 6th,  splashed down off California on April 10th. But by then, the plan for the next mission had already  changed. On February 27th, NASA rewrote the order of the Artemis program. Artemis 3 had been the  landing. It became a test flight in low-Earth orbit set for 2027, and the first landing moved  to Artemis 4, targeted for 2028. NASA also promised at least one landing every year after that.  NASA's reasoning, in its own announcement, keep the rocket and spacecraft as close as possible to  the version that already flew, fly more often, and build up step by step with each mission big enough  to make progress, but not so big that it takes unnecessary risk. NASA's administrator said that's  how the agency did it in 1969."
+ },
+ {
+  "scene": "s05",
+  "ratio": 0.925,
+  "audio_s": 44.77,
+  "last_word_end": 44.34,
+  "last_ref": "to reach the moon",
+  "last_heard": "to reach the moon",
+  "diffs": [
+   [
+    "delete",
+    "and",
+    ""
+   ],
+   [
+    "replace",
+    "three",
+    "iii"
+   ],
+   [
+    "replace",
+    "thirtieth",
+    "30"
+   ],
+   [
+    "replace",
+    "two hundred and fifty",
+    "250"
+   ],
+   [
+    "replace",
+    "two's",
+    "ii's"
+   ],
+   [
+    "replace",
+    "fifty percent",
+    "50"
+   ],
+   [
+    "replace",
+    "four",
+    "iv"
+   ]
+  ],
+  "heard": "this isn't a paper mission. The four main engines for Artemis III reached Kennedy Space Center in  July. The Orion capsule and its service module were joined in late July. On September 30,  technicians put the nose cones on the twin boosters, finishing the stack.  More than 250 parts from Artemis II's Orion are being reused on later missions,  and NASA says reused parts move some installation work up by about three months.  Even the launch tower is being turned around for its next flight nearly 50% faster.  And that missing upper stage? It isn't scrapped. NASA reassigned it to Artemis IV,  the mission that actually has to reach the moon."
+ },
+ {
+  "scene": "s06",
+  "ratio": 0.982,
+  "audio_s": 32.6,
+  "last_word_end": 31.92,
+  "last_ref": "hundred miles from home",
+  "last_heard": "hundred miles from home",
+  "diffs": [
+   [
+    "replace",
+    "two hundred",
+    "200"
+   ]
+  ],
+  "heard": "The crew is Randy Bresnik, Andre Douglas, and Frank Rubio of NASA,  and Luca Parmitano of the European Space Agency.  In September, they trained with Navy helicopter crews off San Diego,  practicing being hoisted out of the water after splashdown.  They've drilled, escaping a capsule underwater, trained in their orange survival suits,  and tasted nearly 200 items of space food.  Their mission will be about two weeks long,  and it will never get farther than a few hundred miles from home."
+ },
+ {
+  "scene": "s07",
+  "ratio": 0.968,
+  "audio_s": 20.71,
+  "last_word_end": 20.42,
+  "last_ref": "than blue origin's lander",
+  "last_heard": "than blue origin's lander",
+  "diffs": [
+   [
+    "replace",
+    "three",
+    "iii"
+   ],
+   [
+    "replace",
+    "thirty",
+    "30"
+   ]
+  ],
+  "heard": "Artemis III needs three launches.  First, Blue Origin launches a test version of its Blue Moon lander.  It can wait in orbit for up to 30 days.  Then the crew launches on NASA's SLS rocket from Florida.  Starship goes up later, after the crew is already in orbit because it's built for  a much shorter stay in space than Blue Origin's lander."
+ },
+ {
+  "scene": "s08",
+  "ratio": 0.825,
+  "audio_s": 26.42,
+  "last_word_end": 25.94,
+  "last_ref": "from nasa's flight profile",
+  "last_heard": "from nasa's flight profile",
+  "diffs": [
+   [
+    "replace",
+    "two hundred seventy three",
+    "273"
+   ],
+   [
+    "replace",
+    "eighteen",
+    "18"
+   ],
+   [
+    "replace",
+    "eleven hundred",
+    "1 100"
+   ],
+   [
+    "replace",
+    "three hundred forty five",
+    "345"
+   ],
+   [
+    "replace",
+    "two hundred six",
+    "206"
+   ],
+   [
+    "replace",
+    "an",
+    "and"
+   ]
+  ],
+  "heard": "The orbits are precise.  The Blue Moon test article circles about 273 miles up.  Orion starts in a long, stretched orbit from 18 to more than 1,100 miles, then rounds it  out near 345.  Starship is planned lower still, at 206 nautical miles, and orbit NASA picked for communications  coverage.  Every number here comes from NASA's flight profile."
+ },
+ {
+  "scene": "s09",
+  "ratio": 1.0,
+  "audio_s": 32.32,
+  "last_word_end": 31.76,
+  "last_ref": "cabin really feels like",
+  "last_heard": "cabin really feels like",
+  "diffs": [],
+  "heard": "First docking, Orion pulls up alongside the Blue Moon lander.  While they're joined, Orion's own software flies both spacecraft.  Then the hatch opens.  Up to two astronauts in their orange survival suits float inside.  NASA calls it its first evaluation of a commercial lunar lander with a crew.  They spend about two days checking its cabin controls and life support.  Riding along is a dummy the weight of a spacesuit,  wired with sensors, reporting what the cabin really feels like."
+ },
+ {
+  "scene": "s10",
+  "ratio": 0.944,
+  "audio_s": 29.81,
+  "last_word_end": 29.42,
+  "last_ref": "communication tests to run",
+  "last_heard": "communication tests to run",
+  "diffs": [
+   [
+    "replace",
+    "a hundred seventy one",
+    "171"
+   ],
+   [
+    "replace",
+    "fifty two",
+    "52"
+   ]
+  ],
+  "heard": "Second docking, Starship.  The test vehicle is 171 feet tall, about 52 meters,  with a docking port in its nose.  This time, Orion uses its forward docking port  and meets Starship nose-to-nose,  a different geometry from the first docking,  and SpaceX flies the pair.  It lasts up to two hours, and nobody goes inside.  NASA and SpaceX are still deciding exactly  which control and communication tests to run."
+ },
+ {
+  "scene": "s11",
+  "ratio": 0.971,
+  "audio_s": 26.89,
+  "last_word_end": 26.24,
+  "last_ref": "two landed in april",
+  "last_heard": "ii landed in april",
+  "diffs": [
+   [
+    "replace",
+    "fourteen",
+    "14"
+   ],
+   [
+    "replace",
+    "two",
+    "ii"
+   ]
+  ],
+  "heard": "After Starship, NASA has set aside up to five more days for extra tests.  More checks of the crew's survival suits, docking sensor tests, sound and heat measurements,  and studies of how the crew lives and works on board.  Then, after about 14 days in total, Orion comes home and splashes down in the Pacific,  off the coast of California, the same ocean where Artemis II landed in April."
+ },
+ {
+  "scene": "s12",
+  "ratio": 0.99,
+  "audio_s": 37.15,
+  "last_word_end": 36.78,
+  "last_ref": "home in earth orbit",
+  "last_heard": "home in earth orbit",
+  "diffs": [
+   [
+    "replace",
+    "four",
+    "4"
+   ]
+  ],
+  "heard": "So why spend a whole mission on this? NASA's Artemis program manager put it plainly.  Every piece of the mission in Earth orbit is designed to reduce risk  before astronauts go back to the moon. Three spacecraft on three different rockets,  working together, which he says NASA has never attempted. And on Artemis 4,  the landing depends on exactly this step. Orion can't land. A commercial lander has to meet it,  take astronauts down near the South Pole and bring them back.  So the first test of this handoff happens close to home, in Earth orbit."
+ },
+ {
+  "scene": "s13",
+  "ratio": 0.84,
+  "audio_s": 10.63,
+  "last_word_end": 10.26,
+  "last_ref": "later apollo eleven landed",
+  "last_heard": "later apollo 11 landed",
+  "diffs": [
+   [
+    "replace",
+    "nineteen sixty nine",
+    "1969"
+   ],
+   [
+    "replace",
+    "nine",
+    "9"
+   ],
+   [
+    "replace",
+    "eleven",
+    "11"
+   ]
+  ],
+  "heard": "If this sounds familiar, it should.  In March 1969, Apollo 9 tested the lunar module in Earth orbit.  Four months later, Apollo 11 landed."
+ },
+ {
+  "scene": "s14",
+  "ratio": 0.927,
+  "audio_s": 13.84,
+  "last_word_end": 13.44,
+  "last_ref": "down on artemis four",
+  "last_heard": "down on artemis 4",
+  "diffs": [
+   [
+    "replace",
+    "twenty twenty seven",
+    "2027"
+   ],
+   [
+    "replace",
+    "four",
+    "4"
+   ]
+  ],
+  "heard": "What we don't know yet, a launch date. NASA says 2027 and nothing more precise.  The rocket's fueling test at the pad is still ahead,  and NASA hasn't said which lander will carry the first crew down on Artemis 4."
+ },
+ {
+  "scene": "s15",
+  "ratio": 0.944,
+  "audio_s": 13.56,
+  "last_word_end": 13.1,
+  "last_ref": "test it can't skip",
+  "last_heard": "test it can't skip",
+  "diffs": [
+   [
+    "replace",
+    "four",
+    "4"
+   ],
+   [
+    "replace",
+    "three",
+    "3"
+   ]
+  ],
+  "heard": "So the next moon mission stays close to home, on purpose.  If both dockings work, the following crew goes all the way down.  Artemis 4 is the landing, Artemis 3 is the test it can't skip."
+ }
+]
