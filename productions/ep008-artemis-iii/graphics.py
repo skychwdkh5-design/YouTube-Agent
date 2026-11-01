@@ -343,7 +343,7 @@ def d_orbits(u, step):
         d.arc([cx - r, cy - r, cx + r, cy + r], 250, 250 + 40 * k, fill=(150, 200, 255), width=7 * S)
         _alpha_text(im, (980 * S, cy - r - 70 * S), "STARSHIP · 206 NMI (~237 MI)", font(46 * S), (150, 200, 255), k)
     if step >= 4:
-        _alpha_text(im, (W * 0.5 * S, 120 * S), "ALL NUMBERS: NASA FLIGHT PROFILE", font(64 * S), INK, seg(u, 0.0, 0.3), "ma")
+        _alpha_text(im, (W * 0.5 * S, H * 0.70 * S), "ALL NUMBERS: NASA FLIGHT PROFILE", font(64 * S), INK, seg(u, 0.0, 0.3), "ma")
     label_lines(d, "ORBITAL ATLAS DIAGRAM · HEIGHTS NOT TO SCALE", "Source: NASA Artemis III flight profile, Oct 23, 2026")
     return finish(im)
 

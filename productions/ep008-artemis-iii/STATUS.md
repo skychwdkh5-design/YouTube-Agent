@@ -38,6 +38,13 @@ highest used is EP007.
 - draft/EP008_draft_v2.mp4 6:42, QC: technical PASS; warn length (<8 min target) and one 3.9 s freeze; thumbnail_hook_match
   waits for the owner. Changed-fragment reel: draft/EP008_v2_changes.mp4 (git-ignored, sent in chat).
 
+## Final v1 (2026-11-01)
+- Owner approved ElevenLabs Adam 14:36 ICT; calendar label changed to "NASA LUNAR LANDING PLAN" first.
+- Adam via .github/workflows/ep008-voice.yml (audio in draft release ep008-originals: adam_sNN.wav; timings adam/timing/),
+  transcript check via ep008-asr.yml (adam/transcript_check.json). Final: `EP008_VOICE=voice_adam python3 draft.py ... --tag EP008_final_v1`.
+- Deliverables in final/: EP008_final_1080p.mp4 (local + chat only), EP008_en.srt, EP008_cover_A.jpg, SHA256SUMS. QC: QC.md "Final v1".
+- NOT done (needs owner): publication/queue (chat-publish protocol), Shorts, cover gate record for publish, thumbnail_hook match confirmation.
+
 ## Next session, in order
 1. Owner reviews draft v1. Fixes → re-render with `python3 draft.py --media <dir> --render --confirm` (or `--scenes sNN` for parts).
 2. After owner approval of the draft: ElevenLabs Adam via yt-voice (--confirm), re-time draft.py on Adam's timing, final render,

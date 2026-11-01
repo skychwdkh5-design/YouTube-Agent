@@ -14,3 +14,17 @@
 | Skill tests | PASS | yt-qc, yt-plan, yt-viral tests: 46 passed |
 
 Not run yet (needs a render): `qc.py --profile long`, `thumbcheck.py` on the cover, the visual comparison with the four published covers.
+
+## Final v1 with Adam (2026-11-01, owner approval 14:36 ICT)
+| check | result | evidence |
+|---|---|---|
+| Narration | Adam (ElevenLabs, pNInz6obpgDQGcFmaJgB), 15 scenes, 5,800 chars, final script v2 (DAYS/HOURS removed) | adam/voice_manifest.txt (s04 first stopped by the 700-char guard before sending; charged once) |
+| Words vs script | PASS | ElevenLabs alignment equals the script word for word in all 15 scenes (adam_timing.py asserts it) |
+| Pronunciation / truncation | PASS | independent faster-whisper small.en: adam/transcript_check.json — names (Bresnik, Parmitano, Douglas, Rubio, Artemis, Orion, Starship, Blue Origin) heard correctly; last words of every scene heard; differences are number formatting only + 3 ASR merges |
+| Scene edges | PASS | ≥ 0.29 s of silence after the last word in every scene, tails −86…−98 dB; 5 ms fade-in on hard starts |
+| Edit sync | PASS | every shot anchored to Adam's sentence times (voice_adam/timing.json) |
+| Captions | PASS | final/EP008_en.srt: 175 cues from Adam's word timings, ≤ 42 chars, no overlaps, none < 0.6 s, no cue crosses a sentence end |
+| File | PASS | final/EP008_final_1080p.mp4: H.264 High@4.1 1920x1080 30 fps yuv420p + AAC-LC 48 kHz stereo, 6:32.6, 101.2 MB, faststart; −15.5 LUFS integrated, true peak −4.0 dBFS; sha256 in final/SHA256SUMS |
+| yt-qc --profile long | technical PASS; warn length 6:33 (< 8 min target), warn one 3.4 s freeze; `thumbnail_hook_match` = owner confirmation pending | packages/qc_final_v1.json |
+| Cover | thumbcheck PASS (objective part) | final/EP008_cover_A.jpg (= covers/EP008_cover_A.jpg) |
+Final MP4 is not in Git (media rule) and could not be uploaded to the draft release from this session (proxy accepts JSON only); delivered in chat. Not published, not queued.
