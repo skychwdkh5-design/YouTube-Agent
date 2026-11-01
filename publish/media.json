@@ -1,28 +1,12 @@
 {
- "bundle": "ep007-v1",
+ "bundle": "ep008-v1",
  "files": [
   {
-   "asset": "EP007_final_long.mp4",
-   "sha256": "d966db6c2e55ab20e4ae26d9521a047b49a45028a128713293866e3d3b9eb484",
-   "size": 383568387,
+   "asset": "EP008_final_1080p.mp4",
+   "sha256": "a58c84dc66f4e3f5646d40903474a24d6d401725ddb5c77eed21f693b0c297b0",
+   "size": 101200045,
    "source": {
-    "release": "ep007-v1"
-   }
-  },
-  {
-   "asset": "EP007_final_short1.mp4",
-   "sha256": "17042d093962cb4ee9080f8461b59301cbf7a7d75a95b6d712b9306a552c5686",
-   "size": 32549008,
-   "source": {
-    "release": "ep007-v1"
-   }
-  },
-  {
-   "asset": "EP007_final_short2.mp4",
-   "sha256": "200a576acb744b41721952dfda95b5617bd676d736427f75ad2f89f300456e2a",
-   "size": 32055543,
-   "source": {
-    "release": "ep007-v1"
+    "release": "ep008-v1"
    }
   }
  ]
