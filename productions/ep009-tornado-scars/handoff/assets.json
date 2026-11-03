@@ -7,7 +7,7 @@
   ],
   "status": "ARCHIVE_UPLOADED_TO_GITHUB_UNPACK_QC_PENDING",
   "bundle": "Orbital_Atlas_EP009_illustrated_assets.zip",
-  "instruction": "ZIP is at repository root on branch. IMPORTANT zip entries are assets/<filename> (not EP009_asset_pack/<filename>). Compare SHA256 of every extracted PNG. Original NASA/NOAA files are not yet downloaded; use tools/fetch_original_media.py on a network-enabled runner.",
+  "instruction": "Check out production/ep009-tornado-scars; use media_original/ files directly. Extract illustration ZIP with tools/verify_illustrated_assets.py. Do not download from NASA, NOAA or Actions artifact; do not seek new media. Render pilot only, after checking compositional and license credits.",
   "generated_assets": [
     {
       "id": "P01",
@@ -115,10 +115,10 @@
     }
   ],
   "documentary_media": {
-    "M01": "HIGH_RES_DOWNLOADED_TO_GITHUB_ACTIONS_ARTIFACT",
-    "M02_before": "HIGH_RES_DOWNLOADED_TO_GITHUB_ACTIONS_ARTIFACT",
-    "M02_after": "HIGH_RES_DOWNLOADED_TO_GITHUB_ACTIONS_ARTIFACT",
-    "M03": "720P_DOWNLOADED_TO_GITHUB_ACTIONS_ARTIFACT"
+    "M01": "COMMITTED_IN_GIT_FORMAT_AND_SHA_VERIFIED_EDITORIAL_QC_PENDING",
+    "M02_before": "COMMITTED_IN_GIT_FORMAT_AND_SHA_VERIFIED_EDITORIAL_QC_PENDING",
+    "M02_after": "COMMITTED_IN_GIT_FORMAT_AND_SHA_VERIFIED_EDITORIAL_QC_PENDING",
+    "M03": "COMMITTED_IN_GIT_FORMAT_AND_SHA_VERIFIED_EDITORIAL_QC_PENDING"
   },
   "additional_qc": [
     "color halo on transparency edges",
@@ -132,11 +132,13 @@
   "bundle_github_blob_sha": "1b0089e6aae03c922878d6f7a2f64fb6102d4b8c",
   "bundle_size_bytes": 16417896,
   "bundle_sha256": "5647b448fcabbe4250c91f6a53cdb428dda846094d6125012b2c7ad6192703d0",
-  "readiness": "BOTH PACKAGES AVAILABLE: illustrated PNGs in git ZIP, documentary images in expiring Actions artifact. Need unwrap/sha QC, licensed labels, movement keyframes, owner pilot approval. NOT RENDER READY",
+  "readiness": "DOCUMENTARY_MEDIA_AND_PAINTED_ASSETS_AVAILABLE_FROM_GIT; SHA_CHECKS_PASS; EDITORIAL_QC_AND_PILOT_TIMING_PENDING",
   "source_artifact": {
     "run_id": 41602193505,
     "artifact_id": 13215290984,
     "expires_at": "2026-11-17T08:17:49Z",
     "proof": "productions/ep009-tornado-scars/handoff/media_proof.json"
-  }
+  },
+  "documentary_repo_dir": "productions/ep009-tornado-scars/media_original/",
+  "source_artifact_note": "Media now permanently committed in EP009 production branch, no Azure blob download required. Artifact may expire without affecting committed originals."
 }
