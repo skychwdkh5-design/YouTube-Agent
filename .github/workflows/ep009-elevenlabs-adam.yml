@@ -103,16 +103,24 @@ jobs:
           python - <<'PY'
           import os,json,pathlib,sys
           p=pathlib.Path(os.environ["RUNNER_TEMP"])/"ep009-voice"
-          expected={"long":4748,"short_01":343,"short_02":398}
+          expected={"long":4744,"short_01":343,"short_02":398}
+          pinned={"long":"1e109f26b8878df757a079e6613b7a8210eadf66",
+                  "short_01":"b38a66273aad8c8f620741550b83cd1790ffc5d0",
+                  "short_02":"33869a81552bc6c41adb29ebbade61f1b7932303"}
+          import subprocess
           total=0
           for name,want in expected.items():
+              source=f"productions/ep009-tornado-scars/review_cut/voiceover_final/{name}_adam.txt"
+              actual_blob=subprocess.check_output(["git","hash-object",source],text=True).strip()
+              if actual_blob!=pinned[name]:
+                  sys.exit(f"STOP: source changed for {name}, expected pinned Git blob. Owner review required.")
               d=json.loads((p/f"plan_{name}.json").read_text())
               if d["status"]!="confirm_required" or d["characters"]!=want:
                   sys.exit(f"STOP: {name} narration differs from owner-approved text length: {d.get('status')} / {d.get('characters')} (expected {want})")
               total+=d["characters"]
               print(f"{name}: {d['characters']} characters, {d['chunks']} requests planned")
-          assert total==5489
-          print("Preflight total: 5489; no generation yet.")
+          assert total==5485
+          print("Preflight total: 5485 (actual yt-voice billable chunks); no generation yet.")
           PY
       - name: Generate Adam only with explicit paid mode
         if: inputs.mode == 'generate'
