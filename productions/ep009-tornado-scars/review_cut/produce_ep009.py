@@ -21,7 +21,7 @@ C_GOES = "NOAA NESDIS · GOES-13 · April 2011"
 def rd(p): return Image.fromarray(cv2.cvtColor(cv2.imread(p), cv2.COLOR_BGR2RGB))
 _docs = {}
 def doc(n):
-    if n not in _docs: _docs[n] = E.Doc(rd(f"{MO}/{ {'eo':'nasa_tuscaloosa_EO1_20110502','mb':'nasa_modis_before_20110412','ma':'nasa_modis_after_20110428'}[n] }.jpg"))
+    if n not in _docs: _docs[n] = E.Doc(rd(f"{MO}/{ {'eo':'nasa_tuscaloosa_EO1_20110502','mb':'nasa_modis_before_20110412','ma':'nasa_modis_after_20110428','as':'nasa_aster_birmingham_20110504','lc':'usgs_lcmap_landcover_change_2011'}[n] }.jpg"))
     return _docs[n]
 TRACK = [(2024, 4248), (2420, 4014), (2780, 3798), (3104, 3618)]
 TRL = sum(math.dist(a, b) for a, b in zip(TRACK, TRACK[1:]))
@@ -184,17 +184,28 @@ if MODE == "long":
         txt(c, "A LINE THROUGH A LIVING CITY", 120, 120, 60, fade(t, CU[40] + 0.3, CU[40] + 0.9, CU[42] - 0.3, CU[42] + 0.1), OCH, "l", "Inter-Black.otf")
         txt(c, "CONTRAIL: IN THE ATMOSPHERE · SCAR: ON THE GROUND", 120, 120, 44, fade(t, CU[43] + 0.5, CU[43] + 1.1, CU[46] + 3, CU[46] + 3.6), INK, "l", "Inter-Black.otf")
         credit(c, C_EO1, smooth(seg(t, s0 + 0.8, s0 + 1.4))); return c
-    def card(t, a, b, title, sub, note, col=(0.1, 0.16, 0.26)):
-        c = grad((14, 24, 42), (30, 46, 70)); s0 = a
-        if "P01" in note: pass
-        u = smooth(seg(t, a, a + 0.8)); sat = ill_bg("P01_satellite", 0.5, 0.5, 0.55, rot=-8 + 6 * math.sin((t - a) * 0.5))
-        c = c * 0.0 + grad((12, 20, 38), (28, 44, 70)); E.draw(c, E.Sprite(illus("P01_satellite")), E.mat(1680 + 18 * math.sin((t - a) * 0.4), 300 + 12 * math.sin((t - a) * 0.3 + 1), -6 + 3 * math.sin((t - a) * 0.5), 0.34, 0.34, 627, 627), alpha=u)
-        txt(c, title, 120, 380, 84, fade(t, a + 0.3, a + 1.0, b - 0.4, b), INK, "l", "Inter-Black.otf"); txt(c, sub, 120, 520, 44, fade(t, a + 0.7, a + 1.3, b - 0.4, b), OCH, "l", "Inter-ExtraBold.otf")
-        ILL(c, u); placeholder_note(c, u); return c
+    C_AS = "NASA Earth Observatory · ASTER (Terra) · May 4, 2011 · FALSE COLOR · J. Allen; data NASA/GSFC/METI/ERSDAC/JAROS, U.S./Japan ASTER Science Team"
+    C_LC = "USGS · LCMAP land-cover change, 2011 (Landsat-based) · public domain"
     def sc_sensors(t):
-        a, b = CU[47], CU[54]
-        if t < CU[51] - 0.1: return card(t, a, CU[51], "ASTER · FALSE COLOR", "Terra · May 4, 2011 · red = healthy vegetation, pale = track", "")
-        return card(t, CU[51], b, "USGS LAND-CHANGE MAPS", "Landsat-based · measurements of surface change, not photographs", "")
+        s0, a1, a2, a3, a4, a5, a6, e1 = CU[47], CU[48], CU[49], CU[50], CU[51], CU[52], CU[53], CU[54]
+        if t < a4 - 0.4 or True:
+            cam = E.Cam([(s0, (2048, 3073, 10925)), (a1 + 0.5, (2048, 3073, 9800)), (a1 + 5.0, (2560, 3350, 3300)), (a2 + 4.0, (2560, 3350, 2600)), (a3 + 0.5, (2500, 3400, 3600)), (a4 - 0.4, (2048, 3073, 10925)), (a4 + 3, (2048, 3073, 10925))])
+            cx, cy, vw = cam(t); A = render_doc("as", cx, cy, vw)
+            camL = E.Cam([(a4 - 0.4, (1600, 1600, 5689)), (a4 + 3.0, (1500, 1350, 2600)), (a5, (1450, 1250, 2000)), (a6, (1500, 1400, 2500)), (e1 - 1.0, (1600, 1600, 5689)), (e1 + 1, (1600, 1600, 5689))])
+            cx2, cy2, vw2 = camL(t); L = render_doc("lc", cx2, cy2, vw2)
+        k = smooth(seg(t, a4 - 0.4, a4 + 0.4)); c = A * (1 - k) + L * k if 0 < k < 1 else (L if k >= 1 else A)
+        ka = 1 - k
+        txt(c, "ASTER · TERRA · MAY 4, 2011", 120, 120, 54, fade(t, s0 + 0.3, s0 + 0.9, a1 - 0.1, a1 + 0.3) * ka, INK, "l", "Inter-Black.otf")
+        txt(c, "FALSE COLOR", 120, 195, 54, fade(t, s0 + 0.6, s0 + 1.2, a1 - 0.1, a1 + 0.3) * ka, OCH, "l", "Inter-Black.otf")
+        txt(c, "ANOTHER SECTION · NEAR BIRMINGHAM", 120, 120, 54, fade(t, a1 + 0.4, a1 + 1.0, a2 - 0.3, a2 + 0.1) * ka, INK, "l", "Inter-Black.otf")
+        txt(c, "FALSE COLOR: HEALTHY VEGETATION = RED", 120, 120, 50, fade(t, a2 + 0.3, a2 + 0.9, a3 - 0.3, a3 + 0.1) * ka, INK, "l", "Inter-Black.otf")
+        txt(c, "TORNADO TRACK = PALE BEIGE STRIPE", 120, 190, 50, fade(t, a2 + 2.2, a2 + 2.8, a3 - 0.3, a3 + 0.1) * ka, OCH, "l", "Inter-Black.otf")
+        txt(c, "NEW SENSOR · NEW COLORS · SAME EVIDENCE", 120, 120, 50, fade(t, a3 + 0.3, a3 + 0.9, a4 - 0.5, a4 - 0.1) * ka, OCH, "l", "Inter-Black.otf")
+        kl = k
+        txt(c, "USGS LAND-COVER CHANGE (LANDSAT-BASED)", 120, 120, 50, fade(t, a4 + 0.2, a4 + 0.8, a5 - 0.3, a5 + 0.1) * kl, INK, "l", "Inter-Black.otf")
+        txt(c, "PURPLE = LAND-COVER CHANGE IN 2011", 120, 190, 50, fade(t, a4 + 1.4, a4 + 2.0, a5 - 0.3, a5 + 0.1) * kl, (200, 120, 255), "l", "Inter-Black.otf")
+        txt(c, "MEASUREMENTS OF CHANGE · NOT PHOTOS OF A TORNADO", 120, 120, 46, fade(t, a5 + 0.3, a5 + 0.9, e1 - 0.6, e1 - 0.1) * kl, INK, "l", "Inter-Black.otf")
+        credit(c, C_AS, smooth(seg(t, s0 + 0.8, s0 + 1.4)) * ka); credit(c, C_LC, smooth(seg(t, a4, a4 + 0.6)) * kl); return c
     def sc_limits(t):
         a = CU[54]; cam = E.Cam([(a, (2564, 3940, 3200)), (CU[56], (2700, 3860, 1000)), (CU[58], (2900, 3700, 420)), (CU[60], (2800, 3760, 900)), (CU[61], (2564, 3940, 2800))]); cx, cy, vw = cam(t)
         c = render_doc("eo", cx, cy, vw); m = cmask(cx, cy, vw); c = E.spotlight(c, m, 0.72, 1.12)
