@@ -22,8 +22,8 @@ jobs:
           set -euo pipefail
           python - <<'PY'
           import urllib.request,hashlib,pathlib,json,time,subprocess
-          url="https://upload.wikimedia.org/wikipedia/commons/9/98/Severe_Tornado_Outbreak_in_the_Southern_United_States_%28HD_Video%29.webm"
-          target=pathlib.Path("productions/ep009-tornado-scars/media_original/nasa_goes_april2011_720p.webm")
+          url="https://eoimages.gsfc.nasa.gov/images/imagerecords/50000/50347/unitedstates_goe_2011118_sd.mov"
+          target=pathlib.Path("productions/ep009-tornado-scars/media_original/nasa_goes_april2011_nasa_sd.mov")
           target.parent.mkdir(parents=True,exist_ok=True)
           for i in range(3):
             try:
@@ -38,13 +38,13 @@ jobs:
               time.sleep(2*(i+1))
           probe=json.loads(subprocess.check_output(["ffprobe","-v","error","-show_streams","-show_format","-of","json",str(target)]))
           video=next(s for s in probe["streams"] if s["codec_type"]=="video")
-          assert video["width"]==1280 and video["height"]==720,(video["width"],video["height"])
+          assert video["width"]>=320 and video["height"]>=240,(video["width"],video["height"])
           assert float(probe["format"]["duration"])>15
           meta={"path":str(target),"source_url":url,
-                "source_page":"https://commons.wikimedia.org/wiki/File:Severe_Tornado_Outbreak_in_the_Southern_United_States_(HD_Video).webm",
+                "source_page":"https://science.nasa.gov/earth/earth-observatory/severe-tornado-outbreak-in-the-southern-united-states-50347/",
                 "nasa_page":"https://science.nasa.gov/earth/earth-observatory/severe-tornado-outbreak-in-the-southern-united-states-50347/",
                 "credit":"NASA Earth Observatory / GOES Project Science team; animation Jesse Allen; HD file NASA Goddard Space Flight Center",
-                "licensing":"Wikimedia Commons PD-USGov-NASA; NASA media guidelines; no NASA endorsement",
+                "licensing":"NASA media guidelines; NASA-produced credited work; no NASA endorsement",
                 "sha256":hashlib.sha256(data).hexdigest(),"bytes":len(data),
                 "width":video["width"],"height":video["height"],
                 "duration":float(probe["format"]["duration"]),
@@ -58,7 +58,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f productions/ep009-tornado-scars/media_original/nasa_goes_april2011_720p.webm productions/ep009-tornado-scars/media_original/nasa_goes_source_manifest.json
+          git add -f productions/ep009-tornado-scars/media_original/nasa_goes_april2011_nasa_sd.mov productions/ep009-tornado-scars/media_original/nasa_goes_source_manifest.json
           if ! git diff --cached --quiet; then
             git commit -m "EP009: archive documented NASA GOES outbreak animation"
             git push origin HEAD:production/ep009-tornado-scars
