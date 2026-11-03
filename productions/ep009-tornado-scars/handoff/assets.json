@@ -7,7 +7,7 @@
   ],
   "status": "ARCHIVE_UPLOADED_TO_GITHUB_UNPACK_QC_PENDING",
   "bundle": "Orbital_Atlas_EP009_illustrated_assets.zip",
-  "instruction": "Archive exists in GitHub at repository root, branch production/ep009-tornado-scars. Claude may extract via normal git checkout and verify all eight PNG SHA256s. Do not consider individual images verified until hashes match. Real NASA/NOAA originals still missing.",
+  "instruction": "ZIP is at repository root on branch. IMPORTANT zip entries are assets/<filename> (not EP009_asset_pack/<filename>). Compare SHA256 of every extracted PNG. Original NASA/NOAA files are not yet downloaded; use tools/fetch_original_media.py on a network-enabled runner.",
   "generated_assets": [
     {
       "id": "P01",
@@ -20,7 +20,7 @@
       "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
       "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
       "rigged3d": false,
-      "archive_entry": "EP009_asset_pack/P01_satellite.png"
+      "archive_entry": "assets/P01_satellite.png"
     },
     {
       "id": "P02",
@@ -33,7 +33,7 @@
       "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
       "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
       "rigged3d": false,
-      "archive_entry": "EP009_asset_pack/P02_storm.png"
+      "archive_entry": "assets/P02_storm.png"
     },
     {
       "id": "P03",
@@ -46,7 +46,7 @@
       "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
       "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
       "rigged3d": false,
-      "archive_entry": "EP009_asset_pack/P03_tree_intact.png"
+      "archive_entry": "assets/P03_tree_intact.png"
     },
     {
       "id": "P03",
@@ -59,7 +59,7 @@
       "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
       "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
       "rigged3d": false,
-      "archive_entry": "EP009_asset_pack/P03_tree_uprooted.png"
+      "archive_entry": "assets/P03_tree_uprooted.png"
     },
     {
       "id": "P04",
@@ -72,7 +72,7 @@
       "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
       "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
       "rigged3d": false,
-      "archive_entry": "EP009_asset_pack/P04_land_intact.png"
+      "archive_entry": "assets/P04_land_intact.png"
     },
     {
       "id": "P04",
@@ -85,7 +85,7 @@
       "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
       "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
       "rigged3d": false,
-      "archive_entry": "EP009_asset_pack/P04_land_scared.png"
+      "archive_entry": "assets/P04_land_scared.png"
     },
     {
       "id": "P05",
@@ -98,7 +98,7 @@
       "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
       "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
       "rigged3d": false,
-      "archive_entry": "EP009_asset_pack/P05_markers_sheet.png"
+      "archive_entry": "assets/P05_markers_sheet.png"
     },
     {
       "id": "P06",
@@ -111,13 +111,14 @@
       "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
       "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
       "rigged3d": false,
-      "archive_entry": "EP009_asset_pack/P06_ruined_farm.png"
+      "archive_entry": "assets/P06_ruined_farm.png"
     }
   ],
   "documentary_media": {
-    "M01": "NOT_DOWNLOADED",
-    "M02": "NOT_DOWNLOADED",
-    "M03": "NOT_DOWNLOADED"
+    "M01": "SOURCE_URL_VERIFIED_FETCH_PENDING",
+    "M02_before": "SOURCE_URL_VERIFIED_FETCH_PENDING",
+    "M02_after": "SOURCE_URL_VERIFIED_FETCH_PENDING",
+    "M03": "SOURCE_URL_VERIFIED_FETCH_PENDING"
   },
   "additional_qc": [
     "color halo on transparency edges",
@@ -129,5 +130,7 @@
   "ready_to_render": false,
   "bundle_repo_path": "Orbital_Atlas_EP009_illustrated_assets.zip",
   "bundle_github_blob_sha": "1b0089e6aae03c922878d6f7a2f64fb6102d4b8c",
-  "bundle_size_bytes": 16417896
+  "bundle_size_bytes": 16417896,
+  "bundle_sha256": "5647b448fcabbe4250c91f6a53cdb428dda846094d6125012b2c7ad6192703d0",
+  "readiness": "ILLUSTRATED_ASSETS_IN_ZIP_VERIFIED_LOCALLY; ORIGINAL_MEDIA_PENDING; NOT_RENDER_READY"
 }
