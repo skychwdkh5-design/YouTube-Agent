@@ -115,10 +115,10 @@
     }
   ],
   "documentary_media": {
-    "M01": "SOURCE_URL_VERIFIED_FETCH_PENDING",
-    "M02_before": "SOURCE_URL_VERIFIED_FETCH_PENDING",
-    "M02_after": "SOURCE_URL_VERIFIED_FETCH_PENDING",
-    "M03": "SOURCE_URL_VERIFIED_FETCH_PENDING"
+    "M01": "HIGH_RES_DOWNLOADED_TO_GITHUB_ACTIONS_ARTIFACT",
+    "M02_before": "HIGH_RES_DOWNLOADED_TO_GITHUB_ACTIONS_ARTIFACT",
+    "M02_after": "HIGH_RES_DOWNLOADED_TO_GITHUB_ACTIONS_ARTIFACT",
+    "M03": "720P_DOWNLOADED_TO_GITHUB_ACTIONS_ARTIFACT"
   },
   "additional_qc": [
     "color halo on transparency edges",
@@ -132,5 +132,11 @@
   "bundle_github_blob_sha": "1b0089e6aae03c922878d6f7a2f64fb6102d4b8c",
   "bundle_size_bytes": 16417896,
   "bundle_sha256": "5647b448fcabbe4250c91f6a53cdb428dda846094d6125012b2c7ad6192703d0",
-  "readiness": "ILLUSTRATED_ASSETS_IN_ZIP_VERIFIED_LOCALLY; ORIGINAL_MEDIA_PENDING; NOT_RENDER_READY"
+  "readiness": "BOTH PACKAGES AVAILABLE: illustrated PNGs in git ZIP, documentary images in expiring Actions artifact. Need unwrap/sha QC, licensed labels, movement keyframes, owner pilot approval. NOT RENDER READY",
+  "source_artifact": {
+    "run_id": 41602193505,
+    "artifact_id": 13215290984,
+    "expires_at": "2026-11-17T08:17:49Z",
+    "proof": "productions/ep009-tornado-scars/handoff/media_proof.json"
+  }
 }
