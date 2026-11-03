@@ -67,10 +67,11 @@ def load_srt(p):
         g = list(map(int, m.groups())); out.append((g[0] * 3600 + g[1] * 60 + g[2] + g[3] / 1000, g[4] * 3600 + g[5] * 60 + g[6] + g[7] / 1000, L[2:]))
     return out
 CAPF = F("Inter-SemiBold.otf", 44 if not SHORT else 52)
+CAPGATE = lambda t: 1.0
 def captions(c, t, srt):
     for a, b, lines in srt:
         if a - 0.05 <= t <= b + 0.1:
-            u = clamp(seg(t, a - 0.05, a + 0.1) * (1 - seg(t, b, b + 0.1)))
+            u = clamp(seg(t, a - 0.05, a + 0.1) * (1 - seg(t, b, b + 0.1))) * CAPGATE(t)
             base = H - (118 if not SHORT else 360)
             for k, ln in enumerate(lines):
                 y = base + (k - (len(lines) - 1)) * (60 if not SHORT else 56)
@@ -126,7 +127,28 @@ if MODE == "long":
         u = max(0.0, t - CU[5]); cam = E.Cam([(0, (2300, 1750, 3800)), (CU[7] - CU[5], (2100, 1700, 3100))]); cx, cy, vw = cam(u)
         c = render_doc("ma", cx, cy, vw); w = smooth(seg(t, CU[5] + 0.4, CU[5] + 1.6)) ; txt(c, "MANY LINES · APRIL 2011", 120, 140, 74, fade(t, CU[5] + 0.3, CU[5] + 0.9, CU[7] - 0.4, CU[7]), INK, "l", "Inter-Black.otf")
         credit(c, C_MA, w); return c
+    TH_PATH = f"{REPO}/review_cut/thumbnail/OA_EP009_thumbnail_SCAR_FROM_SPACE_original.png"; _th = {}
+    CAPGATE = lambda t: smooth(seg(t, 1.0, 1.3))
+    C_AS = "NASA Earth Observatory · ASTER (Terra) · May 4, 2011 · FALSE COLOR · J. Allen; data NASA/GSFC/METI/ERSDAC/JAROS, U.S./Japan ASTER Science Team"
+    def hook_open(t):
+        if "t" not in _th:
+            im = cv2.cvtColor(cv2.imread(TH_PATH), cv2.COLOR_BGR2RGB); im = cv2.resize(im, (W, H), interpolation=cv2.INTER_CUBIC); _th["t"] = im.astype(np.float32) / 255
+        TH = _th["t"]
+        if t < 1.0: c = TH.copy()
+        elif t < 2.0: w = smooth(seg(t, 1.0, 2.0)); c = E.blur(TH, 1.0 + 28 * w) * (1 - 0.45 * w)
+        else: c = E.blur(TH, 29.0) * 0.55
+        cam = E.Cam([(2.0, (2560, 3350, 3100)), (6.0, (2560, 3350, 2500))]); cx, cy, vw = cam(max(2.0, t))
+        if t >= 2.0:
+            u = smooth(seg(t, 2.0, 3.0)); A = render_doc("as", cx, cy, vw)
+            ASTR = [(1230, 4030), (1980, 3720), (2730, 3280), (3550, 2700)]; sc_ = W / vw
+            m = E.corridor([(W / 2 + (x - cx) * sc_, H / 2 + (y - cy) * sc_) for x, y in ASTR], 85 * sc_, 85 * sc_ * 0.6); k = smooth(seg(t, 3.0, 3.9))
+            A = E.spotlight(A, m, lerp(1, 0.62, k), 1.0); A = E.blur(A, 16.0 * (1 - u)); c = c * (1 - u) + A * u
+        tag(c, "STYLIZED ILLUSTRATION", W - 28, 28, (1 - smooth(seg(t, 1.2, 2.2))) , True, True)
+        tag(c, "NASA SATELLITE IMAGE · ASTER (TERRA) · FALSE COLOR", 28, 28, smooth(seg(t, 2.5, 3.1)) * (1 - smooth(seg(t, 5.2, 5.7))))
+        credit(c, C_AS, smooth(seg(t, 2.7, 3.3)) * (1 - smooth(seg(t, 5.2, 5.7)))); return c
     def sc_hook(t):
+        if t < 5.2: return hook_open(t)
+        if t < 5.9: w = smooth(seg(t, 5.2, 5.9)); return hook_open(t) * (1 - w) + hook_eo(t) * w
         if t < CU[5] - 0.6: return hook_eo(t)
         if t < CU[5] - 0.1: w = smooth(seg(t, CU[5] - 0.6, CU[5] - 0.1)); return hook_eo(CU[5] - 0.61) * (1 - w) + hook_ma(t) * w
         return hook_ma(t)
