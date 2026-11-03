@@ -61,20 +61,29 @@ jobs:
           fi
           command -v ffmpeg
           ffmpeg -hide_banner -version | sed -n '1p'
-      - name: Check ElevenLabs authorization without paid synthesis
+      - name: Check ElevenLabs API via official models endpoint (free)
         shell: bash
         run: |
           python - <<'PY'
           import os,urllib.request,urllib.error
-          req=urllib.request.Request("https://api.elevenlabs.io/v1/user",
+          req=urllib.request.Request("https://api.elevenlabs.io/v1/models",
               headers={"xi-api-key":os.environ["ELEVENLABS_API_KEY"],
                        "User-Agent":"OrbitalAtlas-EP009-voice-check/1.0"})
           try:
               with urllib.request.urlopen(req,timeout=20) as response:
                   response.read(1024)
-                  print("ElevenLabs GET /v1/user succeeded; no paid synthesis.")
+                  print("ElevenLabs GET /v1/models succeeded; no paid synthesis.")
           except urllib.error.HTTPError as e:
-              raise SystemExit("Auth/network preflight failed: HTTP "+str(e.code))
+              import json
+              detail="unknown"
+              try:
+                  body=json.loads(e.read(2000).decode("utf-8",errors="replace"))
+                  d=body.get("detail",{})
+                  if isinstance(d,dict):
+                      detail=str(d.get("status") or d.get("type") or "unknown")
+              except Exception:
+                  pass
+              raise SystemExit("Auth/network preflight failed: HTTP "+str(e.code)+", status="+detail)
           except Exception as e:
               raise SystemExit("Network preflight failed: "+type(e).__name__)
           PY
