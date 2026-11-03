@@ -5,9 +5,9 @@
     "docs/assets/visual-style/painted-props.webp",
     "docs/assets/visual-style/painted-reference.webp"
   ],
-  "status": "ILLUSTRATIONS_CREATED_IN_CHAT_BUT_BINARY_PNG_NOT_YET_UPLOADED_TO_GITHUB",
-  "bundle": "Orbital_Atlas_EP009_illustrated_assets.zip (conversation attachment; not a GitHub URL)",
-  "instruction": "Owner must make ZIP accessible in Claude session or upload images into repository; do not claim assets ready in GitHub until checked",
+  "status": "ARCHIVE_UPLOADED_TO_GITHUB_UNPACK_QC_PENDING",
+  "bundle": "Orbital_Atlas_EP009_illustrated_assets.zip",
+  "instruction": "Archive exists in GitHub at repository root, branch production/ep009-tornado-scars. Claude may extract via normal git checkout and verify all eight PNG SHA256s. Do not consider individual images verified until hashes match. Real NASA/NOAA originals still missing.",
   "generated_assets": [
     {
       "id": "P01",
@@ -18,8 +18,9 @@
       "alpha": true,
       "sha256": "b2ac1b3d9201e60aa11fcc0b7389b5737935cbcc794291ed9b2aea23ac98ecdb",
       "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
-      "status": "LOCAL_ONLY",
-      "rigged3d": false
+      "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
+      "rigged3d": false,
+      "archive_entry": "EP009_asset_pack/P01_satellite.png"
     },
     {
       "id": "P02",
@@ -30,8 +31,9 @@
       "alpha": true,
       "sha256": "99f20ae44635e9e04e43c7bc0e52be7b6a5deea5f3297c05863874bd694ff57c",
       "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
-      "status": "LOCAL_ONLY",
-      "rigged3d": false
+      "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
+      "rigged3d": false,
+      "archive_entry": "EP009_asset_pack/P02_storm.png"
     },
     {
       "id": "P03",
@@ -42,8 +44,9 @@
       "alpha": true,
       "sha256": "0fe5a87a9c7e39e4fd587253545b71bb17d9ff23a0de2c487d50c20a76f544d4",
       "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
-      "status": "LOCAL_ONLY",
-      "rigged3d": false
+      "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
+      "rigged3d": false,
+      "archive_entry": "EP009_asset_pack/P03_tree_intact.png"
     },
     {
       "id": "P03",
@@ -54,8 +57,9 @@
       "alpha": true,
       "sha256": "d2e7075873d0b6f9268cc37b2fd05be51391c025dcc5fedcb1c0767753ff9b8d",
       "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
-      "status": "LOCAL_ONLY",
-      "rigged3d": false
+      "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
+      "rigged3d": false,
+      "archive_entry": "EP009_asset_pack/P03_tree_uprooted.png"
     },
     {
       "id": "P04",
@@ -66,8 +70,9 @@
       "alpha": true,
       "sha256": "2b308651bc887d9ce39d4f76899ee2ed351cc620d77a91d964a927ac09e545da",
       "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
-      "status": "LOCAL_ONLY",
-      "rigged3d": false
+      "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
+      "rigged3d": false,
+      "archive_entry": "EP009_asset_pack/P04_land_intact.png"
     },
     {
       "id": "P04",
@@ -78,8 +83,9 @@
       "alpha": true,
       "sha256": "913524e34749cbbb3c87eb893924dc71692860d71783b67d0923546fdacdba09",
       "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
-      "status": "LOCAL_ONLY",
-      "rigged3d": false
+      "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
+      "rigged3d": false,
+      "archive_entry": "EP009_asset_pack/P04_land_scared.png"
     },
     {
       "id": "P05",
@@ -90,8 +96,9 @@
       "alpha": true,
       "sha256": "3056337619805e858f6e7bd03d146a6127e0b71b83a50188d71a0b8ab36e55b9",
       "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
-      "status": "LOCAL_ONLY",
-      "rigged3d": false
+      "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
+      "rigged3d": false,
+      "archive_entry": "EP009_asset_pack/P05_markers_sheet.png"
     },
     {
       "id": "P06",
@@ -102,8 +109,9 @@
       "alpha": true,
       "sha256": "99f11f5b91953aa4b2194c3d811b86466d95ef3f2e48ff834c12171b6b089810",
       "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
-      "status": "LOCAL_ONLY",
-      "rigged3d": false
+      "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
+      "rigged3d": false,
+      "archive_entry": "EP009_asset_pack/P06_ruined_farm.png"
     }
   ],
   "documentary_media": {
@@ -118,5 +126,8 @@
     "no media rights checks complete",
     "voice and timing not aligned"
   ],
-  "ready_to_render": false
+  "ready_to_render": false,
+  "bundle_repo_path": "Orbital_Atlas_EP009_illustrated_assets.zip",
+  "bundle_github_blob_sha": "1b0089e6aae03c922878d6f7a2f64fb6102d4b8c",
+  "bundle_size_bytes": 16417896
 }
