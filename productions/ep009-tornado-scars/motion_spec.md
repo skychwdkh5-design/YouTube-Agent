@@ -1,5 +1,20 @@
+# MANDATORY APPROVED ART DIRECTION — EP009
+Before assembling or generating ANY illustrative assets, read:
+- `docs/ORBITAL_ATLAS_VISUAL_STYLE.md` (main, updated 2026-11-01)
+- `docs/PAINTED_VIDEO_HANDOFF.md`
+- `docs/assets/visual-style/painted-props.webp`
+- `docs/assets/visual-style/painted-reference.webp`
+- Editable V7 example: `production/dynamic-motion-style-v1/examples/painted-collage-v7` (review sample, not a fully approved final episode).
+
+Owner-selected **option 3: semi-realistic HAND-PAINTED EDITORIAL ILLUSTRATION**. Sculptural lighting and dimensional props placed over verified terrain/satellite imagery. Actual executable example is layered 2.5D painted collage, NOT automatically a fully rigged 3D model. DO NOT reinterpret "3D" in older notes as license to use shiny rendered plastic, toy figures, stock 3D model packs or flat generic 2D infographics. Preserve painterly texture, ink detail, realistic expressive proportions, emerald/teal/navy and restrained orange/ochre palette adapted to tornado context.
+
+All new props, people, icons, map markers and figures must share approved option-3 painted style; actual NASA/USGS/NOAA frames remain unaltered documentary evidence except clearly separable overlays. Actors move and affect the scene; transitions, obstruction, reveal and actual scene-state rewind must be purposeful, not arbitrary zoom/pan. First 3 seconds mirror approved thumbnail. Mark symbolic reconstruction ILLUSTRATION / NOT TO SCALE. Real locations and tornado tracks cannot be invented.
+
+**EP009 HANDOFF NOT YET COMPLETE:** the 2026-11-01 handoff requires one row per second `handoff/storyboard.csv`, layer-transform `handoff/motion_spec.json`, `handoff/assets.json`, `handoff/audio_cues.csv`, `handoff/acceptance.md`, editable source and representative 45–60s narrated pilot for owner review. Current time ranges below are an editorial outline, not the final per-second approved handoff. Do not start the full render as though that requirement is fulfilled.
+
+---
 # EP009 visual direction / per-beat edit plan
-Target 1920x1080 30fps. Fast, legible documentary 3D map overlays in the approved OA variant-3 object style. No flat slides, no decorative spinning globes. Text keyed tightly to narration. Map labels always grounded.
+Target 1920x1080 30fps. Fast, legible dimensional PAINTED-ILLUSTRATION overlays in the approved OA option-3 style (2.5D compositing permissible; no glossy generic 3D). No flat slides, no decorative spinning globes. Text keyed tightly to narration. Map labels always grounded.
 TIMECODE | ACTION (graphics always labeled 'Illustration' when reconstructed)
 00:00-00:02 | Actual EO-1 NASA Tuscaloosa scar, tightly cropped, snap-reveal tracked corridor with 3D raised subtle line, source lower-left.
 00:02-00:04 | Hold exact thumbnail framing; TEXT 'NOT A ROAD' then whip to pale trail.
