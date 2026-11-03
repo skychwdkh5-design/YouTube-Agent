@@ -1,49 +1,122 @@
 {
   "episode": "EP009",
-  "confirmed_style_reference": [
+  "owner_approved_style": "painted option 3",
+  "references": [
     "docs/assets/visual-style/painted-props.webp",
     "docs/assets/visual-style/painted-reference.webp"
   ],
-  "owner_confirmed_on": "2026-11-03",
-  "readiness": "BLOCKED_ASSETS_MISSING",
-  "requirements": {
-    "actual_file_required": true,
-    "sha256_required": true,
-    "dimensions_required": true,
-    "transparent_cutouts_preferred": true,
-    "source_images_separate_from_illustrations": true
-  },
-  "planned": [
+  "status": "ILLUSTRATIONS_CREATED_IN_CHAT_BUT_BINARY_PNG_NOT_YET_UPLOADED_TO_GITHUB",
+  "bundle": "Orbital_Atlas_EP009_illustrated_assets.zip (conversation attachment; not a GitHub URL)",
+  "instruction": "Owner must make ZIP accessible in Claude session or upload images into repository; do not claim assets ready in GitHub until checked",
+  "generated_assets": [
     {
       "id": "P01",
-      "name": "painted symbolic observation satellite",
-      "status": "MISSING"
+      "name": "P01_satellite.png",
+      "planned_repo_path": "productions/ep009-tornado-scars/handoff/assets/P01_satellite.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "b2ac1b3d9201e60aa11fcc0b7389b5737935cbcc794291ed9b2aea23ac98ecdb",
+      "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
+      "status": "LOCAL_ONLY",
+      "rigged3d": false
     },
     {
       "id": "P02",
-      "name": "layered painterly storm cloud",
-      "status": "MISSING"
+      "name": "P02_storm.png",
+      "planned_repo_path": "productions/ep009-tornado-scars/handoff/assets/P02_storm.png",
+      "width": 1448,
+      "height": 1086,
+      "alpha": true,
+      "sha256": "99f20ae44635e9e04e43c7bc0e52be7b6a5deea5f3297c05863874bd694ff57c",
+      "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
+      "status": "LOCAL_ONLY",
+      "rigged3d": false
     },
     {
       "id": "P03",
-      "name": "painted vegetation and uprooted tree",
-      "status": "MISSING"
+      "name": "P03_tree_intact.png",
+      "planned_repo_path": "productions/ep009-tornado-scars/handoff/assets/P03_tree_intact.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "0fe5a87a9c7e39e4fd587253545b71bb17d9ff23a0de2c487d50c20a76f544d4",
+      "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
+      "status": "LOCAL_ONLY",
+      "rigged3d": false
+    },
+    {
+      "id": "P03",
+      "name": "P03_tree_uprooted.png",
+      "planned_repo_path": "productions/ep009-tornado-scars/handoff/assets/P03_tree_uprooted.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "d2e7075873d0b6f9268cc37b2fd05be51391c025dcc5fedcb1c0767753ff9b8d",
+      "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
+      "status": "LOCAL_ONLY",
+      "rigged3d": false
     },
     {
       "id": "P04",
-      "name": "painted terrain before-and-after cutaway",
-      "status": "MISSING"
+      "name": "P04_land_intact.png",
+      "planned_repo_path": "productions/ep009-tornado-scars/handoff/assets/P04_land_intact.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "2b308651bc887d9ce39d4f76899ee2ed351cc620d77a91d964a927ac09e545da",
+      "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
+      "status": "LOCAL_ONLY",
+      "rigged3d": false
+    },
+    {
+      "id": "P04",
+      "name": "P04_land_scared.png",
+      "planned_repo_path": "productions/ep009-tornado-scars/handoff/assets/P04_land_scared.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "913524e34749cbbb3c87eb893924dc71692860d71783b67d0923546fdacdba09",
+      "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
+      "status": "LOCAL_ONLY",
+      "rigged3d": false
     },
     {
       "id": "P05",
-      "name": "painted measurement pins and locator",
-      "status": "MISSING"
+      "name": "P05_markers_sheet.png",
+      "planned_repo_path": "productions/ep009-tornado-scars/handoff/assets/P05_markers_sheet.png",
+      "width": 1448,
+      "height": 1086,
+      "alpha": true,
+      "sha256": "3056337619805e858f6e7bd03d146a6127e0b71b83a50188d71a0b8ab36e55b9",
+      "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
+      "status": "LOCAL_ONLY",
+      "rigged3d": false
     },
     {
       "id": "P06",
-      "name": "painted non-identifiable block schematic",
-      "status": "MISSING"
+      "name": "P06_ruined_farm.png",
+      "planned_repo_path": "productions/ep009-tornado-scars/handoff/assets/P06_ruined_farm.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "99f11f5b91953aa4b2194c3d811b86466d95ef3f2e48ff834c12171b6b089810",
+      "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
+      "status": "LOCAL_ONLY",
+      "rigged3d": false
     }
   ],
-  "reference_not_product_assets": true
+  "documentary_media": {
+    "M01": "NOT_DOWNLOADED",
+    "M02": "NOT_DOWNLOADED",
+    "M03": "NOT_DOWNLOADED"
+  },
+  "additional_qc": [
+    "color halo on transparency edges",
+    "spritesheet markers not separately isolated",
+    "render transforms not final",
+    "no media rights checks complete",
+    "voice and timing not aligned"
+  ],
+  "ready_to_render": false
 }
