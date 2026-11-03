@@ -1,0 +1,49 @@
+{
+  "episode": "EP009",
+  "confirmed_style_reference": [
+    "docs/assets/visual-style/painted-props.webp",
+    "docs/assets/visual-style/painted-reference.webp"
+  ],
+  "owner_confirmed_on": "2026-11-03",
+  "readiness": "BLOCKED_ASSETS_MISSING",
+  "requirements": {
+    "actual_file_required": true,
+    "sha256_required": true,
+    "dimensions_required": true,
+    "transparent_cutouts_preferred": true,
+    "source_images_separate_from_illustrations": true
+  },
+  "planned": [
+    {
+      "id": "P01",
+      "name": "painted symbolic observation satellite",
+      "status": "MISSING"
+    },
+    {
+      "id": "P02",
+      "name": "layered painterly storm cloud",
+      "status": "MISSING"
+    },
+    {
+      "id": "P03",
+      "name": "painted vegetation and uprooted tree",
+      "status": "MISSING"
+    },
+    {
+      "id": "P04",
+      "name": "painted terrain before-and-after cutaway",
+      "status": "MISSING"
+    },
+    {
+      "id": "P05",
+      "name": "painted measurement pins and locator",
+      "status": "MISSING"
+    },
+    {
+      "id": "P06",
+      "name": "painted non-identifiable block schematic",
+      "status": "MISSING"
+    }
+  ],
+  "reference_not_product_assets": true
+}
