@@ -1,0 +1,236 @@
+{
+ "probe": {
+  "before": {
+   "codec": "h264",
+   "size": [
+    1920,
+    1080
+   ],
+   "fps": 30.0,
+   "pix_fmt": "yuv420p",
+   "frames": 150,
+   "duration": 5.0
+  },
+  "after": {
+   "codec": "h264",
+   "size": [
+    1920,
+    1080
+   ],
+   "fps": 30.0,
+   "pix_fmt": "yuv420p",
+   "frames": 150,
+   "duration": 5.0
+  }
+ },
+ "detect": {
+  "before": {
+   "black": [],
+   "freeze": [
+    [
+     0.0,
+     2.06667
+    ]
+   ]
+  },
+  "after": {
+   "black": [],
+   "freeze": []
+  }
+ },
+ "energy": {
+  "before": {
+   "mean": 0.396,
+   "max": 1.538,
+   "max_at_s": 14.333,
+   "frames_without_motion": 64,
+   "max_jump_ratio": 4.5
+  },
+  "after": {
+   "mean": 1.242,
+   "max": 11.601,
+   "max_at_s": 15.2,
+   "frames_without_motion": 0,
+   "max_jump_ratio": 14.5
+  }
+ },
+ "checks": [
+  {
+   "name": "before: format 1080p30 H.264 150 frames",
+   "pass": true
+  },
+  {
+   "name": "before: no black frames",
+   "pass": true
+  },
+  {
+   "name": "after: format 1080p30 H.264 150 frames",
+   "pass": true
+  },
+  {
+   "name": "after: no black frames",
+   "pass": true
+  },
+  {
+   "name": "after: no frame without motion (>=0.05 mean abs diff)",
+   "pass": true,
+   "detail": "before had 64 static frames"
+  },
+  {
+   "name": "rendered rotation follows the 'topple' curve within 0.75 deg",
+   "pass": true
+  },
+  {
+   "name": "no upscaling of NASA M01 (camera window >= 1920 px)",
+   "pass": true,
+   "detail": "min window 2050.6 px"
+  },
+  {
+   "name": "after: motion peak at the impact (15.0-15.4 s)",
+   "pass": true,
+   "detail": "peak at 15.2s"
+  },
+  {
+   "name": "side-by-side review video built",
+   "pass": true
+  }
+ ],
+ "curve_fidelity": {
+  "what": "intact tree, pivot topple 14.30-15.15 s, preset 'topple'",
+  "max_abs_error_deg": 0.098,
+  "samples": [
+   [
+    14.3,
+    2.0,
+    0.0
+   ],
+   [
+    14.333,
+    1.95,
+    -0.05
+   ],
+   [
+    14.367,
+    1.81,
+    -0.19
+   ],
+   [
+    14.4,
+    1.57,
+    -0.43
+   ],
+   [
+    14.433,
+    1.24,
+    -0.76
+   ],
+   [
+    14.467,
+    0.8,
+    -1.2
+   ],
+   [
+    14.5,
+    0.25,
+    -1.74
+   ],
+   [
+    14.533,
+    -0.41,
+    -2.41
+   ],
+   [
+    14.567,
+    -1.2,
+    -3.19
+   ],
+   [
+    14.6,
+    -2.12,
+    -4.11
+   ],
+   [
+    14.633,
+    -3.18,
+    -5.17
+   ],
+   [
+    14.667,
+    -4.4,
+    -6.39
+   ],
+   [
+    14.7,
+    -5.8,
+    -7.78
+   ],
+   [
+    14.733,
+    -7.38,
+    -9.35
+   ],
+   [
+    14.767,
+    -9.16,
+    -11.14
+   ],
+   [
+    14.8,
+    -11.18,
+    -13.15
+   ],
+   [
+    14.833,
+    -13.45,
+    -15.42
+   ],
+   [
+    14.867,
+    -16.0,
+    -17.96
+   ],
+   [
+    14.9,
+    -18.86,
+    -20.81
+   ],
+   [
+    14.933,
+    -22.06,
+    -24.0
+   ],
+   [
+    14.967,
+    -25.64,
+    -27.58
+   ],
+   [
+    15.0,
+    -29.63,
+    -31.57
+   ],
+   [
+    15.033,
+    -34.09,
+    -36.01
+   ],
+   [
+    15.067,
+    -39.05,
+    -40.97
+   ],
+   [
+    15.1,
+    -44.57,
+    -46.48
+   ],
+   [
+    15.133,
+    -50.69,
+    -52.6
+   ]
+  ]
+ },
+ "technical_pass": true,
+ "note": "technical_pass covers measurable checks only; the visual verdict is in REVIEW.md"
+}

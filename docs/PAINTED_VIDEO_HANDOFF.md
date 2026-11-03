@@ -19,3 +19,4 @@ Each beat must do narrative work. Preserve one coherent spatial/compositional la
 Inspect temporal sequences and full-speed playback as well as frames. Run existing technical/factual/rights/caption/voice checks. Keep the approved-art direction distinct from approval of a particular episode.
 For the first full episode with this approach, build a representative 45–60s narrated pilot before extending across the full edit.
 Existing publication approval, cost limits and release queues stay in force. No publishing consent is implied by style selection.
+Motion rules (named easing curves, timing, pivots, depth/parallax, shadows, appear/disappear, test-render review): docs/MOTION_GUIDE.md. Keyframe 'easing' values must be preset names from tools/motion/easing.py.

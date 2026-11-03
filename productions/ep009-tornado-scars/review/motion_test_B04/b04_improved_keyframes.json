@@ -1,0 +1,213 @@
+{
+  "scene": "B04",
+  "status": "MOTION TEST ONLY - provisional timing, no voice; not an approved pilot render",
+  "window_s": [
+    12.0,
+    17.0
+  ],
+  "units": "seconds = pilot timeline; screen px on a 1920x1080 frame; source px for camera; angles in degrees, PIL convention (positive = counter-clockwise)",
+  "easing_vocabulary": "tools/motion/easing.py (see docs/MOTION_GUIDE.md); the easing on keyframe i shapes the segment to keyframe i+1",
+  "camera": {
+    "source": "M01",
+    "keys": [
+      {
+        "at": 12.0,
+        "cx": 1856,
+        "cy": 3944,
+        "width": 2112,
+        "easing": "camera"
+      },
+      {
+        "at": 18.0,
+        "cx": 1880,
+        "cy": 3934,
+        "width": 2046
+      }
+    ],
+    "rule": "window width never below 1920 source px: the NASA frame is downscaled, never upscaled",
+    "note": "camera keys span the whole pilot beat B04 (12-18 s); the 5 s test window only shows part of the push, so it never decelerates to a stop at the test cut"
+  },
+  "background_depth": {
+    "why": "the satellite frame recedes (soft focus + local dim) while the illustration is the subject; it returns to full clarity only after the scene",
+    "keys": [
+      {
+        "at": 12.0,
+        "blur": 0.0,
+        "dim": 0.0,
+        "easing": "enter"
+      },
+      {
+        "at": 12.9,
+        "blur": 2.4,
+        "dim": 0.38
+      }
+    ]
+  },
+  "tree_intact": {
+    "asset": "P03_tree_intact.png",
+    "pivot_in_asset": [
+      0.77,
+      0.95
+    ],
+    "pivot_note": "right (lee-side) edge of the root plate: a tree uprooted by wind from the left tips about this edge, so the left roots lift",
+    "anchor_screen": [
+      650,
+      921
+    ],
+    "height_px": 486,
+    "depth": 1.25,
+    "entry": [
+      {
+        "at": 12.0,
+        "rise": 34,
+        "scale": 0.95,
+        "blur": 7.0,
+        "opacity": 0.0,
+        "easing": "enter"
+      },
+      {
+        "at": 12.75,
+        "rise": 0,
+        "scale": 1.0,
+        "blur": 0.0,
+        "opacity": 1.0
+      }
+    ],
+    "wind": [
+      {
+        "at": 12.5,
+        "amp": 0.0,
+        "lean": 0.0,
+        "easing": "move"
+      },
+      {
+        "at": 13.9,
+        "amp": 1.0,
+        "lean": 1.0,
+        "easing": "linear"
+      },
+      {
+        "at": 14.3,
+        "amp": 0.6,
+        "lean": 1.0
+      }
+    ],
+    "wind_px": {
+      "gust_amp": 14,
+      "lean": 10,
+      "freq_hz": 0.9,
+      "crown_lag_rad": 1.1
+    },
+    "angle": [
+      {
+        "at": 12.0,
+        "a": 0.0,
+        "easing": "linear"
+      },
+      {
+        "at": 14.0,
+        "a": 0.0,
+        "easing": "move"
+      },
+      {
+        "at": 14.3,
+        "a": 2.0,
+        "easing": "topple"
+      },
+      {
+        "at": 15.15,
+        "a": -54.0
+      }
+    ],
+    "angle_note": "anticipation 2 deg back into the wind, then tipping integrated from the inverted-pendulum equation (preset 'topple'); impact when the crown reaches the ground"
+  },
+  "impact_s": 15.15,
+  "handoff": {
+    "start_s": 15.15,
+    "dur_s": 0.1,
+    "easing": "linear",
+    "why": "the intact painting cannot become the broken one by moving; the swap is a 3-frame dissolve inside the impact, masked by motion blur, the dust burst in front and the shake"
+  },
+  "tree_uprooted": {
+    "asset": "P03_tree_uprooted.png",
+    "pivot_in_asset": [
+      0.36,
+      0.9
+    ],
+    "anchor_screen": [
+      630,
+      905
+    ],
+    "height_px": 560,
+    "depth": 1.25,
+    "settle": [
+      {
+        "at": 15.15,
+        "a": 2.5,
+        "dy": -6,
+        "easing": "settle_impact"
+      },
+      {
+        "at": 15.9,
+        "a": 0.0,
+        "dy": 0
+      }
+    ],
+    "after_wind_px": {
+      "gust_amp": 3,
+      "freq_hz": 0.6,
+      "crown_lag_rad": 0.8
+    },
+    "match_note": "placement chosen by silhouette overlap with the intact tree at -54 deg (IoU 0.50, trunk and root plate aligned); nothing is pushed below the ground line"
+  },
+  "dust": [
+    {
+      "at": 15.1,
+      "origin_screen": [
+        585,
+        905
+      ],
+      "color": [
+        128,
+        98,
+        66
+      ],
+      "n": 110,
+      "spread": 1.0,
+      "alpha": 170,
+      "seed": 9
+    },
+    {
+      "at": 15.14,
+      "origin_screen": [
+        860,
+        905
+      ],
+      "color": [
+        120,
+        112,
+        70
+      ],
+      "n": 70,
+      "spread": 0.8,
+      "alpha": 140,
+      "seed": 21
+    }
+  ],
+  "shake": {
+    "at": 15.15,
+    "amp_px": 6,
+    "freq_hz": 13,
+    "decay": 9
+  },
+  "motion_blur": {
+    "from": 14.75,
+    "to": 15.35,
+    "samples": 6,
+    "shutter": 0.5
+  },
+  "labels": {
+    "illustration": "ILLUSTRATION / NOT TO SCALE",
+    "credit": "Background: NASA EO-1 ALI, May 2, 2011 · NASA Earth Observatory / Jesse Allen & Robert Simmon"
+  }
+}

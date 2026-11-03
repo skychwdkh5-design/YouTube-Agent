@@ -119,7 +119,18 @@
       "assets_confirmed": false,
       "transforms": null,
       "word_anchors": null,
-      "blocking_note": "ILLUSTRATION; P03 missing"
+      "blocking_note": "ILLUSTRATION; P03 missing",
+      "easing": {
+        "entry": "enter",
+        "wind_build": "move",
+        "anticipation": "move",
+        "fall": "topple",
+        "handoff": "linear",
+        "landing": "settle_impact",
+        "camera": "camera",
+        "background_depth": "enter"
+      },
+      "transforms_test": "review/motion_test_B04/b04_improved_keyframes.json (MOTION TEST ONLY, provisional timing, not voice-aligned, not owner-approved)"
     },
     {
       "beat_id": "B05",
@@ -232,5 +243,10 @@
     "required_only_if_story_relevant": true,
     "not_approved_for_pilot": false,
     "method": "restore prior scene state, no simple triangle overlays"
+  },
+  "easing_presets": {
+    "module": "tools/motion/easing.py",
+    "guide": "docs/MOTION_GUIDE.md",
+    "rule": "layer keyframe field 'easing' takes a preset name; it shapes the segment to the next keyframe; missing = v7_smoothstep (legacy V7 behaviour)"
   }
 }
