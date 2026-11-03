@@ -1,0 +1,15 @@
+# EP009 thumbnail — APPROVED by owner (2026-11-03): concept #4 "SCAR FROM SPACE"
+Supersedes concept A / "NOT A ROAD" (removed from the working tree; still in git history). No other variants to be created.
+- Original (owner-supplied, ChatGPT-made, 1672×941 PNG): `thumbnail/OA_EP009_thumbnail_SCAR_FROM_SPACE_original.png`
+- Upload export (pure resize, no composition/text/colour change): `thumbnail/OA_EP009_thumbnail_SCAR_FROM_SPACE_1280x720.jpg` — 1280×720, 0.46 MB (< 2 MB YouTube limit).
+- Text as approved: ORBITAL ATLAS · EARTH FROM SPACE / SCAR FROM SPACE / TORNADO SCAR · ALABAMA · APR 27, 2011 / THE 2011 SUPER OUTBREAK / ALABAMA inset.
+
+## QC
+- Size 1280×720 ✔. Mobile check at 360 px and 168 px: headline "SCAR FROM SPACE" and "TORNADO SCAR" readable; "ALABAMA · APR 27, 2011", the logo tagline and map-inset text are NOT readable at 168 px (secondary text only).
+- Content vs video: topic matches (tornado scar in Alabama, Apr 27 2011 outbreak). Date is the event date, not an image date.
+- **Provenance — do not present as an unaltered NASA image.** The background is an AI-made, heavily enhanced false-colour rendering (red vegetation, vivid feathered scar edges, painted map inset); it resembles the NASA ASTER view (M04) in style, but it is not that file and its fine detail cannot be verified against the original. No NASA logo or credit is on it (good). Recommended description line: "Thumbnail: stylized artwork based on satellite imagery; real NASA/USGS images are credited in the video."
+- **Thumbnail–Hook Match: NOT MET as built.** The Long's first 3 s show the NASA EO-1 *natural-colour* Tuscaloosa scar (dark, grey-green); the thumbnail shows a red *false-colour* scar. Different look, different sensor. Fix without new art: open the Long with the real M04 ASTER false-colour crop of the beige track for 0–3 s (then cut to EO-1 at "It isn't a river"), caption "ASTER · false colour". That needs a ~3–4 s partial re-render of the Long hook — NOT done (no Long renders allowed now). Owner decision: do it, or accept the mismatch.
+
+## Style experiment: "SCAR FROM SPACE" (red/yellow high-contrast satellite + heavy type)
+Status: experimental Orbital Atlas thumbnail style. Do NOT auto-apply to other episodes.
+After EP009 is published (and not before), collect from YouTube Studio for EP009 and the previous Orbital Atlas Longs: impressions, CTR, views at 24 h and 48 h, retention at 30 s, traffic sources (browse / suggested / search / shorts feed). Compare CTR and 30 s retention vs prior Longs **within the same traffic source** and with sample size noted (CTR on a few hundred impressions is noise). Views alone prove nothing: topic, YouTube recommendation, audience and publish time all move them. Caveat to record: if the thumbnail–hook mismatch above is left, a low 30 s retention may come from the mismatch, not the style. Only then propose keep / drop / A-B (e.g. YouTube "Test & compare") — decision with the owner. No vidIQ credits needed for this; Studio data is enough.
