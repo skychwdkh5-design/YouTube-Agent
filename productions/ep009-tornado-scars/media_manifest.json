@@ -1,0 +1,54 @@
+{
+  "status": "SOURCE IDENTIFIED / DOWNLOAD AND ASSET-LEVEL QC PENDING",
+  "policy": "NASA and USGS imagery generally editorially reusable; NOAA government imagery evaluate individual credits. Do not publish until actual media files retrieved and checked.",
+  "assets": [
+    {
+      "id": "M01",
+      "provider": "NASA Earth Observatory",
+      "description": "Tuscaloosa EO-1 ALI original natural color May 2 2011",
+      "page": "https://science.nasa.gov/earth/earth-observatory/tornado-track-in-tuscaloosa-alabama-50434/",
+      "original_image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/50000/50434/tuscaloosa_ali_2011112_lrg.jpg",
+      "status": "URL_LOCATED_NOT_DOWNLOADED",
+      "rights": "NASA media guidelines - asset-specific credit review pending"
+    },
+    {
+      "id": "M02",
+      "provider": "NASA Earth Observatory",
+      "description": "Aqua MODIS before April 12 and after April 28",
+      "page": "https://science.nasa.gov/earth/earth-observatory/tornado-tracks-in-tuscaloosa-alabama-50370/",
+      "status": "SOURCE_VERIFIED_FILE_URLS_PENDING"
+    },
+    {
+      "id": "M03",
+      "provider": "NOAA NESDIS",
+      "description": "GOES-13 2011 storm time lapse",
+      "page": "https://www.nesdis.noaa.gov/content/revisiting-april-2011-tornado-super-outbreak-orbit",
+      "candidate_video_url": "https://www.nesdis.noaa.gov/s3/migrated/unitedstates_goe_2011118_hd.mp4",
+      "status": "URL_IDENTIFIED_DOWNLOAD_QC_PENDING",
+      "rights": "verify specific media credits"
+    },
+    {
+      "id": "M04",
+      "provider": "NASA Earth Observatory",
+      "description": "ASTER May 4 false color near Birmingham",
+      "page": "https://science.nasa.gov/earth/earth-observatory/tornado-damage-near-birmingham-alabama-50462/",
+      "status": "SOURCE_VERIFIED_FILE_URL_PENDING"
+    },
+    {
+      "id": "M05",
+      "provider": "USGS",
+      "description": "Landsat Tuscaloosa-Birmingham tornado scar",
+      "page": "https://www.usgs.gov/media/images/tuscaloosa-birmingham-tornado-scar-april-2011",
+      "status": "SOURCE_VERIFIED_FILE_URL_PENDING",
+      "rights": "Public Domain explicitly"
+    },
+    {
+      "id": "M06",
+      "provider": "USGS",
+      "description": "LCMAP Landsat land change purple streaks",
+      "page": "https://www.usgs.gov/media/images/lcmap-landcover-change-2011-tornadoes",
+      "status": "SOURCE_VERIFIED_FILE_URL_PENDING",
+      "rights": "Public Domain explicitly"
+    }
+  ]
+}
