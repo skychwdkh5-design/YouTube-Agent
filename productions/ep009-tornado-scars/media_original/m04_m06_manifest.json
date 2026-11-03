@@ -1,0 +1,43 @@
+{
+  "assets": [
+    {
+      "id": "M04",
+      "path": "productions/ep009-tornado-scars/media_original/nasa_aster_birmingham_20110504.jpg",
+      "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/50000/50462/concord_ast_2011124_lrg.jpg?w=4096",
+      "source": "https://science.nasa.gov/earth/earth-observatory/tornado-damage-near-birmingham-alabama-50462/",
+      "attribution": "NASA Earth Observatory / Jesse Allen; data NASA/GSFC/METI/ERSDAC/JAROS and US/Japan ASTER Science Team",
+      "width": 4096,
+      "height": 6146,
+      "format": "JPEG",
+      "bytes": 1928742,
+      "sha256": "cdb6624ca3924e2db8ef36c21516886c02aa7fcd3f20f479e1597bec61c23b18",
+      "status": "FORMAT_VERIFIED_EDITORIAL_QC_PENDING"
+    },
+    {
+      "id": "M05",
+      "path": "productions/ep009-tornado-scars/media_original/usgs_landsat_tuscaloosa_tornado_scar.png",
+      "url": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/Tornado%20scar%20Ala.png",
+      "source": "https://www.usgs.gov/media/images/tuscaloosa-birmingham-tornado-scar-april-2011",
+      "attribution": "USGS / Public Domain",
+      "width": 1108,
+      "height": 577,
+      "format": "PNG",
+      "bytes": 789555,
+      "sha256": "af3e08af2f69d9b6d6f8ea43de1850fe23aac4cc969636831e2fb8a27c8fff6c",
+      "status": "FORMAT_VERIFIED_EDITORIAL_QC_PENDING"
+    },
+    {
+      "id": "M06",
+      "path": "productions/ep009-tornado-scars/media_original/usgs_lcmap_landcover_change_2011.jpg",
+      "url": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/Hult_LCChange.jpg",
+      "source": "https://www.usgs.gov/media/images/lcmap-landcover-change-2011-tornadoes",
+      "attribution": "USGS LCMAP / Public Domain",
+      "width": 3200,
+      "height": 3200,
+      "format": "JPEG",
+      "bytes": 13152893,
+      "sha256": "0986876597161e7f005d2603b3c5768405e1ed1b244890654b25b5b826a71360",
+      "status": "FORMAT_VERIFIED_EDITORIAL_QC_PENDING"
+    }
+  ]
+}
