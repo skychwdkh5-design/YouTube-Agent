@@ -1,0 +1,116 @@
+{
+ "checks": [
+  {
+   "name": "format 1920x1080 30 fps H.264 yuv420p 150 frames",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "no black frames",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "no frozen stretch >= 0.5 s",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tree stays down after impact (frame log)",
+   "pass": true,
+   "detail": "impact 63.0 deg, min after 63.00, final 64.20"
+  },
+  {
+   "name": "camera never upscales the tree layers (scale <= 1)",
+   "pass": true,
+   "detail": "max 0.985"
+  },
+  {
+   "name": "crown trails the trunk while falling (pixels)",
+   "pass": true,
+   "detail": "[-0.46, -0.7, -0.97]"
+  },
+  {
+   "name": "crown overshoots after impact, then settles (pixels)",
+   "pass": true,
+   "detail": "post [0.55, 0.39], end 0.16"
+  },
+  {
+   "name": "no single-frame pop at impact (peak <= 2.5x local median)",
+   "pass": true,
+   "detail": "1.08"
+  },
+  {
+   "name": "no frame without motion",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "comparison video built",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "probe": {
+  "codec_name": "h264",
+  "width": 1920,
+  "height": 1080,
+  "pix_fmt": "yuv420p",
+  "r_frame_rate": "30/1",
+  "nb_read_frames": "150"
+ },
+ "crown_lag_deg": {
+  "what": "crown centroid angle minus rigid tree at the same trunk angle (+ = ahead in the fall)",
+  "rows": [
+   [
+    2.6,
+    18.74,
+    -0.19
+   ],
+   [
+    3.0,
+    29.75,
+    -0.46
+   ],
+   [
+    3.3,
+    45.99,
+    -0.7
+   ],
+   [
+    3.45,
+    58.17,
+    -0.97
+   ],
+   [
+    3.6,
+    64.45,
+    0.55
+   ],
+   [
+    3.75,
+    63.87,
+    0.39
+   ],
+   [
+    4.0,
+    64.22,
+    -0.24
+   ],
+   [
+    4.6,
+    64.2,
+    0.16
+   ]
+  ]
+ },
+ "energy": {
+  "mean": 2.277,
+  "max": 4.552,
+  "max_at_s": 3.433,
+  "impact_window_peak_to_median": 1.08,
+  "static_frames": 0
+ },
+ "technical_pass": true,
+ "note": "measurable checks only; the visual verdict is in REVIEW.md"
+}

@@ -109,6 +109,15 @@ def place(im: Image.Image, pivot_px: tuple[float, float], at: tuple[float, float
     return Placed(canvas, (int(round(at[0] - r + bbox[0])), int(round(at[1] - r + bbox[1]))))
 
 
+def composite(frame: Image.Image, im: Image.Image, xy: tuple[int, int]) -> None:
+    """alpha_composite that accepts positions partly or fully outside the frame."""
+    x, y = int(xy[0]), int(xy[1])
+    sx, sy = max(0, -x), max(0, -y)
+    if sx >= im.width or sy >= im.height or x >= frame.width or y >= frame.height:
+        return
+    frame.alpha_composite(im, (max(0, x), max(0, y)), (sx, sy))
+
+
 def place_centered_v7(im: Image.Image, center: tuple[float, float], height: float,
                       angle_deg: float = 0.0, opacity: float = 1.0) -> Placed:
     """V7 paste_prop geometry: scale to size, rotate about the bitmap centre, centre on point."""
