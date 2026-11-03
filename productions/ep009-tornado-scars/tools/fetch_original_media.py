@@ -7,7 +7,7 @@ import argparse, hashlib, json, mimetypes, pathlib, shutil, subprocess, time, ur
 from PIL import Image
 
 SOURCES = [
-  {"id":"M01","name":"nasa_tuscaloosa_EO1_20110502.jpg","url":"https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/50000/50434/tuscaloosa_ali_2011112_lrg.jpg","page":"https://science.nasa.gov/earth/earth-observatory/tornado-track-in-tuscaloosa-alabama-50434/","credit":"NASA Earth Observatory / Jesse Allen and Robert Simmon, NASA EO-1 team","kind":"image","min_width":1600},
+  {"id":"M01","name":"nasa_tuscaloosa_EO1_20110502.jpg","url":"https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/50000/50434/tuscaloosa_ali_2011112_lrg.jpg","page":"https://science.nasa.gov/earth/earth-observatory/tornado-track-in-tuscaloosa-alabama-50434/","credit":"NASA Earth Observatory / Jesse Allen and Robert Simmon, NASA EO-1 team","kind":"image","min_width":900,"min_height":1200},
   {"id":"M02_before","name":"nasa_modis_before_20110412.jpg","url":"https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/50000/50370/Alabama_amo_2011102_lrg.jpg","page":"https://science.nasa.gov/earth/earth-observatory/tornado-tracks-in-tuscaloosa-alabama-50370/","credit":"NASA Earth Observatory / Jeff Schmaltz, MODIS Rapid Response Team at NASA GSFC","kind":"image","min_width":1200},
   {"id":"M02_after","name":"nasa_modis_after_20110428.jpg","url":"https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/50000/50370/Alabama_amo_2011118_lrg.jpg","page":"https://science.nasa.gov/earth/earth-observatory/tornado-tracks-in-tuscaloosa-alabama-50370/","credit":"NASA Earth Observatory / Jeff Schmaltz, MODIS Rapid Response Team at NASA GSFC","kind":"image","min_width":1200},
   {"id":"M03","name":"noaa_goes13_outbreak_2011.mp4","url":"https://www.nesdis.noaa.gov/s3/migrated/unitedstates_goe_2011118_hd.mp4","page":"https://www.nesdis.noaa.gov/content/revisiting-april-2011-tornado-super-outbreak-orbit","credit":"NOAA NESDIS GOES-13 (verify video-specific third-party attribution)","kind":"video"},
@@ -43,7 +43,7 @@ def main():
                         im.verify()
                     with Image.open(dest) as im:
                         w,h=im.size
-                        if w<src["min_width"] or h<400:raise ValueError(f"Below expected image resolution {w}x{h}")
+                        if w<src["min_width"] or h<src.get("min_height",400):raise ValueError(f"Below expected image resolution {w}x{h}")
                         item["dimensions"]=[w,h]
                 else:
                     with dest.open("rb") as f:head=f.read(128)
@@ -63,5 +63,5 @@ def main():
     ok=sum(x["status"].startswith("DOWNLOADED") for x in log)
     print(f"EP009 original media: {ok}/{len(log)} downloaded. See download_manifest.json")
     for x in log: print(x["id"],x["status"],x.get("error",""))
-    if args.strict and ok<len(log):raise SystemExit(2)
+    if ok<len(log):raise SystemExit(2)
 if __name__=="__main__":main()
