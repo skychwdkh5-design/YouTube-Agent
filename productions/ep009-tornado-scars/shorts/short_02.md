@@ -1,0 +1,3 @@
+# Short 02 — Satellites Didn't See the Funnel (30–40 sec)
+VO: "Can satellites actually see tornadoes? Usually, the funnels are too small to pick out in these weather-satellite images. But NASA and NOAA recorded something much bigger in April twenty-eleven: vast storm systems moving across the American South. Afterward, other satellites revealed thin brown corridors where trees and vegetation had been ripped away. The storm clouds moved on. The scars stayed."
+Shot: 00-04 NOAA GOES animation with caption 'THE CLOUDS'; 04-10 broader GOES fronts; 10-17 MODIS pre and post wipe; 17-30 lingering scar imagery; 30-end CTA. Label sources, use GOES original only if rights/download verified. No conflation of scar and funnel.
