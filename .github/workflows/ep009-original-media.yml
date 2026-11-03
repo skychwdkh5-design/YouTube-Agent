@@ -1,5 +1,9 @@
-name: EP009 original media fetch (manual, read-only)
+name: EP009 original media fetch (read-only)
 on:
+  pull_request:
+    paths:
+      - 'productions/ep009-tornado-scars/**'
+      - '.github/workflows/ep009-original-media.yml'
   workflow_dispatch:
 permissions:
   contents: read
