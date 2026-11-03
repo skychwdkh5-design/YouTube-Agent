@@ -1,0 +1,138 @@
+name: EP009 Adam voice (manual, iPad)
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Free connection test first; generate spends ElevenLabs credits"
+        required: true
+        type: choice
+        options:
+          - check
+          - generate
+        default: check
+      approval:
+        description: "For generate only, type EXACTLY GENERATE_EP009_ADAM_ONCE"
+        required: false
+        type: string
+        default: ""
+permissions:
+  contents: read
+concurrency:
+  group: ep009-adam-tts
+  cancel-in-progress: false
+jobs:
+  voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      MODE: ${{ inputs.mode }}
+      APPROVAL: ${{ inputs.approval }}
+    steps:
+      - name: Check explicit paid approval before any provider call
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$MODE" = generate ] && [ "$APPROVAL" != GENERATE_EP009_ADAM_ONCE ]; then
+            echo "::error::Paid run requires exact explicit approval phrase."
+            exit 1
+          fi
+          if [ -z "${ELEVENLABS_API_KEY:-}" ]; then
+            echo "::error::Missing GitHub Actions secret ELEVENLABS_API_KEY."
+            exit 1
+          fi
+          echo "Secret exists. No key value printed."
+      - name: Checkout EP009 production branch (read-only)
+        uses: actions/checkout@v4
+        with:
+          ref: production/ep009-tornado-scars
+          persist-credentials: false
+      - name: Install Python and verify FFmpeg
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - shell: bash
+        run: ffmpeg -version | head -n 1
+      - name: Check ElevenLabs authorization without paid synthesis
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os,urllib.request,urllib.error
+          req=urllib.request.Request("https://api.elevenlabs.io/v1/user",
+              headers={"xi-api-key":os.environ["ELEVENLABS_API_KEY"],
+                       "User-Agent":"OrbitalAtlas-EP009-voice-check/1.0"})
+          try:
+              with urllib.request.urlopen(req,timeout=20) as response:
+                  response.read(1024)
+                  print("ElevenLabs GET /v1/user succeeded; no paid synthesis.")
+          except urllib.error.HTTPError as e:
+              raise SystemExit("Auth/network preflight failed: HTTP "+str(e.code))
+          except Exception as e:
+              raise SystemExit("Network preflight failed: "+type(e).__name__)
+          PY
+      - name: Verify three final approved scripts and compute dry-run costs
+        shell: bash
+        run: |
+          set -euo pipefail
+          base=productions/ep009-tornado-scars/review_cut/voiceover_final
+          mkdir -p "$RUNNER_TEMP/ep009-voice"
+          for n in long short_01 short_02; do
+            python .claude/skills/yt-voice/voice.py \
+              --script "$base/${n}_adam.txt" \
+              --output "$RUNNER_TEMP/ep009-voice/${n}.wav" \
+              --max-chars 5000 \
+              > "$RUNNER_TEMP/ep009-voice/plan_${n}.json" || test $? -eq 2
+          done
+          python - <<'PY'
+          import os,json,pathlib,sys
+          p=pathlib.Path(os.environ["RUNNER_TEMP"])/"ep009-voice"
+          expected={"long":4748,"short_01":343,"short_02":398}
+          total=0
+          for name,want in expected.items():
+              d=json.loads((p/f"plan_{name}.json").read_text())
+              if d["status"]!="confirm_required" or d["characters"]!=want:
+                  sys.exit(f"STOP: {name} narration differs from owner-approved text length: {d.get('status')} / {d.get('characters')} (expected {want})")
+              total+=d["characters"]
+              print(f"{name}: {d['characters']} characters, {d['chunks']} requests planned")
+          assert total==5489
+          print("Preflight total: 5489; no generation yet.")
+          PY
+      - name: Generate Adam only with explicit paid mode
+        if: inputs.mode == 'generate'
+        shell: bash
+        run: |
+          set -euo pipefail
+          base=productions/ep009-tornado-scars/review_cut/voiceover_final
+          out="$RUNNER_TEMP/ep009-voice"
+          for n in long short_01 short_02; do
+            python .claude/skills/yt-voice/voice.py \
+              --script "$base/${n}_adam.txt" \
+              --output "$out/${n}.wav" \
+              --max-chars 5000 \
+              --confirm \
+              > "$out/result_${n}.json"
+            echo "Completed ${n} once."
+          done
+          python - <<'PY'
+          import json,os,pathlib
+          p=pathlib.Path(os.environ["RUNNER_TEMP"])/"ep009-voice"
+          records={}
+          for n in ("long","short_01","short_02"):
+              r=json.loads((p/f"result_{n}.json").read_text())
+              if r["status"]!="ok": raise ValueError(f"{n} was not successful")
+              md=json.loads((p/f"{n}.voice.json").read_text())
+              records[n]={"duration":md["duration"],"characters":md["characters"],"audio_sha256":md["audio_sha256"],"timing":bool(md.get("timing"))}
+          (p/"EP009_ADAM_MANIFEST.json").write_text(json.dumps(records,indent=2))
+          print("All 3 audio outputs and metadata verified.")
+          PY
+      - name: Upload completed paid audio and timing JSON for iPad
+        if: inputs.mode == 'generate' && always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: EP009-Adam-audio-and-timings-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/ep009-voice/*.wav
+            ${{ runner.temp }}/ep009-voice/*.voice.json
+            ${{ runner.temp }}/ep009-voice/EP009_ADAM_MANIFEST.json
+          if-no-files-found: ignore
+          retention-days: 7
