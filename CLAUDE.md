@@ -3,6 +3,17 @@
 Claude Code workspace for running a YouTube channel. The skills live in `.claude/skills/yt-*`.
 This file is the project-level audience strategy; every yt-* skill follows it.
 
+## Orbital Atlas project startup
+
+Use this repository as the persistent source for Orbital Atlas. The publishing and analytics target is YouTube @orbital_atlas. Resolve and verify the channel ID independently in GitHub Actions and vidIQ before using channel-specific operations. Keep NEXORA outside this project.
+
+At the first project setup, perform a read-only inventory:
+1. Read this file and `docs/CHAT_PUBLISH_ARCHITECTURE.md`. Check existing work and release records on `publish-data`, including `publish/queue.json`. Read the workflow runs and YouTube inventory for actual status. The queue alone cannot establish whether a video is already public or scheduled, especially after a manual upload.
+2. Reuse the existing GitHub Actions YouTube OAuth credentials. The workflow `YouTube channel check (read-only)` tests the channel and inventory without uploading. Report the run link, channel ID and status. Check whether the chat approval workflow is active and available. Treat the current repository variable as unknown unless verified. The data branch exists; initialization is only for a missing branch.
+3. Check the existing Claude vidIQ connector, its authorized channel and credit balance using free account-state tools where available. If the connector is unavailable in this client, report that separately from the OAuth check. Reuse saved research. Paid vidIQ calls require the owner's explicit authorization for the specific call and its cost. Older budget caps are ceilings, not permission. Do not automatically retry or replay paid calls.
+4. Check whether the environment can access the intended source media and approved ElevenLabs configuration without generating audio. Keep OAuth and ElevenLabs credentials in their existing secret stores. Report only availability, never secret values. The IceCube script and handoff are in `production/icecube-2026-11-06/PRODUCTION_PACK.md`; use the saved media ZIP for assembly.
+5. Report each connection as verified, unavailable or unverified, with evidence. Record durable production decisions in the repository when authorized. Refresh existing state before work in subsequent sessions and reuse earlier checks when they remain valid. Follow the existing release approval rules and duplicate prevention checks before any upload.
+
 ## Audience strategy
 
 - **Primary market: United States.** Highest priority for topics, hooks, titles, thumbnails,
