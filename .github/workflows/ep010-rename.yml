@@ -1,0 +1,20 @@
+name: EP010 rename draft release (name -> ep010-v1)
+# Branch media/ep010-final only. The publisher finds a media bundle by release NAME; the store run named it
+# "EP010 final (draft, not published)". This sets the name to ep010-v1. Release stays a draft; assets untouched.
+on:
+  push:
+    branches: [media/ep010-final]
+    paths: [ep010/RENAME_REQUEST.txt]
+permissions:
+  contents: write
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Rename
+        run: |
+          id=$(gh api "repos/${GITHUB_REPOSITORY}/releases?per_page=100" --jq '.[]|select(.tag_name=="ep010-v1" and .draft)|.id')
+          [ -n "$id" ] || { echo "draft ep010-v1 not found"; exit 1; }
+          gh api -X PATCH "repos/${GITHUB_REPOSITORY}/releases/$id" -f name=ep010-v1 --jq '[.name,.draft,(.assets|length)]|@tsv'
