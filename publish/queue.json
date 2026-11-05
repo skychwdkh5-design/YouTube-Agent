@@ -529,11 +529,69 @@
     "sha256": "887f9abb913b464fb4f9ce75dac39f9d4de9e098cca422003894c5a2a03330fc",
     "note": "Cover B '2.5 KM DOWN' approved by the owner 2026-11-05 15:58 ICT; thumbcheck objective PASS (luma std 77.1, white 11.3%, yellow 8.2%); same image is the video's first frame."
    }
+  },
+  {
+   "id": "ep011",
+   "mode": "approval",
+   "kind": "long",
+   "media": {
+    "asset": "EP011_final_1080p.mp4",
+    "sha256": "30b6e1f835cd47edd0354401f1f0a3b3d2fb6f745ddb310bb4ca7b2e097c3909",
+    "seconds": 489.3
+   },
+   "title": "The Explosion That Left No Crater (Tunguska 1908)",
+   "title_status": "final",
+   "title_options": [
+    "The Explosion That Left No Crater (Tunguska 1908)"
+   ],
+   "description": "The Explosion That Left No Crater (Tunguska 1908)\n\nOn June 30, 1908, a powerful explosion over central Siberia flattened about 2,000 square kilometers of forest, yet no giant impact crater was found. Using NASA Landsat imagery from 2024, a photograph from Leonid Kulik's 1929 expedition and labelled reconstructions, we look at the evidence for an airburst: a cosmic object releasing its energy in the air, kilometers above the ground.\n\nNo camera recorded the 1908 event. Every moving image of the explosion in this video is a reconstruction, not footage. Energy and size figures are model-dependent estimates. The Chelyabinsk 2013 sequence is a schematic, not footage of Tunguska.\n\nCHAPTERS\n0:00 The explosion that left no crater\n0:45 Tunguska from orbit today\n1:05 June 30, 1908\n1:43 Landscape-scale destruction\n2:16 Kulik's search\n3:19 The missing crater\n3:48 How an airburst works\n4:50 How powerful, how high\n5:26 What the trees reveal\n6:07 Other ideas, still debated\n6:37 Chelyabinsk, 2013\n7:07 Back to the forest today\n\nSOURCES\nNASA Earth Observatory - A Cosmic Explosion over Siberia (2025): https://science.nasa.gov/earth/earth-observatory/a-cosmic-explosion-over-siberia-154488/\nNASA History - 115 Years Ago: The Tunguska Asteroid Impact Event: https://www.nasa.gov/history/115-years-ago-the-tunguska-asteroid-impact-event/\nNASA NTRS - Tunguska workshop summary (2019): https://ntrs.nasa.gov/citations/20190002302\n\nMEDIA CREDITS\nSatellite image: NASA Earth Observatory image by Michala Garrison, using Landsat data from the U.S. Geological Survey (Landsat 8 OLI, July 6, 2024). Epicenter and Lake Cheko positions follow NASA Earth Observatory's labels.\n1929 photograph: Leonid Kulik expedition, May 1929, as published by NASA Earth Observatory; public domain (Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Tunguska_Ereignis-1.jpg ). Shown in black and white, cropped and zoomed.\nForest, airburst, map, timeline, globe and city scenes: original Orbital Atlas illustrations, marked RECONSTRUCTION / ILLUSTRATION, not to scale.\nNarration: AI voice (ElevenLabs). Sound: original synthesized wind and low rumble, no music.\nNASA does not endorse this video.",
+   "tags": [
+    "Tunguska",
+    "Tunguska event",
+    "Tunguska explosion",
+    "Siberia 1908",
+    "asteroid airburst",
+    "airburst",
+    "Leonid Kulik",
+    "no crater",
+    "NASA Landsat",
+    "Landsat",
+    "near-Earth asteroid",
+    "planetary defense",
+    "Chelyabinsk",
+    "space",
+    "science",
+    "OrbitalAtlas"
+   ],
+   "category_id": "27",
+   "default_language": "en",
+   "made_for_kids": false,
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Narration is a stock text-to-speech voice (ElevenLabs Adam), not a real person's voice; imagery is a real NASA Landsat image, a credited 1929 archive photo and original painted animations labelled RECONSTRUCTION / ILLUSTRATION on screen; no realistic fabricated people, and the 1908 event is never presented as footage.",
+   "thumbnail": "publish/assets/ep011/thumbnail_A.jpg",
+   "captions": {
+    "file": "publish/assets/ep011/captions.srt",
+    "language": "en",
+    "name": "English"
+   },
+   "publish_at": "2026-11-07T01:00:00Z",
+   "related": null,
+   "owner_approval": {
+    "approved": false,
+    "sha256": null,
+    "publish_at": null
+   },
+   "thumbnail_review": {
+    "result": "PASS",
+    "sha256": "3c3983e143f195e3c601a785229168ed42bee873213928f9f4379121fde2059d",
+    "note": "Cover A 'NO CRATER?' named primary by the owner 2026-11-05; thumbcheck objective PASS (saturation 0.58, luma std 59.3, white 3.4%, yellow 1.2%); identical to the video's first frame."
+   }
   }
  ],
  "expected_channel_id": "UC2QxQJhUe9Q5NMRNb6M9ddw",
  "expected_handle": "@orbital_atlas",
  "_note_ep007": "EP007: long 29.10 08:00 ICT = 01:00Z; Shorts 29.10 and 30.10 12:00 ICT = 05:00Z.",
  "_note_ep008": "EP008 added 2026-11-01 for chat-publish (owner 15:53 ICT): publish 2026-11-01 23:00 ICT = 16:00Z; media from DRAFT release ep008-v1 (verified run 41289861789). Earlier entries unchanged.",
- "_note_ep010": "EP010 added 2026-11-05 for chat-publish (owner 18:22 ICT): publish 2026-11-06 08:00 ICT = 01:00Z; media from DRAFT release ep010-v1 (verified run 42018850821: sha OK, 1920x1080 30/1, no decode errors). Channel inventory run 42018568659: no EP010. Earlier entries unchanged."
+ "_note_ep010": "EP010 added 2026-11-05 for chat-publish (owner 18:22 ICT): publish 2026-11-06 08:00 ICT = 01:00Z; media from DRAFT release ep010-v1 (verified run 42018850821: sha OK, 1920x1080 30/1, no decode errors). Channel inventory run 42018568659: no EP010. Earlier entries unchanged.",
+ "_note_ep011": "EP011 added 2026-11-05 (owner thread: produce and schedule in the nearest free slot): publish 2026-11-07T01:00Z = next free 01:00Z slot after EP010 (channel inventory run 42033341188: only EP010 scheduled, no EP011). Media from DRAFT release ep011-v1 (store run on branch claude/project-thread-r5acwi). Earlier entries unchanged."
 }
