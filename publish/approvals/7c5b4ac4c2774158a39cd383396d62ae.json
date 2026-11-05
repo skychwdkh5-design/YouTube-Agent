@@ -1,0 +1,27 @@
+{
+ "schema": "yt-approval/1",
+ "approval_id": "7c5b4ac4c2774158a39cd383396d62ae",
+ "scope": "single_release",
+ "label": "ep010",
+ "items": [
+  {
+   "id": "ep010",
+   "kind": "long",
+   "title": "Why Scientists Buried a Telescope Under Antarctica",
+   "publish_at": "2026-11-06T01:00:00Z",
+   "media_sha256": "3571e59a6ed50177719d6976f2802de301e14a2f93b2b5210bfeda26f059a8d2",
+   "content_hash": "40f13f2f05fb2475b03c6fb76d83b4a9f019231c132e920142d9438d95be091e",
+   "entry_hash": "98d852cd8d07d535858b97ccc9eea09b82a08a9840ab3af3d389884c13ef7575"
+  }
+ ],
+ "queue_commit": "bf7422a03c0ad23efe356feca3fd91538801e8fa",
+ "owner_quote": "Одобряю Ep010",
+ "created_at": "2026-11-05T11:51:41+00:00",
+ "expires_at": "2026-11-06T11:51:41+00:00",
+ "created_by": "claude-chat",
+ "consent_channel": "owner-chat-message",
+ "dry_run_only": false,
+ "card_codes": {
+  "ep010": "98D8-52CD"
+ }
+}
