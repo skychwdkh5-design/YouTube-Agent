@@ -22,10 +22,11 @@ W_, Y_ = "#FFFFFF", "#FFD23F"
 
 SHOTS = [
     # 01 hook: the visible building, then straight under the snow
-    (0.00,   "photo", "P01", 0.0,  dict(contain=True, z=(1.0, 1.02), txt=[cr(CR_P01)])),
-    # 2.5 s: cut under the snow, strings descend; sensors on screen by ~3.5 s
-    (2.50,   "anim",  "A01", 3.0,  dict(z=(1.0, 1.04))),
-    (10.86,  "anim",  "A01", 11.36, dict(z=(1.0, 1.06))),
+    # 0.00 approved cover B, exact frame; 0.3 s camera heads for the lab (headline leaves left),
+    # then curves down the yellow arrow into the ice; cut on the downward move into A01 with the depth scale
+    (0.00,   "photo", "C01", 0.0,  dict(bez=dict(t0=0.3, t1=2.6, P=((0.5, 0.5), (0.95, 0.05), (0.73, 0.75)), zmax=2.0, zt=0.55))),
+    (2.60,   "anim",  "A01", 7.8,  dict(z=(1.4, 1.0), c0=(0.62, 0.36), c1=(0.5, 0.5), ease="out")),
+    (10.86,  "anim",  "V03", 0.0,  dict(txt=[cr(CR_VIS)])),
     (16.63,  "live",  "V01", 200.5, dict(txt=[cr(CR_V01)])),
     (19.59,  "anim",  "A03", 0.0,  dict(z=(1.0, 1.06), txt=[big([("NEUTRINOS", Y_), ("PASS STRAIGHT THROUGH", W_)], "br")])),
     (24.46,  "live",  "V01", 3.0,  dict(txt=[cr(CR_V01s)])),
@@ -40,7 +41,7 @@ SHOTS = [
     (58.03,  "photo", "P01", 0.0,  dict(contain=True, z=(1.035, 1.0), txt=[cr(CR_P01)])),
     (61.24,  "live",  "V01", 100.0, dict(txt=[cr(CR_V01s)])),
     # 03 why the target is difficult
-    (64.33,  "anim",  "V03", 0.0,  dict(txt=[cr(CR_VIS)])),
+    (64.33,  "live",  "V01", 238.0, dict(txt=[cr(CR_V01s), big([("NEUTRINOS", Y_), ("NO ELECTRIC CHARGE", W_), ("ALMOST NO MASS", W_)], "br")])),
     (69.09,  "live",  "V01", 141.0, dict(mi=True, txt=[cr(CR_V01s)])),
     (74.20,  "anim",  "V03", 3.25,  dict(txt=[cr(CR_VIS), big([("~100 TRILLION", Y_), ("NEUTRINOS THROUGH YOU", W_), ("EVERY SECOND", W_)], "br")])),
     (79.63,  "live",  "V01", 43.0, dict(txt=[cr(CR_V01s)])),

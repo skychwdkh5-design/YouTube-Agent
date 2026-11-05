@@ -1,6 +1,6 @@
 # EP010 IceCube — QC of final master (2026-11-05)
 
-Status: FINAL MASTER for owner review (sha256 3f236166...). Not uploaded, not scheduled, no queue entry.
+Status: FINAL MASTER (cover B opening) for owner review (sha256 3571e59a...). Not uploaded, not scheduled, no queue entry.
 
 ## Episode number
 EP010. EP009 = Tornado Scars (uploaded manually 2026-11-04, not in publish-data queue); no EP010 branch, queue item or file existed.
@@ -22,7 +22,7 @@ live 102.7 s = 30.5% (target >= 30%), animation/visualization 219.1 s = 64.9% (>
 Longest shot 8.4 s (A01 descent). No photo held over 4.1 s. No text-only cards.
 
 ## Hook
-0-2.5 s real IceCube Lab photo; 2.5 s cut under the snow as the strings descend; sensors on screen at ~3.5 s, before "thousands of light sensors" (4.4 s); depth scale and 86 strings / 5,160 modules by ~7 s.
+0.0 s approved cover B, full frame; from 0.3 s camera moves to the lab (headline exits left), then down the yellow arrow; 2.6 s cut on the downward move into A01 with sensors and the 1,450 m mark, 2,450 m by ~3.3 s.
 
 ## Accuracy / labels
 - V01 labelled as NASA 88-South Traverse 2019, "not IceCube construction" on first uses, short credit afterwards.
@@ -55,3 +55,11 @@ Intro test (7 shots, 31 s): 30 s wall. Full render: ~7 min wall on 4 cores; ~4 m
 - Thumbnail: TELESCOPE / UNDER THE ICE kept; "DOWN TO 2.5 KM" at the lowest sensor row.
 - Final export recalculated changed scenes only (25 + 1 of 74 shots), rest from cache.
 - Sync: 52 speech onsets after pauses in the MP4 vs provider word starts: median -42 ms, range -100..+9 ms (detector lag). SRT: 89 cues, monotonic, last cue ends 5:34.646 inside the 5:37.4 file.
+
+## Cover B opening (owner approval 2026-11-05 08:58Z)
+- Cover B ("2.5 KM DOWN", owner-supplied illustration, sha256 9fabeab2...) is the YouTube thumbnail (1280x720, thumbcheck objective PASS: luma std 77.1, white 11.3%, yellow 8.2%) and frame 0 of the video (mean abs difference to the cover after scaling: ~3/255).
+- 0.3-2.6 s one continuous curved camera move (Bezier path, eased), zoom up to 2x on the 1672x941 source, so those frames are softer than native 1080p.
+- 2.6 s: A01 starts 1.4x high in the frame and keeps moving down (ease-out) to the full schematic; title and side note leave the frame during the move.
+- 10.86-16.63 s: NASA particle-journey visualization. To avoid showing it twice, the 1:04 shot is now live field footage with the overlay NEUTRINOS / NO ELECTRIC CHARGE / ALMOST NO MASS.
+- Shares: live 107.5 s = 31.9%, animation 214.2 s = 63.5%, stills 15.7 s = 4.7%.
+- Re-rendered shots: 0, 1, 2, 14 (rest from cache). Audio stream byte-identical to the previous master, so voice and SRT sync are unchanged (re-measured: speech onsets -100..+9 ms vs word timings).

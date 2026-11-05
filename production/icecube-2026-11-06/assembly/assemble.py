@@ -19,7 +19,8 @@ W, H, FPS = 1920, 1080, 30
 FI = "/usr/share/fonts/opentype/inter/"
 SRC = {"A01": "A01_cutaway.mp4", "A02": "A02_drill.mp4", "A03": "A03_detection.mp4", "A04": "A04_backtrace.mp4",
        "V01": "V01_antarctic_live_broll.webm", "V02": "V02_blazar.webm", "V03": "V03_particle_journey.webm",
-       "V04": "V04_fermi.webm", "P01": "P01_icecube_station.jpg", "P02": "P02_sensor.jpg"}
+       "V04": "V04_fermi.webm", "P01": "P01_icecube_station.jpg", "P02": "P02_sensor.jpg",
+       "C01": "C01_cover_B.png"}  # approved cover B (owner's illustration), also the opening frame
 NAVY = "0x0b1a2b"
 ENC = ["-c:v", "libx264", "-preset", "medium", "-crf", "19", "-pix_fmt", "yuv420p", "-profile:v", "high",
        "-r", str(FPS), "-g", "60", "-bf", "2", "-video_track_timescale", "15360", "-an"]
@@ -76,11 +77,22 @@ def overlay_png(items, path):
 # ---------------------------------------------------------------- per-shot FFmpeg graph
 def motion(o, n):
     """zoompan on a 2x upscale: smoothstep zoom/centre, half-pixel steps at output size."""
+    if "bez" in o:  # curved move: hold, then centre follows a quadratic Bezier P0->P1->P2, zoom rises early
+        b = o["bez"]; t = f"(on/{FPS})"
+        r = f"min(1,max(0,({t}-{b['t0']})/{b['t1'] - b['t0']}))"; sv = f"({r}*{r}*(3-2*{r}))"
+        (x0, y0), (x1, y1), (x2, y2) = b["P"]
+        cx = f"((1-{sv})*(1-{sv})*{x0}+2*(1-{sv})*{sv}*{x1}+{sv}*{sv}*{x2})"
+        cy = f"((1-{sv})*(1-{sv})*{y0}+2*(1-{sv})*{sv}*{y1}+{sv}*{sv}*{y2})"
+        q = f"min(1,{sv}/{b['zt']})"
+        z = f"(1+({b['zmax']}-1)*(1-(1-{q})*(1-{q})))"
+        x = f"max(0,min(iw-iw/zoom,{cx}*iw-iw/zoom/2))"; y = f"max(0,min(ih-ih/zoom,{cy}*ih-ih/zoom/2))"
+        return (f",scale={2 * W}:{2 * H}:flags=lanczos,zoompan=z='{z}':x='{x}':y='{y}':d=1:s={W}x{H}:fps={FPS}")
     z0, z1 = o.get("z", (1.0, 1.0))
     c0 = o.get("c0", (0.5, 0.5)); c1 = o.get("c1", c0)
     if z0 == z1 == 1.0 and c0 == c1 == (0.5, 0.5):
         return ""
-    u = f"(on/{max(n - 1, 1)})"; e = f"({u}*{u}*(3-2*{u}))"
+    u = f"(on/{max(n - 1, 1)})"
+    e = f"(1-pow(1-{u},3))" if o.get("ease") == "out" else f"({u}*{u}*(3-2*{u}))"  # "out": keeps the incoming speed after a cut
     z = f"({z0}+({z1 - z0})*{e})"
     cx = f"({c0[0]}+({c1[0] - c0[0]})*{e})"; cy = f"({c0[1]}+({c1[1] - c0[1]})*{e})"
     x = f"max(0,min(iw-iw/zoom,{cx}*iw-iw/zoom/2))"; y = f"max(0,min(ih-ih/zoom,{cy}*ih-ih/zoom/2))"
@@ -104,7 +116,7 @@ def shot_cmd(s, media, work, voice_t0=None):
     src = os.path.join(media, SRC[s["src"]])
     args = ["ffmpeg", "-v", "error", "-y"]
     g = []
-    if s["src"].startswith("P"):
+    if s["src"][0] in "PC":
         args += ["-loop", "1", "-framerate", str(FPS), "-t", f"{dur + 0.5:.3f}", "-i", src]
         if o.get("contain"):  # whole photo, unmodified, on navy; the inset grows, never cropped
             z0, z1 = o.get("z", (1.0, 1.0))
