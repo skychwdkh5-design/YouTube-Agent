@@ -60,9 +60,11 @@ def badge(text, x, y, anchor_right=True):
     bx = x - w if anchor_right else x
     d.rounded_rectangle([bx, y, bx + w, y + h], 12, fill=(12, 18, 30, 230))
     d.text((bx + 15 - l, y + 10 - t), text, font=fb, fill=(255, 255, 255, 255))
-badge("2.5 KM DOWN", 48, 520, anchor_right=False)
+# depth label at the lowest sensor row, joined to the bottom-left dot by a short gold rule
+d.line([(522, 678), (552, 678)], fill=(255, 200, 60, 255), width=4)
+badge("DOWN TO 2.5 KM", 520, 656)
 fs = ImageFont.truetype(FI + "Inter-Bold.otf", 22)
-d.text((40, H - 46), "SCHEMATIC · NOT TO SCALE", font=fs, fill=(200, 225, 245, 255))
+d.text((40, SNOW + 26), "SCHEMATIC · NOT TO SCALE", font=fs, fill=(200, 225, 245, 255))
 
 # headline: heavy uppercase, white + yellow, thick outline + shadow
 def head(text, y, size, col):

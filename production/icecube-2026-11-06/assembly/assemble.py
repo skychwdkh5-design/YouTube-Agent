@@ -87,6 +87,13 @@ def motion(o, n):
     return (f",scale={2 * W}:{2 * H}:flags=lanczos,zoompan=z='{z}':x='{x}':y='{y}':d=1:s={W}x{H}:fps={FPS}")
 
 
+HALF = {"V02", "V03", "V04"}  # ~60 fps NASA renders: take every 2nd decoded frame (their webm timestamps jitter)
+
+
+def to30(src):
+    return "select='not(mod(n\\,2))',setpts=N/(30*TB)" if src in HALF else f"fps={FPS}"
+
+
 def cover(label_in, label_out):
     return (f"[{label_in}]scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,"
             f"crop={W}:{H},setsar=1[{label_out}]")
@@ -119,11 +126,11 @@ def shot_cmd(s, media, work, voice_t0=None):
         if "split" in o:
             sb, ib = o["split"]
             args += ["-ss", f"{ib:.3f}", "-t", f"{dur + 0.5:.3f}", "-i", os.path.join(media, SRC[sb])]
-            g.append(f"[0:v]fps={FPS},scale={W // 2}:{H}:force_original_aspect_ratio=increase,crop={W // 2}:{H},setsar=1[l]")
-            g.append(f"[1:v]fps={FPS},scale={W // 2}:{H}:force_original_aspect_ratio=increase,crop={W // 2}:{H},setsar=1[r]")
+            g.append(f"[0:v]{to30(s['src'])},scale={W // 2}:{H}:force_original_aspect_ratio=increase,crop={W // 2}:{H},setsar=1[l]")
+            g.append(f"[1:v]{to30(sb)},scale={W // 2}:{H}:force_original_aspect_ratio=increase,crop={W // 2}:{H},setsar=1[r]")
             g.append(f"[l][r]hstack,drawbox=x={W // 2 - 2}:y=0:w=4:h={H}:color=0x0b1a2b:t=fill[v0]")
         else:
-            conv = (f"minterpolate=fps={FPS}:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1" if o.get("mi") else f"fps={FPS}")
+            conv = (f"minterpolate=fps={FPS}:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1" if o.get("mi") else to30(s["src"]))
             g.append(f"[0:v]{pre}{conv}[r0]"); g.append(cover("r0", "c0")); g.append(f"[c0]null{motion(o, n)}[v0]")
     last = "v0"
     txt = list(o.get("txt", []))

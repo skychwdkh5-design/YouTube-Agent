@@ -1,6 +1,6 @@
-# EP010 IceCube — QC of review cut v4 (2026-11-05)
+# EP010 IceCube — QC of final master (2026-11-05)
 
-Status: REVIEW CUT for the owner. Not uploaded, not scheduled, no queue entry.
+Status: FINAL MASTER for owner review (sha256 3f236166...). Not uploaded, not scheduled, no queue entry.
 
 ## Episode number
 EP010. EP009 = Tornado Scars (uploaded manually 2026-11-04, not in publish-data queue); no EP010 branch, queue item or file existed.
@@ -18,11 +18,11 @@ Backup: /mnt/project-files/icecube/voice/. Do not regenerate.
 - SRT built from the provider word timings (89 cues), not burned in; upload as a caption track.
 
 ## Timeline shares (from shots.py, 74 shots)
-live 103.5 s = 30.7% (target >= 30%), animation/visualization 216.5 s = 64.2% (>= 45%), photo 17.5 s = 5.2% (<= 25%).
-Longest shot 8.3 s (A01 reveal, continuous camera move). No photo held over 4.4 s. No text-only cards.
+live 102.7 s = 30.5% (target >= 30%), animation/visualization 219.1 s = 64.9% (>= 45%), photo 15.6 s = 4.6% (<= 25%).
+Longest shot 8.4 s (A01 descent). No photo held over 4.1 s. No text-only cards.
 
 ## Hook
-0-4.4 s real IceCube Lab photo ("this building"); 4.4 s cut under the snow; array with 1,450/2,450 m and 86 strings / 5,160 modules visible by ~9 s.
+0-2.5 s real IceCube Lab photo; 2.5 s cut under the snow as the strings descend; sensors on screen at ~3.5 s, before "thousands of light sensors" (4.4 s); depth scale and 86 strings / 5,160 modules by ~7 s.
 
 ## Accuracy / labels
 - V01 labelled as NASA 88-South Traverse 2019, "not IceCube construction" on first uses, short credit afterwards.
@@ -45,3 +45,13 @@ Intro test (7 shots, 31 s): 30 s wall. Full render: ~7 min wall on 4 cores; ~4 m
 - Watch the full cut in real time (subjective pacing, voice clarity, judder on V01 pans) — automated checks cannot replace it.
 - Approve or revise thumbnail and title; burned-in captions were not added (SRT track instead).
 - Publishing is a separate step with its own approval card.
+
+## Final master changes (owner notes 2026-11-05)
+- Intro: descent starts at 2.5 s, sensors at ~3.5 s; voice timing untouched.
+- Label-clipping zooms removed at 2:33-2:37 (A02) and 2:57-3:01 (replaced by live cabin shot with the speed-of-light overlay); also softened at 0:10, 1:23, 1:29, 4:43, 5:14.
+- Middle (2:37-3:36): particle passes (A03) -> interaction and light (A03) -> sensors fire in order (A04, A01 colour wave) -> direction appears (A04); repeated A03 crops removed.
+- 5:10-5:15: "ICECUBE UPGRADE / DEPLOYED 2026" now on the IceCube installation schematic, not on 2019 traverse footage.
+- ~1:04-1:20 judder: NASA particle animation (60 fps webm with jittery timestamps) was resampled with an uneven 2-3-frame cadence and ran 0.1 s past its last frame. Now every second source frame is taken and the in-point moved; frame-difference check shows an even cadence and no held frames.
+- Thumbnail: TELESCOPE / UNDER THE ICE kept; "DOWN TO 2.5 KM" at the lowest sensor row.
+- Final export recalculated changed scenes only (25 + 1 of 74 shots), rest from cache.
+- Sync: 52 speech onsets after pauses in the MP4 vs provider word starts: median -42 ms, range -100..+9 ms (detector lag). SRT: 89 cues, monotonic, last cue ends 5:34.646 inside the 5:37.4 file.
