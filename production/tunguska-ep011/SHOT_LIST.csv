@@ -1,0 +1,48 @@
+shot,planned_start_s,planned_end_s,visual,asset,motion,status
+S01,0,10,thumbnail-to-fireball,taiga_forest_layers.svg,Match thumbnail camera push and title displacement,PLAN / RETIME AFTER ADAM
+S02,10,20,flash-to-archive,EXTERNAL_ARCHIVE_1929,Transition on orange-white flash to archival tree image,PLAN / RETIME AFTER ADAM
+S03,20,30,missing-crater,shockwave_radial_overlay.svg,"Outline crater expectation, then erase",PLAN / RETIME AFTER ADAM
+S04,30,40,modern-landsat,EXTERNAL_LANDSAT_2024,Smooth satellite zoom with 2024 source stamp,PLAN / RETIME AFTER ADAM
+S05,40,50,rewind-time,taiga_forest_layers.svg,Date ribbon reverses 2024→1908,PLAN / RETIME AFTER ADAM
+S06,50,60,region,taiga_forest_layers.svg,Original stylized globe→Siberia location pin,PLAN / RETIME AFTER ADAM
+S07,60,70,evenki-land,taiga_forest_layers.svg,Foreground branch motion and sun rise,PLAN / RETIME AFTER ADAM
+S08,70,80,bolide-entry,airburst_cross_section.svg,"Animated glowing object streak, concept label",PLAN / RETIME AFTER ADAM
+S09,80,90,witnesses,taiga_forest_layers.svg,"Original silhouettes, reported testimony card",PLAN / RETIME AFTER ADAM
+S10,90,100,light-flash,taiga_forest_layers.svg,Light ramp without hard photosensitivity strobes,PLAN / RETIME AFTER ADAM
+S11,100,110,pressure,shockwave_radial_overlay.svg,Elliptical atmospheric pressure expansion,PLAN / RETIME AFTER ADAM
+S12,110,120,trees-bend,taiga_forest_layers.svg,Tree pieces bend at root and staggered crown delay,PLAN / RETIME AFTER ADAM
+S13,120,130,scale-of-loss,shockwave_radial_overlay.svg,"2,000 sq km label with approximate badge",PLAN / RETIME AFTER ADAM
+S14,130,140,map-pattern,treefall_comparison.svg,Animated directional arrows; not exact site survey,PLAN / RETIME AFTER ADAM
+S15,140,150,camera-not-exist,EXTERNAL_ARCHIVE_1929,Correctly label footage as reconstruction,PLAN / RETIME AFTER ADAM
+S16,150,160,time-1910s,taiga_forest_layers.svg,Historical year ribbon and expedition marker,PLAN / RETIME AFTER ADAM
+S17,160,170,kulik-1921,EXTERNAL_PORTRAIT_KULIK,Portrait in field journal border; fallback name card,PLAN / RETIME AFTER ADAM
+S18,170,180,kulik-1927,taiga_forest_layers.svg,Abstract expedition line and boots parallax,PLAN / RETIME AFTER ADAM
+S19,180,190,archive-reveal,EXTERNAL_ARCHIVE_1929,Slow pan with grain-free preserved image,PLAN / RETIME AFTER ADAM
+S20,190,200,broken-trunks,EXTERNAL_ARCHIVE_1929,Original ink overlays reveal directions,PLAN / RETIME AFTER ADAM
+S21,200,210,center-trees,treefall_comparison.svg,Parallax comparison stripped trunk animation,PLAN / RETIME AFTER ADAM
+S22,210,220,searching,treefall_comparison.svg,"Survey compass sweeps, no invented crater",PLAN / RETIME AFTER ADAM
+S23,220,230,crater-missing,airburst_cross_section.svg,Expected impact graphic erased,PLAN / RETIME AFTER ADAM
+S24,230,240,science-setup,airburst_cross_section.svg,Cut from trees to sky/earth section,PLAN / RETIME AFTER ADAM
+S25,240,250,entry-physics,airburst_cross_section.svg,Compressing air lines align motion,PLAN / RETIME AFTER ADAM
+S26,250,260,fragmentation,airburst_cross_section.svg,"Object splits, tiny fragments fade",PLAN / RETIME AFTER ADAM
+S27,260,270,burst,airburst_cross_section.svg,Pressure shell expands above surface,PLAN / RETIME AFTER ADAM
+S28,270,280,ground-shock,shockwave_radial_overlay.svg,"Shock wave meets ground, radial propagation",PLAN / RETIME AFTER ADAM
+S29,280,290,fallen-tree-wave,treefall_comparison.svg,"Staggered trunk falls, no loops",PLAN / RETIME AFTER ADAM
+S30,290,300,no-giant-crater,airburst_cross_section.svg,Wipe expected crater model away,PLAN / RETIME AFTER ADAM
+S31,300,310,energy-range,airburst_cross_section.svg,Label 10–20 Mt model-dependent,PLAN / RETIME AFTER ADAM
+S32,310,320,height-range,airburst_cross_section.svg,Label 6–10 km NASA estimate,PLAN / RETIME AFTER ADAM
+S33,320,330,center-pattern,treefall_comparison.svg,Center standing trunks emphasized,PLAN / RETIME AFTER ADAM
+S34,330,340,survey-logic,EXTERNAL_ARCHIVE_1929,Source image compared with original radial map,PLAN / RETIME AFTER ADAM
+S35,340,350,uncertainties,airburst_cross_section.svg,Size/composition/trajectory labels animate,PLAN / RETIME AFTER ADAM
+S36,350,360,lake-cheko,EXTERNAL_LANDSAT_2024,Lake hypothesis cautiously marked as debated,PLAN / RETIME AFTER ADAM
+S37,360,370,alternate-hypotheses,airburst_cross_section.svg,Hypotheses on scale: unverified vs leading,PLAN / RETIME AFTER ADAM
+S38,370,380,chelyabinsk-2013,airburst_cross_section.svg,"Different-date schematic, never Tunguska footage",PLAN / RETIME AFTER ADAM
+S39,380,390,glass-shock,shockwave_radial_overlay.svg,Window shards as original icons; conditional schematic,PLAN / RETIME AFTER ADAM
+S40,390,400,global-track,taiga_forest_layers.svg,Orbiting telescope icon and plotted object,PLAN / RETIME AFTER ADAM
+S41,400,410,planetary-defense,airburst_cross_section.svg,Original sky survey grid travels across frame,PLAN / RETIME AFTER ADAM
+S42,410,420,return-modern,EXTERNAL_LANDSAT_2024,2024 NASA image re-enters; labels accurate,PLAN / RETIME AFTER ADAM
+S43,420,430,forest-healed,EXTERNAL_LANDSAT_2024,Use dissolve not fake before-after registration,PLAN / RETIME AFTER ADAM
+S44,430,440,back-to-hook,taiga_forest_layers.svg,Return exact thumbnail terrain composition,PLAN / RETIME AFTER ADAM
+S45,440,450,central-explanation,airburst_cross_section.svg,Hold above-ground marker and pressure ring,PLAN / RETIME AFTER ADAM
+S46,450,460,final-message,EXTERNAL_LANDSAT_2024,Show contemporary forest and final narrator line,PLAN / RETIME AFTER ADAM
+S47,460,470,outro,EXTERNAL_LANDSAT_2024,Logo safe area and credits,PLAN / RETIME AFTER ADAM

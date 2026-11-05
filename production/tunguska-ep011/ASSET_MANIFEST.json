@@ -1,0 +1,53 @@
+[
+ {
+  "id": "EXT-LANDSAT",
+  "file": "sources/russia_tunguskablast_oli_20240706_lrg.jpg",
+  "sha256": "d99767162754c9cafc1cea2049ba95b613ac8d4df210cd6392fc7fcda170a68b",
+  "url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/154000/154488/russia_tunguskablast_oli_20240706_lrg.jpg",
+  "page": "https://science.nasa.gov/earth/earth-observatory/a-cosmic-explosion-over-siberia-154488/",
+  "size": [
+   1122,
+   1091
+  ],
+  "credit": "NASA Earth Observatory image by Michala Garrison, using Landsat data from the U.S. Geological Survey",
+  "date": "2024-07-06 (Landsat 8 OLI)",
+  "rights": "NASA imagery, generally not copyrighted; used per NASA media guidelines with credit, no endorsement implied",
+  "status": "VERIFIED",
+  "use": "Real satellite image; scaled/zoomed; epicenter and Lake Cheko markers placed from NASA EO's labelled version of the same image"
+ },
+ {
+  "id": "EXT-ARCHIVE",
+  "file": "sources/kulik_1929_nasa_eo.jpg",
+  "sha256": "856ae86b49fb7caebc0554e1500b041ce5bca4308d82597fa87a70ea06f1ef41",
+  "url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/154000/154488/original_af4f669b5645bbb3381c53aa765890d6.jpg",
+  "same_as": "https://commons.wikimedia.org/wiki/File:Tunguska_Ereignis-1.jpg (5218x3543, identical dimensions; Commons upload.wikimedia.org returned HTTP 429 repeatedly)",
+  "size": [
+   5218,
+   3543
+  ],
+  "credit": "Leonid Kulik expedition, May 1929 (published 1931); via NASA Earth Observatory",
+  "rights": "Public domain per Wikimedia Commons (PD-Russia, with Commons' jurisdiction notes); NASA EO publishes it as 'Damaged tree photograph from the 1929 Leonid Kulik expedition'",
+  "status": "VERIFIED (PD with noted caveat)",
+  "use": "Grayscale, cropped and zoomed; not altered"
+ },
+ {
+  "id": "EXT-KULIK",
+  "url": "https://commons.wikimedia.org/wiki/File:Kulik_Leonid_Alekseevich.jpg",
+  "status": "NOT USED",
+  "reason": "Commons names the author as Evgeny Krinov (died 1984); the PD-Russia rationale (author died before 1942/1946) does not fit, so rights are unverified. Replaced by an original name card."
+ },
+ {
+  "id": "ORIGINAL",
+  "files": "assembly/*.py",
+  "status": "ORIGINAL",
+  "credit": "Orbital Atlas",
+  "use": "All forest, airburst, cross-section, map, globe, timeline, city and sky scenes are procedurally painted in code; marked RECONSTRUCTION / ILLUSTRATION on screen. Pack SVGs used as design references only."
+ },
+ {
+  "id": "VOICE",
+  "file": "voice/narration.wav",
+  "sha256": "f48a10cd4b1553dbb916928c822264ad49a4280ecf8e1c01c416d250bd73df4c",
+  "credit": "ElevenLabs, stock voice Adam (pNInz6obpgDQGcFmaJgB), eleven_multilingual_v2",
+  "status": "ONE RUN, owner-authorized 2026-11-05"
+ }
+]

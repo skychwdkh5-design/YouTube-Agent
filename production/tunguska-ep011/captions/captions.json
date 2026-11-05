@@ -1,0 +1,813 @@
+{
+ "schema": "yt-captions/1",
+ "language": "en",
+ "source": "narration.voice.json",
+ "settings": {
+  "max_chars": 84,
+  "max_lines": 2,
+  "max_duration": 6.0,
+  "min_duration": 0.8,
+  "pause": 0.6
+ },
+ "cue_count": 131,
+ "duration": 486.272,
+ "validation": {
+  "wording_preserved": true,
+  "no_overlaps": true,
+  "timestamps_valid": true,
+  "problems": [],
+  "warnings": []
+ },
+ "cues": [
+  {
+   "index": 1,
+   "start": 0.0,
+   "end": 4.458,
+   "text": "Imagine standing in a quiet Siberian forest just after sunrise."
+  },
+  {
+   "index": 2,
+   "start": 4.609,
+   "end": 5.805,
+   "text": "The air is still."
+  },
+  {
+   "index": 3,
+   "start": 6.13,
+   "end": 8.348,
+   "text": "The trees stretch to the horizon."
+  },
+  {
+   "index": 4,
+   "start": 8.557,
+   "end": 12.272,
+   "text": "Then something brighter than the Sun tears across the sky."
+  },
+  {
+   "index": 5,
+   "start": 12.713,
+   "end": 17.821,
+   "text": "Seconds later, a tremendous blast sends a shock wave racing through the forest."
+  },
+  {
+   "index": 6,
+   "start": 18.065,
+   "end": 20.828,
+   "text": "Trees snap. The ground trembles."
+  },
+  {
+   "index": 7,
+   "start": 21.002,
+   "end": 25.089,
+   "text": "And in a moment, an enormous area of taiga is devastated."
+  },
+  {
+   "index": 8,
+   "start": 25.414,
+   "end": 27.307,
+   "text": "But here is the strange part."
+  },
+  {
+   "index": 9,
+   "start": 27.632,
+   "end": 30.395,
+   "text": "When scientists eventually reached the site,"
+  },
+  {
+   "index": 10,
+   "start": 30.72,
+   "end": 33.471,
+   "text": "they did not find the giant crater they expected."
+  },
+  {
+   "index": 11,
+   "start": 33.854,
+   "end": 36.664,
+   "text": "How could an explosion devastate so much forest,"
+  },
+  {
+   "index": 12,
+   "start": 36.815,
+   "end": 39.334,
+   "text": "without a giant rock striking the ground?"
+  },
+  {
+   "index": 13,
+   "start": 40.031,
+   "end": 45.116,
+   "text": "This is the story of Tunguska, and the missing crater is the clue that unlocks it."
+  },
+  {
+   "index": 14,
+   "start": 45.557,
+   "end": 48.437,
+   "text": "To see the mystery, start with a modern image."
+  },
+  {
+   "index": 15,
+   "start": 49.04,
+   "end": 54.01,
+   "text": "In July 2024, NASA's Landsat 8 satellite photographed the region"
+  },
+  {
+   "index": 16,
+   "start": 54.079,
+   "end": 55.623,
+   "text": "in central Siberia."
+  },
+  {
+   "index": 17,
+   "start": 55.948,
+   "end": 61.881,
+   "text": "From orbit, it looks almost peaceful: green forest, rivers, and patches of wetland."
+  },
+  {
+   "index": 18,
+   "start": 62.264,
+   "end": 65.19,
+   "text": "The scar from the disaster is no longer obvious."
+  },
+  {
+   "index": 19,
+   "start": 65.573,
+   "end": 69.126,
+   "text": "Now imagine rewinding this landscape more than a century,"
+  },
+  {
+   "index": 20,
+   "start": 69.37,
+   "end": 72.725,
+   "text": "to the morning of June thirtieth, nineteen oh eight."
+  },
+  {
+   "index": 21,
+   "start": 73.422,
+   "end": 77.497,
+   "text": "This is a remote part of what is now Russia's Krasnoyarsk region,"
+  },
+  {
+   "index": 22,
+   "start": 77.775,
+   "end": 80.48,
+   "text": "near the Podkamennaya Tunguska River."
+  },
+  {
+   "index": 23,
+   "start": 81.177,
+   "end": 85.38,
+   "text": "The Evenki people lived and travelled across this enormous landscape."
+  },
+  {
+   "index": 24,
+   "start": 85.891,
+   "end": 89.374,
+   "text": "A few witnesses later described a powerful light in the sky,"
+  },
+  {
+   "index": 25,
+   "start": 89.49,
+   "end": 93.507,
+   "text": "followed by thunderous noises, intense heat, and a violent blast."
+  },
+  {
+   "index": 26,
+   "start": 94.018,
+   "end": 96.003,
+   "text": "Some reports were written down much later,"
+  },
+  {
+   "index": 27,
+   "start": 96.05,
+   "end": 98.975,
+   "text": "so scientists treat the details carefully."
+  },
+  {
+   "index": 28,
+   "start": 99.184,
+   "end": 102.818,
+   "text": "But there is no serious doubt that a catastrophic event occurred."
+  },
+  {
+   "index": 29,
+   "start": 103.143,
+   "end": 106.104,
+   "text": "The atmosphere itself became part of the disaster."
+  },
+  {
+   "index": 30,
+   "start": 106.429,
+   "end": 111.189,
+   "text": "As the shock wave travelled outward, it damaged a vast area of forest."
+  },
+  {
+   "index": 31,
+   "start": 111.793,
+   "end": 116.634,
+   "text": "Later surveys mapped a broad, irregular pattern of trees knocked to the ground."
+  },
+  {
+   "index": 32,
+   "start": 116.959,
+   "end": 121.522,
+   "text": "The most commonly cited affected area is about two thousand square kilometres."
+  },
+  {
+   "index": 33,
+   "start": 121.963,
+   "end": 125.957,
+   "text": "That is not the footprint of one fallen tree, or a local fire."
+  },
+  {
+   "index": 34,
+   "start": 126.398,
+   "end": 128.581,
+   "text": "It is landscape-scale destruction."
+  },
+  {
+   "index": 35,
+   "start": 128.906,
+   "end": 131.623,
+   "text": "And no camera recorded the event as it happened."
+  },
+  {
+   "index": 36,
+   "start": 132.006,
+   "end": 135.814,
+   "text": "Every moving image of the explosion you see here is a reconstruction."
+  },
+  {
+   "index": 37,
+   "start": 136.197,
+   "end": 140.052,
+   "text": "For years, the exact location remained difficult to investigate."
+  },
+  {
+   "index": 38,
+   "start": 140.377,
+   "end": 143.454,
+   "text": "The distance was formidable, access was limited,"
+  },
+  {
+   "index": 39,
+   "start": 143.698,
+   "end": 148.783,
+   "text": "and the early twentieth century brought war, revolution, and civil conflict."
+  },
+  {
+   "index": 40,
+   "start": 149.224,
+   "end": 153.055,
+   "text": "The Russian mineralogist Leonid Kulik tried to reach the site"
+  },
+  {
+   "index": 41,
+   "start": 153.09,
+   "end": 157.049,
+   "text": "in nineteen twenty-one, but was unable to get all the way there."
+  },
+  {
+   "index": 42,
+   "start": 157.432,
+   "end": 160.973,
+   "text": "He finally reached the devastated region in nineteen twenty-seven,"
+  },
+  {
+   "index": 43,
+   "start": 161.147,
+   "end": 163.747,
+   "text": "almost nineteen years after the explosion."
+  },
+  {
+   "index": 44,
+   "start": 163.747,
+   "end": 165.976,
+   "text": "Imagine what the expedition encountered."
+  },
+  {
+   "index": 45,
+   "start": 166.417,
+   "end": 168.554,
+   "text": "Long rows of fallen trunks."
+  },
+  {
+   "index": 46,
+   "start": 168.797,
+   "end": 171.375,
+   "text": "Broken, burned, and stripped trees."
+  },
+  {
+   "index": 47,
+   "start": 171.758,
+   "end": 174.881,
+   "text": "Even in photographs taken in nineteen twenty-nine,"
+  },
+  {
+   "index": 48,
+   "start": 175.09,
+   "end": 177.783,
+   "text": "the extraordinary damage is unmistakable."
+  },
+  {
+   "index": 49,
+   "start": 178.109,
+   "end": 179.676,
+   "text": "In some parts of the forest,"
+  },
+  {
+   "index": 50,
+   "start": 179.827,
+   "end": 183.693,
+   "text": "the fallen trees pointed generally away from the central area."
+  },
+  {
+   "index": 51,
+   "start": 184.076,
+   "end": 186.491,
+   "text": "Near the center, other trunks were still standing,"
+  },
+  {
+   "index": 52,
+   "start": 186.526,
+   "end": 189.87,
+   "text": "but with their branches torn away, like telegraph poles."
+  },
+  {
+   "index": 53,
+   "start": 190.311,
+   "end": 193.608,
+   "text": "The distribution was more complicated than a perfect circle."
+  },
+  {
+   "index": 54,
+   "start": 194.05,
+   "end": 197.683,
+   "text": "But it told investigators that a powerful pressure wave had swept"
+  },
+  {
+   "index": 55,
+   "start": 197.73,
+   "end": 199.007,
+   "text": "across the terrain."
+  },
+  {
+   "index": 56,
+   "start": 199.611,
+   "end": 201.666,
+   "text": "Kulik was searching for a meteorite."
+  },
+  {
+   "index": 57,
+   "start": 202.107,
+   "end": 208.016,
+   "text": "And a meteorite striking Earth with enormous force usually leaves clues: a crater,"
+  },
+  {
+   "index": 58,
+   "start": 208.191,
+   "end": 211.638,
+   "text": "scattered material, and a disturbed geological surface."
+  },
+  {
+   "index": 59,
+   "start": 212.021,
+   "end": 216.236,
+   "text": "Yet there was no great impact crater to match the scale of the destruction."
+  },
+  {
+   "index": 60,
+   "start": 216.514,
+   "end": 218.929,
+   "text": "The contrast was difficult to explain."
+  },
+  {
+   "index": 61,
+   "start": 219.208,
+   "end": 222.401,
+   "text": "The evidence pointed to a cosmic catastrophe."
+  },
+  {
+   "index": 62,
+   "start": 222.679,
+   "end": 227.532,
+   "text": "The ground did not show the kind of collision scar the expedition had expected."
+  },
+  {
+   "index": 63,
+   "start": 228.043,
+   "end": 229.68,
+   "text": "Here is the essential difference."
+  },
+  {
+   "index": 64,
+   "start": 230.005,
+   "end": 234.254,
+   "text": "An asteroid does not have to hit the ground to do immense damage."
+  },
+  {
+   "index": 65,
+   "start": 235.067,
+   "end": 238.991,
+   "text": "When a space rock enters Earth's atmosphere at tremendous speed,"
+  },
+  {
+   "index": 66,
+   "start": 239.374,
+   "end": 241.615,
+   "text": "the air in front of it compresses."
+  },
+  {
+   "index": 67,
+   "start": 242.312,
+   "end": 244.993,
+   "text": "Stress builds inside the object."
+  },
+  {
+   "index": 68,
+   "start": 245.504,
+   "end": 249.684,
+   "text": "It may fragment and release a large fraction of its energy in the sky."
+  },
+  {
+   "index": 69,
+   "start": 250.288,
+   "end": 252.691,
+   "text": "Scientists call this an airburst."
+  },
+  {
+   "index": 70,
+   "start": 253.202,
+   "end": 257.486,
+   "text": "Picture the incoming body now, not as a giant movie asteroid,"
+  },
+  {
+   "index": 71,
+   "start": 257.765,
+   "end": 260.679,
+   "text": "but as an object perhaps tens of metres across."
+  },
+  {
+   "index": 72,
+   "start": 261.12,
+   "end": 263.071,
+   "text": "It plunges into the atmosphere."
+  },
+  {
+   "index": 73,
+   "start": 263.396,
+   "end": 264.638,
+   "text": "Pressure rises."
+  },
+  {
+   "index": 74,
+   "start": 264.766,
+   "end": 266.333,
+   "text": "The body breaks apart."
+  },
+  {
+   "index": 75,
+   "start": 266.716,
+   "end": 270.222,
+   "text": "A brilliant fireball expands kilometres above the forest."
+  },
+  {
+   "index": 76,
+   "start": 270.547,
+   "end": 275.029,
+   "text": "A powerful shock wave moves out from that point and reaches the ground."
+  },
+  {
+   "index": 77,
+   "start": 275.54,
+   "end": 279.116,
+   "text": "The pressure pushes against the trees, breaks branches,"
+  },
+  {
+   "index": 78,
+   "start": 279.162,
+   "end": 282.134,
+   "text": "and can flatten entire stands of forest."
+  },
+  {
+   "index": 79,
+   "start": 282.413,
+   "end": 286.929,
+   "text": "The surface is devastated even though the main explosion took place above it."
+  },
+  {
+   "index": 80,
+   "start": 287.37,
+   "end": 289.576,
+   "text": "No enormous crater is required."
+  },
+  {
+   "index": 81,
+   "start": 290.017,
+   "end": 291.91,
+   "text": "How powerful was this event?"
+  },
+  {
+   "index": 82,
+   "start": 292.351,
+   "end": 294.696,
+   "text": "The exact value is not known."
+  },
+  {
+   "index": 83,
+   "start": 295.079,
+   "end": 299.839,
+   "text": "Scientific models examined in a NASA-associated workshop explored energies"
+  },
+  {
+   "index": 84,
+   "start": 299.909,
+   "end": 302.707,
+   "text": "of roughly ten to twenty megatons of TNT"
+  },
+  {
+   "index": 85,
+   "start": 303.311,
+   "end": 307.548,
+   "text": "and scenarios involving a stony body several dozen metres wide."
+  },
+  {
+   "index": 86,
+   "start": 308.059,
+   "end": 310.579,
+   "text": "Those figures are model-dependent estimates,"
+  },
+  {
+   "index": 87,
+   "start": 310.637,
+   "end": 313.307,
+   "text": "not measurements captured in nineteen oh eight."
+  },
+  {
+   "index": 88,
+   "start": 314.004,
+   "end": 319.274,
+   "text": "NASA's Earth Observatory also describes a likely burst altitude of roughly six"
+  },
+  {
+   "index": 89,
+   "start": 319.332,
+   "end": 320.621,
+   "text": "to ten kilometres."
+  },
+  {
+   "index": 90,
+   "start": 321.062,
+   "end": 326.612,
+   "text": "The precise path, size, composition, and energy remain uncertain."
+  },
+  {
+   "index": 91,
+   "start": 326.612,
+   "end": 329.445,
+   "text": "The trees themselves help explain the physics."
+  },
+  {
+   "index": 92,
+   "start": 330.049,
+   "end": 334.902,
+   "text": "The burst created a complex field of pressure, heat, and fast-moving air."
+  },
+  {
+   "index": 93,
+   "start": 335.505,
+   "end": 339.708,
+   "text": "Areas away from the center experienced strong outward forces."
+  },
+  {
+   "index": 94,
+   "start": 340.219,
+   "end": 341.984,
+   "text": "Very close to the central region,"
+  },
+  {
+   "index": 95,
+   "start": 342.111,
+   "end": 346.372,
+   "text": "some trunks remained standing even after branches and bark were stripped away."
+  },
+  {
+   "index": 96,
+   "start": 347.185,
+   "end": 351.504,
+   "text": "The resulting treefall pattern, reconstructed from field surveys,"
+  },
+  {
+   "index": 97,
+   "start": 351.783,
+   "end": 355.776,
+   "text": "helped scientists test how an airburst could have happened."
+  },
+  {
+   "index": 98,
+   "start": 356.38,
+   "end": 359.247,
+   "text": "This is why an absence can be evidence."
+  },
+  {
+   "index": 99,
+   "start": 359.851,
+   "end": 363.903,
+   "text": "The missing crater does not prove that nothing arrived from space."
+  },
+  {
+   "index": 100,
+   "start": 364.147,
+   "end": 367.049,
+   "text": "It helps reveal where the energy was released."
+  },
+  {
+   "index": 101,
+   "start": 367.653,
+   "end": 371.821,
+   "text": "Over the decades, researchers have explored other possibilities."
+  },
+  {
+   "index": 102,
+   "start": 372.146,
+   "end": 374.573,
+   "text": "Some have asked whether fragments might have produced"
+  },
+  {
+   "index": 103,
+   "start": 374.619,
+   "end": 376.755,
+   "text": "a small crater near Lake Cheko."
+  },
+  {
+   "index": 104,
+   "start": 377.266,
+   "end": 381.434,
+   "text": "Others have studied tiny particles, the forest's growth history,"
+  },
+  {
+   "index": 105,
+   "start": 381.643,
+   "end": 383.954,
+   "text": "and different simulated flight paths."
+  },
+  {
+   "index": 106,
+   "start": 384.337,
+   "end": 386.206,
+   "text": "These questions are still debated."
+  },
+  {
+   "index": 107,
+   "start": 386.531,
+   "end": 391.535,
+   "text": "But they do not overturn the main scientific picture: the Tunguska destruction"
+  },
+  {
+   "index": 108,
+   "start": 391.593,
+   "end": 397.34,
+   "text": "was most likely caused by an incoming cosmic object exploding in the atmosphere."
+  },
+  {
+   "index": 109,
+   "start": 397.944,
+   "end": 401.159,
+   "text": "And we now have a much more recent example of an airburst."
+  },
+  {
+   "index": 110,
+   "start": 401.67,
+   "end": 403.714,
+   "text": "In February twenty thirteen,"
+  },
+  {
+   "index": 111,
+   "start": 403.923,
+   "end": 407.685,
+   "text": "a smaller asteroid exploded over Chelyabinsk, Russia."
+  },
+  {
+   "index": 112,
+   "start": 408.196,
+   "end": 410.703,
+   "text": "That event was captured on modern cameras,"
+  },
+  {
+   "index": 113,
+   "start": 410.819,
+   "end": 414.221,
+   "text": "and its shock wave shattered windows and injured people."
+  },
+  {
+   "index": 114,
+   "start": 414.825,
+   "end": 418.981,
+   "text": "It was not Tunguska, and the footage must never be labelled as such."
+  },
+  {
+   "index": 115,
+   "start": 419.492,
+   "end": 423.776,
+   "text": "But it demonstrates that an object can release dangerous energy in the air,"
+  },
+  {
+   "index": 116,
+   "start": 423.869,
+   "end": 426.585,
+   "text": "without digging an enormous hole in the ground."
+  },
+  {
+   "index": 117,
+   "start": 427.189,
+   "end": 430.556,
+   "text": "Return now to the Landsat image from twenty twenty-four."
+  },
+  {
+   "index": 118,
+   "start": 431.067,
+   "end": 435.339,
+   "text": "What was once a vast field of damaged trees is mostly forest again."
+  },
+  {
+   "index": 119,
+   "start": 435.85,
+   "end": 439.391,
+   "text": "The evidence that surprised Kulik is harder to see from above."
+  },
+  {
+   "index": 120,
+   "start": 439.774,
+   "end": 441.887,
+   "text": "But the scientific lesson remains."
+  },
+  {
+   "index": 121,
+   "start": 442.213,
+   "end": 446.798,
+   "text": "Space objects do not always need to reach the ground to change the landscape."
+  },
+  {
+   "index": 122,
+   "start": 447.309,
+   "end": 451.094,
+   "text": "This is one reason astronomers track near-Earth asteroids and work"
+  },
+  {
+   "index": 123,
+   "start": 451.164,
+   "end": 456.365,
+   "text": "on planetary defense: we want to identify hazardous objects before they arrive."
+  },
+  {
+   "index": 124,
+   "start": 456.876,
+   "end": 461.288,
+   "text": "On that morning in nineteen oh eight, the sky flashed, the forest fell,"
+  },
+  {
+   "index": 125,
+   "start": 461.462,
+   "end": 463.401,
+   "text": "and the great crater never appeared."
+  },
+  {
+   "index": 126,
+   "start": 463.842,
+   "end": 468.497,
+   "text": "A century later, the strongest explanation is not a hidden spaceship,"
+  },
+  {
+   "index": 127,
+   "start": 468.613,
+   "end": 471.678,
+   "text": "a mystery weapon, or a hole no one has found."
+  },
+  {
+   "index": 128,
+   "start": 471.957,
+   "end": 476.984,
+   "text": "It is something more unsettling, and more real: an explosion in the sky,"
+  },
+  {
+   "index": 129,
+   "start": 477.135,
+   "end": 479.817,
+   "text": "powerful enough to reshape the Earth below."
+  },
+  {
+   "index": 130,
+   "start": 480.142,
+   "end": 483.288,
+   "text": "The object did not need to strike the ground."
+  },
+  {
+   "index": 131,
+   "start": 483.613,
+   "end": 486.272,
+   "text": "The shock wave did the damage."
+  }
+ ],
+ "files": {
+  "srt": "captions.srt",
+  "vtt": "captions.vtt"
+ }
+}

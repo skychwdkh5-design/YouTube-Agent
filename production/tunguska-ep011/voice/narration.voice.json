@@ -1,0 +1,5745 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "narration.wav",
+ "audio_format": "wav",
+ "audio_sha256": "f48a10cd4b1553dbb916928c822264ad49a4280ecf8e1c01c416d250bd73df4c",
+ "duration": 486.272,
+ "characters": 7051,
+ "text": "Imagine standing in a quiet Siberian forest just after sunrise. The air is still. The trees stretch to the horizon. Then something brighter than the Sun tears across the sky. Seconds later, a tremendous blast sends a shock wave racing through the forest. Trees snap. The ground trembles. And in a moment, an enormous area of taiga is devastated.\n\nBut here is the strange part. When scientists eventually reached the site, they did not find the giant crater they expected. How could an explosion devastate so much forest, without a giant rock striking the ground? This is the story of Tunguska, and the missing crater is the clue that unlocks it.\n\nTo see the mystery, start with a modern image. In July 2024, NASA's Landsat 8 satellite photographed the region in central Siberia. From orbit, it looks almost peaceful: green forest, rivers, and patches of wetland. The scar from the disaster is no longer obvious. Now imagine rewinding this landscape more than a century, to the morning of June thirtieth, nineteen oh eight.\n\nThis is a remote part of what is now Russia's Krasnoyarsk region, near the Podkamennaya Tunguska River. The Evenki people lived and travelled across this enormous landscape. A few witnesses later described a powerful light in the sky, followed by thunderous noises, intense heat, and a violent blast. Some reports were written down much later, so scientists treat the details carefully. But there is no serious doubt that a catastrophic event occurred.\n\nThe atmosphere itself became part of the disaster. As the shock wave travelled outward, it damaged a vast area of forest. Later surveys mapped a broad, irregular pattern of trees knocked to the ground. The most commonly cited affected area is about two thousand square kilometres. That is not the footprint of one fallen tree, or a local fire. It is landscape-scale destruction. And no camera recorded the event as it happened. Every moving image of the explosion you see here is a reconstruction.\n\nFor years, the exact location remained difficult to investigate. The distance was formidable, access was limited, and the early twentieth century brought war, revolution, and civil conflict. The Russian mineralogist Leonid Kulik tried to reach the site in nineteen twenty-one, but was unable to get all the way there. He finally reached the devastated region in nineteen twenty-seven, almost nineteen years after the explosion.\n\nImagine what the expedition encountered. Long rows of fallen trunks. Broken, burned, and stripped trees. Even in photographs taken in nineteen twenty-nine, the extraordinary damage is unmistakable. In some parts of the forest, the fallen trees pointed generally away from the central area. Near the center, other trunks were still standing, but with their branches torn away, like telegraph poles. The distribution was more complicated than a perfect circle. But it told investigators that a powerful pressure wave had swept across the terrain.\n\nKulik was searching for a meteorite. And a meteorite striking Earth with enormous force usually leaves clues: a crater, scattered material, and a disturbed geological surface. Yet there was no great impact crater to match the scale of the destruction. The contrast was difficult to explain. The evidence pointed to a cosmic catastrophe. The ground did not show the kind of collision scar the expedition had expected.\n\nHere is the essential difference. An asteroid does not have to hit the ground to do immense damage. When a space rock enters Earth's atmosphere at tremendous speed, the air in front of it compresses. Stress builds inside the object. It may fragment and release a large fraction of its energy in the sky. Scientists call this an airburst.\n\nPicture the incoming body now, not as a giant movie asteroid, but as an object perhaps tens of metres across. It plunges into the atmosphere. Pressure rises. The body breaks apart. A brilliant fireball expands kilometres above the forest. A powerful shock wave moves out from that point and reaches the ground. The pressure pushes against the trees, breaks branches, and can flatten entire stands of forest. The surface is devastated even though the main explosion took place above it. No enormous crater is required.\n\nHow powerful was this event? The exact value is not known. Scientific models examined in a NASA-associated workshop explored energies of roughly ten to twenty megatons of TNT and scenarios involving a stony body several dozen metres wide. Those figures are model-dependent estimates, not measurements captured in nineteen oh eight. NASA's Earth Observatory also describes a likely burst altitude of roughly six to ten kilometres. The precise path, size, composition, and energy remain uncertain.\n\nThe trees themselves help explain the physics. The burst created a complex field of pressure, heat, and fast-moving air. Areas away from the center experienced strong outward forces. Very close to the central region, some trunks remained standing even after branches and bark were stripped away. The resulting treefall pattern, reconstructed from field surveys, helped scientists test how an airburst could have happened. This is why an absence can be evidence. The missing crater does not prove that nothing arrived from space. It helps reveal where the energy was released.\n\nOver the decades, researchers have explored other possibilities. Some have asked whether fragments might have produced a small crater near Lake Cheko. Others have studied tiny particles, the forest's growth history, and different simulated flight paths. These questions are still debated. But they do not overturn the main scientific picture: the Tunguska destruction was most likely caused by an incoming cosmic object exploding in the atmosphere.\n\nAnd we now have a much more recent example of an airburst. In February twenty thirteen, a smaller asteroid exploded over Chelyabinsk, Russia. That event was captured on modern cameras, and its shock wave shattered windows and injured people. It was not Tunguska, and the footage must never be labelled as such. But it demonstrates that an object can release dangerous energy in the air, without digging an enormous hole in the ground.\n\nReturn now to the Landsat image from twenty twenty-four. What was once a vast field of damaged trees is mostly forest again. The evidence that surprised Kulik is harder to see from above. But the scientific lesson remains. Space objects do not always need to reach the ground to change the landscape. This is one reason astronomers track near-Earth asteroids and work on planetary defense: we want to identify hazardous objects before they arrive.\n\nOn that morning in nineteen oh eight, the sky flashed, the forest fell, and the great crater never appeared. A century later, the strongest explanation is not a hidden spaceship, a mystery weapon, or a hole no one has found. It is something more unsettling, and more real: an explosion in the sky, powerful enough to reshape the Earth below. The object did not need to strike the ground. The shock wave did the damage.",
+ "text_sha256": "eb4ca0d8ce1abf5c0fa277b624ceac0de7c10d3a3bfa16d56e9454cc9eff0700",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 2404,
+   "offset": 0.0,
+   "duration": 163.747,
+   "timing": true
+  },
+  {
+   "index": 1,
+   "characters": 2317,
+   "offset": 163.747,
+   "duration": 162.865,
+   "timing": true
+  },
+  {
+   "index": 2,
+   "characters": 2330,
+   "offset": 326.612,
+   "duration": 159.66,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "Imagine",
+   "start": 0.0,
+   "end": 0.522
+  },
+  {
+   "text": "standing",
+   "start": 0.58,
+   "end": 1.057
+  },
+  {
+   "text": "in",
+   "start": 1.126,
+   "end": 1.196
+  },
+  {
+   "text": "a",
+   "start": 1.242,
+   "end": 1.265
+  },
+  {
+   "text": "quiet",
+   "start": 1.335,
+   "end": 1.718
+  },
+  {
+   "text": "Siberian",
+   "start": 1.776,
+   "end": 2.403
+  },
+  {
+   "text": "forest",
+   "start": 2.485,
+   "end": 2.914
+  },
+  {
+   "text": "just",
+   "start": 3.007,
+   "end": 3.262
+  },
+  {
+   "text": "after",
+   "start": 3.32,
+   "end": 3.564
+  },
+  {
+   "text": "sunrise.",
+   "start": 3.622,
+   "end": 4.458
+  },
+  {
+   "text": "The",
+   "start": 4.609,
+   "end": 4.737
+  },
+  {
+   "text": "air",
+   "start": 4.818,
+   "end": 5.027
+  },
+  {
+   "text": "is",
+   "start": 5.097,
+   "end": 5.178
+  },
+  {
+   "text": "still.",
+   "start": 5.224,
+   "end": 5.805
+  },
+  {
+   "text": "The",
+   "start": 6.13,
+   "end": 6.258
+  },
+  {
+   "text": "trees",
+   "start": 6.316,
+   "end": 6.769
+  },
+  {
+   "text": "stretch",
+   "start": 6.861,
+   "end": 7.221
+  },
+  {
+   "text": "to",
+   "start": 7.291,
+   "end": 7.361
+  },
+  {
+   "text": "the",
+   "start": 7.419,
+   "end": 7.488
+  },
+  {
+   "text": "horizon.",
+   "start": 7.546,
+   "end": 8.348
+  },
+  {
+   "text": "Then",
+   "start": 8.557,
+   "end": 8.777
+  },
+  {
+   "text": "something",
+   "start": 8.87,
+   "end": 9.242
+  },
+  {
+   "text": "brighter",
+   "start": 9.334,
+   "end": 9.729
+  },
+  {
+   "text": "than",
+   "start": 9.787,
+   "end": 9.938
+  },
+  {
+   "text": "the",
+   "start": 10.008,
+   "end": 10.077
+  },
+  {
+   "text": "Sun",
+   "start": 10.147,
+   "end": 10.542
+  },
+  {
+   "text": "tears",
+   "start": 10.623,
+   "end": 11.064
+  },
+  {
+   "text": "across",
+   "start": 11.111,
+   "end": 11.459
+  },
+  {
+   "text": "the",
+   "start": 11.505,
+   "end": 11.575
+  },
+  {
+   "text": "sky.",
+   "start": 11.61,
+   "end": 12.272
+  },
+  {
+   "text": "Seconds",
+   "start": 12.713,
+   "end": 13.108
+  },
+  {
+   "text": "later,",
+   "start": 13.166,
+   "end": 13.491
+  },
+  {
+   "text": "a",
+   "start": 13.526,
+   "end": 13.56
+  },
+  {
+   "text": "tremendous",
+   "start": 13.618,
+   "end": 14.141
+  },
+  {
+   "text": "blast",
+   "start": 14.211,
+   "end": 14.803
+  },
+  {
+   "text": "sends",
+   "start": 14.896,
+   "end": 15.255
+  },
+  {
+   "text": "a",
+   "start": 15.314,
+   "end": 15.348
+  },
+  {
+   "text": "shock",
+   "start": 15.441,
+   "end": 15.778
+  },
+  {
+   "text": "wave",
+   "start": 15.871,
+   "end": 16.254
+  },
+  {
+   "text": "racing",
+   "start": 16.324,
+   "end": 16.707
+  },
+  {
+   "text": "through",
+   "start": 16.765,
+   "end": 16.997
+  },
+  {
+   "text": "the",
+   "start": 17.032,
+   "end": 17.102
+  },
+  {
+   "text": "forest.",
+   "start": 17.171,
+   "end": 17.821
+  },
+  {
+   "text": "Trees",
+   "start": 18.065,
+   "end": 18.483
+  },
+  {
+   "text": "snap.",
+   "start": 18.576,
+   "end": 19.249
+  },
+  {
+   "text": "The",
+   "start": 19.493,
+   "end": 19.609
+  },
+  {
+   "text": "ground",
+   "start": 19.656,
+   "end": 20.004
+  },
+  {
+   "text": "trembles.",
+   "start": 20.062,
+   "end": 20.828
+  },
+  {
+   "text": "And",
+   "start": 21.002,
+   "end": 21.177
+  },
+  {
+   "text": "in",
+   "start": 21.246,
+   "end": 21.316
+  },
+  {
+   "text": "a",
+   "start": 21.362,
+   "end": 21.386
+  },
+  {
+   "text": "moment,",
+   "start": 21.444,
+   "end": 21.989
+  },
+  {
+   "text": "an",
+   "start": 22.082,
+   "end": 22.222
+  },
+  {
+   "text": "enormous",
+   "start": 22.291,
+   "end": 22.872
+  },
+  {
+   "text": "area",
+   "start": 22.953,
+   "end": 23.336
+  },
+  {
+   "text": "of",
+   "start": 23.417,
+   "end": 23.499
+  },
+  {
+   "text": "taiga",
+   "start": 23.568,
+   "end": 23.998
+  },
+  {
+   "text": "is",
+   "start": 24.068,
+   "end": 24.172
+  },
+  {
+   "text": "devastated.",
+   "start": 24.242,
+   "end": 25.089
+  },
+  {
+   "text": "But",
+   "start": 25.414,
+   "end": 25.565
+  },
+  {
+   "text": "here",
+   "start": 25.623,
+   "end": 25.867
+  },
+  {
+   "text": "is",
+   "start": 25.913,
+   "end": 25.995
+  },
+  {
+   "text": "the",
+   "start": 26.064,
+   "end": 26.134
+  },
+  {
+   "text": "strange",
+   "start": 26.192,
+   "end": 26.68
+  },
+  {
+   "text": "part.",
+   "start": 26.738,
+   "end": 27.307
+  },
+  {
+   "text": "When",
+   "start": 27.632,
+   "end": 27.818
+  },
+  {
+   "text": "scientists",
+   "start": 27.876,
+   "end": 28.607
+  },
+  {
+   "text": "eventually",
+   "start": 28.7,
+   "end": 29.315
+  },
+  {
+   "text": "reached",
+   "start": 29.385,
+   "end": 29.675
+  },
+  {
+   "text": "the",
+   "start": 29.71,
+   "end": 29.78
+  },
+  {
+   "text": "site,",
+   "start": 29.838,
+   "end": 30.395
+  },
+  {
+   "text": "they",
+   "start": 30.72,
+   "end": 30.859
+  },
+  {
+   "text": "did",
+   "start": 30.894,
+   "end": 31.01
+  },
+  {
+   "text": "not",
+   "start": 31.068,
+   "end": 31.219
+  },
+  {
+   "text": "find",
+   "start": 31.277,
+   "end": 31.544
+  },
+  {
+   "text": "the",
+   "start": 31.591,
+   "end": 31.66
+  },
+  {
+   "text": "giant",
+   "start": 31.73,
+   "end": 32.078
+  },
+  {
+   "text": "crater",
+   "start": 32.136,
+   "end": 32.45
+  },
+  {
+   "text": "they",
+   "start": 32.496,
+   "end": 32.635
+  },
+  {
+   "text": "expected.",
+   "start": 32.705,
+   "end": 33.471
+  },
+  {
+   "text": "How",
+   "start": 33.854,
+   "end": 34.005
+  },
+  {
+   "text": "could",
+   "start": 34.052,
+   "end": 34.203
+  },
+  {
+   "text": "an",
+   "start": 34.238,
+   "end": 34.307
+  },
+  {
+   "text": "explosion",
+   "start": 34.365,
+   "end": 35.004
+  },
+  {
+   "text": "devastate",
+   "start": 35.074,
+   "end": 35.608
+  },
+  {
+   "text": "so",
+   "start": 35.642,
+   "end": 35.759
+  },
+  {
+   "text": "much",
+   "start": 35.828,
+   "end": 36.002
+  },
+  {
+   "text": "forest,",
+   "start": 36.072,
+   "end": 36.664
+  },
+  {
+   "text": "without",
+   "start": 36.815,
+   "end": 37.128
+  },
+  {
+   "text": "a",
+   "start": 37.163,
+   "end": 37.187
+  },
+  {
+   "text": "giant",
+   "start": 37.256,
+   "end": 37.593
+  },
+  {
+   "text": "rock",
+   "start": 37.674,
+   "end": 37.988
+  },
+  {
+   "text": "striking",
+   "start": 38.069,
+   "end": 38.498
+  },
+  {
+   "text": "the",
+   "start": 38.557,
+   "end": 38.626
+  },
+  {
+   "text": "ground?",
+   "start": 38.661,
+   "end": 39.334
+  },
+  {
+   "text": "This",
+   "start": 40.031,
+   "end": 40.217
+  },
+  {
+   "text": "is",
+   "start": 40.275,
+   "end": 40.356
+  },
+  {
+   "text": "the",
+   "start": 40.414,
+   "end": 40.484
+  },
+  {
+   "text": "story",
+   "start": 40.542,
+   "end": 40.937
+  },
+  {
+   "text": "of",
+   "start": 40.995,
+   "end": 41.064
+  },
+  {
+   "text": "Tunguska,",
+   "start": 41.146,
+   "end": 42.039
+  },
+  {
+   "text": "and",
+   "start": 42.283,
+   "end": 42.423
+  },
+  {
+   "text": "the",
+   "start": 42.469,
+   "end": 42.539
+  },
+  {
+   "text": "missing",
+   "start": 42.585,
+   "end": 42.899
+  },
+  {
+   "text": "crater",
+   "start": 42.968,
+   "end": 43.328
+  },
+  {
+   "text": "is",
+   "start": 43.409,
+   "end": 43.502
+  },
+  {
+   "text": "the",
+   "start": 43.56,
+   "end": 43.63
+  },
+  {
+   "text": "clue",
+   "start": 43.7,
+   "end": 44.036
+  },
+  {
+   "text": "that",
+   "start": 44.083,
+   "end": 44.222
+  },
+  {
+   "text": "unlocks",
+   "start": 44.292,
+   "end": 44.779
+  },
+  {
+   "text": "it.",
+   "start": 44.837,
+   "end": 45.116
+  },
+  {
+   "text": "To",
+   "start": 45.557,
+   "end": 45.673
+  },
+  {
+   "text": "see",
+   "start": 45.743,
+   "end": 45.906
+  },
+  {
+   "text": "the",
+   "start": 45.94,
+   "end": 46.01
+  },
+  {
+   "text": "mystery,",
+   "start": 46.068,
+   "end": 46.742
+  },
+  {
+   "text": "start",
+   "start": 46.916,
+   "end": 47.183
+  },
+  {
+   "text": "with",
+   "start": 47.218,
+   "end": 47.334
+  },
+  {
+   "text": "a",
+   "start": 47.368,
+   "end": 47.403
+  },
+  {
+   "text": "modern",
+   "start": 47.461,
+   "end": 47.833
+  },
+  {
+   "text": "image.",
+   "start": 47.891,
+   "end": 48.437
+  },
+  {
+   "text": "In",
+   "start": 49.04,
+   "end": 49.168
+  },
+  {
+   "text": "July",
+   "start": 49.215,
+   "end": 49.528
+  },
+  {
+   "text": "2024,",
+   "start": 49.609,
+   "end": 50.631
+  },
+  {
+   "text": "NASA's",
+   "start": 50.84,
+   "end": 51.281
+  },
+  {
+   "text": "Landsat",
+   "start": 51.351,
+   "end": 51.873
+  },
+  {
+   "text": "8",
+   "start": 51.966,
+   "end": 52.14
+  },
+  {
+   "text": "satellite",
+   "start": 52.21,
+   "end": 52.802
+  },
+  {
+   "text": "photographed",
+   "start": 52.837,
+   "end": 53.441
+  },
+  {
+   "text": "the",
+   "start": 53.475,
+   "end": 53.545
+  },
+  {
+   "text": "region",
+   "start": 53.615,
+   "end": 54.01
+  },
+  {
+   "text": "in",
+   "start": 54.079,
+   "end": 54.172
+  },
+  {
+   "text": "central",
+   "start": 54.288,
+   "end": 54.66
+  },
+  {
+   "text": "Siberia.",
+   "start": 54.718,
+   "end": 55.623
+  },
+  {
+   "text": "From",
+   "start": 55.948,
+   "end": 56.134
+  },
+  {
+   "text": "orbit,",
+   "start": 56.215,
+   "end": 56.657
+  },
+  {
+   "text": "it",
+   "start": 56.68,
+   "end": 56.773
+  },
+  {
+   "text": "looks",
+   "start": 56.819,
+   "end": 57.051
+  },
+  {
+   "text": "almost",
+   "start": 57.109,
+   "end": 57.574
+  },
+  {
+   "text": "peaceful:",
+   "start": 57.643,
+   "end": 58.27
+  },
+  {
+   "text": "green",
+   "start": 58.595,
+   "end": 58.886
+  },
+  {
+   "text": "forest,",
+   "start": 58.967,
+   "end": 59.617
+  },
+  {
+   "text": "rivers,",
+   "start": 59.826,
+   "end": 60.337
+  },
+  {
+   "text": "and",
+   "start": 60.372,
+   "end": 60.546
+  },
+  {
+   "text": "patches",
+   "start": 60.627,
+   "end": 61.022
+  },
+  {
+   "text": "of",
+   "start": 61.068,
+   "end": 61.115
+  },
+  {
+   "text": "wetland.",
+   "start": 61.173,
+   "end": 61.881
+  },
+  {
+   "text": "The",
+   "start": 62.264,
+   "end": 62.369
+  },
+  {
+   "text": "scar",
+   "start": 62.415,
+   "end": 62.74
+  },
+  {
+   "text": "from",
+   "start": 62.798,
+   "end": 62.926
+  },
+  {
+   "text": "the",
+   "start": 62.972,
+   "end": 63.042
+  },
+  {
+   "text": "disaster",
+   "start": 63.088,
+   "end": 63.646
+  },
+  {
+   "text": "is",
+   "start": 63.739,
+   "end": 63.855
+  },
+  {
+   "text": "no",
+   "start": 63.924,
+   "end": 64.041
+  },
+  {
+   "text": "longer",
+   "start": 64.122,
+   "end": 64.435
+  },
+  {
+   "text": "obvious.",
+   "start": 64.505,
+   "end": 65.19
+  },
+  {
+   "text": "Now",
+   "start": 65.573,
+   "end": 65.747
+  },
+  {
+   "text": "imagine",
+   "start": 65.829,
+   "end": 66.293
+  },
+  {
+   "text": "rewinding",
+   "start": 66.351,
+   "end": 66.978
+  },
+  {
+   "text": "this",
+   "start": 67.036,
+   "end": 67.175
+  },
+  {
+   "text": "landscape",
+   "start": 67.257,
+   "end": 67.872
+  },
+  {
+   "text": "more",
+   "start": 67.93,
+   "end": 68.116
+  },
+  {
+   "text": "than",
+   "start": 68.151,
+   "end": 68.278
+  },
+  {
+   "text": "a",
+   "start": 68.313,
+   "end": 68.348
+  },
+  {
+   "text": "century,",
+   "start": 68.418,
+   "end": 69.126
+  },
+  {
+   "text": "to",
+   "start": 69.37,
+   "end": 69.474
+  },
+  {
+   "text": "the",
+   "start": 69.532,
+   "end": 69.602
+  },
+  {
+   "text": "morning",
+   "start": 69.66,
+   "end": 69.985
+  },
+  {
+   "text": "of",
+   "start": 70.043,
+   "end": 70.113
+  },
+  {
+   "text": "June",
+   "start": 70.206,
+   "end": 70.624
+  },
+  {
+   "text": "thirtieth,",
+   "start": 70.693,
+   "end": 71.285
+  },
+  {
+   "text": "nineteen",
+   "start": 71.343,
+   "end": 71.866
+  },
+  {
+   "text": "oh",
+   "start": 71.959,
+   "end": 72.168
+  },
+  {
+   "text": "eight.",
+   "start": 72.237,
+   "end": 72.725
+  },
+  {
+   "text": "This",
+   "start": 73.422,
+   "end": 73.607
+  },
+  {
+   "text": "is",
+   "start": 73.665,
+   "end": 73.758
+  },
+  {
+   "text": "a",
+   "start": 73.805,
+   "end": 73.828
+  },
+  {
+   "text": "remote",
+   "start": 73.909,
+   "end": 74.246
+  },
+  {
+   "text": "part",
+   "start": 74.292,
+   "end": 74.594
+  },
+  {
+   "text": "of",
+   "start": 74.641,
+   "end": 74.687
+  },
+  {
+   "text": "what",
+   "start": 74.734,
+   "end": 74.873
+  },
+  {
+   "text": "is",
+   "start": 74.919,
+   "end": 75.001
+  },
+  {
+   "text": "now",
+   "start": 75.07,
+   "end": 75.326
+  },
+  {
+   "text": "Russia's",
+   "start": 75.442,
+   "end": 75.825
+  },
+  {
+   "text": "Krasnoyarsk",
+   "start": 75.906,
+   "end": 76.789
+  },
+  {
+   "text": "region,",
+   "start": 76.858,
+   "end": 77.497
+  },
+  {
+   "text": "near",
+   "start": 77.775,
+   "end": 77.984
+  },
+  {
+   "text": "the",
+   "start": 78.042,
+   "end": 78.112
+  },
+  {
+   "text": "Podkamennaya",
+   "start": 78.182,
+   "end": 79.18
+  },
+  {
+   "text": "Tunguska",
+   "start": 79.273,
+   "end": 79.935
+  },
+  {
+   "text": "River.",
+   "start": 80.004,
+   "end": 80.48
+  },
+  {
+   "text": "The",
+   "start": 81.177,
+   "end": 81.305
+  },
+  {
+   "text": "Evenki",
+   "start": 81.386,
+   "end": 81.827
+  },
+  {
+   "text": "people",
+   "start": 81.897,
+   "end": 82.257
+  },
+  {
+   "text": "lived",
+   "start": 82.327,
+   "end": 82.675
+  },
+  {
+   "text": "and",
+   "start": 82.721,
+   "end": 82.826
+  },
+  {
+   "text": "travelled",
+   "start": 82.884,
+   "end": 83.36
+  },
+  {
+   "text": "across",
+   "start": 83.383,
+   "end": 83.766
+  },
+  {
+   "text": "this",
+   "start": 83.813,
+   "end": 83.952
+  },
+  {
+   "text": "enormous",
+   "start": 84.022,
+   "end": 84.451
+  },
+  {
+   "text": "landscape.",
+   "start": 84.509,
+   "end": 85.38
+  },
+  {
+   "text": "A",
+   "start": 85.891,
+   "end": 85.972
+  },
+  {
+   "text": "few",
+   "start": 86.054,
+   "end": 86.204
+  },
+  {
+   "text": "witnesses",
+   "start": 86.251,
+   "end": 86.762
+  },
+  {
+   "text": "later",
+   "start": 86.831,
+   "end": 87.075
+  },
+  {
+   "text": "described",
+   "start": 87.133,
+   "end": 87.621
+  },
+  {
+   "text": "a",
+   "start": 87.656,
+   "end": 87.679
+  },
+  {
+   "text": "powerful",
+   "start": 87.749,
+   "end": 88.201
+  },
+  {
+   "text": "light",
+   "start": 88.271,
+   "end": 88.48
+  },
+  {
+   "text": "in",
+   "start": 88.503,
+   "end": 88.561
+  },
+  {
+   "text": "the",
+   "start": 88.608,
+   "end": 88.677
+  },
+  {
+   "text": "sky,",
+   "start": 88.712,
+   "end": 89.374
+  },
+  {
+   "text": "followed",
+   "start": 89.49,
+   "end": 89.862
+  },
+  {
+   "text": "by",
+   "start": 89.896,
+   "end": 90.024
+  },
+  {
+   "text": "thunderous",
+   "start": 90.117,
+   "end": 90.593
+  },
+  {
+   "text": "noises,",
+   "start": 90.651,
+   "end": 91.127
+  },
+  {
+   "text": "intense",
+   "start": 91.162,
+   "end": 91.65
+  },
+  {
+   "text": "heat,",
+   "start": 91.696,
+   "end": 91.94
+  },
+  {
+   "text": "and",
+   "start": 91.975,
+   "end": 92.126
+  },
+  {
+   "text": "a",
+   "start": 92.184,
+   "end": 92.207
+  },
+  {
+   "text": "violent",
+   "start": 92.265,
+   "end": 92.683
+  },
+  {
+   "text": "blast.",
+   "start": 92.741,
+   "end": 93.507
+  },
+  {
+   "text": "Some",
+   "start": 94.018,
+   "end": 94.239
+  },
+  {
+   "text": "reports",
+   "start": 94.273,
+   "end": 94.657
+  },
+  {
+   "text": "were",
+   "start": 94.691,
+   "end": 94.819
+  },
+  {
+   "text": "written",
+   "start": 94.842,
+   "end": 95.074
+  },
+  {
+   "text": "down",
+   "start": 95.121,
+   "end": 95.318
+  },
+  {
+   "text": "much",
+   "start": 95.376,
+   "end": 95.562
+  },
+  {
+   "text": "later,",
+   "start": 95.632,
+   "end": 96.003
+  },
+  {
+   "text": "so",
+   "start": 96.05,
+   "end": 96.27
+  },
+  {
+   "text": "scientists",
+   "start": 96.386,
+   "end": 97.187
+  },
+  {
+   "text": "treat",
+   "start": 97.268,
+   "end": 97.547
+  },
+  {
+   "text": "the",
+   "start": 97.605,
+   "end": 97.675
+  },
+  {
+   "text": "details",
+   "start": 97.721,
+   "end": 98.232
+  },
+  {
+   "text": "carefully.",
+   "start": 98.29,
+   "end": 98.975
+  },
+  {
+   "text": "But",
+   "start": 99.184,
+   "end": 99.323
+  },
+  {
+   "text": "there",
+   "start": 99.358,
+   "end": 99.509
+  },
+  {
+   "text": "is",
+   "start": 99.556,
+   "end": 99.637
+  },
+  {
+   "text": "no",
+   "start": 99.695,
+   "end": 99.811
+  },
+  {
+   "text": "serious",
+   "start": 99.904,
+   "end": 100.333
+  },
+  {
+   "text": "doubt",
+   "start": 100.403,
+   "end": 100.705
+  },
+  {
+   "text": "that",
+   "start": 100.763,
+   "end": 100.914
+  },
+  {
+   "text": "a",
+   "start": 100.949,
+   "end": 100.972
+  },
+  {
+   "text": "catastrophic",
+   "start": 101.042,
+   "end": 101.785
+  },
+  {
+   "text": "event",
+   "start": 101.854,
+   "end": 102.203
+  },
+  {
+   "text": "occurred.",
+   "start": 102.249,
+   "end": 102.818
+  },
+  {
+   "text": "The",
+   "start": 103.143,
+   "end": 103.271
+  },
+  {
+   "text": "atmosphere",
+   "start": 103.352,
+   "end": 103.909
+  },
+  {
+   "text": "itself",
+   "start": 103.956,
+   "end": 104.443
+  },
+  {
+   "text": "became",
+   "start": 104.525,
+   "end": 104.873
+  },
+  {
+   "text": "part",
+   "start": 104.919,
+   "end": 105.094
+  },
+  {
+   "text": "of",
+   "start": 105.128,
+   "end": 105.175
+  },
+  {
+   "text": "the",
+   "start": 105.221,
+   "end": 105.291
+  },
+  {
+   "text": "disaster.",
+   "start": 105.349,
+   "end": 106.104
+  },
+  {
+   "text": "As",
+   "start": 106.429,
+   "end": 106.603
+  },
+  {
+   "text": "the",
+   "start": 106.661,
+   "end": 106.731
+  },
+  {
+   "text": "shock",
+   "start": 106.777,
+   "end": 107.032
+  },
+  {
+   "text": "wave",
+   "start": 107.114,
+   "end": 107.427
+  },
+  {
+   "text": "travelled",
+   "start": 107.462,
+   "end": 107.857
+  },
+  {
+   "text": "outward,",
+   "start": 107.892,
+   "end": 108.484
+  },
+  {
+   "text": "it",
+   "start": 108.658,
+   "end": 108.797
+  },
+  {
+   "text": "damaged",
+   "start": 108.855,
+   "end": 109.343
+  },
+  {
+   "text": "a",
+   "start": 109.401,
+   "end": 109.424
+  },
+  {
+   "text": "vast",
+   "start": 109.494,
+   "end": 109.888
+  },
+  {
+   "text": "area",
+   "start": 109.958,
+   "end": 110.341
+  },
+  {
+   "text": "of",
+   "start": 110.411,
+   "end": 110.481
+  },
+  {
+   "text": "forest.",
+   "start": 110.55,
+   "end": 111.189
+  },
+  {
+   "text": "Later",
+   "start": 111.793,
+   "end": 112.083
+  },
+  {
+   "text": "surveys",
+   "start": 112.153,
+   "end": 112.687
+  },
+  {
+   "text": "mapped",
+   "start": 112.768,
+   "end": 113.058
+  },
+  {
+   "text": "a",
+   "start": 113.093,
+   "end": 113.116
+  },
+  {
+   "text": "broad,",
+   "start": 113.186,
+   "end": 113.65
+  },
+  {
+   "text": "irregular",
+   "start": 113.697,
+   "end": 114.312
+  },
+  {
+   "text": "pattern",
+   "start": 114.382,
+   "end": 114.765
+  },
+  {
+   "text": "of",
+   "start": 114.8,
+   "end": 114.858
+  },
+  {
+   "text": "trees",
+   "start": 114.928,
+   "end": 115.345
+  },
+  {
+   "text": "knocked",
+   "start": 115.427,
+   "end": 115.74
+  },
+  {
+   "text": "to",
+   "start": 115.763,
+   "end": 115.821
+  },
+  {
+   "text": "the",
+   "start": 115.88,
+   "end": 115.949
+  },
+  {
+   "text": "ground.",
+   "start": 115.996,
+   "end": 116.634
+  },
+  {
+   "text": "The",
+   "start": 116.959,
+   "end": 117.075
+  },
+  {
+   "text": "most",
+   "start": 117.133,
+   "end": 117.331
+  },
+  {
+   "text": "commonly",
+   "start": 117.389,
+   "end": 117.865
+  },
+  {
+   "text": "cited",
+   "start": 117.934,
+   "end": 118.283
+  },
+  {
+   "text": "affected",
+   "start": 118.318,
+   "end": 118.712
+  },
+  {
+   "text": "area",
+   "start": 118.759,
+   "end": 119.072
+  },
+  {
+   "text": "is",
+   "start": 119.154,
+   "end": 119.246
+  },
+  {
+   "text": "about",
+   "start": 119.304,
+   "end": 119.56
+  },
+  {
+   "text": "two",
+   "start": 119.595,
+   "end": 119.746
+  },
+  {
+   "text": "thousand",
+   "start": 119.815,
+   "end": 120.233
+  },
+  {
+   "text": "square",
+   "start": 120.291,
+   "end": 120.616
+  },
+  {
+   "text": "kilometres.",
+   "start": 120.663,
+   "end": 121.522
+  },
+  {
+   "text": "That",
+   "start": 121.963,
+   "end": 122.137
+  },
+  {
+   "text": "is",
+   "start": 122.184,
+   "end": 122.253
+  },
+  {
+   "text": "not",
+   "start": 122.311,
+   "end": 122.451
+  },
+  {
+   "text": "the",
+   "start": 122.497,
+   "end": 122.567
+  },
+  {
+   "text": "footprint",
+   "start": 122.613,
+   "end": 123.078
+  },
+  {
+   "text": "of",
+   "start": 123.113,
+   "end": 123.171
+  },
+  {
+   "text": "one",
+   "start": 123.263,
+   "end": 123.472
+  },
+  {
+   "text": "fallen",
+   "start": 123.542,
+   "end": 123.925
+  },
+  {
+   "text": "tree,",
+   "start": 123.983,
+   "end": 124.517
+  },
+  {
+   "text": "or",
+   "start": 124.668,
+   "end": 124.842
+  },
+  {
+   "text": "a",
+   "start": 124.9,
+   "end": 124.924
+  },
+  {
+   "text": "local",
+   "start": 124.993,
+   "end": 125.295
+  },
+  {
+   "text": "fire.",
+   "start": 125.376,
+   "end": 125.957
+  },
+  {
+   "text": "It",
+   "start": 126.398,
+   "end": 126.526
+  },
+  {
+   "text": "is",
+   "start": 126.572,
+   "end": 126.654
+  },
+  {
+   "text": "landscape-scale",
+   "start": 126.735,
+   "end": 127.792
+  },
+  {
+   "text": "destruction.",
+   "start": 127.838,
+   "end": 128.581
+  },
+  {
+   "text": "And",
+   "start": 128.906,
+   "end": 129.069
+  },
+  {
+   "text": "no",
+   "start": 129.138,
+   "end": 129.243
+  },
+  {
+   "text": "camera",
+   "start": 129.324,
+   "end": 129.73
+  },
+  {
+   "text": "recorded",
+   "start": 129.789,
+   "end": 130.253
+  },
+  {
+   "text": "the",
+   "start": 130.299,
+   "end": 130.369
+  },
+  {
+   "text": "event",
+   "start": 130.439,
+   "end": 130.752
+  },
+  {
+   "text": "as",
+   "start": 130.81,
+   "end": 130.903
+  },
+  {
+   "text": "it",
+   "start": 130.961,
+   "end": 131.031
+  },
+  {
+   "text": "happened.",
+   "start": 131.077,
+   "end": 131.623
+  },
+  {
+   "text": "Every",
+   "start": 132.006,
+   "end": 132.285
+  },
+  {
+   "text": "moving",
+   "start": 132.343,
+   "end": 132.621
+  },
+  {
+   "text": "image",
+   "start": 132.691,
+   "end": 132.958
+  },
+  {
+   "text": "of",
+   "start": 132.993,
+   "end": 133.051
+  },
+  {
+   "text": "the",
+   "start": 133.097,
+   "end": 133.167
+  },
+  {
+   "text": "explosion",
+   "start": 133.237,
+   "end": 133.84
+  },
+  {
+   "text": "you",
+   "start": 133.898,
+   "end": 133.98
+  },
+  {
+   "text": "see",
+   "start": 134.049,
+   "end": 134.247
+  },
+  {
+   "text": "here",
+   "start": 134.305,
+   "end": 134.514
+  },
+  {
+   "text": "is",
+   "start": 134.583,
+   "end": 134.688
+  },
+  {
+   "text": "a",
+   "start": 134.746,
+   "end": 134.769
+  },
+  {
+   "text": "reconstruction.",
+   "start": 134.839,
+   "end": 135.814
+  },
+  {
+   "text": "For",
+   "start": 136.197,
+   "end": 136.348
+  },
+  {
+   "text": "years,",
+   "start": 136.418,
+   "end": 136.929
+  },
+  {
+   "text": "the",
+   "start": 136.952,
+   "end": 137.045
+  },
+  {
+   "text": "exact",
+   "start": 137.126,
+   "end": 137.498
+  },
+  {
+   "text": "location",
+   "start": 137.556,
+   "end": 138.078
+  },
+  {
+   "text": "remained",
+   "start": 138.148,
+   "end": 138.519
+  },
+  {
+   "text": "difficult",
+   "start": 138.577,
+   "end": 139.018
+  },
+  {
+   "text": "to",
+   "start": 139.053,
+   "end": 139.111
+  },
+  {
+   "text": "investigate.",
+   "start": 139.193,
+   "end": 140.052
+  },
+  {
+   "text": "The",
+   "start": 140.377,
+   "end": 140.493
+  },
+  {
+   "text": "distance",
+   "start": 140.551,
+   "end": 140.981
+  },
+  {
+   "text": "was",
+   "start": 141.016,
+   "end": 141.132
+  },
+  {
+   "text": "formidable,",
+   "start": 141.201,
+   "end": 141.921
+  },
+  {
+   "text": "access",
+   "start": 142.037,
+   "end": 142.56
+  },
+  {
+   "text": "was",
+   "start": 142.606,
+   "end": 142.734
+  },
+  {
+   "text": "limited,",
+   "start": 142.827,
+   "end": 143.454
+  },
+  {
+   "text": "and",
+   "start": 143.698,
+   "end": 143.837
+  },
+  {
+   "text": "the",
+   "start": 143.883,
+   "end": 143.953
+  },
+  {
+   "text": "early",
+   "start": 144.023,
+   "end": 144.278
+  },
+  {
+   "text": "twentieth",
+   "start": 144.336,
+   "end": 144.766
+  },
+  {
+   "text": "century",
+   "start": 144.801,
+   "end": 145.184
+  },
+  {
+   "text": "brought",
+   "start": 145.242,
+   "end": 145.509
+  },
+  {
+   "text": "war,",
+   "start": 145.567,
+   "end": 146.112
+  },
+  {
+   "text": "revolution,",
+   "start": 146.391,
+   "end": 147.169
+  },
+  {
+   "text": "and",
+   "start": 147.32,
+   "end": 147.54
+  },
+  {
+   "text": "civil",
+   "start": 147.657,
+   "end": 147.97
+  },
+  {
+   "text": "conflict.",
+   "start": 148.051,
+   "end": 148.783
+  },
+  {
+   "text": "The",
+   "start": 149.224,
+   "end": 149.34
+  },
+  {
+   "text": "Russian",
+   "start": 149.398,
+   "end": 149.712
+  },
+  {
+   "text": "mineralogist",
+   "start": 149.77,
+   "end": 150.489
+  },
+  {
+   "text": "Leonid",
+   "start": 150.582,
+   "end": 151.0
+  },
+  {
+   "text": "Kulik",
+   "start": 151.058,
+   "end": 151.511
+  },
+  {
+   "text": "tried",
+   "start": 151.894,
+   "end": 152.231
+  },
+  {
+   "text": "to",
+   "start": 152.266,
+   "end": 152.312
+  },
+  {
+   "text": "reach",
+   "start": 152.382,
+   "end": 152.579
+  },
+  {
+   "text": "the",
+   "start": 152.637,
+   "end": 152.707
+  },
+  {
+   "text": "site",
+   "start": 152.765,
+   "end": 153.055
+  },
+  {
+   "text": "in",
+   "start": 153.09,
+   "end": 153.16
+  },
+  {
+   "text": "nineteen",
+   "start": 153.218,
+   "end": 153.717
+  },
+  {
+   "text": "twenty-one,",
+   "start": 153.763,
+   "end": 154.704
+  },
+  {
+   "text": "but",
+   "start": 155.029,
+   "end": 155.191
+  },
+  {
+   "text": "was",
+   "start": 155.249,
+   "end": 155.366
+  },
+  {
+   "text": "unable",
+   "start": 155.447,
+   "end": 155.772
+  },
+  {
+   "text": "to",
+   "start": 155.795,
+   "end": 155.842
+  },
+  {
+   "text": "get",
+   "start": 155.888,
+   "end": 156.016
+  },
+  {
+   "text": "all",
+   "start": 156.062,
+   "end": 156.178
+  },
+  {
+   "text": "the",
+   "start": 156.225,
+   "end": 156.294
+  },
+  {
+   "text": "way",
+   "start": 156.341,
+   "end": 156.492
+  },
+  {
+   "text": "there.",
+   "start": 156.538,
+   "end": 157.049
+  },
+  {
+   "text": "He",
+   "start": 157.432,
+   "end": 157.548
+  },
+  {
+   "text": "finally",
+   "start": 157.618,
+   "end": 158.012
+  },
+  {
+   "text": "reached",
+   "start": 158.082,
+   "end": 158.349
+  },
+  {
+   "text": "the",
+   "start": 158.372,
+   "end": 158.442
+  },
+  {
+   "text": "devastated",
+   "start": 158.5,
+   "end": 159.046
+  },
+  {
+   "text": "region",
+   "start": 159.115,
+   "end": 159.487
+  },
+  {
+   "text": "in",
+   "start": 159.545,
+   "end": 159.626
+  },
+  {
+   "text": "nineteen",
+   "start": 159.684,
+   "end": 160.079
+  },
+  {
+   "text": "twenty-seven,",
+   "start": 160.126,
+   "end": 160.973
+  },
+  {
+   "text": "almost",
+   "start": 161.147,
+   "end": 161.484
+  },
+  {
+   "text": "nineteen",
+   "start": 161.542,
+   "end": 161.971
+  },
+  {
+   "text": "years",
+   "start": 162.03,
+   "end": 162.355
+  },
+  {
+   "text": "after",
+   "start": 162.413,
+   "end": 162.656
+  },
+  {
+   "text": "the",
+   "start": 162.703,
+   "end": 162.784
+  },
+  {
+   "text": "explosion.",
+   "start": 162.865,
+   "end": 163.748
+  },
+  {
+   "text": "Imagine",
+   "start": 163.747,
+   "end": 164.258
+  },
+  {
+   "text": "what",
+   "start": 164.293,
+   "end": 164.432
+  },
+  {
+   "text": "the",
+   "start": 164.467,
+   "end": 164.536
+  },
+  {
+   "text": "expedition",
+   "start": 164.629,
+   "end": 165.221
+  },
+  {
+   "text": "encountered.",
+   "start": 165.28,
+   "end": 165.976
+  },
+  {
+   "text": "Long",
+   "start": 166.417,
+   "end": 166.777
+  },
+  {
+   "text": "rows",
+   "start": 166.87,
+   "end": 167.334
+  },
+  {
+   "text": "of",
+   "start": 167.393,
+   "end": 167.451
+  },
+  {
+   "text": "fallen",
+   "start": 167.509,
+   "end": 167.869
+  },
+  {
+   "text": "trunks.",
+   "start": 167.927,
+   "end": 168.554
+  },
+  {
+   "text": "Broken,",
+   "start": 168.797,
+   "end": 169.378
+  },
+  {
+   "text": "burned,",
+   "start": 169.424,
+   "end": 169.947
+  },
+  {
+   "text": "and",
+   "start": 169.97,
+   "end": 170.086
+  },
+  {
+   "text": "stripped",
+   "start": 170.167,
+   "end": 170.539
+  },
+  {
+   "text": "trees.",
+   "start": 170.585,
+   "end": 171.375
+  },
+  {
+   "text": "Even",
+   "start": 171.758,
+   "end": 172.013
+  },
+  {
+   "text": "in",
+   "start": 172.06,
+   "end": 172.141
+  },
+  {
+   "text": "photographs",
+   "start": 172.222,
+   "end": 172.919
+  },
+  {
+   "text": "taken",
+   "start": 172.977,
+   "end": 173.267
+  },
+  {
+   "text": "in",
+   "start": 173.314,
+   "end": 173.383
+  },
+  {
+   "text": "nineteen",
+   "start": 173.453,
+   "end": 173.883
+  },
+  {
+   "text": "twenty-nine,",
+   "start": 173.929,
+   "end": 174.881
+  },
+  {
+   "text": "the",
+   "start": 175.09,
+   "end": 175.194
+  },
+  {
+   "text": "extraordinary",
+   "start": 175.252,
+   "end": 175.961
+  },
+  {
+   "text": "damage",
+   "start": 176.03,
+   "end": 176.46
+  },
+  {
+   "text": "is",
+   "start": 176.506,
+   "end": 176.599
+  },
+  {
+   "text": "unmistakable.",
+   "start": 176.692,
+   "end": 177.783
+  },
+  {
+   "text": "In",
+   "start": 178.109,
+   "end": 178.248
+  },
+  {
+   "text": "some",
+   "start": 178.318,
+   "end": 178.526
+  },
+  {
+   "text": "parts",
+   "start": 178.573,
+   "end": 178.84
+  },
+  {
+   "text": "of",
+   "start": 178.875,
+   "end": 178.933
+  },
+  {
+   "text": "the",
+   "start": 178.979,
+   "end": 179.049
+  },
+  {
+   "text": "forest,",
+   "start": 179.107,
+   "end": 179.676
+  },
+  {
+   "text": "the",
+   "start": 179.827,
+   "end": 179.931
+  },
+  {
+   "text": "fallen",
+   "start": 179.989,
+   "end": 180.373
+  },
+  {
+   "text": "trees",
+   "start": 180.431,
+   "end": 180.791
+  },
+  {
+   "text": "pointed",
+   "start": 180.872,
+   "end": 181.255
+  },
+  {
+   "text": "generally",
+   "start": 181.336,
+   "end": 181.777
+  },
+  {
+   "text": "away",
+   "start": 181.835,
+   "end": 182.091
+  },
+  {
+   "text": "from",
+   "start": 182.149,
+   "end": 182.3
+  },
+  {
+   "text": "the",
+   "start": 182.346,
+   "end": 182.416
+  },
+  {
+   "text": "central",
+   "start": 182.474,
+   "end": 182.892
+  },
+  {
+   "text": "area.",
+   "start": 182.973,
+   "end": 183.693
+  },
+  {
+   "text": "Near",
+   "start": 184.076,
+   "end": 184.285
+  },
+  {
+   "text": "the",
+   "start": 184.332,
+   "end": 184.401
+  },
+  {
+   "text": "center,",
+   "start": 184.459,
+   "end": 184.877
+  },
+  {
+   "text": "other",
+   "start": 184.924,
+   "end": 185.156
+  },
+  {
+   "text": "trunks",
+   "start": 185.202,
+   "end": 185.493
+  },
+  {
+   "text": "were",
+   "start": 185.539,
+   "end": 185.655
+  },
+  {
+   "text": "still",
+   "start": 185.69,
+   "end": 185.887
+  },
+  {
+   "text": "standing,",
+   "start": 185.945,
+   "end": 186.491
+  },
+  {
+   "text": "but",
+   "start": 186.526,
+   "end": 186.654
+  },
+  {
+   "text": "with",
+   "start": 186.688,
+   "end": 186.816
+  },
+  {
+   "text": "their",
+   "start": 186.851,
+   "end": 187.002
+  },
+  {
+   "text": "branches",
+   "start": 187.048,
+   "end": 187.501
+  },
+  {
+   "text": "torn",
+   "start": 187.571,
+   "end": 187.838
+  },
+  {
+   "text": "away,",
+   "start": 187.884,
+   "end": 188.291
+  },
+  {
+   "text": "like",
+   "start": 188.337,
+   "end": 188.511
+  },
+  {
+   "text": "telegraph",
+   "start": 188.546,
+   "end": 189.08
+  },
+  {
+   "text": "poles.",
+   "start": 189.127,
+   "end": 189.87
+  },
+  {
+   "text": "The",
+   "start": 190.311,
+   "end": 190.427
+  },
+  {
+   "text": "distribution",
+   "start": 190.473,
+   "end": 191.054
+  },
+  {
+   "text": "was",
+   "start": 191.112,
+   "end": 191.228
+  },
+  {
+   "text": "more",
+   "start": 191.309,
+   "end": 191.507
+  },
+  {
+   "text": "complicated",
+   "start": 191.553,
+   "end": 192.296
+  },
+  {
+   "text": "than",
+   "start": 192.342,
+   "end": 192.482
+  },
+  {
+   "text": "a",
+   "start": 192.517,
+   "end": 192.551
+  },
+  {
+   "text": "perfect",
+   "start": 192.621,
+   "end": 192.97
+  },
+  {
+   "text": "circle.",
+   "start": 193.028,
+   "end": 193.608
+  },
+  {
+   "text": "But",
+   "start": 194.05,
+   "end": 194.2
+  },
+  {
+   "text": "it",
+   "start": 194.235,
+   "end": 194.305
+  },
+  {
+   "text": "told",
+   "start": 194.34,
+   "end": 194.642
+  },
+  {
+   "text": "investigators",
+   "start": 194.7,
+   "end": 195.536
+  },
+  {
+   "text": "that",
+   "start": 195.594,
+   "end": 195.745
+  },
+  {
+   "text": "a",
+   "start": 195.779,
+   "end": 195.814
+  },
+  {
+   "text": "powerful",
+   "start": 195.872,
+   "end": 196.348
+  },
+  {
+   "text": "pressure",
+   "start": 196.406,
+   "end": 196.743
+  },
+  {
+   "text": "wave",
+   "start": 196.79,
+   "end": 197.126
+  },
+  {
+   "text": "had",
+   "start": 197.161,
+   "end": 197.3
+  },
+  {
+   "text": "swept",
+   "start": 197.37,
+   "end": 197.683
+  },
+  {
+   "text": "across",
+   "start": 197.73,
+   "end": 198.113
+  },
+  {
+   "text": "the",
+   "start": 198.171,
+   "end": 198.252
+  },
+  {
+   "text": "terrain.",
+   "start": 198.299,
+   "end": 199.007
+  },
+  {
+   "text": "Kulik",
+   "start": 199.611,
+   "end": 199.994
+  },
+  {
+   "text": "was",
+   "start": 200.052,
+   "end": 200.156
+  },
+  {
+   "text": "searching",
+   "start": 200.214,
+   "end": 200.563
+  },
+  {
+   "text": "for",
+   "start": 200.621,
+   "end": 200.725
+  },
+  {
+   "text": "a",
+   "start": 200.772,
+   "end": 200.795
+  },
+  {
+   "text": "meteorite.",
+   "start": 200.853,
+   "end": 201.666
+  },
+  {
+   "text": "And",
+   "start": 202.107,
+   "end": 202.281
+  },
+  {
+   "text": "a",
+   "start": 202.339,
+   "end": 202.362
+  },
+  {
+   "text": "meteorite",
+   "start": 202.42,
+   "end": 203.047
+  },
+  {
+   "text": "striking",
+   "start": 203.094,
+   "end": 203.5
+  },
+  {
+   "text": "Earth",
+   "start": 203.593,
+   "end": 203.86
+  },
+  {
+   "text": "with",
+   "start": 203.93,
+   "end": 204.081
+  },
+  {
+   "text": "enormous",
+   "start": 204.127,
+   "end": 204.58
+  },
+  {
+   "text": "force",
+   "start": 204.649,
+   "end": 205.288
+  },
+  {
+   "text": "usually",
+   "start": 205.404,
+   "end": 205.903
+  },
+  {
+   "text": "leaves",
+   "start": 205.973,
+   "end": 206.263
+  },
+  {
+   "text": "clues:",
+   "start": 206.333,
+   "end": 207.076
+  },
+  {
+   "text": "a",
+   "start": 207.285,
+   "end": 207.343
+  },
+  {
+   "text": "crater,",
+   "start": 207.436,
+   "end": 208.016
+  },
+  {
+   "text": "scattered",
+   "start": 208.191,
+   "end": 208.608
+  },
+  {
+   "text": "material,",
+   "start": 208.654,
+   "end": 209.351
+  },
+  {
+   "text": "and",
+   "start": 209.479,
+   "end": 209.665
+  },
+  {
+   "text": "a",
+   "start": 209.734,
+   "end": 209.757
+  },
+  {
+   "text": "disturbed",
+   "start": 209.815,
+   "end": 210.326
+  },
+  {
+   "text": "geological",
+   "start": 210.361,
+   "end": 210.976
+  },
+  {
+   "text": "surface.",
+   "start": 211.034,
+   "end": 211.638
+  },
+  {
+   "text": "Yet",
+   "start": 212.021,
+   "end": 212.184
+  },
+  {
+   "text": "there",
+   "start": 212.219,
+   "end": 212.37
+  },
+  {
+   "text": "was",
+   "start": 212.404,
+   "end": 212.509
+  },
+  {
+   "text": "no",
+   "start": 212.59,
+   "end": 212.741
+  },
+  {
+   "text": "great",
+   "start": 212.822,
+   "end": 213.055
+  },
+  {
+   "text": "impact",
+   "start": 213.124,
+   "end": 213.612
+  },
+  {
+   "text": "crater",
+   "start": 213.67,
+   "end": 214.018
+  },
+  {
+   "text": "to",
+   "start": 214.088,
+   "end": 214.169
+  },
+  {
+   "text": "match",
+   "start": 214.25,
+   "end": 214.506
+  },
+  {
+   "text": "the",
+   "start": 214.564,
+   "end": 214.645
+  },
+  {
+   "text": "scale",
+   "start": 214.715,
+   "end": 215.168
+  },
+  {
+   "text": "of",
+   "start": 215.214,
+   "end": 215.284
+  },
+  {
+   "text": "the",
+   "start": 215.342,
+   "end": 215.411
+  },
+  {
+   "text": "destruction.",
+   "start": 215.458,
+   "end": 216.236
+  },
+  {
+   "text": "The",
+   "start": 216.514,
+   "end": 216.63
+  },
+  {
+   "text": "contrast",
+   "start": 216.689,
+   "end": 217.35
+  },
+  {
+   "text": "was",
+   "start": 217.408,
+   "end": 217.559
+  },
+  {
+   "text": "difficult",
+   "start": 217.629,
+   "end": 218.047
+  },
+  {
+   "text": "to",
+   "start": 218.082,
+   "end": 218.14
+  },
+  {
+   "text": "explain.",
+   "start": 218.233,
+   "end": 218.929
+  },
+  {
+   "text": "The",
+   "start": 219.208,
+   "end": 219.336
+  },
+  {
+   "text": "evidence",
+   "start": 219.405,
+   "end": 219.846
+  },
+  {
+   "text": "pointed",
+   "start": 219.904,
+   "end": 220.369
+  },
+  {
+   "text": "to",
+   "start": 220.439,
+   "end": 220.543
+  },
+  {
+   "text": "a",
+   "start": 220.659,
+   "end": 220.694
+  },
+  {
+   "text": "cosmic",
+   "start": 220.81,
+   "end": 221.367
+  },
+  {
+   "text": "catastrophe.",
+   "start": 221.437,
+   "end": 222.401
+  },
+  {
+   "text": "The",
+   "start": 222.679,
+   "end": 222.795
+  },
+  {
+   "text": "ground",
+   "start": 222.853,
+   "end": 223.179
+  },
+  {
+   "text": "did",
+   "start": 223.237,
+   "end": 223.376
+  },
+  {
+   "text": "not",
+   "start": 223.434,
+   "end": 223.608
+  },
+  {
+   "text": "show",
+   "start": 223.678,
+   "end": 223.991
+  },
+  {
+   "text": "the",
+   "start": 224.107,
+   "end": 224.177
+  },
+  {
+   "text": "kind",
+   "start": 224.235,
+   "end": 224.514
+  },
+  {
+   "text": "of",
+   "start": 224.572,
+   "end": 224.63
+  },
+  {
+   "text": "collision",
+   "start": 224.711,
+   "end": 225.187
+  },
+  {
+   "text": "scar",
+   "start": 225.268,
+   "end": 225.686
+  },
+  {
+   "text": "the",
+   "start": 225.756,
+   "end": 225.849
+  },
+  {
+   "text": "expedition",
+   "start": 225.942,
+   "end": 226.557
+  },
+  {
+   "text": "had",
+   "start": 226.627,
+   "end": 226.754
+  },
+  {
+   "text": "expected.",
+   "start": 226.812,
+   "end": 227.532
+  },
+  {
+   "text": "Here",
+   "start": 228.043,
+   "end": 228.31
+  },
+  {
+   "text": "is",
+   "start": 228.356,
+   "end": 228.449
+  },
+  {
+   "text": "the",
+   "start": 228.496,
+   "end": 228.565
+  },
+  {
+   "text": "essential",
+   "start": 228.635,
+   "end": 229.018
+  },
+  {
+   "text": "difference.",
+   "start": 229.076,
+   "end": 229.68
+  },
+  {
+   "text": "An",
+   "start": 230.005,
+   "end": 230.156
+  },
+  {
+   "text": "asteroid",
+   "start": 230.226,
+   "end": 230.911
+  },
+  {
+   "text": "does",
+   "start": 230.957,
+   "end": 231.12
+  },
+  {
+   "text": "not",
+   "start": 231.178,
+   "end": 231.34
+  },
+  {
+   "text": "have",
+   "start": 231.398,
+   "end": 231.572
+  },
+  {
+   "text": "to",
+   "start": 231.607,
+   "end": 231.665
+  },
+  {
+   "text": "hit",
+   "start": 231.723,
+   "end": 231.863
+  },
+  {
+   "text": "the",
+   "start": 231.909,
+   "end": 231.979
+  },
+  {
+   "text": "ground",
+   "start": 232.025,
+   "end": 232.594
+  },
+  {
+   "text": "to",
+   "start": 232.803,
+   "end": 232.931
+  },
+  {
+   "text": "do",
+   "start": 233.0,
+   "end": 233.105
+  },
+  {
+   "text": "immense",
+   "start": 233.175,
+   "end": 233.523
+  },
+  {
+   "text": "damage.",
+   "start": 233.569,
+   "end": 234.254
+  },
+  {
+   "text": "When",
+   "start": 235.067,
+   "end": 235.253
+  },
+  {
+   "text": "a",
+   "start": 235.288,
+   "end": 235.311
+  },
+  {
+   "text": "space",
+   "start": 235.369,
+   "end": 235.694
+  },
+  {
+   "text": "rock",
+   "start": 235.752,
+   "end": 236.007
+  },
+  {
+   "text": "enters",
+   "start": 236.089,
+   "end": 236.414
+  },
+  {
+   "text": "Earth's",
+   "start": 236.495,
+   "end": 236.855
+  },
+  {
+   "text": "atmosphere",
+   "start": 236.925,
+   "end": 237.598
+  },
+  {
+   "text": "at",
+   "start": 237.644,
+   "end": 237.726
+  },
+  {
+   "text": "tremendous",
+   "start": 237.761,
+   "end": 238.283
+  },
+  {
+   "text": "speed,",
+   "start": 238.318,
+   "end": 238.991
+  },
+  {
+   "text": "the",
+   "start": 239.374,
+   "end": 239.49
+  },
+  {
+   "text": "air",
+   "start": 239.572,
+   "end": 239.897
+  },
+  {
+   "text": "in",
+   "start": 240.013,
+   "end": 240.117
+  },
+  {
+   "text": "front",
+   "start": 240.187,
+   "end": 240.384
+  },
+  {
+   "text": "of",
+   "start": 240.419,
+   "end": 240.477
+  },
+  {
+   "text": "it",
+   "start": 240.524,
+   "end": 240.605
+  },
+  {
+   "text": "compresses.",
+   "start": 240.663,
+   "end": 241.615
+  },
+  {
+   "text": "Stress",
+   "start": 242.312,
+   "end": 242.869
+  },
+  {
+   "text": "builds",
+   "start": 243.02,
+   "end": 243.565
+  },
+  {
+   "text": "inside",
+   "start": 243.623,
+   "end": 244.099
+  },
+  {
+   "text": "the",
+   "start": 244.134,
+   "end": 244.216
+  },
+  {
+   "text": "object.",
+   "start": 244.297,
+   "end": 244.993
+  },
+  {
+   "text": "It",
+   "start": 245.504,
+   "end": 245.644
+  },
+  {
+   "text": "may",
+   "start": 245.69,
+   "end": 245.818
+  },
+  {
+   "text": "fragment",
+   "start": 245.887,
+   "end": 246.468
+  },
+  {
+   "text": "and",
+   "start": 246.538,
+   "end": 246.654
+  },
+  {
+   "text": "release",
+   "start": 246.712,
+   "end": 247.072
+  },
+  {
+   "text": "a",
+   "start": 247.106,
+   "end": 247.141
+  },
+  {
+   "text": "large",
+   "start": 247.211,
+   "end": 247.548
+  },
+  {
+   "text": "fraction",
+   "start": 247.606,
+   "end": 248.024
+  },
+  {
+   "text": "of",
+   "start": 248.07,
+   "end": 248.117
+  },
+  {
+   "text": "its",
+   "start": 248.175,
+   "end": 248.302
+  },
+  {
+   "text": "energy",
+   "start": 248.372,
+   "end": 248.755
+  },
+  {
+   "text": "in",
+   "start": 248.813,
+   "end": 248.871
+  },
+  {
+   "text": "the",
+   "start": 248.918,
+   "end": 248.987
+  },
+  {
+   "text": "sky.",
+   "start": 249.022,
+   "end": 249.684
+  },
+  {
+   "text": "Scientists",
+   "start": 250.288,
+   "end": 251.147
+  },
+  {
+   "text": "call",
+   "start": 251.216,
+   "end": 251.437
+  },
+  {
+   "text": "this",
+   "start": 251.507,
+   "end": 251.669
+  },
+  {
+   "text": "an",
+   "start": 251.727,
+   "end": 251.797
+  },
+  {
+   "text": "airburst.",
+   "start": 251.867,
+   "end": 252.691
+  },
+  {
+   "text": "Picture",
+   "start": 253.202,
+   "end": 253.573
+  },
+  {
+   "text": "the",
+   "start": 253.608,
+   "end": 253.678
+  },
+  {
+   "text": "incoming",
+   "start": 253.759,
+   "end": 254.247
+  },
+  {
+   "text": "body",
+   "start": 254.305,
+   "end": 254.607
+  },
+  {
+   "text": "now,",
+   "start": 254.688,
+   "end": 255.187
+  },
+  {
+   "text": "not",
+   "start": 255.396,
+   "end": 255.582
+  },
+  {
+   "text": "as",
+   "start": 255.628,
+   "end": 255.698
+  },
+  {
+   "text": "a",
+   "start": 255.756,
+   "end": 255.779
+  },
+  {
+   "text": "giant",
+   "start": 255.849,
+   "end": 256.197
+  },
+  {
+   "text": "movie",
+   "start": 256.255,
+   "end": 256.557
+  },
+  {
+   "text": "asteroid,",
+   "start": 256.615,
+   "end": 257.486
+  },
+  {
+   "text": "but",
+   "start": 257.765,
+   "end": 257.927
+  },
+  {
+   "text": "as",
+   "start": 257.974,
+   "end": 258.067
+  },
+  {
+   "text": "an",
+   "start": 258.113,
+   "end": 258.183
+  },
+  {
+   "text": "object",
+   "start": 258.252,
+   "end": 258.694
+  },
+  {
+   "text": "perhaps",
+   "start": 258.752,
+   "end": 259.146
+  },
+  {
+   "text": "tens",
+   "start": 259.205,
+   "end": 259.483
+  },
+  {
+   "text": "of",
+   "start": 259.53,
+   "end": 259.588
+  },
+  {
+   "text": "metres",
+   "start": 259.646,
+   "end": 259.936
+  },
+  {
+   "text": "across.",
+   "start": 259.971,
+   "end": 260.679
+  },
+  {
+   "text": "It",
+   "start": 261.12,
+   "end": 261.271
+  },
+  {
+   "text": "plunges",
+   "start": 261.329,
+   "end": 261.828
+  },
+  {
+   "text": "into",
+   "start": 261.898,
+   "end": 262.084
+  },
+  {
+   "text": "the",
+   "start": 262.153,
+   "end": 262.223
+  },
+  {
+   "text": "atmosphere.",
+   "start": 262.304,
+   "end": 263.071
+  },
+  {
+   "text": "Pressure",
+   "start": 263.396,
+   "end": 263.837
+  },
+  {
+   "text": "rises.",
+   "start": 263.907,
+   "end": 264.638
+  },
+  {
+   "text": "The",
+   "start": 264.766,
+   "end": 264.893
+  },
+  {
+   "text": "body",
+   "start": 264.963,
+   "end": 265.253
+  },
+  {
+   "text": "breaks",
+   "start": 265.335,
+   "end": 265.648
+  },
+  {
+   "text": "apart.",
+   "start": 265.694,
+   "end": 266.333
+  },
+  {
+   "text": "A",
+   "start": 266.716,
+   "end": 266.797
+  },
+  {
+   "text": "brilliant",
+   "start": 266.867,
+   "end": 267.262
+  },
+  {
+   "text": "fireball",
+   "start": 267.32,
+   "end": 267.866
+  },
+  {
+   "text": "expands",
+   "start": 267.924,
+   "end": 268.434
+  },
+  {
+   "text": "kilometres",
+   "start": 268.492,
+   "end": 269.073
+  },
+  {
+   "text": "above",
+   "start": 269.119,
+   "end": 269.41
+  },
+  {
+   "text": "the",
+   "start": 269.445,
+   "end": 269.514
+  },
+  {
+   "text": "forest.",
+   "start": 269.572,
+   "end": 270.222
+  },
+  {
+   "text": "A",
+   "start": 270.547,
+   "end": 270.617
+  },
+  {
+   "text": "powerful",
+   "start": 270.698,
+   "end": 271.163
+  },
+  {
+   "text": "shock",
+   "start": 271.244,
+   "end": 271.534
+  },
+  {
+   "text": "wave",
+   "start": 271.616,
+   "end": 271.975
+  },
+  {
+   "text": "moves",
+   "start": 272.045,
+   "end": 272.37
+  },
+  {
+   "text": "out",
+   "start": 272.428,
+   "end": 272.602
+  },
+  {
+   "text": "from",
+   "start": 272.649,
+   "end": 272.8
+  },
+  {
+   "text": "that",
+   "start": 272.858,
+   "end": 273.009
+  },
+  {
+   "text": "point",
+   "start": 273.078,
+   "end": 273.415
+  },
+  {
+   "text": "and",
+   "start": 273.589,
+   "end": 273.775
+  },
+  {
+   "text": "reaches",
+   "start": 273.856,
+   "end": 274.216
+  },
+  {
+   "text": "the",
+   "start": 274.274,
+   "end": 274.344
+  },
+  {
+   "text": "ground.",
+   "start": 274.39,
+   "end": 275.029
+  },
+  {
+   "text": "The",
+   "start": 275.54,
+   "end": 275.668
+  },
+  {
+   "text": "pressure",
+   "start": 275.737,
+   "end": 276.132
+  },
+  {
+   "text": "pushes",
+   "start": 276.19,
+   "end": 276.561
+  },
+  {
+   "text": "against",
+   "start": 276.608,
+   "end": 276.968
+  },
+  {
+   "text": "the",
+   "start": 277.037,
+   "end": 277.119
+  },
+  {
+   "text": "trees,",
+   "start": 277.165,
+   "end": 277.862
+  },
+  {
+   "text": "breaks",
+   "start": 278.013,
+   "end": 278.349
+  },
+  {
+   "text": "branches,",
+   "start": 278.407,
+   "end": 279.116
+  },
+  {
+   "text": "and",
+   "start": 279.162,
+   "end": 279.336
+  },
+  {
+   "text": "can",
+   "start": 279.394,
+   "end": 279.545
+  },
+  {
+   "text": "flatten",
+   "start": 279.638,
+   "end": 280.114
+  },
+  {
+   "text": "entire",
+   "start": 280.207,
+   "end": 280.741
+  },
+  {
+   "text": "stands",
+   "start": 280.788,
+   "end": 281.275
+  },
+  {
+   "text": "of",
+   "start": 281.322,
+   "end": 281.391
+  },
+  {
+   "text": "forest.",
+   "start": 281.473,
+   "end": 282.134
+  },
+  {
+   "text": "The",
+   "start": 282.413,
+   "end": 282.541
+  },
+  {
+   "text": "surface",
+   "start": 282.599,
+   "end": 283.017
+  },
+  {
+   "text": "is",
+   "start": 283.051,
+   "end": 283.156
+  },
+  {
+   "text": "devastated",
+   "start": 283.249,
+   "end": 283.992
+  },
+  {
+   "text": "even",
+   "start": 284.201,
+   "end": 284.433
+  },
+  {
+   "text": "though",
+   "start": 284.468,
+   "end": 284.642
+  },
+  {
+   "text": "the",
+   "start": 284.677,
+   "end": 284.747
+  },
+  {
+   "text": "main",
+   "start": 284.805,
+   "end": 285.037
+  },
+  {
+   "text": "explosion",
+   "start": 285.106,
+   "end": 285.699
+  },
+  {
+   "text": "took",
+   "start": 285.757,
+   "end": 285.931
+  },
+  {
+   "text": "place",
+   "start": 285.977,
+   "end": 286.267
+  },
+  {
+   "text": "above",
+   "start": 286.302,
+   "end": 286.581
+  },
+  {
+   "text": "it.",
+   "start": 286.627,
+   "end": 286.929
+  },
+  {
+   "text": "No",
+   "start": 287.37,
+   "end": 287.568
+  },
+  {
+   "text": "enormous",
+   "start": 287.661,
+   "end": 288.102
+  },
+  {
+   "text": "crater",
+   "start": 288.16,
+   "end": 288.543
+  },
+  {
+   "text": "is",
+   "start": 288.613,
+   "end": 288.694
+  },
+  {
+   "text": "required.",
+   "start": 288.763,
+   "end": 289.576
+  },
+  {
+   "text": "How",
+   "start": 290.017,
+   "end": 290.203
+  },
+  {
+   "text": "powerful",
+   "start": 290.296,
+   "end": 290.888
+  },
+  {
+   "text": "was",
+   "start": 290.958,
+   "end": 291.109
+  },
+  {
+   "text": "this",
+   "start": 291.167,
+   "end": 291.329
+  },
+  {
+   "text": "event?",
+   "start": 291.399,
+   "end": 291.91
+  },
+  {
+   "text": "The",
+   "start": 292.351,
+   "end": 292.49
+  },
+  {
+   "text": "exact",
+   "start": 292.572,
+   "end": 292.99
+  },
+  {
+   "text": "value",
+   "start": 293.059,
+   "end": 293.524
+  },
+  {
+   "text": "is",
+   "start": 293.582,
+   "end": 293.709
+  },
+  {
+   "text": "not",
+   "start": 293.791,
+   "end": 294.0
+  },
+  {
+   "text": "known.",
+   "start": 294.058,
+   "end": 294.696
+  },
+  {
+   "text": "Scientific",
+   "start": 295.079,
+   "end": 295.671
+  },
+  {
+   "text": "models",
+   "start": 295.741,
+   "end": 296.147
+  },
+  {
+   "text": "examined",
+   "start": 296.205,
+   "end": 296.751
+  },
+  {
+   "text": "in",
+   "start": 296.798,
+   "end": 296.867
+  },
+  {
+   "text": "a",
+   "start": 296.925,
+   "end": 296.949
+  },
+  {
+   "text": "NASA-associated",
+   "start": 297.018,
+   "end": 298.086
+  },
+  {
+   "text": "workshop",
+   "start": 298.144,
+   "end": 298.713
+  },
+  {
+   "text": "explored",
+   "start": 298.795,
+   "end": 299.294
+  },
+  {
+   "text": "energies",
+   "start": 299.352,
+   "end": 299.839
+  },
+  {
+   "text": "of",
+   "start": 299.909,
+   "end": 299.99
+  },
+  {
+   "text": "roughly",
+   "start": 300.06,
+   "end": 300.408
+  },
+  {
+   "text": "ten",
+   "start": 300.49,
+   "end": 300.826
+  },
+  {
+   "text": "to",
+   "start": 300.919,
+   "end": 300.989
+  },
+  {
+   "text": "twenty",
+   "start": 301.058,
+   "end": 301.372
+  },
+  {
+   "text": "megatons",
+   "start": 301.453,
+   "end": 302.022
+  },
+  {
+   "text": "of",
+   "start": 302.069,
+   "end": 302.127
+  },
+  {
+   "text": "TNT",
+   "start": 302.196,
+   "end": 302.707
+  },
+  {
+   "text": "and",
+   "start": 303.311,
+   "end": 303.485
+  },
+  {
+   "text": "scenarios",
+   "start": 303.555,
+   "end": 304.298
+  },
+  {
+   "text": "involving",
+   "start": 304.367,
+   "end": 304.843
+  },
+  {
+   "text": "a",
+   "start": 304.89,
+   "end": 304.913
+  },
+  {
+   "text": "stony",
+   "start": 304.971,
+   "end": 305.331
+  },
+  {
+   "text": "body",
+   "start": 305.401,
+   "end": 305.714
+  },
+  {
+   "text": "several",
+   "start": 305.784,
+   "end": 306.086
+  },
+  {
+   "text": "dozen",
+   "start": 306.155,
+   "end": 306.457
+  },
+  {
+   "text": "metres",
+   "start": 306.527,
+   "end": 306.84
+  },
+  {
+   "text": "wide.",
+   "start": 306.91,
+   "end": 307.548
+  },
+  {
+   "text": "Those",
+   "start": 308.059,
+   "end": 308.315
+  },
+  {
+   "text": "figures",
+   "start": 308.373,
+   "end": 308.767
+  },
+  {
+   "text": "are",
+   "start": 308.825,
+   "end": 309.046
+  },
+  {
+   "text": "model-dependent",
+   "start": 309.162,
+   "end": 310.045
+  },
+  {
+   "text": "estimates,",
+   "start": 310.114,
+   "end": 310.579
+  },
+  {
+   "text": "not",
+   "start": 310.637,
+   "end": 310.846
+  },
+  {
+   "text": "measurements",
+   "start": 310.938,
+   "end": 311.449
+  },
+  {
+   "text": "captured",
+   "start": 311.519,
+   "end": 311.983
+  },
+  {
+   "text": "in",
+   "start": 312.03,
+   "end": 312.099
+  },
+  {
+   "text": "nineteen",
+   "start": 312.158,
+   "end": 312.61
+  },
+  {
+   "text": "oh",
+   "start": 312.692,
+   "end": 312.843
+  },
+  {
+   "text": "eight.",
+   "start": 312.912,
+   "end": 313.307
+  },
+  {
+   "text": "NASA's",
+   "start": 314.004,
+   "end": 314.468
+  },
+  {
+   "text": "Earth",
+   "start": 314.549,
+   "end": 314.781
+  },
+  {
+   "text": "Observatory",
+   "start": 314.851,
+   "end": 315.629
+  },
+  {
+   "text": "also",
+   "start": 315.699,
+   "end": 316.035
+  },
+  {
+   "text": "describes",
+   "start": 316.105,
+   "end": 316.697
+  },
+  {
+   "text": "a",
+   "start": 316.767,
+   "end": 316.813
+  },
+  {
+   "text": "likely",
+   "start": 316.929,
+   "end": 317.289
+  },
+  {
+   "text": "burst",
+   "start": 317.37,
+   "end": 317.695
+  },
+  {
+   "text": "altitude",
+   "start": 317.777,
+   "end": 318.427
+  },
+  {
+   "text": "of",
+   "start": 318.473,
+   "end": 318.543
+  },
+  {
+   "text": "roughly",
+   "start": 318.613,
+   "end": 318.949
+  },
+  {
+   "text": "six",
+   "start": 319.031,
+   "end": 319.274
+  },
+  {
+   "text": "to",
+   "start": 319.332,
+   "end": 319.402
+  },
+  {
+   "text": "ten",
+   "start": 319.46,
+   "end": 319.658
+  },
+  {
+   "text": "kilometres.",
+   "start": 319.739,
+   "end": 320.621
+  },
+  {
+   "text": "The",
+   "start": 321.062,
+   "end": 321.167
+  },
+  {
+   "text": "precise",
+   "start": 321.225,
+   "end": 321.736
+  },
+  {
+   "text": "path,",
+   "start": 321.805,
+   "end": 322.386
+  },
+  {
+   "text": "size,",
+   "start": 322.537,
+   "end": 323.187
+  },
+  {
+   "text": "composition,",
+   "start": 323.268,
+   "end": 324.046
+  },
+  {
+   "text": "and",
+   "start": 324.081,
+   "end": 324.232
+  },
+  {
+   "text": "energy",
+   "start": 324.325,
+   "end": 324.824
+  },
+  {
+   "text": "remain",
+   "start": 324.998,
+   "end": 325.381
+  },
+  {
+   "text": "uncertain.",
+   "start": 325.497,
+   "end": 326.612
+  },
+  {
+   "text": "The",
+   "start": 326.612,
+   "end": 326.763
+  },
+  {
+   "text": "trees",
+   "start": 326.798,
+   "end": 327.053
+  },
+  {
+   "text": "themselves",
+   "start": 327.088,
+   "end": 327.75
+  },
+  {
+   "text": "help",
+   "start": 327.901,
+   "end": 328.121
+  },
+  {
+   "text": "explain",
+   "start": 328.191,
+   "end": 328.597
+  },
+  {
+   "text": "the",
+   "start": 328.644,
+   "end": 328.713
+  },
+  {
+   "text": "physics.",
+   "start": 328.76,
+   "end": 329.445
+  },
+  {
+   "text": "The",
+   "start": 330.049,
+   "end": 330.176
+  },
+  {
+   "text": "burst",
+   "start": 330.234,
+   "end": 330.525
+  },
+  {
+   "text": "created",
+   "start": 330.583,
+   "end": 331.012
+  },
+  {
+   "text": "a",
+   "start": 331.047,
+   "end": 331.082
+  },
+  {
+   "text": "complex",
+   "start": 331.14,
+   "end": 331.651
+  },
+  {
+   "text": "field",
+   "start": 331.732,
+   "end": 332.034
+  },
+  {
+   "text": "of",
+   "start": 332.08,
+   "end": 332.138
+  },
+  {
+   "text": "pressure,",
+   "start": 332.208,
+   "end": 332.754
+  },
+  {
+   "text": "heat,",
+   "start": 332.928,
+   "end": 333.404
+  },
+  {
+   "text": "and",
+   "start": 333.473,
+   "end": 333.636
+  },
+  {
+   "text": "fast-moving",
+   "start": 333.717,
+   "end": 334.333
+  },
+  {
+   "text": "air.",
+   "start": 334.391,
+   "end": 334.902
+  },
+  {
+   "text": "Areas",
+   "start": 335.505,
+   "end": 335.946
+  },
+  {
+   "text": "away",
+   "start": 336.004,
+   "end": 336.26
+  },
+  {
+   "text": "from",
+   "start": 336.306,
+   "end": 336.446
+  },
+  {
+   "text": "the",
+   "start": 336.492,
+   "end": 336.562
+  },
+  {
+   "text": "center",
+   "start": 336.631,
+   "end": 337.003
+  },
+  {
+   "text": "experienced",
+   "start": 337.154,
+   "end": 337.943
+  },
+  {
+   "text": "strong",
+   "start": 338.036,
+   "end": 338.489
+  },
+  {
+   "text": "outward",
+   "start": 338.57,
+   "end": 338.965
+  },
+  {
+   "text": "forces.",
+   "start": 339.023,
+   "end": 339.708
+  },
+  {
+   "text": "Very",
+   "start": 340.219,
+   "end": 340.486
+  },
+  {
+   "text": "close",
+   "start": 340.544,
+   "end": 340.834
+  },
+  {
+   "text": "to",
+   "start": 340.869,
+   "end": 340.927
+  },
+  {
+   "text": "the",
+   "start": 340.997,
+   "end": 341.066
+  },
+  {
+   "text": "central",
+   "start": 341.113,
+   "end": 341.438
+  },
+  {
+   "text": "region,",
+   "start": 341.508,
+   "end": 341.984
+  },
+  {
+   "text": "some",
+   "start": 342.111,
+   "end": 342.367
+  },
+  {
+   "text": "trunks",
+   "start": 342.402,
+   "end": 342.738
+  },
+  {
+   "text": "remained",
+   "start": 342.796,
+   "end": 343.18
+  },
+  {
+   "text": "standing",
+   "start": 343.226,
+   "end": 343.714
+  },
+  {
+   "text": "even",
+   "start": 343.783,
+   "end": 343.981
+  },
+  {
+   "text": "after",
+   "start": 344.027,
+   "end": 344.248
+  },
+  {
+   "text": "branches",
+   "start": 344.306,
+   "end": 344.747
+  },
+  {
+   "text": "and",
+   "start": 344.782,
+   "end": 344.863
+  },
+  {
+   "text": "bark",
+   "start": 344.933,
+   "end": 345.2
+  },
+  {
+   "text": "were",
+   "start": 345.258,
+   "end": 345.397
+  },
+  {
+   "text": "stripped",
+   "start": 345.432,
+   "end": 345.745
+  },
+  {
+   "text": "away.",
+   "start": 345.78,
+   "end": 346.372
+  },
+  {
+   "text": "The",
+   "start": 347.185,
+   "end": 347.301
+  },
+  {
+   "text": "resulting",
+   "start": 347.359,
+   "end": 347.858
+  },
+  {
+   "text": "treefall",
+   "start": 347.951,
+   "end": 348.567
+  },
+  {
+   "text": "pattern,",
+   "start": 348.636,
+   "end": 349.24
+  },
+  {
+   "text": "reconstructed",
+   "start": 349.391,
+   "end": 350.111
+  },
+  {
+   "text": "from",
+   "start": 350.157,
+   "end": 350.297
+  },
+  {
+   "text": "field",
+   "start": 350.389,
+   "end": 350.714
+  },
+  {
+   "text": "surveys,",
+   "start": 350.784,
+   "end": 351.504
+  },
+  {
+   "text": "helped",
+   "start": 351.783,
+   "end": 352.073
+  },
+  {
+   "text": "scientists",
+   "start": 352.154,
+   "end": 352.967
+  },
+  {
+   "text": "test",
+   "start": 353.095,
+   "end": 353.524
+  },
+  {
+   "text": "how",
+   "start": 353.594,
+   "end": 353.838
+  },
+  {
+   "text": "an",
+   "start": 353.93,
+   "end": 354.023
+  },
+  {
+   "text": "airburst",
+   "start": 354.116,
+   "end": 354.732
+  },
+  {
+   "text": "could",
+   "start": 354.79,
+   "end": 354.952
+  },
+  {
+   "text": "have",
+   "start": 354.987,
+   "end": 355.091
+  },
+  {
+   "text": "happened.",
+   "start": 355.126,
+   "end": 355.776
+  },
+  {
+   "text": "This",
+   "start": 356.38,
+   "end": 356.589
+  },
+  {
+   "text": "is",
+   "start": 356.647,
+   "end": 356.728
+  },
+  {
+   "text": "why",
+   "start": 356.787,
+   "end": 357.065
+  },
+  {
+   "text": "an",
+   "start": 357.158,
+   "end": 357.263
+  },
+  {
+   "text": "absence",
+   "start": 357.332,
+   "end": 358.017
+  },
+  {
+   "text": "can",
+   "start": 358.075,
+   "end": 358.273
+  },
+  {
+   "text": "be",
+   "start": 358.331,
+   "end": 358.446
+  },
+  {
+   "text": "evidence.",
+   "start": 358.504,
+   "end": 359.247
+  },
+  {
+   "text": "The",
+   "start": 359.851,
+   "end": 359.979
+  },
+  {
+   "text": "missing",
+   "start": 360.048,
+   "end": 360.385
+  },
+  {
+   "text": "crater",
+   "start": 360.466,
+   "end": 360.884
+  },
+  {
+   "text": "does",
+   "start": 361.128,
+   "end": 361.337
+  },
+  {
+   "text": "not",
+   "start": 361.384,
+   "end": 361.523
+  },
+  {
+   "text": "prove",
+   "start": 361.581,
+   "end": 361.918
+  },
+  {
+   "text": "that",
+   "start": 361.952,
+   "end": 362.08
+  },
+  {
+   "text": "nothing",
+   "start": 362.15,
+   "end": 362.428
+  },
+  {
+   "text": "arrived",
+   "start": 362.475,
+   "end": 362.963
+  },
+  {
+   "text": "from",
+   "start": 363.021,
+   "end": 363.183
+  },
+  {
+   "text": "space.",
+   "start": 363.264,
+   "end": 363.903
+  },
+  {
+   "text": "It",
+   "start": 364.147,
+   "end": 364.298
+  },
+  {
+   "text": "helps",
+   "start": 364.367,
+   "end": 364.611
+  },
+  {
+   "text": "reveal",
+   "start": 364.692,
+   "end": 365.11
+  },
+  {
+   "text": "where",
+   "start": 365.226,
+   "end": 365.54
+  },
+  {
+   "text": "the",
+   "start": 365.586,
+   "end": 365.668
+  },
+  {
+   "text": "energy",
+   "start": 365.761,
+   "end": 366.109
+  },
+  {
+   "text": "was",
+   "start": 366.167,
+   "end": 366.283
+  },
+  {
+   "text": "released.",
+   "start": 366.353,
+   "end": 367.049
+  },
+  {
+   "text": "Over",
+   "start": 367.653,
+   "end": 367.85
+  },
+  {
+   "text": "the",
+   "start": 367.897,
+   "end": 367.966
+  },
+  {
+   "text": "decades,",
+   "start": 368.024,
+   "end": 368.733
+  },
+  {
+   "text": "researchers",
+   "start": 368.942,
+   "end": 369.603
+  },
+  {
+   "text": "have",
+   "start": 369.661,
+   "end": 369.812
+  },
+  {
+   "text": "explored",
+   "start": 369.859,
+   "end": 370.474
+  },
+  {
+   "text": "other",
+   "start": 370.532,
+   "end": 370.718
+  },
+  {
+   "text": "possibilities.",
+   "start": 370.776,
+   "end": 371.821
+  },
+  {
+   "text": "Some",
+   "start": 372.146,
+   "end": 372.39
+  },
+  {
+   "text": "have",
+   "start": 372.413,
+   "end": 372.541
+  },
+  {
+   "text": "asked",
+   "start": 372.587,
+   "end": 372.854
+  },
+  {
+   "text": "whether",
+   "start": 372.889,
+   "end": 373.133
+  },
+  {
+   "text": "fragments",
+   "start": 373.203,
+   "end": 373.748
+  },
+  {
+   "text": "might",
+   "start": 373.806,
+   "end": 373.992
+  },
+  {
+   "text": "have",
+   "start": 374.027,
+   "end": 374.132
+  },
+  {
+   "text": "produced",
+   "start": 374.166,
+   "end": 374.573
+  },
+  {
+   "text": "a",
+   "start": 374.619,
+   "end": 374.642
+  },
+  {
+   "text": "small",
+   "start": 374.712,
+   "end": 375.049
+  },
+  {
+   "text": "crater",
+   "start": 375.13,
+   "end": 375.536
+  },
+  {
+   "text": "near",
+   "start": 375.629,
+   "end": 375.827
+  },
+  {
+   "text": "Lake",
+   "start": 375.896,
+   "end": 376.094
+  },
+  {
+   "text": "Cheko.",
+   "start": 376.14,
+   "end": 376.755
+  },
+  {
+   "text": "Others",
+   "start": 377.266,
+   "end": 377.638
+  },
+  {
+   "text": "have",
+   "start": 377.696,
+   "end": 377.812
+  },
+  {
+   "text": "studied",
+   "start": 377.847,
+   "end": 378.207
+  },
+  {
+   "text": "tiny",
+   "start": 378.241,
+   "end": 378.543
+  },
+  {
+   "text": "particles,",
+   "start": 378.613,
+   "end": 379.379
+  },
+  {
+   "text": "the",
+   "start": 379.588,
+   "end": 379.681
+  },
+  {
+   "text": "forest's",
+   "start": 379.751,
+   "end": 380.32
+  },
+  {
+   "text": "growth",
+   "start": 380.389,
+   "end": 380.703
+  },
+  {
+   "text": "history,",
+   "start": 380.749,
+   "end": 381.434
+  },
+  {
+   "text": "and",
+   "start": 381.643,
+   "end": 381.852
+  },
+  {
+   "text": "different",
+   "start": 381.933,
+   "end": 382.293
+  },
+  {
+   "text": "simulated",
+   "start": 382.351,
+   "end": 382.909
+  },
+  {
+   "text": "flight",
+   "start": 382.967,
+   "end": 383.245
+  },
+  {
+   "text": "paths.",
+   "start": 383.292,
+   "end": 383.954
+  },
+  {
+   "text": "These",
+   "start": 384.337,
+   "end": 384.569
+  },
+  {
+   "text": "questions",
+   "start": 384.615,
+   "end": 385.068
+  },
+  {
+   "text": "are",
+   "start": 385.126,
+   "end": 385.254
+  },
+  {
+   "text": "still",
+   "start": 385.3,
+   "end": 385.544
+  },
+  {
+   "text": "debated.",
+   "start": 385.602,
+   "end": 386.206
+  },
+  {
+   "text": "But",
+   "start": 386.531,
+   "end": 386.705
+  },
+  {
+   "text": "they",
+   "start": 386.74,
+   "end": 386.879
+  },
+  {
+   "text": "do",
+   "start": 386.926,
+   "end": 387.007
+  },
+  {
+   "text": "not",
+   "start": 387.088,
+   "end": 387.262
+  },
+  {
+   "text": "overturn",
+   "start": 387.32,
+   "end": 387.843
+  },
+  {
+   "text": "the",
+   "start": 387.901,
+   "end": 387.971
+  },
+  {
+   "text": "main",
+   "start": 388.04,
+   "end": 388.296
+  },
+  {
+   "text": "scientific",
+   "start": 388.377,
+   "end": 389.015
+  },
+  {
+   "text": "picture:",
+   "start": 389.073,
+   "end": 389.631
+  },
+  {
+   "text": "the",
+   "start": 390.072,
+   "end": 390.188
+  },
+  {
+   "text": "Tunguska",
+   "start": 390.246,
+   "end": 390.861
+  },
+  {
+   "text": "destruction",
+   "start": 390.943,
+   "end": 391.535
+  },
+  {
+   "text": "was",
+   "start": 391.593,
+   "end": 391.721
+  },
+  {
+   "text": "most",
+   "start": 391.802,
+   "end": 391.999
+  },
+  {
+   "text": "likely",
+   "start": 392.057,
+   "end": 392.359
+  },
+  {
+   "text": "caused",
+   "start": 392.417,
+   "end": 392.8
+  },
+  {
+   "text": "by",
+   "start": 392.858,
+   "end": 392.986
+  },
+  {
+   "text": "an",
+   "start": 393.056,
+   "end": 393.125
+  },
+  {
+   "text": "incoming",
+   "start": 393.207,
+   "end": 393.729
+  },
+  {
+   "text": "cosmic",
+   "start": 393.799,
+   "end": 394.298
+  },
+  {
+   "text": "object",
+   "start": 394.379,
+   "end": 395.006
+  },
+  {
+   "text": "exploding",
+   "start": 395.285,
+   "end": 396.051
+  },
+  {
+   "text": "in",
+   "start": 396.109,
+   "end": 396.167
+  },
+  {
+   "text": "the",
+   "start": 396.214,
+   "end": 396.295
+  },
+  {
+   "text": "atmosphere.",
+   "start": 396.376,
+   "end": 397.34
+  },
+  {
+   "text": "And",
+   "start": 397.944,
+   "end": 398.083
+  },
+  {
+   "text": "we",
+   "start": 398.141,
+   "end": 398.222
+  },
+  {
+   "text": "now",
+   "start": 398.28,
+   "end": 398.443
+  },
+  {
+   "text": "have",
+   "start": 398.512,
+   "end": 398.652
+  },
+  {
+   "text": "a",
+   "start": 398.687,
+   "end": 398.71
+  },
+  {
+   "text": "much",
+   "start": 398.756,
+   "end": 398.93
+  },
+  {
+   "text": "more",
+   "start": 398.977,
+   "end": 399.139
+  },
+  {
+   "text": "recent",
+   "start": 399.186,
+   "end": 399.511
+  },
+  {
+   "text": "example",
+   "start": 399.569,
+   "end": 400.08
+  },
+  {
+   "text": "of",
+   "start": 400.115,
+   "end": 400.184
+  },
+  {
+   "text": "an",
+   "start": 400.231,
+   "end": 400.289
+  },
+  {
+   "text": "airburst.",
+   "start": 400.335,
+   "end": 401.159
+  },
+  {
+   "text": "In",
+   "start": 401.67,
+   "end": 401.821
+  },
+  {
+   "text": "February",
+   "start": 401.891,
+   "end": 402.495
+  },
+  {
+   "text": "twenty",
+   "start": 402.541,
+   "end": 402.831
+  },
+  {
+   "text": "thirteen,",
+   "start": 402.889,
+   "end": 403.714
+  },
+  {
+   "text": "a",
+   "start": 403.923,
+   "end": 403.992
+  },
+  {
+   "text": "smaller",
+   "start": 404.085,
+   "end": 404.526
+  },
+  {
+   "text": "asteroid",
+   "start": 404.596,
+   "end": 405.223
+  },
+  {
+   "text": "exploded",
+   "start": 405.281,
+   "end": 405.85
+  },
+  {
+   "text": "over",
+   "start": 405.92,
+   "end": 406.175
+  },
+  {
+   "text": "Chelyabinsk,",
+   "start": 406.234,
+   "end": 407.023
+  },
+  {
+   "text": "Russia.",
+   "start": 407.069,
+   "end": 407.685
+  },
+  {
+   "text": "That",
+   "start": 408.196,
+   "end": 408.405
+  },
+  {
+   "text": "event",
+   "start": 408.463,
+   "end": 408.718
+  },
+  {
+   "text": "was",
+   "start": 408.776,
+   "end": 408.881
+  },
+  {
+   "text": "captured",
+   "start": 408.939,
+   "end": 409.345
+  },
+  {
+   "text": "on",
+   "start": 409.391,
+   "end": 409.484
+  },
+  {
+   "text": "modern",
+   "start": 409.566,
+   "end": 409.949
+  },
+  {
+   "text": "cameras,",
+   "start": 410.018,
+   "end": 410.703
+  },
+  {
+   "text": "and",
+   "start": 410.819,
+   "end": 410.97
+  },
+  {
+   "text": "its",
+   "start": 411.04,
+   "end": 411.156
+  },
+  {
+   "text": "shock",
+   "start": 411.214,
+   "end": 411.516
+  },
+  {
+   "text": "wave",
+   "start": 411.597,
+   "end": 411.876
+  },
+  {
+   "text": "shattered",
+   "start": 411.934,
+   "end": 412.352
+  },
+  {
+   "text": "windows",
+   "start": 412.41,
+   "end": 412.909
+  },
+  {
+   "text": "and",
+   "start": 412.967,
+   "end": 413.083
+  },
+  {
+   "text": "injured",
+   "start": 413.165,
+   "end": 413.559
+  },
+  {
+   "text": "people.",
+   "start": 413.617,
+   "end": 414.221
+  },
+  {
+   "text": "It",
+   "start": 414.825,
+   "end": 414.953
+  },
+  {
+   "text": "was",
+   "start": 414.999,
+   "end": 415.104
+  },
+  {
+   "text": "not",
+   "start": 415.185,
+   "end": 415.405
+  },
+  {
+   "text": "Tunguska,",
+   "start": 415.452,
+   "end": 416.392
+  },
+  {
+   "text": "and",
+   "start": 416.636,
+   "end": 416.787
+  },
+  {
+   "text": "the",
+   "start": 416.833,
+   "end": 416.903
+  },
+  {
+   "text": "footage",
+   "start": 416.95,
+   "end": 417.275
+  },
+  {
+   "text": "must",
+   "start": 417.309,
+   "end": 417.484
+  },
+  {
+   "text": "never",
+   "start": 417.565,
+   "end": 417.785
+  },
+  {
+   "text": "be",
+   "start": 417.843,
+   "end": 417.925
+  },
+  {
+   "text": "labelled",
+   "start": 417.994,
+   "end": 418.343
+  },
+  {
+   "text": "as",
+   "start": 418.378,
+   "end": 418.459
+  },
+  {
+   "text": "such.",
+   "start": 418.517,
+   "end": 418.981
+  },
+  {
+   "text": "But",
+   "start": 419.492,
+   "end": 419.655
+  },
+  {
+   "text": "it",
+   "start": 419.701,
+   "end": 419.782
+  },
+  {
+   "text": "demonstrates",
+   "start": 419.84,
+   "end": 420.514
+  },
+  {
+   "text": "that",
+   "start": 420.56,
+   "end": 420.711
+  },
+  {
+   "text": "an",
+   "start": 420.757,
+   "end": 420.839
+  },
+  {
+   "text": "object",
+   "start": 420.92,
+   "end": 421.373
+  },
+  {
+   "text": "can",
+   "start": 421.431,
+   "end": 421.593
+  },
+  {
+   "text": "release",
+   "start": 421.651,
+   "end": 421.988
+  },
+  {
+   "text": "dangerous",
+   "start": 422.046,
+   "end": 422.58
+  },
+  {
+   "text": "energy",
+   "start": 422.638,
+   "end": 422.986
+  },
+  {
+   "text": "in",
+   "start": 423.044,
+   "end": 423.114
+  },
+  {
+   "text": "the",
+   "start": 423.149,
+   "end": 423.23
+  },
+  {
+   "text": "air,",
+   "start": 423.3,
+   "end": 423.776
+  },
+  {
+   "text": "without",
+   "start": 423.869,
+   "end": 424.194
+  },
+  {
+   "text": "digging",
+   "start": 424.252,
+   "end": 424.589
+  },
+  {
+   "text": "an",
+   "start": 424.647,
+   "end": 424.716
+  },
+  {
+   "text": "enormous",
+   "start": 424.786,
+   "end": 425.32
+  },
+  {
+   "text": "hole",
+   "start": 425.378,
+   "end": 425.668
+  },
+  {
+   "text": "in",
+   "start": 425.703,
+   "end": 425.773
+  },
+  {
+   "text": "the",
+   "start": 425.808,
+   "end": 425.877
+  },
+  {
+   "text": "ground.",
+   "start": 425.912,
+   "end": 426.585
+  },
+  {
+   "text": "Return",
+   "start": 427.189,
+   "end": 427.561
+  },
+  {
+   "text": "now",
+   "start": 427.63,
+   "end": 427.897
+  },
+  {
+   "text": "to",
+   "start": 427.99,
+   "end": 428.06
+  },
+  {
+   "text": "the",
+   "start": 428.13,
+   "end": 428.199
+  },
+  {
+   "text": "Landsat",
+   "start": 428.257,
+   "end": 428.78
+  },
+  {
+   "text": "image",
+   "start": 428.849,
+   "end": 429.116
+  },
+  {
+   "text": "from",
+   "start": 429.151,
+   "end": 429.302
+  },
+  {
+   "text": "twenty",
+   "start": 429.36,
+   "end": 429.651
+  },
+  {
+   "text": "twenty-four.",
+   "start": 429.697,
+   "end": 430.556
+  },
+  {
+   "text": "What",
+   "start": 431.067,
+   "end": 431.264
+  },
+  {
+   "text": "was",
+   "start": 431.311,
+   "end": 431.438
+  },
+  {
+   "text": "once",
+   "start": 431.508,
+   "end": 431.74
+  },
+  {
+   "text": "a",
+   "start": 431.775,
+   "end": 431.81
+  },
+  {
+   "text": "vast",
+   "start": 431.868,
+   "end": 432.17
+  },
+  {
+   "text": "field",
+   "start": 432.24,
+   "end": 432.565
+  },
+  {
+   "text": "of",
+   "start": 432.623,
+   "end": 432.681
+  },
+  {
+   "text": "damaged",
+   "start": 432.739,
+   "end": 433.226
+  },
+  {
+   "text": "trees",
+   "start": 433.296,
+   "end": 433.76
+  },
+  {
+   "text": "is",
+   "start": 433.83,
+   "end": 433.911
+  },
+  {
+   "text": "mostly",
+   "start": 433.993,
+   "end": 434.364
+  },
+  {
+   "text": "forest",
+   "start": 434.434,
+   "end": 434.817
+  },
+  {
+   "text": "again.",
+   "start": 434.863,
+   "end": 435.339
+  },
+  {
+   "text": "The",
+   "start": 435.85,
+   "end": 435.978
+  },
+  {
+   "text": "evidence",
+   "start": 436.048,
+   "end": 436.454
+  },
+  {
+   "text": "that",
+   "start": 436.489,
+   "end": 436.628
+  },
+  {
+   "text": "surprised",
+   "start": 436.686,
+   "end": 437.267
+  },
+  {
+   "text": "Kulik",
+   "start": 437.325,
+   "end": 437.685
+  },
+  {
+   "text": "is",
+   "start": 437.743,
+   "end": 437.836
+  },
+  {
+   "text": "harder",
+   "start": 437.894,
+   "end": 438.161
+  },
+  {
+   "text": "to",
+   "start": 438.219,
+   "end": 438.265
+  },
+  {
+   "text": "see",
+   "start": 438.335,
+   "end": 438.555
+  },
+  {
+   "text": "from",
+   "start": 438.602,
+   "end": 438.753
+  },
+  {
+   "text": "above.",
+   "start": 438.811,
+   "end": 439.391
+  },
+  {
+   "text": "But",
+   "start": 439.774,
+   "end": 439.937
+  },
+  {
+   "text": "the",
+   "start": 439.972,
+   "end": 440.041
+  },
+  {
+   "text": "scientific",
+   "start": 440.088,
+   "end": 440.75
+  },
+  {
+   "text": "lesson",
+   "start": 440.819,
+   "end": 441.121
+  },
+  {
+   "text": "remains.",
+   "start": 441.179,
+   "end": 441.887
+  },
+  {
+   "text": "Space",
+   "start": 442.213,
+   "end": 442.572
+  },
+  {
+   "text": "objects",
+   "start": 442.619,
+   "end": 443.095
+  },
+  {
+   "text": "do",
+   "start": 443.141,
+   "end": 443.234
+  },
+  {
+   "text": "not",
+   "start": 443.316,
+   "end": 443.466
+  },
+  {
+   "text": "always",
+   "start": 443.524,
+   "end": 444.012
+  },
+  {
+   "text": "need",
+   "start": 444.082,
+   "end": 444.337
+  },
+  {
+   "text": "to",
+   "start": 444.384,
+   "end": 444.442
+  },
+  {
+   "text": "reach",
+   "start": 444.523,
+   "end": 444.732
+  },
+  {
+   "text": "the",
+   "start": 444.79,
+   "end": 444.86
+  },
+  {
+   "text": "ground",
+   "start": 444.918,
+   "end": 445.289
+  },
+  {
+   "text": "to",
+   "start": 445.336,
+   "end": 445.394
+  },
+  {
+   "text": "change",
+   "start": 445.463,
+   "end": 445.835
+  },
+  {
+   "text": "the",
+   "start": 445.881,
+   "end": 445.963
+  },
+  {
+   "text": "landscape.",
+   "start": 446.032,
+   "end": 446.798
+  },
+  {
+   "text": "This",
+   "start": 447.309,
+   "end": 447.483
+  },
+  {
+   "text": "is",
+   "start": 447.542,
+   "end": 447.623
+  },
+  {
+   "text": "one",
+   "start": 447.692,
+   "end": 447.867
+  },
+  {
+   "text": "reason",
+   "start": 447.913,
+   "end": 448.203
+  },
+  {
+   "text": "astronomers",
+   "start": 448.261,
+   "end": 448.865
+  },
+  {
+   "text": "track",
+   "start": 448.923,
+   "end": 449.237
+  },
+  {
+   "text": "near-Earth",
+   "start": 449.353,
+   "end": 449.852
+  },
+  {
+   "text": "asteroids",
+   "start": 449.921,
+   "end": 450.641
+  },
+  {
+   "text": "and",
+   "start": 450.688,
+   "end": 450.792
+  },
+  {
+   "text": "work",
+   "start": 450.862,
+   "end": 451.094
+  },
+  {
+   "text": "on",
+   "start": 451.164,
+   "end": 451.28
+  },
+  {
+   "text": "planetary",
+   "start": 451.35,
+   "end": 451.918
+  },
+  {
+   "text": "defense:",
+   "start": 451.965,
+   "end": 452.627
+  },
+  {
+   "text": "we",
+   "start": 453.137,
+   "end": 453.254
+  },
+  {
+   "text": "want",
+   "start": 453.3,
+   "end": 453.451
+  },
+  {
+   "text": "to",
+   "start": 453.486,
+   "end": 453.544
+  },
+  {
+   "text": "identify",
+   "start": 453.613,
+   "end": 454.078
+  },
+  {
+   "text": "hazardous",
+   "start": 454.148,
+   "end": 454.647
+  },
+  {
+   "text": "objects",
+   "start": 454.716,
+   "end": 455.192
+  },
+  {
+   "text": "before",
+   "start": 455.25,
+   "end": 455.517
+  },
+  {
+   "text": "they",
+   "start": 455.541,
+   "end": 455.657
+  },
+  {
+   "text": "arrive.",
+   "start": 455.703,
+   "end": 456.365
+  },
+  {
+   "text": "On",
+   "start": 456.876,
+   "end": 457.05
+  },
+  {
+   "text": "that",
+   "start": 457.096,
+   "end": 457.236
+  },
+  {
+   "text": "morning",
+   "start": 457.305,
+   "end": 457.631
+  },
+  {
+   "text": "in",
+   "start": 457.689,
+   "end": 457.758
+  },
+  {
+   "text": "nineteen",
+   "start": 457.828,
+   "end": 458.211
+  },
+  {
+   "text": "oh",
+   "start": 458.269,
+   "end": 458.385
+  },
+  {
+   "text": "eight,",
+   "start": 458.443,
+   "end": 458.71
+  },
+  {
+   "text": "the",
+   "start": 458.745,
+   "end": 458.861
+  },
+  {
+   "text": "sky",
+   "start": 458.919,
+   "end": 459.209
+  },
+  {
+   "text": "flashed,",
+   "start": 459.326,
+   "end": 460.022
+  },
+  {
+   "text": "the",
+   "start": 460.15,
+   "end": 460.254
+  },
+  {
+   "text": "forest",
+   "start": 460.324,
+   "end": 460.707
+  },
+  {
+   "text": "fell,",
+   "start": 460.765,
+   "end": 461.288
+  },
+  {
+   "text": "and",
+   "start": 461.462,
+   "end": 461.613
+  },
+  {
+   "text": "the",
+   "start": 461.648,
+   "end": 461.717
+  },
+  {
+   "text": "great",
+   "start": 461.752,
+   "end": 461.961
+  },
+  {
+   "text": "crater",
+   "start": 462.019,
+   "end": 462.379
+  },
+  {
+   "text": "never",
+   "start": 462.46,
+   "end": 462.704
+  },
+  {
+   "text": "appeared.",
+   "start": 462.762,
+   "end": 463.401
+  },
+  {
+   "text": "A",
+   "start": 463.842,
+   "end": 463.958
+  },
+  {
+   "text": "century",
+   "start": 464.039,
+   "end": 464.48
+  },
+  {
+   "text": "later,",
+   "start": 464.55,
+   "end": 464.898
+  },
+  {
+   "text": "the",
+   "start": 464.933,
+   "end": 465.026
+  },
+  {
+   "text": "strongest",
+   "start": 465.095,
+   "end": 465.688
+  },
+  {
+   "text": "explanation",
+   "start": 465.78,
+   "end": 466.616
+  },
+  {
+   "text": "is",
+   "start": 466.895,
+   "end": 467.058
+  },
+  {
+   "text": "not",
+   "start": 467.116,
+   "end": 467.29
+  },
+  {
+   "text": "a",
+   "start": 467.336,
+   "end": 467.359
+  },
+  {
+   "text": "hidden",
+   "start": 467.417,
+   "end": 467.661
+  },
+  {
+   "text": "spaceship,",
+   "start": 467.731,
+   "end": 468.497
+  },
+  {
+   "text": "a",
+   "start": 468.613,
+   "end": 468.683
+  },
+  {
+   "text": "mystery",
+   "start": 468.776,
+   "end": 469.171
+  },
+  {
+   "text": "weapon,",
+   "start": 469.229,
+   "end": 469.693
+  },
+  {
+   "text": "or",
+   "start": 469.786,
+   "end": 469.96
+  },
+  {
+   "text": "a",
+   "start": 470.03,
+   "end": 470.053
+  },
+  {
+   "text": "hole",
+   "start": 470.123,
+   "end": 470.459
+  },
+  {
+   "text": "no",
+   "start": 470.529,
+   "end": 470.645
+  },
+  {
+   "text": "one",
+   "start": 470.726,
+   "end": 470.854
+  },
+  {
+   "text": "has",
+   "start": 470.889,
+   "end": 471.028
+  },
+  {
+   "text": "found.",
+   "start": 471.098,
+   "end": 471.678
+  },
+  {
+   "text": "It",
+   "start": 471.957,
+   "end": 472.073
+  },
+  {
+   "text": "is",
+   "start": 472.12,
+   "end": 472.189
+  },
+  {
+   "text": "something",
+   "start": 472.224,
+   "end": 472.537
+  },
+  {
+   "text": "more",
+   "start": 472.596,
+   "end": 472.828
+  },
+  {
+   "text": "unsettling,",
+   "start": 472.897,
+   "end": 473.757
+  },
+  {
+   "text": "and",
+   "start": 473.803,
+   "end": 473.977
+  },
+  {
+   "text": "more",
+   "start": 474.047,
+   "end": 474.314
+  },
+  {
+   "text": "real:",
+   "start": 474.383,
+   "end": 474.964
+  },
+  {
+   "text": "an",
+   "start": 475.08,
+   "end": 475.219
+  },
+  {
+   "text": "explosion",
+   "start": 475.277,
+   "end": 475.939
+  },
+  {
+   "text": "in",
+   "start": 476.02,
+   "end": 476.137
+  },
+  {
+   "text": "the",
+   "start": 476.195,
+   "end": 476.264
+  },
+  {
+   "text": "sky,",
+   "start": 476.311,
+   "end": 476.984
+  },
+  {
+   "text": "powerful",
+   "start": 477.135,
+   "end": 477.588
+  },
+  {
+   "text": "enough",
+   "start": 477.646,
+   "end": 477.901
+  },
+  {
+   "text": "to",
+   "start": 477.948,
+   "end": 478.029
+  },
+  {
+   "text": "reshape",
+   "start": 478.122,
+   "end": 478.609
+  },
+  {
+   "text": "the",
+   "start": 478.644,
+   "end": 478.737
+  },
+  {
+   "text": "Earth",
+   "start": 478.83,
+   "end": 479.062
+  },
+  {
+   "text": "below.",
+   "start": 479.132,
+   "end": 479.817
+  },
+  {
+   "text": "The",
+   "start": 480.142,
+   "end": 480.27
+  },
+  {
+   "text": "object",
+   "start": 480.351,
+   "end": 480.92
+  },
+  {
+   "text": "did",
+   "start": 481.094,
+   "end": 481.268
+  },
+  {
+   "text": "not",
+   "start": 481.326,
+   "end": 481.5
+  },
+  {
+   "text": "need",
+   "start": 481.582,
+   "end": 481.93
+  },
+  {
+   "text": "to",
+   "start": 481.988,
+   "end": 482.058
+  },
+  {
+   "text": "strike",
+   "start": 482.127,
+   "end": 482.464
+  },
+  {
+   "text": "the",
+   "start": 482.499,
+   "end": 482.568
+  },
+  {
+   "text": "ground.",
+   "start": 482.627,
+   "end": 483.288
+  },
+  {
+   "text": "The",
+   "start": 483.613,
+   "end": 483.741
+  },
+  {
+   "text": "shock",
+   "start": 483.799,
+   "end": 484.078
+  },
+  {
+   "text": "wave",
+   "start": 484.147,
+   "end": 484.461
+  },
+  {
+   "text": "did",
+   "start": 484.507,
+   "end": 484.67
+  },
+  {
+   "text": "the",
+   "start": 484.716,
+   "end": 484.786
+  },
+  {
+   "text": "damage.",
+   "start": 484.844,
+   "end": 486.272
+  }
+ ],
+ "created": "2026-11-05T12:55:39Z",
+ "warnings": []
+}

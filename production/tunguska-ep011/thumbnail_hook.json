@@ -1,0 +1,66 @@
+{
+ "schema": "thumbnail-hook/1",
+ "episode": "EP011",
+ "title": "The Explosion That Left No Crater (Tunguska 1908)",
+ "chosen": "A",
+ "rationale": "Owner named NO CRATER? as the primary cover. It states the episode's central question, matches the title promise (no crater) and is answered by verified evidence; the same painted composition is the film's first frame, so the click promise is on screen at 0.0 s. B and C are kept for A/B. No CTR forecast is claimed.",
+ "concepts": [
+  {
+   "id": "A",
+   "title": "The Explosion That Left No Crater (Tunguska 1908)",
+   "thumb_text": "NO CRATER? / SIBERIA, 1908",
+   "visual_promise": "An airburst fireball over the Siberian taiga at dawn, forest falling below",
+   "main_subject": "Tunguska explosion fireball over the forest, no crater",
+   "hook_15s": "Frame 0 = cover; scene rewinds to a calm dawn forest, then the bolide streaks in, bursts above the trees and the shock wave flattens the forest",
+   "facts": [
+    "June 30, 1908 airburst over central Siberia (NASA EO)",
+    "about 2,000 km2 of forest damaged (NASA History: 830 sq mi)",
+    "no large impact crater found; Kulik reached the site in 1927 (NASA History)",
+    "burst likely 6-10 km above the surface (NASA EO)"
+   ],
+   "file": "thumbs/EP011_cover_A_no_crater.jpg"
+  },
+  {
+   "id": "B",
+   "title": "What Exploded Over Siberia in 1908?",
+   "thumb_text": "WHAT HIT HERE? / 1908 · NO CRATER",
+   "visual_promise": "Real 2024 Landsat image of the site with the NASA-labelled epicenter circled",
+   "main_subject": "Tunguska epicenter seen from orbit",
+   "hook_15s": "Open on the Landsat image, push to the circled epicenter, then rewind to 1908",
+   "facts": [
+    "June 30, 1908 airburst over central Siberia (NASA EO)",
+    "about 2,000 km2 of forest damaged (NASA History: 830 sq mi)",
+    "no large impact crater found; Kulik reached the site in 1927 (NASA History)",
+    "burst likely 6-10 km above the surface (NASA EO)"
+   ],
+   "file": "thumbs/EP011_cover_B_what_hit_here.jpg"
+  },
+  {
+   "id": "C",
+   "title": "The Tunguska Explosion: Why Was There No Crater?",
+   "thumb_text": "1929 | 2024 / NO CRATER?",
+   "visual_promise": "Split: Kulik's 1929 photo of flattened trees vs the regrown forest from orbit in 2024",
+   "main_subject": "Tunguska flattened forest then and now",
+   "hook_15s": "Open on the 1929 photo, wipe to the 2024 Landsat view of the same area",
+   "facts": [
+    "June 30, 1908 airburst over central Siberia (NASA EO)",
+    "about 2,000 km2 of forest damaged (NASA History: 830 sq mi)",
+    "no large impact crater found; Kulik reached the site in 1927 (NASA History)",
+    "burst likely 6-10 km above the surface (NASA EO)"
+   ],
+   "file": "thumbs/EP011_cover_C_1929_2024.jpg"
+  }
+ ],
+ "hook": {
+  "subject_shot": "S01",
+  "subject_visible_at": 0.0,
+  "first_line": "Imagine standing in a quiet Siberian forest just after sunrise.",
+  "subject_is_reconstruction": true,
+  "reconstruction_label": "RECONSTRUCTION · NOT FOOTAGE"
+ },
+ "match_review": {
+  "confirmed": true,
+  "by": "Claude (frame 0 of the final MP4 vs cover A: mean abs difference < 2.1/255 per channel; contact sheet reviewed); primary cover chosen by the owner's instruction 2026-11-05",
+  "date": "2026-11-05"
+ }
+}
