@@ -1,12 +1,12 @@
 {
- "bundle": "ep008-v1",
+ "bundle": "ep010-v1",
  "files": [
   {
-   "asset": "EP008_final_1080p.mp4",
-   "sha256": "a58c84dc66f4e3f5646d40903474a24d6d401725ddb5c77eed21f693b0c297b0",
-   "size": 101200045,
+   "asset": "EP010_final_1080p.mp4",
+   "sha256": "3571e59a6ed50177719d6976f2802de301e14a2f93b2b5210bfeda26f059a8d2",
+   "size": 165743589,
    "source": {
-    "release": "ep008-v1"
+    "release": "ep010-v1"
    }
   }
  ]

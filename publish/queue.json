@@ -473,10 +473,67 @@
     "sha256": "cca164719c234db49a5c3331ac3269edd2389f4a1207c6f4a1a45c667024d52c",
     "note": "Cover A 'NO MOON LANDING': thumbcheck objective PASS (sat 0.64, luma std 81); compared full size and at 168x94 with the four reference covers by Claude. thumbnail_hook_match NOT confirmed by the owner (kept open on owner's instruction 2026-11-01)."
    }
+  },
+  {
+   "id": "ep010",
+   "mode": "approval",
+   "kind": "long",
+   "media": {
+    "asset": "EP010_final_1080p.mp4",
+    "sha256": "3571e59a6ed50177719d6976f2802de301e14a2f93b2b5210bfeda26f059a8d2",
+    "seconds": 337.4
+   },
+   "title": "Why Scientists Buried a Telescope Under Antarctica",
+   "title_status": "final",
+   "title_options": [
+    "Why Scientists Buried a Telescope Under Antarctica"
+   ],
+   "description": "Why Scientists Buried a Telescope Under Antarctica\n\nBeneath the South Pole, the IceCube Neutrino Observatory uses Antarctic ice to detect particles from space. We explore the original deep array, how hot-water drilling made its construction possible, and how a rare flash of light can begin a search for a distant source.\n\nThis episode distinguishes the original array, completed in 2010, from the upgrade deployed in 2026. Detector graphics are explanatory schematics. Space animations are visualizations. Antarctic traverse footage is contextual field footage, not a record of IceCube's construction.\n\nCHAPTERS\n0:00 The building that hides a detector\n0:30 Reveal the instrument\n1:04 Why neutrinos are so hard to catch\n1:47 How to build it: hot water and 2 km of ice\n2:37 What a detection actually means\n3:36 2017: a message and a direction\n4:52 Back to the ice\n\nSOURCES\nIceCube - detector overview: https://icecube.wisc.edu/science/icecube/\nNASA GCN - IceCube mission page: https://gcn.nasa.gov/missions/icecube\nIceCube FAQ: https://icecube.wisc.edu/about-us/faq/\nIceCube facts: https://icecube.wisc.edu/about-us/facts/\nIceCube timeline: https://icecube.wisc.edu/about-us/icecube10/timeline/\nIceCube Masterclass - detecting neutrinos: https://masterclass.icecube.wisc.edu/en/icecube-and-neutrinos/detecting-neutrinos/\nIceCube Collaboration, Phys. Rev. Lett. 113, 101101 (2014): https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.113.101101\nNASA - Fermi traces source of cosmic neutrino: https://www.nasa.gov/news-release/nasas-fermi-traces-source-of-cosmic-neutrino-to-monster-black-hole/\nIceCube - major upgrade beneath the ice (2026): https://icecube.wisc.edu/news/press-releases/2026/02/the-icecube-neutrino-observatory-gets-a-major-upgrade-beneath-the-ice/\n\nMEDIA CREDITS\nAntarctic field footage: NASA's Goddard Space Flight Center. Videography courtesy of Kelly Brunt, Adam Greeley, Matthew Means and Chris Simmons. Filmed for the 88-South Traverse; not IceCube construction footage. Source audio not used. https://svs.gsfc.nasa.gov/13206/\nBlazar, particle journey and Fermi visualizations: NASA/Goddard Space Flight Center, Conceptual Image Lab. https://svs.gsfc.nasa.gov/20281/\nIceCube photograph: Christopher Michel, Wikimedia Commons, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:IceCube_Neutrino_Observatory_in_2023_02.jpg - License: https://creativecommons.org/licenses/by-sa/4.0/ . In the video: shown whole and unmodified (scaled, on a plain background).\nOptical module photograph: DESY-Kommunikation, Wikimedia Commons, CC BY 4.0. https://commons.wikimedia.org/wiki/File:IceCube_Optisches_Modul2_2004.jpg - License: https://creativecommons.org/licenses/by/4.0/ . Changes: cropped and zoomed, credit label added.\nThumbnail and opening frame: illustration of the IceCube Lab and a cutaway of the ice, marked ILLUSTRATION; not a photograph. The building follows the photograph by Christopher Michel (CC BY-SA 4.0, link above); the illustration is shared under CC BY-SA 4.0.\nOriginal detector diagrams: Orbital Atlas. Schematics, not to scale; illustrative events are not measured detector data.\nNarration: AI voice (ElevenLabs). Ambience: original synthesized wind, no music.\nNASA does not endorse this video.",
+   "tags": [
+    "IceCube",
+    "IceCube Neutrino Observatory",
+    "neutrino",
+    "neutrinos",
+    "Antarctica",
+    "South Pole",
+    "telescope",
+    "particle physics",
+    "astrophysics",
+    "blazar",
+    "TXS 0506+056",
+    "NASA",
+    "space",
+    "science",
+    "OrbitalAtlas"
+   ],
+   "category_id": "27",
+   "default_language": "en",
+   "made_for_kids": false,
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Narration is a stock text-to-speech voice (ElevenLabs Adam), not a real person's voice; imagery is real NASA video, credited photos and labelled OrbitalAtlas schematics/illustrations (cover and opening frame marked ILLUSTRATION); no realistic fabricated people or events.",
+   "thumbnail": "publish/assets/ep010/thumbnail_B.jpg",
+   "captions": {
+    "file": "publish/assets/ep010/captions.srt",
+    "language": "en",
+    "name": "English"
+   },
+   "publish_at": "2026-11-06T01:00:00Z",
+   "related": null,
+   "owner_approval": {
+    "approved": false,
+    "sha256": null,
+    "publish_at": null
+   },
+   "thumbnail_review": {
+    "result": "PASS",
+    "sha256": "887f9abb913b464fb4f9ce75dac39f9d4de9e098cca422003894c5a2a03330fc",
+    "note": "Cover B '2.5 KM DOWN' approved by the owner 2026-11-05 15:58 ICT; thumbcheck objective PASS (luma std 77.1, white 11.3%, yellow 8.2%); same image is the video's first frame."
+   }
   }
  ],
  "expected_channel_id": "UC2QxQJhUe9Q5NMRNb6M9ddw",
  "expected_handle": "@orbital_atlas",
  "_note_ep007": "EP007: long 29.10 08:00 ICT = 01:00Z; Shorts 29.10 and 30.10 12:00 ICT = 05:00Z.",
- "_note_ep008": "EP008 added 2026-11-01 for chat-publish (owner 15:53 ICT): publish 2026-11-01 23:00 ICT = 16:00Z; media from DRAFT release ep008-v1 (verified run 41289861789). Earlier entries unchanged."
+ "_note_ep008": "EP008 added 2026-11-01 for chat-publish (owner 15:53 ICT): publish 2026-11-01 23:00 ICT = 16:00Z; media from DRAFT release ep008-v1 (verified run 41289861789). Earlier entries unchanged.",
+ "_note_ep010": "EP010 added 2026-11-05 for chat-publish (owner 18:22 ICT): publish 2026-11-06 08:00 ICT = 01:00Z; media from DRAFT release ep010-v1 (verified run 42018850821: sha OK, 1920x1080 30/1, no decode errors). Channel inventory run 42018568659: no EP010. Earlier entries unchanged."
 }
