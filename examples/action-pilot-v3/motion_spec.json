@@ -1,0 +1,140 @@
+{
+  "duration_s": 15,
+  "fps": 30,
+  "profile": "1280x720",
+  "status": "owner_review_pending",
+  "illustration": true,
+  "scientific_reconstruction": false,
+  "voice": "temporary local Flite SLT, not Adam",
+  "layers": [
+    "gradient_sky",
+    "sun",
+    "far_mountains",
+    "mid_mountains",
+    "near_terrain",
+    "ground_texture",
+    "rover_shadow",
+    "suspension",
+    "three_rotating_wheels",
+    "chassis",
+    "mast",
+    "eyes",
+    "antenna",
+    "articulated_arm",
+    "left_rock_half",
+    "right_rock_half",
+    "seven_crystals",
+    "dust_particles",
+    "sparkles",
+    "reaction_bubble",
+    "rewind_overlay",
+    "leader",
+    "captions"
+  ],
+  "anchors": "authored timing windows; not forced-aligned",
+  "world": {
+    "approach_s": [
+      0,
+      3.6
+    ],
+    "contact_s": 3.55,
+    "split_s": [
+      3.65,
+      4.15
+    ],
+    "dust_s": [
+      3.6,
+      4.9
+    ],
+    "arm_s": [
+      4.5,
+      5.2
+    ],
+    "reaction_s": 4.8
+  },
+  "timeline": [
+    {
+      "start": 0,
+      "end": 7.8,
+      "world": "t",
+      "camera": "wide drifting follow"
+    },
+    {
+      "start": 7.8,
+      "end": 9.5,
+      "world": "7.7 -> 1.6, smoothstep",
+      "camera": "same wide scene",
+      "overlay": "three left triangles, scan lines, REWIND"
+    },
+    {
+      "start": 9.5,
+      "end": 12.8,
+      "world": "2.8 -> 4.7, linear",
+      "camera": {
+        "zoom": 1.8,
+        "cx": 790,
+        "cy": 470
+      }
+    },
+    {
+      "start": 12.8,
+      "end": 15,
+      "world": 6.8,
+      "camera": {
+        "zoom": "1.8 -> 3.25 over 1.1s",
+        "cx": 810,
+        "cy": 525
+      },
+      "leader": {
+        "start": 13.3,
+        "end": 13.75
+      }
+    }
+  ],
+  "narration": [
+    {
+      "start": 0,
+      "end": 0.9,
+      "text": "One wheel."
+    },
+    {
+      "start": 1,
+      "end": 2.7,
+      "text": "One ordinary rock."
+    },
+    {
+      "start": 3.6,
+      "end": 6.5,
+      "text": "Then, a surprise inside."
+    },
+    {
+      "start": 7.5,
+      "end": 9.4,
+      "text": "Wait. Rewind."
+    },
+    {
+      "start": 9.7,
+      "end": 11.2,
+      "text": "Watch the wheel."
+    },
+    {
+      "start": 11.25,
+      "end": 12.7,
+      "text": "The rock breaks."
+    },
+    {
+      "start": 12.9,
+      "end": 15,
+      "text": "The hidden detail appears."
+    }
+  ],
+  "assets": "All geometry original code-native. No downloaded/generated bitmap assets. DejaVu Sans Bold system font.",
+  "audio": "original synthesized accents + temporary local speech",
+  "build": "python render_action_v3.py",
+  "production_limitations": [
+    "Generic rover, simplified contact physics and crystal shapes",
+    "Not evidence for actual Curiosity event",
+    "Not approved full-episode style",
+    "No performance/retention guarantees"
+  ]
+}
