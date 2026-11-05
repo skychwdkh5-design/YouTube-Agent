@@ -1,0 +1,38 @@
+== sha256 check
+EP010_final_1080p.mp4: OK
+EP010_en.srt: OK
+EP010_cover_B.jpg: OK
+== ffprobe
+index=0
+codec_name=h264
+profile=High
+codec_type=video
+width=1920
+height=1080
+pix_fmt=yuv420p
+level=40
+r_frame_rate=30/1
+avg_frame_rate=30/1
+bit_rate=3729015
+index=1
+codec_name=aac
+profile=LC
+codec_type=audio
+sample_rate=48000
+channels=2
+r_frame_rate=0/0
+avg_frame_rate=0/0
+bit_rate=192610
+format_name=mov,mp4,m4a,3gp,3g2,mj2
+duration=337.400000
+size=165743589
+bit_rate=3929901
+== moov position (faststart: moov before mdat)
+['ftyp', 'moov', 'free', 'mdat']
+== full decode errors (empty = none)
+== sha256 result: 0
+== release assets
+EP010_cover_B.jpg 254015
+EP010_en.srt 7863
+EP010_final_1080p.mp4 165743589
+SHA256SUMS 251
