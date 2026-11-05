@@ -1,0 +1,49 @@
+name: EP010 store final (reassemble + verify -> draft release ep010-v1)
+# Branch media/ep010-final only. Reassembles the upload file from parts, checks its sha256 against SHA256SUMS
+# (computed on the source machine), probes and fully decodes it, then stores it with the cover and SRT in the DRAFT
+# release ep010-v1 (same storage as EP008). Writes ep010/STORE_REPORT.txt back to this branch. Nothing is published.
+on:
+  push:
+    branches: [media/ep010-final]
+    paths: [ep010/STORE_REQUEST.txt]
+permissions:
+  contents: write
+jobs:
+  store:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reassemble, verify, store
+        shell: bash {0}
+        run: |
+          set -o pipefail
+          sudo apt-get -qq update >/dev/null && sudo apt-get -qq install -y ffmpeg >/dev/null
+          cd ep010; R=STORE_REPORT.txt; : > $R
+          cat EP010_final_1080p.mp4.part* > EP010_final_1080p.mp4
+          echo "== sha256 check" >> $R; sha256sum -c SHA256SUMS >> $R 2>&1; ok=$?
+          echo "== ffprobe" >> $R
+          ffprobe -v error -show_entries stream=index,codec_type,codec_name,profile,level,width,height,r_frame_rate,avg_frame_rate,pix_fmt,sample_rate,channels,bit_rate:format=format_name,duration,size,bit_rate -of default=nw=1 EP010_final_1080p.mp4 >> $R 2>&1
+          echo "== moov position (faststart: moov before mdat)" >> $R
+          python3 -c "
+          import struct;f=open('EP010_final_1080p.mp4','rb');o=[]
+          while True:
+              h=f.read(8)
+              if len(h)<8: break
+              s,t=struct.unpack('>I4s',h);o.append(t.decode());f.seek(s-8,1) if s>=8 else None
+              if s<8: break
+          print(o)" >> $R 2>&1
+          echo "== full decode errors (empty = none)" >> $R
+          ffmpeg -v error -i EP010_final_1080p.mp4 -f null - >> $R 2>&1
+          echo "== sha256 result: $ok" >> $R
+          if [ $ok -eq 0 ]; then
+            gh release view ep010-v1 >/dev/null 2>&1 || gh release create ep010-v1 --draft --title "EP010 final (draft, not published)" --notes "EP010 IceCube final (cover B) with Adam narration. Draft storage only; not published."
+            for f in EP010_final_1080p.mp4 EP010_cover_B.jpg EP010_en.srt SHA256SUMS; do gh release upload ep010-v1 "$f" --clobber >> $R 2>&1; done
+            echo "== release assets" >> $R; gh release view ep010-v1 --json assets -q '.assets[] | "\(.name) \(.size)"' >> $R 2>&1
+          fi
+          cat $R
+          rm -f EP010_final_1080p.mp4
+          cd ..; git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ep010/STORE_REPORT.txt; git commit -qm "EP010 store report (run ${{ github.run_id }})" && git push -q origin HEAD:media/ep010-final
