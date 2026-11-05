@@ -1,0 +1,65 @@
+name: EP009 acquire NASA-produced GOES animation
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/ep009-acquire-nasa-goes.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  acquire:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: production/ep009-tornado-scars
+          persist-credentials: true
+      - name: Get credited NASA Goddard original and validate metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import urllib.request,hashlib,pathlib,json,time,subprocess
+          url="https://eoimages.gsfc.nasa.gov/images/imagerecords/50000/50347/unitedstates_goe_2011118_sd.mov"
+          target=pathlib.Path("productions/ep009-tornado-scars/media_original/nasa_goes_april2011_nasa_sd.mov")
+          target.parent.mkdir(parents=True,exist_ok=True)
+          for i in range(3):
+            try:
+              req=urllib.request.Request(url,headers={"User-Agent":"OrbitalAtlas/1.0 (NASA-public-domain source archive)","Accept":"*/*"})
+              with urllib.request.urlopen(req,timeout=60) as resp:
+                data=resp.read(25*1024*1024)
+              if not (3*1024*1024<len(data)<25*1024*1024): raise ValueError("file size "+str(len(data)))
+              target.write_bytes(data)
+              break
+            except Exception:
+              if i==2:raise
+              time.sleep(2*(i+1))
+          probe=json.loads(subprocess.check_output(["ffprobe","-v","error","-show_streams","-show_format","-of","json",str(target)]))
+          video=next(s for s in probe["streams"] if s["codec_type"]=="video")
+          assert video["width"]>=320 and video["height"]>=240,(video["width"],video["height"])
+          assert float(probe["format"]["duration"])>15
+          meta={"path":str(target),"source_url":url,
+                "source_page":"https://science.nasa.gov/earth/earth-observatory/severe-tornado-outbreak-in-the-southern-united-states-50347/",
+                "nasa_page":"https://science.nasa.gov/earth/earth-observatory/severe-tornado-outbreak-in-the-southern-united-states-50347/",
+                "credit":"NASA Earth Observatory / GOES Project Science team; animation Jesse Allen; HD file NASA Goddard Space Flight Center",
+                "licensing":"NASA media guidelines; NASA-produced credited work; no NASA endorsement",
+                "sha256":hashlib.sha256(data).hexdigest(),"bytes":len(data),
+                "width":video["width"],"height":video["height"],
+                "duration":float(probe["format"]["duration"]),
+                "format":probe["format"]["format_name"],"codec":video["codec_name"],
+                "status":"DOWNLOADED_AND_FORMAT_VERIFIED; EDITORIAL MATCH PENDING"}
+          (target.parent/"nasa_goes_source_manifest.json").write_text(json.dumps(meta,indent=2))
+          print(json.dumps(meta,indent=2))
+          PY
+      - name: Commit validated media
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f productions/ep009-tornado-scars/media_original/nasa_goes_april2011_nasa_sd.mov productions/ep009-tornado-scars/media_original/nasa_goes_source_manifest.json
+          if ! git diff --cached --quiet; then
+            git commit -m "EP009: archive documented NASA GOES outbreak animation"
+            git push origin HEAD:production/ep009-tornado-scars
+          fi

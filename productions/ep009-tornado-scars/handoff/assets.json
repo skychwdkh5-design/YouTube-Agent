@@ -1,0 +1,144 @@
+{
+  "episode": "EP009",
+  "owner_approved_style": "painted option 3",
+  "references": [
+    "docs/assets/visual-style/painted-props.webp",
+    "docs/assets/visual-style/painted-reference.webp"
+  ],
+  "status": "ARCHIVE_UPLOADED_TO_GITHUB_UNPACK_QC_PENDING",
+  "bundle": "Orbital_Atlas_EP009_illustrated_assets.zip",
+  "instruction": "Check out production/ep009-tornado-scars; use media_original/ files directly. Extract illustration ZIP with tools/verify_illustrated_assets.py. Do not download from NASA, NOAA or Actions artifact; do not seek new media. Render pilot only, after checking compositional and license credits.",
+  "generated_assets": [
+    {
+      "id": "P01",
+      "name": "P01_satellite.png",
+      "planned_repo_path": "productions/ep009-tornado-scars/handoff/assets/P01_satellite.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "b2ac1b3d9201e60aa11fcc0b7389b5737935cbcc794291ed9b2aea23ac98ecdb",
+      "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
+      "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
+      "rigged3d": false,
+      "archive_entry": "assets/P01_satellite.png"
+    },
+    {
+      "id": "P02",
+      "name": "P02_storm.png",
+      "planned_repo_path": "productions/ep009-tornado-scars/handoff/assets/P02_storm.png",
+      "width": 1448,
+      "height": 1086,
+      "alpha": true,
+      "sha256": "99f20ae44635e9e04e43c7bc0e52be7b6a5deea5f3297c05863874bd694ff57c",
+      "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
+      "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
+      "rigged3d": false,
+      "archive_entry": "assets/P02_storm.png"
+    },
+    {
+      "id": "P03",
+      "name": "P03_tree_intact.png",
+      "planned_repo_path": "productions/ep009-tornado-scars/handoff/assets/P03_tree_intact.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "0fe5a87a9c7e39e4fd587253545b71bb17d9ff23a0de2c487d50c20a76f544d4",
+      "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
+      "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
+      "rigged3d": false,
+      "archive_entry": "assets/P03_tree_intact.png"
+    },
+    {
+      "id": "P03",
+      "name": "P03_tree_uprooted.png",
+      "planned_repo_path": "productions/ep009-tornado-scars/handoff/assets/P03_tree_uprooted.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "d2e7075873d0b6f9268cc37b2fd05be51391c025dcc5fedcb1c0767753ff9b8d",
+      "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
+      "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
+      "rigged3d": false,
+      "archive_entry": "assets/P03_tree_uprooted.png"
+    },
+    {
+      "id": "P04",
+      "name": "P04_land_intact.png",
+      "planned_repo_path": "productions/ep009-tornado-scars/handoff/assets/P04_land_intact.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "2b308651bc887d9ce39d4f76899ee2ed351cc620d77a91d964a927ac09e545da",
+      "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
+      "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
+      "rigged3d": false,
+      "archive_entry": "assets/P04_land_intact.png"
+    },
+    {
+      "id": "P04",
+      "name": "P04_land_scared.png",
+      "planned_repo_path": "productions/ep009-tornado-scars/handoff/assets/P04_land_scared.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "913524e34749cbbb3c87eb893924dc71692860d71783b67d0923546fdacdba09",
+      "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
+      "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
+      "rigged3d": false,
+      "archive_entry": "assets/P04_land_scared.png"
+    },
+    {
+      "id": "P05",
+      "name": "P05_markers_sheet.png",
+      "planned_repo_path": "productions/ep009-tornado-scars/handoff/assets/P05_markers_sheet.png",
+      "width": 1448,
+      "height": 1086,
+      "alpha": true,
+      "sha256": "3056337619805e858f6e7bd03d146a6127e0b71b83a50188d71a0b8ab36e55b9",
+      "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
+      "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
+      "rigged3d": false,
+      "archive_entry": "assets/P05_markers_sheet.png"
+    },
+    {
+      "id": "P06",
+      "name": "P06_ruined_farm.png",
+      "planned_repo_path": "productions/ep009-tornado-scars/handoff/assets/P06_ruined_farm.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "99f11f5b91953aa4b2194c3d811b86466d95ef3f2e48ff834c12171b6b089810",
+      "kind": "PAINTED_ILLUSTRATION_NOT_DOCUMENTARY",
+      "status": "IN_REPO_ZIP_PENDING_EXTRACTION_AND_SHA256_QC",
+      "rigged3d": false,
+      "archive_entry": "assets/P06_ruined_farm.png"
+    }
+  ],
+  "documentary_media": {
+    "M01": "COMMITTED_IN_GIT_FORMAT_AND_SHA_VERIFIED_EDITORIAL_QC_PENDING",
+    "M02_before": "COMMITTED_IN_GIT_FORMAT_AND_SHA_VERIFIED_EDITORIAL_QC_PENDING",
+    "M02_after": "COMMITTED_IN_GIT_FORMAT_AND_SHA_VERIFIED_EDITORIAL_QC_PENDING",
+    "M03": "COMMITTED_IN_GIT_FORMAT_AND_SHA_VERIFIED_EDITORIAL_QC_PENDING"
+  },
+  "additional_qc": [
+    "color halo on transparency edges",
+    "spritesheet markers not separately isolated",
+    "render transforms not final",
+    "no media rights checks complete",
+    "voice and timing not aligned"
+  ],
+  "ready_to_render": false,
+  "bundle_repo_path": "Orbital_Atlas_EP009_illustrated_assets.zip",
+  "bundle_github_blob_sha": "1b0089e6aae03c922878d6f7a2f64fb6102d4b8c",
+  "bundle_size_bytes": 16417896,
+  "bundle_sha256": "5647b448fcabbe4250c91f6a53cdb428dda846094d6125012b2c7ad6192703d0",
+  "readiness": "DOCUMENTARY_MEDIA_AND_PAINTED_ASSETS_AVAILABLE_FROM_GIT; SHA_CHECKS_PASS; EDITORIAL_QC_AND_PILOT_TIMING_PENDING",
+  "source_artifact": {
+    "run_id": 41602193505,
+    "artifact_id": 13215290984,
+    "expires_at": "2026-11-17T08:17:49Z",
+    "proof": "productions/ep009-tornado-scars/handoff/media_proof.json"
+  },
+  "documentary_repo_dir": "productions/ep009-tornado-scars/media_original/",
+  "source_artifact_note": "Media now permanently committed in EP009 production branch, no Azure blob download required. Artifact may expire without affecting committed originals."
+}

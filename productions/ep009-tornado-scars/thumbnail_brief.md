@@ -1,0 +1,5 @@
+# Thumbnail–Hook Match: three concepts (no approval yet)
+A — **THE SCAR**: genuine NASA natural-color Tuscaloosa EO-1 image, crop with long pale path; 3D raised line hugging REAL corridor; big 'FROM SPACE' 2-word title option. 0:00 opening uses EXACT SAME image before zooming out. Best initial choice.
+B — **BEFORE / AFTER**: April 12 vs April 28 NASA MODIS comparison split diagonally; focus track; text '4 DAYS'. 0:00 same before/after split and rapid reveal. Do NOT imply both pictures taken same day.
+C — **NOT A ROAD**: EO-1 real tornado scar with a thin 3D question-mark/arrow label, no synthetic tornado funnel; text 'WHAT CUT THIS?'. First second shows identical corridor, then declares not road or river.
+Design: 16:9 1280x720 thumbnail; mobile readability; dominant real satellite imagery, 3D annotation only; no NASA logo; no fake homes; avoid misleading scale. Export A/B/C JPG and validate first 3 sec against chosen thumbnail. If visual source remains low-res, do not upscale misleadingly.

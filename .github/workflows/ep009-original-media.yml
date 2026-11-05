@@ -1,0 +1,29 @@
+name: EP009 original media fetch (read-only)
+on:
+  pull_request:
+    paths:
+      - 'productions/ep009-tornado-scars/**'
+      - '.github/workflows/ep009-original-media.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image validator
+        run: python -m pip install pillow==11.1.0
+      - name: Download and inspect NASA NOAA originals
+        run: python productions/ep009-tornado-scars/tools/fetch_original_media.py --out productions/ep009-tornado-scars/media_original
+      - name: Upload source-media artifact (not public release)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ep009-original-media
+          path: productions/ep009-tornado-scars/media_original/
+          if-no-files-found: error
+          retention-days: 14

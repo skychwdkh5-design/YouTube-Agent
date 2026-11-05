@@ -1,0 +1,51 @@
+name: EP009 one-time commit verified NASA NOAA source media
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/ep009-commit-source-media.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  commit-originals:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: production/ep009-tornado-scars
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install verifier
+        run: python -m pip install pillow==11.1.0
+      - name: Retrieve and validate all 4 original NASA NOAA files
+        run: python productions/ep009-tornado-scars/tools/fetch_original_media.py --out productions/ep009-tornado-scars/media_original --strict
+      - name: Commit only verified EP009 source media to existing branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, pathlib, sys
+          p=pathlib.Path('productions/ep009-tornado-scars/media_original/download_manifest.json')
+          entries=json.loads(p.read_text())['assets']
+          if len(entries)!=4 or not all(x['status']=='DOWNLOADED_NEEDS_EDITORIAL_REVIEW' for x in entries):
+              sys.exit('Refusing commit: 4 sources were not successfully verified')
+          print('All four NASA/NOAA source files format and SHA verified.')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f -- \
+            productions/ep009-tornado-scars/media_original/nasa_tuscaloosa_EO1_20110502.jpg \
+            productions/ep009-tornado-scars/media_original/nasa_modis_before_20110412.jpg \
+            productions/ep009-tornado-scars/media_original/nasa_modis_after_20110428.jpg \
+            productions/ep009-tornado-scars/media_original/noaa_goes13_outbreak_2011.mp4 \
+            productions/ep009-tornado-scars/media_original/download_manifest.json
+          if git diff --cached --quiet; then
+            echo "All originals already committed."
+          else
+            git commit -m "EP009: archive verified original NASA NOAA source files"
+            git push origin HEAD:production/ep009-tornado-scars
+          fi
