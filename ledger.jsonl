@@ -74,3 +74,10 @@
 {"at": "2026-11-05T11:53:53+00:00", "event": "verified", "sha256": "3571e59a6ed50177719d6976f2802de301e14a2f93b2b5210bfeda26f059a8d2", "id": "ep010", "video_id": "ZWYia9XfjMI", "ok": true, "privacyStatus": "private", "publishAt": "2026-11-06T01:00:00Z", "uploadStatus": "uploaded"}
 {"at": "2026-11-05T11:53:53+00:00", "event": "approval_done", "approval_id": "7c5b4ac4c2774158a39cd383396d62ae", "ids": ["ep010"]}
 {"at": "2026-11-06T02:42:01+00:00", "event": "release_confirmed", "video_id": "ZWYia9XfjMI", "id": "ep010", "publishAt": "2026-11-06T01:00:00Z", "privacyStatus": "public", "delay_s": 6121}
+{"at": "2026-11-06T10:38:24+00:00", "event": "approval_started", "approval_id": "c9d7b563392243dea5f84f66c98ec043", "ids": ["ep011"]}
+{"at": "2026-11-06T10:38:26+00:00", "event": "started", "sha256": "8bf8717bf1ccce907ac411b50a18c7fc68963a41a889455f034072b95f4a3335", "id": "ep011", "file": "EP011_final_1080p.mp4", "kind": "long"}
+{"at": "2026-11-06T10:38:41+00:00", "event": "uploaded", "sha256": "8bf8717bf1ccce907ac411b50a18c7fc68963a41a889455f034072b95f4a3335", "id": "ep011", "video_id": "iOQne8mgNFk", "publish_at": "2026-11-07T01:00:00Z"}
+{"at": "2026-11-06T10:38:45+00:00", "event": "thumbnail_set", "sha256": "8bf8717bf1ccce907ac411b50a18c7fc68963a41a889455f034072b95f4a3335", "id": "ep011", "video_id": "iOQne8mgNFk"}
+{"at": "2026-11-06T10:38:45+00:00", "event": "captions_unavailable", "sha256": "8bf8717bf1ccce907ac411b50a18c7fc68963a41a889455f034072b95f4a3335", "id": "ep011", "video_id": "iOQne8mgNFk", "message": "YouTube API 403: Request had insufficient authentication scopes. ['insufficientPermissions']"}
+{"at": "2026-11-06T10:38:45+00:00", "event": "verified", "sha256": "8bf8717bf1ccce907ac411b50a18c7fc68963a41a889455f034072b95f4a3335", "id": "ep011", "video_id": "iOQne8mgNFk", "ok": true, "privacyStatus": "private", "publishAt": "2026-11-07T01:00:00Z", "uploadStatus": "uploaded"}
+{"at": "2026-11-06T10:38:45+00:00", "event": "approval_done", "approval_id": "c9d7b563392243dea5f84f66c98ec043", "ids": ["ep011"]}
