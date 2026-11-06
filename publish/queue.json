@@ -536,7 +536,7 @@
    "kind": "long",
    "media": {
     "asset": "EP011_final_1080p.mp4",
-    "sha256": "30b6e1f835cd47edd0354401f1f0a3b3d2fb6f745ddb310bb4ca7b2e097c3909",
+    "sha256": "8bf8717bf1ccce907ac411b50a18c7fc68963a41a889455f034072b95f4a3335",
     "seconds": 489.3
    },
    "title": "The Explosion That Left No Crater (Tunguska 1908)",
@@ -566,9 +566,9 @@
    "category_id": "27",
    "default_language": "en",
    "made_for_kids": false,
-   "contains_synthetic_media": false,
-   "disclosure_basis": "Narration is a stock text-to-speech voice (ElevenLabs Adam), not a real person's voice; imagery is a real NASA Landsat image, a credited 1929 archive photo and original painted animations labelled RECONSTRUCTION / ILLUSTRATION on screen; no realistic fabricated people, and the 1908 event is never presented as footage.",
-   "thumbnail": "publish/assets/ep011/thumbnail_A.jpg",
+   "contains_synthetic_media": true,
+   "disclosure_basis": "The 0-12 s opening animates the owner's cover v2, a photorealistic generated depiction of the 1908 explosion over the taiga, so the altered/synthetic content flag is set. Narration is a stock text-to-speech voice (ElevenLabs Adam); the rest uses a real NASA Landsat image, the real 1929 Kulik photo and painted animations labelled RECONSTRUCTION / ILLUSTRATION.",
+   "thumbnail": "publish/assets/ep011/thumbnail_v2.jpg",
    "captions": {
     "file": "publish/assets/ep011/captions.srt",
     "language": "en",
@@ -583,8 +583,8 @@
    },
    "thumbnail_review": {
     "result": "PASS",
-    "sha256": "3c3983e143f195e3c601a785229168ed42bee873213928f9f4379121fde2059d",
-    "note": "Cover A 'NO CRATER?' named primary by the owner 2026-11-05; thumbcheck objective PASS (saturation 0.58, luma std 59.3, white 3.4%, yellow 1.2%); identical to the video's first frame."
+    "sha256": "31fdcfb77bd9e980ea19e6e05ec68f6d8a974e7f77b22f9407401195b4034a27",
+    "note": "Owner's new cover v2 (2026-11-06), resized to 1280x720 with the TUNGUSKA headline whites lifted; thumbcheck objective PASS (saturation 0.51, luma std 70.6, white 2.6%, yellow 5.5%); the video's first frame matches it (the inset shows the real 1929 photo in the video)."
    }
   }
  ],
