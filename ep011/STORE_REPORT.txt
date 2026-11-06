@@ -1,6 +1,7 @@
+== tag ep011-v2
 == sha256 check
 EP011_final_1080p.mp4: OK
-EP011_cover_A.jpg: OK
+EP011_cover_v2.jpg: OK
 EP011_en.srt: OK
 == ffprobe
 index=0
@@ -13,7 +14,7 @@ pix_fmt=yuv420p
 level=40
 r_frame_rate=30/1
 avg_frame_rate=30/1
-bit_rate=2821280
+bit_rate=3000627
 index=1
 codec_name=aac
 profile=LC
@@ -25,14 +26,14 @@ avg_frame_rate=0/0
 bit_rate=192542
 format_name=mov,mp4,m4a,3gp,3g2,mj2
 duration=489.300000
-size=184836909
-bit_rate=3022062
+size=195806201
+bit_rate=3201409
 == moov position (faststart: moov before mdat)
 ['ftyp', 'moov', 'free', 'mdat']
 == full decode errors (empty = none)
 == sha256 result: 0
 == release assets
-EP011_cover_A.jpg 196837
+EP011_cover_v2.jpg 472850
 EP011_en.srt 11517
-EP011_final_1080p.mp4 184836909
-SHA256SUMS 251
+EP011_final_1080p.mp4 195806201
+SHA256SUMS 252
