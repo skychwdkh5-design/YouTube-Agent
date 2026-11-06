@@ -1,0 +1,27 @@
+{
+ "schema": "yt-approval/1",
+ "approval_id": "c9d7b563392243dea5f84f66c98ec043",
+ "scope": "single_release",
+ "label": "ep011",
+ "items": [
+  {
+   "id": "ep011",
+   "kind": "long",
+   "title": "The Explosion That Left No Crater (Tunguska 1908)",
+   "publish_at": "2026-11-07T01:00:00Z",
+   "media_sha256": "8bf8717bf1ccce907ac411b50a18c7fc68963a41a889455f034072b95f4a3335",
+   "content_hash": "7a44530f9ac9c1cf3a2918a88e1d470dd0782064ce7529a0fe8b0cb53e492aee",
+   "entry_hash": "42de6aed8ac9c0eb0921b918e32147e8b4089f84fbf65c3eab990eb075d4b5d0"
+  }
+ ],
+ "queue_commit": "32caadb21e2cf4483271e6cb1bd60a1fd0e0196c",
+ "owner_quote": "Одобряю ep011",
+ "created_at": "2026-11-06T10:38:01+00:00",
+ "expires_at": "2026-11-07T10:38:01+00:00",
+ "created_by": "claude-chat",
+ "consent_channel": "owner-chat-message",
+ "dry_run_only": false,
+ "card_codes": {
+  "ep011": "42DE-6AED"
+ }
+}
