@@ -1,7 +1,7 @@
-name: EP011 store final (reassemble + verify -> draft release ep011-v1)
+name: EP011 store final (reassemble + verify -> draft release named in STORE_REQUEST)
 # Branch claude/project-thread-r5acwi only. Reassembles the upload file from parts, checks its sha256 against SHA256SUMS
 # (computed on the source machine), probes and fully decodes it, then stores it with the cover and SRT in the DRAFT
-# release ep011-v1 (same storage as EP008). Writes ep011/STORE_REPORT.txt back to this branch. Nothing is published.
+# release whose tag is the 2nd word of STORE_REQUEST.txt (same storage as EP008). Writes ep011/STORE_REPORT.txt back to this branch. Nothing is published.
 on:
   push:
     branches: [claude/project-thread-r5acwi]
@@ -21,7 +21,7 @@ jobs:
         run: |
           set -o pipefail
           sudo apt-get -qq update >/dev/null && sudo apt-get -qq install -y ffmpeg >/dev/null
-          cd ep011; R=STORE_REPORT.txt; : > $R
+          cd ep011; R=STORE_REPORT.txt; : > $R; TAG=$(awk '{print $2; exit}' STORE_REQUEST.txt); echo "== tag $TAG" >> $R
           cat EP011_final_1080p.mp4.part* > EP011_final_1080p.mp4
           echo "== sha256 check" >> $R; sha256sum -c SHA256SUMS >> $R 2>&1; ok=$?
           echo "== ffprobe" >> $R
@@ -39,9 +39,9 @@ jobs:
           ffmpeg -v error -i EP011_final_1080p.mp4 -f null - >> $R 2>&1
           echo "== sha256 result: $ok" >> $R
           if [ $ok -eq 0 ]; then
-            gh release view ep011-v1 >/dev/null 2>&1 || gh release create ep011-v1 --draft --title "ep011-v1" --notes "EP011 Tunguska final (cover A) with Adam narration. Draft storage only; not published."
-            for f in EP011_final_1080p.mp4 EP011_cover_A.jpg EP011_en.srt SHA256SUMS; do gh release upload ep011-v1 "$f" --clobber >> $R 2>&1; done
-            echo "== release assets" >> $R; gh release view ep011-v1 --json assets -q '.assets[] | "\(.name) \(.size)"' >> $R 2>&1
+            gh release view $TAG >/dev/null 2>&1 || gh release create $TAG --draft --title "$TAG" --notes "EP011 Tunguska final with Adam narration. Draft storage only; not published."
+            for f in EP011_final_1080p.mp4 $(awk '{print $2}' SHA256SUMS | grep -v mp4) SHA256SUMS; do gh release upload $TAG "$f" --clobber >> $R 2>&1; done
+            echo "== release assets" >> $R; gh release view $TAG --json assets -q '.assets[] | "\(.name) \(.size)"' >> $R 2>&1
           fi
           cat $R
           rm -f EP011_final_1080p.mp4
