@@ -14,6 +14,7 @@ sys.path.insert(0, HERE)
 from paint import W, H, FPS, smooth, seg, grade
 from shots import SHOTS, END
 from scenes import SCENES
+import cover_intro as CI
 
 XF = 0.4  # crossfade into each shot (s); the first frame is never a blend
 ROOT = os.path.join(HERE, "..")
@@ -39,6 +40,17 @@ def scene_frame(i, t):
 
 
 def frame(n):
+    t = n / FPS
+    if t < CI.T_END:  # opening from the owner's cover v2; dissolves into the existing film at 11.5-12.0 s
+        img = CI.frame(t)
+        if t >= CI.XF0:
+            img = Image.blend(img, film_frame(n), smooth((t - CI.XF0) / (CI.T_END - CI.XF0)))
+        g = grade(img, vignette=0.28, grain_seed=n, grain=3.0)
+        return Image.blend(img, g, smooth(seg(t, 0.6, 2.0)))  # frame 0 is the cover itself
+    return film_frame(n)
+
+
+def film_frame(n):
     t = n / FPS
     i = shot_at(t)
     img = scene_frame(i, t)
