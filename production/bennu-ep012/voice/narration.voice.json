@@ -1,0 +1,4530 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "narration.wav",
+ "audio_format": "wav",
+ "audio_sha256": "d4298e3a760974e9e32a5afa39d21c83e057948698cd05e813487de8329a6bde",
+ "duration": 354.987,
+ "characters": 5144,
+ "text": "This is a real camera on a NASA spacecraft, closing in on an asteroid called Bennu. These are still photos, sped up. That round thing is the sampler head. The plan was simple: touch the surface, blow in some gas, catch the loose material, and back away. But the surface barely pushed back. The sampler's arm kept sinking into the asteroid, and it was still going down when the thrusters fired to pull the spacecraft away. So why did a world that looks like solid rock behave almost like a pit of loose gravel?\n\nThe spacecraft was OSIRIS-REx, and its job was to bring a piece of an asteroid back to Earth, where labs can study it in detail. Up close, Bennu turned out to be crowded with boulders. So the team picked a small target between them, a site they named Nightingale.\n\nThe tool for the job is called TAGSAM, short for Touch-And-Go Sample Acquisition Mechanism. It's not a drill, and the spacecraft does not land. It's a round head on the end of a long arm. The head touches the surface, and a burst of gas pushes loose material up into a collector.\n\nOn October 20, 2020, it was time. But nobody on Earth was steering. Before the event, NASA said a signal would need about 18 and a half minutes to travel one way between Earth and the spacecraft. That's far too slow to fly it by hand. So the whole approach and the touch ran automatically, from commands uploaded in advance. The spacecraft lowered itself toward Nightingale and met the surface at about 10 centimeters per second. That's about four inches per second.\n\nHere's what happened next, second by second, in NASA's data-driven reconstruction.\n\nZero seconds. The round sampler head touches Nightingale. Not the spacecraft's body. Just the head, on the end of its arm.\n\nAbout one second later, pressurized nitrogen fires into the surface. The gas lifts dust and gravel up toward the collector. That bright burst in the real photos? That's material thrown up by the gas. Not fire, and not an explosion.\n\nAt about six seconds, the back-away thrusters start firing. But the arm is still sinking.\n\nOnly at about nine seconds does the thrust finally stop the descent, and begin to carry the spacecraft away. By then, the sampler's arm had pushed nearly half a meter into the asteroid. That's about a foot and a half.\n\nAround sixteen seconds, the arm comes fully out of the material. And at about thirty seconds, the thrusters shut off, and the spacecraft drifts away.\n\nSo why so little resistance? When NASA's team analyzed the data, they found that the particles on Bennu's surface are loosely packed, and only weakly bound to each other. Push on them, and they don't push back like solid ground. They slide out of the way, a lot like the plastic balls in a kids' ball pit.\n\nNASA's animation shows the idea. The same weight, arriving at the same slow speed. On the Moon, the ground holds. On Bennu, the grains give way, and it sinks.\n\nThe boulders on top don't mean there's solid rock underneath. And according to NASA's analysis, if the spacecraft had not fired its thrusters to back away, it would have kept sinking. That doesn't make Bennu liquid, or hollow. It means the surface is a loose layer of particles that barely holds together.\n\nThe site itself shows what happened. The spacecraft photographed Nightingale on March 7, 2019, and again on April 7, 2021. About two years apart. Flip between them, and the patch has changed. Material has been moved. NASA described the hollow left at the site as about eight meters wide, roughly twenty-six feet.\n\nIn this elevation model built from the spacecraft's data, the colors show how much the surface height changed. Blue is where it dropped the most. But don't credit all of it to the touch. Three things disturbed this ground: the sampler head pressing in, the nitrogen gas blowing into it, and the thrusters firing as the spacecraft backed away.\n\nThen came a second problem. Soon after the touch, the spacecraft photographed its sampler head. Something was off. Some of the collected particles were escaping through small gaps in a flap that was meant to keep them in, and it was slightly open. The team's interpretation: larger rocks had wedged it open.\n\nThe next step mattered. The head, with its sample, was placed into the return capsule. And on October 28, 2020, the capsule was closed.\n\nThe spacecraft itself never came home. Only the capsule did. It reached Earth on September 24, 2023. Inside, NASA measured 121.6 grams of asteroid material. That's about four ounces. The mission needed at least 60 grams. It brought back about twice that.\n\nAnd the sample delivered. In January 2025, scientists reported 14 of the 20 amino acids that life on Earth uses, plus five nucleobases. In December 2025, they reported sugars, including ribose and glucose. None of this is evidence of life. No organisms, no DNA. These are chemical ingredients.\n\nAnd it all came from one brief touch, on a surface so loose that, by NASA's analysis, without its thrusters the spacecraft would have kept sinking. On an asteroid like Bennu, touching down isn't landing on solid ground. It's reaching into a loose pile of rubble, and getting back out in time.",
+ "text_sha256": "11bd67207879821e4a5fe57fe03aa8d56e9366e68b81fdd3c799da7a59888479",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 2425,
+   "offset": 0.0,
+   "duration": 167.23,
+   "timing": true
+  },
+  {
+   "index": 1,
+   "characters": 2427,
+   "offset": 167.23,
+   "duration": 166.719,
+   "timing": true
+  },
+  {
+   "index": 2,
+   "characters": 292,
+   "offset": 333.949,
+   "duration": 21.037,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "This",
+   "start": 0.0,
+   "end": 0.209
+  },
+  {
+   "text": "is",
+   "start": 0.267,
+   "end": 0.348
+  },
+  {
+   "text": "a",
+   "start": 0.406,
+   "end": 0.43
+  },
+  {
+   "text": "real",
+   "start": 0.511,
+   "end": 0.72
+  },
+  {
+   "text": "camera",
+   "start": 0.789,
+   "end": 1.265
+  },
+  {
+   "text": "on",
+   "start": 1.335,
+   "end": 1.451
+  },
+  {
+   "text": "a",
+   "start": 1.498,
+   "end": 1.521
+  },
+  {
+   "text": "NASA",
+   "start": 1.591,
+   "end": 1.962
+  },
+  {
+   "text": "spacecraft,",
+   "start": 2.009,
+   "end": 2.902
+  },
+  {
+   "text": "closing",
+   "start": 3.053,
+   "end": 3.518
+  },
+  {
+   "text": "in",
+   "start": 3.587,
+   "end": 3.715
+  },
+  {
+   "text": "on",
+   "start": 3.785,
+   "end": 3.878
+  },
+  {
+   "text": "an",
+   "start": 3.924,
+   "end": 3.982
+  },
+  {
+   "text": "asteroid",
+   "start": 4.052,
+   "end": 4.644
+  },
+  {
+   "text": "called",
+   "start": 4.702,
+   "end": 4.981
+  },
+  {
+   "text": "Bennu.",
+   "start": 5.039,
+   "end": 5.584
+  },
+  {
+   "text": "These",
+   "start": 5.968,
+   "end": 6.177
+  },
+  {
+   "text": "are",
+   "start": 6.211,
+   "end": 6.316
+  },
+  {
+   "text": "still",
+   "start": 6.351,
+   "end": 6.606
+  },
+  {
+   "text": "photos,",
+   "start": 6.664,
+   "end": 7.256
+  },
+  {
+   "text": "sped",
+   "start": 7.372,
+   "end": 7.709
+  },
+  {
+   "text": "up.",
+   "start": 7.779,
+   "end": 8.185
+  },
+  {
+   "text": "That",
+   "start": 8.51,
+   "end": 8.707
+  },
+  {
+   "text": "round",
+   "start": 8.766,
+   "end": 9.009
+  },
+  {
+   "text": "thing",
+   "start": 9.067,
+   "end": 9.265
+  },
+  {
+   "text": "is",
+   "start": 9.323,
+   "end": 9.404
+  },
+  {
+   "text": "the",
+   "start": 9.474,
+   "end": 9.543
+  },
+  {
+   "text": "sampler",
+   "start": 9.601,
+   "end": 10.031
+  },
+  {
+   "text": "head.",
+   "start": 10.101,
+   "end": 10.553
+  },
+  {
+   "text": "The",
+   "start": 10.879,
+   "end": 10.995
+  },
+  {
+   "text": "plan",
+   "start": 11.041,
+   "end": 11.32
+  },
+  {
+   "text": "was",
+   "start": 11.378,
+   "end": 11.494
+  },
+  {
+   "text": "simple:",
+   "start": 11.552,
+   "end": 12.086
+  },
+  {
+   "text": "touch",
+   "start": 12.365,
+   "end": 12.632
+  },
+  {
+   "text": "the",
+   "start": 12.701,
+   "end": 12.771
+  },
+  {
+   "text": "surface,",
+   "start": 12.829,
+   "end": 13.433
+  },
+  {
+   "text": "blow",
+   "start": 13.607,
+   "end": 13.862
+  },
+  {
+   "text": "in",
+   "start": 13.909,
+   "end": 13.978
+  },
+  {
+   "text": "some",
+   "start": 14.036,
+   "end": 14.199
+  },
+  {
+   "text": "gas,",
+   "start": 14.245,
+   "end": 14.791
+  },
+  {
+   "text": "catch",
+   "start": 14.965,
+   "end": 15.256
+  },
+  {
+   "text": "the",
+   "start": 15.314,
+   "end": 15.383
+  },
+  {
+   "text": "loose",
+   "start": 15.441,
+   "end": 15.662
+  },
+  {
+   "text": "material,",
+   "start": 15.697,
+   "end": 16.289
+  },
+  {
+   "text": "and",
+   "start": 16.324,
+   "end": 16.463
+  },
+  {
+   "text": "back",
+   "start": 16.544,
+   "end": 16.8
+  },
+  {
+   "text": "away.",
+   "start": 16.869,
+   "end": 17.415
+  },
+  {
+   "text": "But",
+   "start": 17.798,
+   "end": 17.961
+  },
+  {
+   "text": "the",
+   "start": 17.995,
+   "end": 18.065
+  },
+  {
+   "text": "surface",
+   "start": 18.112,
+   "end": 18.483
+  },
+  {
+   "text": "barely",
+   "start": 18.541,
+   "end": 18.878
+  },
+  {
+   "text": "pushed",
+   "start": 18.936,
+   "end": 19.203
+  },
+  {
+   "text": "back.",
+   "start": 19.261,
+   "end": 19.737
+  },
+  {
+   "text": "The",
+   "start": 20.12,
+   "end": 20.248
+  },
+  {
+   "text": "sampler's",
+   "start": 20.306,
+   "end": 20.747
+  },
+  {
+   "text": "arm",
+   "start": 20.793,
+   "end": 21.107
+  },
+  {
+   "text": "kept",
+   "start": 21.188,
+   "end": 21.397
+  },
+  {
+   "text": "sinking",
+   "start": 21.467,
+   "end": 21.827
+  },
+  {
+   "text": "into",
+   "start": 21.885,
+   "end": 22.047
+  },
+  {
+   "text": "the",
+   "start": 22.105,
+   "end": 22.175
+  },
+  {
+   "text": "asteroid,",
+   "start": 22.256,
+   "end": 23.011
+  },
+  {
+   "text": "and",
+   "start": 23.162,
+   "end": 23.301
+  },
+  {
+   "text": "it",
+   "start": 23.348,
+   "end": 23.406
+  },
+  {
+   "text": "was",
+   "start": 23.441,
+   "end": 23.533
+  },
+  {
+   "text": "still",
+   "start": 23.568,
+   "end": 23.789
+  },
+  {
+   "text": "going",
+   "start": 23.847,
+   "end": 24.114
+  },
+  {
+   "text": "down",
+   "start": 24.172,
+   "end": 24.497
+  },
+  {
+   "text": "when",
+   "start": 24.555,
+   "end": 24.706
+  },
+  {
+   "text": "the",
+   "start": 24.741,
+   "end": 24.81
+  },
+  {
+   "text": "thrusters",
+   "start": 24.857,
+   "end": 25.333
+  },
+  {
+   "text": "fired",
+   "start": 25.403,
+   "end": 25.832
+  },
+  {
+   "text": "to",
+   "start": 25.879,
+   "end": 25.948
+  },
+  {
+   "text": "pull",
+   "start": 26.006,
+   "end": 26.215
+  },
+  {
+   "text": "the",
+   "start": 26.273,
+   "end": 26.343
+  },
+  {
+   "text": "spacecraft",
+   "start": 26.366,
+   "end": 26.982
+  },
+  {
+   "text": "away.",
+   "start": 27.028,
+   "end": 27.608
+  },
+  {
+   "text": "So",
+   "start": 28.305,
+   "end": 28.607
+  },
+  {
+   "text": "why",
+   "start": 29.304,
+   "end": 29.547
+  },
+  {
+   "text": "did",
+   "start": 29.617,
+   "end": 29.745
+  },
+  {
+   "text": "a",
+   "start": 29.791,
+   "end": 29.826
+  },
+  {
+   "text": "world",
+   "start": 29.896,
+   "end": 30.418
+  },
+  {
+   "text": "that",
+   "start": 30.499,
+   "end": 30.697
+  },
+  {
+   "text": "looks",
+   "start": 30.743,
+   "end": 30.952
+  },
+  {
+   "text": "like",
+   "start": 31.01,
+   "end": 31.254
+  },
+  {
+   "text": "solid",
+   "start": 31.347,
+   "end": 31.823
+  },
+  {
+   "text": "rock",
+   "start": 31.904,
+   "end": 32.357
+  },
+  {
+   "text": "behave",
+   "start": 32.961,
+   "end": 33.402
+  },
+  {
+   "text": "almost",
+   "start": 33.437,
+   "end": 33.797
+  },
+  {
+   "text": "like",
+   "start": 33.855,
+   "end": 34.052
+  },
+  {
+   "text": "a",
+   "start": 34.087,
+   "end": 34.11
+  },
+  {
+   "text": "pit",
+   "start": 34.226,
+   "end": 34.574
+  },
+  {
+   "text": "of",
+   "start": 34.691,
+   "end": 34.83
+  },
+  {
+   "text": "loose",
+   "start": 34.946,
+   "end": 35.248
+  },
+  {
+   "text": "gravel?",
+   "start": 35.306,
+   "end": 36.014
+  },
+  {
+   "text": "The",
+   "start": 37.303,
+   "end": 37.419
+  },
+  {
+   "text": "spacecraft",
+   "start": 37.465,
+   "end": 38.243
+  },
+  {
+   "text": "was",
+   "start": 38.452,
+   "end": 38.615
+  },
+  {
+   "text": "OSIRIS-REx,",
+   "start": 38.684,
+   "end": 39.903
+  },
+  {
+   "text": "and",
+   "start": 40.182,
+   "end": 40.345
+  },
+  {
+   "text": "its",
+   "start": 40.414,
+   "end": 40.554
+  },
+  {
+   "text": "job",
+   "start": 40.623,
+   "end": 40.983
+  },
+  {
+   "text": "was",
+   "start": 41.053,
+   "end": 41.169
+  },
+  {
+   "text": "to",
+   "start": 41.227,
+   "end": 41.273
+  },
+  {
+   "text": "bring",
+   "start": 41.331,
+   "end": 41.529
+  },
+  {
+   "text": "a",
+   "start": 41.575,
+   "end": 41.598
+  },
+  {
+   "text": "piece",
+   "start": 41.657,
+   "end": 41.924
+  },
+  {
+   "text": "of",
+   "start": 41.958,
+   "end": 42.005
+  },
+  {
+   "text": "an",
+   "start": 42.051,
+   "end": 42.109
+  },
+  {
+   "text": "asteroid",
+   "start": 42.179,
+   "end": 42.818
+  },
+  {
+   "text": "back",
+   "start": 42.887,
+   "end": 43.085
+  },
+  {
+   "text": "to",
+   "start": 43.143,
+   "end": 43.212
+  },
+  {
+   "text": "Earth,",
+   "start": 43.294,
+   "end": 43.897
+  },
+  {
+   "text": "where",
+   "start": 44.176,
+   "end": 44.396
+  },
+  {
+   "text": "labs",
+   "start": 44.455,
+   "end": 44.826
+  },
+  {
+   "text": "can",
+   "start": 44.872,
+   "end": 45.012
+  },
+  {
+   "text": "study",
+   "start": 45.07,
+   "end": 45.407
+  },
+  {
+   "text": "it",
+   "start": 45.465,
+   "end": 45.546
+  },
+  {
+   "text": "in",
+   "start": 45.604,
+   "end": 45.674
+  },
+  {
+   "text": "detail.",
+   "start": 45.755,
+   "end": 46.544
+  },
+  {
+   "text": "Up",
+   "start": 47.148,
+   "end": 47.311
+  },
+  {
+   "text": "close,",
+   "start": 47.38,
+   "end": 48.019
+  },
+  {
+   "text": "Bennu",
+   "start": 48.228,
+   "end": 48.564
+  },
+  {
+   "text": "turned",
+   "start": 48.623,
+   "end": 48.901
+  },
+  {
+   "text": "out",
+   "start": 48.948,
+   "end": 49.087
+  },
+  {
+   "text": "to",
+   "start": 49.122,
+   "end": 49.168
+  },
+  {
+   "text": "be",
+   "start": 49.226,
+   "end": 49.331
+  },
+  {
+   "text": "crowded",
+   "start": 49.389,
+   "end": 49.784
+  },
+  {
+   "text": "with",
+   "start": 49.83,
+   "end": 49.958
+  },
+  {
+   "text": "boulders.",
+   "start": 50.016,
+   "end": 50.759
+  },
+  {
+   "text": "So",
+   "start": 51.142,
+   "end": 51.281
+  },
+  {
+   "text": "the",
+   "start": 51.339,
+   "end": 51.409
+  },
+  {
+   "text": "team",
+   "start": 51.456,
+   "end": 51.723
+  },
+  {
+   "text": "picked",
+   "start": 51.792,
+   "end": 52.036
+  },
+  {
+   "text": "a",
+   "start": 52.071,
+   "end": 52.094
+  },
+  {
+   "text": "small",
+   "start": 52.141,
+   "end": 52.442
+  },
+  {
+   "text": "target",
+   "start": 52.5,
+   "end": 52.872
+  },
+  {
+   "text": "between",
+   "start": 52.918,
+   "end": 53.313
+  },
+  {
+   "text": "them,",
+   "start": 53.371,
+   "end": 53.766
+  },
+  {
+   "text": "a",
+   "start": 53.975,
+   "end": 54.056
+  },
+  {
+   "text": "site",
+   "start": 54.172,
+   "end": 54.579
+  },
+  {
+   "text": "they",
+   "start": 54.613,
+   "end": 54.776
+  },
+  {
+   "text": "named",
+   "start": 54.857,
+   "end": 55.229
+  },
+  {
+   "text": "Nightingale.",
+   "start": 55.403,
+   "end": 56.367
+  },
+  {
+   "text": "The",
+   "start": 56.97,
+   "end": 57.098
+  },
+  {
+   "text": "tool",
+   "start": 57.156,
+   "end": 57.377
+  },
+  {
+   "text": "for",
+   "start": 57.435,
+   "end": 57.528
+  },
+  {
+   "text": "the",
+   "start": 57.574,
+   "end": 57.644
+  },
+  {
+   "text": "job",
+   "start": 57.713,
+   "end": 58.085
+  },
+  {
+   "text": "is",
+   "start": 58.154,
+   "end": 58.236
+  },
+  {
+   "text": "called",
+   "start": 58.294,
+   "end": 58.549
+  },
+  {
+   "text": "TAGSAM,",
+   "start": 58.607,
+   "end": 59.524
+  },
+  {
+   "text": "short",
+   "start": 59.699,
+   "end": 60.035
+  },
+  {
+   "text": "for",
+   "start": 60.105,
+   "end": 60.244
+  },
+  {
+   "text": "Touch-And-Go",
+   "start": 60.314,
+   "end": 60.906
+  },
+  {
+   "text": "Sample",
+   "start": 60.999,
+   "end": 61.394
+  },
+  {
+   "text": "Acquisition",
+   "start": 61.452,
+   "end": 62.09
+  },
+  {
+   "text": "Mechanism.",
+   "start": 62.16,
+   "end": 62.926
+  },
+  {
+   "text": "It's",
+   "start": 63.367,
+   "end": 63.553
+  },
+  {
+   "text": "not",
+   "start": 63.6,
+   "end": 63.75
+  },
+  {
+   "text": "a",
+   "start": 63.797,
+   "end": 63.82
+  },
+  {
+   "text": "drill,",
+   "start": 63.89,
+   "end": 64.331
+  },
+  {
+   "text": "and",
+   "start": 64.366,
+   "end": 64.482
+  },
+  {
+   "text": "the",
+   "start": 64.528,
+   "end": 64.598
+  },
+  {
+   "text": "spacecraft",
+   "start": 64.644,
+   "end": 65.411
+  },
+  {
+   "text": "does",
+   "start": 65.504,
+   "end": 65.713
+  },
+  {
+   "text": "not",
+   "start": 65.759,
+   "end": 65.909
+  },
+  {
+   "text": "land.",
+   "start": 65.991,
+   "end": 66.571
+  },
+  {
+   "text": "It's",
+   "start": 66.896,
+   "end": 67.094
+  },
+  {
+   "text": "a",
+   "start": 67.128,
+   "end": 67.152
+  },
+  {
+   "text": "round",
+   "start": 67.233,
+   "end": 67.581
+  },
+  {
+   "text": "head",
+   "start": 67.663,
+   "end": 67.941
+  },
+  {
+   "text": "on",
+   "start": 68.011,
+   "end": 68.092
+  },
+  {
+   "text": "the",
+   "start": 68.127,
+   "end": 68.197
+  },
+  {
+   "text": "end",
+   "start": 68.266,
+   "end": 68.394
+  },
+  {
+   "text": "of",
+   "start": 68.44,
+   "end": 68.487
+  },
+  {
+   "text": "a",
+   "start": 68.545,
+   "end": 68.568
+  },
+  {
+   "text": "long",
+   "start": 68.638,
+   "end": 68.951
+  },
+  {
+   "text": "arm.",
+   "start": 69.044,
+   "end": 69.636
+  },
+  {
+   "text": "The",
+   "start": 69.88,
+   "end": 70.008
+  },
+  {
+   "text": "head",
+   "start": 70.077,
+   "end": 70.275
+  },
+  {
+   "text": "touches",
+   "start": 70.333,
+   "end": 70.67
+  },
+  {
+   "text": "the",
+   "start": 70.728,
+   "end": 70.797
+  },
+  {
+   "text": "surface,",
+   "start": 70.855,
+   "end": 71.494
+  },
+  {
+   "text": "and",
+   "start": 71.61,
+   "end": 71.761
+  },
+  {
+   "text": "a",
+   "start": 71.819,
+   "end": 71.842
+  },
+  {
+   "text": "burst",
+   "start": 71.9,
+   "end": 72.144
+  },
+  {
+   "text": "of",
+   "start": 72.202,
+   "end": 72.26
+  },
+  {
+   "text": "gas",
+   "start": 72.353,
+   "end": 72.678
+  },
+  {
+   "text": "pushes",
+   "start": 72.748,
+   "end": 73.05
+  },
+  {
+   "text": "loose",
+   "start": 73.108,
+   "end": 73.328
+  },
+  {
+   "text": "material",
+   "start": 73.375,
+   "end": 73.827
+  },
+  {
+   "text": "up",
+   "start": 73.885,
+   "end": 73.99
+  },
+  {
+   "text": "into",
+   "start": 74.048,
+   "end": 74.222
+  },
+  {
+   "text": "a",
+   "start": 74.303,
+   "end": 74.338
+  },
+  {
+   "text": "collector.",
+   "start": 74.385,
+   "end": 75.116
+  },
+  {
+   "text": "On",
+   "start": 75.557,
+   "end": 75.731
+  },
+  {
+   "text": "October",
+   "start": 75.79,
+   "end": 76.219
+  },
+  {
+   "text": "20,",
+   "start": 76.289,
+   "end": 76.8
+  },
+  {
+   "text": "2020,",
+   "start": 76.869,
+   "end": 77.798
+  },
+  {
+   "text": "it",
+   "start": 78.123,
+   "end": 78.251
+  },
+  {
+   "text": "was",
+   "start": 78.309,
+   "end": 78.437
+  },
+  {
+   "text": "time.",
+   "start": 78.506,
+   "end": 79.11
+  },
+  {
+   "text": "But",
+   "start": 79.551,
+   "end": 79.714
+  },
+  {
+   "text": "nobody",
+   "start": 79.772,
+   "end": 80.108
+  },
+  {
+   "text": "on",
+   "start": 80.178,
+   "end": 80.306
+  },
+  {
+   "text": "Earth",
+   "start": 80.387,
+   "end": 80.631
+  },
+  {
+   "text": "was",
+   "start": 80.689,
+   "end": 80.817
+  },
+  {
+   "text": "steering.",
+   "start": 80.875,
+   "end": 81.56
+  },
+  {
+   "text": "Before",
+   "start": 81.943,
+   "end": 82.326
+  },
+  {
+   "text": "the",
+   "start": 82.361,
+   "end": 82.43
+  },
+  {
+   "text": "event,",
+   "start": 82.5,
+   "end": 82.837
+  },
+  {
+   "text": "NASA",
+   "start": 82.883,
+   "end": 83.22
+  },
+  {
+   "text": "said",
+   "start": 83.255,
+   "end": 83.406
+  },
+  {
+   "text": "a",
+   "start": 83.44,
+   "end": 83.464
+  },
+  {
+   "text": "signal",
+   "start": 83.522,
+   "end": 83.824
+  },
+  {
+   "text": "would",
+   "start": 83.858,
+   "end": 83.998
+  },
+  {
+   "text": "need",
+   "start": 84.032,
+   "end": 84.195
+  },
+  {
+   "text": "about",
+   "start": 84.23,
+   "end": 84.45
+  },
+  {
+   "text": "18",
+   "start": 84.497,
+   "end": 84.787
+  },
+  {
+   "text": "and",
+   "start": 84.845,
+   "end": 84.915
+  },
+  {
+   "text": "a",
+   "start": 84.961,
+   "end": 84.985
+  },
+  {
+   "text": "half",
+   "start": 85.054,
+   "end": 85.252
+  },
+  {
+   "text": "minutes",
+   "start": 85.344,
+   "end": 85.669
+  },
+  {
+   "text": "to",
+   "start": 85.728,
+   "end": 85.809
+  },
+  {
+   "text": "travel",
+   "start": 85.867,
+   "end": 86.192
+  },
+  {
+   "text": "one",
+   "start": 86.273,
+   "end": 86.459
+  },
+  {
+   "text": "way",
+   "start": 86.505,
+   "end": 86.772
+  },
+  {
+   "text": "between",
+   "start": 86.854,
+   "end": 87.19
+  },
+  {
+   "text": "Earth",
+   "start": 87.26,
+   "end": 87.457
+  },
+  {
+   "text": "and",
+   "start": 87.504,
+   "end": 87.574
+  },
+  {
+   "text": "the",
+   "start": 87.608,
+   "end": 87.678
+  },
+  {
+   "text": "spacecraft.",
+   "start": 87.713,
+   "end": 88.595
+  },
+  {
+   "text": "That's",
+   "start": 89.036,
+   "end": 89.269
+  },
+  {
+   "text": "far",
+   "start": 89.315,
+   "end": 89.501
+  },
+  {
+   "text": "too",
+   "start": 89.57,
+   "end": 89.71
+  },
+  {
+   "text": "slow",
+   "start": 89.768,
+   "end": 90.0
+  },
+  {
+   "text": "to",
+   "start": 90.046,
+   "end": 90.093
+  },
+  {
+   "text": "fly",
+   "start": 90.151,
+   "end": 90.348
+  },
+  {
+   "text": "it",
+   "start": 90.418,
+   "end": 90.488
+  },
+  {
+   "text": "by",
+   "start": 90.546,
+   "end": 90.685
+  },
+  {
+   "text": "hand.",
+   "start": 90.778,
+   "end": 91.312
+  },
+  {
+   "text": "So",
+   "start": 91.823,
+   "end": 91.95
+  },
+  {
+   "text": "the",
+   "start": 92.009,
+   "end": 92.078
+  },
+  {
+   "text": "whole",
+   "start": 92.125,
+   "end": 92.357
+  },
+  {
+   "text": "approach",
+   "start": 92.392,
+   "end": 92.833
+  },
+  {
+   "text": "and",
+   "start": 92.891,
+   "end": 92.972
+  },
+  {
+   "text": "the",
+   "start": 93.019,
+   "end": 93.088
+  },
+  {
+   "text": "touch",
+   "start": 93.146,
+   "end": 93.483
+  },
+  {
+   "text": "ran",
+   "start": 93.564,
+   "end": 93.866
+  },
+  {
+   "text": "automatically,",
+   "start": 93.959,
+   "end": 94.969
+  },
+  {
+   "text": "from",
+   "start": 95.12,
+   "end": 95.306
+  },
+  {
+   "text": "commands",
+   "start": 95.375,
+   "end": 95.84
+  },
+  {
+   "text": "uploaded",
+   "start": 95.898,
+   "end": 96.351
+  },
+  {
+   "text": "in",
+   "start": 96.409,
+   "end": 96.479
+  },
+  {
+   "text": "advance.",
+   "start": 96.537,
+   "end": 97.268
+  },
+  {
+   "text": "The",
+   "start": 97.872,
+   "end": 97.976
+  },
+  {
+   "text": "spacecraft",
+   "start": 98.023,
+   "end": 98.65
+  },
+  {
+   "text": "lowered",
+   "start": 98.731,
+   "end": 99.056
+  },
+  {
+   "text": "itself",
+   "start": 99.091,
+   "end": 99.416
+  },
+  {
+   "text": "toward",
+   "start": 99.462,
+   "end": 99.741
+  },
+  {
+   "text": "Nightingale",
+   "start": 99.811,
+   "end": 100.438
+  },
+  {
+   "text": "and",
+   "start": 100.484,
+   "end": 100.589
+  },
+  {
+   "text": "met",
+   "start": 100.647,
+   "end": 100.809
+  },
+  {
+   "text": "the",
+   "start": 100.856,
+   "end": 100.925
+  },
+  {
+   "text": "surface",
+   "start": 100.983,
+   "end": 101.401
+  },
+  {
+   "text": "at",
+   "start": 101.448,
+   "end": 101.552
+  },
+  {
+   "text": "about",
+   "start": 101.599,
+   "end": 101.842
+  },
+  {
+   "text": "10",
+   "start": 101.889,
+   "end": 102.098
+  },
+  {
+   "text": "centimeters",
+   "start": 102.156,
+   "end": 102.725
+  },
+  {
+   "text": "per",
+   "start": 102.783,
+   "end": 102.911
+  },
+  {
+   "text": "second.",
+   "start": 102.969,
+   "end": 103.561
+  },
+  {
+   "text": "That's",
+   "start": 103.944,
+   "end": 104.153
+  },
+  {
+   "text": "about",
+   "start": 104.188,
+   "end": 104.397
+  },
+  {
+   "text": "four",
+   "start": 104.455,
+   "end": 104.664
+  },
+  {
+   "text": "inches",
+   "start": 104.733,
+   "end": 105.035
+  },
+  {
+   "text": "per",
+   "start": 105.093,
+   "end": 105.221
+  },
+  {
+   "text": "second.",
+   "start": 105.279,
+   "end": 105.825
+  },
+  {
+   "text": "Here's",
+   "start": 106.428,
+   "end": 106.684
+  },
+  {
+   "text": "what",
+   "start": 106.707,
+   "end": 106.835
+  },
+  {
+   "text": "happened",
+   "start": 106.881,
+   "end": 107.195
+  },
+  {
+   "text": "next,",
+   "start": 107.264,
+   "end": 107.717
+  },
+  {
+   "text": "second",
+   "start": 107.845,
+   "end": 108.193
+  },
+  {
+   "text": "by",
+   "start": 108.263,
+   "end": 108.402
+  },
+  {
+   "text": "second,",
+   "start": 108.483,
+   "end": 109.087
+  },
+  {
+   "text": "in",
+   "start": 109.412,
+   "end": 109.551
+  },
+  {
+   "text": "NASA's",
+   "start": 109.609,
+   "end": 110.051
+  },
+  {
+   "text": "data-driven",
+   "start": 110.109,
+   "end": 110.712
+  },
+  {
+   "text": "reconstruction.",
+   "start": 110.77,
+   "end": 111.769
+  },
+  {
+   "text": "Zero",
+   "start": 112.21,
+   "end": 112.616
+  },
+  {
+   "text": "seconds.",
+   "start": 112.709,
+   "end": 113.498
+  },
+  {
+   "text": "The",
+   "start": 114.799,
+   "end": 114.915
+  },
+  {
+   "text": "round",
+   "start": 114.984,
+   "end": 115.298
+  },
+  {
+   "text": "sampler",
+   "start": 115.379,
+   "end": 115.809
+  },
+  {
+   "text": "head",
+   "start": 115.867,
+   "end": 116.076
+  },
+  {
+   "text": "touches",
+   "start": 116.134,
+   "end": 116.494
+  },
+  {
+   "text": "Nightingale.",
+   "start": 116.575,
+   "end": 117.341
+  },
+  {
+   "text": "Not",
+   "start": 117.515,
+   "end": 117.771
+  },
+  {
+   "text": "the",
+   "start": 117.829,
+   "end": 117.91
+  },
+  {
+   "text": "spacecraft's",
+   "start": 117.957,
+   "end": 118.63
+  },
+  {
+   "text": "body.",
+   "start": 118.688,
+   "end": 119.187
+  },
+  {
+   "text": "Just",
+   "start": 119.303,
+   "end": 119.536
+  },
+  {
+   "text": "the",
+   "start": 119.57,
+   "end": 119.652
+  },
+  {
+   "text": "head,",
+   "start": 119.721,
+   "end": 120.07
+  },
+  {
+   "text": "on",
+   "start": 120.116,
+   "end": 120.279
+  },
+  {
+   "text": "the",
+   "start": 120.313,
+   "end": 120.383
+  },
+  {
+   "text": "end",
+   "start": 120.441,
+   "end": 120.557
+  },
+  {
+   "text": "of",
+   "start": 120.592,
+   "end": 120.65
+  },
+  {
+   "text": "its",
+   "start": 120.697,
+   "end": 120.813
+  },
+  {
+   "text": "arm.",
+   "start": 120.859,
+   "end": 121.44
+  },
+  {
+   "text": "About",
+   "start": 121.765,
+   "end": 122.055
+  },
+  {
+   "text": "one",
+   "start": 122.113,
+   "end": 122.334
+  },
+  {
+   "text": "second",
+   "start": 122.392,
+   "end": 122.705
+  },
+  {
+   "text": "later,",
+   "start": 122.775,
+   "end": 123.135
+  },
+  {
+   "text": "pressurized",
+   "start": 123.204,
+   "end": 123.982
+  },
+  {
+   "text": "nitrogen",
+   "start": 124.063,
+   "end": 124.586
+  },
+  {
+   "text": "fires",
+   "start": 124.667,
+   "end": 125.074
+  },
+  {
+   "text": "into",
+   "start": 125.132,
+   "end": 125.294
+  },
+  {
+   "text": "the",
+   "start": 125.364,
+   "end": 125.433
+  },
+  {
+   "text": "surface.",
+   "start": 125.468,
+   "end": 126.118
+  },
+  {
+   "text": "The",
+   "start": 126.397,
+   "end": 126.513
+  },
+  {
+   "text": "gas",
+   "start": 126.571,
+   "end": 126.838
+  },
+  {
+   "text": "lifts",
+   "start": 126.92,
+   "end": 127.21
+  },
+  {
+   "text": "dust",
+   "start": 127.291,
+   "end": 127.593
+  },
+  {
+   "text": "and",
+   "start": 127.651,
+   "end": 127.756
+  },
+  {
+   "text": "gravel",
+   "start": 127.837,
+   "end": 128.243
+  },
+  {
+   "text": "up",
+   "start": 128.324,
+   "end": 128.441
+  },
+  {
+   "text": "toward",
+   "start": 128.499,
+   "end": 128.731
+  },
+  {
+   "text": "the",
+   "start": 128.766,
+   "end": 128.835
+  },
+  {
+   "text": "collector.",
+   "start": 128.87,
+   "end": 129.567
+  },
+  {
+   "text": "That",
+   "start": 130.17,
+   "end": 130.414
+  },
+  {
+   "text": "bright",
+   "start": 130.472,
+   "end": 130.728
+  },
+  {
+   "text": "burst",
+   "start": 130.786,
+   "end": 131.076
+  },
+  {
+   "text": "in",
+   "start": 131.134,
+   "end": 131.204
+  },
+  {
+   "text": "the",
+   "start": 131.25,
+   "end": 131.32
+  },
+  {
+   "text": "real",
+   "start": 131.378,
+   "end": 131.575
+  },
+  {
+   "text": "photos?",
+   "start": 131.633,
+   "end": 132.365
+  },
+  {
+   "text": "That's",
+   "start": 132.643,
+   "end": 132.91
+  },
+  {
+   "text": "material",
+   "start": 132.968,
+   "end": 133.526
+  },
+  {
+   "text": "thrown",
+   "start": 133.584,
+   "end": 133.874
+  },
+  {
+   "text": "up",
+   "start": 133.92,
+   "end": 134.025
+  },
+  {
+   "text": "by",
+   "start": 134.083,
+   "end": 134.211
+  },
+  {
+   "text": "the",
+   "start": 134.269,
+   "end": 134.338
+  },
+  {
+   "text": "gas.",
+   "start": 134.396,
+   "end": 135.012
+  },
+  {
+   "text": "Not",
+   "start": 135.29,
+   "end": 135.511
+  },
+  {
+   "text": "fire,",
+   "start": 135.581,
+   "end": 136.115
+  },
+  {
+   "text": "and",
+   "start": 136.266,
+   "end": 136.451
+  },
+  {
+   "text": "not",
+   "start": 136.533,
+   "end": 136.718
+  },
+  {
+   "text": "an",
+   "start": 136.765,
+   "end": 136.823
+  },
+  {
+   "text": "explosion.",
+   "start": 136.881,
+   "end": 137.787
+  },
+  {
+   "text": "At",
+   "start": 138.112,
+   "end": 138.274
+  },
+  {
+   "text": "about",
+   "start": 138.309,
+   "end": 138.541
+  },
+  {
+   "text": "six",
+   "start": 138.623,
+   "end": 138.855
+  },
+  {
+   "text": "seconds,",
+   "start": 138.936,
+   "end": 139.586
+  },
+  {
+   "text": "the",
+   "start": 139.702,
+   "end": 139.807
+  },
+  {
+   "text": "back-away",
+   "start": 139.876,
+   "end": 140.352
+  },
+  {
+   "text": "thrusters",
+   "start": 140.434,
+   "end": 141.072
+  },
+  {
+   "text": "start",
+   "start": 141.188,
+   "end": 141.502
+  },
+  {
+   "text": "firing.",
+   "start": 141.583,
+   "end": 142.291
+  },
+  {
+   "text": "But",
+   "start": 142.616,
+   "end": 142.767
+  },
+  {
+   "text": "the",
+   "start": 142.802,
+   "end": 142.883
+  },
+  {
+   "text": "arm",
+   "start": 142.953,
+   "end": 143.243
+  },
+  {
+   "text": "is",
+   "start": 143.301,
+   "end": 143.383
+  },
+  {
+   "text": "still",
+   "start": 143.441,
+   "end": 143.708
+  },
+  {
+   "text": "sinking.",
+   "start": 143.789,
+   "end": 144.416
+  },
+  {
+   "text": "Only",
+   "start": 144.799,
+   "end": 145.101
+  },
+  {
+   "text": "at",
+   "start": 145.159,
+   "end": 145.229
+  },
+  {
+   "text": "about",
+   "start": 145.264,
+   "end": 145.507
+  },
+  {
+   "text": "nine",
+   "start": 145.577,
+   "end": 145.844
+  },
+  {
+   "text": "seconds",
+   "start": 145.902,
+   "end": 146.32
+  },
+  {
+   "text": "does",
+   "start": 146.378,
+   "end": 146.564
+  },
+  {
+   "text": "the",
+   "start": 146.61,
+   "end": 146.68
+  },
+  {
+   "text": "thrust",
+   "start": 146.738,
+   "end": 147.063
+  },
+  {
+   "text": "finally",
+   "start": 147.179,
+   "end": 147.62
+  },
+  {
+   "text": "stop",
+   "start": 147.667,
+   "end": 147.934
+  },
+  {
+   "text": "the",
+   "start": 147.992,
+   "end": 148.062
+  },
+  {
+   "text": "descent,",
+   "start": 148.12,
+   "end": 148.63
+  },
+  {
+   "text": "and",
+   "start": 148.758,
+   "end": 148.909
+  },
+  {
+   "text": "begin",
+   "start": 148.956,
+   "end": 149.199
+  },
+  {
+   "text": "to",
+   "start": 149.257,
+   "end": 149.304
+  },
+  {
+   "text": "carry",
+   "start": 149.362,
+   "end": 149.617
+  },
+  {
+   "text": "the",
+   "start": 149.664,
+   "end": 149.733
+  },
+  {
+   "text": "spacecraft",
+   "start": 149.768,
+   "end": 150.36
+  },
+  {
+   "text": "away.",
+   "start": 150.407,
+   "end": 151.011
+  },
+  {
+   "text": "By",
+   "start": 151.394,
+   "end": 151.545
+  },
+  {
+   "text": "then,",
+   "start": 151.603,
+   "end": 151.8
+  },
+  {
+   "text": "the",
+   "start": 151.823,
+   "end": 151.893
+  },
+  {
+   "text": "sampler's",
+   "start": 151.939,
+   "end": 152.369
+  },
+  {
+   "text": "arm",
+   "start": 152.415,
+   "end": 152.706
+  },
+  {
+   "text": "had",
+   "start": 152.764,
+   "end": 152.868
+  },
+  {
+   "text": "pushed",
+   "start": 152.915,
+   "end": 153.182
+  },
+  {
+   "text": "nearly",
+   "start": 153.216,
+   "end": 153.518
+  },
+  {
+   "text": "half",
+   "start": 153.588,
+   "end": 153.797
+  },
+  {
+   "text": "a",
+   "start": 153.855,
+   "end": 153.878
+  },
+  {
+   "text": "meter",
+   "start": 153.936,
+   "end": 154.18
+  },
+  {
+   "text": "into",
+   "start": 154.238,
+   "end": 154.401
+  },
+  {
+   "text": "the",
+   "start": 154.459,
+   "end": 154.528
+  },
+  {
+   "text": "asteroid.",
+   "start": 154.61,
+   "end": 155.469
+  },
+  {
+   "text": "That's",
+   "start": 155.643,
+   "end": 155.922
+  },
+  {
+   "text": "about",
+   "start": 155.956,
+   "end": 156.189
+  },
+  {
+   "text": "a",
+   "start": 156.223,
+   "end": 156.247
+  },
+  {
+   "text": "foot",
+   "start": 156.316,
+   "end": 156.514
+  },
+  {
+   "text": "and",
+   "start": 156.56,
+   "end": 156.641
+  },
+  {
+   "text": "a",
+   "start": 156.699,
+   "end": 156.734
+  },
+  {
+   "text": "half.",
+   "start": 156.815,
+   "end": 157.303
+  },
+  {
+   "text": "Around",
+   "start": 157.582,
+   "end": 157.918
+  },
+  {
+   "text": "sixteen",
+   "start": 157.976,
+   "end": 158.452
+  },
+  {
+   "text": "seconds,",
+   "start": 158.522,
+   "end": 158.928
+  },
+  {
+   "text": "the",
+   "start": 158.952,
+   "end": 159.033
+  },
+  {
+   "text": "arm",
+   "start": 159.102,
+   "end": 159.323
+  },
+  {
+   "text": "comes",
+   "start": 159.381,
+   "end": 159.613
+  },
+  {
+   "text": "fully",
+   "start": 159.66,
+   "end": 159.938
+  },
+  {
+   "text": "out",
+   "start": 159.996,
+   "end": 160.113
+  },
+  {
+   "text": "of",
+   "start": 160.136,
+   "end": 160.182
+  },
+  {
+   "text": "the",
+   "start": 160.217,
+   "end": 160.287
+  },
+  {
+   "text": "material.",
+   "start": 160.31,
+   "end": 161.076
+  },
+  {
+   "text": "And",
+   "start": 161.68,
+   "end": 161.842
+  },
+  {
+   "text": "at",
+   "start": 161.9,
+   "end": 161.982
+  },
+  {
+   "text": "about",
+   "start": 162.017,
+   "end": 162.26
+  },
+  {
+   "text": "thirty",
+   "start": 162.307,
+   "end": 162.574
+  },
+  {
+   "text": "seconds,",
+   "start": 162.644,
+   "end": 163.27
+  },
+  {
+   "text": "the",
+   "start": 163.387,
+   "end": 163.491
+  },
+  {
+   "text": "thrusters",
+   "start": 163.549,
+   "end": 164.095
+  },
+  {
+   "text": "shut",
+   "start": 164.153,
+   "end": 164.397
+  },
+  {
+   "text": "off,",
+   "start": 164.455,
+   "end": 164.907
+  },
+  {
+   "text": "and",
+   "start": 165.116,
+   "end": 165.256
+  },
+  {
+   "text": "the",
+   "start": 165.314,
+   "end": 165.383
+  },
+  {
+   "text": "spacecraft",
+   "start": 165.418,
+   "end": 166.092
+  },
+  {
+   "text": "drifts",
+   "start": 166.138,
+   "end": 166.44
+  },
+  {
+   "text": "away.",
+   "start": 166.486,
+   "end": 167.229
+  },
+  {
+   "text": "So",
+   "start": 167.23,
+   "end": 167.393
+  },
+  {
+   "text": "why",
+   "start": 167.462,
+   "end": 167.683
+  },
+  {
+   "text": "so",
+   "start": 167.799,
+   "end": 167.973
+  },
+  {
+   "text": "little",
+   "start": 168.054,
+   "end": 168.298
+  },
+  {
+   "text": "resistance?",
+   "start": 168.356,
+   "end": 169.18
+  },
+  {
+   "text": "When",
+   "start": 169.691,
+   "end": 169.877
+  },
+  {
+   "text": "NASA's",
+   "start": 169.924,
+   "end": 170.295
+  },
+  {
+   "text": "team",
+   "start": 170.341,
+   "end": 170.574
+  },
+  {
+   "text": "analyzed",
+   "start": 170.643,
+   "end": 171.143
+  },
+  {
+   "text": "the",
+   "start": 171.177,
+   "end": 171.247
+  },
+  {
+   "text": "data,",
+   "start": 171.305,
+   "end": 171.804
+  },
+  {
+   "text": "they",
+   "start": 172.013,
+   "end": 172.153
+  },
+  {
+   "text": "found",
+   "start": 172.211,
+   "end": 172.443
+  },
+  {
+   "text": "that",
+   "start": 172.478,
+   "end": 172.594
+  },
+  {
+   "text": "the",
+   "start": 172.629,
+   "end": 172.698
+  },
+  {
+   "text": "particles",
+   "start": 172.756,
+   "end": 173.232
+  },
+  {
+   "text": "on",
+   "start": 173.302,
+   "end": 173.43
+  },
+  {
+   "text": "Bennu's",
+   "start": 173.499,
+   "end": 173.871
+  },
+  {
+   "text": "surface",
+   "start": 173.906,
+   "end": 174.359
+  },
+  {
+   "text": "are",
+   "start": 174.393,
+   "end": 174.556
+  },
+  {
+   "text": "loosely",
+   "start": 174.614,
+   "end": 175.02
+  },
+  {
+   "text": "packed,",
+   "start": 175.102,
+   "end": 175.67
+  },
+  {
+   "text": "and",
+   "start": 175.845,
+   "end": 175.996
+  },
+  {
+   "text": "only",
+   "start": 176.065,
+   "end": 176.274
+  },
+  {
+   "text": "weakly",
+   "start": 176.355,
+   "end": 176.681
+  },
+  {
+   "text": "bound",
+   "start": 176.75,
+   "end": 177.029
+  },
+  {
+   "text": "to",
+   "start": 177.075,
+   "end": 177.145
+  },
+  {
+   "text": "each",
+   "start": 177.226,
+   "end": 177.389
+  },
+  {
+   "text": "other.",
+   "start": 177.435,
+   "end": 177.865
+  },
+  {
+   "text": "Push",
+   "start": 178.248,
+   "end": 178.503
+  },
+  {
+   "text": "on",
+   "start": 178.573,
+   "end": 178.701
+  },
+  {
+   "text": "them,",
+   "start": 178.747,
+   "end": 179.107
+  },
+  {
+   "text": "and",
+   "start": 179.235,
+   "end": 179.362
+  },
+  {
+   "text": "they",
+   "start": 179.409,
+   "end": 179.513
+  },
+  {
+   "text": "don't",
+   "start": 179.548,
+   "end": 179.711
+  },
+  {
+   "text": "push",
+   "start": 179.769,
+   "end": 180.024
+  },
+  {
+   "text": "back",
+   "start": 180.082,
+   "end": 180.314
+  },
+  {
+   "text": "like",
+   "start": 180.396,
+   "end": 180.57
+  },
+  {
+   "text": "solid",
+   "start": 180.616,
+   "end": 180.976
+  },
+  {
+   "text": "ground.",
+   "start": 181.023,
+   "end": 181.591
+  },
+  {
+   "text": "They",
+   "start": 181.916,
+   "end": 182.079
+  },
+  {
+   "text": "slide",
+   "start": 182.149,
+   "end": 182.578
+  },
+  {
+   "text": "out",
+   "start": 182.601,
+   "end": 182.717
+  },
+  {
+   "text": "of",
+   "start": 182.752,
+   "end": 182.799
+  },
+  {
+   "text": "the",
+   "start": 182.834,
+   "end": 182.903
+  },
+  {
+   "text": "way,",
+   "start": 182.961,
+   "end": 183.414
+  },
+  {
+   "text": "a",
+   "start": 183.484,
+   "end": 183.542
+  },
+  {
+   "text": "lot",
+   "start": 183.611,
+   "end": 183.786
+  },
+  {
+   "text": "like",
+   "start": 183.832,
+   "end": 183.983
+  },
+  {
+   "text": "the",
+   "start": 184.018,
+   "end": 184.087
+  },
+  {
+   "text": "plastic",
+   "start": 184.122,
+   "end": 184.552
+  },
+  {
+   "text": "balls",
+   "start": 184.61,
+   "end": 184.97
+  },
+  {
+   "text": "in",
+   "start": 185.005,
+   "end": 185.074
+  },
+  {
+   "text": "a",
+   "start": 185.121,
+   "end": 185.144
+  },
+  {
+   "text": "kids'",
+   "start": 185.202,
+   "end": 185.492
+  },
+  {
+   "text": "ball",
+   "start": 185.527,
+   "end": 185.782
+  },
+  {
+   "text": "pit.",
+   "start": 185.841,
+   "end": 186.282
+  },
+  {
+   "text": "NASA's",
+   "start": 186.665,
+   "end": 187.06
+  },
+  {
+   "text": "animation",
+   "start": 187.106,
+   "end": 187.652
+  },
+  {
+   "text": "shows",
+   "start": 187.721,
+   "end": 188.023
+  },
+  {
+   "text": "the",
+   "start": 188.07,
+   "end": 188.151
+  },
+  {
+   "text": "idea.",
+   "start": 188.244,
+   "end": 188.882
+  },
+  {
+   "text": "The",
+   "start": 189.126,
+   "end": 189.242
+  },
+  {
+   "text": "same",
+   "start": 189.3,
+   "end": 189.567
+  },
+  {
+   "text": "weight,",
+   "start": 189.614,
+   "end": 190.101
+  },
+  {
+   "text": "arriving",
+   "start": 190.194,
+   "end": 190.717
+  },
+  {
+   "text": "at",
+   "start": 190.752,
+   "end": 190.821
+  },
+  {
+   "text": "the",
+   "start": 190.856,
+   "end": 190.926
+  },
+  {
+   "text": "same",
+   "start": 190.972,
+   "end": 191.262
+  },
+  {
+   "text": "slow",
+   "start": 191.32,
+   "end": 191.611
+  },
+  {
+   "text": "speed.",
+   "start": 191.68,
+   "end": 192.307
+  },
+  {
+   "text": "On",
+   "start": 192.632,
+   "end": 192.807
+  },
+  {
+   "text": "the",
+   "start": 192.841,
+   "end": 192.911
+  },
+  {
+   "text": "Moon,",
+   "start": 192.981,
+   "end": 193.445
+  },
+  {
+   "text": "the",
+   "start": 193.503,
+   "end": 193.608
+  },
+  {
+   "text": "ground",
+   "start": 193.654,
+   "end": 193.991
+  },
+  {
+   "text": "holds.",
+   "start": 194.06,
+   "end": 194.711
+  },
+  {
+   "text": "On",
+   "start": 194.989,
+   "end": 195.163
+  },
+  {
+   "text": "Bennu,",
+   "start": 195.245,
+   "end": 195.628
+  },
+  {
+   "text": "the",
+   "start": 195.663,
+   "end": 195.732
+  },
+  {
+   "text": "grains",
+   "start": 195.79,
+   "end": 196.173
+  },
+  {
+   "text": "give",
+   "start": 196.231,
+   "end": 196.429
+  },
+  {
+   "text": "way,",
+   "start": 196.487,
+   "end": 196.824
+  },
+  {
+   "text": "and",
+   "start": 196.847,
+   "end": 197.009
+  },
+  {
+   "text": "it",
+   "start": 197.079,
+   "end": 197.16
+  },
+  {
+   "text": "sinks.",
+   "start": 197.242,
+   "end": 197.88
+  },
+  {
+   "text": "The",
+   "start": 198.205,
+   "end": 198.31
+  },
+  {
+   "text": "boulders",
+   "start": 198.368,
+   "end": 198.751
+  },
+  {
+   "text": "on",
+   "start": 198.809,
+   "end": 198.914
+  },
+  {
+   "text": "top",
+   "start": 198.972,
+   "end": 199.227
+  },
+  {
+   "text": "don't",
+   "start": 199.308,
+   "end": 199.517
+  },
+  {
+   "text": "mean",
+   "start": 199.587,
+   "end": 199.773
+  },
+  {
+   "text": "there's",
+   "start": 199.819,
+   "end": 200.028
+  },
+  {
+   "text": "solid",
+   "start": 200.063,
+   "end": 200.411
+  },
+  {
+   "text": "rock",
+   "start": 200.469,
+   "end": 200.701
+  },
+  {
+   "text": "underneath.",
+   "start": 200.783,
+   "end": 201.503
+  },
+  {
+   "text": "And",
+   "start": 201.886,
+   "end": 202.025
+  },
+  {
+   "text": "according",
+   "start": 202.071,
+   "end": 202.431
+  },
+  {
+   "text": "to",
+   "start": 202.478,
+   "end": 202.524
+  },
+  {
+   "text": "NASA's",
+   "start": 202.606,
+   "end": 203.023
+  },
+  {
+   "text": "analysis,",
+   "start": 203.07,
+   "end": 203.917
+  },
+  {
+   "text": "if",
+   "start": 204.034,
+   "end": 204.161
+  },
+  {
+   "text": "the",
+   "start": 204.208,
+   "end": 204.277
+  },
+  {
+   "text": "spacecraft",
+   "start": 204.324,
+   "end": 204.962
+  },
+  {
+   "text": "had",
+   "start": 204.997,
+   "end": 205.09
+  },
+  {
+   "text": "not",
+   "start": 205.136,
+   "end": 205.287
+  },
+  {
+   "text": "fired",
+   "start": 205.345,
+   "end": 205.694
+  },
+  {
+   "text": "its",
+   "start": 205.729,
+   "end": 205.856
+  },
+  {
+   "text": "thrusters",
+   "start": 205.903,
+   "end": 206.402
+  },
+  {
+   "text": "to",
+   "start": 206.448,
+   "end": 206.518
+  },
+  {
+   "text": "back",
+   "start": 206.599,
+   "end": 206.82
+  },
+  {
+   "text": "away,",
+   "start": 206.89,
+   "end": 207.447
+  },
+  {
+   "text": "it",
+   "start": 207.621,
+   "end": 207.749
+  },
+  {
+   "text": "would",
+   "start": 207.784,
+   "end": 207.946
+  },
+  {
+   "text": "have",
+   "start": 207.981,
+   "end": 208.085
+  },
+  {
+   "text": "kept",
+   "start": 208.12,
+   "end": 208.352
+  },
+  {
+   "text": "sinking.",
+   "start": 208.422,
+   "end": 209.049
+  },
+  {
+   "text": "That",
+   "start": 209.862,
+   "end": 210.048
+  },
+  {
+   "text": "doesn't",
+   "start": 210.094,
+   "end": 210.349
+  },
+  {
+   "text": "make",
+   "start": 210.384,
+   "end": 210.524
+  },
+  {
+   "text": "Bennu",
+   "start": 210.57,
+   "end": 210.825
+  },
+  {
+   "text": "liquid,",
+   "start": 210.895,
+   "end": 211.359
+  },
+  {
+   "text": "or",
+   "start": 211.452,
+   "end": 211.626
+  },
+  {
+   "text": "hollow.",
+   "start": 211.707,
+   "end": 212.334
+  },
+  {
+   "text": "It",
+   "start": 212.775,
+   "end": 212.915
+  },
+  {
+   "text": "means",
+   "start": 212.973,
+   "end": 213.217
+  },
+  {
+   "text": "the",
+   "start": 213.263,
+   "end": 213.333
+  },
+  {
+   "text": "surface",
+   "start": 213.391,
+   "end": 213.797
+  },
+  {
+   "text": "is",
+   "start": 213.832,
+   "end": 213.925
+  },
+  {
+   "text": "a",
+   "start": 213.971,
+   "end": 214.006
+  },
+  {
+   "text": "loose",
+   "start": 214.076,
+   "end": 214.343
+  },
+  {
+   "text": "layer",
+   "start": 214.401,
+   "end": 214.656
+  },
+  {
+   "text": "of",
+   "start": 214.714,
+   "end": 214.761
+  },
+  {
+   "text": "particles",
+   "start": 214.83,
+   "end": 215.318
+  },
+  {
+   "text": "that",
+   "start": 215.364,
+   "end": 215.492
+  },
+  {
+   "text": "barely",
+   "start": 215.55,
+   "end": 215.864
+  },
+  {
+   "text": "holds",
+   "start": 215.91,
+   "end": 216.154
+  },
+  {
+   "text": "together.",
+   "start": 216.2,
+   "end": 216.769
+  },
+  {
+   "text": "The",
+   "start": 217.152,
+   "end": 217.268
+  },
+  {
+   "text": "site",
+   "start": 217.326,
+   "end": 217.582
+  },
+  {
+   "text": "itself",
+   "start": 217.605,
+   "end": 218.0
+  },
+  {
+   "text": "shows",
+   "start": 218.058,
+   "end": 218.337
+  },
+  {
+   "text": "what",
+   "start": 218.383,
+   "end": 218.511
+  },
+  {
+   "text": "happened.",
+   "start": 218.557,
+   "end": 219.091
+  },
+  {
+   "text": "The",
+   "start": 219.416,
+   "end": 219.532
+  },
+  {
+   "text": "spacecraft",
+   "start": 219.579,
+   "end": 220.241
+  },
+  {
+   "text": "photographed",
+   "start": 220.31,
+   "end": 220.914
+  },
+  {
+   "text": "Nightingale",
+   "start": 221.03,
+   "end": 221.738
+  },
+  {
+   "text": "on",
+   "start": 221.808,
+   "end": 221.982
+  },
+  {
+   "text": "March",
+   "start": 222.052,
+   "end": 222.307
+  },
+  {
+   "text": "7,",
+   "start": 222.377,
+   "end": 222.702
+  },
+  {
+   "text": "2019,",
+   "start": 222.748,
+   "end": 223.782
+  },
+  {
+   "text": "and",
+   "start": 223.956,
+   "end": 224.13
+  },
+  {
+   "text": "again",
+   "start": 224.188,
+   "end": 224.501
+  },
+  {
+   "text": "on",
+   "start": 224.594,
+   "end": 224.722
+  },
+  {
+   "text": "April",
+   "start": 224.803,
+   "end": 225.14
+  },
+  {
+   "text": "7,",
+   "start": 225.221,
+   "end": 225.639
+  },
+  {
+   "text": "2021.",
+   "start": 225.732,
+   "end": 226.754
+  },
+  {
+   "text": "About",
+   "start": 227.195,
+   "end": 227.497
+  },
+  {
+   "text": "two",
+   "start": 227.532,
+   "end": 227.694
+  },
+  {
+   "text": "years",
+   "start": 227.775,
+   "end": 228.019
+  },
+  {
+   "text": "apart.",
+   "start": 228.065,
+   "end": 228.623
+  },
+  {
+   "text": "Flip",
+   "start": 229.064,
+   "end": 229.354
+  },
+  {
+   "text": "between",
+   "start": 229.412,
+   "end": 229.784
+  },
+  {
+   "text": "them,",
+   "start": 229.83,
+   "end": 230.155
+  },
+  {
+   "text": "and",
+   "start": 230.329,
+   "end": 230.469
+  },
+  {
+   "text": "the",
+   "start": 230.515,
+   "end": 230.585
+  },
+  {
+   "text": "patch",
+   "start": 230.631,
+   "end": 230.887
+  },
+  {
+   "text": "has",
+   "start": 230.91,
+   "end": 231.014
+  },
+  {
+   "text": "changed.",
+   "start": 231.084,
+   "end": 231.746
+  },
+  {
+   "text": "Material",
+   "start": 232.071,
+   "end": 232.663
+  },
+  {
+   "text": "has",
+   "start": 232.721,
+   "end": 232.837
+  },
+  {
+   "text": "been",
+   "start": 232.895,
+   "end": 233.046
+  },
+  {
+   "text": "moved.",
+   "start": 233.116,
+   "end": 233.731
+  },
+  {
+   "text": "NASA",
+   "start": 234.428,
+   "end": 234.846
+  },
+  {
+   "text": "described",
+   "start": 234.904,
+   "end": 235.415
+  },
+  {
+   "text": "the",
+   "start": 235.438,
+   "end": 235.507
+  },
+  {
+   "text": "hollow",
+   "start": 235.577,
+   "end": 235.925
+  },
+  {
+   "text": "left",
+   "start": 236.018,
+   "end": 236.285
+  },
+  {
+   "text": "at",
+   "start": 236.332,
+   "end": 236.401
+  },
+  {
+   "text": "the",
+   "start": 236.436,
+   "end": 236.506
+  },
+  {
+   "text": "site",
+   "start": 236.564,
+   "end": 237.005
+  },
+  {
+   "text": "as",
+   "start": 237.121,
+   "end": 237.295
+  },
+  {
+   "text": "about",
+   "start": 237.342,
+   "end": 237.574
+  },
+  {
+   "text": "eight",
+   "start": 237.644,
+   "end": 237.864
+  },
+  {
+   "text": "meters",
+   "start": 237.922,
+   "end": 238.247
+  },
+  {
+   "text": "wide,",
+   "start": 238.317,
+   "end": 238.874
+  },
+  {
+   "text": "roughly",
+   "start": 239.083,
+   "end": 239.49
+  },
+  {
+   "text": "twenty-six",
+   "start": 239.548,
+   "end": 240.117
+  },
+  {
+   "text": "feet.",
+   "start": 240.186,
+   "end": 240.651
+  },
+  {
+   "text": "In",
+   "start": 241.034,
+   "end": 241.185
+  },
+  {
+   "text": "this",
+   "start": 241.231,
+   "end": 241.394
+  },
+  {
+   "text": "elevation",
+   "start": 241.487,
+   "end": 242.09
+  },
+  {
+   "text": "model",
+   "start": 242.172,
+   "end": 242.473
+  },
+  {
+   "text": "built",
+   "start": 242.543,
+   "end": 242.764
+  },
+  {
+   "text": "from",
+   "start": 242.81,
+   "end": 242.949
+  },
+  {
+   "text": "the",
+   "start": 242.996,
+   "end": 243.066
+  },
+  {
+   "text": "spacecraft's",
+   "start": 243.1,
+   "end": 243.832
+  },
+  {
+   "text": "data,",
+   "start": 243.948,
+   "end": 244.482
+  },
+  {
+   "text": "the",
+   "start": 244.656,
+   "end": 244.749
+  },
+  {
+   "text": "colors",
+   "start": 244.807,
+   "end": 245.132
+  },
+  {
+   "text": "show",
+   "start": 245.179,
+   "end": 245.388
+  },
+  {
+   "text": "how",
+   "start": 245.457,
+   "end": 245.585
+  },
+  {
+   "text": "much",
+   "start": 245.655,
+   "end": 245.852
+  },
+  {
+   "text": "the",
+   "start": 245.922,
+   "end": 246.003
+  },
+  {
+   "text": "surface",
+   "start": 246.061,
+   "end": 246.421
+  },
+  {
+   "text": "height",
+   "start": 246.456,
+   "end": 246.676
+  },
+  {
+   "text": "changed.",
+   "start": 246.723,
+   "end": 247.431
+  },
+  {
+   "text": "Blue",
+   "start": 247.64,
+   "end": 247.988
+  },
+  {
+   "text": "is",
+   "start": 248.035,
+   "end": 248.116
+  },
+  {
+   "text": "where",
+   "start": 248.162,
+   "end": 248.348
+  },
+  {
+   "text": "it",
+   "start": 248.383,
+   "end": 248.453
+  },
+  {
+   "text": "dropped",
+   "start": 248.499,
+   "end": 248.824
+  },
+  {
+   "text": "the",
+   "start": 248.859,
+   "end": 248.929
+  },
+  {
+   "text": "most.",
+   "start": 248.998,
+   "end": 249.544
+  },
+  {
+   "text": "But",
+   "start": 249.66,
+   "end": 249.799
+  },
+  {
+   "text": "don't",
+   "start": 249.846,
+   "end": 250.02
+  },
+  {
+   "text": "credit",
+   "start": 250.066,
+   "end": 250.357
+  },
+  {
+   "text": "all",
+   "start": 250.403,
+   "end": 250.566
+  },
+  {
+   "text": "of",
+   "start": 250.624,
+   "end": 250.67
+  },
+  {
+   "text": "it",
+   "start": 250.728,
+   "end": 250.798
+  },
+  {
+   "text": "to",
+   "start": 250.833,
+   "end": 250.902
+  },
+  {
+   "text": "the",
+   "start": 250.972,
+   "end": 251.042
+  },
+  {
+   "text": "touch.",
+   "start": 251.1,
+   "end": 251.599
+  },
+  {
+   "text": "Three",
+   "start": 251.773,
+   "end": 252.075
+  },
+  {
+   "text": "things",
+   "start": 252.133,
+   "end": 252.435
+  },
+  {
+   "text": "disturbed",
+   "start": 252.493,
+   "end": 252.946
+  },
+  {
+   "text": "this",
+   "start": 252.969,
+   "end": 253.108
+  },
+  {
+   "text": "ground:",
+   "start": 253.178,
+   "end": 253.724
+  },
+  {
+   "text": "the",
+   "start": 253.874,
+   "end": 253.979
+  },
+  {
+   "text": "sampler",
+   "start": 254.037,
+   "end": 254.478
+  },
+  {
+   "text": "head",
+   "start": 254.536,
+   "end": 254.687
+  },
+  {
+   "text": "pressing",
+   "start": 254.734,
+   "end": 255.105
+  },
+  {
+   "text": "in,",
+   "start": 255.175,
+   "end": 255.5
+  },
+  {
+   "text": "the",
+   "start": 255.616,
+   "end": 255.72
+  },
+  {
+   "text": "nitrogen",
+   "start": 255.79,
+   "end": 256.254
+  },
+  {
+   "text": "gas",
+   "start": 256.324,
+   "end": 256.626
+  },
+  {
+   "text": "blowing",
+   "start": 256.707,
+   "end": 257.09
+  },
+  {
+   "text": "into",
+   "start": 257.148,
+   "end": 257.345
+  },
+  {
+   "text": "it,",
+   "start": 257.438,
+   "end": 257.601
+  },
+  {
+   "text": "and",
+   "start": 257.717,
+   "end": 257.868
+  },
+  {
+   "text": "the",
+   "start": 257.914,
+   "end": 257.984
+  },
+  {
+   "text": "thrusters",
+   "start": 258.03,
+   "end": 258.518
+  },
+  {
+   "text": "firing",
+   "start": 258.588,
+   "end": 259.064
+  },
+  {
+   "text": "as",
+   "start": 259.122,
+   "end": 259.203
+  },
+  {
+   "text": "the",
+   "start": 259.261,
+   "end": 259.331
+  },
+  {
+   "text": "spacecraft",
+   "start": 259.366,
+   "end": 259.958
+  },
+  {
+   "text": "backed",
+   "start": 260.027,
+   "end": 260.318
+  },
+  {
+   "text": "away.",
+   "start": 260.352,
+   "end": 260.863
+  },
+  {
+   "text": "Then",
+   "start": 261.374,
+   "end": 261.571
+  },
+  {
+   "text": "came",
+   "start": 261.63,
+   "end": 261.827
+  },
+  {
+   "text": "a",
+   "start": 261.85,
+   "end": 261.885
+  },
+  {
+   "text": "second",
+   "start": 261.955,
+   "end": 262.28
+  },
+  {
+   "text": "problem.",
+   "start": 262.338,
+   "end": 262.918
+  },
+  {
+   "text": "Soon",
+   "start": 263.359,
+   "end": 263.615
+  },
+  {
+   "text": "after",
+   "start": 263.673,
+   "end": 263.905
+  },
+  {
+   "text": "the",
+   "start": 263.963,
+   "end": 264.033
+  },
+  {
+   "text": "touch,",
+   "start": 264.102,
+   "end": 264.555
+  },
+  {
+   "text": "the",
+   "start": 264.648,
+   "end": 264.753
+  },
+  {
+   "text": "spacecraft",
+   "start": 264.799,
+   "end": 265.484
+  },
+  {
+   "text": "photographed",
+   "start": 265.554,
+   "end": 266.192
+  },
+  {
+   "text": "its",
+   "start": 266.227,
+   "end": 266.355
+  },
+  {
+   "text": "sampler",
+   "start": 266.424,
+   "end": 266.935
+  },
+  {
+   "text": "head.",
+   "start": 267.017,
+   "end": 267.516
+  },
+  {
+   "text": "Something",
+   "start": 268.119,
+   "end": 268.503
+  },
+  {
+   "text": "was",
+   "start": 268.561,
+   "end": 268.688
+  },
+  {
+   "text": "off.",
+   "start": 268.77,
+   "end": 269.269
+  },
+  {
+   "text": "Some",
+   "start": 269.594,
+   "end": 269.791
+  },
+  {
+   "text": "of",
+   "start": 269.826,
+   "end": 269.873
+  },
+  {
+   "text": "the",
+   "start": 269.907,
+   "end": 269.977
+  },
+  {
+   "text": "collected",
+   "start": 270.012,
+   "end": 270.43
+  },
+  {
+   "text": "particles",
+   "start": 270.488,
+   "end": 270.999
+  },
+  {
+   "text": "were",
+   "start": 271.045,
+   "end": 271.196
+  },
+  {
+   "text": "escaping",
+   "start": 271.243,
+   "end": 271.637
+  },
+  {
+   "text": "through",
+   "start": 271.684,
+   "end": 271.881
+  },
+  {
+   "text": "small",
+   "start": 271.927,
+   "end": 272.206
+  },
+  {
+   "text": "gaps",
+   "start": 272.264,
+   "end": 272.554
+  },
+  {
+   "text": "in",
+   "start": 272.589,
+   "end": 272.647
+  },
+  {
+   "text": "a",
+   "start": 272.694,
+   "end": 272.717
+  },
+  {
+   "text": "flap",
+   "start": 272.787,
+   "end": 273.181
+  },
+  {
+   "text": "that",
+   "start": 273.39,
+   "end": 273.564
+  },
+  {
+   "text": "was",
+   "start": 273.611,
+   "end": 273.727
+  },
+  {
+   "text": "meant",
+   "start": 273.785,
+   "end": 273.959
+  },
+  {
+   "text": "to",
+   "start": 273.994,
+   "end": 274.052
+  },
+  {
+   "text": "keep",
+   "start": 274.11,
+   "end": 274.308
+  },
+  {
+   "text": "them",
+   "start": 274.354,
+   "end": 274.493
+  },
+  {
+   "text": "in,",
+   "start": 274.575,
+   "end": 274.923
+  },
+  {
+   "text": "and",
+   "start": 275.039,
+   "end": 275.178
+  },
+  {
+   "text": "it",
+   "start": 275.225,
+   "end": 275.283
+  },
+  {
+   "text": "was",
+   "start": 275.318,
+   "end": 275.41
+  },
+  {
+   "text": "slightly",
+   "start": 275.457,
+   "end": 275.886
+  },
+  {
+   "text": "open.",
+   "start": 275.956,
+   "end": 276.513
+  },
+  {
+   "text": "The",
+   "start": 276.838,
+   "end": 276.943
+  },
+  {
+   "text": "team's",
+   "start": 276.989,
+   "end": 277.326
+  },
+  {
+   "text": "interpretation:",
+   "start": 277.373,
+   "end": 278.383
+  },
+  {
+   "text": "larger",
+   "start": 278.708,
+   "end": 279.068
+  },
+  {
+   "text": "rocks",
+   "start": 279.149,
+   "end": 279.602
+  },
+  {
+   "text": "had",
+   "start": 279.753,
+   "end": 279.915
+  },
+  {
+   "text": "wedged",
+   "start": 279.985,
+   "end": 280.391
+  },
+  {
+   "text": "it",
+   "start": 280.438,
+   "end": 280.519
+  },
+  {
+   "text": "open.",
+   "start": 280.565,
+   "end": 281.088
+  },
+  {
+   "text": "The",
+   "start": 281.599,
+   "end": 281.715
+  },
+  {
+   "text": "next",
+   "start": 281.773,
+   "end": 281.982
+  },
+  {
+   "text": "step",
+   "start": 282.017,
+   "end": 282.272
+  },
+  {
+   "text": "mattered.",
+   "start": 282.353,
+   "end": 282.957
+  },
+  {
+   "text": "The",
+   "start": 283.34,
+   "end": 283.456
+  },
+  {
+   "text": "head,",
+   "start": 283.526,
+   "end": 283.793
+  },
+  {
+   "text": "with",
+   "start": 283.828,
+   "end": 283.979
+  },
+  {
+   "text": "its",
+   "start": 284.025,
+   "end": 284.153
+  },
+  {
+   "text": "sample,",
+   "start": 284.188,
+   "end": 284.687
+  },
+  {
+   "text": "was",
+   "start": 284.722,
+   "end": 284.849
+  },
+  {
+   "text": "placed",
+   "start": 284.931,
+   "end": 285.279
+  },
+  {
+   "text": "into",
+   "start": 285.325,
+   "end": 285.488
+  },
+  {
+   "text": "the",
+   "start": 285.546,
+   "end": 285.616
+  },
+  {
+   "text": "return",
+   "start": 285.674,
+   "end": 286.034
+  },
+  {
+   "text": "capsule.",
+   "start": 286.092,
+   "end": 286.707
+  },
+  {
+   "text": "And",
+   "start": 287.033,
+   "end": 287.195
+  },
+  {
+   "text": "on",
+   "start": 287.276,
+   "end": 287.369
+  },
+  {
+   "text": "October",
+   "start": 287.427,
+   "end": 287.868
+  },
+  {
+   "text": "28,",
+   "start": 287.938,
+   "end": 288.449
+  },
+  {
+   "text": "2020,",
+   "start": 288.507,
+   "end": 289.482
+  },
+  {
+   "text": "the",
+   "start": 289.587,
+   "end": 289.68
+  },
+  {
+   "text": "capsule",
+   "start": 289.738,
+   "end": 290.098
+  },
+  {
+   "text": "was",
+   "start": 290.121,
+   "end": 290.214
+  },
+  {
+   "text": "closed.",
+   "start": 290.283,
+   "end": 290.945
+  },
+  {
+   "text": "The",
+   "start": 291.212,
+   "end": 291.317
+  },
+  {
+   "text": "spacecraft",
+   "start": 291.363,
+   "end": 291.944
+  },
+  {
+   "text": "itself",
+   "start": 291.99,
+   "end": 292.385
+  },
+  {
+   "text": "never",
+   "start": 292.478,
+   "end": 292.675
+  },
+  {
+   "text": "came",
+   "start": 292.733,
+   "end": 292.942
+  },
+  {
+   "text": "home.",
+   "start": 292.988,
+   "end": 293.522
+  },
+  {
+   "text": "Only",
+   "start": 293.79,
+   "end": 294.068
+  },
+  {
+   "text": "the",
+   "start": 294.115,
+   "end": 294.184
+  },
+  {
+   "text": "capsule",
+   "start": 294.231,
+   "end": 294.625
+  },
+  {
+   "text": "did.",
+   "start": 294.649,
+   "end": 295.078
+  },
+  {
+   "text": "It",
+   "start": 295.438,
+   "end": 295.566
+  },
+  {
+   "text": "reached",
+   "start": 295.635,
+   "end": 295.926
+  },
+  {
+   "text": "Earth",
+   "start": 295.995,
+   "end": 296.251
+  },
+  {
+   "text": "on",
+   "start": 296.32,
+   "end": 296.425
+  },
+  {
+   "text": "September",
+   "start": 296.495,
+   "end": 296.889
+  },
+  {
+   "text": "24,",
+   "start": 296.959,
+   "end": 297.644
+  },
+  {
+   "text": "2023.",
+   "start": 297.725,
+   "end": 298.851
+  },
+  {
+   "text": "Inside,",
+   "start": 299.211,
+   "end": 300.047
+  },
+  {
+   "text": "NASA",
+   "start": 300.163,
+   "end": 300.547
+  },
+  {
+   "text": "measured",
+   "start": 300.605,
+   "end": 300.918
+  },
+  {
+   "text": "121.6",
+   "start": 300.988,
+   "end": 302.555
+  },
+  {
+   "text": "grams",
+   "start": 302.625,
+   "end": 302.973
+  },
+  {
+   "text": "of",
+   "start": 303.008,
+   "end": 303.066
+  },
+  {
+   "text": "asteroid",
+   "start": 303.159,
+   "end": 303.728
+  },
+  {
+   "text": "material.",
+   "start": 303.774,
+   "end": 304.436
+  },
+  {
+   "text": "That's",
+   "start": 304.575,
+   "end": 304.796
+  },
+  {
+   "text": "about",
+   "start": 304.819,
+   "end": 305.005
+  },
+  {
+   "text": "four",
+   "start": 305.063,
+   "end": 305.307
+  },
+  {
+   "text": "ounces.",
+   "start": 305.376,
+   "end": 306.027
+  },
+  {
+   "text": "The",
+   "start": 306.189,
+   "end": 306.305
+  },
+  {
+   "text": "mission",
+   "start": 306.363,
+   "end": 306.642
+  },
+  {
+   "text": "needed",
+   "start": 306.7,
+   "end": 306.967
+  },
+  {
+   "text": "at",
+   "start": 307.013,
+   "end": 307.071
+  },
+  {
+   "text": "least",
+   "start": 307.106,
+   "end": 307.304
+  },
+  {
+   "text": "60",
+   "start": 307.455,
+   "end": 307.78
+  },
+  {
+   "text": "grams.",
+   "start": 307.849,
+   "end": 308.511
+  },
+  {
+   "text": "It",
+   "start": 308.79,
+   "end": 308.917
+  },
+  {
+   "text": "brought",
+   "start": 308.952,
+   "end": 309.184
+  },
+  {
+   "text": "back",
+   "start": 309.231,
+   "end": 309.417
+  },
+  {
+   "text": "about",
+   "start": 309.463,
+   "end": 309.684
+  },
+  {
+   "text": "twice",
+   "start": 309.718,
+   "end": 310.102
+  },
+  {
+   "text": "that.",
+   "start": 310.136,
+   "end": 310.52
+  },
+  {
+   "text": "And",
+   "start": 310.903,
+   "end": 311.147
+  },
+  {
+   "text": "the",
+   "start": 311.205,
+   "end": 311.274
+  },
+  {
+   "text": "sample",
+   "start": 311.332,
+   "end": 311.692
+  },
+  {
+   "text": "delivered.",
+   "start": 311.739,
+   "end": 312.412
+  },
+  {
+   "text": "In",
+   "start": 312.923,
+   "end": 313.085
+  },
+  {
+   "text": "January",
+   "start": 313.167,
+   "end": 313.817
+  },
+  {
+   "text": "2025,",
+   "start": 313.875,
+   "end": 315.024
+  },
+  {
+   "text": "scientists",
+   "start": 315.303,
+   "end": 315.976
+  },
+  {
+   "text": "reported",
+   "start": 316.046,
+   "end": 316.475
+  },
+  {
+   "text": "14",
+   "start": 316.534,
+   "end": 317.091
+  },
+  {
+   "text": "of",
+   "start": 317.16,
+   "end": 317.23
+  },
+  {
+   "text": "the",
+   "start": 317.277,
+   "end": 317.346
+  },
+  {
+   "text": "20",
+   "start": 317.416,
+   "end": 317.683
+  },
+  {
+   "text": "amino",
+   "start": 317.729,
+   "end": 318.054
+  },
+  {
+   "text": "acids",
+   "start": 318.136,
+   "end": 318.53
+  },
+  {
+   "text": "that",
+   "start": 318.565,
+   "end": 318.705
+  },
+  {
+   "text": "life",
+   "start": 318.774,
+   "end": 319.03
+  },
+  {
+   "text": "on",
+   "start": 319.076,
+   "end": 319.192
+  },
+  {
+   "text": "Earth",
+   "start": 319.25,
+   "end": 319.459
+  },
+  {
+   "text": "uses,",
+   "start": 319.541,
+   "end": 320.249
+  },
+  {
+   "text": "plus",
+   "start": 320.4,
+   "end": 320.678
+  },
+  {
+   "text": "five",
+   "start": 320.76,
+   "end": 321.143
+  },
+  {
+   "text": "nucleobases.",
+   "start": 321.189,
+   "end": 322.339
+  },
+  {
+   "text": "In",
+   "start": 322.582,
+   "end": 322.722
+  },
+  {
+   "text": "December",
+   "start": 322.78,
+   "end": 323.175
+  },
+  {
+   "text": "2025,",
+   "start": 323.233,
+   "end": 324.22
+  },
+  {
+   "text": "they",
+   "start": 324.243,
+   "end": 324.359
+  },
+  {
+   "text": "reported",
+   "start": 324.417,
+   "end": 324.835
+  },
+  {
+   "text": "sugars,",
+   "start": 324.893,
+   "end": 325.439
+  },
+  {
+   "text": "including",
+   "start": 325.555,
+   "end": 325.973
+  },
+  {
+   "text": "ribose",
+   "start": 326.031,
+   "end": 326.553
+  },
+  {
+   "text": "and",
+   "start": 326.577,
+   "end": 326.658
+  },
+  {
+   "text": "glucose.",
+   "start": 326.716,
+   "end": 327.447
+  },
+  {
+   "text": "None",
+   "start": 327.772,
+   "end": 327.981
+  },
+  {
+   "text": "of",
+   "start": 328.005,
+   "end": 328.051
+  },
+  {
+   "text": "this",
+   "start": 328.097,
+   "end": 328.237
+  },
+  {
+   "text": "is",
+   "start": 328.295,
+   "end": 328.388
+  },
+  {
+   "text": "evidence",
+   "start": 328.457,
+   "end": 328.852
+  },
+  {
+   "text": "of",
+   "start": 328.887,
+   "end": 328.945
+  },
+  {
+   "text": "life.",
+   "start": 329.026,
+   "end": 329.456
+  },
+  {
+   "text": "No",
+   "start": 329.734,
+   "end": 329.897
+  },
+  {
+   "text": "organisms,",
+   "start": 329.978,
+   "end": 330.779
+  },
+  {
+   "text": "no",
+   "start": 330.93,
+   "end": 331.07
+  },
+  {
+   "text": "DNA.",
+   "start": 331.151,
+   "end": 331.871
+  },
+  {
+   "text": "These",
+   "start": 332.196,
+   "end": 332.405
+  },
+  {
+   "text": "are",
+   "start": 332.44,
+   "end": 332.532
+  },
+  {
+   "text": "chemical",
+   "start": 332.556,
+   "end": 332.939
+  },
+  {
+   "text": "ingredients.",
+   "start": 333.008,
+   "end": 333.949
+  },
+  {
+   "text": "And",
+   "start": 333.949,
+   "end": 334.1
+  },
+  {
+   "text": "it",
+   "start": 334.158,
+   "end": 334.228
+  },
+  {
+   "text": "all",
+   "start": 334.274,
+   "end": 334.46
+  },
+  {
+   "text": "came",
+   "start": 334.541,
+   "end": 334.831
+  },
+  {
+   "text": "from",
+   "start": 334.878,
+   "end": 335.064
+  },
+  {
+   "text": "one",
+   "start": 335.18,
+   "end": 335.423
+  },
+  {
+   "text": "brief",
+   "start": 335.482,
+   "end": 335.76
+  },
+  {
+   "text": "touch,",
+   "start": 335.83,
+   "end": 336.41
+  },
+  {
+   "text": "on",
+   "start": 336.654,
+   "end": 336.817
+  },
+  {
+   "text": "a",
+   "start": 336.863,
+   "end": 336.886
+  },
+  {
+   "text": "surface",
+   "start": 336.956,
+   "end": 337.374
+  },
+  {
+   "text": "so",
+   "start": 337.397,
+   "end": 337.583
+  },
+  {
+   "text": "loose",
+   "start": 337.676,
+   "end": 338.036
+  },
+  {
+   "text": "that,",
+   "start": 338.082,
+   "end": 338.523
+  },
+  {
+   "text": "by",
+   "start": 338.848,
+   "end": 339.057
+  },
+  {
+   "text": "NASA's",
+   "start": 339.139,
+   "end": 339.591
+  },
+  {
+   "text": "analysis,",
+   "start": 339.638,
+   "end": 340.52
+  },
+  {
+   "text": "without",
+   "start": 340.729,
+   "end": 341.078
+  },
+  {
+   "text": "its",
+   "start": 341.124,
+   "end": 341.263
+  },
+  {
+   "text": "thrusters",
+   "start": 341.333,
+   "end": 342.099
+  },
+  {
+   "text": "the",
+   "start": 342.343,
+   "end": 342.459
+  },
+  {
+   "text": "spacecraft",
+   "start": 342.506,
+   "end": 343.167
+  },
+  {
+   "text": "would",
+   "start": 343.202,
+   "end": 343.33
+  },
+  {
+   "text": "have",
+   "start": 343.353,
+   "end": 343.446
+  },
+  {
+   "text": "kept",
+   "start": 343.481,
+   "end": 343.701
+  },
+  {
+   "text": "sinking.",
+   "start": 343.771,
+   "end": 344.444
+  },
+  {
+   "text": "On",
+   "start": 345.257,
+   "end": 345.431
+  },
+  {
+   "text": "an",
+   "start": 345.478,
+   "end": 345.547
+  },
+  {
+   "text": "asteroid",
+   "start": 345.617,
+   "end": 346.29
+  },
+  {
+   "text": "like",
+   "start": 346.348,
+   "end": 346.534
+  },
+  {
+   "text": "Bennu,",
+   "start": 346.592,
+   "end": 347.196
+  },
+  {
+   "text": "touching",
+   "start": 347.405,
+   "end": 347.776
+  },
+  {
+   "text": "down",
+   "start": 347.846,
+   "end": 348.136
+  },
+  {
+   "text": "isn't",
+   "start": 348.218,
+   "end": 348.52
+  },
+  {
+   "text": "landing",
+   "start": 348.589,
+   "end": 348.972
+  },
+  {
+   "text": "on",
+   "start": 349.042,
+   "end": 349.158
+  },
+  {
+   "text": "solid",
+   "start": 349.239,
+   "end": 349.588
+  },
+  {
+   "text": "ground.",
+   "start": 349.646,
+   "end": 350.261
+  },
+  {
+   "text": "It's",
+   "start": 350.644,
+   "end": 350.853
+  },
+  {
+   "text": "reaching",
+   "start": 350.911,
+   "end": 351.213
+  },
+  {
+   "text": "into",
+   "start": 351.271,
+   "end": 351.457
+  },
+  {
+   "text": "a",
+   "start": 351.573,
+   "end": 351.596
+  },
+  {
+   "text": "loose",
+   "start": 351.677,
+   "end": 351.956
+  },
+  {
+   "text": "pile",
+   "start": 352.003,
+   "end": 352.362
+  },
+  {
+   "text": "of",
+   "start": 352.397,
+   "end": 352.455
+  },
+  {
+   "text": "rubble,",
+   "start": 352.537,
+   "end": 353.024
+  },
+  {
+   "text": "and",
+   "start": 353.105,
+   "end": 353.256
+  },
+  {
+   "text": "getting",
+   "start": 353.314,
+   "end": 353.547
+  },
+  {
+   "text": "back",
+   "start": 353.605,
+   "end": 353.814
+  },
+  {
+   "text": "out",
+   "start": 353.895,
+   "end": 354.057
+  },
+  {
+   "text": "in",
+   "start": 354.116,
+   "end": 354.197
+  },
+  {
+   "text": "time.",
+   "start": 354.266,
+   "end": 354.986
+  }
+ ],
+ "created": "2026-11-07T12:50:20Z",
+ "warnings": []
+}
