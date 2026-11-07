@@ -81,3 +81,4 @@
 {"at": "2026-11-06T10:38:45+00:00", "event": "captions_unavailable", "sha256": "8bf8717bf1ccce907ac411b50a18c7fc68963a41a889455f034072b95f4a3335", "id": "ep011", "video_id": "iOQne8mgNFk", "message": "YouTube API 403: Request had insufficient authentication scopes. ['insufficientPermissions']"}
 {"at": "2026-11-06T10:38:45+00:00", "event": "verified", "sha256": "8bf8717bf1ccce907ac411b50a18c7fc68963a41a889455f034072b95f4a3335", "id": "ep011", "video_id": "iOQne8mgNFk", "ok": true, "privacyStatus": "private", "publishAt": "2026-11-07T01:00:00Z", "uploadStatus": "uploaded"}
 {"at": "2026-11-06T10:38:45+00:00", "event": "approval_done", "approval_id": "c9d7b563392243dea5f84f66c98ec043", "ids": ["ep011"]}
+{"at": "2026-11-07T01:53:01+00:00", "event": "release_confirmed", "video_id": "iOQne8mgNFk", "id": "ep011", "publishAt": "2026-11-07T01:00:00Z", "privacyStatus": "public", "delay_s": 3181}
