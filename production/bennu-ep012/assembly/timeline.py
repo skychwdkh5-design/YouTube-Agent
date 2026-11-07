@@ -9,16 +9,31 @@ VJ = json.load(open(os.path.join(ROOT, "voice", "narration.voice.json")))
 WORDS = VJ["words"]
 NDUR = VJ["duration"]
 
-# (narration time, silence inserted before it). 0.25 s lead-in, then the two chunk joins.
-GAPS = [(0.0, 0.25), (167.23, 0.70), (333.949, 0.60)]
+# v2 order: the finished sentence "The sampler's arm kept sinking ... pull the spacecraft away." opens the film,
+# then the hook runs from "This is a real camera" as recorded. Cuts sit in recorded silences only.
+# SEGMENTS = (narration start, narration end, silence inserted before it). No word is stretched or cut.
+SEGMENTS = [(19.93, 27.95, 0.25), (0.0, 19.93, 0.55), (27.95, 167.23, 0.0), (167.23, 333.949, 0.70),
+            (333.949, NDUR, 0.60)]
 TAIL = 5.0  # end card after the last word
+
+_starts = []
+_f = 0.0
+for _a, _b, _g in SEGMENTS:
+    _f += _g
+    _starts.append(_f)
+    _f += _b - _a
+VOICE_END = _f
 
 
 def V(t):
-    return t + sum(g for at, g in GAPS if t >= at - 1e-6)
+    """narration time -> film time."""
+    for (a, b, g), f0 in zip(SEGMENTS, _starts):
+        if a - 1e-6 <= t < b - 1e-9 or (b == NDUR and abs(t - b) < 1e-6):
+            return f0 + (t - a)
+    raise ValueError(t)
 
 
-END = round((V(NDUR) + TAIL) * 30) / 30
+END = round((VOICE_END + TAIL) * 30) / 30
 
 
 def _norm(s):

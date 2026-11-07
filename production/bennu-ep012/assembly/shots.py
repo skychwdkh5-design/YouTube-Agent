@@ -3,7 +3,7 @@ Shot starts are anchored to word times of the real narration (timeline.word), ma
 from timeline import V, word, END, NDUR
 
 C_UA = "NASA/Goddard/University of Arizona"
-C_CIL = "NASA Goddard Space Flight Center Conceptual Image Lab"
+C_CIL = "NASA Goddard · Conceptual Image Lab"
 C_M03 = "NASA/Goddard/CI Lab"
 C_SVS = "NASA SVS · data: NASA/University of Arizona/CSA/York University/Open University/MDA"
 C_GSFC = "NASA Goddard Space Flight Center"
@@ -18,11 +18,13 @@ W_ = word  # shorthand
 # event reveal times on the contact HUD (narration -> film)
 EV = [V(W_("touches Nightingale.")), V(W_("About one second later")), V(W_("At about six seconds")),
       V(W_("Only at about nine")), V(W_("Around sixteen seconds")), V(W_("And at about thirty"))]
-CONTACT_FILE_T = 10.6  # M04 file time of contact (gas puff onset ~1 s later, thrusters visible at 16.6 s)
+CONTACT_FILE_T = 10.6
+T_SINK = 2.4  # film time the reconstruction takes over from the SamCam burst
+M04_A = 16.6 - (V(word("fired to pull")) - T_SINK)  # thrusters (file 16.6 s) appear on the word "fired"; real rate  # M04 file time of contact (gas puff onset ~1 s later, thrusters visible at 16.6 s)
 
 
 def S(n_start, kind, **p):
-    return dict(t0=V(n_start) if n_start > 0 else 0.0, kind=kind, **p)
+    return dict(t0=V(n_start), kind=kind, **p)
 
 
 def clip(src, a, b, **k):
@@ -30,13 +32,23 @@ def clip(src, a, b, **k):
 
 
 SHOTS = [
-    # ---- HOOK: cover composition comes alive (real SamCam photos, sped up)
-    S(0.0, "open", **clip("M01", 4.4, 6.93, label=("real", "SAMCAM · STILL PHOTOS, SPED UP"), credit=C_UA)),
-    S(W_("touch the surface,"), "clip", **clip("M01", 6.93, 8.55, fit="fit", zoom=(1.0, 1.06), fc=(500, 560),
-                                              label=("real", "SAMCAM · STILL PHOTOS, SPED UP"), credit=C_UA)),
-    S(W_("But the surface barely"), "clip", **clip("M04", 11.6, 21.6, zoom=(1.0, 1.18), fc=(1020, 700),
-                                                  label=("anim", "DATA-DRIVEN RECONSTRUCTION"), credit=C_CIL,
-                                                  chips=[(V(W_("The sampler's arm kept")), "THE SAMPLER ARM KEEPS SINKING", 960, 120, 42, "y")])),
+    # ---- HOOK (v2): the contact first. Real SamCam burst under the cover title, then NASA's reconstruction of the
+    # arm still sinking while "The sampler's arm kept sinking ..." plays; then the recorded hook from "This is a real camera".
+    dict(t0=0.0, kind="open", **clip("M01", 6.3, 8.55, label=("real", "SAMCAM · STILL PHOTOS, SPED UP"), credit=C_UA)),
+    dict(t0=T_SINK, kind="clip", **clip("M04", M04_A, M04_A + (V(W_("This is a real camera")) - T_SINK), zoom=(1.0, 1.16), fc=(1000, 660),
+                                         label=("anim", "RECONSTRUCTION"), credit=C_CIL,
+                                         chips=[(T_SINK + 0.2, "STILL SINKING", 960, 120, 50, "y"),
+                                                (V(W_("thrusters fired")), "BACK-AWAY THRUSTERS FIRE", 960, 120, 42, None)])),
+    S(W_("This is a real camera"), "clip", **clip("M01", 1.0, 7.0, fit="fit", zoom=(1.0, 1.06), fc=(500, 560),
+                                                 label=("real", "SAMCAM · STILL PHOTOS, SPED UP"), credit=C_UA,
+                                                 chips=[(V(W_("touch the surface,")), "1  TOUCH", 960, 120, 44, "y")])),
+    S(W_("blow in some gas,"), "clip", **clip("M01", 7.0, 8.55, fit="fit", zoom=(1.06, 1.1), fc=(500, 560), cut=True,
+                                             label=("real", "SAMCAM · STILL PHOTOS, SPED UP"), credit=C_UA,
+                                             chips=[(V(W_("blow in some gas,")), "2  BLOW IN GAS", 960, 120, 44, "y"),
+                                                    (V(W_("catch the loose")), "3  CATCH LOOSE MATERIAL", 960, 120, 44, "y"),
+                                                    (V(W_("and back away.")), "4  BACK AWAY", 960, 120, 44, "y")])),
+    S(W_("But the surface barely"), "clip", **clip("M08", 34.0, 37.0, fit="fit", region=M08_REG,
+                                                  label=("real", "NAVCAM 2 · 10 FPS IMAGE SEQUENCE"), credit=C_NAV)),
     S(W_("So why did a world"), "clip", **clip("M08", 1.8, 10.6, fit="fit", region=M08_REG,
                                               label=("real", "NAVCAM 2 · 10 FPS IMAGE SEQUENCE"), credit=C_NAV)),
     # ---- WHY GO
@@ -44,7 +56,7 @@ SHOTS = [
                                                           label=("anim", ""), credit=C_M03,
                                                           chips=[(V(W_("The spacecraft was OSIRIS-REx,")) + 0.4, "OSIRIS-REx", 960, 860, 56, "y"),
                                                                  (V(W_("back to Earth,")), "GOAL: BRING A SAMPLE BACK TO EARTH", 960, 960, 34, None)])),
-    S(W_("Up close, Bennu"), "clip", **clip("M08", 19.0, 30.0, fit="fit", region=M08_REG, zoom=(1.0, 1.08),
+    S(W_("Up close, Bennu"), "clip", **clip("M08", 18.0, 28.5, fit="fit", region=M08_REG, zoom=(1.0, 1.08),
                                            label=("real", "NAVCAM 2 · 10 FPS IMAGE SEQUENCE"), credit=C_NAV,
                                            chips=[(V(W_("crowded with boulders.")), "CROWDED WITH BOULDERS", 960, 120, 42, None),
                                                   (V(W_("a site they named")), "TARGET SITE: NIGHTINGALE", 960, 120, 46, "y")])),
@@ -59,27 +71,27 @@ SHOTS = [
                                           chips=[(V(W_("On October 20,")) + 0.2, "OCTOBER 20, 2020", 960, 120, 56, "y")])),
     S(W_("But nobody on Earth"), "signal", t_delay=V(W_("Before the event,")), t_slow=V(W_("That's far too slow")),
       t_auto=V(W_("So the whole approach"))),
-    S(W_("The spacecraft lowered itself"), "clip", **clip("M08", 30.2, 36.4, fit="fit", region=M08_REG,
+    S(W_("The spacecraft lowered itself"), "clip", **clip("M08", 28.5, 34.0, fit="fit", region=M08_REG,
                                                          label=("real", "NAVCAM 2 · 10 FPS IMAGE SEQUENCE"), credit=C_NAV,
                                                          chips=[(V(W_("met the surface")), "≈ 10 CM/S AT CONTACT", 960, 120, 48, "y"),
                                                                 (V(W_("That's about four inches")), "≈ 4 INCHES PER SECOND", 960, 230, 34, None)])),
     # ---- SECOND BY SECOND (M04 clock: T = file - 10.6)
-    S(W_("Here's what happened next,"), "clip", **clip("M04", 5.0, 10.0, label=("anim", "DATA-DRIVEN RECONSTRUCTION"), credit=C_CIL, hud=True)),
-    S(W_("Zero seconds."), "clip", **clip("M04", 10.0, 11.0, label=("anim", "DATA-DRIVEN RECONSTRUCTION"), credit=C_CIL, hud=True, cut=True,
+    S(W_("Here's what happened next,"), "clip", **clip("M04", 5.0, 10.0, label=("anim", "RECONSTRUCTION"), credit=C_CIL, hud=True)),
+    S(W_("Zero seconds."), "clip", **clip("M04", 10.0, 11.0, label=("anim", "RECONSTRUCTION"), credit=C_CIL, hud=True, cut=True,
                                          zoom=(1.0, 1.25), fc=(1000, 640))),
-    S(W_("Not the spacecraft's body."), "clip", **clip("M04", 11.0, 11.55, label=("anim", "DATA-DRIVEN RECONSTRUCTION"), credit=C_CIL, hud=True,
+    S(W_("Not the spacecraft's body."), "clip", **clip("M04", 11.0, 11.55, label=("anim", "RECONSTRUCTION"), credit=C_CIL, hud=True,
                                                       callouts=[("ring", 880, 640, 130, V(W_("Just the head,")))],
-                                                      chips=[(V(W_("Not the spacecraft's body.")), "ONLY THE SAMPLER HEAD TOUCHES", 960, 130, 42, "y")])),
-    S(W_("About one second later,"), "clip", **clip("M04", 11.6, 14.6, label=("anim", "DATA-DRIVEN RECONSTRUCTION"), credit=C_CIL, hud=True, cut=True)),
+                                                      chips=[(V(W_("Just the head,")), "SAMPLER HEAD", 1030, 560, 30, "y", "l")])),
+    S(W_("About one second later,"), "clip", **clip("M04", 11.6, 14.6, label=("anim", "RECONSTRUCTION"), credit=C_CIL, hud=True, cut=True)),
     S(W_("That bright burst"), "clip", **clip("M02", 0.0, 7.0, fit="fit", label=("real", "SAMCAM · STILL PHOTOS"), credit=C_UA,
                                               chips=[(V(W_("Not fire,")), "GAS-LIFTED DUST AND GRAVEL · NOT FIRE", 960, 120, 38, "y")])),
-    S(W_("At about six seconds,"), "clip", **clip("M04", 16.3, 19.4, label=("anim", "DATA-DRIVEN RECONSTRUCTION"), credit=C_CIL, hud=True,
+    S(W_("At about six seconds,"), "clip", **clip("M04", 16.3, 19.4, label=("anim", "RECONSTRUCTION"), credit=C_CIL, hud=True,
                                                  zoom=(1.05, 1.15), fc=(1000, 640))),
-    S(W_("Only at about nine"), "clip", **clip("M04", 19.4, 21.2, label=("anim", "DATA-DRIVEN RECONSTRUCTION"), credit=C_CIL, hud=True,
+    S(W_("Only at about nine"), "clip", **clip("M04", 19.4, 21.2, label=("anim", "RECONSTRUCTION"), credit=C_CIL, hud=True,
                                               zoom=(1.15, 1.2), fc=(1000, 640), cut=True)),
     S(W_("By then, the sampler's"), "cross", mode="depth"),
-    S(W_("Around sixteen seconds,"), "clip", **clip("M04", 25.6, 29.6, label=("anim", "DATA-DRIVEN RECONSTRUCTION"), credit=C_CIL, hud=True)),
-    S(W_("And at about thirty"), "clip", **clip("M04", 51.2, 57.6, label=("anim", "DATA-DRIVEN RECONSTRUCTION"), credit=C_CIL, hud="noclock")),
+    S(W_("Around sixteen seconds,"), "clip", **clip("M04", 25.6, 29.6, label=("anim", "RECONSTRUCTION"), credit=C_CIL, hud=True)),
+    S(W_("And at about thirty"), "clip", **clip("M04", 51.2, 57.6, label=("anim", "RECONSTRUCTION"), credit=C_CIL, hud="noclock")),
     # ---- WHY SO SOFT
     S(W_("So why so little"), "cross", mode="pit", t_loose=V(W_("loosely packed,")), t_weak=V(W_("weakly bound")),
       t_balls=V(W_("a lot like the plastic"))),
@@ -117,11 +129,12 @@ SHOTS = [
                                                chips=[(V(W_("It reached Earth on")) + 0.3, "SEPTEMBER 24, 2023", 960, 120, 50, "y")])),
     S(W_("Inside, NASA measured"), "mass", t_oz=V(W_("That's about four ounces.")), t_min=V(W_("The mission needed")),
       t_twice=V(W_("It brought back about twice"))),
-    S(W_("And the sample delivered."), "chem", t_jan=V(W_("In January 2025,")), t_nuc=V(W_("plus five nucleobases.")),
+    S(W_("And the sample delivered."), "chem", t_jan=V(W_("In January 2025,")), t_14=V(W_("14 of the 20")),
+      t_sug=V(W_("sugars, including")), t_rib=V(W_("ribose and glucose.")), t_glu=V(W_("glucose.")), t_nuc=V(W_("plus five nucleobases.")),
       t_dec=V(W_("In December 2025,")), t_not=V(W_("None of this is evidence")), t_noorg=V(W_("No organisms,")),
       t_ingr=V(W_("These are chemical ingredients."))),
     # ---- CLOSE
-    S(W_("And it all came from one"), "clip", **clip("M04", 11.6, 22.0, label=("anim", "DATA-DRIVEN RECONSTRUCTION"), credit=C_CIL, hud="replay",
+    S(W_("And it all came from one"), "clip", **clip("M04", 11.6, 22.0, label=("anim", "RECONSTRUCTION"), credit=C_CIL,
                                                     zoom=(1.0, 1.1), fc=(1000, 640),
                                                     chips=[(V(W_("on a surface so loose")), "A LOOSE, WEAKLY BOUND SURFACE", 960, 120, 42, "y")])),
     S(W_("On an asteroid like Bennu,"), "clip", **clip("M04", 58.0, 68.4, label=("anim", "DATA-DRIVEN RECONSTRUCTION"), credit=C_CIL)),

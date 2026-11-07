@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """English SRT from the provider word timings (film time = V(narration time)). usage: captions.py OUT.srt"""
 import sys
-from timeline import WORDS, V
+from timeline import WORDS, V, SEGMENTS
+
+
+def segi(t):
+    return next(k for k, (a, b, g) in enumerate(SEGMENTS) if a - 1e-6 <= t < b - 1e-9 or k == len(SEGMENTS) - 1 and t >= a)
 
 MAXC, MAXD = 84, 6.0
 
@@ -26,13 +30,14 @@ def lines(text):
 cues, cur = [], []
 for w in WORDS:
     txt = " ".join(x["text"] for x in cur + [w])
-    if cur and (len(txt) > MAXC or w["end"] - cur[0]["start"] > MAXD):
+    if cur and (len(txt) > MAXC or w["end"] - cur[0]["start"] > MAXD or segi(w["start"]) != segi(cur[0]["start"])):
         cues.append(cur); cur = []
     cur.append(w)
     if w["text"].endswith((".", "?", "!")) and len(" ".join(x["text"] for x in cur)) > 20:
         cues.append(cur); cur = []
 if cur:
     cues.append(cur)
+cues.sort(key=lambda c: V(c[0]["start"]))  # film order (the opening sentence was moved to the front)
 out = []
 for i, c in enumerate(cues):
     a, b = V(c[0]["start"]), V(c[-1]["end"]) + 0.15

@@ -84,44 +84,54 @@ EVENTS = [(0, "CONTACT"), (1, "NITROGEN RELEASE"), (6, "BACK-AWAY BURN"), (9, "D
           (16, "SAMPLER CLEAR"), (30, "DRIFTING AWAY")]
 
 
-def hud(img, T, shown, rate=None, alpha=1.0, playhead=True):
+def hud(img, T, shown, rate=None, alpha=1.0, playhead=True, note=0.0):
     """contact timeline: T = seconds from contact in NASA's reconstruction (None = this view has no clock).
-    shown = number of EVENTS revealed so far (synced to the narration)."""
+    shown = number of EVENTS reached by the narration. Only the current stage is named; past stages keep a dot,
+    later stages only a grey tick. The bar sits low, below the sampler head and the surface."""
     if alpha <= 0.01:
         return
     lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(lay)
-    x0, x1, y = 200, W - 150, 985
+    x0, x1, y = 230, W - 190, 1000
     tmin, tmax = -1.0, 31.0
     X = lambda v: x0 + (x1 - x0) * (v - tmin) / (tmax - tmin)
-    d.rounded_rectangle([x0 - 110, y - 84, x1 + 40, y + 52], 16, fill=(6, 12, 24, 170))
-    d.line([(x0, y), (x1, y)], fill=(200, 210, 225, 200), width=4)
+    d.rounded_rectangle([x0 - 70, y - 66, x1 + 70, y + 46], 16, fill=(6, 12, 24, 150))
+    d.line([(x0, y), (x1, y)], fill=(170, 180, 195, 150), width=3)
     if T is not None and playhead:
-        d.line([(x0, y), (X(clamp(T, tmin, tmax)), y)], fill=TEAL, width=6)
-    fs = font("Inter-SemiBold.otf", 19); fb = font("Inter-Bold.otf", 21)
+        d.line([(x0, y), (X(clamp(T, tmin, tmax)), y)], fill=TEAL, width=5)
+    fs = font("Inter-SemiBold.otf", 18); fb = font("Inter-Black.otf", 30)
+    cur = shown - 1
     for k, (v, name) in enumerate(EVENTS):
-        on = k < shown
-        c = YEL if on else (150, 160, 175, 220)
-        d.ellipse([X(v) - 8, y - 8, X(v) + 8, y + 8], fill=c)
+        if k < cur:      # past: small dim-yellow dot + seconds
+            c = (220, 180, 70, 200); r = 6
+        elif k == cur:   # current: big bright dot
+            c = YEL; r = 11
+        else:            # not reached yet: grey tick only
+            c = (130, 138, 150, 150); r = 4
+        d.ellipse([X(v) - r, y - r, X(v) + r, y + r], fill=c)
         d.text((X(v), y + 16), f"{v} s", font=fs, fill=c, anchor="ma")
-        if on:
-            anc = {0: "rb", 1: "lb", 2: "rb", 3: "lb", 4: "mb", 5: "rb"}[k]
-            d.text((X(v) + {"rb": 6, "lb": -6, "mb": 0}[anc], y - (50 if k in (1, 3) else 22)), name, font=fb, fill=WHITE, anchor=anc)
+    if cur >= 0:
+        v, name = EVENTS[cur]
+        anc = "lb" if cur == 0 else ("rb" if cur == len(EVENTS) - 1 else "mb")
+        d.text((X(v) + {"lb": -10, "rb": 10, "mb": 0}[anc], y - 20), name, font=fb, fill=YEL, anchor=anc)
     if T is not None and playhead:
         px = X(clamp(T, tmin, tmax))
-        d.polygon([(px - 11, y - 30), (px + 11, y - 30), (px, y - 12)], fill=TEAL)
+        d.rectangle([px - 2, y - 14, px + 2, y + 14], fill=TEAL)
     if alpha < 0.999:
         lay.putalpha(lay.getchannel("A").point(lambda v: int(v * alpha)))
     img.alpha_composite(lay)
     if T is not None and playhead:
         sgn = "+" if T >= 0 else "−"
-        f = font("Inter-Black.otf", 64)
-        txt = f"T {sgn} {abs(T):04.1f} s"
-        _pill(img, W - 40, 36, txt, 46, anchor="r", alpha=alpha, wt="Inter-Black.otf", bg=(6, 12, 24, 200), fg=YEL)
-        sub = "TIME FROM CONTACT · APPROX."
+        w_, h_ = _pill(img, W - 40, 36, f"T ≈ {sgn}{abs(T):.1f} s", 40, anchor="r", alpha=alpha, wt="Inter-Black.otf",
+                       bg=(6, 12, 24, 190), fg=YEL, pad=(20, 10))
+        yy = 36 + h_ + 8
         if rate and rate < 0.95:
-            sub += f" · SLOWED ×{rate:.2f}"
-        _pill(img, W - 40, 120, sub, 18, anchor="r", alpha=alpha, wt="Inter-SemiBold.otf", bg=(6, 12, 24, 170), pad=(12, 7))
+            _pill(img, W - 40, yy, f"SLOWED ×{rate:.2f}", 17, anchor="r", alpha=alpha, wt="Inter-SemiBold.otf",
+                  bg=(6, 12, 24, 160), pad=(10, 6), radius=8)
+            yy += 38
+        if note > 0.01:
+            _pill(img, W - 40, yy, "APPROX. TIME FROM CONTACT", 17, anchor="r", alpha=alpha * note, wt="Inter-SemiBold.otf",
+                  bg=(6, 12, 24, 160), pad=(10, 6), radius=8)
 
 
 def ring(img, x, y, r, alpha=1.0, color=YEL, width=6):
@@ -242,30 +252,52 @@ def craft_sprite(scale=1.0, arm=1.0):
 
 @lru_cache(maxsize=None)
 def rock_sprite(r, seed, tone=0):
-    """painted rock/grain: irregular polygon, top-left light, dark rim, brush texture. r = radius px."""
+    """painted rock/grain: fractal outline, faceted top-left light, speckle, rim light, dark contact edge."""
     S = 3
-    s = int(r * 2 * S + 6)
+    s = int(r * 2 * S + 8)
     rng = np.random.default_rng(seed)
-    n = rng.integers(7, 12)
+    n = int(rng.integers(6, 10))
     pts = []
     for i in range(n):
-        a = 2 * math.pi * i / n + rng.uniform(-0.2, 0.2)
-        rr = r * S * rng.uniform(0.72, 1.0)
-        pts.append((s / 2 + rr * math.cos(a), s / 2 + rr * math.sin(a) * rng.uniform(0.8, 1.0)))
-    base = [(104, 96, 88), (88, 84, 80), (122, 110, 96), (74, 70, 68)][tone % 4]
+        a = 2 * math.pi * i / n + rng.uniform(-0.25, 0.25)
+        rr = r * S * rng.uniform(0.7, 0.98)
+        pts.append((rr * math.cos(a), rr * math.sin(a) * rng.uniform(0.72, 0.95)))
+    for lvl in range(2):  # midpoint displacement -> natural, chipped outline
+        q = []
+        amp = r * S * (0.13 if lvl == 0 else 0.06)
+        for i in range(len(pts)):
+            x0, y0 = pts[i]; x1, y1 = pts[(i + 1) % len(pts)]
+            q.append((x0, y0))
+            q.append(((x0 + x1) / 2 + rng.uniform(-amp, amp), (y0 + y1) / 2 + rng.uniform(-amp, amp)))
+        pts = q
+    c0 = s / 2
+    pts = [(c0 + x, c0 + y) for x, y in pts]
+    base = np.array([(104, 96, 88), (88, 84, 80), (122, 110, 96), (74, 70, 68)][tone % 4], np.float32)
     im = Image.new("RGBA", (s, s), (0, 0, 0, 0))
-    ImageDraw.Draw(im).polygon(pts, fill=base + (255,))
-    a = np.asarray(im).astype(np.float32)
+    d = ImageDraw.Draw(im)
+    # facets: fan from an off-centre apex; each facet lit by how much it faces the upper-left light
+    apex = (c0 + rng.uniform(-0.25, 0.1) * r * S, c0 + rng.uniform(-0.25, 0.1) * r * S)
+    for i in range(len(pts)):
+        p0, p1 = pts[i], pts[(i + 1) % len(pts)]
+        mx, my = (p0[0] + p1[0]) / 2 - apex[0], (p0[1] + p1[1]) / 2 - apex[1]
+        ang = math.atan2(my, mx)
+        lit = 0.78 + 0.36 * math.cos(ang - math.radians(-135)) + rng.uniform(-0.07, 0.07)
+        col = tuple(int(np.clip(v * lit, 0, 255)) for v in base) + (255,)
+        d.polygon([apex, p0, p1], fill=col)
+    a = np.asarray(im.filter(ImageFilter.GaussianBlur(S * 0.6))).astype(np.float32)
+    a[..., 3] = np.asarray(im)[..., 3]
     y, x = np.mgrid[0:s, 0:s].astype(np.float32)
-    nx, ny = (x - s / 2) / (r * S), (y - s / 2) / (r * S)
-    shade = np.clip(1.15 - 0.55 * (nx + ny) * 0.7 - 0.35 * (nx ** 2 + ny ** 2), 0.35, 1.35)
-    a[..., :3] *= shade[..., None]
+    nx, ny = (x - c0) / (r * S), (y - c0) / (r * S)
+    a[..., :3] *= np.clip(1.08 - 0.22 * (nx + ny) - 0.22 * (nx ** 2 + ny ** 2), 0.45, 1.3)[..., None]
+    a[..., :3] *= (1 + 0.16 * (rng.random((s, s)).astype(np.float32) - 0.5))[..., None]  # mineral speckle
     alpha = a[..., 3] > 0
     er = np.asarray(Image.fromarray((alpha * 255).astype(np.uint8)).filter(ImageFilter.MinFilter(5))) > 0
     edge = alpha & ~er
-    a[edge, :3] *= 0.45
+    rim = edge & ((nx + ny) < -0.2)
+    a[edge & ~rim, :3] *= 0.42
+    a[rim, :3] = a[rim, :3] * 0.55 + np.array([236, 214, 180], np.float32) * 0.45
     im = Image.fromarray(np.clip(a, 0, 255).astype(np.uint8), "RGBA").resize((s // S, s // S), Image.LANCZOS)
-    return paint_texture(im, seed + 3, 0.18, 1.0)
+    return paint_texture(im, seed + 3, 0.16, 1.0)
 
 
 BALL_COLS = [(226, 60, 52), (250, 196, 50), (60, 120, 222), (70, 176, 90), (238, 120, 40)]
@@ -322,31 +354,83 @@ def particles(seed=5, boulders=False):
 
 @lru_cache(maxsize=None)
 def ground_bg():
-    g = vgradient(W, H, [(0, (8, 12, 24)), (GROUND_Y / H, (20, 26, 40)), (GROUND_Y / H + 0.001, (30, 26, 24)), (1, (16, 14, 14))])
-    return paint_texture(g.convert("RGB"), 77, 0.10, 2.0).convert("RGBA")
+    """painted cross-section backdrop: deep sky, hazy far horizon with boulder silhouettes, textured cut face,
+    and a blurred, darker back layer of grains behind the main (moving) layer."""
+    g = vgradient(W, H, [(0, (6, 10, 22)), (0.42, (18, 24, 40)), (GROUND_Y / H, (34, 38, 52)),
+                         (GROUND_Y / H + 0.001, (40, 34, 30)), (0.75, (26, 22, 20)), (1, (14, 12, 12))])
+    a = np.asarray(g).astype(np.float32)
+    n = fbm(W, H, 91, cells=(220, 80, 24, 7), weights=(0.4, 0.3, 0.2, 0.1)) - 0.5
+    below = (np.arange(H)[:, None] >= GROUND_Y)
+    a *= (1 + np.where(below, 0.45, 0.12) * n)[..., None]
+    rng = np.random.default_rng(4)
+    for _ in range(140):  # faint stars
+        x, y = rng.integers(0, W), rng.integers(0, int(GROUND_Y * 0.8))
+        a[y, x] = np.maximum(a[y, x], rng.uniform(90, 200))
+    img = Image.fromarray(np.clip(a, 0, 255).astype(np.uint8), "RGB").convert("RGBA")
+    # far horizon: low ridge + boulder silhouettes, hazy
+    far = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(far)
+    xs = np.arange(0, W + 40, 40)
+    ridge = GROUND_Y - 34 + 14 * np.sin(xs / 210.0) + 9 * np.sin(xs / 77.0 + 1.3)
+    d.polygon([(0, GROUND_Y + 2)] + [(float(x), float(yv)) for x, yv in zip(xs, ridge)] + [(W, GROUND_Y + 2)], fill=(44, 46, 60, 255))
+    for k in range(16):
+        bx = rng.uniform(0, W); br = rng.uniform(10, 34)
+        spr = rock_sprite(int(br), 300 + k, 3)
+        far.alpha_composite(spr, (int(bx - spr.width / 2), int(GROUND_Y - 30 - br * 0.6 + rng.uniform(-6, 6))))
+    fa = np.asarray(far.filter(ImageFilter.GaussianBlur(2.2))).astype(np.float32)
+    fa[..., :3] = fa[..., :3] * 0.45 + np.array([60, 66, 86], np.float32) * 0.55  # atmospheric fade toward the sky
+    img.alpha_composite(Image.fromarray(np.clip(fa, 0, 255).astype(np.uint8), "RGBA"))
+    # back grain layer (static, darker, softer)
+    back = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    for (x, y, r, i) in particles(11, False):
+        spr = rock_sprite(max(5, int(r * 0.8)), (i * 7) % 23, (i + 1) % 4)
+        back.alpha_composite(spr, (int(x + 9 - spr.width / 2), int(y - 6 - spr.height / 2)))
+    ba = np.asarray(back.filter(ImageFilter.GaussianBlur(1.6))).astype(np.float32)
+    ba[..., :3] *= 0.42
+    img.alpha_composite(Image.fromarray(np.clip(ba, 0, 255).astype(np.uint8), "RGBA"))
+    return img
+
+
+def _grain_offset(x, y, r, i, hx, hy, hw, push):
+    """continuous displacement of a grain by the sampler head (no hard edges in the falloff)."""
+    if push <= 0 or hy <= GROUND_Y - 40:
+        return 0.0, 0.0
+    dx = x - hx
+    reach = hw + r + 6
+    over = max(0.0, reach - abs(dx))
+    sgn = 1 if dx >= 0 else -1
+    wv = smooth(clamp((hy + r - y) / 40.0 + 0.5))          # only grains beside/above the head's bottom are shoved sideways
+    ox = sgn * over * (1.05 + 0.15 * (i % 3)) * wv
+    oy = -over * 0.45 * clamp((hy - y) / 120 + 0.6) * wv
+    ddx, ddy = dx, y - hy
+    dist = math.hypot(ddx, ddy) + 1e-3
+    infl = hw * 1.6
+    k = 18 * smooth(clamp(1 - dist / infl))                 # soft radial compression around the head
+    return (ox + ddx / dist * k) * push, (oy + ddy / dist * k) * push
+
+
+DYN_HALF = 330  # grains farther than this from the head centre never move -> cached
+
+
+@lru_cache(maxsize=8)
+def _static_grains(seed, boulders, hx):
+    lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    for (x, y, r, i) in particles(seed, boulders):
+        if abs(x - hx) > DYN_HALF:
+            spr = rock_sprite(int(r), i % 23, i % 4)
+            lay.alpha_composite(spr, (int(x - spr.width / 2), int(y - spr.height / 2)))
+    return lay
 
 
 def draw_ground(img, hx, hy, hw, push=1.0, balls=0.0, wobble_t=0.0, boulders=False, seed=5):
     """draw the grain field; grains near the sampler head (centre hx, bottom hy, half-width hw) are pushed aside."""
     P = particles(seed, boulders)
+    static = not wobble_t and balls <= 0.01
+    if static:
+        img.alpha_composite(_static_grains(seed, boulders, int(hx)))
     for (x, y, r, i) in P:
-        dx = x - hx
-        ox, oy = 0.0, 0.0
-        if push > 0 and hy > GROUND_Y - 40:
-            reach = hw + r + 6
-            if abs(dx) < reach and y < hy + r:
-                s = 1 if dx >= 0 else -1
-                over = reach - abs(dx)
-                ox = s * over * (1.05 + 0.3 * (i % 3) / 2)
-                oy = -over * 0.45 * clamp((hy - y) / 120 + 0.6)
-            else:
-                ddx, ddy = dx, y - hy
-                dist = math.hypot(ddx, ddy) + 1e-3
-                infl = hw * 1.25
-                if dist < infl:
-                    k = (infl - dist) / infl * 18
-                    ox, oy = ddx / dist * k, ddy / dist * k
-            ox *= push; oy *= push
+        if static and abs(x - hx) > DYN_HALF:
+            continue
+        ox, oy = _grain_offset(x, y, r, i, hx, hy, hw, push)
         if wobble_t:
             ox += 2.0 * math.sin(wobble_t * 2.1 + i * 0.7); oy += 1.5 * math.cos(wobble_t * 1.7 + i * 1.3)
         X, Y = x + ox, y + oy
@@ -379,16 +463,33 @@ def head_sprite(w=240):
     xs = np.linspace(-1, 1, ww, dtype=np.float32)[None, :]
     a[..., :3] *= np.clip(1.15 - 0.35 * xs - 0.25 * xs ** 2, 0.5, 1.4)[..., None]
     im = Image.fromarray(np.clip(a, 0, 255).astype(np.uint8), "RGBA").resize((ww // S, hh // S), Image.LANCZOS)
-    return paint_texture(im, 31, 0.12, 2.0)
+    a = np.asarray(im).astype(np.float32); a[..., :3] *= 0.88
+    return paint_texture(Image.fromarray(np.clip(a, 0, 255).astype(np.uint8), "RGBA"), 31, 0.2, 1.6)
+
+
+@lru_cache(maxsize=None)
+def _arm_profile(w=30):
+    """one row of a painted metal tube: light from the left, rim on the right."""
+    x = np.linspace(-1, 1, w, dtype=np.float32)
+    lam = np.clip(0.55 - 0.45 * x + 0.35 * np.sqrt(np.clip(1 - x ** 2, 0, 1)), 0.15, 1.2)
+    rgb = np.array([186, 190, 198], np.float32)[None] * lam[:, None]
+    rgb[-3:] = rgb[-3:] * 0.6 + 60
+    return np.dstack([np.clip(rgb, 0, 255)[None], np.full((1, w, 1), 255, np.float32)])[0].astype(np.uint8)
 
 
 def draw_sampler(img, hx, hy, w=240, ghost=False, arm_top=-40):
     head = head_sprite(w)
     lay = Image.new("RGBA", img.size, (0, 0, 0, 0))
     d = ImageDraw.Draw(lay)
-    if hy - head.height + 6 > arm_top:
-        d.rectangle([hx - 13, arm_top, hx + 13, hy - head.height + 6], fill=(196, 198, 204, 255))
-        d.rectangle([hx - 13, arm_top, hx - 5, hy - head.height + 6], fill=(150, 152, 160, 255))
+    y1 = hy - head.height + 6
+    if y1 > arm_top:
+        prof = _arm_profile()
+        strip = Image.fromarray(np.repeat(prof[None], int(y1 - arm_top), axis=0), "RGBA")
+        lay.alpha_composite(strip, (int(hx - 15), int(arm_top)))
+        jy = y1 - 70
+        if jy > arm_top + 10:  # wrist joint collar
+            d.rounded_rectangle([hx - 21, jy, hx + 21, jy + 26], 6, fill=(150, 152, 160, 255))
+            d.line([(hx - 19, jy + 4), (hx + 19, jy + 4)], fill=(214, 216, 222, 255), width=3)
     lay.alpha_composite(head, (int(hx - head.width / 2), int(hy - head.height)))
     if ghost:
         a = np.asarray(lay).astype(np.float32)
@@ -465,13 +566,11 @@ def sc_cross(t, s, d, p):
         balls = smooth(seg(u, tb, tb + 0.9)) * (1 - smooth(seg(u, d - 1.0, d)))
     wob = u if mode in ("pit",) else 0.0
     draw_ground(img, hx, hy, hw, push=1.0, balls=balls, wobble_t=wob, boulders=boulders)
+    # the arm leaves the frame at the top (the spacecraft body is above, out of view); a soft contact shadow
+    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(sh).ellipse([hx - hw * 1.5, hy - 24, hx + hw * 1.5, hy + 30], fill=(0, 0, 0, 110))
+    img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(14)))
     draw_sampler(img, hx, hy, 2 * hw)
-    # spacecraft body hint at the top
-    lay = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dl = ImageDraw.Draw(lay)
-    top = hy - 560
-    dl.rounded_rectangle([hx - 240, top - 160, hx + 200, top], 14, fill=(170, 130, 62, 255))
-    lay = paint_texture(lay, 41, 0.15, 1.4)
-    img.alpha_composite(lay)
     f = font("Inter-SemiBold.otf", 26)
     shadow_text(img, (60, GROUND_Y - 44), "SURFACE", f, (220, 220, 220, 255), "lb", stroke=2, blur=5)
     if mode == "depth":
@@ -628,40 +727,230 @@ def sc_mass(t, s, d, p):
     return img
 
 
+# ---------------------------------------------------------------- chemistry epilogue (symbolic icons only)
+def _sphere(r, col, S=3):
+    s_ = int(r * 2 * S + 4)
+    y, x = np.mgrid[0:s_, 0:s_].astype(np.float32)
+    nx, ny = (x - s_ / 2) / (r * S), (y - s_ / 2) / (r * S)
+    rr = nx ** 2 + ny ** 2
+    nz = np.sqrt(np.clip(1 - rr, 0, 1))
+    lam = np.clip(-0.45 * nx - 0.55 * ny + 0.7 * nz, 0, 1)
+    rgb = np.array(col, np.float32) * (0.3 + 0.8 * lam[..., None]) + 255 * (lam[..., None] ** 16) * 0.55
+    out = np.dstack([np.clip(rgb, 0, 255), (rr <= 1) * 255.0]).astype(np.uint8)
+    return Image.fromarray(out, "RGBA").resize((s_ // S, s_ // S), Image.LANCZOS)
+
+
+ATOM_COLS = [(200, 204, 210), (90, 96, 108), (220, 90, 80), (90, 140, 230)]
+
+
+@lru_cache(maxsize=None)
+def stick_icon(seed, size=136):
+    """symbolic ball-and-stick cluster (NOT a real structure): a short random zig-zag chain with one side branch."""
+    rng = np.random.default_rng(seed)
+    S = size
+    im = Image.new("RGBA", (S, S), (0, 0, 0, 0))
+    n = int(rng.integers(4, 6))
+    pts = []
+    x, y, ang = S * 0.2, S * 0.55, rng.uniform(-0.4, 0.4)
+    for k in range(n):
+        pts.append((x, y))
+        ang += (0.9 if k % 2 else -0.9) + rng.uniform(-0.2, 0.2)
+        x += S * 0.17 * math.cos(ang); y += S * 0.17 * math.sin(ang)
+    j = int(rng.integers(1, n - 1))
+    br = (pts[j][0] + S * 0.04, pts[j][1] - S * 0.2)
+    d = ImageDraw.Draw(im)
+    bonds = [(pts[k], pts[k + 1]) for k in range(n - 1)] + [(pts[j], br)]
+    for p0, p1 in bonds:
+        d.line([p0, p1], fill=(150, 156, 168, 255), width=max(3, S // 22))
+    for k, q in enumerate(pts + [br]):
+        r = S * (0.075 if k < n else 0.06)
+        spr = _sphere(r, ATOM_COLS[int(rng.integers(0, 4))])
+        im.alpha_composite(spr, (int(q[0] - spr.width / 2), int(q[1] - spr.height / 2)))
+    return im
+
+
+@lru_cache(maxsize=None)
+def ring_icon(nsides, fused=False, size=130, col=(110, 200, 196)):
+    """symbolic ring icon (generic polygon with atom dots). Ring size only; atoms are not identified."""
+    S = size
+    im = Image.new("RGBA", (S, S), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    cx, cy, R = S * (0.4 if fused else 0.5), S * 0.5, S * 0.27
+    polys = [[(cx + R * math.cos(math.pi / 2 + 2 * math.pi * k / nsides), cy + R * math.sin(math.pi / 2 + 2 * math.pi * k / nsides))
+              for k in range(nsides)]]
+    if fused:
+        a0, a1 = polys[0][4], polys[0][5]
+        mx, my = (a0[0] + a1[0]) / 2, (a0[1] + a1[1]) / 2
+        ox, oy = mx - cx, my - cy; L = math.hypot(ox, oy)
+        c2 = (mx + ox / L * R * 0.68, my + oy / L * R * 0.68)
+        polys.append([a0, (c2[0] + (a0[0] - mx) * 0.2 + ox / L * R * 0.25, c2[1] + (a0[1] - my) * 0.2 + oy / L * R * 0.25 - R * 0.5),
+                      (c2[0] + ox / L * R * 0.55, c2[1] + oy / L * R * 0.55),
+                      (c2[0] + (a1[0] - mx) * 0.2 + ox / L * R * 0.25, c2[1] + (a1[1] - my) * 0.2 + oy / L * R * 0.25 + R * 0.5), a1])
+    for poly in polys:
+        d.line(poly + [poly[0]], fill=col + (255,), width=max(4, S // 18), joint="curve")
+    for poly in polys:
+        for q in poly:
+            spr = _sphere(S * 0.06, (210, 214, 220))
+            im.alpha_composite(spr, (int(q[0] - spr.width / 2), int(q[1] - spr.height / 2)))
+    return im
+
+
+@lru_cache(maxsize=None)
+def _tinted(kind, key, mode):
+    im = stick_icon(key) if kind == "a" else ring_icon(*key)
+    a = np.asarray(im).astype(np.float32)
+    if mode == "lit":
+        a[..., :3] = a[..., :3] * 0.6 + np.array([255, 208, 90], np.float32) * 0.4
+    elif mode == "dim":
+        g = a[..., :3].mean(axis=2, keepdims=True)
+        a[..., :3] = g * 0.55
+        a[..., 3] *= 0.55
+    return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8), "RGBA")
+
+
+@lru_cache(maxsize=None)
+def dish_sprite(w=620):
+    """painted sample tray seen at an angle, heaped with dark grains."""
+    h = int(w * 0.62)
+    im = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    d.ellipse([0, h * 0.30, w - 1, h - 1], fill=(64, 68, 76, 255))
+    d.ellipse([w * 0.03, h * 0.31, w * 0.97, h * 0.93], fill=(150, 156, 166, 255))
+    d.ellipse([w * 0.07, h * 0.36, w * 0.93, h * 0.88], fill=(34, 30, 28, 255))
+    rng = np.random.default_rng(9)
+    for i in range(420):
+        ang = rng.uniform(0, 2 * math.pi); rr = math.sqrt(rng.uniform(0, 1))
+        x = w / 2 + rr * w * 0.40 * math.cos(ang)
+        y = h * 0.62 + rr * h * 0.22 * math.sin(ang) - (1 - rr) * h * 0.18
+        spr = rock_sprite(int(rng.choice([4, 5, 6, 8, 10, 12])), i % 23, i % 4)
+        im.alpha_composite(spr, (int(x - spr.width / 2), int(y - spr.height / 2)))
+    a = np.asarray(im).astype(np.float32)
+    xs = np.linspace(-1, 1, w, dtype=np.float32)[None, :]
+    a[..., :3] *= np.clip(1.1 - 0.3 * xs, 0.6, 1.3)[..., None]
+    return paint_texture(Image.fromarray(np.clip(a, 0, 255).astype(np.uint8), "RGBA"), 61, 0.14, 1.4)
+
+
+@lru_cache(maxsize=None)
+def bowl_sprite(w=560):
+    h = int(w * 0.5)
+    im = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    d.chord([0, -h * 0.9, w - 1, h - 1], 0, 180, fill=(120, 96, 64, 255))
+    d.ellipse([0, 0, w - 1, h * 0.22], fill=(70, 54, 40, 255))
+    a = np.asarray(im).astype(np.float32)
+    xs = np.linspace(-1, 1, w, dtype=np.float32)[None, :]
+    a[..., :3] *= np.clip(1.2 - 0.45 * xs - 0.25 * xs ** 2, 0.5, 1.4)[..., None]
+    return paint_texture(Image.fromarray(np.clip(a, 0, 255).astype(np.uint8), "RGBA"), 63, 0.16, 1.2)
+
+
+@lru_cache(maxsize=None)
+def no_icon(kind, size=200):
+    """symbolic organism (cell) or DNA icon, crossed out."""
+    S = size
+    im = Image.new("RGBA", (S, S), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    if kind == "cell":
+        d.ellipse([S * 0.14, S * 0.22, S * 0.86, S * 0.78], fill=(70, 150, 120, 255), outline=(150, 230, 190, 255), width=5)
+        d.ellipse([S * 0.40, S * 0.38, S * 0.58, S * 0.56], fill=(40, 90, 80, 255))
+    else:
+        for k in range(2):
+            ph = k * math.pi
+            pts = [(S * 0.5 + S * 0.22 * math.sin(y / S * 4 * math.pi + ph), y) for y in np.linspace(S * 0.1, S * 0.9, 40)]
+            d.line(pts, fill=(120, 170, 240, 255), width=7)
+        for y in np.linspace(S * 0.16, S * 0.84, 9):
+            x0 = S * 0.5 + S * 0.22 * math.sin(y / S * 4 * math.pi); x1 = S * 0.5 + S * 0.22 * math.sin(y / S * 4 * math.pi + math.pi)
+            d.line([(x0, y), (x1, y)], fill=(200, 210, 230, 255), width=4)
+    im = paint_texture(im, 64, 0.12, 1.2)
+    d = ImageDraw.Draw(im)
+    d.ellipse([S * 0.04, S * 0.04, S * 0.96, S * 0.96], outline=RED, width=12)
+    d.line([(S * 0.18, S * 0.82), (S * 0.82, S * 0.18)], fill=RED, width=12)
+    return im
+
+
+def _chem_layout():
+    """home positions: 20 amino-acid icons (5x4 grid), 5 nucleobase rings (row), 2 sugar rings."""
+    am = [(740 + 200 * (k % 5), 240 + 140 * (k // 5)) for k in range(20)]
+    nb = [(740 + 200 * k, 820) for k in range(5)]
+    sg = [(980, 720), (1340, 720)]
+    return am, nb, sg
+
+
 def sc_chem(t, s, d, p):
+    """sample -> symbolic molecule icons -> one short dated caption at a time. Icons are symbolic, never structures."""
     u = t - s
     bg = grains_bg(17)
-    ox = int(100 + 80 * u / d); oy = int(30 + 40 * math.sin(u * 0.1))
+    ox = int(100 + 60 * u / d); oy = int(30 + 30 * math.sin(u * 0.1))
     img = bg.crop((ox, oy, ox + W, oy + H)).copy()
-    img.alpha_composite(Image.new("RGBA", (W, H), (6, 10, 20, 135)))
-    y0 = 220
-    cards = [("JANUARY 2025", "14 of the 20 amino acids life on Earth uses", "+ five nucleobases", p["t_jan"], p["t_nuc"]),
-             ("DECEMBER 2025", "Sugars, including ribose and glucose", None, p["t_dec"], None)]
-    for k, (hdr, l1, l2, ta, tb) in enumerate(cards):
-        a = fade(t, ta)
-        if a <= 0.01:
+    img.alpha_composite(Image.new("RGBA", (W, H), (6, 10, 20, 170)))
+    T = lambda key: p[key] - s
+    tj, t14, tn, td, ts_, tr, tg, tnot, tno, ti = (T(k) for k in ("t_jan", "t_14", "t_nuc", "t_dec", "t_sug", "t_rib",
+                                                                   "t_glu", "t_not", "t_noorg", "t_ingr"))
+    # 1. the sample dish: push-in, then it slides left and stays as the source of everything
+    mv = smooth(seg(u, tj - 0.2, tj + 0.9))
+    back = smooth(seg(u, ti - 0.2, ti + 0.8))
+    sc = lerp(lerp(lerp(1.15, 1.3, smooth(seg(u, 0, tj))), 0.62, mv), 0.95, back)
+    dish = dish_sprite()
+    ds = dish.resize((int(dish.width * sc), int(dish.height * sc)), Image.LANCZOS)
+    dx, dy = lerp(lerp(960, 330, mv), 960, back), lerp(560, 640, back)
+    img.alpha_composite(ds, (int(dx - ds.width / 2), int(dy - ds.height / 2)))
+    # 2. icons
+    am, nb, sg = _chem_layout()
+    bowl = (960, 660)  # the sample dish, back in the centre at the end
+    focus_dec = smooth(seg(u, td, td + 0.6))           # older icons dim while the sugars are introduced
+    focus_not = smooth(seg(u, tnot, tnot + 0.5))
+    gather = [smooth(seg(u, ti + 0.1 + 0.02 * k, ti + 1.1 + 0.02 * k)) for k in range(27)]
+    items = []
+    for k, (x, y) in enumerate(am):
+        a_in = smooth(seg(u, tj + 0.3 + 0.05 * k, tj + 0.7 + 0.05 * k))
+        lit = k < 14 and u >= t14 + 0.06 * k
+        mode = "lit" if lit else "dim" if u >= t14 + 0.9 else "n"
+        items.append(("a", 300 + k, mode, x, y, a_in, 92, k))
+    for k, (x, y) in enumerate(nb):
+        a_in = smooth(seg(u, tn + 0.1 * k, tn + 0.45 + 0.1 * k))
+        items.append(("r", (6, k % 2 == 0, 130, (110, 200, 196)), "n", x, y, a_in, 130, 20 + k))
+    for k, ((x, y), tt) in enumerate(zip(sg, (tr, tg))):
+        a_in = smooth(seg(u, ts_ - 0.3 + 0.2 * k, ts_ + 0.2 + 0.2 * k))
+        items.append(("r", ((5, False, 190, (255, 196, 90)), (6, False, 190, (255, 196, 90)))[k], "n", x, y, a_in, 190, 25 + k))
+    for kind, key, mode, x, y, a_in, size, k in items:
+        if a_in <= 0.01:
             continue
-        x = 180 + (1 - ease_out(a)) * -60
-        y = y0 + k * 270
-        pw, ph = 1200, 220
-        panel = Image.new("RGBA", (pw, ph), (10, 18, 34, 225))
-        pd = ImageDraw.Draw(panel)
-        pd.rounded_rectangle([0, 0, pw - 1, ph - 1], 20, outline=YEL[:3] + (255,), width=3)
-        pd.text((36, 26), hdr, font=font("Inter-Black.otf", 38), fill=YEL)
-        pd.text((36, 86), l1, font=font("Inter-Bold.otf", 44), fill=WHITE)
-        if l2 and t >= tb:
-            pd.text((36, 146), l2, font=font("Inter-Bold.otf", 40), fill=(200, 230, 230, 255))
-        panel = paint_texture(panel, 81 + k, 0.06, 2.0)
-        panel.putalpha(panel.getchannel("A").point(lambda v: int(v * a)))
-        img.alpha_composite(panel, (int(x), int(y)))
-    chip(img, "WHAT SCIENTISTS FOUND IN THE SAMPLE", W / 2, 90, alpha=fade(u, 0.2), size=40, accent=YEL)
-    a = fade(t, p["t_not"])
-    if a > 0.01:
-        chip(img, "NOT EVIDENCE OF LIFE", W / 2, 780, alpha=a, size=50, accent=(255, 120, 100, 255))
-    chip(img, "NO ORGANISMS · NO DNA", W / 2, 880, alpha=fade(t, p["t_noorg"], p["t_ingr"]), size=36)
-    chip(img, "CHEMICAL INGREDIENTS", W / 2, 880, alpha=fade(t, p["t_ingr"]), size=36, accent=YEL)
-    credit(img, "Findings reported by NASA, Jan 2025 and Dec 2025", fade(u, 0.5))
-    type_label(img, "illus", "SUMMARY OF REPORTED FINDINGS", fade(u, 0.1))
+        older = k < 25
+        g = gather[k]
+        alpha = a_in * lerp((1 - 0.45 * focus_dec * older) * (1 - 0.85 * focus_not), 1.0, g)
+        scale = 1.0
+        if older:  # earlier finds tuck up and shrink while the sugars are introduced
+            cx, cy = 1140, 535
+            x, y = lerp(x, cx + (x - cx) * 0.55, focus_dec), lerp(y, cy + (y - cy) * 0.55 - 170, focus_dec)
+            scale = lerp(1.0, 0.6, focus_dec)
+        bx = bowl[0] + ((k * 37) % 9 - 4) * 40; by = bowl[1] - 10 - (k % 3) * 22
+        X, Y = lerp(x, bx, g), lerp(y, by, g) - 160 * math.sin(math.pi * g)
+        scale = lerp(scale, 0.5 if size > 120 else 0.7, g)
+        if a_in < 1:
+            scale *= lerp(0.7, 1.0, a_in)
+        im = _tinted(kind, key, mode)
+        if scale != 1.0:
+            im = im.resize((max(2, int(im.width * scale)), max(2, int(im.height * scale))), Image.BILINEAR)
+        if alpha < 0.999:
+            im = im.copy(); im.putalpha(im.getchannel("A").point(lambda v: int(v * alpha)))
+        img.alpha_composite(im, (int(X - im.width / 2), int(Y - im.height / 2)))
+    # sugar names on the word
+    for (x, y), tt, name in zip(sg, (tr, tg), ("RIBOSE", "GLUCOSE")):
+        chip(img, name, x, y + 108, alpha=fade(u, tt, tnot, 0.25, 0.35), size=30, accent=YEL)
+    # 3. no organisms / no DNA
+    a_no = fade(u, tno, ti + 0.4, 0.3, 0.4)
+    for k, kind in enumerate(("cell", "dna")):
+        if a_no > 0.01:
+            ic = no_icon(kind).copy()
+            ic.putalpha(ic.getchannel("A").point(lambda v, a_=a_no * smooth(seg(u, tno + 0.6 * k, tno + 0.6 * k + 0.3)): int(v * a_)))
+            img.alpha_composite(ic, (int(960 + (k * 2 - 1) * 180 - 100), 420))
+    # one caption at a time (bottom centre)
+    caps = [(tj + 0.2, "JAN 2025 · 14 OF 20 AMINO ACIDS", YEL), (tn, "+ 5 NUCLEOBASES", TEAL),
+            (td, "DEC 2025 · SUGARS", YEL), (tnot, "NOT EVIDENCE OF LIFE", (255, 120, 100, 255)),
+            (tno, "NO ORGANISMS · NO DNA", (255, 120, 100, 255)), (ti, "CHEMICAL INGREDIENTS", YEL)]
+    for k, (tc, text, acc) in enumerate(caps):
+        end = caps[k + 1][0] if k + 1 < len(caps) else d + 1
+        chip(img, text, W / 2, 960, alpha=fade(u, tc, end, 0.3, 0.2), size=46, accent=acc)
+    _pill(img, W - 40, 36, "SYMBOLIC ICONS · NOT CHEMICAL STRUCTURES", 19, anchor="r", alpha=fade(u, tj + 0.3),
+          wt="Inter-SemiBold.otf", bg=(6, 12, 24, 170), pad=(12, 7), radius=8)
+    credit(img, "Findings reported by NASA, Jan and Dec 2025", fade(u, tj + 0.5))
+    type_label(img, "illus", "SYMBOLIC", fade(u, 0.1))
     return img
 
 

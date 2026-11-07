@@ -12,10 +12,11 @@ from PIL import Image
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from paint import W, H, FPS, smooth, seg, lerp, grade, clamp
-from timeline import V, END, VOICE, GAPS, word
+from timeline import V, END, VOICE, SEGMENTS, _starts, word
 import clips as C
 import scenes as SC
 from shots import SHOTS, EV, CONTACT_FILE_T
+FIRST_HUD = min(s["t0"] for s in SHOTS if s.get("hud") is True)
 
 XF = 0.4
 ACC = {"y": SC.YEL, "r": (255, 120, 100, 255), None: None}
@@ -95,19 +96,19 @@ def overlays(i, t, img, ts=None):
         if c[0] == "ring":
             SC.ring(img, c[1], c[2], c[3], SC.fade(t, c[4]))
     chips = sorted(s.get("chips", []), key=lambda c: c[0])
-    for k, (tc, text, x, y, size, acc) in enumerate(chips):
-        nxt = [c[0] for c in chips[k + 1:] if c[3] == y]
+    for k, c in enumerate(chips):
+        tc, text, x, y, size, acc = c[:6]
+        nxt = [c2[0] for c2 in chips[k + 1:] if c2[3] == y]
         end = nxt[0] if nxt else s["t1"] + 0.6
-        SC.chip(img, text, x, y, SC.fade(t, tc, end, 0.3, 0.25), size, ACC[acc])
+        SC.chip(img, text, x, y, SC.fade(t, tc, end, 0.3, 0.25), size, ACC[acc], anchor=c[6] if len(c) > 6 else "c")
     h = s.get("hud")
     if h:
         prev_h = i > 0 and SHOTS[i - 1].get("hud")
         a = 1.0 if prev_h else SC.fade(t, st + 0.1)
         shown = sum(1 for e in EV if t >= e)
-        if h == "replay":
-            shown = 6
         T = None if h == "noclock" or ts is None else ts - CONTACT_FILE_T
-        SC.hud(img, T, shown, rate(s), a, playhead=T is not None)
+        # the "approx. time from contact" note is shown once, in the first timer shot only
+        SC.hud(img, T, shown, rate(s), a, playhead=T is not None, note=SC.fade(t, FIRST_HUD + 0.3, FIRST_HUD + 5.0, 0.4, 0.6))
 
 
 def open_frame(i, t):
@@ -116,17 +117,17 @@ def open_frame(i, t):
     ts = src_t(s, t)
     arr = reader((i, "m"), s["src"]).get(ts)
     u = t - s["t0"]
-    slide = smooth(seg(u, 1.7, 3.2))
+    slide = smooth(seg(u, 0.9, 2.1))
     img = C.frame_fit(arr, cx_out=lerp(1190, 960, slide), zoom=lerp(1.0, 1.08, smooth(seg(u, 0, s["t1"] - s["t0"]))), fcx=500, fcy=600)
-    w = 1 - smooth(seg(u, 1.0, 2.8))
+    w = 1 - smooth(seg(u, 0.5, 1.7))
     if w > 0.001:
         img = Image.blend(img, duotone(img), w)
     img = img.convert("RGBA")
-    ah = 1 - smooth(seg(u, 1.25, 2.0))
+    ah = 1 - smooth(seg(u, 0.85, 1.35))
     if ah > 0.001:
         cover_text(img, ah, lerp(1190, 960, slide))
-    SC.type_label(img, "real", "SAMCAM · STILL PHOTOS, SPED UP", SC.fade(t, 2.0))
-    SC.credit(img, s["credit"], SC.fade(t, 2.2))
+    SC.type_label(img, "real", "SAMCAM · STILL PHOTOS, SPED UP", SC.fade(t, 1.2))
+    SC.credit(img, s["credit"], SC.fade(t, 1.4))
     return img
 
 
@@ -263,17 +264,16 @@ def render_chunk(args):
 
 # ---------------------------------------------------------------- audio
 def build_audio(work, t0=0.0, t1=END):
-    """narration with the GAPS inserted (no word is stretched or cut) + a quiet generated bed + two soft low hits.
+    """narration in SEGMENTS order with silences inserted (no word is stretched or cut) + a quiet generated bed + two soft low hits.
     No music. The hits are sound design, never presented as a recording from Bennu."""
     sr = 48000
     raw = subprocess.run(["ffmpeg", "-v", "error", "-i", VOICE, "-f", "f32le", "-ac", "1", "-ar", str(sr), "-"], capture_output=True, check=True).stdout
     v = np.frombuffer(raw, np.float32)
     total = int(round(END * sr))
     out = np.zeros(total, np.float32)
-    cuts = [g[0] for g in GAPS] + [len(v) / sr]
-    for k in range(len(GAPS)):
-        a, b = int(cuts[k] * sr), int(cuts[k + 1] * sr)
-        dst = int(round(V(cuts[k]) * sr))
+    for (a_, b_, _g), f0 in zip(SEGMENTS, _starts):
+        a, b = int(round(a_ * sr)), min(len(v), int(round(b_ * sr)))
+        dst = int(round(f0 * sr))
         seg_ = v[a:b]
         out[dst:dst + len(seg_)] += seg_[: max(0, total - dst)]
     vo_path = os.path.join(work, "vo_timed.wav")

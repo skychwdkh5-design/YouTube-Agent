@@ -38,3 +38,20 @@ Not uploaded, not queued.
 - The illustrations are code-painted 2.5D (textured gradients, painted grains, simple props). They follow the OA direction but are simpler than the painted reference sheets.
 - M11 (capsule) is a 720p source shown at 1.7–1.8× zoom for 3.8 s, so it is soft.
 - The chemistry epilogue (~23 s) is a text-card scene over painted grains.
+
+## v2 (2026-11-07)
+
+File `EP012_Bennu_final_v2_1080p30.mp4`, SHA-256 `2114ce02723fcc0e97393e662356614d09fd15e036b093275769ec900d8efece`, 183 588 994 bytes, 1920×1080, 30/1, 362.100 s. Changes: `CHANGES_v2.md`.
+
+| Check | Result | Evidence |
+|---|---|---|
+| qc.py (format, duration 362.1, streams aligned, 10 863 frames, full decode) | PASS | 16/16 checks pass |
+| Black frames | PASS | blackdetect: none |
+| Static freezes ≥3 s | PASS | freezedetect: none |
+| Loudness | PASS | −14.6 LUFS, true peak −1.1 dBFS, LRA 2.6 |
+| Speech sync | PASS (spot check) | speech onsets at 0.51 / 8.91 / 14.85 / 17.40 / 19.76 / 314.46 / 333.73 s vs. word timings 0.44 / 8.82 / 14.79 / 17.33 / 19.70 / 314.42 / 333.70 s |
+| Motion in changed scenes | PASS (numeric) | per-frame luma difference: no stalled frames in 0–30, 105–189, 199–212, 311–348 s; cross-sections median 0.4–0.7, p95 ≤ 4.9; spikes only at planned cuts and at the source cadence of SamCam/NavCam photo sequences |
+| Missing material | PASS | contact sheets 1 frame/3 s (whole film) and 2 frames/s (0–15 s) |
+| Cover | PASS (objective) | regenerated from new frame 0; thumbcheck PASS |
+
+**Not done:** real-time viewing with sound. Checked by decoded frames, sheets and numeric motion/audio analysis only.
