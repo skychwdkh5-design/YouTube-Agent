@@ -1,6 +1,6 @@
 # EP012 Bennu — QC report (2026-11-07)
 
-Final: `EP012_Bennu_final_1080p30.mp4` sha256 `29226238f9facb100187f24a7d7d3f8f53a5cf24d48c132a023c1bbb126117e5`, 6:01.5, 629 MB.
+Final: `EP012_Bennu_final_1080p30.mp4` sha256 `8cbcfc73256c6867b64dd30caddd2809c9556820284bf0473f4490c52128d290`, 6:01.5, 178 MB (CRF 22 delivery encode of the CRF 18 master sha256 29226238…, 629 MB, kept in the session only; qc.py PASS on both).
 Not uploaded, not queued.
 
 ## Checks performed
