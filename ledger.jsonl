@@ -82,3 +82,10 @@
 {"at": "2026-11-06T10:38:45+00:00", "event": "verified", "sha256": "8bf8717bf1ccce907ac411b50a18c7fc68963a41a889455f034072b95f4a3335", "id": "ep011", "video_id": "iOQne8mgNFk", "ok": true, "privacyStatus": "private", "publishAt": "2026-11-07T01:00:00Z", "uploadStatus": "uploaded"}
 {"at": "2026-11-06T10:38:45+00:00", "event": "approval_done", "approval_id": "c9d7b563392243dea5f84f66c98ec043", "ids": ["ep011"]}
 {"at": "2026-11-07T01:53:01+00:00", "event": "release_confirmed", "video_id": "iOQne8mgNFk", "id": "ep011", "publishAt": "2026-11-07T01:00:00Z", "privacyStatus": "public", "delay_s": 3181}
+{"at": "2026-11-07T17:50:05+00:00", "event": "approval_started", "approval_id": "d2b7234c2ca94b74a1eb8a41890ccf66", "ids": ["ep012"]}
+{"at": "2026-11-07T17:50:07+00:00", "event": "started", "sha256": "789c6fc0370ee8588d9a8b8f70fb0e391b0523b5b2abdf125572d0d8fda49539", "id": "ep012", "file": "EP012_Bennu_final_v2_1080p30.mp4", "kind": "long"}
+{"at": "2026-11-07T17:50:14+00:00", "event": "uploaded", "sha256": "789c6fc0370ee8588d9a8b8f70fb0e391b0523b5b2abdf125572d0d8fda49539", "id": "ep012", "video_id": "RirYVjOyZq4", "publish_at": "2026-11-08T01:00:00Z"}
+{"at": "2026-11-07T17:50:19+00:00", "event": "thumbnail_set", "sha256": "789c6fc0370ee8588d9a8b8f70fb0e391b0523b5b2abdf125572d0d8fda49539", "id": "ep012", "video_id": "RirYVjOyZq4"}
+{"at": "2026-11-07T17:50:19+00:00", "event": "captions_unavailable", "sha256": "789c6fc0370ee8588d9a8b8f70fb0e391b0523b5b2abdf125572d0d8fda49539", "id": "ep012", "video_id": "RirYVjOyZq4", "message": "YouTube API 403: Request had insufficient authentication scopes. ['insufficientPermissions']"}
+{"at": "2026-11-07T17:50:19+00:00", "event": "verified", "sha256": "789c6fc0370ee8588d9a8b8f70fb0e391b0523b5b2abdf125572d0d8fda49539", "id": "ep012", "video_id": "RirYVjOyZq4", "ok": true, "privacyStatus": "private", "publishAt": "2026-11-08T01:00:00Z", "uploadStatus": "uploaded"}
+{"at": "2026-11-07T17:50:19+00:00", "event": "approval_done", "approval_id": "d2b7234c2ca94b74a1eb8a41890ccf66", "ids": ["ep012"]}
