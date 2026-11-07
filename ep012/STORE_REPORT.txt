@@ -1,0 +1,39 @@
+== tag ep012-v2
+== sha256 check
+EP012_Bennu_final_v2_1080p30.mp4: OK
+EP012_cover_still_sinking.jpg: OK
+EP012_Bennu_en.srt: OK
+== ffprobe
+index=0
+codec_name=h264
+profile=High
+codec_type=video
+width=1920
+height=1080
+pix_fmt=yuv420p
+level=50
+r_frame_rate=30/1
+avg_frame_rate=30/1
+bit_rate=3855863
+index=1
+codec_name=aac
+profile=LC
+codec_type=audio
+sample_rate=48000
+channels=2
+r_frame_rate=0/0
+avg_frame_rate=0/0
+bit_rate=191424
+format_name=mov,mp4,m4a,3gp,3g2,mj2
+duration=362.100000
+size=183594869
+bit_rate=4056224
+== moov position (faststart: moov before mdat)
+['ftyp', 'uuid', 'moov', 'free', 'mdat']
+== full decode errors (empty = none)
+== sha256 result: 0
+== release assets
+EP012_Bennu_en.srt 8316
+EP012_Bennu_final_v2_1080p30.mp4 183594869
+EP012_cover_still_sinking.jpg 345496
+SHA256SUMS 280
