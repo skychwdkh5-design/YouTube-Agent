@@ -586,6 +586,60 @@
     "sha256": "31fdcfb77bd9e980ea19e6e05ec68f6d8a974e7f77b22f9407401195b4034a27",
     "note": "Owner's new cover v2 (2026-11-06), resized to 1280x720 with the TUNGUSKA headline whites lifted; thumbcheck objective PASS (saturation 0.51, luma std 70.6, white 2.6%, yellow 5.5%); the video's first frame matches it (the inset shows the real 1929 photo in the video)."
    }
+  },
+  {
+   "id": "ep012",
+   "mode": "approval",
+   "kind": "long",
+   "media": {
+    "asset": "EP012_Bennu_final_v2_1080p30.mp4",
+    "sha256": "789c6fc0370ee8588d9a8b8f70fb0e391b0523b5b2abdf125572d0d8fda49539",
+    "seconds": 362.1
+   },
+   "title": "NASA Touched an Asteroid. Then It Started Sinking.",
+   "title_status": "final",
+   "title_options": [
+    "NASA Touched an Asteroid. Then It Started Sinking."
+   ],
+   "description": "NASA Touched an Asteroid. Then It Started Sinking.\n\nOn October 20, 2020, NASA's OSIRIS-REx spacecraft reached down to asteroid Bennu to grab a sample. The surface barely pushed back: the sampler arm sank nearly half a meter (about 1.5 ft), and it was still sinking when the back-away thrusters fired. Here is the contact second by second, why Bennu's surface behaved like a ball pit, the mark it left behind, the leaking sampler head, and the 121.6 grams that made it back to Earth.\n\nCHAPTERS\n0:00 The touch that kept sinking\n0:38 Why go to Bennu\n1:16 Nobody was steering\n1:47 The contact, second by second\n2:48 Why the surface barely resisted\n3:38 The mark left at Nightingale\n4:22 Second problem: a leaking sampler head\n4:52 121.6 grams and what scientists found\n\nWHAT YOU ARE SEEING\n- Real images: SamCam and NavCam 2 photo sequences (sped up or shown at their published cadence, not real-time video), spacecraft camera images of the sampler head and capsule (October 2020), PolyCam before/after images of Nightingale (March 7, 2019 / April 7, 2021), NASA video of the capsule on the ground (September 24, 2023).\n- NASA animations: the data-driven reconstruction \"Thirty Seconds on Asteroid Bennu\", the TAGSAM animation and the Moon vs. Bennu comparison. On-screen times are approximate times from contact in NASA's reconstruction; slowed sections are marked.\n- NASA data model: surface height change at Nightingale.\n- Orbital Atlas illustrations (marked ILLUSTRATION): signal delay diagram, cross-sections of the loose surface, sampler head cutaway, capsule return, mass chart, symbolic molecule icons in the chemistry summary (icons, not chemical structures). Symbolic, not to scale.\n- Sound effects are sound design, not recordings from Bennu. No original NASA audio or music is used.\n- Narration: synthetic voice (ElevenLabs).\n\nSOURCES\n- NASA (2022-07-07), Surprise - Again! Asteroid Bennu Reveals its Surface is Like a Plastic Ball Pit: https://www.nasa.gov/missions/surprise-again-asteroid-bennu-reveals-its-surface-is-like-a-plastic-ball-pit/\n- NASA SVS (2022-07-07), Thirty Seconds on Asteroid Bennu: https://svs.gsfc.nasa.gov/20360\n- NASA SVS (2023-09-25), OSIRIS-REx Tags Asteroid Bennu Videos: https://svs.gsfc.nasa.gov/31244\n- NASA, OSIRIS-REx Begins its Countdown to TAG: https://www.nasa.gov/missions/nasas-osiris-rex-begins-its-countdown-to-tag/\n- NASA (2021-04-15), OSIRIS-REx Leaves its Mark on Asteroid Bennu: https://www.nasa.gov/solar-system/nasas-osiris-rex-leaves-its-mark-on-asteroid-bennu/\n- NASA, OSIRIS-REx Successfully Stows Sample of Asteroid Bennu: https://www.nasa.gov/news-release/nasas-osiris-rex-successfully-stows-sample-of-asteroid-bennu/\n- NASA Science (2024-02-15), NASA Announces OSIRIS-REx Bulk Sample Mass: https://science.nasa.gov/blogs/osiris-rex/2024/02/15/nasa-announces-osiris-rex-bulk-sample-mass/\n- NASA (2025-01-29), Asteroid Bennu Sample Reveals Mix of Life's Ingredients: https://www.nasa.gov/news-release/nasas-asteroid-bennu-sample-reveals-mix-of-lifes-ingredients/\n- NASA (2025-12-02), Sugars, 'Gum,' Stardust Found in Asteroid Bennu Samples: https://www.nasa.gov/missions/osiris-rex/sugars-gum-stardust-found-in-nasas-asteroid-bennu-samples/\n\nCREDITS\n- SamCam images: NASA/Goddard/University of Arizona (https://svs.gsfc.nasa.gov/13744)\n- TAGSAM animation: NASA/Goddard/CI Lab (https://svs.gsfc.nasa.gov/13744)\n- Thirty Seconds on Asteroid Bennu; Moon vs. Bennu: NASA's Goddard Space Flight Center Conceptual Image Lab (https://svs.gsfc.nasa.gov/20360, https://svs.gsfc.nasa.gov/20362)\n- Surface change model: NASA's Scientific Visualization Studio; data provided by NASA/University of Arizona/CSA/York University/Open University/MDA (https://svs.gsfc.nasa.gov/5010)\n- NavCam 2 and sampler head/stowage images: NASA Goddard Space Flight Center; NASA/Goddard/University of Arizona (https://svs.gsfc.nasa.gov/31244)\n- Nightingale before/after: NASA/Goddard/University of Arizona (https://svs.gsfc.nasa.gov/13837)\n- Capsule on the ground: NASA's Goddard Space Flight Center (https://svs.gsfc.nasa.gov/14415)\nNASA material is used under NASA's media usage guidelines. This video is not endorsed by NASA.\n\n#Bennu #OSIRISREx #NASA #asteroid #space",
+   "tags": [
+    "Bennu",
+    "asteroid Bennu",
+    "OSIRIS-REx",
+    "NASA",
+    "TAGSAM",
+    "asteroid sample",
+    "sample return",
+    "Nightingale",
+    "rubble pile asteroid",
+    "ball pit asteroid",
+    "space",
+    "science",
+    "OrbitalAtlas"
+   ],
+   "category_id": "27",
+   "default_language": "en",
+   "made_for_kids": false,
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Narration is a stock text-to-speech voice (ElevenLabs Adam), not a real person's voice; imagery is real NASA photo sequences and video, NASA animations labelled RECONSTRUCTION/ANIMATION, and OrbitalAtlas illustrations labelled ILLUSTRATION/SYMBOLIC; no realistic fabricated people or events.",
+   "thumbnail": "publish/assets/ep012/thumbnail.jpg",
+   "captions": {
+    "file": "publish/assets/ep012/captions.srt",
+    "language": "en",
+    "name": "English"
+   },
+   "publish_at": "2026-11-08T01:00:00Z",
+   "related": null,
+   "owner_approval": {
+    "approved": false,
+    "sha256": null,
+    "publish_at": null
+   },
+   "thumbnail_review": {
+    "result": "PASS",
+    "sha256": "379a54c06eed9ad39e1ca62256eafa876d45521c035d9fe8ecc9b0c9c3f36dbb",
+    "note": "Cover STILL SINKING = video frame 0 of v2 (real SamCam image, graded); thumbcheck objective PASS (saturation 0.51, white 2.5%, yellow 4.0%); compared with the four reference covers. Owner asked to publish with the current cover 2026-11-07."
+   }
   }
  ],
  "expected_channel_id": "UC2QxQJhUe9Q5NMRNb6M9ddw",
@@ -593,5 +647,6 @@
  "_note_ep007": "EP007: long 29.10 08:00 ICT = 01:00Z; Shorts 29.10 and 30.10 12:00 ICT = 05:00Z.",
  "_note_ep008": "EP008 added 2026-11-01 for chat-publish (owner 15:53 ICT): publish 2026-11-01 23:00 ICT = 16:00Z; media from DRAFT release ep008-v1 (verified run 41289861789). Earlier entries unchanged.",
  "_note_ep010": "EP010 added 2026-11-05 for chat-publish (owner 18:22 ICT): publish 2026-11-06 08:00 ICT = 01:00Z; media from DRAFT release ep010-v1 (verified run 42018850821: sha OK, 1920x1080 30/1, no decode errors). Channel inventory run 42018568659: no EP010. Earlier entries unchanged.",
- "_note_ep011": "EP011 added 2026-11-05 (owner thread: produce and schedule in the nearest free slot): publish 2026-11-07T01:00Z = next free 01:00Z slot after EP010 (channel inventory run 42033341188: only EP010 scheduled, no EP011). Media from DRAFT release ep011-v1 (store run on branch claude/project-thread-r5acwi). Earlier entries unchanged."
+ "_note_ep011": "EP011 added 2026-11-05 (owner thread: produce and schedule in the nearest free slot): publish 2026-11-07T01:00Z = next free 01:00Z slot after EP010 (channel inventory run 42033341188: only EP010 scheduled, no EP011). Media from DRAFT release ep011-v1 (store run on branch claude/project-thread-r5acwi). Earlier entries unchanged.",
+ "_note_ep012": "EP012 added 2026-11-07 (owner thread: approved v2, nearest free future 08:00 Asia/Ho_Chi_Minh slot, earlier entries unchanged): publish 2026-11-08T01:00Z. Media from DRAFT release ep012-v2 (store run on branch claude/project-thread-l93wz1); file = project copy sha256 789c6fc0..."
 }

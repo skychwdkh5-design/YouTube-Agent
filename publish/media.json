@@ -1,12 +1,12 @@
 {
- "bundle": "ep011-v2",
+ "bundle": "ep012-v2",
  "files": [
   {
-   "asset": "EP011_final_1080p.mp4",
-   "sha256": "8bf8717bf1ccce907ac411b50a18c7fc68963a41a889455f034072b95f4a3335",
-   "size": 195806201,
+   "asset": "EP012_Bennu_final_v2_1080p30.mp4",
+   "sha256": "789c6fc0370ee8588d9a8b8f70fb0e391b0523b5b2abdf125572d0d8fda49539",
+   "size": 183594869,
    "source": {
-    "release": "ep011-v2"
+    "release": "ep012-v2"
    }
   }
  ]
