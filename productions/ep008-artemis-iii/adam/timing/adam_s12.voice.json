@@ -1,0 +1,516 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "adam_s12.wav",
+ "audio_format": "wav",
+ "audio_sha256": "88a290eaefc2f3348ad23471646d33967848618976947ff25ad8ea43d89659c9",
+ "duration": 37.152,
+ "characters": 548,
+ "text": "So why spend a whole mission on this? NASA's Artemis program manager put it plainly: every piece of the mission in Earth orbit is designed to reduce risk before astronauts go back to the Moon. Three spacecraft on three different rockets, working together, which he says NASA has never attempted. And on Artemis Four, the landing depends on exactly this step. Orion can't land. A commercial lander has to meet it, take astronauts down near the South Pole, and bring them back. So the first test of this handoff happens close to home, in Earth orbit.",
+ "text_sha256": "b046fed2cfa4b9b43241a4b5c6219490057c5befd9410095cd240f867f4187b1",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 548,
+   "offset": 0.0,
+   "duration": 37.152,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "So",
+   "start": 0.0,
+   "end": 0.279
+  },
+  {
+   "text": "why",
+   "start": 0.337,
+   "end": 0.499
+  },
+  {
+   "text": "spend",
+   "start": 0.569,
+   "end": 0.859
+  },
+  {
+   "text": "a",
+   "start": 0.917,
+   "end": 0.952
+  },
+  {
+   "text": "whole",
+   "start": 1.01,
+   "end": 1.242
+  },
+  {
+   "text": "mission",
+   "start": 1.289,
+   "end": 1.614
+  },
+  {
+   "text": "on",
+   "start": 1.683,
+   "end": 1.811
+  },
+  {
+   "text": "this?",
+   "start": 1.869,
+   "end": 2.334
+  },
+  {
+   "text": "NASA's",
+   "start": 2.717,
+   "end": 3.158
+  },
+  {
+   "text": "Artemis",
+   "start": 3.228,
+   "end": 3.576
+  },
+  {
+   "text": "program",
+   "start": 3.634,
+   "end": 4.063
+  },
+  {
+   "text": "manager",
+   "start": 4.122,
+   "end": 4.493
+  },
+  {
+   "text": "put",
+   "start": 4.551,
+   "end": 4.714
+  },
+  {
+   "text": "it",
+   "start": 4.748,
+   "end": 4.807
+  },
+  {
+   "text": "plainly:",
+   "start": 4.865,
+   "end": 5.561
+  },
+  {
+   "text": "every",
+   "start": 5.886,
+   "end": 6.188
+  },
+  {
+   "text": "piece",
+   "start": 6.258,
+   "end": 6.536
+  },
+  {
+   "text": "of",
+   "start": 6.571,
+   "end": 6.629
+  },
+  {
+   "text": "the",
+   "start": 6.676,
+   "end": 6.745
+  },
+  {
+   "text": "mission",
+   "start": 6.803,
+   "end": 7.117
+  },
+  {
+   "text": "in",
+   "start": 7.175,
+   "end": 7.256
+  },
+  {
+   "text": "Earth",
+   "start": 7.372,
+   "end": 7.593
+  },
+  {
+   "text": "orbit",
+   "start": 7.674,
+   "end": 8.011
+  },
+  {
+   "text": "is",
+   "start": 8.069,
+   "end": 8.162
+  },
+  {
+   "text": "designed",
+   "start": 8.231,
+   "end": 8.754
+  },
+  {
+   "text": "to",
+   "start": 8.777,
+   "end": 8.847
+  },
+  {
+   "text": "reduce",
+   "start": 8.94,
+   "end": 9.427
+  },
+  {
+   "text": "risk",
+   "start": 9.509,
+   "end": 9.892
+  },
+  {
+   "text": "before",
+   "start": 10.136,
+   "end": 10.484
+  },
+  {
+   "text": "astronauts",
+   "start": 10.542,
+   "end": 11.18
+  },
+  {
+   "text": "go",
+   "start": 11.227,
+   "end": 11.366
+  },
+  {
+   "text": "back",
+   "start": 11.459,
+   "end": 11.691
+  },
+  {
+   "text": "to",
+   "start": 11.749,
+   "end": 11.807
+  },
+  {
+   "text": "the",
+   "start": 11.877,
+   "end": 11.947
+  },
+  {
+   "text": "Moon.",
+   "start": 12.005,
+   "end": 12.585
+  },
+  {
+   "text": "Three",
+   "start": 12.968,
+   "end": 13.235
+  },
+  {
+   "text": "spacecraft",
+   "start": 13.293,
+   "end": 14.06
+  },
+  {
+   "text": "on",
+   "start": 14.118,
+   "end": 14.234
+  },
+  {
+   "text": "three",
+   "start": 14.292,
+   "end": 14.536
+  },
+  {
+   "text": "different",
+   "start": 14.582,
+   "end": 14.896
+  },
+  {
+   "text": "rockets,",
+   "start": 14.954,
+   "end": 15.627
+  },
+  {
+   "text": "working",
+   "start": 15.801,
+   "end": 16.15
+  },
+  {
+   "text": "together,",
+   "start": 16.208,
+   "end": 16.811
+  },
+  {
+   "text": "which",
+   "start": 16.928,
+   "end": 17.137
+  },
+  {
+   "text": "he",
+   "start": 17.171,
+   "end": 17.229
+  },
+  {
+   "text": "says",
+   "start": 17.287,
+   "end": 17.496
+  },
+  {
+   "text": "NASA",
+   "start": 17.566,
+   "end": 17.938
+  },
+  {
+   "text": "has",
+   "start": 17.984,
+   "end": 18.1
+  },
+  {
+   "text": "never",
+   "start": 18.17,
+   "end": 18.39
+  },
+  {
+   "text": "attempted.",
+   "start": 18.448,
+   "end": 19.133
+  },
+  {
+   "text": "And",
+   "start": 19.459,
+   "end": 19.621
+  },
+  {
+   "text": "on",
+   "start": 19.702,
+   "end": 19.807
+  },
+  {
+   "text": "Artemis",
+   "start": 19.9,
+   "end": 20.329
+  },
+  {
+   "text": "Four,",
+   "start": 20.411,
+   "end": 20.991
+  },
+  {
+   "text": "the",
+   "start": 21.107,
+   "end": 21.2
+  },
+  {
+   "text": "landing",
+   "start": 21.27,
+   "end": 21.664
+  },
+  {
+   "text": "depends",
+   "start": 21.722,
+   "end": 22.152
+  },
+  {
+   "text": "on",
+   "start": 22.21,
+   "end": 22.326
+  },
+  {
+   "text": "exactly",
+   "start": 22.384,
+   "end": 22.883
+  },
+  {
+   "text": "this",
+   "start": 22.953,
+   "end": 23.104
+  },
+  {
+   "text": "step.",
+   "start": 23.151,
+   "end": 23.685
+  },
+  {
+   "text": "Orion",
+   "start": 23.963,
+   "end": 24.532
+  },
+  {
+   "text": "can't",
+   "start": 24.613,
+   "end": 24.904
+  },
+  {
+   "text": "land.",
+   "start": 24.973,
+   "end": 25.589
+  },
+  {
+   "text": "A",
+   "start": 25.972,
+   "end": 26.053
+  },
+  {
+   "text": "commercial",
+   "start": 26.123,
+   "end": 26.552
+  },
+  {
+   "text": "lander",
+   "start": 26.622,
+   "end": 27.028
+  },
+  {
+   "text": "has",
+   "start": 27.11,
+   "end": 27.26
+  },
+  {
+   "text": "to",
+   "start": 27.318,
+   "end": 27.377
+  },
+  {
+   "text": "meet",
+   "start": 27.446,
+   "end": 27.632
+  },
+  {
+   "text": "it,",
+   "start": 27.678,
+   "end": 27.957
+  },
+  {
+   "text": "take",
+   "start": 28.201,
+   "end": 28.445
+  },
+  {
+   "text": "astronauts",
+   "start": 28.503,
+   "end": 29.141
+  },
+  {
+   "text": "down",
+   "start": 29.199,
+   "end": 29.466
+  },
+  {
+   "text": "near",
+   "start": 29.524,
+   "end": 29.687
+  },
+  {
+   "text": "the",
+   "start": 29.745,
+   "end": 29.815
+  },
+  {
+   "text": "South",
+   "start": 29.861,
+   "end": 30.128
+  },
+  {
+   "text": "Pole,",
+   "start": 30.186,
+   "end": 30.697
+  },
+  {
+   "text": "and",
+   "start": 30.871,
+   "end": 31.092
+  },
+  {
+   "text": "bring",
+   "start": 31.161,
+   "end": 31.359
+  },
+  {
+   "text": "them",
+   "start": 31.417,
+   "end": 31.545
+  },
+  {
+   "text": "back.",
+   "start": 31.614,
+   "end": 32.148
+  },
+  {
+   "text": "So",
+   "start": 32.752,
+   "end": 32.891
+  },
+  {
+   "text": "the",
+   "start": 32.938,
+   "end": 33.007
+  },
+  {
+   "text": "first",
+   "start": 33.042,
+   "end": 33.263
+  },
+  {
+   "text": "test",
+   "start": 33.298,
+   "end": 33.588
+  },
+  {
+   "text": "of",
+   "start": 33.634,
+   "end": 33.692
+  },
+  {
+   "text": "this",
+   "start": 33.739,
+   "end": 33.867
+  },
+  {
+   "text": "handoff",
+   "start": 33.925,
+   "end": 34.366
+  },
+  {
+   "text": "happens",
+   "start": 34.424,
+   "end": 34.737
+  },
+  {
+   "text": "close",
+   "start": 34.795,
+   "end": 35.074
+  },
+  {
+   "text": "to",
+   "start": 35.109,
+   "end": 35.167
+  },
+  {
+   "text": "home,",
+   "start": 35.237,
+   "end": 35.701
+  },
+  {
+   "text": "in",
+   "start": 36.026,
+   "end": 36.177
+  },
+  {
+   "text": "Earth",
+   "start": 36.27,
+   "end": 36.502
+  },
+  {
+   "text": "orbit.",
+   "start": 36.572,
+   "end": 37.152
+  }
+ ],
+ "created": "2026-11-01T07:39:47Z",
+ "warnings": []
+}

@@ -1,0 +1,8 @@
+# EP008 NASA video originals. name|nasa_id. Runner reads collection.json, picks ~orig.mp4 (else largest .mp4), ffprobes it, uploads to draft release ep008-originals.
+# done run 41102466825: v1_a2_launch_causeway.mp4|KSC ART II Cause Way Launch low angle
+v2_a2_orion_window_reentry.mp4|GP011149
+v3_a2_splashdown.mp4|KSC-20260410-MH-JBP01-0001-Artemis_II_Splashdown_GSS_Visual_60fps-M19183
+v4_a3_booster_stacking.mp4|KSC-20260901-MH-CSH02-0001-Artemis_III_Booster_Stacking_RCC-M21897
+v5_a3_rs25_to_workstand.mp4|KSC-20260825-MH-CSH01-0001-Artemis_III_Booster_Engine_3_Prepping_For_Installation-M21897.MP4
+# run 2026-10-31b
+# run 2026-10-31c (v2-v5)
