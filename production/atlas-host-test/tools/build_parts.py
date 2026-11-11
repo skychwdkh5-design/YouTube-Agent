@@ -131,10 +131,10 @@ yy, xx = np.mgrid[y0:y1, x0:x1]
 sat = body.max(-1) - body.min(-1)
 fg &= ~((yy > 482) & (body.mean(-1) > 125) & (sat < 40))
 # drop the original head inside the helmet (replaced by the speaking head)
-head_hole = ((xx - 920) ** 2 + (yy - 80) ** 2 < 57 ** 2) & (yy < 119)
+head_hole = ((xx - 932) ** 2 + (yy - 90) ** 2 < 52 ** 2) & (yy < 110)
 fg &= ~head_hole
 fg &= ~(yy < 108)
-fg &= ~((yy < 118) & (xx > 958))
+fg &= ~((yy < 100) & (xx > 958))
 fg &= ~((yy < 140) & (body.mean(-1) > 185) & ((body.max(-1) - body.min(-1)) < 35))
 
 P = lambda poly: poly_mask(BOX, poly) & fg

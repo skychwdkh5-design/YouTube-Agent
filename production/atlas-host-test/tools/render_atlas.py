@@ -194,7 +194,52 @@ def mouth_track():
     return sm, rms
 
 MOUTH, RMS = mouth_track()
-MOUTH_IMG = ['head_mouth_closed', 'head_mouth_mid', 'head_mouth_open']
+
+# ---------------------------------------------------------------- face controls (continuous)
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from face import Face, HEAD_TL
+FACE = Face(os.environ.get('ATLAS_REF', 'ref.png'))
+
+def face_tracks():
+    words = [w for w in json.load(open(WAV.replace('narration.wav', 'narration.voice.json')))['words']
+             if w['end'] > NAR_OFFSET - 1 and w['start'] < NAR_OFFSET + DUR + 1]
+    n = N + 3
+    tgt = np.clip((RMS[:n] - 0.08) / 0.85, 0, 1) ** 0.8
+    wid = np.ones(n)
+    for i in range(n):
+        tn = i / FPS + NAR_OFFSET + 1 / FPS          # look one frame ahead
+        w = next((w for w in words if w['start'] - 0.03 <= tn <= w['end']), None)
+        if w is None:
+            tgt[i] = 0
+            continue
+        txt = w['text'].lower()
+        if txt[0] in 'mbp' and tn - w['start'] < 0.07:   # lips meet on m/b/p
+            tgt[i] = 0
+        if any(v in txt for v in ('oo', 'ou', 'ow', 'wo', 'o')) and not txt.startswith('the'):
+            wid[i] = 0.82
+        elif any(v in txt for v in ('ee', 'ea', 'i')):
+            wid[i] = 1.05
+    op = np.zeros(n); wd = np.ones(n)
+    for i in range(1, n):
+        k = 0.7 if tgt[i] > op[i - 1] else 0.45
+        op[i] = op[i - 1] + (tgt[i] - op[i - 1]) * k
+        wd[i] = wd[i - 1] + (wid[i] - wd[i - 1]) * 0.5
+    return op, wd
+
+OPEN, WIDTH = face_tracks()
+BLINKS = [1.95, 4.15, 7.15, 9.65, 11.55]
+def blink_at(t):
+    b = 0.0
+    for t0 in BLINKS:
+        u = t - t0
+        if 0 <= u < 0.07: b = max(b, u / 0.07)
+        elif 0.07 <= u < 0.10: b = 1.0
+        elif 0.10 <= u < 0.22: b = max(b, 1 - (u - 0.10) / 0.12)
+    return b
+look_down = Ch([(0, 0), (4.3, 0), (4.6, 0.38), (5.5, 0.38), (5.75, 0.3), (7.0, 0.3), (7.25, 0), (12, 0)])
+brow = Ch([(0, 0), (1.9, 0), (2.15, 0.9), (2.9, 0.8), (3.3, 0), (5.9, 0), (6.1, 0.5), (6.7, 0.1), (7.3, -0.35),
+           (8.2, -0.3), (9.0, 0.1), (9.25, 0.45), (9.6, 0.1), (10.25, 1.0), (11.0, 0.8), (11.6, 0.3), (12, 0.2)])
 
 # ---------------------------------------------------------------- compositing
 def draw(canvas, img, M):
@@ -297,9 +342,10 @@ def frame(i):
     nwrw = ap(Mnf, nwr)
 
     # ---- head
-    hm = MOUTH_IMG[int(MOUTH[i])]
-    nod = 1.5 * math.sin(2 * math.pi * t / 1.9) * (RMS[i] > 0.2)
-    Mh = Mt @ about(PV['neck'], head_rot(t) + nod - lean(t) * 0.5) @ T(920, 80) @ S(51 / 86) @ T(-343, -638)
+    nod = 1.2 * math.sin(2 * math.pi * t / 1.9) * min(1, OPEN[i] * 2)
+    Mh = Mt @ about(PV['neck'], head_rot(t) + nod - lean(t) * 0.5) @ T(*HEAD_TL) @ S(1 / 3)
+    head_img = FACE.render(open_=float(OPEN[i]), width=float(WIDTH[i]),
+                           blink=max(blink_at(t), look_down(t)), brow=brow(t))
 
     # ---------------- draw back to front
     for f in ('near', 'far'):
@@ -320,7 +366,7 @@ def frame(i):
         part(can, f + '_shin', legs[f]['shin'])
         part(can, f + '_thigh', legs[f]['thigh'])
     part(can, 'torso', Mt)
-    part(can, hm, Mh)
+    draw(can, head_img, SCREEN @ Mh)
     part(can, 'near_upper', Mnu)
     part(can, 'near_fore', Mnf)
     rk = IM['hand_rock_m']
