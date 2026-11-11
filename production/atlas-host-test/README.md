@@ -56,3 +56,15 @@
 python3 tools/build_parts.py ATLAS_reference_sheet.png parts
 sh tools/make.sh out.mp4   # нужны bg.mp4 (EP012 v2 300.4–312.4), parts/, minbar_top.json
 ```
+
+## v3 — rig from the owner's separate-parts pack (2026-11-11)
+
+Owner supplied 21 separate PNG parts (hands in 4 poses, upper arm, two forearms, thigh, two shins,
+two boots, torso, pelvis, helmet). `tools/rig2.py` maps each part onto the skeleton by two anchor
+points; `tools/render2.py` is the v2 animation with the new parts, forearm/hand follow-through
+(drag), softer walk bob. Same 12 s fragment, same EP012 voice, no paid calls. `sh tools/make2.sh out.mp4`.
+
+Known limits: head is still the soft sheet head (no hi-res head without helmet in the pack), faint
+glass remnants around hair; pelvis drawn frontally and squashed to 3/4; one thigh drawing reused
+(darkened) for the far leg; knee pads on both thigh and shin parts; forearms slightly shortened.
+Checked frame by frame (contact sheets), not reviewed in real-time playback.
