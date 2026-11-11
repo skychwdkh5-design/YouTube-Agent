@@ -74,13 +74,13 @@ REST = {
 def plan_steps():
     """Plants for each foot: list of (t_lift, t_land, x_from, x_to)."""
     steps = {'near': [], 'far': []}
-    pos = {'near': REST['near']['ankle'][0] + X_OFF, 'far': REST['far']['ankle'][0] + X_OFF}
-    P = 0.25
+    pos = {'near': REST['near']['ankle'][0] + X_OFF + 45, 'far': REST['far']['ankle'][0] + X_OFF}
+    P = 0.3
     t = WALK0
     foot = 'far'
     while t < WALK1 - 0.05:
         t1 = min(t + P, WALK1 + 0.05)
-        ahead = 0.26 if t1 < WALK1 - 0.2 else 0.0
+        ahead = 0.12 if t1 < WALK1 - 0.2 else 0.0
         target_root = root_x(min(t1 + ahead, WALK1))
         nx = REST[foot]['ankle'][0] + target_root + (10 if ahead else 0)
         steps[foot].append((t, t1, pos[foot], nx))
@@ -123,9 +123,9 @@ head_rot = Ch([(0, 2), (2.0, 0), (2.4, -9), (3.9, -10), (4.4, 5), (5.5, 6), (6.0
                (7.4, 2), (8.6, -3), (9.9, -2), (10.6, -11), (11.3, -8), (12, -6)])
 lean = Ch([(0, 4), (2.5, 4), (2.95, -1.5), (3.3, 0.5), (4.3, 1.5), (5.6, 1), (7.25, 3), (8.1, 1), (10.2, -1), (12, -0.5)])
 # near arm holds the rock: shoulder / elbow / wrist-tilt of the prop
-near_u = Ch([(0, -14), (2.7, -14), (4.3, -16), (4.9, -30), (5.6, -28), (7.2, -16), (9.9, -16), (10.6, -24), (11.4, -26), (12, -24)])
-near_f_dir = Ch([(0, -52), (2.7, -52), (4.3, -55), (4.9, -72), (5.6, -70), (7.2, -54), (9.9, -54), (10.6, -66), (12, -64)])
-rock_tilt = Ch([(0, -78), (4.3, -78), (4.9, -90), (5.6, -88), (7.2, -78), (12, -82)])
+near_u = Ch([(0, -6), (2.7, -6), (4.3, -8), (4.9, -30), (5.6, -28), (7.2, -12), (7.8, -6), (12, -6)])
+near_f_dir = Ch([(0, -12), (2.7, -12), (4.3, -16), (4.9, -66), (5.6, -64), (7.2, -30), (7.8, -14), (12, -12)])
+rock_tilt = Ch([(0, -48), (4.3, -50), (4.9, -88), (5.6, -86), (7.2, -62), (7.8, -50), (12, -48)])
 # far arm: weight of 'aim' vs walking swing, and the aim target on screen
 far_aim_w = Ch([(0, 0), (2.55, 0), (3.05, 1), (4.05, 1), (4.55, 0), (7.45, 0), (7.85, 1), (12, 1)])
 far_u_aim = Ch([(0, -70), (3.0, -78), (4.0, -80), (7.8, -52), (9.6, -60), (10.3, -118), (11.4, -124), (12, -122)])
@@ -266,10 +266,10 @@ def frame(i):
     swing = max(fs['near'][2], fs['far'][2])
     walk_w = WALK_W(t)
     side_w = SIDE_W(t)
-    dip = walk_w * (8 - 3 * swing) + side_w * (6 - 3 * swing)
+    dip = walk_w * (1.0 + 7.0 * (1 - swing) ** 2) + side_w * (1.0 + 4.0 * (1 - swing) ** 2)
     settle = 3 * math.exp(-((t - WALK1 - 0.25) / 0.18) ** 2)    # small knee give when stopping
     breath = math.sin(2 * math.pi * t / 3.4)
-    ry = 2.5 + dip + settle + 0.8 * breath
+    ry = 2.0 + dip + settle + 0.8 * breath
     pelvis = PV['pelvis']
     Mroot = T(rx, ry)
     Mt = Mroot @ about(pelvis, lean(t)) @ T(*pelvis) @ S(1, 1 + 0.006 * breath) @ T(-pelvis[0], -pelvis[1])

@@ -68,3 +68,8 @@ Known limits: head is still the soft sheet head (no hi-res head without helmet i
 glass remnants around hair; pelvis drawn frontally and squashed to 3/4; one thigh drawing reused
 (darkened) for the far leg; knee pads on both thigh and shin parts; forearms slightly shortened.
 Checked frame by frame (contact sheets), not reviewed in real-time playback.
+
+### v4 (owner feedback on v3: thin legs set wide apart, odd arm motion)
+Legs 1.4x thicker, hips moved inward; slower natural steps (0.30 s/step instead of 0.25 shuffle),
+legs nearly straight when standing, bob highest at passing; rock carried at belt level and raised
+only for the heft. IK foot error <=0.8 px while visible.

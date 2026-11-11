@@ -75,8 +75,8 @@ def build(pack):
     k = 0.0935
     Mp = T(BUCKLE[0] + 2, BUCKLE[1] - 1) @ S2(k * 0.82 / DS, k / DS) @ T(-960 * DS, -362 * DS)
     PL['pelvis'] = (pel, Mp)
-    near_hip = ap(Mp, np.array([360, 690]) * DS)
-    far_hip = ap(Mp, np.array([1220, 710]) * DS)
+    near_hip = ap(Mp, np.array([500, 690]) * DS)
+    far_hip = ap(Mp, np.array([1060, 705]) * DS)
     # ---------------- legs
     L1, L2, FOOT = 96.0, 80.0, 44.0
     near_knee = near_hip + np.array([-6.0, L1 - 0.2])
@@ -84,11 +84,11 @@ def build(pack):
     near_ankle = near_knee + np.array([-3.0, L2 - 0.1])
     far_ankle = far_knee + np.array([-5.0, L2 - 0.2])
     thigh = load(P(11)); thigh_f = load(P(11), darken=0.82)
-    PL['near_thigh'] = (thigh, place((482, 252), (514, 1334), near_hip, near_knee, 1.0))
-    PL['far_thigh'] = (thigh_f, place((482, 252), (514, 1334), far_hip, far_knee, 1.0))
+    PL['near_thigh'] = (thigh, place((482, 252), (514, 1334), near_hip, near_knee, 1.4))
+    PL['far_thigh'] = (thigh_f, place((482, 252), (514, 1334), far_hip, far_knee, 1.4))
     shin = load(P(7)); shin_f = load(P(14), darken=0.82)
-    PL['near_shin'] = (shin, place((538, 259), (484, 1329), near_knee, near_ankle, 1.1))
-    PL['far_shin'] = (shin_f, place((524, 276), (461, 1317), far_knee, far_ankle, 1.1))
+    PL['near_shin'] = (shin, place((538, 259), (484, 1329), near_knee, near_ankle, 1.4))
+    PL['far_shin'] = (shin_f, place((524, 276), (461, 1317), far_knee, far_ankle, 1.4))
     boot = load(P(9)); boot_f = load(P(18), darken=0.82)
     # boot: shaft top centre -> a bit above the ankle (hidden under the shin cuff), sole on the ground
     def boot_place(top, sole, ankle):
