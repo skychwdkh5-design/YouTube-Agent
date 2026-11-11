@@ -78,7 +78,7 @@ def plan_steps():
     P = 0.3
     t = WALK0
     foot = 'far'
-    while t < WALK1 - 0.05:
+    while t < WALK1 - 0.2:
         t1 = min(t + P, WALK1 + 0.05)
         ahead = 0.12 if t1 < WALK1 - 0.2 else 0.0
         target_root = root_x(min(t1 + ahead, WALK1))
@@ -90,7 +90,7 @@ def plan_steps():
     # settle: bring the trailing foot to the rest mark
     for f in ('near', 'far'):
         want = REST[f]['ankle'][0] + X_STAND
-        if abs(pos[f] - want) > 1:
+        if abs(pos[f] - want) > 12:
             steps[f].append((WALK1 + 0.02, WALK1 + 0.32, pos[f], want)); pos[f] = want
     # sidestep toward the minimum bar (far foot leads, near follows)
     for f, a, b in (('far', 7.25, 7.62), ('near', 7.62, 8.02)):
@@ -100,38 +100,60 @@ def plan_steps():
 
 STEPS = plan_steps()
 
+TOE = np.array([24.0, 40.0])     # toe contact point relative to the ankle (sheet px)
+HEEL_OFF, HEEL_MAX = 0.13, 20.0  # heel rises over the last 0.13 s of stance
+
+def _toe_roll(ankle, pitch):
+    """Ankle position when the foot is rotated by pitch about its toe contact."""
+    toe = ankle + TOE
+    c, s_ = math.cos(math.radians(pitch)), math.sin(math.radians(pitch))
+    v = -TOE
+    return toe + np.array([c * v[0] - s_ * v[1], s_ * v[0] + c * v[1]])
+
 def foot_state(f, t):
     """World-sheet ankle position, foot pitch and swing amount."""
     x = STEPS[f][0][2]
+    y0 = REST[f]['ankle'][1]
     for (a, b, x0, x1) in STEPS[f]:
+        big = (x1 - x0) > 40
+        if big and a - HEEL_OFF <= t < a:            # heel peels off, toe stays planted
+            pitch = HEEL_MAX * ease((t - (a - HEEL_OFF)) / HEEL_OFF)
+            return _toe_roll(np.array([x0, y0]), pitch), pitch, 0.0
         if t < a:
             break
         if t <= b:
             u = (t - a) / (b - a)
-            lift = (14 if (x1 - x0) > 40 else 8) * math.sin(math.pi * u)
-            pitch = -10 * math.sin(math.pi * u) + 6 * math.sin(math.pi * min(1, u * 1.6)) * (u < 0.6)
-            return np.array([x0 + (x1 - x0) * ease(u), REST[f]['ankle'][1] - lift]), pitch, math.sin(math.pi * u)
+            lift = (16 if big else 8) * math.sin(math.pi * u) ** 0.8
+            p0 = HEEL_MAX if big else 0.0
+            k = 1 - ease(min(1, u / 0.45))                 # unroll the heel-off pitch early in the swing
+            land = -9 * math.sin(math.pi * min(1, max(0, (u - 0.45) / 0.55))) ** 0.6 if big else 0.0
+            pitch = p0 * k + land
+            base = np.array([x0 + (x1 - x0) * ease(u), y0 - lift])
+            off = (_toe_roll(np.array([x0, y0]), p0) - np.array([x0, y0])) * k
+            return base + off, pitch, math.sin(math.pi * u)
         x = x1
-    return np.array([x, REST[f]['ankle'][1]]), 0.0, 0.0
+    return np.array([x, y0]), 0.0, 0.0
 
 def walking(t):
     return any(a <= t <= b for f in STEPS for (a, b, _, _) in STEPS[f])
 
 # ---------------------------------------------------------------- poses
 # head tilt (+ = clockwise = looking down/forward); looks up at bar label, down at rock
-head_rot = Ch([(0, 2), (2.0, 0), (2.4, -9), (3.9, -10), (4.4, 5), (5.5, 6), (6.0, 4), (7.0, 3),
-               (7.4, 2), (8.6, -3), (9.9, -2), (10.6, -11), (11.3, -8), (12, -6)])
+head_rot = Ch([(0, 2), (1.9, 1), (2.25, -9), (3.9, -10), (4.3, -4), (4.6, 5), (5.5, 6), (5.9, 1), (6.6, 0),
+               (7.0, 2), (7.35, 2), (7.7, 8), (8.9, 7), (9.25, 0), (9.5, -1), (9.9, -2), (10.2, -11), (11.3, -9), (11.6, -2), (12, -1)])
 lean = Ch([(0, 4), (2.5, 4), (2.95, -1.5), (3.3, 0.5), (4.3, 1.5), (5.6, 1), (7.25, 3), (8.1, 1), (10.2, -1), (12, -0.5)])
 # near arm holds the rock: shoulder / elbow / wrist-tilt of the prop
 near_u = Ch([(0, -6), (2.7, -6), (4.3, -8), (4.9, -30), (5.6, -28), (7.2, -12), (7.8, -6), (12, -6)])
 near_f_dir = Ch([(0, -12), (2.7, -12), (4.3, -16), (4.9, -66), (5.6, -64), (7.2, -30), (7.8, -14), (12, -12)])
 rock_tilt = Ch([(0, -48), (4.3, -50), (4.9, -88), (5.6, -86), (7.2, -62), (7.8, -50), (12, -48)])
 # far arm: weight of 'aim' vs walking swing, and the aim target on screen
-far_aim_w = Ch([(0, 0), (2.55, 0), (3.05, 1), (4.05, 1), (4.55, 0), (7.45, 0), (7.85, 1), (12, 1)])
-far_u_aim = Ch([(0, -70), (3.0, -78), (4.0, -80), (7.8, -52), (9.6, -60), (10.3, -118), (11.4, -124), (12, -122)])
-HAND_SWITCH_UP = 2.80      # open hand -> pointing hand (hidden in motion blur of the raise)
-HAND_SWITCH_DN = 4.40
-HAND_SWITCH_UP2 = 7.65
+far_aim_w = Ch([(0, 0), (2.68, 0), (3.2, 1), (4.3, 1), (4.95, 0), (7.75, 0), (8.25, 1), (12, 1)])
+# after each emphasis the elbow softens and the hand drops partway (no rigid hold)
+soften = Ch([(0, 0), (3.55, 0), (4.0, 1), (4.3, 1), (8.2, 0), (9.1, 0), (9.6, 0.6), (10.0, 0.2), (10.9, 0), (11.35, 0), (11.85, 1), (12, 1)])
+far_u_aim = Ch([(0, -70), (3.2, -78), (4.3, -76), (8.2, -50), (9.6, -58), (10.25, -62), (10.95, -118), (11.4, -122), (12, -116)])
+HAND_SWITCH_UP = 2.86      # open hand -> pointing hand (hidden in motion blur of the raise)
+HAND_SWITCH_DN = 4.62
+HAND_SWITCH_UP2 = 7.92
 
 MINTOP = json.load(open(MINBAR))
 def min_bar_target(t):
@@ -148,7 +170,7 @@ def far_target(t):
         return DELIVERED
     # 7.8-9.6 follows the minimum bar as it rises; 10.0-10.9 sweeps up to the delivered bar
     m = min_bar_target(t)
-    u = ease(min(1, max(0, (t - 9.95) / 0.9)))
+    u = ease(min(1, max(0, (t - 10.2) / 0.8)))
     return m * (1 - u) + DELIVERED_TOP * u
 
 # ---------------------------------------------------------------- lip sync
@@ -214,7 +236,7 @@ def face_tracks():
     return op, wd
 
 OPEN, WIDTH = face_tracks()
-BLINKS = [1.95, 4.15, 7.15, 9.65, 11.55]
+BLINKS = [1.95, 4.15, 6.45, 8.4, 9.98, 11.62]
 def blink_at(t):
     b = 0.0
     for t0 in BLINKS:
@@ -261,6 +283,8 @@ def frame(i):
     t = i / FPS
     can = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     rx = root_x(t)
+    stand_w = 1 - max(WALK_W(t), SIDE_W(t))
+    rx += stand_w * 2.2 * math.sin(2 * math.pi * (t - 3.2) / 5.6)
     # body height: knees bent and a bob while walking, breath otherwise
     fs = {f: foot_state(f, t) for f in ('near', 'far')}
     swing = max(fs['near'][2], fs['far'][2])
@@ -272,13 +296,17 @@ def frame(i):
     ry = 2.0 + dip + settle + 0.8 * breath
     pelvis = PV['pelvis']
     Mroot = T(rx, ry)
-    Mt = Mroot @ about(pelvis, lean(t)) @ T(*pelvis) @ S(1, 1 + 0.006 * breath) @ T(-pelvis[0], -pelvis[1])
+    ph = (fs['near'][0][0] - fs['far'][0][0] - (REST['near']['ankle'][0] - REST['far']['ankle'][0])) / 80.0
+    ph = max(-1, min(1, ph)) * walk_w
+    CR = 0.025 * ph                     # + = near leg ahead: near shoulder back
+    Mt = Mroot @ about(pelvis, lean(t)) @ T(*pelvis) @ S(1 - CR, 1 + 0.006 * breath) @ T(-pelvis[0], -pelvis[1])
+    Mpel = Mroot @ about(pelvis, lean(t) * 0.4) @ T(*pelvis) @ S(1 + CR, 1) @ T(-pelvis[0], -pelvis[1])
 
     # ---- legs (2-bone IK, foot flat unless swinging)
     legs = {}
     for f in ('near', 'far'):
         r = REST[f]
-        hip = ap(Mt, r['hip'])
+        hip = ap(Mpel, r['hip'])
         L1 = np.hypot(*np.subtract(r['knee'], r['hip']))
         L2 = np.hypot(*np.subtract(r['ankle'], r['knee']))
         tgt, pitch, _ = fs[f]
@@ -302,11 +330,13 @@ def frame(i):
     far_sw = -0.22 * ((fs['far'][0][0] - REST['far']['ankle'][0]) - (fs['near'][0][0] - REST['near']['ankle'][0]))
     w_aim = far_aim_w(t)
     sh = PV['far_shoulder']; el = PV['far_elbow']; wr = PV['far_wrist']
-    a_u = far_sw * (1 - w_aim) + far_u_aim(t) * w_aim
+    sft = soften(t) * w_aim
+    a_u = far_sw * (1 - w_aim) + far_u_aim(t) * w_aim + 16 * sft
+    w_el = far_aim_w(t - 0.07); w_wr = far_aim_w(t - 0.13)
     def _au(tt):
         f2 = {f: foot_state(f, tt) for f in ('near', 'far')}
         sw2 = -0.22 * ((f2['far'][0][0] - REST['far']['ankle'][0]) - (f2['near'][0][0] - REST['near']['ankle'][0]))
-        return sw2 * (1 - far_aim_w(tt)) + far_u_aim(tt) * far_aim_w(tt)
+        return sw2 * (1 - far_aim_w(tt)) + far_u_aim(tt) * far_aim_w(tt) + 16 * soften(tt) * far_aim_w(tt)
     drag = (a_u - _au(t - 0.1))           # deg per 0.1 s of shoulder rotation
     Mu = Mt @ about(sh, a_u)
     elbow_w = ap(Mu, el)
@@ -314,7 +344,7 @@ def frame(i):
     want = ang(tgt_w - elbow_w)
     rest_dir = ang(np.subtract(wr, el)) + a_u + lean(t)
     a_f_aim = want - rest_dir
-    a_f = (far_sw * 0.5 - 6 - 0.35 * drag) * (1 - w_aim) + (a_f_aim - 0.25 * drag) * w_aim
+    a_f = (far_sw * 0.5 - 6 - 0.35 * drag) * (1 - w_el) + (a_f_aim - 0.25 * drag + 22 * sft) * w_el
     Mf = Mu @ about(el, a_f)
     wrist_w = ap(Mf, wr)
     pointing = (HAND_SWITCH_UP <= t < HAND_SWITCH_DN) or t >= HAND_SWITCH_UP2
@@ -349,7 +379,7 @@ def frame(i):
     # far arm behind the torso
     fore_dir = ang(wrist_w - ap(Mu, el))
     if pointing:
-        draw(can, HANDS['point'][0], SCREEN @ hand_matrix(HANDS['point'], wrist_w, want + 4 - 0.3 * drag, 0.95))
+        draw(can, HANDS['point'][0], SCREEN @ hand_matrix(HANDS['point'], wrist_w, (want + 4 + 30 * sft) * w_wr + fore_dir * (1 - w_wr) - 0.3 * drag, 0.95))
     else:
         draw(can, HANDS['relaxed'][0], SCREEN @ hand_matrix(HANDS['relaxed'], wrist_w, fore_dir - 4 - 0.4 * drag, 0.95))
     part(can, 'far_fore', Mf)
@@ -358,7 +388,7 @@ def frame(i):
         part(can, f + '_foot', legs[f]['foot'])
         part(can, f + '_shin', legs[f]['shin'])
         part(can, f + '_thigh', legs[f]['thigh'])
-    part(can, 'pelvis', Mt)
+    part(can, 'pelvis', Mpel)
     draw(can, head_img, SCREEN @ Mh)
     part(can, 'torso', Mt)
     part(can, 'helmet', Mhelm)

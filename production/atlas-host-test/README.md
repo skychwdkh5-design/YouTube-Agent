@@ -73,3 +73,14 @@ Checked frame by frame (contact sheets), not reviewed in real-time playback.
 Legs 1.4x thicker, hips moved inward; slower natural steps (0.30 s/step instead of 0.25 shuffle),
 legs nearly straight when standing, bob highest at passing; rock carried at belt level and raised
 only for the heft. IK foot error <=0.8 px while visible.
+
+### v5 (owner's performance brief, 2026-11-11)
+Walk: heel peels off over the last 0.13 s of stance while the toe stays planted (foot pivots on the toe),
+toe-up landing, higher foot clearance, pelvis/shoulder counter-rotation (opposite width change),
+pelvis drawn on its own transform; no shuffle steps after the stop (feet land, weight settles).
+Gestures: gaze turns to the target ~0.3-0.4 s before the arm; shoulder leads, elbow follows +0.07 s,
+wrist/hand +0.13 s; after each emphasis the elbow softens and the hand lowers partway.
+Second comparison: looks down to the grey bar as it rises, points at its top, then gaze and hand go
+to the yellow bar. Idle: slow weight shift, breathing, irregular blinks.
+Not possible with this rig: backpack secondary motion (baked into the torso drawing), eye direction
+(no separate eyes), real 3D head turn toward the viewer.
