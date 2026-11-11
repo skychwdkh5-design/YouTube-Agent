@@ -52,7 +52,9 @@ if __name__ == "__main__":
 import copy
 from unittest import mock
 
-QUEUE = json.load(open(os.path.join(P.ROOT, "publish", "queue.json")))["items"]
+ALL_QUEUE = json.load(open(os.path.join(P.ROOT, "publish", "queue.json")))["items"]
+QUEUE = [e for e in ALL_QUEUE if e.get("mode") != "private_test_only"]     # the seven release entries; private-test-only entries are checked in PrivateTest.test_ep006_private_test_entry
+PT_ONLY = [e for e in ALL_QUEUE if e.get("mode") == "private_test_only"]
 MEDIA = json.load(open(os.path.join(P.ROOT, "publish", "media.json")))
 
 
@@ -157,7 +159,7 @@ class Q(unittest.TestCase):
 
     def test_media_manifest(self):
         import media as M
-        self.assertEqual(len(MEDIA["files"]), 7)
+        self.assertEqual(len(MEDIA["files"]), 7 + len(PT_ONLY))
         a = {"state": "uploaded", "size": 5, "digest": "sha256:ab"}
         self.assertTrue(M.asset_ok(a, 5, "ab")); self.assertFalse(M.asset_ok(a, 6, "ab")); self.assertFalse(M.asset_ok({**a, "state": "starter"}, 5, "ab"))
         self.assertTrue(all(f["size"] > 0 and len(f["sha256"]) == 64 for f in MEDIA["files"]))
@@ -268,7 +270,7 @@ class PrivateTest(Q):
         return e
 
     def test_only_short_01_is_cleared_and_owner_approval_is_untouched(self):
-        self.assertEqual([x["id"] for x in QUEUE if x.get("private_test_allowed")], ["short-01-ep002"])
+        self.assertEqual([x["id"] for x in ALL_QUEUE if x.get("private_test_allowed")], ["short-01-ep002", "ep006-cut-preview"])
         for x in QUEUE:
             if x["id"] != "short-01-ep002":
                 pr = P.check_entry(copy.deepcopy(x), "private_test", self.d, [], NOW, hash_media=False)[0]
@@ -276,6 +278,21 @@ class PrivateTest(Q):
         e = self.pt_entry(); before = copy.deepcopy(e["owner_approval"])
         pr, spec = P.check_entry(e, "private_test", self.d, [], NOW)
         self.assertEqual(pr, []); self.assertEqual(e["owner_approval"], before); self.assertIs(before["approved"], False)
+
+    def test_ep006_private_test_entry(self):
+        e = copy.deepcopy(next(x for x in ALL_QUEUE if x["id"] == "ep006-cut-preview"))
+        self.assertEqual(e["mode"], "private_test_only"); self.assertIs(e["owner_approval"]["approved"], False); self.assertNotEqual(e["title_status"], "final")
+        self.assertEqual(e["media"]["sha256"], next(f["sha256"] for f in MEDIA["files"] if f["asset"] == e["media"]["asset"]))
+        for mode in ("approval", "autopilot"):                          # never picked up by a normal run
+            self.assertEqual(P.check_entry(copy.deepcopy(e), mode, self.d, [], NOW, hash_media=False)[1], None)
+        f = os.path.join(self.d, e["media"]["asset"])
+        with open(f, "wb") as fh:
+            fh.write(b"x")
+        e["media"]["sha256"] = P.sha256(f)
+        pr, spec = P.check_entry(e, "private_test", self.d, [], NOW)
+        self.assertEqual(pr, []); self.assertEqual(spec["privacy"], "private"); self.assertNotIn("publish_at", spec); self.assertTrue(spec["title"].startswith("[PRIVATE TEST] "))
+        body = P.build_body(spec)
+        self.assertEqual(body["status"]["privacyStatus"], "private"); self.assertNotIn("publishAt", body["status"])
 
     def test_spec_is_private_unscheduled_and_marked_test(self):
         pr, spec = P.check_entry(self.pt_entry(), "private_test", self.d, [], NOW)

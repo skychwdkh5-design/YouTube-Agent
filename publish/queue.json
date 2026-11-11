@@ -293,6 +293,42 @@
     "sha256": null,
     "publish_at": null
    }
+  },
+  {
+   "id": "ep006-cut-preview",
+   "mode": "private_test_only",
+   "kind": "long",
+   "media": {
+    "asset": "EP006_cut_preview_720p15.mp4",
+    "sha256": "8fba0dcdd43fa5fc5d01087684fd5895a913259e91940d72b479e8160d27dadb",
+    "seconds": 318.85
+   },
+   "title": "The Mountain That Fell - Langtang, Nepal, August 2026 (cut preview v1)",
+   "title_status": "working",
+   "description": "Working preview of Orbital Atlas EP006 - not for publication. What satellites show, and do not show, after the 26 August 2026 slope failure and flood near Langtang, Nepal.\n\nNarration: ElevenLabs voice, edited by cutting between sentences. 720p / 15 fps preview.\nImagery: Copernicus Sentinel-2 (12 Aug, 27 Aug, 8 Sep 2026) - contains modified Copernicus Sentinel data 2026; Landsat 9 (26 Aug 2026), USGS; ESA - Landsat-9 image, CC BY 4.0.\nSources: USGS Landslide Hazards Program (page updated 28 Aug 2026); ICIMOD press release of 13 Oct 2026 (figures relayed to us, page not opened); Xinhua (5 Sep 2026).\nNot verified against primary sources: ICIMOD volume (about 132 million m3), radar deformation (up to 40 cm, line of sight), Nepal toll (1,451 dead, 5,745 missing, NDRRMA via ICIMOD). Map pins and the traced flow path are approximate.",
+   "tags": [
+    "Langtang",
+    "Nepal flood",
+    "satellite imagery",
+    "Sentinel-2",
+    "Landsat",
+    "OrbitalAtlas"
+   ],
+   "category_id": "27",
+   "default_language": "en",
+   "made_for_kids": false,
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Real satellite data with labelled graphics; narration is a text-to-speech voice (ElevenLabs). No fabricated realistic people or events. OWNER DECISION: confirm this disclosure answer before any non-private use.",
+   "thumbnail": null,
+   "captions": null,
+   "publish_at": "2099-01-01T00:00:00Z",
+   "publish_at_note": "placeholder required by the schema; never used: this entry is private_test_only and is never scheduled",
+   "owner_approval": {
+    "approved": false,
+    "sha256": null,
+    "publish_at": null
+   },
+   "private_test_allowed": true
   }
  ],
  "expected_channel_id": "UC2QxQJhUe9Q5NMRNb6M9ddw",
