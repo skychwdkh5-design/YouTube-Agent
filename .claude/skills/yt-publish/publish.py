@@ -235,9 +235,16 @@ def cmd_reschedule(a, now=None):
     body = {"id": a.video_id, "status": {**keep, "privacyStatus": "private", "publishAt": want}}
     if not a.confirm:
         return {"status": "dry run", "video_id": a.video_id, "from": old, "to": want}
-    api("PUT", "videos", {"part": "status"}, body=body, token=tok)
-    real = (api("GET", "videos", {"part": "status", "id": a.video_id}, token=tok).get("items") or [{}])[0].get("status", {})
-    ok = real.get("privacyStatus") == "private" and parse_time(real.get("publishAt") or "1970-01-01T00:00:00Z") == when
+    put = api("PUT", "videos", {"part": "status"}, body=body, token=tok).get("status", {})
+    print(json.dumps({"put_response": {k: put.get(k) for k in ("privacyStatus", "publishAt")}}), file=sys.stderr)
+    same = lambda st: st.get("privacyStatus") == "private" and parse_time(st.get("publishAt") or "1970-01-01T00:00:00Z") == when
+    real = {}
+    for i in range(6):                      # the read side can lag the write by a few seconds
+        real = (api("GET", "videos", {"part": "status", "id": a.video_id}, token=tok).get("items") or [{}])[0].get("status", {})
+        if same(real):
+            break
+        time.sleep(0 if a.__class__.__name__ == "Mock" else 10)
+    ok = same(real)
     ledger_add({"event": "rescheduled", "video_id": a.video_id, "from": old, "to": want, "verified": ok})
     if not ok:
         raise PublishError(f"reschedule not confirmed: privacy={real.get('privacyStatus')} publishAt={real.get('publishAt')}")
