@@ -5,13 +5,16 @@ on:
       mode:
         description: "device = old device-flow login (no captions); url = make the browser consent link (artifact); code = exchange the code from the redirected address"
         type: choice
-        options: [device, url, code, reschedule]
+        options: [device, url, code, reschedule, captions]
         default: device
       code:
         description: "mode=code only: the one-time code, or the whole http://127.0.0.1:8765/?code=... address"
         required: false
       video_id:
-        description: "mode=reschedule only: id of an already scheduled (private + publishAt) video"
+        description: "mode=reschedule/captions: id of an already scheduled (private + publishAt) video"
+        required: false
+      caption_path:
+        description: "mode=captions only: SRT path on branch publish-data, e.g. publish/assets/ep013/captions.srt"
         required: false
       publish_at:
         description: "mode=reschedule only: new time, RFC 3339 UTC, e.g. 2026-11-13T01:00:00Z (>= 30 min ahead)"
@@ -68,3 +71,15 @@ jobs:
           VIDEO_ID: ${{ inputs.video_id }}
           PUBLISH_AT: ${{ inputs.publish_at }}
         run: python3 .claude/skills/yt-publish/publish.py reschedule --video-id "$VIDEO_ID" --publish-at "$PUBLISH_AT" --confirm
+      - name: Add a caption track to an existing video (owner request)
+        if: ${{ inputs.mode == 'captions' }}
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          VIDEO_ID: ${{ inputs.video_id }}
+          CAP: ${{ inputs.caption_path }}
+        run: |
+          git fetch -q --depth=1 origin publish-data
+          git show "origin/publish-data:$CAP" > /tmp/cap.srt
+          python3 .claude/skills/yt-publish/publish.py captions-add --video-id "$VIDEO_ID" --file /tmp/cap.srt --confirm

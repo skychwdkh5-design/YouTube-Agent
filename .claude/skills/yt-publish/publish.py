@@ -211,6 +211,26 @@ def video_status(vid, token=None):
             "processing": pd.get("processingStatus")}
 
 
+def cmd_captions_add(a):
+    """Owner-requested: add one caption track to an existing video. Skips if a non-auto track in that language already exists."""
+    if not os.path.isfile(a.file) or os.path.getsize(a.file) < 20:
+        raise PublishError(f"caption file missing or empty: {a.file}")
+    tok = access_token()
+    def tracks():
+        return [i["snippet"] for i in api("GET", "captions", {"part": "snippet", "videoId": a.video_id}, token=tok).get("items", [])]
+    have = [t for t in tracks() if t.get("language") == a.language and t.get("trackKind") != "asr"]
+    if have:
+        return {"status": "already present", "video_id": a.video_id, "tracks": [{k: t.get(k) for k in ("language", "name", "trackKind")} for t in have]}
+    if not a.confirm:
+        return {"status": "dry run", "video_id": a.video_id, "file": a.file}
+    insert_caption(a.video_id, a.file, a.language, a.name, tok)
+    now = [t for t in tracks() if t.get("language") == a.language and t.get("trackKind") != "asr"]
+    if not now:
+        raise PublishError("caption insert returned but no track is listed yet - read the video's captions before retrying")
+    ledger_add({"event": "captions_set", "video_id": a.video_id, "manual": True})
+    return {"status": "captions added", "video_id": a.video_id, "tracks": [{k: t.get(k) for k in ("language", "name", "trackKind", "status")} for t in now]}
+
+
 def cmd_status(a):
     return video_status(a.video_id)
 
@@ -879,6 +899,8 @@ def main(argv=None):
         if n == "upload":
             s.add_argument("--confirm", action="store_true"); s.add_argument("--approve-visibility", action="store_true"); s.add_argument("--force-duplicate", action="store_true")
     sub.add_parser("status").add_argument("--video-id", required=True)
+    ca = sub.add_parser("captions-add"); ca.add_argument("--video-id", required=True); ca.add_argument("--file", required=True)
+    ca.add_argument("--language", default="en"); ca.add_argument("--name", default="English"); ca.add_argument("--confirm", action="store_true")
     rs = sub.add_parser("reschedule"); rs.add_argument("--video-id", required=True); rs.add_argument("--publish-at", required=True); rs.add_argument("--confirm", action="store_true")
     sub.add_parser("inventory")
     cv = sub.add_parser("chat-verify")
@@ -891,7 +913,7 @@ def main(argv=None):
     q.add_argument("--approval"); q.add_argument("--manifest")
     a = p.parse_args(argv)
     try:
-        out = {"auth": cmd_auth, "auth-url": cmd_auth_url, "auth-code": cmd_auth_code, "channel": cmd_channel, "plan": cmd_plan, "upload": cmd_upload, "status": cmd_status, "reschedule": cmd_reschedule, "ledger": cmd_ledger,
+        out = {"auth": cmd_auth, "auth-url": cmd_auth_url, "auth-code": cmd_auth_code, "channel": cmd_channel, "plan": cmd_plan, "upload": cmd_upload, "status": cmd_status, "reschedule": cmd_reschedule, "captions-add": cmd_captions_add, "ledger": cmd_ledger,
                "inventory": cmd_inventory, "queue-run": cmd_queue_run, "reconcile": cmd_reconcile, "chat-verify": cmd_chat_verify}[a.cmd](a)
         print(json.dumps(out, indent=2, ensure_ascii=False))
         return exit_code(out, getattr(a, "mode", None))
