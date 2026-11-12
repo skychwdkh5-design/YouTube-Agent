@@ -1,0 +1,27 @@
+{
+ "schema": "yt-approval/1",
+ "approval_id": "da9fd9afc39c48bd8fc85b69e8a56cb2",
+ "scope": "single_release",
+ "label": "014",
+ "items": [
+  {
+   "id": "ep014",
+   "kind": "long",
+   "title": "NASA Astronauts Saw Five Flashes on the Far Side of the Moon",
+   "publish_at": "2026-11-16T01:00:00Z",
+   "media_sha256": "8cce99656b020b9c055ddac0e640d34fd04e900e4975aeb0cdf3718ace462451",
+   "content_hash": "1ddd8723096de79b13d6e65e6d45752638c85552ce5cb7ed8e1b2154a9b675e0",
+   "entry_hash": "b7b71747882b1f345e87a8f097db4d66b56ce231dbfa15f691e78726702637a3"
+  }
+ ],
+ "queue_commit": "ebf571bef8f3ef74d7ab70bb7d9f4882d7f6a808",
+ "owner_quote": "Одобряю 014",
+ "created_at": "2026-11-12T18:23:14+00:00",
+ "expires_at": "2026-11-13T18:23:14+00:00",
+ "created_by": "claude-chat",
+ "consent_channel": "owner-chat-message",
+ "dry_run_only": false,
+ "card_codes": {
+  "ep014": "B7B7-1747"
+ }
+}
