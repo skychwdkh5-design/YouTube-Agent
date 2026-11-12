@@ -321,3 +321,38 @@ class PrivateTest(Q):
         self.assertTrue(P.find_conflicts(real_entry, twin, "none"))
         P.ledger_add({"event": "uploaded", "kind": "private_test", "video_id": "TESTVID", "sha256": "private_test:abc"}, self.lp)
         self.assertEqual(P.find_conflicts(real_entry, twin, "none", P.test_video_ids()), [])
+
+
+class Reschedule(unittest.TestCase):
+    NOW = datetime(2026, 11, 12, 19, 0, tzinfo=timezone.utc)
+
+    def run_rs(self, status, to, confirm=True):
+        calls = []
+        def fake_api(method, path, params=None, body=None, token=None):
+            calls.append((method, body))
+            if method == "PUT":
+                status.update(body["status"])
+            return {"items": [{"status": dict(status)}]}
+        a = mock.Mock(video_id="v1", publish_at=to, confirm=confirm)
+        with mock.patch.object(P, "access_token", return_value="t"), mock.patch.object(P, "api", side_effect=fake_api), \
+             mock.patch.object(P, "ledger_add"):
+            return P.cmd_reschedule(a, now=self.NOW), calls
+
+    def test_moves_scheduled_video_and_keeps_fields(self):
+        st = {"privacyStatus": "private", "publishAt": "2026-11-14T01:00:00Z", "selfDeclaredMadeForKids": False, "containsSyntheticMedia": True}
+        out, calls = self.run_rs(st, "2026-11-13T01:00:00Z")
+        self.assertEqual(out["status"], "rescheduled")
+        put = [b for m, b in calls if m == "PUT"][0]
+        self.assertEqual(put["status"]["publishAt"], "2026-11-13T01:00:00Z")
+        self.assertTrue(put["status"]["containsSyntheticMedia"])
+
+    def test_refuses_public_and_too_soon(self):
+        with self.assertRaises(P.PublishError):
+            self.run_rs({"privacyStatus": "public"}, "2026-11-13T01:00:00Z")
+        with self.assertRaises(P.PublishError):
+            self.run_rs({"privacyStatus": "private", "publishAt": "2026-11-14T01:00:00Z"}, "2026-11-12T19:10:00Z")
+
+    def test_dry_run_does_not_write(self):
+        out, calls = self.run_rs({"privacyStatus": "private", "publishAt": "2026-11-14T01:00:00Z"}, "2026-11-13T01:00:00Z", confirm=False)
+        self.assertEqual(out["status"], "dry run")
+        self.assertFalse([1 for m, _ in calls if m == "PUT"])

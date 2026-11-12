@@ -215,6 +215,35 @@ def cmd_status(a):
     return video_status(a.video_id)
 
 
+def cmd_reschedule(a, now=None):
+    """Move the publishAt of an already SCHEDULED video (private + future publishAt). Owner-requested only.
+    Refuses public/unlisted videos, unscheduled ones, and times less than 30 minutes ahead. Other status fields are kept."""
+    now = now or datetime.now(timezone.utc)
+    when = parse_time(a.publish_at)
+    if (when - now).total_seconds() < 1800:
+        raise PublishError("new publish time must be at least 30 minutes ahead")
+    tok = access_token()
+    items = api("GET", "videos", {"part": "status", "id": a.video_id}, token=tok).get("items") or []
+    if not items:
+        raise PublishError(f"video {a.video_id} not found on this channel")
+    st = items[0]["status"]
+    if st.get("privacyStatus") != "private" or not st.get("publishAt"):
+        raise PublishError(f"video {a.video_id} is not a scheduled private video (privacy={st.get('privacyStatus')}, publishAt={st.get('publishAt')})")
+    old = st["publishAt"]
+    want = when.strftime("%Y-%m-%dT%H:%M:%SZ")
+    keep = {k: st[k] for k in ("embeddable", "license", "publicStatsViewable", "selfDeclaredMadeForKids", "containsSyntheticMedia") if k in st}
+    body = {"id": a.video_id, "status": {**keep, "privacyStatus": "private", "publishAt": want}}
+    if not a.confirm:
+        return {"status": "dry run", "video_id": a.video_id, "from": old, "to": want}
+    api("PUT", "videos", {"part": "status"}, body=body, token=tok)
+    real = (api("GET", "videos", {"part": "status", "id": a.video_id}, token=tok).get("items") or [{}])[0].get("status", {})
+    ok = real.get("privacyStatus") == "private" and parse_time(real.get("publishAt") or "1970-01-01T00:00:00Z") == when
+    ledger_add({"event": "rescheduled", "video_id": a.video_id, "from": old, "to": want, "verified": ok})
+    if not ok:
+        raise PublishError(f"reschedule not confirmed: privacy={real.get('privacyStatus')} publishAt={real.get('publishAt')}")
+    return {"status": "rescheduled", "video_id": a.video_id, "from": old, "to": real.get("publishAt"), "privacy": real.get("privacyStatus")}
+
+
 # --- spec ------------------------------------------------------------------------------------------
 
 def parse_time(s):
@@ -843,6 +872,7 @@ def main(argv=None):
         if n == "upload":
             s.add_argument("--confirm", action="store_true"); s.add_argument("--approve-visibility", action="store_true"); s.add_argument("--force-duplicate", action="store_true")
     sub.add_parser("status").add_argument("--video-id", required=True)
+    rs = sub.add_parser("reschedule"); rs.add_argument("--video-id", required=True); rs.add_argument("--publish-at", required=True); rs.add_argument("--confirm", action="store_true")
     sub.add_parser("inventory")
     cv = sub.add_parser("chat-verify")
     cv.add_argument("--queue", default=QUEUE); cv.add_argument("--approval", required=True); cv.add_argument("--manifest", required=True); cv.add_argument("--real", action="store_true")
@@ -854,7 +884,7 @@ def main(argv=None):
     q.add_argument("--approval"); q.add_argument("--manifest")
     a = p.parse_args(argv)
     try:
-        out = {"auth": cmd_auth, "auth-url": cmd_auth_url, "auth-code": cmd_auth_code, "channel": cmd_channel, "plan": cmd_plan, "upload": cmd_upload, "status": cmd_status, "ledger": cmd_ledger,
+        out = {"auth": cmd_auth, "auth-url": cmd_auth_url, "auth-code": cmd_auth_code, "channel": cmd_channel, "plan": cmd_plan, "upload": cmd_upload, "status": cmd_status, "reschedule": cmd_reschedule, "ledger": cmd_ledger,
                "inventory": cmd_inventory, "queue-run": cmd_queue_run, "reconcile": cmd_reconcile, "chat-verify": cmd_chat_verify}[a.cmd](a)
         print(json.dumps(out, indent=2, ensure_ascii=False))
         return exit_code(out, getattr(a, "mode", None))

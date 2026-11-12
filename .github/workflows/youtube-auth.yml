@@ -1,14 +1,20 @@
-name: YouTube auth (one-time)
+name: YouTube auth (one-time)  # also: owner-requested reschedule of a scheduled video
 on:
   workflow_dispatch:
     inputs:
       mode:
         description: "device = old device-flow login (no captions); url = make the browser consent link (artifact); code = exchange the code from the redirected address"
         type: choice
-        options: [device, url, code]
+        options: [device, url, code, reschedule]
         default: device
       code:
         description: "mode=code only: the one-time code, or the whole http://127.0.0.1:8765/?code=... address"
+        required: false
+      video_id:
+        description: "mode=reschedule only: id of an already scheduled (private + publishAt) video"
+        required: false
+      publish_at:
+        description: "mode=reschedule only: new time, RFC 3339 UTC, e.g. 2026-11-13T01:00:00Z (>= 30 min ahead)"
         required: false
 permissions:
   contents: read
@@ -53,3 +59,12 @@ jobs:
           GH_SECRETS_TOKEN: ${{ secrets.GH_SECRETS_TOKEN }}
           YT_AUTH_CODE: ${{ inputs.code }}
         run: python3 .claude/skills/yt-publish/publish.py auth-code
+      - name: Reschedule a scheduled video (owner request; stays private until publishAt)
+        if: ${{ inputs.mode == 'reschedule' }}
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          VIDEO_ID: ${{ inputs.video_id }}
+          PUBLISH_AT: ${{ inputs.publish_at }}
+        run: python3 .claude/skills/yt-publish/publish.py reschedule --video-id "$VIDEO_ID" --publish-at "$PUBLISH_AT" --confirm
