@@ -34,7 +34,7 @@ jobs:
       - name: Browser login link (with captions permission)
         if: ${{ inputs.mode == 'url' }}
         env:
-          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_DESKTOP_CLIENT_ID: ${{ secrets.YT_DESKTOP_CLIENT_ID }}
         run: |
           python3 .claude/skills/yt-publish/publish.py auth-url --out consent_url.txt
           # the OAuth client id is public (it appears in every consent link) but stored as a secret, so the plain log masks it
@@ -48,8 +48,8 @@ jobs:
       - name: Exchange the code and store YT_REFRESH_TOKEN
         if: ${{ inputs.mode == 'code' }}
         env:
-          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
-          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_DESKTOP_CLIENT_ID: ${{ secrets.YT_DESKTOP_CLIENT_ID }}
+          YT_DESKTOP_CLIENT_SECRET: ${{ secrets.YT_DESKTOP_CLIENT_SECRET }}
           GH_SECRETS_TOKEN: ${{ secrets.GH_SECRETS_TOKEN }}
           YT_AUTH_CODE: ${{ inputs.code }}
         run: python3 .claude/skills/yt-publish/publish.py auth-code

@@ -158,8 +158,9 @@ SCOPES_FULL = "https://www.googleapis.com/auth/youtube https://www.googleapis.co
 
 def cmd_auth_url(a):
     """Browser (authorization-code) login that can also grant youtube.force-ssl (captions), which device flow cannot.
+    Needs a Desktop-app OAuth client (YT_DESKTOP_CLIENT_ID / _SECRET); the TV client used by device flow rejects it.
     Writes the consent URL to a file (the client id is stored as a secret, so the log would mask it)."""
-    cid = need("YT_CLIENT_ID")
+    cid = need("YT_DESKTOP_CLIENT_ID")
     url = "https://accounts.google.com/o/oauth2/v2/auth?" + urllib.parse.urlencode({
         "client_id": cid, "redirect_uri": REDIRECT, "response_type": "code", "scope": SCOPES_FULL,
         "access_type": "offline", "prompt": "consent", "include_granted_scopes": "true"})
@@ -170,7 +171,7 @@ def cmd_auth_url(a):
 
 def cmd_auth_code(_):
     """Exchange the one-time code (env YT_AUTH_CODE, or the whole redirected URL) for a refresh token and store it."""
-    cid, csec, raw = need("YT_CLIENT_ID"), need("YT_CLIENT_SECRET"), need("YT_AUTH_CODE").strip()
+    cid, csec, raw = need("YT_DESKTOP_CLIENT_ID"), need("YT_DESKTOP_CLIENT_SECRET"), need("YT_AUTH_CODE").strip()
     code = urllib.parse.parse_qs(urllib.parse.urlparse(raw).query).get("code", [raw])[0] if "code=" in raw else raw
     s, _, t = jhttp("POST", TOKEN_URL, form={"client_id": cid, "client_secret": csec, "code": code, "grant_type": "authorization_code",
                                              "redirect_uri": REDIRECT})
@@ -181,8 +182,9 @@ def cmd_auth_code(_):
         raise PublishError(f"captions scope was not granted (got: {granted}) - tick every permission on the consent screen")
     if not t.get("refresh_token"):
         raise PublishError("Google returned no refresh token - remove the app at myaccount.google.com/permissions and retry")
-    store_secret("YT_REFRESH_TOKEN", t["refresh_token"])
-    return {"status": "ok", "stored_secret": "YT_REFRESH_TOKEN", "scope": granted}
+    # a refresh token only works with the client that issued it: switch all three together, only after success
+    store_secret("YT_REFRESH_TOKEN", t["refresh_token"]); store_secret("YT_CLIENT_ID", cid); store_secret("YT_CLIENT_SECRET", csec)
+    return {"status": "ok", "stored_secrets": ["YT_REFRESH_TOKEN", "YT_CLIENT_ID", "YT_CLIENT_SECRET"], "scope": granted}
 
 
 # --- channel / status -------------------------------------------------------------------------------
