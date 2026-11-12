@@ -31,6 +31,7 @@ class Pose:
     hand_dir: dict = field(default_factory=dict)    # 'n'/'f' -> deg, or None = follow forearm
     hand_pose: dict = field(default_factory=lambda: {'n': 'relaxed_near', 'f': 'relaxed'})
     keep_reach: bool = True                # lower the pelvis rather than miss a foot target
+    drop_floor: float = 0.0                # minimum pelvis drop (lets a caller smooth the drop over time)
 
 
 @dataclass
@@ -49,7 +50,7 @@ def solve(rig, pose):
     J = rig.J
     root = np.asarray(pose.root, float)
     pelvis_w = J['pelvis'] + root + pose.pelvis_off
-    drop = 0.0
+    drop = max(0.0, pose.drop_floor)
     for _ in range(3):
         Mpel = T(*(pelvis_w + [0, drop])) @ R(pose.pelvis_rot) @ S(1 + pose.pelvis_cr, 1) @ T(*-J['pelvis'])
         if not pose.keep_reach:

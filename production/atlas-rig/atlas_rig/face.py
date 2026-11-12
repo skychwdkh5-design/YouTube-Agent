@@ -149,8 +149,28 @@ class Face:
         lm = np.asarray(lm).astype(np.float32)[..., None] / 255 * min(1, b * 2.5)
         return out * (1 - lm * 0.85) + np.array([45, 30, 26], np.float32) * lm * 0.85
 
-    def render(self, open_=0.0, width=1.0, blink=0.0, brow=0.0, smile=0.0):
+    def _look(self, img, box, dx):
+        """Move the iris/pupil horizontally inside the eye opening by dx sheet px."""
+        if abs(dx) < 1e-3:
+            return img
+        x0, y0, x1, y1 = [(box[0] - HEAD_TL[0]) * K, (box[1] - HEAD_TL[1]) * K, (box[2] - HEAD_TL[0]) * K, (box[3] - HEAD_TL[1]) * K]
+        cx, cy, rx, ry = (x0 + x1) / 2, (y0 + y1) / 2, (x1 - x0) / 2 * 0.95, (y1 - y0) / 2
+        d = ((self.xx - cx) / rx) ** 2 + ((self.yy - cy) / ry) ** 2
+        wgt = np.clip((1 - d) / 0.35, 0, 1)[..., None]
+        sx = np.clip(self.xx - dx * K * wgt[..., 0], 0, self.w - 2)
+        x0i = np.floor(sx).astype(int)
+        fx = (sx - x0i)[..., None]
+        yi = self.yy.astype(int)
+        moved = img[yi, x0i] * (1 - fx) + img[yi, x0i + 1] * fx
+        return img * (1 - wgt) + moved * wgt
+
+    def render(self, open_=0.0, width=1.0, blink=0.0, brow=0.0, smile=0.0, look=0.0):
+        """look: eye direction, -1 = toward the viewer (left of the 3/4 view) .. +1 = toward
+        what he is facing; small (about 1 sheet px)."""
         img = self.rgb
+        if look:
+            img = self._look(img, EYE_N, 0.9 * look)
+            img = self._look(img, EYE_F, 0.6 * look)
         img = self._shift(img, BROW, -brow * 1.3, 2.5)
         img = self._shift(img, JAW, open_ * 2.6, 3.0)
         if open_ > 0.03:

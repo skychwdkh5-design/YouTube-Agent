@@ -133,7 +133,7 @@ class Performance:
         auto = [t + 0.03 for t in self._gaze.shift_times()]
         return sorted(self.blinks + auto)
 
-    def pose(self, t):
+    def pose(self, t, head_extra=0.0):
         rig, J = self.rig, self.rig.J
         w = self._walk_at(t)
         if w is None:
@@ -167,7 +167,7 @@ class Performance:
         pre = solve(rig, p)
         Mtor = pre.bones['torso']
         neck = pre.joints['neck']
-        p.head_rot = self._gaze.angle(t, neck) + 0.5 * breath
+        p.head_rot = self._gaze.angle(t, neck) + 0.5 * breath + head_extra
         wr, hd, hp, so = {}, {}, {}, {}
         for s in 'nf':
             swing = (14.0 if s == 'f' else -12.0) * ph
