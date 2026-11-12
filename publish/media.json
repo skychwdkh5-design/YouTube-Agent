@@ -1,12 +1,20 @@
 {
- "bundle": "ep012-v2",
+ "bundle": "ep013-ep014-v2",
  "files": [
   {
-   "asset": "EP012_Bennu_final_v2_1080p30.mp4",
-   "sha256": "789c6fc0370ee8588d9a8b8f70fb0e391b0523b5b2abdf125572d0d8fda49539",
-   "size": 183594869,
+   "asset": "EP013_Voyager_v2_1080p30.mp4",
+   "sha256": "8081dd07d2c0c018a979f74b6cad4008e31794f037f2c04cee2ad6ab3fa11ba3",
+   "size": 109477228,
    "source": {
-    "release": "ep012-v2"
+    "release": "ep013-ep014-v2"
+   }
+  },
+  {
+   "asset": "EP014_Artemis_v2_1080p30.mp4",
+   "sha256": "8cce99656b020b9c055ddac0e640d34fd04e900e4975aeb0cdf3718ace462451",
+   "size": 96326732,
+   "source": {
+    "release": "ep013-ep014-v2"
    }
   }
  ]

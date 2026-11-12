@@ -640,6 +640,117 @@
     "sha256": "379a54c06eed9ad39e1ca62256eafa876d45521c035d9fe8ecc9b0c9c3f36dbb",
     "note": "Cover STILL SINKING = video frame 0 of v2 (real SamCam image, graded); thumbcheck objective PASS (saturation 0.51, white 2.5%, yellow 4.0%); compared with the four reference covers. Owner asked to publish with the current cover 2026-11-07."
    }
+  },
+  {
+   "id": "ep013",
+   "mode": "approval",
+   "kind": "long",
+   "media": {
+    "asset": "EP013_Voyager_v2_1080p30.mp4",
+    "sha256": "8081dd07d2c0c018a979f74b6cad4008e31794f037f2c04cee2ad6ab3fa11ba3",
+    "seconds": 187.4
+   },
+   "title": "NASA Lost Contact With Voyager 1. Then the Signal Came Back.",
+   "title_status": "final",
+   "title_options": [
+    "NASA Lost Contact With Voyager 1. Then the Signal Came Back."
+   ],
+   "description": "NASA Lost Contact With Voyager 1. Then the Signal Came Back.\n\nIn October 2026, NASA's Deep Space Network listened for Voyager 1 two days in a row and heard nothing. Before engineers sent a troubleshooting command, the signal came back on its own. Here is what happened, what the spacecraft had been doing, and why every question to Voyager now takes two days to answer: on November 18, 2026, Voyager 1 is about one light-day from Earth.\n\nCHAPTERS\n0:00 The signal that went quiet\n0:22 Listening for Voyager: October 18, 19 and 20\n0:38 The clue: a thruster switch\n0:56 Why troubleshooting takes 48 hours\n1:27 One light-day from Earth\n1:42 A different kind of repair\n2:14 49 years in space\n2:30 Interstellar space since 2012\n2:40 One conversation, two days\n\nWHAT YOU ARE SEEING\n- NASA animations and data visualizations of Voyager and its trajectory (NASA Scientific Visualization Studio), the Pale Blue Dot image and a Deep Space Network antenna photo (NASA/JPL-Caltech).\n- Orbital Atlas illustrations (marked SCHEMATIC / ILLUSTRATION): signal paths, clocks, the time-distance diagram, thruster and power diagrams. They explain the story; they are not NASA data or NASA screens.\n- ATLAS is an animated host character, not a real person, and was not present at any real event shown.\n- Music and sound effects are original sound design, not recordings from space.\n- Narration: synthetic voice (ElevenLabs).\n\nSOURCES\n- NASA JPL, NASA's Voyager 1 Conserves Power, Resolves Brief Communications Pause: https://www.jpl.nasa.gov/news/nasas-voyager-1-conserves-power-resolves-brief-communications-pause/\n- NASA, Voyager 1: What Is a Light-Day?: https://science.nasa.gov/mission/voyager/voyager-1/voyager-1-what-is-a-light-day/\n- NASA, Voyager 1 mission: https://science.nasa.gov/mission/voyager/voyager-1/\n- NASA SVS 4139, Voyager 1 trajectory: https://svs.gsfc.nasa.gov/4139/\n- NASA SVS 20130: https://svs.gsfc.nasa.gov/20130/\n- NASA, Pale Blue Dot: https://science.nasa.gov/resource/voyager-pale-blue-dot-download/\n- NASA JPL, Deep Space Network antenna (PIA23682): https://www.jpl.nasa.gov/images/pia23682-nasas-deep-space-antenna-upgrade-to-affect-voyager/\n\nImages and video courtesy of NASA / JPL-Caltech. Orbital Atlas is not affiliated with or endorsed by NASA.\n\n#Voyager1 #NASA #Space",
+   "tags": [
+    "Voyager 1",
+    "Voyager",
+    "NASA",
+    "JPL",
+    "Deep Space Network",
+    "one light-day",
+    "interstellar space",
+    "Pale Blue Dot",
+    "heliopause",
+    "space",
+    "science",
+    "OrbitalAtlas"
+   ],
+   "category_id": "27",
+   "default_language": "en",
+   "made_for_kids": false,
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Narration is a stock text-to-speech voice (ElevenLabs Adam); the host ATLAS is a clearly stylised animated character, not a realistic person; imagery is real NASA video, photos, simulations and animations with their labels, plus Orbital Atlas schematics labelled SCHEMATIC/ILLUSTRATION; no realistic fabricated people or events.",
+   "thumbnail": "publish/assets/ep013/thumbnail.jpg",
+   "captions": {
+    "file": "publish/assets/ep013/captions.srt",
+    "language": "en",
+    "name": "English"
+   },
+   "publish_at": "2026-11-14T01:00:00Z",
+   "related": null,
+   "owner_approval": {
+    "approved": false,
+    "sha256": null,
+    "publish_at": null
+   },
+   "thumbnail_review": {
+    "result": "PASS",
+    "sha256": "e5d5d383fa97d1aaa409a09b8d625d410521b571ca8cc8ef3b0f0e94fb150a01",
+    "owner_approved": true,
+    "owner_exception": "thumbcheck objective FAIL (no white/yellow headline; see docs/THUMBNAIL_STYLE_GUIDE.md section 6). Owner (Егор) 2026-11-12 18:18Z: 'Обложки те что я скидывал, начало не меняем' - his supplied cover published unchanged.",
+    "note": "Owner-supplied cover (approved_*_source.png, 1672x941 cropped/scaled to 1280x720). Video opening keeps the rig-ATLAS version of the same cover."
+   }
+  },
+  {
+   "id": "ep014",
+   "mode": "approval",
+   "kind": "long",
+   "media": {
+    "asset": "EP014_Artemis_v2_1080p30.mp4",
+    "sha256": "8cce99656b020b9c055ddac0e640d34fd04e900e4975aeb0cdf3718ace462451",
+    "seconds": 151.0
+   },
+   "title": "NASA Astronauts Saw Five Flashes on the Far Side of the Moon",
+   "title_status": "final",
+   "title_options": [
+    "NASA Astronauts Saw Five Flashes on the Far Side of the Moon"
+   ],
+   "description": "NASA Astronauts Saw Five Flashes on the Far Side of the Moon\n\nDuring the Artemis II lunar flyby, Orion passed behind the Moon and lost radio contact with Earth, as planned. While Mission Control waited, the crew watched the dark lunar surface and marked where they saw brief pinpricks of light, likely meteoroid impact flashes. Here is where Orion was, what the crew could see, what an impact flash is, and how their color-coded notes became evidence for NASA's lunar science team.\n\nCHAPTERS\n0:00 Five pinpricks of light\n0:10 Where Orion was\n0:22 Behind the Moon, out of contact\n0:40 Why the dark Moon matters\n0:54 What an impact flash is\n1:11 Reading the crew's notes\n1:30 Eyes and cameras\n1:50 Contact restored\n2:03 Why stare into darkness\n\nWHAT YOU ARE SEEING\n- NASA video from Artemis II (crew aboard Orion, Mission Control, the lunar science team), NASA simulations of the crew's window view, NASA's flight-path animation, NASA's impact flash animation (labelled ANIMATION) and the crew's annotations on a simulated view of the Moon from NASA's preliminary lunar science report.\n- No impact flash was filmed for this video. The flash animation is NASA's; our scale pictures are marked ILLUSTRATION.\n- The notebook cover and its sketched marks are a concept illustration, not observed locations.\n- Orbital Atlas schematics (marked SCHEMATIC, not to scale): Earth, Moon and Orion positions, the radio blackout, the atmosphere comparison and the timeline.\n- ATLAS is an animated host character, not a real person, and was not aboard Orion.\n- Music and sound effects are original sound design, not recordings from space.\n- Narration: synthetic voice (ElevenLabs).\n\nSOURCES\n- NASA, Artemis II Preliminary Lunar Science Report: https://science.nasa.gov/feature/artemis-ii-preliminary-lunar-science-report/\n- NASA, Artemis II crew Moon photo annotations: https://www.nasa.gov/image-article/artemis-ii-crew-moon-photo-annotations/\n- NASA SVS 15103: https://svs.gsfc.nasa.gov/15103/\n- NASA SVS 5633: https://svs.gsfc.nasa.gov/5633/\n- NASA SVS 20412: https://svs.gsfc.nasa.gov/20412/\n- NASA SVS 15110: https://svs.gsfc.nasa.gov/15110/\n- NASA, Artemis II lunar flyby gallery: https://www.nasa.gov/gallery/lunar-flyby/\n- NASA image art002e012278: https://images.nasa.gov/details/art002e012278\n\nImages and video courtesy of NASA. Orbital Atlas is not affiliated with or endorsed by NASA.\n\n#ArtemisII #NASA #Moon",
+   "tags": [
+    "Artemis II",
+    "Artemis 2",
+    "NASA",
+    "Orion",
+    "Moon",
+    "lunar impact flashes",
+    "meteoroid impacts",
+    "Reid Wiseman",
+    "Victor Glover",
+    "Jeremy Hansen",
+    "space",
+    "science",
+    "OrbitalAtlas"
+   ],
+   "category_id": "27",
+   "default_language": "en",
+   "made_for_kids": false,
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Narration is a stock text-to-speech voice (ElevenLabs Adam); the host ATLAS is a clearly stylised animated character, not a realistic person; imagery is real NASA video, photos, simulations and animations with their labels, plus Orbital Atlas schematics labelled SCHEMATIC/ILLUSTRATION; no realistic fabricated people or events.",
+   "thumbnail": "publish/assets/ep014/thumbnail.jpg",
+   "captions": {
+    "file": "publish/assets/ep014/captions.srt",
+    "language": "en",
+    "name": "English"
+   },
+   "publish_at": "2026-11-16T01:00:00Z",
+   "related": null,
+   "owner_approval": {
+    "approved": false,
+    "sha256": null,
+    "publish_at": null
+   },
+   "thumbnail_review": {
+    "result": "PASS",
+    "sha256": "ad6bf2c75fc36254962fe385379b0c2682d3483252ba57a1c659fe72f1c8c668",
+    "owner_approved": true,
+    "owner_exception": "thumbcheck objective FAIL (no white/yellow headline; see docs/THUMBNAIL_STYLE_GUIDE.md section 6). Owner (Егор) 2026-11-12 18:18Z: 'Обложки те что я скидывал, начало не меняем' - his supplied cover published unchanged.",
+    "note": "Owner-supplied cover (approved_*_source.png, 1672x941 cropped/scaled to 1280x720). Video opening keeps the rig-ATLAS version of the same cover."
+   }
   }
  ],
  "expected_channel_id": "UC2QxQJhUe9Q5NMRNb6M9ddw",
@@ -648,5 +759,6 @@
  "_note_ep008": "EP008 added 2026-11-01 for chat-publish (owner 15:53 ICT): publish 2026-11-01 23:00 ICT = 16:00Z; media from DRAFT release ep008-v1 (verified run 41289861789). Earlier entries unchanged.",
  "_note_ep010": "EP010 added 2026-11-05 for chat-publish (owner 18:22 ICT): publish 2026-11-06 08:00 ICT = 01:00Z; media from DRAFT release ep010-v1 (verified run 42018850821: sha OK, 1920x1080 30/1, no decode errors). Channel inventory run 42018568659: no EP010. Earlier entries unchanged.",
  "_note_ep011": "EP011 added 2026-11-05 (owner thread: produce and schedule in the nearest free slot): publish 2026-11-07T01:00Z = next free 01:00Z slot after EP010 (channel inventory run 42033341188: only EP010 scheduled, no EP011). Media from DRAFT release ep011-v1 (store run on branch claude/project-thread-r5acwi). Earlier entries unchanged.",
- "_note_ep012": "EP012 added 2026-11-07 (owner thread: approved v2, nearest free future 08:00 Asia/Ho_Chi_Minh slot, earlier entries unchanged): publish 2026-11-08T01:00Z. Media from DRAFT release ep012-v2 (store run on branch claude/project-thread-l93wz1); file = project copy sha256 789c6fc0..."
+ "_note_ep012": "EP012 added 2026-11-07 (owner thread: approved v2, nearest free future 08:00 Asia/Ho_Chi_Minh slot, earlier entries unchanged): publish 2026-11-08T01:00Z. Media from DRAFT release ep012-v2 (store run on branch claude/project-thread-l93wz1); file = project copy sha256 789c6fc0...",
+ "_note_ep013_ep014": "EP013/EP014 added 2026-11-12 (owner approved v2 content 18:14Z and asked to queue both). Times proposed on the cards (08:00 Asia/Ho_Chi_Minh): EP013 2026-11-14T01:00Z (before the Nov 18 one-light-day milestone the video names), EP014 2026-11-16T01:00Z. Media from DRAFT release ep013-ep014-v2 (store run on branch claude/project-thread-b4lbdu)."
 }
