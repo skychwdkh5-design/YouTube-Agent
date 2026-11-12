@@ -35,7 +35,10 @@ jobs:
         if: ${{ inputs.mode == 'url' }}
         env:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
-        run: python3 .claude/skills/yt-publish/publish.py auth-url --out consent_url.txt
+        run: |
+          python3 .claude/skills/yt-publish/publish.py auth-url --out consent_url.txt
+          # the OAuth client id is public (it appears in every consent link) but stored as a secret, so the plain log masks it
+          echo "consent link (base64): $(base64 -w0 consent_url.txt)"
       - uses: actions/upload-artifact@v4
         if: ${{ inputs.mode == 'url' }}
         with:
