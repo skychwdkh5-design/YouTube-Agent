@@ -97,3 +97,10 @@
 {"at": "2026-11-12T18:27:58+00:00", "event": "captions_unavailable", "sha256": "8081dd07d2c0c018a979f74b6cad4008e31794f037f2c04cee2ad6ab3fa11ba3", "id": "ep013", "video_id": "OUYNDoW54KQ", "message": "YouTube API 403: Request had insufficient authentication scopes. ['insufficientPermissions']"}
 {"at": "2026-11-12T18:27:58+00:00", "event": "verified", "sha256": "8081dd07d2c0c018a979f74b6cad4008e31794f037f2c04cee2ad6ab3fa11ba3", "id": "ep013", "video_id": "OUYNDoW54KQ", "ok": true, "privacyStatus": "private", "publishAt": "2026-11-14T01:00:00Z", "uploadStatus": "uploaded"}
 {"at": "2026-11-12T18:27:58+00:00", "event": "approval_done", "approval_id": "507670b655ef475cad09f96c9e0ccbcf", "ids": ["ep013"]}
+{"at": "2026-11-12T18:32:04+00:00", "event": "approval_started", "approval_id": "847d701145c640288aa464d04228e1b5", "ids": ["ep014"]}
+{"at": "2026-11-12T18:32:05+00:00", "event": "started", "sha256": "8cce99656b020b9c055ddac0e640d34fd04e900e4975aeb0cdf3718ace462451", "id": "ep014", "file": "EP014_Artemis_v2_1080p30.mp4", "kind": "long"}
+{"at": "2026-11-12T18:32:10+00:00", "event": "uploaded", "sha256": "8cce99656b020b9c055ddac0e640d34fd04e900e4975aeb0cdf3718ace462451", "id": "ep014", "video_id": "J6T1JGIUYRI", "publish_at": "2026-11-16T01:00:00Z"}
+{"at": "2026-11-12T18:32:12+00:00", "event": "thumbnail_set", "sha256": "8cce99656b020b9c055ddac0e640d34fd04e900e4975aeb0cdf3718ace462451", "id": "ep014", "video_id": "J6T1JGIUYRI"}
+{"at": "2026-11-12T18:32:12+00:00", "event": "captions_unavailable", "sha256": "8cce99656b020b9c055ddac0e640d34fd04e900e4975aeb0cdf3718ace462451", "id": "ep014", "video_id": "J6T1JGIUYRI", "message": "YouTube API 403: Request had insufficient authentication scopes. ['insufficientPermissions']"}
+{"at": "2026-11-12T18:32:12+00:00", "event": "verified", "sha256": "8cce99656b020b9c055ddac0e640d34fd04e900e4975aeb0cdf3718ace462451", "id": "ep014", "video_id": "J6T1JGIUYRI", "ok": true, "privacyStatus": "private", "publishAt": "2026-11-16T01:00:00Z", "uploadStatus": "uploaded"}
+{"at": "2026-11-12T18:32:12+00:00", "event": "approval_done", "approval_id": "847d701145c640288aa464d04228e1b5", "ids": ["ep014"]}
