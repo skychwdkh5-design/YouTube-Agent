@@ -69,8 +69,11 @@ class Point:
             return lerp(rest, gather, smoothstep((t - self.t0) / self.prep))
         if t < self.t_acc:
             u = smoothstep((t - self.t_move) / self.move)
-            c = 0.5 * (gather + aim) + _up_perp(aim - gather) * self.arc * np.hypot(*(aim - gather))
-            return bezier(gather, c, aim, u)
+            mid = 0.5 * (gather + aim)
+            off = _up_perp(aim - gather) * self.arc * np.hypot(*(aim - gather))
+            # bow the path AWAY from the shoulder, so the hand never folds through it
+            c = mid + off if np.hypot(*(mid + off - shoulder)) >= np.hypot(*(mid - off - shoulder)) else mid - off
+            return _keep_out(bezier(gather, c, aim, u), shoulder, 0.6 * L)
         if t < self.t_acc + self.accent:
             u = (t - self.t_acc) / self.accent
             return aim + d * 6.0 * math.sin(math.pi * u) * (1 - 0.4 * u)
@@ -79,7 +82,7 @@ class Point:
             return lerp(aim, soft, u)
         u = smoothstep((t - self.hold_until) / self.relax)
         c = 0.5 * (soft + rest) + np.array([10.0, 12.0])
-        return bezier(soft, c, rest, u)
+        return _keep_out(bezier(soft, c, rest, u), shoulder, 0.6 * L)
 
     def weight(self, t):
         """How much this gesture owns the arm (1 between prep start and relax end)."""
@@ -110,6 +113,15 @@ class Point:
         a = smoothstep((t - self.t_move) / self.move)
         b = 1 - smoothstep((t - self.hold_until) / self.relax)
         return 3.0 * min(a, b)
+
+
+def _keep_out(p, centre, rmin):
+    """Push p radially out of a small disc round the shoulder (no folded, flipping elbow)."""
+    v = p - centre
+    r = float(np.hypot(*v))
+    if r >= rmin or r < 1e-6:
+        return p
+    return centre + v / r * rmin
 
 
 def _up_perp(v):

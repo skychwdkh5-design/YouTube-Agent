@@ -11,7 +11,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from engine_path import *                     # noqa
-from host import Host, Shot
+from host import Host, Shot, seq
 from cues import Cues
 from gfx import Frame, rng, smooth, lerp, clamp
 import opening
@@ -118,7 +118,7 @@ def build_host(atlas):
     h.point(s0 + 1.6, lambda t: pulse_reply_xy(t), e - 0.35)
     # 3. listened twice: point at the two NO SIGNAL rows in turn
     s0, e = S['listen'], end_of('listen')
-    h.point(s0 + 0.5, lambda t, s0=s0, e=e: row_xy(0) if t < s0 + (e - s0) * 0.55 else row_xy(1), e - 0.3)
+    h.point(s0 + 0.5, seq([(0, row_xy(0)), (s0 + (e - s0) * 0.5, row_xy(1))]), e - 0.3)
     # 4. back on its own: big framing again, line re-forms; he follows it to the probe, relieved
     s0, e = S['back'], end_of('back')
     tb = c('the signal came back', s0)
@@ -128,11 +128,11 @@ def build_host(atlas):
     s0, e = S['dates'], end_of('dates')
     r1, r2 = c('Twenty-four hours later', s0), c('On the twentieth', s0)
     h.walk(s0 + 0.3, 120)
-    h.point(s0 + 1.6, lambda t: row_xy(0) if t < r1 else (row_xy(1) if t < r2 else row_xy(2)), e - 0.4)
+    h.point(s0 + 1.6, seq([(0, row_xy(0)), (r1 - 0.1, row_xy(1)), (r2 - 0.1, row_xy(2))]), e - 0.4)
     # 6. thrusters: group -> backup -> plaque
     s0, e = S['thr'], end_of('thr')
     t_off, t_on, t_why = c('had gone offline', s0), c('its backup had', s0), c('What triggered', s0)
-    h.point(t_off - 0.6, lambda t: (1440, 300) if t < t_on else (1702, 300), t_why - 0.3)
+    h.point(t_off - 0.6, seq([(0, (1440, 300)), (t_on - 0.2, (1702, 300))]), t_why - 0.3)
     h.point(t_why + 0.2, (1185, 680), e - 0.4)
     # 7. round trip timeline: follow the pulse heads
     s0, e = S['trip'], end_of('trip')
@@ -147,7 +147,7 @@ def build_host(atlas):
     # 9. power swap
     s0, e = S['power'], end_of('power')
     h.walk(s0 + 0.3, 100)
-    h.point(c('They switched off', s0) - 0.3, lambda t, tt=c('turned on three', s0): (1000, 330) if t < tt else (1360, 330),
+    h.point(c('They switched off', s0) - 0.3, seq([(0, (1000, 330)), (c('turned on three', s0) - 0.2, (1360, 330))]),
             c('keep the heat', s0))
     h.point(c('Without it', s0) - 0.2, (1180, 840), e - 0.4)
     # 10. history (mirrored, on the right)

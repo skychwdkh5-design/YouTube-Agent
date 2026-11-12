@@ -23,6 +23,23 @@ from atlas_rig.pose import solve                               # noqa: E402
 FPS = 30
 
 
+def seq(keys, blend=0.5):
+    """Target that moves smoothly between screen points: keys = [(t, point|callable), ...].
+    The hand travels to the next point over `blend` s (ease in/out) instead of jumping."""
+    keys = sorted(keys, key=lambda k: k[0])
+    val = lambda p, t: np.asarray(p(t) if callable(p) else p, float)
+
+    def f(t):
+        cur = val(keys[0][1], t)
+        for tk, p in keys[1:]:
+            if t <= tk:
+                break
+            u = smoothstep((t - tk) / blend)
+            cur = cur + (val(p, t) - cur) * u
+        return cur
+    return f
+
+
 @dataclass
 class Shot:
     t0: float
@@ -88,6 +105,17 @@ class Host:
     def point(self, t0, target, hold_until, arm='f', gaze_lead=0.35, look_back=0.5, **kw):
         """target: screen point (or callable t -> screen point)."""
         tw = (lambda t, f=target: self.to_world(t, f(t))) if callable(target) else self.to_world(t0, target)
+        # one gesture owns an arm at a time: an earlier point on this arm relaxes before this one starts
+        for p in self.perf.points:
+            if p.arm == arm and p.t0 < t0 < p.t_end + 0.05:
+                p.hold_until = max(p.t0 + p.prep + p.move + 0.1, t0 - 0.08 - p.relax)
+                if p.t_end > t0 - 0.03:
+                    t0 = p.t_end + 0.03
+        # close framings magnify every move on screen: give big gestures more time there
+        k = max(1.0, (self.shot_at(t0).scale / 1.05) ** 0.5)
+        kw.setdefault('move', 0.5 * k)
+        kw.setdefault('prep', 0.22 * k)
+        kw.setdefault('relax', 0.75 * k)
         g = self.perf.point(arm, t0, tw, hold_until, **kw)
         self.used[arm].append((t0 - 0.1, g.t_end + 0.1))
         self.gaze(t0 - gaze_lead, tw, look=0.8)

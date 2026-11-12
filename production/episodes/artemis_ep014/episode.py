@@ -8,7 +8,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from engine_path import *                     # noqa
-from host import Host, Shot
+from host import Host, Shot, seq
 from cues import Cues
 from gfx import Frame, rng, smooth, lerp, Video
 import scenes
@@ -116,22 +116,17 @@ def build_host(atlas):
     h.point(s0 + 0.3, (1200, 450), e - 0.3)
     # the crew's colours, one by one
     s0, e = S['notes2'], end_of('notes2')
-    seq = [(c('Reid Wiseman', s0), 'reid'), (c('Victor Glover', s0), 'ike'), (c('Jeremy Hansen', s0), 'jeremy'),
-           (c('General annotations', s0), 'purple')]
+    seq_ = [(c('Reid Wiseman', s0), 'reid'), (c('Victor Glover', s0), 'ike'), (c('Jeremy Hansen', s0), 'jeremy'),
+            (c('General annotations', s0), 'purple')]
 
-    def legend(t, seq=seq):
-        key = seq[0][1]
-        for tk, kk in seq:
-            if t >= tk - 0.2:
-                key = kk
-        return scenes.notes_to_screen(scenes.NOTE[key], note_z('notes2', t))
-    h.point(seq[0][0] - 0.6, legend, c('The drawing is', s0) + 0.6)
+    legend = seq([(tk - 0.25, note_xy(kk, 'notes2')) for tk, kk in seq_])
+    h.point(seq_[0][0] - 0.6, legend, c('The drawing is', s0) + 0.6)
     h.point(c('compare across', s0) - 0.4, note_xy('m1', 'notes2'), e - 0.3)
     # images vs notes
     s0, e = S['views'], end_of('views')
     h.walk(s0 + 0.3, 100)
-    h.point(c('The images give', s0) - 0.2, lambda t, tn=c('Their notes tell', s0), tp=c('Put those together', s0):
-            (960, 410) if t < tn else ((1560, 400) if t < tp else (1260, 730)), e - 0.3)
+    h.point(c('The images give', s0) - 0.2, seq([(0, (960, 410)), (c('Their notes tell', s0) - 0.2, (1560, 400)),
+                                         (c('Put those together', s0) - 0.2, (1260, 730))]), e - 0.3)
     # same event, circled
     s0, e = S['notes3'], end_of('notes3')
     h.point(s0 + 0.4, note_xy('m4', 'notes3'), e - 0.3)
