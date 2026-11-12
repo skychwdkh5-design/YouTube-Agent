@@ -53,3 +53,7 @@ Before any long-form cover is approved or uploaded Claude must:
 2. View the cover next to the four reference covers and at phone size, answer section 4 and record the verdict in the episode review file.
 3. Any failure of either step is **FAIL**: revise, never argue it through.
 4. `publish/queue.json` carries `thumbnail_review: {"result": "PASS", "sha256": <sha256 of the cover file>}` for every long episode; `queue-run` refuses the upload otherwise or when the file changed after review. Claude's PASS is a precondition, not the owner's approval.
+
+## 6. Owner exceptions (recorded decisions)
+
+- 2026-11-12, EP013 Voyager "SIGNAL LOST" and EP014 Artemis II "THEY SAW THIS": the owner chose to publish his own supplied covers (illustrated ATLAS host style) unchanged and keep the video openings as they are. thumbcheck objective result was FAIL (no white/yellow headline; EP013 contrast 57.5, EP014 saturation 0.32); the queue records `result: PASS` for these exact files only with `owner_exception` noting this. Not a precedent: every other cover still follows sections 1-5.
