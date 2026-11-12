@@ -1,0 +1,27 @@
+{
+ "schema": "yt-approval/1",
+ "approval_id": "507670b655ef475cad09f96c9e0ccbcf",
+ "scope": "single_release",
+ "label": "ep013",
+ "items": [
+  {
+   "id": "ep013",
+   "kind": "long",
+   "title": "NASA Lost Contact With Voyager 1. Then the Signal Came Back.",
+   "publish_at": "2026-11-14T01:00:00Z",
+   "media_sha256": "8081dd07d2c0c018a979f74b6cad4008e31794f037f2c04cee2ad6ab3fa11ba3",
+   "content_hash": "217bc4ad6e1f4f604441ae7d16a49fe5d507e51437d126c98ea691bf79179631",
+   "entry_hash": "f7e9d30d8320bc1d42099db2c5851e63bfafdff180bcd68a13ed011c4b7ab7b3"
+  }
+ ],
+ "queue_commit": "ebf571bef8f3ef74d7ab70bb7d9f4882d7f6a808",
+ "owner_quote": "Одобряю ep013",
+ "created_at": "2026-11-12T18:24:37+00:00",
+ "expires_at": "2026-11-13T18:24:37+00:00",
+ "created_by": "claude-chat",
+ "consent_channel": "owner-chat-message",
+ "dry_run_only": false,
+ "card_codes": {
+  "ep013": "F7E9-D30D"
+ }
+}
