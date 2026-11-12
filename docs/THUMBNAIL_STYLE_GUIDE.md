@@ -56,4 +56,4 @@ Before any long-form cover is approved or uploaded Claude must:
 
 ## 6. Owner exceptions (recorded decisions)
 
-- 2026-11-12, EP013 Voyager "SIGNAL LOST" and EP014 Artemis II "THEY SAW THIS": the owner chose to publish his own supplied covers (illustrated ATLAS host style) unchanged and keep the video openings as they are. thumbcheck objective result was FAIL (no white/yellow headline; EP013 contrast 57.5, EP014 saturation 0.32); the queue records `result: PASS` for these exact files only with `owner_exception` noting this. Not a precedent: every other cover still follows sections 1-5.
+- 2026-11-12, EP013 Voyager "SIGNAL LOST" and EP014 Artemis II "THEY SAW THIS": the owner chose to publish his own supplied covers (illustrated ATLAS host style) unchanged and keep the video openings as they are. thumbcheck objective result was FAIL (no white/yellow headline; EP013 luma std 56.5, EP014 saturation 0.34); the queue records `result: PASS` for these exact files only with `owner_exception` noting this. Not a precedent: every other cover still follows sections 1-5.
