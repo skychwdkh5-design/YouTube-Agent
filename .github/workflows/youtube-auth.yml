@@ -1,5 +1,15 @@
 name: YouTube auth (one-time)
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "device = old device-flow login (no captions); url = make the browser consent link (artifact); code = exchange the code from the redirected address"
+        type: choice
+        options: [device, url, code]
+        default: device
+      code:
+        description: "mode=code only: the one-time code, or the whole http://127.0.0.1:8765/?code=... address"
+        required: false
 permissions:
   contents: read
 jobs:
@@ -9,9 +19,34 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: pip install pynacl
+      - name: Mask the one-time code
+        if: ${{ inputs.mode == 'code' }}
+        env:
+          C: ${{ inputs.code }}
+        run: echo "::add-mask::$C"
       - name: Device-flow login (open the code shown in this log at google.com/device)
+        if: ${{ inputs.mode == 'device' || inputs.mode == '' }}
         env:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           GH_SECRETS_TOKEN: ${{ secrets.GH_SECRETS_TOKEN }}
         run: python3 .claude/skills/yt-publish/publish.py auth
+      - name: Browser login link (with captions permission)
+        if: ${{ inputs.mode == 'url' }}
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+        run: python3 .claude/skills/yt-publish/publish.py auth-url --out consent_url.txt
+      - uses: actions/upload-artifact@v4
+        if: ${{ inputs.mode == 'url' }}
+        with:
+          name: consent-url
+          path: consent_url.txt
+          retention-days: 1
+      - name: Exchange the code and store YT_REFRESH_TOKEN
+        if: ${{ inputs.mode == 'code' }}
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          GH_SECRETS_TOKEN: ${{ secrets.GH_SECRETS_TOKEN }}
+          YT_AUTH_CODE: ${{ inputs.code }}
+        run: python3 .claude/skills/yt-publish/publish.py auth-code

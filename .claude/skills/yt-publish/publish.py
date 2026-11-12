@@ -152,6 +152,39 @@ def cmd_auth(_):
     return {"status": "ok", "stored_secret": "YT_REFRESH_TOKEN", "scope": t.get("scope")}
 
 
+REDIRECT = "http://127.0.0.1:8765"
+SCOPES_FULL = "https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.force-ssl"
+
+
+def cmd_auth_url(a):
+    """Browser (authorization-code) login that can also grant youtube.force-ssl (captions), which device flow cannot.
+    Writes the consent URL to a file (the client id is stored as a secret, so the log would mask it)."""
+    cid = need("YT_CLIENT_ID")
+    url = "https://accounts.google.com/o/oauth2/v2/auth?" + urllib.parse.urlencode({
+        "client_id": cid, "redirect_uri": REDIRECT, "response_type": "code", "scope": SCOPES_FULL,
+        "access_type": "offline", "prompt": "consent", "include_granted_scopes": "true"})
+    with open(a.out, "w") as f:
+        f.write(url + "\n")
+    return {"status": "ok", "wrote": a.out, "redirect_uri": REDIRECT, "scopes": SCOPES_FULL.split()}
+
+
+def cmd_auth_code(_):
+    """Exchange the one-time code (env YT_AUTH_CODE, or the whole redirected URL) for a refresh token and store it."""
+    cid, csec, raw = need("YT_CLIENT_ID"), need("YT_CLIENT_SECRET"), need("YT_AUTH_CODE").strip()
+    code = urllib.parse.parse_qs(urllib.parse.urlparse(raw).query).get("code", [raw])[0] if "code=" in raw else raw
+    s, _, t = jhttp("POST", TOKEN_URL, form={"client_id": cid, "client_secret": csec, "code": code, "grant_type": "authorization_code",
+                                             "redirect_uri": REDIRECT})
+    if s != 200:
+        raise PublishError(f"code exchange failed: {t.get('error')} {t.get('error_description', '')}")
+    granted = t.get("scope", "")
+    if "youtube.force-ssl" not in granted:
+        raise PublishError(f"captions scope was not granted (got: {granted}) - tick every permission on the consent screen")
+    if not t.get("refresh_token"):
+        raise PublishError("Google returned no refresh token - remove the app at myaccount.google.com/permissions and retry")
+    store_secret("YT_REFRESH_TOKEN", t["refresh_token"])
+    return {"status": "ok", "stored_secret": "YT_REFRESH_TOKEN", "scope": granted}
+
+
 # --- channel / status -------------------------------------------------------------------------------
 
 def cmd_channel(_):
@@ -802,6 +835,7 @@ def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("auth"); sub.add_parser("channel"); sub.add_parser("ledger")
+    sub.add_parser("auth-url").add_argument("--out", required=True); sub.add_parser("auth-code")
     for n in ("plan", "upload"):
         s = sub.add_parser(n); s.add_argument("--spec", required=True)
         if n == "upload":
@@ -818,7 +852,7 @@ def main(argv=None):
     q.add_argument("--approval"); q.add_argument("--manifest")
     a = p.parse_args(argv)
     try:
-        out = {"auth": cmd_auth, "channel": cmd_channel, "plan": cmd_plan, "upload": cmd_upload, "status": cmd_status, "ledger": cmd_ledger,
+        out = {"auth": cmd_auth, "auth-url": cmd_auth_url, "auth-code": cmd_auth_code, "channel": cmd_channel, "plan": cmd_plan, "upload": cmd_upload, "status": cmd_status, "ledger": cmd_ledger,
                "inventory": cmd_inventory, "queue-run": cmd_queue_run, "reconcile": cmd_reconcile, "chat-verify": cmd_chat_verify}[a.cmd](a)
         print(json.dumps(out, indent=2, ensure_ascii=False))
         return exit_code(out, getattr(a, "mode", None))
