@@ -4,6 +4,7 @@ All coordinates are in the reference's 1280x720 design space and are scaled to
 1920x1080 (x1.5). Vector marks are drawn on a 2x supersampled layer for clean edges.
 """
 import math
+import os
 from functools import lru_cache
 
 import numpy as np
@@ -103,8 +104,10 @@ class Frame:
         self.paste(out, x, y, alpha)
 
     def paste(self, im, x, y, alpha=1.0):
-        self._flush()
         X, Y = int(round(x * K)), int(round(y * K))
+        if X >= W or Y >= H or X + im.size[0] <= 0 or Y + im.size[1] <= 0 or alpha <= 0.002:
+            return
+        self._flush()
         if alpha >= 0.999 and im.mode == 'RGB':
             self.img.paste(im, (X, Y))
         else:
@@ -137,9 +140,11 @@ class Frame:
             sp = sp.copy()
             sp.putalpha(Image.fromarray((np.asarray(sp)[..., 3] * alpha).astype(np.uint8)))
         n = sp.size[0]
+        X, Y = int(x * K - n / 2), int(y * K - n / 2)
+        if X >= W or Y >= H or X + n <= 0 or Y + n <= 0:
+            return
         self._flush()
         base = self.img.convert('RGBA')
-        X, Y = int(x * K - n / 2), int(y * K - n / 2)
         base.alpha_composite(sp, (max(0, X), max(0, Y)), (max(0, -X), max(0, -Y)))
         self.img = base.convert('RGB')
 
@@ -323,28 +328,43 @@ def _vignette(a):
 
 
 class Video:
-    """Frame access for a short source clip (decoded once to memory at 1920 width)."""
-    _cache = {}
+    """Frame access for a source clip. Frames are decoded once to a JPEG cache on disk
+    (shared by all render workers), so long clips never sit in memory."""
+    CACHE = os.environ.get('VIDEO_CACHE', '/tmp/claude-video-cache')
 
     def __init__(self, path):
+        import hashlib
+        import subprocess
         self.path = path
-        if path not in Video._cache:
-            import subprocess
-            probe = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries',
-                                    'stream=width,height,r_frame_rate', '-of', 'csv=p=0', path],
-                                   capture_output=True, text=True).stdout.strip().split(',')
-            w, h = int(probe[0]), int(probe[1])
-            num, den = map(int, probe[2].split('/'))
-            raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', path, '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'],
-                                 capture_output=True).stdout
-            n = len(raw) // (w * h * 3)
-            Video._cache[path] = (np.frombuffer(raw, np.uint8)[:n * w * h * 3].reshape(n, h, w, 3), num / den)
-        self.frames, self.fps = Video._cache[path]
+        st = os.stat(path)
+        key = hashlib.md5(f'{path}|{st.st_size}|{st.st_mtime}'.encode()).hexdigest()[:16]
+        self.dir = os.path.join(Video.CACHE, key)
+        probe = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries',
+                                'stream=r_frame_rate', '-of', 'csv=p=0', path], capture_output=True, text=True).stdout
+        num, den = map(int, probe.strip().split(',')[0].split('/'))
+        self.fps = num / den
+        done = os.path.join(self.dir, 'DONE')
+        if not os.path.exists(done):
+            tmp = self.dir + f'.tmp{os.getpid()}'
+            os.makedirs(tmp, exist_ok=True)
+            subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', path, '-q:v', '2', os.path.join(tmp, '%06d.jpg')], check=True)
+            try:
+                os.rename(tmp, self.dir)
+            except OSError:
+                import shutil
+                shutil.rmtree(tmp, ignore_errors=True)       # another worker won the race
+            open(done, 'w').close()
+        self.n = len([f for f in os.listdir(self.dir) if f.endswith('.jpg')])
 
     def at(self, ts):
-        i = int(clamp(ts * self.fps, 0, len(self.frames) - 1))
-        return Image.fromarray(self.frames[i])
+        i = int(clamp(ts * self.fps, 0, self.n - 1))
+        return _jpg(os.path.join(self.dir, f'{i + 1:06d}.jpg'))
 
     @property
     def duration(self):
-        return len(self.frames) / self.fps
+        return self.n / self.fps
+
+
+@lru_cache(maxsize=8)
+def _jpg(p):
+    return Image.open(p).convert('RGB')

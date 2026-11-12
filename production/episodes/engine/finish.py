@@ -138,7 +138,11 @@ def main():
     work = a.out + '_finish'
     os.makedirs(work, exist_ok=True)
     wav, ass = os.path.join(work, 'mix.wav'), os.path.join(work, 'subs.ass')
-    mix(ep, wav)
+    if hasattr(ep, 'MUSIC'):
+        import score
+        score.mix(ep, wav)
+    else:
+        mix(ep, wav)
     n = srt_to_ass(a.srt, ass, a.sub_margin_l, a.sub_margin_r, a.sub_margin_v)
     gain = -13.3 - integrated_lufs(wav)   # limiter costs ~0.7 LU; lands near -14
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', a.video, '-i', wav,

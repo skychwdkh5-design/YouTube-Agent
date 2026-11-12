@@ -198,7 +198,9 @@ class Host:
     def face(self, t, i):
         br = 0.0
         for (t0, amt, d) in self.brow_ev:
-            br = max(br, amt * min(smoothstep((t - t0 + 0.12) / 0.18), 1 - smoothstep((t - t0 - d) / 0.4)))
+            v = amt * min(smoothstep((t - t0 + 0.12) / 0.18), 1 - smoothstep((t - t0 - d) / 0.4))
+            if abs(v) > abs(br):
+                br = v                     # signed: raise (+) or knit/lower (-)
         look = self.look_keys[0][1]
         for (tk, v) in sorted(self.look_keys):
             if t >= tk:
