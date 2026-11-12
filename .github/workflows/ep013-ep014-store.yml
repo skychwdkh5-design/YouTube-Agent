@@ -1,0 +1,43 @@
+name: EP013/EP014 store finals (reassemble + verify -> draft release named in STORE_REQUEST)
+# Branch claude/project-thread-b4lbdu only. Same procedure as ep012-store: reassemble parts, check sha256 against
+# SHA256SUMS (computed in the production container), probe + full decode, store in the DRAFT release whose tag is the
+# 2nd word of STORE_REQUEST.txt, write STORE_REPORT.txt back to this branch. Nothing is published.
+on:
+  push:
+    branches: [claude/project-thread-b4lbdu]
+    paths: [store_ep013_ep014/STORE_REQUEST.txt]
+permissions:
+  contents: write
+jobs:
+  store:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reassemble, verify, store
+        shell: bash {0}
+        run: |
+          set -o pipefail
+          sudo apt-get -qq update >/dev/null && sudo apt-get -qq install -y ffmpeg >/dev/null
+          cd store_ep013_ep014; R=STORE_REPORT.txt; : > $R; TAG=$(awk '{print $2; exit}' STORE_REQUEST.txt); echo "== tag $TAG" >> $R
+          FILES=$(awk '{print $2}' SHA256SUMS)
+          for f in $FILES; do cat $f.part* > $f; done
+          echo "== sha256 check" >> $R; sha256sum -c SHA256SUMS >> $R 2>&1; ok=$?
+          for f in $FILES; do
+            echo "== ffprobe $f" >> $R
+            ffprobe -v error -show_entries stream=codec_type,codec_name,width,height,r_frame_rate,sample_rate,channels:format=duration,size -of default=nw=1 $f >> $R 2>&1
+            echo "== full decode errors $f (empty = none)" >> $R
+            ffmpeg -v error -i $f -f null - >> $R 2>&1
+          done
+          echo "== sha256 result: $ok" >> $R
+          if [ $ok -eq 0 ]; then
+            gh release view $TAG >/dev/null 2>&1 || gh release create $TAG --draft --title "$TAG" --notes "EP013 Voyager v2 + EP014 Artemis II v2 finals. Draft storage only; not published."
+            for f in $FILES SHA256SUMS; do gh release upload $TAG "$f" --clobber >> $R 2>&1; done
+            echo "== release assets" >> $R; gh release view $TAG --json assets -q '.assets[] | "\(.name) \(.size)"' >> $R 2>&1
+          fi
+          cat $R
+          rm -f $FILES
+          cd ..; git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add store_ep013_ep014/STORE_REPORT.txt; git commit -qm "EP013/EP014 store report (run ${{ github.run_id }})" && git push -q origin HEAD:claude/project-thread-b4lbdu
