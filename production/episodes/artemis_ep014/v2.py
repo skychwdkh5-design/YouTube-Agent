@@ -205,7 +205,7 @@ def bg_crew(t):
     x, y, w, h = BOX
     sw = smooth(rng(t, CR_MARK - 0.5, CR_MARK + 0.1))
     if sw < 1:
-        in_box(f, V('a_crew_cabin').at(1.0 + (t - S['crew']) * 0.55), zoom=1.3, fy=0.12, alpha=1.0)
+        in_box(f, V('a_crew_cabin').at(1.8 + (t - S['crew']) * 0.55), zoom=1.3, fy=0.12, alpha=1.0)
     if sw > 0:
         z = 1.0 + 0.04 * rng(t, CR_MARK, S['geo'])
         notes_view(f, t, z, alpha=sw)
