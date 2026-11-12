@@ -32,7 +32,7 @@ def _to3(p):
 
 
 class Face:
-    def __init__(self, ref_path):
+    def __init__(self, ref_path, glass=True):
         src = Image.open(ref_path).convert('RGB')
         self.src = np.asarray(src).astype(np.float32)
         x0, y0 = HEAD_TL
@@ -47,7 +47,13 @@ class Face:
         r = np.sqrt((sx - CEN[0]) ** 2 + (sy - CEN[1]) ** 2)
         inside = r < RAD
         d = np.abs(rgb - BG).max(-1)
-        alpha = np.where(inside, np.clip(0.16 + d / 70, 0, 1), 0.0)
+        if glass:
+            alpha = np.where(inside, np.clip(0.16 + d / 70, 0, 1), 0.0)
+        else:
+            # head only (new helmet is a separate layer): keep painted hair/skin, drop glass
+            alpha = np.where(inside, np.clip((d - 34) / 22, 0, 1), 0.0)
+            am = Image.fromarray((alpha * 255).astype(np.uint8)).filter(ImageFilter.MedianFilter(5))
+            alpha = np.asarray(am).astype(np.float32) / 255
         alpha *= np.clip(RAD + 0.5 - r, 0, 1)
         alpha *= np.clip((117.0 - sy) / 4.0, 0, 1)
         rgb = np.where(alpha[..., None] > 0, BG + (rgb - BG) / np.maximum(alpha[..., None], 1e-3), rgb)

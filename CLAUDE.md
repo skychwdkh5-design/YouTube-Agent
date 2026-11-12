@@ -105,3 +105,7 @@ When active, the owner controls publishing only through this chat:
 ## Visual direction — selected painted editorial style
 
 Before new Orbital Atlas visuals or storyboard work, read `docs/ORBITAL_ATLAS_VISUAL_STYLE.md` and `docs/PAINTED_VIDEO_HANDOFF.md`. The owner selected option 3 (Живописная иллюстрация) and explicitly requires newly created props/characters/objects in future videos to follow it: textured semi-realistic painting, sculptural light/shadow and expressive natural proportions, with the reference-led dynamic map/story staging. Authoritative art references are `docs/assets/visual-style/painted-reference.webp` and `painted-props.webp`. Build the complete script and per-second visual/action/assets package for Claude assembly. Prior v1–v5 experiments are not approved templates; glossy toy-style v6 props are superseded. V7 animation itself is still for review. Existing factual, rights, voice, QC, cost and publishing gates remain unchanged.
+
+## ATLAS character animation
+
+All ATLAS animation uses the shared rig in `production/atlas-rig/`; mandatory rules are in `AGENTS.md`, design in `docs/ATLAS_RIG.md`.

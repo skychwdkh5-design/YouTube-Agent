@@ -84,3 +84,6 @@ Second comparison: looks down to the grey bar as it rises, points at its top, th
 to the yellow bar. Idle: slow weight shift, breathing, irregular blinks.
 Not possible with this rig: backpack secondary motion (baked into the torso drawing), eye direction
 (no separate eyes), real 3D head turn toward the viewer.
+
+> **Superseded (2026-11-12).** These scripts are kept for history only. New work uses the shared
+> rig in `production/atlas-rig/` under the rules in `/AGENTS.md`.
