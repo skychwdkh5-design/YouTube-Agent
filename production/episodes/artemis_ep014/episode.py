@@ -221,7 +221,7 @@ def background(t):
         scenes.photo(f, t, 1.12 + 0.08 * smooth(loc / 10), 'STARING INTO DARKNESS', 'ARCHIVE PHOTO  ·  ART002E012278',
                      'NASA', path=A('eclipse.jpg'))
     elif k in ('mc', 'mc2'):
-        ts = lerp(4.15, 6.95, smooth(loc / max(0.5, e - s0))) if k == 'mc' else lerp(4.15, 5.9, smooth(loc / max(0.5, e - s0)))
+        ts = lerp(4.6, 6.95, smooth(loc / max(0.5, e - s0))) if k == 'mc' else lerp(4.6, 5.9, smooth(loc / max(0.5, e - s0)))
         scenes.photo(f, t, 1.02, 'MISSION CONTROL' if k == 'mc' else 'CONTACT RESTORED', 'NASA FLYBY MATERIAL',
                      'NASA / SCIENTIFIC VISUALIZATION STUDIO', frame=fly(ts), fy=0.5)
     elif k == 'dark':

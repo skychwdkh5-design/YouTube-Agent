@@ -81,22 +81,24 @@ def signal(f, t, leg, p, title=None, sub=None, title_a=1.0):
 
 
 # ------------------------------------------------------------------ 3. listening windows
+DATE_Y = [430, 500, 570]
+
+
 def dates(f, t, photo, z, alphas, states, credit, kick='DEEP SPACE NETWORK  /  OCTOBER 2026', x0=470):
-    """photo full frame; date rows on the RIGHT half (ATLAS stands left)."""
-    f.image(photo, 0, 0, 1280, 720, 1.01 + 0.08 * z, 0.57, 0.46)
-    f.shade([(0, '#0a060515'), (0.37, '#0a0605cc'), (1, '#0a0605f8')])
-    f.kick(kick, x0 + 12, 65)
+    """Archive photo in a frame (top right), the listening days as rows under it."""
+    framed(f, (x0, 92, 640, 280), photo, zoom=1.01 + 0.08 * z, fx=0.57, fy=0.40)
+    f.kick(kick, x0, 65)
     labels = ['OCT 18', 'OCT 19', 'OCT 20']
     for i, a in enumerate(alphas):
         if a <= 0.01:
             continue
-        y = 190 + 112 * i
+        y = DATE_Y[i]
         f.group(a)
-        f.rect(x0, y - 49, 640, 80, (16, 10, 8, 216), (239, 226, 196, 69))
-        f.text(labels[i], x0 + 25, y + 3, 28, 'paper', 'mono')
+        f.rect(x0, y - 38, 640, 56, (16, 10, 8, 216), (239, 226, 196, 69))
+        f.text(labels[i], x0 + 25, y, 26, 'paper', 'mono')
         ok = states[i]
-        f.text('SIGNAL BACK' if ok else 'NO SIGNAL', x0 + 225, y + 4, 34, 'ice' if ok else 'red', 'sans')
-        f.circle(x0 + 605, y - 7, 5, 'ice' if ok else 'red')
+        f.text('SIGNAL BACK' if ok else 'NO SIGNAL', x0 + 225, y + 1, 30, 'ice' if ok else 'red', 'sans')
+        f.circle(x0 + 605, y - 9, 5, 'ice' if ok else 'red')
         f.end()
     f.footer('ARCHIVE PHOTO', credit)
 
@@ -229,45 +231,56 @@ def power(f, t, off_p, on_p, warm_a, together_a, less_a, y27_a):
 
 
 # ------------------------------------------------------------------ 7. history
+BOX_R = (60, 100, 820, 461)          # real footage sits in a frame; ATLAS presents it from the right
+
+
+def framed(f, box, path=None, frame=None, zoom=1.0, fx=0.5, fy=0.5):
+    x, y, w, h = box
+    f.background('#1f1713', '#0a0706')
+    f.rect(x - 5, y - 5, w + 10, h + 10, (8, 6, 5, 255), PAL['ice'] + (70,), 1)
+    f.image(path, x, y, w, h, zoom, fx, fy, frame=frame)
+
+
 def trajectory(f, t, ts, label_a=1.0):
     v = Video(A('trajectory_12s.mp4'))
-    f.image(None, 0, 0, 1280, 720, 1.12, 0.5, 0.3, frame=v.at(ts))
-    f.shade([(0, '#0a0605c0'), (0.2, '#0a060500')], 0, 0, 0, 720)
-    f.kick('VOYAGER 1 TRAJECTORY  /  LAUNCHED 1977', 470, 65)
+    framed(f, BOX_R, frame=v.at(ts), zoom=1.0)
+    f.kick('VOYAGER 1 TRAJECTORY  /  LAUNCHED 1977', 60, 65)
     f.footer('DATA VISUALIZATION', 'NASA SCIENTIFIC VISUALIZATION STUDIO')
 
 
 def jupiter(f, t, ts):
     v = Video(A('jupiter_clouds.mp4'))
     fr = v.at(ts).crop((0, 112, 1620, 698))
-    f.image(None, 0, 0, 1280, 720, 1.0 + 0.04 * smooth(ts / 3.7), 0.5, 0.5, frame=fr)
-    f.shade([(0, '#00000000'), (0.7, '#00000000'), (1, '#000000aa')], 0, 0, 0, 720)
-    f.shade([(0, '#0a0605d0'), (0.18, '#0a060500')], 0, 0, 0, 720)
-    f.kick('JUPITER  /  SEQUENCE FROM VOYAGER 1 IMAGES', 470, 65)
+    framed(f, BOX_R, frame=fr, zoom=1.0 + 0.04 * smooth(ts / 3.7))
+    f.kick('JUPITER  /  SEQUENCE FROM VOYAGER 1 IMAGES', 60, 65)
     f.footer('NASA PHOTOS SEQUENCE', 'NASA SVS  /  TOM BRIDGMAN')
 
 
 PB_EARTH = (1307, 1131)            # Earth in paleblue.jpg (px)
 
 
-def paleblue(f, t, z, ring_a, cap_a):
-    """Pale Blue Dot, framed so the dot sits right of centre, then a careful highlight."""
+def pb_dot(z, box=BOX_R):
+    """Design coords of the Earth dot inside the framed Pale Blue Dot at zoom state z."""
+    x, y, w, h = box
     zoom = 1.0 + 0.6 * z
     fx, fy = 0.62, 0.52
-    f.image(A('paleblue.jpg'), 0, 0, 1280, 720, zoom, fx, fy)
-    # where the dot lands on screen (design coords)
     iw, ih = 2200, 2177
-    sw = min(iw, ih * 1280 / 720) / zoom
-    sh = sw * 720 / 1280
+    sw = min(iw, ih * w / h) / zoom
+    sh = sw * h / w
     x0, y0 = (iw - sw) * fx, (ih - sh) * fy
-    ex = (PB_EARTH[0] - x0) / sw * 1280
-    ey = (PB_EARTH[1] - y0) / sh * 720
+    return x + (PB_EARTH[0] - x0) / sw * w, y + (PB_EARTH[1] - y0) / sh * h
+
+
+def paleblue(f, t, z, ring_a, cap_a):
+    """Pale Blue Dot in a frame, the dot right of centre, then a careful highlight."""
+    framed(f, BOX_R, A('paleblue.jpg'), zoom=1.0 + 0.6 * z, fx=0.62, fy=0.52)
+    ex, ey = pb_dot(z)
     if ring_a > 0:
-        f.circle(ex, ey, 22, None, (164, 232, 255), 2, alpha=ring_a)
-        f.line([(ex + 22, ey - 10), (ex + 80, ey - 50)], (239, 226, 196, int(200 * ring_a)), 2)
-        f.text('EARTH', ex + 86, ey - 54, 18, 'ice', 'mono', alpha=ring_a)
+        f.circle(ex, ey, 18, None, PAL['ice'], 2, alpha=ring_a)
+        f.line([(ex + 18, ey - 8), (ex + 70, ey - 44)], (239, 226, 196, int(200 * ring_a)), 2)
+        f.text('EARTH', ex + 76, ey - 48, 18, 'ice', 'mono', alpha=ring_a)
     if cap_a > 0:
-        f.pill('VOYAGER 1 PHOTO · 1990', 470, 110, 'paper', 18)
+        f.pill('VOYAGER 1 PHOTO · 1990', 60, 65, 'paper', 18)
     f.footer('ARCHIVE PHOTO  /  PALE BLUE DOT REVISITED', 'NASA / JPL-CALTECH')
     return ex, ey
 

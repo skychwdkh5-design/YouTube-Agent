@@ -100,11 +100,12 @@ def geometry(f, t, p, blackout_a, label='WHEN THE MOON BLOCKS THE RADIO PATH'):
 
 
 def photo(f, t, z, kick, label, credit, path=None, frame=None, fx=0.5, fy=0.45):
-    f.background('#0b0908', '#050404')
-    f.image(path, 0, 0, 1280, 720, z, fx, fy, frame=frame)
-    f.shade([(0, '#0a0706d8'), (0.17, '#0a070600')], 0, 0, 0, 720)
-    f.shade([(0.8, '#0a070600'), (1, '#0a0706c0')], 0, 0, 0, 720)
-    f.kick(kick, 470, 66, 'amber')
+    """Real material in a frame (ATLAS presents it from the left, never stands inside it)."""
+    f.background('#2a2119', '#0d0a08')
+    x, y, w, h = NOTES_BOX
+    f.rect(x - 4, y - 4, w + 8, h + 8, (10, 8, 7, 255), PAL['ice'] + (60,), 1)
+    f.image(path, x, y, w, h, z, fx, fy, frame=frame)
+    f.kick(kick, x, 66, 'amber')
     f.footer(label, credit, 'amber')
 
 

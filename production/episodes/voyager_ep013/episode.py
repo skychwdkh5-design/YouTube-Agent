@@ -81,7 +81,7 @@ def wave_end(t):
 
 # --------------------------------------------------------------- dates geometry (screen px)
 def row_xy(i):
-    return ((470 + 25) * 1.5 - 20, (190 + 112 * i - 7) * 1.5)
+    return ((470 + 25) * 1.5 - 20, (scenes.DATE_Y[i] - 10) * 1.5)
 
 
 def pbd_xy(t):
@@ -90,13 +90,7 @@ def pbd_xy(t):
 
 
 def _pbd_dot(z):
-    zoom = 1.0 + 0.6 * z
-    fx, fy = 0.62, 0.52
-    iw, ih = 2200, 2177
-    sw = min(iw, ih * 1280 / 720) / zoom
-    sh = sw * 720 / 1280
-    x0, y0 = (iw - sw) * fx, (ih - sh) * fy
-    return ((scenes.PB_EARTH[0] - x0) / sw * 1280, (scenes.PB_EARTH[1] - y0) / sh * 720)
+    return scenes.pb_dot(z)
 
 
 # ---------------------------------------------------------------- ATLAS
@@ -152,9 +146,9 @@ def build_host(atlas):
     h.point(c('Without it', s0) - 0.2, (1180, 840), e - 0.4)
     # 10. history (mirrored, on the right)
     s0, e = S['traj'], end_of('traj')
-    h.gaze(s0 + 0.3, ('s', (900, 520)), look=0.7)
+    h.gaze(s0 + 0.3, ('s', (700, 430)), look=0.7)
     s0, e = S['jup'], end_of('jup')
-    h.point(s0 + 0.4, (760, 520), e - 0.5)
+    h.point(s0 + 0.4, (900, 430), e - 0.5)
     s0, e = S['pbd'], end_of('pbd')
     h.point(c('That little speck', s0) - 0.4, lambda t: pbd_xy(t), c('It had already', s0) + 1.5)
     # 11. heliopause
