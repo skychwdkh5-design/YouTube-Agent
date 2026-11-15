@@ -92,6 +92,24 @@ class Hand:
 
 
 @dataclass
+class Cover:
+    """Rigid joint-cover drawing (owner's joint pack 2026-11-15: bellows elbows/knees, wrist cuffs,
+    shoulder cap). It sits ON the joint and is oriented along the bisector of the two bones that
+    meet there, so it hides the seam of the skinned cloth and reads as a flexible suit joint.
+    The image's +y axis (top -> bottom) maps to the chain direction parent -> child."""
+    name: str
+    img: np.ndarray        # straight RGBA float (working res)
+    joint: str             # joint the cover is centred on
+    j_in: str              # joint before it in the chain (e.g. shoulder for the elbow)
+    j_out: str             # joint after it (e.g. wrist); None = use the hand/foot direction
+    width: float           # rest px across the limb
+    sy: float = 1.0        # extra scale along the limb (bellows length)
+    along: float = 0.0     # centre offset along the chain (rest px, + toward the child)
+    squash: float = 0.18   # bellows shorten on the inner side: length *= 1 - squash * bend/90deg
+    w_in: float = 0.5      # share of the incoming bone direction in the orientation
+
+
+@dataclass
 class Rig:
     J: dict                # rest joints
     bones: dict
@@ -103,6 +121,7 @@ class Rig:
     foot: dict             # sole contact points relative to the ankle (rest px)
     ground: float
     head: dict             # head image placement constants
+    covers: dict = field(default_factory=dict)
 
 
 # ----------------------------------------------------------------------------- build
@@ -209,6 +228,7 @@ def build_rig(parts_dir=None):
         return Hand(load_part(P(n), darken), np.array(wrist, float) * DS, np.array(tip, float) * DS, length)
     hands = {
         'point': hand(1, (395, 905), (1380, 140), 50.0),
+        'point_near': hand(1, (395, 905), (1380, 140), 50.0, 1.0),   # near arm: same drawing, not darkened
         'relaxed': hand(3, (350, 1225), (950, 260), 44.0),
         'palm': hand(2, (450, 900), (1350, 280), 46.0),
         'rock': hand(4, (390, 1240), (640, 80), 46.0, 1.0),
@@ -240,8 +260,31 @@ def build_rig(parts_dir=None):
     # arms with the elbow back/down. Fixed per limb, never chosen per frame.
     bend = {'leg_n': -1, 'leg_f': -1, 'arm_n': +1, 'arm_f': +1}
 
-    layers = ['hand_f', 'fore_f', 'upper_f',
-              'foot_f', 'shin_f', 'thigh_f', 'foot_n', 'shin_n', 'thigh_n',
-              'pelvis', 'head', 'torso', 'helmet', 'upper_n', 'fore_n', 'hand_n']
+    # ---- joint covers (owner's joint pack, assets/joints/). Far side darkened like the other far parts.
+    JD = os.path.join(ASSETS, 'joints')
+
+    def cov_img(n, darken=1.0):
+        im = Image.open(os.path.join(JD, n + '.png')).convert('RGBA')
+        a = np.asarray(im).astype(np.float32) / 255
+        a[..., :3] *= darken
+        # pull in the 1-2 px matte fringe of the sheet
+        al = Image.fromarray((a[..., 3] * 255).astype(np.uint8)).filter(ImageFilter.MinFilter(3))
+        a[..., 3] = np.asarray(al.filter(ImageFilter.GaussianBlur(0.6))).astype(np.float32) / 255
+        return a
+    covers = {}
+    for s, dk in (('n', 1.0), ('f', 0.8)):
+        covers[f'cov_elbow_{s}'] = Cover(f'cov_elbow_{s}', cov_img('elbow_R' if s == 'n' else 'elbow_L', dk),
+                                         f'elbow_{s}', f'shoulder_{s}', f'wrist_{s}', 31.0 if s == 'n' else 27.0, 0.82, 1.0)
+        covers[f'cov_knee_{s}'] = Cover(f'cov_knee_{s}', cov_img('knee_R', dk), f'knee_{s}', f'hip_{s}', f'ankle_{s}',
+                                        47.0, 0.9, 1.0, 0.12)
+        covers[f'cov_wrist_{s}'] = Cover(f'cov_wrist_{s}', cov_img('cuffTop_R' if s == 'n' else 'cuffTop_L', dk),
+                                         f'wrist_{s}', f'elbow_{s}', None, 23.0 if s == 'n' else 20.0, 0.62, -6.0, 0.1, 0.65)
+    covers['cov_shoulder_n'] = Cover('cov_shoulder_n', cov_img('shoulder_R'), 'shoulder_n', 'neck', 'elbow_n',
+                                     45.0, 0.95, 11.0, 0.0, 0.15)
+
+    layers = ['hand_f', 'fore_f', 'cov_wrist_f', 'upper_f', 'cov_elbow_f',
+              'foot_f', 'shin_f', 'thigh_f', 'cov_knee_f', 'foot_n', 'shin_n', 'thigh_n', 'cov_knee_n',
+              'pelvis', 'head', 'torso', 'helmet', 'upper_n', 'cov_shoulder_n', 'fore_n', 'cov_elbow_n',
+              'cov_wrist_n', 'hand_n']
     head = {'bubble_c': J['bubble_c'], 'old_c': np.array([932.5, 90.0]), 'dy': 9.0, 'scale': 0.9}
-    return Rig(J, bones, parts, layers, hands, lengths, bend, foot, ground, head)
+    return Rig(J, bones, parts, layers, hands, lengths, bend, foot, ground, head, covers)

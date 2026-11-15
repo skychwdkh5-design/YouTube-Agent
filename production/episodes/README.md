@@ -5,6 +5,12 @@
   `render.py` (parallel render + mux), `qc.py` (per-frame host QC), `cues.py`
   (phrase -> narration time), `synth_timing.py` (TEMP layout timing, never shipped).
 - `voyager_ep013/`, `artemis_ep014/` episode modules (`episode.py` + `scenes.py`).
+- `starship_ep015/` fully procedural 2.5D episode: `art.py` (numpy/PIL painter: ship, booster, tower,
+  plumes, skies), `common.py` (catch set, camera), `scenes_a..d.py`, `episode.py` (timeline, host shots,
+  music/SFX cues). Uses NASA SVS 5570 for the orbit backdrop; no SpaceX media.
+- `engine/retime.py` inserts breathing room after phrases in a finished narration and rewrites the
+  word timings (lip-sync and captions stay exact). `engine/score.py` makes the original score and
+  designed SFX (rumble, roar, plasma, hiss, clank...).
 - `cover_tools/` scripts that split the approved covers into layers and replace the
   painted host with the rig ATLAS (sources and layers live in /mnt/project-files/<ep>/cover/).
 - `test_fragment/` 12 s motion test (EP012 voice used only for lip-sync testing).

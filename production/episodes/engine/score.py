@@ -178,6 +178,34 @@ def sfx(kind, rng):
             a += c * (x[i] - a)
             y[i] = a
         return y * np.sin(np.pi * t / 0.8) ** 2 * 1.6
+    if kind in ('rumble', 'roar', 'plasma', 'hiss'):
+        # designed engine / air textures: filtered noise with an envelope (not recordings)
+        d, a_c, env_k = {'rumble': (4.0, 0.012, 1), 'roar': (3.2, 0.05, 2), 'plasma': (3.0, 0.25, 3), 'hiss': (2.6, 0.5, 4)}[kind]
+        t = tt(d)
+        x = rng.standard_normal(len(t))
+        y = np.zeros_like(x)
+        a = 0.0
+        for i in range(len(x)):
+            a += a_c * (x[i] - a)
+            y[i] = a
+        if kind in ('plasma', 'hiss'):
+            y = np.diff(np.concatenate([[0.0], y]))      # high-passed texture
+        if env_k == 1:
+            env = np.clip(t / 0.25, 0, 1) * np.exp(-np.clip(t - 1.2, 0, None) * 1.1)
+            y = y + 0.6 * np.sin(2 * np.pi * (34 + 6 * t) * t) * env
+        elif env_k == 2:
+            env = np.sin(np.pi * t / d) ** 0.6
+        elif env_k == 3:
+            env = np.sin(np.pi * t / d) ** 1.5
+        else:
+            env = np.clip(t / 0.05, 0, 1) * np.exp(-t * 1.4)
+        return y * env
+    if kind == 'clank':          # heavy metal contact: inharmonic partials + thump
+        t = tt(2.6)
+        body = sum(a * np.sin(2 * np.pi * f * t) * np.exp(-t * dcy) for f, a, dcy in
+                   [(97, 0.7, 3.2), (163, 0.5, 4.0), (271, 0.35, 5.5), (431, 0.25, 7.0), (617, 0.15, 9.0)])
+        thump = np.sin(2 * np.pi * (60 * t - 20 * t * t)) * np.exp(-t * 10)
+        return (body + thump) * 0.8
     if kind == 'hit':           # cinematic low accent
         t = tt(2.5)
         return (np.sin(2 * np.pi * (48 * t - 6 * t * t)) * np.exp(-t * 2.0) +

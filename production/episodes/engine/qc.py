@@ -41,7 +41,7 @@ def run(ep_path):
     prev = None
     prev_shot = None
     prev_contact = {}
-    slides, jerks, off, head_off = [], [], [], []
+    slides, jerks, off, head_off, spikes = [], [], [], [], []
     hist = []
     min_vis = 1.0
     mouth_pause = []
@@ -79,7 +79,11 @@ def run(ep_path):
         hist.append(js)
         if len(hist) >= 3:
             a, b, c = hist[-3], hist[-2], hist[-1]
-            jerks.append(max(float(np.hypot(*(c[k] - 2 * b[k] + a[k]))) for k in c))
+            jv = {k: float(np.hypot(*(c[k] - 2 * b[k] + a[k]))) for k in c}
+            jk_name = max(jv, key=jv.get)
+            jerks.append(jv[jk_name])
+            if jv[jk_name] > 18:
+                spikes.append((round(t, 2), round(jv[jk_name], 1), jk_name))
         # mouth must rest in pauses
         tw = t + 1 / FPS
         speaking = any(w['start'] - 0.06 <= tw <= w['end'] + 0.06 for w in words)
@@ -96,7 +100,7 @@ def run(ep_path):
     rep = dict(frames=n,
                head_offscreen_frames=len(head_off),
                foot_slide_px=dict(max=float(sl.max()), p99=float(np.percentile(sl, 99)), samples=len(slides)),
-               joint_jerk_px=dict(max=float(jk.max()), p99=float(np.percentile(jk, 99))),
+               joint_jerk_px=dict(max=float(jk.max()), p99=float(np.percentile(jk, 99)), spikes_gt_18=spikes[:40]),
                mouth_in_pauses=dict(frames=len(mouth_pause), max_open=float(mp.max()),
                                     share_open_gt_0_15=float((mp > 0.15).mean())),
                lipsync_corr_open_vs_rms=corr)

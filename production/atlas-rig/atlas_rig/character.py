@@ -16,7 +16,7 @@ import math
 import numpy as np
 from PIL import Image, ImageDraw
 
-from .mathx import T, S, ap, ang, lerp, smoothstep
+from .mathx import T, R, S, ap, ang, lerp, smoothstep, unit
 from .skeleton import build_rig, ASSETS
 from .skin import SkinnedPart, rasterize, quad_mesh, _premult
 from .pose import Pose, solve
@@ -34,6 +34,7 @@ class Atlas:
         self.skinned = {n: SkinnedPart(p, self.rig.J) for n, p in self.rig.parts.items()}
         self.face = Face(ref or os.path.join(ASSETS, 'ATLAS_reference_sheet.png'), glass=False)
         self._hand_px = {k: _premult(h.img) for k, h in self.rig.hands.items()}
+        self._cov_px = {}
 
     def solve(self, pose):
         return solve(self.rig, pose)
@@ -49,6 +50,8 @@ class Atlas:
                 key = next(k for k, v in self.rig.hands.items() if v is h)
                 U, tris = quad_mesh(h.img.shape[1], h.img.shape[0])
                 rasterize(canvas, self._hand_px[key], U, _apply(screen @ Mh, U), tris)
+            elif layer.startswith('cov_'):
+                self._cover(canvas, sol, screen, self.rig.covers[layer])
             elif layer == 'head':
                 im = self.face.render(**face_ctrl)
                 a = np.asarray(im).astype(np.float32) / 255
@@ -57,6 +60,33 @@ class Atlas:
             else:
                 sp = self.skinned[layer]
                 sp.draw(canvas, sp.deform(sol.bones, screen))
+
+    def cover_matrix(self, sol, c):
+        """image px -> world for a joint cover: centred on the joint, image +y along the bisector
+        of the incoming and outgoing bone directions; bellows shorten as the joint bends."""
+        j = sol.joints
+        p = j[c.joint]
+        u_in = unit(p - j[c.j_in])
+        if c.j_out is not None:
+            u_out = unit(j[c.j_out] - p)
+        else:                                             # wrist: follow the hand direction
+            s = c.joint[-1]
+            h, Mh = sol.hands[s]
+            u_out = unit(ap(Mh, h.tip) - ap(Mh, h.wrist))
+        axis = unit(c.w_in * u_in + (1 - c.w_in) * u_out)
+        bend = math.degrees(math.acos(max(-1.0, min(1.0, float(u_in @ u_out)))))
+        h_, w_ = c.img.shape[:2]
+        sc = c.width / w_
+        sy = c.sy * (1 - c.squash * min(bend, 120) / 90)
+        centre = p + axis * c.along
+        return T(*centre) @ R(ang(axis) - 90) @ S(sc, sc * sy) @ T(-w_ / 2, -h_ / 2)
+
+    def _cover(self, canvas, sol, screen, c):
+        if c.name not in self._cov_px:
+            self._cov_px[c.name] = _premult(c.img)
+        px = self._cov_px[c.name]
+        U, tris = quad_mesh(px.shape[1], px.shape[0])
+        rasterize(canvas, px, U, _apply(screen @ self.cover_matrix(sol, c), U), tris)
 
     def _shadows(self, canvas, sol, screen):
         H, W = canvas.shape[:2]
@@ -194,7 +224,7 @@ class Performance:
                 hd[s] = (lambda wrist, elbow, g=g: g.hand(t, wrist, elbow)[0])
                 pose_name = g.hand(t, wr[s], wr[s] - [1, -1])[1]
                 if pose_name:
-                    hp[s] = pose_name
+                    hp[s] = pose_name + ('_near' if s == 'n' and pose_name + '_near' in rig.hands else '')
         p.wrist = wr
         p.hand_dir = hd
         p.hand_pose = hp

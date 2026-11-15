@@ -1,0 +1,32 @@
+# EP015 Starship Flight 15 — scene table (as built)
+
+Generated from the episode code (`production/episodes/starship_ep015/episode.py`), so it matches the render.
+Every row is a cut. Placement changes only at cuts; inside a scene ATLAS moves only by stepping.
+Event → change → result is in the "On screen" column. Label = the on-screen rights label.
+
+| Time | Narration (start) | On screen (event → change → result) | ATLAS action / placement | Label |
+|---|---|---|---|---|
+| 0:00.0–0:06.3 | Thirty seconds from now, you're going to see a spacecraft do something no orbital Starship has ever done. | Frame 0 = cover; title fades, camera pulls back from the caught ship | walks +113 px; x≈330, faces right | ILLUSTRATION · NOT FLIGHT FOOTAGE |
+| 0:06.3–0:09.5 | It falls through Earth's atmosphere, slows down, | Ship falls through plasma, heat glow builds | open palm (near); x≈1650, faces left | VISUALIZATION · NOT FLIGHT FOOTAGE |
+| 0:09.5–0:11.0 | flips upright, and | Ship flips upright, engines light | points (far arm); x≈1650, faces left | ILLUSTRATION |
+| 0:11.0–0:12.8 | aims for a launch tower. | Ship steers to the tower | walks +183 px; x≈170, faces right | ILLUSTRATION |
+| 0:12.8–0:15.3 | No runway. No landing legs. | No runway, no legs: icons struck out | points (near arm), points (far arm); x≈170, faces right | ILLUSTRATION |
+| 0:15.3–0:20.4 | Just two enormous steel arms, waiting to grab it. | Chopsticks close on the ship: caught | walks +115 px, points (far arm), open palm (near); x≈250, faces right | ILLUSTRATION |
+| 0:20.4–0:41.3 | On November fourteenth, twenty twenty-six, SpaceX caught the Starship spacecraft after its trip around Earth. … | Split screen: ship caught vs booster diverted to Gulf | walks +97 px, points (far arm), open palm (near); x≈1010, faces left | ILLUSTRATION · SCHEMATIC MAP, NOT TO SCALE |
+| 0:41.3–0:42.2 | Let's rewind | Rewind wipe | idle breathing, gaze follows; x≈1500, faces left | — |
+| 0:42.2–1:11.1 | to Starbase, Texas, one day earlier. Flight fifteen lifted off on November thirteenth. At the bottom was the S… | Full stack lifts off, exhaust and rumble | walks +146 px, walks +98 px, points (far arm), points (near arm), open palm (near), open palm (far); x≈160, faces right | ILLUSTRATION · NOT FLIGHT FOOTAGE |
+| 1:11.1–1:20.4 | A few minutes into the flight, the stages parted. And from that moment, this mission became two very different… | Hot staging: stages part | points (far arm); x≈1640, faces left | ILLUSTRATION |
+| 1:20.4–1:28.2 | Super Heavy turned back toward the coast. Ship forty-two kept accelerating, heading for orbit. | Two paths drawn: booster home vs ship to orbit | points (far arm), points (near arm), open palm (far); x≈1460, faces left | SCHEMATIC |
+| 1:28.2–2:02.3 | The booster was supposed to return to the launch tower too. Super Heavy boosters had been caught by the tower … | Booster return path, catch called off, WHY box (cause unconfirmed) | walks +125 px, walks +56 px, points (near arm), points (far arm), open palm (near), open palm (far); x≈140, faces right | SCHEMATIC MAP · NOT TO SCALE |
+| 2:02.3–2:11.2 | So one half of the rocket was lost. Yet the other half was just beginning the most ambitious part of its journ… | Two stories, one flight | walks +133 px, points (far arm); x≈1700, faces left | ILLUSTRATION |
+| 2:11.2–2:34.5 | Ship forty-two reached orbit, roughly two hundred seventy-five kilometers above Earth, according to the missio… | NASA SVS Earth; ship circles, 26 satellites deploy, orbit counter to 14 | walks +113 px, points (far arm), points (near arm), open palm (near), open palm (far); x≈230, faces right | EARTH: NASA SVS VISUALIZATION · SHIP, ORBIT, SATELLITES: ILLUSTRATION |
+| 2:34.5–3:07.3 | Now the big question was not whether Starship could reach orbit. It was whether it could come back from orbit … | Orbital speed + energy bar: why coming home is hard | walks +135 px, points (far arm), points (near arm), open palm (near), open palm (far); x≈1700, faces left | SCHEMATIC · NOT TO SCALE |
+| 3:07.3–3:15.2 | First came the deorbit burn, a short engine firing that bends the ship's path down into the atmosphere. | Deorbit burn schematic | points (far arm), points (near arm), open palm (near); x≈1680, faces left | SCHEMATIC · NOT TO SCALE |
+| 3:15.2–3:31.3 | Then the air did most of the braking. Air piled up in front of the vehicle. Temperatures soared. Glowing plasm… | Reentry plasma, heat-shield insets, heat bar | walks +100 px, points (far arm), points (near arm), open palm (near); x≈150, faces right | VISUALIZATION · NOT FLIGHT FOOTAGE |
+| 3:31.3–4:15.0 | And this is where the landing gets strange. An airplane needs a runway. A returning capsule usually drops unde… | Why catch? lanes, chopsticks, legs vs payload | walks +106 px, walks +83 px, points (far arm), points (near arm), open palm (near); x≈120, faces right | SCHEMATIC · NOT TO SCALE |
+| 4:15.0–4:38.6 | Think about how small that margin is. The tower cannot chase a rocket across Texas. Starship has to put itself… | Final approach precision schematic | walks +136 px, points (far arm), points (near arm), open palm (near); x≈120, faces right | SCHEMATIC · NOT TO SCALE |
+| 4:38.6–5:10.1 | And then it happened. On November fourteenth, about twenty-two and a half hours after liftoff, Ship forty-two … | Flip, burn, arms close, 6 s silent beat, steam | walks +89 px, points (far arm), open palm (near); x≈170, faces right | ILLUSTRATION · NOT FLIGHT FOOTAGE |
+| 5:10.1–5:34.9 | This is where a lot of headlines get a little too excited. Catching a spacecraft is not the same as proving it… | Headline struck, inspection checklist | walks +74 px, points (far arm), points (near arm), open palm (near); x≈160, faces right | ILLUSTRATION |
+| 5:34.9–6:03.2 | So why does this matter? Because bringing an orbital spacecraft back to its own launch site is a major step to… | Reuse loop builds; dream vs data | walks +83 px, points (far arm), points (near arm), open palm (near), open palm (far); x≈1700, faces left | SCHEMATIC |
+| 6:03.2–6:18.8 | What comes next may matter even more. Can engineers inspect this ship, fly it again, and repeat the process re… | Milestone ladder | walks +149 px, points (far arm), open palm (near); x≈160, faces right | — |
+| 6:18.8–6:32.0 | I'm Atlas. And the wildest part of this story isn't that a rocket came home. It's that the next challenge is m… | Dawn at Starbase, fade | walks +48 px, open palm (near), open palm (far); x≈420, faces right | ILLUSTRATION |
