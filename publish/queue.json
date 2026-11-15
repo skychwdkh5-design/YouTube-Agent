@@ -751,6 +751,62 @@
     "owner_exception": "thumbcheck objective FAIL (no white/yellow headline; see docs/THUMBNAIL_STYLE_GUIDE.md section 6). Owner (Егор) 2026-11-12 18:18Z: 'Обложки те что я скидывал, начало не меняем' - his supplied cover published unchanged.",
     "note": "Owner-supplied cover (approved_*_source.png, 1672x941 cropped/scaled to 1280x720). Video opening keeps the rig-ATLAS version of the same cover."
    }
+  },
+  {
+   "id": "ep015",
+   "mode": "approval",
+   "kind": "long",
+   "media": {
+    "asset": "EP015_v2_Starship_1080p30.mp4",
+    "sha256": "de01ec266c27c97e30e3bc2ce2ace751ff2c705ec2076375816ea1927654e1a4",
+    "seconds": 392.0
+   },
+   "title": "SpaceX Caught Starship From Orbit… But Lost the Booster",
+   "title_status": "final",
+   "title_options": [
+    "SpaceX Caught Starship From Orbit… But Lost the Booster"
+   ],
+   "description": "SpaceX Caught Starship From Orbit… But Lost the Booster\n\nOn November 14, 2026, SpaceX's launch tower caught a Starship upper stage that had come back from orbit, a first. On the same flight, Flight 15, the Super Heavy booster's catch was called off and the booster was lost in the Gulf. Here is what happened, why catching a spacecraft is so hard, and what one catch still does not prove.\n\nFacts as of November 15, 2026. Elon Musk said the booster was low on fuel and had guidance and navigation issues; SpaceX has not published a final root cause.\n\nCHAPTERS\n0:00 Caught, but the booster was lost\n0:41 Liftoff from Starbase\n1:11 Two stages, two stories\n1:38 Why the booster didn't come back\n2:11 Fourteen orbits, 26 satellites\n2:39 Why coming home is hard\n3:15 Through the plasma\n3:50 Aiming for the chopsticks\n4:38 The moment it was caught\n5:10 What one catch does not prove\n5:35 Why it matters\n6:03 What comes next\n\nWHAT YOU ARE SEEING\n- No footage from Flight 15 is used. Every live shot is ARCHIVE footage from earlier Starship flights and is labelled on screen with the flight and date.\n- Flight 5 booster catch (Oct 13, 2024): Anne Toal, CC BY 3.0, via Wikimedia Commons; TimBunning1, CC0, via Wikimedia Commons.\n- Flight 2 (Nov 18, 2023): NASA video and U.S. Customs and Border Protection aerostat video, public domain; Ship 25 debris on weather radar, NOAA / National Weather Service, public domain.\n- Flight 1 (Apr 20, 2023): NASA WB-57 tracking camera, public domain.\n- Flight 6 seen from orbit (Nov 19, 2024): GOES satellite imagery, NOAA / CIRA, public domain.\n- Earth from orbit: NASA Scientific Visualization Studio (svs.gsfc.nasa.gov/5570).\n- The abort map, orbit, re-entry and ship-catch sequences are Orbital Atlas schematics and illustrations, marked SCHEMATIC / ILLUSTRATION.\n- Launch sound: NASA Flight 2 recording (public domain). Music and sound effects are original.\n- Narration: synthetic voice (ElevenLabs).\n\nSOURCES\n- CNBC: https://www.cnbc.com/2026/11/14/spacex-plans-to-try-first-ever-catch-of-starship-rocket-from-orbit.html\n- Space.com, booster catch aborted: https://www.space.com/space-exploration/launches-spacecraft/spacex-starship-flight-15-chopsticks-double-catch-super-heavy-ship\n- Engadget: https://www.engadget.com/2316926/watch-spacex-attempt-to-catch-the-starship-upper-stage-for-the-first-time/\n- Wikimedia Commons (archive footage licences): https://commons.wikimedia.org\n\nOrbital Atlas is not affiliated with or endorsed by SpaceX or NASA.\n\n#Starship #SpaceX #Space",
+   "tags": [
+    "Starship",
+    "SpaceX",
+    "Starship Flight 15",
+    "Ship 42",
+    "Super Heavy",
+    "booster",
+    "chopsticks",
+    "tower catch",
+    "Starbase",
+    "rocket landing",
+    "reusable rockets",
+    "space",
+    "OrbitalAtlas"
+   ],
+   "category_id": "27",
+   "default_language": "en",
+   "made_for_kids": false,
+   "contains_synthetic_media": false,
+   "disclosure_basis": "Narration is a stock text-to-speech voice (ElevenLabs Adam); no host character; imagery is real archive footage of earlier Starship flights (each labelled ARCHIVE with flight, date and credit, never presented as Flight 15) plus Orbital Atlas schematics/illustrations labelled SCHEMATIC/ILLUSTRATION and NASA SVS Earth; no realistic fabricated people or events.",
+   "thumbnail": "publish/assets/ep015/thumbnail.jpg",
+   "captions": {
+    "file": "publish/assets/ep015/captions.srt",
+    "language": "en",
+    "name": "English"
+   },
+   "publish_at": "2026-11-16T01:00:00Z",
+   "related": null,
+   "owner_approval": {
+    "approved": false,
+    "sha256": null,
+    "publish_at": null
+   },
+   "thumbnail_review": {
+    "result": "PASS",
+    "sha256": "1bcf082427286ac9c6ec23e16f6fd53c67c9d879f3b8aa8c52774fb26f1aabc8",
+    "owner_approved": true,
+    "owner_exception": "thumbcheck objective FAIL only on yellow accent (red accent instead); owner-supplied RU cover 'ОНИ ПОЙМАЛИ STARSHIP / НО УСКОРИТЕЛЬ ПОТЕРЯН!' fixed unchanged by Егор 2026-11-15 17:46Z (THUMBNAIL_STYLE_GUIDE section 6).",
+    "note": "Owner-supplied cover; frame 0 of the video is the same image."
+   }
   }
  ],
  "expected_channel_id": "UC2QxQJhUe9Q5NMRNb6M9ddw",
@@ -760,5 +816,6 @@
  "_note_ep010": "EP010 added 2026-11-05 for chat-publish (owner 18:22 ICT): publish 2026-11-06 08:00 ICT = 01:00Z; media from DRAFT release ep010-v1 (verified run 42018850821: sha OK, 1920x1080 30/1, no decode errors). Channel inventory run 42018568659: no EP010. Earlier entries unchanged.",
  "_note_ep011": "EP011 added 2026-11-05 (owner thread: produce and schedule in the nearest free slot): publish 2026-11-07T01:00Z = next free 01:00Z slot after EP010 (channel inventory run 42033341188: only EP010 scheduled, no EP011). Media from DRAFT release ep011-v1 (store run on branch claude/project-thread-r5acwi). Earlier entries unchanged.",
  "_note_ep012": "EP012 added 2026-11-07 (owner thread: approved v2, nearest free future 08:00 Asia/Ho_Chi_Minh slot, earlier entries unchanged): publish 2026-11-08T01:00Z. Media from DRAFT release ep012-v2 (store run on branch claude/project-thread-l93wz1); file = project copy sha256 789c6fc0...",
- "_note_ep013_ep014": "EP013/EP014 added 2026-11-12 (owner approved v2 content 18:14Z and asked to queue both). Times proposed on the cards (08:00 Asia/Ho_Chi_Minh): EP013 2026-11-14T01:00Z (before the Nov 18 one-light-day milestone the video names), EP014 2026-11-16T01:00Z. Media from DRAFT release ep013-ep014-v2 (store run on branch claude/project-thread-b4lbdu)."
+ "_note_ep013_ep014": "EP013/EP014 added 2026-11-12 (owner approved v2 content 18:14Z and asked to queue both). Times proposed on the cards (08:00 Asia/Ho_Chi_Minh): EP013 2026-11-14T01:00Z (before the Nov 18 one-light-day milestone the video names), EP014 2026-11-16T01:00Z. Media from DRAFT release ep013-ep014-v2 (store run on branch claude/project-thread-b4lbdu).",
+ "_note_ep015": "EP015 added 2026-11-15. Owner (Егор) asked to queue for 08:00 Asia/Ho_Chi_Minh (2026-11-16T01:00Z) and gave 'Одобряю ep015' IN ADVANCE (18:24Z, before the card), then explicitly ruled 18:27Z: 'Я эти правила создавал, если я говорю, что заранее одобряю, значит одобряю заранее'. Owner exception to the consent-after-card rule, for EP015 only; the card is shown and logged before the approval record is made, and the owner is sent the card + link after scheduling so he can cancel before release. Media from DRAFT release ep015-v2 (store run on branch claude/project-thread-7fch0v)."
 }

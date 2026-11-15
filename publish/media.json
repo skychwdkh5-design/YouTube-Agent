@@ -1,20 +1,12 @@
 {
- "bundle": "ep013-ep014-v2",
+ "bundle": "ep015-v2",
  "files": [
   {
-   "asset": "EP013_Voyager_v2_1080p30.mp4",
-   "sha256": "8081dd07d2c0c018a979f74b6cad4008e31794f037f2c04cee2ad6ab3fa11ba3",
-   "size": 109477228,
+   "asset": "EP015_v2_Starship_1080p30.mp4",
+   "sha256": "de01ec266c27c97e30e3bc2ce2ace751ff2c705ec2076375816ea1927654e1a4",
+   "size": 130119216,
    "source": {
-    "release": "ep013-ep014-v2"
-   }
-  },
-  {
-   "asset": "EP014_Artemis_v2_1080p30.mp4",
-   "sha256": "8cce99656b020b9c055ddac0e640d34fd04e900e4975aeb0cdf3718ace462451",
-   "size": 96326732,
-   "source": {
-    "release": "ep013-ep014-v2"
+    "release": "ep015-v2"
    }
   }
  ]
