@@ -59,7 +59,17 @@ class Point:
         return self.t0 <= t < self.t_end
 
     def wrist(self, t, shoulder, rest, L):
-        """World wrist target at time t (shoulder/rest are world points this frame)."""
+        """World wrist target at time t (shoulder/rest are world points this frame).
+        The relax always starts from where the hand actually is at hold_until, so a short
+        hold (cut into the move or the accent) never makes the hand jump."""
+        if t >= self.hold_until:
+            start = self._pre(self.hold_until, shoulder, rest, L)
+            u = smoothstep((t - self.hold_until) / self.relax)
+            c = 0.5 * (start + rest) + np.array([10.0, 12.0])
+            return _keep_out(bezier(start, c, rest, u), shoulder, 0.6 * L)
+        return self._pre(t, shoulder, rest, L)
+
+    def _pre(self, t, shoulder, rest, L):
         T = self.tgt(t)
         d = unit(T - shoulder)
         aim = shoulder + d * L * self.reach
@@ -73,16 +83,16 @@ class Point:
             off = _up_perp(aim - gather) * self.arc * np.hypot(*(aim - gather))
             # bow the path AWAY from the shoulder, so the hand never folds through it
             c = mid + off if np.hypot(*(mid + off - shoulder)) >= np.hypot(*(mid - off - shoulder)) else mid - off
+            m = 0.25 * gather + 0.5 * c + 0.25 * aim
+            need = 1.25 * 0.6 * L - float(np.hypot(*(m - shoulder)))
+            if need > 0:      # route the arc out round the shoulder (curve midpoint moves half as far as c)
+                c = c + unit(m - shoulder) * 2.0 * need
             return _keep_out(bezier(gather, c, aim, u), shoulder, 0.6 * L)
         if t < self.t_acc + self.accent:
             u = (t - self.t_acc) / self.accent
             return aim + d * 6.0 * math.sin(math.pi * u) * (1 - 0.4 * u)
-        if t < self.hold_until:
-            u = smoothstep((t - self.t_acc - self.accent) / 0.55)
-            return lerp(aim, soft, u)
-        u = smoothstep((t - self.hold_until) / self.relax)
-        c = 0.5 * (soft + rest) + np.array([10.0, 12.0])
-        return _keep_out(bezier(soft, c, rest, u), shoulder, 0.6 * L)
+        u = smoothstep((t - self.t_acc - self.accent) / 0.55)
+        return lerp(aim, soft, u)
 
     def weight(self, t):
         """How much this gesture owns the arm (1 between prep start and relax end)."""
@@ -116,12 +126,16 @@ class Point:
 
 
 def _keep_out(p, centre, rmin):
-    """Push p radially out of a small disc round the shoulder (no folded, flipping elbow)."""
+    """Push p radially out of a small disc round the shoulder (no folded, flipping elbow).
+    Soft (C1) and monotone: r -> r + (r1 - r)^2 / (2*r1) inside r1 = 1.4*rmin (floor 0.7*rmin),
+    so a path that grazes the shoulder bends round it smoothly instead of snapping onto the
+    disc edge; points beyond r1 (every aim at 0.9 L) are untouched."""
     v = p - centre
     r = float(np.hypot(*v))
-    if r >= rmin or r < 1e-6:
+    r1 = 1.4 * rmin
+    if r >= r1 or r < 1e-6:
         return p
-    return centre + v / r * rmin
+    return centre + v / r * (r + (r1 - r) ** 2 / (2.0 * r1))
 
 
 def _up_perp(v):

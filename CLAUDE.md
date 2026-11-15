@@ -109,3 +109,4 @@ Before new Orbital Atlas visuals or storyboard work, read `docs/ORBITAL_ATLAS_VI
 ## ATLAS character animation
 
 All ATLAS animation uses the shared rig in `production/atlas-rig/`; mandatory rules are in `AGENTS.md`, design in `docs/ATLAS_RIG.md`.
+Motion standard for every episode (joints, joint covers, no-snap/no-slide rules, QC thresholds): `docs/ATLAS_MOTION_BIBLE.md` — read it before any ATLAS work.

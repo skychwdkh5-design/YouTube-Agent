@@ -108,6 +108,14 @@ samples premultiplied colour bilinearly, using a ½-scale level when the part is
 not grow new folds. Strong bends (more than ~110° at the elbow) compress the inner side.
 Hand-painted corrective bend drawings would be the next step (see §8).
 
+### Joint covers (2026-11-15)
+
+Painted overlap pieces (`assets/joints/`, from the owner's `ATLAS_joint_parts.png`) sit over the elbows,
+knees, wrists and the near shoulder so a bend reads as one continuous sleeve. They are `Cover` entries in
+`skeleton.py` (joint, inner/outer bone, width, squash), placed by `character.cover_matrix` on the bisector
+of the two bones and compressed with the bend angle. Rules and the parts not used yet:
+`docs/ATLAS_MOTION_BIBLE.md` §2.
+
 ## 5. Locomotion (`gait.Walk`)
 
 1. **Footsteps first.**
@@ -146,7 +154,7 @@ Hand-painted corrective bend drawings would be the next step (see §8).
   | move | 0.5 s | Follows a quadratic Bezier, bowed upward, to an aim point at 90% of arm length (soft elbow). |
   | accent | 0.28 s | Pushes 6 px toward the target and settles. |
   | hold | until `hold_until` | The elbow softens and the hand drops about 9°. |
-  | relax | 0.75 s | Follows a curved path back to rest. |
+  | relax | 0.75 s | Follows a curved path back to rest, starting from where the hand actually is (a hold cut short never jumps). |
 
   - The hand turns toward the target 0.1 s after the wrist starts moving.
   - The hand image swaps (relaxed ↔ point) while the hand is moving.

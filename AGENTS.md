@@ -4,7 +4,8 @@ Project rules for agents. Project strategy and publishing rules are in `CLAUDE.m
 
 ## ATLAS character animation (mandatory)
 
-Details, parameters and how to add actions: `docs/ATLAS_RIG.md`. Code: `production/atlas-rig/`.
+Details, parameters and how to add actions: `docs/ATLAS_RIG.md`. Motion standard and QC thresholds:
+`docs/ATLAS_MOTION_BIBLE.md`. Code: `production/atlas-rig/`.
 
 1. Every scene uses the shared ATLAS component (`atlas_rig.character.Atlas` + `Performance`).
    Do not copy the renderer into scene files. Skeleton geometry, segment lengths, joints, layer
