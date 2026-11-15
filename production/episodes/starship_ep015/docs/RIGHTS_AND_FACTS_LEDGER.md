@@ -59,3 +59,25 @@ Numbers the script deliberately avoids:
 **Verification note:** I could not open the AP, Space.com or Verge pages directly from this
 environment because of network blocks. The claims above come from those outlets' search snippets
 and the ZIP's source ledger. Open each link once before publishing.
+
+## v2 (2026-11-15): live archive footage, no host
+
+No Flight 15 footage is used. SpaceX media is not used (non-commercial licence). Every live shot carries an on-screen ARCHIVE label with the flight, the date and the credit. Licences were read from the Wikimedia Commons file metadata (imageinfo extmetadata) on 2026-11-15. The files were supplied by the owner because upload.wikimedia.org returned 429 here. The sizes and durations match the Commons originals exactly.
+
+| File (src/) | Commons file | Licence / author | SHA256 (prefix) | Used for |
+|---|---|---|---|---|
+| ift5_catch.webm | SpaceX Starship integrated flight test -5 - launch and catch - 13 October 2024.webm | CC BY 3.0, Anne Toal | 9008ca41 | Flight 5 booster catch (hook, earlier catches) |
+| ift5_booster_cc0.webm | Space X Starship Flight 5 Booster Landing.webm | CC0, TimBunning1 | 63004d31 | Flight 5 crowd and booster return (portrait) |
+| ift2_nasa.webm | Starship IFT2 NASA Video 2 Part 1.webm | Public domain, NASA | fa84d7b1 | Flight 2 ascent and booster loss, plus launch audio |
+| ift2_aerostat.webm | RF IFT2 Aerostat.webm | Public domain, US Customs and Border Protection | 5e8a6c49 | Flight 2 liftoff, tower close-up |
+| ift1_wb57.webm | SpaceX Starship IFT-1 NASA WB-57 Cam 0.webm | Public domain, NASA | 353348c2 | Flight 1 tumble and explosion ("not routine yet") |
+| ship25_debris.webm | SpaceX Starship Ship 25 debris re-entering the atmosphere.webm | Public domain, NOAA/NWS | 6da98edb | Flight 2 ship debris on weather radar |
+| cira6.webm | Starship Sixth Flight Test From SpaceX (CIRA 2024-11-19 - nolabels).webm | Public domain, GOES (NOAA/CIRA) | 9c6c5980 | Flight 6 seen from orbit |
+| cira8.webm | SpaceX's Eighth Starship Launch and Reentry (CIRA 2025-03-06 - nolabels).webm | Public domain, GOES (NOAA/CIRA) | 01cbc94f | not used in v2 |
+
+The v1 explainer graphics remain for the beats that have no free footage: the abort map, orbit (NASA SVS 5570), re-entry, the reason for the chopsticks, and the ship catch. These are labelled SCHEMATIC, ILLUSTRATION or VISUALIZATION.
+
+Fact recheck (2026-11-15, web search):
+- CNBC, Engadget and Space.com confirm that Ship 42 was caught on Nov 14 after 14 orbits and that 26 Starlink V3 satellites were deployed.
+- The Booster 22 catch was called off, and the booster was diverted to the Gulf.
+- Musk said the booster was "slightly low on fuel" and had GNC issues. No official root cause has been published, which matches the narration ("not confirmed").
