@@ -37,7 +37,7 @@ def _ctx(mod_path):
         from host import Atlas
         ep = load_episode(mod_path)
         atlas = Atlas()
-        host = ep.build_host(atlas)
+        host = None if getattr(ep, 'NO_HOST', False) else ep.build_host(atlas)
         _CTX.update(ep=ep, atlas=atlas, host=host)
     return _CTX['ep'], _CTX['atlas'], _CTX['host']
 
@@ -46,14 +46,17 @@ def frame(mod_path, i, debug=False):
     ep, atlas, host = _ctx(mod_path)
     t = i / FPS
     bg = ep.background(t).convert('RGB')
-    can = np.dstack([np.asarray(bg, np.float32) / 255, np.ones((H, W, 1), np.float32)])
-    pose = host.pose(t, i)
-    sol = atlas.solve(pose)
-    atlas.draw(can, sol, host.screen(t), host.face(t, i))
-    img = Image.fromarray((np.clip(can[..., :3], 0, 1) * 255 + 0.5).astype(np.uint8), 'RGB')
+    if host is None:                       # footage-led episode without the ATLAS host layer
+        img = bg
+    else:
+        can = np.dstack([np.asarray(bg, np.float32) / 255, np.ones((H, W, 1), np.float32)])
+        pose = host.pose(t, i)
+        sol = atlas.solve(pose)
+        atlas.draw(can, sol, host.screen(t), host.face(t, i))
+        img = Image.fromarray((np.clip(can[..., :3], 0, 1) * 255 + 0.5).astype(np.uint8), 'RGB')
     if hasattr(ep, 'overlay'):
         ep.overlay(t, img)
-    if debug:
+    if debug and host is not None:
         from atlas_rig.character import draw_debug
         draw_debug(img, sol, host.screen(t), pose, host.perf.contacts(t), atlas.rig, t, 'debug')
     return img

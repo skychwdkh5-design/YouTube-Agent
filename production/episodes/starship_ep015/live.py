@@ -21,7 +21,7 @@ PLATES = '/mnt/project-files/starship/EP015/live/plates'
 
 
 class Seg:
-    def __init__(self, name, t0, t1, src, s0, crop=None, push=(1.0, 1.12), focus=(0.5, 0.5),
+    def __init__(self, name, t0, t1, src=None, s0=0.0, crop=None, push=(1.0, 1.12), focus=(0.5, 0.5),
                  label='', credit='', mode='full', grade=1.0, speed=1.0):
         self.name, self.t0, self.t1, self.src, self.s0 = name, t0, t1, src, s0
         self.crop, self.push, self.focus = crop, push, focus
