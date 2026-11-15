@@ -51,7 +51,7 @@ def abort(cv, t):
     v = Vec()
     x, y, w, h = MAP
     a = rng(t, S5, S5 + 0.5)
-    sb = gulf_map_big(v, a)
+    sb = gulf_map_big(v, a, 1 - rng(t, S5_REPORTS - 0.2, S5_REPORTS + 0.3))
     _, start, ret, k, p_ab, div = _map_geom()
     # tower icon at Starbase
     v.rect(sb[0] - 8, sb[1] - 70, 16, 70, (180, 186, 196), a=a)
@@ -69,7 +69,8 @@ def abort(cv, t):
     if called > 0:
         pulse = 0.5 + 0.5 * math.sin((t - S5_CALLED) * 8)
         v.circle(p_ab[0], p_ab[1], 30 + 14 * pulse, None, YELLOW, 4, called * (1 - rng(t, S5_DIV, S5_DIV + 1)))
-        tag(v, 'TOWER CATCH CALLED OFF', p_ab[0] - 150, p_ab[1] - 56, YELLOW, 26, called)
+        tag(v, 'TOWER CATCH CALLED OFF', p_ab[0] - 150, p_ab[1] - 56, YELLOW, 26,
+            called * (1 - rng(t, S5_MATTERS - 0.3, S5_MATTERS + 0.2)))
     # the planned remainder to the tower is crossed out
     rx = rng(t, S5_RULED + 0.6, S5_RULED + 1.2)
     if rx > 0:
@@ -117,7 +118,7 @@ def abort(cv, t):
     v.onto(cv)
 
 
-def gulf_map_big(v, a):
+def gulf_map_big(v, a, label_a=1.0):
     x, y, w, h = MAP
     v.rect(x, y, w, h, (20, 46, 74), (255, 255, 255, 70), 2, a=a, r=12)
     coast = [(x + w * 0.05, y), (x + w * 0.15, y + h * 0.2), (x + w * 0.21, y + h * 0.4), (x + w * 0.245, y + h * 0.62),
@@ -125,7 +126,7 @@ def gulf_map_big(v, a):
     v.poly([(x + 2, y + 2)] + coast + [(x + 2, y + h - 2)], (58, 64, 52), a)
     v.line(coast, (190, 200, 180), 3, a * 0.8)
     v.text('TEXAS', x + 34, y + 70, 30, (210, 214, 196), 'm', a=a * 0.85)
-    v.text('GULF OF MEXICO', x + w * 0.66, y + h * 0.9, 30, (150, 196, 230), 'm', 'ms', a=a * 0.85)
+    v.text('GULF OF MEXICO', x + w * 0.66, y + h * 0.9, 30, (150, 196, 230), 'm', 'ms', a=a * 0.85 * label_a)
     sb = (x + w * 0.24, y + h * 0.62)
     v.circle(sb[0], sb[1], 10, (255, 220, 140), a=a)
     v.text('STARBASE', sb[0] - 24, sb[1] + 42, 24, CREAM, 'm', 'rs', a=a)

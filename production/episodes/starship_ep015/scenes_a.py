@@ -34,9 +34,19 @@ def hook_cover(cv, t):
     a = 1 - smooth(t / 0.55)
     dy = -90 * smooth(t / 0.55)
     if a > 0.003:
-        v.text('THEY', 78, 290 + dy, 132, (255, 255, 255), 'b', 'ls', a, 10, (0, 0, 0))
-        v.text('CAUGHT IT', 78, 435 + dy, 132, YELLOW, 'b', 'ls', a, 10, (0, 0, 0))
+        v.text('THEY', 70, 300 + dy, TITLE_BIG, (255, 255, 255), 'b', 'ls', a, 12, (0, 0, 0))
+        v.text('CAUGHT IT', 74, 300 + TITLE_GAP + dy, TITLE_SMALL, YELLOW, 'b', 'ls', a, 11, (0, 0, 0))
     v.onto(cv)
+    # cover grade (channel thumbnail standard: strong contrast, saturated); eases out with the pull-back
+    g = 1 - smooth(u)
+    if g > 0.002:
+        lum = cv.a.mean(axis=2, keepdims=True)
+        cv.a = lum + (cv.a - lum) * (1 + COVER_SAT * g)
+        cv.a = COVER_PIV + (cv.a - COVER_PIV) * (1 + COVER_CON * g)
+
+
+TITLE_BIG, TITLE_SMALL, TITLE_GAP = 245, 136, 172
+COVER_SAT, COVER_CON, COVER_PIV = 0.30, 0.70, 70.0
 
 
 def hook_plasma(cv, t):
