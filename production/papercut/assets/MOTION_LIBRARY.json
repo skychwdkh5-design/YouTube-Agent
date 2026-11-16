@@ -1,0 +1,38 @@
+{
+  "idle": {
+    "bob_px": 5,
+    "roll_deg": 1.0,
+    "scale_percent": 0.6,
+    "period_s": 2.5
+  },
+  "explain": {
+    "bob_px": 4,
+    "roll_deg": 1.5,
+    "scale_percent": 1.2,
+    "period_s": 1.9
+  },
+  "listen": {
+    "bob_px": 2,
+    "roll_deg": 0.6,
+    "scale_percent": 0.3,
+    "period_s": 3.1
+  },
+  "surprise": {
+    "bob_px": 8,
+    "roll_deg": 1.6,
+    "scale_percent": 2.5,
+    "period_s": 1.3
+  },
+  "entrance": {
+    "start_x": -160,
+    "end_x": 0,
+    "duration_s": 0.8,
+    "easing": "smoothstep"
+  },
+  "exit": {
+    "start_x": 0,
+    "end_x": 160,
+    "duration_s": 0.8,
+    "easing": "smoothstep"
+  }
+}
