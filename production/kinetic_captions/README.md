@@ -13,3 +13,10 @@ Orbital Atlas yellow from the thumbnail standard.
 python3 -I scenes/test_captions.py --media /mnt/project-files --out test.mp4 [--accent lime] [--frames 1.0,2.5]
 ```
 Output of test 01: `/mnt/project-files/captions/test01/` (ffprobe.txt, control_frames/, contact.jpg).
+
+## Status: APPROVED standard (Егор, 2026-11-16 11:40Z)
+
+Test 01 approved ("Одобряю, закрепляем"). From now on every Orbital Atlas video uses these kinetic
+captions instead of plain burned-in subtitles: yellow accent (255,210,31), Unbounded 900 uppercase,
+word-timed pop-in, keyword boxes, count-up hero numbers, HUD frame + countdown ring + "ARCHIVE // source"
+label on archive footage. YouTube closed captions (SRT/VTT from /yt-captions) are still uploaded separately.

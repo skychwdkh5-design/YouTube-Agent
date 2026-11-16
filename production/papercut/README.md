@@ -83,4 +83,4 @@ The Earthrise source is NASA SVS 15110 (in the project files under `media_v2/svs
 - System approved after test 2, on condition that **at least 70 % of every video is live footage and
   experiments**; the paper-cut ATLAS and graphics fill at most 30 %.
 - Plain subtitles are replaced by **motion-graphics captions** in the style Егор uses on "Nexi"
-  (reference pending).
+  (approved 2026-11-16, see `production/kinetic_captions/`).
