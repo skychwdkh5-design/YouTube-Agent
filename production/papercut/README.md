@@ -77,3 +77,10 @@ The Earthrise source is NASA SVS 15110 (in the project files under `media_v2/svs
   blink (3 phases) and loudness-driven mouth (3 states) on the hero, sheet effect marks.
   Glove wave code exists but is NOT used: it tears at the helmet edge.
 - `scenes/test20.py`: the 20 s interaction test. Report: `ANIMATION_TEST20.md`.
+
+## Owner rules (Егор, 2026-11-16)
+
+- System approved after test 2, on condition that **at least 70 % of every video is live footage and
+  experiments**; the paper-cut ATLAS and graphics fill at most 30 %.
+- Plain subtitles are replaced by **motion-graphics captions** in the style Егор uses on "Nexi"
+  (reference pending).
