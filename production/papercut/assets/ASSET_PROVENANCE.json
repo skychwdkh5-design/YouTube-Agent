@@ -1,0 +1,8 @@
+{
+  "source": "source/APPROVED_CONCEPT_UNMODIFIED.png",
+  "source_sha256": "a0a68a20ed4c16a6e57589919a1ba8afca48484d870aa234079d348f04c9cbfe",
+  "master": "characters/hero_approved_clean.png",
+  "master_sha256": "c313b8ade1d4c6db3e739bb979630d19be9e6d8f6220ce17f0292d12470def40",
+  "method": "non-generative alpha polygon from approved artwork",
+  "safety": "original approved visible pixels retained; arm/leg layers not production-ready"
+}
