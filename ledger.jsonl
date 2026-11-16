@@ -112,3 +112,5 @@
 {"at": "2026-11-15T19:03:06+00:00", "event": "captions_set", "sha256": "de01ec266c27c97e30e3bc2ce2ace751ff2c705ec2076375816ea1927654e1a4", "id": "ep015", "video_id": "1TAlkxnuDJY"}
 {"at": "2026-11-15T19:03:07+00:00", "event": "verified", "sha256": "de01ec266c27c97e30e3bc2ce2ace751ff2c705ec2076375816ea1927654e1a4", "id": "ep015", "video_id": "1TAlkxnuDJY", "ok": true, "privacyStatus": "private", "publishAt": "2026-11-16T01:00:00Z", "uploadStatus": "uploaded"}
 {"at": "2026-11-15T19:03:07+00:00", "event": "approval_done", "approval_id": "34659b47fa70487eb189769158fa4b26", "ids": ["ep015"]}
+{"at": "2026-11-16T03:08:44+00:00", "event": "release_confirmed", "video_id": "J6T1JGIUYRI", "id": "ep014", "publishAt": "2026-11-16T01:00:00Z", "privacyStatus": "public", "delay_s": 7724}
+{"at": "2026-11-16T03:08:44+00:00", "event": "release_confirmed", "video_id": "1TAlkxnuDJY", "id": "ep015", "publishAt": "2026-11-16T01:00:00Z", "privacyStatus": "public", "delay_s": 7724}
