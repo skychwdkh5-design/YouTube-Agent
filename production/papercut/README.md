@@ -68,3 +68,12 @@ The Earthrise source is NASA SVS 15110 (in the project files under `media_v2/svs
   We do not retouch the asset (appearance is frozen); hide the boot base under a ground line or
   frame edge if it becomes noticeable.
 - Max on-screen size ~460 px wide (24 %); bigger close-ups would need a higher-resolution master.
+
+## Animation system v2 (test 2, 20 s)
+
+- `tools/extract_sheet.py` -> `assets/sheet_cutouts/`: 6 poses, 4 turnaround views, 6 emotion heads and
+  the "!!" mark cut 1:1 from the approved sheet (checksums in MANIFEST.json).
+- `papercut/actor.py`: `Actor` / `ActorCue` - hard-cut pose switching with the feet line kept,
+  blink (3 phases) and loudness-driven mouth (3 states) on the hero, sheet effect marks.
+  Glove wave code exists but is NOT used: it tears at the helmet edge.
+- `scenes/test20.py`: the 20 s interaction test. Report: `ANIMATION_TEST20.md`.

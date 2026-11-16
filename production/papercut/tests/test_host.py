@@ -48,7 +48,21 @@ def main():
     info = h.render(fr, 2.0)
     x0, y0, x1, y1 = info["bbox"]
     assert 0 <= x0 < x1 <= 1920 and 0 <= y0 < y1 <= 1080
-    print("OK: paper-cut host guards")
+    # actor: open/open face is the untouched hero; every sheet cutout matches its manifest checksum
+    import json
+    import numpy as np
+    from papercut import actor as A
+    faces = A.build_face_variants(Hm.load_hero())
+    assert np.array_equal(np.asarray(faces[("open", "open")]), np.asarray(Hm.load_hero()))
+    man = json.loads((A.CUT_DIR / "MANIFEST.json").read_text())
+    for name in man["items"]:
+        A.load_cutout(name)
+    try:
+        A.Actor((1920, 1080), [A.ActorCue(0, 1, "pose_point", 300, 900, 330, talk=[(0, 1)])])
+        raise AssertionError("talk on a sheet pose must be refused")
+    except Hm.HostError:
+        pass
+    print("OK: paper-cut host + actor guards")
 
 
 if __name__ == "__main__":

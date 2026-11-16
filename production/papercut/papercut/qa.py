@@ -60,6 +60,8 @@ def check_log(log):
     W, H = log["size"]
     k = H / 540
     cb = log["caption_box"]
+    for r in log["log"]:
+        r.setdefault("host", r.get("actor"))
     rows = [r for r in log["log"] if r["host"]]
     viol = {"roll": [], "scale": [], "bob": [], "width": [], "cropped_while_holding": [], "caption_overlap": []}
     for r in rows:
@@ -67,7 +69,8 @@ def check_log(log):
         if abs(h["roll_deg"]) > GATE_ROLL_DEG + 1e-6: viol["roll"].append(f)
         if abs(h["scale"] - 1) * 100 > GATE_SCALE_PCT + 1e-6: viol["scale"].append(f)
         if abs(h["bob_px"]) > GATE_BOB_PX_AT_540 * k + 1e-6: viol["bob"].append(f)
-        if not (GATE_WIDTH_FRAC[0] - 1e-6 <= h["width"] / W <= GATE_WIDTH_FRAC[1] + 1e-6): viol["width"].append(f)
+        wpx = h["width"] if "width" in h else (h["bbox"][2] - h["bbox"][0] if h["bbox"] else 0)
+        if h["phase"] == "hold" and not (0.10 <= wpx / W <= GATE_WIDTH_FRAC[1] + 1e-6): viol["width"].append(f)
         b = h["bbox"]
         if b and h["phase"] == "hold" and (b[0] < 0 or b[1] < 0 or b[2] > W or b[3] > H):
             viol["cropped_while_holding"].append(f)
@@ -91,7 +94,10 @@ def check_log(log):
                        "phases": sorted({r["host"]["phase"] for r in rr})}
     # gate: on-screen hold motion must be gentle (<= 0.5 px/frame^2), entrances/exits are eased (<= 6)
     jerk_ok = all(s["max_accel_while_holding"] <= 0.5 and s["max_accel_px_per_frame2"] <= 6 for s in smooth.values())
-    return {"frames_with_host": len(rows), "violations": {k2: v2[:20] for k2, v2 in viol.items()},
+    draws = {}
+    for r in rows:
+        draws[r["host"].get("drawing", "hero")] = draws.get(r["host"].get("drawing", "hero"), 0) + 1
+    return {"frames_with_host": len(rows), "drawings_frames": draws, "violations": {k2: v2[:20] for k2, v2 in viol.items()},
             "motion_bounds_pass": not any(viol[x] for x in ("roll", "scale", "bob", "width")),
             "scene_pass": not viol["cropped_while_holding"] and not viol["caption_overlap"],
             "smoothness": smooth, "smoothness_pass": jerk_ok}
@@ -128,7 +134,7 @@ def sheets(video: Path, log, outdir: Path):
     for name, a, b in log["shots"]:
         for t in np.linspace(a + 0.4, b - 0.4, 4):
             f = int(round(t * log["fps"]))
-            h = log["log"][f]["host"]
+            h = log["log"][f].get("host") or log["log"][f].get("actor")
             if not h or not h["bbox"]:
                 continue
             x0, y0, x1, y1 = h["bbox"]

@@ -1,0 +1,245 @@
+{
+ "source": "APPROVED_CONCEPT_UNMODIFIED.png",
+ "source_sha256": "a0a68a20ed4c16a6e57589919a1ba8afca48484d870aa234079d348f04c9cbfe",
+ "method": "flood-fill background + largest component + paper ring; pixels copied 1:1",
+ "items": {
+  "pose_point": {
+   "source_box": [
+    379,
+    507,
+    555,
+    714
+   ],
+   "size": [
+    176,
+    207
+   ],
+   "touches_cell_edge": false,
+   "sha256": "73da662086c8f5d0f2b0854446a4b3dbb015f434372d2a2204ac00b1479ef159"
+  },
+  "pose_explain": {
+   "source_box": [
+    572,
+    500,
+    749,
+    709
+   ],
+   "size": [
+    177,
+    209
+   ],
+   "touches_cell_edge": false,
+   "sha256": "53749a0a927e992d38e01977480a35a6fa7dbfc7916b1cc58317de84ea6b3703"
+  },
+  "pose_starmap": {
+   "source_box": [
+    754,
+    498,
+    941,
+    706
+   ],
+   "size": [
+    187,
+    208
+   ],
+   "touches_cell_edge": false,
+   "sha256": "e1b0f4c9c0777b813ba5c17f09dff184991b7db130508561dca90c21c2423524"
+  },
+  "pose_observe": {
+   "source_box": [
+    377,
+    790,
+    585,
+    990
+   ],
+   "size": [
+    208,
+    200
+   ],
+   "touches_cell_edge": false,
+   "sha256": "1559f96b1ec2d8550319510ffd0f4250bdad5650e0a4bb01077e8acc4b9ead9f"
+  },
+  "pose_surprised": {
+   "source_box": [
+    590,
+    789,
+    748,
+    996
+   ],
+   "size": [
+    158,
+    207
+   ],
+   "touches_cell_edge": false,
+   "sha256": "e5e6bd56e135588faebaf3b2371b1238bbbedfbe8a99d3c1508f5396e421c744"
+  },
+  "pose_proud": {
+   "source_box": [
+    784,
+    770,
+    946,
+    1001
+   ],
+   "size": [
+    162,
+    231
+   ],
+   "touches_cell_edge": false,
+   "sha256": "e6ca1b51d86766f72d1f7bf25c49e3f23965c382d54dfb5fc381fb6e56fa3a38"
+  },
+  "turn_front": {
+   "source_box": [
+    974,
+    541,
+    1090,
+    729
+   ],
+   "size": [
+    116,
+    188
+   ],
+   "touches_cell_edge": false,
+   "sha256": "d854e021253c6a7cc50e65bd98d7cf879671a3cc053e91bbfeb08bdb44ba0d2d"
+  },
+  "turn_34": {
+   "source_box": [
+    1088,
+    540,
+    1202,
+    727
+   ],
+   "size": [
+    114,
+    187
+   ],
+   "touches_cell_edge": false,
+   "sha256": "3f73ac922272ffa28f09e76afc6653356f61a4015d62893d36f65eb16a7c472a"
+  },
+  "turn_side": {
+   "source_box": [
+    1214,
+    538,
+    1318,
+    725
+   ],
+   "size": [
+    104,
+    187
+   ],
+   "touches_cell_edge": false,
+   "sha256": "2ad94f22c393e34ead77c36c2f3225a90f41904e752b94305e401602cf3312bb"
+  },
+  "turn_back": {
+   "source_box": [
+    1318,
+    535,
+    1435,
+    723
+   ],
+   "size": [
+    117,
+    188
+   ],
+   "touches_cell_edge": false,
+   "sha256": "b3ffdb45860c4361e20609b8db5a4369f4e83fa94698497eb21bc9815d1cf83c"
+  },
+  "face_happy": {
+   "source_box": [
+    944,
+    70,
+    1093,
+    226
+   ],
+   "size": [
+    149,
+    156
+   ],
+   "touches_cell_edge": false,
+   "sha256": "57f75d3ca81792fbce38d7b4f3341f57265d704b1135a3f7901a0d8821d35987"
+  },
+  "face_curious": {
+   "source_box": [
+    1110,
+    73,
+    1252,
+    222
+   ],
+   "size": [
+    142,
+    149
+   ],
+   "touches_cell_edge": false,
+   "sha256": "b740209eacc385caaddaee698171f342b2a826db1abb668997544d9d750994b6"
+  },
+  "face_amazed": {
+   "source_box": [
+    1270,
+    65,
+    1420,
+    221
+   ],
+   "size": [
+    150,
+    156
+   ],
+   "touches_cell_edge": true,
+   "sha256": "ffecd299ac8cfb7c9cd6a05eae8f3b5b99b9f4f61c474562cea4e8cba67db247"
+  },
+  "face_thinking": {
+   "source_box": [
+    945,
+    265,
+    1095,
+    424
+   ],
+   "size": [
+    150,
+    159
+   ],
+   "touches_cell_edge": false,
+   "sha256": "895d8622c3231c415f26b656855d64505eefb413058b2330f8e984b5ba0d1dd7"
+  },
+  "face_excited": {
+   "source_box": [
+    1115,
+    263,
+    1263,
+    422
+   ],
+   "size": [
+    148,
+    159
+   ],
+   "touches_cell_edge": false,
+   "sha256": "92707f1c5bf94ea593f266669a4a5968e7cc8104183df162c6c72cb524e99fe0"
+  },
+  "face_content": {
+   "source_box": [
+    1280,
+    261,
+    1429,
+    420
+   ],
+   "size": [
+    149,
+    159
+   ],
+   "touches_cell_edge": false,
+   "sha256": "6ffbe8c670ea19f8c5095375424012dddf8fdf83ce93afbe555f39a60e5eb1ac"
+  },
+  "fx_exclaim": {
+   "source_box": [
+    671,
+    772,
+    702,
+    809
+   ],
+   "size": [
+    31,
+    37
+   ],
+   "touches_cell_edge": false,
+   "sha256": "f1f6625feac8a5d8377e6dbdfb5b5f0857a8ce2de3e786691352476b7efa40a1"
+  }
+ }
+}
