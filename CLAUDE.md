@@ -105,3 +105,20 @@ When active, the owner controls publishing only through this chat:
 ## Visual direction — selected painted editorial style
 
 Before new Orbital Atlas visuals or storyboard work, read `docs/ORBITAL_ATLAS_VISUAL_STYLE.md` and `docs/PAINTED_VIDEO_HANDOFF.md`. The owner selected option 3 (Живописная иллюстрация) and explicitly requires newly created props/characters/objects in future videos to follow it: textured semi-realistic painting, sculptural light/shadow and expressive natural proportions, with the reference-led dynamic map/story staging. Authoritative art references are `docs/assets/visual-style/painted-reference.webp` and `painted-props.webp`. Build the complete script and per-second visual/action/assets package for Claude assembly. Prior v1–v5 experiments are not approved templates; glossy toy-style v6 props are superseded. V7 animation itself is still for review. Existing factual, rights, voice, QC, cost and publishing gates remain unchanged.
+
+## Paper-cut ATLAS and on-screen text (owner rules, 2026-11-17)
+
+Character: the articulated paper ATLAS from the owner's parts sheet (`production/papercut/assets/parts_v1/`,
+rig `papercut/rig.py`). One head, one uniform scale for every part, constant head/body proportions. Joints:
+shoulders, elbows, wrists, pelvis, hips, knees, ankles; part overlaps must hide every seam when a joint bends.
+Face elements (blink etc.) change inside the one head; never swap whole heads if contours jump. Never stretch the
+character or hide joint problems with shake. No walking until the owner asks. Release gates: no gaps, no scale
+jumps, no clipped text (`papercut/qa_rig.py`); never claim real-time smoothness was checked if only stills were.
+
+On-screen text: motion graphics only. No burned-in subtitles, no black caption boxes, no permanent bottom line,
+and no karaoke / word-by-word captions of every phrase. Show only meaning accents in English: short phrases
+(usually 2-4 words), numbers and names next to the object they describe, appearing with the explaining action;
+ATLAS points at or accompanies the text; text never covers the face, hands or key objects. Style: paper callouts,
+large readable type, cream and orange accents, smooth entrance, short move, calm hold for reading; no constant
+shake or extra glow. Never add unconfirmed facts or numbers. Keep source credits and reconstruction labels.
+Full subtitles ship as a separate SRT only.

@@ -20,3 +20,9 @@ Test 01 approved ("Одобряю, закрепляем"). From now on every Orb
 captions instead of plain burned-in subtitles: yellow accent (255,210,31), Unbounded 900 uppercase,
 word-timed pop-in, keyword boxes, count-up hero numbers, HUD frame + countdown ring + "ARCHIVE // source"
 label on archive footage. YouTube closed captions (SRT/VTT from /yt-captions) are still uploaded separately.
+
+## Status update (Егор, 2026-11-17)
+
+Superseded for on-screen use: no word-by-word / karaoke captions of every phrase. On-screen text is now only
+short object-anchored callouts (see CLAUDE.md "Paper-cut ATLAS and on-screen text"). Full subtitles = separate SRT.
+The `Hero` count-up and HUD pieces may be reused only as callouts for verified numbers.

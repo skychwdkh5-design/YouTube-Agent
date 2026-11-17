@@ -1,0 +1,547 @@
+{
+ "source": "source/atlas_parts_sheet.png",
+ "source_sha256": "833941514b8559b04db6b8529d99c63c3c0120e049080110d9249e53df967e48",
+ "parts": {
+  "reference": {
+   "sheet_box": [
+    15,
+    14,
+    338,
+    622
+   ],
+   "size": [
+    323,
+    608
+   ],
+   "pegs": {},
+   "tabs_removed_px": {},
+   "sha256": "1ebe42318b194cae8f877e470966f7f2947ebcd1bcdc12a0643fba00611fbfe0"
+  },
+  "head": {
+   "sheet_box": [
+    384,
+    44,
+    717,
+    395
+   ],
+   "size": [
+    333,
+    351
+   ],
+   "pegs": {},
+   "tabs_removed_px": {},
+   "sha256": "365f0c5c731b052c2cefcb4a2c60571474178d21c4dcc0e89e1babfd4662a5c7"
+  },
+  "torso": {
+   "sheet_box": [
+    740,
+    102,
+    991,
+    382
+   ],
+   "size": [
+    251,
+    280
+   ],
+   "pegs": {
+    "right": {
+     "c": [
+      228.0,
+      240.5
+     ],
+     "r": 12.5
+    },
+    "left": {
+     "c": [
+      25.0,
+      242.0
+     ],
+     "r": 12.5
+    }
+   },
+   "tabs_removed_px": {
+    "right": 1598,
+    "left": 1648
+   },
+   "sha256": "c4a0b37e27ff5731d3edcc2d6c460195c5bf4b26d5ddf15ac20eb485769a0565"
+  },
+  "scarf": {
+   "sheet_box": [
+    999,
+    163,
+    1252,
+    323
+   ],
+   "size": [
+    253,
+    160
+   ],
+   "pegs": {},
+   "tabs_removed_px": {},
+   "sha256": "831e492036719f3e7f0975cfa6eeef45e11c3c26338b09144f725f900aac4975"
+  },
+  "uarm_A": {
+   "sheet_box": [
+    1272,
+    67,
+    1386,
+    276
+   ],
+   "size": [
+    114,
+    209
+   ],
+   "pegs": {
+    "top": {
+     "c": [
+      81.0,
+      26.5
+     ],
+     "r": 18.5
+    },
+    "bottom": {
+     "c": [
+      34.5,
+      178.0
+     ],
+     "r": 22.0
+    }
+   },
+   "tabs_removed_px": {},
+   "sha256": "6d730417a2ff608e137e201be863ed219fb8af304e9609fa9c59bba8edd74085"
+  },
+  "uarm_B": {
+   "sheet_box": [
+    1423,
+    67,
+    1530,
+    276
+   ],
+   "size": [
+    107,
+    209
+   ],
+   "pegs": {
+    "top": {
+     "c": [
+      33.0,
+      26.5
+     ],
+     "r": 18.5
+    },
+    "bottom": {
+     "c": [
+      69.5,
+      178.0
+     ],
+     "r": 22.0
+    }
+   },
+   "tabs_removed_px": {},
+   "sha256": "6b061cfaec92b3a05cd38ee8c461e10aed50039cff145cc9d2e1ebbfa64e7789"
+  },
+  "farm_A": {
+   "sheet_box": [
+    1540,
+    114,
+    1627,
+    321
+   ],
+   "size": [
+    87,
+    207
+   ],
+   "pegs": {
+    "top": {
+     "c": [
+      58.0,
+      26.5
+     ],
+     "r": 18.5
+    },
+    "bottom": {
+     "c": [
+      34.5,
+      179.0
+     ],
+     "r": 19.0
+    }
+   },
+   "tabs_removed_px": {
+    "top": 2095
+   },
+   "sha256": "91d68b9bd751fa4004cf449ab2c74c2a0d8ae8d3a8edf0a927bf9d71fbb401c4"
+  },
+  "farm_B": {
+   "sheet_box": [
+    1661,
+    114,
+    1751,
+    320
+   ],
+   "size": [
+    90,
+    206
+   ],
+   "pegs": {
+    "top": {
+     "c": [
+      26.5,
+      26.0
+     ],
+     "r": 19.0
+    },
+    "bottom": {
+     "c": [
+      53.0,
+      178.5
+     ],
+     "r": 18.5
+    }
+   },
+   "tabs_removed_px": {
+    "top": 2053
+   },
+   "sha256": "54ac6dd76940114804597871c36e120d11b46b9af82cea0af017b51691e449c1"
+  },
+  "thigh_A": {
+   "sheet_box": [
+    1279,
+    348,
+    1386,
+    567
+   ],
+   "size": [
+    107,
+    219
+   ],
+   "pegs": {
+    "top": {
+     "c": [
+      67.5,
+      27.0
+     ],
+     "r": 19.0
+    },
+    "bottom": {
+     "c": [
+      39.5,
+      190.0
+     ],
+     "r": 20.0
+    }
+   },
+   "tabs_removed_px": {
+    "bottom": 1933
+   },
+   "sha256": "10ad45b2ff96bbdf2a10164aa50227c7b77efcdbcce484e0e0bc986594f8ac4d"
+  },
+  "thigh_B": {
+   "sheet_box": [
+    1398,
+    350,
+    1500,
+    564
+   ],
+   "size": [
+    102,
+    214
+   ],
+   "pegs": {
+    "top": {
+     "c": [
+      38.0,
+      24.5
+     ],
+     "r": 17.5
+    },
+    "bottom": {
+     "c": [
+      64.5,
+      186.0
+     ],
+     "r": 19.0
+    }
+   },
+   "tabs_removed_px": {
+    "bottom": 1834
+   },
+   "sha256": "b36fff709eebafc1d16998e01543db5e8aa3129e6ab1bef41920766f1b1caac1"
+  },
+  "shin_A": {
+   "sheet_box": [
+    1530,
+    371,
+    1616,
+    581
+   ],
+   "size": [
+    86,
+    210
+   ],
+   "pegs": {
+    "top": {
+     "c": [
+      45.0,
+      25.5
+     ],
+     "r": 17.5
+    },
+    "bottom": {
+     "c": [
+      44.5,
+      184.0
+     ],
+     "r": 17.0
+    }
+   },
+   "tabs_removed_px": {
+    "bottom": 1647
+   },
+   "sha256": "64569f946699596f1023fc66875d0ccaf29cb817761f20d7f90862e1d13795e8"
+  },
+  "shin_B": {
+   "sheet_box": [
+    1649,
+    373,
+    1735,
+    581
+   ],
+   "size": [
+    86,
+    208
+   ],
+   "pegs": {
+    "top": {
+     "c": [
+      40.5,
+      26.0
+     ],
+     "r": 18.0
+    },
+    "bottom": {
+     "c": [
+      42.0,
+      181.5
+     ],
+     "r": 17.5
+    }
+   },
+   "tabs_removed_px": {
+    "bottom": 1652
+   },
+   "sha256": "940b90af890336776bc771613e249bb23b02448baf541e20112215c90bb6786a"
+  },
+  "fist_A": {
+   "sheet_box": [
+    394,
+    434,
+    501,
+    589
+   ],
+   "size": [
+    107,
+    155
+   ],
+   "pegs": {
+    "top": {
+     "c": [
+      67.0,
+      25.5
+     ],
+     "r": 17.5
+    }
+   },
+   "tabs_removed_px": {
+    "top": 1969
+   },
+   "sha256": "fc0cd94d729d5cac6d312db5b14c0913c752a20c7cbec0c63a88c610bfaf4e06"
+  },
+  "fist_B": {
+   "sheet_box": [
+    542,
+    436,
+    649,
+    590
+   ],
+   "size": [
+    107,
+    154
+   ],
+   "pegs": {
+    "top": {
+     "c": [
+      38.5,
+      25.0
+     ],
+     "r": 17.0
+    }
+   },
+   "tabs_removed_px": {
+    "top": 1863
+   },
+   "sha256": "efe438712369eada73c8b028ec2355cfe8bb84501b7f91910ace8a2b7a2bea42"
+  },
+  "point_back": {
+   "sheet_box": [
+    681,
+    437,
+    807,
+    579
+   ],
+   "size": [
+    126,
+    142
+   ],
+   "pegs": {
+    "top": {
+     "c": [
+      56.5,
+      25.0
+     ],
+     "r": 17.0
+    }
+   },
+   "tabs_removed_px": {
+    "top": 1980
+   },
+   "sha256": "8ae075cf06fca20c82dc4d00094b4469b9a2568cb86d294b234d31a6a52662ee"
+  },
+  "point_B": {
+   "sheet_box": [
+    827,
+    438,
+    955,
+    581
+   ],
+   "size": [
+    128,
+    143
+   ],
+   "pegs": {
+    "top": {
+     "c": [
+      51.0,
+      25.5
+     ],
+     "r": 17.5
+    }
+   },
+   "tabs_removed_px": {
+    "top": 1970
+   },
+   "sha256": "c4d0928874c8a7f463c7e7bd5ed2a1104248812c2b39609b6c9c0038d7ca9a52"
+  },
+  "open_A": {
+   "sheet_box": [
+    983,
+    437,
+    1107,
+    594
+   ],
+   "size": [
+    124,
+    157
+   ],
+   "pegs": {
+    "top": {
+     "c": [
+      67.5,
+      24.0
+     ],
+     "r": 17.0
+    }
+   },
+   "tabs_removed_px": {
+    "top": 1849
+   },
+   "sha256": "d5f6f105c9130ad9b64f97f3555c735d59395cb95bdbd12e6bf821d6331f51db"
+  },
+  "open_B": {
+   "sheet_box": [
+    1130,
+    436,
+    1252,
+    591
+   ],
+   "size": [
+    122,
+    155
+   ],
+   "pegs": {
+    "top": {
+     "c": [
+      57.5,
+      25.0
+     ],
+     "r": 17.0
+    }
+   },
+   "tabs_removed_px": {
+    "top": 1839
+   },
+   "sha256": "f64d0fffbdbc8dfd39b4e9945cb03e2a0f47c7cfc26764713a1a4ce9e49f18fd"
+  },
+  "boot_A": {
+   "sheet_box": [
+    1409,
+    619,
+    1550,
+    791
+   ],
+   "size": [
+    141,
+    172
+   ],
+   "pegs": {
+    "top": {
+     "c": [
+      96.0,
+      28.5
+     ],
+     "r": 20.5
+    }
+   },
+   "tabs_removed_px": {},
+   "sha256": "981de60368d7831f798ccc09a5bee4d8a02763be42277de6ae6da76e5190e591"
+  },
+  "boot_B": {
+   "sheet_box": [
+    1603,
+    618,
+    1756,
+    786
+   ],
+   "size": [
+    153,
+    168
+   ],
+   "pegs": {
+    "top": {
+     "c": [
+      55.0,
+      27.5
+     ],
+     "r": 19.5
+    }
+   },
+   "tabs_removed_px": {},
+   "sha256": "330af396a76f29bd9f806ec22fd8fb6c188438c4fbde959f1640ebd9bd2d9d7e"
+  },
+  "face_closed": {
+   "sheet_box": [
+    20,
+    653,
+    220,
+    857
+   ],
+   "size": [
+    200,
+    204
+   ],
+   "pegs": {},
+   "tabs_removed_px": {},
+   "sha256": "1c5730f9d2f8e96dfd3299ff497c82388251239931741105718b7905ef5b3b5a"
+  }
+ }
+}
