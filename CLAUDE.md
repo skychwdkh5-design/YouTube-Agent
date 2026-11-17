@@ -105,3 +105,20 @@ When active, the owner controls publishing only through this chat:
 ## Visual direction — selected painted editorial style
 
 Before new Orbital Atlas visuals or storyboard work, read `docs/ORBITAL_ATLAS_VISUAL_STYLE.md` and `docs/PAINTED_VIDEO_HANDOFF.md`. The owner selected option 3 (Живописная иллюстрация) and explicitly requires newly created props/characters/objects in future videos to follow it: textured semi-realistic painting, sculptural light/shadow and expressive natural proportions, with the reference-led dynamic map/story staging. Authoritative art references are `docs/assets/visual-style/painted-reference.webp` and `painted-props.webp`. Build the complete script and per-second visual/action/assets package for Claude assembly. Prior v1–v5 experiments are not approved templates; glossy toy-style v6 props are superseded. V7 animation itself is still for review. Existing factual, rights, voice, QC, cost and publishing gates remain unchanged.
+
+## On-screen text and the paper-cut ATLAS (owner rules, 2026-11-17)
+
+No jointed / limb-rotating ATLAS: the articulated rig was cancelled by the owner (2026-11-17, same joint
+problem as before). ATLAS stays the approved drawing (whole-cutout motion, blink/mouth inside the one head).
+APPROVED format (owner, 2026-11-17): ATLAS presents a projection beside him (opening from his raised glove)
+with small topic details that change with the narration, so viewers watch and remember him
+(`production/papercut/scenes/test20_projection.py`). Going forward add MORE animation, but only in the
+projection content, the diagrams, maps, footage and camera - never in his limbs.
+
+On-screen text: motion graphics only. No burned-in subtitles, no black caption boxes, no permanent bottom line,
+and no karaoke / word-by-word captions of every phrase. Show only meaning accents in English: short phrases
+(usually 2-4 words), numbers and names next to the object they describe, appearing with the explaining action;
+ATLAS accompanies the text (e.g. via his projection); text never covers the face, hands or key objects. Style: paper callouts,
+large readable type, cream and orange accents, smooth entrance, short move, calm hold for reading; no constant
+shake or extra glow. Never add unconfirmed facts or numbers. Keep source credits and reconstruction labels.
+Full subtitles ship as a separate SRT only.
