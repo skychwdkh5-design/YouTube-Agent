@@ -85,7 +85,7 @@ The Earthrise source is NASA SVS 15110 (in the project files under `media_v2/svs
 - Plain subtitles are replaced by **motion-graphics captions** in the style Егор uses on "Nexi"
   (approved 2026-11-16, see `production/kinetic_captions/`).
 
-## Articulated rig v3 (parts sheet, 2026-11-17)
+## Articulated rig v3 (parts sheet, 2026-11-17) - CANCELLED by the owner the same day; do not use
 
 - `tools/cut_parts.py` -> `assets/parts_v1/`: 21 parts cut 1:1 from the owner's parts sheet (`source/`), round
   construction tabs removed where they would show over a neighbour; checksums and pegs in `parts.json`.
