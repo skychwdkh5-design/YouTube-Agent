@@ -84,3 +84,10 @@ The Earthrise source is NASA SVS 15110 (in the project files under `media_v2/svs
   experiments**; the paper-cut ATLAS and graphics fill at most 30 %.
 - Plain subtitles are replaced by **motion-graphics captions** in the style Егор uses on "Nexi"
   (approved 2026-11-16, see `production/kinetic_captions/`).
+
+## Projection test (2026-11-17)
+
+`scenes/test20_projection.py`: the approved hero (no joints) holds up a paper-style projection that opens from
+his raised glove and changes page with the narration (EARTH TO ORION, NO DIRECT PATH, DARK MOON, NASA ANIMATION,
+RARE VIEW). Object-anchored callouts on the map; full subtitles as SRT. Placement checks run on every frame.
+Outputs: `/mnt/project-files/papercut/test20_projection/`.
