@@ -152,7 +152,7 @@ def _color(c, where):
 
 
 def validate(tl, root, limits):
-    r._keys(tl, ("version", "profile", "grid", "assets", "voice", "captions", "end", "shots", "meta", "render"),
+    r._keys(tl, ("version", "profile", "grid", "assets", "voice", "captions", "end", "shots", "meta", "render", "atlas"),
             "timeline")
     prof = PROFILES.get(tl.get("profile"))
     if not prof:
@@ -348,17 +348,51 @@ def validate(tl, root, limits):
                 raise E(f"shot {s_['id']}: the video '{L['asset']}' has {have} frames from its start frame but the shot shows it for {need} "
                         f"({(need - have) / fps:.3f}s short); shorten the shot, trim less, or hold a different image")
 
+    atlas = None
+    if tl.get("atlas") is not None:
+        atlas = _atlas(tl["atlas"], tl["profile"], words, voice, (W, H), total_frames / fps, fps)
+
     plan = {"version": 3, "profile": tl["profile"], "output": dict(prof, width=W, height=H, fps=fps,
             video_codec="h264", audio_codec="aac", audio_rate=48000, audio_channels=2, crf=prof.get("crf", 18),
             preset="medium", audio_bitrate="192k"),
             "segment_frames": int(round(segment_s * fps)) if segment_s else None,
             "grid": grid, "assets": assets, "voice": voice, "words": words, "captions": captions,
-            "shots": shots, "total_frames": total_frames, "expected_duration": round(total_frames / fps, 3)}
+            "shots": shots, "total_frames": total_frames, "expected_duration": round(total_frames / fps, 3),
+            "atlas": atlas}
     plan["events"] = info_events(plan)
     plan["compositions"] = compositions(plan)
     plan["novelty"] = visual_novelty(plan)
     plan["warnings"] = lint(plan)
     return plan
+
+
+ATLAS_MAX_SHARE = 0.30     # owner rule (2026-11-16): >= 70 % of an episode is live footage / experiments
+
+
+def _papercut():
+    """production/papercut (approved paper-cut ATLAS + projection engine), imported only when a timeline uses it."""
+    import importlib, sys
+    root = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "production", "papercut"))
+    if not os.path.isfile(os.path.join(root, "papercut", "atlas_layer.py")):
+        raise E("timeline.atlas needs production/papercut (approved ATLAS + projection engine) in this repository")
+    if root not in sys.path:
+        sys.path.insert(0, root)
+    return importlib.import_module("papercut.atlas_layer")
+
+
+def _atlas(spec, profile, words, voice, size, duration, fps):
+    """timeline.atlas: the approved paper-cut ATLAS (no limb animation) with the projection opening from his glove.
+    Pages change on the narration's words (phrase or word anchors). Validated here, so a bad page fails the plan."""
+    if profile != "long":
+        raise E("timeline.atlas is for profile 'long' (16:9); Shorts do not use the host")
+    mod = _papercut()
+    try:
+        layer = mod.AtlasLayer.from_spec(spec, words, voice["src"] if voice else None, frame_size=size, duration=duration,
+                                         voice_start=voice["start"] if voice else 0.0, fps=fps)
+    except ValueError as e:             # includes HostError (approved asset missing or altered)
+        raise E(f"timeline.atlas: {e}")
+    return {"layer": layer, "pages": layer.pages(), "screen_share": round(layer.screen_share(duration), 4),
+            "box": list(layer.projection.box) if layer.projection else None, "head": [round(v, 1) for v in layer.head]}
 
 
 def _layer(L, assets, grid, where, fps=30):
@@ -486,6 +520,9 @@ def info_events(plan):
                         ev.append({"t": round(tk, 3), "shot": s["id"], "what": f"flip to {L['assets'][k]}"})
             elif L.get("info") and t0 < s["end"]:
                 ev.append({"t": round(t0, 3), "shot": s["id"], "what": L["info"]})
+    for pg in (plan.get("atlas") or {}).get("pages") or []:          # each projection page is a new detail on screen
+        sid = next(s["id"] for s in reversed(plan["shots"]) if s["start"] <= pg["start"] + 1e-9)
+        ev.append({"t": round(pg["start"], 3), "shot": sid, "what": f"projection: {pg['title']}"})
     return sorted(ev, key=lambda e: e["t"])
 
 
@@ -687,6 +724,14 @@ def visual_novelty(plan):
             "runs": out}
 
 
+def _lint_atlas(plan):
+    a = plan.get("atlas")
+    if a and a["screen_share"] > ATLAS_MAX_SHARE + 1e-9:
+        return [f"ATLAS is on screen {a['screen_share'] * 100:.0f}% of the video (owner rule: at most "
+                f"{ATLAS_MAX_SHARE * 100:.0f}%; the rest is live footage and experiments) - fine for a test, not for an episode"]
+    return []
+
+
 def lint(plan):
     long_ = plan["profile"] == "long"
     w = []
@@ -738,7 +783,7 @@ def lint(plan):
     prof = PROFILES[plan["profile"]]
     if not prof["min_s"] <= plan["expected_duration"] <= prof["max_s"]:
         w.append(f"duration {plan['expected_duration']}s outside {prof['min_s']}-{prof['max_s']} s")
-    return w
+    return w + _lint_atlas(plan)
 
 
 # --- drawing -----------------------------------------------------------------------------------
@@ -832,6 +877,8 @@ class Painter:
                 self.mask[aid] = Image.open(a["src"]).convert("L")
         self.fonts = Fonts()
         self.caption_boxes = {}
+        self.atlas = (plan.get("atlas") or {}).get("layer")
+        self.atlas_issues, self.atlas_states = [], {}
         self.lay = LAYOUTS[plan["profile"]]
 
     def close(self):
@@ -948,6 +995,12 @@ class Painter:
                 overlays.append((L["type"], L, 1.0 if L["t0"] == 0 else min(1.0, (lt - L["t0"]) / 0.25)))
 
         im = Image.fromarray(base)
+        ainfo = None
+        if self.atlas is not None:             # ATLAS + projection sit on the footage, under text and credits
+            rgba = im.convert("RGBA")
+            ainfo = self.atlas.render(rgba, t)
+            if ainfo:
+                im = rgba.convert("RGB")
         d = ImageDraw.Draw(im, "RGBA")
         for kind, L, a in overlays:
             if kind == "divider":
@@ -969,7 +1022,30 @@ class Painter:
         if vlayer is None or vlayer["captions"]:
             self._caption(d, shot, box, t, vlayer["caption"] if vlayer else None)
         self._credit(d, credits)
+        if ainfo:
+            self._atlas_check(ainfo, t)
         return im
+
+    def _atlas_check(self, a, t):
+        """Per-frame placement QA: the projection never covers ATLAS's face, a caption or the frame edge."""
+        pj = a.get("projection")
+        if pj:
+            self.atlas_states[pj["state"]] = self.atlas_states.get(pj["state"], 0) + 1
+        if not pj or pj["state"] != "open":
+            return
+        b = pj["box"]
+        hits = []
+        if min(b[2], a["head"][2]) > max(b[0], a["head"][0]) and min(b[3], a["head"][3]) > max(b[1], a["head"][1]):
+            hits.append("face/helmet")
+        if b[0] < 0 or b[1] < 0 or b[2] > self.W or b[3] > self.H:
+            hits.append("frame edge")
+        for cb in self.caption_boxes.values():
+            c = cb["box"]
+            if min(b[2], c[2]) > max(b[0], c[0]) and min(b[3], c[3]) > max(b[1], c[1]):
+                hits.append(f"caption {cb['cue']}")
+        for h in hits:
+            if len(self.atlas_issues) < 200:
+                self.atlas_issues.append({"t": round(t, 3), "page": pj["page"], "hit": h})
 
     def _text(self, d, text, font, center, color, alpha=1.0, stroke=6):
         d.text(center, text, font=font, fill=color + (int(255 * alpha),), anchor="mm",
@@ -1297,6 +1373,10 @@ def _manifest(plan, painter, shot_credits, out_path):
             "compositions": plan["compositions"],
             **({"visual_novelty": plan["novelty"]} if plan.get("novelty") else {}),
             "caption_boxes": [painter.caption_boxes[k] for k in sorted(painter.caption_boxes)],
+            **({"atlas": {"pages": plan["atlas"]["pages"], "screen_share": plan["atlas"]["screen_share"],
+                          "box": plan["atlas"]["box"], "head": plan["atlas"]["head"],
+                          "frames_by_state": painter.atlas_states, "placement_issues": painter.atlas_issues}}
+               if plan.get("atlas") else {}),
             "assets": {k: {"label": a["label"], "credit": a["credit"], "prov": a["prov"], "kind": a["kind"],
                            **({kk: a[kk] for kk in ("source_url", "license", "retrieved", "image_date", "derived_from", "size")}
                               if a["kind"] == "external_still" else {})}
@@ -1310,6 +1390,8 @@ def public_plan(plan):
             "shots": [{"id": s["id"], "beat": s["beat"], "start": round(s["start"], 3), "end": round(s["end"], 3),
                        "layers": [L["type"] for L in s["layers"]]} for s in plan["shots"]],
             "info_events": plan["events"], "info_events_first_10s": sum(1 for e in plan["events"] if e["t"] < 10),
+            **({"atlas_pages": plan["atlas"]["pages"], "atlas_screen_share": plan["atlas"]["screen_share"]}
+               if plan.get("atlas") else {}),
             "compositions": plan["compositions"],
             **({"visual_novelty": plan["novelty"]} if plan.get("novelty") else {}),
             **({"segments": -(-plan["total_frames"] // plan["segment_frames"]), "segment_frames": plan["segment_frames"]}
