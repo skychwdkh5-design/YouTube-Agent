@@ -110,8 +110,10 @@ Before new Orbital Atlas visuals or storyboard work, read `docs/ORBITAL_ATLAS_VI
 
 No jointed / limb-rotating ATLAS: the articulated rig was cancelled by the owner (2026-11-17, same joint
 problem as before). ATLAS stays the approved drawing (whole-cutout motion, blink/mouth inside the one head).
-Owner idea under test (2026-11-17): instead of moving him, give ATLAS a projection beside him with small
-topic details, so viewers watch and remember him (`production/papercut/scenes/test20_projection.py`).
+APPROVED format (owner, 2026-11-17): ATLAS presents a projection beside him (opening from his raised glove)
+with small topic details that change with the narration, so viewers watch and remember him
+(`production/papercut/scenes/test20_projection.py`). Going forward add MORE animation, but only in the
+projection content, the diagrams, maps, footage and camera - never in his limbs.
 
 On-screen text: motion graphics only. No burned-in subtitles, no black caption boxes, no permanent bottom line,
 and no karaoke / word-by-word captions of every phrase. Show only meaning accents in English: short phrases
