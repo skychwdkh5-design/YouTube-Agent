@@ -1019,30 +1019,31 @@ class Painter:
                 self._arrow(d, self.to_screen(L["from"], box), self.to_screen(L["to"], box), L, a)
             elif kind == "pin":
                 self._pin(d, self.to_screen(L["at"], box), L, a)
+        caption = None
         if vlayer is None or vlayer["captions"]:
-            self._caption(d, shot, box, t, vlayer["caption"] if vlayer else None)
+            caption = self._caption(d, shot, box, t, vlayer["caption"] if vlayer else None)
         self._credit(d, credits)
         if ainfo:
-            self._atlas_check(ainfo, t)
+            self._atlas_check(ainfo, t, caption)
         return im
 
-    def _atlas_check(self, a, t):
+    def _atlas_check(self, a, t, caption):
         """Per-frame placement QA: the projection never covers ATLAS's face, a caption or the frame edge."""
         pj = a.get("projection")
-        if pj:
-            self.atlas_states[pj["state"]] = self.atlas_states.get(pj["state"], 0) + 1
-        if not pj or pj["state"] != "open":
+        if not pj:
             return
+        state = pj["state"]
+        self.atlas_states[state] = self.atlas_states.get(state, 0) + 1
         b = pj["box"]
         hits = []
         if min(b[2], a["head"][2]) > max(b[0], a["head"][0]) and min(b[3], a["head"][3]) > max(b[1], a["head"][1]):
             hits.append("face/helmet")
         if b[0] < 0 or b[1] < 0 or b[2] > self.W or b[3] > self.H:
             hits.append("frame edge")
-        for cb in self.caption_boxes.values():
-            c = cb["box"]
+        if caption:
+            c = caption["box"]
             if min(b[2], c[2]) > max(b[0], c[0]) and min(b[3], c[3]) > max(b[1], c[1]):
-                hits.append(f"caption {cb['cue']}")
+                hits.append(f"caption {caption['cue']}")
         for h in hits:
             if len(self.atlas_issues) < 200:
                 self.atlas_issues.append({"t": round(t, 3), "page": pj["page"], "hit": h})
@@ -1120,9 +1121,11 @@ class Painter:
         for k, line in enumerate(src_lines):
             self._text(d, line, font, (cap_x, int(cy + k * lh)), (255, 255, 255), 1.0, CAP["stroke"])
         bw = max(d.textlength(l, font=font) for l in src_lines)
-        self.caption_boxes.setdefault(idx, {"cue": idx + 1, "band": band,
+        caption = {"cue": idx + 1, "band": band,
             "box": [round(cap_x - bw / 2), round(cy - size / 2), round(cap_x + bw / 2),
-                    round(cy + (len(src_lines) - 1) * lh + size / 2)], "font_size": size})
+                    round(cy + (len(src_lines) - 1) * lh + size / 2)], "font_size": size}
+        self.caption_boxes.setdefault(idx, caption)
+        return caption
 
     def _srt_lines(self, idx):
         if not hasattr(self, "_lines"):
