@@ -1,0 +1,28 @@
+{
+ "op": "preview",
+ "release": "oa-20261119-90",
+ "channel": "oa",
+ "channel_id": "UC2QxQJhUe9Q5NMRNb6M9ddw",
+ "version": 1,
+ "version_hash": "45f87075043c7150342a0ae015f417e228fde4b5a5facfec88cd1bb68d545bcc",
+ "video_sha256": "10d42854f49010d29754ee45de1ae4af4613fe09342b4d59a276f802d7ccafab",
+ "title": "[TEST] Pipeline check - not for publication",
+ "description": "Internal test of the Orbital Atlas daily release pipeline. Not for publication.\n\nFootage: NASA Artemis II (public domain; NASA does not endorse this video). https://svs.gsfc.nasa.gov/\nNarration: ElevenLabs synthetic voice (Adam), excerpt from an earlier Orbital Atlas episode.",
+ "tags": [
+  "test"
+ ],
+ "thumbnail_sha256": "e84c4329117097fd6b959a1ea52e46b95ebca30de799255bb2ccbbca077367b9",
+ "captions_sha256": "42fc53ce91aec6683d52c8e704c29b3fca86a8bc83749db710a2bc49d48fbcad",
+ "files": {
+  "captions": "/home/user/work/e2e/captions/captions.srt",
+  "thumbnail": "/home/user/work/e2e/cover.jpg",
+  "video": "/home/user/work/e2e/out/e2e_v1.mp4"
+ },
+ "category_id": "28",
+ "default_language": "en",
+ "made_for_kids": false,
+ "contains_synthetic_media": false,
+ "marker_tag": "pipeline-oa-20261119-90-v1",
+ "confirm": true,
+ "name": "preview-oa-20261119-90-v1"
+}
