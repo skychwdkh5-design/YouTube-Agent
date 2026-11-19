@@ -216,7 +216,11 @@ def op_schedule(a):
             real = P.video_status(appr["video_id"], token)
             if real.get("publishAt") != want:
                 raise OpsError("schedule call failed: " + P.redact(ex)[:200], classify(ex))
-        real = P.video_status(appr["video_id"], token)
+        for wait in (0, 5, 10, 20):                       # YouTube's read-back can lag the update by seconds
+            time.sleep(wait)
+            real = P.video_status(appr["video_id"], token)
+            if real.get("publishAt") == want:
+                break
     ok = real.get("privacyStatus") == "private" and real.get("publishAt") == want
     if ok and sched["state"] != "done":
         P.ledger_add({"event": "pipeline_scheduled", "key": key, "release": req["release"], "video_id": appr["video_id"], "publish_at": want,
