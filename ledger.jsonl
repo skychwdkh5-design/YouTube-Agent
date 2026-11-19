@@ -119,3 +119,4 @@
 {"at": "2026-11-19T07:00:35+00:00", "event": "pipeline_thumbnail_set", "key": "preview:10d42854f49010d29754ee45de1ae4af4613fe09342b4d59a276f802d7ccafab", "video_id": "jcJEcUfFius"}
 {"at": "2026-11-19T07:00:36+00:00", "event": "pipeline_captions_set", "key": "preview:10d42854f49010d29754ee45de1ae4af4613fe09342b4d59a276f802d7ccafab", "video_id": "jcJEcUfFius"}
 {"at": "2026-11-19T07:00:36+00:00", "event": "pipeline_preview_verified", "key": "preview:10d42854f49010d29754ee45de1ae4af4613fe09342b4d59a276f802d7ccafab", "release": "oa-20261119-90", "video_id": "jcJEcUfFius", "ok": true, "privacyStatus": "private", "uploadStatus": "uploaded"}
+{"at": "2026-11-19T07:04:12+00:00", "event": "pipeline_preview_verified", "key": "preview:10d42854f49010d29754ee45de1ae4af4613fe09342b4d59a276f802d7ccafab", "release": "oa-20261119-90", "video_id": "jcJEcUfFius", "ok": true, "privacyStatus": "private", "uploadStatus": "processed"}
