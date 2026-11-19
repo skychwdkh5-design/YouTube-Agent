@@ -1,0 +1,132 @@
+{
+  "_note": "Daily release pipeline configuration. Schedule source: the owner's standing YouTube plan (morning brief v1.0, 2026-10-31): production days alternate from 2026-11-03 (even day index = Orbital Atlas, odd = NEXORA); both channels publish long videos at 08:00 Asia/Ho_Chi_Minh, Orbital Atlas Shorts at 12:00 and 18:00. Capacity starts at one finished long video per production day (owner 2026-11-19); raise long_per_production_day when the pipeline is stable.",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "rotation": {
+    "epoch": "2026-11-03",
+    "order": [
+      "oa",
+      "nx"
+    ]
+  },
+  "owner": {
+    "name": "Егор",
+    "github_login": "skychwdkh5-design",
+    "approval_actors": [
+      "principal:Егор"
+    ],
+    "approval_channel": "claude-project-thread decision card (buttons ОК / На правку, or a text reply to that card)"
+  },
+  "card": {
+    "ttl_hours": 36,
+    "min_lead_minutes": 30,
+    "ok_words": [
+      "ок",
+      "ok",
+      "окей",
+      "okay",
+      "да",
+      "одобряю",
+      "approve",
+      "публикуй"
+    ]
+  },
+  "channels": {
+    "oa": {
+      "name": "Orbital Atlas",
+      "handle": "@orbital_atlas",
+      "channel_id": "UC2QxQJhUe9Q5NMRNb6M9ddw",
+      "repo": "skychwdkh5-design/YouTube-Agent",
+      "release_prefix": "oa",
+      "slots": {
+        "long": [
+          "08:00"
+        ],
+        "short": [
+          "12:00",
+          "18:00"
+        ]
+      },
+      "long_per_production_day": 1,
+      "shorts_per_long": 2,
+      "voice": {
+        "provider": "elevenlabs",
+        "name": "Adam",
+        "voice_id": "pNInz6obpgDQGcFmaJgB",
+        "model_id": "eleven_multilingual_v2"
+      },
+      "voice_budget": {
+        "max_chars_per_release": 9000,
+        "max_chars_per_day": 12000,
+        "max_chars_per_month": 120000
+      },
+      "rights": {
+        "allowed": [
+          "NASA (public domain, no endorsement implied, no NASA logo use)",
+          "USGS / Landsat (public domain)",
+          "NOAA (public domain)",
+          "ESA / Copernicus Sentinel (credit 'Contains modified Copernicus Sentinel data')",
+          "Wikimedia Commons CC0 / PD / CC BY / CC BY-SA (attribution in description)"
+        ],
+        "forbidden": [
+          "SpaceX broadcast/media (non-commercial licence)",
+          "Esri / Maxar / Airbus / Planet imagery without a licence",
+          "Google Earth / 3D Tiles",
+          "music without a licence"
+        ],
+        "every_asset_needs": [
+          "url",
+          "licence",
+          "credit"
+        ]
+      },
+      "format": {
+        "min_live_footage_share": 0.7,
+        "atlas": "approved paper-cut ATLAS + projection only where a diagram helps; no jointed limbs",
+        "on_screen_text": "short English paper callouts only; no burned subtitles; full SRT uploaded separately"
+      },
+      "ops": {
+        "kind": "oa-actions",
+        "ops_branch": "pipeline-ops",
+        "ledger_branch": "publish-ledger"
+      }
+    },
+    "nx": {
+      "name": "NEXORA",
+      "handle": null,
+      "channel_id": "UCEhbF1PlO8agkIyc10-SBEg",
+      "repo": "skychwdkh5-design/NEXORA",
+      "release_prefix": "nx",
+      "slots": {
+        "long": [
+          "08:00"
+        ],
+        "short": []
+      },
+      "long_per_production_day": 1,
+      "shorts_per_long": 0,
+      "voice": {
+        "provider": "elevenlabs",
+        "name": "Matilda",
+        "voice_id": "XrExE9yKIg1WjnnlVkGX",
+        "model_id": "eleven_multilingual_v2"
+      },
+      "voice_budget": {
+        "max_chars_per_release": 9000,
+        "max_chars_per_day": 12000,
+        "max_chars_per_month": 120000
+      },
+      "rights": {
+        "source": "NEXORA repository rules (nx-sources / nx-media): verified legally reusable visuals only, status words proposed/tested/approved/launched kept exact"
+      },
+      "format": {
+        "on_screen_text": "short English motion callouts only; no burned subtitles; NIX host as approved in the NEXORA project"
+      },
+      "ops": {
+        "kind": "nexora-youtube-ops",
+        "ops_branch": "youtube-ops",
+        "note": "upload private via publish/requests/<id>.json, schedule via publish/approvals/<id>.json (existing NEXORA workflow, secrets NEXORA_YT_*)"
+      },
+      "handle_note": "channel title NEX0RA, id confirmed by owner decision card 2026-10-24 (NEXORA youtube-ops publish/channel.json)"
+    }
+  }
+}
