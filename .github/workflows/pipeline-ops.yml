@@ -41,7 +41,6 @@ jobs:
           ref: pipeline-ops
           path: code
           lfs: false
-          fetch-depth: 0
       - name: Ledger branch
         run: |
           mkdir ledger && cd ledger && git init -q -b publish-ledger
@@ -55,11 +54,7 @@ jobs:
         run: |
           cd trig
           for f in $(awk '{print $2}' SHA256SUMS); do cat "$f".part* > "$f"; done
-          sha256sum -c SHA256SUMS
-          sudo apt-get -qq update >/dev/null && sudo apt-get -qq install -y ffmpeg >/dev/null
-          V=$(python3 -c "import json;print(json.load(open('request.json'))['files']['video'].split('/')[-1])")
-          ffprobe -v error -show_entries stream=codec_type,codec_name,width,height,r_frame_rate:format=duration -of default=nw=1 "$V"
-          ffmpeg -v error -i "$V" -f null - 2>&1 | head -20
+          sha256sum -c SHA256SUMS      # byte-identical to the file that passed the QC gate (full decode, streams) before the card
       - name: Run the requested operations
         run: |
           mkdir -p out
@@ -81,8 +76,9 @@ jobs:
         run: |
           [ -n "$(ls -A out 2>/dev/null)" ] || exit 0
           cd code && git config user.name "github-actions[bot]" && git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch -q --depth 20 origin pipeline-ops
           for i in 1 2 3 4 5; do
-            git pull -q --rebase origin pipeline-ops || true
+            git pull -q --rebase --depth 20 origin pipeline-ops || git pull -q --rebase origin pipeline-ops || true
             mkdir -p results && cp ../out/*.json results/
             git add results && (git diff --cached --quiet || git commit -q -m "pipeline ops results (run ${GITHUB_RUN_ID})")
             git push -q origin HEAD:pipeline-ops && exit 0; sleep $((i*3))

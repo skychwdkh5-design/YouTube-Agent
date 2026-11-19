@@ -1,0 +1,67 @@
+# Daily release pipeline (Orbital Atlas + NEXORA)
+
+Owner decision 2026-11-19: every day one finished long video for the production channel of the day, delivered as one
+approval card (video link, cover, title, duration, proposed slot). The owner answers **ОК** (button or text) or
+**На правку** (+ comment). "ОК" schedules exactly that version at the card's slot; nothing goes public immediately.
+For pipeline releases this card rule replaces the "Одобряю ep0NN" phrase; the chat-publish workflow stays for manual releases.
+
+## Who does what
+
+| Part | Where | What |
+|---|---|---|
+| Timer | Claude scheduled task, daily 09:41 Asia/Ho_Chi_Minh, bound to the project thread "Запустить ежедневный конвейер выпусков" | runs the procedure below; cards and answers stay in that thread |
+| State | branch `publish-data`, `pipeline/releases/*.json`, `pipeline/topics/*.json` | one file per release: stage, artifacts + sha256, versions, cards, approval, schedule |
+| Engine | `pipeline/engine.py`, CLI `pipeline/run.py` | stages, versions, cards, the owner's answer, slots (stdlib, tested) |
+| YouTube (OA) | `.github/workflows/pipeline-ops.yml` on `pipeline-ops` / `pipeline-media/*` | private preview upload, schedule after "ОК", read-back, status, topic scout |
+| YouTube (NEXORA) | NEXORA repo, branch `youtube-ops` (existing `nexora-youtube.yml`, secrets `NEXORA_YT_*`) | `publish/requests/<id>.json` = private upload, `publish/approvals/<id>.json` (privacy scheduled + publish_at) = schedule |
+| Voice | `pipeline/voice_cache.py` -> /yt-voice (ElevenLabs via the session proxy) | OA Adam, NEXORA Matilda; cache by text+voice+parameters; per-release/day/month character limits |
+| Render | /yt-render timeline v3 `long` + ATLAS projection (PR #58) | first frame = cover, motion from frame 1, paper callouts, no burned subtitles |
+| Gate | `pipeline/qc_gate.py` | /yt-qc long, cover = frame 0, motion, no burned subs, ATLAS placement, final voice, rights ledger, thumbcheck, metadata |
+| Release check | `verify-release.yml` (every 15 min, existing) | confirms the video really went public after publishAt; opens an issue if not |
+
+## Schedule
+
+`pipeline/config/channels.json`: production days alternate from 2026-11-03 (even day = Orbital Atlas, odd = NEXORA), long
+videos at 08:00 Asia/Ho_Chi_Minh on both channels, OA Shorts slots 12:00 and 18:00. Capacity: one long per production day
+(raise `long_per_production_day` later). The slot is the nearest free 08:00 at least 3 h ahead, using the channel's real
+YouTube schedule (scheduled + published videos) plus the slots this pipeline already holds (open cards, approvals).
+
+## Daily procedure (what the scheduled session does)
+
+1. `git -C ../pipeline-data pull`; `python3 pipeline/run.py today`. Continue every unfinished release from its `resume`
+   point before starting anything new; never start a second release while one of that channel is open.
+2. Channel status: push `requests/status-<date>.json` (`{"op": "status", "confirm": true}`) to `pipeline-ops`, read
+   `results/` (token check + scheduled videos). `error_kind: auth` -> block the release ("owner must log in again"), send ONE
+   message with the re-login link, stop; resume from the saved stage when the owner says it is done.
+3. Topic (only if no open release): `topics.py next`. Reserve below 5 -> research: scout op (YouTube Data API, free quota),
+   NASA/agency news, previous runs; vidIQ only with credits AND the owner's permission for the paid call; record every
+   missing source as a gap (`topics.py gap`). Write candidates with primary sources and licensed media, then `next` again.
+   A topic without reliable sources or footage is skipped.
+4. `run.py new --channel <ch> --topic t.json`. Then, recording each stage with `run.py stage` as it finishes:
+   research + script (English, project CLAUDE.md, growth docs, 3 cover concepts -> thumbnail_hook.json) -> `scripted`;
+   `voice_cache.py --confirm` (cache hit = free; `over_limit` -> block at `voiced` and tell the owner) -> `voiced`;
+   media with a rights ledger (url, licence, credit per asset) + render -> `rendered`; `qc_gate.py` PASS -> `qc_passed`.
+   A technical failure is fixed and only the failing stage is re-run.
+5. `run.py version ...` -> `run.py media-branch --confirm` -> push the folder as orphan branch `pipeline-media/<id>-v<n>`;
+   read `results/preview-<id>-v<n>.json` -> `run.py preview-result`. The video is now PRIVATE on the channel (owner-only link).
+6. `run.py slot --status <status result>` -> `run.py card --slot ...` -> post the card text + cover in the thread, then the
+   decision card (options "ОК" / "На правку"). Record the message ids with `run.py card-message`.
+7. Owner answer -> `run.py decide --choice ok|changes --actor "principal:Егор" --card <id> [--comment]`.
+   `approved` -> `run.py schedule-request --confirm --out <pipeline-ops>/requests/schedule-<id>.json`, push, read the result,
+   `run.py schedule-result`, reply with the link and the real publishAt. `ambiguous` -> show the open cards to pick from.
+   `expired` -> new slot + new card. `duplicate` -> say it is already done (no new action). `changes` -> fix, new version, new card.
+8. Push `publish-data` after every state change (one writer: the scheduled session).
+
+## Guarantees and how they are tested
+
+`pipeline/tests` (run by the ops workflow before every operation): repeated "ок" = no new action; expired card; void card
+after a new video/cover/title; foreign or relayed answer refused; ambiguous bare "ок"; resume after a crash without paying for
+the voice again; one notification per blocker; upload re-run = one upload; lost upload response = adopt by marker tag, never
+blind re-upload; schedule repeated / timed out = one update, read back first; another approval cannot move a scheduled video;
+slot taken on the channel = new card; test releases are dry-run only.
+
+## Owner actions that only the owner can do
+
+- Re-login when Google expires the token (app in Testing mode: about weekly) - the pipeline sends one link and waits.
+- vidIQ paid calls: only with a separate permission per call.
+- Merging the code PRs (the data branches work without merges).

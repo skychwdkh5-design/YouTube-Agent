@@ -230,14 +230,20 @@ def op_schedule(a):
             "privacyStatus": real.get("privacyStatus"), "publishAt": real.get("publishAt"), "uploadStatus": real.get("uploadStatus")}
 
 
+def op_scout(a):
+    import scout
+    req = json.load(open(a.request))
+    return {"ok": True, **scout.run(req["queries"][:8])}
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("op", choices=["status", "preview", "schedule"])
+    p.add_argument("op", choices=["status", "preview", "schedule", "scout"])
     p.add_argument("--request"); p.add_argument("--media-dir", default="media"); p.add_argument("--out")
     p.add_argument("--confirm", action="store_true")
     a = p.parse_args(argv)
     try:
-        res = {"status": op_status, "preview": op_preview, "schedule": op_schedule}[a.op](a)
+        res = {"status": op_status, "preview": op_preview, "schedule": op_schedule, "scout": op_scout}[a.op](a)
     except OpsError as ex:
         res = {"ok": False, "error": P.redact(ex)[:300], "error_kind": ex.kind}
     except (P.PublishError, OSError, KeyError, ValueError) as ex:
