@@ -1,0 +1,179 @@
+{
+ "approval": {
+  "actor": "principal:Егор",
+  "approval_id": "fe277bd7335543cb8cbfe6b78b877ebb",
+  "approved_at": "2026-11-19T07:03:24Z",
+  "card_code": "1F475BE9",
+  "card_id": "card-1f475be9",
+  "channel": "oa",
+  "message_id": null,
+  "publish_at": "2026-11-20T01:00:00Z",
+  "release": "oa-20261119-90",
+  "single_use": true,
+  "source": "E2E SIMULATED answer on TEST release (dry-run only)",
+  "status": "valid",
+  "test": true,
+  "version": 1,
+  "version_hash": "45f87075043c7150342a0ae015f417e228fde4b5a5facfec88cd1bb68d545bcc",
+  "video_id": "jcJEcUfFius",
+  "video_sha256": "10d42854f49010d29754ee45de1ae4af4613fe09342b4d59a276f802d7ccafab"
+ },
+ "artifacts": {
+  "qc_passed": {
+   "at": "2026-11-19T06:56:38Z",
+   "report": "/home/user/work/e2e/out/qc_v1.json",
+   "waived_for_test": [
+    "long_duration"
+   ]
+  },
+  "rendered": {
+   "at": "2026-11-19T06:56:38Z",
+   "engine": "yt-render v3 long + ATLAS projection (PR #58 head bcf2248)",
+   "sha256": "10d42854f49010d29754ee45de1ae4af4613fe09342b4d59a276f802d7ccafab",
+   "video": "/home/user/work/e2e/out/e2e_v1.mp4"
+  },
+  "scripted": {
+   "at": "2026-11-19T06:56:38Z",
+   "script": "excerpt of EP014 SCRIPT.md (existing)"
+  },
+  "voiced": {
+   "at": "2026-11-19T06:56:38Z",
+   "note": "existing narration, no TTS request",
+   "paid_chars": 0,
+   "voice": "/home/user/work/e2e/voice/narration_excerpt.wav",
+   "voice_name": "Adam",
+   "voice_sha256": "7640b96f3a2e16df4f10f7a330d45c2f3b5d28d341de1b6d53a20f8ba924f302"
+  }
+ },
+ "blocker": null,
+ "cards": [
+  {
+   "card_id": "card-1f475be9",
+   "code": "1F475BE9",
+   "decision": {
+    "actor": "principal:Егор",
+    "at": "2026-11-19T07:03:24Z",
+    "choice": "ok",
+    "comment": null,
+    "message_id": null,
+    "source": "E2E SIMULATED answer on TEST release (dry-run only)"
+   },
+   "expires_at": "2026-11-20T00:30:00Z",
+   "message_id": null,
+   "release": "oa-20261119-90",
+   "shown_at": "2026-11-19T07:03:10Z",
+   "slot": "2026-11-20T01:00:00Z",
+   "status": "decided",
+   "version": 1,
+   "version_hash": "45f87075043c7150342a0ae015f417e228fde4b5a5facfec88cd1bb68d545bcc",
+   "video_id": "jcJEcUfFius"
+  }
+ ],
+ "channel": "oa",
+ "created_at": "2026-11-19T06:56:38Z",
+ "events": [
+  {
+   "at": "2026-11-19T06:56:38Z",
+   "channel": "oa",
+   "event": "created",
+   "production_day": "2026-11-19"
+  },
+  {
+   "at": "2026-11-19T06:56:38Z",
+   "event": "stage_done",
+   "stage": "scripted"
+  },
+  {
+   "at": "2026-11-19T06:56:38Z",
+   "event": "stage_done",
+   "stage": "voiced"
+  },
+  {
+   "at": "2026-11-19T06:56:38Z",
+   "event": "stage_done",
+   "stage": "rendered"
+  },
+  {
+   "at": "2026-11-19T06:56:38Z",
+   "event": "stage_done",
+   "stage": "qc_passed"
+  },
+  {
+   "at": "2026-11-19T06:56:38Z",
+   "event": "version",
+   "n": 1,
+   "version_hash": "45f87075043c"
+  },
+  {
+   "at": "2026-11-19T06:56:39Z",
+   "branch": "pipeline-media/oa-20261119-90-v1",
+   "confirm": true,
+   "event": "preview_requested"
+  },
+  {
+   "at": "2026-11-19T07:02:39Z",
+   "event": "preview_ready",
+   "video_id": "jcJEcUfFius"
+  },
+  {
+   "at": "2026-11-19T07:03:10Z",
+   "card_id": "card-1f475be9",
+   "event": "card",
+   "slot": "2026-11-20T01:00:00Z",
+   "version": 1
+  },
+  {
+   "approval_id": "fe277bd7335543cb8cbfe6b78b877ebb",
+   "at": "2026-11-19T07:03:24Z",
+   "card_id": "card-1f475be9",
+   "event": "approved"
+  }
+ ],
+ "id": "oa-20261119-90",
+ "kind": "long",
+ "meta": {
+  "category_id": "28",
+  "contains_synthetic_media": false,
+  "made_for_kids": false
+ },
+ "preview": {
+  "at": "2026-11-19T07:02:39Z",
+  "privacy": "private",
+  "url": "https://youtu.be/jcJEcUfFius",
+  "version": 1,
+  "version_hash": "45f87075043c7150342a0ae015f417e228fde4b5a5facfec88cd1bb68d545bcc",
+  "video_id": "jcJEcUfFius"
+ },
+ "production_day": "2026-11-19",
+ "schedule": null,
+ "schema": "pipeline-release/1",
+ "stage": "approved",
+ "test": true,
+ "topic": {
+  "source": "existing EP014 sources and Adam narration excerpt",
+  "test": true,
+  "title": "[TEST] Contact lost behind the Moon (pipeline end-to-end test)"
+ },
+ "updated_at": "2026-11-19T07:03:28Z",
+ "versions": [
+  {
+   "captions_sha256": "42fc53ce91aec6683d52c8e704c29b3fca86a8bc83749db710a2bc49d48fbcad",
+   "created_at": "2026-11-19T06:56:38Z",
+   "description": "Internal test of the Orbital Atlas daily release pipeline. Not for publication.\n\nFootage: NASA Artemis II (public domain; NASA does not endorse this video). https://svs.gsfc.nasa.gov/\nNarration: ElevenLabs synthetic voice (Adam), excerpt from an earlier Orbital Atlas episode.",
+   "duration_s": 21.5,
+   "files": {
+    "captions": "/home/user/work/e2e/captions/captions.srt",
+    "thumbnail": "/home/user/work/e2e/cover.jpg",
+    "video": "/home/user/work/e2e/out/e2e_v1.mp4"
+   },
+   "n": 1,
+   "tags": [
+    "test"
+   ],
+   "thumbnail_sha256": "e84c4329117097fd6b959a1ea52e46b95ebca30de799255bb2ccbbca077367b9",
+   "title": "[TEST] Pipeline check - not for publication",
+   "version_hash": "45f87075043c7150342a0ae015f417e228fde4b5a5facfec88cd1bb68d545bcc",
+   "video_sha256": "10d42854f49010d29754ee45de1ae4af4613fe09342b4d59a276f802d7ccafab"
+  }
+ ]
+}
