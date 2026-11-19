@@ -53,7 +53,7 @@ def cmd_today(a, cfg):
 
 def cmd_new(a, cfg):
     topic = json.load(open(a.topic)) if a.topic else None
-    r = E.new_release(a.state, a.channel, cfg, topic=topic)
+    r = E.new_release(a.state, a.channel, cfg, topic=topic, test=a.test)
     return {"created": r["id"], "stage": r["stage"]}
 
 
@@ -156,6 +156,8 @@ def cmd_decide(a, cfg):
 def cmd_schedule_request(a, cfg):
     r = E.load(a.state, a.release)
     req = E.schedule_request(r, cfg)
+    if a.confirm and r.get("test"):
+        raise E.PipelineError("a test release is never scheduled for real (dry run only)")
     req["confirm"] = bool(a.confirm)
     req["name"] = os.path.basename(a.out)[:-5]
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
@@ -201,7 +203,7 @@ def main(argv=None):
     p.add_argument("--state", default=DEFAULT_STATE)
     s = p.add_subparsers(dest="cmd", required=True)
     s.add_parser("today")
-    x = s.add_parser("new"); x.add_argument("--channel", required=True); x.add_argument("--topic")
+    x = s.add_parser("new"); x.add_argument("--channel", required=True); x.add_argument("--topic"); x.add_argument("--test", action="store_true")
     x = s.add_parser("stage"); x.add_argument("--release", required=True); x.add_argument("--stage", required=True); x.add_argument("--artifacts")
     x = s.add_parser("version")
     for k in ("release", "video", "thumbnail", "captions", "meta"):

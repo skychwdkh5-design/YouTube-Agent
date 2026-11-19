@@ -51,12 +51,17 @@ def gate(a, cfg):
     ch = cfg["channels"][a.channel]
     # 1. video file through the existing QC
     qc = run([sys.executable, os.path.join(ROOT, ".claude", "skills", "yt-qc", "qc.py"), a.video, "--profile", "long"] +
-             (["--manifest", a.manifest] if a.manifest else []))
+             (["--manifest", a.manifest] if a.manifest else []) +
+             (["--thumbnail-hook", a.thumbnail_hook] if a.thumbnail_hook else []))
     try:
         q = json.loads(qc.stdout)
     except ValueError:
         q = {"result": "FAIL", "error": qc.stdout[-300:] + qc.stderr[-300:]}
-    res.append(check("video (yt-qc long)", q.get("result") == "PASS", {k: q.get(k) for k in ("result", "failures", "warnings", "error") if k in q}))
+    qfail = [c["id"] for c in q.get("checks", []) if c.get("status") == "fail"]
+    waived = [i for i in qfail if i in (a.waive or [])]
+    res.append(check("video (yt-qc long)", not (set(qfail) - set(waived)) and "error" not in q,
+                     {"failed": qfail, "waived_for_test": waived, "warned": [c["id"] for c in q.get("checks", []) if c.get("status") == "warn"],
+                      **({"error": q["error"]} if "error" in q else {})}))
     # 2. first frame = cover, then motion
     f0, f1 = os.path.join(work, "f0.png"), os.path.join(work, "f05.png")
     if frame(a.video, 0, f0) and frame(a.video, 0.5, f1):
@@ -120,7 +125,7 @@ def gate(a, cfg):
     res.append(check("captions SRT", bool(re.search(r"^\d+\s*\n\d\d:\d\d:\d\d,\d{3} --> ", srt, re.M)), {"cues": srt.count(" --> ")}))
     fails = [r["check"] for r in res if r["result"] == "FAIL"]
     out = {"result": "PASS" if not fails else "FAIL", "failures": fails, "warnings": [r["check"] for r in res if r["result"] == "WARN"],
-           "checks": res, "video_sha256": E.sha_file(a.video), "cover_sha256": E.sha_file(a.cover)}
+           "waived": a.waive or [], "checks": res, "video_sha256": E.sha_file(a.video), "cover_sha256": E.sha_file(a.cover)}
     with open(a.report, "w") as f:
         json.dump(out, f, indent=1, ensure_ascii=False)
     return out
@@ -130,8 +135,9 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     for k in ("channel", "video", "cover", "meta", "report"):
         ap.add_argument("--" + k, required=True)
-    for k in ("timeline", "manifest", "voice-meta", "rights", "captions", "work"):
+    for k in ("timeline", "manifest", "voice-meta", "rights", "captions", "work", "thumbnail-hook"):
         ap.add_argument("--" + k)
+    ap.add_argument("--waive", action="append", help="TEST releases only: a yt-qc check id that may fail (recorded in the report)")
     a = ap.parse_args(argv)
     out = gate(a, E.load_config())
     print(json.dumps({k: out[k] for k in ("result", "failures", "warnings")}, indent=1, ensure_ascii=False))

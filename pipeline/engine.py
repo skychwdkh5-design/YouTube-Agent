@@ -136,27 +136,29 @@ def log(rel, event, now=None, **kw):
     rel.setdefault("events", []).append({"at": iso(now or utcnow()), "event": event, **kw})
 
 
-def new_release(state, channel, cfg, day=None, kind="long", topic=None, now=None):
-    """Create the next release of a production day. Refuses to create a duplicate while the channel has an unfinished one."""
+def new_release(state, channel, cfg, day=None, kind="long", topic=None, now=None, test=False):
+    """Create the next release of a production day. Refuses to create a duplicate while the channel has an unfinished one.
+    A test release (ids NN >= 90) never counts as a duplicate, never holds a slot and can never be scheduled for real."""
     now = now or utcnow()
     day = day or today_local(cfg, now)
     if channel not in cfg["channels"]:
         raise PipelineError(f"unknown channel {channel}")
-    open_ = [r for r in all_releases(state) if r["channel"] == channel and r["kind"] == kind and r["stage"] not in TERMINAL]
+    open_ = [r for r in all_releases(state) if r["channel"] == channel and r["kind"] == kind and r["stage"] not in TERMINAL
+             and not r.get("test")]
     limit = cfg["channels"][channel].get("long_per_production_day", 1) if kind == "long" else 99
-    if len(open_) >= limit:
+    if len(open_) >= limit and not test:
         raise PipelineError(f"{channel} already has unfinished {kind} release(s) {[r['id'] for r in open_]} - continue those instead of starting a duplicate")
-    if topic:
+    if topic and not test:
         for r in all_releases(state):
             if r["channel"] == channel and topic_similar((r.get("topic") or {}).get("title", ""), topic.get("title", "")):
                 raise PipelineError(f"topic already used by {r['id']}")
-    n = 1
+    n = 90 if test else 1
     while os.path.exists(rel_path(state, f"{cfg['channels'][channel]['release_prefix']}-{day:%Y%m%d}-{n:02d}")):
         n += 1
     rid = f"{cfg['channels'][channel]['release_prefix']}-{day:%Y%m%d}-{n:02d}"
     rel = {"schema": SCHEMA, "id": rid, "channel": channel, "kind": kind, "production_day": day.isoformat(), "stage": "planned",
            "topic": topic or {}, "artifacts": {}, "versions": [], "cards": [], "approval": None, "preview": None, "schedule": None,
-           "blocker": None, "created_at": iso(now), "events": []}
+           "blocker": None, "created_at": iso(now), "events": [], "test": bool(test)}
     log(rel, "created", now, channel=channel, production_day=day.isoformat())
     save(state, rel, now)
     return rel
@@ -384,7 +386,7 @@ def decide(releases, cfg, *, choice, actor, now=None, card_id=None, comment=None
     appr = {"approval_id": uuid.uuid4().hex, "release": rel["id"], "channel": rel["channel"], "card_id": card_id, "card_code": c["code"],
             "version": c["version"], "version_hash": c["version_hash"], "video_sha256": v["video_sha256"], "video_id": c["video_id"],
             "publish_at": c["slot"], "actor": actor, "approved_at": iso(now), "source": source, "message_id": message_id,
-            "status": "valid", "single_use": True}
+            "status": "valid", "single_use": True, "test": bool(rel.get("test"))}
     rel["approval"] = appr
     rel["stage"] = "approved"
     log(rel, "approved", now, card_id=card_id, approval_id=appr["approval_id"])
@@ -417,7 +419,7 @@ def busy_days(cfg, inventory, releases, channel, kind):
         if t:
             out.add((local(parse(t), cfg).date(), local(parse(t), cfg).strftime("%H:%M")))
     for r in releases:
-        if r["channel"] != channel or r["kind"] != kind:
+        if r["channel"] != channel or r["kind"] != kind or r.get("test"):
             continue
         held = []
         if r.get("schedule") and r["schedule"].get("publish_at"):
@@ -471,7 +473,8 @@ def schedule_request(rel, cfg):
     return {"op": "schedule", "release": rel["id"], "channel": rel["channel"], "channel_id": cfg["channels"][rel["channel"]]["channel_id"],
             "approval": a, "video_id": a["video_id"], "publish_at": a["publish_at"], "version_hash": a["version_hash"],
             "video_sha256": a["video_sha256"], "made_for_kids": False,
-            "contains_synthetic_media": bool((rel.get("meta") or {}).get("contains_synthetic_media", False))}
+            "contains_synthetic_media": bool((rel.get("meta") or {}).get("contains_synthetic_media", False)),
+            "test": bool(rel.get("test"))}
 
 
 def apply_preview_result(rel, res, now=None):

@@ -188,7 +188,11 @@ def op_schedule(a):
     appr, t, sched = verify_approval(req, now, P.ledger_read())
     key, want = "schedule:" + appr["approval_id"], t.strftime("%Y-%m-%dT%H:%M:%SZ")
     if not a.confirm:
-        return {"ok": True, "dry_run": True, "release": req["release"], "approval_id": appr["approval_id"], "already_done": sched["state"] == "done"}
+        return {"ok": True, "dry_run": True, "release": req["release"], "approval_id": appr["approval_id"], "already_done": sched["state"] == "done",
+                "checked": ["owner actor", "approval = request (video, time, version, file)", "video = this pipeline's private upload of that file",
+                            "slot 30 min - 30 days ahead", "video not scheduled by another approval"]}
+    if req.get("test") or appr.get("test"):
+        raise OpsError("test releases are verified in dry runs only", "refused")
     token = P.access_token()
     check_channel(token, req["channel_id"])
     real = P.video_status(appr["video_id"], token)
