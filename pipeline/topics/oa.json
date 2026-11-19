@@ -1,0 +1,87 @@
+{
+ "channel": "oa",
+ "topics": [
+  {
+   "id": "oa-elnino-2026-from-orbit",
+   "title": "NASA Watched the Pacific Turn Red. Then a Desert Bloomed.",
+   "angle": "El Niño 2026 seen by NASA satellites: SST stripe, sea surface height, PACE ocean color, then Atacama snow and record flowering desert (coincidence stated, no causal claim).",
+   "primary_sources": [
+    "https://science.nasa.gov/earth/earth-observatory/el-nino-rains-paint-the-atacama/",
+    "https://science.nasa.gov/earth/earth-observatory/el-nino-alters-marine-life-in-the-pacific/",
+    "https://science.nasa.gov/earth/earth-observatory/rare-widespread-snow-in-the-atacama-desert/",
+    "https://svs.gsfc.nasa.gov/5683",
+    "https://svs.gsfc.nasa.gov/5688",
+    "https://svs.gsfc.nasa.gov/5687"
+   ],
+   "media": [
+    {
+     "url": "https://svs.gsfc.nasa.gov/5688",
+     "licence": "NASA public domain (SVS)",
+     "credit": "NASA Scientific Visualization Studio",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/5683",
+     "licence": "NASA public domain (SVS)",
+     "credit": "NASA Scientific Visualization Studio",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/5687",
+     "licence": "NASA public domain (SVS)",
+     "credit": "NASA SVS / PACE",
+     "kind": "video"
+    },
+    {
+     "url": "https://science.nasa.gov/earth/earth-observatory/el-nino-alters-marine-life-in-the-pacific/",
+     "licence": "NASA public domain",
+     "credit": "NASA Earth Observatory / Michala Garrison, PACE OB.DAAC",
+     "kind": "still"
+    },
+    {
+     "url": "https://science.nasa.gov/earth/earth-observatory/rare-widespread-snow-in-the-atacama-desert/",
+     "licence": "NASA public domain (Landsat USGS)",
+     "credit": "NASA Earth Observatory / Lauren Dauphin, Landsat USGS",
+     "kind": "still"
+    },
+    {
+     "url": "https://science.nasa.gov/earth/earth-observatory/el-nino-rains-paint-the-atacama/",
+     "licence": "NASA public domain (Landsat USGS)",
+     "credit": "NASA Earth Observatory / Michala Garrison, Landsat USGS",
+     "kind": "still"
+    }
+   ],
+   "nasa_involved": true,
+   "scores": {
+    "us_interest": 4,
+    "novelty": 5,
+    "hook": 4,
+    "thumbnail": 4,
+    "rights": 5,
+    "facts": 4,
+    "proof": 2,
+    "length_fit": 4
+   },
+   "evidence": {
+    "facts": "NASA EO articles 2026-08-10, 2026-08-27, 2026-11-19; SVS 5683/5687/5688",
+    "rights": "all NASA PD; PUCV ground photos excluded"
+   },
+   "found_by": "Claude research 2026-11-19 (NASA EO + SVS API); vidIQ unavailable (0 credits); NOAA CPC/climate.gov blocked from this environment",
+   "status": "used",
+   "added_at": "2026-11-19T07:13:12Z",
+   "status_reason": "release started 2026-11-19"
+  }
+ ],
+ "gaps": [
+  {
+   "at": "2026-11-19T07:13:12Z",
+   "what": "vidIQ",
+   "detail": "0 credits until 2026-11-29; free YouTube API scout used instead"
+  },
+  {
+   "at": "2026-11-19T07:13:12Z",
+   "what": "NOAA CPC / climate.gov",
+   "detail": "hosts blocked by this environment's network policy; NOAA figures taken only as quoted by NASA EO (Aug 2026)"
+  }
+ ]
+}

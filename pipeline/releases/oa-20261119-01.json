@@ -1,0 +1,214 @@
+{
+ "approval": null,
+ "artifacts": {
+  "qc_passed": {
+   "at": "2026-11-19T07:44:43Z",
+   "qc": "/home/user/work/ep_elnino/out/qc_v3.json"
+  },
+  "rendered": {
+   "at": "2026-11-19T07:44:43Z",
+   "timeline": "/home/user/work/ep_elnino/timeline.json",
+   "video": "/home/user/work/ep_elnino/out/ep_v3.mp4",
+   "video_sha256": "aadf4b6ab09abf5eccb7d3d4c38680cb030ae1ab247cb0d0c66943f0f00400d1"
+  },
+  "scripted": {
+   "at": "2026-11-19T07:13:44Z",
+   "script": "/home/user/work/ep_elnino/script.md"
+  },
+  "voiced": {
+   "at": "2026-11-19T07:13:44Z",
+   "voice": "/home/user/work/ep_elnino/voice/narration.wav",
+   "voice_id": "pNInz6obpgDQGcFmaJgB",
+   "voice_sha256": "4456ec036d4900f39440bbc486f68fd151ed2b1d11e65caef82fba860e10ad01"
+  }
+ },
+ "blocker": null,
+ "cards": [
+  {
+   "card_id": "card-6ddb533e",
+   "code": "6DDB533E",
+   "expires_at": "2026-11-20T00:30:00Z",
+   "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdD4eNK5rsaCBHpvJ83Y9MNA",
+   "release": "oa-20261119-01",
+   "shown_at": "2026-11-19T07:46:16Z",
+   "slot": "2026-11-20T01:00:00Z",
+   "status": "open",
+   "version": 1,
+   "version_hash": "d40f9f1f785b36f747638b334aca7316a5fa7a6b56d73da702764df9c0595410",
+   "video_id": "sVInlyhIY7c"
+  }
+ ],
+ "channel": "oa",
+ "created_at": "2026-11-19T07:13:15Z",
+ "events": [
+  {
+   "at": "2026-11-19T07:13:15Z",
+   "channel": "oa",
+   "event": "created",
+   "production_day": "2026-11-19"
+  },
+  {
+   "at": "2026-11-19T07:13:44Z",
+   "event": "stage_done",
+   "stage": "scripted"
+  },
+  {
+   "at": "2026-11-19T07:13:44Z",
+   "event": "stage_done",
+   "stage": "voiced"
+  },
+  {
+   "at": "2026-11-19T07:44:43Z",
+   "event": "stage_done",
+   "stage": "rendered"
+  },
+  {
+   "at": "2026-11-19T07:44:43Z",
+   "event": "stage_done",
+   "stage": "qc_passed"
+  },
+  {
+   "at": "2026-11-19T07:44:43Z",
+   "event": "version",
+   "n": 1,
+   "version_hash": "d40f9f1f785b"
+  },
+  {
+   "at": "2026-11-19T07:44:43Z",
+   "branch": "pipeline-media/oa-20261119-01-v1",
+   "confirm": true,
+   "event": "preview_requested"
+  },
+  {
+   "at": "2026-11-19T07:46:16Z",
+   "event": "preview_ready",
+   "video_id": "sVInlyhIY7c"
+  },
+  {
+   "at": "2026-11-19T07:46:16Z",
+   "card_id": "card-6ddb533e",
+   "event": "card",
+   "slot": "2026-11-20T01:00:00Z",
+   "version": 1
+  }
+ ],
+ "id": "oa-20261119-01",
+ "kind": "long",
+ "meta": {
+  "category_id": "28",
+  "contains_synthetic_media": true,
+  "made_for_kids": false
+ },
+ "preview": {
+  "at": "2026-11-19T07:46:16Z",
+  "privacy": "private",
+  "url": "https://youtu.be/sVInlyhIY7c",
+  "version": 1,
+  "version_hash": "d40f9f1f785b36f747638b334aca7316a5fa7a6b56d73da702764df9c0595410",
+  "video_id": "sVInlyhIY7c"
+ },
+ "production_day": "2026-11-19",
+ "schedule": null,
+ "schema": "pipeline-release/1",
+ "stage": "card_shown",
+ "test": false,
+ "topic": {
+  "angle": "El Niño 2026 seen by NASA satellites: SST stripe, sea surface height, PACE ocean color, then Atacama snow and record flowering desert (coincidence stated, no causal claim).",
+  "evidence": {
+   "facts": "NASA EO articles 2026-08-10, 2026-08-27, 2026-11-19; SVS 5683/5687/5688",
+   "rights": "all NASA PD; PUCV ground photos excluded"
+  },
+  "found_by": "Claude research 2026-11-19 (NASA EO + SVS API); vidIQ unavailable (0 credits); NOAA CPC/climate.gov blocked from this environment",
+  "id": "oa-elnino-2026-from-orbit",
+  "media": [
+   {
+    "credit": "NASA Scientific Visualization Studio",
+    "kind": "video",
+    "licence": "NASA public domain (SVS)",
+    "url": "https://svs.gsfc.nasa.gov/5688"
+   },
+   {
+    "credit": "NASA Scientific Visualization Studio",
+    "kind": "video",
+    "licence": "NASA public domain (SVS)",
+    "url": "https://svs.gsfc.nasa.gov/5683"
+   },
+   {
+    "credit": "NASA SVS / PACE",
+    "kind": "video",
+    "licence": "NASA public domain (SVS)",
+    "url": "https://svs.gsfc.nasa.gov/5687"
+   },
+   {
+    "credit": "NASA Earth Observatory / Michala Garrison, PACE OB.DAAC",
+    "kind": "still",
+    "licence": "NASA public domain",
+    "url": "https://science.nasa.gov/earth/earth-observatory/el-nino-alters-marine-life-in-the-pacific/"
+   },
+   {
+    "credit": "NASA Earth Observatory / Lauren Dauphin, Landsat USGS",
+    "kind": "still",
+    "licence": "NASA public domain (Landsat USGS)",
+    "url": "https://science.nasa.gov/earth/earth-observatory/rare-widespread-snow-in-the-atacama-desert/"
+   },
+   {
+    "credit": "NASA Earth Observatory / Michala Garrison, Landsat USGS",
+    "kind": "still",
+    "licence": "NASA public domain (Landsat USGS)",
+    "url": "https://science.nasa.gov/earth/earth-observatory/el-nino-rains-paint-the-atacama/"
+   }
+  ],
+  "nasa_involved": true,
+  "primary_sources": [
+   "https://science.nasa.gov/earth/earth-observatory/el-nino-rains-paint-the-atacama/",
+   "https://science.nasa.gov/earth/earth-observatory/el-nino-alters-marine-life-in-the-pacific/",
+   "https://science.nasa.gov/earth/earth-observatory/rare-widespread-snow-in-the-atacama-desert/",
+   "https://svs.gsfc.nasa.gov/5683",
+   "https://svs.gsfc.nasa.gov/5688",
+   "https://svs.gsfc.nasa.gov/5687"
+  ],
+  "scores": {
+   "facts": 4,
+   "hook": 4,
+   "length_fit": 4,
+   "novelty": 5,
+   "proof": 2,
+   "rights": 5,
+   "thumbnail": 4,
+   "us_interest": 4
+  },
+  "title": "NASA Watched the Pacific Turn Red. Then a Desert Bloomed."
+ },
+ "updated_at": "2026-11-19T07:46:30Z",
+ "versions": [
+  {
+   "captions_sha256": "131c28437e3cfd197228d1940378bbbd254aa95fe70d311c6f1bf943779a05bc",
+   "created_at": "2026-11-19T07:44:43Z",
+   "description": "NASA satellites watched a long red stripe of warm water spread across the tropical Pacific in 2026. It's El Niño. Then, on the other side of that ocean, snow fell on the Atacama Desert and the desert began to bloom.\n\nIn this episode:\n0:00 The red stripe that wasn't there a year ago\n0:23 How El Niño moves warm water east\n1:00 The ocean surface rises\n1:16 NASA's PACE satellite sees the ocean change color\n1:59 Rain and snow in the Atacama\n2:57 The flowering desert\n3:47 What comes next\n\nSources:\n- NASA Earth Observatory, \"El Niño Rains Paint the Atacama\" (Nov 19, 2026): https://science.nasa.gov/earth/earth-observatory/el-nino-rains-paint-the-atacama/\n- NASA Earth Observatory, \"El Niño Alters Marine Life in the Pacific\" (Aug 10, 2026): https://science.nasa.gov/earth/earth-observatory/el-nino-alters-marine-life-in-the-pacific/\n- NASA Earth Observatory, \"Rare, Widespread Snow in the Atacama Desert\" (Aug 27, 2026): https://science.nasa.gov/earth/earth-observatory/rare-widespread-snow-in-the-atacama-desert/\n- NASA Scientific Visualization Studio: https://svs.gsfc.nasa.gov/5683 , https://svs.gsfc.nasa.gov/5688 , https://svs.gsfc.nasa.gov/5687\n\nImagery: NASA Scientific Visualization Studio; NASA Earth Observatory (Michala Garrison, Lauren Dauphin) using Landsat data from the U.S. Geological Survey, MODIS (Terra) and PACE data. Public domain; NASA does not endorse this video.\nNarration: synthetic voice (ElevenLabs).\n\n#ElNino #NASA #Atacama",
+   "duration_s": 262.6,
+   "files": {
+    "captions": "/home/user/work/ep_elnino/captions/captions.srt",
+    "thumbnail": "/home/user/work/ep_elnino/cover/cover_final.jpg",
+    "video": "/home/user/work/ep_elnino/out/ep_v3.mp4"
+   },
+   "n": 1,
+   "tags": [
+    "El Nino",
+    "El Nino 2026",
+    "NASA",
+    "PACE satellite",
+    "Atacama Desert",
+    "flowering desert",
+    "Landsat",
+    "sea surface temperature",
+    "ALMA snow",
+    "satellite images",
+    "Orbital Atlas"
+   ],
+   "thumbnail_sha256": "2c625c5cd2a8958d06b743a1424b6cf1eaa24ac4e9572c6a139bfa4182c4e612",
+   "title": "NASA Watched the Pacific Turn Red. Then a Desert Bloomed.",
+   "version_hash": "d40f9f1f785b36f747638b334aca7316a5fa7a6b56d73da702764df9c0595410",
+   "video_sha256": "aadf4b6ab09abf5eccb7d3d4c38680cb030ae1ab247cb0d0c66943f0f00400d1"
+  }
+ ]
+}
