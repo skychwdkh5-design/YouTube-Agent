@@ -11,7 +11,7 @@
   "release": "oa-20261119-01",
   "single_use": true,
   "source": "decision card tap (option ОК)",
-  "status": "valid",
+  "status": "used",
   "test": false,
   "version": 1,
   "version_hash": "d40f9f1f785b36f747638b334aca7316a5fa7a6b56d73da702764df9c0595410",
@@ -128,6 +128,12 @@
    "at": "2026-11-19T12:49:51Z",
    "event": "schedule_requested",
    "request": "schedule-oa-20261119-01"
+  },
+  {
+   "at": "2026-11-19T12:51:51Z",
+   "event": "scheduled",
+   "publish_at": "2026-11-20T01:00:00Z",
+   "video_id": "sVInlyhIY7c"
   }
  ],
  "id": "oa-20261119-01",
@@ -146,9 +152,15 @@
   "video_id": "sVInlyhIY7c"
  },
  "production_day": "2026-11-19",
- "schedule": null,
+ "schedule": {
+  "privacy": "private",
+  "publish_at": "2026-11-20T01:00:00Z",
+  "url": "https://youtu.be/sVInlyhIY7c",
+  "verified_at": "2026-11-19T12:51:51Z",
+  "video_id": "sVInlyhIY7c"
+ },
  "schema": "pipeline-release/1",
- "stage": "schedule_requested",
+ "stage": "scheduled",
  "test": false,
  "topic": {
   "angle": "El Niño 2026 seen by NASA satellites: SST stripe, sea surface height, PACE ocean color, then Atacama snow and record flowering desert (coincidence stated, no causal claim).",
@@ -217,7 +229,7 @@
   },
   "title": "NASA Watched the Pacific Turn Red. Then a Desert Bloomed."
  },
- "updated_at": "2026-11-19T12:49:51Z",
+ "updated_at": "2026-11-19T12:51:51Z",
  "versions": [
   {
    "captions_sha256": "131c28437e3cfd197228d1940378bbbd254aa95fe70d311c6f1bf943779a05bc",
