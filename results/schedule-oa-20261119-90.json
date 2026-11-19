@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "dry_run": true,
+ "release": "oa-20261119-90",
+ "approval_id": "fe277bd7335543cb8cbfe6b78b877ebb",
+ "already_done": false,
+ "checked": [
+  "owner actor",
+  "approval = request (video, time, version, file)",
+  "video = this pipeline's private upload of that file",
+  "slot 30 min - 30 days ahead",
+  "video not scheduled by another approval"
+ ],
+ "op": "schedule",
+ "finished_at": "2026-11-19T07:03:48Z"
+}
