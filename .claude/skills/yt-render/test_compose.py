@@ -620,6 +620,23 @@ class AtlasProjection(Base):
         return self.timeline([self.shot(0, info="hook")], profile=profile, voice={"src": "n.wav", "meta": "n.voice.json"},
                              end={"seconds": seconds}, atlas=atlas)
 
+    def test_transition_placement_checks_current_frame(self):
+        painter = c.Painter.__new__(c.Painter)
+        painter.W, painter.H = 1920, 1080
+        painter.atlas_states, painter.atlas_issues = {}, []
+        caption = {"cue": 2, "box": [10, 120, 40, 180]}
+        painter.caption_boxes = {1: {"cue": 1, "box": [10, 120, 40, 180]}}
+        atlas = {"head": [10, 120, 40, 180],
+                 "projection": {"page": "LINK", "box": [-5, 100, 60, 200]}}
+        for state in ("opening", "turning", "closing"):
+            with self.subTest(state=state):
+                atlas["projection"]["state"] = state
+                painter.atlas_issues.clear()
+                painter._atlas_check(atlas, 1.5, caption)
+                self.assertEqual([issue["hit"] for issue in painter.atlas_issues],
+                                 ["face/helmet", "frame edge", "caption 2"])
+        self.assertEqual(painter.atlas_states, {"opening": 1, "turning": 1, "closing": 1})
+
     def test_pages_follow_the_words(self):
         code, d = run(["--timeline", self.tl(self.atlas())])
         self.assertEqual(d["status"], "confirm_required", d)
