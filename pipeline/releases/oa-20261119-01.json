@@ -1,5 +1,23 @@
 {
- "approval": null,
+ "approval": {
+  "actor": "principal:Егор",
+  "approval_id": "0b4f228622ed4ce9a1a060db37469470",
+  "approved_at": "2026-11-19T12:49:44Z",
+  "card_code": "6DDB533E",
+  "card_id": "card-6ddb533e",
+  "channel": "oa",
+  "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdD4eNK5rsaCBHpvJ83Y9MNA",
+  "publish_at": "2026-11-20T01:00:00Z",
+  "release": "oa-20261119-01",
+  "single_use": true,
+  "source": "decision card tap (option ОК)",
+  "status": "valid",
+  "test": false,
+  "version": 1,
+  "version_hash": "d40f9f1f785b36f747638b334aca7316a5fa7a6b56d73da702764df9c0595410",
+  "video_id": "sVInlyhIY7c",
+  "video_sha256": "aadf4b6ab09abf5eccb7d3d4c38680cb030ae1ab247cb0d0c66943f0f00400d1"
+ },
  "artifacts": {
   "qc_passed": {
    "at": "2026-11-19T07:44:43Z",
@@ -27,12 +45,20 @@
   {
    "card_id": "card-6ddb533e",
    "code": "6DDB533E",
+   "decision": {
+    "actor": "principal:Егор",
+    "at": "2026-11-19T12:49:44Z",
+    "choice": "ok",
+    "comment": null,
+    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdD4eNK5rsaCBHpvJ83Y9MNA",
+    "source": "decision card tap (option ОК)"
+   },
    "expires_at": "2026-11-20T00:30:00Z",
    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdD4eNK5rsaCBHpvJ83Y9MNA",
    "release": "oa-20261119-01",
    "shown_at": "2026-11-19T07:46:16Z",
    "slot": "2026-11-20T01:00:00Z",
-   "status": "open",
+   "status": "decided",
    "version": 1,
    "version_hash": "d40f9f1f785b36f747638b334aca7316a5fa7a6b56d73da702764df9c0595410",
    "video_id": "sVInlyhIY7c"
@@ -90,6 +116,18 @@
    "event": "card",
    "slot": "2026-11-20T01:00:00Z",
    "version": 1
+  },
+  {
+   "approval_id": "0b4f228622ed4ce9a1a060db37469470",
+   "at": "2026-11-19T12:49:44Z",
+   "card_id": "card-6ddb533e",
+   "event": "approved"
+  },
+  {
+   "approval_id": "0b4f228622ed4ce9a1a060db37469470",
+   "at": "2026-11-19T12:49:51Z",
+   "event": "schedule_requested",
+   "request": "schedule-oa-20261119-01"
   }
  ],
  "id": "oa-20261119-01",
@@ -110,7 +148,7 @@
  "production_day": "2026-11-19",
  "schedule": null,
  "schema": "pipeline-release/1",
- "stage": "card_shown",
+ "stage": "schedule_requested",
  "test": false,
  "topic": {
   "angle": "El Niño 2026 seen by NASA satellites: SST stripe, sea surface height, PACE ocean color, then Atacama snow and record flowering desert (coincidence stated, no causal claim).",
@@ -179,7 +217,7 @@
   },
   "title": "NASA Watched the Pacific Turn Red. Then a Desert Bloomed."
  },
- "updated_at": "2026-11-19T07:46:30Z",
+ "updated_at": "2026-11-19T12:49:51Z",
  "versions": [
   {
    "captions_sha256": "131c28437e3cfd197228d1940378bbbd254aa95fe70d311c6f1bf943779a05bc",
