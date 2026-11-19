@@ -209,6 +209,24 @@ profile's frame rate (30 fps) and aspect (16:9 or 9:16; it is scaled, never crop
   text baked into the video. A video counts as a full-frame picture for the composition rules.
 - Timelines without video assets render byte for byte as before.
 
+### ATLAS with the projection - `"atlas"` (profile `long`)
+
+The approved paper-cut ATLAS (owner-approved 2026-11-17: the same drawing, whole-cutout idle motion, blink and
+mouth inside the one head, **no joints / arms / legs**) with a paper projection opening from his raised glove.
+Projection pages change on the narration's words:
+
+```json
+"atlas": {"host": {"x": 250, "y": 985, "height": 400, "on": [[0, 30]]},
+          "projection": {"box": [330, 318, 680, 578],
+                         "pages": [{"at": {"phrase": "blocked the direct path"}, "title": "NO DIRECT PATH", "kind": "blocked"}],
+                         "end": {"phrase": "lunar surface", "edge": "end", "offset": 0.4}}}
+```
+
+Engine, page kinds, anchors and refusals: `production/papercut/PROJECTION_ENGINE_V1.md`. Drawn over the footage and
+under labels, captions and the credit. The manifest records the pages, frames per state and per-frame placement
+issues (projection over the face, a caption or the frame edge). A warning fires when ATLAS is on screen more than
+30 % of the video. Timelines without `atlas` render exactly as before.
+
 ### Graphics from `/yt-graphics`
 
 An asset with `"kind": "graphic"` is a full-frame PNG at the profile's output size (1920x1080 for

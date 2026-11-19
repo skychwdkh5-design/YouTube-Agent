@@ -204,17 +204,25 @@ class HostLayer:
 def _composite(frame: Image.Image, layer: np.ndarray, x0: int, y0: int, shadow: bool, k: float):
     """Premultiplied over-composite of `layer` into `frame` (RGBA, in place). Returns visible bbox."""
     W, H = frame.size
-    dst = np.asarray(frame, dtype=np.float32) / 255.0
-    dst = dst.copy()
     alpha = layer[..., 3]
+    lh, lw = alpha.shape
+    sx, sy = x0 + round(6 * k / 2), y0 + round(8 * k / 2)
+    # Work only inside the region the layer and its shadow can touch (the rest of the frame is unchanged:
+    # the old full-frame float round trip gave back the same bytes there, at ~20x the cost).
+    rx0, ry0 = max(0, min(x0, sx)), max(0, min(y0, sy))
+    rx1, ry1 = min(W, max(x0, sx) + lw), min(H, max(y0, sy) + lh)
+    if rx0 >= rx1 or ry0 >= ry1:
+        return None
+    dst = np.asarray(frame.crop((rx0, ry0, rx1, ry1)), dtype=np.float32) / 255.0
+    RW, RH = rx1 - rx0, ry1 - ry0
     if shadow:   # soft paper drop shadow (scene element; does not touch character pixels)
         sh = Image.fromarray((alpha * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(5 * k / 2))
         sa = np.asarray(sh, dtype=np.float32) / 255.0 * 0.38
         col = np.array([0.05, 0.07, 0.12], np.float32)
         shadow_px = np.dstack([sa * col[0], sa * col[1], sa * col[2], sa])
-        _over(dst, shadow_px, x0 + round(6 * k / 2), y0 + round(8 * k / 2), W, H)
-    _over(dst, layer, x0, y0, W, H)
-    frame.paste(Image.fromarray((np.clip(dst, 0, 1) * 255 + 0.5).astype(np.uint8), "RGBA"))
+        _over(dst, shadow_px, sx - rx0, sy - ry0, RW, RH)
+    _over(dst, layer, x0 - rx0, y0 - ry0, RW, RH)
+    frame.paste(Image.fromarray((np.clip(dst, 0, 1) * 255 + 0.5).astype(np.uint8), "RGBA"), (rx0, ry0))
     ys, xs = np.nonzero(alpha > 0.03)
     if len(xs) == 0:
         return None

@@ -593,6 +593,88 @@ class CreditPill(Base):
         self.assertGreater(f[300:340, 100:400].mean(), 240)   # the rest of the page is untouched
 
 
+@unittest.skipUnless(HAVE_FF, "ffmpeg/ffprobe not installed")
+class AtlasProjection(Base):
+    """timeline.atlas: the approved paper-cut ATLAS (no limb animation) + projection pages on the narration's words."""
+    WORDS = ["When", "Orion", "moved", "behind", "the", "Moon,", "the", "Moon", "blocked", "the", "direct", "path."]
+
+    def setUp(self):
+        super().setUp()
+        path = os.path.join(self.dir, "n.wav")
+        with wave.open(path, "wb") as w:
+            w.setnchannels(1); w.setsampwidth(2); w.setframerate(16000)
+            w.writeframes(b"".join(struct.pack("<h", int(6000 * np.sin(i / 9))) for i in range(int(4.0 * 16000))))
+        words = [{"text": t, "start": round(0.1 + 0.3 * i, 3), "end": round(0.35 + 0.3 * i, 3)} for i, t in enumerate(self.WORDS)]
+        json.dump({"schema": "yt-voice/1", "audio_sha256": r._sha256(path), "duration": 4.0, "voice_name": "Adam",
+                   "words": words}, open(os.path.join(self.dir, "n.voice.json"), "w"))
+
+    def atlas(self, **pj):
+        a = {"host": {"x": 250, "y": 985, "height": 400},
+             "projection": {"pages": [{"at": {"phrase": "Orion moved"}, "title": "EARTH TO ORION", "kind": "link"},
+                                      {"at": {"phrase": "blocked the direct path"}, "title": "NO DIRECT PATH", "kind": "blocked"}],
+                            "end": 4.0}}
+        a["projection"].update(pj)
+        return a
+
+    def tl(self, atlas, profile="long", seconds=4.0):
+        return self.timeline([self.shot(0, info="hook")], profile=profile, voice={"src": "n.wav", "meta": "n.voice.json"},
+                             end={"seconds": seconds}, atlas=atlas)
+
+    def test_transition_placement_checks_current_frame(self):
+        painter = c.Painter.__new__(c.Painter)
+        painter.W, painter.H = 1920, 1080
+        painter.atlas_states, painter.atlas_issues = {}, []
+        caption = {"cue": 2, "box": [10, 120, 40, 180]}
+        painter.caption_boxes = {1: {"cue": 1, "box": [10, 120, 40, 180]}}
+        atlas = {"head": [10, 120, 40, 180],
+                 "projection": {"page": "LINK", "box": [-5, 100, 60, 200]}}
+        for state in ("opening", "turning", "closing"):
+            with self.subTest(state=state):
+                atlas["projection"]["state"] = state
+                painter.atlas_issues.clear()
+                painter._atlas_check(atlas, 1.5, caption)
+                self.assertEqual([issue["hit"] for issue in painter.atlas_issues],
+                                 ["face/helmet", "frame edge", "caption 2"])
+        self.assertEqual(painter.atlas_states, {"opening": 1, "turning": 1, "closing": 1})
+
+    def test_pages_follow_the_words(self):
+        code, d = run(["--timeline", self.tl(self.atlas())])
+        self.assertEqual(d["status"], "confirm_required", d)
+        pages = d["plan"]["atlas_pages"]
+        self.assertEqual([p_["title"] for p_ in pages], ["EARTH TO ORION", "NO DIRECT PATH"])
+        self.assertAlmostEqual(pages[0]["start"], 0.4 - 0.15, places=3)          # "Orion" at 0.4 s, 0.15 s lead
+        self.assertAlmostEqual(pages[1]["start"], 2.5 - 0.15, places=3)          # "blocked" at 2.5 s
+        self.assertEqual(pages[0]["end"], pages[1]["start"])
+        self.assertIn("projection: NO DIRECT PATH", [e["what"] for e in d["plan"]["info_events"]])
+        self.assertTrue(any("ATLAS is on screen" in w for w in d["plan"]["warnings"]))
+
+    def test_refusals(self):
+        for atlas, msg in ((self.atlas(box=[100, 600, 450, 860]), "covers ATLAS's face"),
+                           (self.atlas(box=[1700, 318, 2050, 578]), "outside"),
+                           (self.atlas(pages=[{"at": {"phrase": "no such words"}, "title": "X", "kind": "link"}]), "found 0 time"),
+                           (self.atlas(pages=[{"at": 0.2, "title": "FAR TOO MANY WORDS HERE", "kind": "link"}]), "1-4 words"),
+                           (dict(self.atlas(), host={"x": 250, "y": 985, "on": [[0, 1.0]]}), "not inside an ATLAS window")):
+            code, d = run(["--timeline", self.tl(atlas)])
+            self.assertEqual(d["status"], "error", atlas)
+            self.assertIn(msg, d["error"])
+        code, d = run(["--timeline", self.tl(self.atlas(), profile="short", seconds=4.0)])
+        self.assertIn("profile 'long'", d["error"])
+
+    def test_render_draws_atlas_and_projection(self):
+        out = os.path.join(self.dir, "atlas.mp4")
+        code, d = run(["--timeline", self.tl(self.atlas()), "--output", out, "--confirm"])
+        self.assertEqual(d["status"], "ok", d)
+        man = json.load(open(out[:-4] + ".manifest.json"))["atlas"]
+        self.assertEqual(man["placement_issues"], [])
+        self.assertEqual(set(man["frames_by_state"]), {"opening", "open", "turning", "closing"})
+        fr = LongProfile.frames(self, out, [3, 45])                  # before the panel opens / page 1 open
+        a, b = (f.reshape(1080, 1920, 3) for f in fr)
+        panel = (slice(340, 560), slice(350, 660))
+        self.assertGreater(abs(b[panel].mean(0).mean(0) - a[panel].mean(0).mean(0)).max(), 40)   # projection appeared
+        hero = (slice(700, 960), slice(150, 350))
+        self.assertGreater(abs(a[hero] - np.array([200, 120, 40])).mean(), 30)                  # ATLAS is drawn from frame 0
+
+
 class BackwardCompat(unittest.TestCase):
     def test_v1_and_v2_never_load_compose_path(self):
         self.assertEqual(r.SUPPORTED_VERSIONS, (1, 2))
