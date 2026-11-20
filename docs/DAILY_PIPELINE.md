@@ -65,3 +65,19 @@ slot taken on the channel = new card; test releases are dry-run only.
 - Re-login when Google expires the token (app in Testing mode: about weekly) - the pipeline sends one link and waits.
 - vidIQ paid calls: only with a separate permission per call.
 - Merging the code PRs (the data branches work without merges).
+
+## Discovery text (description, chapters, hashtags, tags)
+
+Owner request 2026-11-20: every release gets a description and hashtags that tell YouTube who the video is for.
+`pipeline/seo.py` is part of `qc_gate.py`; a FAIL blocks the card. meta.json must contain:
+
+| field | rule |
+|---|---|
+| `search_queries` | 3 distinct queries a real US viewer would type, best first (write them before the title) |
+| description, opening paragraph | the search snippet: says what the viewer gets, contains the main words of query 1, no link |
+| chapters | `0:00 ...` first, at least 3, each at least 10 s, matching the narration sections |
+| hashtags | 3-5 at the end, specific to the topic (e.g. `#Pulsar #NASA #Fermi`), channel name never first |
+| `tags` | 8-15, include query 1 (or all its words) and the channel name, <= 500 characters, no unrelated tags |
+
+Sources and credits stay below the chapters. Hashtags and tags are weak signals compared with title, thumbnail and
+viewer behaviour; they help YouTube classify the topic and the search intent, they do not replace packaging.

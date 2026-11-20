@@ -99,6 +99,15 @@ answers, voids a card when the video, cover or title changes, and uploads only p
 always private + publishAt. Test releases (ids ending 90-99) are dry-run only. The chat-publish protocol below still applies
 to manual releases.
 
+### Discovery text on every release (owner request 2026-11-20)
+
+Every pipeline release (OA and NEXORA) carries text that tells YouTube what the video is about and who searches for it;
+the QC gate (`pipeline/seo.py`) blocks the card otherwise. In meta.json: `search_queries` = the 3 queries a real US
+viewer would type, best first; the description's opening paragraph (the search snippet, no link) uses query 1's words;
+chapters from 0:00 (>= 3, each >= 10 s); 3-5 specific hashtags at the end (the first 3 show above the title; topic first,
+channel name last, never the only one); 8-15 tags incl. query 1 and the channel name, <= 500 characters. No unrelated or
+misleading tags/hashtags (YouTube policy). Title and thumbnail still matter most; this is the text layer on top.
+
 ## Chat-to-publish protocol (OrbitalAtlas)
 
 Status: **not active** until the owner says "включи chat-publish" and sets the repository variable `CHAT_PUBLISH_ENABLED=true`. Until then use only the gated workflows. Full design: `docs/CHAT_PUBLISH_ARCHITECTURE.md`.
