@@ -1,0 +1,186 @@
+{
+ "approval": null,
+ "artifacts": {
+  "qc_passed": {
+   "at": "2026-11-20T03:17:34Z",
+   "report": "/mnt/project-files/pipeline/nx-20261120-01/qc_v2.json",
+   "result": "PASS"
+  },
+  "rendered": {
+   "at": "2026-11-20T03:17:34Z",
+   "timeline": "/home/user/work/nx_pulsar/timeline.json",
+   "video": "/mnt/project-files/pipeline/nx-20261120-01/nx-20261120-01-v1.mp4"
+  },
+  "scripted": {
+   "at": "2026-11-20T03:17:34Z",
+   "script": "/home/user/work/nx_pulsar/script.md"
+  },
+  "voiced": {
+   "at": "2026-11-20T03:17:34Z",
+   "chars": 3298,
+   "voice": "/home/user/work/nx_pulsar/voice/narration.wav",
+   "voice_name": "Matilda"
+  }
+ },
+ "blocker": null,
+ "cards": [],
+ "channel": "nx",
+ "created_at": "2026-11-20T02:50:15Z",
+ "events": [
+  {
+   "at": "2026-11-20T02:50:15Z",
+   "channel": "nx",
+   "event": "created",
+   "production_day": "2026-11-20"
+  },
+  {
+   "at": "2026-11-20T03:17:24Z",
+   "event": "version",
+   "n": 1,
+   "version_hash": "b4f5c7b784ee"
+  },
+  {
+   "at": "2026-11-20T03:17:34Z",
+   "event": "stage_done",
+   "stage": "scripted"
+  },
+  {
+   "at": "2026-11-20T03:17:34Z",
+   "event": "stage_done",
+   "stage": "voiced"
+  },
+  {
+   "at": "2026-11-20T03:17:34Z",
+   "event": "stage_done",
+   "stage": "rendered"
+  },
+  {
+   "at": "2026-11-20T03:17:34Z",
+   "event": "stage_done",
+   "stage": "qc_passed"
+  },
+  {
+   "at": "2026-11-20T03:17:35Z",
+   "event": "preview_requested",
+   "request": "/home/user/nxops/publish/requests/nx-20261120-01.json",
+   "target": "NEXORA youtube-ops"
+  }
+ ],
+ "id": "nx-20261120-01",
+ "kind": "long",
+ "meta": {
+  "category_id": "28",
+  "contains_synthetic_media": true,
+  "made_for_kids": false
+ },
+ "preview": null,
+ "production_day": "2026-11-20",
+ "schedule": null,
+ "schema": "pipeline-release/1",
+ "stage": "preview_requested",
+ "test": false,
+ "topic": {
+  "angle": "A cryptography lattice algorithm (shortest vector) finds pulsars in public NASA Fermi data ~1 million times faster; PSR J1622-7204 found in ~10 CPU-hours where the previous best method used ~600 CPU-years and failed (PRL, Nov 19 2026).",
+  "evidence": {
+   "facts": "NASA science.nasa.gov article 2026-11-19; SVS 10858/14976/20413 descriptions",
+   "rights": "all NASA SVS/NASA PD; SVS 13156 music track dropped"
+  },
+  "found_by": "Claude research 2026-11-20 (NASA feed + SVS API); vidIQ 0 credits until 2026-11-29; arXiv/APS/Weizmann blocked from this environment",
+  "id": "nx-fermi-lattice-pulsar",
+  "media": [
+   {
+    "credit": "NASA Goddard / CI Lab",
+    "kind": "video",
+    "licence": "NASA public domain (SVS)",
+    "url": "https://svs.gsfc.nasa.gov/14881"
+   },
+   {
+    "credit": "NASA Goddard Conceptual Image Lab",
+    "kind": "video",
+    "licence": "NASA public domain (SVS)",
+    "url": "https://svs.gsfc.nasa.gov/20413"
+   },
+   {
+    "credit": "NASA Goddard",
+    "kind": "video",
+    "licence": "NASA public domain (SVS)",
+    "url": "https://svs.gsfc.nasa.gov/10858"
+   },
+   {
+    "credit": "NASA Goddard",
+    "kind": "video",
+    "licence": "NASA public domain (SVS, visuals only, audio removed)",
+    "url": "https://svs.gsfc.nasa.gov/13156"
+   },
+   {
+    "credit": "NASA Goddard",
+    "kind": "video",
+    "licence": "NASA public domain (SVS)",
+    "url": "https://svs.gsfc.nasa.gov/20417"
+   },
+   {
+    "credit": "NASA/DOE/Fermi LAT Collaboration",
+    "kind": "still",
+    "licence": "NASA public domain",
+    "url": "https://svs.gsfc.nasa.gov/14976"
+   },
+   {
+    "credit": "NASA Goddard / Chris Smith (USRA/GESTAR)",
+    "kind": "still",
+    "licence": "NASA public domain",
+    "url": "https://science.nasa.gov/open-science/fermi-data-pulsar-discovery/"
+   }
+  ],
+  "nasa_involved": true,
+  "primary_sources": [
+   "https://science.nasa.gov/open-science/fermi-data-pulsar-discovery/",
+   "https://svs.gsfc.nasa.gov/14976",
+   "https://svs.gsfc.nasa.gov/10858",
+   "https://svs.gsfc.nasa.gov/20413"
+  ],
+  "scores": {
+   "facts": 4,
+   "hook": 5,
+   "length_fit": 4,
+   "novelty": 5,
+   "proof": 3,
+   "rights": 5,
+   "thumbnail": 4,
+   "us_interest": 4
+  },
+  "title": "600 Years of Computing Failed. 10 Hours Found This Star."
+ },
+ "updated_at": "2026-11-20T03:17:35Z",
+ "versions": [
+  {
+   "captions_sha256": "01370d28ae16e23f965e9e86566622fabaada0ed17619d8e617475859b6fd0b4",
+   "created_at": "2026-11-20T03:17:24Z",
+   "description": "Scientists borrowed a trick from code-breakers and found a hidden pulsar in public NASA data using about 10 hours of computing. The previous best method had used the equivalent of 600 years and missed it. NASA says the new method finds pulsars about a million times faster.\n\nIn this episode:\n0:00 600 years vs. 10 hours\n0:20 What a pulsar is\n0:43 Why gamma-ray pulsars are so hard to find\n1:28 Hundreds of computer-years per pulsar\n1:42 The code-breaking trick: shortest vector in a lattice\n2:14 PSR J1622−7204, found\n2:53 Why open NASA data mattered\n3:10 Next target: pulsars with a companion star\n\nSources:\n- NASA, \"NASA Science Data Powers New Method to Discover Hard-to-Find Pulsars\" (Nov 19, 2026): https://science.nasa.gov/open-science/fermi-data-pulsar-discovery/\n- Study: Pook-Kolb, Gazith, Zackay, Clark et al., Physical Review Letters (published Nov 19, 2026)\n- NASA SVS, \"Fermi's 15-year View of the Gamma-Ray Sky\": https://svs.gsfc.nasa.gov/14976\n- NASA SVS, \"Fermi Discovers Youngest Millisecond Pulsar\" (neutron star facts): https://svs.gsfc.nasa.gov/10858\n\nFootage and imagery: NASA's Goddard Space Flight Center (Conceptual Image Lab, Scientific Visualization Studio): https://svs.gsfc.nasa.gov/14881 , https://svs.gsfc.nasa.gov/20413 , https://svs.gsfc.nasa.gov/10858 , https://svs.gsfc.nasa.gov/13156 , https://svs.gsfc.nasa.gov/20417 ; sky maps NASA/DOE/Fermi LAT Collaboration. Public domain; NASA does not endorse this video. Animations are artist's visualizations, not photographs. Lattice and comparison graphics: NEXORA.\nNarration: synthetic voice (ElevenLabs).\n\n#NASA #Pulsar #Fermi",
+   "duration_s": 221.6,
+   "files": {
+    "captions": "/mnt/project-files/pipeline/nx-20261120-01/captions.srt",
+    "thumbnail": "/mnt/project-files/pipeline/nx-20261120-01/cover.jpg",
+    "video": "/mnt/project-files/pipeline/nx-20261120-01/nx-20261120-01-v1.mp4"
+   },
+   "n": 1,
+   "tags": [
+    "pulsar",
+    "NASA Fermi",
+    "Fermi Gamma-ray Space Telescope",
+    "neutron star",
+    "lattice algorithm",
+    "shortest vector problem",
+    "cryptography",
+    "PSR J1622-7204",
+    "gamma rays",
+    "open science",
+    "Einstein@Home",
+    "NEXORA"
+   ],
+   "thumbnail_sha256": "e741379e39f7b5743236c75031b13b0967ade090083cc48da896c3baa8fbd4f7",
+   "title": "600 Years of Computing Failed. 10 Hours Found This Star.",
+   "version_hash": "b4f5c7b784eed8d7e63c93856a2d8c744e40bca66ab53f8ddfae351d3f8d7521",
+   "video_sha256": "af55005c8a1c3cb2cb38ddf5de399b45744fa2e0cfd3b40dea3c467f39ba0ed5"
+  }
+ ]
+}

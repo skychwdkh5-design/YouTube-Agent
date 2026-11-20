@@ -1,0 +1,85 @@
+{
+ "channel": "nx",
+ "topics": [
+  {
+   "id": "nx-fermi-lattice-pulsar",
+   "title": "600 Years of Computing Failed. 10 Hours Found This Star.",
+   "angle": "A cryptography lattice algorithm (shortest vector) finds pulsars in public NASA Fermi data ~1 million times faster; PSR J1622-7204 found in ~10 CPU-hours where the previous best method used ~600 CPU-years and failed (PRL, Nov 19 2026).",
+   "primary_sources": [
+    "https://science.nasa.gov/open-science/fermi-data-pulsar-discovery/",
+    "https://svs.gsfc.nasa.gov/14976",
+    "https://svs.gsfc.nasa.gov/10858",
+    "https://svs.gsfc.nasa.gov/20413"
+   ],
+   "media": [
+    {
+     "url": "https://svs.gsfc.nasa.gov/14881",
+     "licence": "NASA public domain (SVS)",
+     "credit": "NASA Goddard / CI Lab",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/20413",
+     "licence": "NASA public domain (SVS)",
+     "credit": "NASA Goddard Conceptual Image Lab",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/10858",
+     "licence": "NASA public domain (SVS)",
+     "credit": "NASA Goddard",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/13156",
+     "licence": "NASA public domain (SVS, visuals only, audio removed)",
+     "credit": "NASA Goddard",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/20417",
+     "licence": "NASA public domain (SVS)",
+     "credit": "NASA Goddard",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/14976",
+     "licence": "NASA public domain",
+     "credit": "NASA/DOE/Fermi LAT Collaboration",
+     "kind": "still"
+    },
+    {
+     "url": "https://science.nasa.gov/open-science/fermi-data-pulsar-discovery/",
+     "licence": "NASA public domain",
+     "credit": "NASA Goddard / Chris Smith (USRA/GESTAR)",
+     "kind": "still"
+    }
+   ],
+   "nasa_involved": true,
+   "scores": {
+    "us_interest": 4,
+    "novelty": 5,
+    "hook": 5,
+    "thumbnail": 4,
+    "rights": 5,
+    "facts": 4,
+    "proof": 3,
+    "length_fit": 4
+   },
+   "evidence": {
+    "facts": "NASA science.nasa.gov article 2026-11-19; SVS 10858/14976/20413 descriptions",
+    "rights": "all NASA SVS/NASA PD; SVS 13156 music track dropped"
+   },
+   "found_by": "Claude research 2026-11-20 (NASA feed + SVS API); vidIQ 0 credits until 2026-11-29; arXiv/APS/Weizmann blocked from this environment",
+   "status": "candidate",
+   "added_at": "2026-11-20T02:50:08Z"
+  }
+ ],
+ "gaps": [
+  {
+   "at": "2026-11-20T02:50:08Z",
+   "what": "vidIQ",
+   "detail": "0 credits until 2026-11-29; free fallback (NASA feed + SVS)"
+  }
+ ]
+}
