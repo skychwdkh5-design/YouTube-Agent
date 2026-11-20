@@ -317,7 +317,10 @@ def card_text(rel, card, cfg):
         f"Длительность: {mins}:{secs:02d}",
         f"Слот: {local(t, cfg):%a %d.%m %H:%M} ({cfg['timezone']}) = {t:%Y-%m-%d %H:%M} UTC",
         f"Посмотреть (закрытое видео на канале): https://youtu.be/{card['video_id']}",
-        f"Карточка действует до {local(parse(card['expires_at']), cfg):%d.%m %H:%M}."])
+        f"Карточка действует до {local(parse(card['expires_at']), cfg):%d.%m %H:%M}."]
+        + ([f"Конечная заставка: рекомендую «{rel['endscreen']['title']}» https://youtu.be/{rel['endscreen']['video_id']} "
+            "(Studio в браузере → ролик → Конечная заставка → «Импортировать из видео» или «1 видео + подписка»)."]
+           if rel.get("endscreen") else []))
 
 
 # --- the owner's answer -------------------------------------------------------------------------------------------

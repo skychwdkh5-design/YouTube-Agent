@@ -13,6 +13,8 @@ Checks (FAIL blocks the card, WARN is reported on it):
   rights     every asset in the timeline has url + licence + credit; no forbidden source; licences in the allowed list
   thumbnail  /yt-package thumbcheck (objective half of the cover gate)
   metadata   title 1-100 chars, description with sources and credits, captions file valid
+  endscreen  the video runs 15-20 s past the narration (room for Studio end-screen elements; pipeline/endscreen.py)
+  seo        3 search queries; description hook has query 1; chapters from 0:00; 3-5 topic hashtags; 8-15 tags (pipeline/seo.py)
 """
 import argparse, json, os, re, subprocess, sys
 
@@ -121,6 +123,19 @@ def gate(a, cfg):
     res.append(check("title", 1 <= len(title) <= 100 and not re.search(r"[<>]", title), {"chars": len(title)}))
     res.append(check("description sources + credits", "http" in desc and len(desc.encode()) <= 5000 and not re.search(r"[<>]", desc),
                      {"bytes": len(desc.encode())}))
+    import seo
+    try:
+        dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", a.video],
+                                   capture_output=True, text=True).stdout.strip())
+    except ValueError:
+        dur = None
+    for name, ok, detail in seo.check(meta, ch["name"], duration=dur):
+        res.append(check(name, ok, detail))
+    # 9. end-screen tail: the picture runs 15-20 s past the narration so Studio end-screen elements cover no speech
+    if a.voice_meta and dur:
+        vend = float(json.load(open(a.voice_meta)).get("duration") or 0)
+        tail = round(dur - vend, 2)
+        res.append(check("endscreen tail", 15.0 <= tail <= 20.5, {"tail_s": tail, "need": "15-20 s after the narration"}))
     srt = open(a.captions, encoding="utf-8").read() if a.captions else ""
     res.append(check("captions SRT", bool(re.search(r"^\d+\s*\n\d\d:\d\d:\d\d,\d{3} --> ", srt, re.M)), {"cues": srt.count(" --> ")}))
     fails = [r["check"] for r in res if r["result"] == "FAIL"]

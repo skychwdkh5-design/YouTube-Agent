@@ -65,3 +65,34 @@ slot taken on the channel = new card; test releases are dry-run only.
 - Re-login when Google expires the token (app in Testing mode: about weekly) - the pipeline sends one link and waits.
 - vidIQ paid calls: only with a separate permission per call.
 - Merging the code PRs (the data branches work without merges).
+
+## Discovery text (description, chapters, hashtags, tags)
+
+Owner request 2026-11-20: every release gets a description and hashtags that tell YouTube who the video is for.
+`pipeline/seo.py` is part of `qc_gate.py`; a FAIL blocks the card. meta.json must contain:
+
+| field | rule |
+|---|---|
+| `search_queries` | 3 distinct queries a real US viewer would type, best first (write them before the title) |
+| description, opening paragraph | the search snippet: says what the viewer gets, contains the main words of query 1, no link |
+| chapters | `0:00 ...` first, at least 3, each at least 10 s, matching the narration sections |
+| hashtags | 3-5 at the end, specific to the topic (e.g. `#Pulsar #NASA #Fermi`), channel name never first |
+| `tags` | 8-15, include query 1 (or all its words) and the channel name, <= 500 characters, no unrelated tags |
+
+Sources and credits stay below the chapters. Hashtags and tags are weak signals compared with title, thumbnail and
+viewer behaviour; they help YouTube classify the topic and the search intent, they do not replace packaging.
+
+## End screen (clickable next video)
+
+Owner request 2026-11-20. YouTube Data API v3 has no end-screen endpoint, so the pipeline prepares everything around it:
+
+1. Script: the last spoken line hands off ("...and this one is next" / "watch this next"), no new facts after it.
+2. Timeline: the last shot is a 20 s outro after the narration: `python3 pipeline/endscreen.py outro --channel oa|nx
+   --bg <clean footage frame> --out media/outro.mp4` (blurred, dimmed, slow push-in, drifting motes so QC sees no freeze;
+   "WATCH NEXT" top-left; the element areas stay free). `end.seconds` = narration end + 20.
+3. QC: `endscreen tail` = video length - narration length must be 15-20 s.
+4. Before the card: `python3 pipeline/endscreen.py pick --release R --status <channel status json>` stores the video to
+   recommend (shared topic words, else the newest public long video, never the release itself or a Short); the card
+   text then names it with the Studio steps. The owner adds the elements in Studio (browser): Content → the video →
+   End screen → "Import from video" (copies the previous layout) or the "1 video, 1 subscribe" template → pick the
+   recommended video → Save. Doing this once on the first release makes "Import from video" a one-click step after.
