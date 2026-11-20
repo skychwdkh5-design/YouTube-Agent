@@ -88,6 +88,27 @@ class Ops(unittest.TestCase):
         self.assertEqual(self.yt.videos[r1["video_id"]]["privacyStatus"], "private")
         self.assertIsNone(self.yt.videos[r1["video_id"]]["publishAt"])
 
+    def thumb_req(self, vid):
+        h = P.sha256(os.path.join(self.d, "t.jpg"))
+        req = {"op": "thumbnail", "channel_id": CH, "owner_request": "test", "items": [{"video_id": vid, "file": "t.jpg", "sha256": h}]}
+        p = os.path.join(self.d, "treq.json"); json.dump(req, open(p, "w")); return p
+
+    def test_thumbnail_only_once_and_only_own_videos(self):
+        vid = O.op_preview(self.args(self.preview_req()))["video_id"]
+        calls = []
+        with mock.patch.object(P, "set_thumbnail", lambda v, p, t: calls.append(v)):
+            r1 = O.op_thumbnail(self.args(self.thumb_req(vid)))
+            r2 = O.op_thumbnail(self.args(self.thumb_req(vid)))
+            r3 = O.op_thumbnail(self.args(self.thumb_req("FOREIGN0001")))
+        self.assertTrue(r1["ok"]); self.assertEqual(r1["items"][0]["result"], "set")
+        self.assertEqual(r2["items"][0]["result"], "already set"); self.assertEqual(calls, [vid])
+        self.assertFalse(r3["ok"]); self.assertEqual(self.yt.updates, 0)
+
+    def test_thumbnail_tampered_file_refused(self):
+        req = self.thumb_req("X"); open(os.path.join(self.d, "t.jpg"), "wb").write(b"other")
+        with self.assertRaises(O.OpsError):
+            O.op_thumbnail(self.args(req))
+
     def test_dry_run_sends_nothing(self):
         r = O.op_preview(self.args(self.preview_req(), confirm=False))
         self.assertTrue(r["dry_run"]); self.assertEqual(self.yt.uploads, 0)

@@ -4,10 +4,13 @@
     python3 pipeline/yt_ops.py status   --out result.json                         # token + channel + scheduled videos (read-only)
     python3 pipeline/yt_ops.py preview  --request req.json --media-dir D --out result.json [--confirm]
     python3 pipeline/yt_ops.py schedule --request req.json --out result.json [--confirm]
+    python3 pipeline/yt_ops.py thumbnail --request req.json --media-dir D --out result.json [--confirm]
 
 preview  : uploads the approved-for-review version PRIVATE (no publishAt), sets cover + English captions, reads it back.
 schedule : after the owner's "ок" on that version's card, sets privacy private + publishAt (YouTube makes it public at the
            slot), reads it back. It only ever touches the video this pipeline uploaded for that exact file.
+thumbnail: replaces ONLY the cover of videos already on this channel (owner-requested restyle). Nothing else on the video
+           changes (no title, description, privacy or time). Each (video, file sha256) pair is set at most once.
 
 Duplicate protection (re-runs, repeated "ок", network timeouts):
   * every step writes ledger events keyed by the file sha256 (preview) or the approval id (schedule) BEFORE and AFTER the call;
@@ -155,6 +158,47 @@ def op_preview(a):
             "warnings": warnings}
 
 
+def op_thumbnail(a):
+    """Cover-only update of existing videos. Request: {"op": "thumbnail", "channel_id", "reason", "owner_request",
+    "items": [{"video_id", "file", "sha256"}]}. Every file is checked (sha256, JPEG/PNG, <= 2 MB) before anything is sent."""
+    req = json.load(open(a.request))
+    if req.get("op") != "thumbnail":
+        raise OpsError("not a thumbnail request")
+    if not req.get("owner_request") or not req.get("items"):
+        raise OpsError("thumbnail request needs owner_request and items")
+    items = []
+    for it in req["items"]:
+        path = os.path.join(a.media_dir, it["file"])
+        if os.path.isabs(it["file"]) or ".." in it["file"].split("/"):
+            raise OpsError(f"bad path {it['file']}")
+        if not os.path.isfile(path) or P.sha256(path) != it["sha256"]:
+            raise OpsError(f"{it['file']} missing or its sha256 differs from the request")
+        if os.path.getsize(path) > 2 * 1024 * 1024:
+            raise OpsError(f"{it['file']} is over 2 MB")
+        items.append((it["video_id"], path, it["sha256"]))
+    ledger = P.ledger_read()
+    done = {(r.get("video_id"), r.get("sha256")) for r in ledger if r.get("event") == "pipeline_thumbnail_replaced"}
+    if not a.confirm:
+        return {"ok": True, "dry_run": True, "would_set": [v for v, _, h in items if (v, h) not in done]}
+    token = P.access_token()
+    check_channel(token, req["channel_id"])
+    ours = {v["video_id"] for v in P.inventory(token)}
+    res, ok = [], True
+    for vid, path, h in items:
+        if vid not in ours:
+            res.append({"video_id": vid, "result": "refused: not on this channel"}); ok = False; continue
+        if (vid, h) in done:
+            res.append({"video_id": vid, "result": "already set"}); continue
+        try:
+            P.set_thumbnail(vid, path, token)
+            P.ledger_add({"event": "pipeline_thumbnail_replaced", "key": "thumb:" + vid, "video_id": vid, "sha256": h,
+                          "reason": req.get("reason", "")[:120]})
+            res.append({"video_id": vid, "result": "set"})
+        except (P.PublishError, OSError) as ex:
+            res.append({"video_id": vid, "result": "error: " + P.redact(ex)[:160]}); ok = False
+    return {"ok": ok, "items": res}
+
+
 def verify_approval(req, now, ledger):
     a = req["approval"]
     cfg = E.load_config()
@@ -242,12 +286,12 @@ def op_scout(a):
 
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("op", choices=["status", "preview", "schedule", "scout"])
+    p.add_argument("op", choices=["status", "preview", "schedule", "scout", "thumbnail"])
     p.add_argument("--request"); p.add_argument("--media-dir", default="media"); p.add_argument("--out")
     p.add_argument("--confirm", action="store_true")
     a = p.parse_args(argv)
     try:
-        res = {"status": op_status, "preview": op_preview, "schedule": op_schedule, "scout": op_scout}[a.op](a)
+        res = {"status": op_status, "preview": op_preview, "schedule": op_schedule, "scout": op_scout, "thumbnail": op_thumbnail}[a.op](a)
     except OpsError as ex:
         res = {"ok": False, "error": P.redact(ex)[:300], "error_kind": ex.kind}
     except (P.PublishError, OSError, KeyError, ValueError) as ex:
