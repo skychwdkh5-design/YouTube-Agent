@@ -1,9 +1,38 @@
 # OrbitalAtlas thumbnail style guide (standard for every long-form episode)
 
 Status: permanent. A cover that visibly departs from this guide is **FAIL** and is revised before approval.
-Reference set = the four covers published on the channel (screenshots in `docs/assets/thumbnail-reference/`):
+
+**Current style: "Neon Contour" - chosen by the owner on 2026-11-20** ("Утверждаю неоновый контур ... закрепляй этот стиль")
+after he rejected the gold style and ten other directions as too ordinary. On the same day all 15 published long videos
+were re-covered in it. Reference set: `docs/assets/thumbnail-reference-neon/` (El Niño, Bennu, Voyager, Starship, Moon, Jakarta).
+Generator: `.claude/skills/yt-package/neon_cover.py` (font Unbounded Black, OFL, in `.claude/skills/yt-package/fonts/`).
+
+## 0. Neon Contour (current)
+
+Fixed layout, 1280x720:
+- **Field:** near-black #07060B with thin lime topographic contour lines (about 27% opacity) - the "map" of Orbital Atlas.
+- **Hero:** the real subject from the video (frame or source image) inside a 600 px disc on the right, centre (910, 360).
+  Magenta neon ring (#FF2BD6, glow) on the disc, a thin lime orbit ring outside it with tick marks every 10 degrees,
+  magenta speed streaks across the lower third. Grade the hero saturated and bright; never cover it with text except the hook word's edge.
+- **Headline, left:** 0-2 short white lines (Unbounded Black, up to 76 px) and **one hook word or number in neon lime
+  #C6FF00** (Unbounded Black, 110-210 px, black outline, magenta glow). The hook word is the click: RED, SINKING, LOST, 170 KM.
+  It may overlap the left edge of the disc.
+- **Chip:** lime outlined pill bottom-left with the source or honesty label: credit (NASA, Copernicus, photographer + licence),
+  ILLUSTRATION / RECONSTRUCTION / STYLIZED ILLUSTRATION when the hero is not real footage. Never drop a label the video carries.
+- **Brand:** "ORBITAL ATLAS" in magenta, small, top right.
+- Colours are only black, lime, magenta, white and the hero's own colours. No gold, no red badges, no arrows on the field.
+
+Rules: hook word comes from the video's verified facts or its approved title/cover (never a new claim); hero = real pixels the
+video shows (or its labelled illustration); 2-6 words in total; must read at 168x94 px; the video's frame 0 stays the
+previous approved start (cover changes never change the video).
+
+Make one: `python3 .claude/skills/yt-package/neon_cover.py --hero frame.png --crop 0.3,0.1,0.8,1.0 --top "THE PACIFIC" --top TURNED --big RED --chip "NASA SVS · SEA SURFACE TEMP" --out cover.jpg`
+
+## Superseded: gold style (2026-10 to 2026-11-20, kept for history)
+
+Reference set = the four covers published on the channel at the time (`docs/assets/thumbnail-reference/`):
 **EP001 The Sahara Is Changing**, **EP002 Built From Nothing (Dubai)**, **EP003 20 Feet Lower (Great Salt Lake)**, **EP004 Jakarta Is Sinking**.
-The earlier flat, dark draft covers kept in some branches are NOT the style. The first EP005 cover (beige, low contrast, tiny subject) is the counter-example.
+`thumbcheck.py --style gold` still measures this style.
 
 ## 1. What the four published covers share
 
@@ -46,10 +75,10 @@ The DNA (measured on the four: saturation 0.46-0.58, luma contrast 64-73, white 
 6. UPPERCASE heavy headline, white + one yellow word, outlined?
 7. True to the video's evidence (no invented content)?
 
-## 5. Gate (pipeline rule)
+## 5. Gate (pipeline rule, applies to the current Neon Contour style)
 
 Before any long-form cover is approved or uploaded Claude must:
-1. Run `python3 .claude/skills/yt-package/thumbcheck.py cover.jpg` (1280x720, <2 MB, contrast, saturation, white headline, yellow accent). Necessary, not sufficient.
-2. View the cover next to the four reference covers and at phone size, answer section 4 and record the verdict in the episode review file.
+1. Run `python3 .claude/skills/yt-package/thumbcheck.py cover.jpg` (Neon Contour: 1280x720, <2 MB, contrast, saturation, white headline, lime hook word, magenta neon, dark field). Necessary, not sufficient.
+2. View the cover next to the Neon Contour references (`docs/assets/thumbnail-reference-neon/`) and at phone size: same layout (section 0), one hook word, real hero, honest chip, legible at 168x94; record the verdict in the episode review file.
 3. Any failure of either step is **FAIL**: revise, never argue it through.
 4. `publish/queue.json` carries `thumbnail_review: {"result": "PASS", "sha256": <sha256 of the cover file>}` for every long episode; `queue-run` refuses the upload otherwise or when the file changed after review. Claude's PASS is a precondition, not the owner's approval.
