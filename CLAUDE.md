@@ -108,6 +108,14 @@ chapters from 0:00 (>= 3, each >= 10 s); 3-5 specific hashtags at the end (the f
 channel name last, never the only one); 8-15 tags incl. query 1 and the channel name, <= 500 characters. No unrelated or
 misleading tags/hashtags (YouTube policy). Title and thumbnail still matter most; this is the text layer on top.
 
+### End screen on every release (owner request 2026-11-20)
+
+The YouTube Data API cannot set end screens, so: every pipeline video ends with a 20 s outro after the narration
+(`pipeline/endscreen.py outro`, background = a clean footage frame of the episode, blurred; the QC gate checks a 15-20 s
+tail), the script's last line hands off to it ("watch this one next"), `endscreen.py pick` stores a related public
+video of the same channel (else the newest), and the card names it with the Studio steps (Content → video → End screen →
+"Import from video" or "1 video + subscribe"). The owner adds the elements; never claim the end screen is set.
+
 ## Chat-to-publish protocol (OrbitalAtlas)
 
 Status: **not active** until the owner says "включи chat-publish" and sets the repository variable `CHAT_PUBLISH_ENABLED=true`. Until then use only the gated workflows. Full design: `docs/CHAT_PUBLISH_ARCHITECTURE.md`.
