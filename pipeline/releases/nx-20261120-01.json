@@ -23,7 +23,21 @@
   }
  },
  "blocker": null,
- "cards": [],
+ "cards": [
+  {
+   "card_id": "card-cf40fb84",
+   "code": "CF40FB84",
+   "expires_at": "2026-11-21T00:30:00Z",
+   "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdYLFp7sg25pKHUKmhnR2NpZ",
+   "release": "nx-20261120-01",
+   "shown_at": "2026-11-20T03:20:25Z",
+   "slot": "2026-11-21T01:00:00Z",
+   "status": "open",
+   "version": 1,
+   "version_hash": "b4f5c7b784eed8d7e63c93856a2d8c744e40bca66ab53f8ddfae351d3f8d7521",
+   "video_id": "_48q5TrsLv4"
+  }
+ ],
  "channel": "nx",
  "created_at": "2026-11-20T02:50:15Z",
  "events": [
@@ -64,6 +78,18 @@
    "event": "preview_requested",
    "request": "/home/user/nxops/publish/requests/nx-20261120-01.json",
    "target": "NEXORA youtube-ops"
+  },
+  {
+   "at": "2026-11-20T03:20:19Z",
+   "event": "preview_ready",
+   "video_id": "_48q5TrsLv4"
+  },
+  {
+   "at": "2026-11-20T03:20:25Z",
+   "card_id": "card-cf40fb84",
+   "event": "card",
+   "slot": "2026-11-21T01:00:00Z",
+   "version": 1
   }
  ],
  "id": "nx-20261120-01",
@@ -73,11 +99,18 @@
   "contains_synthetic_media": true,
   "made_for_kids": false
  },
- "preview": null,
+ "preview": {
+  "at": "2026-11-20T03:20:19Z",
+  "privacy": "private",
+  "url": "https://youtu.be/_48q5TrsLv4",
+  "version": 1,
+  "version_hash": "b4f5c7b784eed8d7e63c93856a2d8c744e40bca66ab53f8ddfae351d3f8d7521",
+  "video_id": "_48q5TrsLv4"
+ },
  "production_day": "2026-11-20",
  "schedule": null,
  "schema": "pipeline-release/1",
- "stage": "preview_requested",
+ "stage": "card_shown",
  "test": false,
  "topic": {
   "angle": "A cryptography lattice algorithm (shortest vector) finds pulsars in public NASA Fermi data ~1 million times faster; PSR J1622-7204 found in ~10 CPU-hours where the previous best method used ~600 CPU-years and failed (PRL, Nov 19 2026).",
@@ -150,7 +183,7 @@
   },
   "title": "600 Years of Computing Failed. 10 Hours Found This Star."
  },
- "updated_at": "2026-11-20T03:17:35Z",
+ "updated_at": "2026-11-20T03:20:39Z",
  "versions": [
   {
    "captions_sha256": "01370d28ae16e23f965e9e86566622fabaada0ed17619d8e617475859b6fd0b4",
