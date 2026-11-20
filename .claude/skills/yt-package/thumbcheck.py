@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """thumbcheck.py - objective half of the OrbitalAtlas thumbnail gate (docs/THUMBNAIL_STYLE_GUIDE.md).
 
-    python3 thumbcheck.py cover.jpg [more.jpg ...]
+    python3 thumbcheck.py cover.jpg [more.jpg ...]              # current style: Neon Contour (owner-approved 2026-11-20)
+    python3 thumbcheck.py --style gold cover.jpg [...]          # superseded gold style (EP001-EP004 reference covers)
 
 Prints JSON per file: metrics, rule results and PASS/FAIL. It checks only what a script can measure (size, saturation, contrast,
 white headline mass, yellow accent). Similarity to the approved covers, one focus, true-to-content and phone legibility are
@@ -29,6 +30,28 @@ def metrics(path):
             "luma_std": round(luma.stddev[0], 1), "white_share": round(white, 3), "yellow_share": round(yellow, 3), "dark_share": round(dark, 3)}
 
 
+NEON_RULES = "calibrated on the 15 Neon Contour covers set on 2026-11-20: saturation 0.40-0.66, luma std 57-88, white 1-8.5%, lime 3.1-5.9%, magenta 1.5-7%"
+
+
+def neon_shares(path):
+    small = Image.open(path).convert("RGB").resize((320, 180))
+    hsv = [colorsys.rgb_to_hsv(r / 255, g / 255, b / 255) for r, g, b in small.getdata()]
+    n = len(hsv)
+    lime = sum(1 for h, s, v in hsv if 0.17 <= h < 0.26 and s > 0.6 and v > 0.8) / n
+    mag = sum(1 for h, s, v in hsv if 0.8 < h < 0.95 and s > 0.5 and v > 0.7) / n
+    return round(lime, 3), round(mag, 3)
+
+
+def check_neon(m):
+    return {"is_1280x720": m["size"] == (1280, 720), "under_2MB": m["bytes"] <= MAX_BYTES,
+            "strong_contrast(luma_std>=55)": m["luma_std"] >= 55,
+            "saturated(mean_saturation>=0.38)": m["mean_saturation"] >= 0.38,
+            "white_headline(>=0.8%)": m["white_share"] >= 0.008,
+            "lime_hook_word(>=2.5%)": m["lime_share"] >= 0.025,
+            "magenta_neon(>=1.0%)": m["magenta_share"] >= 0.010,
+            "dark_field(>=45%)": m["dark_share"] >= 0.45}
+
+
 def check(m):
     return {"is_1280x720": m["size"] == (1280, 720), "under_2MB": m["bytes"] <= MAX_BYTES,
             "strong_contrast(luma_std>=58)": m["luma_std"] >= 58,
@@ -38,9 +61,16 @@ def check(m):
 
 
 def main(argv):
-    out, ok = [], True
+    out, ok, style = [], True, "neon"
+    if argv[:1] == ["--style"]:
+        style, argv = argv[1], argv[2:]
     for p in argv:
-        m = metrics(p); r = check(m); good = all(r.values()); ok &= good
+        m = metrics(p)
+        if style == "neon":
+            m["lime_share"], m["magenta_share"] = neon_shares(p); r = check_neon(m)
+        else:
+            r = check(m)
+        good = all(r.values()); ok &= good
         out.append({"file": p, "metrics": m, "rules": r, "result": "PASS (objective part)" if good else "FAIL"})
     print(json.dumps(out, indent=2))
     return 0 if ok else 1
