@@ -1,5 +1,23 @@
 {
- "approval": null,
+ "approval": {
+  "actor": "principal:Егор",
+  "approval_id": "8c672dd0bf2046409656aaa145c7925a",
+  "approved_at": "2026-11-20T14:35:52Z",
+  "card_code": "CF40FB84",
+  "card_id": "card-cf40fb84",
+  "channel": "nx",
+  "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdYLFp7sg25pKHUKmhnR2NpZ",
+  "publish_at": "2026-11-21T01:00:00Z",
+  "release": "nx-20261120-01",
+  "single_use": true,
+  "source": "decision card tap (option ОК) 2026-11-20T14:35:37Z",
+  "status": "valid",
+  "test": false,
+  "version": 1,
+  "version_hash": "b4f5c7b784eed8d7e63c93856a2d8c744e40bca66ab53f8ddfae351d3f8d7521",
+  "video_id": "_48q5TrsLv4",
+  "video_sha256": "af55005c8a1c3cb2cb38ddf5de399b45744fa2e0cfd3b40dea3c467f39ba0ed5"
+ },
  "artifacts": {
   "qc_passed": {
    "at": "2026-11-20T03:17:34Z",
@@ -27,12 +45,20 @@
   {
    "card_id": "card-cf40fb84",
    "code": "CF40FB84",
+   "decision": {
+    "actor": "principal:Егор",
+    "at": "2026-11-20T14:35:52Z",
+    "choice": "ok",
+    "comment": null,
+    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdYLFp7sg25pKHUKmhnR2NpZ",
+    "source": "decision card tap (option ОК) 2026-11-20T14:35:37Z"
+   },
    "expires_at": "2026-11-21T00:30:00Z",
    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdYLFp7sg25pKHUKmhnR2NpZ",
    "release": "nx-20261120-01",
    "shown_at": "2026-11-20T03:20:25Z",
    "slot": "2026-11-21T01:00:00Z",
-   "status": "open",
+   "status": "decided",
    "version": 1,
    "version_hash": "b4f5c7b784eed8d7e63c93856a2d8c744e40bca66ab53f8ddfae351d3f8d7521",
    "video_id": "_48q5TrsLv4"
@@ -90,6 +116,18 @@
    "event": "card",
    "slot": "2026-11-21T01:00:00Z",
    "version": 1
+  },
+  {
+   "approval_id": "8c672dd0bf2046409656aaa145c7925a",
+   "at": "2026-11-20T14:35:52Z",
+   "card_id": "card-cf40fb84",
+   "event": "approved"
+  },
+  {
+   "approval_id": "8c672dd0bf2046409656aaa145c7925a",
+   "at": "2026-11-20T14:35:55Z",
+   "event": "schedule_requested",
+   "target": "NEXORA youtube-ops"
   }
  ],
  "id": "nx-20261120-01",
@@ -110,7 +148,7 @@
  "production_day": "2026-11-20",
  "schedule": null,
  "schema": "pipeline-release/1",
- "stage": "card_shown",
+ "stage": "schedule_requested",
  "test": false,
  "topic": {
   "angle": "A cryptography lattice algorithm (shortest vector) finds pulsars in public NASA Fermi data ~1 million times faster; PSR J1622-7204 found in ~10 CPU-hours where the previous best method used ~600 CPU-years and failed (PRL, Nov 19 2026).",
@@ -183,7 +221,7 @@
   },
   "title": "600 Years of Computing Failed. 10 Hours Found This Star."
  },
- "updated_at": "2026-11-20T03:20:39Z",
+ "updated_at": "2026-11-20T14:35:55Z",
  "versions": [
   {
    "captions_sha256": "01370d28ae16e23f965e9e86566622fabaada0ed17619d8e617475859b6fd0b4",
