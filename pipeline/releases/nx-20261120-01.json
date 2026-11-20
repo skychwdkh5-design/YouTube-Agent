@@ -11,7 +11,7 @@
   "release": "nx-20261120-01",
   "single_use": true,
   "source": "decision card tap (option ОК) 2026-11-20T14:35:37Z",
-  "status": "valid",
+  "status": "used",
   "test": false,
   "version": 1,
   "version_hash": "b4f5c7b784eed8d7e63c93856a2d8c744e40bca66ab53f8ddfae351d3f8d7521",
@@ -128,6 +128,12 @@
    "at": "2026-11-20T14:35:55Z",
    "event": "schedule_requested",
    "target": "NEXORA youtube-ops"
+  },
+  {
+   "at": "2026-11-20T14:38:44Z",
+   "event": "scheduled",
+   "publish_at": "2026-11-21T01:00:00Z",
+   "video_id": "_48q5TrsLv4"
   }
  ],
  "id": "nx-20261120-01",
@@ -146,9 +152,15 @@
   "video_id": "_48q5TrsLv4"
  },
  "production_day": "2026-11-20",
- "schedule": null,
+ "schedule": {
+  "privacy": "private",
+  "publish_at": "2026-11-21T01:00:00Z",
+  "url": "https://youtu.be/_48q5TrsLv4",
+  "verified_at": "2026-11-20T14:38:44Z",
+  "video_id": "_48q5TrsLv4"
+ },
  "schema": "pipeline-release/1",
- "stage": "schedule_requested",
+ "stage": "scheduled",
  "test": false,
  "topic": {
   "angle": "A cryptography lattice algorithm (shortest vector) finds pulsars in public NASA Fermi data ~1 million times faster; PSR J1622-7204 found in ~10 CPU-hours where the previous best method used ~600 CPU-years and failed (PRL, Nov 19 2026).",
@@ -221,7 +233,7 @@
   },
   "title": "600 Years of Computing Failed. 10 Hours Found This Star."
  },
- "updated_at": "2026-11-20T14:35:55Z",
+ "updated_at": "2026-11-20T14:38:44Z",
  "versions": [
   {
    "captions_sha256": "01370d28ae16e23f965e9e86566622fabaada0ed17619d8e617475859b6fd0b4",
