@@ -150,3 +150,8 @@
 {"at": "2026-11-21T03:02:17+00:00", "event": "pipeline_thumbnail_set", "key": "preview:3b14023adbeb7204faac536ef03ac90befaaeb50c024149759c666b491d14835", "video_id": "5YoG5ibDWjE"}
 {"at": "2026-11-21T03:02:18+00:00", "event": "pipeline_captions_set", "key": "preview:3b14023adbeb7204faac536ef03ac90befaaeb50c024149759c666b491d14835", "video_id": "5YoG5ibDWjE"}
 {"at": "2026-11-21T03:02:18+00:00", "event": "pipeline_preview_verified", "key": "preview:3b14023adbeb7204faac536ef03ac90befaaeb50c024149759c666b491d14835", "release": "oa-20261121-01", "video_id": "5YoG5ibDWjE", "ok": true, "privacyStatus": "private", "uploadStatus": "uploaded"}
+{"at": "2026-11-21T06:29:59+00:00", "event": "pipeline_started", "key": "preview:5c290510b0d3e991a7d8d830dae0af6bc7465c6321b6503b3ba81b0dc26a6253", "release": "oa-20261121-01", "version": 2}
+{"at": "2026-11-21T06:30:14+00:00", "event": "pipeline_uploaded", "key": "preview:5c290510b0d3e991a7d8d830dae0af6bc7465c6321b6503b3ba81b0dc26a6253", "release": "oa-20261121-01", "video_id": "TEIPRX-cK2g"}
+{"at": "2026-11-21T06:30:16+00:00", "event": "pipeline_thumbnail_set", "key": "preview:5c290510b0d3e991a7d8d830dae0af6bc7465c6321b6503b3ba81b0dc26a6253", "video_id": "TEIPRX-cK2g"}
+{"at": "2026-11-21T06:30:17+00:00", "event": "pipeline_captions_set", "key": "preview:5c290510b0d3e991a7d8d830dae0af6bc7465c6321b6503b3ba81b0dc26a6253", "video_id": "TEIPRX-cK2g"}
+{"at": "2026-11-21T06:30:17+00:00", "event": "pipeline_preview_verified", "key": "preview:5c290510b0d3e991a7d8d830dae0af6bc7465c6321b6503b3ba81b0dc26a6253", "release": "oa-20261121-01", "video_id": "TEIPRX-cK2g", "ok": true, "privacyStatus": "private", "uploadStatus": "uploaded"}
