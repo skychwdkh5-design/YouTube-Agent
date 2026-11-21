@@ -89,6 +89,54 @@ For all OrbitalAtlas long-form videos, thumbnails must follow the established ch
 
 Full specification and the pre-publish gate: `docs/THUMBNAIL_STYLE_GUIDE.md`. Before any publication Claude checks the new cover against the four published covers (docs/assets/thumbnail-reference/) (and runs `.claude/skills/yt-package/thumbcheck.py`).
 
+## Daily release pipeline (owner decision 2026-11-19)
+
+Orbital Atlas and NEXORA (owner's decision 2026-11-19 overrides "keep NEXORA outside" for this pipeline) get one finished
+long video per production day through `pipeline/` (runbook: `docs/DAILY_PIPELINE.md`). For pipeline releases the owner's
+**ОК on that release's approval card** (decision-card button or a text answer tied to the card) replaces the
+"Одобряю ep0NN" phrase; "На правку" + comment sends it back. The engine refuses expired, repeated, foreign or ambiguous
+answers, voids a card when the video, cover or title changes, and uploads only private previews before ОК; scheduling is
+always private + publishAt. Test releases (ids ending 90-99) are dry-run only. The chat-publish protocol below still applies
+to manual releases.
+
+### Discovery text on every release (owner request 2026-11-20)
+
+Every pipeline release (OA and NEXORA) carries text that tells YouTube what the video is about and who searches for it;
+the QC gate (`pipeline/seo.py`) blocks the card otherwise. In meta.json: `search_queries` = the 3 queries a real US
+viewer would type, best first; the description's opening paragraph (the search snippet, no link) uses query 1's words;
+chapters from 0:00 (>= 3, each >= 10 s); 3-5 specific hashtags at the end (the first 3 show above the title; topic first,
+channel name last, never the only one); 8-15 tags incl. query 1 and the channel name, <= 500 characters. No unrelated or
+misleading tags/hashtags (YouTube policy). Title and thumbnail still matter most; this is the text layer on top.
+
+### Live footage share (owner rule, enforced 2026-11-21)
+
+Every pipeline release is mainly real filmed footage: more than 60 % of the narrated picture must be camera footage that
+moves (missions, launches, aircraft / drone / ground / field shots). Satellite stills with zoom, Landsat year sequences, data
+visualisations, CGI and our own graphics are support only. rights.json marks each asset `footage`: live | animation | still |
+graphic; the QC gate (`pipeline/footage.py`) counts only declared-live video that actually moves (2 fps frame difference) and
+blocks the card below 60 %. Footage of a different place than the story (e.g. Alaska glaciers for a tropical glacier) must
+say so on screen and in the credit.
+
+### End screen on every release (owner request 2026-11-20)
+
+The YouTube Data API cannot set end screens, so: every pipeline video ends with a 20 s outro after the narration
+(`pipeline/endscreen.py outro`, background = a clean footage frame of the episode, blurred; the QC gate checks a 15-20 s
+tail), the script's last line hands off to it ("watch this one next"), `endscreen.py pick` stores a related public
+video of the same channel (else the newest), and the card names it with the Studio steps (Content → video → End screen →
+"Import from video" or "1 video + subscribe"). The owner adds the elements; never claim the end screen is set.
+
+### Motion pass on every release (owner review, 2026-11-21)
+
+The owner rejected zoom-in / zoom-out "slideshow" edits and plain labels again and asked for designed transitions, more
+motion graphics and the motion-graphics subtitles he approved on 2026-11-16 (`production/kinetic_captions`), and confirmed on
+2026-11-21 ("Субтитры остаются как в ролике выше"). Every pipeline
+release therefore goes through `pipeline/motion.py` after yt-render (render with label layers off and `"credit": false`):
+word-timed kinetic captions in the approved style (yellow key-word boxes, slammed hero numbers), thin HUD, a per-shot
+source line (other-place footage says so, e.g. "FILMED IN ALASKA"), designed transitions on every cut (whip, zoom punch,
+light-leak flash, glitch) with whooshes, and an original synthesised music bed. For pipeline releases this supersedes the
+2026-11-17 "no word-by-word captions" line below. Stills never get a plain zoom: explain them with data-driven animated
+graphics (traced outlines, maps with pins and rulers, counters, cross-sections) in the same yellow/white style.
+
 ## Chat-to-publish protocol (OrbitalAtlas)
 
 Status: **not active** until the owner says "включи chat-publish" and sets the repository variable `CHAT_PUBLISH_ENABLED=true`. Until then use only the gated workflows. Full design: `docs/CHAT_PUBLISH_ARCHITECTURE.md`.
