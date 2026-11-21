@@ -11,7 +11,7 @@
   "release": "oa-20261121-01",
   "single_use": true,
   "source": "decision_card",
-  "status": "valid",
+  "status": "used",
   "test": false,
   "version": 3,
   "version_hash": "764119debfca64a8a358e9ce92fdf90ad2cd354ab53b1f45814190984be44435",
@@ -265,6 +265,12 @@
    "at": "2026-11-21T07:41:49Z",
    "event": "schedule_requested",
    "request": "schedule-oa-20261121-01"
+  },
+  {
+   "at": "2026-11-21T07:42:20Z",
+   "event": "scheduled",
+   "publish_at": "2026-11-22T01:00:00Z",
+   "video_id": "DgvDzvtA08M"
   }
  ],
  "id": "oa-20261121-01",
@@ -283,9 +289,15 @@
   "video_id": "DgvDzvtA08M"
  },
  "production_day": "2026-11-21",
- "schedule": null,
+ "schedule": {
+  "privacy": "private",
+  "publish_at": "2026-11-22T01:00:00Z",
+  "url": "https://youtu.be/DgvDzvtA08M",
+  "verified_at": "2026-11-21T07:42:20Z",
+  "video_id": "DgvDzvtA08M"
+ },
  "schema": "pipeline-release/1",
- "stage": "schedule_requested",
+ "stage": "scheduled",
  "test": false,
  "topic": {
   "angle": "Puncak Jaya (New Guinea) tropical glaciers from Landsat 1980-2026: 4.31 km2 in 1988 -> 0.09 km2 in Sep 2025 (~2%), thinning 32 m -> 4 m -> gone, house-of-cards fragmentation, no longer flowing, El Nino accelerates; canaries (Quelccaya, Kilimanjaro, Humboldt).",
@@ -334,7 +346,7 @@
   },
   "title": "NASA Watched Ice Near the Equator Melt. Only 2% Is Left."
  },
- "updated_at": "2026-11-21T07:41:49Z",
+ "updated_at": "2026-11-21T07:42:20Z",
  "versions": [
   {
    "captions_sha256": "e37cbc5a20c89d00dfbb787208fc9be9d998ddc7384a9bd2fe074b69debb6c17",
