@@ -1,0 +1,12 @@
+{
+ "ok": true,
+ "token_present": true,
+ "bot_username": "ClaudeNotifyControlBot",
+ "webhook_active": false,
+ "webhook_host": "",
+ "pending_updates": 1,
+ "updates_seen": 1,
+ "start_without_code": 0,
+ "paired": true,
+ "dm_message_id": 3
+}
