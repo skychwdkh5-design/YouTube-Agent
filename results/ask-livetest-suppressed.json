@@ -1,0 +1,6 @@
+{
+ "ok": true,
+ "sent": false,
+ "suppressed": true,
+ "reason": "suppressed: kind 'video_ready' does not need the owner (silent mode)"
+}
