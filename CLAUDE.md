@@ -105,6 +105,15 @@ When active, the owner controls publishing only through this chat:
 5. Never: weaken or edit an approval to make it pass, reuse a consent, publish immediately, change an existing video, use the legacy workflows to get around a refusal, or re-dispatch blindly after an unclear result (read the channel inventory first). If the GitHub tools are unavailable, say so and stop.
 6. After an upload the workflow `Verify scheduled releases` (read-only, every 15 min, no session needed) confirms the real release in the ledger and opens a GitHub issue if a video is still private; when asked, read its ledger events (`release_confirmed`, `release_check`) instead of guessing. It never replaces the owner's separate consent for the next batch.
 
+## Telegram: APPROVAL ONLY / SILENT MODE (owner policy, 2026-11-21)
+
+Contact the owner in Telegram only through the gate (`telegram-notify.yml`, `telegram-ask.yml`; design in
+`docs/TELEGRAM_NOTIFICATIONS.md`) and only for `APPROVAL_REQUIRED`, `PERMISSION_REQUIRED` or `HUMAN_INTERVENTION_REQUIRED`.
+No start/progress/render/success/ordinary-error/publication/daily-report messages. Recover safely first; ask only when
+the task cannot continue within permissions already given. One open decision = one notification, at most one reminder
+after 30 min, never an approval by timeout. A Telegram press is not publishing consent. Applies to every Orbital Atlas
+workflow and session; NEXORA and ANIMAVERSE use the same reusable workflow from their own repositories.
+
 ## Visual direction — selected painted editorial style
 
 Before new Orbital Atlas visuals or storyboard work, read `docs/ORBITAL_ATLAS_VISUAL_STYLE.md` and `docs/PAINTED_VIDEO_HANDOFF.md`. The owner selected option 3 (Живописная иллюстрация) and explicitly requires newly created props/characters/objects in future videos to follow it: textured semi-realistic painting, sculptural light/shadow and expressive natural proportions, with the reference-led dynamic map/story staging. Authoritative art references are `docs/assets/visual-style/painted-reference.webp` and `painted-props.webp`. Build the complete script and per-second visual/action/assets package for Claude assembly. Prior v1–v5 experiments are not approved templates; glossy toy-style v6 props are superseded. V7 animation itself is still for review. Existing factual, rights, voice, QC, cost and publishing gates remain unchanged.
