@@ -1,0 +1,39 @@
+{
+ "op": "preview",
+ "release": "oa-20261121-01",
+ "channel": "oa",
+ "channel_id": "UC2QxQJhUe9Q5NMRNb6M9ddw",
+ "version": 1,
+ "version_hash": "ec046f4ffb8eef55b4359222dc73b36b4b7cd7c04bd1adacf674214febc57308",
+ "video_sha256": "3b14023adbeb7204faac536ef03ac90befaaeb50c024149759c666b491d14835",
+ "title": "NASA Watched Ice Near the Equator Melt. Only 2% Is Left.",
+ "description": "The Puncak Jaya glacier in New Guinea is one of the last places near the equator with ice. NASA Landsat images from 1988 and 2026 show it has shrunk to about 2% of its 1988 area, and scientists say the last ice could be gone within a few years.\n\nChapters:\n0:00 Ice near the equator, 1988 vs 2026\n0:23 Where is Puncak Jaya?\n0:50 40 years of Landsat images\n1:16 Only 2% left\n1:31 Thinner, then gone\n1:50 A house of cards\n2:16 No longer a glacier\n2:35 How El Niño speeds up the melt\n3:17 Canaries in the coal mine\n\nKey numbers (NASA Earth Observatory, Nov 16, 2026, citing Donaldi Permana, BMKG): about 4.31 km² (1.66 sq mi) of ice in 1988; about 0.09 km² by September 2025, roughly 2% of the 1988 extent. Ice at the East Northwall Firn site thinned from 32 m (105 ft) in 2010 to 4 m (13 ft) in 2023 and was gone by November 2024.\n\nSources:\n- NASA Earth Observatory, \"The Last Ice on Puncak Jaya\" (Nov 16, 2026): https://science.nasa.gov/earth/earth-observatory/the-last-ice-on-puncak-jaya/\n- NASA Scientific Visualization Studio, \"Shrinking Tropical Ice Areas\": https://svs.gsfc.nasa.gov/31161\n- NASA Scientific Visualization Studio, \"Ice Losses in Tropical Asia\": https://svs.gsfc.nasa.gov/30938\n- NASA SVS, El Niño 2026 sea surface temperature: https://svs.gsfc.nasa.gov/5688 , https://svs.gsfc.nasa.gov/5683\n- Permana et al. (2019), PNAS: https://doi.org/10.1073/pnas.1822037116\n\nImagery: NASA Earth Observatory (Lauren Dauphin) and NASA Scientific Visualization Studio, using Landsat data from the U.S. Geological Survey. Public domain; NASA does not endorse this video. Graphics: Orbital Atlas.\nNarration: synthetic voice (ElevenLabs).\n\n#PuncakJaya #Glaciers #Landsat #ClimateChange #OrbitalAtlas",
+ "tags": [
+  "puncak jaya glacier",
+  "Puncak Jaya",
+  "glaciers near the equator",
+  "tropical glaciers",
+  "tropical glaciers disappearing",
+  "New Guinea glacier",
+  "Landsat",
+  "NASA Earth Observatory",
+  "satellite images",
+  "El Nino",
+  "glacier melting",
+  "Orbital Atlas"
+ ],
+ "thumbnail_sha256": "bad24adaeb9601f5ba9a5342eb05cf2a5e00381aa6577cffec3f2d35507d58db",
+ "captions_sha256": "e37cbc5a20c89d00dfbb787208fc9be9d998ddc7384a9bd2fe074b69debb6c17",
+ "files": {
+  "captions": "/home/user/work/oa_pj/captions/captions.srt",
+  "thumbnail": "/home/user/work/oa_pj/cover/cover_final.jpg",
+  "video": "/home/user/work/oa_pj/out/ep_v2.mp4"
+ },
+ "category_id": "28",
+ "default_language": "en",
+ "made_for_kids": false,
+ "contains_synthetic_media": true,
+ "marker_tag": "pipeline-oa-20261121-01-v1",
+ "confirm": true,
+ "name": "preview-oa-20261121-01-v1"
+}
