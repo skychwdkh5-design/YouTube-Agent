@@ -1,0 +1,8 @@
+# Copy to wrangler.toml, then: npx wrangler deploy
+name = "youtube-agent-telegram-decisions"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+GITHUB_REPO = "skychwdkh5-design/YouTube-Agent"
+# Secrets are NOT stored here: npx wrangler secret put TELEGRAM_BOT_TOKEN (and the others listed in worker.js)

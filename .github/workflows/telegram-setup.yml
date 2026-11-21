@@ -1,0 +1,67 @@
+name: Telegram setup (check token / pair chat id)
+# One-time pairing: finds the owner's "/start <code>" through getUpdates and sends the chat id ONLY to that Telegram chat.
+# The repo is public: the token and chat id never reach logs or files (masked; results hold only ok/error codes).
+# Never sets or deletes a webhook; never consumes updates (no offset). Sends nothing to YouTube.
+# Triggers: manual (Actions tab) or a push of requests/setup.json to branch telegram-ops (used by Claude sessions).
+on:
+  workflow_dispatch:
+    inputs:
+      op:
+        description: check = token/webhook status only; pair = find "/start CODE" and DM the chat id
+        type: choice
+        options: [check, pair]
+        default: check
+      pair_code:
+        description: The one-time code you sent as "/start CODE" (only for pair)
+        required: false
+  push:
+    branches: [telegram-ops]
+    paths: ['requests/setup.json']
+permissions:
+  contents: write          # results/*.json on branch telegram-ops (push route only)
+concurrency:
+  group: telegram-ops
+  cancel-in-progress: false
+jobs:
+  setup:
+    if: github.actor == github.repository_owner
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read the request
+        id: req
+        env:
+          IN_OP: ${{ inputs.op }}
+          IN_CODE: ${{ inputs.pair_code }}
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            op=$(python3 -c "import json;print(json.load(open('requests/setup.json'))['op'])")
+            code=""   # the public request file carries only pair_code_sha256
+            h=$(python3 -c "import json;print(json.load(open('requests/setup.json')).get('pair_code_sha256',''))")
+            echo "PAIR_CODE_SHA256=$h" >> "$GITHUB_ENV"
+          else
+            op="$IN_OP"; code="$IN_CODE"
+          fi
+          if [ -n "$code" ]; then echo "::add-mask::$code"; fi
+          case "$op" in check|pair) ;; *) echo "bad op"; exit 1;; esac
+          echo "op=$op" >> "$GITHUB_OUTPUT"
+          echo "PAIR_CODE=$code" >> "$GITHUB_ENV"
+      - name: Unit tests
+        run: python3 -m unittest discover -s telegram -q
+      - name: Run (token stays in env, never printed)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          set +e
+          python3 telegram/tg.py --out result.json ${{ steps.req.outputs.op }}
+          echo "exit=$?"
+          exit 0
+      - name: Save sanitized result (push route)
+        if: always() && github.event_name == 'push'
+        run: |
+          [ -f result.json ] || exit 0
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p results && cp result.json "results/setup-${GITHUB_RUN_ID}.json"
+          git add results && git commit -q -m "telegram setup result ${GITHUB_RUN_ID}"
+          for i in 1 2 3; do git push -q origin HEAD:telegram-ops && exit 0; git pull -q --rebase origin telegram-ops; sleep 3; done
