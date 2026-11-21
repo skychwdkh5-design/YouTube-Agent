@@ -71,6 +71,19 @@ jobs:
             python3 code/pipeline/yt_ops.py "$op" --request "$r" --media-dir trig $confirm --out "out/$n.json" || true
           done
           ls out
+      - name: Telegram hooks (YouTube-Agent main, silent mode)
+        if: always()
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with: {ref: main, path: tgc, sparse-checkout: telegram, lfs: false}
+      - name: Telegram (silent mode) - only a dead YouTube OAuth reaches the owner
+        # quota and ordinary errors stay silent: the Claude session that pushed the request reads results/ and recovers
+        if: always()
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 tgc/telegram/ci_ask.py scan-pipeline out --project OrbitalAtlas
       - name: Save results to pipeline-ops
         if: always()
         run: |
