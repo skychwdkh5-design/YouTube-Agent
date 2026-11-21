@@ -388,6 +388,7 @@ def run(a):
                                 "[v][2:a]amix=inputs=2:normalize=0:duration=first,"
                                 "loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000[a]",
                                 "-map", "0:v", "-map", "[a]", "-c:v", "libx264", "-preset", "medium", "-crf", "17",
+                                "-force_key_frames", f"expr:gte(t,n_forced*{a.segment_s:g})",   # yt-render segment boundaries
                                 "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart",
                                 "-shortest", a.out], stdin=subprocess.PIPE)
         size = W * H * 3
@@ -420,6 +421,7 @@ def main():
     ap.add_argument("--start", type=float, default=0.0)
     ap.add_argument("--dur", type=float, default=0.0)
     ap.add_argument("--frames", help="comma list of times: write PNG stills only")
+    ap.add_argument("--segment-s", type=float, default=60.0, help="keyframe every N s (yt-render long segments)")
     run(ap.parse_args())
 
 
