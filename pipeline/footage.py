@@ -17,8 +17,6 @@ How it is measured (no trust in labels alone):
 """
 import argparse, json, os, subprocess
 
-import numpy as np
-
 MIN_LIVE = 0.60
 STATIC_DIFF = 1.2
 CLASSES = ("live", "animation", "still", "graphic")
@@ -34,6 +32,7 @@ def shot_spans(tl, end):
 
 
 def _frames(path, t0, dur, fps=2, w=96, h=54):
+    import numpy as np
     p = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{t0:.3f}", "-t", f"{dur:.3f}", "-i", path, "-vf",
                         f"fps={fps},scale={w}:{h},format=gray", "-f", "rawvideo", "-"], capture_output=True)
     a = np.frombuffer(p.stdout, np.uint8)
@@ -42,6 +41,7 @@ def _frames(path, t0, dur, fps=2, w=96, h=54):
 
 
 def moving_fraction(path, t0, dur):
+    import numpy as np
     f = _frames(path, t0, dur)
     if len(f) < 2:
         return 0.0, []
