@@ -24,27 +24,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {path: code}
-      - name: Registry branch (nothing to do if it does not exist)
-        id: reg
-        run: |
-          mkdir reg && cd reg && git init -q -b telegram-data
-          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git"
-          if git fetch -q origin telegram-data; then git checkout -q -f FETCH_HEAD -B telegram-data; echo "has=1" >> "$GITHUB_OUTPUT"; fi
-      - name: Sweep
-        if: steps.reg.outputs.has == '1'
-        run: python3 code/telegram/tg.py --out sweep.json sweep --registry reg
-      - name: Fallback issue for long-undelivered requests
-        if: steps.reg.outputs.has == '1'
-        run: |
-          ids=$(python3 -c "import json;print(' '.join(json.load(open('sweep.json')).get('undelivered_alert',[])))")
-          [ -n "$ids" ] || exit 0
-          gh issue create -R "$GITHUB_REPOSITORY" --title "Telegram: решение ждёт тебя, но не доставлено" \
-            --body "Telegram не принимает сообщения 6+ часов. Открытые запросы (key_id): $ids. Подробности: branch telegram-data, notifications/. Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-      - name: Save registry
-        if: always() && steps.reg.outputs.has == '1'
-        run: |
-          cd reg; [ -n "$(git status --porcelain)" ] || exit 0
-          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A && git commit -q -m "telegram sweep ${GITHUB_RUN_ID}"
-          for i in 1 2 3; do git push -q origin HEAD:telegram-data && exit 0; git pull -q --rebase origin telegram-data || true; sleep 3; done
-          exit 1
+      - name: Sweep (retries, one reminder, expiry, 6 h fallback issue)
+        run: python3 code/telegram/ci_ask.py sweep --fallback-issue

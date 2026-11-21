@@ -46,7 +46,15 @@ jobs:
         run: |
           ARGS=run
           if [ "$DRY" = "true" ]; then ARGS="run --dry-run"; fi
-          python3 .claude/skills/yt-publish/release_check.py $ARGS
+          python3 .claude/skills/yt-publish/release_check.py $ARGS | tee rc.json
+      - name: Telegram (silent mode) - only if the owner must act
+        # release still not public after the issue threshold, or YouTube OAuth dead -> one request; confirmed -> closed
+        if: always() && env.DRY != 'true'
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 telegram/ci_ask.py scan-yt-release rc.json
       - name: Save ledger
         if: always()
         run: |

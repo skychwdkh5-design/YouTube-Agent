@@ -87,6 +87,13 @@ jobs:
           ARGS="--mode chat --ids all --media-dir media --queue data/publish/queue.json --manifest data/publish/media.json --approval data/publish/approvals/${APPROVAL_ID}.json"
           if [ "$DRY" != "true" ]; then ARGS="$ARGS --confirm"; fi
           python3 .claude/skills/yt-publish/publish.py queue-run $ARGS | tee result.json
+      - name: Telegram (silent mode) - only a dead YouTube OAuth reaches the owner
+        if: ${{ failure() && !inputs.dry_run }}
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 telegram/ci_ask.py scan-auth --project OrbitalAtlas result.json verify.json
       - name: Audit issue (notifies the owner; shows what was scheduled)
         if: ${{ always() && !inputs.dry_run }}
         run: |
