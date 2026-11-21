@@ -26,7 +26,9 @@ motion.json:
   {"keywords": ["EQUATOR", ...], "replace": {"Two": "II"},
    "heroes": [{"at": "sixteen thousand", "dur": 2.4, "big": "16,000", "above": "SUMMIT", "below": "FEET HIGH"}],
    "transitions": {"<shot id>": "whip_l|whip_r|zoom|flash|glitch|none"},
-   "labels": {"<asset src>": "ARCHIVE // ..."}, "no_captions": ["<shot id>"], "music": true}
+   "labels": {"<asset src>": "ARCHIVE // ..."}, "no_captions": ["<shot id>"], "music": true,
+   "text_mode": "kinetic" | "callouts",        # callouts = owner rule 2026-11-17: only 2-4 word paper callouts
+   "callouts": [{"t": [t0, t1], "text": "BREAKING APART", "pos": [x, y], "accent": false}]}
 """
 from __future__ import annotations
 
@@ -234,6 +236,52 @@ def source_line(tl, rights, spec, shot):
     return f"{head}  //  {credit}"
 
 
+# ------------------------------------------------------------------ paper callouts (owner rule 2026-11-17)
+CREAM, ORANGE, INK = (250, 241, 224), (255, 138, 61), (24, 20, 18)
+
+
+class Callouts:
+    """Short 2-4 word paper callouts next to the object, cream card + orange accent, smooth entrance, calm hold.
+
+    spec "callouts": [{"t": [t0, t1], "text": "BREAKING APART", "pos": [x, y], "accent": false}]
+    """
+
+    def __init__(self, items):
+        self.items = []
+        for c in items:
+            words = c["text"].split()
+            if not 1 <= len(words) <= 5:
+                raise SystemExit(f"motion: callout must be short: {c['text']!r}")
+            self.items.append({"t0": float(c["t"][0]), "t1": float(c["t"][1]), "text": c["text"].upper(),
+                               "pos": tuple(c.get("pos") or (120, 150)), "accent": bool(c.get("accent"))})
+        self.f = kfont(800, 50)
+
+    def render(self, frame, t):
+        for c in self.items:
+            if not (c["t0"] <= t < c["t1"]):
+                continue
+            u_in = min(1.0, (t - c["t0"]) / 0.35)
+            u_in = 1 - (1 - u_in) ** 3
+            u_out = max(0.0, min(1.0, (t - (c["t1"] - 0.3)) / 0.3))
+            a = u_in * (1 - u_out)
+            if a <= 0.01:
+                continue
+            x, y = c["pos"]
+            y += (1 - u_in) * 24
+            tw = int(self.f.getlength(c["text"]))
+            pad_x, h = 26, 78
+            card = Image.new("RGBA", (tw + pad_x * 2 + 12, h + 8), (0, 0, 0, 0))
+            d = ImageDraw.Draw(card)
+            d.rounded_rectangle((4, 6, tw + pad_x * 2 + 8, h + 6), 10, fill=(0, 0, 0, 90))          # soft paper shadow
+            bg = ORANGE if c["accent"] else CREAM
+            d.rounded_rectangle((0, 0, tw + pad_x * 2, h), 10, fill=(*bg, 255))
+            d.rectangle((0, 10, 8, h - 10), fill=(*(INK if c["accent"] else ORANGE), 255))
+            d.text((pad_x + 4, h / 2), c["text"], font=self.f, fill=(*INK, 255), anchor="lm")
+            if a < 1:
+                card.putalpha(card.getchannel("A").point(lambda v: int(v * a)))
+            frame.alpha_composite(card, (int(x), int(y)))
+
+
 # ------------------------------------------------------------------ sound
 def _env(n, peak):
     x = np.arange(n, dtype=np.float32)
@@ -335,7 +383,9 @@ def run(a):
     spec = json.load(open(a.spec)) if a.spec else {}
     words = vj["words"]
     voice_end = float(vj.get("duration") or words[-1]["end"])
-    heroes = build_heroes(spec, words)
+    mode = spec.get("text_mode", "kinetic")
+    heroes = build_heroes(spec, words) if mode == "kinetic" else []
+    callouts = Callouts(spec.get("callouts", [])) if mode == "callouts" else None
     caps = LongCaptions(words, keywords=set(spec.get("keywords", [])), heroes=heroes, replace=spec.get("replace"),
                         style=Style(), duration=voice_end, hud_until=voice_end + 0.6)
     cl = cuts(tl, spec)
@@ -359,7 +409,9 @@ def run(a):
             line = source_line(tl, rights, spec, sh)
             if line:
                 ImageDraw.Draw(im).text((84, H - 96), line, font=mf, fill=(255, 255, 255, 190))
-            if not (sh and sh.get("id") in no_caps):
+            if callouts is not None:
+                callouts.render(im, t)
+            elif not (sh and sh.get("id") in no_caps):
                 caps.render(im, t)
             else:
                 caps._hud(im, t)
