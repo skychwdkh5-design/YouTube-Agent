@@ -1,5 +1,23 @@
 {
- "approval": null,
+ "approval": {
+  "actor": "principal:Егор",
+  "approval_id": "dc8a56c912cd4b4bb3bbc709d05cc0d2",
+  "approved_at": "2026-11-21T07:41:39Z",
+  "card_code": "940B4927",
+  "card_id": "card-940b4927",
+  "channel": "oa",
+  "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdRFK645B1mD9nAMepjHmXrw",
+  "publish_at": "2026-11-22T01:00:00Z",
+  "release": "oa-20261121-01",
+  "single_use": true,
+  "source": "decision_card",
+  "status": "valid",
+  "test": false,
+  "version": 3,
+  "version_hash": "764119debfca64a8a358e9ce92fdf90ad2cd354ab53b1f45814190984be44435",
+  "video_id": "DgvDzvtA08M",
+  "video_sha256": "98ae8f78e1895d9a0458a007a710aa28070928486e2946f1ccd91d3ceb29ebdd"
+ },
  "artifacts": {
   "qc_passed": {
    "at": "2026-11-21T07:36:10Z",
@@ -64,12 +82,20 @@
   {
    "card_id": "card-940b4927",
    "code": "940B4927",
+   "decision": {
+    "actor": "principal:Егор",
+    "at": "2026-11-21T07:41:39Z",
+    "choice": "ok",
+    "comment": null,
+    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdRFK645B1mD9nAMepjHmXrw",
+    "source": "decision_card"
+   },
    "expires_at": "2026-11-22T00:30:00Z",
    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdRFK645B1mD9nAMepjHmXrw",
    "release": "oa-20261121-01",
    "shown_at": "2026-11-21T07:38:16Z",
    "slot": "2026-11-22T01:00:00Z",
-   "status": "open",
+   "status": "decided",
    "version": 3,
    "version_hash": "764119debfca64a8a358e9ce92fdf90ad2cd354ab53b1f45814190984be44435",
    "video_id": "DgvDzvtA08M"
@@ -227,6 +253,18 @@
    "event": "card",
    "slot": "2026-11-22T01:00:00Z",
    "version": 3
+  },
+  {
+   "approval_id": "dc8a56c912cd4b4bb3bbc709d05cc0d2",
+   "at": "2026-11-21T07:41:39Z",
+   "card_id": "card-940b4927",
+   "event": "approved"
+  },
+  {
+   "approval_id": "dc8a56c912cd4b4bb3bbc709d05cc0d2",
+   "at": "2026-11-21T07:41:49Z",
+   "event": "schedule_requested",
+   "request": "schedule-oa-20261121-01"
   }
  ],
  "id": "oa-20261121-01",
@@ -247,7 +285,7 @@
  "production_day": "2026-11-21",
  "schedule": null,
  "schema": "pipeline-release/1",
- "stage": "card_shown",
+ "stage": "schedule_requested",
  "test": false,
  "topic": {
   "angle": "Puncak Jaya (New Guinea) tropical glaciers from Landsat 1980-2026: 4.31 km2 in 1988 -> 0.09 km2 in Sep 2025 (~2%), thinning 32 m -> 4 m -> gone, house-of-cards fragmentation, no longer flowing, El Nino accelerates; canaries (Quelccaya, Kilimanjaro, Humboldt).",
@@ -296,7 +334,7 @@
   },
   "title": "NASA Watched Ice Near the Equator Melt. Only 2% Is Left."
  },
- "updated_at": "2026-11-21T07:38:31Z",
+ "updated_at": "2026-11-21T07:41:49Z",
  "versions": [
   {
    "captions_sha256": "e37cbc5a20c89d00dfbb787208fc9be9d998ddc7384a9bd2fe074b69debb6c17",
