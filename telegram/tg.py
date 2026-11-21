@@ -253,16 +253,24 @@ def decide(registry: dict | None, existing_decision: dict | None, secret: str, c
             "note": "recorded only; does not authorize publishing"}
 
 
+def _load(path: str):
+    if not os.path.exists(path):
+        return None
+    with open(path) as f:
+        return json.load(f)
+
+
 def cmd_decide(a) -> dict:
     secret = os.environ.get("TELEGRAM_CALLBACK_SECRET", "")
     _, rid, _ = parse_callback(a.data)
     reg_p = os.path.join(a.registry, "requests", f"{rid}.json")
     dec_p = os.path.join(a.registry, "decisions", f"{rid}.json")
-    reg = json.load(open(reg_p)) if os.path.exists(reg_p) else None
-    old = json.load(open(dec_p)) if os.path.exists(dec_p) else None
+    reg = _load(reg_p)
+    old = _load(dec_p)
     rec = decide(reg, old, secret, chat_id(), a.data, a.from_id, time.time())
     os.makedirs(os.path.dirname(dec_p), exist_ok=True)
-    json.dump(rec, open(dec_p, "w"), indent=1)
+    with open(dec_p, "w") as f:
+        json.dump(rec, f, indent=1)
     return {"ok": True, **rec}
 
 

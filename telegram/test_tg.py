@@ -75,7 +75,8 @@ class Buttons(unittest.TestCase):
         d = tg.callback_data(SECRET, "n", "req123abc", chat)
         with tempfile.TemporaryDirectory() as tmp:
             os.makedirs(f"{tmp}/requests")
-            json.dump({"kind": "approval", "expires_at": 9e12}, open(f"{tmp}/requests/req123abc.json", "w"))
+            with open(f"{tmp}/requests/req123abc.json", "w") as f:
+                json.dump({"kind": "approval", "expires_at": 9e12}, f)
             env = {"TELEGRAM_CALLBACK_SECRET": SECRET, "TELEGRAM_CHAT_ID": chat}
             with mock.patch.dict(os.environ, env), redirect_stdout(io.StringIO()):
                 self.assertEqual(tg.main(["decide", "--data", d, "--from-id", chat, "--registry", tmp]), 0)
@@ -108,7 +109,7 @@ class Pairing(unittest.TestCase):
             if method == "getUpdates":
                 return {"result": [self.upd("/start ABC123xyz", 5550001111)]}
             return {"result": {"message_id": 7}}
-        with mock.patch.dict(os.environ, {"TELEGRAM_BOT_TOKEN": FAKE_TOKEN}), \
+        with mock.patch.dict(os.environ, {"TELEGRAM_BOT_TOKEN": FAKE_TOKEN, "GITHUB_ACTIONS": ""}), \
              mock.patch.object(tg, "cmd_check", lambda a: {"ok": True, "webhook_active": False}), \
              mock.patch.object(tg, "call", fake_call):
             buf = io.StringIO()
