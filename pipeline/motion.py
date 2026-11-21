@@ -26,6 +26,7 @@ motion.json:
   {"keywords": ["EQUATOR", ...], "replace": {"Two": "II"},
    "heroes": [{"at": "sixteen thousand", "dur": 2.4, "big": "16,000", "above": "SUMMIT", "below": "FEET HIGH"}],
    "transitions": {"<shot id>": "whip_l|whip_r|zoom|flash|glitch|none"},
+   "channel_tag": "NEXORA",                   # HUD tag, default ORBITAL ATLAS
    "labels": {"<asset src>": "ARCHIVE // ..."}, "no_captions": ["<shot id>"], "music": true,
    "text_mode": "kinetic" | "callouts",        # callouts = owner rule 2026-11-17: only 2-4 word paper callouts
    "callouts": [{"t": [t0, t1], "text": "BREAKING APART", "pos": [x, y], "accent": false}]}
@@ -387,7 +388,7 @@ def run(a):
     heroes = build_heroes(spec, words) if mode == "kinetic" else []
     callouts = Callouts(spec.get("callouts", [])) if mode == "callouts" else None
     caps = LongCaptions(words, keywords=set(spec.get("keywords", [])), heroes=heroes, replace=spec.get("replace"),
-                        style=Style(), duration=voice_end, hud_until=voice_end + 0.6)
+                        style=Style(channel_tag=spec.get("channel_tag", "ORBITAL ATLAS")), duration=voice_end, hud_until=voice_end + 0.6)
     cl = cuts(tl, spec)
     f0 = first_picture(tl)
     no_caps = set(spec.get("no_captions", []))
