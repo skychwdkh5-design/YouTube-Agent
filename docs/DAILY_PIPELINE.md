@@ -98,6 +98,15 @@ Owner request 2026-11-20. YouTube Data API v3 has no end-screen endpoint, so the
    recommended video → Save. Doing this once on the first release makes "Import from video" a one-click step after.
 
 
+## Motion pass (2026-11-21)
+
+After yt-render, every release runs `python3 pipeline/motion.py --base base.mp4 --timeline timeline.json --rights rights.json
+--voice voice.json --spec motion.json --out final.mp4` (`--start/--dur` for a pilot, `--frames t1,t2` for stills). motion.json
+holds the key words, hero numbers (`{"at": "<spoken phrase>", "big": "5.3 M", "above": ..., "below": ...}`, use
+`"count_up": false` for years and non-integers), per-shot transition overrides and per-asset source lines. Render the base
+with no label layers and `"credit": false` on video/still layers: the pass draws captions, HUD, source line, transitions and
+the sound layer, and loudness-normalises to -16 LUFS. The cover frame is passed through untouched.
+
 ## Live footage share (QC gate, 2026-11-21)
 
 After the owner's review of El Niño / pulsar / Puncak Jaya v1 (0 % filmed footage, "slideshow"), `qc_gate.py` runs
