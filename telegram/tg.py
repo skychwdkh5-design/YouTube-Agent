@@ -11,7 +11,9 @@ Commands
   check                       token present? getMe works? webhook set? (no chat id needed)
   pair --code CODE            find the owner's "/start CODE" via getUpdates and DM them their chat id
   send-test                   send the fixed test message to TELEGRAM_CHAT_ID
-  notify --kind K ...         video_ready | error | approval | info (approval adds signed buttons)
+  request --json F            silent mode: send only APPROVAL/PERMISSION/HUMAN_INTERVENTION_REQUIRED (control.py)
+  sweep                       retry undelivered, one 30-min reminder, close expired (never decides)
+  resolve --key-id K          close an open request decided elsewhere (e.g. in the Claude chat)
   decide ...                  validate a button press (used by telegram-decision.yml)
 
 Nothing here sets a webhook, deletes a webhook or consumes updates (getUpdates is called without offset).
@@ -131,20 +133,7 @@ def verify_callback(secret: str, data: str, chat: str) -> tuple[str, str]:
     return action, rid
 
 
-# ---------- messages ----------
-
-def build_message(kind: str, title: str, body: str = "", url: str = "") -> str:
-    head = {"video_ready": "🎬 Ролик готов", "error": "⚠️ Ошибка", "approval": "🟡 Нужно подтверждение", "info": "ℹ️ Статус"}.get(kind)
-    if not head:
-        raise TgError(f"unknown kind {kind}")
-    lines = [f"{head}: {title}".strip()]
-    if body:
-        lines += ["", body]
-    if url:
-        lines += ["", url]
-    text = scrub("\n".join(lines))
-    return text if len(text) <= MAX_TEXT else text[: MAX_TEXT - 1] + "…"
-
+# ---------- direct send (only for the owner-triggered test) ----------
 
 def send(text: str, buttons: list[list[dict]] | None = None) -> dict:
     params = {"chat_id": chat_id(), "text": text, "disable_web_page_preview": True}
@@ -222,19 +211,43 @@ def cmd_send_test(_a) -> dict:
     return {**send(TEST_TEXT), "bot_username": me.get("username"), "text": TEST_TEXT}
 
 
-def cmd_notify(a) -> dict:
-    text = build_message(a.kind, a.title, a.body or "", a.url or "")
-    buttons = None
-    if a.kind == "approval":
-        secret = os.environ.get("TELEGRAM_CALLBACK_SECRET", "")
-        if len(secret) < 32:
-            raise TgError("approval buttons need TELEGRAM_CALLBACK_SECRET (>= 32 chars)")
-        if not a.request_id:
-            raise TgError("approval needs --request-id")
-        c = chat_id()
-        buttons = [[{"text": "✅ Одобрить", "callback_data": callback_data(secret, "y", a.request_id, c)},
-                    {"text": "❌ Отклонить", "callback_data": callback_data(secret, "n", a.request_id, c)}]]
-    return {**send(text, buttons), "kind": a.kind}
+def _registry(a) -> str:
+    if not a.registry or not os.path.isdir(a.registry):
+        raise TgError("--registry must be a checkout of branch telegram-data")
+    return a.registry
+
+
+def cmd_request(a) -> dict:
+    import control
+    with open(a.json) as f:
+        n = json.load(f)
+    res = control.request(_registry(a), n, time.time())
+    if res.get("sent") is False and not res.get("queued_for_retry"):
+        print(res["reason"], file=sys.stderr)        # suppressed / duplicate / refused: logged, never sent
+    return res
+
+
+def cmd_sweep(a) -> dict:
+    import control
+    return control.sweep(_registry(a), time.time())
+
+
+def cmd_resolve(a) -> dict:
+    import control
+    res = control.resolve(_registry(a), a.key_id, time.time(), a.how)
+    _drop_buttons(res.get("message_id"))
+    return res
+
+
+def _drop_buttons(message_id) -> None:
+    """Edit (not a new message): remove the buttons of a closed request so it cannot be pressed again."""
+    if not message_id:
+        return
+    try:
+        call("editMessageReplyMarkup", {"chat_id": chat_id(), "message_id": message_id,
+                                        "reply_markup": {"inline_keyboard": []}})
+    except TgError:
+        pass
 
 
 def decide(registry: dict | None, existing_decision: dict | None, secret: str, chat: str,
@@ -271,6 +284,13 @@ def cmd_decide(a) -> dict:
     os.makedirs(os.path.dirname(dec_p), exist_ok=True)
     with open(dec_p, "w") as f:
         json.dump(rec, f, indent=1)
+    if reg.get("key_id"):
+        import control
+        try:
+            r = control.resolve(a.registry, reg["key_id"], time.time(), "decision:" + rec["decision"])
+            _drop_buttons(r.get("message_id"))     # also stops the reminder
+        except TgError:
+            pass
     return {"ok": True, **rec}
 
 
@@ -281,15 +301,16 @@ def main(argv=None) -> int:
     sp.add_parser("check")
     pp = sp.add_parser("pair"); pp.add_argument("--code"); pp.add_argument("--code-sha256")
     sp.add_parser("send-test")
-    np_ = sp.add_parser("notify")
-    np_.add_argument("--kind", required=True, choices=["video_ready", "error", "approval", "info"])
-    np_.add_argument("--title", required=True); np_.add_argument("--body"); np_.add_argument("--url")
-    np_.add_argument("--request-id")
+    rq = sp.add_parser("request", help="send ONLY if the owner must act (silent mode); see control.py")
+    rq.add_argument("--json", required=True); rq.add_argument("--registry", required=True)
+    sw = sp.add_parser("sweep"); sw.add_argument("--registry", required=True)
+    rs = sp.add_parser("resolve"); rs.add_argument("--key-id", required=True)
+    rs.add_argument("--registry", required=True); rs.add_argument("--how", default="resolved_elsewhere")
     dp = sp.add_parser("decide")
     dp.add_argument("--data", required=True); dp.add_argument("--from-id", required=True)
     dp.add_argument("--registry", required=True)
     a = p.parse_args(argv)
-    fn = {"check": cmd_check, "pair": cmd_pair, "send-test": cmd_send_test, "notify": cmd_notify, "decide": cmd_decide}[a.cmd]
+    fn = {"check": cmd_check, "pair": cmd_pair, "send-test": cmd_send_test, "request": cmd_request, "sweep": cmd_sweep, "resolve": cmd_resolve, "decide": cmd_decide}[a.cmd]
     try:
         res, code = fn(a), 0
     except TgError as e:
