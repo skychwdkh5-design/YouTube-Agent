@@ -108,6 +108,15 @@ chapters from 0:00 (>= 3, each >= 10 s); 3-5 specific hashtags at the end (the f
 channel name last, never the only one); 8-15 tags incl. query 1 and the channel name, <= 500 characters. No unrelated or
 misleading tags/hashtags (YouTube policy). Title and thumbnail still matter most; this is the text layer on top.
 
+### Live footage share (owner rule, enforced 2026-11-21)
+
+Every pipeline release is mainly real filmed footage: more than 60 % of the narrated picture must be camera footage that
+moves (missions, launches, aircraft / drone / ground / field shots). Satellite stills with zoom, Landsat year sequences, data
+visualisations, CGI and our own graphics are support only. rights.json marks each asset `footage`: live | animation | still |
+graphic; the QC gate (`pipeline/footage.py`) counts only declared-live video that actually moves (2 fps frame difference) and
+blocks the card below 60 %. Footage of a different place than the story (e.g. Alaska glaciers for a tropical glacier) must
+say so on screen and in the credit.
+
 ### End screen on every release (owner request 2026-11-20)
 
 The YouTube Data API cannot set end screens, so: every pipeline video ends with a 20 s outro after the narration

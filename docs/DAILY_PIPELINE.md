@@ -96,3 +96,13 @@ Owner request 2026-11-20. YouTube Data API v3 has no end-screen endpoint, so the
    text then names it with the Studio steps. The owner adds the elements in Studio (browser): Content → the video →
    End screen → "Import from video" (copies the previous layout) or the "1 video, 1 subscribe" template → pick the
    recommended video → Save. Doing this once on the first release makes "Import from video" a one-click step after.
+
+
+## Live footage share (QC gate, 2026-11-21)
+
+After the owner's review of El Niño / pulsar / Puncak Jaya v1 (0 % filmed footage, "slideshow"), `qc_gate.py` runs
+`pipeline/footage.py`: share = moving seconds of video assets declared `"footage": "live"` in rights.json, divided by the
+narrated seconds (cover frame and end-screen tail excluded). Stills never count; a "live" clip that holds still (mean
+abs difference < 1.2 on a 96x54 grey thumbnail at 2 fps) does not count for those seconds. Below 60 % = FAIL, no card.
+Sources that worked: SVS produced-video / B-roll pages (e.g. 13299/13298 Operation IceBridge Alaska aerials, 13946
+Landsat 9 launch). Plan the script around the footage you can get before voicing.
