@@ -1,7 +1,8 @@
 name: Telegram decision (button press, record only)
 # Receives a button press forwarded by the Cloudflare Worker (telegram/worker) as repository_dispatch.
 # Re-verifies everything (HMAC signature, owner chat, known request, not expired, single use) and records the decision
-# on branch telegram-data. It NEVER publishes, schedules or dispatches anything: per CLAUDE.md, publishing consent
+# on branch telegram-data, closes the request (no reminder) and removes its buttons. Silent mode: no extra message,
+# the press is acknowledged by the Worker's toast only. It NEVER publishes, schedules or dispatches anything: per CLAUDE.md, publishing consent
 # is given only in the Claude chat; a Telegram press is a recorded signal, not consent.
 # Inactive until: this file is on main, secret TELEGRAM_CALLBACK_SECRET exists, and the Worker is deployed with a webhook.
 on:
@@ -10,7 +11,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: telegram-decision
+  group: telegram-registry
   cancel-in-progress: false
 jobs:
   decide:
@@ -42,11 +43,6 @@ jobs:
         run: |
           cd reg
           git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add decisions && git commit -q -m "telegram decision ${GITHUB_RUN_ID}"
+          git add -A && git commit -q -m "telegram decision ${GITHUB_RUN_ID}"
           for i in 1 2 3; do git push -q origin HEAD:telegram-data && exit 0; git pull -q --rebase origin telegram-data; sleep 3; done
           exit 1
-      - name: Tell the owner
-        if: always()
-        run: |
-          msg=$(python3 -c "import json;r=json.load(open('result.json'));print(('Решение записано: '+r['decision']+' ('+r['request_id']+'). Публикация этим не запускается.') if r.get('ok') else ('Нажатие отклонено: '+r.get('error','')))" 2>/dev/null || echo "Нажатие не обработано")
-          python3 code/telegram/tg.py notify --kind info --title "кнопка" --body "$msg" >/dev/null 2>&1 || true

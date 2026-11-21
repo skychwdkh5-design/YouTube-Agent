@@ -1,0 +1,47 @@
+name: Telegram ask (from a Claude session, silent mode gate)
+# A Claude session asks for the owner's decision by pushing requests/ask-<name>.json to branch telegram-ops.
+# Same gate as telegram-notify.yml: anything that does not need the owner is suppressed and never sent.
+# Result (sanitized: sent / suppressed / duplicate, no chat id) -> results/ask-<name>.json on telegram-ops.
+on:
+  push:
+    branches: [telegram-ops]
+    paths: ['requests/ask-*.json']
+permissions:
+  contents: write
+concurrency:
+  group: telegram-registry
+  cancel-in-progress: false
+jobs:
+  ask:
+    if: github.actor == github.repository_owner
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      TELEGRAM_CALLBACK_SECRET: ${{ secrets.TELEGRAM_CALLBACK_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unit tests
+        run: python3 -m unittest discover -s telegram -q
+      - name: Registry branch telegram-data
+        run: |
+          mkdir reg && cd reg && git init -q -b telegram-data
+          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git"
+          if git fetch -q origin telegram-data; then git checkout -q -f FETCH_HEAD -B telegram-data; fi
+      - name: Gate and deliver new asks
+        run: |
+          mkdir -p results
+          for r in requests/ask-*.json; do
+            n=$(basename "$r"); [ -f "results/$n" ] && continue
+            python3 telegram/tg.py --out "results/$n" request --json "$r" --registry reg || true
+          done
+      - name: Save registry and results
+        if: always()
+        run: |
+          git config --global user.name "github-actions[bot]"; git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          (cd reg; if [ -n "$(git status --porcelain)" ]; then git add -A && git commit -q -m "telegram ask ${GITHUB_RUN_ID}" && \
+            for i in 1 2 3; do git push -q origin HEAD:telegram-data && break; git pull -q --rebase origin telegram-data || true; sleep 3; done; fi)
+          git add results; git diff --cached --quiet && exit 0
+          git commit -q -m "telegram ask results ${GITHUB_RUN_ID}"
+          for i in 1 2 3; do git push -q origin HEAD:telegram-ops && exit 0; git pull -q --rebase origin telegram-ops; sleep 3; done

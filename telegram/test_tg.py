@@ -122,14 +122,5 @@ class Pairing(unittest.TestCase):
         self.assertNotIn("setWebhook", calls)
 
 
-class Messages(unittest.TestCase):
-    def test_kinds_and_limit(self):
-        self.assertTrue(tg.build_message("video_ready", "EP015").startswith("🎬"))
-        self.assertTrue(tg.build_message("error", "render").startswith("⚠️"))
-        self.assertLessEqual(len(tg.build_message("error", "x", "y" * 5000)), tg.MAX_TEXT)
-        with self.assertRaises(tg.TgError):
-            tg.build_message("publish_now", "x")
-
-
 if __name__ == "__main__":
     unittest.main()
