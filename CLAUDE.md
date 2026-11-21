@@ -125,6 +125,17 @@ tail), the script's last line hands off to it ("watch this one next"), `endscree
 video of the same channel (else the newest), and the card names it with the Studio steps (Content → video → End screen →
 "Import from video" or "1 video + subscribe"). The owner adds the elements; never claim the end screen is set.
 
+### Motion pass on every release (owner review, 2026-11-21)
+
+The owner rejected zoom-in / zoom-out "slideshow" edits and plain labels again and asked for designed transitions, more
+motion graphics and the motion-graphics subtitles he approved on 2026-11-16 (`production/kinetic_captions`). Every pipeline
+release therefore goes through `pipeline/motion.py` after yt-render (render with label layers off and `"credit": false`):
+word-timed kinetic captions in the approved style (yellow key-word boxes, slammed hero numbers), thin HUD, a per-shot
+source line (other-place footage says so, e.g. "FILMED IN ALASKA"), designed transitions on every cut (whip, zoom punch,
+light-leak flash, glitch) with whooshes, and an original synthesised music bed. For pipeline releases this supersedes the
+2026-11-17 "no word-by-word captions" line below. Stills never get a plain zoom: explain them with data-driven animated
+graphics (traced outlines, maps with pins and rulers, counters, cross-sections) in the same yellow/white style.
+
 ## Chat-to-publish protocol (OrbitalAtlas)
 
 Status: **not active** until the owner says "включи chat-publish" and sets the repository variable `CHAT_PUBLISH_ENABLED=true`. Until then use only the gated workflows. Full design: `docs/CHAT_PUBLISH_ARCHITECTURE.md`.
