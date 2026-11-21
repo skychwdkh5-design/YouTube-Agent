@@ -1,0 +1,54 @@
+name: Telegram notify (reusable)
+# Called by other workflows (uses: ./.github/workflows/telegram-notify.yml) to send
+#   video_ready | error | approval. No production workflow calls it yet - wiring is a separate, owner-approved step.
+# For "approval" it registers the request (id, kind, expiry) on branch telegram-data BEFORE sending the buttons,
+# so telegram-decision.yml can reject unknown, expired or replayed presses.
+on:
+  workflow_call:
+    inputs:
+      kind: {type: string, required: true}
+      title: {type: string, required: true}
+      body: {type: string, required: false, default: ""}
+      url: {type: string, required: false, default: ""}
+      request_id: {type: string, required: false, default: ""}
+      ttl_hours: {type: number, required: false, default: 24}
+    secrets:
+      TELEGRAM_BOT_TOKEN: {required: true}
+      TELEGRAM_CHAT_ID: {required: true}
+      TELEGRAM_CALLBACK_SECRET: {required: false}
+permissions:
+  contents: write
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      TELEGRAM_CALLBACK_SECRET: ${{ secrets.TELEGRAM_CALLBACK_SECRET }}
+      KIND: ${{ inputs.kind }}
+      TITLE: ${{ inputs.title }}
+      BODY: ${{ inputs.body }}
+      URL: ${{ inputs.url }}
+      RID: ${{ inputs.request_id }}
+      TTL: ${{ inputs.ttl_hours }}
+    steps:
+      - uses: actions/checkout@v4
+        with: {repository: '${{ github.repository }}', ref: '${{ github.event.repository.default_branch }}', path: code}
+      - name: Register approval request (telegram-data)
+        if: inputs.kind == 'approval'
+        run: |
+          echo "$RID" | grep -Eq '^[a-z0-9]{6,16}$' || { echo "bad request_id"; exit 1; }
+          mkdir reg && cd reg && git init -q -b telegram-data
+          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git"
+          if git fetch -q origin telegram-data; then git checkout -q -f FETCH_HEAD -B telegram-data; fi
+          test ! -e "requests/$RID.json" || { echo "request id already used"; exit 1; }
+          mkdir -p requests
+          python3 -c "import json,os,time;json.dump({'kind':os.environ['KIND'],'title':os.environ['TITLE'],'created_at':int(time.time()),'expires_at':int(time.time()+float(os.environ['TTL'])*3600),'run':os.environ['GITHUB_RUN_ID']},open('requests/'+os.environ['RID']+'.json','w'),indent=1)"
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add requests && git commit -q -m "telegram request $RID" && git push -q origin HEAD:telegram-data
+      - name: Send
+        run: |
+          args=(notify --kind "$KIND" --title "$TITLE" --body "$BODY" --url "$URL")
+          if [ "$KIND" = approval ]; then args+=(--request-id "$RID"); fi
+          python3 code/telegram/tg.py "${args[@]}"

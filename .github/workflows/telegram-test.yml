@@ -1,0 +1,36 @@
+name: Telegram test message
+# Sends the fixed test message to the owner's chat (secrets TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID).
+# Read-only towards YouTube and production: no publish, no queue, no other workflow touched.
+# Triggers: manual (Actions tab, Run workflow) or a push of requests/test.json to branch telegram-ops.
+on:
+  workflow_dispatch:
+  push:
+    branches: [telegram-ops]
+    paths: ['requests/test.json']
+permissions:
+  contents: write          # results/*.json on branch telegram-ops (push route only)
+concurrency:
+  group: telegram-ops
+  cancel-in-progress: false
+jobs:
+  test:
+    if: github.actor == github.repository_owner
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unit tests
+        run: python3 -m unittest discover -s telegram -q
+      - name: Send the test message
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 telegram/tg.py --out result.json send-test
+      - name: Save sanitized result (push route)
+        if: always() && github.event_name == 'push'
+        run: |
+          [ -f result.json ] || exit 0
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p results && cp result.json "results/test-${GITHUB_RUN_ID}.json"
+          git add results && git commit -q -m "telegram test result ${GITHUB_RUN_ID}"
+          for i in 1 2 3; do git push -q origin HEAD:telegram-ops && exit 0; git pull -q --rebase origin telegram-ops; sleep 3; done
