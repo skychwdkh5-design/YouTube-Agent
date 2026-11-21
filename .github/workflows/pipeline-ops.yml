@@ -1,0 +1,98 @@
+name: Pipeline YouTube ops (preview upload / schedule / status)
+# Daily release pipeline, YouTube side (docs/DAILY_PIPELINE.md). Triggered by a push, so it works from data branches without
+# a merge for every release:
+#   * branch pipeline-ops, file requests/<name>.json  -> op status | schedule (no media);
+#   * branch pipeline-media/<release>-v<n>             -> op preview: reassemble the file parts, check sha256, upload PRIVATE.
+# The code always comes from the pipeline-ops branch (it follows main once this PR is merged). Results go to
+# results/<name>.json on pipeline-ops, ledger events to publish-ledger (shared duplicate protection with the other workflows).
+# A request without "confirm": true is a dry run: checks only, nothing is sent to YouTube.
+on:
+  push:
+    branches: [pipeline-ops, 'pipeline-media/**']
+    paths: ['requests/**', 'request.json']
+permissions:
+  contents: write        # results on pipeline-ops, ledger on publish-ledger
+concurrency:
+  group: youtube-publish   # one ledger writer at a time, shared with the publish and verify workflows
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  ops:
+    if: github.actor == github.repository_owner
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+      YT_LEDGER: ${{ github.workspace }}/ledger/ledger.jsonl
+    steps:
+      - name: Trigger commit (requests / media parts)
+        uses: actions/checkout@v4
+        with:
+          path: trig
+          lfs: false
+      - name: Pipeline code (pipeline-ops branch)
+        uses: actions/checkout@v4
+        with:
+          ref: pipeline-ops
+          path: code
+          lfs: false
+      - name: Ledger branch
+        run: |
+          mkdir ledger && cd ledger && git init -q -b publish-ledger
+          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git fetch -q origin publish-ledger; then git checkout -q -f FETCH_HEAD -B publish-ledger; fi
+          touch ledger.jsonl
+      - name: Tests
+        run: cd code && python3 -m unittest discover -s pipeline/tests -t . -q
+      - name: Media - reassemble parts and check sha256 (media branches only)
+        if: startsWith(github.ref_name, 'pipeline-media/')
+        run: |
+          cd trig
+          for f in $(awk '{print $2}' SHA256SUMS); do cat "$f".part* > "$f"; done
+          sha256sum -c SHA256SUMS      # byte-identical to the file that passed the QC gate (full decode, streams) before the card
+      - name: Run the requested operations
+        run: |
+          mkdir -p out
+          if [[ "$GITHUB_REF_NAME" == pipeline-media/* ]]; then
+            reqs="trig/request.json"
+          else
+            reqs=""
+            for r in trig/requests/*.json; do n=$(basename "$r"); [ -f "trig/results/$n" ] || reqs="$reqs $r"; done
+          fi
+          for r in $reqs; do
+            n=$(python3 -c "import json,sys;d=json.load(open(sys.argv[1]));import os;print(d.get('name') or os.path.basename(sys.argv[1])[:-5])" "$r")
+            op=$(python3 -c "import json,sys;print(json.load(open(sys.argv[1]))['op'])" "$r")
+            confirm=$(python3 -c "import json,sys;print('--confirm' if json.load(open(sys.argv[1])).get('confirm') is True else '')" "$r")
+            python3 code/pipeline/yt_ops.py "$op" --request "$r" --media-dir trig $confirm --out "out/$n.json" || true
+          done
+          ls out
+      - name: Save results to pipeline-ops
+        if: always()
+        run: |
+          [ -n "$(ls -A out 2>/dev/null)" ] || exit 0
+          cd code && git config user.name "github-actions[bot]" && git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch -q --depth 20 origin pipeline-ops
+          for i in 1 2 3 4 5; do
+            git pull -q --rebase --depth 20 origin pipeline-ops || git pull -q --rebase origin pipeline-ops || true
+            mkdir -p results && cp ../out/*.json results/
+            git add results && (git diff --cached --quiet || git commit -q -m "pipeline ops results (run ${GITHUB_RUN_ID})")
+            git push -q origin HEAD:pipeline-ops && exit 0; sleep $((i*3))
+          done
+          exit 1
+      - name: Save ledger (also after failures)
+        if: always()
+        run: |
+          cd ledger
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ledger.jsonl
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -q -m "ledger: pipeline ops ${GITHUB_RUN_ID}"
+          for i in 1 2 3 4 5; do git push -q origin HEAD:publish-ledger && exit 0; git pull -q --rebase origin publish-ledger || true; sleep $((i*3)); done
+          exit 1
+      - name: Fail the run when an operation failed (the result file says why)
+        run: python3 -c "import json,glob,sys; bad=[p for p in glob.glob('out/*.json') if not json.load(open(p)).get('ok')]; print(bad); sys.exit(1 if bad else 0)"
