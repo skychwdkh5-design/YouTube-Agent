@@ -205,4 +205,4 @@ labelled and never shown as documentary footage. `/yt-qc --profile long` checks 
 changed by this rule.
 
 ## Thumbnail gate (long-form)
-No long episode is approved or uploaded with a cover that has not passed `docs/THUMBNAIL_STYLE_GUIDE.md` section 5: `thumbcheck.py` plus a visual comparison with the four published covers (docs/assets/thumbnail-reference/). A deviating cover is FAIL and is redone first. `publish/queue.json` enforces it through `thumbnail_review`.
+No long episode is approved or uploaded with a cover that has not passed `docs/THUMBNAIL_STYLE_GUIDE.md` section 5: `thumbcheck.py` plus a visual comparison with the Neon Contour references (docs/assets/thumbnail-reference-neon/). A deviating cover is FAIL and is redone first. `publish/queue.json` enforces it through `thumbnail_review`.
