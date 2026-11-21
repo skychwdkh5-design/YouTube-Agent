@@ -2,24 +2,25 @@
  "approval": null,
  "artifacts": {
   "qc_passed": {
-   "at": "2026-11-21T03:01:18Z",
-   "qc": "/home/user/work/oa_pj/out/qc_v2.json"
+   "at": "2026-11-21T06:18:03Z",
+   "qc": "/home/user/work/oa_pj/out/qc_v4.json"
   },
   "rendered": {
-   "at": "2026-11-21T03:01:18Z",
-   "timeline": "/home/user/work/oa_pj/timeline.json",
-   "video": "/home/user/work/oa_pj/out/ep_v2.mp4",
-   "video_sha256": "3b14023adbeb7204faac536ef03ac90befaaeb50c024149759c666b491d14835"
+   "at": "2026-11-21T06:18:03Z",
+   "timeline": "/home/user/work/oa_pj/timeline2.json",
+   "video": "/home/user/work/oa_pj/out/ep_v4.mp4",
+   "video_sha256": "5c290510b0d3e991a7d8d830dae0af6bc7465c6321b6503b3ba81b0dc26a6253"
   },
   "scripted": {
    "at": "2026-11-21T02:50:53Z",
    "script": "/home/user/work/oa_pj/script.md"
   },
   "voiced": {
-   "at": "2026-11-21T02:50:53Z",
-   "voice": "/home/user/work/oa_pj/voice/narration.wav",
-   "voice_meta": "/home/user/work/oa_pj/voice/narration.voice.json",
-   "voice_sha256": "851b318076a652feee503e6587197815cc6f2fbc477fe07b09c011760b6f5275"
+   "at": "2026-11-21T06:18:03Z",
+   "note": "v2 script rebuilt around filmed footage",
+   "voice": "/home/user/work/oa_pj/voice2/narration.wav",
+   "voice_meta": "/home/user/work/oa_pj/voice2/narration.voice.json",
+   "voice_sha256": "fb33c69a7ef3fe181f8357440fe0ed60e3bcfac260e331a5026cd88685d2eb4f"
   }
  },
  "blocker": null,
@@ -32,10 +33,24 @@
    "release": "oa-20261121-01",
    "shown_at": "2026-11-21T03:02:34Z",
    "slot": "2026-11-22T01:00:00Z",
-   "status": "open",
+   "status": "void",
    "version": 1,
    "version_hash": "ec046f4ffb8eef55b4359222dc73b36b4b7cd7c04bd1adacf674214febc57308",
-   "video_id": "5YoG5ibDWjE"
+   "video_id": "5YoG5ibDWjE",
+   "void_reason": "replaced by version 2"
+  },
+  {
+   "card_id": "card-561dd8d0",
+   "code": "561DD8D0",
+   "expires_at": "2026-11-22T00:30:00Z",
+   "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdSYcA1ayBqVWbVq59F1mvUh",
+   "release": "oa-20261121-01",
+   "shown_at": "2026-11-21T06:30:42Z",
+   "slot": "2026-11-22T01:00:00Z",
+   "status": "open",
+   "version": 2,
+   "version_hash": "ab516e0beda2445ee561450d55d504565b30b55993f25247eee245b43983f7ac",
+   "video_id": "TEIPRX-cK2g"
   }
  ],
  "channel": "oa",
@@ -100,6 +115,50 @@
    "event": "card",
    "slot": "2026-11-22T01:00:00Z",
    "version": 1
+  },
+  {
+   "at": "2026-11-21T06:18:03Z",
+   "event": "stage_done",
+   "stage": "voiced"
+  },
+  {
+   "at": "2026-11-21T06:18:03Z",
+   "event": "stage_done",
+   "stage": "rendered"
+  },
+  {
+   "at": "2026-11-21T06:18:03Z",
+   "event": "stage_done",
+   "stage": "qc_passed"
+  },
+  {
+   "at": "2026-11-21T06:18:04Z",
+   "event": "version",
+   "n": 2,
+   "version_hash": "ab516e0beda2"
+  },
+  {
+   "at": "2026-11-21T06:18:13Z",
+   "branch": "pipeline-media/oa-20261121-01-v2",
+   "confirm": true,
+   "event": "preview_requested"
+  },
+  {
+   "at": "2026-11-21T06:30:42Z",
+   "event": "preview_ready",
+   "video_id": "TEIPRX-cK2g"
+  },
+  {
+   "at": "2026-11-21T06:30:42Z",
+   "event": "endscreen_pick",
+   "video_id": "sVInlyhIY7c"
+  },
+  {
+   "at": "2026-11-21T06:30:42Z",
+   "card_id": "card-561dd8d0",
+   "event": "card",
+   "slot": "2026-11-22T01:00:00Z",
+   "version": 2
   }
  ],
  "id": "oa-20261121-01",
@@ -110,12 +169,12 @@
   "made_for_kids": false
  },
  "preview": {
-  "at": "2026-11-21T03:02:32Z",
+  "at": "2026-11-21T06:30:42Z",
   "privacy": "private",
-  "url": "https://youtu.be/5YoG5ibDWjE",
-  "version": 1,
-  "version_hash": "ec046f4ffb8eef55b4359222dc73b36b4b7cd7c04bd1adacf674214febc57308",
-  "video_id": "5YoG5ibDWjE"
+  "url": "https://youtu.be/TEIPRX-cK2g",
+  "version": 2,
+  "version_hash": "ab516e0beda2445ee561450d55d504565b30b55993f25247eee245b43983f7ac",
+  "video_id": "TEIPRX-cK2g"
  },
  "production_day": "2026-11-21",
  "schedule": null,
@@ -169,7 +228,7 @@
   },
   "title": "NASA Watched Ice Near the Equator Melt. Only 2% Is Left."
  },
- "updated_at": "2026-11-21T03:02:52Z",
+ "updated_at": "2026-11-21T06:31:03Z",
  "versions": [
   {
    "captions_sha256": "e37cbc5a20c89d00dfbb787208fc9be9d998ddc7384a9bd2fe074b69debb6c17",
@@ -200,6 +259,36 @@
    "title": "NASA Watched Ice Near the Equator Melt. Only 2% Is Left.",
    "version_hash": "ec046f4ffb8eef55b4359222dc73b36b4b7cd7c04bd1adacf674214febc57308",
    "video_sha256": "3b14023adbeb7204faac536ef03ac90befaaeb50c024149759c666b491d14835"
+  },
+  {
+   "captions_sha256": "d67f819d6ecf77f9ff9fd10e34687d63ee73f6d4877b2ddb72e6d0cb161283d2",
+   "created_at": "2026-11-21T06:18:04Z",
+   "description": "The Puncak Jaya glacier in New Guinea is one of the last places near the equator with ice. NASA Landsat images from 1988 and 2026 show it has shrunk to about 2% of its 1988 area, and scientists say the last ice could be gone within a few years.\n\nChapters:\n0:00 Ice near the equator, 1988 vs 2026\n0:36 Where is Puncak Jaya?\n0:52 What a glacier is (NASA footage, Alaska)\n1:20 40 years of Landsat images\n1:37 Only 2% left\n2:00 A house of cards\n2:32 No longer a glacier\n2:46 How El Niño speeds up the melt\n3:29 Canaries in the coal mine\n\nKey numbers (NASA Earth Observatory, Nov 16, 2026, citing Donaldi Permana, BMKG): about 4.31 km² (1.66 sq mi) of ice in 1988; about 0.09 km² by September 2025, roughly 2% of the 1988 extent. Ice at the East Northwall Firn site thinned from 32 m (105 ft) in 2010 to 4 m (13 ft) in 2023 and was gone by November 2024.\n\nSources:\n- NASA Earth Observatory, \"The Last Ice on Puncak Jaya\" (Nov 16, 2026): https://science.nasa.gov/earth/earth-observatory/the-last-ice-on-puncak-jaya/\n- NASA Scientific Visualization Studio, \"Shrinking Tropical Ice Areas\": https://svs.gsfc.nasa.gov/31161\n- NASA Scientific Visualization Studio, \"Ice Losses in Tropical Asia\": https://svs.gsfc.nasa.gov/30938\n- NASA SVS, El Niño 2026 sea surface temperature: https://svs.gsfc.nasa.gov/5688 , https://svs.gsfc.nasa.gov/5683\n- Permana et al. (2019), PNAS: https://doi.org/10.1073/pnas.1822037116\n\nFootage: NASA Operation IceBridge aerial footage of glaciers in Alaska (shown for comparison, labelled) and NASA Landsat 9 launch footage: https://svs.gsfc.nasa.gov/13299 , https://svs.gsfc.nasa.gov/13298 , https://svs.gsfc.nasa.gov/13946\nImagery: NASA Earth Observatory (Lauren Dauphin) and NASA Scientific Visualization Studio, using Landsat data from the U.S. Geological Survey. Public domain; NASA does not endorse this video. Graphics: Orbital Atlas.\nNarration: synthetic voice (ElevenLabs).\n\n#PuncakJaya #Glaciers #Landsat #ClimateChange #OrbitalAtlas",
+   "duration_s": 258.4,
+   "files": {
+    "captions": "/home/user/work/oa_pj/captions2/captions.srt",
+    "thumbnail": "/home/user/work/oa_pj/cover/cover_final2.jpg",
+    "video": "/home/user/work/oa_pj/out/ep_v4.mp4"
+   },
+   "n": 2,
+   "tags": [
+    "puncak jaya glacier",
+    "Puncak Jaya",
+    "glaciers near the equator",
+    "tropical glaciers",
+    "tropical glaciers disappearing",
+    "New Guinea glacier",
+    "Landsat",
+    "NASA Earth Observatory",
+    "satellite images",
+    "El Nino",
+    "glacier melting",
+    "Orbital Atlas"
+   ],
+   "thumbnail_sha256": "bad24adaeb9601f5ba9a5342eb05cf2a5e00381aa6577cffec3f2d35507d58db",
+   "title": "NASA Watched Ice Near the Equator Melt. Only 2% Is Left.",
+   "version_hash": "ab516e0beda2445ee561450d55d504565b30b55993f25247eee245b43983f7ac",
+   "video_sha256": "5c290510b0d3e991a7d8d830dae0af6bc7465c6321b6503b3ba81b0dc26a6253"
   }
  ]
 }
