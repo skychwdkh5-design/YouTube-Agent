@@ -128,7 +128,8 @@ video of the same channel (else the newest), and the card names it with the Stud
 ### Motion pass on every release (owner review, 2026-11-21)
 
 The owner rejected zoom-in / zoom-out "slideshow" edits and plain labels again and asked for designed transitions, more
-motion graphics and the motion-graphics subtitles he approved on 2026-11-16 (`production/kinetic_captions`). Every pipeline
+motion graphics and the motion-graphics subtitles he approved on 2026-11-16 (`production/kinetic_captions`), and confirmed on
+2026-11-21 ("Субтитры остаются как в ролике выше"). Every pipeline
 release therefore goes through `pipeline/motion.py` after yt-render (render with label layers off and `"credit": false`):
 word-timed kinetic captions in the approved style (yellow key-word boxes, slammed hero numbers), thin HUD, a per-shot
 source line (other-place footage says so, e.g. "FILMED IN ALASKA"), designed transitions on every cut (whip, zoom punch,
