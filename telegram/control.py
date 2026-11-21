@@ -83,7 +83,10 @@ def build_text(n: dict, reminder: bool = False) -> str:
               f"Почему Claude не может продолжить сам: {_f(n['why_blocked'])}"]
     if n.get("recovery_attempted"):
         lines.append(f"Что уже пробовал: {_f(n['recovery_attempted'])}")
-    lines += [f"Если одобришь: {_f(n['on_approve'])}", f"Если откажешь: {_f(n['on_reject'])}"]
+    yes, no = {"APPROVAL_REQUIRED": ("Если одобришь", "Если откажешь"),
+               "PERMISSION_REQUIRED": ("Если разрешишь", "Если не разрешишь"),
+               "HUMAN_INTERVENTION_REQUIRED": ("Когда сделаешь", "Если не сделать")}[n["kind"]]
+    lines += [f"{yes}: {_f(n['on_approve'])}", f"{no}: {_f(n['on_reject'])}"]
     if n["kind"] == "PERMISSION_REQUIRED" and not buttons_allowed(n):
         lines.append("Разрешение даётся не в Telegram - открой ссылку ниже." if n.get("link")
                      else "Разрешение даётся не в Telegram - ответь Claude в исходной сессии.")

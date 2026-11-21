@@ -23,8 +23,8 @@ on:
       auto_resolvable: {type: boolean, required: false, default: false}
       ttl_hours: {type: number, required: false, default: 168}
     secrets:
-      TELEGRAM_BOT_TOKEN: {required: true}
-      TELEGRAM_CHAT_ID: {required: true}
+      TELEGRAM_BOT_TOKEN: {required: false}   # never block the caller; a missing secret just queues
+      TELEGRAM_CHAT_ID: {required: false}
       TELEGRAM_CALLBACK_SECRET: {required: false}
 permissions:
   contents: write
