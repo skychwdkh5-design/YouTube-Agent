@@ -1,4 +1,4 @@
-import os, subprocess, sys, tempfile, unittest
+import importlib.util, os, shutil, subprocess, sys, tempfile, unittest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 import footage  # noqa: E402
@@ -9,6 +9,7 @@ def make(path, moving, seconds=4):
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", src, "-t", str(seconds), "-pix_fmt", "yuv420p", path], check=True)
 
 
+@unittest.skipUnless(importlib.util.find_spec("numpy") and shutil.which("ffmpeg"), "needs numpy + ffmpeg")
 class FootageGate(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
