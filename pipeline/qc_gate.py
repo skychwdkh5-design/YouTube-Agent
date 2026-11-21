@@ -136,6 +136,12 @@ def gate(a, cfg):
         vend = float(json.load(open(a.voice_meta)).get("duration") or 0)
         tail = round(dur - vend, 2)
         res.append(check("endscreen tail", 15.0 <= tail <= 20.5, {"tail_s": tail, "need": "15-20 s after the narration"}))
+    # 10. live footage share (owner rule: > 60 % of the narrated picture is real camera footage that moves)
+    if a.voice_meta and a.rights:
+        import footage
+        fm = footage.measure(tl, rights, float(json.load(open(a.voice_meta)).get("duration") or 0),
+                             os.path.dirname(os.path.abspath(a.timeline)))
+        res.append(check("live footage >= 60 %", fm["ok"], {k: fm[k] for k in ("live_share", "need", "live_moving_s", "narrated_s", "seconds_by_class")}))
     srt = open(a.captions, encoding="utf-8").read() if a.captions else ""
     res.append(check("captions SRT", bool(re.search(r"^\d+\s*\n\d\d:\d\d:\d\d,\d{3} --> ", srt, re.M)), {"cues": srt.count(" --> ")}))
     fails = [r["check"] for r in res if r["result"] == "FAIL"]
