@@ -51,7 +51,7 @@
    "card_id": "card-19365d23",
    "code": "19365D23",
    "expires_at": "2026-11-24T00:30:00Z",
-   "message_id": null,
+   "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdKm3fMRubZBxARzZkk4oAQh",
    "release": "oa-20261122-02",
    "shown_at": "2026-11-22T16:28:20Z",
    "slot": "2026-11-24T01:00:00Z",
@@ -258,7 +258,7 @@
    }
   ]
  },
- "updated_at": "2026-11-22T16:28:20Z",
+ "updated_at": "2026-11-22T16:28:45Z",
  "versions": [
   {
    "captions_sha256": "38ea3c1283937075ce9f120bdcad5cedc42aef3849f24be34a1f4e01760d13a2",
