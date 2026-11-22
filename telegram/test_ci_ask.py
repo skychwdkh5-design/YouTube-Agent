@@ -76,5 +76,31 @@ class NeverFails(unittest.TestCase):
         self.assertTrue(res["asks"][0]["queued_for_retry"])
 
 
+class Extras(unittest.TestCase):
+    ENV = {"GITHUB_TOKEN": "", "GH_TOKEN": "", "GITHUB_REPOSITORY": "", "TELEGRAM_BOT_TOKEN": "", "TELEGRAM_CHAT_ID": ""}
+
+    def test_check_without_secrets(self):
+        with mock.patch.dict(os.environ, self.ENV):
+            r = ci_ask.check()
+        self.assertFalse(r["ok"]); self.assertFalse(r["bot_token_present"])
+
+    def test_from_file_resolve_and_ask(self):
+        import tempfile
+        with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as f:
+            json.dump({"op": "resolve", "dedup_key": "OrbitalAtlas/card/x"}, f)
+        with mock.patch.dict(os.environ, self.ENV), redirect_stdout(io.StringIO()) as b:
+            self.assertEqual(ci_ask.main(["from-file", f.name]), 0)
+        os.unlink(f.name)
+        self.assertIn('"ok": true', b.getvalue())
+
+    def test_remind_dispatched_only_after_real_ask(self):
+        with mock.patch.dict(os.environ, self.ENV), mock.patch.object(ci_ask, "dispatch_remind", return_value=True) as d, \
+             redirect_stdout(io.StringIO()):
+            ci_ask.execute([], ["k"], "t")
+            d.assert_not_called()
+            ci_ask.execute(ci_ask.scan_pipeline([{"ok": False, "error_kind": "auth", "error": "invalid_grant"}]), [], "t")
+            d.assert_called_once()
+
+
 if __name__ == "__main__":
     unittest.main()

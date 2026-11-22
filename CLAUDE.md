@@ -116,8 +116,10 @@ workflow and session; NEXORA and ANIMAVERSE use the same reusable workflow from 
 Wired (2026-11-21): `verify-release.yml` (release not public / OAuth dead), `publish-approved.yml` and branch `pipeline-ops`
 (OAuth dead only; quota and ordinary errors stay silent - Claude handles them). Sessions: when an approval card waits for
 the owner's answer, or a Claude Code permission is needed, push `requests/ask-<name>.json` to `telegram-ops`
-(`APPROVAL_REQUIRED` / `PERMISSION_REQUIRED`, `button_safe: false`, link = this session) and close it with
-`tg.py resolve` once the owner answers in the chat. The Telegram message itself is never consent.
+(`APPROVAL_REQUIRED` / `PERMISSION_REQUIRED`, `button_safe: false`, link = this session) and close it by pushing
+`requests/resolve-<name>.json` = `{"op": "resolve", "dedup_key": "<same key>"}` once the owner answers in the chat.
+Dedup keys: `<Project>/card/<release>` for approval cards. Reminders come from `telegram-remind.yml` (cron is unreliable).
+The Telegram message itself is never consent.
 
 ## Visual direction — selected painted editorial style
 
