@@ -107,7 +107,7 @@ After yt-render, every release runs `python3 pipeline/motion.py --base base.mp4 
 holds the key words, hero numbers (`{"at": "<spoken phrase>", "big": "5.3 M", "above": ..., "below": ...}`, use
 `"count_up": false` for years and non-integers), per-shot transition overrides and per-asset source lines. Render the base
 with no label layers and `"credit": false` on video/still layers: the pass draws captions, HUD, source line, transitions and
-the sound layer, and loudness-normalises to -16 LUFS. The cover frame is passed through untouched.
+the sound layer, and loudness-normalises to -16 LUFS. Effects sit well under the voice (owner 2026-11-22: whooshes peak near -17 dBFS, side-chain ducked by the narration; `tests/test_motion_mix.py`). The cover frame is passed through untouched.
 
 ## Live footage share (QC gate, 2026-11-21)
 

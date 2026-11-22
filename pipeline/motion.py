@@ -13,7 +13,9 @@ off) and adds, frame by frame:
   * designed transitions on every cut: whip pan with motion blur, zoom punch with zoom blur, light-leak flash and an
     RGB-split glitch, each with a matching whoosh;
   * a sound layer: original synthesised ambient pad (no third-party music, no licence needed), whooshes on the cuts and
-    a low hit on every hero number. Mixed under the narration and loudness-normalised to -16 LUFS.
+    a low hit on every hero number. Mixed UNDER the narration (owner 2026-11-22: transition sounds must never be louder
+    than the voice): effects peak about 20 dB below full scale and the whole effects bed is side-chain ducked by the
+    narration, then the mix is loudness-normalised to -16 LUFS.
 
 The cover frame (everything before the first shot after the cover) is passed through untouched, so the cover = frame 0
 check still holds. Captions and HUD stop before the end-screen tail so YouTube's end-screen elements sit on a clean
@@ -346,12 +348,20 @@ def ambient_pad(dur):
     return out / (np.abs(out).max() + 1e-6)
 
 
+# Effects levels (linear, before ducking). 2026-11-22 owner review ("звуки переходов громче голоса"): the old bed measured
+# about -17 LUFS against a -23 LUFS narration. Now a whoosh peaks near -17 dBFS, a hero hit near -18 dBFS and the pad sits
+# far below (bed about -32 LUFS, roughly 9 dB under the voice), and while the narrator speaks the side-chain compressor
+# pushes the bed down a further ~8 dB. pipeline/tests/test_motion_mix.py keeps these limits.
+WHOOSH_GAIN, HIT_GAIN, PAD_GAIN = 0.07, 0.13, 0.08
+DUCK = "sidechaincompress=threshold=0.015:ratio=4:attack=8:release=350:makeup=1"
+
+
 def sound_layer(path, dur, cuts_, heroes, music=True, t_from=0.0):
     rng = np.random.default_rng(7)
     n = int(dur * SR)
     mix = np.zeros((n, 2), np.float32)
     if music:
-        mix += ambient_pad(dur + t_from)[int(t_from * SR):int(t_from * SR) + n] * 0.16
+        mix += ambient_pad(dur + t_from)[int(t_from * SR):int(t_from * SR) + n] * PAD_GAIN
     for c in cuts_:
         if c["kind"] == "none":
             continue
@@ -363,13 +373,13 @@ def sound_layer(path, dur, cuts_, heroes, music=True, t_from=0.0):
         for ch, g in ((0, 1 - pan), (1, pan)):
             a, b = max(0, start), min(n, start + len(w))
             if b > a:
-                mix[a:b, ch] += w[a - start:b - start] * 0.30 * g * 2
+                mix[a:b, ch] += w[a - start:b - start] * WHOOSH_GAIN * g * 2
     for h in heroes:
         s = hit(rng)
         start = int((h.t0 + 0.05 - t_from) * SR)
         a, b = max(0, start), min(n, start + len(s))
         if b > a:
-            mix[a:b] += (s[a - start:b - start] * 0.34)[:, None]
+            mix[a:b] += (s[a - start:b - start] * HIT_GAIN)[:, None]
     pcm = (np.clip(mix, -1, 1) * 32767).astype("<i2")
     import wave
     with wave.open(path, "wb") as f:
@@ -437,8 +447,10 @@ def run(a):
         enc = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
                                 "-r", str(FPS), "-i", "-", "-ss", f"{t_from:.3f}", "-t", f"{dur:.3f}", "-i", a.base,
                                 "-i", sfx, "-filter_complex",
-                                "[1:a]aresample=48000,aformat=channel_layouts=stereo[v];"
-                                "[v][2:a]amix=inputs=2:normalize=0:duration=first,"
+                                "[1:a]aresample=48000,aformat=channel_layouts=stereo,asplit=2[v][key];"
+                                "[2:a]aresample=48000,aformat=channel_layouts=stereo[fx];"
+                                f"[fx][key]{DUCK}[fxd];"
+                                "[v][fxd]amix=inputs=2:normalize=0:duration=first,"
                                 "loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000[a]",
                                 "-map", "0:v", "-map", "[a]", "-c:v", "libx264", "-preset", "medium", "-crf", "17",
                                 "-force_key_frames", f"expr:gte(t,n_forced*{a.segment_s:g})",   # yt-render segment boundaries
