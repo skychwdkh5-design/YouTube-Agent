@@ -1,0 +1,227 @@
+{
+ "approval": null,
+ "artifacts": {
+  "qc_passed": {
+   "at": "2026-11-22T06:56:09Z",
+   "qc": "/mnt/project-files/pipeline/oa-20261122-01/qc.json",
+   "result": "PASS"
+  },
+  "rendered": {
+   "at": "2026-11-22T06:56:09Z",
+   "note": "motion pass v1 (kinetic captions), 84.7% live footage",
+   "timeline": "/home/user/work/oa_fire/timeline.json",
+   "video": "/mnt/project-files/pipeline/oa-20261122-01/oa-20261122-01-v1.mp4",
+   "video_sha256": "19d5c71c90726b70317c212ef3c9affe9349dd14ced8121f0da0cb0bb1c7ea7d"
+  },
+  "scripted": {
+   "at": "2026-11-22T06:46:23Z",
+   "script": "/home/user/work/oa_fire/script.md"
+  },
+  "voiced": {
+   "at": "2026-11-22T06:46:23Z",
+   "chars": 2668,
+   "voice": "/home/user/work/oa_fire/voice/narration.wav",
+   "voice_name": "Adam"
+  }
+ },
+ "blocker": null,
+ "cards": [
+  {
+   "card_id": "card-5089e257",
+   "code": "5089E257",
+   "expires_at": "2026-11-23T00:30:00Z",
+   "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXd4SBxCDEDCh9Vjzs1UbeyGj",
+   "release": "oa-20261122-01",
+   "shown_at": "2026-11-22T06:58:57Z",
+   "slot": "2026-11-23T01:00:00Z",
+   "status": "open",
+   "version": 1,
+   "version_hash": "3fb67eb3e13c3f71f9278ff8279488e2dc6fadce76a3407a63b13ec54df4545c",
+   "video_id": "dJ7pXdLzB0Q"
+  }
+ ],
+ "channel": "oa",
+ "created_at": "2026-11-22T06:18:06Z",
+ "endscreen": {
+  "title": "NASA Watched Ice Near the Equator Melt. Only 2% Is Left.",
+  "video_id": "DgvDzvtA08M",
+  "why": "newest public video"
+ },
+ "events": [
+  {
+   "at": "2026-11-22T06:18:06Z",
+   "channel": "oa",
+   "event": "created",
+   "production_day": "2026-11-22"
+  },
+  {
+   "at": "2026-11-22T06:46:23Z",
+   "event": "stage_done",
+   "stage": "scripted"
+  },
+  {
+   "at": "2026-11-22T06:46:23Z",
+   "event": "stage_done",
+   "stage": "voiced"
+  },
+  {
+   "at": "2026-11-22T06:56:09Z",
+   "event": "stage_done",
+   "stage": "rendered"
+  },
+  {
+   "at": "2026-11-22T06:56:09Z",
+   "event": "stage_done",
+   "stage": "qc_passed"
+  },
+  {
+   "at": "2026-11-22T06:56:10Z",
+   "event": "version",
+   "n": 1,
+   "version_hash": "3fb67eb3e13c"
+  },
+  {
+   "at": "2026-11-22T06:56:14Z",
+   "branch": "pipeline-media/oa-20261122-01-v1",
+   "confirm": true,
+   "event": "preview_requested"
+  },
+  {
+   "at": "2026-11-22T06:58:13Z",
+   "event": "preview_ready",
+   "video_id": "dJ7pXdLzB0Q"
+  },
+  {
+   "at": "2026-11-22T06:58:56Z",
+   "event": "endscreen_pick",
+   "video_id": "DgvDzvtA08M"
+  },
+  {
+   "at": "2026-11-22T06:58:57Z",
+   "card_id": "card-5089e257",
+   "event": "card",
+   "slot": "2026-11-23T01:00:00Z",
+   "version": 1
+  }
+ ],
+ "id": "oa-20261122-01",
+ "kind": "long",
+ "meta": {
+  "category_id": "28",
+  "contains_synthetic_media": true,
+  "made_for_kids": false
+ },
+ "preview": {
+  "at": "2026-11-22T06:58:13Z",
+  "privacy": "private",
+  "url": "https://youtu.be/dJ7pXdLzB0Q",
+  "version": 1,
+  "version_hash": "3fb67eb3e13c3f71f9278ff8279488e2dc6fadce76a3407a63b13ec54df4545c",
+  "video_id": "dJ7pXdLzB0Q"
+ },
+ "production_day": "2026-11-22",
+ "schedule": null,
+ "schema": "pipeline-release/1",
+ "stage": "card_shown",
+ "test": false,
+ "topic": {
+  "topics": [
+   {
+    "angle": "NASA FireSense prescribed-burn experiment at Fort Stewart, Georgia (April 2025): helicopter plastic-sphere ignition, 1,200-1,300 acres in ~45 min, 3 aircraft / 4 sensors, AVIRIS-3 hundreds of wavelengths, 3-5 min downlink vs 2-4 satellite looks a day.",
+    "evidence": {
+     "facts": "NASA SVS 14894 produced video transcript (FireSense staff, Fort Stewart wildland fire program) + SVS 14838 description",
+     "rights": "NASA SVS public domain; third-party Trident Sensing and U.S. Forest Service footage NOT used"
+    },
+    "found_by": "Claude research 2026-11-22 (SVS API); vidIQ 0 credits until 2026-11-29",
+    "id": "oa-firesense-fort-stewart",
+    "media": [
+     {
+      "credit": "NASA FireSense",
+      "kind": "video",
+      "licence": "NASA public domain (SVS)",
+      "url": "https://svs.gsfc.nasa.gov/14838"
+     },
+     {
+      "credit": "NASA FireSense",
+      "kind": "video",
+      "licence": "NASA public domain (SVS)",
+      "url": "https://svs.gsfc.nasa.gov/14838#fire"
+     },
+     {
+      "credit": "NASA FireSense",
+      "kind": "video",
+      "licence": "NASA public domain (SVS)",
+      "url": "https://svs.gsfc.nasa.gov/14838#heli"
+     },
+     {
+      "credit": "NASA FireSense",
+      "kind": "video",
+      "licence": "NASA public domain (SVS)",
+      "url": "https://svs.gsfc.nasa.gov/14838#aircraft"
+     },
+     {
+      "credit": "NASA FireSense",
+      "kind": "video",
+      "licence": "NASA public domain (SVS)",
+      "url": "https://svs.gsfc.nasa.gov/14838#aviris"
+     },
+     {
+      "credit": "NASA Goddard",
+      "kind": "video",
+      "licence": "NASA public domain (SVS, visuals only, audio removed)",
+      "url": "https://svs.gsfc.nasa.gov/14894"
+     }
+    ],
+    "nasa_involved": true,
+    "primary_sources": [
+     "https://svs.gsfc.nasa.gov/14894",
+     "https://svs.gsfc.nasa.gov/14838"
+    ],
+    "scores": {
+     "facts": 5,
+     "hook": 5,
+     "length_fit": 4,
+     "novelty": 4,
+     "proof": 5,
+     "rights": 5,
+     "thumbnail": 5,
+     "us_interest": 5
+    },
+    "title": "They Burned 1,200 Acres in 45 Minutes. On Purpose."
+   }
+  ]
+ },
+ "updated_at": "2026-11-22T06:59:11Z",
+ "versions": [
+  {
+   "captions_sha256": "cae5fa7edc01d0b78d0e3270ea26392dc7a6aa5235d9b21030a30398ddfe440f",
+   "created_at": "2026-11-22T06:56:10Z",
+   "description": "Why do firefighters set a forest on fire on purpose? At Fort Stewart, Georgia, a helicopter drops small ignition balls over the longleaf pines and more than 1,200 acres burn in about 45 minutes, a controlled prescribed burn. NASA's FireSense project turned this burn into an experiment: three aircraft, four sensors and the AVIRIS-3 imaging spectrometer tracked the fire while it was still burning.\n\nIn this episode:\n0:00 Ignition balls over Georgia\n0:19 Fort Stewart and prescribed fire\n0:58 NASA FireSense: the experiment\n1:20 The helicopter and the sphere dispenser\n1:50 Three planes, four sensors, AVIRIS-3\n2:26 Satellites vs aircraft\n2:42 Why these forests need fire\n\nSources:\n- NASA SVS, \"FireSense at Fort Stewart Prescribed Burn\" (produced video, Sept 2025): https://svs.gsfc.nasa.gov/14894\n- NASA SVS, FireSense at Fort Stewart b-roll (April 2025): https://svs.gsfc.nasa.gov/14838\n\nFootage: NASA via the Scientific Visualization Studio (SVS 14838, 14894). Public domain; NASA does not endorse this video. The satellite fleet shot is a NASA animation; the AVIRIS-3 fire image is NASA JPL data. The acres counter and the satellite-vs-aircraft timeline are Orbital Atlas graphics (timeline illustrative).\nNarration: synthetic voice (ElevenLabs).\n\n#PrescribedBurn #NASA #Wildfire #FortStewart #OrbitalAtlas",
+   "duration_s": 199.7,
+   "files": {
+    "captions": "/mnt/project-files/pipeline/oa-20261122-01/captions.srt",
+    "thumbnail": "/mnt/project-files/pipeline/oa-20261122-01/cover.jpg",
+    "video": "/mnt/project-files/pipeline/oa-20261122-01/oa-20261122-01-v1.mp4"
+   },
+   "n": 1,
+   "tags": [
+    "why do firefighters set controlled burns",
+    "prescribed burn",
+    "controlled burn",
+    "prescribed fire",
+    "Fort Stewart",
+    "NASA FireSense",
+    "AVIRIS-3",
+    "wildfire",
+    "aerial ignition",
+    "longleaf pine",
+    "NASA",
+    "Orbital Atlas"
+   ],
+   "thumbnail_sha256": "20b69316b8a05a4bb4a4ba00a647169e05b823e35d11908e2aa48b2e7bb57af6",
+   "title": "They Burned 1,200 Acres in 45 Minutes. On Purpose.",
+   "version_hash": "3fb67eb3e13c3f71f9278ff8279488e2dc6fadce76a3407a63b13ec54df4545c",
+   "video_sha256": "19d5c71c90726b70317c212ef3c9affe9349dd14ced8121f0da0cb0bb1c7ea7d"
+  }
+ ]
+}

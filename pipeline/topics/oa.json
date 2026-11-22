@@ -70,6 +70,72 @@
    "status": "used",
    "added_at": "2026-11-19T07:13:12Z",
    "status_reason": "release started 2026-11-19"
+  },
+  {
+   "id": "oa-firesense-fort-stewart",
+   "title": "They Burned 1,200 Acres in 45 Minutes. On Purpose.",
+   "angle": "NASA FireSense prescribed-burn experiment at Fort Stewart, Georgia (April 2025): helicopter plastic-sphere ignition, 1,200-1,300 acres in ~45 min, 3 aircraft / 4 sensors, AVIRIS-3 hundreds of wavelengths, 3-5 min downlink vs 2-4 satellite looks a day.",
+   "primary_sources": [
+    "https://svs.gsfc.nasa.gov/14894",
+    "https://svs.gsfc.nasa.gov/14838"
+   ],
+   "media": [
+    {
+     "url": "https://svs.gsfc.nasa.gov/14838",
+     "licence": "NASA public domain (SVS)",
+     "credit": "NASA FireSense",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/14838#fire",
+     "licence": "NASA public domain (SVS)",
+     "credit": "NASA FireSense",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/14838#heli",
+     "licence": "NASA public domain (SVS)",
+     "credit": "NASA FireSense",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/14838#aircraft",
+     "licence": "NASA public domain (SVS)",
+     "credit": "NASA FireSense",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/14838#aviris",
+     "licence": "NASA public domain (SVS)",
+     "credit": "NASA FireSense",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/14894",
+     "licence": "NASA public domain (SVS, visuals only, audio removed)",
+     "credit": "NASA Goddard",
+     "kind": "video"
+    }
+   ],
+   "nasa_involved": true,
+   "scores": {
+    "us_interest": 5,
+    "novelty": 4,
+    "hook": 5,
+    "thumbnail": 5,
+    "rights": 5,
+    "facts": 5,
+    "proof": 5,
+    "length_fit": 4
+   },
+   "evidence": {
+    "facts": "NASA SVS 14894 produced video transcript (FireSense staff, Fort Stewart wildland fire program) + SVS 14838 description",
+    "rights": "NASA SVS public domain; third-party Trident Sensing and U.S. Forest Service footage NOT used"
+   },
+   "found_by": "Claude research 2026-11-22 (SVS API); vidIQ 0 credits until 2026-11-29",
+   "status": "used",
+   "added_at": "2026-11-22T06:18:06Z",
+   "status_reason": "oa-20261122-01"
   }
  ],
  "gaps": [
