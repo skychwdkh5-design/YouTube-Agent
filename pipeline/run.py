@@ -44,11 +44,14 @@ def cmd_today(a, cfg):
     open_ = [{"id": r["id"], "channel": r["channel"], "stage": r["stage"], "resume": E.resume_point(r),
               "blocker": r.get("blocker"), "title": (E.current_version(r) or {}).get("title") or r.get("topic", {}).get("title")}
              for r in rels if r["stage"] not in E.TERMINAL]
-    ch = E.production_channel(day, cfg)
-    return {"local_date": day.isoformat(), "production_channel": ch, "channel_name": cfg["channels"][ch]["name"],
+    chans = E.production_channels(day, cfg)
+    ch = chans[0]
+    made_today = {r["channel"] for r in rels if r.get("production_day") == day.isoformat() and not r.get("test")}
+    return {"local_date": day.isoformat(), "production_channels": chans, "production_channel": ch,
+            "channel_name": cfg["channels"][ch]["name"],
             "open_releases": open_, "open_cards": [{"release": r["id"], "card_id": c["card_id"], "expires_at": c["expires_at"]}
                                                     for r, c in E.open_cards(rels, now)],
-            "start_new": not any(o["channel"] == ch for o in open_)}
+            "start_new": [c for c in chans if c not in made_today and not any(o["channel"] == c for o in open_)]}
 
 
 def cmd_new(a, cfg):

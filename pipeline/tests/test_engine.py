@@ -40,6 +40,14 @@ class Rotation(Base):
         self.assertEqual(E.production_channel(date(2026, 11, 19), self.cfg), "oa")
         self.assertEqual(E.production_channel(date(2026, 11, 20), self.cfg), "nx")
 
+    def test_both_channels_daily_from_owner_date(self):
+        cfg = dict(self.cfg, rotation=dict(self.cfg["rotation"], daily_all_from="2026-11-22"))
+        self.assertEqual(E.production_channels(date(2026, 11, 21), cfg), ["oa"])
+        self.assertEqual(E.production_channels(date(2026, 11, 22), cfg), ["oa", "nx"])
+        self.assertEqual(E.production_channels(date(2026, 12, 1), cfg), ["oa", "nx"])
+        no = dict(self.cfg, rotation={k: v for k, v in self.cfg["rotation"].items() if k != "daily_all_from"})
+        self.assertEqual(E.production_channels(date(2026, 11, 22), no), ["nx"])
+
     def test_no_duplicate_release_and_no_repeated_topic(self):
         E.new_release(self.state, "oa", self.cfg, day=date(2026, 11, 19), topic={"title": "Lake Mead from orbit"}, now=T0)
         with self.assertRaises(E.PipelineError):

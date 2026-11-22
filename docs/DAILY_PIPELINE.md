@@ -21,7 +21,9 @@ For pipeline releases this card rule replaces the "Одобряю ep0NN" phrase;
 
 ## Schedule
 
-`pipeline/config/channels.json`: production days alternate from 2026-11-03 (even day = Orbital Atlas, odd = NEXORA), long
+**From 2026-11-22 (owner): one long video EVERY day on EACH channel** - Orbital Atlas and NEXORA both produce daily, each with
+its own release, its own ОК card and its own 08:00 slot (`rotation.daily_all_from`; `run.py today` lists `production_channels`
+and `start_new`). Before that date: `pipeline/config/channels.json`: production days alternated from 2026-11-03 (even day = Orbital Atlas, odd = NEXORA), long
 videos at 08:00 Asia/Ho_Chi_Minh on both channels, OA Shorts slots 12:00 and 18:00. Capacity: one long per production day
 (raise `long_per_production_day` later). The slot is the nearest free 08:00 at least 3 h ahead, using the channel's real
 YouTube schedule (scheduled + published videos) plus the slots this pipeline already holds (open cards, approvals).

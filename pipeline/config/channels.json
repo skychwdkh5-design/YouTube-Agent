@@ -3,6 +3,8 @@
   "timezone": "Asia/Ho_Chi_Minh",
   "rotation": {
     "epoch": "2026-11-03",
+    "daily_all_from": "2026-11-22",
+    "_daily_all_note": "Owner 2026-11-22: one long video EVERY day on EACH channel (OA and NEXORA), each at 08:00 Asia/Ho_Chi_Minh with its own ОК card. Before this date the days alternated.",
     "order": [
       "oa",
       "nx"

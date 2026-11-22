@@ -92,7 +92,7 @@ Full specification and the pre-publish gate: `docs/THUMBNAIL_STYLE_GUIDE.md`. Be
 ## Daily release pipeline (owner decision 2026-11-19)
 
 Orbital Atlas and NEXORA (owner's decision 2026-11-19 overrides "keep NEXORA outside" for this pipeline) get one finished
-long video per production day through `pipeline/` (runbook: `docs/DAILY_PIPELINE.md`). For pipeline releases the owner's
+long video EACH, EVERY day from 2026-11-22 (owner: "каждый день на NEXORA и каждый день на Orbital Atlas"; before: one per production day, alternating) through `pipeline/` (runbook: `docs/DAILY_PIPELINE.md`). For pipeline releases the owner's
 **ОК on that release's approval card** (decision-card button or a text answer tied to the card) replaces the
 "Одобряю ep0NN" phrase; "На правку" + comment sends it back. The engine refuses expired, repeated, foreign or ambiguous
 answers, voids a card when the video, cover or title changes, and uploads only private previews before ОК; scheduling is

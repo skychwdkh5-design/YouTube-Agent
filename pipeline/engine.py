@@ -92,6 +92,15 @@ def production_channel(day, cfg):
     return order[(day - ep).days % len(order)]
 
 
+def production_channels(day, cfg):
+    """Channels that produce a long video on this local day. From rotation.daily_all_from (owner 2026-11-22: one video
+    per day on EACH channel) every channel produces every day; before it, the alternating rotation applies."""
+    since = cfg["rotation"].get("daily_all_from")
+    if since and day >= date.fromisoformat(since):
+        return list(cfg["rotation"]["order"])
+    return [production_channel(day, cfg)]
+
+
 def today_local(cfg, now=None):
     return local(now or utcnow(), cfg).date()
 
