@@ -52,9 +52,15 @@
       "shorts_per_long": 2,
       "voice": {
         "provider": "elevenlabs",
-        "name": "Adam",
-        "voice_id": "pNInz6obpgDQGcFmaJgB",
-        "model_id": "eleven_multilingual_v2"
+        "name": "Egor Norrator",
+        "voice_id": "mFLQuIhiLNlIfFBtmDin",
+        "model_id": "eleven_multilingual_v2",
+        "settings": {
+          "stability": 0.4,
+          "similarity_boost": 0.75,
+          "style": 0.0,
+          "speed": 1.0
+        }
       },
       "voice_budget": {
         "max_chars_per_release": 9000,
@@ -108,9 +114,15 @@
       "shorts_per_long": 0,
       "voice": {
         "provider": "elevenlabs",
-        "name": "Matilda",
-        "voice_id": "XrExE9yKIg1WjnnlVkGX",
-        "model_id": "eleven_multilingual_v2"
+        "name": "Egor Norrator",
+        "voice_id": "mFLQuIhiLNlIfFBtmDin",
+        "model_id": "eleven_multilingual_v2",
+        "settings": {
+          "stability": 0.4,
+          "similarity_boost": 0.75,
+          "style": 0.0,
+          "speed": 1.0
+        }
       },
       "voice_budget": {
         "max_chars_per_release": 9000,
