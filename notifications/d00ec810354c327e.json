@@ -1,7 +1,7 @@
 {
  "key_id": "d00ec810354c327e",
  "rid": "2e4bea7c838d",
- "status": "sent",
+ "status": "resolved",
  "created_at": 1795330772,
  "expires_at": 1795935572,
  "attempts": 1,
@@ -16,5 +16,7 @@
   "link": "https://youtu.be/dJ7pXdLzB0Q"
  },
  "sent_at": 1795330772,
- "message_id": 6
+ "message_id": 6,
+ "closed_at": 1795330913,
+ "resolved_by": "auto:resolve"
 }
