@@ -35,5 +35,6 @@
  "contains_synthetic_media": true,
  "marker_tag": "pipeline-oa-20261122-02-v2",
  "confirm": true,
- "name": "preview-oa-20261122-02-v2"
+ "name": "preview-oa-20261122-02-v2",
+ "retry": 1
 }
