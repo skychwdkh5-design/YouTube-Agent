@@ -1,5 +1,23 @@
 {
- "approval": null,
+ "approval": {
+  "actor": "principal:Егор",
+  "approval_id": "5831c8400ed340fd8b6043f743aa7aa0",
+  "approved_at": "2026-11-22T06:07:29Z",
+  "card_code": "F5C85B98",
+  "card_id": "card-f5c85b98",
+  "channel": "nx",
+  "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXd8uqB45NkMtThCFC8W1M3cW",
+  "publish_at": "2026-11-23T01:00:00Z",
+  "release": "nx-20261122-01",
+  "single_use": true,
+  "source": "decision card tap (option ОК) 2026-11-22T06:07:24Z",
+  "status": "valid",
+  "test": false,
+  "version": 1,
+  "version_hash": "fe4c7263691c519ae33953443469aa428bf4652141c44c703d94a37fd2385f43",
+  "video_id": "-j32j-dedFw",
+  "video_sha256": "b11f5dcb2c3e79ea3c09a0d739684ca7bb68091d2065e70ec50c09741d4e6b53"
+ },
  "artifacts": {
   "qc_passed": {
    "at": "2026-11-22T03:18:59Z",
@@ -29,12 +47,20 @@
   {
    "card_id": "card-f5c85b98",
    "code": "F5C85B98",
+   "decision": {
+    "actor": "principal:Егор",
+    "at": "2026-11-22T06:07:29Z",
+    "choice": "ok",
+    "comment": null,
+    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXd8uqB45NkMtThCFC8W1M3cW",
+    "source": "decision card tap (option ОК) 2026-11-22T06:07:24Z"
+   },
    "expires_at": "2026-11-23T00:30:00Z",
    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXd8uqB45NkMtThCFC8W1M3cW",
    "release": "nx-20261122-01",
    "shown_at": "2026-11-22T03:21:44Z",
    "slot": "2026-11-23T01:00:00Z",
-   "status": "open",
+   "status": "decided",
    "version": 1,
    "version_hash": "fe4c7263691c519ae33953443469aa428bf4652141c44c703d94a37fd2385f43",
    "video_id": "-j32j-dedFw"
@@ -102,6 +128,18 @@
    "event": "card",
    "slot": "2026-11-23T01:00:00Z",
    "version": 1
+  },
+  {
+   "approval_id": "5831c8400ed340fd8b6043f743aa7aa0",
+   "at": "2026-11-22T06:07:29Z",
+   "card_id": "card-f5c85b98",
+   "event": "approved"
+  },
+  {
+   "approval_id": "5831c8400ed340fd8b6043f743aa7aa0",
+   "at": "2026-11-22T06:07:37Z",
+   "event": "schedule_requested",
+   "target": "NEXORA youtube-ops"
   }
  ],
  "id": "nx-20261122-01",
@@ -122,7 +160,7 @@
  "production_day": "2026-11-22",
  "schedule": null,
  "schema": "pipeline-release/1",
- "stage": "card_shown",
+ "stage": "schedule_requested",
  "test": false,
  "topic": {
   "topics": [
@@ -191,7 +229,7 @@
    }
   ]
  },
- "updated_at": "2026-11-22T03:21:58Z",
+ "updated_at": "2026-11-22T06:07:37Z",
  "versions": [
   {
    "captions_sha256": "3d0484190457dcddf9dbc19cfb5e309d679a0ee015f187d100e275ed1b32a6cb",
