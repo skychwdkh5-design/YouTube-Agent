@@ -63,6 +63,15 @@
     "branch": "media/shorts-v1",
     "path": "EP004_Jakarta_Short_02_DISTRICT_BY_DISTRICT.mp4"
    }
+  },
+  {
+   "asset": "EP006_cut_preview_720p15.mp4",
+   "sha256": "8fba0dcdd43fa5fc5d01087684fd5895a913259e91940d72b479e8160d27dadb",
+   "size": 41569690,
+   "source": {
+    "manual_upload": true,
+    "note": "attached by the owner to the DRAFT release; it is not in any git branch (public repo) - do not run stage-media for it"
+   }
   }
  ]
 }
