@@ -48,7 +48,16 @@ YouTube schedule (scheduled + published videos) plus the slots this pipeline alr
    read `results/preview-<id>-v<n>.json` -> `run.py preview-result`. The video is now PRIVATE on the channel (owner-only link).
 6. `run.py slot --status <status result>` -> `run.py card --slot ...` -> post the card text + cover in the thread, then the
    decision card (options "ОК" / "На правку"). Record the message ids with `run.py card-message`.
+   **Telegram (silent mode, owner policy 2026-11-21):** right after the decision card, push to YouTube-Agent branch
+   `telegram-ops` the file `requests/ask-<id>-card.json`:
+   `{"kind": "APPROVAL_REQUIRED", "project": "OrbitalAtlas"|"NEXORA", "need": "Посмотреть ролик «<title>» (<youtu.be>) и ответить ОК или На правку на карточке в треде", "why_blocked": "Ролик встаёт в слот <slot ICT> только после твоего ОК на карточке", "on_approve": "Ролик будет запланирован на <slot ICT> (private + publishAt)", "on_reject": "Ролик вернётся на правку, слот не занимается", "dedup_key": "<Project>/card/<id>", "link": "<youtu.be>", "button_safe": false}`.
+   Read `results/ask-<id>-card.json` (sent / suppressed / duplicate) and go on; a Telegram problem never blocks the pipeline.
+   No other Telegram messages: progress, ready, slot confirmed, success, recoverable errors stay in the thread.
 7. Owner answer -> `run.py decide --choice ok|changes --actor "principal:Егор" --card <id> [--comment]`.
+   Then push `requests/resolve-<id>-card.json` = `{"op": "resolve", "dedup_key": "<Project>/card/<id>"}` to `telegram-ops`
+   (closes the Telegram request; no reminder). An auth block (step 1) additionally pushes an ask with
+   `"kind": "HUMAN_INTERVENTION_REQUIRED"`, `recovery_attempted` filled and `"dedup_key": "<Project>/youtube-oauth"`.
+   The Telegram message is never consent: consent is the ОК on the card.
    `approved` -> `run.py schedule-request --confirm --out <pipeline-ops>/requests/schedule-<id>.json`, push, read the result,
    `run.py schedule-result`, reply with the link and the real publishAt. `ambiguous` -> show the open cards to pick from.
    `expired` -> new slot + new card. `duplicate` -> say it is already done (no new action). `changes` -> fix, new version, new card.
