@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "verified_by": "automated format/hash checks only; editorial fact/license review still needed",
+  "assets": [
+    {
+      "id": "M01",
+      "name": "nasa_tuscaloosa_EO1_20110502.jpg",
+      "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/50000/50434/tuscaloosa_ali_2011112_lrg.jpg?w=4096",
+      "page": "https://science.nasa.gov/earth/earth-observatory/tornado-track-in-tuscaloosa-alabama-50434/",
+      "credit": "NASA Earth Observatory / Jesse Allen and Robert Simmon, NASA EO-1 team",
+      "kind": "image",
+      "min_height": 2300,
+      "status": "DOWNLOADED_NEEDS_EDITORIAL_REVIEW",
+      "sha256": "44b95e31d1392f74eb4c62fabe984871809e7e167ec02b30a61b059d3760f21a",
+      "bytes": 2156776,
+      "dimensions": [
+        4096,
+        5461
+      ],
+      "local_path": "productions/ep009-tornado-scars/media_original/nasa_tuscaloosa_EO1_20110502.jpg"
+    },
+    {
+      "id": "M02_before",
+      "name": "nasa_modis_before_20110412.jpg",
+      "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/50000/50370/Alabama_amo_2011102_lrg.jpg?w=4096",
+      "page": "https://science.nasa.gov/earth/earth-observatory/tornado-tracks-in-tuscaloosa-alabama-50370/",
+      "credit": "NASA Earth Observatory / Jeff Schmaltz, MODIS Rapid Response Team at NASA GSFC",
+      "kind": "image",
+      "status": "DOWNLOADED_NEEDS_EDITORIAL_REVIEW",
+      "sha256": "e35a76c58c169e06510cd007f0683597c22047f4161951746888ac8465fa68f4",
+      "bytes": 1854861,
+      "dimensions": [
+        4096,
+        3184
+      ],
+      "local_path": "productions/ep009-tornado-scars/media_original/nasa_modis_before_20110412.jpg"
+    },
+    {
+      "id": "M02_after",
+      "name": "nasa_modis_after_20110428.jpg",
+      "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/50000/50370/Alabama_amo_2011118_lrg.jpg?w=4096",
+      "page": "https://science.nasa.gov/earth/earth-observatory/tornado-tracks-in-tuscaloosa-alabama-50370/",
+      "credit": "NASA Earth Observatory / Jeff Schmaltz, MODIS Rapid Response Team at NASA GSFC",
+      "kind": "image",
+      "status": "DOWNLOADED_NEEDS_EDITORIAL_REVIEW",
+      "sha256": "2efbffadea80930019be7a16035893791c57ee9f22b828adb5a186310e2e18a3",
+      "bytes": 2104466,
+      "dimensions": [
+        4096,
+        3184
+      ],
+      "local_path": "productions/ep009-tornado-scars/media_original/nasa_modis_after_20110428.jpg"
+    },
+    {
+      "id": "M03",
+      "name": "noaa_goes13_outbreak_2011.mp4",
+      "url": "https://www.nesdis.noaa.gov/s3/migrated/unitedstates_goe_2011118_hd.mp4",
+      "page": "https://www.nesdis.noaa.gov/content/revisiting-april-2011-tornado-super-outbreak-orbit",
+      "credit": "NOAA NESDIS GOES-13 (verify video-specific third-party attribution)",
+      "kind": "video",
+      "status": "DOWNLOADED_NEEDS_EDITORIAL_REVIEW",
+      "sha256": "43e08d36a88e0996c4cc48307ce0356e4622ce2c66e3cf5309954da15da66351",
+      "bytes": 25002515,
+      "local_path": "productions/ep009-tornado-scars/media_original/noaa_goes13_outbreak_2011.mp4"
+    }
+  ]
+}

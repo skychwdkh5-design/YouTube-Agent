@@ -1,0 +1,47 @@
+{
+ "duration": 25.43,
+ "cues": [
+  {
+   "i": 0,
+   "section": "S",
+   "text": "This pale line through Alabama isn't a road.",
+   "start": 0.4,
+   "end": 3.047
+  },
+  {
+   "i": 1,
+   "section": "S",
+   "text": "It wasn't there before April twenty-seventh, twenty-eleven.",
+   "start": 3.347,
+   "end": 7.356
+  },
+  {
+   "i": 2,
+   "section": "S",
+   "text": "It's a tornado damage scar.",
+   "start": 7.656,
+   "end": 9.93
+  },
+  {
+   "i": 3,
+   "section": "S",
+   "text": "NASA photographed it from orbit five days later.",
+   "start": 10.23,
+   "end": 13.451
+  },
+  {
+   "i": 4,
+   "section": "S",
+   "text": "The storm left a trail through Tuscaloosa, and other satellites caught more scars across the region.",
+   "start": 13.751,
+   "end": 19.832
+  },
+  {
+   "i": 5,
+   "section": "S",
+   "text": "This is what a tornado can leave behind, visible from space.",
+   "start": 20.132,
+   "end": 24.233
+  }
+ ]
+}

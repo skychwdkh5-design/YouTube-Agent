@@ -1,0 +1,236 @@
+{
+  "format": "EP009 pilot 56s tentative, NOT final voice-aligned",
+  "style": {
+    "guide": "docs/ORBITAL_ATLAS_VISUAL_STYLE.md",
+    "references": [
+      "docs/assets/visual-style/painted-props.webp",
+      "docs/assets/visual-style/painted-reference.webp"
+    ],
+    "dimensional_style": "owner-approved painted 2.5D, no glossy 3D or generic flat icons"
+  },
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "voice": {
+    "status": "NOT_GENERATED",
+    "timing": "timecodes provisional; retime all after approved voice",
+    "artist": "Adam only with owner approval"
+  },
+  "asset_readiness": "BLOCKED: M01-M03 original files not checked locally, P01-P05 not generated",
+  "layer_template": {
+    "required_fields": [
+      "asset_path",
+      "layer_id",
+      "source_sha256",
+      "in_s",
+      "out_s",
+      "start_transform",
+      "end_transform",
+      "easing",
+      "mask",
+      "reaction",
+      "z_index",
+      "focus_priority",
+      "word_anchor"
+    ]
+  },
+  "beats": [
+    {
+      "beat_id": "B01",
+      "in_s": 0,
+      "out_s": 3,
+      "source_ids": [
+        "M01"
+      ],
+      "actor": "verified NASA scar image",
+      "action": "hard reveal with source-grounded cursor",
+      "camera": "fixed then 3% push",
+      "transition": "cut",
+      "focus_priority": 1,
+      "layer_ids": [
+        "DOCUMENTARY_0",
+        "PAINTED_0"
+      ],
+      "assets_confirmed": false,
+      "transforms": null,
+      "word_anchors": null,
+      "blocking_note": "Exact thumbnail image, no fake terrain"
+    },
+    {
+      "beat_id": "B02",
+      "in_s": 3,
+      "out_s": 7,
+      "source_ids": [
+        "M01"
+      ],
+      "actor": "painted path-marker P05",
+      "action": "trace along existing corridor; never extend beyond image evidence",
+      "camera": "pan along source",
+      "transition": "match",
+      "focus_priority": 1,
+      "layer_ids": [
+        "DOCUMENTARY_1",
+        "PAINTED_1"
+      ],
+      "assets_confirmed": false,
+      "transforms": null,
+      "word_anchors": null,
+      "blocking_note": "P05 missing, cannot render"
+    },
+    {
+      "beat_id": "B03",
+      "in_s": 7,
+      "out_s": 12,
+      "source_ids": [
+        "M02"
+      ],
+      "actor": "authentic NASA before/after",
+      "action": "wipe NASA Apr 12 to Apr 28 imagery",
+      "camera": "locked registration",
+      "transition": "wipe",
+      "focus_priority": 1,
+      "layer_ids": [
+        "DOCUMENTARY_2",
+        "PAINTED_2"
+      ],
+      "assets_confirmed": false,
+      "transforms": null,
+      "word_anchors": null,
+      "blocking_note": "Registration and native pixels must be validated"
+    },
+    {
+      "beat_id": "B04",
+      "in_s": 12,
+      "out_s": 18,
+      "source_ids": [
+        "M01"
+      ],
+      "actor": "P03 painted canopy uprooting segment",
+      "action": "tree canopy breaks/reveals pale source corridor in separate illustration pane",
+      "camera": "two-panel push",
+      "transition": "cut",
+      "focus_priority": 1,
+      "layer_ids": [
+        "DOCUMENTARY_3",
+        "PAINTED_3"
+      ],
+      "assets_confirmed": false,
+      "transforms": null,
+      "word_anchors": null,
+      "blocking_note": "ILLUSTRATION; P03 missing"
+    },
+    {
+      "beat_id": "B05",
+      "in_s": 18,
+      "out_s": 24,
+      "source_ids": [
+        "M01"
+      ],
+      "actor": "P01 symbolic painted observation satellite",
+      "action": "satellite passes over stylized locator then reveal actual M01 capture",
+      "camera": "tilt to verified image",
+      "transition": "match",
+      "focus_priority": 1,
+      "layer_ids": [
+        "DOCUMENTARY_4",
+        "PAINTED_4"
+      ],
+      "assets_confirmed": false,
+      "transforms": null,
+      "word_anchors": null,
+      "blocking_note": "P01 missing; date and mission support on NASA source"
+    },
+    {
+      "beat_id": "B06",
+      "in_s": 24,
+      "out_s": 30,
+      "source_ids": [
+        "M02"
+      ],
+      "actor": "P05 measurement markers",
+      "action": "highlight multiple authentic source paths",
+      "camera": "zoom out",
+      "transition": "cut",
+      "focus_priority": 1,
+      "layer_ids": [
+        "DOCUMENTARY_5",
+        "PAINTED_5"
+      ],
+      "assets_confirmed": false,
+      "transforms": null,
+      "word_anchors": null,
+      "blocking_note": "No invented paths"
+    },
+    {
+      "beat_id": "B07",
+      "in_s": 30,
+      "out_s": 38,
+      "source_ids": [
+        "M03"
+      ],
+      "actor": "P02 painted cloud layers",
+      "action": "actual NOAA cloud animation with separate 2.5D cloud illustrations only in explanatory inset",
+      "camera": "map-wide hold",
+      "transition": "cut",
+      "focus_priority": 1,
+      "layer_ids": [
+        "DOCUMENTARY_6",
+        "PAINTED_6"
+      ],
+      "assets_confirmed": false,
+      "transforms": null,
+      "word_anchors": null,
+      "blocking_note": "P02/M03 not yet locally verified; no visible funnels claimed"
+    },
+    {
+      "beat_id": "B08",
+      "in_s": 38,
+      "out_s": 47,
+      "source_ids": [
+        "M03",
+        "M02"
+      ],
+      "actor": "P01 satellite, P05 directional marker",
+      "action": "GOES clouds-to-MODIS comparison; satellite makes purposeful move, markers turn on sequentially",
+      "camera": "map-centered",
+      "transition": "cut",
+      "focus_priority": 1,
+      "layer_ids": [
+        "DOCUMENTARY_7",
+        "PAINTED_7"
+      ],
+      "assets_confirmed": false,
+      "transforms": null,
+      "word_anchors": null,
+      "blocking_note": "No fabricated exact path"
+    },
+    {
+      "beat_id": "B09",
+      "in_s": 47,
+      "out_s": 56,
+      "source_ids": [
+        "M01"
+      ],
+      "actor": "P04 painted landscape cross-section",
+      "action": "P04 folds away to return to full real scar; scale annotation enters",
+      "camera": "pull-back",
+      "transition": "reveal",
+      "focus_priority": 1,
+      "layer_ids": [
+        "DOCUMENTARY_8",
+        "PAINTED_8"
+      ],
+      "assets_confirmed": false,
+      "transforms": null,
+      "word_anchors": null,
+      "blocking_note": "P04 missing, label ILLUSTRATION / NOT TO SCALE"
+    }
+  ],
+  "rewind": {
+    "required_only_if_story_relevant": true,
+    "not_approved_for_pilot": false,
+    "method": "restore prior scene state, no simple triangle overlays"
+  }
+}

@@ -1,0 +1,502 @@
+{
+ "duration": 378.59,
+ "cues": [
+  {
+   "i": 0,
+   "section": "HOOK",
+   "text": "This isn't a road.",
+   "start": 0.4,
+   "end": 1.639
+  },
+  {
+   "i": 1,
+   "section": "HOOK",
+   "text": "It isn't a river.",
+   "start": 2.189,
+   "end": 3.498
+  },
+  {
+   "i": 2,
+   "section": "HOOK",
+   "text": "And it wasn't there before the storm.",
+   "start": 4.048,
+   "end": 6.367
+  },
+  {
+   "i": 3,
+   "section": "HOOK",
+   "text": "That pale line crossing Alabama was carved into the landscape by a tornado.",
+   "start": 7.317,
+   "end": 12.22
+  },
+  {
+   "i": 4,
+   "section": "HOOK",
+   "text": "Five days after the disaster, a NASA satellite photographed the scar from space.",
+   "start": 13.17,
+   "end": 18.783
+  },
+  {
+   "i": 5,
+   "section": "HOOK",
+   "text": "But this wasn't the only line.",
+   "start": 19.733,
+   "end": 21.723
+  },
+  {
+   "i": 6,
+   "section": "HOOK",
+   "text": "In April 2011, the American South was crossed by many of them.",
+   "start": 22.273,
+   "end": 27.004
+  },
+  {
+   "i": 7,
+   "section": "PROMISE",
+   "text": "Today, we'll follow the satellite evidence, from clouds before the outbreak to the damage visible afterward.",
+   "start": 28.704,
+   "end": 35.667
+  },
+  {
+   "i": 8,
+   "section": "PROMISE",
+   "text": "And we'll see how images taken hundreds of miles above Earth reveal something a ground-level camera can barely show: the scale of destruction.",
+   "start": 36.217,
+   "end": 44.961
+  },
+  {
+   "i": 9,
+   "section": "CONTEXT",
+   "text": "From April twenty-fifth through twenty-eighth, twenty-eleven, the southeastern United States experienced a catastrophic tornado outbreak.",
+   "start": 46.661,
+   "end": 55.004
+  },
+  {
+   "i": 10,
+   "section": "CONTEXT",
+   "text": "NOAA's retrospective count lists three hundred and sixty-two confirmed tornadoes over those four days.",
+   "start": 55.954,
+   "end": 62.292
+  },
+  {
+   "i": 11,
+   "section": "CONTEXT",
+   "text": "An estimated three hundred and twenty-one people were killed.",
+   "start": 62.842,
+   "end": 66.51
+  },
+  {
+   "i": 12,
+   "section": "CONTEXT",
+   "text": "Those numbers describe a human disaster, not a spectacle.",
+   "start": 67.46,
+   "end": 71.959
+  },
+  {
+   "i": 13,
+   "section": "CONTEXT",
+   "text": "Behind every line on a satellite image were neighborhoods, roads, homes, and families.",
+   "start": 72.509,
+   "end": 78.174
+  },
+  {
+   "i": 14,
+   "section": "STORMS FROM ORBIT",
+   "text": "Before the scars came the storms.",
+   "start": 79.874,
+   "end": 82.093
+  },
+  {
+   "i": 15,
+   "section": "STORMS FROM ORBIT",
+   "text": "NOAA's GOES satellite watched massive thunderstorm complexes move across the southeastern states.",
+   "start": 83.043,
+   "end": 89.186
+  },
+  {
+   "i": 16,
+   "section": "STORMS FROM ORBIT",
+   "text": "From this distance, individual tornado funnels are generally far too small to identify.",
+   "start": 90.136,
+   "end": 96.016
+  },
+  {
+   "i": 17,
+   "section": "STORMS FROM ORBIT",
+   "text": "Instead, the satellite records the enormous cloud systems that can produce them.",
+   "start": 96.566,
+   "end": 101.902
+  },
+  {
+   "i": 18,
+   "section": "STORMS FROM ORBIT",
+   "text": "Look at the moving cloud towers.",
+   "start": 102.852,
+   "end": 105.166
+  },
+  {
+   "i": 19,
+   "section": "STORMS FROM ORBIT",
+   "text": "The storm field grows, shifts, and keeps generating new intense cells.",
+   "start": 105.716,
+   "end": 110.686
+  },
+  {
+   "i": 20,
+   "section": "STORMS FROM ORBIT",
+   "text": "The dangerous conditions lasted for hours, across a wide area.",
+   "start": 111.636,
+   "end": 116.123
+  },
+  {
+   "i": 21,
+   "section": "STORMS FROM ORBIT",
+   "text": "A single dramatic tornado video could never reveal that bigger picture.",
+   "start": 116.673,
+   "end": 121.315
+  },
+  {
+   "i": 22,
+   "section": "BEFORE VS AFTER",
+   "text": "Now move down to Alabama.",
+   "start": 123.015,
+   "end": 125.119
+  },
+  {
+   "i": 23,
+   "section": "BEFORE VS AFTER",
+   "text": "Here is the region before the outbreak, photographed by NASA's Aqua satellite on April twelfth.",
+   "start": 126.069,
+   "end": 132.394
+  },
+  {
+   "i": 24,
+   "section": "BEFORE VS AFTER",
+   "text": "Green vegetation.",
+   "start": 133.344,
+   "end": 135.13
+  },
+  {
+   "i": 25,
+   "section": "BEFORE VS AFTER",
+   "text": "Urban areas.",
+   "start": 135.68,
+   "end": 136.895
+  },
+  {
+   "i": 26,
+   "section": "BEFORE VS AFTER",
+   "text": "A familiar-looking landscape.",
+   "start": 137.445,
+   "end": 139.868
+  },
+  {
+   "i": 27,
+   "section": "BEFORE VS AFTER",
+   "text": "Now compare it with April twenty-eighth, the day after the April twenty-seventh tornadoes.",
+   "start": 140.818,
+   "end": 146.384
+  },
+  {
+   "i": 28,
+   "section": "BEFORE VS AFTER",
+   "text": "Thin brown trails slash across the greenery.",
+   "start": 147.334,
+   "end": 150.346
+  },
+  {
+   "i": 29,
+   "section": "BEFORE VS AFTER",
+   "text": "These are not clouds.",
+   "start": 151.296,
+   "end": 152.901
+  },
+  {
+   "i": 30,
+   "section": "BEFORE VS AFTER",
+   "text": "They're patches of exposed and disturbed ground, where trees and plants had been uprooted.",
+   "start": 153.451,
+   "end": 159.06
+  },
+  {
+   "i": 31,
+   "section": "BEFORE VS AFTER",
+   "text": "The difference between the two images matters: the tracks were not present before the storm.",
+   "start": 160.01,
+   "end": 165.55
+  },
+  {
+   "i": 32,
+   "section": "ONE TRACK THROUGH TUSCALOOSA",
+   "text": "One of the clearest examples runs across Tuscaloosa.",
+   "start": 167.25,
+   "end": 171.029
+  },
+  {
+   "i": 33,
+   "section": "ONE TRACK THROUGH TUSCALOOSA",
+   "text": "On May second, NASA's Earth Observing One satellite captured this natural-color view.",
+   "start": 171.979,
+   "end": 177.97
+  },
+  {
+   "i": 34,
+   "section": "ONE TRACK THROUGH TUSCALOOSA",
+   "text": "The tan corridor stretches southwest to northeast, cutting through the city.",
+   "start": 178.92,
+   "end": 183.887
+  },
+  {
+   "i": 35,
+   "section": "ONE TRACK THROUGH TUSCALOOSA",
+   "text": "The National Weather Service described a damage path of roughly eighty miles, reaching as much as one and a half miles wide.",
+   "start": 184.837,
+   "end": 192.446
+  },
+  {
+   "i": 36,
+   "section": "ONE TRACK THROUGH TUSCALOOSA",
+   "text": "Not every part of that full path fits inside this one photograph.",
+   "start": 193.396,
+   "end": 197.522
+  },
+  {
+   "i": 37,
+   "section": "ONE TRACK THROUGH TUSCALOOSA",
+   "text": "This frame shows a section near Tuscaloosa.",
+   "start": 198.072,
+   "end": 200.978
+  },
+  {
+   "i": 38,
+   "section": "ONE TRACK THROUGH TUSCALOOSA",
+   "text": "Zoom in on the pale corridor.",
+   "start": 201.928,
+   "end": 204.011
+  },
+  {
+   "i": 39,
+   "section": "ONE TRACK THROUGH TUSCALOOSA",
+   "text": "It runs south of Bryant-Denny Stadium.",
+   "start": 204.961,
+   "end": 207.684
+  },
+  {
+   "i": 40,
+   "section": "ONE TRACK THROUGH TUSCALOOSA",
+   "text": "The location matters: this is not an anonymous streak in empty wilderness.",
+   "start": 210.499,
+   "end": 215.361
+  },
+  {
+   "i": 41,
+   "section": "ONE TRACK THROUGH TUSCALOOSA",
+   "text": "It's a line through a living city.",
+   "start": 215.911,
+   "end": 218.108
+  },
+  {
+   "i": 42,
+   "section": "ONE TRACK THROUGH TUSCALOOSA",
+   "text": "And there's a trick hiding in the same photograph.",
+   "start": 219.058,
+   "end": 221.997
+  },
+  {
+   "i": 43,
+   "section": "ONE TRACK THROUGH TUSCALOOSA",
+   "text": "Running roughly parallel to the scar is a thin airplane contrail.",
+   "start": 222.547,
+   "end": 226.905
+  },
+  {
+   "i": 44,
+   "section": "ONE TRACK THROUGH TUSCALOOSA",
+   "text": "One feature is in the atmosphere.",
+   "start": 227.455,
+   "end": 229.803
+  },
+  {
+   "i": 45,
+   "section": "ONE TRACK THROUGH TUSCALOOSA",
+   "text": "The other is on the ground.",
+   "start": 230.353,
+   "end": 232.142
+  },
+  {
+   "i": 46,
+   "section": "ONE TRACK THROUGH TUSCALOOSA",
+   "text": "The satellite record helps us separate the two.",
+   "start": 233.092,
+   "end": 236.265
+  },
+  {
+   "i": 47,
+   "section": "DIFFERENT SENSORS",
+   "text": "Other instruments tell the same story in different visual languages.",
+   "start": 237.965,
+   "end": 242.388
+  },
+  {
+   "i": 48,
+   "section": "DIFFERENT SENSORS",
+   "text": "NASA's Terra satellite used ASTER to image another section of the damage, closer to Birmingham, on May fourth.",
+   "start": 243.338,
+   "end": 250.747
+  },
+  {
+   "i": 49,
+   "section": "DIFFERENT SENSORS",
+   "text": "In its false-color view, healthy vegetation appears red, and the tornado track cuts through as a pale beige stripe.",
+   "start": 251.697,
+   "end": 258.664
+  },
+  {
+   "i": 50,
+   "section": "DIFFERENT SENSORS",
+   "text": "Change the sensor, change the colors, but the evidence remains.",
+   "start": 259.614,
+   "end": 263.936
+  },
+  {
+   "i": 51,
+   "section": "DIFFERENT SENSORS",
+   "text": "Years later, USGS land-change products built from Landsat observations marked long streaks of altered land cover around Tuscaloosa and Birmingham.",
+   "start": 264.886,
+   "end": 275.05
+  },
+  {
+   "i": 52,
+   "section": "DIFFERENT SENSORS",
+   "text": "These maps aren't photographs of a tornado.",
+   "start": 276.0,
+   "end": 279.149
+  },
+  {
+   "i": 53,
+   "section": "DIFFERENT SENSORS",
+   "text": "They're measurements of what changed on Earth's surface.",
+   "start": 279.699,
+   "end": 282.97
+  },
+  {
+   "i": 54,
+   "section": "WHAT WE CAN AND CANNOT SEE",
+   "text": "This is what makes the satellite perspective so revealing.",
+   "start": 284.67,
+   "end": 288.368
+  },
+  {
+   "i": 55,
+   "section": "WHAT WE CAN AND CANNOT SEE",
+   "text": "On the ground, destruction can appear as isolated scenes: a shattered building, a fallen tree, a damaged block.",
+   "start": 289.318,
+   "end": 296.809
+  },
+  {
+   "i": 56,
+   "section": "WHAT WE CAN AND CANNOT SEE",
+   "text": "From above, those scenes connect into long corridors.",
+   "start": 297.759,
+   "end": 301.358
+  },
+  {
+   "i": 57,
+   "section": "WHAT WE CAN AND CANNOT SEE",
+   "text": "Yet satellite imagery has limits.",
+   "start": 302.308,
+   "end": 304.673
+  },
+  {
+   "i": 58,
+   "section": "WHAT WE CAN AND CANNOT SEE",
+   "text": "A visible scar does not tell us every wind speed, every injury, or exactly what happened at each address.",
+   "start": 305.223,
+   "end": 312.09
+  },
+  {
+   "i": 59,
+   "section": "WHAT WE CAN AND CANNOT SEE",
+   "text": "For that, meteorologists combine imagery with storm surveys, radar, and reports from people on the ground.",
+   "start": 313.04,
+   "end": 320.411
+  },
+  {
+   "i": 60,
+   "section": "WHAT WE CAN AND CANNOT SEE",
+   "text": "A satellite is one witness, not the entire investigation.",
+   "start": 321.361,
+   "end": 325.579
+  },
+  {
+   "i": 61,
+   "section": "RETURN TO HOOK",
+   "text": "Look again at the image from Tuscaloosa.",
+   "start": 327.279,
+   "end": 329.962
+  },
+  {
+   "i": 62,
+   "section": "RETURN TO HOOK",
+   "text": "That pale line is not an abstract pattern, and it did not form naturally over centuries.",
+   "start": 330.912,
+   "end": 336.794
+  },
+  {
+   "i": 63,
+   "section": "RETURN TO HOOK",
+   "text": "It is the aftermath of a few terrifying minutes, captured days later from orbit.",
+   "start": 337.344,
+   "end": 342.111
+  },
+  {
+   "i": 64,
+   "section": "RETURN TO HOOK",
+   "text": "The most powerful part of these images may be what they leave out.",
+   "start": 343.061,
+   "end": 346.984
+  },
+  {
+   "i": 65,
+   "section": "RETURN TO HOOK",
+   "text": "They cannot show us the lives disrupted along the path.",
+   "start": 347.934,
+   "end": 351.475
+  },
+  {
+   "i": 66,
+   "section": "RETURN TO HOOK",
+   "text": "But they can show us how far that path went.",
+   "start": 352.425,
+   "end": 355.166
+  },
+  {
+   "i": 67,
+   "section": "CLOSE",
+   "text": "From clouds spanning states to scars crossing cities, the April twenty-eleven outbreak left evidence at a scale no single camera on the ground could capture.",
+   "start": 356.866,
+   "end": 366.668
+  },
+  {
+   "i": 68,
+   "section": "CLOSE",
+   "text": "And in the satellite record, those scars remain visible.",
+   "start": 367.618,
+   "end": 371.733
+  },
+  {
+   "i": 69,
+   "section": "CLOSE",
+   "text": "Orbital Atlas.",
+   "start": 372.683,
+   "end": 374.068
+  },
+  {
+   "i": 70,
+   "section": "CLOSE",
+   "text": "The story is written on the planet itself.",
+   "start": 374.618,
+   "end": 377.395
+  }
+ ]
+}

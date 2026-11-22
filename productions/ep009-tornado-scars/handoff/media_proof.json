@@ -1,0 +1,74 @@
+{
+  "episode": "EP009",
+  "as_of": "2026-11-03",
+  "artifact": {
+    "github_actions_run_id": 41602193505,
+    "artifact_id": 13215290984,
+    "name": "ep009-original-media",
+    "size_bytes": 30250397,
+    "expires_at": "2026-11-17T08:17:49Z",
+    "note": "Expires after 14 days. Can regenerate deterministically with tools/fetch_original_media.py; do not assume binary files committed to git."
+  },
+  "media": [
+    {
+      "id": "M01",
+      "filename": "nasa_tuscaloosa_EO1_20110502.jpg",
+      "dimensions": [
+        4096,
+        5461
+      ],
+      "sha256": "44b95e31d1392f74eb4c62fabe984871809e7e167ec02b30a61b059d3760f21a",
+      "source": "https://science.nasa.gov/earth/earth-observatory/tornado-track-in-tuscaloosa-alabama-50434/",
+      "rights_note": "NASA Earth Observatory / Jesse Allen, Robert Simmon, NASA EO-1 team",
+      "status": "DOWNLOADED_FORMAT_CHECK_PASSED",
+      "usage": "Real May 2 EO-1 tornado path; preserve black wedge margins as native footprint, do not fabricate missing land"
+    },
+    {
+      "id": "M02_before",
+      "filename": "nasa_modis_before_20110412.jpg",
+      "dimensions": [
+        4096,
+        3184
+      ],
+      "sha256": "e35a76c58c169e06510cd007f0683597c22047f4161951746888ac8465fa68f4",
+      "source": "https://science.nasa.gov/earth/earth-observatory/tornado-tracks-in-tuscaloosa-alabama-50370/",
+      "rights_note": "NASA Earth Observatory / Jeff Schmaltz, MODIS Rapid Response Team",
+      "status": "DOWNLOADED_FORMAT_CHECK_PASSED"
+    },
+    {
+      "id": "M02_after",
+      "filename": "nasa_modis_after_20110428.jpg",
+      "dimensions": [
+        4096,
+        3184
+      ],
+      "sha256": "2efbffadea80930019be7a16035893791c57ee9f22b828adb5a186310e2e18a3",
+      "source": "https://science.nasa.gov/earth/earth-observatory/tornado-tracks-in-tuscaloosa-alabama-50370/",
+      "rights_note": "NASA Earth Observatory / Jeff Schmaltz, MODIS Rapid Response Team",
+      "status": "DOWNLOADED_FORMAT_CHECK_PASSED"
+    },
+    {
+      "id": "M03",
+      "filename": "noaa_goes13_outbreak_2011.mp4",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "fps": "30000/1001",
+      "duration_seconds": 19.686333,
+      "sha256": "43e08d36a88e0996c4cc48307ce0356e4622ce2c66e3cf5309954da15da66351",
+      "source": "https://www.nesdis.noaa.gov/news/revisiting-the-april-2011-tornado-super-outbreak-orbit",
+      "rights_note": "NOAA NESDIS, verify embedded credits",
+      "status": "DOWNLOADED_FFPROBE_PASSED"
+    }
+  ],
+  "editorial_gates": [
+    "satellite image overlays require crop/focus review",
+    "before/after alignment not automatically proven",
+    "image dates verified on NASA source pages",
+    "asset-specific reproduction rights still need credit review",
+    "pilot soundtrack/voice not approved",
+    "illustrated ZIP stored at repository root and hashes specified separately"
+  ],
+  "ready_to_render": false
+}

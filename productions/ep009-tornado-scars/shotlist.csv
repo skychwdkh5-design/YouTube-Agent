@@ -1,0 +1,20 @@
+start_s,end_s,scene,source,graphics,editorial_guard
+0,2,Open on track,M01,Same thumbnail visual; 3D subtle corridor highlight,REAL NASA IMAGE
+2,4,It's not a road,M01,Not a road animated small label,REAL NASA IMAGE
+4,7,Path through Alabama,M01,Horizontal tracked motion on scar,No synthetic damage
+7,10,Date appears,original diagram,3D April 27 title illustration,ILLUSTRATION
+10,14,Before after,M02,April 12 / April 28 wipe,Exact dates
+14,18,Multiple scars,M02,3D highlights on real tracks,NO FAKE SCARS
+18,23,South-East geographic,M05,Map relief original illustration,ILLUSTRATION
+23,28,Human cost,C01,Respectful static typographic break,No graphic casualties
+28,50,What satellites record,M01 M02,3D instrument cutaways,ILLUSTRATION
+50,85,Outbreak context,C01,Apr 25-28 timeline and counters,NOAA final counts
+85,135,Storm system,M03,GOES original animation with camera crops,DO NOT CLAIM VISIBLE FUNNEL
+135,184,Modis landscape,M02,Source faithful before-after,No mislabeled RGB
+184,215,Tuscaloosa,M01,Push across track,Maintain source resolution
+215,255,Dimensions and landmarks,M01,Geometric dimensions and contrail comparison,Validate alignment
+255,285,ASTER,M04,False-color track explanation,Label false color
+285,304,USGS LCMAP,M06,Purple landscape-change streaks,Landscape-change not live video
+304,346,What satellite cannot see,M01 M05,Photo plus minimal 3D explainers,Do not infer household damage
+346,376,Emotional recap,M01,Return full width scar,No sensational reenactment
+376,402,Conclusion,M01 M02 M03,Clear attribution montage,Stretch/shrink to approved voice duration

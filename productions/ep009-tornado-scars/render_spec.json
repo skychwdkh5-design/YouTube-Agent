@@ -1,0 +1,34 @@
+{
+  "resolution": "1920x1080",
+  "fps": 30,
+  "codec": "H264",
+  "audio": "AAC 48kHz",
+  "voice": "Adam (ElevenLabs) AFTER OWNER APPROVAL",
+  "length_target_seconds": [
+    375,
+    420
+  ],
+  "shorts": {
+    "count": 2,
+    "resolution": "1080x1920",
+    "duration_seconds": [
+      30,
+      40
+    ]
+  },
+  "captions": "English SRT synced to final approved voice",
+  "status": "DO NOT RENDER FINAL OR PUBLISH",
+  "thumbnail_hook_qc": true,
+  "permissions": "NO PAID TTS WITHOUT APPROVAL",
+  "final_checks": [
+    "all claims mapped sources.json",
+    "media actual downloaded verified",
+    "media rights asset-level clear",
+    "voice QA",
+    "no upscaling beyond native pixels",
+    "SRT sync",
+    "thumbnail hook identical visual 0:00",
+    "music provenance",
+    "owner approves publish"
+  ]
+}

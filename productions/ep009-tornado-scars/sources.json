@@ -1,0 +1,63 @@
+{
+  "prepared_at": "2026-11-03",
+  "claims": [
+    {
+      "id": "C01",
+      "claim": "April 25-28 2011 outbreak: 362 confirmed tornadoes and estimated 321 deaths",
+      "url": "https://www.ncei.noaa.gov/news/2011-tornado-super-outbreak",
+      "note": "Use NCEI retrospective, not preliminary 2011 totals"
+    },
+    {
+      "id": "C02",
+      "claim": "April 27 Tuscaloosa tornado left visible track; EO-1 ALI acquired May 2; track south of Bryant-Denny Stadium",
+      "url": "https://science.nasa.gov/earth/earth-observatory/tornado-track-in-tuscaloosa-alabama-50434/"
+    },
+    {
+      "id": "C03",
+      "claim": "NASA Aqua MODIS before April 12, after April 28 comparison shows scars across Tuscaloosa",
+      "url": "https://science.nasa.gov/earth/earth-observatory/tornado-tracks-in-tuscaloosa-alabama-50370/"
+    },
+    {
+      "id": "C04",
+      "claim": "Tornado damage path about 80.3 miles long up to 1.5 miles wide (contemporaneous survey)",
+      "url": "https://science.nasa.gov/earth/earth-observatory/tornado-track-in-tuscaloosa-alabama-50434/",
+      "note": "Approximate, source dated 2011; retain attributions"
+    },
+    {
+      "id": "C05",
+      "claim": "ASTER false color track nearer Birmingham observed May 4 2011",
+      "url": "https://science.nasa.gov/earth/earth-observatory/tornado-damage-near-birmingham-alabama-50462/"
+    },
+    {
+      "id": "C06",
+      "claim": "NOAA GOES 13 imagery and 2011 weather system animation and track visibility",
+      "url": "https://www.nesdis.noaa.gov/content/revisiting-april-2011-tornado-super-outbreak-orbit"
+    },
+    {
+      "id": "C07",
+      "claim": "USGS Landsat tornado scar imagery, public domain",
+      "url": "https://www.usgs.gov/media/images/tuscaloosa-birmingham-tornado-scar-april-2011"
+    },
+    {
+      "id": "C08",
+      "claim": "USGS LCMAP long purple streaks represent land cover change coincident with tornado tracks",
+      "url": "https://www.usgs.gov/media/images/lcmap-landcover-change-2011-tornadoes"
+    },
+    {
+      "id": "C09",
+      "claim": "NASA imagery generally reusable for editorial purposes with acknowledgement; check third-party credits",
+      "url": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+    },
+    {
+      "id": "C10",
+      "claim": "USGS National Weather Service event detail",
+      "url": "https://www.weather.gov/bmx/event_04272011"
+    }
+  ],
+  "pitfalls": [
+    "Never imply GOES directly captured fine-scale rotating funnel",
+    "Never treat different survey totals or preliminary fatalities as same count",
+    "Never show fictional wreckage or Google satellite images as genuine",
+    "Satellite colors sometimes false-color; label when relevant"
+  ]
+}

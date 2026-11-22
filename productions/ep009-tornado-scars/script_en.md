@@ -1,0 +1,74 @@
+# EP009 narration — English DRAFT v1
+Target ~6:30 at controlled documentary cadence; measured duration after Adam TTS. Bracketed cues are production notes, NOT narration.
+
+[00:00 HOOK]
+This isn't a road. It isn't a river. And it wasn't there before the storm.
+That pale line crossing Alabama was carved into the landscape by a tornado.
+Five days after the disaster, a NASA satellite photographed the scar from space.
+But this wasn't the only line. In April 2011, the American South was crossed by many of them.
+
+[00:28 PROMISE]
+Today, we'll follow the satellite evidence, from clouds before the outbreak to the damage visible afterward. And we'll see how images taken hundreds of miles above Earth reveal something a ground-level camera can barely show: the scale of destruction.
+
+[00:50 CONTEXT]
+From April twenty-fifth through twenty-eighth, twenty-eleven, the southeastern United States experienced a catastrophic tornado outbreak.
+NOAA's retrospective count lists three hundred and sixty-two confirmed tornadoes over those four days. An estimated three hundred and twenty-one people were killed.
+Those numbers describe a human disaster, not a spectacle. Behind every line on a satellite image were neighborhoods, roads, homes, and families.
+
+[01:25 STORMS FROM ORBIT]
+Before the scars came the storms.
+NOAA's GOES satellite watched massive thunderstorm complexes move across the southeastern states.
+From this distance, individual tornado funnels are generally far too small to identify. Instead, the satellite records the enormous cloud systems that can produce them.
+Look at the moving cloud towers. The storm field grows, shifts, and keeps generating new intense cells.
+The dangerous conditions lasted for hours, across a wide area. A single dramatic tornado video could never reveal that bigger picture.
+
+[02:15 BEFORE VS AFTER]
+Now move down to Alabama.
+Here is the region before the outbreak, photographed by NASA's Aqua satellite on April twelfth.
+Green vegetation. Urban areas. A familiar-looking landscape.
+Now compare it with April twenty-eighth, the day after the devastating outbreak.
+Thin brown trails slash across the greenery.
+These are not clouds. They're patches of exposed and disturbed ground, where trees and plants had been uprooted.
+The difference between the two images matters: the tracks were not present before the storm.
+
+[03:04 ONE TRACK THROUGH TUSCALOOSA]
+One of the clearest examples runs across Tuscaloosa.
+On May second, NASA's Earth Observing One satellite captured this natural-color view.
+The tan corridor stretches southwest to northeast, cutting through the city.
+The National Weather Service described a damage path of roughly eighty miles, reaching as much as one and a half miles wide.
+Not every part of that full path fits inside this one photograph. This frame shows a section near Tuscaloosa.
+Zoom in on the pale corridor.
+It runs south of Bryant-Denny Stadium, and north of University Mall. The location matters: this is not an anonymous streak in empty wilderness. It's a line through a living city.
+And there's a trick hiding in the same photograph. Running roughly parallel to the scar is a thin airplane contrail. One feature is in the atmosphere. The other is on the ground.
+The satellite record helps us separate the two.
+
+[04:15 DIFFERENT SENSORS]
+Other instruments tell the same story in different visual languages.
+NASA's Terra satellite used ASTER to image another section of the damage, closer to Birmingham, on May fourth.
+In its false-color view, healthy vegetation appears red, and the tornado track cuts through as a pale beige stripe.
+Change the sensor, change the colors, but the evidence remains.
+Years later, USGS land-change products built from Landsat observations marked long streaks of altered land cover around Tuscaloosa and Birmingham.
+These maps aren't photographs of a tornado. They're measurements of what changed on Earth's surface.
+
+[05:04 WHAT WE CAN AND CANNOT SEE]
+This is what makes the satellite perspective so revealing.
+On the ground, destruction can appear as isolated scenes: a shattered building, a fallen tree, a damaged block.
+From above, those scenes connect into long corridors.
+Yet satellite imagery has limits. A visible scar does not tell us every wind speed, every injury, or exactly what happened at each address.
+For that, meteorologists combine imagery with storm surveys, radar, and reports from people on the ground.
+A satellite is one witness, not the entire investigation.
+
+[05:46 RETURN TO HOOK]
+Look again at the image from Tuscaloosa.
+That pale line is not an abstract pattern, and it did not form naturally over centuries. It is the aftermath of a few terrifying minutes, captured days later from orbit.
+The most powerful part of these images may be what they leave out.
+They cannot show us the lives disrupted along the path.
+But they can show us how far that path went.
+
+[06:16 CLOSE]
+From clouds spanning states to scars crossing cities, the April twenty-eleven outbreak left evidence at a scale no single camera on the ground could capture.
+And in the satellite record, those scars remain visible.
+Orbital Atlas. The story is written on the planet itself.
+
+## Editorial fact-check
+Numbers: 362 confirmed / estimated 321 deaths per NOAA NCEI retrospective, not preliminary NASA article numbers. 80.3-mile / 1.5-mile dimensions attributed to contemporaneous NWS reporting via NASA. Non-graphic treatment. Avoid implying satellite sees individual people.

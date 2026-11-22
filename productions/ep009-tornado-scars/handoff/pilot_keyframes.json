@@ -1,0 +1,447 @@
+{
+  "version": 1,
+  "episode": "EP009",
+  "status": "PROVISIONAL_TIMING_REQUIRES_APPROVED_VOICE",
+  "frame": {
+    "w": 1920,
+    "h": 1080,
+    "fps": 30
+  },
+  "coordinate_system": "normalized_screen [x,y] 0..1; scale relative to fitted asset size; never crop historical image beyond verified source limits",
+  "source_proof": "handoff/media_proof.json",
+  "illustration_zip": "/Orbital_Atlas_EP009_illustrated_assets.zip",
+  "label_policy": "Compounded illustration labels: ILLUSTRATION / NOT TO SCALE, maintain source credit for actual photos",
+  "scenes": [
+    {
+      "t": [
+        0,
+        3
+      ],
+      "id": "B01",
+      "background": "M01",
+      "bg_framing": "native EO-1 scene, crop to evidence corridor only after geographic review; no repaint",
+      "keyframes": [
+        {
+          "at": 0,
+          "layer": "source",
+          "pos": [
+            0.5,
+            0.5
+          ],
+          "scale": 1,
+          "opacity": 1
+        },
+        {
+          "at": 2.8,
+          "layer": "source",
+          "pos": [
+            0.5,
+            0.5
+          ],
+          "scale": 1.08,
+          "opacity": 1
+        }
+      ],
+      "labels": [
+        {
+          "text": "NASA EO-1 · May 2, 2011",
+          "pos": [
+            0.04,
+            0.95
+          ]
+        }
+      ]
+    },
+    {
+      "t": [
+        3,
+        7
+      ],
+      "id": "B02",
+      "background": "M01",
+      "layers": [
+        {
+          "asset": "P05_markers_sheet.png",
+          "require": "cut individual marker from sheet before render",
+          "status": "UNSEPARATED_SHEET",
+          "keyframes": [
+            {
+              "at": 3,
+              "position": [
+                0.38,
+                0.56
+              ],
+              "scale": 0.25,
+              "opacity": 0
+            },
+            {
+              "at": 4,
+              "position": [
+                0.4,
+                0.55
+              ],
+              "scale": 0.25,
+              "opacity": 1
+            },
+            {
+              "at": 7,
+              "position": [
+                0.45,
+                0.5
+              ],
+              "scale": 0.25,
+              "opacity": 0
+            }
+          ]
+        }
+      ],
+      "constraint": "Marker must point only to existing damage scar"
+    },
+    {
+      "t": [
+        7,
+        12
+      ],
+      "id": "B03",
+      "background": "M02_before",
+      "layers": [
+        {
+          "asset": "M02_after",
+          "mask": "left-to-right wipe",
+          "keyframes": [
+            {
+              "at": 7,
+              "mask_reveal": 0
+            },
+            {
+              "at": 11.5,
+              "mask_reveal": 1
+            }
+          ]
+        }
+      ],
+      "constraint": "Before/after image alignment must be editorially verified; avoid pixel-registered motion if unmatched"
+    },
+    {
+      "t": [
+        12,
+        18
+      ],
+      "id": "B04",
+      "background": "M01",
+      "layers": [
+        {
+          "asset": "P03_tree_intact.png",
+          "keyframes": [
+            {
+              "at": 12,
+              "position": [
+                0.27,
+                0.65
+              ],
+              "scale": 0.45,
+              "rotation": 0,
+              "opacity": 1
+            },
+            {
+              "at": 14,
+              "position": [
+                0.27,
+                0.65
+              ],
+              "scale": 0.45,
+              "rotation": 0,
+              "opacity": 1
+            },
+            {
+              "at": 15,
+              "position": [
+                0.25,
+                0.8
+              ],
+              "scale": 0.45,
+              "rotation": -12,
+              "opacity": 0
+            }
+          ]
+        },
+        {
+          "asset": "P03_tree_uprooted.png",
+          "keyframes": [
+            {
+              "at": 14.5,
+              "position": [
+                0.31,
+                0.7
+              ],
+              "scale": 0.43,
+              "rotation": 0,
+              "opacity": 0
+            },
+            {
+              "at": 15,
+              "position": [
+                0.31,
+                0.7
+              ],
+              "scale": 0.43,
+              "rotation": 0,
+              "opacity": 1
+            },
+            {
+              "at": 17.5,
+              "position": [
+                0.34,
+                0.8
+              ],
+              "scale": 0.43,
+              "rotation": -10,
+              "opacity": 1
+            }
+          ]
+        }
+      ],
+      "constraint": "Illustration inset only; do not pretend real source damage"
+    },
+    {
+      "t": [
+        18,
+        24
+      ],
+      "id": "B05",
+      "background": "M01",
+      "layers": [
+        {
+          "asset": "P01_satellite.png",
+          "keyframes": [
+            {
+              "at": 18,
+              "position": [
+                -0.2,
+                0.2
+              ],
+              "scale": 0.25,
+              "rotation": -7,
+              "opacity": 0
+            },
+            {
+              "at": 20,
+              "position": [
+                0.35,
+                0.25
+              ],
+              "scale": 0.25,
+              "rotation": -3,
+              "opacity": 1
+            },
+            {
+              "at": 23.5,
+              "position": [
+                1.1,
+                0.15
+              ],
+              "scale": 0.2,
+              "rotation": 4,
+              "opacity": 0
+            }
+          ]
+        }
+      ],
+      "constraint": "Symbolic observation satellite is not exact EO-1 spacecraft"
+    },
+    {
+      "t": [
+        24,
+        30
+      ],
+      "id": "B06",
+      "background": "M02_after",
+      "layers": [
+        {
+          "asset": "P05_markers_sheet.png",
+          "require": "individual markers separated",
+          "status": "UNSEPARATED_SHEET"
+        }
+      ],
+      "constraint": "No invented scar geometry"
+    },
+    {
+      "t": [
+        30,
+        38
+      ],
+      "id": "B07",
+      "background": "M03",
+      "background_playback": "actual NOAA video; loop or time-remap with attribution; source total duration 19.686s",
+      "layers": [
+        {
+          "asset": "P02_storm.png",
+          "keyframes": [
+            {
+              "at": 30,
+              "position": [
+                1.16,
+                0.56
+              ],
+              "scale": 0.38,
+              "opacity": 0
+            },
+            {
+              "at": 32.5,
+              "position": [
+                0.78,
+                0.56
+              ],
+              "scale": 0.38,
+              "opacity": 1
+            },
+            {
+              "at": 37.5,
+              "position": [
+                0.75,
+                0.51
+              ],
+              "scale": 0.43,
+              "opacity": 0
+            }
+          ]
+        }
+      ],
+      "constraint": "Painted cloud must be clearly labeled as separate illustration, not GOES actual cell"
+    },
+    {
+      "t": [
+        38,
+        47
+      ],
+      "id": "B08",
+      "background": "M03",
+      "layers": [
+        {
+          "asset": "P01_satellite.png",
+          "keyframes": [
+            {
+              "at": 38,
+              "position": [
+                0.1,
+                0.2
+              ],
+              "scale": 0.18,
+              "opacity": 0
+            },
+            {
+              "at": 40,
+              "position": [
+                0.5,
+                0.2
+              ],
+              "scale": 0.18,
+              "opacity": 1
+            },
+            {
+              "at": 45,
+              "position": [
+                0.85,
+                0.2
+              ],
+              "scale": 0.18,
+              "opacity": 1
+            },
+            {
+              "at": 47,
+              "position": [
+                1.1,
+                0.2
+              ],
+              "scale": 0.18,
+              "opacity": 0
+            }
+          ]
+        }
+      ],
+      "constraint": "No physical/geospatial accuracy implied by symbol orbit"
+    },
+    {
+      "t": [
+        47,
+        56
+      ],
+      "id": "B09",
+      "background": "M01",
+      "layers": [
+        {
+          "asset": "P04_land_intact.png",
+          "keyframes": [
+            {
+              "at": 47,
+              "position": [
+                0.4,
+                0.76
+              ],
+              "scale": 0.4,
+              "opacity": 0
+            },
+            {
+              "at": 49,
+              "position": [
+                0.4,
+                0.76
+              ],
+              "scale": 0.4,
+              "opacity": 1
+            },
+            {
+              "at": 53,
+              "position": [
+                0.25,
+                0.8
+              ],
+              "scale": 0.3,
+              "opacity": 0
+            }
+          ]
+        },
+        {
+          "asset": "P04_land_scared.png",
+          "keyframes": [
+            {
+              "at": 49,
+              "position": [
+                0.7,
+                0.76
+              ],
+              "scale": 0.4,
+              "opacity": 0
+            },
+            {
+              "at": 51,
+              "position": [
+                0.7,
+                0.76
+              ],
+              "scale": 0.4,
+              "opacity": 1
+            },
+            {
+              "at": 53,
+              "position": [
+                0.8,
+                0.8
+              ],
+              "scale": 0.3,
+              "opacity": 0
+            }
+          ]
+        }
+      ],
+      "constraint": "Painted landscape is illustrative, not a surveyed Tuscaloosa property"
+    }
+  ],
+  "final_gates": [
+    "asset SHA verify",
+    "review background crop and correct scar position",
+    "artistically painted props remain separate from documentary imagery",
+    "all timings reflow after voice",
+    "no approved release"
+  ]
+}
