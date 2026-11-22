@@ -53,7 +53,11 @@ Exception: `telegram-setup.yml` / `telegram-test.yml` reply only to the owner's 
   ```
   The calling repo needs secrets `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` (+ `TELEGRAM_CALLBACK_SECRET` for buttons)
   and keeps its own registry on its branch `telegram-data`.
-* From a Claude session: push `requests/ask-<name>.json` (same fields) to branch `telegram-ops` (`telegram-ask.yml`).
+* From a Claude session: push `requests/ask-<name>.json` (same fields) to branch `telegram-ops` (`telegram-ask.yml`);
+  close it with `requests/resolve-<name>.json` = `{"op": "resolve", "dedup_key": "..."}`.
+* From any workflow step: `python3 telegram/ci_ask.py ask|resolve|scan-*` (never fails the job).
+* Timing: GitHub cron runs can be hours late, so each new request also starts `telegram-remind.yml`
+  (repository_dispatch) which retries and sends the single reminder at ~30 min. Manual `mode=check` verifies secrets.
 * After the owner decides elsewhere (e.g. in the chat): `tg.py resolve --key-id <id> --registry <telegram-data>`
   closes the request and removes its buttons, so no reminder follows.
 

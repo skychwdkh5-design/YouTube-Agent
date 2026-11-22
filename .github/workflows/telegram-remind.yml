@@ -1,0 +1,46 @@
+name: Telegram remind (30-min reminder / retry)
+# Started by telegram/ci_ask.py (repository_dispatch "telegram_remind") right after a new request was delivered or
+# queued, because GitHub cron runs can be hours late. Sweeps at ~10, ~20 and ~32 min: retries undelivered requests and
+# sends the ONE reminder once 30 min have passed. A newer dispatch replaces a waiting one (the sweep covers all).
+# Manual run with mode=check: are the Telegram secrets present and the bot reachable? (sends nothing)
+on:
+  repository_dispatch:
+    types: [telegram_remind]
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [check, sweep]
+        default: check
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: telegram-remind
+  cancel-in-progress: true
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      TELEGRAM_CALLBACK_SECRET: ${{ secrets.TELEGRAM_CALLBACK_SECRET }}
+      GH_TOKEN: ${{ github.token }}
+      MODE: ${{ inputs.mode || 'remind' }}
+    steps:
+      - uses: actions/checkout@v4
+        with: {repository: skychwdkh5-design/YouTube-Agent, ref: main, path: tgc, sparse-checkout: telegram}
+      - name: Check (sends nothing)
+        if: env.MODE == 'check'
+        run: python3 tgc/telegram/ci_ask.py check
+      - name: Sweep now
+        if: env.MODE == 'sweep'
+        run: python3 tgc/telegram/ci_ask.py sweep --fallback-issue
+      - name: Retry / single reminder at ~10, ~20, ~32 min
+        if: env.MODE == 'remind'
+        run: |
+          for wait in 600 600 720; do
+            sleep $wait
+            python3 tgc/telegram/ci_ask.py sweep --fallback-issue
+          done

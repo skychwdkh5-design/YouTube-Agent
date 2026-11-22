@@ -12,6 +12,10 @@ Only situations where the owner must act produce a message; everything else is l
   scan-yt-release FILE            YouTube-Agent release_check JSON: issue opened -> ask; public/rescheduled -> resolve
   scan-nx-release FILE            NEXORA release_check log: "-> issue" -> ask; "public (confirmed" -> resolve
   scan-pipeline DIR               pipeline-ops results: error_kind auth -> ask (quota/ordinary errors stay silent)
+  from-file FILE                  {"op":"resolve","dedup_key":K} or an ask object (Claude sessions via telegram-ops)
+  check                           secrets present? bot reachable? (sends nothing)
+After a new request is delivered or queued, a repository_dispatch "telegram_remind" starts telegram-remind.yml
+(30-min reminder / retry), because GitHub cron schedules can run hours late.
 Env: GITHUB_TOKEN or GH_TOKEN, GITHUB_REPOSITORY, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID[, TELEGRAM_CALLBACK_SECRET].
 """
 from __future__ import annotations
@@ -25,6 +29,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import control  # noqa: E402
@@ -174,7 +179,40 @@ def execute(asks: list[dict], resolves: list[str], label: str, do_sweep=False, f
                             + ", ".join(s["undelivered_alert"]) + f". Branch telegram-data, notifications/. Run: {run_url()}"],
                            check=False)
     save_registry(reg, f"telegram {label} {os.environ.get('GITHUB_RUN_ID', '')}".strip())
+    if any(a.get("sent") or a.get("queued_for_retry") for a in out["asks"]):
+        out["remind_dispatched"] = dispatch_remind()
     return {"ok": True, **out}
+
+
+def dispatch_remind() -> bool:
+    """Start telegram-remind.yml in this repo (GITHUB_TOKEN-made repository_dispatch does trigger workflows)."""
+    tok = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    repo = os.environ.get("GITHUB_REPOSITORY")
+    if not tok or not repo:
+        return False
+    req = urllib.request.Request(f"https://api.github.com/repos/{repo}/dispatches", method="POST",
+                                 data=json.dumps({"event_type": "telegram_remind"}).encode(),
+                                 headers={"Authorization": f"Bearer {tok}", "Accept": "application/vnd.github+json",
+                                          "X-GitHub-Api-Version": "2022-11-28"})
+    try:
+        with urllib.request.urlopen(req, timeout=15) as r:
+            return r.status == 204
+    except Exception:
+        return False
+
+
+def check() -> dict:
+    out = {"bot_token_present": bool(os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()),
+           "chat_id_present": bool(os.environ.get("TELEGRAM_CHAT_ID", "").strip())}
+    try:
+        out["bot_username"] = tg.call("getMe")["result"].get("username")
+        out["bot_reachable"] = True
+        tg.chat_id()
+        out["chat_id_valid"] = True
+    except tg.TgError as e:
+        out["error"] = tg.scrub(str(e))
+    out["ok"] = bool(out.get("bot_reachable") and out.get("chat_id_valid"))
+    return out
 
 
 def _read(path):
@@ -199,6 +237,8 @@ def main(argv=None) -> int:
     yr = sp.add_parser("scan-yt-release"); yr.add_argument("file")
     nr = sp.add_parser("scan-nx-release"); nr.add_argument("file")
     pl = sp.add_parser("scan-pipeline"); pl.add_argument("dir"); pl.add_argument("--project", default="OrbitalAtlas")
+    ff = sp.add_parser("from-file"); ff.add_argument("file")
+    sp.add_parser("check")
     a = p.parse_args(argv)
     try:
         if a.cmd == "ask":
@@ -224,6 +264,14 @@ def main(argv=None) -> int:
             if hit:
                 asks.append(auth_request("OrbitalAtlas", hit))
             res = execute(asks, resolves, "release-check")
+        elif a.cmd == "check":
+            res = check()
+        elif a.cmd == "from-file":
+            obj = json.loads(_read(a.file) or "{}")
+            if obj.get("op") == "resolve":
+                res = execute([], [str(obj.get("dedup_key", ""))], "resolve")
+            else:
+                res = execute([obj], [], "session-ask")
         elif a.cmd == "scan-nx-release":
             txt = _read(a.file)
             asks, resolves = scan_nx_release(txt)
