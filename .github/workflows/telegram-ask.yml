@@ -5,7 +5,7 @@ name: Telegram ask (from a Claude session, silent mode gate)
 on:
   push:
     branches: [telegram-ops]
-    paths: ['requests/ask-*.json']
+    paths: ['requests/ask-*.json', 'requests/resolve-*.json']
 permissions:
   contents: write
 concurrency:
@@ -35,6 +35,15 @@ jobs:
           for r in requests/ask-*.json; do
             n=$(basename "$r"); [ -f "results/$n" ] && continue
             python3 telegram/tg.py --out "results/$n" request --json "$r" --registry reg || true
+          done
+      - name: Close asks the owner already answered elsewhere (e.g. tapped ОК in the Claude chat) - no reminder follows
+        run: |
+          mkdir -p results
+          for r in requests/resolve-*.json; do
+            [ -f "$r" ] || continue
+            n=$(basename "$r"); [ -f "results/$n" ] && continue
+            k=$(python3 -c "import json,sys; print(json.load(open(sys.argv[1]))['key_id'])" "$r")
+            python3 telegram/tg.py --out "results/$n" resolve --key-id "$k" --registry reg --how answered_in_chat || true
           done
       - name: Save registry and results
         if: always()
