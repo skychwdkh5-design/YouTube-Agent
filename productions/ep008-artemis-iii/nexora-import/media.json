@@ -1,0 +1,16 @@
+{
+ "rights_basis": "NASA media is generally not subject to US copyright; NASA must not appear to endorse; NASA insignia/logotype are not public domain and may need clearance as cover art; current astronauts' likeness may not be used in promotional material; third-party (company) artwork is not covered. https://www.nasa.gov/nasa-brand-center/images-and-media/",
+ "assets": [
+  {"id": "srb-forward-assemblies", "what": "SLS booster forward assemblies with nose cones, VAB High Bay 3 (Artemis III)", "credit": "NASA/Cory S Huston", "page": "https://www.nasa.gov/blogs/missions/2026/10/13/nasa-completes-artemis-iii-booster-stacking-shares-status-update/", "licence": "NASA (US public domain)", "cover_ok": "yes, cropped so no NASA insignia is legible", "status": "verified on page 2026-10-30; download the original file and log it before use"},
+  {"id": "orion-modules-joined", "what": "Artemis III Orion crew and service modules after joining, Kennedy", "credit": "NASA/Amanda Stevenson", "page": "https://www.nasa.gov/blogs/missions/2026/08/05/nasa-joins-artemis-iii-orion-modules-rocket-hardware-update/", "licence": "NASA (US public domain)", "cover_ok": "yes, check for insignia in the crop", "status": "verified on page 2026-10-30"},
+  {"id": "conops-graphic", "what": "Artemis III concept of operations graphic", "credit": "NASA", "page": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/", "licence": "NASA (US public domain)", "cover_ok": "yes, labelled 'NASA concept graphic' in the video", "status": "verified on page 2026-10-30"},
+  {"id": "core-stage-engines", "what": "Four RS-25 engines for Artemis III delivered to the VAB", "credit": "NASA/Ben Smegelsky", "page": "https://www.nasa.gov/blogs/missions/2026/08/05/nasa-joins-artemis-iii-orion-modules-rocket-hardware-update/", "licence": "NASA (US public domain)", "cover_ok": "not planned", "status": "verified on page 2026-10-30"}
+ ],
+ "excluded": [
+  {"what": "Blue Moon Mark 2 docking artwork", "credit": "Blue Origin", "why": "company copyright"},
+  {"what": "Starship docking artwork", "credit": "SpaceX", "why": "company copyright"},
+  {"what": "Artemis III crew portrait", "credit": "NASA/Bill Stafford", "why": "current astronauts' likeness - not on covers or promotional material; in-video editorial use only after owner decision"},
+  {"what": "Crew water-training photo", "credit": "US Navy", "why": "not needed; identifiable crew"},
+  {"what": "2026-10-28 core-stage imagery", "why": "after the 2026-10-23 source cut-off set by the owner"}
+ ]
+}

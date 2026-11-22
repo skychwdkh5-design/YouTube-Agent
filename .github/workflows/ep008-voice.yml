@@ -1,0 +1,71 @@
+name: EP008 Adam narration (owner-approved 2026-11-01)
+# Owner approval in chat 2026-11-01 14:36 ICT: "Разрешаю ElevenLabs Adam для EP008". Runs only on this branch when
+# voice_request.txt changes. One ElevenLabs request per scene (adam/sNN.md, final script v2, 5,800 chars total), then an
+# independent check: faster-whisper transcribes every file and the transcript is compared word by word with the script
+# (names, truncation). Audio goes to the DRAFT release ep008-originals (not Git); timings + check report are committed.
+on:
+  push:
+    branches: [production/ep008-artemis-iii]
+    paths: [productions/ep008-artemis-iii/voice_request.txt]
+permissions:
+  contents: write
+concurrency:
+  group: ep008-voice
+  cancel-in-progress: false
+jobs:
+  voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Generate Adam per scene
+        shell: bash {0}
+        run: |
+          P=productions/ep008-artemis-iii; mkdir -p out; : > /tmp/m.txt
+          if [ -z "$ELEVENLABS_API_KEY" ]; then echo "ELEVENLABS_API_KEY: NOT SET" | tee -a /tmp/m.txt; exit 1; fi
+          ids=$(grep -v '^#' $P/voice_request.txt | tr -s ' \n' ' ')
+          for s in $ids; do
+            python3 .claude/skills/yt-voice/voice.py --script $P/adam/$s.md --output out/adam_$s.wav --max-chars 1000 --confirm > out/adam_$s.result.json 2>&1
+            rc=$?; echo "$s exit $rc $(python3 -c "import json;d=json.load(open('out/adam_$s.result.json'));print(d.get('status'),d.get('characters'),d.get('duration'),d.get('voice_name') or '')" 2>/dev/null)" | tee -a /tmp/m.txt
+            [ $rc -ne 0 ] && { grep -v -i 'key\|token\|authoriz' out/adam_$s.result.json | head -c 600 >> /tmp/m.txt; break; }
+          done
+          for f in out/*.wav; do gh release upload ep008-originals "$f" --clobber; done
+          mkdir -p $P/adam/timing; cp out/*.voice.json $P/adam/timing/ 2>/dev/null; cat /tmp/m.txt >> $P/adam/voice_manifest.txt
+          for s in s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15; do [ -s out/adam_$s.wav ] || gh release download ep008-originals -p adam_$s.wav -D out 2>/dev/null || true; done
+      - name: Independent transcript check (faster-whisper)
+        if: always()
+        shell: bash {0}
+        run: |
+          P=productions/ep008-artemis-iii
+          pip install -q faster-whisper > $P/adam/whisper_log.txt 2>&1
+          python3 - "$P" >> $P/adam/whisper_log.txt 2>&1 <<'PY'
+          import sys, json, re, glob, os, difflib
+          from faster_whisper import WhisperModel
+          P = sys.argv[1]; m = WhisperModel("small.en", device="cpu", compute_type="int8")
+          norm = lambda t: re.sub(r"[^a-z0-9' ]", " ", t.lower().replace("’", "'")).split()
+          rep = []
+          for wav in sorted(glob.glob("out/adam_s*.wav")):
+              sid = os.path.basename(wav)[5:-4]
+              ref = open(f"{P}/adam/{sid}.md").read()
+              segs, _ = m.transcribe(wav, language="en", beam_size=5, initial_prompt="Artemis, Orion, Bresnik, Parmitano, Rubio, Douglas, NASA, SLS, Starship, Blue Origin, SpaceX")
+              hyp = " ".join(s.text for s in segs)
+              a, b = norm(ref), norm(hyp)
+              sm = difflib.SequenceMatcher(a=a, b=b)
+              diffs = [(op, " ".join(a[i1:i2]), " ".join(b[j1:j2])) for op, i1, i2, j1, j2 in sm.get_opcodes() if op != "equal"]
+              rep.append({"scene": sid, "ratio": round(sm.ratio(), 3), "last_ref": " ".join(a[-4:]), "last_heard": " ".join(b[-4:]), "diffs": diffs, "heard": hyp.strip()})
+          json.dump(rep, open(f"{P}/adam/transcript_check.json", "w"), indent=1)
+          for r in rep: print(r["scene"], r["ratio"], "| end:", r["last_heard"], "|", r["diffs"][:6])
+          PY
+          tail -40 $P/adam/whisper_log.txt
+      - name: Commit timings and check report
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull -q --rebase origin production/ep008-artemis-iii || true
+          git add -f productions/ep008-artemis-iii/adam
+          git commit -qm "EP008 Adam narration: timings + transcript check (run ${{ github.run_id }})" && git push -q origin HEAD:production/ep008-artemis-iii || echo nothing

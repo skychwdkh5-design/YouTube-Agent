@@ -1,0 +1,771 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "adam_s04.wav",
+ "audio_format": "wav",
+ "audio_sha256": "91e21e5bac5f025b53e02e990da822aff67287fd3638172027da92e0a44d6eb3",
+ "duration": 59.815,
+ "characters": 874,
+ "text": "Artemis Two's flight took ten days: launch on April first, a seven-hour lunar flyby on April sixth, splashdown off California on April tenth. But by then the plan for the next mission had already changed. On February twenty-seventh, NASA rewrote the order of the Artemis program. Artemis Three had been the landing. It became a test flight in low Earth orbit, set for twenty twenty-seven, and the first landing moved to Artemis Four, targeted for twenty twenty-eight. NASA also promised at least one landing every year after that. NASA's reasoning, in its own announcement: keep the rocket and spacecraft as close as possible to the version that already flew, fly more often, and build up step by step, with each mission big enough to make progress but not so big that it takes unnecessary risk. NASA's administrator said that's how the agency did it in nineteen sixty-nine.",
+ "text_sha256": "5261a81563abcccdf3277c75d8537c0cf58eb0b394a86dcee74a8fe6aa4faef1",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 874,
+   "offset": 0.0,
+   "duration": 59.815,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "Artemis",
+   "start": 0.0,
+   "end": 0.488
+  },
+  {
+   "text": "Two's",
+   "start": 0.546,
+   "end": 0.836
+  },
+  {
+   "text": "flight",
+   "start": 0.882,
+   "end": 1.184
+  },
+  {
+   "text": "took",
+   "start": 1.231,
+   "end": 1.428
+  },
+  {
+   "text": "ten",
+   "start": 1.474,
+   "end": 1.707
+  },
+  {
+   "text": "days:",
+   "start": 1.788,
+   "end": 2.438
+  },
+  {
+   "text": "launch",
+   "start": 2.821,
+   "end": 3.158
+  },
+  {
+   "text": "on",
+   "start": 3.216,
+   "end": 3.367
+  },
+  {
+   "text": "April",
+   "start": 3.46,
+   "end": 3.831
+  },
+  {
+   "text": "first,",
+   "start": 3.901,
+   "end": 4.493
+  },
+  {
+   "text": "a",
+   "start": 4.667,
+   "end": 4.737
+  },
+  {
+   "text": "seven-hour",
+   "start": 4.818,
+   "end": 5.375
+  },
+  {
+   "text": "lunar",
+   "start": 5.445,
+   "end": 5.724
+  },
+  {
+   "text": "flyby",
+   "start": 5.782,
+   "end": 6.339
+  },
+  {
+   "text": "on",
+   "start": 6.42,
+   "end": 6.525
+  },
+  {
+   "text": "April",
+   "start": 6.594,
+   "end": 6.908
+  },
+  {
+   "text": "sixth,",
+   "start": 6.978,
+   "end": 7.477
+  },
+  {
+   "text": "splashdown",
+   "start": 7.686,
+   "end": 8.324
+  },
+  {
+   "text": "off",
+   "start": 8.382,
+   "end": 8.522
+  },
+  {
+   "text": "California",
+   "start": 8.58,
+   "end": 9.265
+  },
+  {
+   "text": "on",
+   "start": 9.334,
+   "end": 9.497
+  },
+  {
+   "text": "April",
+   "start": 9.578,
+   "end": 9.892
+  },
+  {
+   "text": "tenth.",
+   "start": 9.95,
+   "end": 10.484
+  },
+  {
+   "text": "But",
+   "start": 10.925,
+   "end": 11.111
+  },
+  {
+   "text": "by",
+   "start": 11.157,
+   "end": 11.308
+  },
+  {
+   "text": "then",
+   "start": 11.378,
+   "end": 11.656
+  },
+  {
+   "text": "the",
+   "start": 11.726,
+   "end": 11.807
+  },
+  {
+   "text": "plan",
+   "start": 11.865,
+   "end": 12.144
+  },
+  {
+   "text": "for",
+   "start": 12.202,
+   "end": 12.295
+  },
+  {
+   "text": "the",
+   "start": 12.33,
+   "end": 12.399
+  },
+  {
+   "text": "next",
+   "start": 12.446,
+   "end": 12.655
+  },
+  {
+   "text": "mission",
+   "start": 12.725,
+   "end": 13.038
+  },
+  {
+   "text": "had",
+   "start": 13.108,
+   "end": 13.235
+  },
+  {
+   "text": "already",
+   "start": 13.282,
+   "end": 13.642
+  },
+  {
+   "text": "changed.",
+   "start": 13.7,
+   "end": 14.443
+  },
+  {
+   "text": "On",
+   "start": 15.557,
+   "end": 15.708
+  },
+  {
+   "text": "February",
+   "start": 15.766,
+   "end": 16.242
+  },
+  {
+   "text": "twenty-seventh,",
+   "start": 16.289,
+   "end": 17.113
+  },
+  {
+   "text": "NASA",
+   "start": 17.206,
+   "end": 17.624
+  },
+  {
+   "text": "rewrote",
+   "start": 17.682,
+   "end": 18.146
+  },
+  {
+   "text": "the",
+   "start": 18.181,
+   "end": 18.263
+  },
+  {
+   "text": "order",
+   "start": 18.344,
+   "end": 18.657
+  },
+  {
+   "text": "of",
+   "start": 18.715,
+   "end": 18.773
+  },
+  {
+   "text": "the",
+   "start": 18.82,
+   "end": 18.89
+  },
+  {
+   "text": "Artemis",
+   "start": 18.971,
+   "end": 19.366
+  },
+  {
+   "text": "program.",
+   "start": 19.424,
+   "end": 20.167
+  },
+  {
+   "text": "Artemis",
+   "start": 20.608,
+   "end": 21.014
+  },
+  {
+   "text": "Three",
+   "start": 21.072,
+   "end": 21.525
+  },
+  {
+   "text": "had",
+   "start": 21.606,
+   "end": 21.757
+  },
+  {
+   "text": "been",
+   "start": 21.804,
+   "end": 21.966
+  },
+  {
+   "text": "the",
+   "start": 22.001,
+   "end": 22.071
+  },
+  {
+   "text": "landing.",
+   "start": 22.14,
+   "end": 22.756
+  },
+  {
+   "text": "It",
+   "start": 23.081,
+   "end": 23.208
+  },
+  {
+   "text": "became",
+   "start": 23.243,
+   "end": 23.545
+  },
+  {
+   "text": "a",
+   "start": 23.58,
+   "end": 23.603
+  },
+  {
+   "text": "test",
+   "start": 23.661,
+   "end": 23.94
+  },
+  {
+   "text": "flight",
+   "start": 23.986,
+   "end": 24.288
+  },
+  {
+   "text": "in",
+   "start": 24.335,
+   "end": 24.416
+  },
+  {
+   "text": "low",
+   "start": 24.509,
+   "end": 24.683
+  },
+  {
+   "text": "Earth",
+   "start": 24.741,
+   "end": 24.938
+  },
+  {
+   "text": "orbit,",
+   "start": 25.008,
+   "end": 25.438
+  },
+  {
+   "text": "set",
+   "start": 25.496,
+   "end": 25.751
+  },
+  {
+   "text": "for",
+   "start": 25.821,
+   "end": 25.96
+  },
+  {
+   "text": "twenty",
+   "start": 26.018,
+   "end": 26.285
+  },
+  {
+   "text": "twenty-seven,",
+   "start": 26.332,
+   "end": 27.121
+  },
+  {
+   "text": "and",
+   "start": 27.365,
+   "end": 27.504
+  },
+  {
+   "text": "the",
+   "start": 27.551,
+   "end": 27.62
+  },
+  {
+   "text": "first",
+   "start": 27.667,
+   "end": 27.922
+  },
+  {
+   "text": "landing",
+   "start": 28.003,
+   "end": 28.375
+  },
+  {
+   "text": "moved",
+   "start": 28.456,
+   "end": 28.862
+  },
+  {
+   "text": "to",
+   "start": 28.932,
+   "end": 29.06
+  },
+  {
+   "text": "Artemis",
+   "start": 29.176,
+   "end": 29.536
+  },
+  {
+   "text": "Four,",
+   "start": 29.606,
+   "end": 30.116
+  },
+  {
+   "text": "targeted",
+   "start": 30.395,
+   "end": 30.883
+  },
+  {
+   "text": "for",
+   "start": 30.941,
+   "end": 31.08
+  },
+  {
+   "text": "twenty",
+   "start": 31.138,
+   "end": 31.452
+  },
+  {
+   "text": "twenty-eight.",
+   "start": 31.51,
+   "end": 32.346
+  },
+  {
+   "text": "NASA",
+   "start": 32.729,
+   "end": 33.147
+  },
+  {
+   "text": "also",
+   "start": 33.193,
+   "end": 33.507
+  },
+  {
+   "text": "promised",
+   "start": 33.577,
+   "end": 33.994
+  },
+  {
+   "text": "at",
+   "start": 34.041,
+   "end": 34.111
+  },
+  {
+   "text": "least",
+   "start": 34.157,
+   "end": 34.378
+  },
+  {
+   "text": "one",
+   "start": 34.47,
+   "end": 34.738
+  },
+  {
+   "text": "landing",
+   "start": 34.819,
+   "end": 35.33
+  },
+  {
+   "text": "every",
+   "start": 35.481,
+   "end": 35.875
+  },
+  {
+   "text": "year",
+   "start": 35.968,
+   "end": 36.235
+  },
+  {
+   "text": "after",
+   "start": 36.316,
+   "end": 36.607
+  },
+  {
+   "text": "that.",
+   "start": 36.665,
+   "end": 37.106
+  },
+  {
+   "text": "NASA's",
+   "start": 37.489,
+   "end": 37.942
+  },
+  {
+   "text": "reasoning,",
+   "start": 38.012,
+   "end": 38.638
+  },
+  {
+   "text": "in",
+   "start": 38.755,
+   "end": 38.882
+  },
+  {
+   "text": "its",
+   "start": 38.94,
+   "end": 39.08
+  },
+  {
+   "text": "own",
+   "start": 39.126,
+   "end": 39.289
+  },
+  {
+   "text": "announcement:",
+   "start": 39.335,
+   "end": 40.206
+  },
+  {
+   "text": "keep",
+   "start": 40.531,
+   "end": 40.751
+  },
+  {
+   "text": "the",
+   "start": 40.81,
+   "end": 40.879
+  },
+  {
+   "text": "rocket",
+   "start": 40.949,
+   "end": 41.262
+  },
+  {
+   "text": "and",
+   "start": 41.297,
+   "end": 41.367
+  },
+  {
+   "text": "spacecraft",
+   "start": 41.413,
+   "end": 42.063
+  },
+  {
+   "text": "as",
+   "start": 42.11,
+   "end": 42.191
+  },
+  {
+   "text": "close",
+   "start": 42.261,
+   "end": 42.621
+  },
+  {
+   "text": "as",
+   "start": 42.656,
+   "end": 42.725
+  },
+  {
+   "text": "possible",
+   "start": 42.795,
+   "end": 43.294
+  },
+  {
+   "text": "to",
+   "start": 43.329,
+   "end": 43.399
+  },
+  {
+   "text": "the",
+   "start": 43.468,
+   "end": 43.538
+  },
+  {
+   "text": "version",
+   "start": 43.596,
+   "end": 43.921
+  },
+  {
+   "text": "that",
+   "start": 43.967,
+   "end": 44.095
+  },
+  {
+   "text": "already",
+   "start": 44.153,
+   "end": 44.548
+  },
+  {
+   "text": "flew,",
+   "start": 44.629,
+   "end": 45.163
+  },
+  {
+   "text": "fly",
+   "start": 45.279,
+   "end": 45.581
+  },
+  {
+   "text": "more",
+   "start": 45.662,
+   "end": 45.872
+  },
+  {
+   "text": "often,",
+   "start": 45.93,
+   "end": 46.452
+  },
+  {
+   "text": "and",
+   "start": 46.534,
+   "end": 46.696
+  },
+  {
+   "text": "build",
+   "start": 46.766,
+   "end": 47.021
+  },
+  {
+   "text": "up",
+   "start": 47.079,
+   "end": 47.184
+  },
+  {
+   "text": "step",
+   "start": 47.253,
+   "end": 47.52
+  },
+  {
+   "text": "by",
+   "start": 47.578,
+   "end": 47.753
+  },
+  {
+   "text": "step,",
+   "start": 47.822,
+   "end": 48.31
+  },
+  {
+   "text": "with",
+   "start": 48.391,
+   "end": 48.565
+  },
+  {
+   "text": "each",
+   "start": 48.612,
+   "end": 48.786
+  },
+  {
+   "text": "mission",
+   "start": 48.856,
+   "end": 49.181
+  },
+  {
+   "text": "big",
+   "start": 49.274,
+   "end": 49.483
+  },
+  {
+   "text": "enough",
+   "start": 49.529,
+   "end": 49.75
+  },
+  {
+   "text": "to",
+   "start": 49.784,
+   "end": 49.831
+  },
+  {
+   "text": "make",
+   "start": 49.889,
+   "end": 50.051
+  },
+  {
+   "text": "progress",
+   "start": 50.109,
+   "end": 50.783
+  },
+  {
+   "text": "but",
+   "start": 51.108,
+   "end": 51.27
+  },
+  {
+   "text": "not",
+   "start": 51.329,
+   "end": 51.503
+  },
+  {
+   "text": "so",
+   "start": 51.572,
+   "end": 51.793
+  },
+  {
+   "text": "big",
+   "start": 51.886,
+   "end": 52.199
+  },
+  {
+   "text": "that",
+   "start": 52.269,
+   "end": 52.42
+  },
+  {
+   "text": "it",
+   "start": 52.466,
+   "end": 52.536
+  },
+  {
+   "text": "takes",
+   "start": 52.571,
+   "end": 52.861
+  },
+  {
+   "text": "unnecessary",
+   "start": 52.977,
+   "end": 53.755
+  },
+  {
+   "text": "risk.",
+   "start": 53.848,
+   "end": 54.428
+  },
+  {
+   "text": "NASA's",
+   "start": 55.032,
+   "end": 55.462
+  },
+  {
+   "text": "administrator",
+   "start": 55.508,
+   "end": 56.205
+  },
+  {
+   "text": "said",
+   "start": 56.263,
+   "end": 56.46
+  },
+  {
+   "text": "that's",
+   "start": 56.507,
+   "end": 56.716
+  },
+  {
+   "text": "how",
+   "start": 56.762,
+   "end": 56.866
+  },
+  {
+   "text": "the",
+   "start": 56.913,
+   "end": 56.983
+  },
+  {
+   "text": "agency",
+   "start": 57.052,
+   "end": 57.47
+  },
+  {
+   "text": "did",
+   "start": 57.551,
+   "end": 57.714
+  },
+  {
+   "text": "it",
+   "start": 57.76,
+   "end": 57.83
+  },
+  {
+   "text": "in",
+   "start": 57.888,
+   "end": 57.958
+  },
+  {
+   "text": "nineteen",
+   "start": 58.016,
+   "end": 58.457
+  },
+  {
+   "text": "sixty-nine.",
+   "start": 58.538,
+   "end": 59.815
+  }
+ ],
+ "created": "2026-11-01T07:39:31Z",
+ "warnings": []
+}

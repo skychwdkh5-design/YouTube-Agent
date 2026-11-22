@@ -1,0 +1,66 @@
+#,in_s,out_s,dur_s,scene,kind,asset_or_graphic,credit_on_screen,on_screen_text,direction,claims
+1,0.0,3.46,3.46,h1-boosters,photo,n1-boosters,NASA/Cory S Huston,,tilt up base -> nose cones; no insignia legible,noses
+2,3.46,8.13,4.67,h2-leo,graphic,g-moon-x,NEXORA graphic,NOT THE MOON,Moon outline (own line art) gets a strike; label NEXORA GRAPHIC,crew feb-change
+3,8.13,15.8,7.67,h2-leo,graphic,g-feb-orbit,NEXORA graphic,"FEB 27, 2026 · LOW EARTH ORBIT · 2027","date stamp lands, then orbit ring draws around an Earth outline",crew feb-change
+4,15.8,19.58,3.78,h3-conops,photo,n4-conops,NASA,"NASA PLAN · OCT 23, 2026",push-in on the NASA graphic; corner tag NASA CONCEPT GRAPHIC,first-landing oct23
+5,19.58,24.22,4.64,h3-conops,photo,n4-conops,NASA,,pan across the docking steps of the same NASA graphic,first-landing oct23
+6,24.22,31.63,7.41,h4-two-landers,graphic,g-two-landers,NEXORA graphic,2 LANDERS · 2 COMPANIES · 1 SPACECRAFT,kinetic stack; no company artwork,bm-first feb-landers ss-launch
+7,31.63,36.6,4.97,p1-title,graphic,g-chapter-1,NEXORA graphic,WHAT CHANGED,chapter card,
+8,36.6,42.14,5.54,p1-feb,graphic,g-timeline,NEXORA graphic,"FEB 27, 2026","timeline bar appears, Feb 27 marker",feb-change first-landing
+9,42.14,49.61,7.47,p1-feb,graphic,g-timeline,NEXORA graphic,ARTEMIS III → EARTH ORBIT · 2027,Artemis III marker slides to 'Earth orbit',feb-change first-landing
+10,49.61,57.94,8.33,p1-feb,graphic,g-timeline,NEXORA graphic,ARTEMIS IV → FIRST LANDING · 2028,Artemis IV marker lands on the Moon icon,feb-change first-landing
+11,57.94,60.65,2.71,p1-why,photo,n2-orion,NASA/Amanda Stevenson,,"Orion photo, slow push-in",feb-landers goals-risk
+12,60.65,66.14,5.49,p1-why,graphic,g-meet,NEXORA graphic,MEET · CONNECT · WORK TOGETHER,two outline craft approach and lock (ILLUSTRATION),feb-landers goals-risk
+13,66.14,74.59,8.45,p1-why,photo,n2-orion,NASA/Amanda Stevenson,,"Orion detail crop, push-out",feb-landers goals-risk
+14,74.59,84.2,9.61,p1-why,graphic,g-goals,NEXORA graphic,REDUCE RISK · VALIDATE HARDWARE · GAIN EXPERIENCE,three words build; source NASA 2026-10-23,feb-landers goals-risk
+15,84.2,89.56,5.36,p1-quote,graphic,g-quote,NEXORA graphic,"""keep testing like we fly"" - Amit Kshatriya, NASA","quote card, source NASA 2026-02-27",feb-why feb-yearly
+16,89.56,96.75,7.19,p1-quote,graphic,g-quote2,NEXORA graphic,STANDARDIZE · RAISE FLIGHT RATE · SAFELY,"attribution: Jared Isaacman, NASA Administrator",feb-why feb-yearly
+17,96.75,103.12,6.37,p1-quote,graphic,g-yearly,NEXORA graphic,AFTER THE FIRST LANDING: ≥1 PER YEAR,calendar ticks; 'stated plan',feb-why feb-yearly
+18,103.12,106.23,3.11,p1-hardware,photo,n1-boosters,NASA/Cory S Huston,,"booster tops, quick push",noses orion-joined rs25
+19,106.23,111.93,5.7,p1-hardware,photo,n3-rs25,NASA/Ben Smegelsky,4 × RS-25 · JULY 2026,engines photo,noses orion-joined rs25
+20,111.93,117.41,5.48,p1-hardware,photo,n2-orion,NASA/Amanda Stevenson,ORION JOINED · JULY 2026,Orion photo,noses orion-joined rs25
+21,117.41,122.82,5.41,p1-hardware,photo,n1-boosters,NASA/Cory S Huston,"NOSE CONES · SEP 30, 2026",tilt to nose cones,noses orion-joined rs25
+22,122.82,124.82,2.0,chapter:p2-crew,graphic,g-chapter,NEXORA graphic,WHO FLIES,"chapter card, whoosh-free hard cut",
+23,124.82,132.67,7.85,p2-crew,graphic,g-crew-names,NEXORA graphic,BRESNIK · PARMITANO (ESA) · DOUGLAS · RUBIO,"names one by one, roles beneath; no portraits",crew days-14 goals
+24,132.67,136.56,3.89,p2-crew,graphic,g-14,NEXORA graphic,14 DAYS,"big number, source NASA 2026-10-23",crew days-14 goals
+25,136.56,139.74,3.18,p2-crew,graphic,g-14,NEXORA graphic,PRACTICE: RENDEZVOUS · DOCKING · HABITATION,list builds under 14 DAYS,crew days-14 goals
+26,139.74,152.08,12.34,p2-crew,graphic,g-14,NEXORA graphic,PRACTICE: RENDEZVOUS · DOCKING · HABITATION · OPERATIONS,list completes; hold,crew days-14 goals
+27,152.08,156.11,4.03,p2-three,graphic,g-three,NEXORA graphic,NO APOLLO MISSION DID THIS,title,three-rockets
+28,156.11,165.2,9.09,p2-three,graphic,g-three,NEXORA graphic,3 SPACECRAFT · 3 ROCKETS,three outline icons rise from three pads and meet on one orbit,three-rockets
+29,165.2,167.2,2.0,chapter:p3-step1,graphic,g-chapter,NEXORA graphic,"THE FLIGHT, STEP BY STEP","chapter card, whoosh-free hard cut",
+30,167.2,170.08,2.88,p3-step1,graphic,g-step1,NEXORA graphic,STEP 1,step card,bm-30 bm-first
+31,170.08,179.3,9.22,p3-step1,graphic,g-step1,NEXORA graphic,BLUE MOON TEST ARTICLE → CIRCULAR LEO,lander dot enters circular orbit; ILLUSTRATION - NOT TO SCALE,bm-30 bm-first
+32,179.3,182.83,3.53,p3-step1,graphic,g-step1,NEXORA graphic,UP TO 30 DAYS,counter ring,bm-30 bm-first
+33,182.83,189.57,6.74,p3-step2,graphic,g-step2,NEXORA graphic,STEP 2 · ORION ON SLS · KENNEDY,Orion dot launches 'days later',orion-345 orion-days orion-ellipse
+34,189.57,198.13,8.56,p3-step2,graphic,g-step2,NEXORA graphic,"18 × 1,122 MILES",ellipse draws with the two numbers,orion-345 orion-days orion-ellipse
+35,198.13,206.83,8.7,p3-step2,photo,n5-solar,NASA/Amanda Stevenson,~345 MILES · THERMAL STABILIZATION,ellipse becomes a circle (inset) over the Orion solar-array photo,orion-345 orion-days orion-ellipse
+36,206.83,213.81,6.98,p3-step3,photo,n5-solar,NASA/Amanda Stevenson,STEP 3 · 2 DAYS OF CHECKOUT,Orion hardware photo under the step label,checkout-2d
+37,213.81,217.93,4.12,p3-step4,graphic,g-step4,NEXORA graphic,STEP 4 · DOCK WITH BLUE MOON,"approach animation, ILLUSTRATION",bm-dock-2d feb-tests first-eval ports
+38,217.93,223.29,5.36,p3-step4,graphic,g-step4,NEXORA graphic,HATCH OPEN,hatch icon opens,bm-dock-2d feb-tests first-eval ports
+39,223.29,227.09,3.8,p3-step4,graphic,g-step4,NEXORA graphic,~2 DAYS INSIDE,day counter 1-2,bm-dock-2d feb-tests first-eval ports
+40,227.09,231.95,4.86,p3-step4,graphic,g-step4,NEXORA graphic,PORT BESIDE THE CREW CABIN,port highlighted on the outline,bm-dock-2d feb-tests first-eval ports
+41,231.95,240.87,8.92,p3-step4,graphic,g-step4,NEXORA graphic,DOCKED TESTS · LIFE SUPPORT · COMMS · PROPULSION,three checks tick (NASA 2026-02-27 plan),bm-dock-2d feb-tests first-eval ports
+42,240.87,249.9,9.03,p3-step4,graphic,g-step4,NEXORA graphic,FIRST CREWED EVALUATION OF A COMMERCIAL LUNAR LANDER,undock animation,bm-dock-2d feb-tests first-eval ports
+43,249.9,257.2,7.3,p3-step5,graphic,g-step5,NEXORA graphic,STEP 5 · STARSHIP V3 TEST ARTICLE,Starship outline launches from Florida,ports ss-2h ss-launch ss-orbit
+44,257.2,266.01,8.81,p3-step5,graphic,g-step5,NEXORA graphic,206 NAUTICAL MILES · COMMS COVERAGE,lower orbit line under Orion's,ports ss-2h ss-launch ss-orbit
+45,266.01,274.44,8.43,p3-step5,graphic,g-step5,NEXORA graphic,ORION FORWARD PORT → STARSHIP NOSE,"forward-port docking, ILLUSTRATION",ports ss-2h ss-launch ss-orbit
+46,274.44,279.17,4.73,p3-step5,graphic,g-step5,NEXORA graphic,UP TO 2 HOURS,timer,ports ss-2h ss-launch ss-orbit
+47,279.17,285.87,6.7,p3-step5,graphic,g-step5,NEXORA graphic,CREW STAYS IN ORION,hatch closed icon,ports ss-2h ss-launch ss-orbit
+48,285.87,287.87,2.0,chapter:p4-why,graphic,g-chapter,NEXORA graphic,WHY DOCK FIRST,"chapter card, whoosh-free hard cut",
+49,287.87,290.13,2.26,p4-why,graphic,g-distance,NEXORA graphic,WHY?,question card,feb-change first-eval
+50,290.13,298.36,8.23,p4-why,graphic,g-distance,NEXORA graphic,2 VEHICLES · 2 PROGRAMS · 1 LOCK,two outlines lock,feb-change first-eval
+51,298.36,302.27,3.91,p4-why,graphic,g-distance,NEXORA graphic,EARTH ORBIT: HOURS FROM HOME,left half lights,feb-change first-eval
+52,302.27,305.45,3.18,p4-why,graphic,g-distance,NEXORA graphic,NEAR THE MOON: DAYS,"right half lights; editorial framing, no numbers",feb-change first-eval
+53,305.45,313.03,7.58,p4-why,photo,n2-orion,NASA/Amanda Stevenson,THE SAFEST PLACE TO TRY IT FIRST,Orion photo,feb-change first-eval
+54,313.03,318.66,5.63,p4-extra,photo,n5-solar,NASA/Amanda Stevenson,UP TO 5 MORE DAYS,"photo, dimmed",extra-5d extra-tests splash
+55,318.66,331.68,13.02,p4-extra,graphic,g-extra,NEXORA graphic,SUITS · DOCKING SENSORS · ACOUSTIC & THERMAL · HUMAN FACTORS · SCIENCE & TECH,list builds one item per ~2 s,extra-5d extra-tests splash
+56,331.68,341.25,9.57,p4-extra,photo,n6-booster-rpsf,NASA/Ben Smegelsky,SPLASHDOWN: PACIFIC · NASA + US NAVY,"photo, push-in",extra-5d extra-tests splash
+57,341.25,343.25,2.0,chapter:p5-2028,graphic,g-chapter,NEXORA graphic,WHAT IT MEANS,"chapter card, whoosh-free hard cut",
+58,343.25,347.92,4.67,p5-2028,graphic,g-2028,NEXORA graphic,IF THE DOCKINGS WORK,card,first-landing oct23
+59,347.92,355.88,7.96,p5-2028,photo,n2-orion,NASA/Amanda Stevenson,ARTEMIS IV · FIRST LANDING · TARGET 2028,Orion photo push-out,first-landing oct23
+60,355.88,365.77,9.89,p5-2028,photo,n4-conops,NASA,"NASA · OCT 23, 2026","NASA graphic again, wide",first-landing oct23
+61,365.77,373.28,7.51,p5-unknown,graphic,g-no-date,NEXORA graphic,LAUNCH: 2027 · DATE: NOT ANNOUNCED,honest-unknown card,feb-change
+62,373.28,376.8,3.52,p5-unknown,graphic,g-no-date,NEXORA graphic,THE ANSWER,beat,feb-change
+63,376.8,384.33,7.53,p5-unknown,photo,n1-boosters,NASA/Cory S Huston,NOT THE MOON - THE TEST BEFORE IT,"boosters, push-in, title echo",feb-change
+64,384.33,387.69,3.36,close,photo,n1-boosters,NASA/Cory S Huston,,tilt to the tops,
+65,387.69,394.34,6.65,close,photo,n1-boosters,NASA/Cory S Huston,,fade to black,

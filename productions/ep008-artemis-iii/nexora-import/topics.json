@@ -1,0 +1,130 @@
+{
+ "rubric": "growth",
+ "run": "2026-10-30-growth-demo",
+ "checked_at": "2026-10-30T05:40Z",
+ "vidiq_credits_spent": 5,
+ "note": "Candidates exclude topics already in production (orbital data centers, X-59, robotaxi, Ingenuity, humanoids pilot). Scores are Claude's judgement with the evidence line next to each; a person re-checks before the script.",
+ "topics": [
+  {
+   "id": "artemis3-not-the-moon",
+   "title": "Artemis III won't go to the Moon: NASA's docking test in Earth orbit",
+   "scores": {
+    "us_interest": 4,
+    "novelty": 4,
+    "hook": 4,
+    "thumbnail": 4,
+    "rights": 4,
+    "facts": 5,
+    "proof": 3,
+    "length_fit": 4
+   },
+   "evidence": {
+    "us_interest": "US crewed Moon program; on-topic videos 212K-522K views in 6 months (research/runs/2026-10-30-growth-demo/OUTLIERS.md)",
+    "novelty": "Moon mission that stays in low Earth orbit; announced 2026-02-27, so not breaking news - the novelty is the 2026-10-23 flight plan https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+    "hook": "real NASA hardware photos for second 0 (research/runs/2026-10-30-growth-demo/media.json)",
+    "thumbnail": "one object (booster stack or Orion), no insignia, no astronaut likeness",
+    "rights": "NASA assets with page URLs and credits, company artwork excluded: research/runs/2026-10-30-growth-demo/media.json",
+    "facts": "official NASA pages 2026-02-27 to 2026-10-23: research/runs/2026-10-30-growth-demo/sources.json",
+    "proof": "vidIQ breakout signals only, low confidence (research/runs/2026-10-30-growth-demo/OUTLIERS.md); channel baselines planned for W45",
+    "length_fit": "7-beat outline, ~7 min: research/runs/2026-10-30-growth-demo/OUTLINE.md"
+   },
+   "risks": "Not a 'new news' story: the change dates from 2026-02-27. No launch date beyond 2027. Docking imagery = labelled illustration only. A person re-reads the NASA pages before the script."
+  },
+  {
+   "id": "honor-robot-phone",
+   "title": "A phone with a robot arm: Honor's Robot Phone (TIME Best Inventions 2026)",
+   "scores": {
+    "us_interest": 2,
+    "novelty": 5,
+    "hook": 5,
+    "thumbnail": 5,
+    "rights": 2,
+    "facts": 3,
+    "proof": 1,
+    "length_fit": 2
+   },
+   "evidence": {
+    "us_interest": "Honor phones are not sold in the US",
+    "novelty": "TIME list per HuaweiCentral (secondary)",
+    "hook": "a camera arm unfolding from a phone is instantly visual",
+    "thumbnail": "one object, one question",
+    "rights": "press kit terms unknown - no cleared footage",
+    "facts": "only secondary sources read",
+    "proof": "not checked (no credits spent)",
+    "length_fit": "one gadget - thin for 6-8 min without padding"
+   }
+  },
+  {
+   "id": "microduck",
+   "title": "Microduck: a $399 open-source robot duck (NVIDIA x Hugging Face)",
+   "scores": {
+    "us_interest": 4,
+    "novelty": 4,
+    "hook": 5,
+    "thumbnail": 5,
+    "rights": 2,
+    "facts": 4,
+    "proof": 4,
+    "length_fit": 3
+   },
+   "evidence": {
+    "us_interest": "search growth +2,414%/week (vidIQ, 2026-10-29 run)",
+    "novelty": "2026-10-29 run",
+    "hook": "2026-10-29 run",
+    "thumbnail": "a small robot duck walking - one object",
+    "rights": "no footage permission from Pollen Robotics / Hugging Face (2026-10-29 run)",
+    "facts": "2026-10-29 run",
+    "proof": "rising-keyword signal, 2026-10-29 run",
+    "length_fit": "build + why open source; borderline for 6 min"
+   }
+  },
+  {
+   "id": "1x-neo-factcheck",
+   "title": "1X NEO '10,000 sold' - fact check",
+   "scores": {
+    "us_interest": 4,
+    "novelty": 3,
+    "hook": 4,
+    "thumbnail": 4,
+    "rights": 2,
+    "facts": 2,
+    "proof": 4,
+    "length_fit": 3
+   },
+   "evidence": {
+    "us_interest": "2026-10-29 run",
+    "novelty": "TIME Best Inventions 2026 listing (humanoid.guide)",
+    "hook": "2026-10-29 run",
+    "thumbnail": "humanoid at home",
+    "rights": "company footage only",
+    "facts": "the sales claim has no primary source (2026-10-29 run)",
+    "proof": "2026-10-29 run",
+    "length_fit": "2026-10-29 run"
+   }
+  },
+  {
+   "id": "proactive-agents",
+   "title": "Proactive AI agents: assistants that act before you ask",
+   "scores": {
+    "us_interest": 4,
+    "novelty": 3,
+    "hook": 2,
+    "thumbnail": 2,
+    "rights": 3,
+    "facts": 4,
+    "proof": 4,
+    "length_fit": 4
+   },
+   "evidence": {
+    "us_interest": "search growth (2026-10-29 run)",
+    "novelty": "several launches the same week",
+    "hook": "UI screens are not a strong 3-second image",
+    "thumbnail": "no single physical object",
+    "rights": "own screen recordings only; conflict-of-interest disclosure needed (NEXORA is made with Claude)",
+    "facts": "2026-10-29 run",
+    "proof": "2026-10-29 run",
+    "length_fit": "comparison of three products fits"
+   }
+  }
+ ]
+}

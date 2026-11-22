@@ -1,0 +1,633 @@
+{
+ "end": 401.854,
+ "starts": {
+  "s01": 0.0,
+  "s02": 5.809,
+  "s03": 19.572,
+  "s04": 38.766,
+  "s05": 98.623,
+  "s06": 145.286,
+  "s07": 178.612,
+  "s08": 202.454,
+  "s09": 231.011,
+  "s10": 264.374,
+  "s11": 295.756,
+  "s12": 323.697,
+  "s13": 360.111,
+  "s14": 371.71,
+  "s15": 387.253
+ },
+ "shots": [
+  {
+   "scene": "s01",
+   "start": 0.0,
+   "end": 3.087,
+   "spec": [
+    "lunar_open"
+   ]
+  },
+  {
+   "scene": "s01",
+   "start": 3.087,
+   "end": 5.809,
+   "spec": [
+    "g",
+    "d_orbit_vs_moon"
+   ]
+  },
+  {
+   "scene": "s02",
+   "start": 5.809,
+   "end": 9.877,
+   "spec": [
+    "photo",
+    "a2_earthset_art002e009288.jpg"
+   ]
+  },
+  {
+   "scene": "s02",
+   "start": 9.877,
+   "end": 16.872,
+   "spec": [
+    "g",
+    "d_sls_stack"
+   ]
+  },
+  {
+   "scene": "s02",
+   "start": 16.872,
+   "end": 19.572,
+   "spec": [
+    "photo",
+    "a3_spacer_MSFC_07212026_4755.jpg"
+   ]
+  },
+  {
+   "scene": "s03",
+   "start": 19.572,
+   "end": 24.771,
+   "spec": [
+    "g",
+    "d_timeline2"
+   ]
+  },
+  {
+   "scene": "s03",
+   "start": 24.771,
+   "end": 27.858,
+   "spec": [
+    "conops",
+    "(0.0, 0.0, 1.0)"
+   ]
+  },
+  {
+   "scene": "s03",
+   "start": 27.858,
+   "end": 30.549,
+   "spec": [
+    "conops",
+    "(0.3, 0.07, 0.5)"
+   ]
+  },
+  {
+   "scene": "s03",
+   "start": 30.549,
+   "end": 32.865,
+   "spec": [
+    "conops",
+    "(0.3, 0.07, 0.5)"
+   ]
+  },
+  {
+   "scene": "s03",
+   "start": 32.865,
+   "end": 38.766,
+   "spec": [
+    "photo",
+    "a2_hertzsprung_art002e012093.jpg"
+   ]
+  },
+  {
+   "scene": "s04",
+   "start": 38.766,
+   "end": 43.667,
+   "spec": [
+    "clip",
+    "v1_a2_launch_causeway.mp4"
+   ]
+  },
+  {
+   "scene": "s04",
+   "start": 43.667,
+   "end": 46.833,
+   "spec": [
+    "photo",
+    "a2_earthset_art002e009288.jpg"
+   ]
+  },
+  {
+   "scene": "s04",
+   "start": 46.833,
+   "end": 49.307,
+   "spec": [
+    "clip",
+    "v3_a2_splashdown.mp4"
+   ]
+  },
+  {
+   "scene": "s04",
+   "start": 49.307,
+   "end": 53.157,
+   "spec": [
+    "g",
+    "d_timeline2"
+   ]
+  },
+  {
+   "scene": "s04",
+   "start": 53.157,
+   "end": 58.435,
+   "spec": [
+    "photo",
+    "artemis_cadence_infographic_feb2026.jpg"
+   ]
+  },
+  {
+   "scene": "s04",
+   "start": 58.435,
+   "end": 70.614,
+   "spec": [
+    "g",
+    "d_plan_swap"
+   ]
+  },
+  {
+   "scene": "s04",
+   "start": 70.614,
+   "end": 75.103,
+   "spec": [
+    "g",
+    "d_yearly"
+   ]
+  },
+  {
+   "scene": "s04",
+   "start": 75.103,
+   "end": 83.152,
+   "spec": [
+    "clip",
+    "v5_a3_rs25_to_workstand.mp4"
+   ]
+  },
+  {
+   "scene": "s04",
+   "start": 83.152,
+   "end": 98.623,
+   "spec": [
+    "clip",
+    "v4_a3_booster_stacking.mp4"
+   ]
+  },
+  {
+   "scene": "s05",
+   "start": 98.623,
+   "end": 106.071,
+   "spec": [
+    "clip",
+    "v5_a3_rs25_to_workstand.mp4"
+   ]
+  },
+  {
+   "scene": "s05",
+   "start": 106.071,
+   "end": 110.88,
+   "spec": [
+    "photo",
+    "a3_orion_joined_wp_ksc-20260730-ph-as01-6583.jpg"
+   ]
+  },
+  {
+   "scene": "s05",
+   "start": 110.88,
+   "end": 114.445,
+   "spec": [
+    "clip",
+    "v4_a3_booster_stacking.mp4"
+   ]
+  },
+  {
+   "scene": "s05",
+   "start": 114.445,
+   "end": 117.396,
+   "spec": [
+    "portrait",
+    "a3_srb_nosecones_large.jpg"
+   ]
+  },
+  {
+   "scene": "s05",
+   "start": 117.396,
+   "end": 123.641,
+   "spec": [
+    "photo",
+    "a3_solar_array_large.jpg"
+   ]
+  },
+  {
+   "scene": "s05",
+   "start": 123.641,
+   "end": 129.907,
+   "spec": [
+    "g",
+    "d_faster"
+   ]
+  },
+  {
+   "scene": "s05",
+   "start": 129.907,
+   "end": 135.719,
+   "spec": [
+    "clip",
+    "v1_a2_launch_causeway.mp4"
+   ]
+  },
+  {
+   "scene": "s05",
+   "start": 135.719,
+   "end": 145.286,
+   "spec": [
+    "g",
+    "d_stage_to_a4"
+   ]
+  },
+  {
+   "scene": "s06",
+   "start": 145.286,
+   "end": 154.175,
+   "spec": [
+    "g",
+    "d_crew_v2"
+   ]
+  },
+  {
+   "scene": "s06",
+   "start": 154.175,
+   "end": 162.739,
+   "spec": [
+    "g",
+    "tiles"
+   ]
+  },
+  {
+   "scene": "s06",
+   "start": 162.739,
+   "end": 171.815,
+   "spec": [
+    "g",
+    "tiles"
+   ]
+  },
+  {
+   "scene": "s06",
+   "start": 171.815,
+   "end": 178.612,
+   "spec": [
+    "g",
+    "d_distance"
+   ]
+  },
+  {
+   "scene": "s07",
+   "start": 178.612,
+   "end": 180.931,
+   "spec": [
+    "conops",
+    "(0.0, 0.0, 1.0)"
+   ]
+  },
+  {
+   "scene": "s07",
+   "start": 180.931,
+   "end": 185.74,
+   "spec": [
+    "conops",
+    "(0.0, 0.43, 0.5)"
+   ]
+  },
+  {
+   "scene": "s07",
+   "start": 185.74,
+   "end": 188.565,
+   "spec": [
+    "conops",
+    "(0.0, 0.07, 0.5)"
+   ]
+  },
+  {
+   "scene": "s07",
+   "start": 188.565,
+   "end": 193.055,
+   "spec": [
+    "conops",
+    "(0.0, 0.43, 0.5)"
+   ]
+  },
+  {
+   "scene": "s07",
+   "start": 193.055,
+   "end": 202.454,
+   "spec": [
+    "conops",
+    "(0.4, 0.4, 0.5)"
+   ]
+  },
+  {
+   "scene": "s08",
+   "start": 202.454,
+   "end": 209.454,
+   "spec": [
+    "g",
+    "d_orbits"
+   ]
+  },
+  {
+   "scene": "s08",
+   "start": 209.454,
+   "end": 218.871,
+   "spec": [
+    "g",
+    "d_orbits"
+   ]
+  },
+  {
+   "scene": "s08",
+   "start": 218.871,
+   "end": 227.286,
+   "spec": [
+    "g",
+    "d_orbits"
+   ]
+  },
+  {
+   "scene": "s08",
+   "start": 227.286,
+   "end": 231.011,
+   "spec": [
+    "g",
+    "d_orbits"
+   ]
+  },
+  {
+   "scene": "s09",
+   "start": 231.011,
+   "end": 235.536,
+   "spec": [
+    "g",
+    "d_dock_v2"
+   ]
+  },
+  {
+   "scene": "s09",
+   "start": 235.536,
+   "end": 239.812,
+   "spec": [
+    "conops",
+    "(0.3, 0.07, 0.5)"
+   ]
+  },
+  {
+   "scene": "s09",
+   "start": 239.812,
+   "end": 245.975,
+   "spec": [
+    "g",
+    "d_dock_v2"
+   ]
+  },
+  {
+   "scene": "s09",
+   "start": 245.975,
+   "end": 251.659,
+   "spec": [
+    "conops",
+    "(0.3, 0.07, 0.5)"
+   ]
+  },
+  {
+   "scene": "s09",
+   "start": 251.659,
+   "end": 256.276,
+   "spec": [
+    "g",
+    "d_clock"
+   ]
+  },
+  {
+   "scene": "s09",
+   "start": 256.276,
+   "end": 264.374,
+   "spec": [
+    "g",
+    "d_mass_sim"
+   ]
+  },
+  {
+   "scene": "s10",
+   "start": 264.374,
+   "end": 266.915,
+   "spec": [
+    "conops",
+    "(0.4, 0.4, 0.5)"
+   ]
+  },
+  {
+   "scene": "s10",
+   "start": 266.915,
+   "end": 274.477,
+   "spec": [
+    "conops",
+    "(0.5, 0.07, 0.5)"
+   ]
+  },
+  {
+   "scene": "s10",
+   "start": 274.477,
+   "end": 285.046,
+   "spec": [
+    "g",
+    "d_dock_v2"
+   ]
+  },
+  {
+   "scene": "s10",
+   "start": 285.046,
+   "end": 288.746,
+   "spec": [
+    "g",
+    "d_dock_v2"
+   ]
+  },
+  {
+   "scene": "s10",
+   "start": 288.746,
+   "end": 295.756,
+   "spec": [
+    "conops",
+    "(0.5, 0.07, 0.5)"
+   ]
+  },
+  {
+   "scene": "s11",
+   "start": 295.756,
+   "end": 301.083,
+   "spec": [
+    "conops",
+    "(0.5, 0.07, 0.5)"
+   ]
+  },
+  {
+   "scene": "s11",
+   "start": 301.083,
+   "end": 310.841,
+   "spec": [
+    "g",
+    "tiles"
+   ]
+  },
+  {
+   "scene": "s11",
+   "start": 310.841,
+   "end": 315.819,
+   "spec": [
+    "conops",
+    "(0.5, 0.35, 0.5)"
+   ]
+  },
+  {
+   "scene": "s11",
+   "start": 315.819,
+   "end": 319.493,
+   "spec": [
+    "clip",
+    "v2_a2_orion_window_reentry.mp4"
+   ]
+  },
+  {
+   "scene": "s11",
+   "start": 319.493,
+   "end": 323.697,
+   "spec": [
+    "clip",
+    "v3_a2_splashdown.mp4"
+   ]
+  },
+  {
+   "scene": "s12",
+   "start": 323.697,
+   "end": 326.037,
+   "spec": [
+    "conops",
+    "(0.0, 0.0, 1.0)"
+   ]
+  },
+  {
+   "scene": "s12",
+   "start": 326.037,
+   "end": 336.317,
+   "spec": [
+    "photo",
+    "a3_conops_oct2026.jpg"
+   ]
+  },
+  {
+   "scene": "s12",
+   "start": 336.317,
+   "end": 343.025,
+   "spec": [
+    "conops",
+    "(0.0, 0.0, 1.0)"
+   ]
+  },
+  {
+   "scene": "s12",
+   "start": 343.025,
+   "end": 355.0,
+   "spec": [
+    "g",
+    "d_handoff_v2"
+   ]
+  },
+  {
+   "scene": "s12",
+   "start": 355.0,
+   "end": 360.111,
+   "spec": [
+    "g",
+    "d_orbit_vs_moon"
+   ]
+  },
+  {
+   "scene": "s13",
+   "start": 360.111,
+   "end": 371.71,
+   "spec": [
+    "g",
+    "d_apollo"
+   ]
+  },
+  {
+   "scene": "s14",
+   "start": 371.71,
+   "end": 378.421,
+   "spec": [
+    "clip",
+    "v4_a3_booster_stacking.mp4"
+   ]
+  },
+  {
+   "scene": "s14",
+   "start": 378.421,
+   "end": 381.609,
+   "spec": [
+    "portrait",
+    "a3_srb_nosecones_large.jpg"
+   ]
+  },
+  {
+   "scene": "s14",
+   "start": 381.609,
+   "end": 387.253,
+   "spec": [
+    "conops",
+    "(0.3, 0.07, 0.5)"
+   ]
+  },
+  {
+   "scene": "s15",
+   "start": 387.253,
+   "end": 390.852,
+   "spec": [
+    "g",
+    "d_orbit_vs_moon"
+   ]
+  },
+  {
+   "scene": "s15",
+   "start": 390.852,
+   "end": 395.192,
+   "spec": [
+    "photo",
+    "a2_earthrise_art002e021278.jpg"
+   ]
+  },
+  {
+   "scene": "s15",
+   "start": 395.192,
+   "end": 401.854,
+   "spec": [
+    "photo",
+    "a2_lunar_surface_art002e009289.jpg"
+   ]
+  }
+ ]
+}

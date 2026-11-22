@@ -1,0 +1,59 @@
+{
+ "id": "ep008",
+ "mode": "approval",
+ "kind": "long",
+ "media": {
+  "asset": "EP008_final_1080p.mp4",
+  "sha256": "a58c84dc66f4e3f5646d40903474a24d6d401725ddb5c77eed21f693b0c297b0",
+  "seconds": 392.6
+ },
+ "title": "NASA Changed Its Moon Mission. Here's Why.",
+ "title_status": "final",
+ "title_options": [
+  "NASA Changed Its Moon Mission. Here's Why.",
+  "NASA's Next Moon Mission Won't Go to the Moon",
+  "Artemis III: Docking Two Moon Landers - in Earth Orbit"
+ ],
+ "description": "NASA Changed Its Moon Mission. Here's Why.\n\nArtemis II flew four astronauts around the Moon in April 2026. The next crew won't go to the Moon at all. On February 27, 2026, NASA turned Artemis III into a 2027 test flight in low Earth orbit and moved the first landing to Artemis IV, targeted for 2028. On October 23, 2026, NASA published the flight plan: about 14 days in orbit, a docking with a Blue Origin lander test article with astronauts going inside, and a nose-to-nose docking with a SpaceX Starship test article that nobody enters.\n\nCHAPTERS\n0:00 The Moon mission that stays in Earth orbit\n0:38 What NASA changed in February\n1:38 The hardware is already real\n2:23 The crew\n2:56 Three launches\n3:17 The orbits\n3:44 Docking 1: Blue Moon\n4:17 Docking 2: Starship\n4:47 Extra tests and splashdown\n5:14 Why test this in Earth orbit\n5:52 Apollo did this too\n6:03 What is still unknown\n6:17 The test before the landing\n\nWHAT IS CONFIRMED, AND WHAT IS NOT\n- Confirmed (NASA): Artemis III is planned for 2027 in low Earth orbit; about 14 days; Blue Moon test article about 273 miles up; Orion docks beside its crew cabin and up to two astronauts go inside for about two days; Starship test article docks nose to nose for up to two hours, crew does not enter; splashdown in the Pacific off California; crewed landings near the lunar South Pole planned from 2028 (Artemis IV).\n- Not announced: a launch date (NASA says 2027), and which lander will carry the first Artemis IV crew.\n- Not real footage: every docking is an OrbitalAtlas illustration, labelled on screen. Artemis II photos and video are labelled as Artemis II, not Artemis III.\n- The Apollo 9 / Apollo 11 comparison is our historical parallel, not a NASA statement.\n\nSOURCES\n- NASA, \"NASA Adds Mission to Artemis Lunar Program, Updates Architecture\" (Feb 27, 2026): https://www.nasa.gov/news-release/nasa-adds-mission-to-artemis-lunar-program-updates-architecture/\n- NASA, \"NASA's Artemis III Mission to Test Future Moon Lander Operations\" (Oct 23, 2026): https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/\n- NASA, \"How NASA's Artemis III Lander Test Will Pave Way for Moon Landings\" (Jul 15, 2026): https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/how-nasas-artemis-iii-lander-test-will-pave-way-for-moon-landings/\n- NASA, \"NASA Joins Artemis III Orion Modules; Rocket Hardware Update\" (Aug 5, 2026): https://www.nasa.gov/blogs/missions/2026/08/05/nasa-joins-artemis-iii-orion-modules-rocket-hardware-update/\n- NASA, \"NASA Completes Artemis III Booster Stacking, Shares Status Update\" (Oct 13, 2026): https://www.nasa.gov/blogs/missions/2026/10/13/nasa-completes-artemis-iii-booster-stacking-shares-status-update/\n- NASA, \"NASA Shares Artemis Acceleration Plans for Moon Missions\" (Oct 23, 2026): https://www.nasa.gov/blogs/missions/2026/10/23/nasa-shares-artemis-acceleration-plans-for-moon-missions/\n- NASA, Artemis II lunar flyby gallery (Apr 6, 2026): https://www.nasa.gov/gallery/lunar-flyby/\n\nIMAGES AND VIDEO\nNASA: Artemis II crew photos art002e009289, art002e009288, art002e012093, art002e009284, art002e021278; Artemis III operations concept graphic and Artemis cadence graphic; NASA/Sam Lott (spacer), NASA/Amanda Stevenson (Orion, solar array), NASA/Cory S Huston (boosters), NASA/Ben Smegelsky (RS-25). NASA video: Artemis II launch, Orion window view and splashdown; Artemis III booster stacking and RS-25 engine.\nDiagrams and docking animations are OrbitalAtlas illustrations, simplified and not to scale. Use of NASA imagery does not imply NASA endorsement.\n\nNarration: ElevenLabs synthetic voice (Adam). Runtime 6:33.\nMade by OrbitalAtlas.\n",
+ "tags": [
+  "Artemis III",
+  "Artemis",
+  "NASA",
+  "Moon",
+  "Orion",
+  "Starship",
+  "Blue Origin",
+  "Blue Moon",
+  "Artemis IV",
+  "SLS",
+  "space",
+  "OrbitalAtlas"
+ ],
+ "category_id": "27",
+ "default_language": "en",
+ "made_for_kids": false,
+ "contains_synthetic_media": false,
+ "disclosure_basis": "Narration is a stock text-to-speech voice (ElevenLabs Adam), not a real person's voice; imagery is real NASA photos/video and labelled OrbitalAtlas illustrations; no realistic fabricated people or events.",
+ "thumbnail": "publish/assets/ep008/thumbnail_A.jpg",
+ "captions": {
+  "file": "publish/assets/ep008/captions.srt",
+  "language": "en",
+  "name": "English"
+ },
+ "publish_at": "2026-11-03T01:00:00Z",
+ "related": null,
+ "owner_approval": {
+  "approved": false,
+  "sha256": null,
+  "publish_at": null
+ },
+ "thumbnail_review": {
+  "result": "PASS",
+  "sha256": "cca164719c234db49a5c3331ac3269edd2389f4a1207c6f4a1a45c667024d52c",
+  "note": "Cover A 'NO MOON LANDING': thumbcheck objective PASS (sat 0.64, luma std 81); compared full size and at 168x94 with the four reference covers by Claude. thumbnail_hook_match NOT confirmed by the owner (kept open on owner's instruction 2026-11-01)."
+ },
+ "storage": {
+  "release": "ep008-v1",
+  "verified_run": 41289861789
+ }
+}

@@ -1,0 +1,49 @@
+name: EP008 Adam transcript check (no paid calls)
+# Downloads the Adam narration from the draft release and transcribes it with faster-whisper (pinned versions);
+# compares the transcript with the script word by word. No ElevenLabs request.
+on:
+  push:
+    branches: [production/ep008-artemis-iii]
+    paths: [productions/ep008-artemis-iii/asr_request.txt]
+permissions:
+  contents: write
+jobs:
+  asr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Transcribe and compare
+        shell: bash {0}
+        run: |
+          P=productions/ep008-artemis-iii; mkdir -p out
+          for s in s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13 s14 s15; do id=$(gh api repos/${{ github.repository }}/releases --jq '.[] | select(.tag_name=="ep008-originals") | .assets[] | select(.name=="adam_'$s'.wav") | .id'); gh api -H 'Accept: application/octet-stream' repos/${{ github.repository }}/releases/assets/$id > out/adam_$s.wav; done
+          ls -la out > $P/adam/asr_files.txt
+          pip install "faster-whisper==1.1.1" "av==12.3.0" requests > $P/adam/whisper_log.txt 2>&1; python -c "import av, faster_whisper; print(av.__version__, faster_whisper.__version__)" >> $P/adam/whisper_log.txt 2>&1
+          python - "$P" >> $P/adam/whisper_log.txt 2>&1 <<'PY'
+          import sys, json, re, glob, os, difflib
+          from faster_whisper import WhisperModel
+          P = sys.argv[1]; m = WhisperModel("small.en", device="cpu", compute_type="int8")
+          norm = lambda t: re.sub(r"[^a-z0-9' ]", " ", t.lower().replace("’", "'")).split()
+          rep = []
+          for wav in sorted(glob.glob("out/adam_s*.wav")):
+              sid = os.path.basename(wav)[5:8]; ref = open(f"{P}/adam/{sid}.md").read()
+              segs, info = m.transcribe(wav, language="en", beam_size=5, word_timestamps=True)
+              segs = list(segs); hyp = " ".join(s.text for s in segs)
+              a, b = norm(ref), norm(hyp); sm = difflib.SequenceMatcher(a=a, b=b)
+              diffs = [(op, " ".join(a[i1:i2]), " ".join(b[j1:j2])) for op, i1, i2, j1, j2 in sm.get_opcodes() if op != "equal"]
+              last_end = max((w.end for s in segs for w in (s.words or [])), default=0)
+              rep.append({"scene": sid, "ratio": round(sm.ratio(), 3), "audio_s": round(info.duration, 2), "last_word_end": round(last_end, 2),
+                          "last_ref": " ".join(a[-4:]), "last_heard": " ".join(b[-4:]), "diffs": diffs, "heard": hyp.strip()})
+          json.dump(rep, open(f"{P}/adam/transcript_check.json", "w"), indent=1)
+          for r in rep: print(r["scene"], r["ratio"], r["audio_s"], r["last_word_end"], "| end:", r["last_heard"], "|", r["diffs"][:8])
+          PY
+          tail -20 $P/adam/whisper_log.txt
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull -q --rebase origin production/ep008-artemis-iii || true
+          for f in $P/adam/transcript_check.json $P/adam/whisper_log.txt $P/adam/asr_files.txt; do [ -f $f ] && git add -f $f; done
+          git commit -qm "EP008 Adam transcript check (run ${{ github.run_id }})" && git push -q origin HEAD:production/ep008-artemis-iii || echo nothing

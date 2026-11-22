@@ -1,0 +1,110 @@
+Collecting faster-whisper==1.1.1
+  Downloading faster_whisper-1.1.1-py3-none-any.whl.metadata (16 kB)
+Collecting av==12.3.0
+  Downloading av-12.3.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.6 kB)
+Collecting requests
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting ctranslate2<5,>=4.0 (from faster-whisper==1.1.1)
+  Downloading ctranslate2-4.8.4-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (11 kB)
+Collecting huggingface-hub>=0.13 (from faster-whisper==1.1.1)
+  Downloading huggingface_hub-2.4.0-py3-none-any.whl.metadata (16 kB)
+Collecting tokenizers<1,>=0.13 (from faster-whisper==1.1.1)
+  Downloading tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.8 kB)
+Collecting onnxruntime<2,>=1.14 (from faster-whisper==1.1.1)
+  Downloading onnxruntime-1.31.1-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (5.8 kB)
+Collecting tqdm (from faster-whisper==1.1.1)
+  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Collecting numpy (from ctranslate2<5,>=4.0->faster-whisper==1.1.1)
+  Downloading numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting pyyaml<7,>=5.3 (from ctranslate2<5,>=4.0->faster-whisper==1.1.1)
+  Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting flatbuffers (from onnxruntime<2,>=1.14->faster-whisper==1.1.1)
+  Downloading flatbuffers-25.12.19-py2.py3-none-any.whl.metadata (1.0 kB)
+Collecting packaging (from onnxruntime<2,>=1.14->faster-whisper==1.1.1)
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting protobuf>=4.25.8 (from onnxruntime<2,>=1.14->faster-whisper==1.1.1)
+  Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+Collecting click<9.0.0,>=8.4.2 (from huggingface-hub>=0.13->faster-whisper==1.1.1)
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting filelock>=3.10.0 (from huggingface-hub>=0.13->faster-whisper==1.1.1)
+  Downloading filelock-4.2.6-py3-none-any.whl.metadata (2.0 kB)
+Collecting fsspec>=2023.5.0 (from huggingface-hub>=0.13->faster-whisper==1.1.1)
+  Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface-hub>=0.13->faster-whisper==1.1.1)
+  Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting httpx2<3,>=2.0.0 (from huggingface-hub>=0.13->faster-whisper==1.1.1)
+  Downloading httpx2-2.16.0-py3-none-any.whl.metadata (10 kB)
+Collecting typing-extensions>=4.1.0 (from huggingface-hub>=0.13->faster-whisper==1.1.1)
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting anyio>=4.10 (from httpx2<3,>=2.0.0->huggingface-hub>=0.13->faster-whisper==1.1.1)
+  Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting httpcore2==2.16.0 (from httpx2<3,>=2.0.0->huggingface-hub>=0.13->faster-whisper==1.1.1)
+  Downloading httpcore2-2.16.0-py3-none-any.whl.metadata (27 kB)
+Collecting idna>=3.18 (from httpx2<3,>=2.0.0->huggingface-hub>=0.13->faster-whisper==1.1.1)
+  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting truststore>=0.10 (from httpx2<3,>=2.0.0->huggingface-hub>=0.13->faster-whisper==1.1.1)
+  Downloading truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)
+Collecting h11>=0.16 (from httpcore2==2.16.0->httpx2<3,>=2.0.0->huggingface-hub>=0.13->faster-whisper==1.1.1)
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting charset_normalizer<4,>=2 (from requests)
+  Downloading charset_normalizer-3.5.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+Collecting urllib3<3,>=1.26 (from requests)
+  Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting certifi>=2023.5.7 (from requests)
+  Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+Downloading faster_whisper-1.1.1-py3-none-any.whl (1.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 25.4 MB/s  0:00:00
+Downloading av-12.3.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (34.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 34.4/34.4 MB 196.4 MB/s  0:00:00
+Downloading ctranslate2-4.8.4-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (42.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.4/42.4 MB 224.8 MB/s  0:00:00
+Downloading onnxruntime-1.31.1-cp311-cp311-manylinux_2_28_x86_64.whl (23.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.8/23.8 MB 233.3 MB/s  0:00:00
+Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 806.6/806.6 kB 178.0 MB/s  0:00:00
+Downloading tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 320.2 MB/s  0:00:00
+Downloading huggingface_hub-2.4.0-py3-none-any.whl (857 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 857.0/857.0 kB 193.6 MB/s  0:00:00
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 364.3 MB/s  0:00:00
+Downloading httpx2-2.16.0-py3-none-any.whl (97 kB)
+Downloading httpcore2-2.16.0-py3-none-any.whl (85 kB)
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Downloading charset_normalizer-3.5.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (269 kB)
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+Downloading filelock-4.2.6-py3-none-any.whl (164 kB)
+Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 354.6 MB/s  0:00:00
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading truststore-0.10.5-py3-none-any.whl (19 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading flatbuffers-25.12.19-py2.py3-none-any.whl (26 kB)
+Installing collected packages: flatbuffers, urllib3, typing-extensions, truststore, tqdm, pyyaml, protobuf, packaging, numpy, idna, hf-xet, h11, fsspec, filelock, click, charset_normalizer, certifi, av, requests, onnxruntime, httpcore2, ctranslate2, anyio, httpx2, huggingface-hub, tokenizers, faster-whisper
+
+Successfully installed anyio-4.15.1 av-12.3.0 certifi-2026.10.23 charset_normalizer-3.5.2 click-8.5.0 ctranslate2-4.8.4 faster-whisper-1.1.1 filelock-4.2.6 flatbuffers-25.12.19 fsspec-2026.9.0 h11-0.16.0 hf-xet-1.8.0 httpcore2-2.16.0 httpx2-2.16.0 huggingface-hub-2.4.0 idna-3.20 numpy-2.4.6 onnxruntime-1.31.1 packaging-26.3 protobuf-7.36.2 pyyaml-6.0.3 requests-2.34.2 tokenizers-0.23.3 tqdm-4.70.1 truststore-0.10.5 typing-extensions-4.16.0 urllib3-2.8.0
+12.3.0 1.1.1
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+s01 1.0 4.74 4.34 | end: even leave earth orbit | []
+s02 0.972 13.84 13.22 | end: barrel with no engine | [('replace', 'two', '2')]
+s03 0.981 19.04 18.66 | end: waits for artemis 4 | [('replace', 'four', '4')]
+s04 0.893 59.81 58.86 | end: did it in 1969 | [('replace', "two's", "2's"), ('replace', 'ten', '10'), ('replace', 'first', '1st'), ('replace', 'sixth splashdown', '6th splashed down'), ('replace', 'tenth', '10th'), ('replace', 'twenty seventh', '27th'), ('replace', 'three', '3'), ('replace', 'twenty twenty seven', '2027')]
+s05 0.925 44.77 44.34 | end: to reach the moon | [('delete', 'and', ''), ('replace', 'three', 'iii'), ('replace', 'thirtieth', '30'), ('replace', 'two hundred and fifty', '250'), ('replace', "two's", "ii's"), ('replace', 'fifty percent', '50'), ('replace', 'four', 'iv')]
+s06 0.982 32.6 31.92 | end: hundred miles from home | [('replace', 'two hundred', '200')]
+s07 0.968 20.71 20.42 | end: than blue origin's lander | [('replace', 'three', 'iii'), ('replace', 'thirty', '30')]
+s08 0.825 26.42 25.94 | end: from nasa's flight profile | [('replace', 'two hundred seventy three', '273'), ('replace', 'eighteen', '18'), ('replace', 'eleven hundred', '1 100'), ('replace', 'three hundred forty five', '345'), ('replace', 'two hundred six', '206'), ('replace', 'an', 'and')]
+s09 1.0 32.32 31.76 | end: cabin really feels like | []
+s10 0.944 29.81 29.42 | end: communication tests to run | [('replace', 'a hundred seventy one', '171'), ('replace', 'fifty two', '52')]
+s11 0.971 26.89 26.24 | end: ii landed in april | [('replace', 'fourteen', '14'), ('replace', 'two', 'ii')]
+s12 0.99 37.15 36.78 | end: home in earth orbit | [('replace', 'four', '4')]
+s13 0.84 10.63 10.26 | end: later apollo 11 landed | [('replace', 'nineteen sixty nine', '1969'), ('replace', 'nine', '9'), ('replace', 'eleven', '11')]
+s14 0.927 13.84 13.44 | end: down on artemis 4 | [('replace', 'twenty twenty seven', '2027'), ('replace', 'four', '4')]
+s15 0.944 13.56 13.1 | end: test it can't skip | [('replace', 'four', '4'), ('replace', 'three', '3')]

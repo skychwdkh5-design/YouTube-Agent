@@ -1,0 +1,77 @@
+# EP008 status — Artemis III (2026-10-30)
+
+Owner decision 2026-10-30: Artemis III moves from NEXORA to Orbital Atlas; NEXORA no longer produces it.
+Episode number EP008: free after checking every branch (production/*, media/*, publish/*, publish-data queue):
+highest used is EP007.
+
+## Where things are
+- `nexora-import/` — NEXORA research copied unchanged (youtube-ops, research/runs/2026-10-30-growth-demo; PROVENANCE.txt) and, received at 13:03, NEXORA's later preproduction from branch production/artemis3 (`nexora-import/production-artemis3/`: script, edit plan, motion spec, hook board). Reconciled claim by claim in research/RESEARCH.md §4b; its verified extras are in the EP008 script.
+- `research/RESEARCH.md` — confirmed facts F01-F30, removed secondary claims S1-S3, never-say list, corrections vs NEXORA.
+- `research/media.json` — assets, credits, rights, cover use, needed resolution, excluded material.
+- `research/TOPIC_SCORE.md`, `topics.json` — OA rescoring (3.83 GO-CANDIDATE); `OUTLIERS_external_vidiq.md` — NEXORA vidIQ data through OA outliers.py, labelled external.
+- `beats.py` → `script/SCRIPT.md`, `script/EDIT_MAP.md`, `script/edit_map.json`, `script/narration.txt`.
+- `packages/thumbnail_hook.json` (A chosen, B/C kept), `packages/FIRST_20S.md`, `packages/SHORTS.md`, `QC.md`.
+- `fetch_list.txt`, `fetch_pages.txt`, `fetch_video_queries.txt` + `.github/workflows/ep008-fetch.yml` (this branch only, same pattern as EP007): runner downloads NASA originals to DRAFT release `ep008-originals`, commits `fetch_manifest.tsv`, `research/primary-texts/`, `research/video_candidates.json`.
+
+## Not done / not allowed yet
+- No voice (ElevenLabs/Adam only after owner approves script and draft). No upload, no queue entry, no schedule change.
+- No vidIQ calls (0 credits). NEXORA untouched (read only).
+
+## Draft status (2026-10-31)
+- Owner approved the hook direction (18:08) with changes, all applied: larger Earth-orbit diagram, zoomed upper-stage →
+  spacer swap, timeline cut to two dates (Feb 27 / Oct 23, 2026), NASA con-ops graphic shown as large sequential fragments
+  with the narrated item lit (graphics.conops, never above native resolution), frame 1 text "LAND ON THE MOON" (no specific
+  landing point is confirmed for that photo).
+- Mission chips on every picture: blue Artemis II (flown) / gold Artemis III plan / white Artemis III hardware.
+- Full draft: `draft.py` (shots anchored to sentences of the temporary voice) → `draft/EP008_draft_v1.mp4` (git-ignored, sent
+  in chat) + `.srt` + `.timeline.json`. Temporary voice: Kokoro am_michael via `tts_temp.py` (all scenes, ~6:55).
+- 5 NASA clips used: v1 launch, v2 Orion window, v3 splashdown (1920x1012 with blurred fill, not upscaled), v4 booster
+  stacking, v5 RS-25. Stills: 13 originals + 2 `~large` (srb-nosecones portrait shown height-fit over blurred fill).
+- Not started: ElevenLabs Adam (needs owner OK after the draft), Shorts, final cover gate, publishing.
+
+## Draft v2 (2026-10-31 20:20, owner edit notes of 20:04)
+- Text lists → visuals: yearly-landing calendar, "faster" bars, crew around an Orion silhouette (names only), training and
+  extra-test icon tiles, suit-mass-simulator cutaway. Quotes → short lower thirds over picture (Isaacman, Parsons).
+- Recognisable vehicles (own drawings, labelled ILLUSTRATION): Orion (CM + ESM + wings), Blue Moon test article (tall
+  lander, side port by the cabin), Starship (52 m, flaps, nose port). Docking shown in phases APPROACH → CONTACT → DOCKED.
+- DAYS/HOURS comparison removed: no NASA source for a return time from LEO (RESEARCH.md §4d); s12 shortened by ~15 s.
+- draft/EP008_draft_v2.mp4 6:42, QC: technical PASS; warn length (<8 min target) and one 3.9 s freeze; thumbnail_hook_match
+  waits for the owner. Changed-fragment reel: draft/EP008_v2_changes.mp4 (git-ignored, sent in chat).
+
+## Final v1 (2026-11-01)
+- Owner approved ElevenLabs Adam 14:36 ICT; calendar label changed to "NASA LUNAR LANDING PLAN" first.
+- Adam via .github/workflows/ep008-voice.yml (audio in draft release ep008-originals: adam_sNN.wav; timings adam/timing/),
+  transcript check via ep008-asr.yml (adam/transcript_check.json). Final: `EP008_VOICE=voice_adam python3 draft.py ... --tag EP008_final_v1`.
+- Deliverables in final/: EP008_final_1080p.mp4 (local + chat only), EP008_en.srt, EP008_cover_A.jpg, SHA256SUMS. QC: QC.md "Final v1".
+- NOT done (needs owner): publication/queue (chat-publish protocol), Shorts, cover gate record for publish, thumbnail_hook match confirmation.
+
+## Storage + publish candidate (2026-11-01 15:40-16:10)
+- Final MP4 stored outside the workspace: branch media/ep008-final (3 parts) → workflow ep008-store.yml reassembled it,
+  sha256 a58c84dc… OK against SHA256SUMS, ffprobe H.264 High@4.1 1920x1080 30 fps + AAC 48 kHz stereo, 392.6 s, 101,200,045 B,
+  moov before mdat, full decode clean → DRAFT release ep008-v1 (EP008_final_1080p.mp4, EP008_cover_A.jpg, EP008_en.srt,
+  SHA256SUMS). Report: media/ep008-final:ep008/STORE_REPORT.txt (run 41289861789).
+- Publish candidate entry (NOT in publish-data, NOT queued): packages/publish_candidate_ep008.json; card preview code C7D6-1BAF
+  shown to the owner as a preview only (not logged in cards.jsonl, no consent requested). Proposed time 2026-11-03 01:00 UTC.
+- thumbnail_hook_match stays unconfirmed (owner 15:39). Next: owner decides publish time/text; then the chat-publish flow
+  (card logged + consent naming ep008) — media.json in publish-data must point to release ep008-v1.
+
+## Official card (2026-11-01 15:54 ICT, owner switched chat-publish on and moved the date)
+- publish-data a70943b: queue entry ep008 (publish 2026-11-01T16:00:00Z = 23:00 ICT), media.json bundle -> ep008-v1
+  (EP008_final_1080p.mp4 sha256 a58c84dc…), publish/assets/ep008/{thumbnail_A.jpg,captions.srt}; card 1604-4798 logged in
+  publish/cards.jsonl. The 2026-11-03 proposal is cancelled. Not approved, not uploaded.
+- CHAT_PUBLISH_ENABLED cannot be read from this session (proxy 403 on the Actions variables API).
+- Next: owner consent naming ep008 after card 1604-4798 → approval.py make → dispatch "YouTube publish (chat-approved)".
+
+## UPLOADED AND SCHEDULED (2026-11-01 16:01 ICT)
+- Owner consent 15:57 ICT: "Одобряю ep008 по карточке 1604-4798" (+ cover/first-frame match confirmed).
+- publish-data f0f1879: approval c92c488aa038468ea3037f31a2440d7d (6e0dca56 removed: wrong consent_channel, failed dry run).
+- Release ep008-v1 title set to "ep008-v1" (media.py looks up by name) via ep008-release-name.yml.
+- Run 41291231955 (issue #44): https://youtu.be/VQoqReQm9S4 — private, publishAt 2026-11-01T16:00:00Z (23:00 ICT),
+  verified_scheduled true, thumbnail set. Captions NOT uploaded (OAuth token lacks the captions scope, same as EP007):
+  add final/EP008_en.srt by hand in YouTube Studio → Subtitles.
+- Verify scheduled releases workflow will confirm the public release in the ledger.
+
+## Next session, in order
+1. Owner reviews draft v1. Fixes → re-render with `python3 draft.py --media <dir> --render --confirm` (or `--scenes sNN` for parts).
+2. After owner approval of the draft: ElevenLabs Adam via yt-voice (--confirm), re-time draft.py on Adam's timing, final render,
+   two Shorts (packages/SHORTS.md), SRT, cover gate (section 5), QC report.

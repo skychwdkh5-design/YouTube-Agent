@@ -1,0 +1,301 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "adam_s03.wav",
+ "audio_format": "wav",
+ "audio_sha256": "00d27cd48ab5de0ab943ad1488e64aaee2ef8c5debd669d997eebab62a9a21d6",
+ "duration": 19.04,
+ "characters": 291,
+ "text": "NASA made this change back in February, and in October it published the full plan: fourteen days in orbit, two Moon landers, and one test that has to work before anyone lands near the lunar South Pole. Here's what they'll actually do up there, and why the landing now waits for Artemis Four.",
+ "text_sha256": "60a671ea023541208ecb9beb81c1820dee6adeef9b01e47e61b2d7851bec956d",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 291,
+   "offset": 0.0,
+   "duration": 19.04,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "NASA",
+   "start": 0.0,
+   "end": 0.418
+  },
+  {
+   "text": "made",
+   "start": 0.476,
+   "end": 0.65
+  },
+  {
+   "text": "this",
+   "start": 0.685,
+   "end": 0.824
+  },
+  {
+   "text": "change",
+   "start": 0.882,
+   "end": 1.184
+  },
+  {
+   "text": "back",
+   "start": 1.231,
+   "end": 1.416
+  },
+  {
+   "text": "in",
+   "start": 1.474,
+   "end": 1.533
+  },
+  {
+   "text": "February,",
+   "start": 1.602,
+   "end": 2.392
+  },
+  {
+   "text": "and",
+   "start": 2.519,
+   "end": 2.694
+  },
+  {
+   "text": "in",
+   "start": 2.775,
+   "end": 2.844
+  },
+  {
+   "text": "October",
+   "start": 2.914,
+   "end": 3.448
+  },
+  {
+   "text": "it",
+   "start": 3.518,
+   "end": 3.599
+  },
+  {
+   "text": "published",
+   "start": 3.657,
+   "end": 4.063
+  },
+  {
+   "text": "the",
+   "start": 4.098,
+   "end": 4.168
+  },
+  {
+   "text": "full",
+   "start": 4.226,
+   "end": 4.423
+  },
+  {
+   "text": "plan:",
+   "start": 4.493,
+   "end": 5.085
+  },
+  {
+   "text": "fourteen",
+   "start": 5.596,
+   "end": 6.072
+  },
+  {
+   "text": "days",
+   "start": 6.142,
+   "end": 6.374
+  },
+  {
+   "text": "in",
+   "start": 6.42,
+   "end": 6.49
+  },
+  {
+   "text": "orbit,",
+   "start": 6.583,
+   "end": 7.047
+  },
+  {
+   "text": "two",
+   "start": 7.221,
+   "end": 7.407
+  },
+  {
+   "text": "Moon",
+   "start": 7.477,
+   "end": 7.686
+  },
+  {
+   "text": "landers,",
+   "start": 7.755,
+   "end": 8.301
+  },
+  {
+   "text": "and",
+   "start": 8.382,
+   "end": 8.568
+  },
+  {
+   "text": "one",
+   "start": 8.649,
+   "end": 8.87
+  },
+  {
+   "text": "test",
+   "start": 8.916,
+   "end": 9.253
+  },
+  {
+   "text": "that",
+   "start": 9.3,
+   "end": 9.451
+  },
+  {
+   "text": "has",
+   "start": 9.509,
+   "end": 9.659
+  },
+  {
+   "text": "to",
+   "start": 9.718,
+   "end": 9.787
+  },
+  {
+   "text": "work",
+   "start": 9.845,
+   "end": 10.066
+  },
+  {
+   "text": "before",
+   "start": 10.136,
+   "end": 10.449
+  },
+  {
+   "text": "anyone",
+   "start": 10.507,
+   "end": 10.902
+  },
+  {
+   "text": "lands",
+   "start": 10.96,
+   "end": 11.308
+  },
+  {
+   "text": "near",
+   "start": 11.366,
+   "end": 11.517
+  },
+  {
+   "text": "the",
+   "start": 11.564,
+   "end": 11.633
+  },
+  {
+   "text": "lunar",
+   "start": 11.68,
+   "end": 11.97
+  },
+  {
+   "text": "South",
+   "start": 12.04,
+   "end": 12.295
+  },
+  {
+   "text": "Pole.",
+   "start": 12.353,
+   "end": 12.91
+  },
+  {
+   "text": "Here's",
+   "start": 13.607,
+   "end": 13.886
+  },
+  {
+   "text": "what",
+   "start": 13.909,
+   "end": 14.048
+  },
+  {
+   "text": "they'll",
+   "start": 14.083,
+   "end": 14.327
+  },
+  {
+   "text": "actually",
+   "start": 14.385,
+   "end": 14.861
+  },
+  {
+   "text": "do",
+   "start": 14.93,
+   "end": 15.047
+  },
+  {
+   "text": "up",
+   "start": 15.128,
+   "end": 15.244
+  },
+  {
+   "text": "there,",
+   "start": 15.29,
+   "end": 15.708
+  },
+  {
+   "text": "and",
+   "start": 15.987,
+   "end": 16.149
+  },
+  {
+   "text": "why",
+   "start": 16.208,
+   "end": 16.44
+  },
+  {
+   "text": "the",
+   "start": 16.521,
+   "end": 16.591
+  },
+  {
+   "text": "landing",
+   "start": 16.66,
+   "end": 17.032
+  },
+  {
+   "text": "now",
+   "start": 17.101,
+   "end": 17.322
+  },
+  {
+   "text": "waits",
+   "start": 17.415,
+   "end": 17.705
+  },
+  {
+   "text": "for",
+   "start": 17.752,
+   "end": 17.879
+  },
+  {
+   "text": "Artemis",
+   "start": 17.961,
+   "end": 18.344
+  },
+  {
+   "text": "Four.",
+   "start": 18.413,
+   "end": 19.04
+  }
+ ],
+ "created": "2026-11-01T07:38:30Z",
+ "warnings": []
+}

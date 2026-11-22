@@ -1,0 +1,381 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "adam_s11.wav",
+ "audio_format": "wav",
+ "audio_sha256": "7465db6095e8187375a54ec4efddaa92a229e04663c5d9efdaee687790435a02",
+ "duration": 26.889,
+ "characters": 391,
+ "text": "After Starship, NASA has set aside up to five more days for extra tests: more checks of the crew's survival suits, docking sensor tests, sound and heat measurements, and studies of how the crew lives and works on board. Then, after about fourteen days in total, Orion comes home and splashes down in the Pacific, off the coast of California, the same ocean where Artemis Two landed in April.",
+ "text_sha256": "fdc020ab4006623775b25d57a827c601dcb756cd23a029fb0f2c1a9386c4c376",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 391,
+   "offset": 0.0,
+   "duration": 26.889,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "After",
+   "start": 0.0,
+   "end": 0.29
+  },
+  {
+   "text": "Starship,",
+   "start": 0.36,
+   "end": 0.987
+  },
+  {
+   "text": "NASA",
+   "start": 1.045,
+   "end": 1.44
+  },
+  {
+   "text": "has",
+   "start": 1.474,
+   "end": 1.591
+  },
+  {
+   "text": "set",
+   "start": 1.637,
+   "end": 1.8
+  },
+  {
+   "text": "aside",
+   "start": 1.846,
+   "end": 2.206
+  },
+  {
+   "text": "up",
+   "start": 2.241,
+   "end": 2.334
+  },
+  {
+   "text": "to",
+   "start": 2.38,
+   "end": 2.438
+  },
+  {
+   "text": "five",
+   "start": 2.519,
+   "end": 2.833
+  },
+  {
+   "text": "more",
+   "start": 2.868,
+   "end": 3.077
+  },
+  {
+   "text": "days",
+   "start": 3.135,
+   "end": 3.437
+  },
+  {
+   "text": "for",
+   "start": 3.495,
+   "end": 3.611
+  },
+  {
+   "text": "extra",
+   "start": 3.692,
+   "end": 4.005
+  },
+  {
+   "text": "tests:",
+   "start": 4.063,
+   "end": 4.748
+  },
+  {
+   "text": "more",
+   "start": 5.074,
+   "end": 5.283
+  },
+  {
+   "text": "checks",
+   "start": 5.317,
+   "end": 5.642
+  },
+  {
+   "text": "of",
+   "start": 5.677,
+   "end": 5.747
+  },
+  {
+   "text": "the",
+   "start": 5.793,
+   "end": 5.863
+  },
+  {
+   "text": "crew's",
+   "start": 5.909,
+   "end": 6.211
+  },
+  {
+   "text": "survival",
+   "start": 6.246,
+   "end": 6.711
+  },
+  {
+   "text": "suits,",
+   "start": 6.769,
+   "end": 7.303
+  },
+  {
+   "text": "docking",
+   "start": 7.43,
+   "end": 7.837
+  },
+  {
+   "text": "sensor",
+   "start": 7.906,
+   "end": 8.231
+  },
+  {
+   "text": "tests,",
+   "start": 8.29,
+   "end": 8.998
+  },
+  {
+   "text": "sound",
+   "start": 9.172,
+   "end": 9.601
+  },
+  {
+   "text": "and",
+   "start": 9.659,
+   "end": 9.752
+  },
+  {
+   "text": "heat",
+   "start": 9.822,
+   "end": 9.985
+  },
+  {
+   "text": "measurements,",
+   "start": 10.043,
+   "end": 10.739
+  },
+  {
+   "text": "and",
+   "start": 10.983,
+   "end": 11.122
+  },
+  {
+   "text": "studies",
+   "start": 11.192,
+   "end": 11.598
+  },
+  {
+   "text": "of",
+   "start": 11.645,
+   "end": 11.714
+  },
+  {
+   "text": "how",
+   "start": 11.773,
+   "end": 11.889
+  },
+  {
+   "text": "the",
+   "start": 11.947,
+   "end": 12.016
+  },
+  {
+   "text": "crew",
+   "start": 12.063,
+   "end": 12.295
+  },
+  {
+   "text": "lives",
+   "start": 12.388,
+   "end": 12.794
+  },
+  {
+   "text": "and",
+   "start": 12.841,
+   "end": 12.934
+  },
+  {
+   "text": "works",
+   "start": 13.003,
+   "end": 13.305
+  },
+  {
+   "text": "on",
+   "start": 13.375,
+   "end": 13.491
+  },
+  {
+   "text": "board.",
+   "start": 13.56,
+   "end": 14.176
+  },
+  {
+   "text": "Then,",
+   "start": 14.617,
+   "end": 15.162
+  },
+  {
+   "text": "after",
+   "start": 15.441,
+   "end": 15.766
+  },
+  {
+   "text": "about",
+   "start": 15.836,
+   "end": 16.114
+  },
+  {
+   "text": "fourteen",
+   "start": 16.184,
+   "end": 16.729
+  },
+  {
+   "text": "days",
+   "start": 16.799,
+   "end": 17.078
+  },
+  {
+   "text": "in",
+   "start": 17.136,
+   "end": 17.217
+  },
+  {
+   "text": "total,",
+   "start": 17.298,
+   "end": 17.809
+  },
+  {
+   "text": "Orion",
+   "start": 17.937,
+   "end": 18.459
+  },
+  {
+   "text": "comes",
+   "start": 18.541,
+   "end": 18.796
+  },
+  {
+   "text": "home",
+   "start": 18.854,
+   "end": 19.144
+  },
+  {
+   "text": "and",
+   "start": 19.202,
+   "end": 19.307
+  },
+  {
+   "text": "splashes",
+   "start": 19.388,
+   "end": 19.969
+  },
+  {
+   "text": "down",
+   "start": 20.027,
+   "end": 20.363
+  },
+  {
+   "text": "in",
+   "start": 20.421,
+   "end": 20.491
+  },
+  {
+   "text": "the",
+   "start": 20.538,
+   "end": 20.607
+  },
+  {
+   "text": "Pacific,",
+   "start": 20.654,
+   "end": 21.234
+  },
+  {
+   "text": "off",
+   "start": 21.478,
+   "end": 21.78
+  },
+  {
+   "text": "the",
+   "start": 21.849,
+   "end": 21.919
+  },
+  {
+   "text": "coast",
+   "start": 21.977,
+   "end": 22.256
+  },
+  {
+   "text": "of",
+   "start": 22.314,
+   "end": 22.372
+  },
+  {
+   "text": "California,",
+   "start": 22.43,
+   "end": 23.312
+  },
+  {
+   "text": "the",
+   "start": 23.521,
+   "end": 23.626
+  },
+  {
+   "text": "same",
+   "start": 23.672,
+   "end": 23.939
+  },
+  {
+   "text": "ocean",
+   "start": 23.986,
+   "end": 24.299
+  },
+  {
+   "text": "where",
+   "start": 24.357,
+   "end": 24.555
+  },
+  {
+   "text": "Artemis",
+   "start": 24.613,
+   "end": 24.996
+  },
+  {
+   "text": "Two",
+   "start": 25.054,
+   "end": 25.298
+  },
+  {
+   "text": "landed",
+   "start": 25.414,
+   "end": 25.797
+  },
+  {
+   "text": "in",
+   "start": 25.843,
+   "end": 25.913
+  },
+  {
+   "text": "April.",
+   "start": 25.994,
+   "end": 26.888
+  }
+ ],
+ "created": "2026-11-01T07:39:45Z",
+ "warnings": []
+}

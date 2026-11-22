@@ -1,0 +1,579 @@
+{
+ "version": 1,
+ "claims": [
+  {
+   "id": "feb-change",
+   "text": "In February 2026, NASA turned Artemis III into a 2027 test flight in low Earth orbit.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/news-release/nasa-adds-mission-to-artemis-lunar-program-updates-architecture/",
+     "publisher": "NASA",
+     "title": "NASA Adds Mission to Artemis Lunar Program, Updates Architecture",
+     "date": "2026-02-27",
+     "accessed": "2026-10-30",
+     "quote": "[paraphrase - re-read] Artemis III moved to 2027 as an additional mission: a test flight in low Earth orbit ahead of the landing mission"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "feb-landers",
+   "text": "The flight is built to rendezvous and dock with commercial Moon landers from SpaceX and Blue Origin.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/news-release/nasa-adds-mission-to-artemis-lunar-program-updates-architecture/",
+     "publisher": "NASA",
+     "title": "NASA Adds Mission to Artemis Lunar Program, Updates Architecture",
+     "date": "2026-02-27",
+     "accessed": "2026-10-30",
+     "quote": "[paraphrase - re-read] rendezvous and dock with one or both commercial landers from SpaceX and Blue Origin"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "first-landing",
+   "text": "The first Artemis landing is now Artemis IV, targeted for 2028.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/news-release/nasa-adds-mission-to-artemis-lunar-program-updates-architecture/",
+     "publisher": "NASA",
+     "title": "NASA Adds Mission to Artemis Lunar Program, Updates Architecture",
+     "date": "2026-02-27",
+     "accessed": "2026-10-30",
+     "quote": "[paraphrase - re-read] first landing: Artemis IV, targeted for 2028"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "crew",
+   "text": "The crew: Randy Bresnik (commander), Luca Parmitano of ESA (pilot), Andre Douglas and Frank Rubio (mission specialists).",
+   "kind": "background",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/news-release/nasa-marches-toward-artemis-iii-mission-in-2027-names-crew-members/",
+     "publisher": "NASA",
+     "title": "NASA Marches Toward Artemis III Mission in 2027, Names Crew Members",
+     "date": "2026-06-09",
+     "accessed": "2026-10-30",
+     "quote": "[paraphrase - re-read] crew roles as listed in the 2026-06-09 release"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "days-14",
+   "text": "The mission is planned to last 14 days.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "During the planned 14-day mission, crews and flight controllers will practice"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "bm-first",
+   "text": "Blue Origin launches first: a test version of its Blue Moon Mark 2 lander into a circular low Earth orbit.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "The mission begins with Blue Origin launching a test version of its Blue Moon Mark 2 lander into a circular low Earth orbit"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "bm-30",
+   "text": "The lander test article can wait in orbit for up to 30 days.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "The spacecraft can remain on orbit for up to 30 days providing schedule flexibility."
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "orion-days",
+   "text": "Orion launches on SLS from Kennedy only days after the lander.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "NASA planning to launch Orion on top of SLS from the agency's Kennedy Space Center in Florida only days after"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "orion-ellipse",
+   "text": "Orion first enters an elliptical orbit of 18 by 1,122 miles.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "Orion will initially enter an elliptical Earth orbit of 18 x 1122 miles (16 x 975 nautical miles)."
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "orion-345",
+   "text": "Orion then circularizes at about 345 miles for thermal stabilization.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "transition to a circular orbit at about 345 miles (300 nautical miles) for thermal stabilization"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "checkout-2d",
+   "text": "The first two days are spent checking out Orion's systems.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "During the first two days of flight, the crew will check out Orion's systems"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "bm-dock-2d",
+   "text": "Docked to Blue Moon, the crew opens the hatch, goes inside and spends about two days evaluating it.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "Once docked, astronauts will spend approximately two days conducting evaluations aboard the Blue Moon test article. / Crew members will open the hatch and enter the spacecraft"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "first-eval",
+   "text": "It would be NASA's first evaluation of a commercial lunar lander with crew.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "By the time Orion undocks, NASA will have completed its first evaluation of a commercial lunar lander with crew"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "ss-launch",
+   "text": "SpaceX launches a Starship Version 3 test article from Florida.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "SpaceX will launch a Starship Version 3 test article from Florida."
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "ss-2h",
+   "text": "Orion docks with Starship in a test expected to last up to two hours; the crew does not enter Starship.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "Orion will rendezvous and dock with the spacecraft during a test expected to last up to two hours. / Crew will not enter Starship during this test."
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "extra-5d",
+   "text": "After that, Orion has up to five more days available in orbit.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "Once the Starship demonstration is complete, Orion and its crew will have up to five additional days available in orbit"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "splash",
+   "text": "Orion splashes down in the Pacific; NASA and the US Navy recover crew and capsule.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "the crew will configure the cabin for reentry and splashdown, which will occur in the Pacific Ocean / Orion and its crew will be recovered by NASA personnel and the United States Navy."
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "orion-joined",
+   "text": "Artemis III's Orion crew and service modules were joined at Kennedy in July 2026.",
+   "kind": "demonstrated",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/blogs/missions/2026/08/05/nasa-joins-artemis-iii-orion-modules-rocket-hardware-update/",
+     "publisher": "NASA",
+     "title": "NASA Joins Artemis III Orion Modules; Rocket Hardware Update",
+     "date": "2026-08-05",
+     "accessed": "2026-10-30",
+     "quote": "[paraphrase - re-read] engineers joined the crew and service modules on July 30 inside the Neil Armstrong Operations and Checkout Building"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "rs25",
+   "text": "Four RS-25 engines for Artemis III arrived at the Vehicle Assembly Building in July 2026.",
+   "kind": "demonstrated",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/blogs/missions/2026/08/05/nasa-joins-artemis-iii-orion-modules-rocket-hardware-update/",
+     "publisher": "NASA",
+     "title": "NASA Joins Artemis III Orion Modules; Rocket Hardware Update",
+     "date": "2026-08-05",
+     "accessed": "2026-10-30",
+     "quote": "[caption paraphrase - re-read] four RS-25 engines delivered to the VAB on July 21, 2026"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "noses",
+   "text": "The twin boosters got their nose cones in the Vehicle Assembly Building on September 30, 2026.",
+   "kind": "demonstrated",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/blogs/missions/2026/10/13/nasa-completes-artemis-iii-booster-stacking-shares-status-update/",
+     "publisher": "NASA",
+     "title": "NASA Completes Artemis III Booster Stacking, Shares Status Update",
+     "date": "2026-10-13",
+     "accessed": "2026-10-30",
+     "quote": "[caption paraphrase - re-read] nose cones attached to the twin solid rocket boosters inside the VAB on September 30, 2026"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "oct23",
+   "text": "On October 23, 2026, NASA briefed its plan to speed up Artemis, with Artemis III in Earth orbit in 2027.",
+   "kind": "demonstrated",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/blogs/missions/2026/10/23/nasa-shares-artemis-acceleration-plans-for-moon-missions/",
+     "publisher": "NASA",
+     "title": "NASA Shares Artemis Acceleration Plans for Moon Missions",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "[paraphrase - re-read] Artemis III crew will fly to low Earth orbit in 2027 to test systems needed for future lunar landings"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "goals",
+   "text": "Crews and flight controllers will practice the rendezvous, docking, habitation and operational procedures future landings need.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "the rendezvous, docking, habitation, and operational procedures"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "goals-risk",
+   "text": "NASA says the flight is meant to reduce risk, validate hardware and gain operational experience before a crewed landing.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "reduce risk, validate hardware, and gain operational experience"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "three-rockets",
+   "text": "Artemis III involves three separate spacecraft launched on three different heavy-lift rockets.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "involve three separate spacecraft launched on three different heavy-lift rockets"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "ss-orbit",
+   "text": "Starship flies in a lower orbit, at 206 nautical miles, chosen for communications coverage.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "Starship will enter a lower orbit at 206 nautical miles, optimized for communications coverage"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "ports",
+   "text": "Orion connects to a port beside Blue Moon's crew cabin, and later uses its forward docking system for Starship's docking system at Starship's forward end.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "Orion will connect to a port beside Blue Moon's crew cabin, then later align its forward docking system / mounted at the forward end"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "extra-tests",
+   "text": "The extra days include suit evaluations, docking sensor tests, acoustic and thermal measurements, human-factors assessments and science and technology demonstrations.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/",
+     "publisher": "NASA",
+     "title": "NASA's Artemis III Mission to Test Future Moon Lander Operations",
+     "date": "2026-10-23",
+     "accessed": "2026-10-30",
+     "quote": "the Orion Crew Survival System suits, docking sensor tests, / acoustic and thermal measurements, human-factors assessments, and a range of science and technology demonstrations"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "feb-tests",
+   "text": "February's plan listed in-space tests of the docked vehicles, integrated checkout of life support, communications and propulsion, and tests of new xEVA suits.",
+   "kind": "announced",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/news-release/nasa-adds-mission-to-artemis-lunar-program-updates-architecture/",
+     "publisher": "NASA",
+     "title": "NASA Adds Mission to Artemis Lunar Program, Updates Architecture",
+     "date": "2026-02-27",
+     "accessed": "2026-10-30",
+     "quote": "in-space tests of the docked vehicles, integrated checkout of life support, communications, and propulsion systems / tests of the new Extravehicular Activity (xEVA) suits"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "feb-yearly",
+   "text": "NASA plans at least one surface landing every year after that.",
+   "kind": "prediction",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/news-release/nasa-adds-mission-to-artemis-lunar-program-updates-architecture/",
+     "publisher": "NASA",
+     "title": "NASA Adds Mission to Artemis Lunar Program, Updates Architecture",
+     "date": "2026-02-27",
+     "accessed": "2026-10-30",
+     "quote": "at least one surface landing every year thereafter"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  },
+  {
+   "id": "feb-why",
+   "text": "NASA's Amit Kshatriya said the agency wants to keep testing like it flies; Administrator Jared Isaacman pointed to standardizing and raising the flight rate safely.",
+   "kind": "reported",
+   "status": "unverified",
+   "sources": [
+    {
+     "url": "https://www.nasa.gov/news-release/nasa-adds-mission-to-artemis-lunar-program-updates-architecture/",
+     "publisher": "NASA",
+     "title": "NASA Adds Mission to Artemis Lunar Program, Updates Architecture",
+     "date": "2026-02-27",
+     "accessed": "2026-10-30",
+     "quote": "we want to keep testing like we fly and have flown / NASA must standardize its approach, increase flight rate safely"
+    }
+   ],
+   "verified_on": null,
+   "notes": "read via WebFetch 2026-10-30; a person must re-read the page before status=verified"
+  }
+ ],
+ "excluded": [
+  {
+   "text": "Blue Moon orbit of about 273 miles",
+   "why": "not confirmed verbatim on the NASA page in the re-check - left out"
+  },
+  {
+   "text": "splashdown off California",
+   "why": "not confirmed verbatim - script says Pacific only"
+  },
+  {
+   "text": "Starship stays docked about one day",
+   "why": "wrong (secondary source); NASA: up to two hours"
+  },
+  {
+   "text": "any launch date or 'mid-2027'",
+   "why": "NASA states 2027 only"
+  },
+  {
+   "text": "Starship in a 206 nautical mile orbit",
+   "why": "verbatim, but not needed; keeps numbers down"
+  },
+  {
+   "text": "anything dated after 2026-10-23 (e.g. 2026-10-28 core stage)",
+   "why": "owner rule"
+  },
+  {
+   "text": "'We're launching three spacecraft on three different rockets' as a quote",
+   "why": "speaker not identified in the re-check - only the page's own sentence is used"
+  },
+  {
+   "text": "China competition as the reason",
+   "why": "not needed and easy to overstate; the script keeps to 'test like we fly' and flight rate"
+  }
+ ]
+}

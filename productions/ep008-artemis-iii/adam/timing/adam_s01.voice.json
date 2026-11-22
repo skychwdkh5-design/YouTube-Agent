@@ -1,0 +1,116 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "adam_s01.wav",
+ "audio_format": "wav",
+ "audio_sha256": "1effef7bbfcadb91ee826a9a75198c2a10cb310de8d667e167b0256f0919e323",
+ "duration": 4.737,
+ "characters": 88,
+ "text": "NASA's next Moon mission was supposed to land here. Now it won't even leave Earth orbit.",
+ "text_sha256": "dea067fc11728b065f03e29534a51171188cdd2f4286e451f6bfe3536fe0614a",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 88,
+   "offset": 0.0,
+   "duration": 4.737,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "NASA's",
+   "start": 0.0,
+   "end": 0.418
+  },
+  {
+   "text": "next",
+   "start": 0.476,
+   "end": 0.708
+  },
+  {
+   "text": "Moon",
+   "start": 0.766,
+   "end": 0.964
+  },
+  {
+   "text": "mission",
+   "start": 1.022,
+   "end": 1.289
+  },
+  {
+   "text": "was",
+   "start": 1.335,
+   "end": 1.44
+  },
+  {
+   "text": "supposed",
+   "start": 1.474,
+   "end": 1.834
+  },
+  {
+   "text": "to",
+   "start": 1.858,
+   "end": 1.916
+  },
+  {
+   "text": "land",
+   "start": 1.985,
+   "end": 2.241
+  },
+  {
+   "text": "here.",
+   "start": 2.31,
+   "end": 2.635
+  },
+  {
+   "text": "Now",
+   "start": 2.914,
+   "end": 3.077
+  },
+  {
+   "text": "it",
+   "start": 3.135,
+   "end": 3.193
+  },
+  {
+   "text": "won't",
+   "start": 3.228,
+   "end": 3.413
+  },
+  {
+   "text": "even",
+   "start": 3.448,
+   "end": 3.611
+  },
+  {
+   "text": "leave",
+   "start": 3.669,
+   "end": 3.878
+  },
+  {
+   "text": "Earth",
+   "start": 3.913,
+   "end": 4.098
+  },
+  {
+   "text": "orbit.",
+   "start": 4.168,
+   "end": 4.737
+  }
+ ],
+ "created": "2026-11-01T07:38:29Z",
+ "warnings": []
+}

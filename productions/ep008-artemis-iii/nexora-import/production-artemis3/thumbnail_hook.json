@@ -1,0 +1,76 @@
+{
+ "schema": "thumbnail-hook/1",
+ "episode": "NEXORA - Artemis III (pre-production, production/artemis3)",
+ "title": "NASA's Next Moon Mission Won't Go to the Moon",
+ "chosen": "A",
+ "rationale": "A's promise is literally true per NASA (2026-02-27, 2026-10-23) and its cover object - the Artemis III booster stack - is a cleared NASA photo usable at second 0 (media.json: srb-forward-assemblies). B's object is a concept graphic, so its first 3 s are an illustration; C's object (Orion) is real but the question is weaker. The hook states the February date, so nothing is presented as this week's news. Which cover earns more clicks is a hypothesis for the A/B test, not a forecast.",
+ "concepts": [
+  {
+   "id": "A",
+   "title": "NASA's Next Moon Mission Won't Go to the Moon",
+   "thumb_text": "NOT THE MOON?",
+   "visual_promise": "the real Artemis III rocket hardware, and why its crew will stay in Earth orbit",
+   "main_subject": "Artemis III SLS booster stack (Moon mission rocket)",
+   "cover_asset": "srb-forward-assemblies (NASA/Cory S Huston), cropped with no NASA insignia legible",
+   "hook_15s": "0.0-3.5 s: NASA photo n1-boosters (NASA/Cory S Huston), tilt to the nose cones. VO: 'These boosters will launch NASA's next Moon mission.' 3.5-6.4 s: own line-art Moon with a strike, 'NOT THE MOON'. VO: 'But its four astronauts won't go to the Moon.' 6.4-13.3 s: 'FEB 27, 2026 · LOW EARTH ORBIT · 2027', orbit ring draws. VO: 'NASA changed the plan back in February: Artemis III now stays in Earth orbit.' 13.3-20.5 s: NASA concept graphic n4-conops. VO: 'In October, NASA published what they'll do up there instead - and why the Moon landing can't happen without it.'",
+   "facts": [
+    "2026-02-27: Artemis III becomes a low-Earth-orbit test flight; landing moves to Artemis IV (NASA)",
+    "2026-10-23: NASA publishes the 14-day flight profile (NASA)",
+    "2026-10-13: booster forward assemblies completed 2026-09-30 (NASA)"
+   ]
+  },
+  {
+   "id": "B",
+   "title": "Artemis III: Docking With Two Moon Landers - in Earth Orbit",
+   "thumb_text": "DOCK FIRST",
+   "visual_promise": "how Orion will dock with Blue Origin's and SpaceX's lander test articles before anyone lands",
+   "main_subject": "Orion docking with lander test articles in Earth orbit (NASA concept graphic)",
+   "cover_asset": "conops-graphic (NASA); company artwork excluded",
+   "hook_15s": "0-3 s: NASA concept-of-operations graphic, labelled 'NASA CONCEPT GRAPHIC'. VO: 'Before anyone lands on the Moon again, this has to work.' 3-10 s: VO: 'About two days docked to a Blue Origin lander with the crew inside - then up to two hours docked to SpaceX's Starship, with the crew staying in Orion.' 10-15 s: VO: 'That's Artemis III, as NASA laid it out on October 23rd. Here's why it comes first.'",
+   "facts": [
+    "Blue Moon Mark 2 test article: about two days docked, crew inside (NASA 2026-10-23)",
+    "Starship V3 test article: up to two hours docked, crew does not enter (NASA 2026-10-23)"
+   ],
+   "honesty": "the docking has not happened - every docking image is a labelled illustration; no company artwork"
+  },
+  {
+   "id": "C",
+   "title": "This Spacecraft Will Carry 4 Astronauts - Just Not to the Moon",
+   "thumb_text": "ORBIT ONLY",
+   "visual_promise": "the actual Artemis III Orion capsule and the Earth-orbit mission it was reassigned to",
+   "main_subject": "Artemis III Orion spacecraft",
+   "cover_asset": "orion-modules-joined (NASA/Amanda Stevenson), no insignia in crop, no astronauts",
+   "hook_15s": "0-3 s: NASA photo of the Artemis III Orion crew and service modules, joined in July. VO: 'This is the Orion capsule for Artemis III.' 3-10 s: VO: 'When it was built for a Moon landing mission, that was the plan. Since February, its job is different: about two weeks in Earth orbit.' 10-15 s: VO: 'Here's what four astronauts will test in it - and what it means for 2028.'",
+   "facts": [
+    "Orion modules joined 2026-07-30 (NASA)",
+    "About 14-day mission in low Earth orbit (NASA 2026-10-23)"
+   ]
+  }
+ ],
+ "hook": {
+  "subject_shot": "h1-boosters",
+  "subject_visible_at": 0.0,
+  "first_line": "These boosters will launch NASA's next Moon mission.",
+  "subject_is_reconstruction": false,
+  "reconstruction_label": null
+ },
+ "match_review": {
+  "confirmed": false,
+  "by": null,
+  "date": null,
+  "notes": "pending: owner compares title, cover and first frames on a real draft"
+ },
+ "ab_test": {
+  "status": "not started",
+  "alternates": [
+   "B",
+   "C"
+  ],
+  "hypothesis": "H-T1: a cover with a literal contradiction (A) earns more browse CTR than a process cover (B) or an object cover (C) at similar impressions"
+ },
+ "results": {
+  "ctr": null,
+  "retention_30s": null,
+  "avg_view_duration": null
+ }
+}

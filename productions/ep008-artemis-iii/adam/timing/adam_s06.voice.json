@@ -1,0 +1,446 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "adam_s06.wav",
+ "audio_format": "wav",
+ "audio_sha256": "3497278c3659168cd96af3834db8a63c9a58b86ae790a86d7ac5bd390ff1a480",
+ "duration": 32.601,
+ "characters": 490,
+ "text": "The crew is Randy Bresnik, Andre Douglas and Frank Rubio of NASA, and Luca Parmitano of the European Space Agency. In September they trained with Navy helicopter crews off San Diego, practicing being hoisted out of the water after splashdown. They've drilled escaping a capsule underwater, trained in their orange survival suits, and tasted nearly two hundred items of space food. Their mission will be about two weeks long, and it will never get farther than a few hundred miles from home.",
+ "text_sha256": "d19d03553e050030518ea98d714a4d0e965feaff1e233df28fe3d3d823c49490",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 490,
+   "offset": 0.0,
+   "duration": 32.601,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "The",
+   "start": 0.0,
+   "end": 0.255
+  },
+  {
+   "text": "crew",
+   "start": 0.313,
+   "end": 0.627
+  },
+  {
+   "text": "is",
+   "start": 0.708,
+   "end": 0.813
+  },
+  {
+   "text": "Randy",
+   "start": 0.894,
+   "end": 1.242
+  },
+  {
+   "text": "Bresnik,",
+   "start": 1.312,
+   "end": 1.974
+  },
+  {
+   "text": "Andre",
+   "start": 2.125,
+   "end": 2.554
+  },
+  {
+   "text": "Douglas",
+   "start": 2.624,
+   "end": 3.1
+  },
+  {
+   "text": "and",
+   "start": 3.274,
+   "end": 3.483
+  },
+  {
+   "text": "Frank",
+   "start": 3.564,
+   "end": 3.831
+  },
+  {
+   "text": "Rubio",
+   "start": 3.924,
+   "end": 4.423
+  },
+  {
+   "text": "of",
+   "start": 4.505,
+   "end": 4.574
+  },
+  {
+   "text": "NASA,",
+   "start": 4.644,
+   "end": 5.283
+  },
+  {
+   "text": "and",
+   "start": 5.526,
+   "end": 5.712
+  },
+  {
+   "text": "Luca",
+   "start": 5.782,
+   "end": 6.107
+  },
+  {
+   "text": "Parmitano",
+   "start": 6.177,
+   "end": 6.966
+  },
+  {
+   "text": "of",
+   "start": 7.082,
+   "end": 7.187
+  },
+  {
+   "text": "the",
+   "start": 7.233,
+   "end": 7.303
+  },
+  {
+   "text": "European",
+   "start": 7.361,
+   "end": 7.872
+  },
+  {
+   "text": "Space",
+   "start": 7.93,
+   "end": 8.255
+  },
+  {
+   "text": "Agency.",
+   "start": 8.29,
+   "end": 8.951
+  },
+  {
+   "text": "In",
+   "start": 9.648,
+   "end": 9.81
+  },
+  {
+   "text": "September",
+   "start": 9.868,
+   "end": 10.403
+  },
+  {
+   "text": "they",
+   "start": 10.472,
+   "end": 10.623
+  },
+  {
+   "text": "trained",
+   "start": 10.693,
+   "end": 11.146
+  },
+  {
+   "text": "with",
+   "start": 11.192,
+   "end": 11.343
+  },
+  {
+   "text": "Navy",
+   "start": 11.424,
+   "end": 11.726
+  },
+  {
+   "text": "helicopter",
+   "start": 11.796,
+   "end": 12.365
+  },
+  {
+   "text": "crews",
+   "start": 12.411,
+   "end": 12.771
+  },
+  {
+   "text": "off",
+   "start": 12.852,
+   "end": 13.026
+  },
+  {
+   "text": "San",
+   "start": 13.096,
+   "end": 13.317
+  },
+  {
+   "text": "Diego,",
+   "start": 13.375,
+   "end": 14.106
+  },
+  {
+   "text": "practicing",
+   "start": 14.35,
+   "end": 14.919
+  },
+  {
+   "text": "being",
+   "start": 14.988,
+   "end": 15.209
+  },
+  {
+   "text": "hoisted",
+   "start": 15.279,
+   "end": 15.697
+  },
+  {
+   "text": "out",
+   "start": 15.732,
+   "end": 15.848
+  },
+  {
+   "text": "of",
+   "start": 15.882,
+   "end": 15.929
+  },
+  {
+   "text": "the",
+   "start": 15.975,
+   "end": 16.045
+  },
+  {
+   "text": "water",
+   "start": 16.091,
+   "end": 16.428
+  },
+  {
+   "text": "after",
+   "start": 16.498,
+   "end": 16.73
+  },
+  {
+   "text": "splashdown.",
+   "start": 16.777,
+   "end": 17.705
+  },
+  {
+   "text": "They've",
+   "start": 18.309,
+   "end": 18.565
+  },
+  {
+   "text": "drilled",
+   "start": 18.599,
+   "end": 19.041
+  },
+  {
+   "text": "escaping",
+   "start": 19.099,
+   "end": 19.505
+  },
+  {
+   "text": "a",
+   "start": 19.563,
+   "end": 19.586
+  },
+  {
+   "text": "capsule",
+   "start": 19.656,
+   "end": 20.109
+  },
+  {
+   "text": "underwater,",
+   "start": 20.143,
+   "end": 20.91
+  },
+  {
+   "text": "trained",
+   "start": 21.026,
+   "end": 21.467
+  },
+  {
+   "text": "in",
+   "start": 21.513,
+   "end": 21.571
+  },
+  {
+   "text": "their",
+   "start": 21.63,
+   "end": 21.792
+  },
+  {
+   "text": "orange",
+   "start": 21.85,
+   "end": 22.28
+  },
+  {
+   "text": "survival",
+   "start": 22.315,
+   "end": 22.814
+  },
+  {
+   "text": "suits,",
+   "start": 22.883,
+   "end": 23.383
+  },
+  {
+   "text": "and",
+   "start": 23.476,
+   "end": 23.638
+  },
+  {
+   "text": "tasted",
+   "start": 23.696,
+   "end": 24.172
+  },
+  {
+   "text": "nearly",
+   "start": 24.242,
+   "end": 24.578
+  },
+  {
+   "text": "two",
+   "start": 24.66,
+   "end": 24.857
+  },
+  {
+   "text": "hundred",
+   "start": 24.938,
+   "end": 25.287
+  },
+  {
+   "text": "items",
+   "start": 25.345,
+   "end": 25.635
+  },
+  {
+   "text": "of",
+   "start": 25.681,
+   "end": 25.739
+  },
+  {
+   "text": "space",
+   "start": 25.809,
+   "end": 26.169
+  },
+  {
+   "text": "food.",
+   "start": 26.215,
+   "end": 26.703
+  },
+  {
+   "text": "Their",
+   "start": 27.028,
+   "end": 27.237
+  },
+  {
+   "text": "mission",
+   "start": 27.284,
+   "end": 27.562
+  },
+  {
+   "text": "will",
+   "start": 27.609,
+   "end": 27.748
+  },
+  {
+   "text": "be",
+   "start": 27.794,
+   "end": 27.864
+  },
+  {
+   "text": "about",
+   "start": 27.899,
+   "end": 28.143
+  },
+  {
+   "text": "two",
+   "start": 28.189,
+   "end": 28.352
+  },
+  {
+   "text": "weeks",
+   "start": 28.41,
+   "end": 28.642
+  },
+  {
+   "text": "long,",
+   "start": 28.7,
+   "end": 29.188
+  },
+  {
+   "text": "and",
+   "start": 29.281,
+   "end": 29.42
+  },
+  {
+   "text": "it",
+   "start": 29.466,
+   "end": 29.513
+  },
+  {
+   "text": "will",
+   "start": 29.536,
+   "end": 29.664
+  },
+  {
+   "text": "never",
+   "start": 29.698,
+   "end": 29.861
+  },
+  {
+   "text": "get",
+   "start": 29.907,
+   "end": 30.024
+  },
+  {
+   "text": "farther",
+   "start": 30.082,
+   "end": 30.418
+  },
+  {
+   "text": "than",
+   "start": 30.465,
+   "end": 30.592
+  },
+  {
+   "text": "a",
+   "start": 30.627,
+   "end": 30.65
+  },
+  {
+   "text": "few",
+   "start": 30.709,
+   "end": 30.848
+  },
+  {
+   "text": "hundred",
+   "start": 30.894,
+   "end": 31.126
+  },
+  {
+   "text": "miles",
+   "start": 31.173,
+   "end": 31.486
+  },
+  {
+   "text": "from",
+   "start": 31.521,
+   "end": 31.661
+  },
+  {
+   "text": "home.",
+   "start": 31.719,
+   "end": 32.601
+  }
+ ],
+ "created": "2026-11-01T07:39:36Z",
+ "warnings": []
+}

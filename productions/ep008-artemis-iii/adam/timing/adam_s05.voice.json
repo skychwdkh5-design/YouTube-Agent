@@ -1,0 +1,616 @@
+{
+ "schema": "yt-voice/1",
+ "provider": "elevenlabs",
+ "model_id": "eleven_multilingual_v2",
+ "output_format": "mp3_44100_128",
+ "endpoint": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+ "voice_id": "pNInz6obpgDQGcFmaJgB",
+ "voice_name": "Adam",
+ "voice_source": "default",
+ "language": "en",
+ "audio": "adam_s05.wav",
+ "audio_format": "wav",
+ "audio_sha256": "caec0e2af89ccfd3b5b34e4e0c7762ecd07e89cb07512604eb4b31d52f797cbd",
+ "duration": 44.768,
+ "characters": 682,
+ "text": "And this isn't a paper mission. The four main engines for Artemis Three reached Kennedy Space Center in July. The Orion capsule and its service module were joined in late July. On September thirtieth, technicians put the nose cones on the twin boosters, finishing the stack. More than two hundred and fifty parts from Artemis Two's Orion are being reused on later missions, and NASA says reused parts move some installation work up by about three months. Even the launch tower is being turned around for its next flight nearly fifty percent faster. And that missing upper stage? It isn't scrapped. NASA reassigned it to Artemis Four, the mission that actually has to reach the Moon.",
+ "text_sha256": "2b7ce2fd99b6dfb46eacf8f1ad091ea365f17c484515f88e905c6cd20cebdba3",
+ "chunks": [
+  {
+   "index": 0,
+   "characters": 682,
+   "offset": 0.0,
+   "duration": 44.768,
+   "timing": true
+  }
+ ],
+ "timing": {
+  "source": "provider",
+  "unit": "seconds",
+  "level": "word"
+ },
+ "words": [
+  {
+   "text": "And",
+   "start": 0.0,
+   "end": 0.139
+  },
+  {
+   "text": "this",
+   "start": 0.186,
+   "end": 0.325
+  },
+  {
+   "text": "isn't",
+   "start": 0.383,
+   "end": 0.615
+  },
+  {
+   "text": "a",
+   "start": 0.65,
+   "end": 0.673
+  },
+  {
+   "text": "paper",
+   "start": 0.731,
+   "end": 1.01
+  },
+  {
+   "text": "mission.",
+   "start": 1.057,
+   "end": 1.591
+  },
+  {
+   "text": "The",
+   "start": 2.287,
+   "end": 2.403
+  },
+  {
+   "text": "four",
+   "start": 2.461,
+   "end": 2.694
+  },
+  {
+   "text": "main",
+   "start": 2.763,
+   "end": 3.019
+  },
+  {
+   "text": "engines",
+   "start": 3.111,
+   "end": 3.564
+  },
+  {
+   "text": "for",
+   "start": 3.611,
+   "end": 3.727
+  },
+  {
+   "text": "Artemis",
+   "start": 3.796,
+   "end": 4.145
+  },
+  {
+   "text": "Three",
+   "start": 4.214,
+   "end": 4.505
+  },
+  {
+   "text": "reached",
+   "start": 4.598,
+   "end": 4.911
+  },
+  {
+   "text": "Kennedy",
+   "start": 4.992,
+   "end": 5.375
+  },
+  {
+   "text": "Space",
+   "start": 5.422,
+   "end": 5.735
+  },
+  {
+   "text": "Center",
+   "start": 5.759,
+   "end": 6.026
+  },
+  {
+   "text": "in",
+   "start": 6.095,
+   "end": 6.177
+  },
+  {
+   "text": "July.",
+   "start": 6.246,
+   "end": 6.931
+  },
+  {
+   "text": "The",
+   "start": 7.21,
+   "end": 7.326
+  },
+  {
+   "text": "Orion",
+   "start": 7.407,
+   "end": 7.918
+  },
+  {
+   "text": "capsule",
+   "start": 7.999,
+   "end": 8.487
+  },
+  {
+   "text": "and",
+   "start": 8.545,
+   "end": 8.649
+  },
+  {
+   "text": "its",
+   "start": 8.719,
+   "end": 8.847
+  },
+  {
+   "text": "service",
+   "start": 8.882,
+   "end": 9.242
+  },
+  {
+   "text": "module",
+   "start": 9.288,
+   "end": 9.845
+  },
+  {
+   "text": "were",
+   "start": 9.915,
+   "end": 10.112
+  },
+  {
+   "text": "joined",
+   "start": 10.17,
+   "end": 10.542
+  },
+  {
+   "text": "in",
+   "start": 10.588,
+   "end": 10.658
+  },
+  {
+   "text": "late",
+   "start": 10.739,
+   "end": 10.948
+  },
+  {
+   "text": "July.",
+   "start": 10.995,
+   "end": 11.703
+  },
+  {
+   "text": "On",
+   "start": 12.655,
+   "end": 12.817
+  },
+  {
+   "text": "September",
+   "start": 12.864,
+   "end": 13.259
+  },
+  {
+   "text": "thirtieth,",
+   "start": 13.317,
+   "end": 13.944
+  },
+  {
+   "text": "technicians",
+   "start": 14.095,
+   "end": 14.687
+  },
+  {
+   "text": "put",
+   "start": 14.745,
+   "end": 14.919
+  },
+  {
+   "text": "the",
+   "start": 14.965,
+   "end": 15.035
+  },
+  {
+   "text": "nose",
+   "start": 15.093,
+   "end": 15.36
+  },
+  {
+   "text": "cones",
+   "start": 15.406,
+   "end": 15.755
+  },
+  {
+   "text": "on",
+   "start": 15.813,
+   "end": 15.905
+  },
+  {
+   "text": "the",
+   "start": 15.94,
+   "end": 16.01
+  },
+  {
+   "text": "twin",
+   "start": 16.045,
+   "end": 16.265
+  },
+  {
+   "text": "boosters,",
+   "start": 16.347,
+   "end": 17.055
+  },
+  {
+   "text": "finishing",
+   "start": 17.206,
+   "end": 17.624
+  },
+  {
+   "text": "the",
+   "start": 17.682,
+   "end": 17.751
+  },
+  {
+   "text": "stack.",
+   "start": 17.786,
+   "end": 18.367
+  },
+  {
+   "text": "More",
+   "start": 19.063,
+   "end": 19.226
+  },
+  {
+   "text": "than",
+   "start": 19.261,
+   "end": 19.4
+  },
+  {
+   "text": "two",
+   "start": 19.447,
+   "end": 19.609
+  },
+  {
+   "text": "hundred",
+   "start": 19.69,
+   "end": 19.934
+  },
+  {
+   "text": "and",
+   "start": 19.957,
+   "end": 20.027
+  },
+  {
+   "text": "fifty",
+   "start": 20.073,
+   "end": 20.329
+  },
+  {
+   "text": "parts",
+   "start": 20.399,
+   "end": 20.712
+  },
+  {
+   "text": "from",
+   "start": 20.758,
+   "end": 20.909
+  },
+  {
+   "text": "Artemis",
+   "start": 20.991,
+   "end": 21.374
+  },
+  {
+   "text": "Two's",
+   "start": 21.432,
+   "end": 21.676
+  },
+  {
+   "text": "Orion",
+   "start": 21.745,
+   "end": 22.291
+  },
+  {
+   "text": "are",
+   "start": 22.372,
+   "end": 22.57
+  },
+  {
+   "text": "being",
+   "start": 22.616,
+   "end": 22.86
+  },
+  {
+   "text": "reused",
+   "start": 22.93,
+   "end": 23.452
+  },
+  {
+   "text": "on",
+   "start": 23.498,
+   "end": 23.603
+  },
+  {
+   "text": "later",
+   "start": 23.673,
+   "end": 23.928
+  },
+  {
+   "text": "missions,",
+   "start": 23.974,
+   "end": 24.601
+  },
+  {
+   "text": "and",
+   "start": 24.752,
+   "end": 24.915
+  },
+  {
+   "text": "NASA",
+   "start": 24.973,
+   "end": 25.321
+  },
+  {
+   "text": "says",
+   "start": 25.368,
+   "end": 25.635
+  },
+  {
+   "text": "reused",
+   "start": 25.751,
+   "end": 26.273
+  },
+  {
+   "text": "parts",
+   "start": 26.331,
+   "end": 26.749
+  },
+  {
+   "text": "move",
+   "start": 26.993,
+   "end": 27.318
+  },
+  {
+   "text": "some",
+   "start": 27.353,
+   "end": 27.55
+  },
+  {
+   "text": "installation",
+   "start": 27.608,
+   "end": 28.317
+  },
+  {
+   "text": "work",
+   "start": 28.386,
+   "end": 28.595
+  },
+  {
+   "text": "up",
+   "start": 28.676,
+   "end": 28.793
+  },
+  {
+   "text": "by",
+   "start": 28.862,
+   "end": 29.025
+  },
+  {
+   "text": "about",
+   "start": 29.083,
+   "end": 29.338
+  },
+  {
+   "text": "three",
+   "start": 29.385,
+   "end": 29.64
+  },
+  {
+   "text": "months.",
+   "start": 29.698,
+   "end": 30.244
+  },
+  {
+   "text": "Even",
+   "start": 30.627,
+   "end": 30.871
+  },
+  {
+   "text": "the",
+   "start": 30.906,
+   "end": 30.976
+  },
+  {
+   "text": "launch",
+   "start": 31.022,
+   "end": 31.312
+  },
+  {
+   "text": "tower",
+   "start": 31.359,
+   "end": 31.707
+  },
+  {
+   "text": "is",
+   "start": 31.777,
+   "end": 31.858
+  },
+  {
+   "text": "being",
+   "start": 31.928,
+   "end": 32.16
+  },
+  {
+   "text": "turned",
+   "start": 32.218,
+   "end": 32.485
+  },
+  {
+   "text": "around",
+   "start": 32.52,
+   "end": 32.845
+  },
+  {
+   "text": "for",
+   "start": 32.903,
+   "end": 33.007
+  },
+  {
+   "text": "its",
+   "start": 33.065,
+   "end": 33.193
+  },
+  {
+   "text": "next",
+   "start": 33.251,
+   "end": 33.495
+  },
+  {
+   "text": "flight",
+   "start": 33.553,
+   "end": 33.866
+  },
+  {
+   "text": "nearly",
+   "start": 33.924,
+   "end": 34.238
+  },
+  {
+   "text": "fifty",
+   "start": 34.308,
+   "end": 34.575
+  },
+  {
+   "text": "percent",
+   "start": 34.633,
+   "end": 34.958
+  },
+  {
+   "text": "faster.",
+   "start": 35.016,
+   "end": 35.678
+  },
+  {
+   "text": "And",
+   "start": 36.188,
+   "end": 36.351
+  },
+  {
+   "text": "that",
+   "start": 36.397,
+   "end": 36.56
+  },
+  {
+   "text": "missing",
+   "start": 36.63,
+   "end": 36.943
+  },
+  {
+   "text": "upper",
+   "start": 37.001,
+   "end": 37.198
+  },
+  {
+   "text": "stage?",
+   "start": 37.257,
+   "end": 37.895
+  },
+  {
+   "text": "It",
+   "start": 38.139,
+   "end": 38.278
+  },
+  {
+   "text": "isn't",
+   "start": 38.325,
+   "end": 38.545
+  },
+  {
+   "text": "scrapped.",
+   "start": 38.58,
+   "end": 39.219
+  },
+  {
+   "text": "NASA",
+   "start": 39.497,
+   "end": 39.996
+  },
+  {
+   "text": "reassigned",
+   "start": 40.055,
+   "end": 40.658
+  },
+  {
+   "text": "it",
+   "start": 40.693,
+   "end": 40.763
+  },
+  {
+   "text": "to",
+   "start": 40.798,
+   "end": 40.867
+  },
+  {
+   "text": "Artemis",
+   "start": 40.948,
+   "end": 41.308
+  },
+  {
+   "text": "Four,",
+   "start": 41.39,
+   "end": 41.912
+  },
+  {
+   "text": "the",
+   "start": 42.086,
+   "end": 42.191
+  },
+  {
+   "text": "mission",
+   "start": 42.249,
+   "end": 42.527
+  },
+  {
+   "text": "that",
+   "start": 42.562,
+   "end": 42.678
+  },
+  {
+   "text": "actually",
+   "start": 42.736,
+   "end": 43.189
+  },
+  {
+   "text": "has",
+   "start": 43.259,
+   "end": 43.491
+  },
+  {
+   "text": "to",
+   "start": 43.561,
+   "end": 43.63
+  },
+  {
+   "text": "reach",
+   "start": 43.712,
+   "end": 43.944
+  },
+  {
+   "text": "the",
+   "start": 44.014,
+   "end": 44.083
+  },
+  {
+   "text": "Moon.",
+   "start": 44.141,
+   "end": 44.768
+  }
+ ],
+ "created": "2026-11-01T07:39:34Z",
+ "warnings": []
+}

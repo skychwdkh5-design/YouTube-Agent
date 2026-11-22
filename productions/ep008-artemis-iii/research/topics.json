@@ -1,0 +1,21 @@
+{
+ "note": "Orbital Atlas rescoring 2026-10-30 of the NEXORA candidate. Inputs from NEXORA are external and are labelled as such; no Orbital Atlas measurement exists for this topic.",
+ "topics": [
+  {
+   "id": "ep008-artemis-iii",
+   "title": "NASA Changed Its Moon Mission. Here's Why. (Artemis III stays in Earth orbit)",
+   "scores": {"us_interest": 4, "novelty": 4, "hook": 4, "thumbnail": 4, "rights": 3, "facts": 5, "proof": 2, "length_fit": 4},
+   "evidence": {
+    "us_interest": "US crewed Moon program after the April 2026 Artemis II flyby; on-topic external videos 212K-522K views in 6 months (research/OUTLIERS_external_vidiq.md, external data)",
+    "novelty": "Artemis II flew around the Moon in April 2026, yet the next crew stays in Earth orbit, and its SLS flies with a non-propulsive spacer instead of an upper stage (NASA 2026-08-05 https://www.nasa.gov/blogs/missions/2026/08/05/nasa-joins-artemis-iii-orion-modules-rocket-hardware-update/). Change itself dates from 2026-02-27, so not breaking news",
+    "hook": "real Artemis II lunar-flyby photos (NASA) for second 0, then the NASA con-ops graphic of Earth orbit: research/media.json",
+    "thumbnail": "one subject: real Artemis II Moon photo (no crew) + 'NO LANDING'; fits OA style (dramatic space imagery, big uppercase yellow/white) - see packages/thumbnail_hook.json",
+    "rights": "NASA public-domain stills listed with credits and pages in research/media.json; originals NOT yet downloaded (NASA hosts blocked from this session) - fetch via productions/ep008-artemis-iii/fetch_list.txt; company artwork excluded",
+    "facts": "NASA pages 2026-02-27 to 2026-10-23, re-read 2026-10-30: research/RESEARCH.md",
+    "proof": "only vidIQ breakout scores without baselines, confidence low (research/OUTLIERS_external_vidiq.md); OA has no measured space-program episode yet",
+    "length_fit": "script 6:45-7:15 without padding: script/SCRIPT.md"
+   },
+   "risks": "Audience fit: OA's published episodes are Earth-from-orbit stories; a crewed-spaceflight episode is a new direction (hypothesis H-OA-ART1 in EXPERIMENT notes). Not breaking news (Feb 2026). No launch date beyond 2027. Docking shown only as labelled diagrams."
+  }
+ ]
+}
