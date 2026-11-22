@@ -1,0 +1,39 @@
+{
+ "op": "preview",
+ "release": "oa-20261122-02",
+ "channel": "oa",
+ "channel_id": "UC2QxQJhUe9Q5NMRNb6M9ddw",
+ "version": 2,
+ "version_hash": "b8466b8b06602c7f9a6a8bb932b7dcf8ca1a08556eea23051c7d14a004ab35ce",
+ "video_sha256": "fd1f743c9821fb3296a7b9e2244b5a41c627f550817f50cdbbd43bfe73bb3319",
+ "title": "This Alaska Lake Is Leaking Gas You Can Set on Fire",
+ "description": "Why does an Alaska lake bubble methane you can set on fire? Near Fairbanks, permafrost is thawing: ice wedges melt, the ground collapses into thermokarst ponds, and microbes turn long-frozen organic material into methane. At Big Trail Lake, emissions are about ten times higher than the rest of the Arctic's lakes and wetlands. NASA's ABoVE campaign tracks this thaw from the air with the UAVSAR radar.\n\nIn this episode:\n0:00 A lake gas that burns\n0:13 The frozen ground under Alaska\n0:30 Inside the Permafrost Tunnel\n0:47 Melting ice wedges and thermokarst ponds\n1:16 NASA ABoVE and the UAVSAR radar\n1:49 Fire, duff and the thaw cycle\n\nSources:\n- NASA SVS, \"How NASA Decodes the Secrets of the Arctic\" (2022), segments Intro, Permafrost, UAVSAR and Arctic Fires, with transcripts: https://svs.gsfc.nasa.gov/14221\n- NASA SVS, \"ABoVE Summer 2022 B-Roll\" (Fairbanks, Alaska): https://svs.gsfc.nasa.gov/14222\n\nFootage: NASA via the Scientific Visualization Studio (SVS 14221, 14222). Public domain; NASA does not endorse this video. Produced-video music removed; the UAVSAR pod shot is a NASA animation. The warming bars and the thermokarst cross-section are Orbital Atlas graphics (schematic).\nNarration: synthetic voice (ElevenLabs).\n\n#Permafrost #Methane #Alaska #NASA #OrbitalAtlas",
+ "tags": [
+  "alaska lake methane fire",
+  "methane lake",
+  "permafrost",
+  "thawing permafrost",
+  "thermokarst",
+  "Alaska",
+  "Fairbanks",
+  "NASA ABoVE",
+  "UAVSAR",
+  "Arctic warming",
+  "methane bubbles",
+  "Orbital Atlas"
+ ],
+ "thumbnail_sha256": "86117f9a16bf9ac3d76ebcea897db51465bc0159c4e3990bab64c57a2b20a557",
+ "captions_sha256": "38ea3c1283937075ce9f120bdcad5cedc42aef3849f24be34a1f4e01760d13a2",
+ "files": {
+  "captions": "/mnt/project-files/pipeline/oa-20261122-02/captions.srt",
+  "thumbnail": "/mnt/project-files/pipeline/oa-20261122-02/cover.jpg",
+  "video": "/mnt/project-files/pipeline/oa-20261122-02/oa-20261122-02-v2.mp4"
+ },
+ "category_id": "28",
+ "default_language": "en",
+ "made_for_kids": false,
+ "contains_synthetic_media": true,
+ "marker_tag": "pipeline-oa-20261122-02-v2",
+ "confirm": true,
+ "name": "preview-oa-20261122-02-v2"
+}
