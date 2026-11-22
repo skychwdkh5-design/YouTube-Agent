@@ -1,0 +1,39 @@
+{
+ "op": "preview",
+ "release": "oa-20261122-01",
+ "channel": "oa",
+ "channel_id": "UC2QxQJhUe9Q5NMRNb6M9ddw",
+ "version": 1,
+ "version_hash": "3fb67eb3e13c3f71f9278ff8279488e2dc6fadce76a3407a63b13ec54df4545c",
+ "video_sha256": "19d5c71c90726b70317c212ef3c9affe9349dd14ced8121f0da0cb0bb1c7ea7d",
+ "title": "They Burned 1,200 Acres in 45 Minutes. On Purpose.",
+ "description": "Why do firefighters set a forest on fire on purpose? At Fort Stewart, Georgia, a helicopter drops small ignition balls over the longleaf pines and more than 1,200 acres burn in about 45 minutes, a controlled prescribed burn. NASA's FireSense project turned this burn into an experiment: three aircraft, four sensors and the AVIRIS-3 imaging spectrometer tracked the fire while it was still burning.\n\nIn this episode:\n0:00 Ignition balls over Georgia\n0:19 Fort Stewart and prescribed fire\n0:58 NASA FireSense: the experiment\n1:20 The helicopter and the sphere dispenser\n1:50 Three planes, four sensors, AVIRIS-3\n2:26 Satellites vs aircraft\n2:42 Why these forests need fire\n\nSources:\n- NASA SVS, \"FireSense at Fort Stewart Prescribed Burn\" (produced video, Sept 2025): https://svs.gsfc.nasa.gov/14894\n- NASA SVS, FireSense at Fort Stewart b-roll (April 2025): https://svs.gsfc.nasa.gov/14838\n\nFootage: NASA via the Scientific Visualization Studio (SVS 14838, 14894). Public domain; NASA does not endorse this video. The satellite fleet shot is a NASA animation; the AVIRIS-3 fire image is NASA JPL data. The acres counter and the satellite-vs-aircraft timeline are Orbital Atlas graphics (timeline illustrative).\nNarration: synthetic voice (ElevenLabs).\n\n#PrescribedBurn #NASA #Wildfire #FortStewart #OrbitalAtlas",
+ "tags": [
+  "why do firefighters set controlled burns",
+  "prescribed burn",
+  "controlled burn",
+  "prescribed fire",
+  "Fort Stewart",
+  "NASA FireSense",
+  "AVIRIS-3",
+  "wildfire",
+  "aerial ignition",
+  "longleaf pine",
+  "NASA",
+  "Orbital Atlas"
+ ],
+ "thumbnail_sha256": "20b69316b8a05a4bb4a4ba00a647169e05b823e35d11908e2aa48b2e7bb57af6",
+ "captions_sha256": "cae5fa7edc01d0b78d0e3270ea26392dc7a6aa5235d9b21030a30398ddfe440f",
+ "files": {
+  "captions": "/mnt/project-files/pipeline/oa-20261122-01/captions.srt",
+  "thumbnail": "/mnt/project-files/pipeline/oa-20261122-01/cover.jpg",
+  "video": "/mnt/project-files/pipeline/oa-20261122-01/oa-20261122-01-v1.mp4"
+ },
+ "category_id": "28",
+ "default_language": "en",
+ "made_for_kids": false,
+ "contains_synthetic_media": true,
+ "marker_tag": "pipeline-oa-20261122-01-v1",
+ "confirm": true,
+ "name": "preview-oa-20261122-01-v1"
+}
