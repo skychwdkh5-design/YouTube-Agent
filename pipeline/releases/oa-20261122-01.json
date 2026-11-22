@@ -11,7 +11,7 @@
   "release": "oa-20261122-01",
   "single_use": true,
   "source": "decision card tap (option ОК) 2026-11-22T07:01:27Z",
-  "status": "valid",
+  "status": "used",
   "test": false,
   "version": 1,
   "version_hash": "3fb67eb3e13c3f71f9278ff8279488e2dc6fadce76a3407a63b13ec54df4545c",
@@ -140,6 +140,12 @@
    "at": "2026-11-22T07:01:36Z",
    "event": "schedule_requested",
    "request": "schedule-oa-20261122-01"
+  },
+  {
+   "at": "2026-11-22T07:02:07Z",
+   "event": "scheduled",
+   "publish_at": "2026-11-23T01:00:00Z",
+   "video_id": "dJ7pXdLzB0Q"
   }
  ],
  "id": "oa-20261122-01",
@@ -158,9 +164,15 @@
   "video_id": "dJ7pXdLzB0Q"
  },
  "production_day": "2026-11-22",
- "schedule": null,
+ "schedule": {
+  "privacy": "private",
+  "publish_at": "2026-11-23T01:00:00Z",
+  "url": "https://youtu.be/dJ7pXdLzB0Q",
+  "verified_at": "2026-11-22T07:02:07Z",
+  "video_id": "dJ7pXdLzB0Q"
+ },
  "schema": "pipeline-release/1",
- "stage": "schedule_requested",
+ "stage": "scheduled",
  "test": false,
  "topic": {
   "topics": [
@@ -229,7 +241,7 @@
    }
   ]
  },
- "updated_at": "2026-11-22T07:01:36Z",
+ "updated_at": "2026-11-22T07:02:07Z",
  "versions": [
   {
    "captions_sha256": "cae5fa7edc01d0b78d0e3270ea26392dc7a6aa5235d9b21030a30398ddfe440f",
