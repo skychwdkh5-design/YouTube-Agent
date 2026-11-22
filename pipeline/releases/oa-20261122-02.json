@@ -1,5 +1,23 @@
 {
- "approval": null,
+ "approval": {
+  "actor": "principal:Егор",
+  "approval_id": "a3b9bd78aac5418c9501cfadd8cb8495",
+  "approved_at": "2026-11-22T16:39:32Z",
+  "card_code": "19365D23",
+  "card_id": "card-19365d23",
+  "channel": "oa",
+  "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdKm3fMRubZBxARzZkk4oAQh",
+  "publish_at": "2026-11-24T01:00:00Z",
+  "release": "oa-20261122-02",
+  "single_use": true,
+  "source": "decision_card",
+  "status": "valid",
+  "test": false,
+  "version": 2,
+  "version_hash": "b8466b8b06602c7f9a6a8bb932b7dcf8ca1a08556eea23051c7d14a004ab35ce",
+  "video_id": "FzB622H_LH0",
+  "video_sha256": "fd1f743c9821fb3296a7b9e2244b5a41c627f550817f50cdbbd43bfe73bb3319"
+ },
  "artifacts": {
   "qc_passed": {
    "at": "2026-11-22T15:24:37Z",
@@ -50,12 +68,20 @@
   {
    "card_id": "card-19365d23",
    "code": "19365D23",
+   "decision": {
+    "actor": "principal:Егор",
+    "at": "2026-11-22T16:39:32Z",
+    "choice": "ok",
+    "comment": null,
+    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdKm3fMRubZBxARzZkk4oAQh",
+    "source": "decision_card"
+   },
    "expires_at": "2026-11-24T00:30:00Z",
    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdKm3fMRubZBxARzZkk4oAQh",
    "release": "oa-20261122-02",
    "shown_at": "2026-11-22T16:28:20Z",
    "slot": "2026-11-24T01:00:00Z",
-   "status": "open",
+   "status": "decided",
    "version": 2,
    "version_hash": "b8466b8b06602c7f9a6a8bb932b7dcf8ca1a08556eea23051c7d14a004ab35ce",
    "video_id": "FzB622H_LH0"
@@ -169,6 +195,18 @@
    "event": "card",
    "slot": "2026-11-24T01:00:00Z",
    "version": 2
+  },
+  {
+   "approval_id": "a3b9bd78aac5418c9501cfadd8cb8495",
+   "at": "2026-11-22T16:39:32Z",
+   "card_id": "card-19365d23",
+   "event": "approved"
+  },
+  {
+   "approval_id": "a3b9bd78aac5418c9501cfadd8cb8495",
+   "at": "2026-11-22T16:39:39Z",
+   "event": "schedule_requested",
+   "request": "schedule-oa-20261122-02"
   }
  ],
  "id": "oa-20261122-02",
@@ -189,7 +227,7 @@
  "production_day": "2026-11-22",
  "schedule": null,
  "schema": "pipeline-release/1",
- "stage": "card_shown",
+ "stage": "schedule_requested",
  "test": false,
  "topic": {
   "topics": [
@@ -258,7 +296,7 @@
    }
   ]
  },
- "updated_at": "2026-11-22T16:28:45Z",
+ "updated_at": "2026-11-22T16:39:39Z",
  "versions": [
   {
    "captions_sha256": "38ea3c1283937075ce9f120bdcad5cedc42aef3849f24be34a1f4e01760d13a2",
