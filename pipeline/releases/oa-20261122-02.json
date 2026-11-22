@@ -1,0 +1,228 @@
+{
+ "approval": null,
+ "artifacts": {
+  "qc_passed": {
+   "at": "2026-11-22T15:09:28Z",
+   "qc": "/mnt/project-files/pipeline/oa-20261122-02/qc.json",
+   "result": "PASS"
+  },
+  "rendered": {
+   "at": "2026-11-22T15:09:28Z",
+   "note": "motion pass v1, 83.7% live footage, owner voice",
+   "timeline": "/home/user/work/oa_lake/timeline.json",
+   "video": "/mnt/project-files/pipeline/oa-20261122-02/oa-20261122-02-v1.mp4",
+   "video_sha256": "50f804bc0cf530c58b79c788b261307934ef15a6ec1f5aa6135ca77c467818b2"
+  },
+  "scripted": {
+   "at": "2026-11-22T14:45:58Z",
+   "script": "/home/user/work/oa_lake/script.md"
+  },
+  "voiced": {
+   "at": "2026-11-22T15:09:28Z",
+   "chars": 2594,
+   "voice": "/home/user/work/oa_lake/voice/narration.wav",
+   "voice_id": "mFLQuIhiLNlIfFBtmDin",
+   "voice_name": "Egor Norrator"
+  }
+ },
+ "blocker": null,
+ "cards": [
+  {
+   "card_id": "card-d1778d48",
+   "code": "D1778D48",
+   "expires_at": "2026-11-24T00:30:00Z",
+   "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdV7VeowGxN1P67GMYNPvYPq",
+   "release": "oa-20261122-02",
+   "shown_at": "2026-11-22T15:11:18Z",
+   "slot": "2026-11-24T01:00:00Z",
+   "status": "open",
+   "version": 1,
+   "version_hash": "6333d3ed340b1f7f5c8c1cef5732444520fd2372e76e8890599e78db4436fe3c",
+   "video_id": "kx2MFBbttNc"
+  }
+ ],
+ "channel": "oa",
+ "created_at": "2026-11-22T14:45:55Z",
+ "endscreen": {
+  "title": "Jakarta Is Sinking — And Satellites Can See It",
+  "video_id": "D9yQ3X8_J1g",
+  "why": "related topic"
+ },
+ "events": [
+  {
+   "at": "2026-11-22T14:45:55Z",
+   "channel": "oa",
+   "event": "created",
+   "production_day": "2026-11-22"
+  },
+  {
+   "at": "2026-11-22T14:45:58Z",
+   "event": "stage_done",
+   "stage": "scripted"
+  },
+  {
+   "at": "2026-11-22T15:09:28Z",
+   "event": "stage_done",
+   "stage": "voiced"
+  },
+  {
+   "at": "2026-11-22T15:09:28Z",
+   "event": "stage_done",
+   "stage": "rendered"
+  },
+  {
+   "at": "2026-11-22T15:09:28Z",
+   "event": "stage_done",
+   "stage": "qc_passed"
+  },
+  {
+   "at": "2026-11-22T15:09:29Z",
+   "event": "version",
+   "n": 1,
+   "version_hash": "6333d3ed340b"
+  },
+  {
+   "at": "2026-11-22T15:09:30Z",
+   "branch": "pipeline-media/oa-20261122-02-v1",
+   "confirm": true,
+   "event": "preview_requested"
+  },
+  {
+   "at": "2026-11-22T15:10:54Z",
+   "event": "preview_ready",
+   "video_id": "kx2MFBbttNc"
+  },
+  {
+   "at": "2026-11-22T15:11:15Z",
+   "event": "endscreen_pick",
+   "video_id": "D9yQ3X8_J1g"
+  },
+  {
+   "at": "2026-11-22T15:11:18Z",
+   "card_id": "card-d1778d48",
+   "event": "card",
+   "slot": "2026-11-24T01:00:00Z",
+   "version": 1
+  }
+ ],
+ "id": "oa-20261122-02",
+ "kind": "long",
+ "meta": {
+  "category_id": "28",
+  "contains_synthetic_media": true,
+  "made_for_kids": false
+ },
+ "preview": {
+  "at": "2026-11-22T15:10:54Z",
+  "privacy": "private",
+  "url": "https://youtu.be/kx2MFBbttNc",
+  "version": 1,
+  "version_hash": "6333d3ed340b1f7f5c8c1cef5732444520fd2372e76e8890599e78db4436fe3c",
+  "video_id": "kx2MFBbttNc"
+ },
+ "production_day": "2026-11-22",
+ "schedule": null,
+ "schema": "pipeline-release/1",
+ "stage": "card_shown",
+ "test": false,
+ "topic": {
+  "topics": [
+   {
+    "angle": "Thawing permafrost near Fairbanks: methane from thermokarst lakes (Big Trail Lake, 10x Arctic average), Permafrost Tunnel, ice wedges as big as garages, Arctic warming ~4x, NASA ABoVE + UAVSAR (~1,000 lb radar, repeat flight path), duff/fire feedback.",
+    "evidence": {
+     "facts": "NASA SVS 14221 segment transcripts (Intro, Permafrost, UAVSAR, Arctic Fires) + SVS 14222 descriptions",
+     "rights": "NASA SVS public domain; ASF imagery and third-party-credited shots not used"
+    },
+    "found_by": "Claude research 2026-11-22 (SVS API); vidIQ 0 credits until 2026-11-29",
+    "id": "oa-alaska-methane-lake",
+    "media": [
+     {
+      "credit": "NASA ABoVE b-roll",
+      "kind": "video",
+      "licence": "NASA public domain (SVS)",
+      "url": "https://svs.gsfc.nasa.gov/14222"
+     },
+     {
+      "credit": "NASA ABoVE",
+      "kind": "video",
+      "licence": "NASA public domain (SVS)",
+      "url": "https://svs.gsfc.nasa.gov/14222#methane"
+     },
+     {
+      "credit": "NASA ABoVE",
+      "kind": "video",
+      "licence": "NASA public domain (SVS)",
+      "url": "https://svs.gsfc.nasa.gov/14222#tunnel"
+     },
+     {
+      "credit": "NASA ABoVE",
+      "kind": "video",
+      "licence": "NASA public domain (SVS)",
+      "url": "https://svs.gsfc.nasa.gov/14222#airborne"
+     },
+     {
+      "credit": "NASA ABoVE",
+      "kind": "video",
+      "licence": "NASA public domain (SVS)",
+      "url": "https://svs.gsfc.nasa.gov/14222#burn"
+     },
+     {
+      "credit": "NASA Goddard",
+      "kind": "video",
+      "licence": "NASA public domain (SVS, visuals only, music removed; ASF segment not used)",
+      "url": "https://svs.gsfc.nasa.gov/14221"
+     }
+    ],
+    "nasa_involved": true,
+    "primary_sources": [
+     "https://svs.gsfc.nasa.gov/14221",
+     "https://svs.gsfc.nasa.gov/14222"
+    ],
+    "scores": {
+     "facts": 5,
+     "hook": 5,
+     "length_fit": 4,
+     "novelty": 4,
+     "proof": 5,
+     "rights": 5,
+     "thumbnail": 5,
+     "us_interest": 5
+    },
+    "title": "This Alaska Lake Is Leaking Gas You Can Set on Fire"
+   }
+  ]
+ },
+ "updated_at": "2026-11-22T15:11:37Z",
+ "versions": [
+  {
+   "captions_sha256": "38ea3c1283937075ce9f120bdcad5cedc42aef3849f24be34a1f4e01760d13a2",
+   "created_at": "2026-11-22T15:09:29Z",
+   "description": "Why does an Alaska lake bubble methane you can set on fire? Near Fairbanks, permafrost is thawing: ice wedges melt, the ground collapses into thermokarst ponds, and microbes turn long-frozen organic material into methane. At Big Trail Lake, emissions are about ten times higher than the rest of the Arctic's lakes and wetlands. NASA's ABoVE campaign tracks this thaw from the air with the UAVSAR radar.\n\nIn this episode:\n0:00 A lake gas that burns\n0:13 The frozen ground under Alaska\n0:30 Inside the Permafrost Tunnel\n0:47 Melting ice wedges and thermokarst ponds\n1:16 NASA ABoVE and the UAVSAR radar\n1:49 Fire, duff and the thaw cycle\n\nSources:\n- NASA SVS, \"How NASA Decodes the Secrets of the Arctic\" (2022), segments Intro, Permafrost, UAVSAR and Arctic Fires, with transcripts: https://svs.gsfc.nasa.gov/14221\n- NASA SVS, \"ABoVE Summer 2022 B-Roll\" (Fairbanks, Alaska): https://svs.gsfc.nasa.gov/14222\n\nFootage: NASA via the Scientific Visualization Studio (SVS 14221, 14222). Public domain; NASA does not endorse this video. Produced-video music removed; the UAVSAR pod shot is a NASA animation. The warming bars and the thermokarst cross-section are Orbital Atlas graphics (schematic).\nNarration: synthetic voice (ElevenLabs).\n\n#Permafrost #Methane #Alaska #NASA #OrbitalAtlas",
+   "duration_s": 163.9,
+   "files": {
+    "captions": "/mnt/project-files/pipeline/oa-20261122-02/captions.srt",
+    "thumbnail": "/mnt/project-files/pipeline/oa-20261122-02/cover.jpg",
+    "video": "/mnt/project-files/pipeline/oa-20261122-02/oa-20261122-02-v1.mp4"
+   },
+   "n": 1,
+   "tags": [
+    "alaska lake methane fire",
+    "methane lake",
+    "permafrost",
+    "thawing permafrost",
+    "thermokarst",
+    "Alaska",
+    "Fairbanks",
+    "NASA ABoVE",
+    "UAVSAR",
+    "Arctic warming",
+    "methane bubbles",
+    "Orbital Atlas"
+   ],
+   "thumbnail_sha256": "abcd12586d5000d84e357ab75e6bb88b2b9aacc97f7c1bb5fe14e1b8fc59b4ff",
+   "title": "This Alaska Lake Is Leaking Gas You Can Set on Fire",
+   "version_hash": "6333d3ed340b1f7f5c8c1cef5732444520fd2372e76e8890599e78db4436fe3c",
+   "video_sha256": "50f804bc0cf530c58b79c788b261307934ef15a6ec1f5aa6135ca77c467818b2"
+  }
+ ]
+}
