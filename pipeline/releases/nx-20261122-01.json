@@ -1,0 +1,228 @@
+{
+ "approval": null,
+ "artifacts": {
+  "qc_passed": {
+   "at": "2026-11-22T03:18:59Z",
+   "qc": "/mnt/project-files/pipeline/nx-20261122-01/qc.json",
+   "result": "PASS"
+  },
+  "rendered": {
+   "at": "2026-11-22T03:18:59Z",
+   "note": "motion pass v1 (kinetic captions, NEXORA tag)",
+   "timeline": "/home/user/work/nx_roman/timeline.json",
+   "video": "/mnt/project-files/pipeline/nx-20261122-01/nx-20261122-01-v1.mp4",
+   "video_sha256": "b11f5dcb2c3e79ea3c09a0d739684ca7bb68091d2065e70ec50c09741d4e6b53"
+  },
+  "scripted": {
+   "at": "2026-11-22T03:18:59Z",
+   "script": "/home/user/work/nx_roman/script.md"
+  },
+  "voiced": {
+   "at": "2026-11-22T03:18:59Z",
+   "chars": 3011,
+   "voice": "/home/user/work/nx_roman/voice/narration.wav",
+   "voice_name": "Matilda"
+  }
+ },
+ "blocker": null,
+ "cards": [
+  {
+   "card_id": "card-f5c85b98",
+   "code": "F5C85B98",
+   "expires_at": "2026-11-23T00:30:00Z",
+   "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXd8uqB45NkMtThCFC8W1M3cW",
+   "release": "nx-20261122-01",
+   "shown_at": "2026-11-22T03:21:44Z",
+   "slot": "2026-11-23T01:00:00Z",
+   "status": "open",
+   "version": 1,
+   "version_hash": "fe4c7263691c519ae33953443469aa428bf4652141c44c703d94a37fd2385f43",
+   "video_id": "-j32j-dedFw"
+  }
+ ],
+ "channel": "nx",
+ "created_at": "2026-11-22T02:49:15Z",
+ "endscreen": {
+  "title": "Why NASA's Mars Helicopter Crashed on Flight 72",
+  "video_id": "VR3tXtjqd90",
+  "why": "related topic"
+ },
+ "events": [
+  {
+   "at": "2026-11-22T02:49:15Z",
+   "channel": "nx",
+   "event": "created",
+   "production_day": "2026-11-22"
+  },
+  {
+   "at": "2026-11-22T03:18:59Z",
+   "event": "stage_done",
+   "stage": "scripted"
+  },
+  {
+   "at": "2026-11-22T03:18:59Z",
+   "event": "stage_done",
+   "stage": "voiced"
+  },
+  {
+   "at": "2026-11-22T03:18:59Z",
+   "event": "stage_done",
+   "stage": "rendered"
+  },
+  {
+   "at": "2026-11-22T03:18:59Z",
+   "event": "stage_done",
+   "stage": "qc_passed"
+  },
+  {
+   "at": "2026-11-22T03:19:03Z",
+   "event": "version",
+   "n": 1,
+   "version_hash": "fe4c7263691c"
+  },
+  {
+   "at": "2026-11-22T03:19:03Z",
+   "event": "preview_requested",
+   "request": "/home/user/nxops/publish/requests/nx-20261122-01.json",
+   "target": "NEXORA youtube-ops"
+  },
+  {
+   "at": "2026-11-22T03:21:40Z",
+   "event": "preview_ready",
+   "video_id": "-j32j-dedFw"
+  },
+  {
+   "at": "2026-11-22T03:21:40Z",
+   "event": "endscreen_pick",
+   "video_id": "VR3tXtjqd90"
+  },
+  {
+   "at": "2026-11-22T03:21:44Z",
+   "card_id": "card-f5c85b98",
+   "event": "card",
+   "slot": "2026-11-23T01:00:00Z",
+   "version": 1
+  }
+ ],
+ "id": "nx-20261122-01",
+ "kind": "long",
+ "meta": {
+  "category_id": "28",
+  "contains_synthetic_media": true,
+  "made_for_kids": false
+ },
+ "preview": {
+  "at": "2026-11-22T03:21:40Z",
+  "privacy": "private",
+  "url": "https://youtu.be/-j32j-dedFw",
+  "version": 1,
+  "version_hash": "fe4c7263691c519ae33953443469aa428bf4652141c44c703d94a37fd2385f43",
+  "video_id": "-j32j-dedFw"
+ },
+ "production_day": "2026-11-22",
+ "schedule": null,
+ "schema": "pipeline-release/1",
+ "stage": "card_shown",
+ "test": false,
+ "topic": {
+  "topics": [
+   {
+    "angle": "How NASA moved the 18,000-lb Roman Space Telescope: CHARIOT portable clean room, 13-hour night convoy at ~2 mph on back roads, Pegasus barge under the Chesapeake Bay Bridge, ~8 days to KSC, Falcon Heavy launch Aug 30 2026 to L2.",
+    "evidence": {
+     "facts": "NASA SVS pages 15058/15064/15066/15067/15068/15071/15089; NASA Roman blog 2026-06-21; NASA mission page",
+     "rights": "all NASA SVS public domain; produced-video music tracks dropped"
+    },
+    "found_by": "Claude research 2026-11-22 (SVS API); vidIQ 0 credits until 2026-11-29",
+    "id": "nx-roman-road-trip",
+    "media": [
+     {
+      "credit": "NASA Goddard",
+      "kind": "video",
+      "licence": "NASA public domain (SVS)",
+      "url": "https://svs.gsfc.nasa.gov/15066"
+     },
+     {
+      "credit": "NASA / Rob Fortunato, Christopher Albert",
+      "kind": "video",
+      "licence": "NASA public domain (SVS)",
+      "url": "https://svs.gsfc.nasa.gov/15067"
+     },
+     {
+      "credit": "NASA Goddard",
+      "kind": "video",
+      "licence": "NASA public domain (SVS, no-text version, audio removed)",
+      "url": "https://svs.gsfc.nasa.gov/15064"
+     },
+     {
+      "credit": "NASA",
+      "kind": "video",
+      "licence": "NASA public domain (SVS)",
+      "url": "https://svs.gsfc.nasa.gov/15071"
+     },
+     {
+      "credit": "NASA Goddard / NASA Kennedy",
+      "kind": "video",
+      "licence": "NASA public domain (SVS, visuals only, audio removed)",
+      "url": "https://svs.gsfc.nasa.gov/15089"
+     }
+    ],
+    "nasa_involved": true,
+    "primary_sources": [
+     "https://svs.gsfc.nasa.gov/15066",
+     "https://svs.gsfc.nasa.gov/15067",
+     "https://svs.gsfc.nasa.gov/15068",
+     "https://svs.gsfc.nasa.gov/15071",
+     "https://svs.gsfc.nasa.gov/15058",
+     "https://svs.gsfc.nasa.gov/15089",
+     "https://science.nasa.gov/blogs/roman/2026/06/21/nasas-next-generation-telescope-arrives-in-florida-ahead-of-launch/",
+     "https://science.nasa.gov/mission/roman-space-telescope/"
+    ],
+    "scores": {
+     "facts": 5,
+     "hook": 5,
+     "length_fit": 4,
+     "novelty": 4,
+     "proof": 5,
+     "rights": 5,
+     "thumbnail": 5,
+     "us_interest": 5
+    },
+    "title": "NASA Drove a Space Telescope Through Baltimore at 2 MPH"
+   }
+  ]
+ },
+ "updated_at": "2026-11-22T03:21:58Z",
+ "versions": [
+  {
+   "captions_sha256": "3d0484190457dcddf9dbc19cfb5e309d679a0ee015f187d100e275ed1b32a6cb",
+   "created_at": "2026-11-22T03:19:03Z",
+   "description": "How NASA moved the Roman Space Telescope: an 18,000-pound observatory sealed in a portable clean room, driven through Baltimore at night at about 2 mph, shipped south on NASA's Pegasus barge, and launched on a Falcon Heavy toward a point about a million miles from Earth.\n\nIn this episode:\n0:00 2 mph through Baltimore\n0:17 Roman and the CHARIOT\n0:50 The 13-hour night drive\n1:21 Pegasus and the Chesapeake Bay Bridge\n1:52 Arriving at Kennedy Space Center\n2:28 Launch to L2\n2:48 What Roman will see\n\nSources:\n- NASA, \"NASA's Next Generation Telescope Arrives in Florida Ahead of Launch\" (June 21, 2026): https://science.nasa.gov/blogs/roman/2026/06/21/nasas-next-generation-telescope-arrives-in-florida-ahead-of-launch/\n- NASA, Nancy Grace Roman Space Telescope mission page: https://science.nasa.gov/mission/roman-space-telescope/\n- NASA SVS, Roman CHARIOT Transport B-roll: https://svs.gsfc.nasa.gov/15066\n- NASA SVS, Roman Being Loaded into the CHARIOT: https://svs.gsfc.nasa.gov/15068\n- NASA SVS, Roman Moving to Kennedy Space Center PHSF Building: https://svs.gsfc.nasa.gov/15071\n- NASA SVS, Roman Launches and a New Era Begins: https://svs.gsfc.nasa.gov/15089\n\nFootage: NASA's Goddard Space Flight Center and Kennedy Space Center via the Scientific Visualization Studio: https://svs.gsfc.nasa.gov/15064 , https://svs.gsfc.nasa.gov/15066 , https://svs.gsfc.nasa.gov/15067 (drone: Rob Fortunato and Christopher Albert), https://svs.gsfc.nasa.gov/15068 , https://svs.gsfc.nasa.gov/15071 , https://svs.gsfc.nasa.gov/15089 , https://svs.gsfc.nasa.gov/15000 , https://svs.gsfc.nasa.gov/15058 . Public domain; NASA does not endorse this video. Spacecraft-in-space shots and the journey map are NASA animations. Solar array shots are from an earlier test at Goddard. CHARIOT and L2 graphics: NEXORA.\nNarration: synthetic voice (ElevenLabs).\n\n#RomanSpaceTelescope #NASA #SpaceEngineering #NEXORA",
+   "duration_s": 214.5,
+   "files": {
+    "captions": "/mnt/project-files/pipeline/nx-20261122-01/nx-20261122-01-v1.srt",
+    "thumbnail": "/mnt/project-files/pipeline/nx-20261122-01/nx-20261122-01-v1.jpg",
+    "video": "/mnt/project-files/pipeline/nx-20261122-01/nx-20261122-01-v1.mp4"
+   },
+   "n": 1,
+   "tags": [
+    "how nasa moved the roman space telescope",
+    "Roman Space Telescope",
+    "Nancy Grace Roman Space Telescope",
+    "NASA",
+    "Pegasus barge",
+    "CHARIOT",
+    "Chesapeake Bay Bridge",
+    "Falcon Heavy",
+    "Kennedy Space Center",
+    "Goddard Space Flight Center",
+    "oversize load",
+    "L2",
+    "NEXORA"
+   ],
+   "thumbnail_sha256": "8fd445655763575b2821937d9df47418d2b65665ace117245185d3456161888c",
+   "title": "NASA Drove a Space Telescope Through Baltimore at 2 MPH",
+   "version_hash": "fe4c7263691c519ae33953443469aa428bf4652141c44c703d94a37fd2385f43",
+   "video_sha256": "b11f5dcb2c3e79ea3c09a0d739684ca7bb68091d2065e70ec50c09741d4e6b53"
+  }
+ ]
+}

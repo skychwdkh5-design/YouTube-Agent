@@ -73,6 +73,84 @@
    "found_by": "Claude research 2026-11-20 (NASA feed + SVS API); vidIQ 0 credits until 2026-11-29; arXiv/APS/Weizmann blocked from this environment",
    "status": "candidate",
    "added_at": "2026-11-20T02:50:08Z"
+  },
+  {
+   "id": "nx-roman-road-trip",
+   "title": "NASA Drove a Space Telescope Through Baltimore at 2 MPH",
+   "angle": "How NASA moved the 18,000-lb Roman Space Telescope: CHARIOT portable clean room, 13-hour night convoy at ~2 mph on back roads, Pegasus barge under the Chesapeake Bay Bridge, ~8 days to KSC, Falcon Heavy launch Aug 30 2026 to L2.",
+   "primary_sources": [
+    "https://svs.gsfc.nasa.gov/15066",
+    "https://svs.gsfc.nasa.gov/15067",
+    "https://svs.gsfc.nasa.gov/15068",
+    "https://svs.gsfc.nasa.gov/15071",
+    "https://svs.gsfc.nasa.gov/15058",
+    "https://svs.gsfc.nasa.gov/15089",
+    "https://science.nasa.gov/blogs/roman/2026/06/21/nasas-next-generation-telescope-arrives-in-florida-ahead-of-launch/",
+    "https://science.nasa.gov/mission/roman-space-telescope/"
+   ],
+   "media": [
+    {
+     "url": "https://svs.gsfc.nasa.gov/15066",
+     "licence": "NASA public domain (SVS)",
+     "credit": "NASA Goddard",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/15067",
+     "licence": "NASA public domain (SVS)",
+     "credit": "NASA / Rob Fortunato, Christopher Albert",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/15064",
+     "licence": "NASA public domain (SVS, no-text version, audio removed)",
+     "credit": "NASA Goddard",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/15071",
+     "licence": "NASA public domain (SVS)",
+     "credit": "NASA",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/15089",
+     "licence": "NASA public domain (SVS, visuals only, audio removed)",
+     "credit": "NASA Goddard / NASA Kennedy",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/15068",
+     "licence": "NASA public domain (SVS)",
+     "credit": "NASA Goddard",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/15000",
+     "licence": "NASA public domain (SVS)",
+     "credit": "NASA Goddard",
+     "kind": "video"
+    }
+   ],
+   "nasa_involved": true,
+   "scores": {
+    "us_interest": 5,
+    "novelty": 4,
+    "hook": 5,
+    "thumbnail": 5,
+    "rights": 5,
+    "facts": 5,
+    "proof": 5,
+    "length_fit": 4
+   },
+   "evidence": {
+    "facts": "NASA SVS pages 15058/15064/15066/15067/15068/15071/15089; NASA Roman blog 2026-06-21; NASA mission page",
+    "rights": "all NASA SVS public domain; produced-video music tracks dropped"
+   },
+   "found_by": "Claude research 2026-11-22 (SVS API); vidIQ 0 credits until 2026-11-29",
+   "status": "used",
+   "added_at": "2026-11-22T02:49:15Z",
+   "status_reason": "nx-20261122-01"
   }
  ],
  "gaps": [
@@ -80,6 +158,11 @@
    "at": "2026-11-20T02:50:08Z",
    "what": "vidIQ",
    "detail": "0 credits until 2026-11-29; free fallback (NASA feed + SVS)"
+  },
+  {
+   "at": "2026-11-22T02:49:15Z",
+   "what": "vidiq",
+   "detail": "0 credits until 2026-11-29; topic from NASA SVS research"
   }
  ]
 }
