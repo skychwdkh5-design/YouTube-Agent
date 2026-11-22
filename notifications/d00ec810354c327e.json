@@ -1,0 +1,20 @@
+{
+ "key_id": "d00ec810354c327e",
+ "rid": "2e4bea7c838d",
+ "status": "sent",
+ "created_at": 1795330772,
+ "expires_at": 1795935572,
+ "attempts": 1,
+ "request": {
+  "kind": "APPROVAL_REQUIRED",
+  "project": "OrbitalAtlas",
+  "need": "ОК или «На правку» на карточке 5089E257 в чате: Orbital Atlas «They Burned 1,200 Acres in 45 Minutes. On Purpose.» на 23.11 08:00",
+  "why_blocked": "Ролик ставится в расписание только после твоего ОК на карточке в чате Claude",
+  "on_approve": "Ставлю private + publishAt 23.11 08:00 (Хошимин) и проверяю",
+  "on_reject": "Ничего не публикуется, делаю правку и новую карточку",
+  "dedup_key": "card/5089E257",
+  "link": "https://youtu.be/dJ7pXdLzB0Q"
+ },
+ "sent_at": 1795330772,
+ "message_id": 6
+}
