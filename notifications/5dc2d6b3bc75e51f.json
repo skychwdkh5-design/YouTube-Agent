@@ -1,0 +1,20 @@
+{
+ "key_id": "5dc2d6b3bc75e51f",
+ "rid": "62a5649106d8",
+ "status": "sent",
+ "created_at": 1795364930,
+ "expires_at": 1795969730,
+ "attempts": 1,
+ "request": {
+  "kind": "APPROVAL_REQUIRED",
+  "project": "OrbitalAtlas",
+  "need": "ОК или «На правку» на карточке 19365D23 в чате: Orbital Atlas «This Alaska Lake Is Leaking Gas You Can Set on Fire» v2 (переходы тише голоса) на 24.11 08:00",
+  "why_blocked": "Ролик ставится в расписание только после твоего ОК на карточке в чате Claude",
+  "on_approve": "Ставлю private + publishAt 24.11 08:00 (Хошимин) и проверяю",
+  "on_reject": "Ничего не публикуется, делаю правку и новую карточку",
+  "dedup_key": "card/19365D23",
+  "link": "https://youtu.be/FzB622H_LH0"
+ },
+ "sent_at": 1795364930,
+ "message_id": 8
+}
