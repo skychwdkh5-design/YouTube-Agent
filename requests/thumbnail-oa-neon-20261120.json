@@ -1,0 +1,85 @@
+{
+ "op": "thumbnail",
+ "name": "thumbnail-oa-neon-20261120",
+ "confirm": true,
+ "channel_id": "UC2QxQJhUe9Q5NMRNb6M9ddw",
+ "reason": "cover restyle: Neon Contour (owner approved 2026-11-20)",
+ "owner_request": "Егор 2026-11-20 19:15Z: approved Neon Contour, replace covers of published videos",
+ "items": [
+  {
+   "video_id": "sVInlyhIY7c",
+   "file": "covers/oa-neon-20261120/ep-elnino.jpg",
+   "sha256": "b056b59d551e13e5a5b8249aedf8be85059e1b708a57fc895fbe4eca326531cf"
+  },
+  {
+   "video_id": "1TAlkxnuDJY",
+   "file": "covers/oa-neon-20261120/ep015-starship.jpg",
+   "sha256": "3ed4a70eaeeb7394f1a6c16b4dbcfbd010ae207f28ebf0560f43560d23910cf7"
+  },
+  {
+   "video_id": "J6T1JGIUYRI",
+   "file": "covers/oa-neon-20261120/ep014-artemis.jpg",
+   "sha256": "9c2b14b6f2c22aafb76961a32a40865f5657a433e5c07f52152b0811c74cd06d"
+  },
+  {
+   "video_id": "OUYNDoW54KQ",
+   "file": "covers/oa-neon-20261120/ep013-voyager.jpg",
+   "sha256": "6ef483b412c4dc921fe394253a6225d062d3c2c74a5bb7d75cf745fedf8b3874"
+  },
+  {
+   "video_id": "RirYVjOyZq4",
+   "file": "covers/oa-neon-20261120/ep012-bennu.jpg",
+   "sha256": "61b7e17d5a61dff8b96a904d422704b947395c1d9d353697c08c763368c481fb"
+  },
+  {
+   "video_id": "iOQne8mgNFk",
+   "file": "covers/oa-neon-20261120/ep011-tunguska.jpg",
+   "sha256": "99b44301e30f3660e0ef9f94c4a9f81702d252553341cbf5ac684b2e87ab7990"
+  },
+  {
+   "video_id": "ZWYia9XfjMI",
+   "file": "covers/oa-neon-20261120/ep010-icecube.jpg",
+   "sha256": "c92d5fe0c11251f7bee16f68d6c48534cf855b14bfc72f6bb3221f3569676371"
+  },
+  {
+   "video_id": "dmv8-mG9pvk",
+   "file": "covers/oa-neon-20261120/ep009-tornado.jpg",
+   "sha256": "fcdca56a6700a6c50cd86683bd66ba79bd7fb6ccaa1b81d3144709f1bfb3c475"
+  },
+  {
+   "video_id": "VQoqReQm9S4",
+   "file": "covers/oa-neon-20261120/ep008-moon.jpg",
+   "sha256": "6d913412ea0865745585881ab9b2d84da234c8a27d04acc1445b1e79ebdc68a0"
+  },
+  {
+   "video_id": "c369ApHh8I8",
+   "file": "covers/oa-neon-20261120/ep007-mars.jpg",
+   "sha256": "1359f2970347ad9f7a879d017a7f0a273b445c3530052ad8659b7a340b6f714b"
+  },
+  {
+   "video_id": "J1WzDfYsAG0",
+   "file": "covers/oa-neon-20261120/ep005-neom.jpg",
+   "sha256": "6836fdad7e7cac3998facb5114ea16f74c4e1c5ba9e51f23c387f0c0a1dcd8a6"
+  },
+  {
+   "video_id": "D9yQ3X8_J1g",
+   "file": "covers/oa-neon-20261120/ep004-jakarta.jpg",
+   "sha256": "aa948c01bd02635b14d85cbfbafe6e6a37e607aac570084b5860b6e06bbe07e0"
+  },
+  {
+   "video_id": "RSZwZyRAEAA",
+   "file": "covers/oa-neon-20261120/ep003-gsl.jpg",
+   "sha256": "aa682f08803b8d3be94357ccb6cb490d9d105a17ffd36b3c1f9ec1357d0e549b"
+  },
+  {
+   "video_id": "XbhVPSCPKwA",
+   "file": "covers/oa-neon-20261120/ep002-dubai.jpg",
+   "sha256": "16a96c6cca924590d1fec284c32c3f4816d3061e36c376f3eb58e40c378b17f8"
+  },
+  {
+   "video_id": "QRc2kPJ3cHE",
+   "file": "covers/oa-neon-20261120/ep001-sahara.jpg",
+   "sha256": "f6fde4b63014cbfc6c539cff5eb8f55dd5f8b21e160fb503af0c7c438ff53281"
+  }
+ ]
+}

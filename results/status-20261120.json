@@ -1,0 +1,8 @@
+{
+ "ok": false,
+ "error": "token refresh failed: invalid_grant - the refresh token is dead: re-run the auth step (an app left in 'Testing' expires tokens after 7 days)",
+ "error_kind": "auth",
+ "release": null,
+ "op": "status",
+ "finished_at": "2026-11-20T03:18:46Z"
+}

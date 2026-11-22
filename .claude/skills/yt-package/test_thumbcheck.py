@@ -14,7 +14,15 @@ class TC(unittest.TestCase):
     def test_gray_low_contrast_fails_and_dark_saturated_passes(self):
         gray = Image.new("RGB", (1280, 720), (150, 150, 150)); p = os.path.join(tempfile.mkdtemp(), "g.png"); gray.save(p)
         self.assertEqual(T.main([p]), 1)
-        self.assertEqual(T.main([self.img((10, 20, 60), "ok.png")]), 0)
+        self.assertEqual(T.main(["--style", "gold", p]), 1)
+        self.assertEqual(T.main(["--style", "gold", self.img((10, 20, 60), "ok.png")]), 0)
+
+    def test_neon_generator_output_passes_and_gold_cover_fails_neon(self):
+        import neon_cover as N
+        hero = Image.new("RGB", (800, 800), (30, 120, 220)); ImageDraw.Draw(hero).ellipse((100, 100, 700, 700), fill=(240, 80, 40))
+        p = os.path.join(tempfile.mkdtemp(), "n.jpg"); N.neon_cover(hero, ["THE PACIFIC", "TURNED"], "RED", "NASA SVS").save(p, quality=92)
+        self.assertEqual(T.main([p]), 0)
+        self.assertEqual(T.main([self.img((10, 20, 60), "gold.png")]), 1)
 
     def test_wrong_size_fails(self):
         p = os.path.join(tempfile.mkdtemp(), "s.png"); Image.new("RGB", (640, 360), (10, 20, 60)).save(p)
