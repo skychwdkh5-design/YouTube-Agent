@@ -9,7 +9,7 @@ Checks (FAIL blocks the card, WARN is reported on it):
   cover      frame 0 equals the cover (PSNR >= 30 dB at 1280x720); motion starts right after it (frame 0 vs 0.5 s differ)
   text       no burned subtitles: the timeline has no caption track drawn into the picture; the SRT is uploaded separately
   atlas      placement issues reported by the renderer (projection over face/caption/edge) = 0; ATLAS share <= 30 %
-  voice      the narration is the channel's final voice (OA Adam, NEXORA Matilda) and the file matches its metadata
+  voice      the narration is the channel's configured final voice and the file matches its metadata
   rights     every asset in the timeline has url + licence + credit; no forbidden source; licences in the allowed list
   thumbnail  /yt-package thumbcheck (objective half of the cover gate)
   metadata   title 1-100 chars, description with sources and credits, captions file valid

@@ -8,7 +8,7 @@
   costs nothing - so a re-run after a crash, a re-render or a new cover never pays twice for the same narration.
 * Limits come from pipeline/config/channels.json (voice_budget): per release, per day and per month, counted from the spend
   ledger next to the cache. Over a limit nothing is sent; the result says "over_limit" and the release is blocked at 'voiced'.
-* Only the channel's configured voice (OA: Adam, NEXORA: Matilda) produces a FINAL narration. Anything else is refused, so a
+* Only the channel's configured voice produces a FINAL narration. Anything else is refused, so a
   draft or temporary voice can never reach an approval card (the QC gate checks the voice id again).
 """
 import argparse, hashlib, json, os, shutil, sys
@@ -58,7 +58,9 @@ def run(a, cfg):
     ch = cfg["channels"][a.channel]["voice"]
     raw = open(a.script, encoding="utf-8").read()
     text, removed = V.spoken_text(raw)
-    settings = json.loads(a.voice_settings) if a.voice_settings else None
+    settings = ch.get("settings")
+    if a.voice_settings:
+        settings = V.parse_voice_settings(a.voice_settings)
     key = cache_key(text, ch["voice_id"], ch["model_id"], settings)
     hit = os.path.join(a.cache, key)
     os.makedirs(a.out_dir, exist_ok=True)

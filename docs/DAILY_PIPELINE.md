@@ -14,7 +14,7 @@ For pipeline releases this card rule replaces the "Одобряю ep0NN" phrase;
 | Engine | `pipeline/engine.py`, CLI `pipeline/run.py` | stages, versions, cards, the owner's answer, slots (stdlib, tested) |
 | YouTube (OA) | `.github/workflows/pipeline-ops.yml` on `pipeline-ops` / `pipeline-media/*` | private preview upload, schedule after "ОК", read-back, status, topic scout |
 | YouTube (NEXORA) | NEXORA repo, branch `youtube-ops` (existing `nexora-youtube.yml`, secrets `NEXORA_YT_*`) | `publish/requests/<id>.json` = private upload, `publish/approvals/<id>.json` (privacy scheduled + publish_at) = schedule |
-| Voice | `pipeline/voice_cache.py` -> /yt-voice (ElevenLabs via the session proxy) | OA Adam, NEXORA Matilda; cache by text+voice+parameters; per-release/day/month character limits |
+| Voice | `pipeline/voice_cache.py` -> /yt-voice (ElevenLabs via the session proxy) | Egor Norrator (Multilingual v2) for OA and NEXORA, with defaults in `pipeline/config/channels.json`; cache by text+voice+parameters; per-release/day/month character limits |
 | Render | /yt-render timeline v3 `long` + ATLAS projection (PR #58) | first frame = cover, motion from frame 1, paper callouts, no burned subtitles |
 | Gate | `pipeline/qc_gate.py` | /yt-qc long, cover = frame 0, motion, no burned subs, ATLAS placement, final voice, rights ledger, thumbcheck, metadata |
 | Release check | `verify-release.yml` (every 15 min, existing) | confirms the video really went public after publishAt; opens an issue if not |
