@@ -2,16 +2,15 @@
  "approval": null,
  "artifacts": {
   "qc_passed": {
-   "at": "2026-11-22T15:09:28Z",
-   "qc": "/mnt/project-files/pipeline/oa-20261122-02/qc.json",
+   "at": "2026-11-22T15:24:37Z",
+   "qc": "/mnt/project-files/pipeline/oa-20261122-02/qc_v2.json",
    "result": "PASS"
   },
   "rendered": {
-   "at": "2026-11-22T15:09:28Z",
-   "note": "motion pass v1, 83.7% live footage, owner voice",
-   "timeline": "/home/user/work/oa_lake/timeline.json",
-   "video": "/mnt/project-files/pipeline/oa-20261122-02/oa-20261122-02-v1.mp4",
-   "video_sha256": "50f804bc0cf530c58b79c788b261307934ef15a6ec1f5aa6135ca77c467818b2"
+   "at": "2026-11-22T15:24:37Z",
+   "note": "v2: effects 17 dB under the voice, side-chain ducked (owner review)",
+   "video": "/mnt/project-files/pipeline/oa-20261122-02/oa-20261122-02-v2.mp4",
+   "video_sha256": "fd1f743c9821fb3296a7b9e2244b5a41c627f550817f50cdbbd43bfe73bb3319"
   },
   "scripted": {
    "at": "2026-11-22T14:45:58Z",
@@ -30,15 +29,43 @@
   {
    "card_id": "card-d1778d48",
    "code": "D1778D48",
+   "decision": {
+    "actor": "principal:Егор",
+    "at": "2026-11-22T15:16:27Z",
+    "choice": "changes",
+    "comment": "Звуки «переходов» громче голоса, нужно исправить",
+    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdYGVVr2eLV6FVorWLgLGAsk",
+    "source": "owner text in thread 2026-11-22T15:14:14Z"
+   },
    "expires_at": "2026-11-24T00:30:00Z",
    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdV7VeowGxN1P67GMYNPvYPq",
    "release": "oa-20261122-02",
    "shown_at": "2026-11-22T15:11:18Z",
    "slot": "2026-11-24T01:00:00Z",
-   "status": "open",
+   "status": "decided",
    "version": 1,
    "version_hash": "6333d3ed340b1f7f5c8c1cef5732444520fd2372e76e8890599e78db4436fe3c",
    "video_id": "kx2MFBbttNc"
+  },
+  {
+   "card_id": "card-19365d23",
+   "code": "19365D23",
+   "expires_at": "2026-11-24T00:30:00Z",
+   "message_id": null,
+   "release": "oa-20261122-02",
+   "shown_at": "2026-11-22T16:28:20Z",
+   "slot": "2026-11-24T01:00:00Z",
+   "status": "open",
+   "version": 2,
+   "version_hash": "b8466b8b06602c7f9a6a8bb932b7dcf8ca1a08556eea23051c7d14a004ab35ce",
+   "video_id": "FzB622H_LH0"
+  }
+ ],
+ "change_requests": [
+  {
+   "at": "2026-11-22T15:16:27Z",
+   "card_id": "card-d1778d48",
+   "comment": "Звуки «переходов» громче голоса, нужно исправить"
   }
  ],
  "channel": "oa",
@@ -103,6 +130,45 @@
    "event": "card",
    "slot": "2026-11-24T01:00:00Z",
    "version": 1
+  },
+  {
+   "at": "2026-11-22T15:16:27Z",
+   "card_id": "card-d1778d48",
+   "event": "changes_requested"
+  },
+  {
+   "at": "2026-11-22T15:24:37Z",
+   "event": "stage_done",
+   "stage": "rendered"
+  },
+  {
+   "at": "2026-11-22T15:24:37Z",
+   "event": "stage_done",
+   "stage": "qc_passed"
+  },
+  {
+   "at": "2026-11-22T15:24:38Z",
+   "event": "version",
+   "n": 2,
+   "version_hash": "b8466b8b0660"
+  },
+  {
+   "at": "2026-11-22T15:24:44Z",
+   "branch": "pipeline-media/oa-20261122-02-v2",
+   "confirm": true,
+   "event": "preview_requested"
+  },
+  {
+   "at": "2026-11-22T16:28:20Z",
+   "event": "preview_ready",
+   "video_id": "FzB622H_LH0"
+  },
+  {
+   "at": "2026-11-22T16:28:20Z",
+   "card_id": "card-19365d23",
+   "event": "card",
+   "slot": "2026-11-24T01:00:00Z",
+   "version": 2
   }
  ],
  "id": "oa-20261122-02",
@@ -113,12 +179,12 @@
   "made_for_kids": false
  },
  "preview": {
-  "at": "2026-11-22T15:10:54Z",
+  "at": "2026-11-22T16:28:20Z",
   "privacy": "private",
-  "url": "https://youtu.be/kx2MFBbttNc",
-  "version": 1,
-  "version_hash": "6333d3ed340b1f7f5c8c1cef5732444520fd2372e76e8890599e78db4436fe3c",
-  "video_id": "kx2MFBbttNc"
+  "url": "https://youtu.be/FzB622H_LH0",
+  "version": 2,
+  "version_hash": "b8466b8b06602c7f9a6a8bb932b7dcf8ca1a08556eea23051c7d14a004ab35ce",
+  "video_id": "FzB622H_LH0"
  },
  "production_day": "2026-11-22",
  "schedule": null,
@@ -192,7 +258,7 @@
    }
   ]
  },
- "updated_at": "2026-11-22T15:11:37Z",
+ "updated_at": "2026-11-22T16:28:20Z",
  "versions": [
   {
    "captions_sha256": "38ea3c1283937075ce9f120bdcad5cedc42aef3849f24be34a1f4e01760d13a2",
@@ -223,6 +289,36 @@
    "title": "This Alaska Lake Is Leaking Gas You Can Set on Fire",
    "version_hash": "6333d3ed340b1f7f5c8c1cef5732444520fd2372e76e8890599e78db4436fe3c",
    "video_sha256": "50f804bc0cf530c58b79c788b261307934ef15a6ec1f5aa6135ca77c467818b2"
+  },
+  {
+   "captions_sha256": "38ea3c1283937075ce9f120bdcad5cedc42aef3849f24be34a1f4e01760d13a2",
+   "created_at": "2026-11-22T15:24:38Z",
+   "description": "Why does an Alaska lake bubble methane you can set on fire? Near Fairbanks, permafrost is thawing: ice wedges melt, the ground collapses into thermokarst ponds, and microbes turn long-frozen organic material into methane. At Big Trail Lake, emissions are about ten times higher than the rest of the Arctic's lakes and wetlands. NASA's ABoVE campaign tracks this thaw from the air with the UAVSAR radar.\n\nIn this episode:\n0:00 A lake gas that burns\n0:13 The frozen ground under Alaska\n0:30 Inside the Permafrost Tunnel\n0:47 Melting ice wedges and thermokarst ponds\n1:16 NASA ABoVE and the UAVSAR radar\n1:49 Fire, duff and the thaw cycle\n\nSources:\n- NASA SVS, \"How NASA Decodes the Secrets of the Arctic\" (2022), segments Intro, Permafrost, UAVSAR and Arctic Fires, with transcripts: https://svs.gsfc.nasa.gov/14221\n- NASA SVS, \"ABoVE Summer 2022 B-Roll\" (Fairbanks, Alaska): https://svs.gsfc.nasa.gov/14222\n\nFootage: NASA via the Scientific Visualization Studio (SVS 14221, 14222). Public domain; NASA does not endorse this video. Produced-video music removed; the UAVSAR pod shot is a NASA animation. The warming bars and the thermokarst cross-section are Orbital Atlas graphics (schematic).\nNarration: synthetic voice (ElevenLabs).\n\n#Permafrost #Methane #Alaska #NASA #OrbitalAtlas",
+   "duration_s": 163.9,
+   "files": {
+    "captions": "/mnt/project-files/pipeline/oa-20261122-02/captions.srt",
+    "thumbnail": "/mnt/project-files/pipeline/oa-20261122-02/cover.jpg",
+    "video": "/mnt/project-files/pipeline/oa-20261122-02/oa-20261122-02-v2.mp4"
+   },
+   "n": 2,
+   "tags": [
+    "alaska lake methane fire",
+    "methane lake",
+    "permafrost",
+    "thawing permafrost",
+    "thermokarst",
+    "Alaska",
+    "Fairbanks",
+    "NASA ABoVE",
+    "UAVSAR",
+    "Arctic warming",
+    "methane bubbles",
+    "Orbital Atlas"
+   ],
+   "thumbnail_sha256": "86117f9a16bf9ac3d76ebcea897db51465bc0159c4e3990bab64c57a2b20a557",
+   "title": "This Alaska Lake Is Leaking Gas You Can Set on Fire",
+   "version_hash": "b8466b8b06602c7f9a6a8bb932b7dcf8ca1a08556eea23051c7d14a004ab35ce",
+   "video_sha256": "fd1f743c9821fb3296a7b9e2244b5a41c627f550817f50cdbbd43bfe73bb3319"
   }
  ]
 }
