@@ -903,6 +903,12 @@ class Painter:
     # frame -------------------------------------------------------------------------------------
     def frame(self, t):
         shot = next(s for s in reversed(self.p["shots"]) if s["start"] <= t + 1e-9)
+        if shot is not getattr(self, "_cur_shot", None):        # free decoders the new shot does not use (memory)
+            used = {L.get("asset") for L in shot["layers"] if L["type"] == "video"}
+            for aid, v in self.vid.items():
+                if aid not in used:
+                    v.close()
+            self._cur_shot = shot
         box = self.box(shot, t) if shot["views"] is not None else None
         lt = t - shot["start"]
         base, overlays, credits = None, [], []
