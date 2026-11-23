@@ -1,0 +1,40 @@
+{
+ "op": "preview",
+ "release": "oa-20261123-01",
+ "channel": "oa",
+ "channel_id": "UC2QxQJhUe9Q5NMRNb6M9ddw",
+ "version": 1,
+ "version_hash": "21fa2af6a96a30ce7228d3cc4e401c0d4b857c02935e85aff0d64041a863951e",
+ "video_sha256": "2b122087454e400278ee85077e8a64908da29de4edffbcd2849c5449b2d164c5",
+ "title": "A NASA Plane Spotted Topaz in the Mojave Without Touching the Ground",
+ "description": "How did NASA find topaz in the Mojave Desert from a plane? NASA's ER-2 flies at about 65,000 feet with AVIRIS, an imaging spectrometer that reads the light fingerprint of minerals pixel by pixel. In the GEMx project with the U.S. Geological Survey, it spotted a topaz signature on a ridge near Barstow, California, and geologists confirmed it on foot. Topaz can point to porphyry copper, and the same survey found hectorite, a lithium-bearing clay, in old mine waste.\n\nIn this episode:\n0:00 Topaz spotted from the sky\n0:17 NASA's ER-2 at 65,000 feet\n0:35 AVIRIS and the light fingerprint of minerals\n1:08 GEMx and America's critical minerals\n1:39 The topaz signal near Barstow\n1:56 Why topaz could point to copper\n2:13 Lithium clay and the Colorado flights\n\nSources:\n- NASA, \"NASA, USGS Scientists Go Rock Hounding in California's High Desert\": https://www.nasa.gov/science-research/earth-science/nasa-usgs-scientists-go-rock-hounding-in-californias-high-desert/\n- NASA Science, \"NASA Flights Map Critical Minerals From Skies Above Western US\": https://science.nasa.gov/earth/nasa-flights-map-critical-minerals-from-skies-above-western-us/\n- NASA, \"New NASA Sensor Goes Hunting for Critical Minerals\": https://www.nasa.gov/science-research/earth-science/new-nasa-sensor-goes-hunting-for-critical-minerals/\n- NASA SVS 15045 (The Hunt for Critical Minerals), 60001 (GEMx field videos), 14728 (ER-2 b-roll): https://svs.gsfc.nasa.gov/15045\n\nFootage: NASA via the Scientific Visualization Studio. Public domain; NASA does not endorse this video. Produced-video audio and music removed; field clips from NASA's vertical videos are cropped to 16:9. Mineral maps and planets are NASA visualisations; some ER-2 shots are file footage from a 2023 NASA campaign. Spectral curves, maps and diagrams are Orbital Atlas graphics (schematic).\nNarration: the channel creator's own voice, generated with ElevenLabs voice cloning.\n\n#Topaz #MojaveDesert #NASA #CriticalMinerals #OrbitalAtlas",
+ "tags": [
+  "nasa topaz mojave desert",
+  "topaz",
+  "Mojave Desert",
+  "NASA ER-2",
+  "AVIRIS",
+  "GEMx",
+  "critical minerals",
+  "imaging spectroscopy",
+  "USGS",
+  "porphyry copper",
+  "lithium clay",
+  "Barstow California",
+  "Orbital Atlas"
+ ],
+ "thumbnail_sha256": "55ab1ce83878704d7e56ffe18aa9014d9e2f5011dd8854fe48bf916e2bcae803",
+ "captions_sha256": "481d69a5f8979677f333a035e9dbb62515a07364daacc24c527264771d4f013a",
+ "files": {
+  "captions": "/home/user/work/oa_gemx/captions/captions.srt",
+  "thumbnail": "/home/user/work/oa_gemx/cover/cover.jpg",
+  "video": "/home/user/work/oa_gemx/out/final.mp4"
+ },
+ "category_id": "28",
+ "default_language": "en",
+ "made_for_kids": false,
+ "contains_synthetic_media": true,
+ "marker_tag": "pipeline-oa-20261123-01-v1",
+ "confirm": true,
+ "name": "preview-oa-20261123-01-v1"
+}
