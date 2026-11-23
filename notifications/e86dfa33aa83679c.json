@@ -1,0 +1,20 @@
+{
+ "key_id": "e86dfa33aa83679c",
+ "rid": "8c7107632b10",
+ "status": "sent",
+ "created_at": 1795407372,
+ "expires_at": 1796012172,
+ "attempts": 1,
+ "request": {
+  "kind": "APPROVAL_REQUIRED",
+  "project": "NEXORA",
+  "need": "Нажать ОК или На правку на карточке 2F3949D0 (NASA Built a Robot to Save a Falling Telescope. It Never Touched It., твой голос + вставка о создателе, слот 24.11 08:00)",
+  "why_blocked": "Без ОК ролик остаётся закрытым и не встанет в расписание",
+  "on_approve": "Ролик встанет на 24.11 08:00",
+  "on_reject": "Пришлю новую версию",
+  "dedup_key": "card/2F3949D0",
+  "link": "https://youtu.be/Igz69zjPdq0"
+ },
+ "sent_at": 1795407372,
+ "message_id": 10
+}
