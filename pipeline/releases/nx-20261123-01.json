@@ -1,5 +1,23 @@
 {
- "approval": null,
+ "approval": {
+  "actor": "principal:Егор",
+  "approval_id": "200001ffee4a4af5a104f3d6f9da572c",
+  "approved_at": "2026-11-23T04:17:56Z",
+  "card_code": "2F3949D0",
+  "card_id": "card-2f3949d0",
+  "channel": "nx",
+  "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdKAMFMKuExtkkokvwJCp7q3",
+  "publish_at": "2026-11-24T01:00:00Z",
+  "release": "nx-20261123-01",
+  "single_use": true,
+  "source": "decision_card",
+  "status": "valid",
+  "test": false,
+  "version": 3,
+  "version_hash": "4c83d38ff69259a919d2f4e62f1b3ef4a6832db074718186c6cb569ee30c26cb",
+  "video_id": "Igz69zjPdq0",
+  "video_sha256": "a4b829516c082eb6d85d805024a6a95e93b395087b5be82334066d6b14098bd9"
+ },
  "artifacts": {
   "qc_passed": {
    "at": "2026-11-23T04:10:28Z",
@@ -45,12 +63,20 @@
   {
    "card_id": "card-2f3949d0",
    "code": "2F3949D0",
+   "decision": {
+    "actor": "principal:Егор",
+    "at": "2026-11-23T04:17:56Z",
+    "choice": "ok",
+    "comment": null,
+    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdKAMFMKuExtkkokvwJCp7q3",
+    "source": "decision_card"
+   },
    "expires_at": "2026-11-24T00:30:00Z",
    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdKAMFMKuExtkkokvwJCp7q3",
    "release": "nx-20261123-01",
    "shown_at": "2026-11-23T04:15:40Z",
    "slot": "2026-11-24T01:00:00Z",
-   "status": "open",
+   "status": "decided",
    "version": 3,
    "version_hash": "4c83d38ff69259a919d2f4e62f1b3ef4a6832db074718186c6cb569ee30c26cb",
    "video_id": "Igz69zjPdq0"
@@ -191,6 +217,18 @@
    "event": "card",
    "slot": "2026-11-24T01:00:00Z",
    "version": 3
+  },
+  {
+   "approval_id": "200001ffee4a4af5a104f3d6f9da572c",
+   "at": "2026-11-23T04:17:56Z",
+   "card_id": "card-2f3949d0",
+   "event": "approved"
+  },
+  {
+   "approval_id": "200001ffee4a4af5a104f3d6f9da572c",
+   "at": "2026-11-23T04:17:56Z",
+   "event": "schedule_requested",
+   "target": "NEXORA youtube-ops"
   }
  ],
  "id": "nx-20261123-01",
@@ -211,7 +249,7 @@
  "production_day": "2026-11-23",
  "schedule": null,
  "schema": "pipeline-release/1",
- "stage": "card_shown",
+ "stage": "schedule_requested",
  "test": false,
  "topic": {
   "angle": "Swift (2004) sinking after the 2024 solar max; $30M Katalyst LINK built in <1 year; Pegasus XL from Stargazer L-1011 at ~40,000 ft over Kwajalein July 3 2026; attitude-control failure; no capture (Aug 19); came within 7.5-9 mi; Swift shut down Oct 20 at 171 mi, re-entered Nov 4 2026 over Indonesia.",
@@ -267,7 +305,7 @@
   "status": "candidate",
   "title": "NASA Sent a Robot to Save a Falling Telescope. It Never Touched It."
  },
- "updated_at": "2026-11-23T04:15:56Z",
+ "updated_at": "2026-11-23T04:17:56Z",
  "versions": [
   {
    "captions_sha256": "d76cc924ecb617065ab5d1c166d8b792d236c3e2ae2fcdd618194504f65cfff4",
