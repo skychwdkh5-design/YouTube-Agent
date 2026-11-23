@@ -1,0 +1,20 @@
+{
+ "key_id": "07b9fb001bb08258",
+ "rid": "fd0a04331ee7",
+ "status": "sent",
+ "created_at": 1795405868,
+ "expires_at": 1796010668,
+ "attempts": 1,
+ "request": {
+  "kind": "APPROVAL_REQUIRED",
+  "project": "NEXORA",
+  "need": "Нажать ОК или На правку на карточке EC03416C (NASA Sent a Robot to Save a Falling Telescope. It Never Touched It., слот 24.11 08:00)",
+  "why_blocked": "Без ОК ролик остаётся закрытым и не встанет в расписание",
+  "on_approve": "Ролик встанет на 24.11 08:00",
+  "on_reject": "Пришлю новую версию",
+  "dedup_key": "card/EC03416C",
+  "link": "https://youtu.be/3zf5VEOcb9g"
+ },
+ "sent_at": 1795405868,
+ "message_id": 9
+}
