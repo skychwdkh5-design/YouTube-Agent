@@ -151,6 +151,60 @@
    "status": "used",
    "added_at": "2026-11-22T02:49:15Z",
    "status_reason": "nx-20261122-01"
+  },
+  {
+   "id": "nx-swift-rescue",
+   "title": "NASA Sent a Robot to Save a Falling Telescope. It Never Touched It.",
+   "angle": "Swift (2004) sinking after the 2024 solar max; $30M Katalyst LINK built in <1 year; Pegasus XL from Stargazer L-1011 at ~40,000 ft over Kwajalein July 3 2026; attitude-control failure; no capture (Aug 19); came within 7.5-9 mi; Swift shut down Oct 20 at 171 mi, re-entered Nov 4 2026 over Indonesia.",
+   "primary_sources": [
+    "https://science.nasa.gov/mission/swift/swift-boost-mission/",
+    "https://science.nasa.gov/mission/swift/swift-boost-mission/timeline/",
+    "https://science.nasa.gov/missions/swift/nasa-highlights-lessons-learned-from-swift-boost-mission/",
+    "https://science.nasa.gov/blogs/swift/2026/09/04/commercial-spacecraft-for-nasas-swift-boost-continues-tech-demo/",
+    "https://science.nasa.gov/blogs/swift/2026/10/23/nasas-swift-mission-ends-ahead-of-re-entry/",
+    "https://science.nasa.gov/blogs/swift/2026/11/02/nasas-swift-observatory-to-re-enter-atmosphere/",
+    "https://www.nasa.gov/news-release/nasa-awards-company-to-attempt-swift-spacecraft-orbit-boost/"
+   ],
+   "media": [
+    {
+     "url": "https://svs.gsfc.nasa.gov/15051",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA Goddard",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/15044",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA Goddard",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/15060",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA Wallops",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/15061",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA Wallops",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/10170",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA Goddard",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/14721",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA Goddard",
+     "kind": "video"
+    }
+   ],
+   "status": "candidate",
+   "source": "NASA SVS + science.nasa.gov (vidIQ 0 credits)"
   }
  ],
  "gaps": [
@@ -161,6 +215,11 @@
   },
   {
    "at": "2026-11-22T02:49:15Z",
+   "what": "vidiq",
+   "detail": "0 credits until 2026-11-29; topic from NASA SVS research"
+  },
+  {
+   "at": "2026-11-23T03:10:00Z",
    "what": "vidiq",
    "detail": "0 credits until 2026-11-29; topic from NASA SVS research"
   }
