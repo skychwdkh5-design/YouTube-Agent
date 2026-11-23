@@ -1,6 +1,29 @@
 # OrbitalAtlas thumbnail style guide (standard for every long-form episode)
 
 Status: permanent. A cover that visibly departs from this guide is **FAIL** and is revised before approval.
+
+**Current style: "Cinema Poster" - chosen by the owner on 2026-11-23** ("Кино постер меняй"); it replaces Neon Contour
+(2026-11-20) and every earlier style. All 19 long OA videos were re-covered in it on 2026-11-23 (pipeline-ops
+`covers/oa-cinema-20261123/`, previous covers kept in `covers/previous-20261123/` for rollback).
+Reference set: `docs/assets/thumbnail-reference-cinema/`. Generator: `.claude/skills/yt-package/cinema_cover.py`
+(fonts Anton, Oswald, Space Mono - OFL - in `.claude/skills/yt-package/fonts/`; land outlines `land-110m.json`, Natural Earth via world-atlas, public domain).
+
+## 0. Cinema Poster (current)
+
+- **Full-bleed real frame**: the hero is a clean frame of the video's own footage / source image (no burned captions, no HUD),
+  edge to edge, graded (contrast 1.2, saturation 1.15, slight warm/teal split), vignette + dark bottom gradient. No disc, no panel.
+- **One huge white hook word** (Anton, up to ~230 px tall) bottom-left; above it ONE short white Oswald line with a red tick.
+  Verified facts and numbers only, same rule as before.
+- **Locator** top-right: place name (+ coordinates when it is a specific place) in a dark chip and a mini-globe with a red pin.
+  Space subjects (Moon, Mars, asteroid, deep space) get the place chip without the Earth globe.
+- **Credit / honesty label** bottom-right in mono caps next to ORBITAL ATLAS: source (NASA SVS, NASA / USGS LANDSAT ...) or
+  ILLUSTRATION / RECONSTRUCTION / ARCHIVE FOOTAGE / NOT FLIGHT FOOTAGE whenever the frame is not the event itself.
+- Cover = frame 0 of the final video (pipeline rule unchanged).
+- Superseded and FAIL from now on: Neon Contour, the gold/yellow headline style below, disc-in-dark-field layouts.
+
+---
+
+Historical reference (superseded, kept for context):
 Reference set = the four covers published on the channel (screenshots in `docs/assets/thumbnail-reference/`):
 **EP001 The Sahara Is Changing**, **EP002 Built From Nothing (Dubai)**, **EP003 20 Feet Lower (Great Salt Lake)**, **EP004 Jakarta Is Sinking**.
 The earlier flat, dark draft covers kept in some branches are NOT the style. The first EP005 cover (beige, low contrast, tiny subject) is the counter-example.

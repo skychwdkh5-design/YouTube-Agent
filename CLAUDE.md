@@ -85,9 +85,13 @@ footage. Details: `docs/production-pipeline.md` (Thumbnail-Hook consistency); QC
 
 ## Thumbnail standard
 
-For all OrbitalAtlas long-form videos, thumbnails must follow the established channel style from previously approved covers. No gray, low-contrast, weak, minimal, or off-brand thumbnails are allowed. New thumbnails must visually match the existing style: large uppercase headline, bold white/yellow emphasis, dramatic satellite/aerial imagery, strong contrast, simple high-impact composition, and mobile-first readability. Any thumbnail that visually deviates from the approved style must be treated as FAIL and revised before approval.
+For all OrbitalAtlas long-form videos, covers use the owner-approved **"Cinema Poster"** style (2026-11-23, replaces Neon Contour):
+a clean real frame from the video full-bleed and graded, ONE huge white hook word (Anton) bottom-left with one short line above it
+(red tick), a top-right place chip with a mini-globe and red pin (no globe for space subjects), and a mono credit/honesty label
+with "ORBITAL ATLAS" bottom-right. Make covers with `.claude/skills/yt-package/cinema_cover.py`. Any cover in another style
+(Neon Contour, gold headline, disc layouts) is FAIL and is revised before approval.
 
-Full specification and the pre-publish gate: `docs/THUMBNAIL_STYLE_GUIDE.md`. Before any publication Claude checks the new cover against the four published covers (docs/assets/thumbnail-reference/) (and runs `.claude/skills/yt-package/thumbcheck.py`).
+Full specification: `docs/THUMBNAIL_STYLE_GUIDE.md` section 0. References: `docs/assets/thumbnail-reference-cinema/`.
 
 ## Chat-to-publish protocol (OrbitalAtlas)
 
