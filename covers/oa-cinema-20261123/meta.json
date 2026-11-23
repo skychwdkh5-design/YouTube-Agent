@@ -1,0 +1,192 @@
+[
+ {
+  "video_id": "hU-HQOY867Q",
+  "slug": "oa-topaz",
+  "pre": "FOUND FROM 65,000 FT",
+  "word": "TOPAZ",
+  "loc": "MOJAVE DESERT, CALIFORNIA",
+  "credit": "NASA ER-2 · ARCHIVE FOOTAGE",
+  "sha256": "bf117ae7f51c1a347329f61feea2386a4e1ff77182bc9177e59c4bbf446e9c88",
+  "bytes": 137365
+ },
+ {
+  "video_id": "FzB622H_LH0",
+  "slug": "oa-alaska-lake",
+  "pre": "THIS LAKE LEAKS A GAS THAT",
+  "word": "BURNS",
+  "loc": "FAIRBANKS, ALASKA",
+  "credit": "NASA ABoVE FOOTAGE",
+  "sha256": "a5f79754c54ee61ce30565a3f25012434905d47be1ef4249c5ce5390758079a1",
+  "bytes": 151619
+ },
+ {
+  "video_id": "dJ7pXdLzB0Q",
+  "slug": "oa-fire",
+  "pre": "1,200 ACRES IN 45 MIN",
+  "word": "ON PURPOSE",
+  "loc": "FORT STEWART, GEORGIA",
+  "credit": "NASA FIRESENSE",
+  "sha256": "fae9de482f2c98c4c3cce48084cdc8f7561203a4e655fbb6e6e7cd51749a5b7a",
+  "bytes": 156833
+ },
+ {
+  "video_id": "DgvDzvtA08M",
+  "slug": "oa-ice-equator",
+  "pre": "ICE NEAR THE EQUATOR",
+  "word": "2% LEFT",
+  "loc": "PUNCAK JAYA, NEW GUINEA",
+  "credit": "NASA / USGS LANDSAT",
+  "sha256": "f66522157ab12375e2966e876c0f29f84bceb7b1dcd1ec6963f7df8e4760797b",
+  "bytes": 267895
+ },
+ {
+  "video_id": "sVInlyhIY7c",
+  "slug": "ep-elnino",
+  "pre": "THE PACIFIC TURNED",
+  "word": "RED",
+  "loc": "EQUATORIAL PACIFIC",
+  "credit": "NASA SVS · SEA SURFACE TEMP.",
+  "sha256": "23b4cc56a342cf31ea531998f15ccc74ab566397b78ac50cd5dfefc970f49496",
+  "bytes": 164102
+ },
+ {
+  "video_id": "1TAlkxnuDJY",
+  "slug": "ep015-starship",
+  "pre": "THEY CAUGHT",
+  "word": "STARSHIP",
+  "loc": "STARBASE, TEXAS",
+  "credit": "ILLUSTRATION · NOT FLIGHT FOOTAGE",
+  "sha256": "871eabfac858b40b0ea2ef1a539439509a61bb97c2ab4820a3351a58de036e75",
+  "bytes": 93122
+ },
+ {
+  "video_id": "J6T1JGIUYRI",
+  "slug": "ep014-artemis",
+  "pre": "THEY SAW 5 FLASHES ON",
+  "word": "THE MOON",
+  "loc": "FAR SIDE OF THE MOON",
+  "credit": "NASA · ARTEMIS II",
+  "sha256": "67acee99930169b2db9a388498e0aebdd5c5d730d3768647fd03abaddd626979",
+  "bytes": 100285
+ },
+ {
+  "video_id": "OUYNDoW54KQ",
+  "slug": "ep013-voyager",
+  "pre": "VOYAGER 1 SIGNAL",
+  "word": "LOST",
+  "loc": "INTERSTELLAR SPACE",
+  "credit": "NASA ANIMATION",
+  "sha256": "71333d15add9215ed3b0dcfa65c3c7747aa0083bbb9b0417cfab5604d990b539",
+  "bytes": 117861
+ },
+ {
+  "video_id": "RirYVjOyZq4",
+  "slug": "ep012-bennu",
+  "pre": "IT KEPT",
+  "word": "SINKING",
+  "loc": "ASTEROID BENNU",
+  "credit": "NASA · OSIRIS-REx SAMCAM",
+  "sha256": "ed5e0b437f58288323e52bf64f3e792fca257ab9ae26e0256a95e04233b4490c",
+  "bytes": 209887
+ },
+ {
+  "video_id": "iOQne8mgNFk",
+  "slug": "ep011-tunguska",
+  "pre": "TUNGUSKA 1908, BUT",
+  "word": "NO CRATER",
+  "loc": "TUNGUSKA, SIBERIA",
+  "credit": "PHOTO: KULIK EXPEDITION, 1929",
+  "sha256": "97ec3c698c708a013ba4af8955e6a03cbcddbea3651cfe00f10acc2a4729890e",
+  "bytes": 282271
+ },
+ {
+  "video_id": "ZWYia9XfjMI",
+  "slug": "ep010-icecube",
+  "pre": "A TELESCOPE BURIED",
+  "word": "2.5 KM",
+  "loc": "SOUTH POLE, ANTARCTICA",
+  "credit": "PHOTO: C. MICHEL · CC BY-SA 4.0",
+  "sha256": "4f5d88c56619f359f2cdafb4b44a162b9bc09265a5b8903766a53375158ca74a",
+  "bytes": 177163
+ },
+ {
+  "video_id": "dmv8-mG9pvk",
+  "slug": "ep009-tornado",
+  "pre": "SCAR FROM",
+  "word": "SPACE",
+  "loc": "ALABAMA, USA",
+  "credit": "STYLIZED ILLUSTRATION · 2011",
+  "sha256": "70313a2ff8a8e3cc9584be3891fb3d2d7fb896e9d72771031ee537c6c3004196",
+  "bytes": 242694
+ },
+ {
+  "video_id": "VQoqReQm9S4",
+  "slug": "ep008-moon",
+  "pre": "NO MOON",
+  "word": "LANDING",
+  "loc": "THE MOON",
+  "credit": "PHOTO: NASA · ARTEMIS II",
+  "sha256": "4fc2b73111c42e7753fb935ba8d67ce5dc88fd0ef6c3c8bf31da7c816df1aadc",
+  "bytes": 113671
+ },
+ {
+  "video_id": "c369ApHh8I8",
+  "slug": "ep007-mars",
+  "pre": "A MARS ROCK",
+  "word": "CRACKED",
+  "loc": "GALE CRATER, MARS",
+  "credit": "NASA · CURIOSITY ROVER",
+  "sha256": "80670675f181213fbb226fbe225d7cf8c9a88478c67401cc2c35910b791504f5",
+  "bytes": 183748
+ },
+ {
+  "video_id": "J1WzDfYsAG0",
+  "slug": "ep005-neom",
+  "pre": "PROMISED",
+  "word": "170 KM",
+  "loc": "THE LINE, SAUDI ARABIA",
+  "credit": "COPERNICUS SENTINEL DATA",
+  "sha256": "29bafe983573a53d573657ff7084c382513e837eb2712733ee48b390e6b9aacd",
+  "bytes": 167963
+ },
+ {
+  "video_id": "D9yQ3X8_J1g",
+  "slug": "ep004-jakarta",
+  "pre": "JAKARTA IS",
+  "word": "SINKING",
+  "loc": "JAKARTA, INDONESIA",
+  "credit": "ILLUSTRATION",
+  "sha256": "9ec12f7a3b226f5a1bec068b6c8d94b7cfff1d52b1c5c46c8ceab7be1b3bcc12",
+  "bytes": 244487
+ },
+ {
+  "video_id": "RSZwZyRAEAA",
+  "slug": "ep003-gsl",
+  "pre": "GREAT SALT LAKE, 20 FEET",
+  "word": "LOWER",
+  "loc": "GREAT SALT LAKE, UTAH",
+  "credit": "37 YEARS FROM ORBIT",
+  "sha256": "0bf5d4a0287dedf812baaffa67eb3c65c8b8e5ed0694c6b5ca97256faf921f4d",
+  "bytes": 236446
+ },
+ {
+  "video_id": "XbhVPSCPKwA",
+  "slug": "ep002-dubai",
+  "pre": "BUILT FROM",
+  "word": "NOTHING",
+  "loc": "PALM JUMEIRAH, DUBAI",
+  "credit": "DUBAI · IN 3 YEARS",
+  "sha256": "4eda0f3d1b0a72e1950cf1b950236194c6c18e928351e19a571406bafaf0ab3d",
+  "bytes": 224676
+ },
+ {
+  "video_id": "QRc2kPJ3cHE",
+  "slug": "ep001-sahara",
+  "pre": "THE SAHARA IS",
+  "word": "CHANGING",
+  "loc": "SAHARA, NORTH AFRICA",
+  "credit": "1984 VS 2024",
+  "sha256": "ce4d8eb69df8c9875c1b9477b0b2dfa41c7fc4d16622f85046c1b7ed92871c30",
+  "bytes": 290474
+ }
+]

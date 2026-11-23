@@ -1,0 +1,105 @@
+{
+ "op": "thumbnail",
+ "name": "thumbnail-oa-cinema-20261123",
+ "confirm": true,
+ "channel_id": "UC2QxQJhUe9Q5NMRNb6M9ddw",
+ "reason": "cover restyle: Cinema Poster (owner approved 2026-11-23)",
+ "owner_request": "Егор 2026-11-23 06:52Z: «Кино постер меняй» — chose style A Cinema Poster, replace covers of OA long videos",
+ "items": [
+  {
+   "video_id": "hU-HQOY867Q",
+   "file": "covers/oa-cinema-20261123/oa-topaz.jpg",
+   "sha256": "bf117ae7f51c1a347329f61feea2386a4e1ff77182bc9177e59c4bbf446e9c88"
+  },
+  {
+   "video_id": "FzB622H_LH0",
+   "file": "covers/oa-cinema-20261123/oa-alaska-lake.jpg",
+   "sha256": "a5f79754c54ee61ce30565a3f25012434905d47be1ef4249c5ce5390758079a1"
+  },
+  {
+   "video_id": "dJ7pXdLzB0Q",
+   "file": "covers/oa-cinema-20261123/oa-fire.jpg",
+   "sha256": "fae9de482f2c98c4c3cce48084cdc8f7561203a4e655fbb6e6e7cd51749a5b7a"
+  },
+  {
+   "video_id": "DgvDzvtA08M",
+   "file": "covers/oa-cinema-20261123/oa-ice-equator.jpg",
+   "sha256": "f66522157ab12375e2966e876c0f29f84bceb7b1dcd1ec6963f7df8e4760797b"
+  },
+  {
+   "video_id": "sVInlyhIY7c",
+   "file": "covers/oa-cinema-20261123/ep-elnino.jpg",
+   "sha256": "23b4cc56a342cf31ea531998f15ccc74ab566397b78ac50cd5dfefc970f49496"
+  },
+  {
+   "video_id": "1TAlkxnuDJY",
+   "file": "covers/oa-cinema-20261123/ep015-starship.jpg",
+   "sha256": "871eabfac858b40b0ea2ef1a539439509a61bb97c2ab4820a3351a58de036e75"
+  },
+  {
+   "video_id": "J6T1JGIUYRI",
+   "file": "covers/oa-cinema-20261123/ep014-artemis.jpg",
+   "sha256": "67acee99930169b2db9a388498e0aebdd5c5d730d3768647fd03abaddd626979"
+  },
+  {
+   "video_id": "OUYNDoW54KQ",
+   "file": "covers/oa-cinema-20261123/ep013-voyager.jpg",
+   "sha256": "71333d15add9215ed3b0dcfa65c3c7747aa0083bbb9b0417cfab5604d990b539"
+  },
+  {
+   "video_id": "RirYVjOyZq4",
+   "file": "covers/oa-cinema-20261123/ep012-bennu.jpg",
+   "sha256": "ed5e0b437f58288323e52bf64f3e792fca257ab9ae26e0256a95e04233b4490c"
+  },
+  {
+   "video_id": "iOQne8mgNFk",
+   "file": "covers/oa-cinema-20261123/ep011-tunguska.jpg",
+   "sha256": "97ec3c698c708a013ba4af8955e6a03cbcddbea3651cfe00f10acc2a4729890e"
+  },
+  {
+   "video_id": "ZWYia9XfjMI",
+   "file": "covers/oa-cinema-20261123/ep010-icecube.jpg",
+   "sha256": "4f5d88c56619f359f2cdafb4b44a162b9bc09265a5b8903766a53375158ca74a"
+  },
+  {
+   "video_id": "dmv8-mG9pvk",
+   "file": "covers/oa-cinema-20261123/ep009-tornado.jpg",
+   "sha256": "70313a2ff8a8e3cc9584be3891fb3d2d7fb896e9d72771031ee537c6c3004196"
+  },
+  {
+   "video_id": "VQoqReQm9S4",
+   "file": "covers/oa-cinema-20261123/ep008-moon.jpg",
+   "sha256": "4fc2b73111c42e7753fb935ba8d67ce5dc88fd0ef6c3c8bf31da7c816df1aadc"
+  },
+  {
+   "video_id": "c369ApHh8I8",
+   "file": "covers/oa-cinema-20261123/ep007-mars.jpg",
+   "sha256": "80670675f181213fbb226fbe225d7cf8c9a88478c67401cc2c35910b791504f5"
+  },
+  {
+   "video_id": "J1WzDfYsAG0",
+   "file": "covers/oa-cinema-20261123/ep005-neom.jpg",
+   "sha256": "29bafe983573a53d573657ff7084c382513e837eb2712733ee48b390e6b9aacd"
+  },
+  {
+   "video_id": "D9yQ3X8_J1g",
+   "file": "covers/oa-cinema-20261123/ep004-jakarta.jpg",
+   "sha256": "9ec12f7a3b226f5a1bec068b6c8d94b7cfff1d52b1c5c46c8ceab7be1b3bcc12"
+  },
+  {
+   "video_id": "RSZwZyRAEAA",
+   "file": "covers/oa-cinema-20261123/ep003-gsl.jpg",
+   "sha256": "0bf5d4a0287dedf812baaffa67eb3c65c8b8e5ed0694c6b5ca97256faf921f4d"
+  },
+  {
+   "video_id": "XbhVPSCPKwA",
+   "file": "covers/oa-cinema-20261123/ep002-dubai.jpg",
+   "sha256": "4eda0f3d1b0a72e1950cf1b950236194c6c18e928351e19a571406bafaf0ab3d"
+  },
+  {
+   "video_id": "QRc2kPJ3cHE",
+   "file": "covers/oa-cinema-20261123/ep001-sahara.jpg",
+   "sha256": "ce4d8eb69df8c9875c1b9477b0b2dfa41c7fc4d16622f85046c1b7ed92871c30"
+  }
+ ]
+}
