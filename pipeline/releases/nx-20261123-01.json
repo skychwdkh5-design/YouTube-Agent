@@ -11,7 +11,7 @@
   "release": "nx-20261123-01",
   "single_use": true,
   "source": "decision_card",
-  "status": "valid",
+  "status": "used",
   "test": false,
   "version": 3,
   "version_hash": "4c83d38ff69259a919d2f4e62f1b3ef4a6832db074718186c6cb569ee30c26cb",
@@ -229,6 +229,12 @@
    "at": "2026-11-23T04:17:56Z",
    "event": "schedule_requested",
    "target": "NEXORA youtube-ops"
+  },
+  {
+   "at": "2026-11-23T04:19:11Z",
+   "event": "scheduled",
+   "publish_at": "2026-11-24T01:00:00Z",
+   "video_id": "Igz69zjPdq0"
   }
  ],
  "id": "nx-20261123-01",
@@ -247,9 +253,15 @@
   "video_id": "Igz69zjPdq0"
  },
  "production_day": "2026-11-23",
- "schedule": null,
+ "schedule": {
+  "privacy": "private",
+  "publish_at": "2026-11-24T01:00:00Z",
+  "url": "https://youtu.be/Igz69zjPdq0",
+  "verified_at": "2026-11-23T04:19:11Z",
+  "video_id": "Igz69zjPdq0"
+ },
  "schema": "pipeline-release/1",
- "stage": "schedule_requested",
+ "stage": "scheduled",
  "test": false,
  "topic": {
   "angle": "Swift (2004) sinking after the 2024 solar max; $30M Katalyst LINK built in <1 year; Pegasus XL from Stargazer L-1011 at ~40,000 ft over Kwajalein July 3 2026; attitude-control failure; no capture (Aug 19); came within 7.5-9 mi; Swift shut down Oct 20 at 171 mi, re-entered Nov 4 2026 over Indonesia.",
@@ -305,7 +317,7 @@
   "status": "candidate",
   "title": "NASA Sent a Robot to Save a Falling Telescope. It Never Touched It."
  },
- "updated_at": "2026-11-23T04:17:56Z",
+ "updated_at": "2026-11-23T04:19:11Z",
  "versions": [
   {
    "captions_sha256": "d76cc924ecb617065ab5d1c166d8b792d236c3e2ae2fcdd618194504f65cfff4",
