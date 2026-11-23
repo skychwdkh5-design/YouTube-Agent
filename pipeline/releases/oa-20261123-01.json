@@ -1,5 +1,23 @@
 {
- "approval": null,
+ "approval": {
+  "actor": "principal:Егор",
+  "approval_id": "bc4ef00abd114509aa6ab441b73be29a",
+  "approved_at": "2026-11-23T05:28:53Z",
+  "card_code": "BEF690AE",
+  "card_id": "card-bef690ae",
+  "channel": "oa",
+  "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdFiowchFrGr914LD1j3DQGy",
+  "publish_at": "2026-11-25T01:00:00Z",
+  "release": "oa-20261123-01",
+  "single_use": true,
+  "source": "decision_card",
+  "status": "valid",
+  "test": false,
+  "version": 1,
+  "version_hash": "21fa2af6a96a30ce7228d3cc4e401c0d4b857c02935e85aff0d64041a863951e",
+  "video_id": "hU-HQOY867Q",
+  "video_sha256": "2b122087454e400278ee85077e8a64908da29de4edffbcd2849c5449b2d164c5"
+ },
  "artifacts": {
   "qc_passed": {
    "at": "2026-11-23T04:45:16Z",
@@ -24,12 +42,20 @@
   {
    "card_id": "card-bef690ae",
    "code": "BEF690AE",
+   "decision": {
+    "actor": "principal:Егор",
+    "at": "2026-11-23T05:28:53Z",
+    "choice": "ok",
+    "comment": null,
+    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdFiowchFrGr914LD1j3DQGy",
+    "source": "decision_card"
+   },
    "expires_at": "2026-11-24T16:48:02Z",
    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdFiowchFrGr914LD1j3DQGy",
    "release": "oa-20261123-01",
    "shown_at": "2026-11-23T04:48:02Z",
    "slot": "2026-11-25T01:00:00Z",
-   "status": "open",
+   "status": "decided",
    "version": 1,
    "version_hash": "21fa2af6a96a30ce7228d3cc4e401c0d4b857c02935e85aff0d64041a863951e",
    "video_id": "hU-HQOY867Q"
@@ -97,6 +123,18 @@
    "event": "card",
    "slot": "2026-11-25T01:00:00Z",
    "version": 1
+  },
+  {
+   "approval_id": "bc4ef00abd114509aa6ab441b73be29a",
+   "at": "2026-11-23T05:28:53Z",
+   "card_id": "card-bef690ae",
+   "event": "approved"
+  },
+  {
+   "approval_id": "bc4ef00abd114509aa6ab441b73be29a",
+   "at": "2026-11-23T05:28:54Z",
+   "event": "schedule_requested",
+   "request": "schedule-oa-20261123-01"
   }
  ],
  "id": "oa-20261123-01",
@@ -117,7 +155,7 @@
  "production_day": "2026-11-23",
  "schedule": null,
  "schema": "pipeline-release/1",
- "stage": "card_shown",
+ "stage": "schedule_requested",
  "test": false,
  "topic": {
   "angle": "GEMx (NASA+USGS): ER-2 at ~65,000 ft with AVIRIS imaging spectrometers; topaz signature near Barstow confirmed by 2026 field check; possible porphyry copper; hectorite lithium clay in Hector Mine tailings; >386,000 sq mi since 2023; 2025: 36 missions, 7B measurements; 2026 Colorado deployment 26 flights >125 h.",
@@ -154,7 +192,7 @@
   "status": "candidate",
   "title": "A NASA Plane Spotted Topaz in the Mojave Without Touching the Ground"
  },
- "updated_at": "2026-11-23T04:49:09Z",
+ "updated_at": "2026-11-23T05:28:54Z",
  "versions": [
   {
    "captions_sha256": "481d69a5f8979677f333a035e9dbb62515a07364daacc24c527264771d4f013a",
