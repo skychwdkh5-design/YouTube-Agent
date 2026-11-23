@@ -11,7 +11,7 @@
   "release": "oa-20261123-01",
   "single_use": true,
   "source": "decision_card",
-  "status": "valid",
+  "status": "used",
   "test": false,
   "version": 1,
   "version_hash": "21fa2af6a96a30ce7228d3cc4e401c0d4b857c02935e85aff0d64041a863951e",
@@ -135,6 +135,12 @@
    "at": "2026-11-23T05:28:54Z",
    "event": "schedule_requested",
    "request": "schedule-oa-20261123-01"
+  },
+  {
+   "at": "2026-11-23T05:29:22Z",
+   "event": "scheduled",
+   "publish_at": "2026-11-25T01:00:00Z",
+   "video_id": "hU-HQOY867Q"
   }
  ],
  "id": "oa-20261123-01",
@@ -153,9 +159,15 @@
   "video_id": "hU-HQOY867Q"
  },
  "production_day": "2026-11-23",
- "schedule": null,
+ "schedule": {
+  "privacy": "private",
+  "publish_at": "2026-11-25T01:00:00Z",
+  "url": "https://youtu.be/hU-HQOY867Q",
+  "verified_at": "2026-11-23T05:29:22Z",
+  "video_id": "hU-HQOY867Q"
+ },
  "schema": "pipeline-release/1",
- "stage": "schedule_requested",
+ "stage": "scheduled",
  "test": false,
  "topic": {
   "angle": "GEMx (NASA+USGS): ER-2 at ~65,000 ft with AVIRIS imaging spectrometers; topaz signature near Barstow confirmed by 2026 field check; possible porphyry copper; hectorite lithium clay in Hector Mine tailings; >386,000 sq mi since 2023; 2025: 36 missions, 7B measurements; 2026 Colorado deployment 26 flights >125 h.",
@@ -192,7 +204,7 @@
   "status": "candidate",
   "title": "A NASA Plane Spotted Topaz in the Mojave Without Touching the Ground"
  },
- "updated_at": "2026-11-23T05:28:54Z",
+ "updated_at": "2026-11-23T05:29:22Z",
  "versions": [
   {
    "captions_sha256": "481d69a5f8979677f333a035e9dbb62515a07364daacc24c527264771d4f013a",
