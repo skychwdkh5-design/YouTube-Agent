@@ -136,6 +136,41 @@
    "status": "used",
    "added_at": "2026-11-22T06:18:06Z",
    "status_reason": "oa-20261122-01"
+  },
+  {
+   "id": "oa-gemx-topaz-mojave",
+   "title": "A NASA Plane Spotted Topaz in the Mojave Without Touching the Ground",
+   "angle": "GEMx (NASA+USGS): ER-2 at ~65,000 ft with AVIRIS imaging spectrometers; topaz signature near Barstow confirmed by 2026 field check; possible porphyry copper; hectorite lithium clay in Hector Mine tailings; >386,000 sq mi since 2023; 2025: 36 missions, 7B measurements; 2026 Colorado deployment 26 flights >125 h.",
+   "primary_sources": [
+    "https://www.nasa.gov/science-research/earth-science/nasa-usgs-scientists-go-rock-hounding-in-californias-high-desert/",
+    "https://science.nasa.gov/earth/nasa-flights-map-critical-minerals-from-skies-above-western-us/",
+    "https://www.nasa.gov/science-research/earth-science/new-nasa-sensor-goes-hunting-for-critical-minerals/",
+    "https://svs.gsfc.nasa.gov/15045",
+    "https://svs.gsfc.nasa.gov/60001",
+    "https://svs.gsfc.nasa.gov/14728"
+   ],
+   "media": [
+    {
+     "url": "https://svs.gsfc.nasa.gov/15045",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/60001",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/14728",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA",
+     "kind": "video"
+    }
+   ],
+   "status": "candidate",
+   "source": "NASA SVS + nasa.gov (vidIQ 0 credits)"
   }
  ],
  "gaps": [
@@ -148,6 +183,11 @@
    "at": "2026-11-19T07:13:12Z",
    "what": "NOAA CPC / climate.gov",
    "detail": "hosts blocked by this environment's network policy; NOAA figures taken only as quoted by NASA EO (Aug 2026)"
+  },
+  {
+   "at": "2026-11-23T04:10:00Z",
+   "what": "vidiq",
+   "detail": "0 credits until 2026-11-29; topic from NASA SVS research"
   }
  ]
 }

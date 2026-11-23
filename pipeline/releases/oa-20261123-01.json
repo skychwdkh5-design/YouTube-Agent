@@ -1,0 +1,61 @@
+{
+ "approval": null,
+ "artifacts": {},
+ "blocker": null,
+ "cards": [],
+ "channel": "oa",
+ "created_at": "2026-11-23T03:57:07Z",
+ "events": [
+  {
+   "at": "2026-11-23T03:57:07Z",
+   "channel": "oa",
+   "event": "created",
+   "production_day": "2026-11-23"
+  }
+ ],
+ "id": "oa-20261123-01",
+ "kind": "long",
+ "preview": null,
+ "production_day": "2026-11-23",
+ "schedule": null,
+ "schema": "pipeline-release/1",
+ "stage": "planned",
+ "test": false,
+ "topic": {
+  "angle": "GEMx (NASA+USGS): ER-2 at ~65,000 ft with AVIRIS imaging spectrometers; topaz signature near Barstow confirmed by 2026 field check; possible porphyry copper; hectorite lithium clay in Hector Mine tailings; >386,000 sq mi since 2023; 2025: 36 missions, 7B measurements; 2026 Colorado deployment 26 flights >125 h.",
+  "id": "oa-gemx-topaz-mojave",
+  "media": [
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/15045"
+   },
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/60001"
+   },
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/14728"
+   }
+  ],
+  "primary_sources": [
+   "https://www.nasa.gov/science-research/earth-science/nasa-usgs-scientists-go-rock-hounding-in-californias-high-desert/",
+   "https://science.nasa.gov/earth/nasa-flights-map-critical-minerals-from-skies-above-western-us/",
+   "https://www.nasa.gov/science-research/earth-science/new-nasa-sensor-goes-hunting-for-critical-minerals/",
+   "https://svs.gsfc.nasa.gov/15045",
+   "https://svs.gsfc.nasa.gov/60001",
+   "https://svs.gsfc.nasa.gov/14728"
+  ],
+  "source": "NASA SVS + nasa.gov (vidIQ 0 credits)",
+  "status": "candidate",
+  "title": "A NASA Plane Spotted Topaz in the Mojave Without Touching the Ground"
+ },
+ "updated_at": "2026-11-23T03:57:07Z",
+ "versions": []
+}

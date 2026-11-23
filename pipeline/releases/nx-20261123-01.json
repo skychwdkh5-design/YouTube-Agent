@@ -2,21 +2,21 @@
  "approval": null,
  "artifacts": {
   "qc_passed": {
-   "at": "2026-11-23T03:36:48Z",
+   "at": "2026-11-23T04:10:28Z",
    "qc": "/home/user/work/nx_swift/out/qc.json"
   },
   "rendered": {
-   "at": "2026-11-23T03:36:48Z",
+   "at": "2026-11-23T04:10:28Z",
    "video": "/home/user/work/nx_swift/out/final.mp4"
   },
   "scripted": {
-   "at": "2026-11-23T03:36:48Z",
+   "at": "2026-11-23T04:10:28Z",
    "script": "/home/user/work/nx_swift/script.md"
   },
   "voiced": {
-   "at": "2026-11-23T03:36:48Z",
+   "at": "2026-11-23T04:10:28Z",
    "voice": "/home/user/work/nx_swift/voice/narration.wav",
-   "voice_sha256": "44e04b1ab267e71a2376fb7cc6817b3cb2325b4695ef5038ac1756556cefa0ed"
+   "voice_sha256": "6ad2e93257013486849268ac4443e83d20afa262fdb5b613fb3b4691bd5fcade"
   }
  },
  "blocker": null,
@@ -24,15 +24,30 @@
   {
    "card_id": "card-ec03416c",
    "code": "EC03416C",
+   "decision": {
+    "actor": "principal:Егор",
+    "at": "2026-11-23T03:54:31Z",
+    "choice": "changes",
+    "comment": "voice insert at start: channel now narrated by its creator",
+    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXd7AQudQM8punJZUuzqP8Kn6",
+    "source": "text"
+   },
    "expires_at": "2026-11-24T00:30:00Z",
    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXd1RJhyYEaz2YPNHZiEXMdjR",
    "release": "nx-20261123-01",
    "shown_at": "2026-11-23T03:50:33Z",
    "slot": "2026-11-24T01:00:00Z",
-   "status": "open",
+   "status": "decided",
    "version": 1,
    "version_hash": "6617402a66de3eee102fee5b56718f1671ca6c8344ba3d1613dbea01257ce6f5",
    "video_id": "3zf5VEOcb9g"
+  }
+ ],
+ "change_requests": [
+  {
+   "at": "2026-11-23T03:54:31Z",
+   "card_id": "card-ec03416c",
+   "comment": "voice insert at start: channel now narrated by its creator"
   }
  ],
  "channel": "nx",
@@ -97,6 +112,43 @@
    "event": "card",
    "slot": "2026-11-24T01:00:00Z",
    "version": 1
+  },
+  {
+   "at": "2026-11-23T03:54:31Z",
+   "card_id": "card-ec03416c",
+   "event": "changes_requested"
+  },
+  {
+   "at": "2026-11-23T04:10:28Z",
+   "event": "stage_done",
+   "stage": "scripted"
+  },
+  {
+   "at": "2026-11-23T04:10:28Z",
+   "event": "stage_done",
+   "stage": "voiced"
+  },
+  {
+   "at": "2026-11-23T04:10:28Z",
+   "event": "stage_done",
+   "stage": "rendered"
+  },
+  {
+   "at": "2026-11-23T04:10:28Z",
+   "event": "stage_done",
+   "stage": "qc_passed"
+  },
+  {
+   "at": "2026-11-23T04:10:28Z",
+   "event": "version",
+   "n": 2,
+   "version_hash": "b5ecb2a13260"
+  },
+  {
+   "at": "2026-11-23T04:10:33Z",
+   "event": "preview_requested",
+   "request": "/home/user/nxops/publish/requests/nx-20261123-01.json",
+   "target": "NEXORA youtube-ops"
   }
  ],
  "id": "nx-20261123-01",
@@ -106,18 +158,11 @@
   "contains_synthetic_media": true,
   "made_for_kids": false
  },
- "preview": {
-  "at": "2026-11-23T03:50:28Z",
-  "privacy": "private",
-  "url": "https://youtu.be/3zf5VEOcb9g",
-  "version": 1,
-  "version_hash": "6617402a66de3eee102fee5b56718f1671ca6c8344ba3d1613dbea01257ce6f5",
-  "video_id": "3zf5VEOcb9g"
- },
+ "preview": null,
  "production_day": "2026-11-23",
  "schedule": null,
  "schema": "pipeline-release/1",
- "stage": "card_shown",
+ "stage": "preview_requested",
  "test": false,
  "topic": {
   "angle": "Swift (2004) sinking after the 2024 solar max; $30M Katalyst LINK built in <1 year; Pegasus XL from Stargazer L-1011 at ~40,000 ft over Kwajalein July 3 2026; attitude-control failure; no capture (Aug 19); came within 7.5-9 mi; Swift shut down Oct 20 at 171 mi, re-entered Nov 4 2026 over Indonesia.",
@@ -173,7 +218,7 @@
   "status": "candidate",
   "title": "NASA Sent a Robot to Save a Falling Telescope. It Never Touched It."
  },
- "updated_at": "2026-11-23T03:50:58Z",
+ "updated_at": "2026-11-23T04:10:33Z",
  "versions": [
   {
    "captions_sha256": "d76cc924ecb617065ab5d1c166d8b792d236c3e2ae2fcdd618194504f65cfff4",
@@ -204,6 +249,36 @@
    "title": "NASA Sent a Robot to Save a Falling Telescope. It Never Touched It.",
    "version_hash": "6617402a66de3eee102fee5b56718f1671ca6c8344ba3d1613dbea01257ce6f5",
    "video_sha256": "d2fcd8ee1b1921c135685ed1987d0e289f002b2a4dda4b7a6f2bb9ba07fbdcbc"
+  },
+  {
+   "captions_sha256": "5061731311b3484fb2e4ffb07f016ff37340d6fe8f9bb35961923f23ef14a146",
+   "created_at": "2026-11-23T04:10:28Z",
+   "description": "NASA paid $30 million for a robot to save its falling Swift telescope. The LINK spacecraft launched from under a jet, got within 7.5 to 9 miles of Swift, and never touched it. Here is how the rescue was built in less than a year, and why it failed.\n\nIn this episode:\n0:00 The robot that never touched Swift\n0:21 Swift: 20+ years catching gamma-ray bursts\n0:32 Why Swift started falling\n0:53 A $30 million rescue robot in under a year\n1:30 Launched from under a jet\n1:54 What went wrong\n2:20 The end of Swift\n\nSources:\n- NASA, Swift Boost Mission: https://science.nasa.gov/mission/swift/swift-boost-mission/\n- NASA, Swift Boost Mission timeline: https://science.nasa.gov/mission/swift/swift-boost-mission/timeline/\n- NASA, \"NASA Highlights Lessons Learned From Swift Boost Mission\": https://science.nasa.gov/missions/swift/nasa-highlights-lessons-learned-from-swift-boost-mission/\n- NASA, \"Commercial Spacecraft for NASA's Swift Boost Continues Tech Demo\" (Sept 4, 2026): https://science.nasa.gov/blogs/swift/2026/09/04/commercial-spacecraft-for-nasas-swift-boost-continues-tech-demo/\n- NASA, \"NASA's Swift Mission Ends Ahead of Re-Entry\" (Oct 23, 2026): https://science.nasa.gov/blogs/swift/2026/10/23/nasas-swift-mission-ends-ahead-of-re-entry/\n- NASA, \"NASA's Swift Observatory to Re-enter Atmosphere\" (updated Nov 4, 2026): https://science.nasa.gov/blogs/swift/2026/11/02/nasas-swift-observatory-to-re-enter-atmosphere/\n- NASA, contract announcement: https://www.nasa.gov/news-release/nasa-awards-company-to-attempt-swift-spacecraft-orbit-boost/\n\nFootage: NASA's Goddard Space Flight Center and Wallops Flight Facility via the Scientific Visualization Studio: https://svs.gsfc.nasa.gov/15051 (with Katalyst Space and Northrop Grumman), https://svs.gsfc.nasa.gov/15044 , https://svs.gsfc.nasa.gov/15060 , https://svs.gsfc.nasa.gov/15061 , https://svs.gsfc.nasa.gov/10170 , https://svs.gsfc.nasa.gov/14721 . Public domain; NASA does not endorse this video. Spacecraft-in-orbit shots are animations (labelled on screen). The Pegasus air-launch shot is an earlier launch, not the July 2026 flight. Swift launch footage: November 2004. Charts and maps: NEXORA.\nNarration: the channel creator's own voice, generated with ElevenLabs voice cloning.\n\n#SwiftObservatory #NASA #SpaceEngineering #NEXORA",
+   "duration_s": 184.9,
+   "files": {
+    "captions": "/home/user/work/nx_swift/captions/captions.srt",
+    "thumbnail": "/home/user/work/nx_swift/cover/cover.jpg",
+    "video": "/home/user/work/nx_swift/out/final.mp4"
+   },
+   "n": 2,
+   "tags": [
+    "nasa robot save swift telescope",
+    "Swift Observatory",
+    "Neil Gehrels Swift Observatory",
+    "Swift boost mission",
+    "Katalyst Space",
+    "LINK spacecraft",
+    "Pegasus XL",
+    "Stargazer L-1011",
+    "satellite servicing",
+    "gamma-ray bursts",
+    "NASA",
+    "NEXORA"
+   ],
+   "thumbnail_sha256": "2e6a74dd37cee949f9fc6cafa4c79b86a08134d518dc2f0a8bf33e4940379045",
+   "title": "NASA Sent a Robot to Save a Falling Telescope. It Never Touched It.",
+   "version_hash": "b5ecb2a132600937eaedb121d7739e7e9a9070c43193910218ff598e58f546ac",
+   "video_sha256": "a4b829516c082eb6d85d805024a6a95e93b395087b5be82334066d6b14098bd9"
   }
  ]
 }
