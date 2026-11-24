@@ -205,6 +205,83 @@
    ],
    "status": "candidate",
    "source": "NASA SVS + science.nasa.gov (vidIQ 0 credits)"
+  },
+  {
+   "id": "nx-nicer-patch-end",
+   "title": "Astronauts Patched a Leaking Space Telescope. NASA Shut It Down Anyway.",
+   "angle": "NICER light leak (May 2023) -> pie-slice patches machined/anodized at Goddard, NBL rehearsal, Hague installs 9 patches Jan 16 2025, MPU reconfiguration >70% daytime, motor failure June 2025, science ends Nov 17 2026.",
+   "primary_sources": [
+    "https://www.nasa.gov/missions/station/nicer-status-updates/",
+    "https://science.nasa.gov/missions/station/iss-research/nicer/astronauts-to-patch-up-nasas-nicer-telescope/",
+    "https://science.nasa.gov/missions/station/iss-research/nicer/repair-kit-for-nasas-nicer-mission-heading-to-space-station/",
+    "https://svs.gsfc.nasa.gov/14678",
+    "https://svs.gsfc.nasa.gov/14680",
+    "https://svs.gsfc.nasa.gov/14679",
+    "https://svs.gsfc.nasa.gov/14603",
+    "https://svs.gsfc.nasa.gov/14609",
+    "https://svs.gsfc.nasa.gov/14610",
+    "https://svs.gsfc.nasa.gov/14755",
+    "https://svs.gsfc.nasa.gov/14819",
+    "https://svs.gsfc.nasa.gov/31375"
+   ],
+   "media": [
+    {
+     "url": "https://svs.gsfc.nasa.gov/14678",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/14680",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/14679",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/14603",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/14609",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/14610",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/14755",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/14819",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA",
+     "kind": "video"
+    },
+    {
+     "url": "https://svs.gsfc.nasa.gov/31375",
+     "licence": "NASA public domain (SVS), audio removed",
+     "credit": "NASA",
+     "kind": "video"
+    }
+   ],
+   "status": "candidate",
+   "source": "NASA status page + SVS b-roll (vidIQ 0 credits)"
   }
  ],
  "gaps": [
@@ -222,6 +299,11 @@
    "at": "2026-11-23T03:10:00Z",
    "what": "vidiq",
    "detail": "0 credits until 2026-11-29; topic from NASA SVS research"
+  },
+  {
+   "at": "2026-11-24T03:05:00Z",
+   "what": "vidiq",
+   "detail": "0 credits until 2026-11-29; topic from NASA news + SVS"
   }
  ]
 }

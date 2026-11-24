@@ -1,0 +1,233 @@
+{
+ "approval": null,
+ "artifacts": {
+  "qc_passed": {
+   "at": "2026-11-24T03:16:40Z",
+   "qc": "/home/user/work/nx_nicer/out/qc.json"
+  },
+  "rendered": {
+   "at": "2026-11-24T03:16:40Z",
+   "video": "/home/user/work/nx_nicer/out/final.mp4"
+  },
+  "scripted": {
+   "at": "2026-11-24T03:16:40Z",
+   "script": "/home/user/work/nx_nicer/script.md"
+  },
+  "voiced": {
+   "at": "2026-11-24T03:16:40Z",
+   "voice": "/home/user/work/nx_nicer/voice/narration.wav",
+   "voice_sha256": "3e99ce2338328343f94bbb3d1d2f44b8f4ce285632465a796efb7a9201497bd5"
+  }
+ },
+ "blocker": null,
+ "cards": [
+  {
+   "card_id": "card-4a3c431b",
+   "code": "4A3C431B",
+   "expires_at": "2026-11-25T00:30:00Z",
+   "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdUuPUBCUDd1LFMiq4kdVFc7",
+   "release": "nx-20261124-01",
+   "shown_at": "2026-11-24T03:19:09Z",
+   "slot": "2026-11-25T01:00:00Z",
+   "status": "open",
+   "version": 1,
+   "version_hash": "672b3652806113d69e92784a0af4637d7e9598d2b175b963f850b60b6eb1ff4a",
+   "video_id": "_ioat16Z6WA"
+  }
+ ],
+ "channel": "nx",
+ "created_at": "2026-11-24T02:52:34Z",
+ "endscreen": {
+  "title": "NASA Drove a Space Telescope Through Baltimore at 2 MPH",
+  "video_id": "-j32j-dedFw",
+  "why": "related topic"
+ },
+ "events": [
+  {
+   "at": "2026-11-24T02:52:34Z",
+   "channel": "nx",
+   "event": "created",
+   "production_day": "2026-11-24"
+  },
+  {
+   "at": "2026-11-24T03:16:40Z",
+   "event": "stage_done",
+   "stage": "scripted"
+  },
+  {
+   "at": "2026-11-24T03:16:40Z",
+   "event": "stage_done",
+   "stage": "voiced"
+  },
+  {
+   "at": "2026-11-24T03:16:40Z",
+   "event": "stage_done",
+   "stage": "rendered"
+  },
+  {
+   "at": "2026-11-24T03:16:40Z",
+   "event": "stage_done",
+   "stage": "qc_passed"
+  },
+  {
+   "at": "2026-11-24T03:16:40Z",
+   "event": "version",
+   "n": 1,
+   "version_hash": "672b36528061"
+  },
+  {
+   "at": "2026-11-24T03:16:43Z",
+   "event": "preview_requested",
+   "request": "/home/user/nxops/publish/requests/nx-20261124-01.json",
+   "target": "NEXORA youtube-ops"
+  },
+  {
+   "at": "2026-11-24T03:19:05Z",
+   "event": "preview_ready",
+   "video_id": "_ioat16Z6WA"
+  },
+  {
+   "at": "2026-11-24T03:19:07Z",
+   "event": "endscreen_pick",
+   "video_id": "-j32j-dedFw"
+  },
+  {
+   "at": "2026-11-24T03:19:09Z",
+   "card_id": "card-4a3c431b",
+   "event": "card",
+   "slot": "2026-11-25T01:00:00Z",
+   "version": 1
+  }
+ ],
+ "id": "nx-20261124-01",
+ "kind": "long",
+ "meta": {
+  "category_id": "28",
+  "contains_synthetic_media": true,
+  "made_for_kids": false
+ },
+ "preview": {
+  "at": "2026-11-24T03:19:05Z",
+  "privacy": "private",
+  "url": "https://youtu.be/_ioat16Z6WA",
+  "version": 1,
+  "version_hash": "672b3652806113d69e92784a0af4637d7e9598d2b175b963f850b60b6eb1ff4a",
+  "video_id": "_ioat16Z6WA"
+ },
+ "production_day": "2026-11-24",
+ "schedule": null,
+ "schema": "pipeline-release/1",
+ "stage": "card_shown",
+ "test": false,
+ "topic": {
+  "angle": "NICER light leak (May 2023) -> pie-slice patches machined/anodized at Goddard, NBL rehearsal, Hague installs 9 patches Jan 16 2025, MPU reconfiguration >70% daytime, motor failure June 2025, science ends Nov 17 2026.",
+  "id": "nx-nicer-patch-end",
+  "media": [
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/14678"
+   },
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/14680"
+   },
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/14679"
+   },
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/14603"
+   },
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/14609"
+   },
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/14610"
+   },
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/14755"
+   },
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/14819"
+   },
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/31375"
+   }
+  ],
+  "primary_sources": [
+   "https://www.nasa.gov/missions/station/nicer-status-updates/",
+   "https://science.nasa.gov/missions/station/iss-research/nicer/astronauts-to-patch-up-nasas-nicer-telescope/",
+   "https://science.nasa.gov/missions/station/iss-research/nicer/repair-kit-for-nasas-nicer-mission-heading-to-space-station/",
+   "https://svs.gsfc.nasa.gov/14678",
+   "https://svs.gsfc.nasa.gov/14680",
+   "https://svs.gsfc.nasa.gov/14679",
+   "https://svs.gsfc.nasa.gov/14603",
+   "https://svs.gsfc.nasa.gov/14609",
+   "https://svs.gsfc.nasa.gov/14610",
+   "https://svs.gsfc.nasa.gov/14755",
+   "https://svs.gsfc.nasa.gov/14819",
+   "https://svs.gsfc.nasa.gov/31375"
+  ],
+  "source": "NASA status page + SVS b-roll (vidIQ 0 credits)",
+  "status": "candidate",
+  "title": "Astronauts Patched a Leaking Space Telescope. NASA Shut It Down Anyway."
+ },
+ "updated_at": "2026-11-24T03:19:28Z",
+ "versions": [
+  {
+   "captions_sha256": "9ec08a8670e5a98e66f70cee0700871b57fd0dba9bff437b742f430128a198b3",
+   "created_at": "2026-11-24T03:16:40Z",
+   "description": "Astronauts patched NASA's NICER telescope on the space station after sunlight leaked in through damaged shields. The patch worked, but a motor failed, and in November 2026 NASA shut NICER down anyway. Here is how the spacewalk repair was built, rehearsed and done.\n\nIn this episode:\n0:00 A space telescope that leaked light\n0:10 What NICER is\n0:35 The May 2023 light leak\n0:48 Never designed to be repaired\n1:00 A patch shaped like a slice of pie\n1:22 Rehearsal and the spacewalk repair\n1:52 Fixing the rest with electronics\n2:08 The motor that failed\n2:19 NICER shuts down\n\nSources:\n- NASA, NICER status updates: https://www.nasa.gov/missions/station/nicer-status-updates/\n- NASA, \"Astronauts To Patch Up NASA's NICER Telescope\": https://science.nasa.gov/missions/station/iss-research/nicer/astronauts-to-patch-up-nasas-nicer-telescope/\n- NASA, \"Repair Kit for NASA's NICER Mission Heading to Space Station\": https://science.nasa.gov/missions/station/iss-research/nicer/repair-kit-for-nasas-nicer-mission-heading-to-space-station/\n\nFootage: NASA via the Scientific Visualization Studio: https://svs.gsfc.nasa.gov/14678 , https://svs.gsfc.nasa.gov/14679 , https://svs.gsfc.nasa.gov/14680 , https://svs.gsfc.nasa.gov/14603 , https://svs.gsfc.nasa.gov/14609 , https://svs.gsfc.nasa.gov/14610 , https://svs.gsfc.nasa.gov/14819 . Public domain; NASA does not endorse this video. Underwater shots are training at NASA's Neutral Buoyancy Laboratory in Houston, not the spacewalk itself (labelled on screen). NICER-in-orbit shots are NASA animation. Charts: NEXORA.\nNarration: the channel creator's own voice, generated with ElevenLabs voice cloning.\n\n#NICER #NASA #Spacewalk #NEXORA",
+   "duration_s": 181.5,
+   "files": {
+    "captions": "/home/user/work/nx_nicer/captions/captions.srt",
+    "thumbnail": "/home/user/work/nx_nicer/cover/cover.jpg",
+    "video": "/home/user/work/nx_nicer/out/final.mp4"
+   },
+   "n": 1,
+   "tags": [
+    "nasa nicer telescope",
+    "NICER",
+    "NICER light leak",
+    "NICER repair spacewalk",
+    "Nick Hague spacewalk",
+    "Don Pettit",
+    "International Space Station",
+    "X-ray telescope",
+    "neutron stars",
+    "Neutral Buoyancy Laboratory",
+    "NASA Goddard",
+    "NASA",
+    "NEXORA"
+   ],
+   "thumbnail_sha256": "51cf8023fb4ceec66d0f1a12017d4e0ece85a22aba90a25fed9e4ede8cab8387",
+   "title": "Astronauts Patched a Leaking Space Telescope. NASA Shut It Down Anyway.",
+   "version_hash": "672b3652806113d69e92784a0af4637d7e9598d2b175b963f850b60b6eb1ff4a",
+   "video_sha256": "b3bf4d5c9b454b33d6f711046e2032d707ee7aba304c1d5cd765fa8bf4c94ee0"
+  }
+ ]
+}

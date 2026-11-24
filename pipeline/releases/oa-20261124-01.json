@@ -1,0 +1,68 @@
+{
+ "approval": null,
+ "artifacts": {},
+ "blocker": null,
+ "cards": [],
+ "channel": "oa",
+ "created_at": "2026-11-24T03:08:43Z",
+ "events": [
+  {
+   "at": "2026-11-24T03:08:43Z",
+   "channel": "oa",
+   "event": "created",
+   "production_day": "2026-11-24"
+  }
+ ],
+ "id": "oa-20261124-01",
+ "kind": "long",
+ "preview": null,
+ "production_day": "2026-11-24",
+ "schedule": null,
+ "schema": "pipeline-release/1",
+ "stage": "planned",
+ "test": false,
+ "topic": {
+  "angle": "Aug 12 2026 total eclipse over Greenland/Iceland/Spain; clouds over Iceland; NASA WB-57F from Keflavik at 50,000 ft with SAMI cameras chases totality (2:18 ground max vs ~3 min planned); corona mystery; balloons; science team success.",
+  "id": "oa-wb57-eclipse-iceland",
+  "media": [
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/15075"
+   },
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/15065"
+   },
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/15063"
+   },
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/5656"
+   }
+  ],
+  "primary_sources": [
+   "https://www.nasa.gov/centers-and-facilities/johnson/nasa-johnson-pilots-chase-moons-shadow-for-eclipse-science/",
+   "https://science.nasa.gov/science-research/heliophysics/nasa-shares-views-of-august-solar-eclipse-from-ground-air-space/",
+   "https://science.nasa.gov/science-research/heliophysics/nasa-science-soars-during-august-total-solar-eclipse/",
+   "https://svs.gsfc.nasa.gov/15075",
+   "https://svs.gsfc.nasa.gov/15065",
+   "https://svs.gsfc.nasa.gov/15063",
+   "https://svs.gsfc.nasa.gov/5656"
+  ],
+  "source": "NASA articles + SVS footage (vidIQ 0 credits until 2026-11-29)",
+  "status": "candidate",
+  "title": "NASA Chased the Moon's Shadow at 50,000 Feet"
+ },
+ "updated_at": "2026-11-24T03:08:43Z",
+ "versions": []
+}
