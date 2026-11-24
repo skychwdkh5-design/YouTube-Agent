@@ -1,0 +1,39 @@
+{
+ "op": "preview",
+ "release": "oa-20261124-01",
+ "channel": "oa",
+ "channel_id": "UC2QxQJhUe9Q5NMRNb6M9ddw",
+ "version": 1,
+ "version_hash": "a53a7e41d4be33f6b24293ca33947afa4d5d447a1ea44fb0e3c6614603957d22",
+ "video_sha256": "be724b8b359823a00c13f4a97c3816ff7b853e4bd82a0661f7406bbfe3fcf632",
+ "title": "NASA Chased the Moon's Shadow at 50,000 Feet",
+ "description": "NASA chased the Moon's shadow at 50,000 feet during the August 12, 2026 total solar eclipse. Clouds covered Iceland, so a NASA WB-57 jet flew above them, racing the eclipse to film the Sun's corona. Here is how the flight worked, and what its cameras saw.\n\nIn this episode:\n0:00 Clouds over Iceland on eclipse day\n0:20 The mystery of the corona\n0:34 A research jet from Houston\n0:48 Racing the shadow\n1:00 Why fly at 50,000 feet\n1:14 Takeoff from Keflavik\n1:25 Inside totality\n1:48 Balloons below\n1:59 What the team got\n\nSources:\n- NASA, \"NASA Johnson Pilots Chase Moon's Shadow for Eclipse Science\" (Aug 26, 2026): https://www.nasa.gov/centers-and-facilities/johnson/nasa-johnson-pilots-chase-moons-shadow-for-eclipse-science/\n- NASA, \"NASA Shares Views of August Solar Eclipse from Ground, Air, Space\" (Aug 21, 2026): https://science.nasa.gov/science-research/heliophysics/nasa-shares-views-of-august-solar-eclipse-from-ground-air-space/\n- NASA, \"NASA Science Soars During August Total Solar Eclipse\" (Jul 27, 2026): https://science.nasa.gov/science-research/heliophysics/nasa-science-soars-during-august-total-solar-eclipse/\n\nFootage: NASA via the Scientific Visualization Studio: https://svs.gsfc.nasa.gov/15075 , https://svs.gsfc.nasa.gov/15065 , https://svs.gsfc.nasa.gov/15063 , https://svs.gsfc.nasa.gov/5656 . Public domain; NASA does not endorse this video. The colour corona panels are from the WB-57's 2024 eclipse flight (NASA/SwRI/Will Ashfield) and the balloon shots are from earlier US eclipses (labelled on screen). Eclipse path views are NASA visualizations. Charts: Orbital Atlas.\nNarration: the channel creator's own voice, generated with ElevenLabs voice cloning.\n\n#SolarEclipse #NASA #Iceland #OrbitalAtlas",
+ "tags": [
+  "nasa eclipse jet",
+  "solar eclipse 2026",
+  "August 12 2026 eclipse",
+  "total solar eclipse Iceland",
+  "WB-57",
+  "NASA WB-57F",
+  "solar corona",
+  "eclipse from a plane",
+  "Moon's shadow",
+  "Keflavik",
+  "NASA Johnson",
+  "Orbital Atlas"
+ ],
+ "thumbnail_sha256": "bf4111a553a6cb121a64ccf1c7d4f1921b871e11874ab8ffc4b21d317adcb8c5",
+ "captions_sha256": "5c3e4350afa44378a380410fba3d7537ff5d5826c6d3f1aa9afe912caa916c54",
+ "files": {
+  "captions": "/home/user/work/oa_eclipse/captions/captions.srt",
+  "thumbnail": "/home/user/work/oa_eclipse/cover/cover.jpg",
+  "video": "/home/user/work/oa_eclipse/out/final.mp4"
+ },
+ "category_id": "28",
+ "default_language": "en",
+ "made_for_kids": false,
+ "contains_synthetic_media": true,
+ "marker_tag": "pipeline-oa-20261124-01-v1",
+ "confirm": true,
+ "name": "preview-oa-20261124-01-v1"
+}
