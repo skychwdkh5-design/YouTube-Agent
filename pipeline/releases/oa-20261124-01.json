@@ -1,25 +1,123 @@
 {
  "approval": null,
- "artifacts": {},
+ "artifacts": {
+  "qc_passed": {
+   "at": "2026-11-24T03:49:14Z",
+   "qc": "/home/user/work/oa_eclipse/out/qc.json"
+  },
+  "rendered": {
+   "at": "2026-11-24T03:49:14Z",
+   "video": "/home/user/work/oa_eclipse/out/final.mp4"
+  },
+  "scripted": {
+   "at": "2026-11-24T03:49:14Z",
+   "script": "/home/user/work/oa_eclipse/script.md"
+  },
+  "voiced": {
+   "at": "2026-11-24T03:49:14Z",
+   "voice": "/home/user/work/oa_eclipse/voice/narration.wav",
+   "voice_sha256": "9a9ad8d1d6935a2f90d8c980c9a56e8019c82135359b8bb8cc0b8eb1e3b741b3"
+  }
+ },
  "blocker": null,
- "cards": [],
+ "cards": [
+  {
+   "card_id": "card-e547e1d2",
+   "code": "E547E1D2",
+   "expires_at": "2026-11-25T15:50:50Z",
+   "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdMoknQVUH7HW98aMFTtYAeD",
+   "release": "oa-20261124-01",
+   "shown_at": "2026-11-24T03:50:50Z",
+   "slot": "2026-11-26T01:00:00Z",
+   "status": "open",
+   "version": 1,
+   "version_hash": "a53a7e41d4be33f6b24293ca33947afa4d5d447a1ea44fb0e3c6614603957d22",
+   "video_id": "MSp-PIpfbxw"
+  }
+ ],
  "channel": "oa",
  "created_at": "2026-11-24T03:08:43Z",
+ "endscreen": {
+  "title": "NASA Astronauts Saw Five Flashes on the Far Side of the Moon",
+  "video_id": "J6T1JGIUYRI",
+  "why": "related topic"
+ },
  "events": [
   {
    "at": "2026-11-24T03:08:43Z",
    "channel": "oa",
    "event": "created",
    "production_day": "2026-11-24"
+  },
+  {
+   "at": "2026-11-24T03:49:14Z",
+   "event": "stage_done",
+   "stage": "scripted"
+  },
+  {
+   "at": "2026-11-24T03:49:14Z",
+   "event": "stage_done",
+   "stage": "voiced"
+  },
+  {
+   "at": "2026-11-24T03:49:14Z",
+   "event": "stage_done",
+   "stage": "rendered"
+  },
+  {
+   "at": "2026-11-24T03:49:14Z",
+   "event": "stage_done",
+   "stage": "qc_passed"
+  },
+  {
+   "at": "2026-11-24T03:49:14Z",
+   "event": "version",
+   "n": 1,
+   "version_hash": "a53a7e41d4be"
+  },
+  {
+   "at": "2026-11-24T03:49:14Z",
+   "branch": "pipeline-media/oa-20261124-01-v1",
+   "confirm": true,
+   "event": "preview_requested"
+  },
+  {
+   "at": "2026-11-24T03:50:24Z",
+   "event": "preview_ready",
+   "video_id": "MSp-PIpfbxw"
+  },
+  {
+   "at": "2026-11-24T03:50:50Z",
+   "event": "endscreen_pick",
+   "video_id": "J6T1JGIUYRI"
+  },
+  {
+   "at": "2026-11-24T03:50:50Z",
+   "card_id": "card-e547e1d2",
+   "event": "card",
+   "slot": "2026-11-26T01:00:00Z",
+   "version": 1
   }
  ],
  "id": "oa-20261124-01",
  "kind": "long",
- "preview": null,
+ "meta": {
+  "category_id": "28",
+  "contains_synthetic_media": true,
+  "made_for_kids": false
+ },
+ "preview": {
+  "at": "2026-11-24T03:50:24Z",
+  "privacy": "private",
+  "url": "https://youtu.be/MSp-PIpfbxw",
+  "version": 1,
+  "version_hash": "a53a7e41d4be33f6b24293ca33947afa4d5d447a1ea44fb0e3c6614603957d22",
+  "video_id": "MSp-PIpfbxw"
+ },
  "production_day": "2026-11-24",
  "schedule": null,
  "schema": "pipeline-release/1",
- "stage": "planned",
+ "stage": "card_shown",
  "test": false,
  "topic": {
   "angle": "Aug 12 2026 total eclipse over Greenland/Iceland/Spain; clouds over Iceland; NASA WB-57F from Keflavik at 50,000 ft with SAMI cameras chases totality (2:18 ground max vs ~3 min planned); corona mystery; balloons; science team success.",
@@ -63,6 +161,37 @@
   "status": "candidate",
   "title": "NASA Chased the Moon's Shadow at 50,000 Feet"
  },
- "updated_at": "2026-11-24T03:08:43Z",
- "versions": []
+ "updated_at": "2026-11-24T03:51:06Z",
+ "versions": [
+  {
+   "captions_sha256": "5c3e4350afa44378a380410fba3d7537ff5d5826c6d3f1aa9afe912caa916c54",
+   "created_at": "2026-11-24T03:49:14Z",
+   "description": "NASA chased the Moon's shadow at 50,000 feet during the August 12, 2026 total solar eclipse. Clouds covered Iceland, so a NASA WB-57 jet flew above them, racing the eclipse to film the Sun's corona. Here is how the flight worked, and what its cameras saw.\n\nIn this episode:\n0:00 Clouds over Iceland on eclipse day\n0:20 The mystery of the corona\n0:34 A research jet from Houston\n0:48 Racing the shadow\n1:00 Why fly at 50,000 feet\n1:14 Takeoff from Keflavik\n1:25 Inside totality\n1:48 Balloons below\n1:59 What the team got\n\nSources:\n- NASA, \"NASA Johnson Pilots Chase Moon's Shadow for Eclipse Science\" (Aug 26, 2026): https://www.nasa.gov/centers-and-facilities/johnson/nasa-johnson-pilots-chase-moons-shadow-for-eclipse-science/\n- NASA, \"NASA Shares Views of August Solar Eclipse from Ground, Air, Space\" (Aug 21, 2026): https://science.nasa.gov/science-research/heliophysics/nasa-shares-views-of-august-solar-eclipse-from-ground-air-space/\n- NASA, \"NASA Science Soars During August Total Solar Eclipse\" (Jul 27, 2026): https://science.nasa.gov/science-research/heliophysics/nasa-science-soars-during-august-total-solar-eclipse/\n\nFootage: NASA via the Scientific Visualization Studio: https://svs.gsfc.nasa.gov/15075 , https://svs.gsfc.nasa.gov/15065 , https://svs.gsfc.nasa.gov/15063 , https://svs.gsfc.nasa.gov/5656 . Public domain; NASA does not endorse this video. The colour corona panels are from the WB-57's 2024 eclipse flight (NASA/SwRI/Will Ashfield) and the balloon shots are from earlier US eclipses (labelled on screen). Eclipse path views are NASA visualizations. Charts: Orbital Atlas.\nNarration: the channel creator's own voice, generated with ElevenLabs voice cloning.\n\n#SolarEclipse #NASA #Iceland #OrbitalAtlas",
+   "duration_s": 156.9,
+   "files": {
+    "captions": "/home/user/work/oa_eclipse/captions/captions.srt",
+    "thumbnail": "/home/user/work/oa_eclipse/cover/cover.jpg",
+    "video": "/home/user/work/oa_eclipse/out/final.mp4"
+   },
+   "n": 1,
+   "tags": [
+    "nasa eclipse jet",
+    "solar eclipse 2026",
+    "August 12 2026 eclipse",
+    "total solar eclipse Iceland",
+    "WB-57",
+    "NASA WB-57F",
+    "solar corona",
+    "eclipse from a plane",
+    "Moon's shadow",
+    "Keflavik",
+    "NASA Johnson",
+    "Orbital Atlas"
+   ],
+   "thumbnail_sha256": "bf4111a553a6cb121a64ccf1c7d4f1921b871e11874ab8ffc4b21d317adcb8c5",
+   "title": "NASA Chased the Moon's Shadow at 50,000 Feet",
+   "version_hash": "a53a7e41d4be33f6b24293ca33947afa4d5d447a1ea44fb0e3c6614603957d22",
+   "video_sha256": "be724b8b359823a00c13f4a97c3816ff7b853e4bd82a0661f7406bbfe3fcf632"
+  }
+ ]
 }
