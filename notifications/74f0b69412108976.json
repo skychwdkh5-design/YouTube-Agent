@@ -1,0 +1,20 @@
+{
+ "key_id": "74f0b69412108976",
+ "rid": "a35cdaf9b5e6",
+ "status": "sent",
+ "created_at": 1795574596,
+ "expires_at": 1796179396,
+ "attempts": 1,
+ "request": {
+  "kind": "APPROVAL_REQUIRED",
+  "project": "NEXORA",
+  "need": "Нажать ОК или На правку на карточке E4F5734F (Astronauts Patched a Leaking Space Telescope. NASA Shut It Down Anyway., слот 26.11 08:00)",
+  "why_blocked": "Без ОК ролик остаётся закрытым и не встанет в расписание",
+  "on_approve": "Ролик встанет на 26.11 08:00",
+  "on_reject": "Пришлю новую версию",
+  "dedup_key": "card/E4F5734F",
+  "link": "https://youtu.be/_ioat16Z6WA"
+ },
+ "sent_at": 1795574596,
+ "message_id": 13
+}
