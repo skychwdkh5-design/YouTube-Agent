@@ -1,7 +1,7 @@
 {
  "key_id": "89f1c125011f85f5",
  "rid": "e597f63d3dc4",
- "status": "reminded",
+ "status": "resolved",
  "created_at": 1795575001,
  "expires_at": 1796179801,
  "attempts": 2,
@@ -17,5 +17,7 @@
  },
  "sent_at": 1795575001,
  "message_id": 14,
- "reminded_at": 1795576949
+ "reminded_at": 1795576949,
+ "closed_at": 1795604618,
+ "resolved_by": "auto:resolve"
 }
