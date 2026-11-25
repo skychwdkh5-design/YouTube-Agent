@@ -1,5 +1,23 @@
 {
- "approval": null,
+ "approval": {
+  "actor": "principal:Егор",
+  "approval_id": "bbb7b25288d44c85920ff3ba81ed01ed",
+  "approved_at": "2026-11-25T11:02:44Z",
+  "card_code": "E4F5734F",
+  "card_id": "card-e4f5734f",
+  "channel": "nx",
+  "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdRcAxdBu46DsRgEKcuWzJqZ",
+  "publish_at": "2026-11-26T01:00:00Z",
+  "release": "nx-20261124-01",
+  "single_use": true,
+  "source": "text_answer",
+  "status": "valid",
+  "test": false,
+  "version": 1,
+  "version_hash": "672b3652806113d69e92784a0af4637d7e9598d2b175b963f850b60b6eb1ff4a",
+  "video_id": "_ioat16Z6WA",
+  "video_sha256": "b3bf4d5c9b454b33d6f711046e2032d707ee7aba304c1d5cd765fa8bf4c94ee0"
+ },
  "artifacts": {
   "qc_passed": {
    "at": "2026-11-24T03:16:40Z",
@@ -38,12 +56,20 @@
   {
    "card_id": "card-e4f5734f",
    "code": "E4F5734F",
+   "decision": {
+    "actor": "principal:Егор",
+    "at": "2026-11-25T11:02:44Z",
+    "choice": "ok",
+    "comment": "Ок оба (кнопка не нажималась)",
+    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdRcAxdBu46DsRgEKcuWzJqZ",
+    "source": "text_answer"
+   },
    "expires_at": "2026-11-26T00:30:00Z",
    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXd7WrnHMU2c7VpahTfWM9Rnx",
    "release": "nx-20261124-01",
    "shown_at": "2026-11-25T02:42:31Z",
    "slot": "2026-11-26T01:00:00Z",
-   "status": "open",
+   "status": "decided",
    "version": 1,
    "version_hash": "672b3652806113d69e92784a0af4637d7e9598d2b175b963f850b60b6eb1ff4a",
    "video_id": "_ioat16Z6WA"
@@ -118,6 +144,18 @@
    "event": "card",
    "slot": "2026-11-26T01:00:00Z",
    "version": 1
+  },
+  {
+   "approval_id": "bbb7b25288d44c85920ff3ba81ed01ed",
+   "at": "2026-11-25T11:02:44Z",
+   "card_id": "card-e4f5734f",
+   "event": "approved"
+  },
+  {
+   "approval_id": "bbb7b25288d44c85920ff3ba81ed01ed",
+   "at": "2026-11-25T11:03:15Z",
+   "event": "schedule_requested",
+   "target": "NEXORA youtube-ops"
   }
  ],
  "id": "nx-20261124-01",
@@ -138,7 +176,7 @@
  "production_day": "2026-11-24",
  "schedule": null,
  "schema": "pipeline-release/1",
- "stage": "card_shown",
+ "stage": "schedule_requested",
  "test": false,
  "topic": {
   "angle": "NICER light leak (May 2023) -> pie-slice patches machined/anodized at Goddard, NBL rehearsal, Hague installs 9 patches Jan 16 2025, MPU reconfiguration >70% daytime, motor failure June 2025, science ends Nov 17 2026.",
@@ -217,7 +255,7 @@
   "status": "candidate",
   "title": "Astronauts Patched a Leaking Space Telescope. NASA Shut It Down Anyway."
  },
- "updated_at": "2026-11-25T02:42:45Z",
+ "updated_at": "2026-11-25T11:03:15Z",
  "versions": [
   {
    "captions_sha256": "9ec08a8670e5a98e66f70cee0700871b57fd0dba9bff437b742f430128a198b3",

@@ -1,5 +1,23 @@
 {
- "approval": null,
+ "approval": {
+  "actor": "principal:Егор",
+  "approval_id": "da79ab2e320a4a92b3bc1aea300b8b95",
+  "approved_at": "2026-11-25T11:02:43Z",
+  "card_code": "E547E1D2",
+  "card_id": "card-e547e1d2",
+  "channel": "oa",
+  "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdRcAxdBu46DsRgEKcuWzJqZ",
+  "publish_at": "2026-11-26T01:00:00Z",
+  "release": "oa-20261124-01",
+  "single_use": true,
+  "source": "text_answer",
+  "status": "valid",
+  "test": false,
+  "version": 1,
+  "version_hash": "a53a7e41d4be33f6b24293ca33947afa4d5d447a1ea44fb0e3c6614603957d22",
+  "video_id": "MSp-PIpfbxw",
+  "video_sha256": "be724b8b359823a00c13f4a97c3816ff7b853e4bd82a0661f7406bbfe3fcf632"
+ },
  "artifacts": {
   "qc_passed": {
    "at": "2026-11-24T03:49:14Z",
@@ -24,12 +42,20 @@
   {
    "card_id": "card-e547e1d2",
    "code": "E547E1D2",
+   "decision": {
+    "actor": "principal:Егор",
+    "at": "2026-11-25T11:02:43Z",
+    "choice": "ok",
+    "comment": "Ок оба (кнопка не нажималась)",
+    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdRcAxdBu46DsRgEKcuWzJqZ",
+    "source": "text_answer"
+   },
    "expires_at": "2026-11-25T15:50:50Z",
    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdMoknQVUH7HW98aMFTtYAeD",
    "release": "oa-20261124-01",
    "shown_at": "2026-11-24T03:50:50Z",
    "slot": "2026-11-26T01:00:00Z",
-   "status": "open",
+   "status": "decided",
    "version": 1,
    "version_hash": "a53a7e41d4be33f6b24293ca33947afa4d5d447a1ea44fb0e3c6614603957d22",
    "video_id": "MSp-PIpfbxw"
@@ -97,6 +123,18 @@
    "event": "card",
    "slot": "2026-11-26T01:00:00Z",
    "version": 1
+  },
+  {
+   "approval_id": "da79ab2e320a4a92b3bc1aea300b8b95",
+   "at": "2026-11-25T11:02:43Z",
+   "card_id": "card-e547e1d2",
+   "event": "approved"
+  },
+  {
+   "approval_id": "da79ab2e320a4a92b3bc1aea300b8b95",
+   "at": "2026-11-25T11:02:54Z",
+   "event": "schedule_requested",
+   "request": "schedule-oa-20261124-01"
   }
  ],
  "id": "oa-20261124-01",
@@ -117,7 +155,7 @@
  "production_day": "2026-11-24",
  "schedule": null,
  "schema": "pipeline-release/1",
- "stage": "card_shown",
+ "stage": "schedule_requested",
  "test": false,
  "topic": {
   "angle": "Aug 12 2026 total eclipse over Greenland/Iceland/Spain; clouds over Iceland; NASA WB-57F from Keflavik at 50,000 ft with SAMI cameras chases totality (2:18 ground max vs ~3 min planned); corona mystery; balloons; science team success.",
@@ -161,7 +199,7 @@
   "status": "candidate",
   "title": "NASA Chased the Moon's Shadow at 50,000 Feet"
  },
- "updated_at": "2026-11-24T03:51:06Z",
+ "updated_at": "2026-11-25T11:02:54Z",
  "versions": [
   {
    "captions_sha256": "5c3e4350afa44378a380410fba3d7537ff5d5826c6d3f1aa9afe912caa916c54",
