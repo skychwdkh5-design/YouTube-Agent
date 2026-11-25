@@ -29,6 +29,20 @@
    "release": "nx-20261124-01",
    "shown_at": "2026-11-24T03:19:09Z",
    "slot": "2026-11-25T01:00:00Z",
+   "status": "void",
+   "version": 1,
+   "version_hash": "672b3652806113d69e92784a0af4637d7e9598d2b175b963f850b60b6eb1ff4a",
+   "video_id": "_ioat16Z6WA",
+   "void_reason": "superseded by a newer card"
+  },
+  {
+   "card_id": "card-e4f5734f",
+   "code": "E4F5734F",
+   "expires_at": "2026-11-26T00:30:00Z",
+   "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXd7WrnHMU2c7VpahTfWM9Rnx",
+   "release": "nx-20261124-01",
+   "shown_at": "2026-11-25T02:42:31Z",
+   "slot": "2026-11-26T01:00:00Z",
    "status": "open",
    "version": 1,
    "version_hash": "672b3652806113d69e92784a0af4637d7e9598d2b175b963f850b60b6eb1ff4a",
@@ -96,6 +110,13 @@
    "card_id": "card-4a3c431b",
    "event": "card",
    "slot": "2026-11-25T01:00:00Z",
+   "version": 1
+  },
+  {
+   "at": "2026-11-25T02:42:31Z",
+   "card_id": "card-e4f5734f",
+   "event": "card",
+   "slot": "2026-11-26T01:00:00Z",
    "version": 1
   }
  ],
@@ -196,7 +217,7 @@
   "status": "candidate",
   "title": "Astronauts Patched a Leaking Space Telescope. NASA Shut It Down Anyway."
  },
- "updated_at": "2026-11-24T03:19:28Z",
+ "updated_at": "2026-11-25T02:42:45Z",
  "versions": [
   {
    "captions_sha256": "9ec08a8670e5a98e66f70cee0700871b57fd0dba9bff437b742f430128a198b3",
