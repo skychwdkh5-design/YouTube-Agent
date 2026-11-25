@@ -1,0 +1,20 @@
+{
+ "key_id": "89f1c125011f85f5",
+ "rid": "e597f63d3dc4",
+ "status": "sent",
+ "created_at": 1795575001,
+ "expires_at": 1796179801,
+ "attempts": 1,
+ "request": {
+  "kind": "APPROVAL_REQUIRED",
+  "project": "OrbitalAtlas",
+  "need": "Нажать ОК или На правку на карточке E547E1D2 (NASA Chased the Moon's Shadow at 50,000 Feet, слот 26.11 08:00)",
+  "why_blocked": "Без ОК ролик остаётся закрытым и не встанет в расписание",
+  "on_approve": "Ролик встанет на 26.11 08:00",
+  "on_reject": "Пришлю новую версию",
+  "dedup_key": "card/E547E1D2",
+  "link": "https://youtu.be/MSp-PIpfbxw"
+ },
+ "sent_at": 1795575001,
+ "message_id": 14
+}
