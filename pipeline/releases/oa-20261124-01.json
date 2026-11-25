@@ -11,7 +11,7 @@
   "release": "oa-20261124-01",
   "single_use": true,
   "source": "text_answer",
-  "status": "valid",
+  "status": "used",
   "test": false,
   "version": 1,
   "version_hash": "a53a7e41d4be33f6b24293ca33947afa4d5d447a1ea44fb0e3c6614603957d22",
@@ -135,6 +135,12 @@
    "at": "2026-11-25T11:02:54Z",
    "event": "schedule_requested",
    "request": "schedule-oa-20261124-01"
+  },
+  {
+   "at": "2026-11-25T11:03:56Z",
+   "event": "scheduled",
+   "publish_at": "2026-11-26T01:00:00Z",
+   "video_id": "MSp-PIpfbxw"
   }
  ],
  "id": "oa-20261124-01",
@@ -153,9 +159,15 @@
   "video_id": "MSp-PIpfbxw"
  },
  "production_day": "2026-11-24",
- "schedule": null,
+ "schedule": {
+  "privacy": "private",
+  "publish_at": "2026-11-26T01:00:00Z",
+  "url": "https://youtu.be/MSp-PIpfbxw",
+  "verified_at": "2026-11-25T11:03:56Z",
+  "video_id": "MSp-PIpfbxw"
+ },
  "schema": "pipeline-release/1",
- "stage": "schedule_requested",
+ "stage": "scheduled",
  "test": false,
  "topic": {
   "angle": "Aug 12 2026 total eclipse over Greenland/Iceland/Spain; clouds over Iceland; NASA WB-57F from Keflavik at 50,000 ft with SAMI cameras chases totality (2:18 ground max vs ~3 min planned); corona mystery; balloons; science team success.",
@@ -199,7 +211,7 @@
   "status": "candidate",
   "title": "NASA Chased the Moon's Shadow at 50,000 Feet"
  },
- "updated_at": "2026-11-25T11:02:54Z",
+ "updated_at": "2026-11-25T11:03:56Z",
  "versions": [
   {
    "captions_sha256": "5c3e4350afa44378a380410fba3d7537ff5d5826c6d3f1aa9afe912caa916c54",

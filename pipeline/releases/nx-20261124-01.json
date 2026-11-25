@@ -11,7 +11,7 @@
   "release": "nx-20261124-01",
   "single_use": true,
   "source": "text_answer",
-  "status": "valid",
+  "status": "used",
   "test": false,
   "version": 1,
   "version_hash": "672b3652806113d69e92784a0af4637d7e9598d2b175b963f850b60b6eb1ff4a",
@@ -156,6 +156,12 @@
    "at": "2026-11-25T11:03:15Z",
    "event": "schedule_requested",
    "target": "NEXORA youtube-ops"
+  },
+  {
+   "at": "2026-11-25T11:04:44Z",
+   "event": "scheduled",
+   "publish_at": "2026-11-26T01:00:00Z",
+   "video_id": "_ioat16Z6WA"
   }
  ],
  "id": "nx-20261124-01",
@@ -174,9 +180,15 @@
   "video_id": "_ioat16Z6WA"
  },
  "production_day": "2026-11-24",
- "schedule": null,
+ "schedule": {
+  "privacy": "private",
+  "publish_at": "2026-11-26T01:00:00Z",
+  "url": "https://youtu.be/_ioat16Z6WA",
+  "verified_at": "2026-11-25T11:04:44Z",
+  "video_id": "_ioat16Z6WA"
+ },
  "schema": "pipeline-release/1",
- "stage": "schedule_requested",
+ "stage": "scheduled",
  "test": false,
  "topic": {
   "angle": "NICER light leak (May 2023) -> pie-slice patches machined/anodized at Goddard, NBL rehearsal, Hague installs 9 patches Jan 16 2025, MPU reconfiguration >70% daytime, motor failure June 2025, science ends Nov 17 2026.",
@@ -255,7 +267,7 @@
   "status": "candidate",
   "title": "Astronauts Patched a Leaking Space Telescope. NASA Shut It Down Anyway."
  },
- "updated_at": "2026-11-25T11:03:15Z",
+ "updated_at": "2026-11-25T11:04:44Z",
  "versions": [
   {
    "captions_sha256": "9ec08a8670e5a98e66f70cee0700871b57fd0dba9bff437b742f430128a198b3",
