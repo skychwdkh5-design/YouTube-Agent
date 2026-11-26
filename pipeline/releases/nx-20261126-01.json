@@ -11,7 +11,7 @@
   "release": "nx-20261126-01",
   "single_use": true,
   "source": "decision_card",
-  "status": "valid",
+  "status": "used",
   "test": false,
   "version": 1,
   "version_hash": "bfe80ddbd4236271406f0fde1fac2e28130ac79080159b62721b10e4b1c1b967",
@@ -135,6 +135,12 @@
    "at": "2026-11-26T08:14:43Z",
    "event": "schedule_requested",
    "target": "NEXORA youtube-ops"
+  },
+  {
+   "at": "2026-11-26T08:16:24Z",
+   "event": "scheduled",
+   "publish_at": "2026-11-27T01:00:00Z",
+   "video_id": "XVaFDuNG4VI"
   }
  ],
  "id": "nx-20261126-01",
@@ -153,9 +159,15 @@
   "video_id": "XVaFDuNG4VI"
  },
  "production_day": "2026-11-26",
- "schedule": null,
+ "schedule": {
+  "privacy": "private",
+  "publish_at": "2026-11-27T01:00:00Z",
+  "url": "https://youtu.be/XVaFDuNG4VI",
+  "verified_at": "2026-11-26T08:16:24Z",
+  "video_id": "XVaFDuNG4VI"
+ },
  "schema": "pipeline-release/1",
- "stage": "schedule_requested",
+ "stage": "scheduled",
  "test": false,
  "topic": {
   "angle": "ESCAPADE twins launched Nov 13 2025 when Earth and Mars were on opposite sides of the Sun; a year-long kidney-bean loiter orbit around L2 (~1 million mi), magnetotail passes; powered Earth flybys Nov 7 (~1,000 mi, ~9-min burn) and Nov 9 2026 (~650 mi); first NASA powered Earth flyby to Mars; Mars orbit insertion Sept 7/9 2027.",
@@ -191,7 +203,7 @@
   "status": "candidate",
   "title": "NASA Launched to Mars at the Wrong Time. Then Earth Slingshot It."
  },
- "updated_at": "2026-11-26T08:14:43Z",
+ "updated_at": "2026-11-26T08:16:24Z",
  "versions": [
   {
    "captions_sha256": "92ca058b559eba4d8f1380e8962c15514257d4bc37c335def86bb0a5de05c22a",
