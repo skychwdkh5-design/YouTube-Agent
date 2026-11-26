@@ -1,0 +1,20 @@
+{
+ "key_id": "4e7bb5fc5ba29ee5",
+ "rid": "a98be4b2a8e8",
+ "status": "sent",
+ "created_at": 1795664461,
+ "expires_at": 1796269261,
+ "attempts": 1,
+ "request": {
+  "kind": "APPROVAL_REQUIRED",
+  "project": "NEXORA",
+  "need": "Нажать ОК или На правку на карточке AD7BDB2B (NASA Launched to Mars at the Wrong Time. Then Earth Slingshot It., слот 27.11 08:00)",
+  "why_blocked": "Без ОК ролик остаётся закрытым и не встанет в расписание",
+  "on_approve": "Ролик встанет на 27.11 08:00",
+  "on_reject": "Пришлю новую версию",
+  "dedup_key": "card/AD7BDB2B",
+  "link": "https://youtu.be/XVaFDuNG4VI"
+ },
+ "sent_at": 1795664461,
+ "message_id": 18
+}
