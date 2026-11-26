@@ -1,25 +1,123 @@
 {
  "approval": null,
- "artifacts": {},
+ "artifacts": {
+  "qc_passed": {
+   "at": "2026-11-26T03:38:32Z",
+   "qc": "/home/user/work/nx_esc/out/qc.json"
+  },
+  "rendered": {
+   "at": "2026-11-26T03:38:32Z",
+   "video": "/home/user/work/nx_esc/out/final.mp4"
+  },
+  "scripted": {
+   "at": "2026-11-26T03:38:32Z",
+   "script": "/home/user/work/nx_esc/script.md"
+  },
+  "voiced": {
+   "at": "2026-11-26T03:38:32Z",
+   "voice": "/home/user/work/nx_esc/voice/narration.wav",
+   "voice_sha256": "12e8c11092b739d683f8b89a8e7bc8ea48e6d1e5170c208c0444b5efca802291"
+  }
+ },
  "blocker": null,
- "cards": [],
+ "cards": [
+  {
+   "card_id": "card-ad7bdb2b",
+   "code": "AD7BDB2B",
+   "expires_at": "2026-11-27T00:30:00Z",
+   "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdP352XgYwxerMFP7hE1uKEu",
+   "release": "nx-20261126-01",
+   "shown_at": "2026-11-26T03:40:33Z",
+   "slot": "2026-11-27T01:00:00Z",
+   "status": "open",
+   "version": 1,
+   "version_hash": "bfe80ddbd4236271406f0fde1fac2e28130ac79080159b62721b10e4b1c1b967",
+   "video_id": "XVaFDuNG4VI"
+  }
+ ],
  "channel": "nx",
  "created_at": "2026-11-26T03:06:34Z",
+ "endscreen": {
+  "title": "Astronauts Patched a Leaking Space Telescope. NASA Shut It Down Anyway.",
+  "video_id": "_ioat16Z6WA",
+  "why": "related topic"
+ },
  "events": [
   {
    "at": "2026-11-26T03:06:34Z",
    "channel": "nx",
    "event": "created",
    "production_day": "2026-11-26"
+  },
+  {
+   "at": "2026-11-26T03:38:32Z",
+   "event": "stage_done",
+   "stage": "scripted"
+  },
+  {
+   "at": "2026-11-26T03:38:32Z",
+   "event": "stage_done",
+   "stage": "voiced"
+  },
+  {
+   "at": "2026-11-26T03:38:32Z",
+   "event": "stage_done",
+   "stage": "rendered"
+  },
+  {
+   "at": "2026-11-26T03:38:32Z",
+   "event": "stage_done",
+   "stage": "qc_passed"
+  },
+  {
+   "at": "2026-11-26T03:38:32Z",
+   "event": "version",
+   "n": 1,
+   "version_hash": "bfe80ddbd423"
+  },
+  {
+   "at": "2026-11-26T03:38:34Z",
+   "event": "preview_requested",
+   "request": "/home/user/nxops/publish/requests/nx-20261126-01.json",
+   "target": "NEXORA youtube-ops"
+  },
+  {
+   "at": "2026-11-26T03:40:30Z",
+   "event": "preview_ready",
+   "video_id": "XVaFDuNG4VI"
+  },
+  {
+   "at": "2026-11-26T03:40:30Z",
+   "event": "endscreen_pick",
+   "video_id": "_ioat16Z6WA"
+  },
+  {
+   "at": "2026-11-26T03:40:33Z",
+   "card_id": "card-ad7bdb2b",
+   "event": "card",
+   "slot": "2026-11-27T01:00:00Z",
+   "version": 1
   }
  ],
  "id": "nx-20261126-01",
  "kind": "long",
- "preview": null,
+ "meta": {
+  "category_id": "28",
+  "contains_synthetic_media": true,
+  "made_for_kids": false
+ },
+ "preview": {
+  "at": "2026-11-26T03:40:30Z",
+  "privacy": "private",
+  "url": "https://youtu.be/XVaFDuNG4VI",
+  "version": 1,
+  "version_hash": "bfe80ddbd4236271406f0fde1fac2e28130ac79080159b62721b10e4b1c1b967",
+  "video_id": "XVaFDuNG4VI"
+ },
  "production_day": "2026-11-26",
  "schedule": null,
  "schema": "pipeline-release/1",
- "stage": "planned",
+ "stage": "card_shown",
  "test": false,
  "topic": {
   "angle": "ESCAPADE twins launched Nov 13 2025 when Earth and Mars were on opposite sides of the Sun; a year-long kidney-bean loiter orbit around L2 (~1 million mi), magnetotail passes; powered Earth flybys Nov 7 (~1,000 mi, ~9-min burn) and Nov 9 2026 (~650 mi); first NASA powered Earth flyby to Mars; Mars orbit insertion Sept 7/9 2027.",
@@ -55,6 +153,37 @@
   "status": "candidate",
   "title": "NASA Launched to Mars at the Wrong Time. Then Earth Slingshot It."
  },
- "updated_at": "2026-11-26T03:06:34Z",
- "versions": []
+ "updated_at": "2026-11-26T03:40:47Z",
+ "versions": [
+  {
+   "captions_sha256": "92ca058b559eba4d8f1380e8962c15514257d4bc37c335def86bb0a5de05c22a",
+   "created_at": "2026-11-26T03:38:32Z",
+   "description": "NASA's ESCAPADE mission launched two spacecraft to Mars in November 2025, when Earth and Mars were on opposite sides of the Sun. Instead of waiting for the next launch window, the twins parked for a year near Lagrange point 2, then swung past Earth in November 2026 and fired their engines: the first powered Earth flyby NASA has used to head for Mars.\n\nIn this episode:\n0:00 Launching at the wrong time\n0:22 Why Mars missions usually wait\n0:33 A year parked a million miles out\n0:48 Two powered Earth flybys\n1:03 The signal from Berkeley\n1:21 Next stop: Mars, 2027\n\nSources:\n- NASA, \"NASA's ESCAPADE Completes Powered Earth Flybys, Now En Route to Mars\" (Nov 9, 2026): https://science.nasa.gov/science-research/heliophysics/nasas-escapade-completes-powered-earth-flybys-now-en-route-to-mars/\n- NASA SVS, \"ESCAPADE Launch\": https://svs.gsfc.nasa.gov/14926\n\nFootage: NASA via the Scientific Visualization Studio: https://svs.gsfc.nasa.gov/14918 , https://svs.gsfc.nasa.gov/14675 , https://svs.gsfc.nasa.gov/15113 . Spacecraft-in-space shots are a Rocket Lab animation (labelled). NASA does not endorse this video. Charts: NEXORA.\nNarration: the channel creator's own voice, generated with ElevenLabs voice cloning.\n\n#ESCAPADE #Mars #NASA #NEXORA",
+   "duration_s": 123.9,
+   "files": {
+    "captions": "/home/user/work/nx_esc/captions/captions.srt",
+    "thumbnail": "/home/user/work/nx_esc/out/cover_final.png",
+    "video": "/home/user/work/nx_esc/out/final.mp4"
+   },
+   "n": 1,
+   "tags": [
+    "nasa escapade mission",
+    "escapade mars",
+    "ESCAPADE",
+    "earth gravity assist to mars",
+    "powered Earth flyby",
+    "trans-Mars injection",
+    "Lagrange point 2",
+    "Rocket Lab",
+    "New Glenn",
+    "UC Berkeley Space Sciences Laboratory",
+    "solar wind Mars",
+    "NEXORA"
+   ],
+   "thumbnail_sha256": "766c07b2438e78de1fa225b9c43e953a4993ed640583fb1434466f03ba0861a3",
+   "title": "NASA Launched to Mars at the Wrong Time. Then Earth Slingshot It.",
+   "version_hash": "bfe80ddbd4236271406f0fde1fac2e28130ac79080159b62721b10e4b1c1b967",
+   "video_sha256": "54c95e6df5354b86ee0c8095097aa67ccea9d744bb034f290fc05aa27f06a7de"
+  }
+ ]
 }
