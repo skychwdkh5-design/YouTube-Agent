@@ -1,0 +1,40 @@
+{
+ "op": "preview",
+ "release": "oa-20261126-01",
+ "channel": "oa",
+ "channel_id": "UC2QxQJhUe9Q5NMRNb6M9ddw",
+ "version": 1,
+ "version_hash": "12323b34445efe9caba38fc8b316f30dea8770ae8f2db5ebcfa8661db58083ce",
+ "video_sha256": "a128f0e13419770ee2fc1a9de185900a659f0c19613cdec83918454a21cf4091",
+ "title": "Louisiana Lost Land the Size of Rhode Island. One Corner Is Growing.",
+ "description": "Louisiana land loss is one of the fastest coastal changes in the United States: since the 1950s the state has lost wetlands the size of Rhode Island. Yet in one corner of the coast, the Atchafalaya Basin, the land is growing. Here is what 36 years of Landsat data show, and how NASA's Delta-X mission, with boats, waders and three planes, is working out why.\n\nIn this episode:\n0:00 Louisiana is losing land\n0:18 What Landsat measured\n0:35 Why the marsh drowned\n0:55 The corner that grows\n1:07 Delta-X goes in by boat\n1:25 Three planes overhead\n1:46 Can the wetlands recover?\n1:56 Why deltas matter worldwide\n\nSources:\n- NASA, \"Satellites Help Scientists Track Dramatic Wetlands Loss in Louisiana\": https://www.nasa.gov/?p=262190\n- NASA JPL, \"After COVID-19 Delay, Delta-X Field Campaign Begins in Louisiana\": https://www.nasa.gov/centers-and-facilities/jpl/after-covid-19-delay-delta-x-field-campaign-begins-in-louisiana/\n\nFootage: NASA via the Scientific Visualization Studio: https://svs.gsfc.nasa.gov/13836 , https://svs.gsfc.nasa.gov/11761 . Public domain; NASA does not endorse this video. The opening wetland aerials are Delta-X B-roll (NASA does not name the exact location); the Landsat 1 launch is 1972 archive; the gain/loss map and AirSWOT swath are NASA visualizations. Charts: Orbital Atlas.\nNarration: the channel creator's own voice, generated with ElevenLabs voice cloning.\n\n#Louisiana #Wetlands #NASA #OrbitalAtlas",
+ "tags": [
+  "louisiana land loss",
+  "louisiana coastal erosion",
+  "louisiana wetlands",
+  "Mississippi River Delta",
+  "Atchafalaya Delta",
+  "Atchafalaya Basin",
+  "Delta-X",
+  "NASA Delta-X",
+  "Landsat",
+  "wetland loss",
+  "Barataria",
+  "Terrebonne",
+  "Orbital Atlas"
+ ],
+ "thumbnail_sha256": "54ea31244304e064876f70c6aa7ce58771862f47f5064abaf679ce0aaefa536c",
+ "captions_sha256": "74cf2b16da46efe4e0e93715a55165714ae7b3ec6aba5d2b03706a93a9e5eed6",
+ "files": {
+  "captions": "/home/user/work/oa_delta/captions/captions.srt",
+  "thumbnail": "/home/user/work/oa_delta/out/cover_final.png",
+  "video": "/home/user/work/oa_delta/out/final.mp4"
+ },
+ "category_id": "28",
+ "default_language": "en",
+ "made_for_kids": false,
+ "contains_synthetic_media": true,
+ "marker_tag": "pipeline-oa-20261126-01-v1",
+ "confirm": true,
+ "name": "preview-oa-20261126-01-v1"
+}
