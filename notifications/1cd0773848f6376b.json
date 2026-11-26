@@ -1,0 +1,20 @@
+{
+ "key_id": "1cd0773848f6376b",
+ "rid": "579294dbf7cd",
+ "status": "sent",
+ "created_at": 1795663009,
+ "expires_at": 1796267809,
+ "attempts": 1,
+ "request": {
+  "kind": "APPROVAL_REQUIRED",
+  "project": "OrbitalAtlas",
+  "need": "Нажать ОК или На правку на карточке EF922BA9 (Louisiana Lost Land the Size of Rhode Island. One Corner Is Growing., слот 27.11 08:00)",
+  "why_blocked": "Без ОК ролик остаётся закрытым и не встанет в расписание",
+  "on_approve": "Ролик встанет на 27.11 08:00",
+  "on_reject": "Пришлю новую версию",
+  "dedup_key": "card/EF922BA9",
+  "link": "https://youtu.be/QiAmU1QWeok"
+ },
+ "sent_at": 1795663009,
+ "message_id": 17
+}
