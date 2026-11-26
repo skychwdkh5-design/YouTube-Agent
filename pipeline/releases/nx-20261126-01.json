@@ -1,5 +1,23 @@
 {
- "approval": null,
+ "approval": {
+  "actor": "principal:Егор",
+  "approval_id": "761e1035363c4bd58fb1e8349151bdf1",
+  "approved_at": "2026-11-26T08:14:38Z",
+  "card_code": "AD7BDB2B",
+  "card_id": "card-ad7bdb2b",
+  "channel": "nx",
+  "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdP352XgYwxerMFP7hE1uKEu",
+  "publish_at": "2026-11-27T01:00:00Z",
+  "release": "nx-20261126-01",
+  "single_use": true,
+  "source": "decision_card",
+  "status": "valid",
+  "test": false,
+  "version": 1,
+  "version_hash": "bfe80ddbd4236271406f0fde1fac2e28130ac79080159b62721b10e4b1c1b967",
+  "video_id": "XVaFDuNG4VI",
+  "video_sha256": "54c95e6df5354b86ee0c8095097aa67ccea9d744bb034f290fc05aa27f06a7de"
+ },
  "artifacts": {
   "qc_passed": {
    "at": "2026-11-26T03:38:32Z",
@@ -24,12 +42,20 @@
   {
    "card_id": "card-ad7bdb2b",
    "code": "AD7BDB2B",
+   "decision": {
+    "actor": "principal:Егор",
+    "at": "2026-11-26T08:14:38Z",
+    "choice": "ok",
+    "comment": null,
+    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdP352XgYwxerMFP7hE1uKEu",
+    "source": "decision_card"
+   },
    "expires_at": "2026-11-27T00:30:00Z",
    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXdP352XgYwxerMFP7hE1uKEu",
    "release": "nx-20261126-01",
    "shown_at": "2026-11-26T03:40:33Z",
    "slot": "2026-11-27T01:00:00Z",
-   "status": "open",
+   "status": "decided",
    "version": 1,
    "version_hash": "bfe80ddbd4236271406f0fde1fac2e28130ac79080159b62721b10e4b1c1b967",
    "video_id": "XVaFDuNG4VI"
@@ -97,6 +123,18 @@
    "event": "card",
    "slot": "2026-11-27T01:00:00Z",
    "version": 1
+  },
+  {
+   "approval_id": "761e1035363c4bd58fb1e8349151bdf1",
+   "at": "2026-11-26T08:14:38Z",
+   "card_id": "card-ad7bdb2b",
+   "event": "approved"
+  },
+  {
+   "approval_id": "761e1035363c4bd58fb1e8349151bdf1",
+   "at": "2026-11-26T08:14:43Z",
+   "event": "schedule_requested",
+   "target": "NEXORA youtube-ops"
   }
  ],
  "id": "nx-20261126-01",
@@ -117,7 +155,7 @@
  "production_day": "2026-11-26",
  "schedule": null,
  "schema": "pipeline-release/1",
- "stage": "card_shown",
+ "stage": "schedule_requested",
  "test": false,
  "topic": {
   "angle": "ESCAPADE twins launched Nov 13 2025 when Earth and Mars were on opposite sides of the Sun; a year-long kidney-bean loiter orbit around L2 (~1 million mi), magnetotail passes; powered Earth flybys Nov 7 (~1,000 mi, ~9-min burn) and Nov 9 2026 (~650 mi); first NASA powered Earth flyby to Mars; Mars orbit insertion Sept 7/9 2027.",
@@ -153,7 +191,7 @@
   "status": "candidate",
   "title": "NASA Launched to Mars at the Wrong Time. Then Earth Slingshot It."
  },
- "updated_at": "2026-11-26T03:40:47Z",
+ "updated_at": "2026-11-26T08:14:43Z",
  "versions": [
   {
    "captions_sha256": "92ca058b559eba4d8f1380e8962c15514257d4bc37c335def86bb0a5de05c22a",
