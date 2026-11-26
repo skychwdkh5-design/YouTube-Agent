@@ -1,10 +1,10 @@
 {
  "key_id": "4e7bb5fc5ba29ee5",
  "rid": "a98be4b2a8e8",
- "status": "sent",
+ "status": "reminded",
  "created_at": 1795664461,
  "expires_at": 1796269261,
- "attempts": 1,
+ "attempts": 2,
  "request": {
   "kind": "APPROVAL_REQUIRED",
   "project": "NEXORA",
@@ -16,5 +16,6 @@
   "link": "https://youtu.be/XVaFDuNG4VI"
  },
  "sent_at": 1795664461,
- "message_id": 18
+ "message_id": 18,
+ "reminded_at": 1795666410
 }
