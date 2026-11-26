@@ -1,5 +1,23 @@
 {
- "approval": null,
+ "approval": {
+  "actor": "principal:Егор",
+  "approval_id": "5ecb29c2bdaf45618e39527c6668736d",
+  "approved_at": "2026-11-26T12:23:11Z",
+  "card_code": "EF922BA9",
+  "card_id": "card-ef922ba9",
+  "channel": "oa",
+  "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXd1X81Q52ZJV7ENrKX1H9MjP",
+  "publish_at": "2026-11-27T01:00:00Z",
+  "release": "oa-20261126-01",
+  "single_use": true,
+  "source": "decision_card",
+  "status": "used",
+  "test": false,
+  "version": 1,
+  "version_hash": "12323b34445efe9caba38fc8b316f30dea8770ae8f2db5ebcfa8661db58083ce",
+  "video_id": "QiAmU1QWeok",
+  "video_sha256": "a128f0e13419770ee2fc1a9de185900a659f0c19613cdec83918454a21cf4091"
+ },
  "artifacts": {
   "qc_passed": {
    "at": "2026-11-26T03:12:58Z",
@@ -24,12 +42,20 @@
   {
    "card_id": "card-ef922ba9",
    "code": "EF922BA9",
+   "decision": {
+    "actor": "principal:Егор",
+    "at": "2026-11-26T12:23:11Z",
+    "choice": "ok",
+    "comment": null,
+    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXd1X81Q52ZJV7ENrKX1H9MjP",
+    "source": "decision_card"
+   },
    "expires_at": "2026-11-27T00:30:00Z",
    "message_id": "cmsg_01QhtUfoHU7wu72RMFAtkFXd1X81Q52ZJV7ENrKX1H9MjP",
    "release": "oa-20261126-01",
    "shown_at": "2026-11-26T03:16:11Z",
    "slot": "2026-11-27T01:00:00Z",
-   "status": "open",
+   "status": "decided",
    "version": 1,
    "version_hash": "12323b34445efe9caba38fc8b316f30dea8770ae8f2db5ebcfa8661db58083ce",
    "video_id": "QiAmU1QWeok"
@@ -97,6 +123,24 @@
    "event": "card",
    "slot": "2026-11-27T01:00:00Z",
    "version": 1
+  },
+  {
+   "approval_id": "5ecb29c2bdaf45618e39527c6668736d",
+   "at": "2026-11-26T12:23:11Z",
+   "card_id": "card-ef922ba9",
+   "event": "approved"
+  },
+  {
+   "approval_id": "5ecb29c2bdaf45618e39527c6668736d",
+   "at": "2026-11-26T12:23:11Z",
+   "event": "schedule_requested",
+   "request": "schedule-oa-20261126-01"
+  },
+  {
+   "at": "2026-11-26T12:24:00Z",
+   "event": "scheduled",
+   "publish_at": "2026-11-27T01:00:00Z",
+   "video_id": "QiAmU1QWeok"
   }
  ],
  "id": "oa-20261126-01",
@@ -115,9 +159,15 @@
   "video_id": "QiAmU1QWeok"
  },
  "production_day": "2026-11-26",
- "schedule": null,
+ "schedule": {
+  "privacy": "private",
+  "publish_at": "2026-11-27T01:00:00Z",
+  "url": "https://youtu.be/QiAmU1QWeok",
+  "verified_at": "2026-11-26T12:24:00Z",
+  "video_id": "QiAmU1QWeok"
+ },
  "schema": "pipeline-release/1",
- "stage": "card_shown",
+ "stage": "scheduled",
  "test": false,
  "topic": {
   "angle": "Louisiana wetland loss (~21 sq mi/yr, Landsat 1984-2020; Terrebonne+Barataria >180 sq mi) vs Atchafalaya +33.6 sq mi and Bird's Foot +43 sq mi; NASA Delta-X boats + 3 planes (AirSWOT, AVIRIS-NG, UAVSAR).",
@@ -153,7 +203,7 @@
   "status": "candidate",
   "title": "Louisiana Lost Land the Size of Rhode Island. One Corner Is Growing."
  },
- "updated_at": "2026-11-26T08:14:38Z",
+ "updated_at": "2026-11-26T12:24:00Z",
  "versions": [
   {
    "captions_sha256": "74cf2b16da46efe4e0e93715a55165714ae7b3ec6aba5d2b03706a93a9e5eed6",
