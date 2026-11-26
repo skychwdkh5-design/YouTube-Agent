@@ -1,0 +1,60 @@
+{
+ "approval": null,
+ "artifacts": {},
+ "blocker": null,
+ "cards": [],
+ "channel": "nx",
+ "created_at": "2026-11-26T03:06:34Z",
+ "events": [
+  {
+   "at": "2026-11-26T03:06:34Z",
+   "channel": "nx",
+   "event": "created",
+   "production_day": "2026-11-26"
+  }
+ ],
+ "id": "nx-20261126-01",
+ "kind": "long",
+ "preview": null,
+ "production_day": "2026-11-26",
+ "schedule": null,
+ "schema": "pipeline-release/1",
+ "stage": "planned",
+ "test": false,
+ "topic": {
+  "angle": "ESCAPADE twins launched Nov 13 2025 when Earth and Mars were on opposite sides of the Sun; a year-long kidney-bean loiter orbit around L2 (~1 million mi), magnetotail passes; powered Earth flybys Nov 7 (~1,000 mi, ~9-min burn) and Nov 9 2026 (~650 mi); first NASA powered Earth flyby to Mars; Mars orbit insertion Sept 7/9 2027.",
+  "id": "nx-escapade-earth-slingshot",
+  "media": [
+   {
+    "credit": "NASA / UC Berkeley SSL / Rocket Lab",
+    "kind": "video",
+    "licence": "NASA SVS (ops-room B-roll credited Alan Toth/UC Berkeley SSL; Rocket Lab animation), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/15113"
+   },
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/14675"
+   },
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/14918"
+   }
+  ],
+  "primary_sources": [
+   "https://science.nasa.gov/science-research/heliophysics/nasas-escapade-completes-powered-earth-flybys-now-en-route-to-mars/",
+   "https://svs.gsfc.nasa.gov/15113",
+   "https://svs.gsfc.nasa.gov/14926",
+   "https://svs.gsfc.nasa.gov/14675",
+   "https://svs.gsfc.nasa.gov/14918"
+  ],
+  "source": "NASA science article 2026-11-09 + SVS (vidIQ 0 credits until 2026-11-29)",
+  "status": "candidate",
+  "title": "NASA Launched to Mars at the Wrong Time. Then Earth Slingshot It."
+ },
+ "updated_at": "2026-11-26T03:06:34Z",
+ "versions": []
+}

@@ -1,0 +1,60 @@
+{
+ "approval": null,
+ "artifacts": {},
+ "blocker": null,
+ "cards": [],
+ "channel": "oa",
+ "created_at": "2026-11-26T02:45:20Z",
+ "events": [
+  {
+   "at": "2026-11-26T02:45:20Z",
+   "channel": "oa",
+   "event": "created",
+   "production_day": "2026-11-26"
+  }
+ ],
+ "id": "oa-20261126-01",
+ "kind": "long",
+ "preview": null,
+ "production_day": "2026-11-26",
+ "schedule": null,
+ "schema": "pipeline-release/1",
+ "stage": "planned",
+ "test": false,
+ "topic": {
+  "angle": "Louisiana wetland loss (~21 sq mi/yr, Landsat 1984-2020; Terrebonne+Barataria >180 sq mi) vs Atchafalaya +33.6 sq mi and Bird's Foot +43 sq mi; NASA Delta-X boats + 3 planes (AirSWOT, AVIRIS-NG, UAVSAR).",
+  "id": "oa-louisiana-deltax",
+  "media": [
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/13836"
+   },
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/15035"
+   },
+   {
+    "credit": "NASA",
+    "kind": "video",
+    "licence": "NASA public domain (SVS), audio removed",
+    "url": "https://svs.gsfc.nasa.gov/11761"
+   }
+  ],
+  "primary_sources": [
+   "https://www.nasa.gov/?p=262190",
+   "https://www.nasa.gov/centers-and-facilities/jpl/after-covid-19-delay-delta-x-field-campaign-begins-in-louisiana/",
+   "https://svs.gsfc.nasa.gov/13836",
+   "https://svs.gsfc.nasa.gov/15035",
+   "https://svs.gsfc.nasa.gov/11761"
+  ],
+  "source": "NASA/JPL articles + SVS footage (vidIQ 0 credits until 2026-11-29)",
+  "status": "candidate",
+  "title": "Louisiana Lost Land the Size of Rhode Island. One Corner Is Growing."
+ },
+ "updated_at": "2026-11-26T02:45:20Z",
+ "versions": []
+}
