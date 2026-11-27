@@ -40,7 +40,7 @@ QUEUE = os.path.join(DATA_ROOT, "publish", "queue.json")
 UP = "https://www.googleapis.com/upload/youtube/v3"
 CHUNK = 8 * 1024 * 1024                              # multiple of 256 KiB, as the resumable protocol requires
 UA = "YouTube-Agent-yt-publish/1.0"
-SECRETS = ("YT_CLIENT_SECRET", "YT_REFRESH_TOKEN", "GH_SECRETS_TOKEN", "GITHUB_TOKEN")
+SECRETS = ("YT_CLIENT_SECRET", "YT_REFRESH_TOKEN", "ANIMAVERSE_YT_REFRESH_TOKEN", "GH_SECRETS_TOKEN", "GITHUB_TOKEN")
 
 
 class PublishError(Exception):
@@ -125,13 +125,14 @@ def store_secret(name, value):
         raise PublishError(f"storing secret failed ({s})")
 
 
-def cmd_auth(_):
+def device_flow(who="the OrbitalAtlas channel"):
+    """Google device-flow login (google.com/device). Returns the token response; stores nothing."""
     cid, csec = need("YT_CLIENT_ID"), need("YT_CLIENT_SECRET")
     s, _, d = jhttp("POST", DEVICE_URL, form={"client_id": cid, "scope": SCOPE})
     if s != 200:
         raise PublishError(f"device code request failed: {d.get('error')} {d.get('error_description', '')}")
     print(f"\n>>> Open {d['verification_url']} and enter the code: {d['user_code']}\n"
-          f">>> Choose the Google account that owns the OrbitalAtlas channel (and the channel itself if asked).\n", flush=True)
+          f">>> Choose the Google account that owns {who} (and the channel itself if asked).\n", flush=True)
     deadline, interval = time.time() + d["expires_in"], d.get("interval", 5)
     while time.time() < deadline:
         time.sleep(interval)
@@ -148,6 +149,11 @@ def cmd_auth(_):
         raise PublishError("code expired before it was entered - run auth again")
     if not t.get("refresh_token"):
         raise PublishError("Google returned no refresh token - remove the app at myaccount.google.com/permissions and retry")
+    return t
+
+
+def cmd_auth(_):
+    t = device_flow()
     store_secret("YT_REFRESH_TOKEN", t["refresh_token"])
     return {"status": "ok", "stored_secret": "YT_REFRESH_TOKEN", "scope": t.get("scope")}
 
