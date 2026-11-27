@@ -38,9 +38,9 @@ def verified_channel(access_token):
     j = P.api("GET", "channels", {"part": "snippet,statistics", "mine": "true"}, token=access_token)
     items = j.get("items", [])
     ids = [c["id"] for c in items]
-    if EXPECTED_CHANNEL_ID not in ids:
+    if ids != [EXPECTED_CHANNEL_ID] or j.get("nextPageToken"):
         raise P.PublishError(f"channel mismatch: signed-in account has {ids or 'no channel'}, expected {EXPECTED_CHANNEL_ID}. Nothing was written.")
-    c = next(c for c in items if c["id"] == EXPECTED_CHANNEL_ID)
+    c = items[0]
     return {"id": c["id"], "title": c["snippet"]["title"], "customUrl": c["snippet"].get("customUrl"),
             "videos": c["statistics"].get("videoCount"), "subscribers": c["statistics"].get("subscriberCount")}
 
