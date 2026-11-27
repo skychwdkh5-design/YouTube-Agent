@@ -273,7 +273,9 @@ def cmd_plan(a):
     token, ch, inv = connect(a.offline)
     now = datetime.now(timezone.utc)
     rows = build_plan(doc, a.media_dir, a.journal, inv, now, a.ids and set(a.ids.split(",")))
-    return {"dry_run": True, "channel": ch, "now_ict": local(now), "channel_videos": len(inv),
+    seen = {r["video_id"] for r in jread(a.journal) if r.get("video_id")}
+    known = [full_status(v, token) for v in sorted(seen)] if token else []
+    return {"dry_run": True, "channel": ch, "now_ict": local(now), "channel_videos": len(inv), "journal_videos": known,
             "items": [{k: v for k, v in r.items() if k != "path"} for r in rows]}
 
 
@@ -352,7 +354,8 @@ def cmd_schedule(a):
             if r["state"] == "adopt":
                 jadd(a.journal, {"event": "uploaded", "id": e["id"], "sha256": sha, "video_id": vid, "adopted": True})
             if vid:
-                set_schedule(vid, e, want, token)
+                resp = set_schedule(vid, e, want, token)
+                jadd(a.journal, {"event": "update_response", "id": e["id"], "sha256": sha, "video_id": vid, "status": resp.get("status")})
                 step = "set_publishAt_on_existing_video"
             else:
                 jadd(a.journal, {"event": "started", "id": e["id"], "sha256": sha, "file": e["media"]["asset"], "publish_at": want})
