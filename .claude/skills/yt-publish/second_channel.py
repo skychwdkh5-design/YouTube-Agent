@@ -12,7 +12,7 @@ import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import publish as P  # noqa: E402
 
-EXPECTED_CHANNEL_ID = "UCEhbF1PlO8agkIyc10-SBEg"
+EXPECTED_CHANNEL_ID = "UCOakEPBhSGwx-2RV0dKGdNA"
 SECRET_NAME = "ANIMAVERSE_YT_REFRESH_TOKEN"
 PROTECTED = ("YT_REFRESH_TOKEN",)          # the Orbital Atlas token: this module must never write it
 

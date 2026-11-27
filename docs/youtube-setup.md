@@ -28,7 +28,7 @@ Nothing secret goes into chat. Each value is copied from Google straight into Gi
 12. Actions -> **YouTube channel check** -> Run: lists all videos on the channel, including EP002-EP004 if they are there.
 13. Actions -> **YouTube publish** -> dry run first (default). A real run is separate and needs your explicit go-ahead.
 
-## Second channel «Такое бывает» (ID UCEhbF1PlO8agkIyc10-SBEg)
+## Second channel «Такое бывает» (ID UCOakEPBhSGwx-2RV0dKGdNA)
 
 Use a **TVs and Limited Input devices** client from the same Google Cloud project. Save the paired credentials as `ANIMAVERSE_YT_CLIENT_ID` and `ANIMAVERSE_YT_CLIENT_SECRET` in YouTube-Agent Actions secrets. Both workflows use that pair with `ANIMAVERSE_YT_REFRESH_TOKEN`.
 1. Actions -> **YouTube auth — Такое бывает** -> Run workflow; enter the code from the log at google.com/device, pick the «Такое бывает» channel.
