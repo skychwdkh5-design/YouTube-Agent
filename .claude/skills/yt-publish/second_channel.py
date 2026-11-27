@@ -9,6 +9,7 @@ YT_REFRESH_TOKEN is never read or written here: the only secret this module may 
 and it is written only after channels.list(mine=true) returns exactly EXPECTED_CHANNEL_ID. Secret values are never printed.
 """
 import os, sys
+import re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import publish as P  # noqa: E402
 
@@ -57,9 +58,31 @@ def cmd_check(_):
     return {"status": "ok", "secret": SECRET_NAME, "channel": ch}
 
 
+def queue_media(queue_path, entry_id):
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]*", entry_id) or entry_id == "all":
+        raise P.PublishError("select exactly one queue entry")
+    queue = P.load_queue_doc(queue_path)
+    if queue.get("expected_channel_id") != EXPECTED_CHANNEL_ID:
+        raise P.PublishError("queue does not target Такое бывает")
+    selected = [item for item in queue["items"] if item.get("id") == entry_id]
+    if len(selected) != 1 or selected[0].get("private_test_allowed") is not True:
+        raise P.PublishError("entry must occur once and be cleared for a private test")
+    media = selected[0]["media"]["asset"]
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]*\.mp4", media):
+        raise P.PublishError("use a plain MP4 release asset name")
+    return media
+
+
 def main(argv=None):
     import json
     cmd = (argv if argv is not None else sys.argv[1:]) or [""]
+    if cmd[0] == "queue-media" and len(cmd) == 3:
+        try:
+            print(queue_media(cmd[1], cmd[2]))
+        except (OSError, ValueError, KeyError, TypeError, P.PublishError) as exc:
+            print(P.redact(exc), file=sys.stderr)
+            return 1
+        return 0
     fn = {"auth": cmd_auth, "check": cmd_check}.get(cmd[0])
     if not fn:
         print("usage: second_channel.py auth|check", file=sys.stderr)
