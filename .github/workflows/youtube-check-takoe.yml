@@ -1,5 +1,5 @@
 name: YouTube channel check — Такое бывает
-# Read-only. Reads ANIMAVERSE_YT_REFRESH_TOKEN and verifies channel ID UCEhbF1PlO8agkIyc10-SBEg. No uploads.
+# Read-only. Reads ANIMAVERSE_YT_REFRESH_TOKEN and verifies channel ID UCOakEPBhSGwx-2RV0dKGdNA. No uploads.
 on: workflow_dispatch
 permissions:
   contents: read
