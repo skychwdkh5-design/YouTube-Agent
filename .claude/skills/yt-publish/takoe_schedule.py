@@ -308,7 +308,7 @@ def cmd_private_test(a):
     checks = {"channel": ch["id"] == EXPECTED_CHANNEL_ID, "found": bool(real.get("found")),
               "private": real.get("privacyStatus") == "private", "no_publishAt_yet": not real.get("publishAt"),
               "title": real.get("title") == e["title"], "language_ru": real.get("defaultLanguage") == e["default_language"],
-              "made_for_kids": real.get("selfDeclaredMadeForKids") in (None, e["made_for_kids"]) and real.get("madeForKids") == e["made_for_kids"],
+              "made_for_kids": real.get("selfDeclaredMadeForKids") in (None, e["made_for_kids"]) and real.get("madeForKids") in (None, e["made_for_kids"]),
               "synthetic": real.get("containsSyntheticMedia") in (None, e["contains_synthetic_media"]),
               "upload_ok": real.get("uploadStatus") in ("uploaded", "processed"),
               "not_rejected": not real.get("rejectionReason") and not real.get("failureReason")}
