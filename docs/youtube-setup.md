@@ -30,7 +30,7 @@ Nothing secret goes into chat. Each value is copied from Google straight into Gi
 
 ## Second channel «Такое бывает» (ID UCEhbF1PlO8agkIyc10-SBEg)
 
-Same OAuth client and google.com/device. Separate secret `ANIMAVERSE_YT_REFRESH_TOKEN`; `YT_REFRESH_TOKEN` (Orbital Atlas) is never touched.
+Use a **TVs and Limited Input devices** client from the same Google Cloud project. Save the paired credentials as `ANIMAVERSE_YT_CLIENT_ID` and `ANIMAVERSE_YT_CLIENT_SECRET` in YouTube-Agent Actions secrets. Both workflows use that pair with `ANIMAVERSE_YT_REFRESH_TOKEN`.
 1. Actions -> **YouTube auth — Такое бывает** -> Run workflow; enter the code from the log at google.com/device, pick the «Такое бывает» channel.
    The job checks `channels.list(mine=true)` and writes the secret only if the ID matches; on a mismatch it stops with nothing written.
 2. Actions -> **YouTube channel check — Такое бывает** (read-only) to confirm. No uploads exist for this channel yet.
