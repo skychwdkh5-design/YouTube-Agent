@@ -33,4 +33,30 @@ Nothing secret goes into chat. Each value is copied from Google straight into Gi
 Use a **TVs and Limited Input devices** client from the same Google Cloud project. Save the paired credentials as `ANIMAVERSE_YT_CLIENT_ID` and `ANIMAVERSE_YT_CLIENT_SECRET` in YouTube-Agent Actions secrets. Both workflows use that pair with `ANIMAVERSE_YT_REFRESH_TOKEN`.
 1. Actions -> **YouTube auth — Такое бывает** -> Run workflow; enter the code from the log at google.com/device, pick the «Такое бывает» channel.
    The job checks `channels.list(mine=true)` and writes the secret only if the ID matches; on a mismatch it stops with nothing written.
-2. Actions -> **YouTube channel check — Такое бывает** (read-only) to confirm. No uploads exist for this channel yet.
+2. Actions -> **YouTube channel check — Такое бывает** (read-only) to confirm.
+
+### Private queue test
+
+Add a fine-grained GitHub token restricted to `skychwdkh5-design/ANIMAVERSE` with **Contents: Read-only** as `ANIMAVERSE_RELEASE_READ_TOKEN` in YouTube-Agent Actions secrets. Create a release in ANIMAVERSE, then attach the intended MP4 and `youtube-queue.json`. The release needs to be readable by that token.
+
+```json
+{
+  "expected_channel_id": "UCOakEPBhSGwx-2RV0dKGdNA",
+  "items": [{
+    "id": "e01-private-test",
+    "mode": "private_test",
+    "private_test_allowed": true,
+    "kind": "short",
+    "media": {"asset": "E01.mp4", "sha256": "replace-with-final-mp4-sha256"},
+    "title": "Episode title",
+    "title_status": "final",
+    "description": "Episode description",
+    "default_language": "ru",
+    "made_for_kids": false,
+    "contains_synthetic_media": false,
+    "publish_at": null
+  }]
+}
+```
+
+Set the audience and synthetic media flags for the actual episode. Run **YouTube private queue test — Такое бывает** with the release tag and entry ID. The default is a dry run. Enable **upload_private** for the one private upload. Verify the returned YouTube Studio link and private status. The job checks YouTube inventory for duplicate titles. If a real run fails after upload begins, inspect YouTube Studio before retrying.
