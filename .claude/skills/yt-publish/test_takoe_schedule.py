@@ -109,6 +109,24 @@ class Behaviour(unittest.TestCase):
         self.assertEqual(out["items"][0]["action"], "skip")
 
 
+class Fixed(unittest.TestCase):
+    def test_owner_time_moves_existing_scheduled_video(self):
+        tmp = tempfile.mkdtemp(); q, e = queue(tmp); j = os.path.join(tmp, "j.jsonl")
+        doc = json.load(open(q)); doc["items"][0]["publish_at"] = "2026-11-29T12:00:00+07:00"; json.dump(doc, open(q, "w"))
+        T.jadd(j, {"event": "uploaded", "id": "A1", "sha256": e["media"]["sha256"], "video_id": "V1"})
+        T.jadd(j, {"event": "scheduled", "id": "A1", "sha256": e["media"]["sha256"], "video_id": "V1", "publish_at": "2026-11-28T03:00:00Z", "confirmed": True})
+        inv = [{"video_id": "V1", "title": "T1", "privacy": "private", "publishAt": "2026-11-28T03:00:00Z", "seconds": 1}]
+        now = datetime(2026, 11, 27, 18, 0, tzinfo=UTC)
+        with mock.patch.object(P, "validate", return_value=[]):
+            rows = T.build_plan(T.load(q), tmp, j, inv, now)
+        self.assertEqual(rows[0]["action"], "set_schedule")
+        self.assertEqual(rows[0]["publish_at"], "2026-11-29T05:00:00Z")
+        T.jadd(j, {"event": "scheduled", "id": "A1", "sha256": e["media"]["sha256"], "video_id": "V1", "publish_at": "2026-11-29T05:00:00Z", "confirmed": True})
+        with mock.patch.object(P, "validate", return_value=[]):
+            rows = T.build_plan(T.load(q), tmp, j, inv, now)
+        self.assertEqual(rows[0]["action"], "keep")
+
+
 def T_args(q, d, j):
     import argparse
     return argparse.Namespace(queue=q, media_dir=d, journal=j, confirm=True, ids=None, offline=False)

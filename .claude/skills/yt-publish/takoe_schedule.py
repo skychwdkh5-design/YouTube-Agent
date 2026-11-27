@@ -242,8 +242,23 @@ def build_plan(doc, media_dir, journal, inv, now, ids=None):
         st, why = state_of(e, journal, inv) if not pr else ({"state": "none", "video_id": None}, None)
         row = {"id": e["id"], "series": e.get("series"), "episode": e.get("episode"), "version": e.get("version"),
                "sha256": e["media"]["sha256"], "state": st["state"], "video_id": st.get("video_id")}
+        fixed = e.get("publish_at")
+        if fixed:
+            fixed = fmt(P.parse_time(fixed))
+        live = st.get("inv") or {}
         if pr or why:
             row.update(action="skip", reason="; ".join(pr) if pr else why)
+        elif live.get("privacy") == "public":
+            row.update(action="keep", publish_at=st.get("publish_at"), reason="already public")
+        elif fixed and st["state"] == "scheduled" and same_time(st["publish_at"], fixed):
+            row.update(action="keep", publish_at=fixed)
+        elif fixed:
+            # owner-set time: moved on the existing videoId, or uploaded once with it
+            if P.parse_time(fixed) < now + timedelta(minutes=int(doc.get("min_lead_minutes", 30))):
+                row.update(action="skip", reason=f"fixed time {fixed} is less than the lead time ahead")
+            else:
+                row.update(action="set_schedule" if st.get("video_id") else "upload_scheduled", path=ok["path"],
+                           warnings=ok["warnings"], publish_at=fixed, fixed=True)
         elif st["state"] == "scheduled":
             row.update(action="keep", publish_at=st["publish_at"])
             ours.append(P.parse_time(st["publish_at"]))
@@ -252,7 +267,10 @@ def build_plan(doc, media_dir, journal, inv, now, ids=None):
             todo.append(row)
         rows.append(row)
     lead = int(doc.get("min_lead_minutes", 30))
-    slots = plan_slots(len(todo), now, future_taken(inv, now, {r["video_id"] for r in todo if r.get("video_id")}), after=max(ours) if ours else None, lead_min=lead)
+    fixed_rows = [r for r in rows if r.get("fixed")]
+    ours += [P.parse_time(r["publish_at"]) for r in fixed_rows]
+    moving = {r["video_id"] for r in todo + fixed_rows if r.get("video_id")}
+    slots = plan_slots(len(todo), now, future_taken(inv, now, moving), after=max(ours) if ours else None, lead_min=lead)
     for row, s in zip(todo, slots):
         row["publish_at"] = fmt(s)
     for row in rows:
