@@ -1,0 +1,117 @@
+import json, os, sys, tempfile, unittest
+from datetime import datetime, timezone
+from unittest import mock
+sys.path.insert(0, os.path.dirname(__file__))
+import publish as P
+import takoe_schedule as T
+
+UTC = timezone.utc
+
+
+def ict(s):
+    return T.local(s)
+
+
+class Slots(unittest.TestCase):
+    def test_first_slot_at_least_30_min_on_even_ict_hour(self):
+        now = datetime(2026, 11, 27, 10, 45, tzinfo=UTC)          # 17:45 ICT -> 18:00 is only 15 min away
+        self.assertEqual([ict(x) for x in T.plan_slots(3, now, [])], ["2026-11-27 20:00", "2026-11-27 22:00", "2026-11-28 00:00"])
+        now = datetime(2026, 11, 27, 10, 30, tzinfo=UTC)          # exactly 30 min before 18:00 ICT
+        self.assertEqual(ict(T.plan_slots(1, now, [])[0]), "2026-11-27 18:00")
+
+    def test_block_continues_after_existing_when_gap_too_small(self):
+        now = datetime(2026, 11, 27, 10, 45, tzinfo=UTC)
+        taken = [datetime(2026, 11, 27, 15, 0, tzinfo=UTC)]       # 22:00 ICT already scheduled
+        self.assertEqual([ict(x) for x in T.plan_slots(2, now, taken)], ["2026-11-28 00:00", "2026-11-28 02:00"])
+        self.assertEqual([ict(x) for x in T.plan_slots(1, now, taken)], ["2026-11-27 20:00"])
+
+    def test_after_keeps_series_order(self):
+        now = datetime(2026, 11, 27, 10, 45, tzinfo=UTC)
+        after = datetime(2026, 11, 27, 19, 0, tzinfo=UTC)          # 02:00 ICT, our last scheduled episode
+        self.assertEqual(ict(T.plan_slots(1, now, [after], after=after)[0]), "2026-11-28 04:00")
+
+
+def queue(tmp):
+    path = os.path.join(tmp, "a.mp4")
+    open(path, "wb").write(b"x")
+    e = {"id": "A1", "series": "S", "episode": 1, "version": "v1", "kind": "short",
+         "media": {"asset": "a.mp4", "sha256": P.sha256(path)}, "title": "T1", "description": "d",
+         "made_for_kids": False, "contains_synthetic_media": True, "default_language": "ru", "private_test_allowed": True}
+    q = os.path.join(tmp, "q.json")
+    json.dump({"expected_channel_id": T.EXPECTED_CHANNEL_ID, "min_lead_minutes": 30, "items": [e]}, open(q, "w"))
+    return q, e
+
+
+class Behaviour(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp()
+        self.q, self.e = queue(self.tmp)
+        self.j = os.path.join(self.tmp, "journal.jsonl")
+        self.args = ["--queue", self.q, "--media-dir", self.tmp, "--journal", self.j]
+
+    def test_channel_mismatch_sends_nothing(self):
+        other = {"items": [{"id": "UC_other", "snippet": {"title": "Orbital Atlas"}}]}
+        with mock.patch.object(P, "access_token", return_value="t"), mock.patch.object(P, "api", return_value=other) as api, \
+             mock.patch.object(P, "resumable_upload") as up:
+            rc = T.main(["schedule", *self.args, "--confirm"])
+        self.assertEqual(rc, 1)
+        up.assert_not_called()
+        self.assertEqual(api.call_count, 1)
+
+    def run_schedule(self, inv, real):
+        good = {"items": [{"id": T.EXPECTED_CHANNEL_ID, "snippet": {"title": "Такое бывает"}}]}
+        with mock.patch.object(P, "access_token", return_value="t"), mock.patch.object(P, "api", return_value=good), \
+             mock.patch.object(P, "inventory", return_value=inv), mock.patch.object(P, "validate", return_value=[]), \
+             mock.patch.object(P, "resumable_upload", return_value={"id": "VID1"}) as up, \
+             mock.patch.object(T, "set_schedule") as ss, mock.patch.object(T, "full_status", side_effect=real):
+            out = T.cmd_schedule(T_args(self.q, self.tmp, self.j))
+        return out, up, ss
+
+    def test_upload_then_confirm_then_no_duplicate(self):
+        def real(vid, tok):
+            row = [r for r in T.jread(self.j) if r.get("event") == "started"][-1]
+            return {"found": True, "privacyStatus": "private", "publishAt": row["publish_at"], "uploadStatus": "uploaded"}
+        out, up, ss = self.run_schedule([], real)
+        self.assertTrue(out["items"][0]["confirmed"])
+        up.assert_called_once()
+        inv = [{"video_id": "VID1", "title": "T1", "privacy": "private", "publishAt": out["items"][0]["publish_at"], "seconds": 1}]
+        out2, up2, ss2 = self.run_schedule(inv, lambda v, t: {"found": True, "privacyStatus": "private", "publishAt": out["items"][0]["publish_at"], "uploadStatus": "processed"})
+        up2.assert_not_called(); ss2.assert_not_called()
+        self.assertEqual(out2["items"][0]["action"], "keep")
+
+    def test_private_test_video_is_scheduled_not_reuploaded(self):
+        T.jadd(self.j, {"event": "uploaded", "id": "A1", "sha256": self.e["media"]["sha256"], "video_id": "VT", "private_test": True})
+        inv = [{"video_id": "VT", "title": "T1", "privacy": "private", "publishAt": None, "seconds": 1}]
+        def real(vid, tok):
+            pa = ss.call_args[0][2]
+            return {"found": True, "privacyStatus": "private", "publishAt": pa, "uploadStatus": "processed"}
+        ss = mock.MagicMock()
+        good = {"items": [{"id": T.EXPECTED_CHANNEL_ID, "snippet": {"title": "Такое бывает"}}]}
+        with mock.patch.object(P, "access_token", return_value="t"), mock.patch.object(P, "api", return_value=good), \
+             mock.patch.object(P, "inventory", return_value=inv), mock.patch.object(P, "validate", return_value=[]), \
+             mock.patch.object(P, "resumable_upload") as up, mock.patch.object(T, "set_schedule", ss), \
+             mock.patch.object(T, "full_status", side_effect=real):
+            out = T.cmd_schedule(T_args(self.q, self.tmp, self.j))
+        up.assert_not_called()
+        self.assertEqual(out["items"][0]["action"], "set_publishAt_on_existing_video")
+        self.assertTrue(out["items"][0]["confirmed"])
+
+    def test_unconfirmed_schedule_stops_batch(self):
+        out, up, ss = self.run_schedule([], lambda v, t: {"found": True, "privacyStatus": "private", "publishAt": None, "uploadStatus": "uploaded"})
+        self.assertFalse(out["items"][0]["confirmed"])
+        self.assertTrue(out["stopped"])
+
+    def test_untracked_private_video_with_same_title_is_skipped(self):
+        inv = [{"video_id": "VX", "title": "T1", "privacy": "private", "publishAt": None, "seconds": 1}]
+        out, up, ss = self.run_schedule(inv, lambda v, t: {})
+        up.assert_not_called()
+        self.assertEqual(out["items"][0]["action"], "skip")
+
+
+def T_args(q, d, j):
+    import argparse
+    return argparse.Namespace(queue=q, media_dir=d, journal=j, confirm=True, ids=None, offline=False)
+
+
+if __name__ == "__main__":
+    unittest.main()

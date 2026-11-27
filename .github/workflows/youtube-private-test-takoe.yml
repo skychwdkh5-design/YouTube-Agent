@@ -43,6 +43,7 @@ jobs:
           YT_CLIENT_ID: ${{ secrets.ANIMAVERSE_YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.ANIMAVERSE_YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.ANIMAVERSE_YT_REFRESH_TOKEN }}
+          ANIMAVERSE_YT_REFRESH_TOKEN: ${{ secrets.ANIMAVERSE_YT_REFRESH_TOKEN }}
           ENTRY_ID: ${{ inputs.entry_id }}
           UPLOAD_PRIVATE: ${{ inputs.upload_private }}
         run: |
