@@ -6,6 +6,7 @@ import publish as P
 import takoe_schedule as T
 
 UTC = timezone.utc
+T.READBACK_WAIT = 0
 
 
 def ict(s):

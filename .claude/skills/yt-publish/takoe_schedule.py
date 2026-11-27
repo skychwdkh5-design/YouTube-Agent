@@ -21,7 +21,7 @@ Built on publish.py (same OAuth refresh, resumable upload, status read-back). Ru
   (missing media, SHA mismatch, ambiguous match) only skips that episode.
 Secrets are never printed (publish.redact).
 """
-import argparse, json, os, sys
+import argparse, json, os, sys, time
 from datetime import datetime, timedelta, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -30,6 +30,7 @@ import publish as P  # noqa: E402
 EXPECTED_CHANNEL_ID = "UCOakEPBhSGwx-2RV0dKGdNA"
 ICT = timezone(timedelta(hours=7))           # Asia/Ho_Chi_Minh, no DST
 SLOT = timedelta(hours=2)
+READBACK_TRIES, READBACK_WAIT = 9, 10
 FIELDS = ("id", "media", "title", "description", "made_for_kids", "contains_synthetic_media", "default_language")
 
 
@@ -221,9 +222,11 @@ def state_of(e, journal, inv):
     return st, None
 
 
-def future_taken(inv, now):
+def future_taken(inv, now, exclude=()):
     out = []
     for v in inv:
+        if v["video_id"] in exclude:
+            continue
         if v.get("publishAt") and v["privacy"] == "private":
             t = P.parse_time(v["publishAt"])
             if t > now:
@@ -249,7 +252,7 @@ def build_plan(doc, media_dir, journal, inv, now, ids=None):
             todo.append(row)
         rows.append(row)
     lead = int(doc.get("min_lead_minutes", 30))
-    slots = plan_slots(len(todo), now, future_taken(inv, now), after=max(ours) if ours else None, lead_min=lead)
+    slots = plan_slots(len(todo), now, future_taken(inv, now, {r["video_id"] for r in todo if r.get("video_id")}), after=max(ours) if ours else None, lead_min=lead)
     for row, s in zip(todo, slots):
         row["publish_at"] = fmt(s)
     for row in rows:
@@ -366,6 +369,12 @@ def cmd_schedule(a):
                 step = "uploaded_private_with_publishAt"
             real = full_status(vid, token)
             ok = scheduled_ok(real, want)
+            for _ in range(READBACK_TRIES):          # the API read-back lags a write by up to ~a minute
+                if ok:
+                    break
+                time.sleep(READBACK_WAIT)
+                real = full_status(vid, token)
+                ok = scheduled_ok(real, want)
             jadd(a.journal, {"event": "scheduled", "id": e["id"], "sha256": sha, "video_id": vid, "publish_at": want, "confirmed": ok,
                              "privacyStatus": real.get("privacyStatus"), "reported_publishAt": real.get("publishAt"),
                              "uploadStatus": real.get("uploadStatus"), "processingStatus": real.get("processingStatus")})
