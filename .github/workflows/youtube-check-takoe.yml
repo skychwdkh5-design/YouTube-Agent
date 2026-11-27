@@ -1,0 +1,18 @@
+name: YouTube channel check — Такое бывает
+# Read-only. Reads ANIMAVERSE_YT_REFRESH_TOKEN and verifies channel ID UCEhbF1PlO8agkIyc10-SBEg. No uploads.
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tests
+        run: python3 -m unittest discover -s .claude/skills/yt-publish -p "test_second_channel.py"
+      - name: Read channel
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          ANIMAVERSE_YT_REFRESH_TOKEN: ${{ secrets.ANIMAVERSE_YT_REFRESH_TOKEN }}
+        run: python3 .claude/skills/yt-publish/second_channel.py check

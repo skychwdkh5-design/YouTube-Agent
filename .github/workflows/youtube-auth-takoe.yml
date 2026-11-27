@@ -1,0 +1,22 @@
+name: YouTube auth — Такое бывает
+# Manual. Reuses the existing OAuth client and google.com/device. Verifies the channel ID
+# (UCEhbF1PlO8agkIyc10-SBEg) via channels.list(mine=true) BEFORE writing ANIMAVERSE_YT_REFRESH_TOKEN.
+# On a mismatch it stops without writing. It never receives or writes YT_REFRESH_TOKEN (Orbital Atlas).
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  auth:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install pynacl
+      - name: Tests
+        run: python3 -m unittest discover -s .claude/skills/yt-publish -p "test_second_channel.py"
+      - name: Device-flow login (open the code shown in this log at google.com/device)
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          GH_SECRETS_TOKEN: ${{ secrets.GH_SECRETS_TOKEN }}
+        run: python3 .claude/skills/yt-publish/second_channel.py auth

@@ -27,3 +27,10 @@ Nothing secret goes into chat. Each value is copied from Google straight into Gi
 11. Actions -> **Stage media** -> Run (once; it copies 7 MP4s, 379 MB, from LFS into a draft release).
 12. Actions -> **YouTube channel check** -> Run: lists all videos on the channel, including EP002-EP004 if they are there.
 13. Actions -> **YouTube publish** -> dry run first (default). A real run is separate and needs your explicit go-ahead.
+
+## Second channel «Такое бывает» (ID UCEhbF1PlO8agkIyc10-SBEg)
+
+Same OAuth client and google.com/device. Separate secret `ANIMAVERSE_YT_REFRESH_TOKEN`; `YT_REFRESH_TOKEN` (Orbital Atlas) is never touched.
+1. Actions -> **YouTube auth — Такое бывает** -> Run workflow; enter the code from the log at google.com/device, pick the «Такое бывает» channel.
+   The job checks `channels.list(mine=true)` and writes the secret only if the ID matches; on a mismatch it stops with nothing written.
+2. Actions -> **YouTube channel check — Такое бывает** (read-only) to confirm. No uploads exist for this channel yet.
