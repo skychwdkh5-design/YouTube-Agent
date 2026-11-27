@@ -39,6 +39,14 @@ class Auth(unittest.TestCase):
         self.assertIsInstance(err, P.PublishError)
         self.assertIn("mismatch", str(err))
 
+    def test_ambiguous_channel_stops_without_any_write(self):
+        for response in ({"items": GOOD["items"] + OTHER["items"]},
+                         {**GOOD, "nextPageToken": "another-page"}):
+            with self.subTest(response=response):
+                st, err = self.run_auth(response)
+                st.assert_not_called()
+                self.assertIsInstance(err, P.PublishError)
+
     def test_no_channel_stops_without_any_write(self):
         st, err = self.run_auth({"items": []})
         st.assert_not_called()
