@@ -355,7 +355,7 @@ def cmd_schedule(a):
                 jadd(a.journal, {"event": "uploaded", "id": e["id"], "sha256": sha, "video_id": vid, "adopted": True})
             if vid:
                 resp = set_schedule(vid, e, want, token)
-                jadd(a.journal, {"event": "update_response", "id": e["id"], "sha256": sha, "video_id": vid, "status": resp.get("status")})
+                jadd(a.journal, {"event": "update_response", "id": e["id"], "sha256": sha, "video_id": vid, "status": resp.get("status") if isinstance(resp, dict) else None})
                 step = "set_publishAt_on_existing_video"
             else:
                 jadd(a.journal, {"event": "started", "id": e["id"], "sha256": sha, "file": e["media"]["asset"], "publish_at": want})
