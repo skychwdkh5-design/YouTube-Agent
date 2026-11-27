@@ -1,6 +1,6 @@
 name: YouTube auth — Такое бывает
 # Manual. Uses a TV and Limited Input OAuth client and google.com/device. Verifies the channel ID
-# (UCEhbF1PlO8agkIyc10-SBEg) via channels.list(mine=true) BEFORE writing ANIMAVERSE_YT_REFRESH_TOKEN.
+# (UCOakEPBhSGwx-2RV0dKGdNA) via channels.list(mine=true) BEFORE writing ANIMAVERSE_YT_REFRESH_TOKEN.
 # On a mismatch it stops without writing. It never receives or writes YT_REFRESH_TOKEN (Orbital Atlas).
 on: workflow_dispatch
 permissions:
