@@ -1,0 +1,60 @@
+name: YouTube private queue test — Такое бывает
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: ANIMAVERSE release tag containing youtube-queue.json and the approved MP4
+        required: true
+        type: string
+      entry_id:
+        description: ID of the episode in youtube-queue.json
+        required: true
+        type: string
+      upload_private:
+        description: Upload one private video after validating the queue
+        default: false
+        type: boolean
+permissions:
+  contents: read
+concurrency:
+  group: youtube-takoe-private-queue
+  cancel-in-progress: false
+jobs:
+  private-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and validate queue entry
+        env:
+          GH_TOKEN: ${{ secrets.ANIMAVERSE_RELEASE_READ_TOKEN }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+          ENTRY_ID: ${{ inputs.entry_id }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/takoe-media"
+          gh release download "$RELEASE_TAG" --repo skychwdkh5-design/ANIMAVERSE \
+            --pattern youtube-queue.json --dir "$RUNNER_TEMP/takoe-media" --
+          media=$(python3 .claude/skills/yt-publish/second_channel.py queue-media "$RUNNER_TEMP/takoe-media/youtube-queue.json" "$ENTRY_ID")
+          gh release download "$RELEASE_TAG" --repo skychwdkh5-design/ANIMAVERSE \
+            --pattern "$media" --dir "$RUNNER_TEMP/takoe-media" --
+      - name: Run private test queue
+        shell: bash
+        env:
+          YT_CLIENT_ID: ${{ secrets.ANIMAVERSE_YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.ANIMAVERSE_YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.ANIMAVERSE_YT_REFRESH_TOKEN }}
+          ENTRY_ID: ${{ inputs.entry_id }}
+          UPLOAD_PRIVATE: ${{ inputs.upload_private }}
+        run: |
+          python3 .claude/skills/yt-publish/second_channel.py check
+          args=()
+          if [[ "$UPLOAD_PRIVATE" == true ]]; then args+=(--confirm); fi
+          export YT_LEDGER="$RUNNER_TEMP/takoe-private-ledger.jsonl"
+          python3 .claude/skills/yt-publish/publish.py queue-run \
+            --queue "$RUNNER_TEMP/takoe-media/youtube-queue.json" \
+            --mode private_test --ids "$ENTRY_ID" --media-dir "$RUNNER_TEMP/takoe-media" "${args[@]}" | tee "$RUNNER_TEMP/takoe-result.json"
+          jq -e --arg upload "$UPLOAD_PRIVATE" '
+            (.items | length) == 1 and
+            (if $upload == "true" then .items[0].verified_private == true
+             else .items[0].status == "ready (dry run)" end)
+          ' "$RUNNER_TEMP/takoe-result.json"
