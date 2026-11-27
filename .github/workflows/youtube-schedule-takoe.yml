@@ -50,6 +50,9 @@ jobs:
           set -euo pipefail
           [[ "$MEDIA_REF" =~ ^[A-Za-z0-9._/-]+$ ]] || { echo "bad media_ref"; exit 1; }
           M="$RUNNER_TEMP/takoe-media"; mkdir -p "$M"
+          for u in repos/skychwdkh5-design/ANIMAVERSE repos/skychwdkh5-design/ANIMAVERSE/releases "repos/skychwdkh5-design/ANIMAVERSE/contents/README.md" "repos/skychwdkh5-design/ANIMAVERSE/branches/main"; do
+            echo "access check $u: $(gh api "$u" --silent 2>&1 && echo ok || true)"
+          done
           if gh release view "$MEDIA_REF" --repo skychwdkh5-design/ANIMAVERSE >/dev/null 2>&1; then
             gh release download "$MEDIA_REF" --repo skychwdkh5-design/ANIMAVERSE --dir "$M" --pattern '*.mp4' --pattern youtube-queue.json
           else
