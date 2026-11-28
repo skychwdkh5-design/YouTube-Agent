@@ -71,6 +71,23 @@ def jstate(path, eid, sha):
     return st
 
 
+def jprevious(path, eid, sha):
+    """videoIds of earlier file versions of this episode that are still live candidates for replacement."""
+    vids, done = {}, set()
+    for r in jread(path):
+        if r.get("id") != eid or r.get("sha256") == sha:
+            continue
+        if r.get("event") == "uploaded":
+            vids[r["video_id"]] = r["sha256"]
+        elif r.get("event") == "replaced" and r.get("confirmed"):
+            done.add(r["video_id"])
+    return {v: h for v, h in vids.items() if v not in done}
+
+
+def jall_videos(path, eid):
+    return {r["video_id"] for r in jread(path) if r.get("id") == eid and r.get("video_id")}
+
+
 # --- slots -----------------------------------------------------------------------------------------
 
 def fmt(t):
@@ -158,6 +175,24 @@ def spec_for(e, path, publish_at=None):
     return s
 
 
+def unschedule(old, e, r, token, journal):
+    """The replaced version stays on the channel as private without a publish time (never deleted)."""
+    body = {"id": old, "status": {"privacyStatus": "private", "selfDeclaredMadeForKids": e["made_for_kids"],
+                                  "containsSyntheticMedia": e["contains_synthetic_media"], "embeddable": True,
+                                  "license": "youtube", "publicStatsViewable": True}}
+    P.api("PUT", "videos", {"part": "status"}, body=body, token=token)
+    real = full_status(old, token)
+    for _ in range(READBACK_TRIES):
+        if real.get("privacyStatus") == "private" and not real.get("publishAt"):
+            break
+        time.sleep(READBACK_WAIT)
+        real = full_status(old, token)
+    ok = real.get("privacyStatus") == "private" and not real.get("publishAt")
+    jadd(journal, {"event": "replaced", "id": e["id"], "sha256": None, "video_id": old, "replaced_by": r.get("video_id") or "new",
+                   "confirmed": ok, "privacyStatus": real.get("privacyStatus"), "reported_publishAt": real.get("publishAt")})
+    return {"video_id": old, "unscheduled": ok, "privacyStatus": real.get("privacyStatus"), "publishAt": real.get("publishAt")}
+
+
 def set_schedule(vid, e, publish_at, token):
     body = {"id": vid, "status": {"privacyStatus": "private", "publishAt": publish_at, "selfDeclaredMadeForKids": e["made_for_kids"],
                                   "containsSyntheticMedia": e["contains_synthetic_media"], "embeddable": True,
@@ -204,7 +239,8 @@ def title_hits(e, inv):
 def state_of(e, journal, inv):
     """Journal state, cross-checked with the channel. Returns (state dict, problem or None)."""
     st = jstate(journal, e["id"], e["media"]["sha256"])
-    hits = title_hits(e, inv)
+    ours = jall_videos(journal, e["id"])            # earlier versions of this episode are replaced, not duplicates
+    hits = [h for h in title_hits(e, inv) if h["video_id"] not in ours]
     if st["video_id"]:
         v = next((x for x in inv if x["video_id"] == st["video_id"]), None)
         if not v:
@@ -246,6 +282,15 @@ def build_plan(doc, media_dir, journal, inv, now, ids=None):
         if fixed:
             fixed = fmt(P.parse_time(fixed))
         live = st.get("inv") or {}
+        prev = {v: h for v, h in jprevious(journal, e["id"], e["media"]["sha256"]).items()
+                if any(x["video_id"] == v for x in inv)}
+        if any(x["video_id"] in prev and x["privacy"] == "public" for x in inv):
+            pr = pr or [f"an earlier version is already public ({', '.join(prev)}) - not replaced"]
+        if prev and not pr:
+            row["replaces"] = sorted(prev)
+            if not fixed:
+                old = [x.get("publishAt") for x in inv if x["video_id"] in prev and x.get("publishAt")]
+                fixed = fmt(P.parse_time(old[0])) if old else None
         if pr or why:
             row.update(action="skip", reason="; ".join(pr) if pr else why)
         elif live.get("privacy") == "public":
@@ -269,7 +314,7 @@ def build_plan(doc, media_dir, journal, inv, now, ids=None):
     lead = int(doc.get("min_lead_minutes", 30))
     fixed_rows = [r for r in rows if r.get("fixed")]
     ours += [P.parse_time(r["publish_at"]) for r in fixed_rows]
-    moving = {r["video_id"] for r in todo + fixed_rows if r.get("video_id")}
+    moving = {r["video_id"] for r in todo + fixed_rows if r.get("video_id")} | {v for r in rows for v in r.get("replaces", [])}
     slots = plan_slots(len(todo), now, future_taken(inv, now, moving), after=max(ours) if ours else None, lead_min=lead)
     for row, s in zip(todo, slots):
         row["publish_at"] = fmt(s)
@@ -354,8 +399,11 @@ def cmd_schedule(a):
     if not a.confirm:
         return {"dry_run": True, "channel": ch, "items": [{k: v for k, v in r.items() if k != "path"} for r in rows]}
     by_id = {e["id"]: e for e in doc["items"]}
-    out, stopped, fails = [], None, 0
+    out, stopped, fails, upload_stop = [], None, 0, None
     for r in rows:
+        if r["action"] == "upload_scheduled" and upload_stop and not stopped:
+            out.append({**{k: v for k, v in r.items() if k != "path"}, "action": "not_run", "reason": f"uploads stopped: {upload_stop}"})
+            continue
         if r["action"] in ("skip", "keep") or stopped:
             res = {k: v for k, v in r.items() if k != "path"}
             if stopped and r["action"] not in ("skip", "keep"):
@@ -405,10 +453,15 @@ def cmd_schedule(a):
                     stopped = f"YouTube did not confirm the schedule for {e['id']} (read-back {real.get('privacyStatus')}/{real.get('publishAt')}/{real.get('uploadStatus')})"
             else:
                 fails = 0
+                for old in r.get("replaces", []):
+                    out[-1].setdefault("replaced", []).append(unschedule(old, e, {**r, "video_id": vid}, token, a.journal))
         except (P.PublishError, OSError, KeyError, ValueError) as ex:
             msg = P.redact(ex)[:400]
             jadd(a.journal, {"event": "error", "id": e["id"], "sha256": sha, "message": msg})
             out.append({"id": e["id"], "action": "error", "error": msg})
+            if "uploadLimitExceeded" in msg:
+                upload_stop = msg      # channel upload limit: moving existing videos still works
+                continue
             stopped = msg  # an API/upload error is shared by every remaining episode: stop the batch
     return {"dry_run": False, "channel": ch, "stopped": stopped, "items": out}
 
