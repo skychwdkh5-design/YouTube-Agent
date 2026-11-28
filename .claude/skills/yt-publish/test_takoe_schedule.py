@@ -152,6 +152,17 @@ class Replace(unittest.TestCase):
         self.assertFalse(any(c[0][0] == "DELETE" for c in api.call_args_list))
 
 
+class Refused(unittest.TestCase):
+    def test_refused_upload_session_is_not_a_pending_upload(self):
+        tmp = tempfile.mkdtemp(); j = os.path.join(tmp, "j.jsonl")
+        T.jadd(j, {"event": "started", "id": "A1", "sha256": "s"})
+        T.jadd(j, {"event": "error", "id": "A1", "sha256": "s", "message": "upload session refused (400): uploadLimitExceeded"})
+        self.assertEqual(T.jstate(j, "A1", "s")["state"], "none")
+        T.jadd(j, {"event": "started", "id": "A1", "sha256": "s"})
+        T.jadd(j, {"event": "error", "id": "A1", "sha256": "s", "message": "upload kept failing"})
+        self.assertEqual(T.jstate(j, "A1", "s")["state"], "started")
+
+
 def T_args(q, d, j):
     import argparse
     return argparse.Namespace(queue=q, media_dir=d, journal=j, confirm=True, ids=None, offline=False)

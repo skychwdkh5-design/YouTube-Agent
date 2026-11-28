@@ -66,6 +66,8 @@ def jstate(path, eid, sha):
             st.update(state="uploaded", video_id=r["video_id"], private_test=bool(r.get("private_test")))
         elif ev == "abandoned":
             st.update(state="none", video_id=None)
+        elif ev == "error" and st["state"] == "started" and str(r.get("message", "")).startswith("upload session refused"):
+            st.update(state="none")            # YouTube refused before any byte was sent: nothing exists on the channel
         elif ev == "scheduled" and r.get("confirmed"):
             st.update(state="scheduled", video_id=r["video_id"], publish_at=r["publish_at"])
     return st
