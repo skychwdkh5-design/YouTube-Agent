@@ -109,6 +109,60 @@ class Behaviour(unittest.TestCase):
         self.assertEqual(out["items"][0]["action"], "skip")
 
 
+class Fixed(unittest.TestCase):
+    def test_owner_time_moves_existing_scheduled_video(self):
+        tmp = tempfile.mkdtemp(); q, e = queue(tmp); j = os.path.join(tmp, "j.jsonl")
+        doc = json.load(open(q)); doc["items"][0]["publish_at"] = "2026-11-29T12:00:00+07:00"; json.dump(doc, open(q, "w"))
+        T.jadd(j, {"event": "uploaded", "id": "A1", "sha256": e["media"]["sha256"], "video_id": "V1"})
+        T.jadd(j, {"event": "scheduled", "id": "A1", "sha256": e["media"]["sha256"], "video_id": "V1", "publish_at": "2026-11-28T03:00:00Z", "confirmed": True})
+        inv = [{"video_id": "V1", "title": "T1", "privacy": "private", "publishAt": "2026-11-28T03:00:00Z", "seconds": 1}]
+        now = datetime(2026, 11, 27, 18, 0, tzinfo=UTC)
+        with mock.patch.object(P, "validate", return_value=[]):
+            rows = T.build_plan(T.load(q), tmp, j, inv, now)
+        self.assertEqual(rows[0]["action"], "set_schedule")
+        self.assertEqual(rows[0]["publish_at"], "2026-11-29T05:00:00Z")
+        T.jadd(j, {"event": "scheduled", "id": "A1", "sha256": e["media"]["sha256"], "video_id": "V1", "publish_at": "2026-11-29T05:00:00Z", "confirmed": True})
+        with mock.patch.object(P, "validate", return_value=[]):
+            rows = T.build_plan(T.load(q), tmp, j, inv, now)
+        self.assertEqual(rows[0]["action"], "keep")
+
+
+class Replace(unittest.TestCase):
+    def test_new_file_version_uploads_with_old_time_and_unschedules_old(self):
+        tmp = tempfile.mkdtemp(); q, e = queue(tmp); j = os.path.join(tmp, "j.jsonl")
+        T.jadd(j, {"event": "uploaded", "id": "A1", "sha256": "oldsha", "video_id": "OLD"})
+        T.jadd(j, {"event": "scheduled", "id": "A1", "sha256": "oldsha", "video_id": "OLD", "publish_at": "2099-01-01T05:00:00Z", "confirmed": True})
+        inv = [{"video_id": "OLD", "title": "T1", "privacy": "private", "publishAt": "2099-01-01T05:00:00Z", "seconds": 1}]
+        status = {"OLD": {"found": True, "privacyStatus": "private", "publishAt": None, "uploadStatus": "processed"},
+                  "NEW": {"found": True, "privacyStatus": "private", "publishAt": "2099-01-01T05:00:00Z", "uploadStatus": "uploaded"}}
+        good = {"items": [{"id": T.EXPECTED_CHANNEL_ID, "snippet": {"title": "Такое бывает"}}]}
+        with mock.patch.object(P, "access_token", return_value="t"), mock.patch.object(P, "api", return_value=good) as api, \
+             mock.patch.object(P, "inventory", return_value=inv), mock.patch.object(P, "validate", return_value=[]), \
+             mock.patch.object(P, "resumable_upload", return_value={"id": "NEW"}) as up, \
+             mock.patch.object(T, "full_status", side_effect=lambda v, t: status[v]):
+            out = T.cmd_schedule(T_args(q, tmp, j))
+        up.assert_called_once()
+        self.assertEqual(up.call_args[0][1]["status"]["publishAt"], "2099-01-01T05:00:00Z")
+        item = out["items"][0]
+        self.assertTrue(item["confirmed"])
+        self.assertEqual(item["replaced"][0], {"video_id": "OLD", "unscheduled": True, "privacyStatus": "private", "publishAt": None})
+        puts = [c for c in api.call_args_list if c[0][0] == "PUT"]
+        self.assertEqual(puts[0][1]["body"]["id"], "OLD")
+        self.assertNotIn("publishAt", puts[0][1]["body"]["status"])
+        self.assertFalse(any(c[0][0] == "DELETE" for c in api.call_args_list))
+
+
+class Refused(unittest.TestCase):
+    def test_refused_upload_session_is_not_a_pending_upload(self):
+        tmp = tempfile.mkdtemp(); j = os.path.join(tmp, "j.jsonl")
+        T.jadd(j, {"event": "started", "id": "A1", "sha256": "s"})
+        T.jadd(j, {"event": "error", "id": "A1", "sha256": "s", "message": "upload session refused (400): uploadLimitExceeded"})
+        self.assertEqual(T.jstate(j, "A1", "s")["state"], "none")
+        T.jadd(j, {"event": "started", "id": "A1", "sha256": "s"})
+        T.jadd(j, {"event": "error", "id": "A1", "sha256": "s", "message": "upload kept failing"})
+        self.assertEqual(T.jstate(j, "A1", "s")["state"], "started")
+
+
 def T_args(q, d, j):
     import argparse
     return argparse.Namespace(queue=q, media_dir=d, journal=j, confirm=True, ids=None, offline=False)
